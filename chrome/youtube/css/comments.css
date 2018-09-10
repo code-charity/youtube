@@ -1,0 +1,101 @@
+/*--------------------------------------------------------------
+>>> COMMENTS.CSS
+----------------------------------------------------------------
+1.0 New YouTube
+  1.1 Hidden
+  1.2 Collapsed
+2.0 Old YouTube
+  2.1 Hidden
+  2.2 Collapsed
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 New YouTube
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.1 Hidden
+--------------------------------------------------------------*/
+
+[youtube-version=new][comments=hidden] #comments
+{
+    display: none!important;
+}
+
+[youtube-version=new][comments=hidden] #comments #spinner
+{
+    display: none!important;
+}
+
+
+/*--------------------------------------------------------------
+1.2 Collapsed
+--------------------------------------------------------------*/
+
+[youtube-version=new][comments=collapsed][comments-collapsed=true] #comments #contents
+{
+    display: none!important;
+}
+
+[youtube-version=new][comments=collapsed] #improvedtube-comments-collapsed
+{
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    margin: 8px 0 16px;
+    padding: 16px 0;
+
+    cursor: pointer;
+    letter-spacing: .007px;
+    text-transform: uppercase;
+
+    color: var(--yt-expand-color);
+    border-bottom: 1px solid var(--yt-border-color);
+}
+
+[youtube-version=new][comments=collapsed] #comments #spinner
+{
+    display: none!important;
+}
+
+
+/*--------------------------------------------------------------
+2.0 Old YouTube
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+2.1 Hidden
+
+--------------------------------------------------------------*/
+
+[youtube-version=old][comments=hidden] #watch-discussion
+{
+    display: none!important;
+}
+
+
+/*--------------------------------------------------------------
+2.2 Collapsed
+--------------------------------------------------------------*/
+
+[youtube-version=old][comments=collapsed][comments-collapsed=true] .comment-section-renderer-items,
+[youtube-version=old][comments=collapsed][comments-collapsed=true] #comment-section-renderer .load-more-button
+{
+    display: none!important;
+}
+
+[youtube-version=old][comments=collapsed] #improvedtube-comments-collapsed
+{
+    font-size: .8rem;
+    font-weight: 500;
+
+    margin: 0 0 1rem 0;
+    padding: .6rem 0;
+
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: .007px;
+    text-transform: uppercase;
+
+    color: var(--yt-expand-color);
+    border-bottom: 1px solid var(--yt-border-color);
+}

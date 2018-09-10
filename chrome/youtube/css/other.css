@@ -1,0 +1,129 @@
+html:not([scroll-to-top]) .scroll-to-top
+{
+    display: none;
+}
+
+.scroll-to-top
+{
+    position: fixed;
+    z-index: 99999;
+    right: 4vw;
+    bottom: 4vw;
+
+    width: 64px;
+    height: 64px;
+
+    cursor: pointer;
+
+    opacity: .75;
+    border-radius: 100%;
+    background-color: #f00;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .3), 0 0 4px rgba(0, 0, 0, .2);
+}
+
+.scroll-to-top svg
+{
+    display: block;
+
+    width: 50px;
+    height: 100%;
+    margin: auto;
+
+    fill: #fff;
+}
+
+[youtube-version='new'][page='channel'][channel-featured-content='false'] #secondary.ytd-two-column-browse-results-renderer,
+[youtube-version='old'][page='channel'][channel-featured-content='false'] .branded-page-v2-secondary-col
+{
+    display: none;
+}
+
+[youtube-version='new'][squared-user-images='true'] #avatar.ytd-shelf-renderer,
+[youtube-version='new'][squared-user-images='true'] yt-img-shadow
+{
+    border-radius: 0!important;
+}
+
+[youtube-version='new'][improve-youtube-logo='true'] #logo-icon-container svg path,
+[youtube-version='new'][dark][improve-youtube-logo='true'] #logo-icon-container svg polygon
+{
+    fill: #000!important;
+}
+
+[youtube-version='new'][dark][improve-youtube-logo='true'] #logo-icon-container svg path,
+[youtube-version='new'][improve-youtube-logo='true'] #logo-icon-container svg polygon
+{
+    fill: #fff!important;
+}
+
+[youtube-version='old'][improve-youtube-logo='true'] #yt-masthead #logo-container .logo
+{
+    filter: grayscale(1);
+}
+
+[youtube-version='old'][dark][improve-youtube-logo='true'] #yt-masthead #logo-container .logo
+{
+    filter: grayscale(1) brightness(3);
+}
+
+[youtube-version='new'][play-videos-by-hovering-the-thumbnails='false'] #mouseover-overlay
+[youtube-version='old'][play-videos-by-hovering-the-thumbnails='false'] .mouseover-play,
+[youtube-version='old'][play-videos-by-hovering-the-thumbnails='false'] .mouseover-img
+{
+    display: none!important;
+}
+
+#improvedtube-popup
+{
+    position: absolute;
+    z-index: 999999;
+    top: 3rem;
+    left: 0;
+
+    visibility: hidden;
+
+    width: 300px;
+    height: 400px;
+
+    transition: .15s;
+    pointer-events: none;
+
+    opacity: 0;
+    border: none;
+    box-shadow: 0 0 4px rgba(0,0,0,.75);
+}
+
+#improvedtube-popup.show
+{
+    visibility: visible;
+
+    pointer-events: all;
+
+    opacity: 1;
+}
+
+#improvedtube-popup-background
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+
+    width: 100vw;
+    height: 100vh;
+
+    pointer-events: none;
+
+    opacity: 0;
+    background: #000;
+}
+
+#improvedtube-popup-background.show
+{
+    visibility: visible;
+
+    pointer-events: all;
+
+    opacity: .2;
+}
