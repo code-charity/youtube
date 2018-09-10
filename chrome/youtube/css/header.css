@@ -1,0 +1,320 @@
+/*--------------------------------------------------------------
+>>> HEADER.CSS
+----------------------------------------------------------------
+1.0 New YouTube
+  1.1 Header Hidden
+  1.2 Header Hover
+  1.3 Header Top of Page
+2.0 Old YouTube
+  2.1 Header Hidden
+  2.2 Header Hover
+  2.3 Header Top of Page
+
+* "skeleton" - is an element that is displayed while YouTube is loading.
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+1.0 New YouTube
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.1 Header Hidden
+--------------------------------------------------------------*/
+
+[youtube-version=new][header=hidden] ytd-app > #masthead /* skeleton element */,
+[youtube-version=new][header=hidden] ytd-app > #drop-shadow /* skeleton element */,
+[youtube-version=new][header=hidden] #content > #masthead-container,
+[youtube-version=new][header=hidden] app-drawer #guide-spacer /* sidebar space */,
+[youtube-version=new][header=hidden_on_video_page][page=video] ytd-app > #masthead /* skeleton element */,
+[youtube-version=new][header=hidden_on_video_page][page=video] ytd-app > #drop-shadow /* skeleton element */,
+[youtube-version=new][header=hidden_on_video_page][page=video] #content > #masthead-container,
+[youtube-version=new][header=hidden_on_video_page][page=video] app-drawer #guide-spacer /* sidebar space */
+{
+    display: none!important;
+}
+
+[youtube-version=new][header=hidden] ytd-page-manager,
+[youtube-version=new][header=hidden] #home-page-skeleton /* skeleton element */,
+[youtube-version=new][header=hidden_on_video_page][page=video] ytd-page-manager,
+[youtube-version=new][header=hidden_on_video_page][page=video] #home-page-skeleton /* skeleton element */
+{
+    margin-top: 0!important;
+}
+
+
+/*--------------------------------------------------------------
+1.2 Header Hover
+--------------------------------------------------------------*/
+
+[youtube-version=new][header=hover] ytd-app > #masthead + #drop-shadow /* skeleton element */,
+[youtube-version=new][header=hover] #guide-skeleton /* skeleton element */,
+[youtube-version=new][header=hover_on_video_page][page=video] ytd-app > #masthead + #drop-shadow /* skeleton element */,
+[youtube-version=new][header=hover_on_video_page][page=video] #guide-skeleton /* skeleton element */
+{
+    visibility: hidden;
+}
+
+[youtube-version=new][header=hover] ytd-app > #masthead /* skeleton element */,
+[youtube-version=new][header=hover]:not([search-focus]) #content > #masthead-container,
+[youtube-version=new][header=hover_on_video_page][page=video] ytd-app > #masthead /* skeleton element */,
+[youtube-version=new][header=hover_on_video_page][page=video]:not([search-focus]) #content > #masthead-container
+{
+    transition: transform .15s!important;
+    transform: translateY(-40px)!important;
+}
+
+[youtube-version=new][header=hover] ytd-app > #masthead:hover /* skeleton element */,
+[youtube-version=new][header=hover] ytd-app > #masthead:hover + #drop-shadow /* skeleton element */,
+[youtube-version=new][header=hover] #content > #masthead-container:hover,
+[youtube-version=new][header=hover_on_video_page][page=video] ytd-app > #masthead:hover /* skeleton element */,
+[youtube-version=new][header=hover_on_video_page][page=video] ytd-app > #masthead:hover + #drop-shadow /* skeleton element */,
+[youtube-version=new][header=hover_on_video_page][page=video] #content > #masthead-container:hover
+{
+    transform: translateY(0%)!important;
+}
+
+[youtube-version=new][header=hover] #home-page-skeleton /* skeleton element */,
+[youtube-version=new][header=hover] ytd-page-manager,
+[youtube-version=new][header=hover] app-drawer #guide-spacer /* sidebar space */,
+[youtube-version=new][header=hover_on_video_page][page=video] #home-page-skeleton /* skeleton element */,
+[youtube-version=new][header=hover_on_video_page][page=video] ytd-page-manager,
+[youtube-version=new][header=hover_on_video_page][page=video] app-drawer #guide-spacer /* sidebar space */
+{
+    margin-top: 10px!important;
+}
+
+
+/*--------------------------------------------------------------
+1.3 Header Top of Page
+--------------------------------------------------------------*/
+
+[youtube-version=new][header=top_of_page] #masthead-container
+{
+    position: relative!important;
+}
+
+@media all and (display-mode: fullscreen)
+{
+    [youtube-version=new][header=top_of_page] #masthead-container
+    {
+        position: fixed!important;
+    }
+}
+
+[youtube-version=new][header=top_of_page] app-drawer #guide-spacer /* sidebar space */
+{
+    display: none!important;
+}
+
+[youtube-version=new][header=top_of_page] #page-manager
+{
+    margin-top: 0!important;
+}
+
+
+/*--------------------------------------------------------------
+2.0 Old YouTube
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+2.1 Header Hidden
+--------------------------------------------------------------*/
+
+[youtube-version=old][header=hidden] #masthead-positioner,
+[youtube-version=old][header=hidden] #masthead-positioner-height-offset,
+[youtube-version=old][header=hidden_on_video_page][page=video] #masthead-positioner,
+[youtube-version=old][header=hidden_on_video_page][page=video] #masthead-positioner-height-offset
+{
+    display: none!important;
+}
+
+[youtube-version=old][header=hidden] #appbar-guide-menu,
+[youtube-version=old][header=hidden_on_video_page][page=video] #appbar-guide-menu
+{
+    max-height: 100vh!important;
+    margin-top: 0!important;
+}
+
+
+/*--------------------------------------------------------------
+2.2 Header Hover
+--------------------------------------------------------------*/
+
+[youtube-version=old][header=hover]:not([search-focus]) #masthead-positioner,
+[youtube-version=old][header=hover_on_video_page][page=video]:not([search-focus]) #masthead-positioner
+{
+    transition: transform .15s!important;
+    transform: translateY(-40px)!important;
+}
+
+[youtube-version=old][header=hover] #masthead-positioner:hover,
+[youtube-version=old][header=hover_on_video_page][page=video] #masthead-positioner:hover
+{
+    transform: translateY(0%)!important;
+}
+
+[youtube-version=old][header=hover] #masthead-positioner-height-offset,
+[youtube-version=old][header=hover_on_video_page][page=video] #masthead-positioner-height-offset
+{
+    display: none!important;
+}
+
+[youtube-version=old][header=hover] #appbar-guide-menu,
+[youtube-version=old][header=hover_on_video_page][page=video] #appbar-guide-menu
+{
+    z-index: 0;
+
+    max-height: 100vh!important;
+    margin-top: 0!important;
+}
+
+
+/*--------------------------------------------------------------
+2.3 Header Top of Page
+--------------------------------------------------------------*/
+
+[youtube-version=old][header=top_of_page] #masthead-positioner
+{
+    position: relative!important;
+}
+
+[youtube-version=old][header=top_of_page] #masthead-positioner-height-offset
+{
+    display: none!important;
+}
+
+[youtube-version=old][header=top_of_page] #appbar-guide-menu
+{
+    z-index: 0;
+
+    max-height: 100vh!important;
+    margin-top: 0!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html[page=video] .title.ytd-video-primary-info-renderer
+{
+    overflow: visible!important;
+}
+
+#improvedtube_settings_button
+{
+    position: relative;
+    z-index: 99999;
+
+    box-sizing: border-box;
+    width: 3rem;
+    height: 3rem;
+    margin: .45rem 0 0;
+
+    text-align: center;
+
+    border-radius: 50%;
+    background: #ff5050;
+}
+
+#improvedtube_settings_button svg
+{
+    width: 3rem;
+    height: 3rem;
+
+    fill: #fff;
+}
+
+@media (max-width : 656px)
+{
+    #improvedtube_settings_button
+    {
+        margin-right: 0;
+    }
+}
+
+[youtube-version=old] #improvedtube_settings_button
+{
+    display: block;
+    float: right;
+
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: .05rem 0 0 .5rem;
+}
+
+[youtube-version=old] #improvedtube_settings_button svg
+{
+    width: 1.75rem;
+    height: 1.5rem;
+    margin: .125rem 0;
+}
+
+#improvedtube_settings_button.header_left
+{
+    float: left;
+
+    margin: 0 10px 0 0;
+}
+
+#improvedtube_settings_button.bottom_left
+{
+    position: fixed;
+    z-index: 999999999;
+    bottom: 1rem;
+    left: 1rem;
+
+    transition: opacity .1s;
+
+    opacity: .5;
+}
+
+#improvedtube_settings_button.bottom_right
+{
+    position: fixed;
+    z-index: 999999999;
+    right: 1rem;
+    bottom: 1rem;
+
+    transition: opacity .1s;
+
+    opacity: .5;
+}
+
+#improvedtube_settings_button.bottom_left:hover,
+#improvedtube_settings_button.bottom_right:hover
+{
+    opacity: 1;
+}
+
+#improvedtube_settings_button.below_player
+{
+    top: 4px;
+
+    display: inline-block;
+    float: none;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 8px;
+}
+
+#improvedtube_settings_button.below_player svg
+{
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}

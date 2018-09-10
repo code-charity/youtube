@@ -1,0 +1,160 @@
+.header
+{
+    display: flex;
+
+    box-sizing: border-box;
+    height: 3.5rem;
+    padding: 0 .5rem;
+
+    transition: box-shadow .15s cubic-bezier(.4,.0,.2,1);
+
+    border-bottom: 1px solid rgba(17, 17, 17, .06);
+    background: #fff;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__section
+{
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__button_back
+{
+    visibility: hidden;
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+.header__title
+{
+    font-size: 1rem;
+    font-weight: 500;
+
+    position: absolute;
+    left: 1rem;
+
+    transition: left .1s;
+
+    color: #b3b3b3;
+}
+
+body:not([data-path='/']) .header__button_back
+{
+    visibility: visible;
+
+    pointer-events: all;
+
+    opacity: 1;
+}
+
+body:not([data-path='/']) .header__title
+{
+    left: 4rem;
+}
+
+.header__button
+{
+    position: relative;
+
+    display: block;
+
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: .75rem;
+
+    cursor: pointer;
+}
+
+.header__button
+{
+    fill: #b3b3b3;
+}
+
+.header__button::before
+{
+    position: absolute;
+    top: .25rem;
+    left: .25rem;
+
+    display: block;
+
+    box-sizing: border-box;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    content: '';
+    transition-timing-function: cubic-bezier(.4,.0,.2,1);
+    transition-duration: .15s;
+    transition-property: transform,opacity;
+    transform: scale(0);
+
+    opacity: 0;
+    border-radius: 50%;
+    background: rgba(32,33,36,.059);
+}
+
+.header__button:hover::before
+{
+    transform: scale(1);
+
+    opacity: 1;
+}
+
+
+.header__input
+{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+
+    display: none;
+
+    box-sizing: border-box;
+    width: calc(100% - 3.5rem);
+    height: 3rem;
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    outline: none;
+}
+
+body:not([data-path='/']) #header__button-menu
+{
+    display: none;
+}
+
+body[data-path='/search'] .header__title,
+body[data-path='/search'] #header__button-menu,
+body[data-path='/search'] #header__button-search
+{
+    display: none;
+}
+
+body[data-path='/search'] .header__input
+{
+    display: block;
+
+    color: #b3b3b3;
+}
+
+#header__button-search-clear
+{
+    display: none;
+}
+
+body[data-path='/search'] #header__button-search-clear
+{
+    display: block;
+}
+
+body[data-path='/active'] #header__button-search
+{
+    display: none;
+}

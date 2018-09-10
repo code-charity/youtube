@@ -1,0 +1,175 @@
+/*----------------------------------------
+>>> APPEARANCE.CSS
+------------------------------------------
+1.0 List
+2.0 Item
+----------------------------------------*/
+
+
+/*----------------------------------------
+1.0 List
+----------------------------------------*/
+
+.list_type_appearance
+{
+    position: relative;
+
+    box-sizing: border-box;
+    height: calc(100% - 2rem);
+    margin: 1rem 0;
+}
+
+
+/*----------------------------------------
+2.0 Item
+----------------------------------------*/
+
+.list_type_appearance .list__item
+{
+    position: absolute;
+
+    box-sizing: border-box;
+    padding: 0;
+
+    transition-duration: .25s;
+    transition-property: transform, box-shadow;
+    transform: scale(1);
+
+    border: 1px solid #eee;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.list_type_appearance .list__item .list__item__select-value
+{
+    display: none;
+}
+
+.list_type_appearance .list__item:hover
+{
+    z-index: 9;
+
+    box-shadow: 1px 1px 0 0 #eee, 2px 2px 0 0 #eee, 3px 3px 0 0 #eee, 4px 4px 0 0 #eee, 8px 9px 10px 0 rgba(0,0,0,.1);
+}
+
+.list_type_appearance .list__item[data-key='header_folder']
+{
+    top: 1rem;
+    left: 1rem;
+
+    width: calc(100% - 2rem );
+    height: 2.5rem;
+
+    background-color: #fff;
+}
+
+.list_type_appearance .list__item[data-key='header_folder']:hover
+{
+    transform: scale(1.03) translate(-9px, -4px);
+}
+
+.list_type_appearance .list__item[data-key='player']
+{
+    top: 4rem;
+    left: 1rem;
+
+    width: calc(70% - 2rem);
+    height: 6rem;
+
+    border-color: #333;
+    background-color: #444;
+}
+
+.list_type_appearance .list__item[data-key='player'] .list__item__label
+{
+    color: #fff;
+}
+
+.list_type_appearance .list__item[data-key='player']:hover
+{
+    transform: scale(1.03) translate(-7px, -4px);
+
+    box-shadow: 1px 1px 0 0 #333, 2px 2px 0 0 #333, 3px 3px 0 0 #333, 4px 4px 0 0 #333, 8px 9px 10px 0 rgba(0,0,0,.1);
+}
+
+.list_type_appearance .list__item[data-key='sidebar']
+{
+    top: 4rem;
+    left: calc(70% - .5rem);
+
+    width: calc(30% - .5rem);
+    height: 10rem;
+
+    background: #fff;
+}
+
+.list_type_appearance .list__item[data-key='sidebar']:hover
+{
+    transform: scale(1.03) translate(-7px, -4px);
+}
+
+.list_type_appearance .list__item[data-key='details']
+{
+    top: 10.5rem;
+    left: 1rem;
+
+    width: calc(70% - 2rem);
+    height: 2.5rem;
+
+    background: #fff;
+}
+
+.list_type_appearance .list__item[data-key='details']:hover
+{
+    transform: scale(1.03) translate(-8px, -4px);
+}
+
+.list_type_appearance .list__item[data-key='description']
+{
+    top: 13.5rem;
+    left: 1rem;
+
+    width: calc(70% - 2rem);
+    height: 3.5rem;
+
+    background: #fff;
+}
+
+.list_type_appearance .list__item[data-key='description']:hover
+{
+    transform: scale(1.03) translate(-8px, -4px);
+}
+
+.list_type_appearance .list__item[data-key='comments']
+{
+    top: 17.5rem;
+    left: 1rem;
+
+    width: calc(70% - 2rem);
+    height: 3.5rem;
+
+    background: #fff;
+}
+
+.list_type_appearance .list__item[data-key='comments']:hover
+{
+    transform: scale(1.03) translate(-8px, -4px);
+}
+
+.list_type_appearance .list__item[data-key='footer']
+{
+    top: 21.5rem;
+    left: 1rem;
+
+    width: calc(70% - 2rem);
+    height: 3.5rem;
+
+    background: #fff;
+}
+
+.list_type_appearance .list__item[data-key='footer']:hover
+{
+    transform: scale(1.03) translate(-8px, -4px);
+}
