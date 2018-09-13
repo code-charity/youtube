@@ -89,6 +89,7 @@ function changeArgs(args) {
 
     if (settings.hasOwnProperty('video_quality') && settings.video_quality != 'auto') {
       args.markedForQuality = true;
+      video_quality();
     }
 
     return args;
