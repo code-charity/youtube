@@ -303,6 +303,11 @@ html[youtube-version=old][page=video]:not([improvedtube-player-size=undefined]):
     max-width: 100vw!important;
 }
 
+html[youtube-version=old][page=video]:not([improvedtube-player-size=undefined]):not([improvedtube-player-size=normal]):not([improvedtube-player-size=fit_window]):not([embed]):not([mini-player]) #page:not(.watch-wide) .html5-video-player:not(.ytp-fullscreen) video
+{
+    max-width: 100%!important;
+}
+
 html[youtube-version=old][page=video]:not([improvedtube-player-size=undefined]):not([improvedtube-player-size=normal]):not([improvedtube-player-size=fit_window]):not([improvedtube-player-size=full_window]):not([embed]):not([mini-player]) #page:not(.watch-wide) .html5-video-player:not(.ytp-fullscreen) video
 {
     width: 100%!important;
