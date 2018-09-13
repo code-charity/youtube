@@ -20,11 +20,12 @@
 --------------------------------------------------------------*/
 
 function video_quality(num) {
-  const data = settings.video_quality,
+  let data = settings.video_quality,
     player = document.getElementById('movie_player') || document.querySelector('.html5-video-player');
 
-  if (data && data != 'auto') {
+  if (data && data != 'auto' && player) {
     player.setPlaybackQuality(data);
+
     if (player.setPlaybackQualityRange)
       player.setPlaybackQualityRange(data);
   }

@@ -66,7 +66,7 @@ function videoPage() {
     let player = document.querySelector('#movie_player'),
       video = document.querySelector('#movie_player video');
 
-    if (player && document.querySelector('.ytp-left-controls') && video) {
+    if (player && document.querySelector('.ytp-left-controls') && video && player.setPlaybackQuality) {
 
       clearInterval(wait_player);
 
