@@ -259,6 +259,42 @@ function popup_player_button() {
   }
 }
 
+function video_rotate_button() {
+  let data = settings.video_rotate_button;
+
+  if (document.getElementById('improvedtube-rotate-video-button'))
+    document.getElementById('improvedtube-rotate-video-button').remove();
+
+  if (data == 'true') {
+    let button = document.createElement('button');
+
+    button.id = 'improvedtube-rotate-video-button';
+    button.className = 'ytp-button';
+
+    button.innerHTML = '<svg xmlns=//www.w3.org/2000/svg viewBox="0 0 24 24"><path d="M15.55 5.55L11 1v3.07a8 8 0 0 0 0 15.86v-2.02a6 6 0 0 1 0-11.82V10l4.55-4.45zM19.93 11a7.9 7.9 0 0 0-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47h2.02zM13 17.9v2.02a7.92 7.92 0 0 0 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03zm3.89-2.42l1.42 1.41A7.9 7.9 0 0 0 19.93 13h-2.02a5.9 5.9 0 0 1-1.02 2.48z"/></svg>';
+
+    button.onclick = function() {
+      let video = document.querySelector('#movie_player video'),
+          deg = Number(video.getAttribute('it-rotate'));
+
+      if (typeof deg == 'number') {
+        if (deg >= 360)
+          deg = 0;
+        else
+          deg += 90;
+      } else {
+        deg = 180;
+      }
+
+      video.setAttribute('it-rotate', deg);
+      video.style.transform = 'rotate('+deg+'deg)';
+    };
+
+    document.querySelector('#movie_player .ytp-right-controls').insertBefore(button, document.querySelector('#movie_player .ytp-right-controls').childNodes[0]);
+
+  }
+}
+
 
 /*--------------------------------------------------------------
 10.0 Mini player

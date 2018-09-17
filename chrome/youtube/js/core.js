@@ -118,10 +118,12 @@ chrome.storage.local.get(function(data) {
     description_expanded,
     livechat_collapsed,
     comments_collapsed,
+    related_videos_collapsed,
     up_next_autoplay,
     video_repeat,
     video_repeat_button,
     popup_player_button,
+    video_rotate_button,
     forced_theater_mode,
     mini_player,
     'mini_player();',
@@ -169,6 +171,7 @@ chrome.storage.local.get(function(data) {
 
     'var globalDescriptionWait;',
     'var globalLivechatWait;',
+    'var globalRelatedVideosWait;',
     'var globalCommentsWait;',
     'var globalChannelVideoWait;',
     'var globalPlayerMouseMove;',
@@ -297,6 +300,12 @@ chrome.runtime.onMessage.addListener(function(request) {
     if (request == 'description') {
       injectScript([
         'description_expanded();'
+      ]);
+    }
+
+    if (request == 'related_videos') {
+      injectScript([
+        'related_videos_collapsed();'
       ]);
     }
 

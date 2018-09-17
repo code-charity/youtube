@@ -312,6 +312,69 @@ var menu = {
           label: 'ForcedTheaterMode',
           type: 'toggle'
         },
+        player_color: {
+          label: 'Player color',
+          type: 'select',
+          options: [{
+            label: 'Red',
+            value: 'red',
+            default: 'true'
+          }, {
+            label: 'Pink',
+            value: 'pink'
+          }, {
+            label: 'Purple',
+            value: 'purple'
+          }, {
+            label: 'Deep purple',
+            value: 'deep_purple'
+          }, {
+            label: 'Indigo',
+            value: 'indigo'
+          }, {
+            label: 'Blue',
+            value: 'blue'
+          }, {
+            label: 'Light blue',
+            value: 'light_blue'
+          }, {
+            label: 'Cyan',
+            value: 'cyan'
+          }, {
+            label: 'Teal',
+            value: 'teal'
+          }, {
+            label: 'Green',
+            value: 'green'
+          }, {
+            label: 'Light green',
+            value: 'light_green'
+          }, {
+            label: 'Lime',
+            value: 'lime'
+          }, {
+            label: 'Yellow',
+            value: 'yellow'
+          }, {
+            label: 'Amber',
+            value: 'amber'
+          }, {
+            label: 'Orange',
+            value: 'orange'
+          }, {
+            label: 'Deep orange',
+            value: 'deep_orange'
+          }, {
+            label: 'Brown',
+            value: 'brown'
+          }, {
+            label: 'Blue gray',
+            value: 'blue_gray'
+          }, {
+            label: 'White',
+            value: 'white'
+          }]
+        },
         transparent_background: {
           label: 'TransparentBackground',
           type: 'toggle'
@@ -450,6 +513,10 @@ var menu = {
               default: 'true'
             },
             {
+              label: 'optCollapsed',
+              value: 'collapsed'
+            },
+            {
               label: 'optHidden',
               value: 'hidden'
             }
@@ -474,6 +541,7 @@ var menu = {
   },
   themes: {
     label: 'Themes',
+    disabled: 'true',
     icon: {
       svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:2.5rem;height:auto;fill:#fff6f6"><path fill="none" d="M0 0h24v24H0z"/><g><path d="M12 4a8.01 8.01 0 0 0 0 16 .5.5 0 0 0 .5-.5.54.54 0 0 0-.14-.35A2.5 2.5 0 0 1 14.23 15H16a4 4 0 0 0 4-4c0-3.86-3.59-7-8-7zm-5.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm4.5 2.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" opacity=".3"/><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10a2.5 2.5 0 0 0 1.86-4.17.5.5 0 0 1 .37-.83H16a6 6 0 0 0 6-6c0-4.96-4.49-9-10-9zm4 13h-1.77a2.5 2.5 0 0 0-1.87 4.15c.06.07.14.19.14.35a.5.5 0 0 1-.5.5 8.01 8.01 0 0 1 0-16c4.41 0 8 3.14 8 7a4 4 0 0 1-4 4z"/><circle cx="6.5" cy="11.5" r="1.5"/><circle cx="9.5" cy="7.5" r="1.5"/><circle cx="14.5" cy="7.5" r="1.5"/><circle cx="17.5" cy="11.5" r="1.5"/></g></svg>',
       style: {}
@@ -763,6 +831,10 @@ var menu = {
       },
       popup_player_button: {
         label: 'PopupPlayer',
+        type: 'toggle'
+      },
+      video_rotate_button: {
+        label: 'Rotate video',
         type: 'toggle'
       }
     }
@@ -1162,21 +1234,21 @@ var header_menu = {
   contribute: {
     label: 'Contribute',
     type: 'button',
-    click: function () {
+    click: function() {
       window.open('http://www.improvedtube.com/donate');
     }
   },
   rate_me: {
     label: 'Rate me',
     type: 'button',
-    click: function () {
+    click: function() {
       window.open('https://chrome.google.com/webstore/detail/improvedtube-for-youtube/bnomihfieiccainjcjblhegjgglakjdd');
     }
   },
   github: {
     label: 'GitHub',
     type: 'button',
-    click: function () {
+    click: function() {
       window.open('https://github.com/ImprovedTube/ImprovedTube');
     }
   }

@@ -4,7 +4,7 @@
 1.0 New YouTube
   1.1 Views count
   1.2 Like buttons
-    1,5.0 Hidden
+    1.8.3 Hidden
     1.2.2 Icons only
 2.0 Old YouTube
   2.1 Views count
@@ -35,7 +35,7 @@
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-1,5.0 Hidden
+1.8.3 Hidden
 --------------------------------------------------------------*/
 
 [youtube-version=new][likes=hidden] #top-level-buttons ytd-toggle-button-renderer:nth-child(1),
