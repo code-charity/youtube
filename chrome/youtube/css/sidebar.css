@@ -48,6 +48,27 @@
     display: none!important;
 }
 
+[youtube-version=new][related-videos=collapsed][related-videos-collapsed=true] #related > *:not(#improvedtube-related-videos-collapsed)
+{
+    display: none!important;
+}
+
+[youtube-version=new][related-videos=collapsed] #improvedtube-related-videos-collapsed
+{
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    margin: 8px 0 16px;
+    padding: 16px 0;
+
+    cursor: pointer;
+    letter-spacing: .007px;
+    text-transform: uppercase;
+
+    color: var(--yt-expand-color);
+    border-bottom: 1px solid var(--yt-border-color);
+}
+
 
 /*--------------------------------------------------------------
 2.0 Old YouTube

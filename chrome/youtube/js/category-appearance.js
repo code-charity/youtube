@@ -280,6 +280,52 @@ function related_videos() {
   document.documentElement.setAttribute('related-videos', settings.related_videos);
 }
 
+function related_videos_collapsed() {
+  clearInterval(globalRelatedVideosWait);
+
+  globalRelatedVideosWait = setInterval(function() {
+    if (
+      (document.querySelector('#related.ytd-watch-flexy')) ||
+      (document.querySelector('#watch7-sidebar-contents'))
+    ) {
+      clearInterval(globalRelatedVideosWait);
+      console.log('re');
+      const data = settings.related_videos;
+
+      if (data == 'collapsed') {
+        var button = document.createElement('div');
+
+        document.documentElement.setAttribute('related-videos-collapsed', 'true');
+
+        if (document.getElementById('improvedtube-related-videos-collapsed'))
+          document.getElementById('improvedtube-related-videos-collapsed').remove();
+
+        button.id = 'improvedtube-related-videos-collapsed';
+        button.innerText = 'SHOW MORE';
+
+        button.addEventListener('click', function() {
+          if (document.documentElement.getAttribute('related-videos-collapsed') == 'true') {
+            document.documentElement.setAttribute('related-videos-collapsed', 'false');
+            button.innerText = 'SHOW LESS';
+          } else {
+            document.documentElement.setAttribute('related-videos-collapsed', 'true');
+            button.innerText = 'SHOW MORE';
+          }
+        });
+
+        if (document.documentElement.getAttribute('youtube-version') == 'new') {
+          document.querySelector('#related.ytd-watch-flexy').insertBefore(button, document.querySelector('#related > *'));
+        } else {
+          document.querySelector('#watch7-sidebar-contents').insertBefore(button, document.querySelector('#watch7-sidebar-contents > *'));
+        }
+      } else if (document.getElementById('improvedtube-related-videos-collapsed')) {
+        document.documentElement.removeAttribute('related-videos-collapsed');
+        document.getElementById('improvedtube-related-videos-collapsed').remove();
+      }
+    }
+  });
+}
+
 
 /*--------------------------------------------------------------
 6.0 Comments

@@ -75,11 +75,15 @@ function videoPage() {
 
         document.documentElement.removeAttribute('mini-player');
 
+        video.style.transform = '';
+        video.removeAttribute('it-rotate');
+
         video_quality();
         video_volume();
         video_playback_speed();
         video_repeat_button();
         popup_player_button();
+        video_rotate_button();
 
         playlist_reverse();
 
@@ -88,6 +92,7 @@ function videoPage() {
 
         description_expanded();
         livechat_collapsed();
+        related_videos_collapsed();
         comments_collapsed();
 
         forced_theater_mode();
