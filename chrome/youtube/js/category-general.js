@@ -89,19 +89,36 @@ function dim() {
     return false;
 
   if (data && data != 'disabled') {
-    if (document.getElementById('improvedtube-dim')) {
-      document.getElementById('improvedtube-dim').style.opacity = parseInt(Number(data)) / 100 || 0;
+    if (document.getElementById('improvedtube-dim') && document.getElementById('improvedtube-dim-player')) {
+			document.getElementById('improvedtube-dim').style.opacity = parseInt(Number(data)) / 100 || 0;
+      document.getElementById('improvedtube-dim-player').style.opacity = parseInt(Number(data)) / 100 || 0;
     } else {
+			if (document.getElementById('improvedtube-dim'))
+	    	document.getElementById('improvedtube-dim').remove();
+			if (document.getElementById('improvedtube-dim-player'))
+				document.getElementById('improvedtube-dim-player').remove();
+				
       let div = document.createElement('div');
 
       div.id = 'improvedtube-dim';
       div.style.opacity = parseInt(Number(data)) / 100 || 0;
 
       document.documentElement.appendChild(div);
+
+			if (document.documentElement.getAttribute('youtube-version') == 'old' && document.querySelector('.html5-video-player')) {
+				let div = document.createElement('div');
+	      div.id = 'improvedtube-dim-player';
+	      div.style.opacity = parseInt(Number(data)) / 100 || 0;
+
+	      document.querySelector('.html5-video-player').appendChild(div);
+			}
     }
-  } else if (document.getElementById('improvedtube-dim')) {
-    document.getElementById('improvedtube-dim').remove();
-  }
+  } else {
+		if (document.getElementById('improvedtube-dim'))
+    	document.getElementById('improvedtube-dim').remove();
+		if (document.getElementById('improvedtube-dim-player'))
+			document.getElementById('improvedtube-dim-player').remove();
+	}
 }
 
 

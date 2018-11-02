@@ -99,9 +99,6 @@ function forced_theater_mode() {
     settings.player_size == 'fit_window'
   ) {
     setCookie('wide', '1');
-
-    if (!document.querySelector('.watch-stage-mode') && !document.querySelector('ytd-watch-flexy[theater]'))
-      document.querySelector('.html5-video-player .ytp-size-button.ytp-button').click();
   }
 }
 
@@ -126,15 +123,23 @@ function how_long_ago_the_video_was_uploaded() {
         interval = Math.floor(seconds / 31536000);
 
       if (interval > 1) {
-        return interval + " years";
+        return interval + " years ago";
       }
       interval = Math.floor(seconds / 2592000);
       if (interval > 1) {
-        return interval + " months";
+        return interval + " months ago";
       }
       interval = Math.floor(seconds / 86400);
       if (interval > 1) {
-        return interval + " days";
+        return interval + " days ago";
+      }
+      interval = Math.floor(seconds / 3600);
+      if (interval > 1) {
+        return interval + " hours ago";
+      }
+      interval = Math.floor(seconds / 60);
+      if (interval > 1) {
+        return interval + " minutes ago";
       }
     }
 
@@ -173,6 +178,10 @@ function how_long_ago_the_video_was_uploaded() {
 }
 
 function channel_videos_count() {
+  if (document.querySelector('.itx-channel-videos-count')) {
+    document.querySelector('.itx-channel-videos-count').remove();
+  }
+
   if (settings.channel_videos_count == 'true') {
     var waiting_channel_link = setInterval(function () {
       let youtube_version = document.documentElement.getAttribute('youtube-version') == 'new';
@@ -202,7 +211,7 @@ function channel_videos_count() {
 
         xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?id=' + document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container a' : '.yt-user-info a').href.replace('https://www.youtube.com/channel/', '') + '&key=AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA&part=statistics', true);
         xhr.send();
-      }, 100);
+      }, 1000);
     }
     }, 50);
   }

@@ -34,7 +34,9 @@
 
 [youtube-version=new][comments=collapsed][comments-collapsed=true] #comments #contents
 {
-    display: none!important;
+    overflow-y: hidden!important;
+
+    height: 0!important;
 }
 
 [youtube-version=new][comments=collapsed] #improvedtube-comments-collapsed

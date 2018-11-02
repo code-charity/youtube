@@ -24,6 +24,12 @@ function changeArgs(args) {
       args.autoplay = '0';
       args.suppress_autoplay_on_watch = true;
       args.fflags = args.fflags.replace(/html5_new_autoplay_redux=true/g, 'html5_new_autoplay_redux=false');
+      args.fflags = args.fflags.replace(/allow_live_autoplay=true/g, 'allow_live_autoplay=false');
+      args.fflags = args.fflags.replace(/mweb_muted_autoplay=true/g, 'mweb_muted_autoplay=false');
+      args.fflags = args.fflags.replace(/web_player_kaios_autoplay=true/g, 'web_player_kaios_autoplay=false');
+      args.fflags = args.fflags.replace(/autoplay_time=8000/g, 'autoplay_time=0');
+      //args.fflags = args.fflags.replace(/legacy_autoplay_flag=true/g, 'legacy_autoplay_flag=false');
+      gfcyrd657gyuv = args;
     }
 
     if (args.adaptive_fmts && settings.allow_60fps == 'false') {

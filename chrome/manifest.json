@@ -1,12 +1,13 @@
 {
   "manifest_version": 2,
   "name": "ImprovedTube for YouTube",
-  "version": "1,5.0",
+  "version": "1.8.30",
 
   "default_locale": "en",
   "description": "Improves YouTube's functions and site with Limited Permissions. Auto HD, Resize, Annotations, Playback Speed and more.",
   "icons": {
     "16": "extension/img/16.png",
+    "32": "extension/img/32.png",
     "48": "extension/img/48.png",
     "128": "extension/img/128.png"
   },
@@ -106,6 +107,7 @@
   "browser_action": {
     "default_icon": {
       "16": "extension/img/16g.png",
+      "32": "extension/img/32g.png",
       "48": "extension/img/48g.png",
       "128": "extension/img/128g.png"
     },
@@ -117,6 +119,7 @@
     "storage",
     "contextMenus"
   ],
+  "offline_enabled": true,
   "short_name": "ImprovedTube",
   "update_url": "https://clients2.google.com/service/update2/crx",
   "minimum_chrome_version": "49.0"

@@ -72,6 +72,7 @@ function videoPage() {
 
       if (video && (video.src != improvedtube_old_video || improvedtube_old_video == '')) {
         improvedtube_old_video = video.src;
+        globalAutoplayByUser=false;
 
         document.documentElement.removeAttribute('mini-player');
 
@@ -84,6 +85,7 @@ function videoPage() {
         video_repeat_button();
         popup_player_button();
         video_rotate_button();
+        screenshot_button();
 
         playlist_reverse();
 
@@ -97,6 +99,7 @@ function videoPage() {
 
         forced_theater_mode();
         fit_window();
+        dim();
 
         video.addEventListener('canplay', function() {
           fit_window();
@@ -105,6 +108,7 @@ function videoPage() {
         window.addEventListener('resize', function() {
           fit_window(true);
         });
+
 
         window.dispatchEvent(new Event('resize'));
       }
