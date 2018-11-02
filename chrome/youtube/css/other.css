@@ -51,9 +51,13 @@ html:not([scroll-to-top]) .scroll-to-top
 }
 
 [youtube-version='new'][dark][improve-youtube-logo='true'] #logo-icon-container svg path,
-[youtube-version='new'][improve-youtube-logo='true'] #logo-icon-container svg polygon
+[youtube-version='new'][improve-youtube-logo='true'] ytd-masthead[dark] #logo-icon-container svg path
 {
     fill: #fff!important;
+}
+
+[youtube-version='new'][improve-youtube-logo='true'] ytd-masthead[dark] #logo-icon-container svg polygon {
+  fill: #121212!important;
 }
 
 [youtube-version='old'][improve-youtube-logo='true'] #yt-masthead #logo-container .logo
@@ -66,7 +70,7 @@ html:not([scroll-to-top]) .scroll-to-top
     filter: grayscale(1) brightness(3);
 }
 
-[youtube-version='new'][play-videos-by-hovering-the-thumbnails='false'] #mouseover-overlay
+[youtube-version='new'][play-videos-by-hovering-the-thumbnails='false'] #mouseover-overlay,
 [youtube-version='old'][play-videos-by-hovering-the-thumbnails='false'] .mouseover-play,
 [youtube-version='old'][play-videos-by-hovering-the-thumbnails='false'] .mouseover-img
 {

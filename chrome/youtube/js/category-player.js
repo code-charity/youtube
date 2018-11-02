@@ -24,6 +24,10 @@ function video_quality(num) {
     player = document.getElementById('movie_player') || document.querySelector('.html5-video-player');
 
   if (data && data != 'auto' && player) {
+    if (typeof player.getAvailableQualityLevels === 'function' && player.getAvailableQualityLevels()[0] && player.getAvailableQualityLevels().indexOf(data) == -1) {
+      data = player.getAvailableQualityLevels()[0];
+    }
+
     player.setPlaybackQuality(data);
 
     if (player.setPlaybackQualityRange)
@@ -425,3 +429,39 @@ function mini_player() {
 
 
 };
+
+function screenshot_button() {
+  let data = settings.screenshot_button;
+
+  if (document.getElementById('improvedtube-screenshot-button'))
+    document.getElementById('improvedtube-screenshot-button').remove();
+
+  if (data == 'true') {
+    let button = document.createElement('button');
+
+    button.id = 'improvedtube-screenshot-button';
+    button.className = 'ytp-button';
+
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/><path fill="none" d="M0 0h24v24H0z"/></svg>';
+
+    button.onclick = function() {
+      let video = document.querySelector('#movie_player video'),
+          a = document.createElement('a'),
+          cvs = document.createElement('canvas'),
+          ctx = cvs.getContext('2d');
+
+      cvs.width = video.offsetWidth;
+      cvs.height = video.offsetHeight;
+
+      ctx.drawImage(video, 0, 0, cvs.width, cvs.height);
+
+      a.href = cvs.toDataURL('image/png');
+      a.download = 'screenshot.png';
+
+      a.click();
+    };
+
+    document.querySelector('#movie_player .ytp-right-controls').insertBefore(button, document.querySelector('#movie_player .ytp-right-controls').childNodes[0]);
+
+  }
+}

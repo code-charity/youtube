@@ -107,6 +107,7 @@ chrome.storage.local.get(function(data) {
 
     // themes
     default_dark_theme,
+    dim,
 
     // video page
     video_quality,
@@ -124,6 +125,7 @@ chrome.storage.local.get(function(data) {
     video_repeat_button,
     popup_player_button,
     video_rotate_button,
+    screenshot_button,
     forced_theater_mode,
     mini_player,
     'mini_player();',
@@ -180,7 +182,11 @@ chrome.storage.local.get(function(data) {
     'window.addEventListener("wheel", wheel, true);',
     'window.addEventListener("scroll", function(event){if (window.scrollY > 500)document.documentElement.setAttribute("scroll-to-top", ""); else document.documentElement.removeAttribute("scroll-to-top");}, true);',
     'window.addEventListener("blur", function () {video_autopause("pause");});',
-    'window.addEventListener("focus", function () {video_autopause("play");});'
+    'window.addEventListener("focus", function () {video_autopause("play");});',
+    'var globalAutoplayByUser = false;',
+    'window.addEventListener("keydown", function(){globalAutoplayByUser=true;}, true);',
+    'window.addEventListener("mousedown", function(){globalAutoplayByUser=true;}, true);',
+    'setInterval(function(){if (document.querySelector("video"))document.querySelector("video").onplay = function () {if(!video_autoplay()&&globalAutoplayByUser!=true)this.pause();};});'
   ], 'improvedtube-functions');
 
 
@@ -327,6 +333,7 @@ chrome.runtime.onMessage.addListener(function(request) {
       request == 'annotations' ||
       request == 'cards' ||
       request == 'player_size' ||
+      request == 'forced_theater_mode' ||
       request == 'player_color' ||
       request == 'endscreen' ||
       request == 'views_count' ||
@@ -348,6 +355,10 @@ chrome.runtime.onMessage.addListener(function(request) {
 
       if (request == 'player_size') {
         injectScript(['forced_theater_mode();window.dispatchEvent(new Event("resize"));']);
+      }
+
+      if (request == 'forced_theater_mode') {
+        injectScript(['location.reload();']);
       }
 
       return;

@@ -836,6 +836,10 @@ var menu = {
       video_rotate_button: {
         label: 'Rotate video',
         type: 'toggle'
+      },
+      screenshot_button: {
+        label: 'Screenshot',
+        type: 'toggle'
       }
     }
   },
@@ -1083,12 +1087,12 @@ var menu = {
         type: 'select',
         options: [{
             label: 'Always active',
-            value: 'always',
-            default: 'true'
+            value: 'always'
           },
           {
             label: 'Only active on YouTube',
-            value: 'youtube'
+            value: 'youtube',
+            default: 'true'
           }
         ]
       }

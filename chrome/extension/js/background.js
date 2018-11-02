@@ -62,9 +62,13 @@ chrome.contextMenus.onClicked.addListener(function(event) {
 });
 
 chrome.storage.local.get(function(data) {
-  if (data.improvedtube_browser_icon != 'youtube') {
+  if (data.improvedtube_browser_icon == 'always') {
     chrome.browserAction.setIcon({
-      path: 'extension/img/16.png'
+      path: 'extension/img/32.png'
+    });
+  } else {
+    chrome.browserAction.setIcon({
+      path: 'extension/img/32g.png'
     });
   }
 
@@ -73,12 +77,12 @@ chrome.storage.local.get(function(data) {
     if (sender && sender.tab && sender.tab.id) {
       if (request.enabled == true)
         chrome.browserAction.setIcon({
-          path: 'extension/img/16.png',
+          path: 'extension/img/32.png',
           tabId: sender.tab.id
         });
     }
 
-    _gaq.push(['_trackPageview', '/background-1.8.3', 'page-loaded']);
+    _gaq.push(['_trackPageview', '/background-1.8.30', 'page-loaded']);
   });
 });
 
