@@ -1,0 +1,94 @@
+[theme=default_dark]
+{
+    background-color: #262626;
+}
+
+[theme=default_dark] .header
+{
+    border-bottom-color: #454545;
+    background-color: #3d3d3d;
+}
+
+[theme=default_dark] .header__title,
+[theme=default_dark] .material-icons
+{
+    color: #dcdcdc;
+}
+
+[theme=default_dark] .header__input
+{
+    color: #dcdcdc;
+    background-color: #3d3d3d;
+}
+
+[theme=default_dark] .list.list_type_home .list__item__icon
+{
+    box-shadow: 0 2px 2px #171717;
+}
+
+[theme=default_dark] .list.list_type_home .list__item__label
+{
+    color: #8b8b8b;
+}
+
+[theme=default_dark] .beta-note
+{
+    color: #dcdcdc;
+    border-color: #313131;
+    background-color: #313131;
+}
+
+[theme=default_dark] .list__item_section ul
+{
+    background-color: #313131;
+}
+
+[theme=default_dark] .list__item__label,
+[theme=default_dark] .dialog__surface__label,
+[theme=default_dark] .dialog__surface__button,
+[theme=default_dark] .dialog__surface .list__item
+{
+    color: #dcdcdc;
+}
+
+[theme=default_dark] .list__item__select-value,
+[theme=default_dark] .list__item__text
+{
+    color: #828282;
+}
+
+[theme=default_dark] .list__item__radio
+{
+    border-color: #828282;
+}
+
+[theme=default_dark] .list_type_appearance .list__item
+{
+    border-color: #313131;
+    background-color: #313131;
+}
+
+[theme=default_dark] .list_type_appearance .list__item:hover
+{
+    z-index: 9;
+
+    box-shadow: 1px 1px 0 0 #333, 2px 2px 0 0 #333, 3px 3px 0 0 #333, 4px 4px 0 0 #333, 8px 9px 10px 0 rgba(0,0,0,.1);
+}
+
+[theme=default_dark] .dialog__surface
+{
+    background-color: #3c3c3c;
+}
+
+html:not([popup]) body[theme=default_dark]:not([data-path='/appearance']) .list:not(.list_type_home) .list__item:not(.list__item_section):hover,
+[theme=default_dark] .popup .list__item:hover,
+[theme=default_dark] .menu .list__item:hover
+{
+    background-color: #434343;
+}
+
+
+[theme=default_dark] .header__button::before
+{
+    background: rgba(255, 255, 255, .05);
+}

@@ -1,0 +1,33 @@
+/*--------------------------------------------------------------
+>>> MINI_PLAYER.CSS
+----------------------------------------------------------------
+1.0 Mini Player
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+1.0 Mini Player
+--------------------------------------------------------------*/
+
+html[mini-player] #movie_player video
+{
+    position: fixed!important;
+    z-index: 9999!important;
+    top: auto!important;
+    left: auto!important;
+
+    min-width: none!important;
+    min-height: none!important;
+
+    border: 1px solid #666!important;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,.2)!important;
+}
+
+html[mini-player] #movie_player video {
+    will-change: left, top;
+}
+
+html[move-player] *
+{
+    pointer-events: none!important;
+}

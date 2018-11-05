@@ -1,0 +1,453 @@
+html,
+body
+{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+
+    width: 300px;
+    height: 500px;
+    margin: 0;
+
+    user-select: none;
+
+    background: #fcfcfc;
+}
+
+.main
+{
+    position: relative;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    width: 150%;
+    height: calc(500px - 3.5rem);
+}
+
+.main__container
+{
+    width: 300px;
+}
+
+.scrollbar
+{
+    position: absolute;
+    top: 0;
+    right: .2rem;
+
+    width: .25rem;
+    height: 1rem;
+
+    background: rgba(0,0,0,.15);
+
+    will-change: top;
+}
+
+
+
+/*
+List
+*/
+
+.list
+{
+    padding: .5rem 0;
+}
+
+.main > .main__container > .list
+{
+    padding: 1rem 0;
+}
+
+html:not([popup]) body:not([data-path='/appearance']) .list:not(.list_type_home) .list__item:not(.list__item_section):hover,
+.popup .list__item:hover,
+.menu .list__item:hover
+{
+    background: rgba(0,0,0,.04);
+}
+
+
+
+ul,
+li
+{
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.section
+{
+    padding: .5rem 0;
+}
+
+
+
+
+
+
+
+
+.list__item_toggle
+{
+    justify-content: space-between;
+}
+
+.list__item_toggle .list__item__label
+{
+    max-width: calc(100% - 2rem);
+}
+
+.list__item_toggle__status
+{
+    position: relative;
+
+    width: 2rem;
+    height: 1rem;
+    margin: 0 0 0 1rem;
+
+    border-radius: 1rem;
+    background: #b8b8b8;
+}
+
+.list__item_toggle__status::after
+{
+    position: absolute;
+    top: 50%;
+    left: -.05rem;
+
+    width: 1.25rem;
+    height: 1.25rem;
+
+    content: '';
+    transition: left .2s;
+    transform: translateY(-50%);
+
+    border-radius: 100%;
+    background: #fafafa;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.list__item_toggle[data-value=true] .list__item_toggle__status
+{
+    background: #f96754;
+}
+
+.list__item_toggle[data-value=true] .list__item_toggle__status::after
+{
+    left: .80rem;
+}
+
+
+.list__item__icon
+{
+    display: flex;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 1rem 0 0;
+
+    border-radius: 50%;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.list__item__icon svg
+{
+    width: 2rem;
+}
+
+.list__item__label
+{
+    font-size: .85rem;
+
+    display: flex;
+    flex-direction: column;
+
+    letter-spacing: .00937em;
+
+    color: rgba(0,0,0,.87);
+
+    justify-content: center;
+}
+
+.list__item__description
+{
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+
+    letter-spacing: .01786em;
+
+    color: rgba(0,0,0,.54);
+}
+
+
+
+
+
+
+
+.list.list_type_home
+{
+    display: flex;
+
+    padding: 1rem .5rem;
+
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.list.list_type_home .list__item
+{
+    flex-direction: column;
+
+    box-sizing: border-box;
+    width: calc((100% / 3) - 5%);
+    height: auto;
+    margin: 0 0 1rem 0;
+    padding: 0;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.list.list_type_home .list__item__icon
+{
+    display: flex;
+
+    width: 3.75rem;
+    height: 3.75rem;
+    margin: 0 0 .3rem 0;
+
+    transition: .25s;
+
+    border-radius: 50%;
+    background: #f96754;
+    box-shadow: 0 3px 10px rgba(0,0,0,.24);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.list_type_home .list__item:not([disabled]):hover .list__item__icon
+{
+    transform: scale(.9);
+
+    box-shadow: 0 0 5px rgba(0,0,0,.24);
+}
+
+.list_type_home .list__item[disabled]
+{
+    position: relative;
+
+    cursor: default;
+}
+
+.list_type_home .list__item[disabled] .list__item__icon
+{
+    filter: grayscale(1);
+}
+
+.list_type_home .list__item[disabled]::after
+{
+    font-family: sans-serif;
+    font-size: 1.1rem;
+
+    position: absolute;
+    right: .5rem;
+    bottom: 1.3rem;
+
+    content: 'Soon!';
+    transform: rotate(-20deg);
+    animation-name: zoom;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    color: #fff900;
+    text-shadow: 0 1px 2px #000;
+}
+
+@keyframes zoom
+{
+    0%
+    {
+        transform: rotate(-20deg) scale(1);
+    }
+    50%
+    {
+        transform: rotate(-20deg) scale(1.15);
+    }
+    100%
+    {
+        transform: rotate(-20deg) scale(1);
+    }
+}
+
+.list.list_type_home .list__item__label
+{
+    color: #6f6f6f;
+}
+
+
+
+
+
+.list__item_section
+{
+    display: block;
+
+    height: auto;
+    margin-bottom: 1rem;
+
+    cursor: default;
+}
+
+.list__item_section > .list__item__label
+{
+    font-weight: 700;
+
+    margin-bottom: .3rem;
+
+    color: #3e3e3e;
+}
+
+.list__item_section ul
+{
+    box-sizing: border-box;
+    width: 100%;
+
+    border-radius: .3rem;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,.05);
+}
+
+.list_fade-out
+{
+    animation: fade-out .1s forwards;
+
+    opacity: 0;
+}
+
+@keyframes fade-out
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+
+.list_fade-in
+{
+    animation: fade-in .1s forwards;
+
+    opacity: 0;
+}
+
+@keyframes fade-in
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+.list__item__select-value
+{
+    font-size: .8rem;
+    line-height: .8rem;
+
+    display: flex;
+
+    color: #909090;
+}
+
+
+
+
+
+
+
+
+body:not([data-path='/']) .beta-note
+{
+    display: none;
+}
+
+.beta-note
+{
+    font-size: .9rem;
+    font-size: .95rem;
+
+    position: fixed;
+    bottom: .2rem;
+
+    box-sizing: border-box;
+    width: calc(300px - 2rem);
+    margin: 1rem;
+    padding: .8rem 1rem;
+
+    transition: opacity .15s;
+
+    color: #bbb;
+    border: 2px dashed #d8d8d8;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.beta-note > div
+{
+    font-size: 1.05rem;
+    font-weight: 600;
+
+    margin: 0 0 .1rem 0;
+
+    color: #bbb;
+}
+
+.beta-note > a
+{
+    font-size: .95rem;
+
+    text-decoration: none;
+
+    color: #e0766d;
+}
+
+
+.list__item_text
+{
+    justify-content: space-between;
+}
+
+
+.list__item__text
+{
+    font-size: .85rem;
+
+    display: flex;
+    flex-direction: column;
+
+    letter-spacing: .00937em;
+
+    color: rgba(0,0,0,.6);
+
+    justify-content: center;
+}
+
+#import-settings
+{
+    display: none;
+}
