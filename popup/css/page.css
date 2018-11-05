@@ -1,0 +1,51 @@
+html,
+body
+{
+    overflow: hidden !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.main
+{
+    height: calc(100vh - 3.5rem) !important;
+}
+
+.main__container
+{
+    width: 100vw !important;
+}
+
+.main > .main__container > .list
+{
+    max-width: 1280px !important;
+    margin: auto !important;
+}
+
+.dialog__surface
+{
+    min-width: 640px;
+    max-width: 865px;
+}
+
+@media all and (max-width: 865px)
+{
+    .dialog__surface
+    {
+        min-width: 0;
+        max-width: 100vw;
+    }
+}
+
+.main > .main__container > .list.list_type_home
+{
+    max-width: 300px !important;
+}
+
+html:not([improvedtube-page]) [data-path='/'] .main__container
+{
+    display: flex;
+
+    height: calc(100vh - 3.5rem) !important;
+}

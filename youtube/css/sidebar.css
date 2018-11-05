@@ -1,0 +1,105 @@
+/*--------------------------------------------------------------
+>>> SIDEBAR.CSS
+----------------------------------------------------------------
+1.0 New YouTube
+  1.1 Livechat
+  1.2 Playlist
+  1.3 Related videos
+2.0 Old YouTube
+  2.1 Livechat
+  2.2 Playlist
+  2.3 Related videos
+
+* "skeleton" - is an element that is displayed while YouTube is loading.
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+1.0 New YouTube
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.1 Livechat
+--------------------------------------------------------------*/
+
+[youtube-version=new][livechat=hidden] ytd-live-chat-frame#chat
+{
+    display: none!important;
+}
+
+
+/*--------------------------------------------------------------
+1.2 Playlist
+--------------------------------------------------------------*/
+
+[youtube-version=new][improvedtube-playlist=hidden] ytd-playlist-panel-renderer#playlist
+{
+    display: none!important;
+}
+
+
+/*--------------------------------------------------------------
+1.3 Related videos
+--------------------------------------------------------------*/
+
+[youtube-version=new][related-videos=hidden] #related,
+[youtube-version=new][related-videos=hidden] #related-skeleton /* skeleton element */
+{
+    display: none!important;
+}
+
+[youtube-version=new][related-videos=collapsed][related-videos-collapsed=true] #related > *:not(#improvedtube-related-videos-collapsed)
+{
+    display: none!important;
+}
+
+[youtube-version=new][related-videos=collapsed] #improvedtube-related-videos-collapsed
+{
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    margin: 8px 0 16px;
+    padding: 16px 0;
+
+    cursor: pointer;
+    letter-spacing: .007px;
+    text-transform: uppercase;
+
+    color: var(--yt-expand-color);
+    border-bottom: 1px solid var(--yt-border-color);
+}
+
+
+/*--------------------------------------------------------------
+2.0 Old YouTube
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+2.1 Livechat
+--------------------------------------------------------------*/
+
+[youtube-version=old][livechat=hidden] #watch-sidebar-live-chat
+{
+    display: none!important;
+}
+
+
+/*--------------------------------------------------------------
+2.2 Playlist
+--------------------------------------------------------------*/
+
+[youtube-version=old][improvedtube-playlist=hidden] #player-playlist,
+[youtube-version=old][improvedtube-playlist=hidden] #placeholder-playlist
+{
+    display: none!important;
+}
+
+
+/*--------------------------------------------------------------
+2.3 Related videos
+--------------------------------------------------------------*/
+
+[youtube-version=old][related-videos=hidden] #watch7-sidebar-contents
+{
+    display: none!important;
+}

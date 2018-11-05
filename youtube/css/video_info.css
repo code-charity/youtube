@@ -1,0 +1,170 @@
+/*--------------------------------------------------------------
+>>> VIDEO_INFO.CSS
+----------------------------------------------------------------
+1.0 New YouTube
+  1.1 Views count
+  1.2 Like buttons
+    1.8.21 Hidden
+    1.2.2 Icons only
+2.0 Old YouTube
+  2.1 Views count
+  2.2 Like buttons
+    2.2.1 Hidden
+    2.2.2 Icons only
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+1.0 New YouTube
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.1 Views count
+--------------------------------------------------------------*/
+
+[youtube-version=new][views-count=hidden] #count.ytd-video-primary-info-renderer
+{
+    visibility: hidden!important;
+
+    pointer-events: none!important;
+}
+
+
+/*--------------------------------------------------------------
+1.2 Like buttons
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.8.21 Hidden
+--------------------------------------------------------------*/
+
+[youtube-version=new][likes=hidden] #top-level-buttons ytd-toggle-button-renderer:nth-child(1),
+[youtube-version=new][likes=hidden] #top-level-buttons ytd-toggle-button-renderer:nth-child(2),
+[youtube-version=new][likes=hidden] #sentiment.ytd-video-primary-info-renderer
+{
+    visibility: hidden!important;
+
+    pointer-events: none!important;
+}
+
+/*--------------------------------------------------------------
+1.2.2 Icons only
+--------------------------------------------------------------*/
+
+[youtube-version=new][likes=icons_only] #top-level-buttons ytd-toggle-button-renderer:nth-child(1) yt-formatted-string,
+[youtube-version=new][likes=icons_only] #top-level-buttons ytd-toggle-button-renderer:nth-child(2) yt-formatted-string,
+[youtube-version=new][likes=icons_only] #sentiment.ytd-video-primary-info-renderer
+{
+    visibility: hidden!important;
+
+    pointer-events: none!important;
+}
+
+
+/*--------------------------------------------------------------
+2.0 Old YouTube
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+2.1 Views count
+--------------------------------------------------------------*/
+
+[youtube-version=old][views-count=hidden] #watch7-views-info > .watch-view-count
+{
+    visibility: hidden!important;
+
+    pointer-events: none!important;
+}
+
+
+/*--------------------------------------------------------------
+2.2 Like buttons
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+2.2.1 Hidden
+--------------------------------------------------------------*/
+
+[youtube-version=old][likes=hidden] #watch8-sentiment-actions > .like-button-renderer,
+[youtube-version=old][likes=hidden] .video-extras-sparkbar-likes,
+[youtube-version=old][likes=hidden] .video-extras-sparkbar-dislikes
+{
+    visibility: hidden!important;
+
+    pointer-events: none!important;
+}
+
+/*--------------------------------------------------------------
+2.2.2 Icons only
+--------------------------------------------------------------*/
+
+[youtube-version=old][likes=icons_only] #watch8-sentiment-actions > .like-button-renderer button > span,
+[youtube-version=old][likes=icons_only] .video-extras-sparkbar-likes,
+[youtube-version=old][likes=icons_only] .video-extras-sparkbar-dislikes
+{
+    visibility: hidden!important;
+
+    pointer-events: none!important;
+}
+
+[youtube-version=old][likes=icons_only] .like-button-renderer-like-button,
+[youtube-version=old][likes=icons_only] .like-button-renderer-dislike-button
+{
+    color: transparent!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* "Yo ho, yo ho, a pirate's life for me" */

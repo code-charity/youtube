@@ -1,0 +1,239 @@
+[classic-improvedtube] .beta-note
+{
+    bottom: 0;
+
+    padding: .3rem .4em;
+}
+
+[classic-improvedtube]
+{
+    background: #fff;
+}
+
+[classic-improvedtube] *
+{
+    font-family: arial;
+}
+
+[classic-improvedtube] .scrollbar
+{
+    display: none!important;
+}
+
+[classic-improvedtube] .main,
+[classic-improvedtube] .main__container
+{
+    width: auto!important;
+}
+
+[classic-improvedtube] .header__title
+{
+    color: #222;
+}
+
+[classic-improvedtube] .list.list_type_home
+{
+    justify-content: center;
+}
+
+[classic-improvedtube] .list .list__item
+{
+    flex-direction: column;
+
+    height: auto;
+    padding: 0 .5rem;
+
+    cursor: default!important;
+    cursor: default;
+
+    background: transparent!important;
+
+    align-items: flex-start;
+}
+
+[classic-improvedtube]  .list__item .list__item__label
+{
+    font-size: 1rem;
+    line-height: 1.2rem;
+
+    margin: 1rem 0 .3rem;
+}
+
+[classic-improvedtube] .list .list__item button
+{
+    width: 100%;
+    height: 28px;
+
+    text-align: left;
+
+    outline: none;
+}
+
+[classic-improvedtube] .list.list_type_home .list__item
+{
+    width: 90%;
+    margin: 0 0 .15rem;
+    padding: 0;
+}
+
+[classic-improvedtube] .list.list_type_home .list__item__label
+{
+    display: none;
+}
+
+[classic-improvedtube] .list.list_type_home .list__item_classic_folder
+{
+    font-size: 1rem;
+
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+    margin: .15rem 0;
+    padding: .6rem .5rem;
+
+    color: #fff;
+    border: none;
+    background: #c34545;
+}
+
+[classic-improvedtube] .list.list_type_home .list__item_classic_folder:hover,
+[classic-improvedtube] .list .list__item_folder:hover
+{
+    background: #b93939;
+}
+
+[classic-improvedtube] .list.list_type_home .list__item[disabled]
+{
+    display: none;
+}
+
+[classic-improvedtube] .list.list_type_home .list__item .list__item__icon
+{
+    display: none;
+}
+
+[classic-improvedtube] .list.list_type_home .list__item .list__item__label
+{
+    font-size: 1rem;
+
+    color: #fff;
+}
+
+[classic-improvedtube] .list.list_type_home .list__item_classic_folder::after,
+[classic-improvedtube] .list .list__item_folder::after
+{
+    position: absolute;
+    top: calc(50% - .4rem);
+    right: .1rem;
+
+    content: '';
+
+    border: .4rem solid transparent;
+    border-left-color: #fff;
+}
+
+
+
+
+
+
+
+[classic-improvedtube] .list__item_section ul
+{
+    padding: 0;
+
+    border: none;
+    box-shadow: none;
+}
+
+[classic-improvedtube] .list__item_toggle__status::after
+{
+    width: 1rem;
+    height: 1rem;
+
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, .1);
+}
+
+[classic-improvedtube] .list__item_toggle[data-value=true] .list__item_toggle__status::after
+{
+    left: 1rem;
+}
+
+[classic-improvedtube] .list__item_section
+{
+    margin: 0;
+}
+
+[classic-improvedtube] .list__item_section > .list__item__label
+{
+    display: none;
+}
+
+
+[classic-improvedtube]  .list__item_classic_list:hover,
+[classic-improvedtube]  .list__item_button:hover
+{
+    background: transparent!important;
+}
+
+[classic-improvedtube] .list__item_classic_list__list
+{
+    width: 100%;
+    height: 28px;
+
+    outline: none;
+}
+
+[classic-improvedtube] .list__item_button
+{
+    height: auto;
+    padding: 0;
+}
+
+
+[classic-improvedtube] .list__item_button button
+{
+    width: 100%;
+    height: 28px;
+
+    text-align: left;
+
+    outline: none;
+}
+
+[classic-improvedtube] .list:not(.list_type_home) .list__item_folder
+{
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+
+    background: #ccc;
+}
+
+[classic-improvedtube] .list:not(.list_type_home) .list__item_folder:hover
+{
+    background: #bbb!important;
+}
+
+[classic-improvedtube] .list:not(.list_type_home) .list__item_folder .list__item__label
+{
+    color: #fff;
+}
+
+
+[classic-improvedtube] .list_type_appearance .list__item
+{
+    position: static;
+
+    box-sizing: content-box;
+    width: 90%!important;
+    margin: auto;
+
+    transform: none!important;
+
+    border: none;
+    box-shadow: none!important;
+}
