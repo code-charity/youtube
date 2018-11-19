@@ -82,7 +82,7 @@ chrome.storage.local.get(function(data) {
         });
     }
 
-    _gaq.push(['_trackPageview', '/background-1.8.30', 'page-loaded']);
+    _gaq.push(['_trackPageview', '/background-1.8.36', 'page-loaded']);
   });
 });
 

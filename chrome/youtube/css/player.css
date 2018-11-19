@@ -39,9 +39,13 @@
 3.0 Background (transparent)
 --------------------------------------------------------------*/
 
+[transparent-player-background=true] #player-theater-container,
 [transparent-player-background=true] #theater-background,
+[transparent-player-background=true] #player-api,
+[transparent-player-background=true] .player-api,
 [transparent-player-background=true] #movie_player,
-[transparent-player-background=true] #player-container
+[transparent-player-background=true] #player-container,
+[transparent-player-background=true] #movie_player video
 {
     background-color: transparent!important;
 }
