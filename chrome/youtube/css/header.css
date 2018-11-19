@@ -75,10 +75,10 @@
 }
 
 [youtube-version=new][header=hover] #home-page-skeleton /* skeleton element */,
-[youtube-version=new][header=hover] ytd-page-manager,
+[youtube-version=new][header=hover] ytd-app:not([masthead-hidden_]) ytd-page-manager,
 [youtube-version=new][header=hover] app-drawer #guide-spacer /* sidebar space */,
 [youtube-version=new][header=hover_on_video_page][page=video] #home-page-skeleton /* skeleton element */,
-[youtube-version=new][header=hover_on_video_page][page=video] ytd-page-manager,
+[youtube-version=new][header=hover_on_video_page][page=video] ytd-app:not([masthead-hidden_]) ytd-page-manager,
 [youtube-version=new][header=hover_on_video_page][page=video] app-drawer #guide-spacer /* sidebar space */
 {
     margin-top: 10px!important;

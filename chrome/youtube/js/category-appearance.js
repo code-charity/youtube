@@ -99,6 +99,9 @@ function forced_theater_mode() {
     settings.player_size == 'fit_window'
   ) {
     setCookie('wide', '1');
+
+    if (!document.querySelector('.watch-stage-mode') && !document.querySelector('ytd-watch-flexy[theater]'))
+      document.querySelector('.html5-video-player .ytp-size-button.ytp-button').click();
   }
 }
 

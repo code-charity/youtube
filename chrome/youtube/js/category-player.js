@@ -357,8 +357,8 @@ function mini_player() {
             document.querySelector('#movie_player video').setAttribute('style',
               'left:' + mini_player.x + 'px !important;' +
               'top:' + mini_player.y + 'px !important;' +
-              'width:' + mini_player.width + 'px !important;' +
-              'height:' + mini_player.height + 'px !important;'
+              'max-width:' + mini_player.width + 'px !important;' +
+              'max-height:' + mini_player.height + 'px !important;'
             );
 
             document.querySelector('#movie_player video').addEventListener('mousedown', function(event) {
@@ -400,8 +400,8 @@ function mini_player() {
                 document.querySelector('#movie_player video').setAttribute('style',
                   'left:' + mini_player.x + 'px !important;' +
                   'top:' + mini_player.y + 'px !important;' +
-                  'width:' + mini_player.width + 'px !important;' +
-                  'height:' + mini_player.height + 'px !important;'
+                  'max-width:' + mini_player.width + 'px !important;' +
+                  'max-height:' + mini_player.height + 'px !important;'
                 );
               }
             });
@@ -420,6 +420,10 @@ function mini_player() {
               'width:' + mini_player.width_old + 'px;' +
               'height:' + mini_player.height_old + 'px;'
             );
+
+            setTimeout(function () {
+              fit_window();
+            });
 
           }
         }
