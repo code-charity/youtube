@@ -347,7 +347,7 @@ html[youtube-version=old][page=video]:not([improvedtube-player-size=undefined]):
 
 html[youtube-version=old][page=video][improvedtube-player-size=full_window]:not([embed]):not([mini-player]) #page:not(.watch-wide) #watch7-sidebar-contents
 {
-    margin-top: 0px !important;
+    margin-top: 0 !important;
 }
 
 html[youtube-version=old][page=video]:not([improvedtube-player-size=undefined]):not([improvedtube-player-size=normal]):not([improvedtube-player-size=fit_window]):not([embed]):not([mini-player]) #page.watch-wide #watch-appbar-playlist
@@ -520,4 +520,10 @@ html[page=video]:not([mini-player]) .html5-video-player.ytp-fullscreen video
 [page=video]:not([improvedtube-player-size=undefined]):not([improvedtube-player-size=normal]) .ytp-cued-thumbnail-overlay-image
 {
     z-index: 10!important;
+}
+
+.ytp-tooltip.ytp-bottom.ytp-preview
+{
+    top: auto !important;
+    bottom: 64px !important;
 }

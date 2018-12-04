@@ -94,6 +94,7 @@ function video_encode() {
     };
 
     function overwrite(self, callback, mime) {
+      console.log(mime);
       if (!mime || mime.indexOf('webm') != -1 || mime.indexOf('vp8') != -1 || mime.indexOf('vp9') != -1)
         return false;
       else
