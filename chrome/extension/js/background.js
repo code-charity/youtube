@@ -73,7 +73,6 @@ chrome.storage.local.get(function(data) {
   }
 
   chrome.runtime.onMessage.addListener(function(request, sender) {
-    console.log(request, sender);
     if (sender && sender.tab && sender.tab.id) {
       if (request.enabled == true)
         chrome.browserAction.setIcon({
@@ -82,7 +81,7 @@ chrome.storage.local.get(function(data) {
         });
     }
 
-    _gaq.push(['_trackPageview', '/background-1.8.38', 'page-loaded']);
+    _gaq.push(['_trackPageview', '/background-1.8.41', 'page-loaded']);
   });
 });
 

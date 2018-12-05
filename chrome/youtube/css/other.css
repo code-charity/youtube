@@ -70,9 +70,9 @@ html:not([scroll-to-top]) .scroll-to-top
     filter: grayscale(1) brightness(3);
 }
 
-[youtube-version='new'][play-videos-by-hovering-the-thumbnails='false'] #mouseover-overlay,
-[youtube-version='old'][play-videos-by-hovering-the-thumbnails='false'] .mouseover-play,
-[youtube-version='old'][play-videos-by-hovering-the-thumbnails='false'] .mouseover-img
+[youtube-version='new'][play-videos-by-hovering-the-thumbnails='true'] #mouseover-overlay,
+[youtube-version='old'][play-videos-by-hovering-the-thumbnails='true'] .mouseover-play,
+[youtube-version='old'][play-videos-by-hovering-the-thumbnails='true'] .mouseover-img
 {
     display: none!important;
 }

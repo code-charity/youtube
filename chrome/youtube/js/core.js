@@ -186,7 +186,14 @@ chrome.storage.local.get(function(data) {
     'var globalAutoplayByUser = false;',
     'window.addEventListener("keydown", function(){globalAutoplayByUser=true;}, true);',
     'window.addEventListener("mousedown", function(){globalAutoplayByUser=true;}, true);',
-    'setInterval(function(){if (document.querySelector("video"))document.querySelector("video").onplay = function () {if(!video_autoplay()&&globalAutoplayByUser!=true)this.pause();};});',
+    'function modPlay(original) {' +
+      'return function () {' +
+        'if(!video_autoplay()&&globalAutoplayByUser!=true) this.pause();' +
+        'return original.apply(this, arguments);' +
+      '};' +
+    '}' +
+    'HTMLMediaElement.prototype.play = modPlay(HTMLMediaElement.prototype.play);',
+
     'forced_theater_mode();'
   ], 'improvedtube-functions');
 
