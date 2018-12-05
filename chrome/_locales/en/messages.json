@@ -8,8 +8,8 @@
   "Allow60Fps": {
     "message": "Allow 60fps"
   },
-  "AllowAdsOnlyOnVideosOfSubscribedChannels": {
-    "message": "Allow ads only on videos of subscribed channels"
+  "AllowAdsOnlyOnSubscribedChannels": {
+    "message": "Ads only on subscribed channels"
   },
   "AllowAdsOnVideos": {
     "message": "Allow ads on videos"
@@ -243,7 +243,7 @@
     "message": "Play prev video"
   },
   "PlayVideosByHoveringTheThumbnails": {
-    "message": "Moving thumbnails"
+    "message": "Hide moving thumbnails"
   },
   "PopupPlayer": {
     "message": "Popup player"

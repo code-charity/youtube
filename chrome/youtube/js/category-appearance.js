@@ -301,7 +301,6 @@ function related_videos_collapsed() {
       (document.querySelector('#watch7-sidebar-contents'))
     ) {
       clearInterval(globalRelatedVideosWait);
-      console.log('re');
       const data = settings.related_videos;
 
       if (data == 'collapsed') {

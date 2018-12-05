@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "ImprovedTube for YouTube",
-  "version": "1.8.38",
+  "version": "1.8.41",
 
   "default_locale": "en",
   "description": "Improves YouTube's functions and site with Limited Permissions. Auto HD, Resize, Annotations, Playback Speed and more.",

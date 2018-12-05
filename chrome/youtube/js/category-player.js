@@ -94,7 +94,6 @@ function video_encode() {
     };
 
     function overwrite(self, callback, mime) {
-      console.log(mime);
       if (!mime || mime.indexOf('webm') != -1 || mime.indexOf('vp8') != -1 || mime.indexOf('vp9') != -1)
         return false;
       else
@@ -164,14 +163,11 @@ function up_next_autoplay() {
 function video_autopause(type) {
   const data = settings ? settings.video_autopause : 'false',
     player = document.getElementById('movie_player') || document.querySelector('.html5-video-player');
-
-  /*if (data == 'true' && document.documentElement.getAttribute('page') == 'video') {
-    if (type == 'pause') {
-      globalPause.call(player.querySelector('video'));
-    } else {
-      globalPlay.call(player.querySelector('video'));
-    }
-  }*/
+    
+  if (data == 'true' && document.documentElement.getAttribute('page') == 'video') {
+    if (type == 'pause')
+      document.querySelector('video').pause();
+  }
 }
 
 

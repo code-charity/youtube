@@ -188,8 +188,7 @@ var menu = {
       type: 'section',
       play_videos_by_hovering_the_thumbnails: {
         label: 'PlayVideosByHoveringTheThumbnails',
-        type: 'toggle',
-        default: 'true'
+        type: 'toggle'
       },
       hd_thumbnail: {
         label: 'HdThumbnail',
@@ -816,7 +815,7 @@ var menu = {
         auto_deactivation: 'subscribed_channel_player_ads'
       },
       subscribed_channel_player_ads: {
-        label: 'AllowAdsOnlyOnVideosOfSubscribedChannels',
+        label: 'AllowAdsOnlyOnSubscribedChannels',
         type: 'toggle',
         default: 'false',
         auto_deactivation: 'allow_video_ads'

@@ -157,14 +157,12 @@ function wheel(event) {
    ) {
     event.preventDefault();
 
-    console.log('OldSpeed: ' + player.getPlaybackRate());
     if (event.deltaY > 0 || event.deltaX > 0) {
       speed = player.getPlaybackRate() - 0.25;
     } else if (event.deltaY < 0 || event.deltaX < 0) {
       speed = player.getPlaybackRate() + 0.25;
     }
 
-    console.log('NewSpeed: ' + speed);
     speed = (speed > 2 ? 2 : speed < 0.25 ? 0.25 : speed);
 
     player.setPlaybackRate(speed);
