@@ -410,7 +410,12 @@ html[player-color='white'] .ytp-swatch-color
 
 
 
-
+html[youtube-version=new][scroll-for-details='false'] .ytp-fullerscreen-edu-button.ytp-button,
+html[youtube-version=new][scroll-for-details='false'] ytd-app[masthead-hidden_] > #content > #masthead-container,
+html[youtube-version=new][scroll-for-details='false'] ytd-app[masthead-hidden_] ytd-watch-flexy > #columns
+{
+    display: none!important;
+}
 
 
 

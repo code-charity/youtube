@@ -188,11 +188,12 @@ chrome.storage.local.get(function(data) {
     'window.addEventListener("mousedown", function(){globalAutoplayByUser=true;}, true);',
     'function modPlay(original) {' +
       'return function () {' +
-        'if(!video_autoplay()&&globalAutoplayByUser!=true) this.pause();' +
+        'var self = this;if(!video_autoplay()&&globalAutoplayByUser!=true)setTimeout(function(){self.pause();},10);' +
         'return original.apply(this, arguments);' +
       '};' +
     '}' +
     'HTMLMediaElement.prototype.play = modPlay(HTMLMediaElement.prototype.play);',
+    "setInterval(function(){document.documentElement.removeAttribute('live', '');if (document.getElementById('live-chat-iframe') || document.querySelector('ytd-live-chat-frame'))document.documentElement.setAttribute('live', '');},500);",
 
     'forced_theater_mode();'
   ], 'improvedtube-functions');
@@ -262,6 +263,7 @@ chrome.storage.local.get(function(data) {
   squared_user_images();
   improve_youtube_logo();
   play_videos_by_hovering_the_thumbnails();
+  scroll_for_details();
 
 
   /*--------------------------------------------------------------
@@ -357,7 +359,8 @@ chrome.runtime.onMessage.addListener(function(request) {
       request == 'transparent_background' ||
       request == 'squared_user_images' ||
       request == 'improve_youtube_logo' ||
-      request == 'play_videos_by_hovering_the_thumbnails'
+      request == 'play_videos_by_hovering_the_thumbnails' ||
+      request == 'scroll_for_details'
     ) {
       window[request]();
 

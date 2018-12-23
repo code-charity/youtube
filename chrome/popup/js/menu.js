@@ -170,6 +170,11 @@ var menu = {
     section_1: {
       label: 'Other',
       type: 'section',
+      scroll_for_details: {
+        label: 'Scroll for details',
+        type: 'toggle',
+        default: 'true'
+      },
       scroll_to_top: {
         label: 'ScrollToTopButton',
         type: 'toggle'
@@ -778,10 +783,6 @@ var menu = {
           }
         ]
       },
-      video_autopause: {
-        label: 'VideoAutopause',
-        type: 'toggle'
-      },
       up_next_autoplay: {
         label: 'UpNextAutoplay',
         type: 'select',
@@ -802,6 +803,10 @@ var menu = {
       },
       mini_player_b: {
         label: 'Mini player (beta)',
+        type: 'toggle'
+      },
+      video_autopause: {
+        label: 'VideoAutopause',
         type: 'toggle'
       }
     },

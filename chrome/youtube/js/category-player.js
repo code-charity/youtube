@@ -163,7 +163,7 @@ function up_next_autoplay() {
 function video_autopause(type) {
   const data = settings ? settings.video_autopause : 'false',
     player = document.getElementById('movie_player') || document.querySelector('.html5-video-player');
-    
+
   if (data == 'true' && document.documentElement.getAttribute('page') == 'video') {
     if (type == 'pause')
       document.querySelector('video').pause();
