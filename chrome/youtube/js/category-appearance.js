@@ -89,6 +89,10 @@ function endscreen() {
   document.documentElement.setAttribute('player-endscreen', settings.endscreen);
 }
 
+function scroll_for_details() {
+  document.documentElement.setAttribute('scroll-for-details', settings.scroll_for_details);
+}
+
 function transparent_background() {
   document.documentElement.setAttribute('transparent-player-background', settings.transparent_background);
 }
@@ -100,7 +104,7 @@ function forced_theater_mode() {
   ) {
     setCookie('wide', '1');
 
-    if (!document.querySelector('.watch-stage-mode') && !document.querySelector('ytd-watch-flexy[theater]'))
+    if (!document.querySelector('.watch-stage-mode') && !document.querySelector('ytd-watch-flexy[theater]') && document.querySelector('.html5-video-player .ytp-size-button.ytp-button'))
       document.querySelector('.html5-video-player .ytp-size-button.ytp-button').click();
   }
 }

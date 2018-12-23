@@ -16,4 +16,4 @@ _gaq.push(['_setSessionCookieTimeout', 86400000]);
   s.parentNode.insertBefore(ga, s);
 })();
 
-_gaq.push(['_trackPageview', '/popup-1.8.41', 'started']);
+_gaq.push(['_trackPageview', '/popup-1.9.0', 'started']);

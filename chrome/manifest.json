@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "ImprovedTube for YouTube",
-  "version": "1.8.41",
+  "name": "Improve YouTube! (Open-Source for YouTube)",
+  "version": "1.9.0",
 
   "default_locale": "en",
-  "description": "Improves YouTube's functions and site with Limited Permissions. Auto HD, Resize, Annotations, Playback Speed and more.",
+  "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
   "icons": {
     "16": "extension/img/16.png",
     "32": "extension/img/32.png",
@@ -105,6 +105,7 @@
     "https://www.youtube.com/"
   ],
   "browser_action": {
+    "default_title": "ImprovedTube: optimize Youtube!",
     "default_icon": {
       "16": "extension/img/16g.png",
       "32": "extension/img/32g.png",
