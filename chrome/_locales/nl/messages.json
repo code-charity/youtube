@@ -1,353 +1,353 @@
 {
   "About": {
-    "message": "About"
+    "message": "Over"
   },
   "AboutUs": {
-    "message": "About us"
+    "message": "Over ons"
   },
   "Allow60Fps": {
-    "message": "Allow 60fps"
+    "message": "60fps toestaan"
   },
   "AllowAdsOnlyOnSubscribedChannels": {
-    "message": "Ads only on subscribed channels"
+    "message": "Alleen reclame op geabonneerde kanalen"
   },
   "AllowAdsOnVideos": {
-    "message": "Allow ads on videos"
+    "message": "Reclame toestaan op video's"
   },
   "AllowLoudnessNormalization": {
-    "message": "Allow loudness normalization"
+    "message": "Volumenormalisering toepassen"
   },
   "AllowSubtitles": {
-    "message": "Allow subtitles"
+    "message": "Ondertiteling toestaan"
   },
   "Annotations": {
-    "message": "Annotations"
+    "message": "Annotaties"
   },
   "Appearance": {
-    "message": "Appearance"
+    "message": "Uiterlijk"
   },
   "Autoplay": {
-    "message": "Autoplay"
+    "message": "Automatisch afspelen"
   },
   "Bluelight": {
-    "message": "Bluelight"
+    "message": "Blauw licht"
   },
   "Cards": {
-    "message": "Cards"
+    "message": "Kaarten"
   },
   "Channel": {
-    "message": "Channel"
+    "message": "Kanaal"
   },
   "ClassicPopupTheme": {
-    "message": "Classic theme"
+    "message": "Klassiek thema"
   },
   "Comments": {
-    "message": "Comments"
+    "message": "Reacties"
   },
   "defaultChannelTab": {
-    "message": "Default channel tab"
+    "message": "Standaard kanaaltabblad"
   },
   "DefaultYoutubeHomePage": {
-    "message": "Default Youtube home page"
+    "message": "Standaard YouTube-startpagina"
   },
   "DeleteYoutubeCookies": {
-    "message": "Delete YouTube cookies"
+    "message": "YouTube-cookies verwijderen"
   },
   "desAppearance": {
-    "message": "Player size, comments"
+    "message": "Spelergrootte, reacties"
   },
   "Description": {
-    "message": "Description"
+    "message": "Omschrijving"
   },
   "desGeneral": {
-    "message": "YouTube version, night mode"
+    "message": "YouTube-versie, nachtmodus"
   },
   "Details": {
     "message": "Details"
   },
   "Dim": {
-    "message": "Dim"
+    "message": "Dimmen"
   },
   "Endscreen": {
-    "message": "Endscreen"
+    "message": "Eindscherm"
   },
   "ExportSettings": {
-    "message": "Export settings"
+    "message": "Instellingen exporteren"
   },
   "FeaturedContent": {
-    "message": "Featured content"
+    "message": "Uitgelichte inhoud"
   },
   "Footer": {
-    "message": "Footer"
+    "message": "Voettekst"
   },
   "ForcedTheaterMode": {
-    "message": "Forced theater mode"
+    "message": "Theatermodus afdwingen"
   },
   "General": {
-    "message": "General"
+    "message": "Algemeen"
   },
   "HdThumbnail": {
-    "message": "HD Thumbnail"
+    "message": "HD-miniatuurvoorbeeld"
   },
   "Header": {
-    "message": "Header"
+    "message": "Kop"
   },
   "History": {
-    "message": "History"
+    "message": "Geschiedenis"
   },
   "HowLongAgoTheVideoWasUploaded": {
-    "message": "How long ago the video was uploaded"
+    "message": "Wanneer de video werd geüpload"
   },
   "ImportSettings": {
-    "message": "Import settings"
+    "message": "Instellingen importeren"
   },
   "ImproveYoutubeLogo": {
-    "message": "Improve YouTube logo"
+    "message": "YouTube-logo verbeteren"
   },
   "Likes": {
-    "message": "Likes"
+    "message": "Vind-ik-leuks"
   },
   "ListOfActiveFeatures": {
-    "message": "List of active features"
+    "message": "Lijst met actieve functies"
   },
   "Livechat": {
-    "message": "Live chat"
+    "message": "Livechat"
   },
   "MiniPlayer": {
-    "message": "Mini player"
+    "message": "Minispeler"
   },
   "NightMode": {
-    "message": "Night mode"
+    "message": "Nachtmodus"
   },
   "optAuto": {
-    "message": "Auto"
+    "message": "Automatisch"
   },
   "optCollapsed": {
-    "message": "Collapsed"
+    "message": "Ingeklapt"
   },
   "optCtrlLeft": {
-    "message": "Ctrl + Left"
+    "message": "Ctrl + pijltje links"
   },
   "optCtrlRight": {
-    "message": "Ctrl + Right"
+    "message": "Ctrl + pijltje rechts"
   },
   "optDisabled": {
-    "message": "Disabled"
+    "message": "Uitgeschakeld"
   },
   "optDoNotChange": {
-    "message": "Don't change"
+    "message": "Niet aanpassen"
   },
   "optEnabled": {
-    "message": "Enabled"
+    "message": "Ingeschakeld"
   },
   "optExpanded": {
-    "message": "Expanded"
+    "message": "Uitgeklapt"
   },
   "optFitToWindow": {
-    "message": "Fit to window"
+    "message": "Aanpassen aan vensterbreedte"
   },
   "optFitToWindowTheater": {
-    "message": "Fit to window (Theater mode)"
+    "message": "Aanpassen aan vensterbreedte (theatermodus)"
   },
   "optFullWindow": {
-    "message": "Full window"
+    "message": "Volledige venstergrootte"
   },
   "optHidden": {
-    "message": "Hidden"
+    "message": "Verborgen"
   },
   "optHiddenOnVideoPage": {
-    "message": "Hidden on video page"
+    "message": "Verborgen op videopagina"
   },
   "optHover": {
-    "message": "Hover"
+    "message": "Overzweven met cursor"
   },
   "optHoverOnVideoPage": {
-    "message": "Hover on video page"
+    "message": "Overzweven met cursor op videopagina"
   },
   "optIconsOnly": {
-    "message": "Icons only"
+    "message": "Alleen pictogrammen"
   },
   "optInherit": {
-    "message": "Inherit"
+    "message": "Overnemen"
   },
   "optNew": {
-    "message": "New"
+    "message": "Nieuw"
   },
   "optNormal": {
-    "message": "Normal"
+    "message": "Normaal"
   },
   "optOld": {
-    "message": "Old"
+    "message": "Oud"
   },
   "optPlaylists": {
-    "message": "Playlists"
+    "message": "Afspeellijsten"
   },
   "optSpacebar": {
-    "message": "Spacebar"
+    "message": "Spatiebalk"
   },
   "optSubscriptions": {
-    "message": "Subscriptions"
+    "message": "Abonnementen"
   },
   "optTopOfPage": {
-    "message": "Top of page"
+    "message": "Bovenkant van pagina"
   },
   "optTrending": {
-    "message": "Trending"
+    "message": "Populair"
   },
   "optVideos": {
-    "message": "Videos"
+    "message": "Video's"
   },
   "optWatchLater": {
-    "message": "Watch later"
+    "message": "Later bekijken"
   },
   "optWheelAlt": {
-    "message": "Wheel + Alt"
+    "message": "Muiswiel + Alt"
   },
   "optWheelHoverPlayer": {
-    "message": "Wheel + Hover player"
+    "message": "Muiswiel + cursor boven speler"
   },
   "optWheelShift": {
-    "message": "Wheel + Shift"
+    "message": "Muiswiel + Shift"
   },
   "Permissions": {
-    "message": "Permissions"
+    "message": "Machtigingen"
   },
   "PlaybackSpeed": {
-    "message": "Playback speed"
+    "message": "Afspeelsnelheid"
   },
   "Player": {
-    "message": "Player"
+    "message": "Speler"
   },
   "PlayerButtons": {
-    "message": "Player buttons"
+    "message": "Spelerbediening"
   },
   "PlayerColor": {
-    "message": "Player color"
+    "message": "Spelerkleur"
   },
   "PlayerShortcutsAlwaysActive": {
-    "message": "Player shortcuts always active"
+    "message": "Spelersneltoetsen altijd inschakelen"
   },
   "PlayerSize": {
-    "message": "Player size"
+    "message": "Spelergrootte"
   },
   "Playlist": {
-    "message": "Playlist"
+    "message": "Afspeellijst"
   },
   "PlayNextVideo": {
-    "message": "Play next video"
+    "message": "Volgende video afspelen"
   },
   "PlayPauseVideo": {
-    "message": "Play/pause video"
+    "message": "Video afspelen/pauzeren"
   },
   "PlayPrevVideo": {
-    "message": "Play prev video"
+    "message": "Vorige video afspelen"
   },
   "PlayVideosByHoveringTheThumbnails": {
-    "message": "Hide moving thumbnails"
+    "message": "Bewegende miniatuurvoorbeelden verbergen"
   },
   "PopupPlayer": {
-    "message": "Popup player"
+    "message": "Pop-upspeler"
   },
   "RelatedVideos": {
-    "message": "Related videos"
+    "message": "Gerelateerde video's"
   },
   "Repeat": {
-    "message": "Repeat"
+    "message": "Herhalen"
   },
   "ResetAllSettings": {
-    "message": "Reset all settings"
+    "message": "Standaardwaarden herstellen"
   },
   "Reverse": {
-    "message": "Reverse"
+    "message": "Omdraaien"
   },
   "Schedule": {
-    "message": "Schedule"
+    "message": "Schema"
   },
   "ScrollAdjustsPlaybackSpeed": {
-    "message": "Scroll adjusts playback speed"
+    "message": "Scrollen past afspeelsnelheid aan"
   },
   "ScrollAdjustsVolume": {
-    "message": "Scroll adjusts volume"
+    "message": "Scrollen past volume aan"
   },
   "ScrollToTopButton": {
-    "message": "Scroll to top button"
+    "message": "Knop om naar bovenkant te scrollen"
   },
   "Settings": {
-    "message": "Settings"
+    "message": "Instellingen"
   },
   "Shortcuts": {
-    "message": "Shortcuts"
+    "message": "Sneltoetsen"
   },
   "ShowChannelVideosCount": {
-    "message": "Show channel videos count"
+    "message": "Aantal video's op kanaal tonen"
   },
   "Shuffle": {
-    "message": "Shuffle"
+    "message": "Willekeurig"
   },
   "Sidebar": {
-    "message": "Sidebar"
+    "message": "Zijbalk"
   },
   "SquaredUserImages": {
-    "message": "Squared user images"
+    "message": "Vierkante gebruikersafbeeldingen"
   },
   "Themes": {
-    "message": "Themes"
+    "message": "Thema's"
   },
   "Thumbnails": {
-    "message": "Thumbnails"
+    "message": "Miniatuurvoorbeelden"
   },
   "TrailerAutoplay": {
-    "message": "Trailer autoplay"
+    "message": "Trailers automatisch afspelen"
   },
   "TransparentBackground": {
-    "message": "Transparent background"
+    "message": "Doorzichtige achtergrond"
   },
   "TurnOff": {
-    "message": "Turn off"
+    "message": "Uitschakelen"
   },
   "TurnOn": {
-    "message": "Turn on"
+    "message": "Inschakelen"
   },
   "UpNextAutoplay": {
-    "message": "Up next autoplay"
+    "message": "Volgende in wachtrij automatisch afspelen"
   },
   "Use24HourFormat": {
-    "message": "Use 24-hour format"
+    "message": "24-uurstijd gebruiken"
   },
   "Version": {
-    "message": "Version"
+    "message": "Versie"
   },
   "VideoAutopause": {
-    "message": "Video autopause"
+    "message": "Automatisch pauzeren"
   },
   "VideoAutoplay": {
-    "message": "Video autoplay"
+    "message": "Automatisch afspelen"
   },
   "VideoEncode": {
-    "message": "Video encode"
+    "message": "Encodering"
   },
   "VideoFullscreenQuality": {
-    "message": "Video fullscreen quality"
+    "message": "Kwaliteit op volledig scherm"
   },
   "VideoQuality": {
-    "message": "Video quality"
+    "message": "Videokwaliteit"
   },
   "Videos": {
-    "message": "Videos"
+    "message": "Video's"
   },
   "ViewsCount": {
-    "message": "Views count"
+    "message": "Aantal keer bekeken"
   },
   "Volume": {
     "message": "Volume"
   },
   "WhatIsNew": {
-    "message": "What's new"
+    "message": "Wat is er nieuw"
   },
   "YoutubePreventClosure": {
-    "message": "Prevent closing YouTube"
+    "message": "Afsluiten van YouTube voorkomen"
   },
   "YoutubeVersion": {
-    "message": "YouTube version"
+    "message": "YouTube-versie"
   }
 }
