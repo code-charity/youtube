@@ -39,7 +39,7 @@ function saveSettings(name, value) {
 function exportSettings() {
   chrome.permissions.request({
     permissions: ['downloads'],
-    origins: ['https://www.youtube.com/']
+    origins: ['newtab']
   }, function (granted) {
     if (granted) {
       let blob = new Blob([JSON.stringify(storage)], {
