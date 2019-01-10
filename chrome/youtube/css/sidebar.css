@@ -120,3 +120,8 @@
 
     margin: auto!important;
 }
+
+[youtube-version=old][related-videos=collapsed][related-videos-collapsed=true] #watch7-sidebar-modules
+{
+    display: none !important;
+}
