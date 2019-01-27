@@ -96,7 +96,7 @@
     "message": "Histórico"
   },
   "HowLongAgoTheVideoWasUploaded": {
-    "message": "Há uanto tempo este video foi enviado"
+    "message": "Há quanto tempo este video foi enviado"
   },
   "ImportSettings": {
     "message": "Importar configurações"
@@ -108,7 +108,7 @@
     "message": "Curtidas"
   },
   "ListOfActiveFeatures": {
-    "message": "List of active features"
+    "message": "Lista de recursos ativos"
   },
   "Livechat": {
     "message": "Bate-papo AO VIVO"
@@ -126,10 +126,10 @@
     "message": "Reduzir"
   },
   "optCtrlLeft": {
-    "message": "Ctrl + Left"
+    "message": "Ctrl + Esquerdo"
   },
   "optCtrlRight": {
-    "message": "Ctrl + Right"
+    "message": "Ctrl + Direito"
   },
   "optDisabled": {
     "message": "Desabilitar"
