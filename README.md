@@ -1,11 +1,13 @@
 # ImprovedTube 
 
-The improved youtube experience. (or your preferred slogan)
+The improved youtube experience. <Or your preferred slogan>
 
-# Current version:
-<Insert current version here>
+Current version:
 
-Extension link:
+# Links:
+Google Chrome webstore:
 
-<List of features here>
- 
+Firefox: Coming soon
+
+# List of features:
+(Insert feature list here)
