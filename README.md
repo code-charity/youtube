@@ -2,7 +2,7 @@
 
 The improved youtube experience. <Or your preferred slogan>
 
-Current version:
+Current version: 1.9.4
 
 # Links:
 Google Chrome webstore:
