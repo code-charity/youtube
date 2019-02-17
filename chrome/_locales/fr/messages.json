@@ -1,6 +1,6 @@
 {
   "About": {
-    "message": "About"
+    "message": "À propos"
   },
   "AboutUs": {
     "message": "About us"
@@ -24,7 +24,7 @@
     "message": "Annotations"
   },
   "Appearance": {
-    "message": "Appearance"
+    "message": "Apparence"
   },
   "Autoplay": {
     "message": "Autoplay"
@@ -48,10 +48,10 @@
     "message": "Default channel tab"
   },
   "DefaultYoutubeHomePage": {
-    "message": "Default Youtube home page"
+    "message": "Page d'accueil Youtube"
   },
   "DeleteYoutubeCookies": {
-    "message": "Delete YouTube cookies"
+    "message": "Supprimer les cookies YouTube"
   },
   "desAppearance": {
     "message": "Player size, comments"
@@ -72,7 +72,7 @@
     "message": "Endscreen"
   },
   "ExportSettings": {
-    "message": "Export settings"
+    "message": "Exporter réglages"
   },
   "FeaturedContent": {
     "message": "Featured content"
@@ -84,7 +84,7 @@
     "message": "Forced theater mode"
   },
   "General": {
-    "message": "General"
+    "message": "Général"
   },
   "HdThumbnail": {
     "message": "HD Thumbnail"
@@ -99,7 +99,7 @@
     "message": "How long ago the video was uploaded"
   },
   "ImportSettings": {
-    "message": "Import settings"
+    "message": "Importer réglages"
   },
   "ImproveYoutubeLogo": {
     "message": "Improve YouTube logo"
@@ -132,7 +132,7 @@
     "message": "Ctrl + Right"
   },
   "optDisabled": {
-    "message": "Disabled"
+    "message": "Désactivé"
   },
   "optDoNotChange": {
     "message": "Don't change"
@@ -183,7 +183,7 @@
     "message": "Playlists"
   },
   "optSpacebar": {
-    "message": "Spacebar"
+    "message": "Barre d'espace"
   },
   "optSubscriptions": {
     "message": "Subscriptions"
@@ -192,7 +192,7 @@
     "message": "Top of page"
   },
   "optTrending": {
-    "message": "Trending"
+    "message": "Tendances"
   },
   "optVideos": {
     "message": "Videos"
@@ -225,7 +225,7 @@
     "message": "Player color"
   },
   "PlayerShortcutsAlwaysActive": {
-    "message": "Player shortcuts always active"
+    "message": "Les raccourcis du lecteur sont toujours actifs"
   },
   "PlayerSize": {
     "message": "Player size"
@@ -255,7 +255,7 @@
     "message": "Repeat"
   },
   "ResetAllSettings": {
-    "message": "Reset all settings"
+    "message": "Réinitialiser réglages"
   },
   "Reverse": {
     "message": "Reverse"
@@ -267,16 +267,16 @@
     "message": "Scroll adjusts playback speed"
   },
   "ScrollAdjustsVolume": {
-    "message": "Scroll adjusts volume"
+    "message": "Roulette ajuste le volume"
   },
   "ScrollToTopButton": {
     "message": "Scroll to top button"
   },
   "Settings": {
-    "message": "Settings"
+    "message": "Réglages"
   },
   "Shortcuts": {
-    "message": "Shortcuts"
+    "message": "Raccourcis"
   },
   "ShowChannelVideosCount": {
     "message": "Show channel videos count"
@@ -291,7 +291,7 @@
     "message": "Squared user images"
   },
   "Themes": {
-    "message": "Themes"
+    "message": "Thèmes"
   },
   "Thumbnails": {
     "message": "Thumbnails"
@@ -330,7 +330,7 @@
     "message": "Video fullscreen quality"
   },
   "VideoQuality": {
-    "message": "Video quality"
+    "message": "Qualité vidéo"
   },
   "Videos": {
     "message": "Videos"
