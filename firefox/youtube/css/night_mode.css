@@ -1,0 +1,82 @@
+/*--------------------------------------------------------------
+>>> NIGHT MODE:
+----------------------------------------------------------------
+1.0 Bluelight
+2.0 Dim
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Bluelight
+--------------------------------------------------------------*/
+
+html[bluelight-filter],
+html[bluelight-filter] .html5-video-player.ytp-fullscreen
+{
+    filter: url(#improvedtube-bluelight-filter);
+}
+
+html[youtube-version=old][bluelight-filter]:not([dark]):not([theme])
+{
+    background: #f1f1f1!important;
+}
+
+html[youtube-version=old][bluelight-filter]
+{
+    height: auto!important;
+}
+
+#improvedtube-bluelight
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+
+    width: 100%;
+    height: 100vh;
+
+    pointer-events: none;
+}
+
+
+/*--------------------------------------------------------------
+2.0 Dim
+--------------------------------------------------------------*/
+
+#improvedtube-dim
+{
+    position: fixed;
+    z-index: 9999999999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    pointer-events: none;
+
+    background: #000;
+}
+
+#improvedtube-dim-player
+{
+    position: fixed;
+    z-index: 9999999999;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+
+    width: 100%;
+    height: 100vh;
+
+    pointer-events: none;
+
+    background: #000;
+}
+
+.html5-video-player.ytp-fullscreen #improvedtube-dim-player
+{
+    visibility: visible;
+}

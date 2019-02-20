@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <link rel=stylesheet href=popup/css/list.css>
+    <link rel=stylesheet href=popup/css/appearance.css>
+    <link rel=stylesheet href=popup/css/main.css>
+    <link rel=stylesheet href=popup/css/dialog.css>
+    <link rel=stylesheet href=popup/css/header.css>
+    <link rel=stylesheet href=popup/css/themes.css>
+    <link rel=stylesheet href=popup/css/themes/dark.css>
+    <link rel=stylesheet href=popup/css/themes/night.css>
+    <link rel=stylesheet href=popup/css/themes/dawn.css>
+    <link rel=stylesheet href=popup/css/themes/sunset.css>
+    <link rel=stylesheet href=popup/css/themes/desert.css>
+    <link rel=stylesheet href=popup/css/themes/plain.css>
+    <link rel=stylesheet href=popup/css/themes/black.css>
+    <link rel=stylesheet href=popup/css/classic-improvedtube.css>
+</head>
+
+<body data-path=/>
+    <div class=dialog>
+        <div class=dialog__backdrop></div>
+    </div>
+
+    <div class=app>
+        <header class=header>
+        <section class=header__section>
+            <span class="header__button header__button_back">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                        </svg>
+                    </span>
+            <span class=header__title>ImprovedTube</span>
+            <form class=header__form>
+                <input id=header__input-search class=header__input type=text placeholder=Search maxlength=16 required>
+                <a id=header__button-search-clear class=header__button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+                    </svg>
+                </a>
+            </form>
+        </section>
+        <section class=header__section>
+            <a id=header__button-search class=header__button title=Search>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                    <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0a4.5 4.5 0 1 1-.01-8.99A4.5 4.5 0 0 1 9.5 14z"/>
+                </svg>
+            </a>
+            <a id=header__button-menu class=header__button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                  <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+            </a>
+        </section>
+    </header>
+
+    <main class=main>
+        <div class=main__container></div>
+    </main>
+
+    <div class=beta-note>
+      <div></div>
+      <a href=mailto:bugs@improvedtube.com target=_blank>bugs@improvedtube.com</a>
+    </div>
+
+    </div>
+
+    <input type=file id=import-settings accept=".json" multiple=false>
+
+    <script src=youtube/js/cookie.js></script>
+    <script src=youtube/js/params.js></script>
+    <script src=popup/js/functions.js></script>
+    <script src=popup/js/storage.js></script>
+    <script src=popup/js/menu.js></script>
+    <script src=popup/js/themes.js></script>
+    <script src=popup/js/dialog.js></script>
+    <script src=popup/js/elements.js></script>
+    <script src=popup/js/search.js></script>
+    <script src=popup/js/header.js></script>
+    <script src=popup/js/list.js></script>
+    <script src=popup/js/core.js></script>
+    <link rel=stylesheet href=https://fonts.googleapis.com/css?family=Roboto:400,500>
+    <script src=extension/js/ga.js></script>
+</body>
+
+</html>
