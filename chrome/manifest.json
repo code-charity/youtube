@@ -1,7 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Improve YouTube! (Open-Source for YouTube)",
-  "version": "1.9.3",
+  "version": "1.20.50",
+  "version_name": "1.20.50 dev",
 
   "default_locale": "en",
   "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
@@ -24,7 +25,14 @@
       "css": [
         "youtube/css/other.css",
         "youtube/css/night_mode.css",
-        "youtube/css/dark_theme.css",
+        "youtube/css/themes.css",
+        "youtube/css/themes/dark.css",
+        "youtube/css/themes/night.css",
+        "youtube/css/themes/dawn.css",
+        "youtube/css/themes/sunset.css",
+        "youtube/css/themes/desert.css",
+        "youtube/css/themes/plain.css",
+        "youtube/css/themes/black.css",
         "youtube/css/header.css",
         "youtube/css/video_info.css",
         "youtube/css/player.css",
@@ -36,6 +44,7 @@
         "youtube/css/footer.css"
       ],
       "js": [
+        "youtube/js/toBlob.js",
         "youtube/js/modifications.js",
         "youtube/js/functions.js",
         "youtube/js/cookie.js",
@@ -80,10 +89,19 @@
         "popup/css/main.css",
         "popup/css/dialog.css",
         "popup/css/header.css",
-        "popup/css/theme_dark.css",
+        "popup/css/themes.css",
+        "popup/css/themes/dark.css",
+        "popup/css/themes/night.css",
+        "popup/css/themes/dawn.css",
+        "popup/css/themes/sunset.css",
+        "popup/css/themes/desert.css",
+        "popup/css/themes/plain.css",
+        "popup/css/themes/black.css",
         "popup/css/classic-improvedtube.css"
       ],
       "js": [
+        "youtube/js/cookie.js",
+        "youtube/js/params.js",
         "popup/js/functions.js",
         "popup/js/storage.js",
         "popup/js/menu.js",
@@ -101,8 +119,7 @@
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "homepage_url": "https://improvedtube.com",
   "optional_permissions": [
-    "downloads",
-    "https://www.youtube.com/"
+    "downloads"
   ],
   "browser_action": {
     "default_title": "ImprovedTube: optimize Youtube!",
