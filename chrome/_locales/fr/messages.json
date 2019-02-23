@@ -1,63 +1,63 @@
 {
   "general": {
-    "message": "General"
+    "message": "Général"
   },
   "nightMode": {
-    "message": "Night mode"
+    "message": "Mode nuit"
   },
   "darkTheme": {
-    "message": "Dark theme"
+    "message": "Theme Nuit"
   },
   "bluelight": {
-    "message": "Bluelight"
+    "message": "Lumière bleue"
   },
   "dim": {
-    "message": "Dim"
+    "message": "Assombrir"
   },
   "schedule": {
-    "message": "Schedule"
+    "message": "Planifier"
   },
   "turnOn": {
-    "message": "Turn on"
+    "message": "Allumer"
   },
   "turnOff": {
-    "message": "Turn off"
+    "message": "Éteindre"
   },
   "defaultYoutubeHomePage": {
-    "message": "Default YouTube home page"
+    "message": "Page d'accueil Youtube"
   },
   "home": {
-    "message": "Home"
+    "message": "Accueil"
   },
   "normal": {
     "message": "Normal"
   },
   "trending": {
-    "message": "Trending"
+    "message": "Tendances"
   },
   "subscriptions": {
-    "message": "Subscriptions"
+    "message": "Abonnements"
   },
   "history": {
-    "message": "History"
+    "message": "Historique"
   },
   "watchLater": {
-    "message": "Watch later"
+    "message": "À regarder plus tard"
   },
   "youtubeVersion": {
-    "message": "YouTube version"
+    "message": "Version YouTube"
   },
   "doNotChange": {
-    "message": "Don't change"
+    "message": "Ne pas changez"
   },
   "old": {
-    "message": "Old"
+    "message": "Ancient"
   },
   "new": {
-    "message": "New"
+    "message": "Modern"
   },
   "other": {
-    "message": "Other"
+    "message": "Autre"
   },
   "scrollForDetails": {
     "message": "Scroll for details"
@@ -72,16 +72,16 @@
     "message": "Squared user images"
   },
   "thumbnails": {
-    "message": "Thumbnails"
+    "message": "Vignettes"
   },
   "hideMovingThumbnails": {
-    "message": "Hide moving thumbnails"
+    "message": "Vignettes sans animation"
   },
   "hdThumbnail": {
-    "message": "HD Thumbnail"
+    "message": "Vignette HD"
   },
   "appearance": {
-    "message": "Appearance"
+    "message": "Apparence"
   },
   "header": {
     "message": "Header"
@@ -105,7 +105,7 @@
     "message": "Improve YouTube logo"
   },
   "player": {
-    "message": "Player"
+    "message": "Lecteur"
   },
   "annotations": {
     "message": "Annotations"
@@ -126,7 +126,7 @@
     "message": "Forced theater mode"
   },
   "playerColor": {
-    "message": "Player color"
+    "message": "Couleur du lecteur"
   },
   "red": {
     "message": "Red"
@@ -240,7 +240,7 @@
     "message": "Footer"
   },
   "themes": {
-    "message": "Themes"
+    "message": "Thèmes"
   },
   "night": {
     "message": "Night"
@@ -270,34 +270,34 @@
     "message": "Volume"
   },
   "videoAutoplay": {
-    "message": "Video autoplay"
+    "message": "Démarrer la video automatiquement"
   },
   "autoFullscreen": {
-    "message": "Auto-fullscreen"
+    "message": "Auto-plein écran"
   },
   "allow60Fps": {
-    "message": "Allow 60fps"
+    "message": "Permettre 60fps"
   },
   "allowSubtitles": {
-    "message": "Allow subtitles"
+    "message": "Permettre sous-titres"
   },
   "allowLoudnessNormalization": {
     "message": "Allow loudness normalization"
   },
   "playbackSpeed": {
-    "message": "Playback speed"
+    "message": "Vitesse de lecture"
   },
   "videoCodecH264": {
-    "message": "Video codec (h.264)"
+    "message": "Codec vidéo (h.264)"
   },
   "upNextAutoplay": {
-    "message": "Up next autoplay"
+    "message": "Cocher LECTURE AUTOMATIQUE"
   },
   "enabled": {
-    "message": "Enabled"
+    "message": "Activé"
   },
   "disabled": {
-    "message": "Disabled"
+    "message": "Désactivé"
   },
   "miniPlayer": {
     "message": "Mini player"
@@ -315,37 +315,37 @@
     "message": "Ads only on subscribed channels"
   },
   "playerButtons": {
-    "message": "Player buttons"
+    "message": "Boutons supplémentaire"
   },
   "repeat": {
-    "message": "Repeat"
+    "message": "Lire en boucle"
   },
   "popupPlayer": {
-    "message": "Popup player"
+    "message": "Détacher le lecteur"
   },
   "rotateVideo": {
-    "message": "Rotate video"
+    "message": "Faire pivoté la video"
   },
   "screenshot": {
-    "message": "Screenshot"
+    "message": "Capture d'écran"
   },
   "autoplay": {
-    "message": "Autoplay"
+    "message": "Lecture automatique"
   },
   "reverse": {
-    "message": "Reverse"
+    "message": "Inverser"
   },
   "shuffle": {
-    "message": "Shuffle"
+    "message": "Aléatoire"
   },
   "channels": {
-    "message": "Channels"
+    "message": "chaînes"
   },
   "channel": {
-    "message": "Channel"
+    "message": "chaîne"
   },
   "defaultChannelTab": {
-    "message": "Default channel tab"
+    "message": "Onglet d'accueil d'une chaîne"
   },
   "videos": {
     "message": "Videos"
@@ -354,19 +354,19 @@
     "message": "Playlists"
   },
   "trailerAutoplay": {
-    "message": "Trailer autoplay"
+    "message": "Démarrage automatique des annonces"
   },
   "featuredContent": {
-    "message": "Featured content"
+    "message": "Suggestion de chaîne"
   },
   "shortcuts": {
-    "message": "Shortcuts"
+    "message": "Raccourcis"
   },
   "playPause": {
     "message": "Play / Pause"
   },
   "spacebar": {
-    "message": "Spacebar"
+    "message": "Barre d'espace"
   },
   "stop": {
     "message": "Stop"
@@ -402,10 +402,10 @@
     "message": "Activate captions"
   },
   "volume_mixer": {
-    "message": "Volume Mixer"
+    "message": "Mélangeur de volume"
   },
   "settings": {
-    "message": "Settings"
+    "message": "Réglages"
   },
   "languages": {
     "message": "Languages"
@@ -417,7 +417,7 @@
     "message": "YouTube language"
   },
   "improvedtubeIconOnYoutube": {
-    "message": "ImprovedTube icon on YouTube"
+    "message": "Icône ImprovedTube sur YouTube"
   },
   "youtubeHeaderLeft": {
     "message": "Youtube Header (left)"
@@ -432,28 +432,28 @@
     "message": "Below player"
   },
   "improvedtubeIconInBrowser": {
-    "message": "ImprovedTube icon in Browser"
+    "message": "Icône ImprovedTube dans le navigateur"
   },
   "alwaysActive": {
-    "message": "Always active"
+    "message": "Toujour Allumer"
   },
   "onlyActiveOnYoutube": {
-    "message": "Only active on YouTube"
+    "message": "Allumer uniquement sur YouTube"
   },
   "classicImprovedtube": {
-    "message": "Classic ImprovedTube"
+    "message": "Apparence classic de ImprovedTube"
   },
   "backupReset": {
-    "message": "Backup & reset"
+    "message": "Sauvegarde & Réinitialiser"
   },
   "exportSettings": {
-    "message": "Export settings"
+    "message": "Exporter réglages"
   },
   "importSettings": {
-    "message": "Import settings"
+    "message": "Importer réglages"
   },
   "resetAllSettings": {
-    "message": "Reset all settings"
+    "message": "Réinitialiser réglages"
   },
   "thisWillResetAllSettings": {
     "message": "This will reset all settings."
@@ -462,7 +462,7 @@
     "message": "Cookies"
   },
   "deleteYoutubeCookies": {
-    "message": "Delete YouTube cookies"
+    "message": "Supprimer les cookies YouTube"
   },
   "thisWillRemoveAllCookies": {
     "message": "This will remove all cookies."
@@ -474,7 +474,7 @@
     "message": "Use 24-hour format"
   },
   "about": {
-    "message": "About"
+    "message": "À propos"
   },
   "improvedtubeVersion": {
     "message": "ImprovedTube version"
@@ -486,7 +486,7 @@
     "message": "Permissions"
   },
   "foundABug": {
-    "message": "Found a bug?"
+    "message": "Reporter un bug?"
   },
   "allow": {
     "message": "Allow"
