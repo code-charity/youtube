@@ -2,12 +2,14 @@
 
 The improved youtube experience. <Or your preferred slogan>
 
-Current version: 1.9.4
+Current version: 1.20.50
 
 # Links:
-Google Chrome webstore:
+Google Chrome webstore (stable):
 
-Firefox: Coming soon
+Google Chrome webstore (beta):
+
+Firefox: (awaiting extension publication) 
 
 # List of features:
 (Insert feature list here)
