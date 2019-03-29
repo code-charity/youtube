@@ -184,12 +184,13 @@ li
     height: 3.75rem;
     margin: 0 0 .3rem 0;
 
-    transition: .25s;
+    transition: transform .25s, box-shadow .29s;
 
     border-radius: 50%;
     background: var(--it-primary-color);
     box-shadow: 0 3px 10px rgba(0, 0, 0, .24);
 
+    will-change: transform, box-shadow;
     align-items: center;
     justify-content: center;
 }
@@ -212,7 +213,7 @@ li
 {
     transform: scale(.9);
 
-    box-shadow: 0 0 5px rgba(0, 0, 0, .24);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .24);
 }
 
 .list_type_home .list__item[disabled]
@@ -465,7 +466,16 @@ html[improvedtube-page] body[data-path='/'] main .list__item__icon svg
 {
     font-size: .85rem;
 
-    min-width: 2.5rem;
+    width: 50px;
+    min-width: auto;
+    max-width: none;
+    padding: 4px 0;
+
+    text-align: center;
+
+    color: var(--it-item-text-color);
+    border: none;
+    background: transparent;
 }
 
 body:not([classic-improvedtube]) .list__item_slider__input,

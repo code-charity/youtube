@@ -40,13 +40,14 @@
 
 .header__title
 {
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 500;
 
     position: absolute;
-    left: 1rem;
+    left: 16px;
 
     transition: left .1s;
+    letter-spacing: .5px;
 
     color: var(--it-header-title-color);
 }

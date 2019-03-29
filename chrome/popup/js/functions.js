@@ -6,22 +6,27 @@
 --------------------------------------------------------------*/
 
 function loadLocale(string = 'en', callback) {
-  if (document.documentElement.hasAttribute('improvedtube-page')) {
-    chrome.runtime.sendMessage({path: '../_locales/' + string + '/messages.json'}, function(response) {
-      callback(self, response.locale);
-    });
-  } else {
-    let xhr = new XMLHttpRequest(),
-        self = this;
+    if (document.documentElement.hasAttribute('improvedtube-page')) {
+        chrome.runtime.sendMessage({
+            path: '../_locales/' + string + '/messages.json'
+        }, function(response) {
+            callback(self, response.locale);
+        });
+    } else {
+        let xhr = new XMLHttpRequest(),
+            self = this;
 
-    xhr.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200)
-        callback(self, this.responseText);
-    };
+        xhr.onload = function() {
+            callback(self, this.responseText);
+        };
 
-    xhr.open('post', '../_locales/' + string + '/messages.json', true);
-    xhr.send();
-  }
+        xhr.onerror = function() {
+            callback(self, false);
+        };
+
+        xhr.open('post', '../_locales/' + string + '/messages.json', true);
+        xhr.send();
+    }
 }
 
 
@@ -29,21 +34,21 @@ function loadLocale(string = 'en', callback) {
 1.0 Get accept languages (i18n)
 --------------------------------------------------------------*/
 
-HTMLElement.prototype.getMessage = function (string, clear) {
-  if (clear)
-    this.innerHTML = '';
+HTMLElement.prototype.getMessage = function(string, clear) {
+    if (clear)
+        this.innerHTML = '';
 
-  if (locale.hasOwnProperty(string) && locale[string].hasOwnProperty('message'))
-    this.innerHTML += this.classList.contains('header__title') && locale[string].message.length > 20 ? (locale[string].message.substring(0, 20) + '...') : locale[string].message;
-  else if (string)
-    this.innerHTML += this.classList.contains('header__title') && string.length > 20 ? (string.substring(0, 20) + '...') : string;
+    if (locale.hasOwnProperty(string) && locale[string].hasOwnProperty('message'))
+        this.innerHTML += this.classList.contains('header__title') && locale[string].message.length > 20 ? (locale[string].message.substring(0, 20) + '...') : locale[string].message;
+    else if (string)
+        this.innerHTML += this.classList.contains('header__title') && string.length > 20 ? (string.substring(0, 20) + '...') : string;
 };
 
 function getMessage(string) {
-  if (locale.hasOwnProperty(string) && locale[string].hasOwnProperty('message'))
-    return locale[string].message;
-  else if (string)
-    return string;
+    if (locale.hasOwnProperty(string) && locale[string].hasOwnProperty('message'))
+        return locale[string].message;
+    else if (string)
+        return string;
 };
 
 
@@ -52,5 +57,5 @@ function getMessage(string) {
 --------------------------------------------------------------*/
 
 HTMLElement.prototype.remove = function() {
-  this.parentElement.removeChild(this);
+    this.parentElement.removeChild(this);
 };
