@@ -59,14 +59,14 @@ document.querySelector('#header__button-search').onclick = function() {
     document.querySelector('#header__input-search').focus();
 };
 
-document.querySelector('#header__input-search').addEventListener('keydown', function() {
-    setTimeout(function() {
+document.querySelector('#header__input-search').addEventListener('input', function() {
+    /*setTimeout(function() {
         let data = menu,
             path = search_fix.replace(/[^A-Za-z]+/g, ''),
             value = document.querySelector('#header__input-search').value.toLowerCase(),
             search_value = '';
 
-        if (value.length < 4) {
+        if (value.length < 1) {
           if (document.querySelector('.main__container').firstChild)
               document.querySelector('.main__container').firstChild.remove();
 
@@ -81,7 +81,18 @@ document.querySelector('#header__input-search').addEventListener('keydown', func
             search_value += (search_value == '' ? '' : ' ') + i;
 
         createList(search(data, search_value.toLowerCase()));
-    }, 50);
+    });*/
+
+    var value = this.value.toLowerCase(),
+        search_value = [value];
+
+    for (let i in locale) {
+        if (new RegExp(value).test(locale[i].message.toLowerCase())) {
+            search_value.push(i.toLowerCase());
+        }
+    }
+
+    createList(search(menu, search_value));
 });
 
 

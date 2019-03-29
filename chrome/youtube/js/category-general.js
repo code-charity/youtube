@@ -67,7 +67,7 @@ function bluelight() {
   )
     return false;
 
-  if (data && data != 'disabled') {
+  if (data && data != 'disabled' && data != '0') {
     if (!document.querySelector('#improvedtube-bluelight-filter feColorMatrix')) {
       let div = document.createElement('div');
 
@@ -101,7 +101,7 @@ function dim() {
   )
     return false;
 
-  if (data && data != 'disabled') {
+  if (data && data != 'disabled' && data != '0') {
     if (document.getElementById('improvedtube-dim') && document.getElementById('improvedtube-dim-player')) {
 			document.getElementById('improvedtube-dim').style.opacity = parseInt(Number(data)) / 100 || 0;
       document.getElementById('improvedtube-dim-player').style.opacity = parseInt(Number(data)) / 100 || 0;
@@ -153,6 +153,11 @@ function youtube_home_page(current_url = location.pathname) {
       url = '/feed/history';
     else if (data == 'watch_later')
       url = '/playlist?list=WL';
+    else if (data == 'search') {
+      document.documentElement.setAttribute('improvedtube-home', '');
+
+      return false;
+    }
 
     location.replace(url);
   }

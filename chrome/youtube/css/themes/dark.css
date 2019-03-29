@@ -1,12 +1,13 @@
 [it-theme]
 {
-    --yt-swatch-primary: rgb(35,35,35)!important;
-    --yt-swatch-primary-darker: rgb(32,32,32)!important;
-    --yt-swatch-text: rgb(255,255,255)!important;
-    --yt-swatch-important-text: rgb(255,255,255)!important;
-    --yt-swatch-input-text: rgba(255,255,255,1)!important;
+    --yt-swatch-header-primary: rgb(34,38,42)!important;
+    --yt-swatch-primary: rgb(34,38,42)!important;
+    --yt-swatch-primary-darker: rgb(28,32,36)!important;
+    --yt-swatch-text: rgb(200,200,200)!important;
+    --yt-swatch-important-text: rgb(200,200,200)!important;
+    --yt-swatch-input-text: rgba(200,200,200,1)!important;
     --yt-swatch-textbox-bg: rgba(19,19,19,1)!important;
-    --yt-swatch-logo-override: rgb(255,255,255)!important;
+    --yt-swatch-logo-override: rgb(200,200,200)!important;
     --yt-swatch-icon-color: rgba(136,136,136,1)!important;
 }
 

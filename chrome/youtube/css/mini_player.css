@@ -9,7 +9,7 @@
 1.0 Mini Player
 --------------------------------------------------------------*/
 
-html[mini-player] #movie_player
+/*html[mini-player] #movie_player
 {
     z-index: 1!important;
 }
@@ -51,4 +51,42 @@ html[move-player] *
 
     width: 350px;
     height: 200px;
+}*/
+
+html[mini-player] #movie_player
+{
+    position: fixed!important;
+    z-index: 99999!important;
+    right: 32px!important;
+    bottom: 32px!important;
+
+    width: 360px!important;
+    height: 220px!important;
+
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.6)!important;
+}
+
+html[mini-player] .html5-video-container
+{
+    display: flex!important;
+
+    height: 100%!important;
+
+    align-items: center!important;
+    justify-content: center;
+}
+
+html[mini-player] #movie_player video
+{
+    top: unset!important;
+    left: unset!important;
+
+    width: 100%!important;
+    height: auto!important;
+    max-height: 220px;
+}
+
+html[mini-player] #movie_player .ytp-chrome-bottom
+{
+    display: none!important;
 }
