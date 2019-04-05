@@ -64,8 +64,22 @@ function video_playback_speed() {
     var data = Number(settings.video_playback_speed),
         player = document.querySelector('.html5-video-player');
 
-    if (data)
+    if (data) {
         player.querySelector('video').playbackRate = data;
+		
+		//HACK the YT UI doesn't read the player's playback rate
+		//    by using the keyboard shortcuts to increase the speed and then decrease the speed,
+		//    the UI updates to the player's speed
+		var evnt = document.createEvent("HTMLEvents").initEvent("keydown", true, false);
+		evnt.shiftKey = true;
+		
+		evnt.keyCode = 188; // ">" keypress
+		document.dispatchEvent(evnt);
+		
+		evnt.keyCode = 188; // "<" keypress
+		document.dispatchEvent(evnt);
+		
+	}
 }
 
 
