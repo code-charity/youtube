@@ -645,6 +645,24 @@ function wheel(event) {
 
     if (
         player &&
+        seek_forward &&
+        seek_forward.altKey == improvedtubeKeys.altKey &&
+        seek_forward.ctrlKey == improvedtubeKeys.ctrlKey &&
+        seek_forward.shiftKey == improvedtubeKeys.shiftKey &&
+        (seek_forward.key == improvedtubeKeys.key || !seek_forward.key) &&
+        (seek_forward.scroll > 0 && event.deltaY > 0 || seek_forward.scroll < 0 && event.deltaY < 0) &&
+        (seek_forward.hover == true ? player_hovered : true)
+    ) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        player.seekBy(10);
+
+        return false;
+    }
+
+    if (
+        player &&
         increase_volume &&
         increase_volume.altKey == improvedtubeKeys.altKey &&
         increase_volume.ctrlKey == improvedtubeKeys.ctrlKey &&

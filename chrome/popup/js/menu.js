@@ -372,6 +372,10 @@ var menu = {
             label: 'sidebar',
             section: {
                 type: 'section',
+                hide_up_next_autoplay: {
+                    label: 'hideUpNextAutoplay',
+                    type: 'toggle'
+                },
                 livechat: {
                     label: 'liveChat',
                     type: 'select',
@@ -617,7 +621,8 @@ var menu = {
             },
             allow_loudness: {
                 label: 'allowLoudnessNormalization',
-                type: 'toggle'
+                type: 'toggle',
+                default: 'true'
             },
             video_playback_speed: {
                 label: 'playbackSpeed',
@@ -648,10 +653,10 @@ var menu = {
                     default: 'true'
                 }, {
                     label: 'enabled',
-                    value: 'enabled'
+                    value: 'true'
                 }, {
                     label: 'disabled',
-                    value: 'disabled'
+                    value: 'false'
                 }]
             },
             /*picture_in_picture: {

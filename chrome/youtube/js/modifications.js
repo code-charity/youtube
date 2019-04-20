@@ -190,8 +190,10 @@ function objectDefineProperties() {
                 this._loadVideoByPlayerVars = data;
             },
             get: function() {
-                if (!video_autoplay())
+                if (!video_autoplay() && !(/\/(user|channel)\//.test(location.href))) {
+                    console.log('cue');
                     return this.cueVideoByPlayerVars;
+                }
 
                 return playerVars(this._loadVideoByPlayerVars);
             }
