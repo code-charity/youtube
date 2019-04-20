@@ -396,6 +396,12 @@ html[youtube-version=new][scroll-for-details='false'] ytd-app[masthead-hidden_] 
     display: none!important;
 }
 
+html[youtube-version=new][scroll-for-details='false'],
+html[youtube-version=new][scroll-for-details='false'] ytd-app{
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 
 
 

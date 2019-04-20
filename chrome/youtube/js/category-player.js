@@ -120,8 +120,9 @@ function video_autoplay() {
             is_autoplay = settings.playlist_autoplay;
         else
             is_autoplay = settings.video_autoplay;
-    } else if (/\/(user|channel)\//.test(page_href))
+    } else if (/\/(user|channel)\//.test(page_href)) {
         is_autoplay = settings.channel_autoplay;
+    }
 
     return is_ad || !(is_autoplay == 'false');
 }
@@ -132,25 +133,17 @@ function video_autoplay() {
 ------------------------------------------------------------------------------*/
 
 function up_next_autoplay() {
-    globalUpNextAutoplayWait = setInterval(function() {
-        if (
-            document.querySelector('#related #head.ytd-compact-autoplay-renderer #improved-toggle') ||
-            document.querySelector('#autoplay-checkbox')
-        ) {
-            clearInterval(globalUpNextAutoplayWait);
-            const data = settings.up_next_autoplay;
+    var data = settings.up_next_autoplay,
+        new_youtube_toggle = document.querySelector('#related #head.ytd-compact-autoplay-renderer #improved-toggle'),
+        old_youtube_toggle = document.querySelector('#autoplay-checkbox');
 
-            if (data && data != 'true') {
-                let new_youtube_toggle = document.querySelector('#related #head.ytd-compact-autoplay-renderer #improved-toggle'),
-                    old_youtube_toggle = document.querySelector('#autoplay-checkbox');
-
-                if (new_youtube_toggle && (data == 'enabled' && !new_youtube_toggle.hasAttribute('checked') || data == 'disabled' && new_youtube_toggle.hasAttribute('checked')))
-                    new_youtube_toggle.click();
-                else if (old_youtube_toggle && (data == 'enabled' && !old_youtube_toggle.hasAttribute('checked') || data == 'disabled' && old_youtube_toggle.hasAttribute('checked')))
-                    old_youtube_toggle.click();
-            }
+    if (data) {
+        if (new_youtube_toggle && (data == 'true' && !new_youtube_toggle.hasAttribute('checked') || data == 'false' && new_youtube_toggle.hasAttribute('checked'))) {
+            new_youtube_toggle.click();
+        } else if (old_youtube_toggle && (data == 'true' && !old_youtube_toggle.hasAttribute('checked') || data == 'false' && old_youtube_toggle.hasAttribute('checked'))) {
+            old_youtube_toggle.click();
         }
-    });
+    }
 }
 
 
