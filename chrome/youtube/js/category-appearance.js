@@ -162,8 +162,8 @@ function how_long_ago_the_video_was_uploaded() {
       if (document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container a' : '.yt-user-info a')) {
         clearInterval(waiting_channel_link);
 
-        if (document.querySelector('.itx-channel-video-uploaded'))
-          document.querySelector('.itx-channel-video-uploaded').remove();
+        if (document.querySelector('#relative-date'))
+          document.querySelector('#relative-date').remove();
 
         setTimeout(function() {
           let youtube_version = document.documentElement.getAttribute('youtube-version') == 'new',
@@ -171,17 +171,16 @@ function how_long_ago_the_video_was_uploaded() {
 
           xhr.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-              var b = document.createElement(youtube_version ? 'yt-formatted-string' : 'a');
+              var b = document.createElement(youtube_version ? 'yt-formatted-string' : 'strong');
 
               if (document.querySelector('.itx-channel-video-uploaded'))
                 document.querySelector('.itx-channel-video-uploaded').remove();
 
-              b.id = 'owner-name';
-              b.style.marginLeft = '.4rem';
-              b.className = (youtube_version ? 'style-scope ytd-video-owner-renderer itx-channel-video-uploaded' : 'yt-uix-sessionlink spf-link');
-              b.innerHTML = (youtube_version ? '<a class="yt-simple-endpoint style-scope yt-formatted-string"> · ' + timeSince(JSON.parse(this.responseText).items[0].snippet.publishedAt) + ' </a>' : timeSince(JSON.parse(this.responseText).items[0].snippet.publishedAt) + '');
+              b.id = 'relative-date';
+              b.className = (youtube_version ? 'date style-scope ytd-video-secondary-info-renderer itx-channel-video-uploaded' : 'yt-uix-sessionlink spf-link');
+              b.innerHTML = (youtube_version ? ' · ' + timeSince(JSON.parse(this.responseText).items[0].snippet.publishedAt) : ' · ' + timeSince(JSON.parse(this.responseText).items[0].snippet.publishedAt));
 
-              document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container' : '.yt-user-info').appendChild(b);
+              document.querySelector(youtube_version ? '#meta-contents .ytd-video-owner-renderer .date' : '#watch-uploader-info .watch-time-text').appendChild(b);
             }
           };
 
@@ -211,17 +210,19 @@ function channel_videos_count() {
 
           xhr.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                var b = document.createElement(youtube_version ? 'yt-formatted-string' : 'a');
+                var b = document.createElement('span');
 
                 if (document.querySelector('.itx-channel-videos-count'))
                     document.querySelector('.itx-channel-videos-count').remove();
 
-                b.id = 'owner-name';
-                b.style.marginLeft = '.4rem';
-                b.className = (youtube_version ? 'style-scope ytd-video-owner-renderer itx-channel-videos-count' : 'yt-uix-sessionlink spf-link');
-                b.innerHTML = (youtube_version ? '<a class="yt-simple-endpoint style-scope yt-formatted-string">' + JSON.parse(this.responseText).items[0].statistics.videoCount + ' videos</a>' : JSON.parse(this.responseText).items[0].statistics.videoCount + ' videos');
-
-                document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container' : '.yt-user-info').appendChild(b);
+                b.id = 'video-count';
+                if (youtube_version) b.style.marginLeft = '0.4rem';
+                else b.style.marginRight = '0.4rem';
+                b.className = (youtube_version ? 'itx-channel-videos-count' : 'yt-uix-sessionlink spf-link');
+                b.innerHTML = ('· <a class="yt-simple-endpoint style-scope yt-formatted-string" href=\"' + document.querySelector(youtube_version ? '#owner-name .yt-simple-endpoint' : '.yt-user-info .yt-uix-sessionlink').getAttribute('href') + '/videos' + '\">' + JSON.parse(this.responseText).items[0].statistics.videoCount + ' videos</a>');
+                
+                if (youtube_version) document.querySelector('#meta-contents #owner-name').appendChild(b);
+                else document.querySelector('.yt-user-info').insertBefore(b, document.querySelector('.yt-user-info').children[1])
             }
         };
 
