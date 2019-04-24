@@ -37,16 +37,13 @@ function it_theme() {
     document.documentElement.setAttribute('dark', '');
     document.documentElement.setAttribute('it-theme', data);
   } else {
-    document.documentElement.removeAttribute('dark');
     document.documentElement.removeAttribute('it-theme');
 
 		if (document.querySelector('ytd-masthead')) {
-			document.querySelector('ytd-masthead').removeAttribute('dark');
 			document.querySelector('ytd-masthead').removeAttribute('style');
 		}
 
 		if (document.querySelector('ytd-app')) {
-			document.querySelector('ytd-app').removeAttribute('dark');
 			document.querySelector('ytd-app').removeAttribute('style');
 		}
   }
