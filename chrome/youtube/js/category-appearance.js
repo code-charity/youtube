@@ -218,7 +218,7 @@ function channel_videos_count() {
                 b.id = 'video-count';
                 if (youtube_version) b.style.marginLeft = '0.4rem';
                 else b.style.marginRight = '0.4rem';
-                b.className = (youtube_version ? 'itx-channel-videos-count' : 'yt-uix-sessionlink spf-link');
+                b.className = (youtube_version ? 'yt-simple-endpoint style-scope yt-formatted-string itx-channel-videos-count' : 'yt-uix-sessionlink spf-link');
                 b.innerHTML = ('· <a class="yt-simple-endpoint style-scope yt-formatted-string" href=\"' + document.querySelector(youtube_version ? '#owner-name .yt-simple-endpoint' : '.yt-user-info .yt-uix-sessionlink').getAttribute('href') + '/videos' + '\">' + JSON.parse(this.responseText).items[0].statistics.videoCount + ' videos</a>');
                 
                 if (youtube_version) document.querySelector('#meta-contents #owner-name').appendChild(b);
