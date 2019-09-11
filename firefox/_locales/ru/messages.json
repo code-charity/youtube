@@ -153,7 +153,7 @@
     "message": "Сине-зелёный"
   },
   "teal": {
-    "message": "Teal"
+    "message": "Бирюзовый"
   },
   "green": {
     "message": "Зеленый"
@@ -202,6 +202,12 @@
   },
   "likes": {
     "message": "Нравится"
+  },
+  "like": {
+    "message": "Нравится"
+  },
+  "dislike": {
+    "message": "Не нравится"
   },
   "iconsOnly": {
     "message": "Только значки"
@@ -266,6 +272,9 @@
   "auto": {
     "message": "Автонастройка"
   },
+  "forcedVolume": {
+    "message": "Принудительная громкость"
+  },
   "volume": {
     "message": "Громкость"
   },
@@ -298,6 +307,12 @@
   },
   "disabled": {
     "message": "Выключено"
+  },
+  "pictureInPicture": {
+    "message": "Картинка в картинке"
+  },
+  "whenTabIsChanged": {
+    "message": "При переключении вкладок"
   },
   "miniPlayer": {
     "message": "Мини плеер"
@@ -391,6 +406,12 @@
   },
   "decreaseVolume5": {
     "message": "Уменьшить громкость на 5%"
+  },
+  "increasePlaybackSpeed": {
+    "message": "Увеличить скорость видео"
+  },
+  "decreasePlaybackSpeed": {
+    "message": "Уменьшить скорость видео"
   },
   "goToSearchBox": {
     "message": "Перейти в окно поиска"
@@ -493,6 +514,15 @@
   },
   "deny": {
     "message": "Нет"
+  },
+  "cancel": {
+    "message": "Отмена"
+  },
+  "save": {
+    "message": "Сохранить"
+  },
+  "reset": {
+    "message": "Сбросить"
   },
   "activeFeatures": {
     "message": "Активные функции"

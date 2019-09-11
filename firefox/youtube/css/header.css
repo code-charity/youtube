@@ -83,7 +83,7 @@
 [youtube-version=new][header=hover_on_video_page][page=video] ytd-app:not([masthead-hidden_]) ytd-page-manager,
 [youtube-version=new][header=hover_on_video_page][page=video] app-drawer #guide-spacer /* sidebar space */
 {
-    margin-top: 10px!important;
+    margin-top: 16px!important;
 }
 
 

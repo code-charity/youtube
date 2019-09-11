@@ -56,8 +56,9 @@ html:not([scroll-to-top]) .scroll-to-top
     fill: #fff!important;
 }
 
-[youtube-version='new'][improve-youtube-logo='true'] ytd-masthead[dark] #logo-icon-container svg polygon {
-  fill: #121212!important;
+[youtube-version='new'][improve-youtube-logo='true'] ytd-masthead[dark] #logo-icon-container svg polygon
+{
+    fill: #121212!important;
 }
 
 [youtube-version='old'][improve-youtube-logo='true'] #yt-masthead #logo-container .logo
@@ -130,4 +131,44 @@ html:not([scroll-to-top]) .scroll-to-top
     pointer-events: all;
 
     opacity: .2;
+}
+
+
+
+[youtube-version=new][improvedtube-home],
+[youtube-version=new][improvedtube-home] body
+{
+    overflow: hidden!important;
+}
+
+[youtube-version=new][improvedtube-home],
+[youtube-version=new][improvedtube-home] app-drawer[opened],
+[youtube-version=old][improvedtube-home],
+[youtube-version=old][improvedtube-home] #appbar-guide-menu
+{
+    visibility: hidden!important;
+
+    pointer-events: none!important;
+}
+
+[youtube-version=new][improvedtube-home] #masthead-container
+{
+    position: static!important;
+}
+
+[youtube-version=new][improvedtube-home] ytd-searchbox#search,
+[youtube-version=old][improvedtube-home] #masthead-search
+{
+    position: fixed!important;
+    top: 50vh!important;
+    left: 50vw!important;
+
+    visibility: visible!important;
+
+    width: 100%;
+    height: 56px;
+    margin: 0!important;
+
+    transform: translate(-50%, -50%)!important;
+    pointer-events: all!important;
 }

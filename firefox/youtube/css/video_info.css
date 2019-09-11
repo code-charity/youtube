@@ -38,8 +38,8 @@
 1.8.21 Hidden
 --------------------------------------------------------------*/
 
-[youtube-version=new][likes=hidden] #top-level-buttons ytd-toggle-button-renderer:nth-child(1),
-[youtube-version=new][likes=hidden] #top-level-buttons ytd-toggle-button-renderer:nth-child(2),
+[youtube-version=new][likes=hidden] #info #top-level-buttons ytd-toggle-button-renderer:nth-child(1),
+[youtube-version=new][likes=hidden] #info #top-level-buttons ytd-toggle-button-renderer:nth-child(2),
 [youtube-version=new][likes=hidden] #sentiment.ytd-video-primary-info-renderer
 {
     visibility: hidden!important;
