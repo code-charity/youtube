@@ -9,6 +9,43 @@
     --yt-swatch-logo-override: rgb(255,255,255)!important;
     --yt-swatch-icon-color: rgba(136,136,136,1)!important;
     --yt-swatch-header-primary: #f56264;
+
+    --yt-spec-brand-background-solid:#2f3364 !important;
+    --yt-spec-brand-background-primary:rgba(0,0,0, 0.98) !important;
+    --yt-spec-brand-background-secondary:rgba(0,0,0, 0.95) !important;
+    --yt-spec-general-background-a:#2f3364 !important;
+    --yt-spec-general-background-b:#2f3364 !important;
+    --yt-spec-general-background-c:#2f3364 !important;
+    --yt-spec-error-background:#1F1F1F !important;
+    --yt-spec-text-primary:#fff !important;
+    --yt-spec-text-primary-inverse:#fff !important;
+    --yt-spec-text-secondary:#fff !important;
+    --yt-spec-text-disabled:#fff !important;
+    --yt-spec-call-to-action:#065FD4 !important;
+    --yt-spec-icon-active-other:#fff !important;
+    --yt-spec-icon-inactive:#fff !important;
+    --yt-spec-icon-disabled:#fff !important;
+    --yt-spec-badge-chip-background:rgba(0, 0, 0, 0.05) !important;
+    --yt-spec-verified-badge-background:rgba(0, 0, 0, 0.15) !important;
+    --yt-spec-suggested-action:#F2F8FF !important;
+    --yt-spec-button-chip-background-hover:rgba(0, 0, 0, 0.10) !important;
+    --yt-spec-touch-response:#2f3364 !important;
+    --yt-spec-filled-button-text:#fff !important;
+    --yt-spec-call-to-action-inverse:#fff !important;
+    --yt-spec-brand-icon-active:#fff !important;
+    --yt-spec-brand-icon-inactive:#fff !important;
+    --yt-spec-brand-button-background:rgba(136,136,136,1) !important;
+    --yt-spec-brand-link-text:#fff!important;
+    --yt-spec-filled-button-focus-outline:rgba(0, 0, 0, 0.60) !important;
+    --yt-spec-call-to-action-button-focus-outline:rgba(0,0,0, 0.30) !important;
+    --yt-spec-brand-text-button-focus-outline:rgba(204, 0, 0, 0.30) !important;
+    --yt-spec-inactive-text-button-focus-outline:#aaa !important;
+    --yt-spec-brand-subscribe-button-background:#fff !important;
+    --yt-spec-wordmark-text:#fff !important;
+    --yt-spec-10-percent-layer:rgba(136,136,136,1) !important;
+    --yt-spec-selected-nav-text:#fff !important;
+    --yt-spec-themed-blue:#065FD4 !important;
+    --yt-spec-themed-green:#107516 !important;
 }
 [it-theme=sunset] ytd-masthead {
     background: #f56264!important;

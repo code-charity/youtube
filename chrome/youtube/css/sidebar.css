@@ -74,11 +74,6 @@
 2.0 Old YouTube
 --------------------------------------------------------------*/
 
-[youtube-version=old][hide-up-next-autoplay=true] #watch7-sidebar-modules .autoplay-bar
-{
-    display: none!important;
-}
-
 /*--------------------------------------------------------------
 2.1 Livechat
 --------------------------------------------------------------*/

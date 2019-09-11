@@ -535,6 +535,11 @@ function shortcut(elem, obj, key) {
         hover_checkbox.type = 'checkbox';
         hover.appendChild(hover_checkbox);
         hover.appendChild(hover_label);
+
+        if (it_keys.hover === true) {
+            hover_checkbox.checked = true;
+        }
+
         buttons.appendChild(deny);
         buttons.appendChild(button_reset);
         buttons.appendChild(button_allow);
