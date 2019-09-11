@@ -16,9 +16,6 @@
 9.0  Mini player
 10.0 Auto-fullscreen
 11.0 Picture-in-Picture
-
-TODO:
-[ ] Improve "Up next autoplay"
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
@@ -27,10 +24,21 @@ TODO:
 
 function video_quality() {
     var data = settings.video_quality,
+        ls_data = localStorage.getItem('yt-player-quality'),
         player = document.querySelector('.html5-video-player');
 
     if (player && data && data != 'auto') {
         var quality_levels = player.getAvailableQualityLevels();
+
+        if (ls_data) {
+            ls_data = JSON.parse(ls_data);
+
+            if (ls_data.data) {
+                ls_data = data;
+            }
+
+            localStorage.setItem('yt-player-quality', JSON.stringify(ls_data));
+        }
 
         if (quality_levels.indexOf(data) == -1)
             data = quality_levels[0];
@@ -46,12 +54,34 @@ function video_quality() {
 ------------------------------------------------------------------------------*/
 
 function video_volume() {
-    var data = Number(settings.video_volume),
+    var it_data = Number(settings.video_volume),
+        ls_data = localStorage.getItem('yt-player-volume'),
         player = document.querySelector('.html5-video-player');
 
-    if (data && settings.forced_video_volume == 'true') {
+    if (it_data) {
+        if (ls_data) {
+            ls_data = JSON.parse(ls_data);
+
+            var ls_data_data = JSON.parse(ls_data.data);
+
+            if (ls_data_data && ls_data_data.volume) {
+                ls_data_data.volume = it_data;
+                ls_data_data.muted = false;
+                ls_data.data = JSON.stringify(ls_data_data);
+            }
+
+            localStorage.setItem('yt-player-volume', JSON.stringify(ls_data));
+        }
+
         player.unMute();
-        player.setVolume(data);
+        player.setVolume(it_data);
+
+        player.querySelector('video').onvolumechange = function() {
+            var event = document.createEvent('Event');
+
+            event.initEvent('itVideoVolume');
+            document.dispatchEvent(event);
+        }
     }
 }
 
@@ -133,17 +163,25 @@ function video_autoplay() {
 ------------------------------------------------------------------------------*/
 
 function up_next_autoplay() {
-    var data = settings.up_next_autoplay,
-        new_youtube_toggle = document.querySelector('#related #head.ytd-compact-autoplay-renderer #improved-toggle'),
-        old_youtube_toggle = document.querySelector('#autoplay-checkbox');
+    globalUpNextAutoplayWait = setInterval(function() {
+        if (
+            document.querySelector('#related #head.ytd-compact-autoplay-renderer #improved-toggle') ||
+            document.querySelector('#autoplay-checkbox')
+        ) {
+            clearInterval(globalUpNextAutoplayWait);
+            const data = settings.up_next_autoplay;
 
-    if (data) {
-        if (new_youtube_toggle && (data == 'true' && !new_youtube_toggle.hasAttribute('checked') || data == 'false' && new_youtube_toggle.hasAttribute('checked'))) {
-            new_youtube_toggle.click();
-        } else if (old_youtube_toggle && (data == 'true' && !old_youtube_toggle.hasAttribute('checked') || data == 'false' && old_youtube_toggle.hasAttribute('checked'))) {
-            old_youtube_toggle.click();
+            if (data && data != 'true') {
+                let new_youtube_toggle = document.querySelector('#related #head.ytd-compact-autoplay-renderer #improved-toggle'),
+                    old_youtube_toggle = document.querySelector('#autoplay-checkbox');
+
+                if (new_youtube_toggle && (data == 'enabled' && !new_youtube_toggle.hasAttribute('checked') || data == 'disabled' && new_youtube_toggle.hasAttribute('checked')))
+                    new_youtube_toggle.click();
+                else if (old_youtube_toggle && (data == 'enabled' && !old_youtube_toggle.hasAttribute('checked') || data == 'disabled' && old_youtube_toggle.hasAttribute('checked')))
+                    old_youtube_toggle.click();
+            }
         }
-    }
+    });
 }
 
 

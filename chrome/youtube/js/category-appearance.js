@@ -268,10 +268,6 @@ function description_expanded() {
 5.0 Sidebar
 --------------------------------------------------------------*/
 
-function hide_up_next_autoplay() {
-  document.documentElement.setAttribute('hide-up-next-autoplay', settings.hide_up_next_autoplay);
-}
-
 function livechat() {
   document.documentElement.setAttribute('livechat', settings.livechat);
 }

@@ -372,10 +372,6 @@ var menu = {
             label: 'sidebar',
             section: {
                 type: 'section',
-                hide_up_next_autoplay: {
-                    label: 'hideUpNextAutoplay',
-                    type: 'toggle'
-                },
                 livechat: {
                     label: 'liveChat',
                     type: 'select',
@@ -438,6 +434,15 @@ var menu = {
         icon: {
             svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width:36px;height:auto;fill:#fff6f6"><path fill="none" d="M0 0h24v24H0z"/><g><path d="M12 4a8.01 8.01 0 0 0 0 16 .5.5 0 0 0 .5-.5.54.54 0 0 0-.14-.35A2.5 2.5 0 0 1 14.23 15H16a4 4 0 0 0 4-4c0-3.86-3.59-7-8-7zm-5.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm4.5 2.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" opacity=".3"/><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10a2.5 2.5 0 0 0 1.86-4.17.5.5 0 0 1 .37-.83H16a6 6 0 0 0 6-6c0-4.96-4.49-9-10-9zm4 13h-1.77a2.5 2.5 0 0 0-1.87 4.15c.06.07.14.19.14.35a.5.5 0 0 1-.5.5 8.01 8.01 0 0 1 0-16c4.41 0 8 3.14 8 7a4 4 0 0 1-4 4z"/><circle cx="6.5" cy="11.5" r="1.5"/><circle cx="9.5" cy="7.5" r="1.5"/><circle cx="14.5" cy="7.5" r="1.5"/><circle cx="17.5" cy="11.5" r="1.5"/></g></svg>',
             style: {}
+        },
+        section__0: {
+            type: 'section',
+            it_theme: {
+                label: 'darkTheme',
+                type: 'toggle',
+                click: 'it_theme',
+                value: 'default_dark'
+            }
         },
         section_0: {
             type: 'section',
@@ -621,8 +626,7 @@ var menu = {
             },
             allow_loudness: {
                 label: 'allowLoudnessNormalization',
-                type: 'toggle',
-                default: 'true'
+                type: 'toggle'
             },
             video_playback_speed: {
                 label: 'playbackSpeed',
@@ -653,10 +657,10 @@ var menu = {
                     default: 'true'
                 }, {
                     label: 'enabled',
-                    value: 'true'
+                    value: 'enabled'
                 }, {
                     label: 'disabled',
-                    value: 'false'
+                    value: 'disabled'
                 }]
             },
             /*picture_in_picture: {
@@ -814,32 +818,32 @@ var menu = {
             video_quality: {
                 label: 'videoQuality',
                 section_99: {
-                  type: 'section',
-                  shortcut_240p: {
-                      label: '240p',
-                      type: 'shortcut',
-                      default: 'none'
-                  },
-                  shortcut_360p: {
-                      label: '360p',
-                      type: 'shortcut',
-                      default: 'none'
-                  },
-                  shortcut_480p: {
-                      label: '480p',
-                      type: 'shortcut',
-                      default: 'none'
-                  },
-                  shortcut_720p: {
-                      label: '720p',
-                      type: 'shortcut',
-                      default: 'none'
-                  },
-                  shortcut_1080p: {
-                      label: '1080p',
-                      type: 'shortcut',
-                      default: 'none'
-                  }
+                    type: 'section',
+                    shortcut_240p: {
+                        label: '240p',
+                        type: 'shortcut',
+                        default: 'none'
+                    },
+                    shortcut_360p: {
+                        label: '360p',
+                        type: 'shortcut',
+                        default: 'none'
+                    },
+                    shortcut_480p: {
+                        label: '480p',
+                        type: 'shortcut',
+                        default: 'none'
+                    },
+                    shortcut_720p: {
+                        label: '720p',
+                        type: 'shortcut',
+                        default: 'none'
+                    },
+                    shortcut_1080p: {
+                        label: '1080p',
+                        type: 'shortcut',
+                        default: 'none'
+                    }
                 }
             },
             play_pause: {
