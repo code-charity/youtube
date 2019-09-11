@@ -162,6 +162,9 @@ function how_long_ago_the_video_was_uploaded() {
       if (document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container a' : '.yt-user-info a')) {
         clearInterval(waiting_channel_link);
 
+        if (document.querySelector('.itx-channel-video-uploaded'))
+          document.querySelector('.itx-channel-video-uploaded').remove();
+
         setTimeout(function() {
           let youtube_version = document.documentElement.getAttribute('youtube-version') == 'new',
             xhr = new XMLHttpRequest();

@@ -150,7 +150,7 @@ html:not([embed])[youtube-version=new][header=hover_on_video_page][improvedtube-
 html:not([embed])[youtube-version=new][header=hover][improvedtube-player-size='fit_window'] #player.skeleton.theater,
 html:not([embed])[youtube-version=new][header=hover_on_video_page][improvedtube-player-size='fit_window'] #player.skeleton.theater
 {
-    --it-improvedtube-player-size: calc(100vh - 10px);
+    --it-improvedtube-player-size: calc(100vh - 16px);
 }
 
 html:not([embed])[youtube-version=new][header=hover][improvedtube-player-size='full_window'] #player.skeleton,
@@ -183,7 +183,7 @@ html:not([embed])[youtube-version=old][improvedtube-player-size='fit_window']
 html:not([embed])[youtube-version=old][improvedtube-player-size='full_window']:not([header=undefined]):not([header=normal]):not([header=top_of_page]),
 html:not([embed])[youtube-version=old][improvedtube-player-size='fit_window']:not([header=undefined]):not([header=normal]):not([header=top_of_page]) #page.watch-wide
 {
-    --it-improvedtube-player-size: 100vh;
+    --it-improvedtube-player-size: calc(100vh - 11px);
 }
 
 
@@ -316,6 +316,11 @@ html:not([embed])[youtube-version=old][page=video][improvedtube-player-size=full
     --it-improvedtube-player-size: calc(100vh - 20px);
 }
 
+html:not([embed])[youtube-version=old][page=video][improvedtube-player-size=full_window][header=hidden]:not([embed]):not([mini-player]) #page.watch-wide,
+html:not([embed])[youtube-version=old][page=video][improvedtube-player-size=full_window][header=hidden_on_video_page]:not([embed]):not([mini-player]) #page.watch-wide {
+    --it-improvedtube-player-size: 100vh;
+}
+
 html:not([embed])[youtube-version=old][page=video]:not([improvedtube-player-size=undefined]):not([improvedtube-player-size=normal]):not([improvedtube-player-size=fit_window]):not([embed]):not([mini-player]) #theater-background,
 html:not([embed])[youtube-version=old][page=video]:not([improvedtube-player-size=undefined]):not([improvedtube-player-size=normal]):not([improvedtube-player-size=fit_window]):not([embed]):not([mini-player]) #player-api,
 html:not([embed])[youtube-version=old][page=video]:not([improvedtube-player-size=undefined]):not([improvedtube-player-size=normal]):not([improvedtube-player-size=fit_window]):not([embed]):not([mini-player]) .html5-video-player:not(.ytp-fullscreen) video,
@@ -382,11 +387,6 @@ html:not([embed])[youtube-version=old][page=video]:not([improvedtube-player-size
 {
     margin-top: 0 !important;
 }
-
-/*html:not([embed])[youtube-version=old][page=video]:not([improvedtube-player-size=undefined]):not([improvedtube-player-size=normal]):not([improvedtube-player-size=fit_window]):not([embed]):not([mini-player]) #page:not(.watch-wide) #watch7-sidebar-contents
-{
-    margin-top: 20px !important;
-}*/
 
 html:not([embed])[youtube-version=old][page=video][improvedtube-player-size=full_window]:not([embed]):not([mini-player]) #page:not(.watch-wide) #watch7-sidebar-contents
 {
@@ -546,4 +546,10 @@ html:not([embed]) .ytp-upnext-autoplay-icon,
 html:not([embed]) .ytp-upnext-bottom
 {
     z-index: 999;
+}
+
+html:not([embed])[youtube-version=old][page=video][header=hover]:not([improvedtube-player-size=undefined]):not([improvedtube-player-size=normal]):not([improvedtube-player-size=fit_window]):not([embed]):not([mini-player]) #page.watch-wide #player-api,
+html:not([embed])[youtube-version=old][page=video][header=hover_on_video_page]:not([improvedtube-player-size=undefined]):not([improvedtube-player-size=normal]):not([improvedtube-player-size=fit_window]):not([embed]):not([mini-player]) #page.watch-wide #player-api
+{
+    margin-top: 11px !important;
 }

@@ -396,6 +396,12 @@ html[youtube-version=new][scroll-for-details='false'] ytd-app[masthead-hidden_] 
     display: none!important;
 }
 
+html[youtube-version=new][scroll-for-details='false'],
+html[youtube-version=new][scroll-for-details='false'] ytd-app{
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 
 
 
@@ -430,7 +436,14 @@ html[youtube-version=old] #improvedtube-playlist-reverse
     vertical-align: middle;
 }
 
-#improvedtube-playlist-reverse svg
-{
+html[youtube-version=new] #improvedtube-playlist-reverse svg {
     fill: var(--iron-icon-fill-color, #909090);
+}
+
+html[youtube-version=new] #improvedtube-playlist-reverse.yt-uix-button-toggled svg {
+    fill: var(--yt-spec-call-to-action);
+}
+
+html[youtube-version=old] #improvedtube-playlist-reverse svg {
+    fill: #fff;
 }

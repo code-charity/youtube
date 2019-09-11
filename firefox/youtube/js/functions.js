@@ -72,7 +72,7 @@ function videoPage() {
 
       if (video && (video.src != improvedtube_old_video || improvedtube_old_video == '')) {
         improvedtube_old_video = video.src;
-        globalAutoplayByUser=false;
+        globalAutoplayByUser = false;
 
         document.documentElement.removeAttribute('mini-player');
 
@@ -86,11 +86,6 @@ function videoPage() {
         popup_player_button();
         video_rotate_button();
         screenshot_button();
-
-        if (document.documentElement.getAttribute('youtube-version') == 'old') {
-          playlist_reverse();
-          console.log('playlist_reverse-video');
-        }
 
         channel_videos_count();
         how_long_ago_the_video_was_uploaded();
@@ -112,7 +107,6 @@ function videoPage() {
         (document.querySelector('#player-container') || document.querySelector('#player-api')).removeAttribute('style', '');
 
         fit_window();
-        mini_player();
 
         window.addEventListener('resize', function() {
           fit_window(true);
@@ -138,7 +132,7 @@ function pageLoaded() {
     playlist_shuffle();
   }
 
-
+  it_theme();
 
   up_next_autoplay();
 
@@ -153,24 +147,15 @@ function pageLoaded() {
 
       if (page_type == 'video')
         videoPage();
-      else {
-        if (!document.documentElement.hasAttribute('embed')) {
-          video_encode();
-        }
-      }
     }
   );
 
   window.addEventListener('yt-page-data-updated', function() {
-    if (getUrlParams().hasOwnProperty('list')) {
-      playlist_reverse();
-      console.log('playlist_reverse');
-    }
+    //playlist_reverse();
 
     if (getUrlParams().hasOwnProperty('v'))
       videoPage();
   });
-
 
 
   let search_input = document.documentElement.getAttribute('youtube-version') == 'new' ? 'input#search' : 'input#masthead-search-term';

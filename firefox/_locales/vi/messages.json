@@ -41,6 +41,9 @@
   "history": {
     "message": "History"
   },
+  "searchBarOnly": {
+    "message": "Search bar only"
+  },
   "watchLater": {
     "message": "Watch later"
   },
@@ -203,6 +206,12 @@
   "likes": {
     "message": "Likes"
   },
+  "like": {
+    "message": "Like"
+  },
+  "dislike": {
+    "message": "Dislike"
+  },
   "iconsOnly": {
     "message": "Icons only"
   },
@@ -266,6 +275,9 @@
   "auto": {
     "message": "Auto"
   },
+  "forcedVolume": {
+    "message": "Forced volume"
+  },
   "volume": {
     "message": "Volume"
   },
@@ -298,6 +310,12 @@
   },
   "disabled": {
     "message": "Disabled"
+  },
+  "pictureInPicture": {
+    "message": "Picture-in-Picture"
+  },
+  "whenTabIsChanged": {
+    "message": "When tab is changed"
   },
   "miniPlayer": {
     "message": "Mini player"
@@ -391,6 +409,12 @@
   },
   "decreaseVolume5": {
     "message": "Decrease volume 5%"
+  },
+  "increasePlaybackSpeed": {
+    "message": "Increase playback speed"
+  },
+  "decreasePlaybackSpeed": {
+    "message": "Decrease playback speed"
   },
   "goToSearchBox": {
     "message": "Go to search box"
@@ -494,6 +518,15 @@
   "deny": {
     "message": "Deny"
   },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "reset": {
+    "message": "Reset"
+  },
   "activeFeatures": {
     "message": "Active features"
   },
@@ -517,5 +550,8 @@
   },
   "ARROWLEFT": {
     "message": "⇦"
+  },
+  "noOpenVideoTabs": {
+    "message": "No open video tabs"
   }
 }
