@@ -86,25 +86,28 @@ Channels:
 * Hide Featured Content
 
 Shortcuts:
-* Picture-in-Picture
-* Video Quality
-* Play / Pause
-* Stop
-* Next Video
-* Previous Video
-* Seek backward 10 seconds
-* Seek forward 10 seconds
-* Increase Volume 5%
-* Decrease Volume 5%
-* Increase Playback Speed
-* Decrease Playback Speed
-* Go to Search Box
-* Activate Fullscreen
-* Activate Captions
-* Like
-* Dislike
+<ul>
+<li>Picture-in-Picture</li>
+<li>Video Quality</li>
+<li>Play / Pause</li>
+<li>Stop</li>
+<li>Next Video</li>
+<li>Previous Video</li>
+<li>Seek backward 10 seconds</li>
+<li>Seek forward 10 seconds</li>
+<li>Increase Volume 5%</li>
+<li>Decrease Volume 5%</li>
+<li>Increase Playback Speed</li>
+<li>Decrease Playback Speed</li>
+<li>Go to Search Box</li>
+<li>Activate Fullscreen</li>
+<li>Activate Captions</li>
+<li>Like</li>
+<li>Dislike</li>
+</ul>
 
-* Volume Mixer
+Volume Mixer:
+* Change volume for tabs
 
 And more coming in ImprovedTube 2.0
 
