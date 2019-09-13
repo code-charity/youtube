@@ -165,14 +165,14 @@ function video_autoplay() {
 function up_next_autoplay() {
     globalUpNextAutoplayWait = setInterval(function() {
         if (
-            document.querySelector('#related #head.ytd-compact-autoplay-renderer #improved-toggle') ||
+            document.querySelector('#related #head.ytd-compact-autoplay-renderer #toggle') ||
             document.querySelector('#autoplay-checkbox')
         ) {
             clearInterval(globalUpNextAutoplayWait);
             const data = settings.up_next_autoplay;
 
             if (data && data != 'true') {
-                let new_youtube_toggle = document.querySelector('#related #head.ytd-compact-autoplay-renderer #improved-toggle'),
+                let new_youtube_toggle = document.querySelector('#related #head.ytd-compact-autoplay-renderer #toggle'),
                     old_youtube_toggle = document.querySelector('#autoplay-checkbox');
 
                 if (new_youtube_toggle && (data == 'enabled' && !new_youtube_toggle.hasAttribute('checked') || data == 'disabled' && new_youtube_toggle.hasAttribute('checked')))
