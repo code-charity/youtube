@@ -10,7 +10,7 @@ ImprovedTube is an extension built to improve the user experience on YouTube. Im
 
 ## Features
 
-You can learn more about features on [the page](https://github.com/ImprovedTube/ImprovedTube/wiki/Features). And more coming in ImprovedTube 2.0
+You can learn more about features on [the page](https://github.com/ImprovedTube/ImprovedTube/wiki/Features).
 
 ## Browsers support
 
