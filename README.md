@@ -34,3 +34,7 @@ Or use one of the published versions [Stable](https://chrome.google.com/webstore
 2. Open about:addons page in your browser (Extensions tab)
 3. Click on "Install Add-on From File..." button
 4. Select "manifest" folder
+
+## Donate
+
+You can learn more on [the page](http://improvedtube.com/donate).
