@@ -27,7 +27,7 @@ You can learn more about features on [the page](https://github.com/ImprovedTube/
 4. Click on "Load unpacked" button
 5. Select "chrome" folder
 
-Or use one of the published versions [Stable](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd), [Beta](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki)
+Or use one of the published versions: [Stable](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd), [Beta](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki).
 
 ### [Firefox](https://www.mozilla.org/firefox) / [Waterfox](https://www.waterfox.net/) / [GNUzilla and IceCat](https://www.gnu.org/software/gnuzilla/) and other
 1. Unzip "firefox" folder
