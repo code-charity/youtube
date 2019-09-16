@@ -22,7 +22,7 @@ You can learn more about features on [the page](https://github.com/ImprovedTube/
 
 ### [Chromium](https://www.chromium.org/) / [Brave](https://brave.com/) / [Vivaldi](https://vivaldi.com/) / Chrome and other
 1. Unzip "chrome" folder
-2. Open Extensions page in your browser
+2. Open [Extensions](chrome://extensions/) page in your browser
 3. Activate "Developer mode"
 4. Click on "Load unpacked" button
 5. Select "chrome" folder
