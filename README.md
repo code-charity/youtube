@@ -31,9 +31,11 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 
 ### [Firefox](https://www.mozilla.org/firefox) / [Waterfox](https://www.waterfox.net/) / [GNUzilla and IceCat](https://www.gnu.org/software/gnuzilla/) and other
 1. Unzip "firefox" folder
-2. Open about:addons page in your browser (Extensions tab)
-3. Click on "Install Add-on From File..." button
-4. Select "manifest" folder
+2. Open about:addons page in your browser
+3. Click on "Extensions" tab
+4. Click on "Debug Add-ons" (about:debugging#/runtime/this-firefox)
+5. Click on "Load Temporary Add-on…"
+6. Select "manifest.json" file from "firefox" folder
 
 ## Donate
 
