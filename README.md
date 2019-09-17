@@ -22,7 +22,7 @@ You can learn more about features on [the page](https://github.com/ImprovedTube/
 
 ### [Chromium](https://www.chromium.org/) / [Brave](https://brave.com/) / [Vivaldi](https://vivaldi.com/) / Chrome and other
 1. Unzip "chrome" folder
-2. Open [Extensions](chrome://extensions/) page in your browser
+2. Open Extensions (chrome://extensions/) page in your browser
 3. Activate "Developer mode"
 4. Click on "Load unpacked" button
 5. Select "chrome" folder
@@ -31,7 +31,7 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 
 ### [Firefox](https://www.mozilla.org/firefox) / [Waterfox](https://www.waterfox.net/) / [GNUzilla and IceCat](https://www.gnu.org/software/gnuzilla/) and other
 1. Unzip "firefox" folder
-2. Open about:addons page in your browser
+2. Open Add-ons page (about:addons) in your browser
 3. Click on "Extensions" tab
 4. Click on "Debug Add-ons" (about:debugging#/runtime/this-firefox)
 5. Click on "Load Temporary Add-on…"
