@@ -53,7 +53,7 @@ chrome.storage.local.get(function(object) {
 		1.1 Legacy YouTube
 		---------------------------------------------------------------------*/
 
-        else if (key === 'youtube_version') {
+        if (key === 'youtube_version') {
             if (value === 'old') {
                 object.legacy_youtube = 'true';
             } else {
@@ -68,7 +68,7 @@ chrome.storage.local.get(function(object) {
 		1.2 YouTube Home Page
 		---------------------------------------------------------------------*/
 
-        if (key === 'youtube_home_page') {
+        else if (key === 'youtube_home_page') {
             if (value === 'normal') {
                 object[key] = '/';
             } else if (value === 'trending') {
