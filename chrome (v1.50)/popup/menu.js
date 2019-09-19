@@ -20,7 +20,7 @@ var menu = {
                 type: 'select',
                 options: [{
                     label: 'home',
-                    value: 'normal',
+                    value: '/',
                     default: 'true'
                 }, {
                     label: 'trending',
@@ -663,7 +663,7 @@ var menu = {
                 type: 'select',
                 options: [{
                     label: 'home',
-                    value: '/home',
+                    value: '/',
                     default: 'true'
                 }, {
                     label: 'videos',
