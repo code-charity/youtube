@@ -441,9 +441,9 @@ chrome.storage.local.get(function(object) {
 
 		else if (key === 'channel_default_page') {
             if (value === 'normal') {
-            	object.channel_default_tab = 'home';
+            	object.channel_default_tab = '/home';
             } else {
-            	object.channel_default_tab = value;
+            	object.channel_default_tab = '/' + value;
             }
 
             delete object[key];
