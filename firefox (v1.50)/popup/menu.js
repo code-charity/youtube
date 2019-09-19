@@ -15,46 +15,6 @@ var menu = {
                 label: 'legacyYoutube',
                 type: 'toggle'
             },
-            /*night_mode: {
-                label: 'nightMode',
-                section: {
-                    type: 'section',
-                    theme: {
-                        label: 'darkTheme',
-                        type: 'toggle',
-                        click: 'theme',
-                        value: 'default_dark'
-                    },
-                    bluelight: {
-                        label: 'bluelight',
-                        type: 'slider',
-                        min: 0,
-                        max: 90,
-                        default: 0,
-                        step: 1
-                    },
-                    dim: {
-                        label: 'dim',
-                        type: 'slider',
-                        min: 0,
-                        max: 90,
-                        default: 0,
-                        step: 1
-                    }
-                },
-                schedule_section: {
-                    label: 'schedule',
-                    type: 'section',
-                    schedule_turn_on: {
-                        label: 'turnOn',
-                        type: 'time'
-                    },
-                    schedule_turn_off: {
-                        label: 'turnOff',
-                        type: 'time'
-                    }
-                }
-            },*/
             youtube_home_page: {
                 label: 'youtubeHomePage',
                 type: 'select',
@@ -698,22 +658,22 @@ var menu = {
         },
         section: {
             type: 'section',
-            channel_default_page: {
+            channel_default_tab: {
                 label: 'defaultChannelTab',
                 type: 'select',
                 options: [{
                     label: 'home',
-                    value: 'normal',
+                    value: '/home',
                     default: 'true'
                 }, {
                     label: 'videos',
-                    value: 'videos'
+                    value: '/videos'
                 }, {
                     label: 'playlists',
-                    value: 'playlists'
+                    value: '/playlists'
                 }]
             },
-            channel_autoplay: {
+            channel_trailer_autoplay: {
                 label: 'trailerAutoplay',
                 type: 'toggle',
                 default: 'true'
