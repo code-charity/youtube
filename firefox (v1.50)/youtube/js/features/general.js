@@ -65,7 +65,7 @@ ImprovedTube.legacy_youtube = function() {
 ImprovedTube.youtube_home_page = function() {
     if (
         this.storage.youtube_home_page &&
-        this.storage.youtube_home_page !== 'normal' &&
+        this.storage.youtube_home_page !== '/' &&
         this.storage.youtube_home_page !== 'search'
     ) {
         if (location.pathname === '/') {
