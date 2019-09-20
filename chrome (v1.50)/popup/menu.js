@@ -591,6 +591,9 @@ var menu = {
                 }, {
                     label: 'onSubscribedChannels',
                     value: 'subscribed_channels'
+                }, {
+                    label: 'Block all',
+                    value: 'block_all'
                 }]
             },
             player_autopause: {
