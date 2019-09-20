@@ -1,12 +1,10 @@
-# ImprovedTube
-
-> We're now shifting our focus to building ImprovedTube 2.0
+![preview](assets/preview.png)
 
 ## Introduction
 
 ImprovedTube is an extension built to improve the user experience on YouTube. ImprovedTube inspired by [Iridium](https://github.com/ParticleCore/Iridium/) and other.
 
-![preview](assets/preview.png)
+> We're now shifting our focus to building ImprovedTube 2.0
 
 ## Features
 
