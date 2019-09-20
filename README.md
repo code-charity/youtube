@@ -16,6 +16,10 @@ You can learn more about features on [the page](https://github.com/ImprovedTube/
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | ???| 49+| 49+| chromium-based| ???| chromium-based | ???|
 
+## About Google Chrome update (webRequest API)
+
+You can learn more on [the page](https://github.com/ImprovedTube/ImprovedTube/wiki/Google,-Chrome-&-webRequest-API).
+
 ## Installation
 
 ### [Chromium](https://www.chromium.org/) / [Brave](https://brave.com/) / [Vivaldi](https://vivaldi.com/) / Chrome and other
