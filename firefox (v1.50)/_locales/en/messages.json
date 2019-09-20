@@ -68,6 +68,9 @@
     "black": {
         "message": "Black"
     },
+    "blockAll": {
+        "message": "Block all"
+    },
     "blue": {
         "message": "Blue"
     },
