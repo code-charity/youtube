@@ -72,8 +72,8 @@ var menu = {
             label: 'header',
             section: {
                 type: 'section',
-                header_style: {
-                    label: 'header',
+                header_position: {
+                    label: 'position',
                     type: 'select',
                     options: [{
                         label: 'normal',
@@ -544,10 +544,10 @@ var menu = {
             player_playback_speed: {
                 label: 'playbackSpeed',
                 type: 'slider',
-                min: 0,
+                min: .25,
                 max: 2,
                 default: 1,
-                step: .05
+                step: .25
             },
             player_autoplay: {
                 label: 'autoplay',
