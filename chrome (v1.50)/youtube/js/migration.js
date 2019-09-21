@@ -142,9 +142,9 @@ chrome.storage.local.get(function(object) {
 
 		else if (key === 'header') {
             if (value === 'top_of_page') {
-                object.header_style = 'static';
+                object.header_position = 'static';
             } else {
-            	object.header_style = value;
+            	object.header_position = value;
             }
 
             delete object[key];
