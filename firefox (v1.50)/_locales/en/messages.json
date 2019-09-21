@@ -392,6 +392,9 @@
     "popupPlayer": {
         "message": "Popup player"
     },
+    "position": {
+        "message": "Position"
+    },
     "pressAnyKeyOrScroll": {
         "message": "Press any key or use mouse wheel."
     },
