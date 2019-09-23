@@ -7,17 +7,17 @@
     "default_locale": "en",
     "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
     "icons": {
-        "16": "extension/img/16.png",
-        "32": "extension/img/32.png",
-        "48": "extension/img/48.png",
-        "128": "extension/img/128.png"
+        "16": "icons/16.png",
+        "32": "icons/32.png",
+        "48": "icons/48.png",
+        "128": "icons/128.png"
     },
 
     "author": "savetime",
     "background": {
         "persistent": false,
         "scripts": [
-            "extension/js/background.js"
+            "background.js"
         ]
     },
     "content_scripts": [{
@@ -79,10 +79,10 @@
     "browser_action": {
         "default_title": "ImprovedTube: optimize Youtube!",
         "default_icon": {
-            "16": "extension/img/16g.png",
-            "32": "extension/img/32g.png",
-            "48": "extension/img/48g.png",
-            "128": "extension/img/128g.png"
+            "16": "icons/16g.png",
+            "32": "icons/32g.png",
+            "48": "icons/48g.png",
+            "128": "icons/128g.png"
         },
         "default_popup": "index.html"
     },
