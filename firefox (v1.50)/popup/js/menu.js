@@ -702,7 +702,7 @@ var menu = {
                 type: 'shortcut',
                 default: 'none'
             },
-            video_quality: {
+            /*video_quality: {
                 label: 'videoQuality',
                 section_99: {
                     type: 'section',
@@ -732,7 +732,7 @@ var menu = {
                         default: 'none'
                     }
                 }
-            },
+            },*/
             play_pause: {
                 label: 'playPause',
                 type: 'shortcut',
