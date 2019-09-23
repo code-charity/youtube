@@ -45,4 +45,17 @@ chrome.runtime.onMessage.addListener(function(request) {
     if (typeof ImprovedTube[name] === 'function') {
         injectScript('ImprovedTube.' + name + '();');
     }
+
+
+
+
+    if (request == 'requestVolume' && document.querySelector('video')) {
+        sendResponse(document.querySelector('video').volume);
+
+        return false;
+    } else if (typeof request == 'object' && request.name == 'changeVolume') {
+        injectScript(['if(document.querySelector(".html5-video-player")){document.querySelector(".html5-video-player").setVolume(' + request.volume + ');}'], 'improvedtube-mixer-data');
+
+        return false;
+    }
 });
