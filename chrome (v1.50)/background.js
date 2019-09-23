@@ -61,11 +61,11 @@ function getTranslations() {
 function browserActionIcon() {
     if (browser_icon === 'always') {
         chrome.browserAction.setIcon({
-            path: 'extension/img/32.png'
+            path: 'icons/32.png'
         });
     } else {
         chrome.browserAction.setIcon({
-            path: 'extension/img/32g.png'
+            path: 'icons/32g.png'
         });
     }
 }
@@ -114,7 +114,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
     if (isset(request) && typeof request === 'object') {
         if (request.enabled === true && browser_icon !== 'always') {
             chrome.browserAction.setIcon({
-                path: 'extension/img/32.png',
+                path: 'icons/32.png',
                 tabId: sender.tab.id
             });
         }
