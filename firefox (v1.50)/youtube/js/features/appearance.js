@@ -40,7 +40,69 @@ ImprovedTube.forced_theater_mode = function() {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.how_long_ago_the_video_was_uploaded = function() {
+    if (ImprovedTube.storage.how_long_ago_the_video_was_uploaded === 'true') {
+        function timeSince(date) {
+            var seconds = Math.floor((new Date() - new Date(date)) / 1000),
+                interval = Math.floor(seconds / 31536000);
 
+            if (interval > 1) {
+                return interval + ' years ago';
+            }
+            interval = Math.floor(seconds / 2592000);
+            if (interval > 1) {
+                return interval + ' months ago';
+            }
+            interval = Math.floor(seconds / 86400);
+            if (interval > 1) {
+                return interval + ' days ago';
+            }
+            interval = Math.floor(seconds / 3600);
+            if (interval > 1) {
+                return interval + ' hours ago';
+            }
+            interval = Math.floor(seconds / 60);
+            if (interval > 1) {
+                return interval + ' minutes ago';
+            }
+
+            return Math.floor(seconds) + ' seconds ago';
+        }
+
+        var waiting_channel_link = setInterval(function() {
+            var youtube_version = document.documentElement.getAttribute('youtube-version') === 'new';
+
+            if (document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container a' : '.yt-user-info a')) {
+                clearInterval(waiting_channel_link);
+
+                if (document.querySelector('.itx-channel-video-uploaded'))
+                    document.querySelector('.itx-channel-video-uploaded').remove();
+
+                setTimeout(function() {
+                    var youtube_version = document.documentElement.getAttribute('youtube-version') === 'new',
+                        xhr = new XMLHttpRequest();
+
+                    xhr.onreadystatechange = function() {
+                        if (this.readyState === 4 && this.status === 200) {
+                            var b = document.createElement(youtube_version ? 'yt-formatted-string' : 'a');
+
+                            if (document.querySelector('.itx-channel-video-uploaded'))
+                                document.querySelector('.itx-channel-video-uploaded').remove();
+
+                            b.id = 'owner-name';
+                            b.style.marginLeft = '.4rem';
+                            b.className = (youtube_version ? 'style-scope ytd-video-owner-renderer itx-channel-video-uploaded' : 'yt-uix-sessionlink spf-link');
+                            b.innerHTML = (youtube_version ? '<a class="yt-simple-endpoint style-scope yt-formatted-string"> · ' + timeSince(JSON.parse(this.responseText).items[0].snippet.publishedAt) + ' </a>' : timeSince(JSON.parse(this.responseText).items[0].snippet.publishedAt) + '');
+
+                            document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container' : '.yt-user-info').appendChild(b);
+                        }
+                    };
+
+                    xhr.open('GET', 'https://www.googleapis.com/youtube/v3/videos?id=' + getParam(location.href.slice(location.href.indexOf('?') + 1), 'v') + '&key=AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA&part=snippet', true);
+                    xhr.send();
+                }, 100);
+            }
+        }, 50);
+    }
 };
 
 
@@ -49,7 +111,43 @@ ImprovedTube.how_long_ago_the_video_was_uploaded = function() {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.channel_videos_count = function() {
+    if (document.querySelector('.itx-channel-videos-count')) {
+        document.querySelector('.itx-channel-videos-count').remove();
+    }
 
+    if (ImprovedTube.storage.channel_videos_count === 'true') {
+        var waiting_channel_link = setInterval(function() {
+            let youtube_version = document.documentElement.getAttribute('youtube-version') === 'new';
+
+            if (document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container a' : '.yt-user-info a')) {
+                clearInterval(waiting_channel_link);
+
+                setTimeout(function() {
+                    let youtube_version = document.documentElement.getAttribute('youtube-version') === 'new',
+                        xhr = new XMLHttpRequest();
+
+                    xhr.onreadystatechange = function() {
+                        if (this.readyState === 4 && this.status === 200) {
+                            var b = document.createElement(youtube_version ? 'yt-formatted-string' : 'a');
+
+                            if (document.querySelector('.itx-channel-videos-count'))
+                                document.querySelector('.itx-channel-videos-count').remove();
+
+                            b.id = 'owner-name';
+                            b.style.marginLeft = '.4rem';
+                            b.className = (youtube_version ? 'style-scope ytd-video-owner-renderer itx-channel-videos-count' : 'yt-uix-sessionlink spf-link');
+                            b.innerHTML = (youtube_version ? '<a class="yt-simple-endpoint style-scope yt-formatted-string">' + JSON.parse(this.responseText).items[0].statistics.videoCount + ' videos</a>' : JSON.parse(this.responseText).items[0].statistics.videoCount + ' videos');
+
+                            document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container' : '.yt-user-info').appendChild(b);
+                        }
+                    };
+
+                    xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?id=' + document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container a' : '.yt-user-info a').href.replace('https://www.youtube.com/channel/', '') + '&key=AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA&part=statistics', true);
+                    xhr.send();
+                }, 1000);
+            }
+        }, 50);
+    }
 };
 
 

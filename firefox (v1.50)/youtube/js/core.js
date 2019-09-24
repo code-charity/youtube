@@ -74,6 +74,7 @@ ImprovedTube.init = function() {
     this.bluelight();
     this.dim();
     this.pageType();
+    this.improvedtube_youtube_icon();
     this.add_scroll_to_top();
     this.player_autopause();
     this.mini_player();
@@ -90,6 +91,7 @@ ImprovedTube.init = function() {
         ImprovedTube.comments();
         ImprovedTube.livechat();
         ImprovedTube.related_videos();
+        ImprovedTube.improvedtube_youtube_icon();
     });
 
     window.addEventListener('yt-page-data-updated', function() {
@@ -101,6 +103,7 @@ ImprovedTube.init = function() {
         ImprovedTube.comments();
         ImprovedTube.livechat();
         ImprovedTube.related_videos();
+        ImprovedTube.improvedtube_youtube_icon();
     });
 
     window.addEventListener('yt-visibility-refresh', function() {
@@ -113,6 +116,7 @@ ImprovedTube.init = function() {
         ImprovedTube.comments();
         ImprovedTube.livechat();
         ImprovedTube.related_videos();
+        ImprovedTube.improvedtube_youtube_icon();
     });
 
     window.addEventListener('spf-done', function() {
@@ -124,6 +128,7 @@ ImprovedTube.init = function() {
         ImprovedTube.comments();
         ImprovedTube.livechat();
         ImprovedTube.related_videos();
+        ImprovedTube.improvedtube_youtube_icon();
     });
 
     document.documentElement.addEventListener('load', function() {

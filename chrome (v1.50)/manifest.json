@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "Improve YouTube! (Open-Source for YouTube)",
-    "version": "1.50.0",
-    "version_name": "1.50.0 Beta 1",
+    "version": "1.50.1",
+    "version_name": "1.50 Beta 2",
 
     "default_locale": "en",
     "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
@@ -28,6 +28,7 @@
             "youtube/css/appearance.css",
             "youtube/css/player.css",
             "youtube/css/channel.css",
+            "youtube/css/settings.css",
             "youtube/css/themes/legacy.css",
             "youtube/css/themes/default.css",
             "youtube/css/themes/black.css",
@@ -54,11 +55,20 @@
             "youtube/js/features/settings.js"
         ],
         "matches": [
-            "*://www.youtube.com/*"
+            "https://www.youtube.com/*"
         ],
         "exclude_matches": [
-            "*://www.youtube.com/improvedtube",
-            "*://www.youtube.com/tv*"
+            "https://www.youtube.com/improvedtube",
+            "https://www.youtube.com/tv*"
+        ],
+        "run_at": "document_start"
+    }, {
+        "all_frames": true,
+        "matches": [
+            "https://www.youtube.com/improvedtube"
+        ],
+        "js": [
+            "popup/js/fix.js"
         ],
         "run_at": "document_start"
     }, {
@@ -66,10 +76,38 @@
         "matches": [
             "*://www.youtube.com/improvedtube"
         ],
-        "js": [
-            "popup/js/fix.js"
+        "css": [
+            "popup/css/page.css",
+            "popup/css/list.css",
+            "popup/css/appearance.css",
+            "popup/css/main.css",
+            "popup/css/dialog.css",
+            "popup/css/header.css",
+            "popup/css/themes.css",
+            "popup/css/themes/dark.css",
+            "popup/css/themes/night.css",
+            "popup/css/themes/dawn.css",
+            "popup/css/themes/sunset.css",
+            "popup/css/themes/desert.css",
+            "popup/css/themes/plain.css",
+            "popup/css/themes/black.css",
+            "popup/css/classic-improvedtube.css"
         ],
-        "run_at": "document_start"
+        "js": [
+            "popup/js/cookie.js",
+            "popup/js/params.js",
+            "popup/js/functions.js",
+            "popup/js/storage.js",
+            "popup/js/menu.js",
+            "popup/js/themes.js",
+            "popup/js/dialog.js",
+            "popup/js/elements.js",
+            "popup/js/search.js",
+            "popup/js/header.js",
+            "popup/js/list.js",
+            "popup/js/core.js"
+        ],
+        "run_at": "document_end"
     }],
     "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
     "homepage_url": "https://improvedtube.com",
