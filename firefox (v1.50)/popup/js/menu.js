@@ -1414,7 +1414,9 @@ var menu = {
                                 chrome.tabs.query({}, function(tabs) {
                                     for (let i = 0, l = tabs.length; i < l; i++)
                                         if (tabs[i].hasOwnProperty('url'))
-                                            chrome.tabs.sendMessage(tabs[i].id, 'delete_youtube_cookies');
+                                            chrome.tabs.sendMessage(tabs[i].id, {
+                                                name: 'delete_youtube_cookies'
+                                            });
                                 });
                             });
                         }
