@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "Improve YouTube! (Open-Source for YouTube)",
-    "version": "1.50.3",
-    "version_name": "1.50 Beta 3",
+    "version": "1.50.4",
+    "version_name": "1.50 Beta 4",
 
     "default_locale": "en",
     "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
@@ -28,6 +28,7 @@
             "youtube/css/appearance.css",
             "youtube/css/player.css",
             "youtube/css/channel.css",
+            "youtube/css/shortcuts.css",
             "youtube/css/settings.css",
             "youtube/css/themes/legacy.css",
             "youtube/css/themes/default.css",
