@@ -9,7 +9,31 @@ ImprovedTube.shortcuts = function() {
     var self = this,
         keys = {},
         wheel = 0,
-        hover = false;
+        hover = false,
+        status_timer;
+
+    function showStatus(player, volume) {
+        if (!player.querySelector('#it-status')) {
+            var element = document.createElement('div');
+
+            element.id = 'it-status';
+            element.innerHTML = volume;
+
+            document.querySelector('.html5-video-container').appendChild(element);
+        } else {
+            player.querySelector('#it-status').innerHTML = volume;
+        }
+
+        if (status_timer) {
+            clearTimeout(status_timer);
+        }
+
+        status_timer = setTimeout(function() {
+            if (player.querySelector('#it-status')) {
+                player.querySelector('#it-status').remove();
+            }
+        }, 500);
+    }
 
     function start(type = 'keys') {
         if (document.activeElement && ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'].indexOf(document.activeElement.tagName) !== -1 || event.target.isContentEditable) {
@@ -75,6 +99,8 @@ ImprovedTube.shortcuts = function() {
 
                 if (player && player.setVolume && player.getVolume) {
                     player.setVolume(player.getVolume() + 5);
+
+                    showStatus(player, player.getVolume());
                 }
             },
             decrease_volume: function() {
@@ -82,6 +108,8 @@ ImprovedTube.shortcuts = function() {
 
                 if (player && player.setVolume && player.getVolume) {
                     player.setVolume(player.getVolume() - 5);
+
+                    showStatus(player, player.getVolume());
                 }
             },
             increase_playback_speed: function() {
@@ -89,6 +117,8 @@ ImprovedTube.shortcuts = function() {
 
                 if (player && player.setPlaybackRate && player.getPlaybackRate) {
                     player.setPlaybackRate(player.getPlaybackRate() + .05);
+
+                    showStatus(player, player.getPlaybackRate());
                 }
             },
             decrease_playback_speed: function() {
@@ -96,6 +126,8 @@ ImprovedTube.shortcuts = function() {
 
                 if (player && player.setPlaybackRate && player.getPlaybackRate) {
                     player.setPlaybackRate(player.getPlaybackRate() - .05);
+
+                    showStatus(player, player.getPlaybackRate());
                 }
             },
             go_to_search_box: function() {
