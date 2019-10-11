@@ -1,0 +1,35 @@
+.satus-pluviam
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+
+    flex: 1;
+}
+
+.satus-pluviam__inner
+{
+    position: absolute;
+    top: -10%;
+    left: -10%;
+
+    box-sizing: border-box;
+    width: 120%;
+    height: 120%;
+
+    background-color: var(--background-1);
+    background-image: url(../svg/grid.svg);
+    background-size: var(--pluviam-size);
+}
+
+.satus-pluviam__block
+{
+    position: absolute;
+
+    min-width: var(--pluviam-size);
+    min-height: var(--pluviam-size);
+
+    background: #f00;
+}

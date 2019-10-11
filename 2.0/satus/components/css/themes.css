@@ -1,0 +1,15 @@
+.satus
+{
+    --primary-color: #ee6002;
+    --primary-transparent-color: rgba(249, 103, 84, .5);
+    --hover-background: rgba(0, 0, 0, .08);
+
+    --background-0: #fefefe;
+    --background-1: #f2f2f2;
+    --background-2: #fefefe;
+
+    --color-0: #616161;
+    --color-1: #727272;
+
+    --appearance-shadow: #eee;
+}

@@ -1,0 +1,206 @@
+.satus-shortcut
+{
+    position: relative;
+
+    display: flex;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 16px;
+
+    cursor: pointer;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.satus-shortcut > .label
+{
+    margin: 0 0 4px 0;
+}
+
+.satus-shortcut > .value
+{
+    font-size: 13px;
+
+    opacity: .5;
+}
+
+.satus-shortcut-dialog-label
+{
+        width: 100%;
+    box-sizing: border-box;
+    padding: 0 16px;
+    margin: 4px 0 10px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.satus-shortcut__canvas
+{
+    display: flex;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 68px;
+    padding: 16px;
+
+    background: #dedede;
+
+    align-items: center;
+}
+
+.satus-shortcut__key
+{
+    display: flex;
+
+    box-sizing: border-box;
+    min-width: 32px;
+    height: 32px;
+    padding: 4px 8px;
+
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.15), inset 0 -3px 0 rgba(0,0,0,.1);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.satus-shortcut__plus
+{
+    position: relative;
+
+    width: 12px;
+    height: 12px;
+    margin: 8px;
+}
+
+.satus-shortcut__plus::before
+{
+    position: absolute;
+    top: 0;
+    left: 5px;
+
+    width: 2px;
+    height: 12px;
+
+    content: '';
+
+    background-color: #aaa;
+}
+
+.satus-shortcut__plus::after
+{
+    position: absolute;
+    top: 5px;
+    left: 0;
+
+    width: 12px;
+    height: 2px;
+
+    content: '';
+
+    background-color: #aaa;
+}
+
+.satus-shortcut__mouse
+{
+    position: relative;
+
+    display: flex;
+
+    width: 28px;
+    height: 36px;
+
+    border-radius: 50%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.15), inset 0 -3px 0 rgba(0,0,0,.1);
+}
+
+.satus-shortcut__mouse > div
+{
+    position: absolute;
+    top: 0;
+    left: 13px;
+
+    width: 2px;
+    height: 11px;
+
+    border-radius: 2px;
+    background: #ccc;
+}
+
+.satus-shortcut__mouse::before
+{
+    position: absolute;
+    top: -4px;
+    left: 21px;
+
+    width: 2px;
+    height: 18px;
+
+    content: '';
+
+    background: #f96754;
+}
+
+.satus-shortcut__mouse.false::after
+{
+    position: absolute;
+    top: -12px;
+    left: 17px;
+
+    width: 0;
+    height: 0;
+
+    content: '';
+
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #f96754;
+    border-left: 5px solid transparent;
+}
+
+.satus-shortcut__mouse.true::after
+{
+    position: absolute;
+    top: 14px;
+    left: 17px;
+
+    width: 0;
+    height: 0;
+
+    content: '';
+
+    border-top: 8px solid #f96754;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+.satus-section_shortcut
+{
+    width: 100%;
+    margin: 8px 0 0;
+
+    justify-content: flex-end;
+}
+
+.satus-button_shortcut
+{
+    font-weight: 500;
+
+    overflow: hidden;
+
+    height: 40px;
+    min-height: 40px;
+    margin-right: 8px;
+
+    text-transform: uppercase;
+
+    color: #f96754;
+    border-radius: 4px;
+}

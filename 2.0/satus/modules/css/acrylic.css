@@ -1,0 +1,58 @@
+.satus-acrylic
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+}
+
+.satus-acrylic__blur,
+.satus-acrylic__color-burn,
+.satus-acrylic__color-overlay,
+.satus-acrylic__noise
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.satus-acrylic__blur
+{
+    transform: scale(1.5);
+
+    background: url(../../../assets/images/background.jpg) no-repeat center;
+    background-size: cover;
+
+    filter: blur(30px);
+}
+
+.satus-acrylic.satus-acrylic_dark > .satus-acrylic__color-burn
+{
+    background: rgba(0, 0, 0, .1);
+
+    mix-blend-mode: exclusion;
+}
+
+.satus-acrylic.satus-acrylic_light > .satus-acrylic__color-burn
+{
+    background: rgba(255, 255, 255, .1);
+
+    mix-blend-mode: exclusion;
+}
+
+.satus-acrylic.satus-acrylic_dark > .satus-acrylic__color-overlay
+{
+    background: rgba(0, 0, 0, .6);
+}
+
+.satus-acrylic.satus-acrylic_light > .satus-acrylic__color-overlay
+{
+    background: rgba(255, 255, 255, .6);
+}
