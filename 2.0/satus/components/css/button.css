@@ -1,0 +1,111 @@
+/*------------------------------------------------------------------------------
+>>> "BUTTON" COMPONENT:
+--------------------------------------------------------------------------------
+1.0 Global
+2.0 Main
+3.0 Dialog
+------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+1.0 Global
+------------------------------------------------------------------------------*/
+
+.satus-button
+{
+    font-size: .85rem;
+
+    position: relative;
+
+    display: flex;
+
+    box-sizing: border-box;
+    min-width: 48px;
+    height: 48px;
+    min-height: 48px;
+
+    cursor: pointer;
+
+    outline: none;
+
+    align-items: center;
+}
+
+.satus-button svg
+{
+    width: 24px;
+    height: 24px;
+
+    fill: var(--color-1);
+}
+
+.satus-button::before
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 100%;
+    height: 100%;
+
+    content: '';
+    transition: transform 100ms linear, opacity 50ms linear;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+    opacity: 0;
+    background: var(--hover-background);
+}
+
+.satus-button:focus::before,
+.satus-button:hover::before
+{
+    opacity: 1;
+}
+
+.satus-button_icon
+{
+    max-width: 48px;
+    min-height: auto;
+    max-height: 100%;
+
+    justify-content: center;
+}
+
+.satus-button_icon::before
+{
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+}
+
+.satus-button:not(.satus-button_icon)
+{
+    padding: 0 16px;
+}
+
+.satus-button_full-width
+{
+    width: 100%;
+}
+
+
+/*------------------------------------------------------------------------------
+2.0 Modifiers
+------------------------------------------------------------------------------*/
+
+.satus-section--controls .satus-button
+{
+    font-weight: 500;
+
+    overflow: hidden;
+
+    height: 40px;
+    min-height: 40px;
+    margin-right: 8px;
+
+    text-transform: uppercase;
+
+    color: #f96754;
+    border-radius: 4px;
+}

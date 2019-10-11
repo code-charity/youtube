@@ -1,0 +1,82 @@
+/*-----------------------------------------------------------------------------
+>>> THEMES
+-------------------------------------------------------------------------------
+1.0 Bluelight
+2.0 Dim
+-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+1.0 Bluelight
+-----------------------------------------------------------------------------*/
+
+html[it-bluelight],
+html[it-bluelight] .html5-video-player.ytp-fullscreen
+{
+    filter: url(#it-bluelight-filter);
+}
+
+html[youtube-version=old][it-bluelight]:not([dark]):not([theme])
+{
+    background: #f1f1f1!important;
+}
+
+html[youtube-version=old][it-bluelight]
+{
+    height: auto!important;
+}
+
+#it-bluelight
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+
+    width: 100%;
+    height: 100vh;
+
+    pointer-events: none;
+}
+
+
+/*-----------------------------------------------------------------------------
+2.0 Dim
+-----------------------------------------------------------------------------*/
+
+#it-dim
+{
+    position: fixed;
+    z-index: 9999999999;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    pointer-events: none;
+
+    background: #000;
+}
+
+#it-dim-player
+{
+    position: fixed;
+    z-index: 9999999999;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+
+    width: 100%;
+    height: 100vh;
+
+    pointer-events: none;
+
+    background: #000;
+}
+
+.html5-video-player.ytp-fullscreen #it-dim-player
+{
+    visibility: visible;
+}
