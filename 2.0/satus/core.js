@@ -23,6 +23,7 @@ function Satus(query, options = {}) {
             storage: {
                 get: [],
                 set: [],
+                remove: [],
                 clear: []
             },
             components: {
@@ -69,6 +70,12 @@ function Satus(query, options = {}) {
         }
     });
 
+    Object.defineProperty(this.storage, 'onremove', {
+        value: function(callback) {
+            event_listeners.storage.remove.push(callback);
+        }
+    });
+
     Object.defineProperty(this.storage, 'onclear', {
         value: function(callback) {
             event_listeners.storage.clear.push(callback);
@@ -106,6 +113,7 @@ function Satus(query, options = {}) {
 
     Object.defineProperty(this.storage, 'has', {
         value: function(name) {
+            console.log(name, storage.hasOwnProperty(name), storage);
             return storage.hasOwnProperty(name);
         }
     });
@@ -138,6 +146,38 @@ function Satus(query, options = {}) {
 
             for (var i in event_listeners.storage.set) {
                 event_listeners.storage.set[i](name, value, storage);
+            }
+        }
+    });
+
+    Object.defineProperty(this.storage, 'remove', {
+        value: function(name, path) {
+            if (typeof path === 'string') {
+                let path_array_before = path.split('/'),
+                    path_array = [],
+                    storage_link = storage;
+
+                for (let i = 0, l = path_array_before.length; i < l; i++) {
+                    if (path_array_before[i] != '') {
+                        path_array.push(path_array_before[i]);
+                    }
+                }
+
+                for (let i = 0, l = path_array.length; i < l; i++) {
+                    if (!storage_link.hasOwnProperty(path_array[i])) {
+                        storage_link[path_array[i]] = {};
+                    }
+
+                    storage_link = storage_link[path_array[i]];
+                }
+
+                delete storage_link[name];
+            } else {
+                delete storage[name];
+            }
+
+            for (var i in event_listeners.storage.remove) {
+                event_listeners.storage.remove[i](name, storage);
             }
         }
     });

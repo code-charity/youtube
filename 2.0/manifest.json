@@ -66,6 +66,7 @@
             "youtube/js/features/channel.js",
             "youtube/js/features/shortcuts.js",
             "youtube/js/features/volume-mixer.js",
+            "youtube/js/features/analyzer.js",
             "youtube/js/features/blacklist.js",
             "youtube/js/features/settings.js"
         ],
@@ -146,7 +147,7 @@
             "satus/templates/improvedtube/template-parts/channel.js",
             "satus/templates/improvedtube/template-parts/shortcuts.js",
             "satus/templates/improvedtube/template-parts/mixer.js",
-            "satus/templates/improvedtube/template-parts/youtube-time.js",
+            "satus/templates/improvedtube/template-parts/analyzer.js",
             "satus/templates/improvedtube/template-parts/blacklist.js",
             "satus/templates/improvedtube/template-parts/settings.js",
             "satus/templates/improvedtube/index.js"

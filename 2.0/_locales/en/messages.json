@@ -2,9 +2,6 @@
     "about": {
         "message": "About"
     },
-    "saveAs": {
-        "message": "Save us"
-    },
     "activateCaptions": {
         "message": "Activate captions"
     },
@@ -37,9 +34,6 @@
     },
     "annotations": {
         "message": "Annotations"
-    },
-    "hideAnnotations": {
-        "message": "Hide annotations"
     },
     "appearance": {
         "message": "Appearance"
@@ -109,9 +103,6 @@
     },
     "cancel": {
         "message": "Cancel"
-    },
-    "hideCards": {
-        "message": "Hide cards"
     },
     "channel": {
         "message": "Channel"
@@ -206,9 +197,6 @@
     "enabled": {
         "message": "Enabled"
     },
-    "hideEndscreen": {
-        "message": "Hide endscreen"
-    },
     "expanded": {
         "message": "Expanded"
     },
@@ -218,17 +206,11 @@
     "extension": {
         "message": "Extension"
     },
-    "hideFeaturedContent": {
-        "message": "Hide featured content"
-    },
     "fitToWindow": {
         "message": "Fit to window"
     },
     "flash": {
         "message": "Flash"
-    },
-    "hideFooter": {
-        "message": "Hide footer"
     },
     "footer": {
         "message": "Footer"
@@ -278,11 +260,29 @@
     "hideAnimatedThumbnails": {
         "message": "Hide animated thumbnails"
     },
+    "hideAnnotations": {
+        "message": "Hide annotations"
+    },
+    "hideCards": {
+        "message": "Hide cards"
+    },
     "hideDetails": {
         "message": "Hide details"
     },
+    "hideEndscreen": {
+        "message": "Hide endscreen"
+    },
+    "hideFeaturedContent": {
+        "message": "Hide featured content"
+    },
+    "hideFooter": {
+        "message": "Hide footer"
+    },
     "hideRightButtons": {
         "message": "Hide right buttons"
+    },
+    "hideViewsCount": {
+        "message": "Hide views count"
     },
     "history": {
         "message": "History"
@@ -494,6 +494,9 @@
     "save": {
         "message": "Save"
     },
+    "saveAs": {
+        "message": "Save us"
+    },
     "schedule": {
         "message": "Schedule"
     },
@@ -607,9 +610,6 @@
     },
     "videos": {
         "message": "Videos"
-    },
-    "hideViewsCount": {
-        "message": "Hide views count"
     },
     "volume": {
         "message": "Volume"

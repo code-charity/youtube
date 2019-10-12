@@ -12,7 +12,8 @@ Satus.prototype.components.switch = {
     get: function(name, object) {
         var self = this,
             component = document.createElement('div'),
-            label = this.storage.get('locale/' + object.label) || this.storage.get('locale/' + name) || object.label;
+            label = this.storage.get('locale/' + object.label) || this.storage.get('locale/' + name) || object.label,
+            stor = this.storage.get((object.storage_path || '') + '/' + name);
 
         object.tabindex = true;
 
@@ -21,7 +22,11 @@ Satus.prototype.components.switch = {
             ((object.icons || {}).start || '') + '<div class=track><div class=thumb></div></div>' + ((object.icons || {}).end || '') +
             '</div>';
 
-        component.dataset.value = this.storage.get((object.storage_path || '') + '/' + name) || object.value || false;
+        component.dataset.value = object.value || false;
+
+        if (this.storage.has(name)) {
+            component.dataset.value = stor;
+        }
 
         component.addEventListener('click', function(event) {
             if (component.dataset.value == 'true') {
