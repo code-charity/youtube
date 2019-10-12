@@ -1,4 +1,4 @@
-ImprovedTube.videoUrl = '';
+ImprovedTube.videoUrl = '"null"';
 ImprovedTube.playingTime = 0;
 
 document.addEventListener('ImprovedTubeAnalyzer', function() {

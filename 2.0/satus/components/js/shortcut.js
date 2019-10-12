@@ -76,6 +76,7 @@ Satus.prototype.components.shortcut = {
                 component_surface = document.createElement('div'),
                 component_canvas = document.createElement('div'),
                 component_section = document.createElement('section'),
+                component_button_reset = document.createElement('div'),
                 component_button_cancel = document.createElement('div'),
                 component_button_save = document.createElement('div');
 
@@ -85,10 +86,12 @@ Satus.prototype.components.shortcut = {
             component_surface.className = 'satus-dialog__surface satus-dialog__surface_shortcut';
             component_canvas.className = 'satus-shortcut__canvas';
             component_section.className = 'satus-section satus-section_shortcut';
+            component_button_reset.className = 'satus-button satus-button_shortcut';
             component_button_cancel.className = 'satus-button satus-button_shortcut';
             component_button_save.className = 'satus-button satus-button_shortcut';
 
             component_dialog_label.innerText = component_label.innerText;
+            component_button_reset.innerText = self.storage.get('locale/reset');
             component_button_cancel.innerText = self.storage.get('locale/cancel');
             component_button_save.innerText = self.storage.get('locale/save');
 
@@ -140,12 +143,17 @@ Satus.prototype.components.shortcut = {
             }
 
             component_scrim.addEventListener('click', close);
+            component_button_reset.addEventListener('click', function() {
+                self.storage.remove(name);
+                close();
+            });
             component_button_cancel.addEventListener('click', close);
             component_button_save.addEventListener('click', function() {
                 self.storage.set(name, JSON.stringify(value));
                 close(false);
             });
 
+            component_section.appendChild(component_button_reset);
             component_section.appendChild(component_button_cancel);
             component_section.appendChild(component_button_save);
 

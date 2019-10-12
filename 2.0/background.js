@@ -8,6 +8,7 @@
 5.0 Storage change listener
 6.0 Initialization
 7.0 Uninstall URL
+8.0 Google analytics
 --------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
@@ -287,3 +288,25 @@ chrome.storage.local.get(function(items) {
 -----------------------------------------------------------------------------*/
 
 chrome.runtime.setUninstallURL('http://improvedtube.com/uninstalled');
+
+
+/*-----------------------------------------------------------------------------
+8.0 Google analytics
+-----------------------------------------------------------------------------*/
+
+if (chrome.runtime.getManifest().version === chrome.runtime.getManifest().version_name) {
+    var _gaq = _gaq || [];
+
+    _gaq.push(['_setAccount', 'UA-88354155-1']);
+    _gaq.push(['_setSessionCookieTimeout', 14400000]);
+
+    (function() {
+        var ga = document.createElement('script'),
+            s = document.getElementsByTagName('script')[0];
+
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = 'https://ssl.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga, s);
+    })();
+}
