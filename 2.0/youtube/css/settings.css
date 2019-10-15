@@ -1,7 +1,23 @@
-#improvedtube_settings_button
+/*-----------------------------------------------------------------------------
+>>> SETTINGS
+-------------------------------------------------------------------------------
+1.0 ImprovedTube icon on YouTube
+    1.1 Button
+    1.2 Popup
+-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+1.0 ImprovedTube icon on YouTube
+-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+1.1 Button
+-----------------------------------------------------------------------------*/
+
+#improvedtube-button
 {
     position: relative;
-    z-index: 99999;
+    z-index: 2147483645;
 
     box-sizing: border-box;
     width: 3rem;
@@ -14,7 +30,7 @@
     background: #ff5050;
 }
 
-#improvedtube_settings_button svg
+#improvedtube-button svg
 {
     width: 3rem;
     height: 3rem;
@@ -24,13 +40,13 @@
 
 @media (max-width : 656px)
 {
-    #improvedtube_settings_button
+    #improvedtube-button
     {
         margin-right: 0;
     }
 }
 
-[youtube-version=old] #improvedtube_settings_button
+[youtube-version=old] #improvedtube-button
 {
     display: block;
     float: right;
@@ -40,28 +56,28 @@
     margin: 0 0 0 10px;
 }
 
-[youtube-version=old] #improvedtube_settings_button svg
+[youtube-version=old] #improvedtube-button svg
 {
     width: 27px;
     height: 27px;
 }
 
-#improvedtube_settings_button.header_left
+#improvedtube-button.header_left
 {
     float: left;
 
     margin: 0 10px 0 0;
 }
 
-ytd-masthead:not(.masthead-finish) #end #improvedtube_settings_button
+ytd-masthead:not(.masthead-finish) #end #improvedtube-button
 {
     margin: -.2rem 0 0 .5rem!important;
 }
 
-#improvedtube_settings_button.bottom_left
+#improvedtube-button.bottom_left
 {
     position: fixed;
-    z-index: 999999999;
+    z-index: 2147483645;
     bottom: 1rem;
     left: 1rem;
 
@@ -70,10 +86,10 @@ ytd-masthead:not(.masthead-finish) #end #improvedtube_settings_button
     opacity: .5;
 }
 
-#improvedtube_settings_button.bottom_right
+#improvedtube-button.bottom_right
 {
     position: fixed;
-    z-index: 999999999;
+    z-index: 2147483645;
     right: 1rem;
     bottom: 1rem;
 
@@ -82,13 +98,13 @@ ytd-masthead:not(.masthead-finish) #end #improvedtube_settings_button
     opacity: .5;
 }
 
-#improvedtube_settings_button.bottom_left:hover,
-#improvedtube_settings_button.bottom_right:hover
+#improvedtube-button.bottom_left:hover,
+#improvedtube-button.bottom_right:hover
 {
     opacity: 1;
 }
 
-#improvedtube_settings_button.below_player
+#improvedtube-button.below_player
 {
     top: 4px;
 
@@ -100,7 +116,7 @@ ytd-masthead:not(.masthead-finish) #end #improvedtube_settings_button
     margin: 0 8px;
 }
 
-#improvedtube_settings_button.below_player svg
+#improvedtube-button.below_player svg
 {
     width: 20px;
     height: 20px;
@@ -108,20 +124,14 @@ ytd-masthead:not(.masthead-finish) #end #improvedtube_settings_button
 }
 
 
-
-
-
-
-
-
-
-
-
+/*-----------------------------------------------------------------------------
+1.2 Popup
+-----------------------------------------------------------------------------*/
 
 #improvedtube-popup
 {
     position: absolute;
-    z-index: 999999;
+    z-index: 2147483646;
     top: 3rem;
     left: 0;
 

@@ -48,8 +48,27 @@ ImprovedTube.dim = function() {
         } else {
             document.querySelector('#it-dim').style.opacity = parseInt(Number(value)) / 100 || 0;
         }
-    } else if (document.querySelector('#it-dim')) {
-        document.querySelector('#it-dim').remove();
+
+        if (!document.querySelector('#it-dim-player')) {
+            var container = document.createElement('div');
+
+            container.id = 'it-dim-player';
+            container.style.opacity = parseInt(Number(value)) / 100 || 0;
+
+            if (document.querySelector('.html5-video-player')) {
+                document.querySelector('.html5-video-player').appendChild(container);
+            }
+        } else {
+            document.querySelector('#it-dim-player').style.opacity = parseInt(Number(value)) / 100 || 0;
+        }
+    } else {
+        if (document.querySelector('#it-dim')) {
+            document.querySelector('#it-dim').remove();
+        }
+
+        if (document.querySelector('#it-dim-player')) {
+            document.querySelector('#it-dim-player').remove();
+        }
     }
 };
 
