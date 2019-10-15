@@ -25,7 +25,7 @@ ImprovedTube.improvedtube_youtube_icon = function() {
                     option === 'draggable' ||
                     (option === 'below_player' && (document.querySelector('.title.ytd-video-primary-info-renderer') || document.querySelector('#watch7-headline h1 .watch-title')))
                 ) &&
-                !document.querySelector('#improvedtube_settings_button')
+                !document.querySelector('#improvedtube-button')
             ) {
                 clearInterval(ImprovedTube.improvedtube_youtube_icon_wait);
 
@@ -111,7 +111,7 @@ ImprovedTube.improvedtube_youtube_icon = function() {
                 };
                 document.body.appendChild(background);
 
-                button.id = 'improvedtube_settings_button';
+                button.id = 'improvedtube-button';
                 button.title = 'ImprovedTube Settings';
                 button.onclick = function() {
                     if (button.className.indexOf('dragging') != -1)
@@ -120,7 +120,7 @@ ImprovedTube.improvedtube_youtube_icon = function() {
                     var popup = document.getElementById('improvedtube-popup');
 
                     if (popup) {
-                        var bou = document.getElementById('improvedtube_settings_button').getBoundingClientRect();
+                        var bou = document.getElementById('improvedtube-button').getBoundingClientRect();
                         if (bou.x + 300 < window.innerWidth) {
                             popup.style.left = '0px';
                             popup.style.right = 'auto';
@@ -130,10 +130,10 @@ ImprovedTube.improvedtube_youtube_icon = function() {
                         }
 
                         if (bou.y < window.innerHeight / 2) {
-                            popup.style.top = document.getElementById('improvedtube_settings_button').offsetWidth + 'px';
+                            popup.style.top = document.getElementById('improvedtube-button').offsetWidth + 'px';
                             popup.style.bottom = 'auto';
                         } else {
-                            popup.style.bottom = document.getElementById('improvedtube_settings_button').offsetWidth + 'px';
+                            popup.style.bottom = document.getElementById('improvedtube-button').offsetWidth + 'px';
                             popup.style.top = 'auto';
                         }
 

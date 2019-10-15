@@ -88,6 +88,8 @@ ImprovedTube.playerUpdate = function(node) {
 
     ImprovedTube.playlist_repeat();
     ImprovedTube.playlist_shuffle();
+    
+    ImprovedTube.dim();
 };
 
 

@@ -332,6 +332,16 @@ textarea
 
 /*THEMES*/
 
+.satus-main[data-path='/themes'] > .satus-section
+{
+    width: calc(100% - 32px);
+    margin: 10px auto 4px;
+    padding: 8px 0;
+
+    border-radius: 8px;
+    background: rgba(0,0,0,.05);
+}
+
 .satus-main[data-path='/themes'] > .satus-switch:first-child
 {
     margin-top: 16px;
