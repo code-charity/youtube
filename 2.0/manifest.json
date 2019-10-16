@@ -55,8 +55,9 @@
         "js": [
             "youtube/js/migration.js",
             "youtube/js/core.js",
-            "youtube/js/injection.js",
             "youtube/js/functions.js",
+            "youtube/js/events.js",
+            "youtube/js/injection.js",
             "youtube/js/mutations.js",
             "youtube/js/features/general.js",
             "youtube/js/features/appearance.js",
