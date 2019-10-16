@@ -13,7 +13,7 @@
 ImprovedTube.bluelight = function() {
     var value = this.storage.bluelight;
 
-    if (this.isset(value) && value !== '0') {
+    if (this.isset(value) && value !== 0) {
         if (!document.querySelector('#it-bluelight')) {
             var container = document.createElement('div');
 
@@ -37,7 +37,7 @@ ImprovedTube.bluelight = function() {
 ImprovedTube.dim = function() {
     var value = this.storage.dim;
 
-    if (this.isset(value) && value !== '0') {
+    if (this.isset(value) && value !== 0) {
         if (!document.querySelector('#it-dim')) {
             var container = document.createElement('div');
 

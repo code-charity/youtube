@@ -1,19 +1,62 @@
 /*-----------------------------------------------------------------------------
 >>> MUTATIONS
 -------------------------------------------------------------------------------
-1.0 Change args
-2.0 JSONparse
+1.0 Mutations
+    1.1 JSON.parse
+    1.2 HTMLMediaElement.play
 3.0 Player vars
 4.0 ytPlayerApplicationCreateMod
 5.0 objectDefineProperties
 -----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
+1.0 Mutations
+-----------------------------------------------------------------------------*/
+
+ImprovedTube.mutations = function() {
+    /*-------------------------------------------------------------------------
+    1.1 JSON.parse
+    -------------------------------------------------------------------------*/
+    JSON.parse = (function(original) {
+        return function(text, reviver, bypass) {
+            var temp = original.apply(this, arguments);
+
+            if (!bypass && temp && temp.player && temp.player.args) {
+                temp.player.args = ImprovedTube.changeArgs(temp.player.args);
+            }
+
+            return temp;
+        };
+    }(JSON.parse));
+
+    /*-------------------------------------------------------------------------
+    1.2 HTMLMediaElement.play
+    -------------------------------------------------------------------------*/
+    HTMLMediaElement.prototype.play = (function(original) {
+        return function() {
+            var self = this;
+
+            if (
+                ImprovedTube.autoplay() === false &&
+                ImprovedTube.allow_autoplay === false
+            ) {
+                setTimeout(function() {
+                    self.pause();
+                });
+            }
+
+            return original.apply(this, arguments);
+        }
+    })(HTMLMediaElement.prototype.play);
+};
+
+
+/*-----------------------------------------------------------------------------
 1.0 Change args
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.changeArgs = function(args) {
-    if (args) {
+    if (ImprovedTube.isset(args)) {
         args = ImprovedTube.player_60fps(args);
         args = ImprovedTube.player_loudness_normalization(args);
         args = ImprovedTube.player_subtitles(args);
@@ -21,24 +64,6 @@ ImprovedTube.changeArgs = function(args) {
     }
 
     return args;
-};
-
-
-/*-----------------------------------------------------------------------------
-2.0 JSONparse
------------------------------------------------------------------------------*/
-
-ImprovedTube.JSONparse = function() {
-    JSON.parse = (function(original) {
-        return function(text, reviver, bypass) {
-            var temp = original.apply(this, arguments);
-
-            if (!bypass && temp && temp.player && temp.player.args)
-                temp.player.args = ImprovedTube.changeArgs(temp.player.args);
-
-            return temp;
-        };
-    }(JSON.parse));
 };
 
 
@@ -85,27 +110,27 @@ ImprovedTube.objectDefineProperties = function() {
 
     Object.defineProperties(Object.prototype, {
         cueVideoByPlayerVars: {
-            set: function(data) {
-                this._cueVideoByPlayerVars = data;
-            },
             get: function() {
                 return this._cueVideoByPlayerVars;
+            },
+            set: function(data) {
+                this._cueVideoByPlayerVars = data;
             }
         },
         loadVideoByPlayerVars: {
-            set: function(data) {
-                this._loadVideoByPlayerVars = data;
-            },
             get: function() {
                 return ImprovedTube.playerVars(this._loadVideoByPlayerVars);
+            },
+            set: function(data) {
+                this._loadVideoByPlayerVars = data;
             }
         },
         playVideo: {
-            set: function(data) {
-                this._playVideo = data;
-            },
             get: function() {
                 return this._playVideo;
+            },
+            set: function(data) {
+                this._playVideo = data;
             }
         }
     });
