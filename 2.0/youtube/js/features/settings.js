@@ -13,6 +13,91 @@
 ImprovedTube.improvedtube_youtube_icon_wait = false;
 
 ImprovedTube.improvedtube_youtube_icon = function() {
+    if (
+        ImprovedTube.storage.improvedtube_youtube_icon === 'disabled' &&
+        document.querySelector('.it-btn')
+    ) {
+        document.querySelector('.it-btn').remove();
+    }
+
+    if (this.improvedtube_youtube_icon_wait === false) {
+        this.improvedtube_youtube_icon_wait = setInterval(function() {
+            var option = ImprovedTube.storage.improvedtube_youtube_icon,
+                parentNode,
+                referenceNode;
+
+            if (option === 'header_left') {
+                parentNode = (
+                    document.querySelector('#container.ytd-masthead') ||
+                    document.querySelector('.yt-masthead-logo-container')
+                );
+                referenceNode = (
+                    document.querySelector('#guide-button.ytd-masthead') ||
+                    document.querySelector('#appbar-guide-button')
+                );
+            } else if (option === 'header_right') {
+                parentNode = (
+                    document.querySelector('#end #buttons') ||
+                    document.querySelector('#yt-masthead-user')
+                );
+            } else if (option === 'draggable') {
+                parentNode = document.body || document.querySelector('body');
+            } else if (option === 'below_player') {
+                parentNode = (
+                    document.querySelector('.title.ytd-video-primary-info-renderer') ||
+                    document.querySelector('#watch-headline-title')
+                );
+            }
+
+            if (document.querySelector('.it-btn')) {
+                if (!parentNode.querySelector(':scope > .it-btn')) {
+                    document.querySelector('.it-btn').remove();
+                } else {
+                    clearInterval(ImprovedTube.improvedtube_youtube_icon_wait);
+
+                    ImprovedTube.improvedtube_youtube_icon_wait = false;
+
+                    return false;
+                }
+            }
+
+            if (
+                ImprovedTube.isset(option) &&
+                option !== 'disabled' &&
+                parentNode && (option === 'header_left' ? referenceNode : true)
+            ) {
+                clearInterval(ImprovedTube.improvedtube_youtube_icon_wait);
+
+                ImprovedTube.improvedtube_youtube_icon_wait = false;
+
+                var button = document.createElement('div');
+
+                button.className = 'it-btn';
+                button.innerHTML = '<div class=it-btn__scrim></div><div class=it-btn__icon><iframe class=it-btn__iframe src=//www.youtube.com/improvedtube></iframe></div>';
+                button.addEventListener('click', function() {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    this.classList.toggle('it-btn--active');
+
+                    return false;
+                }, true);
+
+                if (option === 'draggable') {
+                    button.addEventListener('mousedown', function() {});
+                }
+
+                if (option === 'header_left') {
+                    parentNode.insertBefore(button, referenceNode);
+                } else {
+                    parentNode.appendChild(button);
+                }
+            }
+        }, 250);
+    }
+};
+
+/*ImprovedTube.improvedtube_youtube_icon___old = function() {
     if (this.improvedtube_youtube_icon_wait === false) {
         this.improvedtube_youtube_icon_wait = setInterval(function() {
             var option = ImprovedTube.storage.improvedtube_youtube_icon;
@@ -46,6 +131,8 @@ ImprovedTube.improvedtube_youtube_icon = function() {
                     button.className = 'header_left';
                 } else if (option === 'header_right') {
                     parent = document.querySelector('#end #buttons') || document.querySelector('#yt-masthead-user');
+
+                    console.log(0);
                 } else if (option === 'draggable') {
                     parent = document.querySelector('body');
                     button.className = 'bottom_left';
@@ -162,7 +249,7 @@ ImprovedTube.improvedtube_youtube_icon = function() {
             }
         }, 250);
     }
-};
+};*/
 
 
 /*-----------------------------------------------------------------------------
