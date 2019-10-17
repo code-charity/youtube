@@ -64,13 +64,14 @@ Satus.prototype.components.select = {
 
                 option.innerText = self.storage.get('locale/' + object.options[i].label) || object.options[i].label;
                 option.dataset.value = object.options[i].value;
+                option.dataset.label = self.storage.get('locale/' + object.options[i].label) || object.options[i].label;
 
                 option.addEventListener('click', function(event) {
                     event.stopPropagation();
                     event.preventDefault();
 
                     self.storage.set(name, this.dataset.value);
-                    component_value.innerText = self.storage.get('locale/' + this.dataset.value) || this.dataset.value;
+                    component_value.innerText = this.dataset.label;
 
                     component.classList.remove('show');
                     component_options.innerHTML = '';
