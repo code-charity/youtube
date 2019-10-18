@@ -128,9 +128,6 @@
     "cookies": {
         "message": "Cookies"
     },
-    "filters": {
-        "message": "Filters"
-    },
     "cores": {
         "message": "Cores"
     },
@@ -208,6 +205,9 @@
     },
     "extension": {
         "message": "Extension"
+    },
+    "filters": {
+        "message": "Filters"
     },
     "fitToWindow": {
         "message": "Fit to window"
@@ -575,6 +575,9 @@
     "thumbnails": {
         "message": "Thumbnails"
     },
+    "todayAt": {
+        "message": "Today at"
+    },
     "trailerAutoplay": {
         "message": "Trailer autoplay"
     },
@@ -619,6 +622,9 @@
     },
     "watchLater": {
         "message": "Watch later"
+    },
+    "watchTime": {
+        "message": "Watch time"
     },
     "whenTabIsChanged": {
         "message": "When tab is changed"
