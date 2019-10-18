@@ -11,7 +11,7 @@ document.addEventListener('ImprovedTubeAnalyzer', function() {
             if (document.querySelector('ytd-metadata-row-renderer yt-formatted-string a')) {
                 chrome.runtime.sendMessage({
                     name: 'improvedtube-analyzer',
-                    value: '{name:"' + document.querySelector('ytd-metadata-row-renderer yt-formatted-string a').innerText + '",value:1}'
+                    value: document.querySelector('ytd-metadata-row-renderer yt-formatted-string a').innerText
                 });
             }
         }, 100);
