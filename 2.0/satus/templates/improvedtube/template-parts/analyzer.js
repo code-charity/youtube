@@ -58,8 +58,8 @@ Satus.prototype.menu.main.analyzer = {
 
             let now_minutes = new Date().getMinutes();
 
-            watch_time.innerText = satus.storage.get('locale/watchTime');
-            today_at.innerText = satus.storage.get('locale/todayAt') + ' ' + (new Date().getHours() + ':' + (now_minutes < 10 ? '0' + now_minutes : now_minutes));
+            watch_time.innerText = satus.storage.get('locale/watchTime') || 'watchTime';
+            today_at.innerText = satus.storage.get('locale/todayAt') + ' ' + (new Date().getHours() + ':' + (now_minutes < 10 ? '0' + now_minutes : now_minutes)) || 'todayAt';
             all_time.innerText = Math.floor(all_time_value / 60) + 'h ' + (all_time_value - Math.floor(all_time_value / 60) * 60) + 'm';
 
             let h = 0;
