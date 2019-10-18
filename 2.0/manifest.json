@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "ImprovedTube Beta",
-    "version": "2.0.12",
+    "version": "2.0.14",
     "version_name": "2.0 alpha",
 
     "default_locale": "en",

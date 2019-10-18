@@ -76,9 +76,6 @@ Satus.prototype.menu.main.appearance = {
                         label: 'doNotChange',
                         value: 'do_not_change'
                     }, {
-                        label: 'fitToWindow',
-                        value: 'fit_window'
-                    }, {
                         label: 'fullWindow',
                         value: 'full_window'
                     }, {
