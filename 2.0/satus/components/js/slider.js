@@ -21,6 +21,10 @@ Satus.prototype.components.slider = {
             step = object.step || 1,
             value = this.storage.get((object.storage_path || '') + '/' + name) || object.value || 0;
 
+        if (this.storage.get((object.storage_path || '') + '/' + name) === 0) {
+            value = 0;
+        }
+
         object.tabindex = true;
 
         component_label.classList.add('label');
