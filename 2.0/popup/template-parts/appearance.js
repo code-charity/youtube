@@ -33,7 +33,7 @@ Satus.prototype.menu.main.appearance = {
                         label: 'static',
                         value: 'static'
                     }],
-                    tags: 'hover,static,top'
+                    tags: 'hide,hover,static,top'
                 },
                 header_improve_logo: {
                     type: 'switch',

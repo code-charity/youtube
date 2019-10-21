@@ -624,7 +624,7 @@ Satus.prototype.menu.main.settings = {
 
                     message: {
                         type: 'text',
-                        label: 'resetSettings',
+                        label: 'thisWillResetAllSettings',
                         styles: {
                             'width': '100%',
                             'opacity': '.8'
