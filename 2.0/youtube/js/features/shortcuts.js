@@ -144,17 +144,17 @@ ImprovedTube.shortcuts = function() {
                     (data.shiftKey === keys.shiftKey || !self.isset(data.shiftKey)) &&
                     (data.ctrlKey === keys.ctrlKey || !self.isset(data.ctrlKey)) &&
                     (data.altKey === keys.altKey || !self.isset(data.altKey)) &&
-                    ((data.scroll > 0) === (wheel > 0) || !self.isset(data.scroll)) &&
-                    (hover === true || !self.isset(data.hover))
+                    ((data.wheel > 0) === (wheel > 0) || !self.isset(data.wheel)) &&
+                    (hover === true || (self.isset(data.key) || self.isset(data.altKey) || self.isset(data.ctrlKey)))
                 ) {
-                    if (type === 'wheel' && self.isset(data.scroll) || type === 'keys') {
+                    if (type === 'wheel' && self.isset(data.wheel) || type === 'keys') {
                         event.preventDefault();
                         event.stopPropagation();
                     }
 
                     features[i]();
 
-                    if (type === 'wheel' && self.isset(data.scroll) || type === 'keys') {
+                    if (type === 'wheel' && self.isset(data.wheel) || type === 'keys') {
                         return false;
                     }
                 }
