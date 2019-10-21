@@ -82,6 +82,7 @@ ImprovedTube.playerUpdate = function(node) {
         ImprovedTube.playingTime = 0;
     }
 
+    ImprovedTube.player_hd_thumbnail();
     ImprovedTube.player_quality(player);
     ImprovedTube.player_volume(player);
     ImprovedTube.player_playback_speed(player);
