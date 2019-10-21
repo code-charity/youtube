@@ -35,9 +35,6 @@
     "analyzer": {
         "message": "Analyzer"
     },
-    "annotations": {
-        "message": "Annotations"
-    },
     "appearance": {
         "message": "Appearance"
     },
@@ -112,9 +109,6 @@
     },
     "channels": {
         "message": "Channels"
-    },
-    "classicImprovedtube": {
-        "message": "Classic ImprovedTube"
     },
     "codecH264": {
         "message": "Codec h.264"
@@ -212,9 +206,6 @@
     "filters": {
         "message": "Filters"
     },
-    "fitToWindow": {
-        "message": "Fit to window"
-    },
     "flash": {
         "message": "Flash"
     },
@@ -223,9 +214,6 @@
     },
     "forcedTheaterMode": {
         "message": "Forced theater mode"
-    },
-    "forcedVolume": {
-        "message": "Forced volume"
     },
     "foundABug": {
         "message": "Found a bug?"
@@ -380,9 +368,6 @@
     "night": {
         "message": "Night"
     },
-    "nightMode": {
-        "message": "Night mode"
-    },
     "none": {
         "message": "None"
     },
@@ -472,9 +457,6 @@
     },
     "ram": {
         "message": "RAM"
-    },
-    "rate": {
-        "message": "Rate"
     },
     "rateUs": {
         "message": "Rate us"
@@ -616,9 +598,6 @@
     },
     "videoFormats": {
         "message": "Video formats"
-    },
-    "videoQuality": {
-        "message": "Video quality"
     },
     "videos": {
         "message": "Videos"
