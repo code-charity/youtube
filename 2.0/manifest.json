@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "ImprovedTube Beta",
-    "version": "2.0",
+    "version": "2.0.16",
     "version_name": "2.0 alpha",
 
     "default_locale": "en",
@@ -112,7 +112,7 @@
             "satus/components/css/tabs.css",
             "satus/components/css/text.css",
             "satus/components/css/text-field.css",
-            "popup/style.css"
+            "satus/templates/improvedtube/style.css"
         ],
         "js": [
             "satus/core.js",
@@ -137,21 +137,21 @@
             "satus/components/js/tabs.js",
             "satus/components/js/text.js",
             "satus/components/js/text-field.js",
-            "popup/functions.js",
-            "popup/header.js",
-            "popup/main.js",
-            "popup/template-parts/general.js",
-            "popup/template-parts/appearance.js",
-            "popup/template-parts/themes.js",
-            "popup/template-parts/player.js",
-            "popup/template-parts/playlist.js",
-            "popup/template-parts/channel.js",
-            "popup/template-parts/shortcuts.js",
-            "popup/template-parts/mixer.js",
-            "popup/template-parts/analyzer.js",
-            "popup/template-parts/blacklist.js",
-            "popup/template-parts/settings.js",
-            "popup/index.js"
+            "satus/templates/improvedtube/functions.js",
+            "satus/templates/improvedtube/header.js",
+            "satus/templates/improvedtube/main.js",
+            "satus/templates/improvedtube/template-parts/general.js",
+            "satus/templates/improvedtube/template-parts/appearance.js",
+            "satus/templates/improvedtube/template-parts/themes.js",
+            "satus/templates/improvedtube/template-parts/player.js",
+            "satus/templates/improvedtube/template-parts/playlist.js",
+            "satus/templates/improvedtube/template-parts/channel.js",
+            "satus/templates/improvedtube/template-parts/shortcuts.js",
+            "satus/templates/improvedtube/template-parts/mixer.js",
+            "satus/templates/improvedtube/template-parts/analyzer.js",
+            "satus/templates/improvedtube/template-parts/blacklist.js",
+            "satus/templates/improvedtube/template-parts/settings.js",
+            "satus/templates/improvedtube/index.js"
         ],
         "run_at": "document_end"
     }],
