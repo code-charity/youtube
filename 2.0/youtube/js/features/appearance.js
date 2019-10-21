@@ -3,6 +3,7 @@
 -------------------------------------------------------------------------------
 1.0 Player
 	1.1 Forced theater mode
+    1.2 HD thumbnail
 2.0 Details
 3.0 Comments
 4.0 Sidebar
@@ -19,6 +20,28 @@
 ImprovedTube.forced_theater_mode = function() {
     if (this.storage.forced_theater_mode === true) {
         this.setCookie('wide', '1');
+    }
+};
+
+/*-----------------------------------------------------------------------------
+1.2 HD thumbnail
+-----------------------------------------------------------------------------*/
+
+ImprovedTube.player_hd_thumbnail_wait = false;
+
+ImprovedTube.player_hd_thumbnail = function() {
+    if (this.storage.player_hd_thumbnail === true && this.player_hd_thumbnail_wait === false) {
+        this.player_hd_thumbnail_wait = setInterval(function() {
+            var thumbnail = document.querySelector('.ytp-cued-thumbnail-overlay-image');
+
+            if (thumbnail && thumbnail.style.backgroundImage) {
+                clearInterval(ImprovedTube.player_hd_thumbnail_wait);
+
+                ImprovedTube.player_hd_thumbnail_wait = false;
+
+                thumbnail.style.backgroundImage = thumbnail.style.backgroundImage.replace('/hqdefault.jpg', '/maxresdefault.jpg');
+            }
+        }, 250);
     }
 };
 
