@@ -4,6 +4,32 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<title>ImprovedTube</title>
+		<style>
+			html,
+			body,
+			.satus
+			{
+			    overflow: hidden;
+
+			    margin: 0;
+			}
+
+			html:not([improvedtube-page]),
+			html:not([improvedtube-page]) body,
+			html:not([improvedtube-page]) .satus
+			{
+			    width: 320px;
+			    height: 500px;
+			}
+
+			html[improvedtube-page],
+			html[improvedtube-page] body,
+			html[improvedtube-page] .satus
+			{
+			    width: 100%;
+			    height: 100vh;
+			}
+		</style>
 		<link rel="stylesheet" href="components/css/animations.css">
 		<link rel="stylesheet" href="components/css/themes.css">
 		<!-- COMPONENTS STYLES -->
