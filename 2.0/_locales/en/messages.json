@@ -17,6 +17,9 @@
     "ads": {
         "message": "Ads"
     },
+    "pressAnyKeyOrUseMouseWheel": {
+        "message": "Press any key or use mouse wheel"
+    },
     "allow": {
         "message": "Allow"
     },
