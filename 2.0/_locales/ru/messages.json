@@ -1,0 +1,635 @@
+{
+    "about": {
+        "message": "Об ImprovedTube"
+    },
+    "activateCaptions": {
+        "message": "Активировать субтитры"
+    },
+    "activateFullscreen": {
+        "message": "Перейти в полноэкранный режим"
+    },
+    "activeFeatures": {
+        "message": "Активные функции"
+    },
+    "addScrollToTop": {
+        "message": "Добавить кнопку «наверх»"
+    },
+    "ads": {
+        "message": "Реклама"
+    },
+    "pressAnyKeyOrUseMouseWheel": {
+        "message": "Нажмите любую клавишу или используйте колесо мыши"
+    },
+    "allow": {
+        "message": "Разрешить"
+    },
+    "allow60fps": {
+        "message": "Разрешить 60fps"
+    },
+    "alwaysActive": {
+        "message": "Всегда активный"
+    },
+    "amber": {
+        "message": "Янтарный"
+    },
+    "analyzer": {
+        "message": "Анализатор"
+    },
+    "appearance": {
+        "message": "Внешний вид"
+    },
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
+    "audioFormats": {
+        "message": "Аудио форматы"
+    },
+    "auto": {
+        "message": "Авто"
+    },
+    "autoFullscreen": {
+        "message": "Автоматический переход в полноэкранный режим"
+    },
+    "autopause": {
+        "message": "Авто пауза"
+    },
+    "autoplay": {
+        "message": "Автовоспроизведение"
+    },
+    "backupAndReset": {
+        "message": "Резервное копирование и сброс"
+    },
+    "belowPlayer": {
+        "message": "Ниже плеера"
+    },
+    "black": {
+        "message": "Черный"
+    },
+    "blacklist": {
+        "message": "Черный список"
+    },
+    "blockAll": {
+        "message": "Заблокировать всё"
+    },
+    "blue": {
+        "message": "Синий"
+    },
+    "blueGray": {
+        "message": "Серо-голубой"
+    },
+    "bluelight": {
+        "message": "Bluelight"
+    },
+    "brown": {
+        "message": "Коричневый"
+    },
+    "browser": {
+        "message": "Браузер"
+    },
+    "browserVersion": {
+        "message": "Версия браузера"
+    },
+    "buttons": {
+        "message": "Кнопки"
+    },
+    "cancel": {
+        "message": "Отмена"
+    },
+    "channel": {
+        "message": "Канал"
+    },
+    "channels": {
+        "message": "Каналы"
+    },
+    "codecH264": {
+        "message": "Кодек h.264"
+    },
+    "collapsed": {
+        "message": "Свернуть"
+    },
+    "comments": {
+        "message": "Комментарии"
+    },
+    "confirmationBeforeClosing": {
+        "message": "Подтверждение при закрытии"
+    },
+    "cookies": {
+        "message": "Куки"
+    },
+    "cores": {
+        "message": "Ядра"
+    },
+    "cyan": {
+        "message": "Сине-зелёный"
+    },
+    "darkTheme": {
+        "message": "Ночная тема"
+    },
+    "dateAndTime": {
+        "message": "Дата и время"
+    },
+    "dawn": {
+        "message": "Рассвет"
+    },
+    "decreasePlaybackSpeed": {
+        "message": "Уменьшить скорость видео"
+    },
+    "decreaseVolume5": {
+        "message": "Уменьшить громкость на 5%"
+    },
+    "deepOrange": {
+        "message": "Темно-оранжевый"
+    },
+    "deepPurple": {
+        "message": "Темно-фиолетовый"
+    },
+    "defaultChannelTab": {
+        "message": "Вкладка канала по умолчанию"
+    },
+    "deleteYoutubeCookies": {
+        "message": "Удалить YouTube куки"
+    },
+    "deny": {
+        "message": "Нет"
+    },
+    "description": {
+        "message": "Описание"
+    },
+    "desert": {
+        "message": "Пустыня"
+    },
+    "details": {
+        "message": "Детали"
+    },
+    "device": {
+        "message": "Устройство"
+    },
+    "dim": {
+        "message": "Тусклость"
+    },
+    "disabled": {
+        "message": "Выключено"
+    },
+    "dislike": {
+        "message": "Не нравится"
+    },
+    "donate": {
+        "message": "Пожертвовать"
+    },
+    "doNotChange": {
+        "message": "Не менять"
+    },
+    "draggable": {
+        "message": "Перетаскиваемый"
+    },
+    "enabled": {
+        "message": "Включено"
+    },
+    "expanded": {
+        "message": "Развернуть"
+    },
+    "exportSettings": {
+        "message": "Экспорт настроек"
+    },
+    "extension": {
+        "message": "Расширение"
+    },
+    "filters": {
+        "message": "Фильтры"
+    },
+    "flash": {
+        "message": "Flash"
+    },
+    "footer": {
+        "message": "Подвал"
+    },
+    "forcedTheaterMode": {
+        "message": "Принудительный переход в театральный режим"
+    },
+    "foundABug": {
+        "message": "Нашли ошибку?"
+    },
+    "fullWindow": {
+        "message": "Растянуть на все окно"
+    },
+    "general": {
+        "message": "Общее"
+    },
+    "github": {
+        "message": "GitHub"
+    },
+    "goToSearchBox": {
+        "message": "Перейти в окно поиска"
+    },
+    "gpu": {
+        "message": "GPU"
+    },
+    "green": {
+        "message": "Зеленый"
+    },
+    "hdThumbnail": {
+        "message": "Превью высокого качества"
+    },
+    "hdThumbnails": {
+        "message": "Превью высокого качества"
+    },
+    "header": {
+        "message": "Верхняя панель"
+    },
+    "hidden": {
+        "message": "Скрыть"
+    },
+    "hiddenOnVideoPage": {
+        "message": "Скрыть (только страница с видео)"
+    },
+    "hideAnimatedThumbnails": {
+        "message": "Скрыть анимированные превью"
+    },
+    "hideAnnotations": {
+        "message": "Скрыть аннотации"
+    },
+    "hideCards": {
+        "message": "Скрыть карты"
+    },
+    "hideDetails": {
+        "message": "Скрыть детали"
+    },
+    "hideEndscreen": {
+        "message": "Скрыть конечный экран"
+    },
+    "hideFeaturedContent": {
+        "message": "Скрыть рекомендуемое"
+    },
+    "hideFooter": {
+        "message": "Скрыть подвал"
+    },
+    "hideRightButtons": {
+        "message": "Скрыть кнопки (справа)"
+    },
+    "hideViewsCount": {
+        "message": "Скрыть количество просмотров"
+    },
+    "history": {
+        "message": "История"
+    },
+    "home": {
+        "message": "Домашняя страница"
+    },
+    "hover": {
+        "message": "Показать при наведении"
+    },
+    "hoverOnVideoPage": {
+        "message": "Показать при наведении (только страница с видео)"
+    },
+    "howLongAgoTheVideoWasUploaded": {
+        "message": "Показать как давно было загружено видео"
+    },
+    "iconsOnly": {
+        "message": "Только значки"
+    },
+    "importSettings": {
+        "message": "Импорт настроек"
+    },
+    "improvedtubeIconInBrowser": {
+        "message": "Значек ImprovedTube в браузере"
+    },
+    "improvedtubeIconOnYoutube": {
+        "message": "Значек ImprovedTube в YouTube"
+    },
+    "improvedtubeLanguage": {
+        "message": "Язык ImprovedTube"
+    },
+    "improvedtubeVersion": {
+        "message": "Версия ImprovedTube"
+    },
+    "improveLogo": {
+        "message": "Улучшить логотип"
+    },
+    "increasePlaybackSpeed": {
+        "message": "Увеличить скорость видео"
+    },
+    "increaseVolume5": {
+        "message": "Увеличение громкости на 5%"
+    },
+    "indigo": {
+        "message": "Индиго"
+    },
+    "languages": {
+        "message": "Языки"
+    },
+    "legacyYoutube": {
+        "message": "Предыдущая версия YouTube"
+    },
+    "lightBlue": {
+        "message": "Светло-синий"
+    },
+    "lightGreen": {
+        "message": "Светло-зеленый"
+    },
+    "like": {
+        "message": "Лайк"
+    },
+    "likes": {
+        "message": "Лайки"
+    },
+    "lime": {
+        "message": "Лайм"
+    },
+    "liveChat": {
+        "message": "Живой чат"
+    },
+    "loudnessNormalization": {
+        "message": "Нормализация громкости"
+    },
+    "miniPlayer": {
+        "message": "Мини плеер"
+    },
+    "mixer": {
+        "message": "Миксер"
+    },
+    "name": {
+        "message": "Имя"
+    },
+    "new": {
+        "message": "Новый"
+    },
+    "nextVideo": {
+        "message": "Следующее видео"
+    },
+    "night": {
+        "message": "Ночь"
+    },
+    "none": {
+        "message": "Пусто"
+    },
+    "noOpenVideoTabs": {
+        "message": "Нет открытых вкладо с видео"
+    },
+    "normal": {
+        "message": "Обычный"
+    },
+    "old": {
+        "message": "Старый"
+    },
+    "onAllVideos": {
+        "message": "Во всех видео"
+    },
+    "onlyActiveOnYoutube": {
+        "message": "Активен только в YouTube"
+    },
+    "onSubscribedChannels": {
+        "message": "Только на подписанных каналах"
+    },
+    "orange": {
+        "message": "Оранжевый"
+    },
+    "os": {
+        "message": "ОС"
+    },
+    "other": {
+        "message": "Другое"
+    },
+    "permissions": {
+        "message": "Разрешения"
+    },
+    "pictureInPicture": {
+        "message": "Картинка в картинке"
+    },
+    "pink": {
+        "message": "Розовый"
+    },
+    "plain": {
+        "message": "Равнина"
+    },
+    "platform": {
+        "message": "Платформа"
+    },
+    "playbackSpeed": {
+        "message": "Скорость воспроизведения"
+    },
+    "player": {
+        "message": "Плеер"
+    },
+    "playerColor": {
+        "message": "Цвет плеера"
+    },
+    "playerSize": {
+        "message": "Размер плеера"
+    },
+    "playlist": {
+        "message": "Плейлист"
+    },
+    "hidePlaylist": {
+        "message": "Скрыть плейлист"
+    },
+    "playlists": {
+        "message": "Плейлисты"
+    },
+    "playPause": {
+        "message": "Воспроизведение / Пауза"
+    },
+    "popupPlayer": {
+        "message": "Плеер в всплывающем окне"
+    },
+    "position": {
+        "message": "Позиция"
+    },
+    "pressAnyKeyOrScroll": {
+        "message": "Нажмите любую клавишу или воспользуйтесь колесом мыши."
+    },
+    "previousVideo": {
+        "message": "Предыдущее видео"
+    },
+    "purple": {
+        "message": "Пурпурный"
+    },
+    "quality": {
+        "message": "Качество"
+    },
+    "ram": {
+        "message": "RAM"
+    },
+    "rateUs": {
+        "message": "Оцените нас"
+    },
+    "red": {
+        "message": "Красный"
+    },
+    "relatedVideos": {
+        "message": "Похожие видео"
+    },
+    "repeat": {
+        "message": "Повтор"
+    },
+    "reset": {
+        "message": "Сбросить"
+    },
+    "resetAllSettings": {
+        "message": "Сбросить все настройки"
+    },
+    "reverse": {
+        "message": "Обратный порядок"
+    },
+    "rotate": {
+        "message": "Повернуть"
+    },
+    "save": {
+        "message": "Сохранить"
+    },
+    "saveAs": {
+        "message": "Сохранить как"
+    },
+    "schedule": {
+        "message": "Расписание"
+    },
+    "screen": {
+        "message": "Экран"
+    },
+    "screenshot": {
+        "message": "Скриншот"
+    },
+    "hideScrollForDetails": {
+        "message": "Скрыть «Scroll for details»"
+    },
+    "search": {
+        "message": "Поиск"
+    },
+    "searchBarOnly": {
+        "message": "Только поле поиска"
+    },
+    "seekBackward10Seconds": {
+        "message": "Перемотать на 10 секунд назад"
+    },
+    "seekForward10Seconds": {
+        "message": "Перемотать на 10 секунд вперед"
+    },
+    "settings": {
+        "message": "Настройки"
+    },
+    "shortcuts": {
+        "message": "Горячие клавиши"
+    },
+    "showChannelVideosCount": {
+        "message": "Показать количество видео на канале"
+    },
+    "shuffle": {
+        "message": "Случайный порядок"
+    },
+    "sidebar": {
+        "message": "Боковая панель"
+    },
+    "spacebar": {
+        "message": "Пробел"
+    },
+    "squaredUserImages": {
+        "message": "Квадратные изображения пользователей"
+    },
+    "static": {
+        "message": "Статично"
+    },
+    "stop": {
+        "message": "Стоп"
+    },
+    "subscriptions": {
+        "message": "Подписки"
+    },
+    "subtitles": {
+        "message": "Субтитры"
+    },
+    "sunset": {
+        "message": "Закат"
+    },
+    "teal": {
+        "message": "Бирюзовый"
+    },
+    "themes": {
+        "message": "Темы"
+    },
+    "thisWillRemoveAllCookies": {
+        "message": "Это удалит все куки."
+    },
+    "thisWillResetAllSettings": {
+        "message": "Это сбросит все настройки."
+    },
+    "thumbnails": {
+        "message": "Превью"
+    },
+    "todayAt": {
+        "message": "Сегодня в"
+    },
+    "trailerAutoplay": {
+        "message": "Автовоспроизведение трейлера"
+    },
+    "transparentBackground": {
+        "message": "Прозрачный фон"
+    },
+    "trending": {
+        "message": "Тренды"
+    },
+    "tryToReloadThePage": {
+        "message": "Попробуйте перезагрузить страницу"
+    },
+    "turnOff": {
+        "message": "Выключение"
+    },
+    "turnOn": {
+        "message": "Включение"
+    },
+    "type": {
+        "message": "Тип"
+    },
+    "upNextAutoplay": {
+        "message": "Автовоспроизведение следующего видео"
+    },
+    "use24HourFormat": {
+        "message": "24-часовой формат"
+    },
+    "version": {
+        "message": "Версия"
+    },
+    "videoFormats": {
+        "message": "Форматы видео"
+    },
+    "videos": {
+        "message": "Видео"
+    },
+    "volume": {
+        "message": "Громкость"
+    },
+    "watchLater": {
+        "message": "Посмотреть позже"
+    },
+    "watchTime": {
+        "message": "Watch time"
+    },
+    "whenTabIsChanged": {
+        "message": "При переключении вкладок"
+    },
+    "white": {
+        "message": "Белый"
+    },
+    "yellow": {
+        "message": "Желтый"
+    },
+    "youtubeHeaderLeft": {
+        "message": "Верхняя панель (слева)"
+    },
+    "youtubeHeaderRight": {
+        "message": "Верхняя панель (справа)"
+    },
+    "youtubeHomePage": {
+        "message": "Домашняя страница YouTube"
+    },
+    "youtubeLanguage": {
+        "message": "Язык YouTube"
+    }
+}
