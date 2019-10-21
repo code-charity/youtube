@@ -60,13 +60,11 @@ Satus.prototype.menu.main.appearance = {
                 player_hide_annotations: {
                     type: 'switch',
                     label: 'hideAnnotations',
-                    value: true,
                     tags: 'hide,remove,elements'
                 },
                 player_hide_cards: {
                     type: 'switch',
                     label: 'hideCards',
-                    value: true,
                     tags: 'hide,remove,elements'
                 },
                 player_size: {
@@ -178,17 +176,16 @@ Satus.prototype.menu.main.appearance = {
                 },
                 player_hide_endscreen: {
                     type: 'switch',
-                    label: 'hideEndscreen',
-                    value: true
+                    label: 'hideEndscreen'
                 },
-                hd_thumbnail: {
+                player_hd_thumbnail: {
                     type: 'switch',
                     label: 'hdThumbnail',
                     tags: 'preview'
                 },
-                scroll_for_details: {
+                hide_scroll_for_details: {
                     type: 'switch',
-                    label: 'scrollForDetails',
+                    label: 'hideScrollForDetails',
                     tags: 'remove,hide'
                 }
             });
@@ -322,7 +319,7 @@ Satus.prototype.menu.main.appearance = {
                         value: 'hidden'
                     }]
                 },
-                playlist: {
+                hide_playlist: {
                     type: 'switch',
                     label: 'hidePlaylist'
                 },

@@ -440,6 +440,9 @@
     "playlist": {
         "message": "Playlist"
     },
+    "hidePlaylist": {
+        "message": "Hide playlist"
+    },
     "playlists": {
         "message": "Playlists"
     },
@@ -509,8 +512,8 @@
     "screenshot": {
         "message": "Screenshot"
     },
-    "scrollForDetails": {
-        "message": "«Scroll for details»"
+    "hideScrollForDetails": {
+        "message": "Hide «Scroll for details»"
     },
     "search": {
         "message": "Search"

@@ -929,12 +929,12 @@ html[it-player-hide-endscreen=true] .html5-endscreen
 2.7 Scroll for details
 -----------------------------------------------------------------------------*/
 
-html[it-disable-scroll-for-details=true] button.ytp-fullerscreen-edu-button
+html[it-hide-scroll-for-details=true] button.ytp-fullerscreen-edu-button
 {
     display: none !important;
 }
 
-html[it-disable-scroll-for-details=true] ytd-app[scrolling_]
+html[it-hide-scroll-for-details=true] ytd-app[scrolling_]
 {
     overflow: hidden !important;
 }
@@ -1094,9 +1094,9 @@ html[it-livechat=hidden] div#watch-sidebar-live-chat
 6.2 Playlist
 -----------------------------------------------------------------------------*/
 
-html[it-playlist=hidden] ytd-playlist-panel-renderer#playlist,
-html[it-playlist=hidden] div#player-playlist,
-html[it-playlist=hidden] #placeholder-playlist
+html[it-hide-playlist=true] ytd-playlist-panel-renderer#playlist,
+html[it-hide-playlist=true] div#player-playlist,
+html[it-hide-playlist=true] #placeholder-playlist
 {
     display: none !important;
 }
