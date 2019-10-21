@@ -13,7 +13,9 @@ Satus.prototype.components.shortcut = {
             value = (self.storage.get(name) ? JSON.parse(self.storage.get(name)) : false) || object.value || {},
             component = document.createElement('div'),
             component_label = document.createElement('span'),
-            component_value = document.createElement('span');
+            component_value = document.createElement('span'),
+            mousewheel_timeout = false,
+            mousewheel_only = false;
 
         component_label.className = 'satus-shortcut__label';
         component_value.className = 'satus-shortcut__value';
@@ -101,6 +103,9 @@ Satus.prototype.components.shortcut = {
                 event.preventDefault();
                 event.stopPropagation();
 
+                mousewheel_only = false;
+                clearTimeout(mousewheel_timeout);
+
                 value = {
                     key: event.key,
                     keyCode: event.keyCode,
@@ -116,6 +121,19 @@ Satus.prototype.components.shortcut = {
 
             function mousewheel(event) {
                 event.stopPropagation();
+
+                if (mousewheel_only === true) {
+                    value.shiftKey = false;
+                    value.altKey = false;
+                    value.ctrlKey = false;
+                    value.key = false;
+                }
+
+                clearTimeout(mousewheel_timeout);
+
+                mousewheel_timeout = setTimeout(function() {
+                    mousewheel_only = true;
+                }, 500);
 
                 value.wheel = event.deltaY;
 
