@@ -2,6 +2,9 @@
     "about": {
         "message": "Об ImprovedTube"
     },
+    "alwaysShowProgressBar": {
+        "message": "Всегда показывать прогресс бар"
+    },
     "activateCaptions": {
         "message": "Активировать субтитры"
     },

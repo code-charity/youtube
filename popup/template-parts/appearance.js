@@ -187,6 +187,10 @@ Satus.prototype.menu.main.appearance = {
                     type: 'switch',
                     label: 'hideScrollForDetails',
                     tags: 'remove,hide'
+                },
+                always_show_progress_bar: {
+                    type: 'switch',
+                    label: 'alwaysShowProgressBar'
                 }
             });
         }

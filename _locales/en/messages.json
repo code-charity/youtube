@@ -2,6 +2,9 @@
     "about": {
         "message": "About"
     },
+    "alwaysShowProgressBar": {
+        "message": "Always show progress bar"
+    },
     "activateCaptions": {
         "message": "Activate captions"
     },
