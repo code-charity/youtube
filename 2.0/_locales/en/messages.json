@@ -17,9 +17,6 @@
     "ads": {
         "message": "Ads"
     },
-    "pressAnyKeyOrUseMouseWheel": {
-        "message": "Press any key or use mouse wheel"
-    },
     "allow": {
         "message": "Allow"
     },
@@ -67,6 +64,9 @@
     },
     "backupAndReset": {
         "message": "Backup & reset"
+    },
+    "baseOnSystemColorScheme": {
+        "message": "Base on system color scheme"
     },
     "belowPlayer": {
         "message": "Below player"
@@ -130,6 +130,9 @@
     },
     "cyan": {
         "message": "Cyan"
+    },
+    "dark": {
+        "message": "Dark"
     },
     "darkTheme": {
         "message": "Dark theme"
@@ -272,8 +275,14 @@
     "hideFooter": {
         "message": "Hide footer"
     },
+    "hidePlaylist": {
+        "message": "Hide playlist"
+    },
     "hideRightButtons": {
         "message": "Hide right buttons"
+    },
+    "hideScrollForDetails": {
+        "message": "Hide «Scroll for details»"
     },
     "hideViewsCount": {
         "message": "Hide views count"
@@ -328,6 +337,9 @@
     },
     "legacyYoutube": {
         "message": "Legacy YouTube"
+    },
+    "light": {
+        "message": "Light"
     },
     "lightBlue": {
         "message": "Light blue"
@@ -428,9 +440,6 @@
     "playlist": {
         "message": "Playlist"
     },
-    "hidePlaylist": {
-        "message": "Hide playlist"
-    },
     "playlists": {
         "message": "Playlists"
     },
@@ -445,6 +454,9 @@
     },
     "pressAnyKeyOrScroll": {
         "message": "Press any key or use mouse wheel."
+    },
+    "pressAnyKeyOrUseMouseWheel": {
+        "message": "Press any key or use mouse wheel"
     },
     "previousVideo": {
         "message": "Previous video"
@@ -496,9 +508,6 @@
     },
     "screenshot": {
         "message": "Screenshot"
-    },
-    "hideScrollForDetails": {
-        "message": "Hide «Scroll for details»"
     },
     "search": {
         "message": "Search"

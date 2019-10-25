@@ -17,9 +17,6 @@
     "ads": {
         "message": "Реклама"
     },
-    "pressAnyKeyOrUseMouseWheel": {
-        "message": "Нажмите любую клавишу или используйте колесо мыши"
-    },
     "allow": {
         "message": "Разрешить"
     },
@@ -67,6 +64,9 @@
     },
     "backupAndReset": {
         "message": "Резервное копирование и сброс"
+    },
+    "baseOnSystemColorScheme": {
+        "message": "Зависит от системной цветовой схемы"
     },
     "belowPlayer": {
         "message": "Ниже плеера"
@@ -130,6 +130,9 @@
     },
     "cyan": {
         "message": "Сине-зелёный"
+    },
+    "dark": {
+        "message": "Темная"
     },
     "darkTheme": {
         "message": "Ночная тема"
@@ -272,8 +275,14 @@
     "hideFooter": {
         "message": "Скрыть подвал"
     },
+    "hidePlaylist": {
+        "message": "Скрыть плейлист"
+    },
     "hideRightButtons": {
         "message": "Скрыть кнопки (справа)"
+    },
+    "hideScrollForDetails": {
+        "message": "Скрыть «Scroll for details»"
     },
     "hideViewsCount": {
         "message": "Скрыть количество просмотров"
@@ -328,6 +337,9 @@
     },
     "legacyYoutube": {
         "message": "Предыдущая версия YouTube"
+    },
+    "light": {
+        "message": "Светлая"
     },
     "lightBlue": {
         "message": "Светло-синий"
@@ -428,9 +440,6 @@
     "playlist": {
         "message": "Плейлист"
     },
-    "hidePlaylist": {
-        "message": "Скрыть плейлист"
-    },
     "playlists": {
         "message": "Плейлисты"
     },
@@ -445,6 +454,9 @@
     },
     "pressAnyKeyOrScroll": {
         "message": "Нажмите любую клавишу или воспользуйтесь колесом мыши."
+    },
+    "pressAnyKeyOrUseMouseWheel": {
+        "message": "Нажмите любую клавишу или используйте колесо мыши"
     },
     "previousVideo": {
         "message": "Предыдущее видео"
@@ -496,9 +508,6 @@
     },
     "screenshot": {
         "message": "Скриншот"
-    },
-    "hideScrollForDetails": {
-        "message": "Скрыть «Scroll for details»"
     },
     "search": {
         "message": "Поиск"
