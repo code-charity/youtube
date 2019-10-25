@@ -88,8 +88,27 @@ ImprovedTube.theme = function() {
         this.isset(ImprovedTube.storage.black_theme) && ImprovedTube.storage.black_theme !== false
     ) {
         document.documentElement.setAttribute('dark', '');
+
+        if (ImprovedTube.storage.default_dark_theme === true) {
+            var wait = setInterval(function() {
+                if (document.body) {
+                    clearInterval(wait);
+
+                    document.body.setAttribute('dark', '');
+                }
+            });
+        } else {
+            var wait = setInterval(function() {
+                if (document.body) {
+                    clearInterval(wait);
+
+                    document.body.removeAttribute('dark', '');
+                }
+            });
+        }
+
         document.documentElement.setAttribute('it-theme', 'true');
     } else {
-        document.documentElement.removeAttribute('it-theme',);
+        document.documentElement.removeAttribute('it-theme', );
     }
 };
