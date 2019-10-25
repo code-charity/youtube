@@ -42,6 +42,10 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
     injectScript('ImprovedTube.storage[\'' + name + '\']=' + (typeof value === 'boolean' ? value : '\'' + value + '\'') + ';');
 
+    if (name.indexOf('theme') !== -1) {
+        injectScript('ImprovedTube.theme();');
+    }
+
     if (typeof ImprovedTube[name] === 'function') {
         injectScript('ImprovedTube.' + name + '();');
     }

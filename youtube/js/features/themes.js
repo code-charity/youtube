@@ -78,9 +78,18 @@ ImprovedTube.dim = function() {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.theme = function() {
-    var value = ImprovedTube.storage.theme;
-
-    if (this.isset(value) && value !== false) {
+    if (
+        this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false ||
+        this.isset(ImprovedTube.storage.night_theme) && ImprovedTube.storage.night_theme !== false ||
+        this.isset(ImprovedTube.storage.dawn_theme) && ImprovedTube.storage.dawn_theme !== false ||
+        this.isset(ImprovedTube.storage.sunset_theme) && ImprovedTube.storage.sunset_theme !== false ||
+        this.isset(ImprovedTube.storage.desert_theme) && ImprovedTube.storage.desert_theme !== false ||
+        this.isset(ImprovedTube.storage.plain_theme) && ImprovedTube.storage.plain_theme !== false ||
+        this.isset(ImprovedTube.storage.black_theme) && ImprovedTube.storage.black_theme !== false
+    ) {
         document.documentElement.setAttribute('dark', '');
+        document.documentElement.setAttribute('it-theme', 'true');
+    } else {
+        document.documentElement.removeAttribute('it-theme',);
     }
 };

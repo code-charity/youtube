@@ -350,6 +350,11 @@ textarea
     text-shadow: 0 1px 3px rgba(0,0,0,.7);
 }
 
+.satus-switch--dark
+{
+    background: #191919 !important;
+}
+
 .satus-switch--night
 {
     position: relative;
