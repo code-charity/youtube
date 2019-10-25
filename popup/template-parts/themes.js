@@ -40,6 +40,23 @@ Satus.prototype.menu.main.themes = {
         }
     },
 
+    default_dark_theme: {
+        type: 'switch',
+        label: 'darkTheme',
+        class: 'dark',
+
+        onchange: function(event) {
+            if (event.target.dataset.value == 'true') {
+                let themes = event.target.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
+
+                for (let i = 0, l = themes.length; i < l; i++) {
+                    if (themes[i] !== event.target) {
+                        themes[i].click();
+                    }
+                }
+            }
+        }
+    },
     night_theme: {
         type: 'switch',
         label: 'night',
