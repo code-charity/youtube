@@ -19,6 +19,24 @@ Satus.prototype.menu.main.themes = {
             step: 1,
             max: 90,
             value: 0
+        },
+
+    },
+
+    if: {
+        type: 'section',
+        styles: {
+            'flex-direction': 'column'
+        },
+
+        base_on_system_color_scheme: {
+            type: 'select',
+            label: 'baseOnSystemColorScheme',
+            options: [
+                {label: 'disabled', value: 'disabled'},
+                {label: 'dark', value: 'dark'},
+                {label: 'light', value: 'light'}
+            ]
         }
     },
 
