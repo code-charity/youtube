@@ -525,11 +525,14 @@ ImprovedTube.mini_player = function() {
 
 
 /*-----------------------------------------------------------------------------
-11.0 Ads (todo)
+11.0 Ads
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.player_ads = function(args) {
-    if (this.storage.player_ads === 'all_videos') {
+    if (
+        this.storage.player_ads === 'block_all' ||
+        this.storage.player_ads === 'subscribed_channels' && (args.player_response || '').indexOf('subscribed=1') === -1
+    ) {
         delete args.ad3_module;
 
         if (args.player_response) {
