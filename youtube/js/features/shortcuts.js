@@ -9,7 +9,31 @@ ImprovedTube.shortcuts = function() {
     var self = this,
         keys = {},
         wheel = 0,
-        hover = false;
+        hover = false,
+        status_timer;
+
+    function showStatus(player, volume) {
+        if (!player.querySelector('#it-status')) {
+            var element = document.createElement('div');
+
+            element.id = 'it-status';
+            element.innerHTML = volume;
+
+            document.querySelector('.html5-video-container').appendChild(element);
+        } else {
+            player.querySelector('#it-status').innerHTML = volume;
+        }
+
+        if (status_timer) {
+            clearTimeout(status_timer);
+        }
+
+        status_timer = setTimeout(function() {
+            if (player.querySelector('#it-status')) {
+                player.querySelector('#it-status').remove();
+            }
+        }, 500);
+    }
 
     function start(type = 'keys') {
         if (document.activeElement && ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'].indexOf(document.activeElement.tagName) !== -1 || event.target.isContentEditable) {
@@ -17,6 +41,78 @@ ImprovedTube.shortcuts = function() {
         }
 
         var features = {
+            shortcut_240p: function() {
+                var player = document.querySelector('#movie_player');
+
+                if (player) {
+                    player.setPlaybackQualityRange('small');
+                    player.setPlaybackQuality('small');
+                }
+            },
+            shortcut_360p: function() {
+                var player = document.querySelector('#movie_player');
+
+                if (player) {
+                    player.setPlaybackQualityRange('medium');
+                    player.setPlaybackQuality('medium');
+                }
+            },
+            shortcut_480p: function() {
+                var player = document.querySelector('#movie_player');
+
+                if (player) {
+                    player.setPlaybackQualityRange('large');
+                    player.setPlaybackQuality('large');
+                }
+            },
+            shortcut_720p: function() {
+                var player = document.querySelector('#movie_player');
+
+                if (player) {
+                    player.setPlaybackQualityRange('hd720');
+                    player.setPlaybackQuality('hd720');
+                }
+            },
+            shortcut_1080p: function() {
+                var player = document.querySelector('#movie_player');
+
+                if (player) {
+                    player.setPlaybackQualityRange('hd1080');
+                    player.setPlaybackQuality('hd1080');
+                }
+            },
+            shortcut_1440p: function() {
+                var player = document.querySelector('#movie_player');
+
+                if (player) {
+                    player.setPlaybackQualityRange('hd1440');
+                    player.setPlaybackQuality('hd1440');
+                }
+            },
+            shortcut_2160p: function() {
+                var player = document.querySelector('#movie_player');
+
+                if (player) {
+                    player.setPlaybackQualityRange('hd2160');
+                    player.setPlaybackQuality('hd2160');
+                }
+            },
+            shortcut_2880p: function() {
+                var player = document.querySelector('#movie_player');
+
+                if (player) {
+                    player.setPlaybackQualityRange('hd2880');
+                    player.setPlaybackQuality('hd2880');
+                }
+            },
+            shortcut_4320p: function() {
+                var player = document.querySelector('#movie_player');
+
+                if (player) {
+                    player.setPlaybackQualityRange('highres');
+                    player.setPlaybackQuality('highres');
+                }
+            },
             shortcut_picture_in_picture_shortcut: function() {
                 var video = document.querySelector('#movie_player video');
 
@@ -76,6 +172,8 @@ ImprovedTube.shortcuts = function() {
                 if (player && player.setVolume && player.getVolume) {
                     player.setVolume(player.getVolume() + 5);
                 }
+
+                showStatus(player, player.getVolume());
             },
             shortcut_decrease_volume: function() {
                 var player = document.querySelector('.html5-video-player');
@@ -83,6 +181,8 @@ ImprovedTube.shortcuts = function() {
                 if (player && player.setVolume && player.getVolume) {
                     player.setVolume(player.getVolume() - 5);
                 }
+
+                showStatus(player, player.getVolume());
             },
             shortcut_increase_playback_speed: function() {
                 var player = document.querySelector('#movie_player');
@@ -90,6 +190,8 @@ ImprovedTube.shortcuts = function() {
                 if (player && player.setPlaybackRate && player.getPlaybackRate) {
                     player.setPlaybackRate(player.getPlaybackRate() + .05);
                 }
+
+                showStatus(player, player.getPlaybackRate());
             },
             shortcut_decrease_playback_speed: function() {
                 var player = document.querySelector('#movie_player');
@@ -97,6 +199,8 @@ ImprovedTube.shortcuts = function() {
                 if (player && player.setPlaybackRate && player.getPlaybackRate) {
                     player.setPlaybackRate(player.getPlaybackRate() - .05);
                 }
+
+                showStatus(player, player.getPlaybackRate());
             },
             shortcut_go_to_search_box: function() {
                 var search = document.querySelector('#search');

@@ -41,448 +41,425 @@
 6.0 Channel
 	6.1 Default tab
 	6.2 Trailer autoplay
+    6.3 Hide featured content
 -----------------------------------------------------------------------------*/
 
 chrome.storage.local.get(function(object) {
-    for (var key in object) {
-        var value = object[key];
+    if (object.migrated !== true) {
+        for (var key in object) {
+            var value = object[key];
 
-        if (value === true) {
-        	object[key] = true;
-        }
-
-        if (value === false) {
-        	object[key] = false;
-        }
-
-        /*---------------------------------------------------------------------
-		1.0 General
-		---------------------------------------------------------------------*/
-
-        /*---------------------------------------------------------------------
-		1.1 Legacy YouTube
-		---------------------------------------------------------------------*/
-
-        if (key === 'youtube_version') {
-            if (value === 'old') {
-                object.legacy_youtube = true;
-            } else {
-                object.legacy_youtube = false;
+            if (value === 'true') {
+                object[key] = true;
+            } else if (value === 'false') {
+                object[key] = false;
             }
 
-            delete object[key];
-        }
+            /*---------------------------------------------------------------------
+    		1.0 General
+    		---------------------------------------------------------------------*/
 
+            /*---------------------------------------------------------------------
+    		1.1 Legacy YouTube
+    		---------------------------------------------------------------------*/
 
-        /*---------------------------------------------------------------------
-		1.2 YouTube Home Page
-		---------------------------------------------------------------------*/
+            if (key === 'youtube_version') {
+                if (value === 'old') {
+                    object.legacy_youtube = true;
+                } else {
+                    object.legacy_youtube = false;
+                }
 
-        else if (key === 'youtube_home_page') {
-            if (value === 'normal') {
-                object[key] = '/';
-            } else if (value === 'trending') {
-                object[key] = '/feed/trending';
-            } else if (value === 'subscriptions') {
-                object[key] = '/feed/subscriptions';
-            } else if (value === 'history') {
-                object[key] = '/feed/history';
-            } else if (value === 'watch_later') {
-                object[key] = '/playlist?list=WL';
+                delete object[key];
             }
 
-            delete object[key];
-        }
 
-
-        /*---------------------------------------------------------------------
-		1.3 Add «Scroll to top»
-		---------------------------------------------------------------------*/
-
-        else if (key === 'scroll_to_top') {
-            if (value === true) {
-                object.add_scroll_to_top = true;
-            } else {
-                object.add_scroll_to_top = false;
+            /*---------------------------------------------------------------------
+    		1.2 YouTube Home Page
+    		---------------------------------------------------------------------*/
+            else if (key === 'youtube_home_page') {
+                if (value === 'normal') {
+                    object[key] = '/';
+                } else if (value === 'trending') {
+                    object[key] = '/feed/trending';
+                } else if (value === 'subscriptions') {
+                    object[key] = '/feed/subscriptions';
+                } else if (value === 'history') {
+                    object[key] = '/feed/history';
+                } else if (value === 'watch_later') {
+                    object[key] = '/playlist?list=WL';
+                }
             }
 
-            delete object[key];
-        }
 
+            /*---------------------------------------------------------------------
+            1.3 Add «Scroll to top»
+            ---------------------------------------------------------------------*/
+            else if (key === 'scroll_to_top') {
+                if (value === 'true') {
+                    object.add_scroll_to_top = true;
+                } else {
+                    object.add_scroll_to_top = false;
+                }
 
-        /*---------------------------------------------------------------------
-		1.4 Hide animated thumbnails
-		---------------------------------------------------------------------*/
-
-        else if (key === 'play_videos_by_hovering_the_thumbnails') {
-            if (value === false) {
-                object.hide_animated_thumbnails = true;
-            } else {
-                object.hide_animated_thumbnails = false;
+                delete object[key];
             }
 
-            delete object[key];
-        }
 
+            /*---------------------------------------------------------------------
+    		1.4 Hide animated thumbnails
+    		---------------------------------------------------------------------*/
+            else if (key === 'play_videos_by_hovering_the_thumbnails') {
+                if (value === 'false') {
+                    object.hide_animated_thumbnails = true;
+                } else {
+                    object.hide_animated_thumbnails = false;
+                }
 
-        /*---------------------------------------------------------------------
-		1.5 Confirmation before closing
-		---------------------------------------------------------------------*/
-
-        else if (key === 'youtube_prevent_closure') {
-            if (value === true) {
-                object.confirmation_before_closing = true;
+                delete object[key];
             }
 
-            delete object[key];
-        }
 
+            /*---------------------------------------------------------------------
+    		1.5 Confirmation before closing
+    		---------------------------------------------------------------------*/
+            else if (key === 'youtube_prevent_closure') {
+                if (value === 'true') {
+                    object.confirmation_before_closing = true;
+                }
 
-        /*---------------------------------------------------------------------
-		2.0 Appearance
-		---------------------------------------------------------------------*/
-
-        /*---------------------------------------------------------------------
-		2.1 Header
-		---------------------------------------------------------------------*/
-
-        /*---------------------------------------------------------------------
-		2.1.1 Header style
-		---------------------------------------------------------------------*/
-
-		else if (key === 'header') {
-            if (value === 'top_of_page') {
-                object.header_position = 'static';
-            } else {
-            	object.header_position = value;
+                delete object[key];
             }
 
-            delete object[key];
-        }
 
+            /*---------------------------------------------------------------------
+    		2.0 Appearance
+    		---------------------------------------------------------------------*/
 
-        /*---------------------------------------------------------------------
-		2.1.2 Improve logo
-		---------------------------------------------------------------------*/
+            /*---------------------------------------------------------------------
+    		2.1 Header
+    		---------------------------------------------------------------------*/
 
-		else if (key === 'improve_youtube_logo') {
-            object.header_improve_logo = value;
+            /*---------------------------------------------------------------------
+    		2.1.1 Header style
+    		---------------------------------------------------------------------*/
+            else if (key === 'header') {
+                if (value === 'top_of_page') {
+                    object.header_position = 'static';
+                } else {
+                    object.header_position = value;
+                }
 
-            delete object[key];
-        }
+                delete object[key];
+            }
 
 
-        /*---------------------------------------------------------------------
-		2.2 Player
-		---------------------------------------------------------------------*/
+            /*---------------------------------------------------------------------
+    		2.1.2 Improve logo
+    		---------------------------------------------------------------------*/
+            else if (key === 'improve_youtube_logo') {
+                object.header_improve_logo = value;
 
-        /*---------------------------------------------------------------------
-		2.2.1 Annotations
-		---------------------------------------------------------------------*/
+                delete object[key];
+            }
 
-		else if (key === 'annotations') {
-            object.player_hide_annotations = value;
 
-            delete object[key];
-        }
+            /*---------------------------------------------------------------------
+    		2.2 Player
+    		---------------------------------------------------------------------*/
 
-        /*---------------------------------------------------------------------
-		2.2.2 Cards
-		---------------------------------------------------------------------*/
+            /*---------------------------------------------------------------------
+    		2.2.1 Annotations
+    		---------------------------------------------------------------------*/
+            else if (key === 'annotations') {
+                object.player_hide_annotations = value;
 
-		else if (key === 'cards') {
-            object.player_hide_cards = value;
+                delete object[key];
+            }
 
-            delete object[key];
-        }
+            /*---------------------------------------------------------------------
+    		2.2.2 Cards
+    		---------------------------------------------------------------------*/
+            else if (key === 'cards') {
+                object.player_hide_cards = value;
 
-        /*---------------------------------------------------------------------
-		2.2.3 Transparent background
-		---------------------------------------------------------------------*/
+                delete object[key];
+            }
 
-		else if (key === 'transparent_background') {
-            object.player_transparent_background = value;
+            /*---------------------------------------------------------------------
+    		2.2.3 Transparent background
+    		---------------------------------------------------------------------*/
+            else if (key === 'transparent_background') {
+                object.player_transparent_background = value;
 
-            delete object[key];
-        }
+                delete object[key];
+            }
 
-        /*---------------------------------------------------------------------
-        2.2.4 Endscreen
-        ---------------------------------------------------------------------*/
+            /*---------------------------------------------------------------------
+            2.2.4 Endscreen
+            ---------------------------------------------------------------------*/
+            else if (key === 'endscreen') {
+                object.player_hide_endscreen = value;
 
-        else if (key === 'endscreen') {
-            object.player_hide_endscreen = value;
+                delete object[key];
+            }
 
-            delete object[key];
-        }
+            /*---------------------------------------------------------------------
+            2.3 Footer
+            ---------------------------------------------------------------------*/
 
-        /*---------------------------------------------------------------------
-        2.3 Footer
-        ---------------------------------------------------------------------*/
+            /*---------------------------------------------------------------------
+            2.3.5 Hide footer
+            ---------------------------------------------------------------------*/
+            else if (key === 'footer') {
+                object.hide_footer = value === 'hidden' ? true : false;
 
-        /*---------------------------------------------------------------------
-        2.3.5 Hide footer
-        ---------------------------------------------------------------------*/
+                delete object[key];
+            }
 
-        else if (key === 'footer') {
-            object.hide_footer = value === 'hidden' ? true : false;
 
-            delete object[key];
-        }
+            /*---------------------------------------------------------------------
+    		3.0 Themes
+    		---------------------------------------------------------------------*/
+            else if (key === 'it_theme') {
+                object.theme = value;
 
+                delete object[key];
+            }
 
-        /*---------------------------------------------------------------------
-		3.0 Themes
-		---------------------------------------------------------------------*/
 
-		else if (key === 'it_theme') {
-            object.theme = value;
+            /*---------------------------------------------------------------------
+    		4.0 Player
+    		---------------------------------------------------------------------*/
 
-            delete object[key];
-        }
+            /*---------------------------------------------------------------------
+            4.1 Quality
+            ---------------------------------------------------------------------*/
+            else if (key === 'video_quality') {
+                object.player_quality = value;
 
+                delete object[key];
+            }
 
-        /*---------------------------------------------------------------------
-		4.0 Player
-		---------------------------------------------------------------------*/
 
-		/*---------------------------------------------------------------------
-		4.1 Quality
-		---------------------------------------------------------------------*/
+            /*---------------------------------------------------------------------
+            4.2 Volume
+            ---------------------------------------------------------------------*/
+            else if (key === 'video_volume') {
+                object.player_volume = value;
 
-		else if (key === 'video_quality') {
-            object.player_quality = value;
+                delete object[key];
+            }
 
-            delete object[key];
-        }
 
+            /*---------------------------------------------------------------------
+            4.3 Playback speed
+            ---------------------------------------------------------------------*/
+            else if (key === 'video_playback_speed') {
+                object.player_playback_speed = value;
 
-		/*---------------------------------------------------------------------
-		4.2 Volume
-		---------------------------------------------------------------------*/
+                delete object[key];
+            }
 
-		else if (key === 'video_volume') {
-            object.player_volume = value;
 
-            delete object[key];
-        }
+            /*---------------------------------------------------------------------
+            4.4 Autoplay
+            ---------------------------------------------------------------------*/
+            else if (key === 'video_autoplay') {
+                object.player_autoplay = value;
 
+                delete object[key];
+            }
 
-		/*---------------------------------------------------------------------
-		4.3 Playback speed
-		---------------------------------------------------------------------*/
 
-		else if (key === 'video_playback_speed') {
-            object.player_playback_speed = value;
+            /*---------------------------------------------------------------------
+            4.5 Allow 60fps
+            ---------------------------------------------------------------------*/
+            else if (key === 'allow_60fps') {
+                object.player_60fps = value;
 
-            delete object[key];
-        }
+                delete object[key];
+            }
 
 
-		/*---------------------------------------------------------------------
-		4.4 Autoplay
-		---------------------------------------------------------------------*/
+            /*---------------------------------------------------------------------
+            4.6 Video codec h.264
+            ---------------------------------------------------------------------*/
+            else if (key === 'video_encode') {
+                object.player_h264 = value;
 
-		else if (key === 'video_autoplay') {
-            object.player_autoplay = value;
+                delete object[key];
+            }
 
-            delete object[key];
-        }
 
+            /*---------------------------------------------------------------------
+            4.7 Allow subtitles
+            ---------------------------------------------------------------------*/
+            else if (key === 'allow_subtitles') {
+                object.player_subtitles = value;
 
-		/*---------------------------------------------------------------------
-		4.5 Allow 60fps
-		---------------------------------------------------------------------*/
+                delete object[key];
+            }
 
-		else if (key === 'allow_60fps') {
-            object.player_60fps = value;
 
-            delete object[key];
-        }
+            /*---------------------------------------------------------------------
+            4.8 Loudness normalization
+            ---------------------------------------------------------------------*/
+            else if (key === 'allow_loudness') {
+                object.player_loudness_normalization = value;
 
+                delete object[key];
+            }
 
-		/*---------------------------------------------------------------------
-		4.6 Video codec h.264
-		---------------------------------------------------------------------*/
 
-		else if (key === 'video_encode') {
-            object.player_h264 = value;
+            /*---------------------------------------------------------------------
+            4.8 Mini player
+            ---------------------------------------------------------------------*/
+            else if (key === 'mini_player_b') {
+                object.mini_player = value;
 
-            delete object[key];
-        }
+                delete object[key];
+            }
 
 
-		/*---------------------------------------------------------------------
-		4.7 Allow subtitles
-		---------------------------------------------------------------------*/
+            /*---------------------------------------------------------------------
+            4.9 Ads
+            ---------------------------------------------------------------------*/
+            else if (key === 'allow_video_ads') {
+                object.player_ads = 'all_videos';
 
-		else if (key === 'allow_subtitles') {
-            object.player_subtitles = value;
+                delete object[key];
+            } else if (key === 'subscribed_channel_player_ads' && value === true) {
+                object.player_ads = 'subscribed_channels';
 
-            delete object[key];
-        }
+                delete object[key];
+            }
 
 
-		/*---------------------------------------------------------------------
-		4.8 Loudness normalization
-		---------------------------------------------------------------------*/
+            /*---------------------------------------------------------------------
+            4.10 Autopause
+            ---------------------------------------------------------------------*/
+            else if (key === 'video_autopause') {
+                object.player_autopause = value;
 
-		else if (key === 'allow_loudness') {
-            object.player_loudness_normalization = value;
+                delete object[key];
+            }
 
-            delete object[key];
-        }
 
+            /*---------------------------------------------------------------------
+            4.11 Auto-fullscreen
+            ---------------------------------------------------------------------*/
+            else if (key === 'video_autofullscreen') {
+                object.player_autofullscreen = value;
 
-		/*---------------------------------------------------------------------
-		4.8 Mini player
-		---------------------------------------------------------------------*/
+                delete object[key];
+            }
 
-		else if (key === 'mini_player_b') {
-            object.mini_player = value;
 
-            delete object[key];
-        }
+            /*---------------------------------------------------------------------
+            4.12 Repeat button
+            ---------------------------------------------------------------------*/
+            else if (key === 'video_repeat_button') {
+                object.player_repeat_button = value;
 
+                delete object[key];
+            }
 
-		/*---------------------------------------------------------------------
-		4.9 Ads
-		---------------------------------------------------------------------*/
 
-		else if (key === 'allow_video_ads') {
-            object.player_ads = 'all_videos';
+            /*---------------------------------------------------------------------
+            4.13 Screenshot button
+            ---------------------------------------------------------------------*/
+            else if (key === 'screenshot_button') {
+                object.player_screenshot_button = value;
 
-            delete object[key];
-        } else if (key === 'subscribed_channel_player_ads' && value === true) {
-            object.player_ads = 'subscribed_channels';
+                delete object[key];
+            }
 
-            delete object[key];
-        }
 
+            /*---------------------------------------------------------------------
+            4.14 Rotate button
+            ---------------------------------------------------------------------*/
+            else if (key === 'video_rotate_button') {
+                object.player_rotate_button = value;
 
-		/*---------------------------------------------------------------------
-		4.10 Autopause
-		---------------------------------------------------------------------*/
+                delete object[key];
+            }
 
-		else if (key === 'video_autopause') {
-            object.player_autopause = value;
 
-            delete object[key];
-        }
+            /*---------------------------------------------------------------------
+            4.15 Popup button
+            ---------------------------------------------------------------------*/
+            else if (key === 'popup_player_button') {
+                object.player_popup_button = value;
 
+                delete object[key];
+            }
 
-		/*---------------------------------------------------------------------
-		4.11 Auto-fullscreen
-		---------------------------------------------------------------------*/
 
-		else if (key === 'video_autofullscreen') {
-            object.player_autofullscreen = value;
+            /*---------------------------------------------------------------------
+            5.0 Playlist
+            ---------------------------------------------------------------------*/
 
-            delete object[key];
-        }
+            /*---------------------------------------------------------------------
+            5.1 Repeat
+            ---------------------------------------------------------------------*/
+            else if (key === 'playlist_repeat') {
+                if (value === 'enabled') {
+                    object.playlist_repeat = true;
+                } else if (value === 'disabled') {
+                    object.playlist_repeat = false;
+                }
+            }
 
+            /*---------------------------------------------------------------------
+            5.2 Shuffle
+            ---------------------------------------------------------------------*/
+            else if (key === 'playlist_shuffle') {
+                if (value === 'enabled') {
+                    object.playlist_repeat = true;
+                } else if (value === 'disabled') {
+                    object.playlist_repeat = false;
+                }
+            }
 
-		/*---------------------------------------------------------------------
-		4.12 Repeat button
-		---------------------------------------------------------------------*/
 
-		else if (key === 'video_repeat_button') {
-            object.player_repeat_button = value;
+            /*---------------------------------------------------------------------
+            6.0 Channel
+            ---------------------------------------------------------------------*/
 
-            delete object[key];
-        }
+            /*---------------------------------------------------------------------
+            6.1 Default tab
+            ---------------------------------------------------------------------*/
+            else if (key === 'channel_default_page') {
+                if (value === 'normal') {
+                    object.channel_default_tab = '/';
+                } else {
+                    object.channel_default_tab = '/' + value;
+                }
+            }
 
+            /*---------------------------------------------------------------------
+            6.2 Trailer autoplay
+            ---------------------------------------------------------------------*/
+            else if (key === 'channel_autoplay') {
+                object.channel_trailer_autoplay = value;
 
-		/*---------------------------------------------------------------------
-		4.13 Screenshot button
-		---------------------------------------------------------------------*/
+                delete object[key];
+            }
 
-		else if (key === 'screenshot_button') {
-            object.player_screenshot_button = value;
+            /*---------------------------------------------------------------------
+            6.3 Hide featured content
+            ---------------------------------------------------------------------*/
+            else if (key === 'channel_featured_content') {
+                object.channel_hide_featured_content = value;
 
-            delete object[key];
-        }
-
-
-		/*---------------------------------------------------------------------
-		4.14 Rotate button
-		---------------------------------------------------------------------*/
-
-		else if (key === 'video_rotate_button') {
-            object.player_rotate_button = value;
-
-            delete object[key];
-        }
-
-
-		/*---------------------------------------------------------------------
-		4.15 Popup button
-		---------------------------------------------------------------------*/
-
-		else if (key === 'popup_player_button') {
-            object.player_popup_button = value;
-
-            delete object[key];
-        }
-
-
-		/*---------------------------------------------------------------------
-		5.0 Playlist
-		---------------------------------------------------------------------*/
-
-		/*---------------------------------------------------------------------
-		5.1 Repeat
-		---------------------------------------------------------------------*/
-
-		else if (key === 'playlist_repeat') {
-            if (value === 'enabled') {
-	            object.playlist_repeat = true;
-            } else if (value === 'disabled') {
-	            object.playlist_repeat = false;
+                delete object[key];
             }
         }
 
-		/*---------------------------------------------------------------------
-		5.2 Shuffle
-		---------------------------------------------------------------------*/
+        object.migrated = true;
 
-		else if (key === 'playlist_shuffle') {
-            if (value === 'enabled') {
-	            object.playlist_repeat = true;
-            } else if (value === 'disabled') {
-	            object.playlist_repeat = false;
-            }
-        }
-
-
-		/*---------------------------------------------------------------------
-		6.0 Channel
-		---------------------------------------------------------------------*/
-
-		/*---------------------------------------------------------------------
-		6.1 Default tab
-		---------------------------------------------------------------------*/
-
-		else if (key === 'channel_default_page') {
-            if (value === 'normal') {
-            	object.channel_default_tab = '/';
-            } else {
-            	object.channel_default_tab = '/' + value;
-            }
-
-            delete object[key];
-        }
-
-		/*---------------------------------------------------------------------
-		6.2 Trailer autoplay
-		---------------------------------------------------------------------*/
-
-		else if (key === 'channel_autoplay') {
-            object.channel_trailer_autoplay = value;
-
-            delete object[key];
-        }
+        chrome.storage.local.clear();
+        chrome.storage.local.set(object);
     }
-
-    chrome.storage.local.set(object);
 });
