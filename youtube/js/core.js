@@ -77,26 +77,26 @@ ImprovedTube.playerUpdate = function(node) {
         player = document.querySelector('.html5-video-player');
     }
 
-    if (ImprovedTube.videoUrl !== this.src) {
-        ImprovedTube.videoUrl = this.src;
+    if (ImprovedTube.videoUrl !== location.href) {
+        ImprovedTube.videoUrl = location.href;
         ImprovedTube.playingTime = 0;
+
+        ImprovedTube.player_hd_thumbnail();
+        ImprovedTube.player_quality(player);
+        ImprovedTube.player_volume(player);
+        ImprovedTube.player_playback_speed(player);
+        ImprovedTube.up_next_autoplay();
+        ImprovedTube.player_autofullscreen();
+        ImprovedTube.player_repeat_button();
+        ImprovedTube.player_screenshot_button();
+        ImprovedTube.player_rotate_button();
+        ImprovedTube.player_popup_button();
+
+        ImprovedTube.playlist_repeat();
+        ImprovedTube.playlist_shuffle();
+
+        ImprovedTube.dim();
     }
-
-    ImprovedTube.player_hd_thumbnail();
-    ImprovedTube.player_quality(player);
-    ImprovedTube.player_volume(player);
-    ImprovedTube.player_playback_speed(player);
-    ImprovedTube.up_next_autoplay();
-    ImprovedTube.player_autofullscreen();
-    ImprovedTube.player_repeat_button();
-    ImprovedTube.player_screenshot_button();
-    ImprovedTube.player_rotate_button();
-    ImprovedTube.player_popup_button();
-
-    ImprovedTube.playlist_repeat();
-    ImprovedTube.playlist_shuffle();
-
-    ImprovedTube.dim();
 };
 
 

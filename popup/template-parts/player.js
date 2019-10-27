@@ -1,6 +1,6 @@
 Satus.prototype.menu.main.player = {
     type: 'directory',
-    icon: '<svg xmlns=//www.w3.org/2000/svg viewBox="0 0 24 24"><path d="M8 6.8v10.4a1 1 0 0 0 1.5.8l8.2-5.2a1 1 0 0 0 0-1.7L9.5 6a1 1 0 0 0-1.5.8z"></svg>',
+    icon: '<svg viewBox="0 0 24 24"><path d="M8 6.8v10.4a1 1 0 0 0 1.5.8l8.2-5.2a1 1 0 0 0 0-1.7L9.5 6a1 1 0 0 0-1.5.8z"></svg>',
 
     section: {
         type: 'section',

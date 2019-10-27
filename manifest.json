@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "ImprovedTube Beta",
-    "version": "2.0",
-    "version_name": "2.0 alpha",
+    "name": "ImprovedTube",
+    "version": "2.0.100",
+    "version_name": "2.0",
 
     "default_locale": "en",
     "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
@@ -43,6 +43,7 @@
             "youtube/css/channel.css",
             "youtube/css/blacklist.css",
             "youtube/css/settings.css",
+            "youtube/css/shortcuts.css",
             "youtube/css/themes/legacy.css",
             "youtube/css/themes/default.css",
             "youtube/css/themes/black.css",
