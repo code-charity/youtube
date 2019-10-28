@@ -37,7 +37,7 @@ ImprovedTube.player_quality = function(node) {
 
         if (quality && quality !== 'auto') {
             if (available_quality_levels.indexOf(quality) === -1) {
-                quality = quality_levels[0];
+                quality = available_quality_levels[0];
             }
 
             node.setPlaybackQualityRange(quality);
