@@ -14,12 +14,17 @@ ImprovedTube.channel_default_tab = function() {
             node_list = document.querySelectorAll('a[href*="user"], a[href*="channel"]');
 
         for (var i = 0, l = node_list.length; i < l; i++) {
-            var node = node_list[i],
-                pathname = new URL((node.getAttribute('it-origin') || node.href)).pathname;
+            var node = node_list[i];
 
-            if (!node.getAttribute('it-origin')) {
+            if (
+                !node.getAttribute('it-origin') ||
+                node.hasAttribute('it-origin') &&
+                node.getAttribute('it-origin').replace(/\/(home|videos|playlists)+$/g, '') != node.href.replace(/\/(home|videos|playlists)+$/g, '')
+            ) {
                 node.setAttribute('it-origin', node.href);
             }
+
+            var pathname = new URL(node.getAttribute('it-origin')).pathname;
 
             node.href = node.getAttribute('it-origin') + value;
 
