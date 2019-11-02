@@ -59,7 +59,7 @@ Satus.prototype.menu.main.player = {
             value: 1,
             min: .25,
             max: 2,
-            step: .25
+            step: .05
         },
         player_autoplay: {
             type: 'switch',
