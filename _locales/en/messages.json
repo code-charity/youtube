@@ -2,9 +2,6 @@
     "about": {
         "message": "About"
     },
-    "alwaysShowProgressBar": {
-        "message": "Always show progress bar"
-    },
     "activateCaptions": {
         "message": "Activate captions"
     },
@@ -28,6 +25,9 @@
     },
     "alwaysActive": {
         "message": "Always active"
+    },
+    "alwaysShowProgressBar": {
+        "message": "Always show progress bar"
     },
     "amber": {
         "message": "Amber"
@@ -212,6 +212,9 @@
     "filters": {
         "message": "Filters"
     },
+    "fitToWindow": {
+        "message": "Fit to window"
+    },
     "flash": {
         "message": "Flash"
     },
@@ -221,11 +224,11 @@
     "forcedTheaterMode": {
         "message": "Forced theater mode"
     },
+    "forcedVolume": {
+        "message": "Forced volume"
+    },
     "foundABug": {
         "message": "Found a bug?"
-    },
-    "fitToWindow": {
-        "message": "Fit to window"
     },
     "fullWindow": {
         "message": "Full window"

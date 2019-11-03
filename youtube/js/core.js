@@ -57,6 +57,7 @@ ImprovedTube.pageUpdate = function() {
     ImprovedTube.related_videos();
     ImprovedTube.improvedtube_youtube_icon();
     ImprovedTube.blacklist();
+    ImprovedTube.player_hd_thumbnail();
 };
 
 
@@ -81,7 +82,6 @@ ImprovedTube.playerUpdate = function(node) {
         ImprovedTube.videoUrl = location.href;
         ImprovedTube.playingTime = 0;
 
-        ImprovedTube.player_hd_thumbnail();
         ImprovedTube.player_quality(player);
         ImprovedTube.player_volume(player);
         ImprovedTube.player_playback_speed(player);

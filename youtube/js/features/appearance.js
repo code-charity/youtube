@@ -39,7 +39,14 @@ ImprovedTube.player_hd_thumbnail = function() {
 
                 ImprovedTube.player_hd_thumbnail_wait = false;
 
-                thumbnail.style.backgroundImage = thumbnail.style.backgroundImage.replace('/hqdefault.jpg', '/maxresdefault.jpg');
+                var style = document.getElementById('it-hd-thumbnail') || document.createElement('style');
+
+                style.textContent = '.ytp-cued-thumbnail-overlay-image{background-image:' + thumbnail.style.backgroundImage.replace('/hqdefault.jpg', '/maxresdefault.jpg') + ' !important}';
+
+                if (!document.getElementById('it-hd-thumbnail')) {
+                    style.id = 'it-hd-thumbnail';
+                    thumbnail.parentNode.insertBefore(style, thumbnail);
+                }
             }
         }, 250);
     }

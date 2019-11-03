@@ -46,6 +46,10 @@ Satus.prototype.menu.main.player = {
                 value: 'highres'
             }]
         },
+        player_forced_volume: {
+            type: 'switch',
+            label: 'forcedVolume'
+        },
         player_volume: {
             type: 'slider',
             label: 'volume',

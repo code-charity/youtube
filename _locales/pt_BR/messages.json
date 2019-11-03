@@ -17,9 +17,6 @@
     "ads": {
         "message": "Anúncios"
     },
-    "pressAnyKeyOrUseMouseWheel": {
-        "message": "Pressione qualquer tecla ou use a roda do mouse"
-    },
     "allow": {
         "message": "Permitir"
     },
@@ -284,8 +281,14 @@
     "hideFooter": {
         "message": "Ocultar rodapé"
     },
+    "hidePlaylist": {
+        "message": "Ocultar playlist"
+    },
     "hideRightButtons": {
         "message": "Ocultar botões à direita"
+    },
+    "hideScrollForDetails": {
+        "message": "Ocultar «Rolar Para Ver Detalhes»"
     },
     "hideViewsCount": {
         "message": "Ocultar visualizações"
@@ -443,9 +446,6 @@
     "playlist": {
         "message": "Playlist"
     },
-    "hidePlaylist": {
-        "message": "Ocultar playlist"
-    },
     "playlists": {
         "message": "Playlists"
     },
@@ -459,6 +459,9 @@
         "message": "Posição"
     },
     "pressAnyKeyOrScroll": {
+        "message": "Pressione qualquer tecla ou use a roda do mouse"
+    },
+    "pressAnyKeyOrUseMouseWheel": {
         "message": "Pressione qualquer tecla ou use a roda do mouse"
     },
     "previousVideo": {
@@ -514,9 +517,6 @@
     },
     "screenshot": {
         "message": "Captura de tela"
-    },
-    "hideScrollForDetails": {
-        "message": "Ocultar «Rolar Para Ver Detalhes»"
     },
     "search": {
         "message": "Pesquisar"
