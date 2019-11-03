@@ -58,7 +58,7 @@ ImprovedTube.player_volume = function(node) {
         node = document.querySelector('.html5-video-player');
     }
 
-    if (ImprovedTube.isset(volume)) {
+    if (ImprovedTube.isset(volume) && ImprovedTube.storage.player_forced_volume === true) {
         if (volume >= 0) {
             node.unMute();
         }

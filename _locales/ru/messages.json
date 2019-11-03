@@ -2,9 +2,6 @@
     "about": {
         "message": "Об ImprovedTube"
     },
-    "alwaysShowProgressBar": {
-        "message": "Всегда показывать прогресс бар"
-    },
     "activateCaptions": {
         "message": "Активировать субтитры"
     },
@@ -28,6 +25,9 @@
     },
     "alwaysActive": {
         "message": "Всегда активный"
+    },
+    "alwaysShowProgressBar": {
+        "message": "Всегда показывать прогресс бар"
     },
     "amber": {
         "message": "Янтарный"
@@ -220,6 +220,9 @@
     },
     "forcedTheaterMode": {
         "message": "Принудительный переход в театральный режим"
+    },
+    "forcedVolume": {
+        "message": "Принудительная громкость"
     },
     "foundABug": {
         "message": "Нашли ошибку?"
