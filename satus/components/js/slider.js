@@ -35,6 +35,7 @@ Satus.prototype.components.slider = {
         component_label.innerText = this.storage.get('locale/' + object.label) || object.label || this.storage.get('locale/' + name) || name;
 
         component.dataset.value = value;
+        component_thumb.dataset.value = value;
         component_thumb.style.left = value * 100 / (max - min) + '%';
         component_track.style.width = value * 100 / (max - min) + '%';
 
@@ -47,6 +48,7 @@ Satus.prototype.components.slider = {
             value = value;
 
             this.dataset.value = value;
+            component_thumb.dataset.value = value;
             this.querySelector('.thumb').style.left = value * 100 / (max - min) + '%';
             this.querySelector('.track').style.width = value * 100 / (max - min) + '%';
         }
@@ -71,10 +73,11 @@ Satus.prototype.components.slider = {
 
                     var value = steps * step + min;
 
-                    component.dataset.value = value;
-                    self.storage.set(name, value, object.storage_path);
+                    component.dataset.value = Number(value.toFixed(2));
+                    component_thumb.dataset.value = Number(value.toFixed(2));
+                    self.storage.set(name, Number(value.toFixed(2)), object.storage_path);
                     if (object.onchange) {
-                        object.onchange(value);
+                        object.onchange(Number(value.toFixed(2)));
                     }
 
                     component_thumb.style.left = x + '%';
@@ -98,8 +101,6 @@ Satus.prototype.components.slider = {
 
                 var value = Number(this.dataset.value);
 
-                console.log(value, min, max, step);
-
                 if (event.keyCode == 37 && value > min) {
                     value -= step;
                 } else if (event.keyCode == 39 && value < max) {
@@ -111,10 +112,11 @@ Satus.prototype.components.slider = {
                 this.querySelector('.thumb').style.left = x + '%';
                 this.querySelector('.track').style.width = x + '%';
 
-                this.dataset.value = value;
-                self.storage.set(name, value, object.storage_path);
+                this.dataset.value = Number(value.toFixed(2));
+                component_thumb.dataset.value = Number(value.toFixed(2));
+                self.storage.set(name, Number(value.toFixed(2)), object.storage_path);
                 if (object.onchange) {
-                    object.onchange(value);
+                    object.onchange(Number(value.toFixed(2)));
                 }
             }
         });

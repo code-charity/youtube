@@ -549,7 +549,7 @@ Satus.prototype.menu.main.settings = {
                             let data = JSON.parse(this.result);
 
                             for (var i in data) {
-                                self.storage.set(i, data[i]);
+                                App.storage.set(i, data[i]);
                             }
 
                             satus.components.dialog.create({
@@ -610,7 +610,7 @@ Satus.prototype.menu.main.settings = {
             onclick: function(satus, component) {
                 chrome.runtime.sendMessage({
                     name: 'download',
-                    filename: 'improvedtube-settings',
+                    filename: 'improvedtube-settings.json',
                     value: satus.storage.get()
                 });
             }

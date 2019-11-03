@@ -12,6 +12,30 @@
 chrome.storage.local.get(function(items) {
     var inject = 'var ImprovedTube={';
 
+    if (items.player_size === 'fit_to_window') {
+        items.player_size = 'full_window';
+    }
+
+    if (typeof items.player_volume === 'string') {
+        items.player_volume = Number(items.player_volume);
+    }
+
+    if (!items.hasOwnProperty('header_position')) {
+        items.header_position = 'normal';
+    }
+
+    if (!items.hasOwnProperty('player_size')) {
+        items.player_size = 'do_not_change';
+    }
+
+    if (items.bluelight === '0') {
+        items.bluelight = 0;
+    }
+
+    if (items.dim === '0') {
+        items.dim = 0;
+    }
+
     inject += 'storage:' + JSON.stringify(items);
 
     for (var key in items) {
@@ -37,6 +61,10 @@ chrome.storage.local.get(function(items) {
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     var name = request.name || '',
         value = request.value;
+
+    if (name === 'player_size' && value === 'fit_to_window') {
+        value = 'full_window';
+    }
 
     document.documentElement.setAttribute('it-' + name.replace(/_/g, '-'), value);
 

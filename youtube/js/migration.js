@@ -462,4 +462,15 @@ chrome.storage.local.get(function(object) {
         chrome.storage.local.clear();
         chrome.storage.local.set(object);
     }
+
+    if (object.bluelight_removed !== true && (object.bluelight || object.bluelight === 0)) {
+        object.bluelight_removed = true;
+
+        delete object.bluelight;
+
+        chrome.storage.local.clear();
+        chrome.storage.local.set(object);
+
+        location.reload();
+    }
 });

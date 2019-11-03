@@ -57,7 +57,7 @@ Satus.prototype.menu.main.player = {
             type: 'slider',
             label: 'playbackSpeed',
             value: 1,
-            min: .25,
+            min: .05,
             max: 2,
             step: .05
         },

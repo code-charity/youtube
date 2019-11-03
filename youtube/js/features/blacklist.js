@@ -10,6 +10,14 @@ document.addEventListener('ImprovedTubeBlacklist', function(event) {
 });
 
 ImprovedTube.blacklist = function() {
+    if (ImprovedTube.storage.blacklist_activate !== true) {
+        return false;
+    }
+
+    if (typeof ImprovedTube.storage.blacklist === 'boolean') {
+        ImprovedTube.storage.blacklist = {};
+    }
+
     // channel button
     let channel_items = document.querySelectorAll('#inner-header-container #subscribe-button, .primary-header-upper-section .yt-uix-subscription-button');
 
@@ -48,7 +56,7 @@ ImprovedTube.blacklist = function() {
                         }
                     }));
 
-                    if (!ImprovedTube.storage.blacklist) {
+                    if (!ImprovedTube.storage.blacklist || typeof ImprovedTube.storage.blacklist !== 'object') {
                         ImprovedTube.storage.blacklist = {};
                     }
 
@@ -120,7 +128,7 @@ ImprovedTube.blacklist = function() {
                         }
                     }));
 
-                    if (!ImprovedTube.storage.blacklist) {
+                    if (!ImprovedTube.storage.blacklist || typeof ImprovedTube.storage.blacklist !== 'object') {
                         ImprovedTube.storage.blacklist = {};
                     }
 
