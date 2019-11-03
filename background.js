@@ -156,7 +156,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 
         if (request.name === 'improvedtube-blacklist') {
             chrome.storage.local.get(function(items) {
-                if (!items.blacklist) {
+                if (!items.blacklist || typeof items.blacklist !== 'object') {
                     items.blacklist = {};
                 }
 
@@ -199,7 +199,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 
                         chrome.downloads.download({
                             url: URL.createObjectURL(blob),
-                            filename: request.filename + '.json',
+                            filename: request.filename,
                             saveAs: true
                         });
                     } catch (err) {
@@ -287,3 +287,23 @@ chrome.storage.local.get(function(items) {
 -----------------------------------------------------------------------------*/
 
 chrome.runtime.setUninstallURL('http://improvedtube.com/uninstalled');
+
+
+if (chrome.runtime.getManifest()
+    .version == chrome.runtime.getManifest()
+    .version_name) {
+    var _gaq = _gaq || [];
+
+    _gaq.push(['_setAccount', 'UA-88354155-1']);
+    _gaq.push(['_setSessionCookieTimeout', 14400000]);
+
+    (function() {
+        let ga = document.createElement('script'),
+            s = document.getElementsByTagName('script')[0];
+
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = 'https://ssl.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga, s);
+    })();
+}

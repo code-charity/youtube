@@ -123,17 +123,18 @@ Satus.prototype.components.shortcut = {
                 event.stopPropagation();
 
                 if (mousewheel_only === true) {
-                    value.shiftKey = false;
-                    value.altKey = false;
-                    value.ctrlKey = false;
-                    value.key = false;
+                    delete value.shiftKey;
+                    delete value.altKey;
+                    delete value.ctrlKey;
+                    delete value.keyCode;
+                    delete value.key;
                 }
 
                 clearTimeout(mousewheel_timeout);
 
                 mousewheel_timeout = setTimeout(function() {
                     mousewheel_only = true;
-                }, 500);
+                }, 300);
 
                 value.wheel = event.deltaY;
 

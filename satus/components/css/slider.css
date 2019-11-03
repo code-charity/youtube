@@ -80,3 +80,31 @@
 {
     margin: 0 20px 0 0;
 }
+
+.satus-slider .thumb::before
+{
+    font-size: 18px;
+
+    position: absolute;
+    top: -32px;
+    left: 50%;
+
+    visibility: hidden;
+
+    box-sizing: border-box;
+    padding: 4px 4px;
+
+    content: attr(data-value);
+    transform: translateX(-50%);
+    pointer-events: none;
+
+    color: #fff;
+    border-radius: 4px;
+    background: rgba(0,0,0,.5);
+}
+
+.satus-slider:hover .thumb::before,
+.satus-slider:focus .thumb::before
+{
+    visibility: visible;
+}

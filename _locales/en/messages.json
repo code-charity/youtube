@@ -224,6 +224,9 @@
     "foundABug": {
         "message": "Found a bug?"
     },
+    "fitToWindow": {
+        "message": "Fit to window"
+    },
     "fullWindow": {
         "message": "Full window"
     },

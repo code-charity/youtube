@@ -38,10 +38,11 @@ ImprovedTube.mutations = function() {
 
             if (
                 ImprovedTube.autoplay() === false &&
+                ImprovedTube.videoUrl !== location.href &&
                 ImprovedTube.allow_autoplay === false
             ) {
                 setTimeout(function() {
-                    self.pause();
+                    self.parentNode.parentNode.stopVideo();
                 });
             }
 
