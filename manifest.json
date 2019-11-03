@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "Improve YouTube! (Open-Source for YouTube)",
-    "version": "2.0.141",
-    "version_name": "2.0.141 b",
+    "version": "2.0.209",
+    "version_name": "2.0.209",
 
     "default_locale": "en",
     "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
@@ -34,7 +34,7 @@
     "homepage_url": "https://improvedtube.com",
 
     "content_scripts": [{
-        "all_frames": true,
+        "all_frames": false,
         "css": [
             "youtube/css/themes.css",
             "youtube/css/general.css",
@@ -82,7 +82,7 @@
         ],
         "run_at": "document_start"
     }, {
-        "all_frames": true,
+        "all_frames": false,
         "matches": [
             "https://www.youtube.com/improvedtube"
         ],
@@ -91,7 +91,7 @@
         ],
         "run_at": "document_start"
     }, {
-        "all_frames": true,
+        "all_frames": false,
         "matches": [
             "https://www.youtube.com/improvedtube"
         ],

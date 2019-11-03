@@ -12,6 +12,25 @@
 1.0 Legacy YouTube
 -----------------------------------------------------------------------------*/
 
+ImprovedTube.youtubeVersion = function() {
+    var pref = ImprovedTube.getCookieValueByName('PREF'),
+        f6 = ImprovedTube.getParam(pref, 'f6') || '0004',
+        last = f6.slice(-1),
+        disable_polymer = Boolean(ImprovedTube.getParam(location.search.substr(1), 'disable_polymer')),
+        version = (last == '8' || last == '9') || disable_polymer ? 'old' : 'new';
+
+    if (
+        navigator &&
+        navigator.userAgent &&
+        navigator.userAgent.match(/Chrom(e|ium)+\/[0-9.]+/g)[0] &&
+        Number(navigator.userAgent.match(/Chrom(e|ium)+\/[0-9.]+/g)[0].match(/[0-9.]+/g)[0].match(/[0-9]+/g)[0]) <= 49
+    ) {
+        version = 'old';
+    }
+
+    document.documentElement.setAttribute('it-youtube-version', version);
+};
+
 ImprovedTube.legacy_youtube = function() {
     var option = ImprovedTube.storage.legacy_youtube,
         PREF = this.getParams(this.getCookieValueByName('PREF')),
@@ -49,10 +68,6 @@ ImprovedTube.youtube_home_page = function() {
         this.storage.youtube_home_page !== '/' &&
         this.storage.youtube_home_page !== 'search'
     ) {
-        if (location.pathname === '/') {
-            location.replace(this.storage.youtube_home_page);
-        }
-
         var value = this.storage.youtube_home_page,
             node_list = document.querySelectorAll('a[href="/"], a[href="//www.youtube.com"], a[href="//www.youtube.com/"], a[href="https://www.youtube.com"], a[href="https://www.youtube.com/"], a[it-origin="/"], a[it-origin="//www.youtube.com"], a[it-origin="//www.youtube.com/"], a[it-origin="https://www.youtube.com"], a[it-origin="https://www.youtube.com/"]');
 
@@ -85,6 +100,12 @@ ImprovedTube.youtube_home_page = function() {
         for (var i = 0, l = node_list.length; i < l; i++) {
             node_list[i].href = node_list[i].getAttribute('it-origin') || '/';
         }
+    }
+};
+
+function youtubeHomePage__documentStart(option) {
+    if (option && option !== '/' && option !== 'search' && location.pathname === '/') {
+        location.replace(option);
     }
 };
 

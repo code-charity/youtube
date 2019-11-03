@@ -16,8 +16,7 @@ ImprovedTube.channel_default_tab = function() {
         for (var i = 0, l = node_list.length; i < l; i++) {
             var node = node_list[i];
 
-            if (
-                !node.getAttribute('it-origin') ||
+            if (!node.getAttribute('it-origin') ||
                 node.hasAttribute('it-origin') &&
                 node.getAttribute('it-origin').replace(/\/(home|videos|playlists)+$/g, '') != node.href.replace(/\/(home|videos|playlists)+$/g, '')
             ) {

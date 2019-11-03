@@ -30,15 +30,17 @@ ImprovedTube.forced_theater_mode = function() {
 ImprovedTube.player_hd_thumbnail_wait = false;
 
 ImprovedTube.player_hd_thumbnail = function() {
-    if (this.storage.player_hd_thumbnail === true && this.player_hd_thumbnail_wait === false) {
+    if (this.storage.player_hd_thumbnail === true) {
+        if (this.player_hd_thumbnail_wait !== false) {
+            clearInterval(ImprovedTube.player_hd_thumbnail_wait);
+
+            ImprovedTube.player_hd_thumbnail_wait = false;
+        }
+
         this.player_hd_thumbnail_wait = setInterval(function() {
             var thumbnail = document.querySelector('.ytp-cued-thumbnail-overlay-image');
 
             if (thumbnail && thumbnail.style.backgroundImage) {
-                clearInterval(ImprovedTube.player_hd_thumbnail_wait);
-
-                ImprovedTube.player_hd_thumbnail_wait = false;
-
                 var style = document.getElementById('it-hd-thumbnail') || document.createElement('style');
 
                 style.textContent = '.ytp-cued-thumbnail-overlay-image{background-image:' + thumbnail.style.backgroundImage.replace('/hqdefault.jpg', '/maxresdefault.jpg') + ' !important}';
@@ -91,39 +93,33 @@ ImprovedTube.how_long_ago_the_video_was_uploaded = function() {
         }
 
         var waiting_channel_link = setInterval(function() {
-            var youtube_version = document.documentElement.getAttribute('youtube-version') === 'new';
+            var youtube_version = document.documentElement.getAttribute('it-youtube-version') === 'new';
 
-            if (document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container a' : '.yt-user-info a')) {
+            if (document.querySelector(youtube_version ? '#meta-contents ytd-channel-name' : '.yt-user-info a')) {
                 clearInterval(waiting_channel_link);
 
-                if (document.querySelector('.itx-channel-video-uploaded'))
-                    document.querySelector('.itx-channel-video-uploaded').remove();
+                var xhr = new XMLHttpRequest();
 
-                setTimeout(function() {
-                    var youtube_version = document.documentElement.getAttribute('youtube-version') === 'new',
-                        xhr = new XMLHttpRequest();
+                xhr.addEventListener('load', function() {
+                    var response = JSON.parse(this.responseText),
+                        element = document.querySelector('.itx-channel-video-uploaded') || document.createElement(youtube_version ? 'yt-formatted-string' : 'a');
 
-                    xhr.onreadystatechange = function() {
-                        if (this.readyState === 4 && this.status === 200) {
-                            var b = document.createElement(youtube_version ? 'yt-formatted-string' : 'a');
+                    if (ImprovedTube.isset(response.items[0])) {
+                        element.innerHTML = (youtube_version ? '<a class="yt-simple-endpoint style-scope yt-formatted-string"> · ' + timeSince(response.items[0].snippet.publishedAt) + ' </a>' : timeSince(response.items[0].snippet.publishedAt) + '');
+                    }
 
-                            if (document.querySelector('.itx-channel-video-uploaded'))
-                                document.querySelector('.itx-channel-video-uploaded').remove();
+                    if (!document.querySelector('.itx-channel-video-uploaded') && document.querySelector(youtube_version ? '#meta-contents ytd-channel-name' : '.yt-user-info')) {
+                        element.style.marginLeft = '8px';
+                        element.className = (youtube_version ? 'style-scope ytd-video-owner-renderer itx-channel-video-uploaded' : 'yt-uix-sessionlink spf-link itx-channel-video-uploaded');
 
-                            b.id = 'owner-name';
-                            b.style.marginLeft = '.4rem';
-                            b.className = (youtube_version ? 'style-scope ytd-video-owner-renderer itx-channel-video-uploaded' : 'yt-uix-sessionlink spf-link');
-                            b.innerHTML = (youtube_version ? '<a class="yt-simple-endpoint style-scope yt-formatted-string"> · ' + timeSince(JSON.parse(this.responseText).items[0].snippet.publishedAt) + ' </a>' : timeSince(JSON.parse(this.responseText).items[0].snippet.publishedAt) + '');
+                        document.querySelector(youtube_version ? '#meta-contents ytd-channel-name' : '.yt-user-info').appendChild(element);
+                    }
+                });
 
-                            document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container' : '.yt-user-info').appendChild(b);
-                        }
-                    };
-
-                    xhr.open('GET', 'https://www.googleapis.com/youtube/v3/videos?id=' + getParam(location.href.slice(location.href.indexOf('?') + 1), 'v') + '&key=AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA&part=snippet', true);
-                    xhr.send();
-                }, 100);
+                xhr.open('GET', 'https://www.googleapis.com/youtube/v3/videos?id=' + ImprovedTube.getParam(location.href.slice(location.href.indexOf('?') + 1), 'v') + '&key=AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA&part=snippet', true);
+                xhr.send();
             }
-        }, 50);
+        }, 500);
     }
 };
 
@@ -133,42 +129,35 @@ ImprovedTube.how_long_ago_the_video_was_uploaded = function() {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.channel_videos_count = function() {
-    if (document.querySelector('.itx-channel-videos-count')) {
-        document.querySelector('.itx-channel-videos-count').remove();
-    }
-
     if (ImprovedTube.storage.channel_videos_count === true) {
         var waiting_channel_link = setInterval(function() {
-            let youtube_version = document.documentElement.getAttribute('youtube-version') === 'new';
+            var youtube_version = document.documentElement.getAttribute('it-youtube-version') === 'new';
 
-            if (document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container a' : '.yt-user-info a')) {
+            if (document.querySelector(youtube_version ? '#meta-contents ytd-channel-name a' : '.yt-user-info a')) {
                 clearInterval(waiting_channel_link);
 
-                setTimeout(function() {
-                    let youtube_version = document.documentElement.getAttribute('youtube-version') === 'new',
-                        xhr = new XMLHttpRequest();
+                var xhr = new XMLHttpRequest();
 
-                    xhr.onreadystatechange = function() {
-                        if (this.readyState === 4 && this.status === 200) {
-                            var b = document.createElement(youtube_version ? 'yt-formatted-string' : 'a');
+                xhr.addEventListener('load', function() {
+                    var response = JSON.parse(this.responseText),
+                        element = document.querySelector('.itx-channel-videos-count') || document.createElement(youtube_version ? 'yt-formatted-string' : 'a');
 
-                            if (document.querySelector('.itx-channel-videos-count'))
-                                document.querySelector('.itx-channel-videos-count').remove();
+                    if (ImprovedTube.isset(response.items[0])) {
+                        element.innerHTML = (youtube_version ? '<a class="yt-simple-endpoint style-scope yt-formatted-string">' + response.items[0].statistics.videoCount + ' videos</a>' : response.items[0].statistics.videoCount + ' videos');
+                    }
 
-                            b.id = 'owner-name';
-                            b.style.marginLeft = '.4rem';
-                            b.className = (youtube_version ? 'style-scope ytd-video-owner-renderer itx-channel-videos-count' : 'yt-uix-sessionlink spf-link');
-                            b.innerHTML = (youtube_version ? '<a class="yt-simple-endpoint style-scope yt-formatted-string">' + JSON.parse(this.responseText).items[0].statistics.videoCount + ' videos</a>' : JSON.parse(this.responseText).items[0].statistics.videoCount + ' videos');
+                    if (!document.querySelector('.itx-channel-videos-count') && document.querySelector(youtube_version ? '#meta-contents ytd-channel-name' : '.yt-user-info')) {
+                        element.style.marginLeft = '8px';
+                        element.className = (youtube_version ? 'style-scope ytd-video-owner-renderer itx-channel-videos-count' : 'yt-uix-sessionlink spf-link');
 
-                            document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container' : '.yt-user-info').appendChild(b);
-                        }
-                    };
+                        document.querySelector(youtube_version ? '#meta-contents ytd-channel-name' : '.yt-user-info').appendChild(element);
+                    }
+                });
 
-                    xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?id=' + document.querySelector(youtube_version ? '#meta-contents ytd-video-owner-renderer #owner-container a' : '.yt-user-info a').href.replace('https://www.youtube.com/channel/', '') + '&key=AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA&part=statistics', true);
-                    xhr.send();
-                }, 1000);
+                xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?id=' + (document.querySelector(youtube_version ? '#meta-contents ytd-channel-name a' : '.yt-user-info a').getAttribute('it-origin') || document.querySelector(youtube_version ? '#meta-contents ytd-channel-name a' : '.yt-user-info a').href).replace('https://www.youtube.com/channel/', '') + '&key=AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA&part=statistics', true);
+                xhr.send();
             }
-        }, 50);
+        }, 500);
     }
 };
 

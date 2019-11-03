@@ -58,6 +58,8 @@ ImprovedTube.pageUpdate = function() {
     ImprovedTube.improvedtube_youtube_icon();
     ImprovedTube.blacklist();
     ImprovedTube.player_hd_thumbnail();
+    ImprovedTube.how_long_ago_the_video_was_uploaded();
+    ImprovedTube.channel_videos_count();
 };
 
 
@@ -65,7 +67,7 @@ ImprovedTube.pageUpdate = function() {
 2.0 Player update
 -----------------------------------------------------------------------------*/
 
-ImprovedTube.playerUpdate = function(node) {
+ImprovedTube.playerUpdate = function(node, hard) {
     var player;
 
     if (node && node.type !== 'canplay') {
@@ -78,10 +80,11 @@ ImprovedTube.playerUpdate = function(node) {
         player = document.querySelector('.html5-video-player');
     }
 
-    if (ImprovedTube.videoUrl !== location.href) {
+    if (ImprovedTube.videoUrl !== location.href || hard) {
         ImprovedTube.videoUrl = location.href;
         ImprovedTube.playingTime = 0;
 
+        ImprovedTube.player_hd_thumbnail();
         ImprovedTube.player_quality(player);
         ImprovedTube.player_volume(player);
         ImprovedTube.player_playback_speed(player);
@@ -105,31 +108,7 @@ ImprovedTube.playerUpdate = function(node) {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.init = function() {
-    try {
-        let pref = ImprovedTube.getCookieValueByName('PREF'),
-            f6 = ImprovedTube.getParam(pref, 'f6') || '0004',
-            last = f6.slice(-1),
-            disable_polymer = Boolean(ImprovedTube.getParam(location.search.substr(1), 'disable_polymer')),
-            version = (last == '8' || last == '9') || disable_polymer ? 'old' : 'new';
-
-        if (
-            navigator &&
-            navigator.userAgent &&
-            navigator.userAgent.match(/Chrom(e|ium)+\/[0-9.]+/g)[0] &&
-            Number(navigator.userAgent.match(/Chrom(e|ium)+\/[0-9.]+/g)[0].match(/[0-9.]+/g)[0].match(/[0-9]+/g)[0]) <= 49
-        ) {
-            version = 'old';
-        }
-
-        document.documentElement.setAttribute('it-youtube-version', version);
-
-        chrome.storage.local.get(function(data) {
-            data.legacy_youtube = document.documentElement.getAttribute('it-youtube-version') === 'old' ? true : false;
-
-            chrome.storage.local.set(data);
-        });
-    } catch (err) {}
-
+    this.youtubeVersion();
     this.player_h264();
     this.objectDefineProperties();
     this.shortcuts();
@@ -148,3 +127,7 @@ ImprovedTube.init = function() {
     this.mutations();
     this.events();
 };
+
+function withoutInjection(object) {
+    youtubeHomePage__documentStart(object.youtube_home_page);
+}
