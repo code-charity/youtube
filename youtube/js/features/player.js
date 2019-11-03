@@ -103,31 +103,6 @@ ImprovedTube.autoplay = function() {
 
 
 /*-----------------------------------------------------------------------------
-5.0 Allow 60fps
------------------------------------------------------------------------------*/
-
-ImprovedTube.player_60fps = function(args) {
-    if (this.storage.player_60fps === false && args.adaptive_fmts) {
-        var key_type = args.adaptive_fmts.indexOf(',') > -1 ? ',' : '%2C',
-            list = args.adaptive_fmts.split(key_type);
-
-        for (var i = 0; i < list.length; i++) {
-            var fps = list[i].split(/fps(?:=|%3D)([0-9]{2})/);
-
-            fps = fps && fps[1];
-
-            if (fps > 30)
-                list.splice(i--, 1);
-        }
-
-        args.adaptive_fmts = list.join(key_type);
-    }
-
-    return args;
-};
-
-
-/*-----------------------------------------------------------------------------
 6.0 Video codec
 -----------------------------------------------------------------------------*/
 
@@ -161,36 +136,6 @@ ImprovedTube.player_h264 = function() {
             }
         };
     }
-};
-
-
-/*-----------------------------------------------------------------------------
-7.0 Allow subtitles
------------------------------------------------------------------------------*/
-
-ImprovedTube.player_subtitles = function(args) {
-    if (this.storage.player_subtitles === false && args.caption_audio_tracks) {
-        args.caption_audio_tracks = args.caption_audio_tracks.split(/&d=[0-9]|d=[0-9]&/).join('');
-    }
-
-    return args;
-};
-
-
-/*-----------------------------------------------------------------------------
-8.0 Allow loudness normalization
------------------------------------------------------------------------------*/
-
-ImprovedTube.player_loudness_normalization = function(args) {
-    if (this.storage.player_loudness_normalization === false) {
-        args.loudness = null;
-        args.relative_loudness = null;
-
-        delete args.loudness;
-        delete args.relative_loudness;
-    }
-
-    return args;
 };
 
 
@@ -521,30 +466,6 @@ ImprovedTube.mini_player = function() {
             window.removeEventListener('mouseup', mouseup, true);
         }
     }
-};
-
-
-/*-----------------------------------------------------------------------------
-11.0 Ads
------------------------------------------------------------------------------*/
-
-ImprovedTube.player_ads = function(args) {
-    if (
-        this.storage.player_ads === 'block_all' ||
-        this.storage.player_ads === 'subscribed_channels' && (args.player_response || '').indexOf('subscribed=1') === -1
-    ) {
-        delete args.ad3_module;
-
-        if (args.player_response) {
-            let player_response = JSON.parse(args.player_response);
-            if (player_response && player_response.adPlacements) {
-                delete player_response.adPlacements;
-                args.player_response = JSON.stringify(player_response);
-            }
-        }
-    }
-
-    return args;
 };
 
 

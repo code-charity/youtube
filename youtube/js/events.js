@@ -53,7 +53,8 @@ ImprovedTube.events = function() {
 	5.0 SPF done
 	-------------------------------------------------------------------------*/
 
-    window.addEventListener('spf-done', ImprovedTube.pageUpdate);
+    window.addEventListener('spfrequest', ImprovedTube.pageUpdate);
+    window.addEventListener('spfdone', ImprovedTube.pageUpdate);
 
 
 	/*-------------------------------------------------------------------------

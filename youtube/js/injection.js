@@ -36,6 +36,8 @@ chrome.storage.local.get(function(items) {
         items.dim = 0;
     }
 
+    withoutInjection(items);
+
     inject += 'storage:' + JSON.stringify(items);
 
     for (var key in items) {
