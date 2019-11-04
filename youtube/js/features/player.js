@@ -441,6 +441,13 @@ ImprovedTube.mini_player = function() {
         }
 
         function update() {
+            if (!/\/watch\?/.test(location.href) && document.querySelector('.html5-video-player video')) {
+                document.querySelector('.html5-video-player').classList.remove('improvedtube-mini-player');
+                document.querySelector('.improvedtube-mini-player').style.transform = '';
+
+                return false;
+            }
+
             if (!/\/watch\?/.test(location.href) && document.querySelector('.html5-video-player video') && document.querySelector('.html5-video-player video').src) {
                 document.querySelector('.html5-video-player').classList.add('improvedtube-mini-player');
                 document.querySelector('.improvedtube-mini-player').style.transform = 'translate3d(' + ImprovedTube.mini_player_data.x + 'px, ' + ImprovedTube.mini_player_data.y + 'px, 0)';
@@ -580,6 +587,8 @@ ImprovedTube.player_repeat_button = function(node) {
                 }
             }
         });
+    } else if (document.querySelector('.it-repeat-button')) {
+        document.querySelector('.it-repeat-button').remove();
     }
 };
 
@@ -634,6 +643,8 @@ ImprovedTube.player_screenshot_button = function() {
                 }, 50);
             }
         });
+    } else if (document.querySelector('.it-screenshot-button')) {
+        document.querySelector('.it-screenshot-button').remove();
     }
 };
 
@@ -674,6 +685,8 @@ ImprovedTube.player_rotate_button = function() {
                 video.style.transform = transform;
             }
         });
+    } else if (document.querySelector('.it-rotate-button')) {
+        document.querySelector('.it-rotate-button').remove();
     }
 };
 
@@ -698,5 +711,7 @@ ImprovedTube.player_popup_button = function() {
                 window.open('//www.youtube.com/embed/' + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8) + '?start=' + parseInt(node.getCurrentTime()) + '&autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1'), '_blank', 'location=0,menubar=0,status=0,titlebar=0,width=' + node.offsetWidth + ',height=' + node.offsetHeight);
             }
         });
+    } else if (document.querySelector('.it-popup-player-button')) {
+        document.querySelector('.it-popup-player-button').remove();
     }
 };
