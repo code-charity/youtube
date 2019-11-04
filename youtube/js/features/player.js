@@ -523,31 +523,37 @@ ImprovedTube.player_autofullscreen = function(node) {
 ImprovedTube.createPlayerButton = function(node, options) {
     var button = document.createElement('button');
 
-    if (!node) {
-        var node = document.querySelector('.html5-video-player');
-    }
-
-    button.className = 'ytp-button';
-
-    if (options.id) {
-        if (node.querySelector('#' + options.id)) {
-            node.querySelector('#' + options.id).remove();
+    var wait = setInterval(function() {
+        if (!node) {
+            var node = document.querySelector('.html5-video-player');
         }
 
-        button.id = options.id;
-    }
+        if (node && node.querySelector('.ytp-left-controls')) {
+            clearInterval(wait);
 
-    if (options.html) {
-        button.innerHTML = options.html;
-    }
+            button.className = 'ytp-button';
 
-    button.style.opacity = options.opacity || '.5';
+            if (options.id) {
+                if (node.querySelector('#' + options.id)) {
+                    node.querySelector('#' + options.id).remove();
+                }
 
-    if (options.onclick) {
-        button.onclick = options.onclick;
-    }
+                button.id = options.id;
+            }
 
-    node.querySelector('.ytp-left-controls').insertBefore(button, node.querySelector('.ytp-left-controls').childNodes[3]);
+            if (options.html) {
+                button.innerHTML = options.html;
+            }
+
+            button.style.opacity = options.opacity || '.5';
+
+            if (options.onclick) {
+                button.onclick = options.onclick;
+            }
+
+            node.querySelector('.ytp-left-controls').insertBefore(button, node.querySelector('.ytp-left-controls').childNodes[3]);
+        }
+    });
 };
 
 
@@ -689,7 +695,7 @@ ImprovedTube.player_popup_button = function() {
             onclick: function() {
                 node.pauseVideo();
 
-                window.open('//www.youtube.com/embed/' + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8) + '?start=' + parseInt(player.getCurrentTime()) + '&autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1'), '_blank', 'location=0,menubar=0,status=0,titlebar=0,width=' + node.offsetWidth + ',height=' + node.offsetHeight);
+                window.open('//www.youtube.com/embed/' + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8) + '?start=' + parseInt(node.getCurrentTime()) + '&autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1'), '_blank', 'location=0,menubar=0,status=0,titlebar=0,width=' + node.offsetWidth + ',height=' + node.offsetHeight);
             }
         });
     }
