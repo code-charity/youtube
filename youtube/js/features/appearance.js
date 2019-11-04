@@ -104,7 +104,7 @@ ImprovedTube.how_long_ago_the_video_was_uploaded = function() {
                     var response = JSON.parse(this.responseText),
                         element = document.querySelector('.itx-channel-video-uploaded') || document.createElement(youtube_version ? 'yt-formatted-string' : 'a');
 
-                    if (ImprovedTube.isset(response.items[0])) {
+                    if (ImprovedTube.isset(response.items) && ImprovedTube.isset(response.items[0])) {
                         element.innerHTML = (youtube_version ? '<a class="yt-simple-endpoint style-scope yt-formatted-string"> · ' + timeSince(response.items[0].snippet.publishedAt) + ' </a>' : timeSince(response.items[0].snippet.publishedAt) + '');
                     }
 
@@ -142,13 +142,13 @@ ImprovedTube.channel_videos_count = function() {
                     var response = JSON.parse(this.responseText),
                         element = document.querySelector('.itx-channel-videos-count') || document.createElement(youtube_version ? 'yt-formatted-string' : 'a');
 
-                    if (ImprovedTube.isset(response.items[0])) {
+                    if (ImprovedTube.isset(response.items) && ImprovedTube.isset(response.items[0])) {
                         element.innerHTML = (youtube_version ? '<a class="yt-simple-endpoint style-scope yt-formatted-string">' + response.items[0].statistics.videoCount + ' videos</a>' : response.items[0].statistics.videoCount + ' videos');
                     }
 
                     if (!document.querySelector('.itx-channel-videos-count') && document.querySelector(youtube_version ? '#meta-contents ytd-channel-name' : '.yt-user-info')) {
                         element.style.marginLeft = '8px';
-                        element.className = (youtube_version ? 'style-scope ytd-video-owner-renderer itx-channel-videos-count' : 'yt-uix-sessionlink spf-link');
+                        element.className = (youtube_version ? 'style-scope ytd-video-owner-renderer itx-channel-videos-count' : 'yt-uix-sessionlink spf-link itx-channel-videos-count');
 
                         document.querySelector(youtube_version ? '#meta-contents ytd-channel-name' : '.yt-user-info').appendChild(element);
                     }
