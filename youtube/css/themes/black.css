@@ -1,4 +1,4 @@
-[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light])
+[it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])
 {
     --yt-swatch-primary: #000!important;
     --yt-swatch-primary-darker: #000!important;
@@ -47,12 +47,12 @@
     --yt-spec-themed-blue:#065FD4 !important;
     --yt-spec-themed-green:#107516 !important;
 }
-html[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo
+html[it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo
 {
     -webkit-filter: grayscale(1) brightness(3.5);
             filter: grayscale(1) brightness(3.5);
 }
-[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]) ytd-masthead
+[it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead
 {
     background: #000!important;
 
@@ -65,7 +65,7 @@ html[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-bas
     --yt-swatch-logo-override: rgb(255, 255, 255)!important;
     --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
 }
-[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope)
+[it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope)
 {
     --yt-live-chat-action-panel-background-color: #000;
     --yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
@@ -76,9 +76,9 @@ html[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-bas
     --yt-live-chat-picker-button-color: var(--yt-live-chat-tertiary-text-color);
     --yt-formatted-string-emoji-size: 24px;
 }
-[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]):not([style-scope]):not(.style-scope),
-html[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]):not(.style-scope)[dark],
-[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]) :not(.style-scope)[dark]
+[it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
+html[it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
+[it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark]
 {
     --yt-spec-icon-inactive: #fff;
     --ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
@@ -209,7 +209,7 @@ html[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-bas
 
 
 @media (prefers-color-scheme: dark) {
-    [it-black-theme=true][it-base-on-system-color-scheme=dark]
+    [it-black-theme=true][it-schedule=system_peference_dark]
     {
         --yt-swatch-primary: #000!important;
         --yt-swatch-primary-darker: #000!important;
@@ -258,12 +258,12 @@ html[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-bas
         --yt-spec-themed-blue:#065FD4 !important;
         --yt-spec-themed-green:#107516 !important;
     }
-    html[it-black-theme=true][it-base-on-system-color-scheme=dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo
+    html[it-black-theme=true][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo
     {
         -webkit-filter: grayscale(1) brightness(3.5);
                 filter: grayscale(1) brightness(3.5);
     }
-    [it-black-theme=true][it-base-on-system-color-scheme=dark] ytd-masthead
+    [it-black-theme=true][it-schedule=system_peference_dark] ytd-masthead
     {
         background: #000!important;
 
@@ -276,7 +276,7 @@ html[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-bas
         --yt-swatch-logo-override: rgb(255, 255, 255)!important;
         --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
     }
-    [it-black-theme=true][it-base-on-system-color-scheme=dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope)
+    [it-black-theme=true][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope)
     {
         --yt-live-chat-action-panel-background-color: #000;
         --yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
@@ -287,9 +287,9 @@ html[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-bas
         --yt-live-chat-picker-button-color: var(--yt-live-chat-tertiary-text-color);
         --yt-formatted-string-emoji-size: 24px;
     }
-    [it-black-theme=true][it-base-on-system-color-scheme=dark]:not([style-scope]):not(.style-scope),
-    html[it-black-theme=true][it-base-on-system-color-scheme=dark]:not(.style-scope)[dark],
-    [it-black-theme=true][it-base-on-system-color-scheme=dark] :not(.style-scope)[dark]
+    [it-black-theme=true][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
+    html[it-black-theme=true][it-schedule=system_peference_dark]:not(.style-scope)[dark],
+    [it-black-theme=true][it-schedule=system_peference_dark] :not(.style-scope)[dark]
     {
         --yt-spec-icon-inactive: #fff;
         --ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
@@ -423,7 +423,7 @@ html[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-bas
 
 
 @media (prefers-color-scheme: light) {
-    [it-black-theme=true][it-base-on-system-color-scheme=light]
+    [it-black-theme=true][it-schedule=system_peference_light]
     {
         --yt-swatch-primary: #000!important;
         --yt-swatch-primary-darker: #000!important;
@@ -472,12 +472,12 @@ html[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-bas
         --yt-spec-themed-blue:#065FD4 !important;
         --yt-spec-themed-green:#107516 !important;
     }
-    html[it-black-theme=true][it-base-on-system-color-scheme=light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo
+    html[it-black-theme=true][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo
     {
         -webkit-filter: grayscale(1) brightness(3.5);
                 filter: grayscale(1) brightness(3.5);
     }
-    [it-black-theme=true][it-base-on-system-color-scheme=light] ytd-masthead
+    [it-black-theme=true][it-schedule=system_peference_light] ytd-masthead
     {
         background: #000!important;
 
@@ -490,7 +490,7 @@ html[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-bas
         --yt-swatch-logo-override: rgb(255, 255, 255)!important;
         --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
     }
-    [it-black-theme=true][it-base-on-system-color-scheme=light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope)
+    [it-black-theme=true][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope)
     {
         --yt-live-chat-action-panel-background-color: #000;
         --yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
@@ -501,9 +501,9 @@ html[it-black-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-bas
         --yt-live-chat-picker-button-color: var(--yt-live-chat-tertiary-text-color);
         --yt-formatted-string-emoji-size: 24px;
     }
-    [it-black-theme=true][it-base-on-system-color-scheme=light]:not([style-scope]):not(.style-scope),
-    html[it-black-theme=true][it-base-on-system-color-scheme=light]:not(.style-scope)[dark],
-    [it-black-theme=true][it-base-on-system-color-scheme=light] :not(.style-scope)[dark]
+    [it-black-theme=true][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope),
+    html[it-black-theme=true][it-schedule=system_peference_light]:not(.style-scope)[dark],
+    [it-black-theme=true][it-schedule=system_peference_light] :not(.style-scope)[dark]
     {
         --yt-spec-icon-inactive: #fff;
         --ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);

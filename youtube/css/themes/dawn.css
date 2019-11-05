@@ -1,4 +1,4 @@
-[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light])
+[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])
 {
     --yt-swatch-primary: #d44d5c!important;
     --yt-swatch-primary-darker: #d44d5c!important;
@@ -47,7 +47,7 @@
     --yt-spec-themed-blue:#065FD4 !important;
     --yt-spec-themed-green:#107516 !important;
 }
-[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]) ytd-masthead
+[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead
 {
     background: #734!important;
 
@@ -60,7 +60,7 @@
     --yt-swatch-logo-override: rgb(255, 255, 255)!important;
     --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
 }
-[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope)
+[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope)
 {
     --yt-live-chat-action-panel-background-color: #d44d5c;
     --yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
@@ -71,9 +71,9 @@
     --yt-live-chat-picker-button-color: var(--yt-live-chat-tertiary-text-color);
     --yt-formatted-string-emoji-size: 24px;
 }
-[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]):not([style-scope]):not(.style-scope),
-html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]):not(.style-scope)[dark],
-[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]) :not(.style-scope)[dark]
+[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
+html[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
+[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark]
 {
     --yt-spec-icon-inactive: #fff;
     --ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
@@ -201,7 +201,7 @@ html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base
     --yt-blue-suggestive: transparent;
     --yt-spec-text-secondary: #f5dbe2;
 }
-html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo
+html[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo
 {
     -webkit-filter: grayscale(1) brightness(4);
             filter: grayscale(1) brightness(4);
@@ -212,7 +212,7 @@ html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base
 
 
 @media (prefers-color-scheme: dark) {
-    [it-dawn-theme=true][it-base-on-system-color-scheme=dark]
+    [it-dawn-theme=true][it-schedule=system_peference_dark]
     {
         --yt-swatch-primary: #d44d5c!important;
         --yt-swatch-primary-darker: #d44d5c!important;
@@ -261,7 +261,7 @@ html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base
         --yt-spec-themed-blue:#065FD4 !important;
         --yt-spec-themed-green:#107516 !important;
     }
-    [it-dawn-theme=true][it-base-on-system-color-scheme=dark] ytd-masthead
+    [it-dawn-theme=true][it-schedule=system_peference_dark] ytd-masthead
     {
         background: #734!important;
 
@@ -274,7 +274,7 @@ html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base
         --yt-swatch-logo-override: rgb(255, 255, 255)!important;
         --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
     }
-    [it-dawn-theme=true][it-base-on-system-color-scheme=dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope)
+    [it-dawn-theme=true][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope)
     {
         --yt-live-chat-action-panel-background-color: #d44d5c;
         --yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
@@ -285,9 +285,9 @@ html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base
         --yt-live-chat-picker-button-color: var(--yt-live-chat-tertiary-text-color);
         --yt-formatted-string-emoji-size: 24px;
     }
-    [it-dawn-theme=true][it-base-on-system-color-scheme=dark]:not([style-scope]):not(.style-scope),
-    html[it-dawn-theme=true][it-base-on-system-color-scheme=dark]:not(.style-scope)[dark],
-    [it-dawn-theme=true][it-base-on-system-color-scheme=dark] :not(.style-scope)[dark]
+    [it-dawn-theme=true][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
+    html[it-dawn-theme=true][it-schedule=system_peference_dark]:not(.style-scope)[dark],
+    [it-dawn-theme=true][it-schedule=system_peference_dark] :not(.style-scope)[dark]
     {
         --yt-spec-icon-inactive: #fff;
         --ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
@@ -415,7 +415,7 @@ html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base
         --yt-blue-suggestive: transparent;
         --yt-spec-text-secondary: #f5dbe2;
     }
-    html[it-dawn-theme=true][it-base-on-system-color-scheme=dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo
+    html[it-dawn-theme=true][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo
     {
         -webkit-filter: grayscale(1) brightness(4);
                 filter: grayscale(1) brightness(4);
@@ -427,7 +427,7 @@ html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base
 
 
 @media (prefers-color-scheme: light) {
-    [it-dawn-theme=true][it-base-on-system-color-scheme=light]
+    [it-dawn-theme=true][it-schedule=system_peference_light]
     {
         --yt-swatch-primary: #d44d5c!important;
         --yt-swatch-primary-darker: #d44d5c!important;
@@ -476,7 +476,7 @@ html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base
         --yt-spec-themed-blue:#065FD4 !important;
         --yt-spec-themed-green:#107516 !important;
     }
-    [it-dawn-theme=true][it-base-on-system-color-scheme=light] ytd-masthead
+    [it-dawn-theme=true][it-schedule=system_peference_light] ytd-masthead
     {
         background: #734!important;
 
@@ -489,7 +489,7 @@ html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base
         --yt-swatch-logo-override: rgb(255, 255, 255)!important;
         --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
     }
-    [it-dawn-theme=true][it-base-on-system-color-scheme=light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope)
+    [it-dawn-theme=true][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope)
     {
         --yt-live-chat-action-panel-background-color: #d44d5c;
         --yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
@@ -500,9 +500,9 @@ html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base
         --yt-live-chat-picker-button-color: var(--yt-live-chat-tertiary-text-color);
         --yt-formatted-string-emoji-size: 24px;
     }
-    [it-dawn-theme=true][it-base-on-system-color-scheme=light]:not([style-scope]):not(.style-scope),
-    html[it-dawn-theme=true][it-base-on-system-color-scheme=light]:not(.style-scope)[dark],
-    [it-dawn-theme=true][it-base-on-system-color-scheme=light] :not(.style-scope)[dark]
+    [it-dawn-theme=true][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope),
+    html[it-dawn-theme=true][it-schedule=system_peference_light]:not(.style-scope)[dark],
+    [it-dawn-theme=true][it-schedule=system_peference_light] :not(.style-scope)[dark]
     {
         --yt-spec-icon-inactive: #fff;
         --ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
@@ -630,7 +630,7 @@ html[it-dawn-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base
         --yt-blue-suggestive: transparent;
         --yt-spec-text-secondary: #f5dbe2;
     }
-    html[it-dawn-theme=true][it-base-on-system-color-scheme=light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo
+    html[it-dawn-theme=true][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo
     {
         -webkit-filter: grayscale(1) brightness(4);
                 filter: grayscale(1) brightness(4);

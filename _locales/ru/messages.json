@@ -101,6 +101,9 @@
     "browserVersion": {
         "message": "Версия браузера"
     },
+    "bug": {
+        "message": "Ошибка"
+    },
     "buttons": {
         "message": "Кнопки"
     },
@@ -377,6 +380,9 @@
     "name": {
         "message": "Имя"
     },
+    "nativeMiniPlayer": {
+        "message": "Мини плеер от YouTube"
+    },
     "new": {
         "message": "Новый"
     },
@@ -563,6 +569,15 @@
     "sunset": {
         "message": "Закат"
     },
+    "sunsetToSunrise": {
+        "message": "Sunset to sunrise"
+    },
+    "systemPeferenceDark": {
+        "message": "System peference: dark"
+    },
+    "systemPeferenceLight": {
+        "message": "System peference: light"
+    },
     "teal": {
         "message": "Бирюзовый"
     },
@@ -577,6 +592,12 @@
     },
     "thumbnails": {
         "message": "Превью"
+    },
+    "timeFrom": {
+        "message": "Time from"
+    },
+    "timeTo": {
+        "message": "Time to"
     },
     "todayAt": {
         "message": "Сегодня в"

@@ -32,7 +32,7 @@ ImprovedTube.pageUpdate = function() {
 
                 ImprovedTube.playerUpdate(player);
 
-                player.querySelector('video').addEventListener('canplay', ImprovedTube.playerUpdate);
+                //player.querySelector('video').addEventListener('canplay', ImprovedTube.playerUpdate);
                 player.querySelector('video').addEventListener('timeupdate', function() {
                     ImprovedTube.playingTime++;
 

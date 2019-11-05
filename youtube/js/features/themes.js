@@ -11,9 +11,23 @@
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.bluelight = function() {
-    var value = this.storage.bluelight;
+    var value = this.storage.bluelight,
+        times = {
+            from: Number((this.storage.schedule_time_from || '00:00').substr(0, 2)),
+            to: Number((this.storage.schedule_time_to || '00:00').substr(0, 2))
+        },
+        current_time = new Date().getHours();
 
-    if (this.isset(value) && value !== 0) {
+    if (times.to < times.from && current_time > times.from && current_time < 24) {
+        times.to += 24;
+    } else if (times.to < times.from && current_time < times.to) {
+        times.from = 0;
+    }
+
+    if (
+        this.isset(value) && value !== 0 &&
+        (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to)
+    ) {
         if (!document.querySelector('#it-bluelight')) {
             var container = document.createElement('div');
 
@@ -35,9 +49,23 @@ ImprovedTube.bluelight = function() {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.dim = function() {
-    var value = this.storage.dim;
+    var value = this.storage.dim,
+        times = {
+            from: Number((this.storage.schedule_time_from || '00:00').substr(0, 2)),
+            to: Number((this.storage.schedule_time_to || '00:00').substr(0, 2))
+        },
+        current_time = new Date().getHours();
 
-    if (this.isset(value) && value !== 0) {
+    if (times.to < times.from && current_time > times.from && current_time < 24) {
+        times.to += 24;
+    } else if (times.to < times.from && current_time < times.to) {
+        times.from = 0;
+    };
+
+    if (
+        this.isset(value) && value !== 0 &&
+        (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to)
+    ) {
         if (!document.querySelector('#it-dim')) {
             var container = document.createElement('div');
 
@@ -78,6 +106,18 @@ ImprovedTube.dim = function() {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.theme = function() {
+    var times = {
+            from: Number((this.storage.schedule_time_from || '00:00').substr(0, 2)),
+            to: Number((this.storage.schedule_time_to || '00:00').substr(0, 2))
+        },
+        current_time = new Date().getHours();
+
+    if (times.to < times.from && current_time > times.from && current_time < 24) {
+        times.to += 24;
+    } else if (times.to < times.from && current_time < times.to) {
+        times.from = 0;
+    }
+
     /*if (
         this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false &&
         document.documentElement.getAttribute('it-youtube-version') !== 'old'
@@ -100,6 +140,7 @@ ImprovedTube.theme = function() {
     }*/
 
     if (
+        (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to) &&
         this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false &&
         document.documentElement.getAttribute('it-youtube-version') !== 'old'
     ) {
@@ -131,13 +172,14 @@ ImprovedTube.theme = function() {
     }
 
     if (
-        this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false ||
-        this.isset(ImprovedTube.storage.night_theme) && ImprovedTube.storage.night_theme !== false ||
-        this.isset(ImprovedTube.storage.dawn_theme) && ImprovedTube.storage.dawn_theme !== false ||
-        this.isset(ImprovedTube.storage.sunset_theme) && ImprovedTube.storage.sunset_theme !== false ||
-        this.isset(ImprovedTube.storage.desert_theme) && ImprovedTube.storage.desert_theme !== false ||
-        this.isset(ImprovedTube.storage.plain_theme) && ImprovedTube.storage.plain_theme !== false ||
-        this.isset(ImprovedTube.storage.black_theme) && ImprovedTube.storage.black_theme !== false
+        (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to) &&
+        (this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false ||
+            this.isset(ImprovedTube.storage.night_theme) && ImprovedTube.storage.night_theme !== false ||
+            this.isset(ImprovedTube.storage.dawn_theme) && ImprovedTube.storage.dawn_theme !== false ||
+            this.isset(ImprovedTube.storage.sunset_theme) && ImprovedTube.storage.sunset_theme !== false ||
+            this.isset(ImprovedTube.storage.desert_theme) && ImprovedTube.storage.desert_theme !== false ||
+            this.isset(ImprovedTube.storage.plain_theme) && ImprovedTube.storage.plain_theme !== false ||
+            this.isset(ImprovedTube.storage.black_theme) && ImprovedTube.storage.black_theme !== false)
     ) {
         document.documentElement.setAttribute('dark', '');
 

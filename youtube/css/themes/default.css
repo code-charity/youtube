@@ -1,4 +1,4 @@
-[it-youtube-version=old][it-default-dark-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light])
+[it-youtube-version=old][it-default-dark-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])
 {
     --yt-swatch-header-primary: rgb(34,38,42)!important;
     --yt-swatch-primary: rgb(34,38,42)!important;
@@ -11,20 +11,20 @@
     --yt-swatch-icon-color: rgba(136,136,136,1)!important;
 }
 
-[it-youtube-version=old][it-default-dark-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]) #masthead-search-term
+[it-youtube-version=old][it-default-dark-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #masthead-search-term
 {
     border: 1px solid #444!important;
     border-right: none!important;
 }
-[it-youtube-version=old][it-default-dark-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light])[youtube-version=old] body
+[it-youtube-version=old][it-default-dark-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])[youtube-version=old] body
 {
     height: auto;
 }
-[it-youtube-version=old][it-default-dark-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light])
+[it-youtube-version=old][it-default-dark-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])
 {
     background: var(--yt-swatch-primary-darker)!important;
 }
-[it-youtube-version=old][it-default-dark-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]) ytd-masthead
+[it-youtube-version=old][it-default-dark-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead
 {
     background: #232323!important;
 
@@ -37,7 +37,7 @@
     --yt-swatch-logo-override: rgb(255, 255, 255)!important;
     --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
 }
-[it-youtube-version=old][it-default-dark-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]):not([style-scope]):not(.style-scope) :not([style-scope]):not(.style-scope)
+[it-youtube-version=old][it-default-dark-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) :not([style-scope]):not(.style-scope)
 {
     --yt-live-chat-action-panel-background-color: #282828;
     --yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
@@ -48,7 +48,7 @@
     --yt-live-chat-picker-button-color: var(--yt-live-chat-tertiary-text-color);
     --yt-formatted-string-emoji-size: 24px;
 }
-[it-youtube-version=old][it-default-dark-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light]):not([style-scope]):not(.style-scope)
+[it-youtube-version=old][it-default-dark-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope)
 {
     --ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
     --ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
@@ -175,7 +175,7 @@
     --yt-blue-suggestive: transparent;
 }
 
-[it-youtube-version=old][it-default-dark-theme=true]:not([it-base-on-system-color-scheme=dark]):not([it-base-on-system-color-scheme=light])[youtube-version=old] body
+[it-youtube-version=old][it-default-dark-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])[youtube-version=old] body
 {
     height: auto!important;
 
@@ -187,7 +187,7 @@
 
 
 @media (prefers-color-scheme: dark) {
-    [it-youtube-version=old][it-default-theme=true][it-base-on-system-color-scheme=dark]
+    [it-youtube-version=old][it-default-theme=true][it-schedule=system_peference_dark]
     {
         --yt-swatch-header-primary: rgb(34,38,42)!important;
         --yt-swatch-primary: rgb(34,38,42)!important;
@@ -200,20 +200,20 @@
         --yt-swatch-icon-color: rgba(136,136,136,1)!important;
     }
 
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=dark] #masthead-search-term
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_dark] #masthead-search-term
     {
         border: 1px solid #444!important;
         border-right: none!important;
     }
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=dark] html[youtube-version=old] body
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_dark] html[youtube-version=old] body
     {
         height: auto;
     }
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=dark]
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_dark]
     {
         background: var(--yt-swatch-primary-darker)!important;
     }
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=dark] ytd-masthead
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_dark] ytd-masthead
     {
         background: #232323!important;
 
@@ -226,7 +226,7 @@
         --yt-swatch-logo-override: rgb(255, 255, 255)!important;
         --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
     }
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=dark]:not([style-scope]):not(.style-scope) :not([style-scope]):not(.style-scope)
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) :not([style-scope]):not(.style-scope)
     {
         --yt-live-chat-action-panel-background-color: #282828;
         --yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
@@ -237,7 +237,7 @@
         --yt-live-chat-picker-button-color: var(--yt-live-chat-tertiary-text-color);
         --yt-formatted-string-emoji-size: 24px;
     }
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=dark]:not([style-scope]):not(.style-scope)
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope)
     {
         --ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
         --ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
@@ -364,7 +364,7 @@
         --yt-blue-suggestive: transparent;
     }
 
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=dark][youtube-version=old] body
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_dark][youtube-version=old] body
     {
         height: auto!important;
 
@@ -377,7 +377,7 @@
 
 
 @media (prefers-color-scheme: light) {
-    [it-youtube-version=old][it-default-theme=true][it-base-on-system-color-scheme=light]
+    [it-youtube-version=old][it-default-theme=true][it-schedule=system_peference_light]
     {
         --yt-swatch-header-primary: rgb(34,38,42)!important;
         --yt-swatch-primary: rgb(34,38,42)!important;
@@ -390,20 +390,20 @@
         --yt-swatch-icon-color: rgba(136,136,136,1)!important;
     }
 
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=light] #masthead-search-term
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_light] #masthead-search-term
     {
         border: 1px solid #444!important;
         border-right: none!important;
     }
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=light] html[youtube-version=old] body
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_light] html[youtube-version=old] body
     {
         height: auto;
     }
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=light]
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_light]
     {
         background: var(--yt-swatch-primary-darker)!important;
     }
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=light] ytd-masthead
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_light] ytd-masthead
     {
         background: #232323!important;
 
@@ -416,7 +416,7 @@
         --yt-swatch-logo-override: rgb(255, 255, 255)!important;
         --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
     }
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=light]:not([style-scope]):not(.style-scope) :not([style-scope]):not(.style-scope)
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) :not([style-scope]):not(.style-scope)
     {
         --yt-live-chat-action-panel-background-color: #282828;
         --yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
@@ -427,7 +427,7 @@
         --yt-live-chat-picker-button-color: var(--yt-live-chat-tertiary-text-color);
         --yt-formatted-string-emoji-size: 24px;
     }
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=light]:not([style-scope]):not(.style-scope)
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope)
     {
         --ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
         --ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
@@ -554,7 +554,7 @@
         --yt-blue-suggestive: transparent;
     }
 
-    [it-youtube-version=old][it-default-dark-theme=true][it-base-on-system-color-scheme=light][youtube-version=old] body
+    [it-youtube-version=old][it-default-dark-theme=true][it-schedule=system_peference_light][youtube-version=old] body
     {
         height: auto!important;
 

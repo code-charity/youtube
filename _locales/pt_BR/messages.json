@@ -98,6 +98,9 @@
     "browserVersion": {
         "message": "Versão do navegador"
     },
+    "bug": {
+        "message": "Bug"
+    },
     "buttons": {
         "message": "Botões"
     },
@@ -374,6 +377,9 @@
     "name": {
         "message": "Nome"
     },
+    "nativeMiniPlayer": {
+        "message": "Native mini player"
+    },
     "new": {
         "message": "Novo"
     },
@@ -566,6 +572,15 @@
     "sunset": {
         "message": "Pôr do Sol"
     },
+    "sunsetToSunrise": {
+        "message": "Sunset to sunrise"
+    },
+    "systemPeferenceDark": {
+        "message": "System peference: dark"
+    },
+    "systemPeferenceLight": {
+        "message": "System peference: light"
+    },
     "teal": {
         "message": "Verde Azulado"
     },
@@ -580,6 +595,12 @@
     },
     "thumbnails": {
         "message": "Miniaturas"
+    },
+    "timeFrom": {
+        "message": "Time from"
+    },
+    "timeTo": {
+        "message": "Time to"
     },
     "todayAt": {
         "message": "Hoje às"
