@@ -18,7 +18,7 @@
 			html:not([improvedtube-page]) body,
 			html:not([improvedtube-page]) .satus
 			{
-			    width: 320px;
+			    width: 340px;
 			    height: 500px;
 			}
 
@@ -51,7 +51,29 @@
 		<link rel="stylesheet" href="components/css/text-field.css">
 	</head>
 	<body>
-		<div class="satus"></div>
+		<div class=satus></div>
+		<div class=note>Found a bug?<a href=mailto:bugs@improvedtube.com target=_blank>bugs@improvedtube.com</a></div>
+		<style>
+			.note {
+				display: none;
+				position: absolute;
+			    bottom: 12px;
+			    width: calc(100% - 64px);
+			    left: 32px;
+			    text-align: center;
+			    font-size: 14px;
+			    color: #484848;
+			}
+			.satus[data-path='/'] + .note {
+				display: block;
+			}
+			.note a {
+				margin-left: 4px;
+				color: #f96754;
+				text-decoration: none
+			}
+		</style>
+
 		<!-- CORE -->
 		<script src="core.js"></script>
 		<!-- MODULES -->

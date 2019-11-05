@@ -63,6 +63,23 @@ ImprovedTube.mutations = function() {
 
 ImprovedTube.changeArgs = function(args) {
     if (ImprovedTube.isset(args)) {
+        if (ImprovedTube.storage.native_mini_player === false) {
+            args.show_miniplayer_button = 0;
+        }
+        
+        /*console.log(args);
+
+        args.use_miniplayer_ui = 0;
+
+        if (args.fflags) {
+            args.fflags = args.fflags.replace('kevlar_miniplayer=true', 'kevlar_miniplayer=false')
+                                     .replace('kevlar_miniplayer_play_pause_on_scrim=true', 'kevlar_miniplayer_play_pause_on_scrim=false')
+                                     .replace('kevlar_autonav_miniplayer_fix=true', 'kevlar_autonav_miniplayer_fix=false')
+                                     .replace('kevlar_miniplayer_expand_top=true', 'kevlar_miniplayer_expand_top=false')
+                                     .replace('fast_autonav_in_background=true', 'fast_autonav_in_background=false')
+                                     .replace('player_allow_autonav_after_playlist=true', 'player_allow_autonav_after_playlist=false');
+        }*/
+
         // Ads
         if (
             ImprovedTube.storage.player_ads === 'block_all' ||
@@ -164,6 +181,23 @@ ImprovedTube.ytPlayerApplicationCreateMod = function(original) {
 ImprovedTube.objectDefineProperties = function() {
     if (document.documentElement.hasAttribute('embed')) {
         return false;
+    }
+
+    if (ImprovedTube.storage.native_mini_player === false) {
+        Object.defineProperties(Object.prototype, {
+            activateMiniplayer: {
+                get: function() {
+                    var player = document.querySelector('#movie_player');
+
+                    if (player && player.stopVideo) {
+                        player.stopVideo();
+                    }
+                },
+                set: function(data) {
+                    this._activateMiniplayer = data;
+                }
+            }
+        });
     }
 
     Object.defineProperties(Object.prototype, {

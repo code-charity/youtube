@@ -101,6 +101,9 @@
     "browserVersion": {
         "message": "Browser version"
     },
+    "bug": {
+        "message": "Bug"
+    },
     "buttons": {
         "message": "Buttons"
     },
@@ -380,6 +383,9 @@
     "name": {
         "message": "Name"
     },
+    "nativeMiniPlayer": {
+        "message": "Native mini player"
+    },
     "new": {
         "message": "New"
     },
@@ -566,6 +572,15 @@
     "sunset": {
         "message": "Sunset"
     },
+    "sunsetToSunrise": {
+        "message": "Sunset to sunrise"
+    },
+    "systemPeferenceDark": {
+        "message": "System peference: dark"
+    },
+    "systemPeferenceLight": {
+        "message": "System peference: light"
+    },
     "teal": {
         "message": "Teal"
     },
@@ -580,6 +595,12 @@
     },
     "thumbnails": {
         "message": "Thumbnails"
+    },
+    "timeFrom": {
+        "message": "Time from"
+    },
+    "timeTo": {
+        "message": "Time to"
     },
     "todayAt": {
         "message": "Today at"

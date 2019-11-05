@@ -98,6 +98,11 @@ Satus.prototype.menu.main.player = {
             type: 'switch',
             label: 'miniPlayer'
         },
+        native_mini_player: {
+            type: 'switch',
+            label: 'nativeMiniPlayer',
+            value: true
+        },
         player_ads: {
             label: 'ads',
             type: 'select',

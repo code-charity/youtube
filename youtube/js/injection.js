@@ -43,7 +43,9 @@ chrome.storage.local.get(function(items) {
     for (var key in items) {
         var name = key;
 
-        document.documentElement.setAttribute('it-' + name.replace(/_/g, '-'), items[key]);
+        if (name.indexOf('_theme') === -1) {
+            document.documentElement.setAttribute('it-' + name.replace(/_/g, '-'), items[key]);
+        }
     }
 
     for (var key in ImprovedTube) {
@@ -78,6 +80,12 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
     if (typeof ImprovedTube[name] === 'function') {
         injectScript('ImprovedTube.' + name + '();');
+    }
+
+    if (name === 'schedule' || name === 'schedule_time_from' || name === 'schedule_time_to') {
+        injectScript('ImprovedTube.bluelight();');
+        injectScript('ImprovedTube.dim();');
+        injectScript('ImprovedTube.theme();');
     }
 
 
