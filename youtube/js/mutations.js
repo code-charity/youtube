@@ -45,9 +45,7 @@ ImprovedTube.mutations = function() {
                 });
 
                 return;
-            } else if (self.paused === true) {
-                console.log('is paused:' + self.paused);
-
+            } else if (self.paused === true && self.parentNode.parentNode.getCurrentTime() < 1) {
                 ImprovedTube.playerUpdate(self.parentNode.parentNode, true);
             }
 

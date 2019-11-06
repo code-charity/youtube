@@ -25,7 +25,7 @@ ImprovedTube.bluelight = function() {
     }
 
     if (
-        this.isset(value) && value !== 0 &&
+        this.isset(value) && value !== 0 && value !== '0' &&
         (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to)
     ) {
         if (!document.querySelector('#it-bluelight')) {
@@ -63,7 +63,7 @@ ImprovedTube.dim = function() {
     };
 
     if (
-        this.isset(value) && value !== 0 &&
+        this.isset(value) && value !== 0 && value !== '0' &&
         (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to)
     ) {
         if (!document.querySelector('#it-dim')) {
