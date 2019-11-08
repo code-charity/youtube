@@ -39,16 +39,16 @@
         "message": "外观"
     },
     "ARROWDOWN": {
-        "message": "?"
+        "message": "⇩"
     },
     "ARROWLEFT": {
-        "message": "?"
+        "message": "⇦"
     },
     "ARROWRIGHT": {
-        "message": "?"
+        "message": "⇨"
     },
     "ARROWUP": {
-        "message": "?"
+        "message": "⇧"
     },
     "audioFormats": {
         "message": "音频格式"
