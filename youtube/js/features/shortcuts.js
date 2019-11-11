@@ -38,7 +38,7 @@ ImprovedTube.shortcuts = function() {
     function roundToMultipleOf(value, multiple) {
         //return Math.round(value / multiple) * multiple;
     
-        // Realign/scale the possible values/multiples, so that each value is given an integer slot. Place the actual value (this) within the appropriate slot using Math.round() int-rounding, then reverse the scaling to get the true rounded value.
+        // Realign/scale the possible values/multiples, so that each value is given an integer slot. Place the actual value within the appropriate slot using Math.round() int-rounding, then reverse the scaling to get the true rounded value.
         // (This version handles fractions better. Ex: roundToMultipleOf(.2 + .1, .1) == .3 [NOT 0.3000000000000004, as the simpler approach gives])
         let multiple_inverted = 1 / multiple;
         return Math.round(value * multiple_inverted) / multiple_inverted;
@@ -198,12 +198,12 @@ ImprovedTube.shortcuts = function() {
                 var videoNode = player ? player.querySelector("video") : null;
 
                 if (videoNode) {
-                    let shiftAmount =
+                    var shiftAmount =
                         videoNode.playbackRate < 1 ? .05 :
                         videoNode.playbackRate < 2 ? .25 :
                         videoNode.playbackRate < 3 ? .5 :
                         1;
-                    videoNode.playbackRate = roundToMultipleOf(videoNode.playbackRate + shiftAmount, shiftAmount);
+                    videoNode.playbackRate = Math.min(16, roundToMultipleOf(videoNode.playbackRate + shiftAmount, shiftAmount));
                 }
 
                 showStatus(player, videoNode.playbackRate.toFixed(2));
@@ -213,12 +213,12 @@ ImprovedTube.shortcuts = function() {
                 var videoNode = player ? player.querySelector("video") : null;
 
                 if (videoNode) {
-                    let shiftAmount =
+                    var shiftAmount =
                         videoNode.playbackRate <= 1 ? .05 :
                         videoNode.playbackRate <= 2 ? .25 :
                         videoNode.playbackRate <= 3 ? .5 :
                         1;
-                    videoNode.playbackRate = roundToMultipleOf(videoNode.playbackRate - shiftAmount, shiftAmount);
+                    videoNode.playbackRate = Math.max(.1, roundToMultipleOf(videoNode.playbackRate - shiftAmount, shiftAmount));
                 }
 
                 showStatus(player, videoNode.playbackRate.toFixed(2));
