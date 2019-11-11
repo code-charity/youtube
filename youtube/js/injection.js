@@ -12,10 +12,6 @@
 chrome.storage.local.get(function(items) {
     var inject = 'var ImprovedTube={';
 
-    if (items.player_size === 'fit_to_window') {
-        items.player_size = 'full_window';
-    }
-
     if (typeof items.player_volume === 'string') {
         items.player_volume = Number(items.player_volume);
     }
@@ -68,10 +64,6 @@ chrome.storage.local.get(function(items) {
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     var name = request.name || '',
         value = request.value;
-
-    if (name === 'player_size' && value === 'fit_to_window') {
-        value = 'full_window';
-    }
 
     document.documentElement.setAttribute('it-' + name.replace(/_/g, '-'), value);
 

@@ -3,6 +3,53 @@ Satus.prototype.menu.main.analyzer = {
     label: 'analyzer',
     icon: '<svg viewBox="0 0 24 24"><defs><path id="a" d="M0 0h24v24H0z"/></defs><defs><path id="b" d="M0 0h24v24H0z"/></defs><path d="M23 8a2 2 0 0 1-2.51 1.93l-3.56 3.55A2 2 0 0 1 15 16a2 2 0 0 1-1.93-2.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56A2 2 0 0 1 3 18c-1.1 0-2-.9-2-2a2 2 0 0 1 2.51-1.93l4.56-4.55A2 2 0 0 1 10 7a2 2 0 0 1 1.93 2.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56A2 2 0 0 1 21 6a2 2 0 0 1 2 2zm0 0a2 2 0 0 1-2.51 1.93l-3.56 3.55A2 2 0 0 1 15 16a2 2 0 0 1-1.93-2.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56A2 2 0 0 1 3 18c-1.1 0-2-.9-2-2a2 2 0 0 1 2.51-1.93l4.56-4.55A2 2 0 0 1 10 7a2 2 0 0 1 1.93 2.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.55-3.56A2 2 0 0 1 21 6a2 2 0 0 1 2 2z"></svg>',
 
+    analyzer: {
+        type: 'switch',
+        label: 'analyzer',
+
+        onclick: function(satus, component) {
+            if (component.dataset.value === 'true') {
+                satus.components.dialog.create({
+                    type: 'dialog',
+
+                    message: {
+                        type: 'text',
+                        label: 'videoDescriptionWillBeExpandedToGetNameOfCategory',
+                        styles: {
+                            'width': '100%',
+                            'opacity': '.8'
+                        }
+                    },
+                    section: {
+                        type: 'section',
+                        class: 'controls',
+                        styles: {
+                            'justify-content': 'flex-end'
+                        },
+
+                        cancel: {
+                            type: 'button',
+                            label: 'cancel',
+                            onclick: function() {
+                                let scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                scrim[scrim.length - 1].click();
+                            }
+                        },
+                        ok: {
+                            type: 'button',
+                            label: 'OK',
+                            onclick: function() {
+                                let scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                scrim[scrim.length - 1].click();
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    },
     section: {
         type: 'section',
         styles: {
