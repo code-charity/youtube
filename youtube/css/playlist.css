@@ -1,0 +1,48 @@
+html[it-youtube-version=new] #it-playlist-reverse
+{
+    display: flex;
+
+    width: 40px;
+    margin-left: 8px;
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+}
+
+html[it-youtube-version=new] #it-playlist-reverse svg
+{
+    fill: var(--iron-icon-fill-color, #909090);
+}
+
+html[it-youtube-version=new] #it-playlist-reverse.yt-uix-button-toggled svg
+{
+    fill: var(--yt-spec-call-to-action);
+}
+
+html[it-youtube-version=old] #it-playlist-reverse
+{
+    display: inline-block;
+
+    box-sizing: border-box;
+    width: 26px;
+    height: 28px;
+    margin: 0 0 0 8px;
+    padding: 2px 1px;
+
+    cursor: pointer;
+    vertical-align: middle;
+
+    opacity: .5;
+}
+
+html[it-youtube-version=old] #it-playlist-reverse.yt-uix-button-toggled
+{
+    opacity: 1;
+}
+
+html[it-youtube-version=old] #it-playlist-reverse svg
+{
+    fill: #fff;
+}
