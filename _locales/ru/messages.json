@@ -11,15 +11,6 @@
     "activeFeatures": {
         "message": "Активные функции"
     },
-    "youtubeLimitsVideoQualityTo1080pForH.264Codec": {
-        "message": "YouTube ограничивает качетво видео до 1080p для h.264 кодека"
-    },
-    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "Описание видео будет развернуто, чтобы получить название категории видео"
-    },
-    "settingsSuccessfullyImported": {
-        "message": "Настройки успешно импортированы"
-    },
     "addScrollToTop": {
         "message": "Добавить кнопку «наверх»"
     },
@@ -68,8 +59,8 @@
     "autoFullscreen": {
         "message": "Автоматический переход в полноэкранный режим"
     },
-    "autopauseWhenSwitchingTabs": {
-        "message": "Автопауза при переходе по вкладкам"
+    "autopause": {
+        "message": "Авто пауза"
     },
     "autoplay": {
         "message": "Автовоспроизведение"

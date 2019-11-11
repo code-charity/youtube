@@ -1095,22 +1095,3 @@ textarea
 
     opacity: 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-#forced-volume[data-value=false] + div
-{
-    pointer-events: none;
-
-    opacity: .25;
-
-    filter: grayscale(1);
-}

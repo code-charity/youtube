@@ -480,10 +480,10 @@ ImprovedTube.mini_player = function() {
 12.0 Autopause
 -----------------------------------------------------------------------------*/
 
-ImprovedTube.player_autopause_when_switching_tabs = function() {
+ImprovedTube.player_autopause = function() {
     window.addEventListener('blur', function() {
         if (
-            ImprovedTube.storage.player_autopause_when_switching_tabs === true &&
+            ImprovedTube.storage.player_autopause === true &&
             /\/watch/.test(location.href) &&
             document.querySelector('.html5-video-player video')
         ) {
@@ -493,7 +493,7 @@ ImprovedTube.player_autopause_when_switching_tabs = function() {
 
     window.addEventListener('focus', function() {
         if (
-            ImprovedTube.storage.player_autopause_when_switching_tabs === true &&
+            ImprovedTube.storage.player_autopause === true &&
             /\/watch/.test(location.href) &&
             document.querySelector('.html5-video-player video')
         ) {
