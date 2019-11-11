@@ -11,15 +11,6 @@
     "activeFeatures": {
         "message": "Funções ativas"
     },
-    "settingsSuccessfullyImported": {
-        "message": "Settings successfully imported"
-    },
-    "youtubeLimitsVideoQualityTo1080pForH.264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
-    },
-    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "The video description will be expanded to get the name of the category"
-    },
     "addScrollToTop": {
         "message": "Habilitar botão «Voltar ao Topo»"
     },
@@ -68,8 +59,8 @@
     "autoFullscreen": {
         "message": "Tela cheia automática"
     },
-    "autopauseWhenSwitchingTabs": {
-        "message": "Autopause when switching tabs"
+    "autopause": {
+        "message": "Pausar automaticamente"
     },
     "autoplay": {
         "message": "Reprodução automática"

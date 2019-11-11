@@ -13,33 +13,6 @@
 1.0 Player
 -----------------------------------------------------------------------------*/
 
-ImprovedTube.fitToWindow = function() {
-    if (ImprovedTube.storage.player_size === 'fit_to_window' && !document.documentElement.hasAttribute('embed')) {
-        var video = document.querySelector('#movie_player video'),
-            header = document.documentElement.getAttribute('it-header-position'),
-            header_height = header == 'hidden' || header == 'hidden_on_video_page' || header == 'hover' || header == 'hover_on_video_page' ? 0 : 50,
-            videoW = video.videoWidth / 100,
-            videoH = video.videoHeight / 100,
-            windowW = window.innerWidth / 100,
-            windowH = window.innerHeight / 100,
-            videoWdif = ((video.videoWidth - window.innerWidth) / video.videoWidth * -100) + 100,
-            videoHdif = ((video.videoHeight - window.innerHeight + header_height) / video.videoHeight * -100) + 100,
-            style = document.querySelector('#it-fit-to-window') || document.createElement('style');
-
-        style.id = 'it-fit-to-window';
-
-        if (videoW && videoH && videoHdif && videoH * videoWdif > window.innerHeight - header_height) {
-            style.innerText = 'html[it-player-size="fit_to_window"] div#page.watch-wide .html5-video-player:not(.ytp-fullscreen) video{max-width:' + videoW * videoHdif + 'px !important;max-height' + videoH * videoHdif + 'px !important}';
-        } else if (videoW && videoH && videoWdif) {
-            style.innerText = 'html[it-player-size="fit_to_window"] div#page.watch-wide .html5-video-player:not(.ytp-fullscreen) video{max-width:' + videoW * videoWdif + 'px !important;max-height' + videoH * videoWdif + 'px !important}';
-        }
-
-        if (!document.querySelector('#it-fit-to-window')) {
-            document.documentElement.appendChild(style);
-        }
-    }
-};
-
 /*-----------------------------------------------------------------------------
 1.1 Forced theater mode
 -----------------------------------------------------------------------------*/

@@ -18,6 +18,8 @@ var ImprovedTube = {
 ImprovedTube.pageUpdate = function() {
     var not_connected_players = document.querySelectorAll('.html5-video-player:not([it-player-connected])');
 
+    ImprovedTube.allow_autoplay = false;
+
     if (not_connected_players.length > 0) {
         for (var i = 0, l = not_connected_players.length; i < l; i++) {
             var player = not_connected_players[i];
@@ -30,9 +32,7 @@ ImprovedTube.pageUpdate = function() {
 
                 ImprovedTube.playerUpdate(player);
 
-                player.querySelector('video').addEventListener('canplay', function() {
-                    ImprovedTube.videoUrl = location.href;
-                });
+                //player.querySelector('video').addEventListener('canplay', ImprovedTube.playerUpdate);
                 player.querySelector('video').addEventListener('timeupdate', function() {
                     ImprovedTube.playingTime++;
 
@@ -80,34 +80,10 @@ ImprovedTube.playerUpdate = function(node, hard) {
         player = document.querySelector('.html5-video-player');
     }
 
-    if (ImprovedTube.videoUrl !== location.href) {
+    if (ImprovedTube.videoUrl !== location.href || hard) {
         ImprovedTube.videoUrl = location.href;
         ImprovedTube.playingTime = 0;
-        ImprovedTube.allow_autoplay = false;
 
-        ImprovedTube.fitToWindow();
-        ImprovedTube.playlist_reverse();
-        ImprovedTube.player_hd_thumbnail();
-        ImprovedTube.player_quality(player);
-        ImprovedTube.player_volume(player);
-        ImprovedTube.player_playback_speed(player);
-        ImprovedTube.up_next_autoplay();
-        ImprovedTube.player_autofullscreen();
-        ImprovedTube.player_repeat_button();
-        ImprovedTube.player_screenshot_button();
-        ImprovedTube.player_rotate_button();
-        ImprovedTube.player_popup_button();
-
-        ImprovedTube.playlist_repeat();
-        ImprovedTube.playlist_shuffle();
-
-        ImprovedTube.dim();
-    } else if (hard) {
-        ImprovedTube.videoUrl = location.href;
-        ImprovedTube.allow_autoplay = true;
-
-        ImprovedTube.fitToWindow();
-        ImprovedTube.playlist_reverse();
         ImprovedTube.player_hd_thumbnail();
         ImprovedTube.player_quality(player);
         ImprovedTube.player_volume(player);
@@ -142,7 +118,7 @@ ImprovedTube.init = function() {
     this.pageType();
     this.improvedtube_youtube_icon();
     this.add_scroll_to_top();
-    this.player_autopause_when_switching_tabs();
+    this.player_autopause();
     this.mini_player();
     this.forced_theater_mode();
     this.comments();

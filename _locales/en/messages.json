@@ -17,15 +17,6 @@
     "ads": {
         "message": "Ads"
     },
-    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
-    },
-    "settingsSuccessfullyImported": {
-        "message": "Settings successfully imported"
-    },
-    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "The video description will be expanded to get the name of the category"
-    },
     "allow": {
         "message": "Allow"
     },
@@ -68,8 +59,8 @@
     "autoFullscreen": {
         "message": "Auto-fullscreen"
     },
-    "autopauseWhenSwitchingTabs": {
-        "message": "Autopause when switching tabs"
+    "autopause": {
+        "message": "Autopause"
     },
     "autoplay": {
         "message": "Autoplay"

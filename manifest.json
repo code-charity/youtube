@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "Improve YouTube! (Open-Source for YouTube)",
-    "version": "2.0.270",
-    "version_name": "2.0.270 b",
+    "version": "2.0.230",
+    "version_name": "2.0.230",
 
     "default_locale": "en",
     "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
@@ -41,7 +41,6 @@
             "youtube/css/appearance.css",
             "youtube/css/appearance__player-size.css",
             "youtube/css/player.css",
-            "youtube/css/playlist.css",
             "youtube/css/channel.css",
             "youtube/css/blacklist.css",
             "youtube/css/settings.css",
@@ -83,7 +82,7 @@
         ],
         "run_at": "document_start"
     }, {
-        "all_frames": true,
+        "all_frames": false,
         "matches": [
             "https://www.youtube.com/improvedtube"
         ],
@@ -92,7 +91,7 @@
         ],
         "run_at": "document_start"
     }, {
-        "all_frames": true,
+        "all_frames": false,
         "matches": [
             "https://www.youtube.com/improvedtube"
         ],
@@ -140,6 +139,7 @@
             "satus/components/js/tabs.js",
             "satus/components/js/text.js",
             "satus/components/js/text-field.js",
+            "popup/ga.js",
             "popup/functions.js",
             "popup/header.js",
             "popup/main.js",
