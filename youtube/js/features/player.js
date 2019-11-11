@@ -80,7 +80,8 @@ ImprovedTube.player_playback_speed = function(node) {
     }
 
     if (ImprovedTube.isset(playback_speed)) {
-        node.setPlaybackRate(playback_speed);
+        var videoNode = node.querySelector("video");
+        videoNode.playbackRate = playback_speed;
     }
 };
 

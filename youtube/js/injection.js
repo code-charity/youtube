@@ -101,6 +101,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     } else if (request == 'request_playback_speed' && document.querySelector('video')) {
         sendResponse(document.querySelector('video').playbackRate);
     } else if (typeof request == 'object' && request.name == 'change_playback_speed') {
-        injectScript(['if(document.querySelector(".html5-video-player")){document.querySelector(".html5-video-player").setPlaybackRate(' + request.playback_speed + ');}'], 'improvedtube-mixer-data');
+        injectScript(['if(document.querySelector(".html5-video-player video")){document.querySelector(".html5-video-player video").playbackRate = ' + request.playback_speed + ';}'], 'improvedtube-mixer-data');
     }
 });
