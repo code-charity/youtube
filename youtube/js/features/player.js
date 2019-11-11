@@ -73,7 +73,7 @@ ImprovedTube.player_volume = function(node) {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.player_playback_speed = function(node) {
-    var playback_speed = Number(ImprovedTube.storage.player_playback_speed);
+    var playback_speed = Number(ImprovedTube.storage.player_playback_speed) || 1;
 
     if (!node) {
         node = document.querySelector('.html5-video-player');
