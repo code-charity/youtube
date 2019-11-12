@@ -12,13 +12,13 @@
         "message": "Funções ativas"
     },
     "settingsSuccessfullyImported": {
-        "message": "Settings successfully imported"
+        "message": "Configurações importadas com sucesso"
     },
     "youtubeLimitsVideoQualityTo1080pForH.264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
+        "message": "O YouTube limita o codec h.264 à resolução de 1080p"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "The video description will be expanded to get the name of the category"
+        "message": "A descrição se expandirá para acessar a categoria do vídeo"
     },
     "addScrollToTop": {
         "message": "Habilitar botão «Voltar ao Topo»"
@@ -69,7 +69,7 @@
         "message": "Tela cheia automática"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Autopause when switching tabs"
+        "message": "Pausar vídeo ao alternar entre abas"
     },
     "autoplay": {
         "message": "Reprodução automática"
@@ -249,7 +249,7 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Selecionar a barra de pesquisa"
+        "message": "Selecionar barra de pesquisa"
     },
     "gpu": {
         "message": "GPU"
@@ -387,7 +387,7 @@
         "message": "Nome"
     },
     "nativeMiniPlayer": {
-        "message": "Native mini player"
+        "message": "Mini player nativo"
     },
     "new": {
         "message": "Novo"
@@ -585,10 +585,10 @@
         "message": "Sunset to sunrise"
     },
     "systemPeferenceDark": {
-        "message": "System peference: dark"
+        "message": "Preferência do sistema: Escuro"
     },
     "systemPeferenceLight": {
-        "message": "System peference: light"
+        "message": "Preferência do sistema: Claro"
     },
     "teal": {
         "message": "Verde Azulado"
