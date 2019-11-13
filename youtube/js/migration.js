@@ -473,4 +473,35 @@ chrome.storage.local.get(function(object) {
 
         location.reload();
     }
+
+    if (object.player_size_migrated !== true && object.player_size) {
+        object.player_size_migrated = true;
+
+        if (
+            [
+                'do_not_change',
+                'full_window',
+                'fit_to_window',
+                '240p',
+                '360p',
+                '480p',
+                '576p',
+                '720p',
+                '1080p',
+                '1440p',
+                '2160p'
+            ].indexOf(object.player_size) === -1
+        ) {
+            if (object.player_size === 'fit_window') {
+                object.player_size = 'fit_to_window';
+            } else {
+                object.player_size = 'do_not_change';
+            }
+        }
+
+        chrome.storage.local.clear();
+        chrome.storage.local.set(object);
+
+        location.reload();
+    }
 });
