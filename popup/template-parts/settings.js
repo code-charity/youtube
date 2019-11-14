@@ -63,6 +63,9 @@ Satus.prototype.menu.main.settings = {
             }, {
                 value: "ru",
                 label: "Русский"
+            }, {
+                value: "zh_CN",
+                label: "中文 (简体)"
             }]
         },
         youtube_language: {
