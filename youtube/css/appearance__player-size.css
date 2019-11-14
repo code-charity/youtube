@@ -36,25 +36,29 @@
 -----------------------------------------------------------------------------*/
 
 html:not([it-header-position]) ytd-app,
-html[it-header-position='normal'] ytd-app
+html[it-header-position='normal'] ytd-app,
+html[it-header-position='static'] ytd-app
 {
     --it-header-size: 56px;
 }
 
 html:not([it-header-position]) ytd-watch-flexy:not([theater]),
-html[it-header-position='normal'] ytd-watch-flexy:not([theater])
+html[it-header-position='normal'] ytd-watch-flexy:not([theater]),
+html[it-header-position='static'] ytd-watch-flexy:not([theater])
 {
     --it-header-size: 104px;
 }
 
 html:not([it-header-position]) div#page,
-html[it-header-position='normal'] div#page
+html[it-header-position='normal'] div#page,
+html[it-header-position='static'] div#page
 {
     --it-header-size: 50px;
 }
 
 html:not([it-header-position]) div#page:not(.watch-wide),
-html[it-header-position='normal'] div#page:not(.watch-wide)
+html[it-header-position='normal'] div#page:not(.watch-wide),
+html[it-header-position='static'] div#page:not(.watch-wide)
 {
     --it-header-size: 70px;
 }
@@ -113,6 +117,22 @@ html[it-header-position='hover'] div#page:not(.watch-wide),
 html[it-header-position='hover_on_video_page'] div#page:not(.watch-wide)
 {
     --it-header-size: 20px;
+}
+
+
+
+
+
+html[it-player-size='240p'] *,
+html[it-player-size='360p'] *,
+html[it-player-size='480p'] *,
+html[it-player-size='576p'] *,
+html[it-player-size='720p'] *,
+html[it-player-size='1080p'] *,
+html[it-player-size='1440p'] *,
+html[it-player-size='2160p'] *
+{
+    --it-header-size: 0px !important;
 }
 
 

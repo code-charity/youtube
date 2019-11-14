@@ -11,7 +11,7 @@
     "activeFeatures": {
         "message": "Активные функции"
     },
-    "youtubeLimitsVideoQualityTo1080pForH.264Codec": {
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube ограничивает качетво видео до 1080p для h.264 кодека"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
@@ -622,12 +622,6 @@
     },
     "tryToReloadThePage": {
         "message": "Попробуйте перезагрузить страницу"
-    },
-    "turnOff": {
-        "message": "Выключение"
-    },
-    "turnOn": {
-        "message": "Включение"
     },
     "type": {
         "message": "Тип"

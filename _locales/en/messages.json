@@ -626,12 +626,6 @@
     "tryToReloadThePage": {
         "message": "Try to reload the page"
     },
-    "turnOff": {
-        "message": "Turn off"
-    },
-    "turnOn": {
-        "message": "Turn on"
-    },
     "type": {
         "message": "Type"
     },

@@ -620,12 +620,6 @@
    "tryToReloadThePage": {
       "message": "Versuche die Seite neu zu laden"
    },
-   "turnOff": {
-      "message": "Ausschalten"
-   },
-   "turnOn": {
-      "message": "Einschalten"
-   },
    "type": {
       "message": "Type"
    },
