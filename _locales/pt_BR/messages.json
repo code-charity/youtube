@@ -14,7 +14,7 @@
     "settingsSuccessfullyImported": {
         "message": "Settings successfully imported"
     },
-    "youtubeLimitsVideoQualityTo1080pForH.264Codec": {
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube limits video quality to 1080p for h.264 codec"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
@@ -625,12 +625,6 @@
     },
     "tryToReloadThePage": {
         "message": "Recarregue a página"
-    },
-    "turnOff": {
-        "message": "Desabilitar"
-    },
-    "turnOn": {
-        "message": "Habilitar"
     },
     "type": {
         "message": "Tipo"

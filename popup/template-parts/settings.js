@@ -49,14 +49,20 @@ Satus.prototype.menu.main.settings = {
                 value: "en",
                 label: "English"
             }, {
-                value: "ru",
-                label: "Русский"
+                value: "es",
+                label: "Español"
             }, {
                 value: "de",
                 label: "Deutsch"
             }, {
+                value: "nl",
+                label: "Dutch"
+            }, {
                 value: "pt_BR",
                 label: "Português (Brasil)"
+            }, {
+                value: "ru",
+                label: "Русский"
             }]
         },
         youtube_language: {
