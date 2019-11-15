@@ -16,9 +16,17 @@ You can learn more about features on [the page](https://github.com/ImprovedTube/
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | TBA | 44.0+ | 36.0+ | 1.0+ |
 
-## About Google Chrome update (webRequest API)
+## Translations
 
-You can learn more on [the page](https://github.com/ImprovedTube/ImprovedTube/wiki/Google,-Chrome-&-webRequest-API).
+* [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) by [ImprovedTube](https://github.com/ImprovedTube)
+* [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga (Daniel)](https://github.com/Kioraga)
+* [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [ImprovedTube](https://github.com/ImprovedTube)
+* [Dutch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json) by [Heimen Stoffels](https://github.com/Vistaus)
+* [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [Leghort](https://github.com/leghort)
+* [Português (Brasil)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json) by [Mike-Correa](https://github.com/Mike-Correa), [dthiago (dthiago83)](https://github.com/dthiago)
+* [Русский](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json) by [ImprovedTube](https://github.com/ImprovedTube)/[Victor Savinov](https://github.com/victor-savinov)
+* [中文 (简体)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json) by [niceRAM](https://github.com/niceRAM)
+* [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [water903](https://github.com/water903)
 
 ## Installation
 
