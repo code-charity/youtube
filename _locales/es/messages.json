@@ -176,9 +176,6 @@
     "deleteYoutubeCookies": {
         "message": "Borrar cookies de YouTube"
     },
-    "deny": {
-        "message": "Deny"
-    },
     "description": {
         "message": "Descripción"
     },
