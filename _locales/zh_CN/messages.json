@@ -167,9 +167,6 @@
     "deleteYoutubeCookies": {
         "message": "清空 YouTube cookies"
     },
-    "deny": {
-        "message": "拒绝"
-    },
     "description": {
         "message": "视频描述"
     },
