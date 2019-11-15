@@ -58,6 +58,9 @@ Satus.prototype.menu.main.settings = {
                 value: "nl",
                 label: "Dutch"
             }, {
+                value: "fr",
+                label: "Français"
+            }, {
                 value: "pt_BR",
                 label: "Português (Brasil)"
             }, {
