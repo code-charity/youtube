@@ -176,9 +176,6 @@
     "deleteYoutubeCookies": {
         "message": "Delete YouTube cookies"
     },
-    "deny": {
-        "message": "Deny"
-    },
     "description": {
         "message": "Description"
     },
@@ -522,7 +519,7 @@
         "message": "Save"
     },
     "saveAs": {
-        "message": "Save us"
+        "message": "Save as"
     },
     "schedule": {
         "message": "Schedule"
@@ -625,12 +622,6 @@
     },
     "tryToReloadThePage": {
         "message": "Try to reload the page"
-    },
-    "turnOff": {
-        "message": "Turn off"
-    },
-    "turnOn": {
-        "message": "Turn on"
     },
     "type": {
         "message": "Type"
