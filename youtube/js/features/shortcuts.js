@@ -12,16 +12,16 @@ ImprovedTube.shortcuts = function() {
         hover = false,
         status_timer;
 
-    function showStatus(player, volumeOrRate) {
+    function showStatus(player, volume) {
         if (!player.querySelector('#it-status')) {
             var element = document.createElement('div');
 
             element.id = 'it-status';
-            element.innerHTML = volumeOrRate;
+            element.innerHTML = volume;
 
             document.querySelector('.html5-video-container').appendChild(element);
         } else {
-            player.querySelector('#it-status').innerHTML = volumeOrRate;
+            player.querySelector('#it-status').innerHTML = volume;
         }
 
         if (status_timer) {
@@ -33,15 +33,6 @@ ImprovedTube.shortcuts = function() {
                 player.querySelector('#it-status').remove();
             }
         }, 500);
-    }
-
-    function roundToMultipleOf(value, multiple) {
-        //return Math.round(value / multiple) * multiple;
-    
-        // Realign/scale the possible values/multiples, so that each value is given an integer slot. Place the actual value within the appropriate slot using Math.round() int-rounding, then reverse the scaling to get the true rounded value.
-        // (This version handles fractions better. Ex: roundToMultipleOf(.2 + .1, .1) == .3 [NOT 0.3000000000000004, as the simpler approach gives])
-        let multiple_inverted = 1 / multiple;
-        return Math.round(value * multiple_inverted) / multiple_inverted;
     }
 
     function start(type = 'keys') {
@@ -195,33 +186,21 @@ ImprovedTube.shortcuts = function() {
             },
             shortcut_increase_playback_speed: function() {
                 var player = document.querySelector('#movie_player');
-                var videoNode = player ? player.querySelector("video") : null;
 
-                if (videoNode) {
-                    var shiftAmount =
-                        videoNode.playbackRate < 1 ? .05 :
-                        videoNode.playbackRate < 2 ? .25 :
-                        videoNode.playbackRate < 3 ? .5 :
-                        1;
-                    videoNode.playbackRate = Math.min(16, roundToMultipleOf(videoNode.playbackRate + shiftAmount, shiftAmount));
+                if (player && player.setPlaybackRate && player.getPlaybackRate) {
+                    player.setPlaybackRate(player.getPlaybackRate() + .05);
                 }
 
-                showStatus(player, videoNode.playbackRate.toFixed(2));
+                showStatus(player, player.getPlaybackRate());
             },
             shortcut_decrease_playback_speed: function() {
                 var player = document.querySelector('#movie_player');
-                var videoNode = player ? player.querySelector("video") : null;
 
-                if (videoNode) {
-                    var shiftAmount =
-                        videoNode.playbackRate <= 1 ? .05 :
-                        videoNode.playbackRate <= 2 ? .25 :
-                        videoNode.playbackRate <= 3 ? .5 :
-                        1;
-                    videoNode.playbackRate = Math.max(.1, roundToMultipleOf(videoNode.playbackRate - shiftAmount, shiftAmount));
+                if (player && player.setPlaybackRate && player.getPlaybackRate) {
+                    player.setPlaybackRate(player.getPlaybackRate() - .05);
                 }
 
-                showStatus(player, videoNode.playbackRate.toFixed(2));
+                showStatus(player, player.getPlaybackRate());
             },
             shortcut_go_to_search_box: function() {
                 var search = document.querySelector('#search');

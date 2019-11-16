@@ -68,7 +68,7 @@ ImprovedTube.getParams = function(query) {
 ImprovedTube.setCookie = function(name, value) {
     var date = new Date();
 
-    date.setTime(date.getTime() + 31536000);
+    date.setTime(date.getTime() + 3.154e+10);
 
     document.cookie = name + '=' + value + '; path=/; domain=.youtube.com; expires=' + date.toGMTString();
 };

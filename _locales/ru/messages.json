@@ -11,6 +11,15 @@
     "activeFeatures": {
         "message": "Активные функции"
     },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "YouTube ограничивает качетво видео до 1080p для h.264 кодека"
+    },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "Описание видео будет развернуто, чтобы получить название категории видео"
+    },
+    "settingsSuccessfullyImported": {
+        "message": "Настройки успешно импортированы"
+    },
     "addScrollToTop": {
         "message": "Добавить кнопку «наверх»"
     },
@@ -59,8 +68,8 @@
     "autoFullscreen": {
         "message": "Автоматический переход в полноэкранный режим"
     },
-    "autopause": {
-        "message": "Авто пауза"
+    "autopauseWhenSwitchingTabs": {
+        "message": "Автопауза при переходе по вкладкам"
     },
     "autoplay": {
         "message": "Автовоспроизведение"
@@ -166,9 +175,6 @@
     },
     "deleteYoutubeCookies": {
         "message": "Удалить YouTube куки"
-    },
-    "deny": {
-        "message": "Нет"
     },
     "description": {
         "message": "Описание"
@@ -613,12 +619,6 @@
     },
     "tryToReloadThePage": {
         "message": "Попробуйте перезагрузить страницу"
-    },
-    "turnOff": {
-        "message": "Выключение"
-    },
-    "turnOn": {
-        "message": "Включение"
     },
     "type": {
         "message": "Тип"
