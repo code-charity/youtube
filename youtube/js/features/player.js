@@ -79,9 +79,8 @@ ImprovedTube.player_playback_speed = function(node) {
         node = document.querySelector('.html5-video-player');
     }
 
-    if (ImprovedTube.isset(playback_speed)) {
-        var videoNode = node.querySelector('video');
-        videoNode.playbackRate = playback_speed;
+    if (ImprovedTube.isset(ImprovedTube.storage.player_playback_speed)) {
+        node.querySelector('video').playbackRate = playback_speed;
     }
 };
 
