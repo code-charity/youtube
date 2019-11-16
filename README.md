@@ -2,8 +2,6 @@
 
 ## Introduction
 
-> We're now shifting our focus to building ImprovedTube 2.0
-
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an extension that is built to improve the user's experience on YouTube.
 
 ## Features
