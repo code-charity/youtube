@@ -17,6 +17,15 @@
     "ads": {
         "message": "Anúncios"
     },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "O YouTube limita o codec h.264 à resolução de 1080p"
+    },
+    "settingsSuccessfullyImported": {
+        "message": "Configurações importadas com sucesso"
+    },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "A descrição se expandirá para acessar a categoria do vídeo"
+    },
     "allow": {
         "message": "Permitir"
     },
@@ -26,14 +35,14 @@
     "alwaysActive": {
         "message": "Sempre ativo"
     },
+    "alwaysShowProgressBar": {
+        "message": "Sempre exibir a barra de progresso"
+    },
     "amber": {
         "message": "Âmbar"
     },
     "analyzer": {
         "message": "Analítico"
-    },
-    "annotations": {
-        "message": "Anotações"
     },
     "appearance": {
         "message": "Aparência"
@@ -59,14 +68,17 @@
     "autoFullscreen": {
         "message": "Tela cheia automática"
     },
-    "autopause": {
-        "message": "Pausar automaticamente"
+    "autopauseWhenSwitchingTabs": {
+        "message": "Pausar vídeo ao alternar entre abas"
     },
     "autoplay": {
         "message": "Reprodução automática"
     },
     "backupAndReset": {
         "message": "Backup & Restauração"
+    },
+    "baseOnSystemColorScheme": {
+        "message": "Baseado nas cores do sistema"
     },
     "belowPlayer": {
         "message": "Abaixo do player"
@@ -113,9 +125,6 @@
     "channels": {
         "message": "Canais"
     },
-    "classicImprovedtube": {
-        "message": "ImprovedTube Clássico"
-    },
     "codecH264": {
         "message": "Codec h.264"
     },
@@ -136,6 +145,9 @@
     },
     "cyan": {
         "message": "Ciano"
+    },
+    "dark": {
+        "message": "Obscuro"
     },
     "darkTheme": {
         "message": "Tema escuro"
@@ -163,9 +175,6 @@
     },
     "deleteYoutubeCookies": {
         "message": "Deletar cookies do YouTube"
-    },
-    "deny": {
-        "message": "Negar"
     },
     "description": {
         "message": "Descrição"
@@ -240,7 +249,7 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Selecionar a barra de pesquisa"
+        "message": "Selecionar barra de pesquisa"
     },
     "gpu": {
         "message": "GPU"
@@ -347,6 +356,9 @@
     "legacyYoutube": {
         "message": "YouTube antigo"
     },
+    "light": {
+        "message": "Claro"
+    },
     "lightBlue": {
         "message": "Azul Claro"
     },
@@ -378,7 +390,7 @@
         "message": "Nome"
     },
     "nativeMiniPlayer": {
-        "message": "Native mini player"
+        "message": "Mini player nativo"
     },
     "new": {
         "message": "Novo"
@@ -388,9 +400,6 @@
     },
     "night": {
         "message": "Noite"
-    },
-    "nightMode": {
-        "message": "Modo noturno"
     },
     "none": {
         "message": "Nenhum"
@@ -482,9 +491,6 @@
     "ram": {
         "message": "RAM"
     },
-    "rate": {
-        "message": "Avaliar"
-    },
     "rateUs": {
         "message": "Avalie-nos!"
     },
@@ -573,13 +579,13 @@
         "message": "Pôr do Sol"
     },
     "sunsetToSunrise": {
-        "message": "Sunset to sunrise"
+        "message": "Durante a noite"
     },
     "systemPeferenceDark": {
-        "message": "System peference: dark"
+        "message": "Preferência do sistema: Escuro"
     },
     "systemPeferenceLight": {
-        "message": "System peference: light"
+        "message": "Preferência do sistema: Claro"
     },
     "teal": {
         "message": "Verde Azulado"
@@ -597,10 +603,10 @@
         "message": "Miniaturas"
     },
     "timeFrom": {
-        "message": "Time from"
+        "message": "Horário inicial"
     },
     "timeTo": {
-        "message": "Time to"
+        "message": "Horário final"
     },
     "todayAt": {
         "message": "Hoje às"
@@ -617,12 +623,6 @@
     "tryToReloadThePage": {
         "message": "Recarregue a página"
     },
-    "turnOff": {
-        "message": "Desabilitar"
-    },
-    "turnOn": {
-        "message": "Habilitar"
-    },
     "type": {
         "message": "Tipo"
     },
@@ -637,9 +637,6 @@
     },
     "videoFormats": {
         "message": "Formatos de vídeo"
-    },
-    "videoQuality": {
-        "message": "Qualidade do vídeo"
     },
     "videos": {
         "message": "Vídeos"

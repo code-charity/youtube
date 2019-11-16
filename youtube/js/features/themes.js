@@ -161,10 +161,12 @@ ImprovedTube.theme = function() {
         this.setCookie('PREF', result.slice(0, -1));
 
         setTimeout(function() {
-            if (!ImprovedTube.isset(PREF_OLD.f6) ||
-                typeof PREF_OLD.f6 === 'string' && (PREF_OLD.f6.length !== 3 || PREF_OLD.f6.substr(0, 1) !== '4')
+            if (
+                document.querySelector('ytd-app') &&
+                typeof document.querySelector('ytd-app').toggleDarkThemeAttribute_ === 'function' &&
+                document.querySelector('ytd-app').isAppDarkTheme_() === false
             ) {
-                location.reload();
+                document.querySelector('ytd-app').toggleDarkThemeAttribute_(true);
             }
         }, 250);
 
