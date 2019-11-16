@@ -98,25 +98,37 @@ html[it-header-position='hidden_on_video_page'] div#page:not(.watch-wide)
 html[it-header-position='hover'],
 html[it-header-position='hover_on_video_page']
 {
-    --it-header-size: 0px;
+    --it-header-size: 14px;
 }
 
 html[it-header-position='hover'] ytd-watch-flexy:not([theater]),
 html[it-header-position='hover_on_video_page'] ytd-watch-flexy:not([theater])
 {
-    --it-header-size: 48px;
+    --it-header-size: 62px;
 }
 
 html[it-header-position='hover'] div#page,
 html[it-header-position='hover_on_video_page'] div#page
 {
-    --it-header-size: 0px;
+    --it-header-size: 12px;
 }
 
 html[it-header-position='hover'] div#page:not(.watch-wide),
 html[it-header-position='hover_on_video_page'] div#page:not(.watch-wide)
 {
-    --it-header-size: 20px;
+    --it-header-size: 32px;
+}
+
+html[it-header-position='hover'] ytd-watch-flexy #movie_player,
+html[it-header-position='hover_on_video_page'] ytd-watch-flexy #movie_player
+{
+    margin-top: 14px;
+}
+
+html[it-header-position='hover'] div#page #movie_player,
+html[it-header-position='hover_on_video_page'] div#page #movie_player
+{
+    margin-top: 12px;
 }
 
 
