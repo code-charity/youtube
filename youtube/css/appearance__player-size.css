@@ -36,25 +36,29 @@
 -----------------------------------------------------------------------------*/
 
 html:not([it-header-position]) ytd-app,
-html[it-header-position='normal'] ytd-app
+html[it-header-position='normal'] ytd-app,
+html[it-header-position='static'] ytd-app
 {
     --it-header-size: 56px;
 }
 
 html:not([it-header-position]) ytd-watch-flexy:not([theater]),
-html[it-header-position='normal'] ytd-watch-flexy:not([theater])
+html[it-header-position='normal'] ytd-watch-flexy:not([theater]),
+html[it-header-position='static'] ytd-watch-flexy:not([theater])
 {
     --it-header-size: 104px;
 }
 
 html:not([it-header-position]) div#page,
-html[it-header-position='normal'] div#page
+html[it-header-position='normal'] div#page,
+html[it-header-position='static'] div#page
 {
     --it-header-size: 50px;
 }
 
 html:not([it-header-position]) div#page:not(.watch-wide),
-html[it-header-position='normal'] div#page:not(.watch-wide)
+html[it-header-position='normal'] div#page:not(.watch-wide),
+html[it-header-position='static'] div#page:not(.watch-wide)
 {
     --it-header-size: 70px;
 }
@@ -113,6 +117,22 @@ html[it-header-position='hover'] div#page:not(.watch-wide),
 html[it-header-position='hover_on_video_page'] div#page:not(.watch-wide)
 {
     --it-header-size: 20px;
+}
+
+
+
+
+
+html[it-player-size='240p'] *,
+html[it-player-size='360p'] *,
+html[it-player-size='480p'] *,
+html[it-player-size='576p'] *,
+html[it-player-size='720p'] *,
+html[it-player-size='1080p'] *,
+html[it-player-size='1440p'] *,
+html[it-player-size='2160p'] *
+{
+    --it-header-size: 0px !important;
 }
 
 
@@ -221,13 +241,13 @@ html[it-player-size='fit_to_window']
 >>> PLAYER
 -----------------------------------------------------------------------------*/
 
-html[it-player-size]:not([it-player-size='do_not_change']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #player-container-inner
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #player-container-inner
 {
     padding-top: calc(var(--it-player-size) - var(--it-header-size)) !important;
 }
 
-html[it-player-size]:not([it-player-size='do_not_change']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container,
-html[it-player-size]:not([it-player-size='do_not_change']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) #player-theater-container
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container,
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) #player-theater-container
 {
     width: auto !important;
     height: calc(var(--it-player-size) - var(--it-header-size)) !important;
@@ -235,7 +255,7 @@ html[it-player-size]:not([it-player-size='do_not_change']) ytd-app:not([player-f
     max-height: 100vh !important;
 }
 
-html[it-player-size]:not([it-player-size='do_not_change']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-container
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-container
 {
     position: absolute !important;
 
@@ -250,7 +270,7 @@ html[it-player-size]:not([it-player-size='do_not_change']) ytd-app:not([player-f
     align-items: center !important;
 }
 
-html[it-player-size]:not([it-player-size='do_not_change']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.improvedtube-mini-player) video
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.improvedtube-mini-player) video
 {
     position: static !important;
     top: 0 !important;
@@ -269,15 +289,15 @@ html[it-player-size]:not([it-player-size='do_not_change']) ytd-app:not([player-f
 >>> LEGACY PLAYER
 -----------------------------------------------------------------------------*/
 
-html[it-player-size]:not([it-player-size='do_not_change']) div#page #player #player-api,
-html[it-player-size]:not([it-player-size='do_not_change']) div#page .player-height
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) div#page #player #player-api,
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) div#page .player-height
 {
     height: calc(var(--it-player-size) - var(--it-header-size)) !important;
     min-height: auto !important;
     max-height: 100vh !important;
 }
 
-html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='fit_to_window']) div#page.watch-wide #player #player-api
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']):not([it-player-size='fit_to_window']) div#page.watch-wide #player #player-api
 {
     left: 0 !important;
 
@@ -285,7 +305,7 @@ html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='
     margin: 0 !important;
 }
 
-html[it-player-size]:not([it-player-size='do_not_change']) div#page .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen) .html5-video-container
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) div#page .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen) .html5-video-container
 {
     position: absolute !important;
 
@@ -300,7 +320,7 @@ html[it-player-size]:not([it-player-size='do_not_change']) div#page .html5-video
     align-items: center !important;
 }
 
-html[it-player-size]:not([it-player-size='do_not_change']) div#page .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen) video
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) div#page .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen) video
 {
     position: static !important;
     top: 0 !important;
@@ -374,7 +394,7 @@ html[it-player-size='fit_to_window'] div#page.watch-wide .html5-video-player:not
 >>> PLAYER ERROR
 -----------------------------------------------------------------------------*/
 
-html[it-player-size]:not([it-player-size='do_not_change']) .ytp-error .ytp-tv-static
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) .ytp-error .ytp-tv-static
 {
     width: 100% !important;
     height: 100% !important;
@@ -388,7 +408,7 @@ html[it-player-size]:not([it-player-size='do_not_change']) .ytp-error .ytp-tv-st
 >>> PLAYER TOOLTIP
 -----------------------------------------------------------------------------*/
 
-html[it-player-size]:not([it-player-size='do_not_change']) .ytp-tooltip
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) .ytp-tooltip
 {
     top: unset !important;
     bottom: 64px !important;
@@ -402,14 +422,14 @@ html[it-player-size]:not([it-player-size='do_not_change']) .ytp-tooltip
 >>> LEGACY SIDEBAR
 -----------------------------------------------------------------------------*/
 
-html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='fit_to_window']) div#page:not(.watch-wide) #watch7-sidebar
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']):not([it-player-size='fit_to_window']) div#page:not(.watch-wide) #watch7-sidebar
 {
     top: unset !important;
 
     margin-top: calc(-10px - calc(var(--it-player-size) - var(--it-header-size))) !important;
 }
 
-html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='fit_to_window']) div#page.watch-wide #watch-appbar-playlist
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']):not([it-player-size='fit_to_window']) div#page.watch-wide #watch-appbar-playlist
 {
     top: 230px !important;
 }
