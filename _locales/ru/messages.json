@@ -11,15 +11,6 @@
     "activeFeatures": {
         "message": "Активные функции"
     },
-    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube ограничивает качетво видео до 1080p для h.264 кодека"
-    },
-    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "Описание видео будет развернуто, чтобы получить название категории видео"
-    },
-    "settingsSuccessfullyImported": {
-        "message": "Настройки успешно импортированы"
-    },
     "addScrollToTop": {
         "message": "Добавить кнопку «наверх»"
     },
@@ -542,6 +533,9 @@
     "settings": {
         "message": "Настройки"
     },
+    "settingsSuccessfullyImported": {
+        "message": "Настройки успешно импортированы"
+    },
     "shortcuts": {
         "message": "Горячие клавиши"
     },
@@ -593,6 +587,9 @@
     "thisWillRemoveAllCookies": {
         "message": "Это удалит все куки."
     },
+    "thisWillRemoveAllYouTubeCookies": {
+        "message": "Вы действительно хотите удалить все YouTube куки?"
+    },
     "thisWillResetAllSettings": {
         "message": "Это сбросит все настройки."
     },
@@ -632,6 +629,9 @@
     "version": {
         "message": "Версия"
     },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "Описание видео будет развернуто, чтобы получить название категории видео"
+    },
     "videoFormats": {
         "message": "Форматы видео"
     },
@@ -667,5 +667,8 @@
     },
     "youtubeLanguage": {
         "message": "Язык YouTube"
+    },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "YouTube ограничивает качетво видео до 1080p для h.264 кодека"
     }
 }
