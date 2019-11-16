@@ -71,9 +71,9 @@ Satus.prototype.menu.main.mixer = {
                                                 id: tab.id,
                                                 type: 'playback_speed'
                                             },
-                                            min: .25,
-                                            max: 2,
-                                            step: .25,
+                                            min: .1,
+                                            max: 16,
+                                            step: .05,
                                             styles: {
                                                 'width': '100%'
                                             },
