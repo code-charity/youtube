@@ -17,15 +17,6 @@
     "ads": {
         "message": "廣告"
     },
-    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
-    },
-    "settingsSuccessfullyImported": {
-        "message": "Settings successfully imported"
-    },
-    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "The video description will be expanded to get the name of the category"
-    },
     "allow": {
         "message": "允許"
     },
@@ -545,6 +536,9 @@
     "settings": {
         "message": "設定"
     },
+    "settingsSuccessfullyImported": {
+        "message": "Settings successfully imported"
+    },
     "shortcuts": {
         "message": "快捷鍵"
     },
@@ -596,6 +590,9 @@
     "thisWillRemoveAllCookies": {
         "message": "這將刪除所有的cookies."
     },
+    "thisWillRemoveAllYouTubeCookies": {
+        "message": "This will remove all YouTube cookies"
+    },
     "thisWillResetAllSettings": {
         "message": "這將會重置所有設置。"
     },
@@ -635,6 +632,9 @@
     "version": {
         "message": "版本"
     },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "The video description will be expanded to get the name of the category"
+    },
     "videoFormats": {
         "message": "Video formats"
     },
@@ -670,5 +670,8 @@
     },
     "youtubeLanguage": {
         "message": "YouTube 語言"
+    },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "YouTube limits video quality to 1080p for h.264 codec"
     }
 }

@@ -450,6 +450,60 @@ Satus.prototype.menu.main.settings = {
                     }
                 });
             }
+        },
+        delete_youtube_cookies: {
+            type: 'button',
+            label: 'deleteYoutubeCookies',
+            onclick: function(satus, component) {
+                satus.components.dialog.create({
+                    type: 'dialog',
+
+                    message: {
+                        type: 'text',
+                        label: 'thisWillRemoveAllYouTubeCookies',
+                        styles: {
+                            'width': '100%',
+                            'opacity': '.8'
+                        }
+                    },
+                    section: {
+                        type: 'section',
+                        class: 'controls',
+                        styles: {
+                            'justify-content': 'flex-end'
+                        },
+
+                        cancel: {
+                            type: 'button',
+                            label: 'cancel',
+                            onclick: function() {
+                                var scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                scrim[scrim.length - 1].click();
+                            }
+                        },
+                        accept: {
+                            type: 'button',
+                            label: 'accept',
+                            onclick: function() {
+                                var scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                chrome.tabs.query({}, function(tabs) {
+                                    for (var i = 0, l = tabs.length; i < l; i++) {
+                                        if (tabs[i].hasOwnProperty('url')) {
+                                            chrome.tabs.sendMessage(tabs[i].id, {
+                                                name: 'delete_youtube_cookies'
+                                            });
+                                        }
+                                    }
+                                });
+
+                                scrim[scrim.length - 1].click();
+                            }
+                        }
+                    }
+                });
+            }
         }
     },
     date_and_time: {

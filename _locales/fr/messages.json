@@ -17,15 +17,6 @@
     "ads": {
         "message": "Ads"
     },
-    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
-    },
-    "settingsSuccessfullyImported": {
-        "message": "Settings successfully imported"
-    },
-    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "The video description will be expanded to get the name of the category"
-    },
     "allow": {
         "message": "Allow"
     },
@@ -545,6 +536,9 @@
     "settings": {
         "message": "Réglages"
     },
+    "settingsSuccessfullyImported": {
+        "message": "Settings successfully imported"
+    },
     "shortcuts": {
         "message": "Raccourcis"
     },
@@ -596,6 +590,9 @@
     "thisWillRemoveAllCookies": {
         "message": "This will remove all cookies."
     },
+    "thisWillRemoveAllYouTubeCookies": {
+        "message": "This will remove all YouTube cookies"
+    },
     "thisWillResetAllSettings": {
         "message": "This will reset all settings."
     },
@@ -635,6 +632,9 @@
     "version": {
         "message": "Version"
     },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "The video description will be expanded to get the name of the category"
+    },
     "videoFormats": {
         "message": "Video formats"
     },
@@ -670,5 +670,8 @@
     },
     "youtubeLanguage": {
         "message": "YouTube language"
+    },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "YouTube limits video quality to 1080p for h.264 codec"
     }
 }
