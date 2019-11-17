@@ -59,8 +59,8 @@
     "autoFullscreen": {
         "message": "Auto-fullscreen"
     },
-    "autopause": {
-        "message": "Autopause"
+    "autopauseWhenSwitchingTabs": {
+        "message": "Autopause when switching tabs"
     },
     "autoplay": {
         "message": "Autoplay"
@@ -166,9 +166,6 @@
     },
     "deleteYoutubeCookies": {
         "message": "Delete YouTube cookies"
-    },
-    "deny": {
-        "message": "Deny"
     },
     "description": {
         "message": "Description"
@@ -513,7 +510,7 @@
         "message": "Save"
     },
     "saveAs": {
-        "message": "Save us"
+        "message": "Save as"
     },
     "schedule": {
         "message": "Schedule"
@@ -538,6 +535,9 @@
     },
     "settings": {
         "message": "Settings"
+    },
+    "settingsSuccessfullyImported": {
+        "message": "Settings successfully imported"
     },
     "shortcuts": {
         "message": "Shortcuts"
@@ -590,6 +590,9 @@
     "thisWillRemoveAllCookies": {
         "message": "This will remove all cookies."
     },
+    "thisWillRemoveAllYouTubeCookies": {
+        "message": "This will remove all YouTube cookies"
+    },
     "thisWillResetAllSettings": {
         "message": "This will reset all settings."
     },
@@ -617,12 +620,6 @@
     "tryToReloadThePage": {
         "message": "Try to reload the page"
     },
-    "turnOff": {
-        "message": "Turn off"
-    },
-    "turnOn": {
-        "message": "Turn on"
-    },
     "type": {
         "message": "Type"
     },
@@ -634,6 +631,9 @@
     },
     "version": {
         "message": "Version"
+    },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "The video description will be expanded to get the name of the category"
     },
     "videoFormats": {
         "message": "Video formats"
@@ -670,5 +670,8 @@
     },
     "youtubeLanguage": {
         "message": "YouTube language"
+    },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "YouTube limits video quality to 1080p for h.264 codec"
     }
 }
