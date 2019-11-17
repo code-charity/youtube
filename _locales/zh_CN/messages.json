@@ -3,16 +3,16 @@
         "message": "关于"
     },
     "activateCaptions": {
-        "message": "激活字幕"
+        "message": "启用字幕"
     },
     "activateFullscreen": {
-        "message": "激活全屏"
+        "message": "启用全屏"
     },
     "activeFeatures": {
-        "message": "激活功能"
+        "message": "启用功能"
     },
     "addScrollToTop": {
-        "message": "添加 «返回顶部»"
+        "message": "返回顶部按钮"
     },
     "ads": {
         "message": "广告"
@@ -24,10 +24,10 @@
         "message": "允许60FPS"
     },
     "alwaysActive": {
-        "message": "保持启用"
+        "message": "始终启用"
     },
     "alwaysShowProgressBar": {
-        "message": "保持显示进度条"
+        "message": "始终显示进度条"
     },
     "amber": {
         "message": "琥珀色"
@@ -59,8 +59,8 @@
     "autoFullscreen": {
         "message": "自动全屏"
     },
-    "autopause": {
-        "message": "自动暂停"
+    "autopauseWhenSwitchingTabs": {
+        "message": "切换标签时暂停播放"
     },
     "autoplay": {
         "message": "自动播放"
@@ -75,7 +75,7 @@
         "message": "在播放器下方"
     },
     "black": {
-        "message": "黑色"
+        "message": "纯黑"
     },
     "blacklist": {
         "message": "黑名单"
@@ -126,7 +126,7 @@
         "message": "评论"
     },
     "confirmationBeforeClosing": {
-        "message": "关闭前确认"
+        "message": "页面关闭前提示"
     },
     "cookies": {
         "message": "Cookies"
@@ -141,7 +141,7 @@
         "message": "黑暗"
     },
     "darkTheme": {
-        "message": "黑色主题"
+        "message": "夜间模式"
     },
     "dateAndTime": {
         "message": "时间与日期"
@@ -192,7 +192,7 @@
         "message": "支持"
     },
     "doNotChange": {
-        "message": "不做变更"
+        "message": "不做改变"
     },
     "draggable": {
         "message": "可拖动"
@@ -228,7 +228,7 @@
         "message": "强制修改音量"
     },
     "foundABug": {
-        "message": "遇到了bug?"
+        "message": "Found a bug?"
     },
     "fullWindow": {
         "message": "全屏"
@@ -275,14 +275,14 @@
     "hideDetails": {
         "message": "隐藏详细信息"
     },
+    "hideEndscreen": {
+        "message": "隐藏 Endscreen"
+    },
     "hideFeaturedContent": {
         "message": "隐藏精选频道"
     },
     "hideFooter": {
         "message": "隐藏底部栏"
-    },
-    "hideMovingThumbnails": {
-        "message": "隐藏移动缩略图"
     },
     "hidePlaylist": {
         "message": "隐藏播放列表"
@@ -309,7 +309,7 @@
         "message": "在视频播放页面时悬浮显示"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "投稿时间(多久之前)"
+        "message": "投稿于多久之前"
     },
     "iconsOnly": {
         "message": "仅显示图标"
@@ -318,10 +318,10 @@
         "message": "导入设置"
     },
     "improvedtubeIconInBrowser": {
-        "message": "浏览器内的 ImprovedTube 图标"
+        "message": "ImprovedTube 扩展程序图标"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "YouTube 上的 ImprovedTube 图标"
+        "message": "在 YouTube 显示 ImprovedTube 图标"
     },
     "improvedtubeLanguage": {
         "message": "ImprovedTube 语言"
@@ -390,7 +390,7 @@
         "message": "上一个视频"
     },
     "night": {
-        "message": "夜间"
+        "message": "夜色"
     },
     "none": {
         "message": "无"
@@ -399,7 +399,7 @@
         "message": "没有打开视频标签"
     },
     "normal": {
-        "message": "通常"
+        "message": "正常"
     },
     "old": {
         "message": "旧版"
@@ -423,7 +423,7 @@
         "message": "其他"
     },
     "permissions": {
-        "message": "权限"
+        "message": "许可"
     },
     "pictureInPicture": {
         "message": "画中画"
@@ -477,7 +477,7 @@
         "message": "紫色"
     },
     "quality": {
-        "message": "质量"
+        "message": "画质"
     },
     "ram": {
         "message": "RAM"
@@ -573,10 +573,10 @@
         "message": "日落到日出"
     },
     "systemPeferenceDark": {
-        "message": "系统偏好: 黑暗"
+        "message": "系统偏好: 深色"
     },
     "systemPeferenceLight": {
-        "message": "系统偏好: 明亮"
+        "message": "系统偏好: 浅色"
     },
     "teal": {
         "message": "蓝绿色"
@@ -588,7 +588,7 @@
         "message": "将清空所有 cookies."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "This will remove all YouTube cookies"
+        "message": "将清空所有 YouTube cookies"
     },
     "thisWillResetAllSettings": {
         "message": "将重置所有设置."
@@ -597,10 +597,10 @@
         "message": "缩略图"
     },
     "timeFrom": {
-        "message": "从何时"
+        "message": "开始时间"
     },
     "timeTo": {
-        "message": "到何时"
+        "message": "结束时间"
     },
     "todayAt": {
         "message": "Today at"
