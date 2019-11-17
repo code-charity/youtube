@@ -498,6 +498,12 @@ html[it-hide-views-count=true] #watch7-views-info > .watch-view-count
     pointer-events: none !important;
 }
 
+[it-likes=icons_only] #text.style-scope.ytd-toggle-button-renderer.style-text, 
+[it-likes=icons_only] #text.style-scope.ytd-toggle-button-renderer.style-default-active
+{
+    visibility: hidden !important;
+}
+
 [it-likes=icons_only] .like-button-renderer-like-button,
 [it-likes=icons_only] .like-button-renderer-dislike-button
 {
