@@ -12,10 +12,6 @@
 chrome.storage.local.get(function(items) {
     var inject = 'var ImprovedTube={';
 
-    if (items.player_size === 'fit_to_window') {
-        items.player_size = 'full_window';
-    }
-
     if (typeof items.player_volume === 'string') {
         items.player_volume = Number(items.player_volume);
     }
@@ -44,7 +40,7 @@ chrome.storage.local.get(function(items) {
         var name = key;
 
         //if (name.indexOf('_theme') === -1) {
-            document.documentElement.setAttribute('it-' + name.replace(/_/g, '-'), items[key]);
+        document.documentElement.setAttribute('it-' + name.replace(/_/g, '-'), items[key]);
         //}
         //if (name.indexOf('_theme') !== -1) {
 
@@ -68,10 +64,6 @@ chrome.storage.local.get(function(items) {
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     var name = request.name || '',
         value = request.value;
-
-    if (name === 'player_size' && value === 'fit_to_window') {
-        value = 'full_window';
-    }
 
     document.documentElement.setAttribute('it-' + name.replace(/_/g, '-'), value);
 
@@ -101,6 +93,20 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     } else if (request == 'request_playback_speed' && document.querySelector('video')) {
         sendResponse(document.querySelector('video').playbackRate);
     } else if (typeof request == 'object' && request.name == 'change_playback_speed') {
-        injectScript(['if(document.querySelector(".html5-video-player")){document.querySelector(".html5-video-player").setPlaybackRate(' + request.playback_speed + ');}'], 'improvedtube-mixer-data');
+        injectScript(['if(document.querySelector(".html5-video-player video")){document.querySelector(".html5-video-player video").playbackRate = ' + request.playback_speed + ';}'], 'improvedtube-mixer-data');
+    } else if (request === 'delete_youtube_cookies') {
+        var cookies = document.cookie.split(';');
+
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i],
+                eqPos = cookie.indexOf('='),
+                name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+
+            document.cookie = name + '=; domain=.youtube.com; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        }
+
+        setTimeout(function() {
+            location.reload();
+        }, 250);
     }
 });

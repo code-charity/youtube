@@ -50,238 +50,28 @@ Satus.prototype.menu.main.settings = {
                 label: "English"
             }, {
                 value: "es",
-                label: "Español (España)"
-            }, {
-                value: "es-419",
-                label: "Español (Latinoamérica)"
-            }, {
-                value: "es-US",
-                label: "Español (US)"
-            }, {
-                value: "ru",
-                label: "Русский"
+                label: "Español"
             }, {
                 value: "de",
                 label: "Deutsch"
             }, {
-                value: "pt-PT",
-                label: "Português"
-            }, {
-                value: "pt",
-                label: "Português (Brasil)"
+                value: "nl",
+                label: "Dutch"
             }, {
                 value: "fr",
                 label: "Français"
             }, {
-                value: "pl",
-                label: "Polski"
+                value: "pt_BR",
+                label: "Português (Brasil)"
             }, {
-                value: "ja",
-                label: "日本語"
+                value: "ru",
+                label: "Русский"
             }, {
-                value: "af",
-                label: "Afrikaans"
-            }, {
-                value: "az",
-                label: "Azərbaycan"
-            }, {
-                value: "id",
-                label: "Bahasa Indonesia"
-            }, {
-                value: "ms",
-                label: "Bahasa Malaysia"
-            }, {
-                value: "bs",
-                label: "Bosanski"
-            }, {
-                value: "ca",
-                label: "Català"
-            }, {
-                value: "cs",
-                label: "Čeština"
-            }, {
-                value: "da",
-                label: "Dansk"
-            }, {
-                value: "et",
-                label: "Eesti"
-            }, {
-                value: "eu",
-                label: "Euskara"
-            }, {
-                value: "fil",
-                label: "Filipino"
-            }, {
-                value: "fr-CA",
-                label: "Français (Canada)"
-            }, {
-                value: "gl",
-                label: "Galego"
-            }, {
-                value: "hr",
-                label: "Hrvatski"
-            }, {
-                value: "zu",
-                label: "IsiZulu"
-            }, {
-                value: "is",
-                label: "Íslenska"
-            }, {
-                value: "it",
-                label: "Italiano"
-            }, {
-                value: "sw",
-                label: "Kiswahili"
-            }, {
-                value: "lv",
-                label: "Latviešu valoda"
-            }, {
-                value: "lt",
-                label: "Lietuvių"
-            }, {
-                value: "hu",
-                label: "Magyar"
-            }, {
-                value: "nl",
-                label: "Nederlands"
-            }, {
-                value: "no",
-                label: "Norsk"
-            }, {
-                value: "uz",
-                label: "O‘zbek"
-            }, {
-                value: "ro",
-                label: "Română"
-            }, {
-                value: "sq",
-                label: "Shqip"
-            }, {
-                value: "sk",
-                label: "Slovenčina"
-            }, {
-                value: "sl",
-                label: "Slovenščina"
-            }, {
-                value: "sr-Latn",
-                label: "Srpski"
-            }, {
-                value: "fi",
-                label: "Suomi"
-            }, {
-                value: "sv",
-                label: "Svenska"
-            }, {
-                value: "vi",
-                label: "Tiếng Việt"
-            }, {
-                value: "tr",
-                label: "Türkçe"
-            }, {
-                value: "be",
-                label: "Беларуская"
-            }, {
-                value: "bg",
-                label: "Български"
-            }, {
-                value: "ky",
-                label: "Кыргызча"
-            }, {
-                value: "kk",
-                label: "Қазақ Тілі"
-            }, {
-                value: "mk",
-                label: "Македонски"
-            }, {
-                value: "mn",
-                label: "Монгол"
-            }, {
-                value: "sr",
-                label: "Српски"
-            }, {
-                value: "uk",
-                label: "Українська"
-            }, {
-                value: "el",
-                label: "Ελληνικά"
-            }, {
-                value: "hy",
-                label: "Հայերեն"
-            }, {
-                value: "iw",
-                label: "עברית"
-            }, {
-                value: "ur",
-                label: "اردو"
-            }, {
-                value: "ar",
-                label: "العربية"
-            }, {
-                value: "fa",
-                label: "فارسی"
-            }, {
-                value: "ne",
-                label: "नेपाली"
-            }, {
-                value: "mr",
-                label: "मराठी"
-            }, {
-                value: "hi",
-                label: "हिन्दी"
-            }, {
-                value: "bn",
-                label: "বাংলা"
-            }, {
-                value: "pa",
-                label: "ਪੰਜਾਬੀ"
-            }, {
-                value: "gu",
-                label: "ગુજરાતી"
-            }, {
-                value: "ta",
-                label: "தமிழ்"
-            }, {
-                value: "te",
-                label: "తెలుగు"
-            }, {
-                value: "kn",
-                label: "ಕನ್ನಡ"
-            }, {
-                value: "ml",
-                label: "മലയാളം"
-            }, {
-                value: "si",
-                label: "සිංහල"
-            }, {
-                value: "th",
-                label: "ภาษาไทย"
-            }, {
-                value: "lo",
-                label: "ລາວ"
-            }, {
-                value: "my",
-                label: "ဗမာ"
-            }, {
-                value: "ka",
-                label: "ქართული"
-            }, {
-                value: "am",
-                label: "አማርኛ"
-            }, {
-                value: "km",
-                label: "ខ្មែរ"
-            }, {
-                value: "zh-CN",
+                value: "zh_CN",
                 label: "中文 (简体)"
             }, {
-                value: "zh-TW",
+                value: "zh_TW",
                 label: "中文 (繁體)"
-            }, {
-                value: "zh-HK",
-                label: "中文 (香港)"
-            }, {
-                value: "ko",
-                label: "한국어"
             }]
         },
         youtube_language: {
@@ -653,6 +443,60 @@ Satus.prototype.menu.main.settings = {
                                 let scrim = document.querySelectorAll('.satus-dialog__scrim');
 
                                 satus.storage.clear();
+
+                                scrim[scrim.length - 1].click();
+                            }
+                        }
+                    }
+                });
+            }
+        },
+        delete_youtube_cookies: {
+            type: 'button',
+            label: 'deleteYoutubeCookies',
+            onclick: function(satus, component) {
+                satus.components.dialog.create({
+                    type: 'dialog',
+
+                    message: {
+                        type: 'text',
+                        label: 'thisWillRemoveAllYouTubeCookies',
+                        styles: {
+                            'width': '100%',
+                            'opacity': '.8'
+                        }
+                    },
+                    section: {
+                        type: 'section',
+                        class: 'controls',
+                        styles: {
+                            'justify-content': 'flex-end'
+                        },
+
+                        cancel: {
+                            type: 'button',
+                            label: 'cancel',
+                            onclick: function() {
+                                var scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                scrim[scrim.length - 1].click();
+                            }
+                        },
+                        accept: {
+                            type: 'button',
+                            label: 'accept',
+                            onclick: function() {
+                                var scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                chrome.tabs.query({}, function(tabs) {
+                                    for (var i = 0, l = tabs.length; i < l; i++) {
+                                        if (tabs[i].hasOwnProperty('url')) {
+                                            chrome.tabs.sendMessage(tabs[i].id, {
+                                                name: 'delete_youtube_cookies'
+                                            });
+                                        }
+                                    }
+                                });
 
                                 scrim[scrim.length - 1].click();
                             }

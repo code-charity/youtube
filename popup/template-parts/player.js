@@ -48,7 +48,8 @@ Satus.prototype.menu.main.player = {
         },
         player_forced_volume: {
             type: 'switch',
-            label: 'forcedVolume'
+            label: 'forcedVolume',
+            id: 'forced-volume'
         },
         player_volume: {
             type: 'slider',
@@ -61,8 +62,8 @@ Satus.prototype.menu.main.player = {
             type: 'slider',
             label: 'playbackSpeed',
             value: 1,
-            min: .05,
-            max: 2,
+            min: .1,
+            max: 16,
             step: .05
         },
         player_autoplay: {
@@ -77,7 +78,50 @@ Satus.prototype.menu.main.player = {
         },
         player_h264: {
             type: 'switch',
-            label: 'codecH264'
+            label: 'codecH264',
+
+            onclick: function(satus, component) {
+                if (component.dataset.value === 'true') {
+                    satus.components.dialog.create({
+                        type: 'dialog',
+
+                        message: {
+                            type: 'text',
+                            label: 'youtubeLimitsVideoQualityTo1080pForH264Codec',
+                            styles: {
+                                'width': '100%',
+                                'opacity': '.8'
+                            }
+                        },
+                        section: {
+                            type: 'section',
+                            class: 'controls',
+                            styles: {
+                                'justify-content': 'flex-end'
+                            },
+
+                            cancel: {
+                                type: 'button',
+                                label: 'cancel',
+                                onclick: function() {
+                                    let scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                    scrim[scrim.length - 1].click();
+                                }
+                            },
+                            ok: {
+                                type: 'button',
+                                label: 'OK',
+                                onclick: function() {
+                                    let scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                    scrim[scrim.length - 1].click();
+                                }
+                            }
+                        }
+                    });
+                }
+            }
         },
         player_subtitles: {
             type: 'switch',
@@ -118,9 +162,9 @@ Satus.prototype.menu.main.player = {
                 value: 'block_all'
             }]
         },
-        player_autopause: {
+        player_autopause_when_switching_tabs: {
             type: 'switch',
-            label: 'autopause'
+            label: 'autopauseWhenSwitchingTabs'
         },
         player_autofullscreen: {
             type: 'switch',

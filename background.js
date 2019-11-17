@@ -194,7 +194,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
                 if (granted) {
                     try {
                         let blob = new Blob([JSON.stringify(request.value)], {
-                            type: 'text/plain;charset=utf-8'
+                            type: 'application/json;charset=utf-8'
                         });
 
                         chrome.downloads.download({
@@ -287,7 +287,6 @@ chrome.storage.local.get(function(items) {
 -----------------------------------------------------------------------------*/
 
 chrome.runtime.setUninstallURL('http://improvedtube.com/uninstalled');
-
 
 if (chrome.runtime.getManifest()
     .version == chrome.runtime.getManifest()

@@ -45,7 +45,7 @@ ImprovedTube.mutations = function() {
                 });
 
                 return;
-            } else if (self.paused === true && self.parentNode.parentNode.getCurrentTime() < 1) {
+            } else if (self.paused === true && self.parentNode.parentNode.getCurrentTime() < 1 || ImprovedTube.videoUrl !== location.href) {
                 ImprovedTube.playerUpdate(self.parentNode.parentNode, true);
             }
 
@@ -64,7 +64,7 @@ ImprovedTube.changeArgs = function(args) {
         if (ImprovedTube.storage.native_mini_player === false) {
             args.show_miniplayer_button = 0;
         }
-        
+
         /*console.log(args);
 
         args.use_miniplayer_ui = 0;

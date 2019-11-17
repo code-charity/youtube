@@ -167,9 +167,6 @@
     "deleteYoutubeCookies": {
         "message": "清空 YouTube cookies"
     },
-    "deny": {
-        "message": "拒绝"
-    },
     "description": {
         "message": "视频描述"
     },
@@ -278,14 +275,14 @@
     "hideDetails": {
         "message": "隐藏详细信息"
     },
-    "hideMovingThumbnails": {
-        "message": "隐藏移动缩略图"
-    },
     "hideFeaturedContent": {
         "message": "隐藏精选频道"
     },
     "hideFooter": {
         "message": "隐藏底部栏"
+    },
+    "hideMovingThumbnails": {
+        "message": "隐藏移动缩略图"
     },
     "hidePlaylist": {
         "message": "隐藏播放列表"
@@ -589,6 +586,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "将清空所有 cookies."
+    },
+    "thisWillRemoveAllYouTubeCookies": {
+        "message": "This will remove all YouTube cookies"
     },
     "thisWillResetAllSettings": {
         "message": "将重置所有设置."

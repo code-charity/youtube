@@ -79,8 +79,8 @@ ImprovedTube.player_playback_speed = function(node) {
         node = document.querySelector('.html5-video-player');
     }
 
-    if (ImprovedTube.isset(playback_speed)) {
-        node.setPlaybackRate(playback_speed);
+    if (ImprovedTube.isset(ImprovedTube.storage.player_playback_speed)) {
+        node.querySelector('video').playbackRate = playback_speed;
     }
 };
 
@@ -480,10 +480,10 @@ ImprovedTube.mini_player = function() {
 12.0 Autopause
 -----------------------------------------------------------------------------*/
 
-ImprovedTube.player_autopause = function() {
+ImprovedTube.player_autopause_when_switching_tabs = function() {
     window.addEventListener('blur', function() {
         if (
-            ImprovedTube.storage.player_autopause === true &&
+            ImprovedTube.storage.player_autopause_when_switching_tabs === true &&
             /\/watch/.test(location.href) &&
             document.querySelector('.html5-video-player video')
         ) {
@@ -493,7 +493,7 @@ ImprovedTube.player_autopause = function() {
 
     window.addEventListener('focus', function() {
         if (
-            ImprovedTube.storage.player_autopause === true &&
+            ImprovedTube.storage.player_autopause_when_switching_tabs === true &&
             /\/watch/.test(location.href) &&
             document.querySelector('.html5-video-player video')
         ) {
