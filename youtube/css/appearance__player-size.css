@@ -119,14 +119,14 @@ html[it-header-position='hover_on_video_page'] div#page:not(.watch-wide)
     --it-header-size: 32px;
 }
 
-html[it-header-position='hover'] ytd-watch-flexy #movie_player,
-html[it-header-position='hover_on_video_page'] ytd-watch-flexy #movie_player
+html[it-header-position='hover'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #movie_player,
+html[it-header-position='hover_on_video_page'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #movie_player
 {
     margin-top: 14px;
 }
 
-html[it-header-position='hover'] div#page #movie_player,
-html[it-header-position='hover_on_video_page'] div#page #movie_player
+html[it-header-position='hover'] div#page #movie_player:not(.improvedtube-mini-player):not(.ytp-fullscreen),
+html[it-header-position='hover_on_video_page'] div#page #movie_player:not(.improvedtube-mini-player):not(.ytp-fullscreen)
 {
     margin-top: 12px;
 }
@@ -345,18 +345,18 @@ html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='
 
 
 /*FIT TO WINDOW*/
-html[it-player-size='fit_to_window'] div#page.watch-wide #placeholder-player
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] div#page.watch-wide #placeholder-player
 {
     display: none !important;
 }
 
-html[it-player-size='fit_to_window'] div#page.watch-wide #player
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] div#page.watch-wide #player
 {
     width: auto !important;
     margin-bottom: 10px !important;
 }
 
-html[it-player-size='fit_to_window'] div#page.watch-wide #player #player-api
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] div#page.watch-wide #player #player-api
 {
     display: table !important;
     width: auto !important;
@@ -364,36 +364,36 @@ html[it-player-size='fit_to_window'] div#page.watch-wide #player #player-api
     left: 0 !important;
 }
 
-html[it-player-size='fit_to_window'] div#page.watch-wide #theater-background
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] div#page.watch-wide #theater-background
 {
     display: none !important;
 }
 
-html[it-player-size='fit_to_window'] div#page.watch-wide #player-mole-container
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] div#page.watch-wide #player-mole-container
 {
     height: auto !important;
 }
 
-html[it-player-size='fit_to_window'] div#page.watch-wide #player #player-api.player-height
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] div#page.watch-wide #player #player-api.player-height
 {
     height: auto !important;
     position: static !important;
 }
 
-html[it-player-size='fit_to_window'] div#page.watch-wide .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen)
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] div#page.watch-wide .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen)
 {
     width: auto !important;
     height: auto !important;
 }
 
-html[it-player-size='fit_to_window'] div#page.watch-wide .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen) .html5-video-container
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] div#page.watch-wide .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen) .html5-video-container
 {
     position: static !important;
     width: auto !important;
     height: auto !important;
 }
 
-html[it-player-size='fit_to_window'] div#page.watch-wide .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen) video
+html[it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] div#page.watch-wide .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen) video
 {
     z-index: 9 !important;
 }

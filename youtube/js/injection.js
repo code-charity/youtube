@@ -39,12 +39,7 @@ chrome.storage.local.get(function(items) {
     for (var key in items) {
         var name = key;
 
-        //if (name.indexOf('_theme') === -1) {
         document.documentElement.setAttribute('it-' + name.replace(/_/g, '-'), items[key]);
-        //}
-        //if (name.indexOf('_theme') !== -1) {
-
-        //}
     }
 
     for (var key in ImprovedTube) {

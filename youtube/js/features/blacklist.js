@@ -52,7 +52,7 @@ ImprovedTube.blacklist = function() {
                         detail: {
                             type: 'channel',
                             id: video_id,
-                            title: item.querySelector('#channel-title').innerText
+                            title: document.querySelector('yt-formatted-string.ytd-channel-name, a.branded-page-header-title-link').innerText
                         }
                     }));
 
@@ -60,17 +60,18 @@ ImprovedTube.blacklist = function() {
                         ImprovedTube.storage.blacklist = {};
                     }
 
-                    if (!ImprovedTube.storage.blacklist.videos) {
-                        ImprovedTube.storage.blacklist.videos = {};
+                    if (!ImprovedTube.storage.blacklist.channels) {
+                        ImprovedTube.storage.blacklist.channels = {};
                     }
 
-                    ImprovedTube.storage.blacklist.videos[video_id] = {
-                        title: item.querySelector('#channel-title').innerText
+                    ImprovedTube.storage.blacklist.channels[video_id] = {
+                        title: document.querySelector('yt-formatted-string.ytd-channel-name, a.branded-page-header-title-link').innerText
                     };
 
                     ImprovedTube.blacklist();
                 } catch (err) {}
             }, true);
+
             button.className = 'improvedtube-add-to-blacklist';
             button.innerText = 'Add to blacklist';
             button.style.position = 'static';
@@ -169,10 +170,12 @@ ImprovedTube.blacklist = function() {
                 item = item.parentNode;
             }
 
-            let channel_href = item.querySelector('a.spf-link[href*="/user/"], a.spf-link[href*="/channel/"]').href;
+            if (item.querySelector('.ytd-channel-name a, a.spf-link[href*="/user/"], a.spf-link[href*="/channel/"]')) {
+                let channel_href = item.querySelector('.ytd-channel-name a, a.spf-link[href*="/user/"], a.spf-link[href*="/channel/"]').href;
 
-            if (channel_href in ImprovedTube.storage.blacklist.channels) {
-                item.style.display = 'none';
+                if (channel_href in ImprovedTube.storage.blacklist.channels) {
+                    item.style.display = 'none';
+                }
             }
         }
     }

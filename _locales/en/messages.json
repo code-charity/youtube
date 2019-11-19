@@ -1,4 +1,35 @@
 {
+    "bubbles": {
+        "message": "Bubbles"
+    },
+    "list": {
+        "message": "List"
+    },
+    "items": {
+        "message": "Items"
+    },
+    "styles": {
+        "message": "Styles"
+    },
+    "icons": {
+        "message": "Icons"
+    },
+    "video": {
+        "message": "Video"
+    },
+    "audio": {
+        "message": "Audio"
+    },
+    "style": {
+        "message": "Style"
+    },
+    "categories": {
+        "message": "Categories"
+    },
+    "empty": {
+        "message": "Empty"
+    },
+
     "about": {
         "message": "About"
     },
