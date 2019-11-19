@@ -84,3 +84,11 @@ ImprovedTube.events = function() {
     }, true);
 
 };
+
+window.addEventListener('DOMContentLoaded', function() {
+    chrome.storage.local.get(function(items) {
+        items.legacy_youtube = document.documentElement.getAttribute('it-youtube-version') == 'old' ? true : false;
+
+        chrome.storage.local.set(items);
+    });
+});

@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "Improve YouTube! (Open-Source for YouTube)",
-    "version": "2.0.302",
-    "version_name": "2.0.302",
+    "version": "2.1",
+    "version_name": "2.1",
 
     "default_locale": "en",
     "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
@@ -20,7 +20,7 @@
             "48": "icons/48g.png",
             "128": "icons/128g.png"
         },
-        "default_popup": "satus/index.html"
+        "default_popup": "index.html"
     },
 
     "author": "savetime",
@@ -82,87 +82,12 @@
             "https://www.youtube.com/tv*"
         ],
         "run_at": "document_start"
-    }, {
-        "all_frames": true,
-        "matches": [
-            "https://www.youtube.com/improvedtube"
-        ],
-        "js": [
-            "satus/youtube.js"
-        ],
-        "run_at": "document_start"
-    }, {
-        "all_frames": true,
-        "matches": [
-            "https://www.youtube.com/improvedtube"
-        ],
-        "css": [
-            "satus/components/css/animations.css",
-            "satus/components/css/themes.css",
-            "satus/components/css/button.css",
-            "satus/components/css/dialog.css",
-            "satus/components/css/directory.css",
-            "satus/components/css/drawer.css",
-            "satus/components/css/footer.css",
-            "satus/components/css/header.css",
-            "satus/components/css/main.css",
-            "satus/components/css/pluviam.css",
-            "satus/components/css/section.css",
-            "satus/components/css/select.css",
-            "satus/components/css/shortcut.css",
-            "satus/components/css/slider.css",
-            "satus/components/css/switch.css",
-            "satus/components/css/tabs.css",
-            "satus/components/css/text.css",
-            "satus/components/css/text-field.css",
-            "popup/style.css"
-        ],
-        "js": [
-            "satus/core.js",
-            "satus/modules/js/chromium-storage.js",
-            "satus/modules/js/chromium-locale.js",
-            "satus/modules/js/tab-index.js",
-            "satus/modules/js/user.js",
-            "satus/components/js/button.js",
-            "satus/components/js/dialog.js",
-            "satus/components/js/directory.js",
-            "satus/components/js/drawer.js",
-            "satus/components/js/footer.js",
-            "satus/components/js/header.js",
-            "satus/components/js/image.js",
-            "satus/components/js/main.js",
-            "satus/components/js/pluviam.js",
-            "satus/components/js/section.js",
-            "satus/components/js/select.js",
-            "satus/components/js/shortcut.js",
-            "satus/components/js/slider.js",
-            "satus/components/js/switch.js",
-            "satus/components/js/tabs.js",
-            "satus/components/js/text.js",
-            "satus/components/js/text-field.js",
-            "popup/functions.js",
-            "popup/header.js",
-            "popup/main.js",
-            "popup/template-parts/general.js",
-            "popup/template-parts/appearance.js",
-            "popup/template-parts/themes.js",
-            "popup/template-parts/player.js",
-            "popup/template-parts/playlist.js",
-            "popup/template-parts/channel.js",
-            "popup/template-parts/shortcuts.js",
-            "popup/template-parts/mixer.js",
-            "popup/template-parts/analyzer.js",
-            "popup/template-parts/blacklist.js",
-            "popup/template-parts/settings.js",
-            "popup/index.js"
-        ],
-        "run_at": "document_end"
     }],
 
     "optional_permissions": [
         "downloads"
     ],
-    "options_page": "satus/index.html",
+    "options_page": "index.html",
 
     "permissions": [
         "https://www.youtube.com/",
