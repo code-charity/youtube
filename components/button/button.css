@@ -1,5 +1,14 @@
 /*-----------------------------------------------------------------------------
 >>> «BUTTON» COMPONENT
+-------------------------------------------------------------------------------
+1.0 Basic
+  1.1 Icon
+  1.2 Ripple
+2.0 Header
+-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+1.0 Basic
 -----------------------------------------------------------------------------*/
 
 .satus-button
@@ -27,6 +36,10 @@
     align-items: center;
 }
 
+/*-----------------------------------------------------------------------------
+1.1 Icon
+-----------------------------------------------------------------------------*/
+
 .satus-button svg
 {
     position: relative;
@@ -36,6 +49,31 @@
     height: 24px;
 
     fill: inherit;
+}
+
+.satus-button_icon
+{
+    max-width: 48px;
+    min-height: auto;
+    max-height: 100%;
+    padding: 0;
+
+    justify-content: center;
+}
+
+.satus-button_icon::before
+{
+    border-radius: 50%;
+}
+
+
+/*-----------------------------------------------------------------------------
+1.2 Ripple
+-----------------------------------------------------------------------------*/
+
+.satus-button:focus::after
+{
+    animation: button_scale 300ms ease;
 }
 
 .satus-button::before
@@ -80,26 +118,6 @@
     opacity: 1;
 }
 
-.satus-button:focus::after
-{
-    animation: button_scale 300ms ease;
-}
-
-.satus-button_icon
-{
-    max-width: 48px;
-    min-height: auto;
-    max-height: 100%;
-    padding: 0;
-
-    justify-content: center;
-}
-
-.satus-button_icon::before
-{
-    border-radius: 50%;
-}
-
 @keyframes button_scale
 {
     0%
@@ -123,7 +141,9 @@
 }
 
 
-
+/*-----------------------------------------------------------------------------
+2.0 Header
+-----------------------------------------------------------------------------*/
 
 .satus-header .satus-button
 {
@@ -131,4 +151,9 @@
     min-width: 40px;
     height: 40px;
     min-height: 40px;
+}
+
+.satus-header .satus-section--align-end .satus-button:not(:first-child)
+{
+    margin-left: 4px;
 }

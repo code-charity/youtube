@@ -36,6 +36,11 @@ ImprovedTube.events = function() {
 
     window.addEventListener('resize', function() {
         ImprovedTube.fitToWindow();
+        ImprovedTube.improvedtube_youtube_icon_resize();
+    });
+
+    window.addEventListener('scroll', function() {
+        ImprovedTube.improvedtube_youtube_icon_resize();
     });
 
 

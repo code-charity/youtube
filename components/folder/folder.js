@@ -46,7 +46,6 @@ Satus.components.folder = function(object, name) {
                     for (var key in object) {
                         if (Satus.isset(object[key][path[i]])) {
                             object = object[key][path[i]];
-                            console.log(object);
 
                             break;
                         }
@@ -67,14 +66,25 @@ Satus.components.folder = function(object, name) {
                 typeof container.SatusItem === 'object' &&
                 typeof container.SatusItem.on === 'object' &&
                 typeof container.SatusItem.on.render === 'function'
-            )
+            ) {
                 container.SatusItem.on.render(container);
+            }
 
             setTimeout(function() {
                 self.classList.remove('satus-main__container--pre-closing');
                 container.classList.remove('satus-main__container--pre-closing');
                 self.classList.add('satus-main__container--closing');
                 container.classList.add('satus-main__container--closing');
+
+                document.querySelector('.satus').dispatchEvent(new CustomEvent('satus-navigate', {
+                    detail: {
+                        item: object,
+                        name: path[path.length - 1],
+                        path: document.querySelector('.satus').dataset.path.split('/').filter(function(value) {
+                            return value != '';
+                        })
+                    }
+                }));
 
                 setTimeout(function() {
                     self.remove();
@@ -95,8 +105,9 @@ Satus.components.folder = function(object, name) {
             main_container = main_container.parentNode;
         }
 
-        if (parent.classList.contains('changing'))
+        if (parent.classList.contains('changing')) {
             return false;
+        }
 
         parent.classList.add('changing');
 
@@ -115,14 +126,25 @@ Satus.components.folder = function(object, name) {
             typeof container.SatusItem === 'object' &&
             typeof container.SatusItem.on === 'object' &&
             typeof container.SatusItem.on.render === 'function'
-        )
+        ) {
             container.SatusItem.on.render(container);
+        }
 
         setTimeout(function() {
             main_container.querySelector('*').classList.remove('satus-main__container--pre-opening');
             container.classList.remove('satus-main__container--pre-opening');
             main_container.querySelector('*').classList.add('satus-main__container--opening');
             container.classList.add('satus-main__container--opening');
+
+            document.querySelector('.satus').dispatchEvent(new CustomEvent('satus-navigate', {
+                detail: {
+                    item: object,
+                    name: name,
+                    path: document.querySelector('.satus').dataset.path.split('/').filter(function(value) {
+                        return value != '';
+                    })
+                }
+            }));
 
             setTimeout(function() {
                 main_container.querySelector('*').remove();

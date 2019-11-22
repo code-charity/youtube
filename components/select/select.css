@@ -48,10 +48,10 @@
     opacity: .5;
 }
 
-.satus-select > .scrim
+.satus-select__scrim
 {
     position: fixed;
-    z-index: 999;
+    z-index: 999999999;
     top: 0;
     left: 0;
 
@@ -67,11 +67,10 @@
     background: var(--background-hover-3);
 }
 
-.satus-select > .options
+.satus-select__options
 {
     position: absolute;
-    z-index: 999;
-    top: 100%;
+    z-index: 999999999;
     left: 8px;
 
     visibility: hidden;
@@ -89,8 +88,8 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
 }
 
-.satus-select.show > .scrim,
-.satus-select.show > .options
+.satus-select__scrim,
+.satus-select__options
 {
     visibility: visible;
 
@@ -99,7 +98,7 @@
     opacity: 1;
 }
 
-.satus-select > .options > div
+.satus-select__options > div
 {
     display: flex;
     flex-direction: column;
@@ -113,7 +112,7 @@
     justify-content: center;
 }
 
-.satus-select > .options > div:hover
+.satus-select__options > div:hover
 {
     background: var(--background-hover-3);
 }

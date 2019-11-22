@@ -126,7 +126,7 @@ html[it-improvedtube-youtube-icon='draggable'] .it-btn
     height: 500px;
     max-height: 80vh;
 
-    transition: 150ms;
+    transition: opacity 150ms;
     pointer-events: none;
 
     opacity: 0;
@@ -155,4 +155,16 @@ html[it-improvedtube-youtube-icon='draggable'] .it-btn
     pointer-events: all;
 
     opacity: 1;
+}
+
+.it-btn--dragging,
+.it-btn--dragging .it-btn__icon,
+.it-btn--dragging .it-btn__iframe
+{
+    pointer-events: none !important;
+}
+
+.it-btn--dragging .it-btn__iframe
+{
+    opacity: .75 !important;
 }

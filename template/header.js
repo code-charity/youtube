@@ -52,12 +52,16 @@ const Menu = {
                             'box-sizing': 'border-box',
                             'box-shadow': 'unset',
                             'transform-origin': offset + 'px 28px',
-                            'z-index': '1'
+                            'z-index': '1',
+                            'overflow': 'hidden',
+                            'width': '100%',
+                            'border-radius': '0'
                         },
 
                         text_field: {
                             type: 'textarea',
-                            placeholder: 'search',
+                            placeholder: Satus.memory.get('locale/search'),
+                            rows: 1,
                             on: {
                                 render: function(component, name) {
                                     setTimeout(function() {
