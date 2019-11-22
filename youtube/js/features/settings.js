@@ -12,6 +12,35 @@
 
 ImprovedTube.improvedtube_youtube_icon_wait = false;
 
+ImprovedTube.improvedtube_youtube_icon_resize = function() {
+    var iframe = document.querySelector('.it-btn__iframe'),
+        icon = document.querySelector('.it-btn__icon'),
+        x = icon.getBoundingClientRect().x,
+        y = icon.getBoundingClientRect().y;
+
+    if (iframe) {
+        if (x < window.innerWidth / 2) {
+            iframe.style.right = 'auto';
+            iframe.style.left = '0px';
+        } else {
+            iframe.style.right = '0px';
+            iframe.style.left = 'auto';
+        }
+
+        if (y < window.innerHeight / 2) {
+            iframe.style.top = '50px';
+            iframe.style.bottom = 'auto';
+
+            iframe.style.height = Math.min(500, window.innerHeight - Math.max(0, iframe.getBoundingClientRect().top) - 16) + 'px';
+        } else {
+            iframe.style.top = 'auto';
+            iframe.style.bottom = '50px';
+
+            iframe.style.height = Math.min(500, window.innerHeight - Math.max(0, window.innerHeight - iframe.getBoundingClientRect().y - iframe.getBoundingClientRect().height) - 16) + 'px';
+        }
+    }
+};
+
 ImprovedTube.improvedtube_youtube_icon = function() {
     if (
         ImprovedTube.storage.improvedtube_youtube_icon === 'disabled' &&
@@ -79,6 +108,7 @@ ImprovedTube.improvedtube_youtube_icon = function() {
                     event.stopPropagation();
 
                     this.classList.toggle('it-btn--active');
+                    ImprovedTube.improvedtube_youtube_icon_resize();
 
                     return false;
                 }, true);
@@ -94,9 +124,37 @@ ImprovedTube.improvedtube_youtube_icon = function() {
                     }
 
                     function move(event) {
-                        button.style.pointerEvents = 'none';
-                        button.style.left = event.clientX - Number(button.dataset.x) + 'px';
-                        button.style.top = event.clientY - Number(button.dataset.y) + 'px';
+                        button.classList.add('it-btn--dragging');
+
+                        if (event.clientX < window.innerWidth / 2) {
+                            if (event.clientX - Number(button.dataset.x) >= 16) {
+                                button.style.left = event.clientX - Number(button.dataset.x) + 'px';
+                            } else {
+                                button.style.left = '16px';
+                            }
+                        } else {
+                            if (event.clientX + (48 + window.innerWidth - document.querySelector('body').offsetWidth) - Number(button.dataset.x) <= window.innerWidth) {
+                                button.style.left = event.clientX - Number(button.dataset.x) + 'px';
+                            } else {
+                                button.style.left = 'calc(100vw - ' + (48 + window.innerWidth - document.querySelector('body').offsetWidth) + 'px)';
+                            }
+                        }
+
+                        if (event.clientY < window.innerHeight / 2) {
+                            if (event.clientY - Number(button.dataset.y) >= 16) {
+                                button.style.top = event.clientY - Number(button.dataset.y) + 'px';
+                            } else {
+                                button.style.top = '16px';
+                            }
+                        } else {
+                            if (event.clientY + 48 - Number(button.dataset.y) <= window.innerHeight) {
+                                button.style.top = event.clientY - Number(button.dataset.y) + 'px';
+                            } else {
+                                button.style.top = 'calc(100vh - 48px)';
+                            }
+                        }
+
+                        ImprovedTube.improvedtube_youtube_icon_resize();
                     }
 
                     button.addEventListener('mousedown', function(event) {
@@ -107,6 +165,8 @@ ImprovedTube.improvedtube_youtube_icon = function() {
                     });
 
                     window.addEventListener('mouseup', function() {
+                        button.classList.remove('it-btn--dragging');
+
                         window.removeEventListener('mousemove', move);
 
                         localStorage.setItem('IT_ICON', JSON.stringify({
@@ -125,6 +185,8 @@ ImprovedTube.improvedtube_youtube_icon = function() {
                 } else {
                     parentNode.appendChild(button);
                 }
+
+                ImprovedTube.improvedtube_youtube_icon_resize();
             }
         }, 250);
     }

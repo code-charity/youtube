@@ -10,6 +10,37 @@ Satus.chromium_storage.sync(function() {
     Satus.locale(function() {
         document.querySelector('.satus').innerHTML = '';
 
+        document.querySelector('.satus').addEventListener('satus-navigate', function(event) {
+            if (event.detail.name === 'main') {
+                document.querySelector('.satus-header__title').innerText = 'ImprovedTube';
+                document.querySelector('.satus-header__title').title = '';
+            } else {
+                var title = '',
+                    description = [];
+
+                for (var i = 0, l = event.detail.path.length; i < l; i++) {
+                    var part = event.detail.path[i];
+
+                    if (i === 0) {
+                        part = 'home';
+                    }
+
+                    if (Satus.memory.get('locale/' + part)) {
+                        description.push(Satus.memory.get('locale/' + part))
+                    }
+                }
+
+                if (event.detail.item.hasOwnProperty('label')) {
+                    title = Satus.memory.get('locale/' + event.detail.item.label);
+                } else {
+                    title = Satus.memory.get('locale/' + event.detail.name);
+                }
+
+                document.querySelector('.satus-header__title').innerText = title;
+                document.querySelector('.satus-header__title').title = description.join(' > ');
+            }
+        });
+
         Satus.render(document.querySelector('.satus'), Menu);
     });
 });

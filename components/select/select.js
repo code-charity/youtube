@@ -6,9 +6,7 @@ Satus.components.select = function(object, name) {
     var self = this,
         component = document.createElement('div'),
         component_label = document.createElement('span'),
-        component_value = document.createElement('span'),
-        component_scrim = document.createElement('div'),
-        component_options = document.createElement('div');
+        component_value = document.createElement('span');
 
     if (typeof object.icon === 'string') {
         component_label.innerHTML = object.icon;
@@ -16,8 +14,6 @@ Satus.components.select = function(object, name) {
 
     component_label.classList.add('label');
     component_value.classList.add('value');
-    component_scrim.classList.add('scrim');
-    component_options.classList.add('options');
 
     component_label.innerHTML += Satus.memory.get('locale/' + object.label) || Satus.memory.get('locale/' + name) || object.label || name;
 
@@ -38,21 +34,26 @@ Satus.components.select = function(object, name) {
     component.appendChild(component_label);
     component.appendChild(component_value);
 
-    component_scrim.addEventListener('click', function(event) {
-        event.stopPropagation();
-        event.preventDefault();
-
-        component.classList.remove('show');
-        component_options.innerHTML = '';
-    });
-
     component.addEventListener('click', function(event) {
+        var component_options = document.createElement('div'),
+            component_scrim = document.createElement('div');;
+
         event.stopPropagation();
         event.preventDefault();
 
-        component_options.style.maxHeight = window.innerHeight - component.getBoundingClientRect().y - component.getBoundingClientRect().height + 'px';
+        component_options.classList.add('satus-select__options');
+        component_scrim.classList.add('satus-select__scrim');
 
-        this.classList.add('show');
+        component_scrim.addEventListener('click', function(event) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            component_scrim.remove();
+            component_options.remove();
+        });
+
+        component_options.style.top = this.getBoundingClientRect().y + this.getBoundingClientRect().height - 4 + 'px';
+        component_options.style.maxHeight = window.innerHeight - component.getBoundingClientRect().y - component.getBoundingClientRect().height + 'px';
 
         for (var i = 0, l = object.options.length; i < l; i++) {
             var option = document.createElement('div');
@@ -72,15 +73,15 @@ Satus.components.select = function(object, name) {
                     object.onchange(name, this.dataset.value);
                 }
 
-                component.classList.remove('show');
-                component_options.innerHTML = '';
+                component_scrim.remove();
+                component_options.remove();
             }, true);
 
             component_options.appendChild(option);
         }
 
-        component.appendChild(component_scrim);
-        component.appendChild(component_options);
+        document.querySelector('.satus').appendChild(component_scrim);
+        document.querySelector('.satus').appendChild(component_options);
     });
 
     return component;

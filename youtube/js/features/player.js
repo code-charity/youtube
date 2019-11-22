@@ -91,7 +91,7 @@ ImprovedTube.player_playback_speed = function(node) {
 
 ImprovedTube.autoplay = function() {
     if (
-        (/\/watch\?/.test(location.href) && this.storage.player_autoplay === false) ||
+        (/\/watch\?/.test(location.href) && !/list=/.test(location.href) && this.storage.player_autoplay === false) ||
         (/\/watch\?/.test(location.href) && /list=/.test(location.href) && /index=/.test(location.href) && this.storage.playlist_autoplay === false) ||
         (/\/(channel|user)\//.test(location.href) && this.storage.channel_trailer_autoplay === false)
     ) {

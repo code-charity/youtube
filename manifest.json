@@ -82,6 +82,72 @@
             "https://www.youtube.com/tv*"
         ],
         "run_at": "document_start"
+    }, {
+        "all_frames": true,
+        "js": [
+            "template/youtube.js"
+        ],
+        "matches": [
+            "https://www.youtube.com/improvedtube"
+        ],
+        "run_at": "document_start"
+    }, {
+        "all_frames": true,
+        "css": [
+            "components/button/button.css",
+            "components/dialog/dialog.css",
+            "components/folder/folder.css",
+            "components/header/header.css",
+            "components/main/main.css",
+            "components/section/section.css",
+            "components/select/select.css",
+            "components/shortcut/shortcut.css",
+            "components/slider/slider.css",
+            "components/switch/switch.css",
+            "components/table/table.css",
+            "components/text/text.css",
+            "components/textarea/textarea.css",
+            "template/style.css"
+        ],
+        "js": [
+            "core.js",
+            "modules/render.js",
+            "modules/user.js",
+            "modules/chromium-storage.js",
+            "modules/chromium-locale.js",
+            "components/button/button.js",
+            "components/dialog/dialog.js",
+            "components/folder/folder.js",
+            "components/header/header.js",
+            "components/main/main.js",
+            "components/section/section.js",
+            "components/select/select.js",
+            "components/shortcut/shortcut.js",
+            "components/slider/slider.js",
+            "components/switch/switch.js",
+            "components/table/table.js",
+            "components/text/text.js",
+            "components/textarea/textarea.js",
+            "template/functions.js",
+            "template/header.js",
+            "template/main.js",
+            "template/template-parts/general.js",
+            "template/template-parts/appearance.js",
+            "template/template-parts/themes.js",
+            "template/template-parts/player.js",
+            "template/template-parts/playlist.js",
+            "template/template-parts/channel.js",
+            "template/template-parts/shortcuts.js",
+            "template/template-parts/mixer.js",
+            "template/template-parts/analyzer.js",
+            "template/template-parts/blacklist.js",
+            "template/template-parts/settings.js",
+            "template/index.js"
+        ],
+        "matches": [
+            "https://www.youtube.com/improvedtube"
+        ],
+        "run_at": "document_end"
     }],
 
     "optional_permissions": [
