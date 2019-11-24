@@ -69,7 +69,7 @@ textarea
 .satus[default-dark-theme=true]
 {
     --primary: #f96754;
-    --appearance-shadow: #313131;
+    --appearance-shadow: rgba(0,0,0,.1);
     --hover-0: rgba(255, 255, 255, .08);
     --background-1: #1f1f1f;
     --text-1: #bbb;
@@ -94,7 +94,7 @@ textarea
 .satus[night-theme=true]
 {
     --primary: #f96754;
-    --appearance-shadow: #313131;
+    --appearance-shadow: rgba(0,0,0,.1);
     --hover-0: rgba(255, 255, 255, .08);
     --background-1: #3a48b4;
     --text-1: #eee;
@@ -119,7 +119,7 @@ textarea
 .satus[dawn-theme=true]
 {
     --primary: #f96754;
-    --appearance-shadow: #313131;
+    --appearance-shadow: rgba(0,0,0,.1);
     --hover-0: rgba(255, 255, 255, .08);
     --background-1: #ed74a9;
     --text-1: #eee;
@@ -144,7 +144,7 @@ textarea
 .satus[sunset-theme=true]
 {
     --primary: #f96754;
-    --appearance-shadow: #313131;
+    --appearance-shadow: rgba(0,0,0,.1);
     --hover-0: rgba(255, 255, 255, .08);
     --background-1: #2f3364;
     --text-1: #eee;
@@ -169,7 +169,7 @@ textarea
 .satus[desert-theme=true]
 {
     --primary: #f96754;
-    --appearance-shadow: #313131;
+    --appearance-shadow: rgba(0,0,0,.1);
     --hover-0: rgba(255, 255, 255, .08);
     --background-1: #ffe498;
     --text-1: #eee;
@@ -194,7 +194,7 @@ textarea
 .satus[plain-theme=true]
 {
     --primary: #f96754;
-    --appearance-shadow: #313131;
+    --appearance-shadow: rgba(0,0,0,.1);
     --hover-0: rgba(255, 255, 255, .08);
     --background-1: #dea975;
     --text-1: #eee;
@@ -219,7 +219,7 @@ textarea
 .satus[black-theme=true]
 {
     --primary: #f96754;
-    --appearance-shadow: #313131;
+    --appearance-shadow: rgba(0,0,0,.1);
     --hover-0: rgba(255, 255, 255, .08);
     --background-1: #111;
     --text-1: #eee;
@@ -318,19 +318,36 @@ textarea
 
     width: calc(100% - 16px);
     max-height: calc(100vh - 72px);
-    color: var(--text-1);
-    background: var(--background-1);
 
-    fill: var(--text-1);
+    color: var(--text-1);
     border-radius: 4px;
+    background: var(--background-1);
     background-color: #fff;
     box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
+
+    fill: var(--text-1);
 }
 
 
 /*-----------------------------------------------------------------------------
 # Main
 -----------------------------------------------------------------------------*/
+
+
+.satus-main .satus-section
+{
+    width: calc(100% - 16px);
+    padding: 4px 0;
+
+    border-radius: 4px;
+    background: var(--background-2);
+    box-shadow: 0 0 0 1px var(--appearance-shadow), 0 1px 0 1px var(--appearance-shadow), 0 2px 2px 0 var(--appearance-shadow);
+}
+
+.satus-main .satus-section:not(.satus-section--has-label)
+{
+    margin: 16px auto 8px;    
+}
 
 /*-----------------------------------------------------------------------------
 ## Home

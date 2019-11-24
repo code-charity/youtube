@@ -11,6 +11,8 @@
 {
     font-weight: 700;
 
+    z-index: 1;
+
     display: flex;
 
     box-sizing: border-box;
@@ -25,6 +27,8 @@
 .satus-table__body
 {
     overflow-y: scroll;
+
+    background: var(--background-2);
 
     flex: 1;
 }
