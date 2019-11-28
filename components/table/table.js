@@ -11,7 +11,7 @@ Satus.components.table = function(item, key) {
         var col = document.createElement('div');
 
         item.columns[i][Object.keys(item.columns[i])[0]].onclick = function() {
-            var index = [Array.prototype.indexOf.call(this.parentNode.parentNode.childNodes, this.parentNode)],
+            var index = [Array.prototype.indexOf.call(this.parentNode.parentNode.childNodes, this.parentNode)][0],
                 table_sort = (item.columns[index][Object.keys(item.columns[index])[0]].sort || '').split('/');
 
             if (this.parentNode.parentNode.querySelector('.sort-asc') && this !== this.parentNode.parentNode.querySelector('.sort-asc')) {
@@ -32,30 +32,7 @@ Satus.components.table = function(item, key) {
                 this.classList.add('sort-desc');
             }
 
-            //console.log(table_rows, Array.prototype.indexOf.call(this.parentNode.parentNode.childNodes, this.parentNode));
-
             var sorted_rows = table_rows.sort(this.classList.contains('sort-asc') ? function(a, b) {
-                var a1 = a[index],
-                    b1 = b[index];
-
-                for (var i = 0, l = table_sort.length; i < l; i++) {
-                    a1 = a1[table_sort[i]];
-                    b1 = b1[table_sort[i]];
-                }
-
-                if (typeof a1 === 'number') {
-                    return b1 - a1;
-                } else if (typeof a1 === 'string') {
-                    if (a1 < b1) {
-                        return -1;
-                    }
-                    if (a1 > b1) {
-                        return 1;
-                    }
-                } else {
-                    return 0;
-                }
-            } : function(a, b) {
                 var a1 = a[index],
                     b1 = b[index];
 
@@ -72,6 +49,27 @@ Satus.components.table = function(item, key) {
                     }
                     if (a1 > b1) {
                         return -1;
+                    }
+                } else {
+                    return 0;
+                }
+            } : function(a, b) {
+                var a1 = a[index],
+                    b1 = b[index];
+
+                for (var i = 0, l = table_sort.length; i < l; i++) {
+                    a1 = a1[table_sort[i]];
+                    b1 = b1[table_sort[i]];
+                }
+
+                if (typeof a1 === 'number') {
+                    return b1 - a1;
+                } else if (typeof a1 === 'string') {
+                    if (a1 < b1) {
+                        return -1;
+                    }
+                    if (a1 > b1) {
+                        return 1;
                     }
                 } else {
                     return 0;
@@ -112,6 +110,7 @@ Satus.components.table = function(item, key) {
 
     setTimeout(function() {
         table.update(item.rows);
+        table_head.querySelector('.satus-text').click();
     });
 
     table.appendChild(table_head);

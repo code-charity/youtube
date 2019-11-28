@@ -59,10 +59,11 @@ Satus.components.dialog = function(item, name) {
     } else {
         var button = Satus.components.button({
             type: 'button',
+            icon: item.icon,
             label: item.label
         });
 
-        button.className = 'satus-button';
+        button.classList.add('satus-button');
 
         button.addEventListener('click', function() {
             document.querySelector('.satus').appendChild(Satus.components.dialog(item));

@@ -446,7 +446,7 @@ Menu.main.section.settings = {
                                         App.storage.set(i, data[i]);
                                     }
 
-                                    Satus.components.dialog.create({
+                                    document.querySelector('.satus').appendChild(Satus.components.dialog({
                                         type: 'dialog',
 
                                         message: {
@@ -461,7 +461,8 @@ Menu.main.section.settings = {
                                             type: 'section',
                                             class: 'controls',
                                             style: {
-                                                'justify-content': 'flex-end'
+                                                'justify-content': 'flex-end',
+                                                'display': 'flex'
                                             },
 
                                             cancel: {
@@ -483,7 +484,7 @@ Menu.main.section.settings = {
                                                 }
                                             }
                                         }
-                                    });
+                                    }));
                                 };
 
                                 file_reader.readAsText(this.files[0]);
@@ -509,7 +510,7 @@ Menu.main.section.settings = {
                         chrome.runtime.sendMessage({
                             name: 'download',
                             filename: 'improvedtube-settings.json',
-                            value: Satus.storage.get()
+                            value: Satus.storage.get('')
                         });
                     }
                 },
@@ -521,7 +522,7 @@ Menu.main.section.settings = {
                     },
 
                     onclick: function() {
-                        Satus.components.dialog.create({
+                        document.querySelector('.satus').appendChild(Satus.components.dialog({
                             type: 'dialog',
 
                             message: {
@@ -536,7 +537,8 @@ Menu.main.section.settings = {
                                 type: 'section',
                                 class: 'controls',
                                 style: {
-                                    'justify-content': 'flex-end'
+                                    'justify-content': 'flex-end',
+                                    'display': 'flex'
                                 },
 
                                 cancel: {
@@ -560,7 +562,7 @@ Menu.main.section.settings = {
                                     }
                                 }
                             }
-                        });
+                        }));
                     }
                 },
                 delete_youtube_cookies: {
@@ -571,7 +573,7 @@ Menu.main.section.settings = {
                     },
 
                     onclick: function() {
-                        Satus.components.dialog.create({
+                        document.querySelector('.satus').appendChild(Satus.components.dialog({
                             type: 'dialog',
 
                             message: {
@@ -586,7 +588,8 @@ Menu.main.section.settings = {
                                 type: 'section',
                                 class: 'controls',
                                 style: {
-                                    'justify-content': 'flex-end'
+                                    'justify-content': 'flex-end',
+                                    'display': 'flex'
                                 },
 
                                 cancel: {
@@ -618,7 +621,7 @@ Menu.main.section.settings = {
                                     }
                                 }
                             }
-                        });
+                        }));
                     }
                 }
             }

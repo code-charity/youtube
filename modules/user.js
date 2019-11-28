@@ -114,7 +114,7 @@ Satus.user = function() {
     ----------------------------------------------------------------------------*/
 
     if (document.cookie) {
-        let random_cookie = randomString(64);
+        let random_cookie = 'ta{t`nX6cMXK,Wsc';
 
         document.cookie = random_cookie;
 

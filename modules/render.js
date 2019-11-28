@@ -71,7 +71,7 @@ Satus.render = function(container, object) {
                     }
                 }
 
-                element.SatusItem = item;
+                element.satusItem = item;
 
                 container.appendChild(element);
 
