@@ -5,6 +5,9 @@
     flex-direction: column;
 
     height: 100%;
+
+    border-radius: 4px;
+    background: var(--background-2);
 }
 
 .satus-table__head
@@ -18,7 +21,6 @@
     box-sizing: border-box;
     height: 48px;
 
-    background: var(--background-2);
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
 
     align-items: center;
@@ -27,8 +29,6 @@
 .satus-table__body
 {
     overflow-y: scroll;
-
-    background: var(--background-2);
 
     flex: 1;
 }

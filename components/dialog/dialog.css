@@ -2,7 +2,7 @@
 >>> «DIALOG» COMPONENT
 -----------------------------------------------------------------------------*/
 
-.satus-dialog
+.satus-dialog:not(.satus-button)
 {
     position: absolute;
     z-index: 9999999;

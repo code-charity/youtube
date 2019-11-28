@@ -4,7 +4,7 @@
 
 Satus.chromium_storage = (function() {
     Satus.on('set', function(data) {
-        let name = data.name.replace(/\//g, ''),
+        let name = data.name,
             value = data.value,
             object = {},
             path;
@@ -21,11 +21,6 @@ Satus.chromium_storage = (function() {
 
         chrome.storage.local.set(object);
 
-        chrome.runtime.sendMessage({
-            name: name,
-            value: value
-        });
-
         if (chrome && chrome.tabs) {
             chrome.tabs.query({}, function(tabs) {
                 for (var i = 0, l = tabs.length; i < l; i++) {
@@ -38,6 +33,11 @@ Satus.chromium_storage = (function() {
                 }
             });
         }
+
+        chrome.runtime.sendMessage({
+            name: name,
+            value: value
+        });
     });
 
     Satus.on('clear', function() {

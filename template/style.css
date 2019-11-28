@@ -86,7 +86,7 @@ textarea
     --background-3: #1f1f1f;
     --text-3: #bbb;
     --icon-3: #bbb;
-    --background-hover-3: rgba(255, 255, 255, .1);
+    --background-hover-3: rgba(0, 0, 0, .5);
     --text-hover-3: #111;
     --icon-hover-3: #111;
 }
