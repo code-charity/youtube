@@ -15,7 +15,7 @@ Menu.main.section.settings = {
 
                 home: {
                     type: 'folder',
-                    label: 'Home',
+                    label: 'home',
 
                     section: {
                         type: 'section',
