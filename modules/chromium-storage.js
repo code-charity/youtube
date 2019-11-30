@@ -4,7 +4,7 @@
 
 Satus.chromium_storage = (function() {
     Satus.on('set', function(data) {
-        let name = data.name,
+        let name = data.name.replace('/', ''),
             value = data.value,
             object = {},
             path;
