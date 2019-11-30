@@ -441,18 +441,20 @@ ImprovedTube.mini_player = function() {
         }
 
         function update() {
-            if (!/\/watch\?/.test(location.href) && document.querySelector('.html5-video-player video')) {
-                document.querySelector('.html5-video-player').classList.remove('improvedtube-mini-player');
-                document.querySelector('.improvedtube-mini-player').style.transform = '';
+            if (document.querySelector('.html5-video-player') && !/\/watch\?/.test(location.href)) {
+                if (document.querySelector('.improvedtube-mini-player')) {
+                    document.querySelector('.improvedtube-mini-player').style.transform = '';
+                    document.querySelector('.improvedtube-mini-player').classList.remove('improvedtube-mini-player');
 
-                return false;
-            }
+                    return false;
+                }
 
-            if (!/\/watch\?/.test(location.href) && document.querySelector('.html5-video-player video') && document.querySelector('.html5-video-player video').src) {
-                document.querySelector('.html5-video-player').classList.add('improvedtube-mini-player');
-                document.querySelector('.improvedtube-mini-player').style.transform = 'translate3d(' + ImprovedTube.mini_player_data.x + 'px, ' + ImprovedTube.mini_player_data.y + 'px, 0)';
-                document.querySelector('.improvedtube-mini-player').style.width = ImprovedTube.mini_player_data.width + 'px';
-                document.querySelector('.improvedtube-mini-player').style.height = ImprovedTube.mini_player_data.height + 'px';
+                if (document.querySelector('.html5-video-player video').src) {
+                    document.querySelector('.html5-video-player').classList.add('improvedtube-mini-player');
+                    document.querySelector('.html5-video-player').style.transform = 'translate3d(' + ImprovedTube.mini_player_data.x + 'px, ' + ImprovedTube.mini_player_data.y + 'px, 0)';
+                    document.querySelector('.html5-video-player').style.width = ImprovedTube.mini_player_data.width + 'px';
+                    document.querySelector('.html5-video-player').style.height = ImprovedTube.mini_player_data.height + 'px';
+                }
             }
         }
 

@@ -18,6 +18,7 @@ Menu.main.section.player = {
         player_playback_speed: {
             type: 'slider',
             label: 'playbackSpeed',
+            textarea: true,
             value: 1,
             min: .1,
             max: 8,
