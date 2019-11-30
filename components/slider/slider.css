@@ -110,3 +110,17 @@
 {
     visibility: visible;
 }
+
+.satus-slider .satus-textarea
+{
+    position: absolute;
+    top: 24px;
+    right: 8px;
+
+    width: 32px;
+    padding: 0;
+
+    text-align: center;
+
+    background: transparent;
+}
