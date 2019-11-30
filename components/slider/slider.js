@@ -37,7 +37,7 @@ Satus.components.slider = function(object, key) {
     component.appendChild(component_track_container);
 
     component.change = function(value) {
-        value = value;
+        value = Number(value);
 
         this.dataset.value = value;
         component_thumb.dataset.value = value;
@@ -73,10 +73,10 @@ Satus.components.slider = function(object, key) {
 
                 x = steps * 100 / ((max - min) / step);
 
-                var value = (steps * step + min).toFixed(2);
+                var value = Number((steps * step + min).toFixed(2));
 
                 component.dataset.value = value;
-                component_thumb.dataset.value = Number(value);
+                component_thumb.dataset.value = value;
                 Satus.storage.set((object.storage || '') + '/' + key, value);
 
                 if (component.querySelector('.satus-textarea')) {

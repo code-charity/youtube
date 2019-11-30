@@ -4,7 +4,7 @@
 
 Satus.chromium_storage = (function() {
     Satus.on('set', function(data) {
-        let name = data.name.replace('/', ''),
+        let name = data.name,
             value = data.value,
             object = {},
             path;
@@ -19,6 +19,8 @@ Satus.chromium_storage = (function() {
 
         object[path[0]] = Satus.storage.get('')[path[0]];
 
+        console.log(object);
+
         chrome.storage.local.set(object);
 
         if (chrome && chrome.tabs) {
@@ -26,7 +28,7 @@ Satus.chromium_storage = (function() {
                 for (var i = 0, l = tabs.length; i < l; i++) {
                     if (tabs[i].hasOwnProperty('url')) {
                         chrome.tabs.sendMessage(tabs[i].id, {
-                            name: name,
+                            name: name.replace('/', ''),
                             value: value
                         });
                     }
@@ -35,7 +37,7 @@ Satus.chromium_storage = (function() {
         }
 
         chrome.runtime.sendMessage({
-            name: name,
+            name: name.replace('/', ''),
             value: value
         });
     });
