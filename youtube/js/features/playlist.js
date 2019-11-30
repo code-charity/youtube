@@ -211,7 +211,7 @@ ImprovedTube.newPlaylistReverse = function() {
 ImprovedTube.playlist_repeat_wait = false;
 
 ImprovedTube.playlist_repeat = function() {
-    if (this.isset(this.storage.playlist_repeat)) {
+    if (this.isset(this.storage.playlist_repeat) && /\/watch\?/.test(location.href) && /list=/.test(location.href)) {
         ImprovedTube.playlist_repeat_wait = setInterval(function() {
             if (
                 document.querySelectorAll('#playlist-actions #top-level-buttons ytd-toggle-button-renderer')[0] ||
@@ -243,7 +243,7 @@ ImprovedTube.playlist_repeat = function() {
 ImprovedTube.playlist_shuffle_wait = false;
 
 ImprovedTube.playlist_shuffle = function() {
-    if (this.isset(this.storage.playlist_shuffle)) {
+    if (this.isset(this.storage.playlist_shuffle) && /\/watch\?/.test(location.href) && /list=/.test(location.href)) {
         ImprovedTube.playlist_shuffle_wait = setInterval(function() {
             if (
                 document.querySelectorAll('#playlist-actions #top-level-buttons ytd-toggle-button-renderer')[1] ||
