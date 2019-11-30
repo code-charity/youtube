@@ -14,11 +14,10 @@ ImprovedTube.improvedtube_youtube_icon_wait = false;
 
 ImprovedTube.improvedtube_youtube_icon_resize = function() {
     var iframe = document.querySelector('.it-btn__iframe'),
-        option = ImprovedTube.storage.improvedtube_youtube_icon;
+        icon = document.querySelector('.it-btn__icon');
     
-    if (iframe && option !== 'disabled') {
-        var icon = document.querySelector('.it-btn__icon'),
-            x = icon.getBoundingClientRect().x,
+    if (iframe && icon) {
+        var x = icon.getBoundingClientRect().x,
             y = icon.getBoundingClientRect().y;
 
         if (x < window.innerWidth / 2) {
