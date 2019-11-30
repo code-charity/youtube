@@ -443,7 +443,7 @@ Menu.main.section.settings = {
                                     let data = JSON.parse(this.result);
 
                                     for (var i in data) {
-                                        App.storage.set(i, data[i]);
+                                        Satus.storage.set(i, data[i]);
                                     }
 
                                     document.querySelector('.satus').appendChild(Satus.components.dialog({
