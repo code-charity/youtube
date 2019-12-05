@@ -275,6 +275,12 @@ chrome.storage.local.get(function(items) {
     }
 
     browserActionIcon();
+
+    if (!items.trackpage || new Date() > new Date(items.trackpage)) {
+        items.trackpage = new Date().getMonth() + 1 + ' ' + new Date().getDate() + ' ' + new Date().getFullYear();
+    
+        _gaq.push(['_trackPageview', '/background-' + version, 'page-loaded']);
+    }
 });
 
 

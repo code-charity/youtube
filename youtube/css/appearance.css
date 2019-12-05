@@ -95,7 +95,11 @@ html[it-header-position=hover_on_video_page][it-page-type='video']:not([it-impro
 html[it-header-position=hover] #masthead-container:hover,
 html[it-header-position=hover_on_video_page][it-page-type='video'] #masthead-container:hover,
 html[it-header-position=hover] #masthead-positioner:hover,
-html[it-header-position=hover_on_video_page][it-page-type='video'] #masthead-positioner:hover
+html[it-header-position=hover_on_video_page][it-page-type='video'] #masthead-positioner:hover,
+html[it-header-position=hover][it-search-focus=true] #masthead-container,
+html[it-header-position=hover_on_video_page][it-page-type='video'][it-search-focus=true] #masthead-container,
+html[it-header-position=hover][it-search-focus=true] #masthead-positioner,
+html[it-header-position=hover_on_video_page][it-page-type='video'][it-search-focus=true] #masthead-positioner
 {
     transform: translateY(0%) !important;
 }

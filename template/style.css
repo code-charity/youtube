@@ -1336,6 +1336,7 @@ textarea
 ## Fixes
 -----------------------------------------------------------------------------*/
 
+#forced-playback-speed:not([data-value=true]) + div,
 #forced-volume:not([data-value=true]) + div
 {
     pointer-events: none;
