@@ -15,6 +15,11 @@ Menu.main.section.player = {
             type: 'switch',
             label: 'autopauseWhenSwitchingTabs'
         },
+        player_forced_playback_speed: {
+            type: 'switch',
+            label: 'forcedPlaybackSpeed',
+            id: 'forced-playback-speed'
+        },
         player_playback_speed: {
             type: 'slider',
             label: 'playbackSpeed',

@@ -1,35 +1,4 @@
 {
-    "bubbles": {
-        "message": "Bubbles"
-    },
-    "list": {
-        "message": "List"
-    },
-    "items": {
-        "message": "Items"
-    },
-    "styles": {
-        "message": "Styles"
-    },
-    "icons": {
-        "message": "Icons"
-    },
-    "video": {
-        "message": "Video"
-    },
-    "audio": {
-        "message": "Audio"
-    },
-    "style": {
-        "message": "Style"
-    },
-    "categories": {
-        "message": "Categories"
-    },
-    "empty": {
-        "message": "Empty"
-    },
-
     "about": {
         "message": "About"
     },
@@ -80,6 +49,9 @@
     },
     "ARROWUP": {
         "message": "⇧"
+    },
+    "audio": {
+        "message": "Audio"
     },
     "audioFormats": {
         "message": "Audio formats"
@@ -132,6 +104,9 @@
     "browserVersion": {
         "message": "Browser version"
     },
+    "bubbles": {
+        "message": "Bubbles"
+    },
     "bug": {
         "message": "Bug"
     },
@@ -140,6 +115,9 @@
     },
     "cancel": {
         "message": "Cancel"
+    },
+    "categories": {
+        "message": "Categories"
     },
     "channel": {
         "message": "Channel"
@@ -228,6 +206,9 @@
     "draggable": {
         "message": "Draggable"
     },
+    "empty": {
+        "message": "Empty"
+    },
     "enabled": {
         "message": "Enabled"
     },
@@ -251,6 +232,9 @@
     },
     "footer": {
         "message": "Footer"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Forced playback speed"
     },
     "forcedTheaterMode": {
         "message": "Forced theater mode"
@@ -342,6 +326,9 @@
     "howLongAgoTheVideoWasUploaded": {
         "message": "How long ago the video was uploaded"
     },
+    "icons": {
+        "message": "Icons"
+    },
     "iconsOnly": {
         "message": "Icons only"
     },
@@ -372,6 +359,9 @@
     "indigo": {
         "message": "Indigo"
     },
+    "items": {
+        "message": "Items"
+    },
     "languages": {
         "message": "Languages"
     },
@@ -395,6 +385,9 @@
     },
     "lime": {
         "message": "Lime"
+    },
+    "list": {
+        "message": "List"
     },
     "liveChat": {
         "message": "Live chat"
@@ -594,6 +587,12 @@
     "stop": {
         "message": "Stop"
     },
+    "style": {
+        "message": "Style"
+    },
+    "styles": {
+        "message": "Styles"
+    },
     "subscriptions": {
         "message": "Subscriptions"
     },
@@ -662,6 +661,9 @@
     },
     "version": {
         "message": "Version"
+    },
+    "video": {
+        "message": "Video"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
         "message": "The video description will be expanded to get the name of the category"

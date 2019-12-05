@@ -65,6 +65,28 @@
 			<main class=satus-main></main>
 		</div>
 
+		<div class=note>Found a bug?<a href=mailto:bugs@improvedtube.com target=_blank>bugs@improvedtube.com</a></div>
+		<style>
+			.note {
+				display: none;
+				position: absolute;
+			    bottom: 12px;
+			    width: calc(100% - 32px);
+			    left: 16px;
+			    text-align: center;
+			    font-size: 14px;
+			    color: #484848;
+			}
+			.satus[data-path='main'] + .note {
+				display: block;
+			}
+			.note a {
+				margin-left: 4px;
+				color: #f96754;
+				text-decoration: none
+			}
+		</style>
+
 		<script src=core.js></script>
 
 		<script src=modules/render.js></script>

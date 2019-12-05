@@ -134,6 +134,11 @@ html[it-mini-player=true] ytd-watch-flexy[hidden]
     pointer-events: none !important;
 }
 
+html[it-mini-player=true] ytd-watch-flexy[hidden] .ytd-watch-next-secondary-results-renderer
+{
+    display: none;
+}
+
 html[it-mini-player=true] ytd-watch-flexy[hidden] .improvedtube-mini-player
 {
     position: fixed !important;
