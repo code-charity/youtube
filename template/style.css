@@ -1274,6 +1274,7 @@ textarea
 
     width: 100%;
     height: 100%;
+    margin: 0;
 
     content: '';
 
@@ -1302,7 +1303,7 @@ textarea
     bottom: 16px;
     left: 16px;
 
-    content: 'YouTube';
+    content: attr(data-label);
 
     color: rgba(255,255,255,.5);
 }
@@ -1310,18 +1311,18 @@ textarea
 
 .satus-section.satus-section--blacklist > .satus-section
 {
-    z-index: 1;
-
-    visibility: hidden;
-
+visibility: hidden;
     width: 100%;
-
     transition: .15s;
-
     opacity: 0;
-    background: rgba(255,255,255,.75);
-
+    background: rgba(255,255,255,.95);
     justify-content: center;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    z-index: 999;
 }
 
 .satus-section.satus-section--blacklist:hover > .satus-section

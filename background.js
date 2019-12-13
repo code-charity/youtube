@@ -149,8 +149,6 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
                 chrome.storage.local.set({
                     analyzer: items.analyzer
                 });
-
-                //console.log(data, items.analyzer[date][data], items.analyzer);
             });
         }
 
@@ -166,7 +164,8 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
                     }
 
                     items.blacklist.channels[request.data.id] = {
-                        title: request.data.title
+                        title: request.data.title,
+                        preview: request.data.preview
                     };
                 }
 
@@ -275,12 +274,6 @@ chrome.storage.local.get(function(items) {
     }
 
     browserActionIcon();
-
-    if (!items.trackpage || new Date() > new Date(items.trackpage)) {
-        items.trackpage = new Date().getMonth() + 1 + ' ' + new Date().getDate() + ' ' + new Date().getFullYear();
-    
-        _gaq.push(['_trackPageview', '/background-' + version, 'page-loaded']);
-    }
 });
 
 
