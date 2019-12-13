@@ -45,7 +45,7 @@ ImprovedTube.fitToWindow = function() {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.forced_theater_mode = function() {
-    if (this.storage.forced_theater_mode === true) {
+    if (this.storage.forced_theater_mode === true || ImprovedTube.storage.player_size === 'fit_to_window') {
         this.setCookie('wide', '1');
     }
 };
@@ -132,7 +132,11 @@ ImprovedTube.how_long_ago_the_video_was_uploaded = function() {
                         element = document.querySelector('.itx-channel-video-uploaded') || document.createElement(youtube_version ? 'yt-formatted-string' : 'a');
 
                     if (ImprovedTube.isset(response.items) && ImprovedTube.isset(response.items[0])) {
-                        element.innerHTML = (youtube_version ? '<a class="yt-simple-endpoint style-scope yt-formatted-string"> · ' + timeSince(response.items[0].snippet.publishedAt) + ' </a>' : timeSince(response.items[0].snippet.publishedAt) + '');
+                        element.innerHTML = (youtube_version ? '<a href="' + (document.querySelector('ytd-video-secondary-info-renderer ytd-channel-name a').href.indexOf('/videos') === -1 ? document.querySelector('ytd-video-secondary-info-renderer ytd-channel-name a').href + '/videos' : document.querySelector('ytd-video-secondary-info-renderer ytd-channel-name a').href) + '" class="yt-simple-endpoint style-scope yt-formatted-string"> · ' + timeSince(response.items[0].snippet.publishedAt) + ' </a>' : timeSince(response.items[0].snippet.publishedAt) + '');
+                    }
+
+                    if (!youtube_version) {
+                        element.href = document.querySelector('#watch7-user-header a').href.indexOf('/videos') === -1 ? document.querySelector('#watch7-user-header a').href + '/videos' : document.querySelector('#watch7-user-header a').href;
                     }
 
                     if (!document.querySelector('.itx-channel-video-uploaded') && document.querySelector(youtube_version ? '#meta-contents ytd-channel-name' : '.yt-user-info')) {
@@ -170,7 +174,11 @@ ImprovedTube.channel_videos_count = function() {
                         element = document.querySelector('.itx-channel-videos-count') || document.createElement(youtube_version ? 'yt-formatted-string' : 'a');
 
                     if (ImprovedTube.isset(response.items) && ImprovedTube.isset(response.items[0])) {
-                        element.innerHTML = (youtube_version ? '<a class="yt-simple-endpoint style-scope yt-formatted-string">' + response.items[0].statistics.videoCount + ' videos</a>' : response.items[0].statistics.videoCount + ' videos');
+                        element.innerHTML = (youtube_version ? '<a href="' + (document.querySelector('ytd-video-secondary-info-renderer ytd-channel-name a').href.indexOf('/videos') === -1 ? document.querySelector('ytd-video-secondary-info-renderer ytd-channel-name a').href + '/videos' : document.querySelector('ytd-video-secondary-info-renderer ytd-channel-name a').href) + '" class="yt-simple-endpoint style-scope yt-formatted-string">' + response.items[0].statistics.videoCount + ' videos</a>' : response.items[0].statistics.videoCount + ' videos');
+                    }
+
+                    if (!youtube_version) {
+                        element.href = document.querySelector('#watch7-user-header a').href.indexOf('/videos') === -1 ? document.querySelector('#watch7-user-header a').href + '/videos' : document.querySelector('#watch7-user-header a').href;
                     }
 
                     if (!document.querySelector('.itx-channel-videos-count') && document.querySelector(youtube_version ? '#meta-contents ytd-channel-name' : '.yt-user-info')) {

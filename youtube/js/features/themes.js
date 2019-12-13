@@ -173,6 +173,24 @@ ImprovedTube.theme = function() {
         return false;
     }
 
+    if (ImprovedTube.storage.default_dark_theme === false) {
+        var PREF_OLD = this.getParams(this.getCookieValueByName('PREF')),
+            PREF = this.getParams(this.getCookieValueByName('PREF')),
+            result = '';
+
+        if (!this.isset(PREF.f6) || this.isset(PREF.f6) && PREF.f6.length !== 3) {
+            PREF.f6 = '800';
+        } else if (PREF.f6.length === 3) {
+            PREF.f6 = '8' + PREF.f6.substr(1);
+        }
+
+        for (var i in PREF) {
+            result += i + '=' + PREF[i] + '&';
+        }
+
+        this.setCookie('PREF', result.slice(0, -1));
+    }
+
     if (
         (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to) &&
         (this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false ||
