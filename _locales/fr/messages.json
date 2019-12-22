@@ -60,7 +60,7 @@
         "message": "Auto-plein écran"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Autopause when switching tabs"
+        "message": "Autopause lors du changement d'onglet"
     },
     "autoplay": {
         "message": "Lecture automatique"
@@ -186,7 +186,7 @@
         "message": "Désactivé"
     },
     "dislike": {
-        "message": "Dislike"
+        "message": "Je n'aime pas ce contenu"
     },
     "donate": {
         "message": "Donate"
@@ -240,7 +240,7 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Go to search box"
+        "message": "Aller ans la barre de recherche"
     },
     "gpu": {
         "message": "GPU"
@@ -357,7 +357,7 @@
         "message": "Vert claire"
     },
     "like": {
-        "message": "J'aime"
+        "message": "J'aime ce contenu"
     },
     "likes": {
         "message": "J'aimes"
