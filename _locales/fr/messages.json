@@ -156,10 +156,10 @@
         "message": "Decrease volume 5%"
     },
     "deepOrange": {
-        "message": "Deep orange"
+        "message": "Orange foncé"
     },
     "deepPurple": {
-        "message": "Deep purple"
+        "message": "Violet foncé"
     },
     "defaultChannelTab": {
         "message": "Onglet d'accueil d'une chaîne"
@@ -351,10 +351,10 @@
         "message": "Light"
     },
     "lightBlue": {
-        "message": "Light blue"
+        "message": "Bleu claire"
     },
     "lightGreen": {
-        "message": "Light green"
+        "message": "Vert claire"
     },
     "like": {
         "message": "J'aime"
@@ -420,7 +420,7 @@
         "message": "OS"
     },
     "other": {
-        "message": "Other"
+        "message": "Autre"
     },
     "permissions": {
         "message": "Permissions"
