@@ -3,16 +3,16 @@
         "message": "À propos"
     },
     "activateCaptions": {
-        "message": "sous-titres"
+        "message": "Activate captions"
     },
     "activateFullscreen": {
-        "message": "Plein écran"
+        "message": "Activate fullscreen"
     },
     "activeFeatures": {
         "message": "Active features"
     },
     "addScrollToTop": {
-        "message": "Ajouter «flèche vers le haut»"
+        "message": "Add «Scroll to top»"
     },
     "ads": {
         "message": "Ads"
@@ -24,7 +24,7 @@
         "message": "Permettre 60fps"
     },
     "alwaysActive": {
-        "message": "Toujour activé"
+        "message": "Toujour Allumer"
     },
     "alwaysShowProgressBar": {
         "message": "Always show progress bar"
@@ -33,7 +33,7 @@
         "message": "Amber"
     },
     "analyzer": {
-        "message": "Statistique"
+        "message": "Analyzer"
     },
     "appearance": {
         "message": "Apparence"
@@ -60,7 +60,7 @@
         "message": "Auto-plein écran"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Autopause lors du changement d'onglet"
+        "message": "Autopause when switching tabs"
     },
     "autoplay": {
         "message": "Lecture automatique"
@@ -75,40 +75,40 @@
         "message": "Below player"
     },
     "black": {
-        "message": "Noire"
+        "message": "Black"
     },
     "blacklist": {
-        "message": "List noire"
+        "message": "Blacklist"
     },
     "blockAll": {
         "message": "Block all"
     },
     "blue": {
-        "message": "Bleu"
+        "message": "Blue"
     },
     "blueGray": {
-        "message": "Gris bleu"
+        "message": "Blue gray"
     },
     "bluelight": {
         "message": "Lumière bleue"
     },
     "brown": {
-        "message": "Brun"
+        "message": "Brown"
     },
     "browser": {
-        "message": "Navigateur"
+        "message": "Browser"
     },
     "browserVersion": {
-        "message": "Version navigateur"
+        "message": "Browser version"
     },
     "bug": {
         "message": "Bug"
     },
     "buttons": {
-        "message": "Boutons"
+        "message": "Buttons"
     },
     "cancel": {
-        "message": "Annuler"
+        "message": "Cancel"
     },
     "channel": {
         "message": "chaîne"
@@ -123,7 +123,7 @@
         "message": "Collapsed"
     },
     "comments": {
-        "message": "Commentaires"
+        "message": "Comments"
     },
     "confirmationBeforeClosing": {
         "message": "Confirmation before closing"
@@ -138,13 +138,13 @@
         "message": "Cyan"
     },
     "dark": {
-        "message": "Sombre"
+        "message": "Dark"
     },
     "darkTheme": {
-        "message": "Theme sombre"
+        "message": "Dark theme"
     },
     "dateAndTime": {
-        "message": "Date et heure"
+        "message": "Date & time"
     },
     "dawn": {
         "message": "Dawn"
@@ -186,7 +186,7 @@
         "message": "Désactivé"
     },
     "dislike": {
-        "message": "Je n'aime pas ce contenu"
+        "message": "Dislike"
     },
     "donate": {
         "message": "Donate"
@@ -210,7 +210,7 @@
         "message": "Extension"
     },
     "filters": {
-        "message": "Effect"
+        "message": "Filters"
     },
     "fitToWindow": {
         "message": "Fit to window"
@@ -225,13 +225,13 @@
         "message": "Forced theater mode"
     },
     "forcedVolume": {
-        "message": "Volume forcé"
+        "message": "Forced volume"
     },
     "foundABug": {
-        "message": "Bug trouvé?"
+        "message": "Found a bug?"
     },
     "fullWindow": {
-        "message": "Plein écran"
+        "message": "Full window"
     },
     "general": {
         "message": "Général"
@@ -240,61 +240,61 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Aller ans la barre de recherche"
+        "message": "Go to search box"
     },
     "gpu": {
         "message": "GPU"
     },
     "green": {
-        "message": "Vert"
+        "message": "Green"
     },
     "hdThumbnail": {
-        "message": "Miniature HD"
+        "message": "HD thumbnail"
     },
     "hdThumbnails": {
-        "message": "Miniature HD"
+        "message": "HD vignettes"
     },
     "header": {
         "message": "Header"
     },
     "hidden": {
-        "message": "Masquer"
+        "message": "Hidden"
     },
     "hiddenOnVideoPage": {
         "message": "Hidden on video page"
     },
     "hideAnimatedThumbnails": {
-        "message": "Miniature sans animation"
+        "message": "Vignettes sans animation"
     },
     "hideAnnotations": {
-        "message": "Masquer annotations"
+        "message": "Hide annotations"
     },
     "hideCards": {
-        "message": "Masquer cards"
+        "message": "Hide cards"
     },
     "hideDetails": {
-        "message": "Masquer details"
+        "message": "Hide details"
     },
     "hideEndscreen": {
-        "message": "Masquer endscreen"
+        "message": "Hide endscreen"
     },
     "hideFeaturedContent": {
-        "message": "Masquer featured content"
+        "message": "Hide featured content"
     },
     "hideFooter": {
-        "message": "Masquer footer"
+        "message": "Hide footer"
     },
     "hidePlaylist": {
-        "message": "Masquer playlist"
+        "message": "Hide playlist"
     },
     "hideRightButtons": {
-        "message": "Masquer right buttons"
+        "message": "Hide right buttons"
     },
     "hideScrollForDetails": {
-        "message": "Masquer «Scroll for details»"
+        "message": "Hide «Scroll for details»"
     },
     "hideViewsCount": {
-        "message": "Masquer views count"
+        "message": "Hide views count"
     },
     "history": {
         "message": "Historique"
@@ -357,10 +357,10 @@
         "message": "Vert claire"
     },
     "like": {
-        "message": "J'aime ce contenu"
+        "message": "Like"
     },
     "likes": {
-        "message": "J'aimes"
+        "message": "Likes"
     },
     "lime": {
         "message": "Lime"
@@ -378,22 +378,22 @@
         "message": "Mélangeur de volume"
     },
     "name": {
-        "message": "Nom"
+        "message": "Name"
     },
     "nativeMiniPlayer": {
         "message": "Native mini player"
     },
     "new": {
-        "message": "Nouveau"
+        "message": "New"
     },
     "nextVideo": {
         "message": "Next video"
     },
     "night": {
-        "message": "Nuit"
+        "message": "Night"
     },
     "none": {
-        "message": "Aucun"
+        "message": "None"
     },
     "noOpenVideoTabs": {
         "message": "No open video tabs"
@@ -402,13 +402,13 @@
         "message": "Normal"
     },
     "old": {
-        "message": "Ancien"
+        "message": "Old"
     },
     "onAllVideos": {
         "message": "On all videos"
     },
     "onlyActiveOnYoutube": {
-        "message": "Activé uniquement sur YouTube"
+        "message": "Allumer uniquement sur YouTube"
     },
     "onSubscribedChannels": {
         "message": "On subscribed channels"
@@ -429,7 +429,7 @@
         "message": "Picture-in-Picture"
     },
     "pink": {
-        "message": "Rose"
+        "message": "Pink"
     },
     "plain": {
         "message": "Plain"
@@ -447,7 +447,7 @@
         "message": "Couleur du lecteur"
     },
     "playerSize": {
-        "message": "Taille du lecteur"
+        "message": "Player size"
     },
     "playlist": {
         "message": "Playlist"
@@ -456,7 +456,7 @@
         "message": "Playlists"
     },
     "playPause": {
-        "message": "Lire / Pause"
+        "message": "Play / Pause"
     },
     "popupPlayer": {
         "message": "Détacher le lecteur"
@@ -465,28 +465,28 @@
         "message": "Position"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Appuyez sur une touche."
+        "message": "Press any key or use mouse wheel."
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Appuyez sur une touche"
+        "message": "Press any key or use mouse wheel"
     },
     "previousVideo": {
         "message": "Previous video"
     },
     "purple": {
-        "message": "Violet"
+        "message": "Purple"
     },
     "quality": {
-        "message": "Qualité"
+        "message": "Quality"
     },
     "ram": {
         "message": "RAM"
     },
     "rateUs": {
-        "message": "Notez-nous"
+        "message": "Rate us"
     },
     "red": {
-        "message": "Rouge"
+        "message": "Red"
     },
     "relatedVideos": {
         "message": "Related videos"
@@ -495,7 +495,7 @@
         "message": "Lire en boucle"
     },
     "reset": {
-        "message": "Réinitialiser"
+        "message": "Reset"
     },
     "resetAllSettings": {
         "message": "Réinitialiser réglages"
@@ -507,7 +507,7 @@
         "message": "Faire pivoté la video"
     },
     "save": {
-        "message": "Enregistrer"
+        "message": "Save"
     },
     "saveAs": {
         "message": "Save as"
@@ -522,7 +522,7 @@
         "message": "Capture d'écran"
     },
     "search": {
-        "message": "Recherche"
+        "message": "Search"
     },
     "searchBarOnly": {
         "message": "Search bar only"
@@ -555,7 +555,7 @@
         "message": "Spacebar"
     },
     "squaredUserImages": {
-        "message": "Images d'avatar carré"
+        "message": "Squared user images"
     },
     "static": {
         "message": "Static"
@@ -597,7 +597,7 @@
         "message": "This will reset all settings."
     },
     "thumbnails": {
-        "message": "Miniature"
+        "message": "Vignettes"
     },
     "timeFrom": {
         "message": "Time from"
@@ -627,7 +627,7 @@
         "message": "Cocher LECTURE AUTOMATIQUE"
     },
     "use24HourFormat": {
-        "message": "Utiliser le format 24 heures"
+        "message": "Use 24-hour format"
     },
     "version": {
         "message": "Version"
