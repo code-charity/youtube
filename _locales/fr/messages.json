@@ -156,10 +156,10 @@
         "message": "Decrease volume 5%"
     },
     "deepOrange": {
-        "message": "Orange foncé"
+        "message": "Deep orange"
     },
     "deepPurple": {
-        "message": "Violet foncé"
+        "message": "Deep purple"
     },
     "defaultChannelTab": {
         "message": "Onglet d'accueil d'une chaîne"
@@ -351,10 +351,10 @@
         "message": "Light"
     },
     "lightBlue": {
-        "message": "Bleu claire"
+        "message": "Light blue"
     },
     "lightGreen": {
-        "message": "Vert claire"
+        "message": "Light green"
     },
     "like": {
         "message": "Like"
@@ -420,7 +420,7 @@
         "message": "OS"
     },
     "other": {
-        "message": "Autre"
+        "message": "Other"
     },
     "permissions": {
         "message": "Permissions"
@@ -657,7 +657,7 @@
         "message": "White"
     },
     "yellow": {
-        "message": "Jaune"
+        "message": "Yellow"
     },
     "youtubeHeaderLeft": {
         "message": "Youtube Header (left)"
