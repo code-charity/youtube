@@ -187,13 +187,33 @@ Menu.main.section.player = {
         type: 'section',
         label: 'buttons',
 
+        player_screenshot: {
+            type: 'folder',
+            label: 'screenshot',
+
+            section: {
+                type: 'section',
+
+                player_screenshot_button: {
+                    type: 'switch',
+                    label: 'activate'
+                },
+                player_screenshot_save_as: {
+                    type: 'select',
+                    label: 'saveAs',
+                    options: [{
+                        label: 'file',
+                        value: 'file'
+                    }, {
+                        label: 'clipboard',
+                        value: 'clipboard'
+                    }]
+                }
+            }
+        },
         player_repeat_button: {
             type: 'switch',
             label: 'repeat'
-        },
-        player_screenshot_button: {
-            type: 'switch',
-            label: 'screenshot'
         },
         player_rotate_button: {
             type: 'switch',

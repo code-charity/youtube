@@ -613,7 +613,6 @@ ImprovedTube.player_screenshot_button = function() {
                 document.body.style.opacity = '0';
 
                 var video = document.querySelector('.html5-video-player video'),
-                    a = document.createElement('a'),
                     cvs = document.createElement('canvas'),
                     ctx = cvs.getContext('2d'),
                     old_w = video.offsetWidth,
@@ -629,20 +628,34 @@ ImprovedTube.player_screenshot_button = function() {
                     ctx.drawImage(video, 0, 0, cvs.width, cvs.height);
 
                     cvs.toBlob(function(blob) {
-                        a.href = URL.createObjectURL(blob);
+                        if (ImprovedTube.storage.player_screenshot_save_as !== 'clipboard') {
+                            var a = document.createElement('a');
 
-                        a.download = 'screenshot.png';
+                            a.href = URL.createObjectURL(blob);
 
-                        a.click();
+                            a.download = location.href.match(/(\?|\&)v=[^&]+/)[0].substr(3) + '-' + new Date(document.querySelector('video').getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + '.png';
+
+                            a.click();
+                        } else {
+                            try {
+                                navigator.clipboard.write([
+                                    new ClipboardItem({
+                                        'image/png': blob
+                                    })
+                                ]);
+                            } catch (error) {
+                                console.error(error);
+                            }
+                        }
 
                         setTimeout(function() {
                             video.style.width = old_w + 'px';
                             video.style.height = old_h + 'px';
 
                             document.body.style.opacity = '1';
-                        }, 50);
+                        }, 100);
                     });
-                }, 50);
+                }, 100);
             }
         });
     } else if (document.querySelector('.it-screenshot-button')) {

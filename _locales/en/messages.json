@@ -1,6 +1,21 @@
 {
+    "thisWillResetAllShortcuts": {
+        "message": "This will reset all shortcuts"
+    },
     "about": {
         "message": "About"
+    },
+    "file": {
+        "message": "File"
+    },
+    "clipboard": {
+        "message": "Clipboard"
+    },
+    "activate": {
+        "message": "Activate"
+    },
+    "resetAllShortcuts": {
+        "message": "Reset all shortcuts"
     },
     "activateCaptions": {
         "message": "Activate captions"
