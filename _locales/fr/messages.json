@@ -156,10 +156,10 @@
         "message": "Decrease volume 5%"
     },
     "deepOrange": {
-        "message": "Deep orange"
+        "message": "Orange foncé"
     },
     "deepPurple": {
-        "message": "Deep purple"
+        "message": "Violet foncé"
     },
     "defaultChannelTab": {
         "message": "Onglet d'accueil d'une chaîne"
@@ -351,16 +351,16 @@
         "message": "Light"
     },
     "lightBlue": {
-        "message": "Light blue"
+        "message": "Bleu claire"
     },
     "lightGreen": {
-        "message": "Light green"
+        "message": "Vert calire"
     },
     "like": {
-        "message": "Like"
+        "message": "J'aime"
     },
     "likes": {
-        "message": "Likes"
+        "message": "J'aimes"
     },
     "lime": {
         "message": "Lime"
@@ -429,7 +429,7 @@
         "message": "Picture-in-Picture"
     },
     "pink": {
-        "message": "Pink"
+        "message": "Rose"
     },
     "plain": {
         "message": "Plain"
@@ -657,7 +657,7 @@
         "message": "White"
     },
     "yellow": {
-        "message": "Yellow"
+        "message": "Jaune"
     },
     "youtubeHeaderLeft": {
         "message": "Youtube Header (left)"
