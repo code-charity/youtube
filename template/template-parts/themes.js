@@ -1,6 +1,19 @@
-Menu.main.section.themes = {
+Menu.main.all.main.section.themes = {
     type: 'folder',
     icon: '<svg viewBox="0 0 24 24"><path d="M12 22a10 10 0 0 1 0-20c5.5 0 10 4 10 9a6 6 0 0 1-6 6h-1.8c-.2 0-.5.2-.5.5 0 .1 0 .2.2.3.4.5.6 1 .6 1.7 0 1.4-1.1 2.5-2.5 2.5zm0-18a8 8 0 0 0 0 16c.3 0 .5-.2.5-.5l-.1-.3c-.5-.5-.7-1.1-.7-1.7 0-1.4 1.1-2.5 2.5-2.5H16a4 4 0 0 0 4-4c0-3.9-3.6-7-8-7z"/><circle cx="6.5" cy="11.5" r="1.5"/><circle cx="9.5" cy="7.5" r="1.5"/><circle cx="14.5" cy="7.5" r="1.5"/><circle cx="17.5" cy="11.5" r="1.5"></svg>',
+
+    ad_section: {
+        type: 'section',
+        id: 'night-mode-ad',
+
+        try_our_night_mode_extension: {
+            type: 'button',
+            label: 'Try our Night Mode extension',
+            onclick: function() {
+                window.open('https://chrome.google.com/webstore/detail/night-mode/declgfomkjdohhjbcfemjklfebflhefl');
+            }
+        }
+    },
 
     filters: {
         type: 'section',
@@ -31,7 +44,7 @@ Menu.main.section.themes = {
 
             section: {
                 type: 'section',
-                
+
                 schedule: {
                     type: 'select',
 

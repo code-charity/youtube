@@ -13,20 +13,17 @@
 
 .satus-main
 {
-    font-size: 14px;
-
     position: relative;
-    z-index: 0;
 
     overflow: hidden;
 
     width: 100%;
-    height: calc(100vh - 58px);
+    height: 100%;
 
-    color: var(--text-1);
-    background: var(--background-1);
+    color: var(--text-z-index-0);
+    background: var(--background-z-index-0);
 
-    fill: var(--text-1);
+    fill: var(--text-z-index-0);
 }
 
 .satus-main__container
@@ -37,12 +34,14 @@
 
     overflow: auto;
 
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
+    padding: 8px 0;
 
     transition: 250ms;
 
-    background: var(--background-1, #fefefe);
+    background: var(--background-z-index-0);
 
     will-change: transform;
 }
@@ -72,7 +71,7 @@
     height: 100%;
 
     content: '';
-    transition: 250ms;
+    transition: opacity 250ms;
 
     opacity: 0;
     background: #000;
@@ -89,7 +88,7 @@
     height: 100%;
 
     content: '';
-    transition: 250ms;
+    transition: opacity 250ms;
 
     opacity: .2;
     background: #000;

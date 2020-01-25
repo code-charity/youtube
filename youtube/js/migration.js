@@ -504,4 +504,19 @@ chrome.storage.local.get(function(object) {
 
         location.reload();
     }
+
+    if (object.hasOwnProperty('legacy_youtube') && object.legacy_youtube_migration !== true) {
+        object.legacy_youtube_migration = true;
+
+        if (object.legacy_youtube === true) {
+            object.legacy_youtube = 'enabled';
+        } else if (object.legacy_youtube === false) {
+            object.legacy_youtube = 'disabled';
+        }
+
+        chrome.storage.local.clear();
+        chrome.storage.local.set(object);
+
+        location.reload();
+    }
 });

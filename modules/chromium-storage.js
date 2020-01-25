@@ -19,8 +19,6 @@ Satus.chromium_storage = (function() {
 
         object[path[0]] = Satus.storage.get('')[path[0]];
 
-        console.log(object);
-
         chrome.storage.local.set(object);
 
         if (chrome && chrome.tabs) {

@@ -1,24 +1,21 @@
 {
-    "thisWillResetAllShortcuts": {
-        "message": "This will reset all shortcuts"
-    },
     "about": {
         "message": "About"
     },
-    "file": {
-        "message": "File"
-    },
-    "clipboard": {
-        "message": "Clipboard"
+    "accept": {
+        "message": "Accept"
     },
     "activate": {
         "message": "Activate"
     },
-    "resetAllShortcuts": {
-        "message": "Reset all shortcuts"
-    },
     "activateCaptions": {
         "message": "Activate captions"
+    },
+    "activated": {
+        "message": "Activated"
+    },
+    "activatedFeatures": {
+        "message": "Activated features"
     },
     "activateFullscreen": {
         "message": "Activate fullscreen"
@@ -31,6 +28,9 @@
     },
     "ads": {
         "message": "Ads"
+    },
+    "all": {
+        "message": "All"
     },
     "allow": {
         "message": "Allow"
@@ -140,6 +140,9 @@
     "channels": {
         "message": "Channels"
     },
+    "clipboard": {
+        "message": "Clipboard"
+    },
     "codecH264": {
         "message": "Codec h.264"
     },
@@ -227,6 +230,9 @@
     "enabled": {
         "message": "Enabled"
     },
+    "enabledForced": {
+        "message": "Enabled (forced)"
+    },
     "expanded": {
         "message": "Expanded"
     },
@@ -235,6 +241,9 @@
     },
     "extension": {
         "message": "Extension"
+    },
+    "file": {
+        "message": "File"
     },
     "filters": {
         "message": "Filters"
@@ -539,6 +548,9 @@
     "resetAllSettings": {
         "message": "Reset all settings"
     },
+    "resetAllShortcuts": {
+        "message": "Reset all shortcuts"
+    },
     "reverse": {
         "message": "Reverse"
     },
@@ -640,6 +652,9 @@
     },
     "thisWillResetAllSettings": {
         "message": "This will reset all settings."
+    },
+    "thisWillResetAllShortcuts": {
+        "message": "This will reset all shortcuts"
     },
     "thumbnails": {
         "message": "Thumbnails"

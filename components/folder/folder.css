@@ -15,18 +15,15 @@
     align-items: center;
 }
 
-.satus-folder:hover
+.satus-folder svg
 {
-    background: var(--background-hover-1);
-}
+    display: block;
 
-.satus-folder > svg
-{
     width: 22px;
     height: 22px;
     margin-right: 10px;
 
     opacity: .95;
 
-    fill: var(--icon-1);
+    fill: inherit;
 }

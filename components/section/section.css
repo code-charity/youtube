@@ -2,12 +2,25 @@
 >>> «SECTION» COMPONENT
 -----------------------------------------------------------------------------*/
 
+.satus-main .satus-section
+{
+    margin: 0 auto 8px;
+}
+
+.satus-main .satus-section
+{
+    color: var(--text-z-index-1);
+    background-color: var(--background-z-index-1);
+
+    fill: var(--text-z-index-1);
+}
+
 .satus-section--align-start
 {
     display: flex;
 
-    flex: 1;
     align-items: center;
+    flex: 1;
     justify-content: flex-start;
 }
 
@@ -15,8 +28,8 @@
 {
     display: flex;
 
-    flex: 1;
     align-items: center;
+    flex: 1;
     justify-content: flex-end;
 }
 
@@ -24,14 +37,14 @@
 {
     display: flex;
 
-    flex: 1;
     align-items: center;
+    flex: 1;
     justify-content: center;
 }
 
-.satus-section.satus-section--has-label
+.satus-main .satus-section.satus-section--has-label
 {
-    margin: 38px auto 8px;
+    margin: 30px auto 8px;
 }
 
 .satus-section.satus-section--has-label::before
@@ -39,12 +52,9 @@
     font-size: 13px;
     font-weight: 600;
 
-    display: block;
+    position: absolute;
 
-    box-sizing: border-box;
-    width: 100%;
-    margin: -28px 0 9px 0;
-    padding: 0 8px;
+    margin: -32px 0 0 8px;
 
     content: attr(data-label);
 

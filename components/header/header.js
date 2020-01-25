@@ -3,7 +3,7 @@
 -----------------------------------------------------------------------------*/
 
 Satus.components.header = function(object) {
-    let element = document.createElement('header');
+    var element = document.createElement('header');
 
     Satus.render(element, object);
 

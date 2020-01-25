@@ -27,11 +27,6 @@
     align-items: center;
 }
 
-.satus-select:hover
-{
-    background: var(--background-hover-1);
-}
-
 .satus-select svg
 {
     width: 24px;
@@ -67,7 +62,7 @@
 .satus-select__scrim
 {
     position: fixed;
-    z-index: 999999999;
+    z-index: 100;
     top: 0;
     left: 0;
 
@@ -76,27 +71,30 @@
 
     cursor: default;
 
-    background: var(--background-hover-3);
+    background: var(--main-item-hover--background);
 }
 
 .satus-select__options
 {
     position: absolute;
     z-index: 999999999;
-    left: 8px;
+    left: 16px;
 
     overflow-y: auto;
 
-    width: calc(100% - 16px);
+    width: calc(100% - 32px);
     max-height: 300px;
 
-    color: var(--text-3);
+    transform: translateY(-32px);
+    animation: fadeInDown 90ms linear forwards;
+
+    color: var(--text-z-index-2);
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
-    background: var(--background-3);
+    background: var(--background-z-index-2);
     box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
 
-    fill: var(--icon-3);
+    fill: var(--text-z-index-2);
 }
 
 .satus-select__options > div
@@ -115,5 +113,21 @@
 
 .satus-select__options > div:hover
 {
-    background: var(--background-hover-3);
+    background: var(--main-item-hover--background);
+}
+
+@keyframes fadeInDown
+{
+    from
+    {
+        transform: translateY(-32px);
+
+        opacity: 0;
+    }
+    to
+    {
+        transform: translateY(0);
+
+        opacity: 1;
+    }
 }

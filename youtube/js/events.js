@@ -60,12 +60,14 @@ ImprovedTube.events = function() {
             window.yt.player.Application.create = ImprovedTube.ytPlayerApplicationCreateMod(window.yt.player.Application.create);
         }
 
-        if (document.querySelector('#search')) {
-            document.querySelector('#search').addEventListener('focus', function() {
+        var search = document.querySelector('#search') ||  document.querySelector('#masthead-search-term');
+
+        if (search) {
+            search.addEventListener('focus', function() {
                 document.documentElement.setAttribute('it-search-focus', 'true');
             });
 
-            document.querySelector('#search').addEventListener('blur', function() {
+            search.addEventListener('blur', function() {
                 document.documentElement.setAttribute('it-search-focus', 'false');
             });
         }

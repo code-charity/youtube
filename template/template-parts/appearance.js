@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------
->>> «APPEARANCE» CATEGORY
+>>> «APPEARANCE» TEMPLATE PART
 -----------------------------------------------------------------------------*/
 
-Menu.main.section.appearance = {
+Menu.main.all.main.section.appearance = {
     type: 'folder',
-    icon: '<svg viewBox="0 0 24 24"><path d="M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z"></svg>',
+    icon: '<svg viewBox="0 0 24 24"><path d="M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z"></path></svg>',
 
     header: {
         type: 'dialog',
@@ -245,37 +245,6 @@ Menu.main.section.appearance = {
             tags: 'hide,remove'
         }
     },
-    comments: {
-        type: 'dialog',
-        label: 'comments',
-        class: ['satus-button--comments'],
-
-        comments: {
-            type: 'select',
-
-            options: [{
-                label: 'normal',
-                value: 'normal'
-            }, {
-                label: 'collapsed',
-                value: 'collapsed'
-            }, {
-                label: 'hidden',
-                value: 'hidden'
-            }]
-        }
-    },
-    footer: {
-        type: 'dialog',
-        label: 'footer',
-        class: ['satus-button--footer'],
-
-        hide_footer: {
-            type: 'switch',
-            label: 'hideFooter',
-            tags: 'bottom'
-        }
-    },
     sidebar: {
         type: 'dialog',
         label: 'sidebar',
@@ -314,6 +283,37 @@ Menu.main.section.appearance = {
                 value: 'hidden'
             }],
             tags: 'right'
+        }
+    },
+    comments: {
+        type: 'dialog',
+        label: 'comments',
+        class: ['satus-button--comments'],
+
+        comments: {
+            type: 'select',
+
+            options: [{
+                label: 'normal',
+                value: 'normal'
+            }, {
+                label: 'collapsed',
+                value: 'collapsed'
+            }, {
+                label: 'hidden',
+                value: 'hidden'
+            }]
+        }
+    },
+    footer: {
+        type: 'dialog',
+        label: 'footer',
+        class: ['satus-button--footer'],
+
+        hide_footer: {
+            type: 'switch',
+            label: 'hideFooter',
+            tags: 'bottom'
         }
     }
 };

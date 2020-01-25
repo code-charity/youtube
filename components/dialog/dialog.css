@@ -5,7 +5,7 @@
 .satus-dialog:not(.satus-button)
 {
     position: absolute;
-    z-index: 9999999;
+    z-index: 100;
     top: 0;
     left: 0;
 
@@ -26,6 +26,8 @@
 
     width: 100%;
     height: 100%;
+
+    animation: fadeIn 150ms linear forwards;
 
     background: rgba(0,0,0,.5);
 }
@@ -48,12 +50,22 @@
     animation: zoomIn 150ms linear forwards;
     animation-delay: 20ms;
 
-    color: var(--text-3);
+    color: var(--text-z-index-2);
     border-radius: 4px;
-    background: var(--background-3);
+    background: var(--background-z-index-2);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
 
-    fill: var(--text-3);
+    fill: var(--text-z-index-2);
+}
+
+.satus-dialog--closing .satus-dialog__scrim
+{
+    animation: fadeOut 70ms linear forwards;
+}
+
+.satus-dialog--closing .satus-dialog__surface
+{
+    animation: zoomOut 70ms linear forwards;
 }
 
 @keyframes fadeIn
@@ -89,5 +101,17 @@
     to
     {
         transform: scale(1);
+    }
+}
+
+@keyframes zoomOut
+{
+    from
+    {
+        transform: scale(1);
+    }
+    to
+    {
+        transform: scale(.75);
     }
 }
