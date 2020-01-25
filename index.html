@@ -1,127 +1,72 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset=utf-8>
-		<meta name=viewport content="width=device-width,initial-scale=1">
-		<title>History Manager</title>
-		<style>
-			.satus {
-				--primary: #f96754;
-    			--appearance-shadow: #e4e4e2;
 
-			    --hover-0: rgba(0, 0, 0, .08);
-				
-				--background-1: #f2f2f0;
-			    --text-1: #838383;
-			    --icon-1: #838383;
-			    --background-hover-1: rgba(0, 0, 0, .1);
-			    --text-hover-1: #fff;
-			    --icon-hover-1: #fff;
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ImprovedTube</title>
+    <style>
+        html, body, .satus {
+            width: 320px;
+            height: 500px;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+    <link href="components/button/button.css" rel="stylesheet">
+    <link href="components/dialog/dialog.css" rel="stylesheet">
+    <link href="components/folder/folder.css" rel="stylesheet">
+    <link href="components/header/header.css" rel="stylesheet">
+    <link href="components/main/main.css" rel="stylesheet">
+    <link href="components/section/section.css" rel="stylesheet">
+    <link href="components/select/select.css" rel="stylesheet">
+    <link href="components/shortcut/shortcut.css" rel="stylesheet">
+    <link href="components/slider/slider.css" rel="stylesheet">
+    <link href="components/switch/switch.css" rel="stylesheet">
+    <link href="components/tabs/tabs.css" rel="stylesheet">
+    <link href="components/text/text.css" rel="stylesheet">
+    <link href="components/text-field/text-field.css" rel="stylesheet">
+    <link href="template/themes.css" rel="stylesheet">
+    <link href="template/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&subset=cyrillic" rel="stylesheet">
+</head>
 
-			    --background-2: #fafaf9;
-			    --text-2: #9c9c9c;
-			    --icon-2: #9c9c9c;
-			    --background-hover-2: rgba(0, 0, 0, .08);
-			    --text-hover-2: #fff;
-			    --icon-hover-2: #fff;
+<body>
+    <div class="satus" data-path="main/all/main"></div>
 
-			    --background-3: #fafaf9;
-			    --text-3: #838383;
-			    --icon-3: #838383;
-			    --background-hover-3: rgba(0, 0, 0, .1);
-			    --text-hover-3: #fff;
-			    --icon-hover-3: #fff;
-			}
+    <script src="core.js"></script>
+    <script src="modules/render.js"></script>
+    <script src="modules/user.js"></script>
+    <script src="modules/search.js"></script>
+    <script src="modules/chromium-storage.js"></script>
+    <script src="modules/chromium-locale.js"></script>
+    <script src="modules/window.js"></script>
+    <script src="components/button/button.js"></script>
+    <script src="components/dialog/dialog.js"></script>
+    <script src="components/folder/folder.js"></script>
+    <script src="components/header/header.js"></script>
+    <script src="components/main/main.js"></script>
+    <script src="components/section/section.js"></script>
+    <script src="components/select/select.js"></script>
+    <script src="components/shortcut/shortcut.js"></script>
+    <script src="components/slider/slider.js"></script>
+    <script src="components/switch/switch.js"></script>
+    <script src="components/tabs/tabs.js"></script>
+    <script src="components/text/text.js"></script>
+    <script src="components/text-field/text-field.js"></script>
+    <script src="template/header.js"></script>
+    <script src="template/main.js"></script>
+    <script src="template/template-parts/general.js"></script>
+    <script src="template/template-parts/appearance.js"></script>
+    <script src="template/template-parts/themes.js"></script>
+    <script src="template/template-parts/player.js"></script>
+    <script src="template/template-parts/playlist.js"></script>
+    <script src="template/template-parts/channel.js"></script>
+    <script src="template/template-parts/shortcuts.js"></script>
+    <script src="template/template-parts/mixer.js"></script>
+    <script src="template/template-parts/blacklist.js"></script>
+    <script src="template/template-parts/settings.js"></script>
+    <script src="template/init.js"></script>
+</body>
 
-			html, body, .satus {
-			    font-family: 'Open Sans', sans-serif;
-			    overflow: hidden;
-			    width: 320px;
-			    height: 500px;
-			    margin: 0;
-			    background: #2c2b2c
-			}
-		</style>
-	</head>
-	<body>
-		<link rel=stylesheet href=components/button/button.css>
-		<link rel=stylesheet href=components/dialog/dialog.css>
-		<link rel=stylesheet href=components/folder/folder.css>
-		<link rel=stylesheet href=components/header/header.css>
-		<link rel=stylesheet href=components/main/main.css>
-		<link rel=stylesheet href=components/section/section.css>
-		<link rel=stylesheet href=components/select/select.css>
-		<link rel=stylesheet href=components/shortcut/shortcut.css>
-		<link rel=stylesheet href=components/slider/slider.css>
-		<link rel=stylesheet href=components/switch/switch.css>
-		<link rel=stylesheet href=components/table/table.css>
-		<link rel=stylesheet href=components/text/text.css>
-		<link rel=stylesheet href=components/textarea/textarea.css>
-
-		<link rel=stylesheet href=template/style.css>
-
-		<div class=satus data-path=main>
-			<header class=satus-header></header>
-			<main class=satus-main></main>
-		</div>
-
-		<div class=note>Found a bug?<a href=mailto:bugs@improvedtube.com target=_blank>bugs@improvedtube.com</a></div>
-		<style>
-			.note {
-				display: none;
-				position: absolute;
-			    bottom: 12px;
-			    width: calc(100% - 32px);
-			    left: 16px;
-			    text-align: center;
-			    font-size: 14px;
-			    color: #484848;
-			}
-			.satus[data-path='main'] + .note {
-				display: block;
-			}
-			.note a {
-				margin-left: 4px;
-				color: #f96754;
-				text-decoration: none
-			}
-		</style>
-
-		<script src=core.js></script>
-
-		<script src=modules/render.js></script>
-		<script src=modules/user.js></script>
-		<script src=modules/chromium-storage.js></script>
-		<script src=modules/chromium-locale.js></script>
-
-		<script src=components/button/button.js></script>
-		<script src=components/dialog/dialog.js></script>
-		<script src=components/folder/folder.js></script>
-		<script src=components/header/header.js></script>
-		<script src=components/main/main.js></script>
-		<script src=components/section/section.js></script>
-		<script src=components/select/select.js></script>
-		<script src=components/shortcut/shortcut.js></script>
-		<script src=components/slider/slider.js></script>
-		<script src=components/switch/switch.js></script>
-		<script src=components/table/table.js></script>
-		<script src=components/text/text.js></script>
-		<script src=components/textarea/textarea.js></script>
-
-		<script src=template/functions.js></script>
-		<script src=template/header.js></script>
-		<script src=template/main.js></script>
-		<script src=template/template-parts/general.js></script>
-		<script src=template/template-parts/appearance.js></script>
-		<script src=template/template-parts/themes.js></script>
-		<script src=template/template-parts/player.js></script>
-		<script src=template/template-parts/playlist.js></script>
-		<script src=template/template-parts/channel.js></script>
-		<script src=template/template-parts/shortcuts.js></script>
-		<script src=template/template-parts/mixer.js></script>
-		<script src=template/template-parts/analyzer.js></script>
-		<script src=template/template-parts/blacklist.js></script>
-		<script src=template/template-parts/settings.js></script>
-		<script src=template/index.js></script>
-	</body>
 </html>

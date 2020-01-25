@@ -28,11 +28,15 @@ ImprovedTube.youtubeVersion = function() {
         version = 'old';
     }
 
+    if (version !== 'old' && ImprovedTube.storage.legacy_youtube === 'enabledForced') {
+        ImprovedTube.legacy_youtube();
+    }
+
     document.documentElement.setAttribute('it-youtube-version', version);
 };
 
 ImprovedTube.legacy_youtube = function() {
-    var option = ImprovedTube.storage.legacy_youtube,
+    var option = ImprovedTube.storage.legacy_youtube === 'enabled' || ImprovedTube.storage.legacy_youtube === 'enabledForced',
         PREF = this.getParams(this.getCookieValueByName('PREF')),
         result = '';
 

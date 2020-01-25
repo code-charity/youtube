@@ -74,7 +74,7 @@
 
     opacity: 0;
     border-radius: 50%;
-    background: var(--text-1);
+    background: inherit;
 }
 
 .satus-switch:focus .thumb::before
@@ -126,7 +126,7 @@
 
     transition: opacity .1s cubic-bezier(.4, 0, .2, 1);
 
-    fill: var(--text-1);
+    fill: inherit;
     will-change: opacity;
 }
 

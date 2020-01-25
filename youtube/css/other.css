@@ -74,7 +74,7 @@ html:not([it-page-type='video']) .it-rate-notify.it-rate-notify--show
 
 .it-rate-notify__footer > button
 {
-    font: 500 18px Roboto;
+    font: 500 18px 'Roboto';
 
     min-width: 64px;
     height: 36px;

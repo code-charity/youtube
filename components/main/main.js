@@ -1,20 +1,18 @@
 /*-----------------------------------------------------------------------------
->>> «MAIN» COMPONENT
+>>> «MAIN» COMPONENT (11 January 2020)
 -----------------------------------------------------------------------------*/
 
 Satus.components.main = function(object) {
-    let element = document.createElement('main'),
-        container = document.createElement('div'),
-        path = document.querySelector('.satus').dataset.path.split('/').filter(function(value) {
-            return value != '';
-        });
+	var component = document.createElement('main'),
+		component_window = document.createElement('div');
 
-    container.className = 'satus-main__container';
-    container.dataset.path = path.join('/');
+    component.dataset.path = document.querySelector('.satus').dataset.path || 'main';
+	component.appendChild(component_window);
 
-    element.appendChild(container);
+    component_window.dataset.path = document.querySelector('.satus').dataset.path || 'main';
+    component_window.className = 'satus-main__container';
 
-    Satus.render(container, object);
+	Satus.render(component_window, object);
 
-    return element;
+	return component;
 };

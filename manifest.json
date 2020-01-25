@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "Improve YouTube! (Open-Source for YouTube)",
-    "version": "2.2",
-    "version_name": "2.2",
+    "version": "2.5",
+    "version_name": "2.5-beta",
 
     "default_locale": "en",
     "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
@@ -59,10 +59,10 @@
         "js": [
             "youtube/js/migration.js",
             "youtube/js/core.js",
-            "youtube/js/functions.js",
             "youtube/js/events.js",
             "youtube/js/injection.js",
             "youtube/js/mutations.js",
+            "youtube/js/functions.js",
             "youtube/js/features/general.js",
             "youtube/js/features/appearance.js",
             "youtube/js/features/themes.js",
@@ -107,7 +107,7 @@
             "components/switch/switch.css",
             "components/table/table.css",
             "components/text/text.css",
-            "components/textarea/textarea.css",
+            "components/text-field/text-field.css",
             "template/style.css"
         ],
         "js": [
@@ -128,8 +128,7 @@
             "components/switch/switch.js",
             "components/table/table.js",
             "components/text/text.js",
-            "components/textarea/textarea.js",
-            "template/functions.js",
+            "components/text-field/text-field.js",
             "template/header.js",
             "template/main.js",
             "template/template-parts/general.js",
@@ -143,7 +142,7 @@
             "template/template-parts/analyzer.js",
             "template/template-parts/blacklist.js",
             "template/template-parts/settings.js",
-            "template/index.js"
+            "template/init.js"
         ],
         "matches": [
             "https://www.youtube.com/improvedtube"
