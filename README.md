@@ -26,7 +26,7 @@ You can learn more about features on [the page](https://github.com/ImprovedTube/
 
 ## Installation
 
-### Chromium / Brave / Vivaldi / Chrome and other
+#### Chromium / Brave / Vivaldi / Chrome and other
 1. Download & unzip [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
 2. Open Extensions (*chrome://extensions/*) page in your browser
 3. Activate "Developer mode"
@@ -35,7 +35,7 @@ You can learn more about features on [the page](https://github.com/ImprovedTube/
 
 Or use one of the published versions: [Stable](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd), [Beta](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki).
 
-### Firefox / Waterfox / GNUzilla and IceCat and other
+#### Firefox / Waterfox / GNUzilla and IceCat and other
 1. Download & unzip [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
 2. Open Add-ons page (*about:addons*) in your browser
 3. Click on "Extensions" tab
