@@ -1,16 +1,17 @@
 /*-----------------------------------------------------------------------------
 >>> INJECTION
 -------------------------------------------------------------------------------
-1.0 Storage
-2.0 Message listener
+1.0 Initialization
+2.0 Storage listener
+3.0 Message listener
 -----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
-1.0 Storage
+1.0 Initialization
 -----------------------------------------------------------------------------*/
 
 chrome.storage.local.get(function(items) {
-    var inject = 'var ImprovedTube={';
+    var content = 'var ImprovedTube={';
 
     if (typeof items.player_volume === 'string') {
         items.player_volume = Number(items.player_volume);
@@ -34,52 +35,54 @@ chrome.storage.local.get(function(items) {
 
     withoutInjection(items);
 
-    inject += 'storage:' + JSON.stringify(items);
+    content += 'storage:' + JSON.stringify(items);
 
     for (var key in items) {
-        var name = key;
-
-        document.documentElement.setAttribute('it-' + name.replace(/_/g, '-'), items[key]);
+        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
     }
 
     for (var key in ImprovedTube) {
-        inject += ',' + key + ':' + ImprovedTube[key];
+        content += ',' + key + ':' + ImprovedTube[key];
     }
 
-    inject += '};ImprovedTube.init();';
+    content += '};ImprovedTube.init();';
 
-    injectScript(inject);
+    injectScript(content);
 });
 
 
 /*-----------------------------------------------------------------------------
-2.0 Message listener
+2.0 Storage listener
+-----------------------------------------------------------------------------*/
+
+chrome.storage.onChanged.addListener(function(changes) {
+    for (var key in changes) {
+        var value = changes[key].newValue;
+
+        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), value);
+
+        injectScript('ImprovedTube.storage[\'' + key + '\']=' + (typeof value === 'boolean' ? value : '\'' + value + '\'') + ';');
+
+        if (typeof ImprovedTube[key] === 'function') {
+            injectScript('ImprovedTube.' + key + '();');
+        }
+
+        if (key === 'schedule' || key === 'schedule_time_from' || key === 'schedule_time_to') {
+            injectScript('ImprovedTube.bluelight();');
+            injectScript('ImprovedTube.dim();');
+            injectScript('ImprovedTube.theme();');
+        }
+    }
+});
+
+
+/*-----------------------------------------------------------------------------
+3.0 Message listener
 -----------------------------------------------------------------------------*/
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     var name = request.name || '',
         value = request.value;
-
-    document.documentElement.setAttribute('it-' + name.replace(/_/g, '-'), value);
-
-    injectScript('ImprovedTube.storage[\'' + name + '\']=' + (typeof value === 'boolean' ? value : '\'' + value + '\'') + ';');
-
-    if (name.indexOf('theme') !== -1) {
-        injectScript('ImprovedTube.theme();');
-    }
-
-    if (typeof ImprovedTube[name] === 'function') {
-        injectScript('ImprovedTube.' + name + '();');
-    }
-
-    if (name === 'schedule' || name === 'schedule_time_from' || name === 'schedule_time_to') {
-        injectScript('ImprovedTube.bluelight();');
-        injectScript('ImprovedTube.dim();');
-        injectScript('ImprovedTube.theme();');
-    }
-
-
-
 
     if (request == 'request_volume' && document.querySelector('video')) {
         sendResponse(document.querySelector('video').volume);
