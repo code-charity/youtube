@@ -160,7 +160,7 @@ ImprovedTube.ytPlayerApplicationCreateMod = function(original) {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.objectDefineProperties = function() {
-    if (document.documentElement.hasAttribute('embed')) {
+    /*if (document.documentElement.hasAttribute('embed')) {
         return false;
     }
 
@@ -219,5 +219,5 @@ ImprovedTube.objectDefineProperties = function() {
                 return this._experiments;
             }
         }
-    });
+    });*/
 };
