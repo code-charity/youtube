@@ -3,7 +3,7 @@
 -----------------------------------------------------------------------------*/
 
 Satus.components.dialog = function(item, name) {
-    if (!name) {
+    if (Satus.isset(name) === false) {
         var dialog = document.createElement('div'),
             scrim = document.createElement('div'),
             surface = document.createElement('div'),
@@ -14,7 +14,7 @@ Satus.components.dialog = function(item, name) {
         surface.className = 'satus-dialog__surface';
 
         if (Array.isArray(item.class)) {
-            for (var i = 0, l = item.class.length; i < l; i++) {
+            for (let i = 0, l = item.class.length; i < l; i++) {
                 dialog.classList.add(item.class[i]);
             }
         }
@@ -40,18 +40,14 @@ Satus.components.dialog = function(item, name) {
             surface.style.transformOrigin = transform_origin[0] + ' ' + transform_origin[1];
         }
 
-        if (item.surface) {
+        if (Satus.isset(item.surface)) {
             for (var key in item.surface) {
                 surface.style[key] = item.surface[key];
             }
         }
 
         scrim.addEventListener('click', function() {
-            dialog.classList.add('satus-dialog--closing');
-
-            setTimeout(function() {
-                dialog.remove();
-            }, Number(window.getComputedStyle(surface).getPropertyValue('animation-duration').replace(/[^0-9.]/g, '')) * 1000);
+            dialog.remove();
         });
 
         Satus.render(surface, item);

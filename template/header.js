@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------
->>> «HEADER» TEMPLATE PART
+>>> «HEADER» TEMPLATE
 -----------------------------------------------------------------------------*/
 
 const Menu = {
@@ -13,7 +13,7 @@ const Menu = {
             back: {
                 type: 'button',
                 class: ['satus-button--back'],
-                icon: '<svg viewBox="0 0 24 24"><path d="M16.6 3c-.5-.5-1.3-.5-1.8 0l-8.3 8.3a1 1 0 0 0 0 1.4l8.3 8.3a1.2 1.2 0 1 0 1.8-1.7L9.4 12l7.2-7.3c.5-.4.5-1.2 0-1.7z"></path></svg>',
+                icon: '<svg viewBox="0 0 24 24" style=width:20px;height:20px><path d="M16.6 3c-.5-.5-1.3-.5-1.8 0l-8.3 8.3a1 1 0 0 0 0 1.4l8.3 8.3a1.2 1.2 0 1 0 1.8-1.7L9.4 12l7.2-7.3c.5-.4.5-1.2 0-1.7z"></path></svg>',
                 on: {
                     click: function() {
                         document.querySelector('.satus-main__container').close();
@@ -31,93 +31,118 @@ const Menu = {
             class: ['satus-section--align-end'],
 
             search: {
-                type: 'section',
-                class: ['satus-search-section'],
+                type: 'button',
+                icon: '<svg viewBox="0 0 24 24"><path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l4.3 4.3a1 1 0 0 0 1.4-1.5L15.5 14zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"></svg>',
+                onclick: function() {
+                    var offset = this.offsetLeft - this.offsetWidth / 2;
 
-                searchField: {
-                    type: 'text-field',
-                    id: 'search',
-                    placeholder: 'search',
-                    on: {
-                        render: function(component) {
-                            setTimeout(function() {
-                                component.focus();
-                            }, 300);
+                    document.querySelector('.satus').appendChild(Satus.components.dialog({
+                        type: 'dialog',
+                        surface: {
+                            'display': 'flex',
+                            'flex-direction': 'row',
+                            'align-items': 'center',
+                            'position': 'absolute',
+                            'left': '0',
+                            'top': '0',
+                            'max-width': '100%',
+                            'min-width': '0px',
+                            'height': '56px',
+                            'padding': '8px',
+                            'box-sizing': 'border-box',
+                            'box-shadow': 'unset',
+                            'transform-origin': offset + 'px 28px',
+                            'z-index': '1',
+                            'overflow': 'hidden',
+                            'width': '100%',
+                            'border-radius': '0'
                         },
-                        blur: function() {
-                            if (this.value.length === 0) {
-                                this.parentNode.classList.add('satus-search-section--collapsed');
-                            }
-                        },
-                        keydown: function() {
-                            var self = this;
 
-                            setTimeout(function() {
-                                if (self.value.length > 1) {
-                                    Satus.search(self.value, Menu, function(results) {
-                                        var object = {
-                                            main: {
-                                                type: 'main',
+                        text_field: {
+                            type: 'textarea',
+                            placeholder: Satus.memory.get('locale/search'),
+                            rows: 1,
+                            on: {
+                                render: function(component, name) {
+                                    setTimeout(function() {
+                                        let backspace = 0,
+                                            list = {};
 
-                                                section: {
-                                                    type: 'section'
+                                        component.addEventListener('keydown', function() {
+                                            setTimeout(function() {
+                                                if (component.value.length === 0) {
+                                                    backspace++;
+
+                                                    if (backspace == 2) {
+                                                        component.parentNode.parentNode.querySelector('.satus-dialog__scrim').click();
+                                                    }
                                                 }
+                                            }, 50);
+                                        });
+
+                                        component.addEventListener('input', function() {
+                                            list = {};
+
+                                            if (document.querySelector('.satus').querySelector('#search-results')) {
+                                                document.querySelector('.satus').querySelector('#search-results').remove();
                                             }
-                                        };
 
-                                        for (var key in results) {
-                                            if (results[key].type && results[key].type !== 'section') {
-                                                object.main.section[key] = results[key];
+                                            if (component.value.length >= 1) {
+                                                backspace = 0;
+
+                                                setTimeout(function() {
+                                                    function search(string, object) {
+                                                        let result = [];
+
+                                                        for (let i in object) {
+                                                            if (object[i].type) {
+                                                                if (/(button|select|shortcut|slider|switch)/.test(object[i].type)) {
+                                                                    if (i.indexOf(string) !== -1 || (object[i].tags && object[i].tags.indexOf(string) !== -1)) {
+                                                                        if (object[i].type.indexOf('button') === -1 || !object[i].label) {
+                                                                            list[i] = object[i];
+                                                                        }
+                                                                        //result.push(object[i]);
+                                                                    }
+                                                                } else {
+                                                                    let response = search(string, object[i]);
+
+                                                                    if (response.length > 0) {
+                                                                        for (let j = 0, l = response.length; j < l; j++) {
+                                                                            result.push(response[i]);
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+
+                                                        return result;
+                                                    }
+
+                                                    search(component.value, Menu);
+
+                                                    let results = document.createElement('div');
+
+                                                    results.id = 'search-results';
+
+                                                    Satus.render(results, list);
+
+                                                    component.parentNode.parentNode.appendChild(results);
+                                                });
                                             }
-                                        }
+                                        });
 
-                                        if (document.querySelector('.satus > *:not(.satus-header)')) {
-                                            for (var i = 0, l = document.querySelectorAll('.satus > *:not(.satus-header)').length; i < l; i++) {
-                                                document.querySelectorAll('.satus > *:not(.satus-header)')[i].remove();
-                                            }
-                                        }
-
-                                        Satus.render(document.querySelector('.satus'), object);
-                                    });
-                                } else {
-                                    if (document.querySelector('.satus > *:not(.satus-header)')) {
-                                        for (var i = 0, l = document.querySelectorAll('.satus > *:not(.satus-header)').length; i < l; i++) {
-                                            document.querySelectorAll('.satus > *:not(.satus-header)')[i].remove();
-                                        }
-                                    }
-
-                                    Satus.render(document.querySelector('.satus'), {
-                                        main: Menu.main
+                                        component.focus();
                                     });
                                 }
-                            });
+                            }
                         }
-                    }
-                },
-                searchButton: {
-                    type: 'button',
-                    icon: '<svg viewBox="0 0 24 24"><path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l4.3 4.3a1 1 0 0 0 1.4-1.5L15.5 14zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"></path></svg>',
-                    onclick: function() {
-                        if (this.parentNode.classList.contains('satus-search-section--collapsed')) {
-                            this.parentNode.classList.remove('satus-search-section--collapsed');
-
-                            setTimeout(function() {
-                                document.querySelector('#search').focus();
-                            }, 200);
-                        } else {
-                            this.parentNode.classList.add('satus-search-section--collapsed');
-                        }
-                    }
+                    }));
                 }
-                /*searchCancel: {
-                	type: 'button',
-                	label: 'cancel',
-                	class: ['satus-search__cancel']
-                }*/
             },
-            menu: {
+            vert: {
                 type: 'button',
-                icon: '<svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>',
+                icon: '<svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></svg>',
+
                 onclick: function(event) {
                     event.stopPropagation();
 
@@ -131,16 +156,50 @@ const Menu = {
                             minWidth: '200px'
                         },
 
-                        settings: {
+                        bug: {
                             type: 'button',
-                            label: 'settings',
-                            icon: '<svg viewBox="0 0 24 24"><path d="M19.4 13l.1-1v-1l2-1.6c.2-.2.3-.5.2-.7l-2-3.4c-.2-.3-.4-.3-.6-.3l-2.5 1-1.7-1-.4-2.6c0-.2-.3-.4-.5-.4h-4c-.3 0-.5.2-.5.4l-.4 2.7c-.6.2-1.1.6-1.7 1L5 5c-.2-.1-.4 0-.6.2l-2 3.4c0 .3 0 .5.2.7l2 1.6a8 8 0 0 0 0 2l-2 1.6c-.2.2-.3.5-.2.7l2 3.4c.2.3.4.3.6.3l2.5-1 1.7 1 .4 2.6c0 .2.2.4.5.4h4c.3 0 .5-.2.5-.4l.4-2.7c.6-.2 1.1-.6 1.7-1l2.5 1c.2.1.4 0 .6-.2l2-3.4c0-.2 0-.5-.2-.7l-2-1.6zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" /></svg>',
+                            label: 'bug',
+                            icon: '<svg viewBox="0 0 24 24" style=width:22px;height:22px;margin-right:10px><path d="M20 8h-2.81a5.985 5.985 0 00-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"></svg>',
                             onclick: function() {
                                 document.querySelector('.satus-dialog__scrim').click();
 
-                                setTimeout(function() {
-                                    document.querySelector('#satus-folder--settings').click();
+                                self.components.dialog.create({
+                                    type: 'dialog',
+
+                                    section: {
+                                        type: 'section',
+                                        style: {
+                                            'flex-direction': 'column',
+                                            'flex': '0',
+                                            'width': '100%'
+                                        },
+
+                                        email: {
+                                            type: 'text',
+                                            label: 'E-mail:',
+                                            value: 'bugs@improvedtube.com',
+                                            style: {
+                                                'width': '100%'
+                                            }
+                                        }
+                                    }
                                 });
+                            }
+                        },
+                        github: {
+                            type: 'button',
+                            label: 'github',
+                            icon: '<svg viewBox="0 0 16 16" style=width:16px;height:16px;margin-right:10px><path fill-rule=evenodd d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></svg>',
+                            onclick: function() {
+                                window.open('https://github.com/ImprovedTube/ImprovedTube/');
+                            }
+                        },
+                        rate: {
+                            type: 'button',
+                            label: 'rateUs',
+                            icon: '<svg viewBox="0 0 24 24" style=width:16px;height:16px;margin-right:10px><path fill=none d="M0 0h24v24H0V0zm0 0h24v24H0V0z"/><path d="M13 2L8 8 7 9v10l2 2h9l2-1 3-8c1-2-1-4-3-4h-5l1-5-1-1h-2zM3 21l2-2v-8L3 9l-2 2v8l2 2z"></svg>',
+                            onclick: function() {
+                                window.open('https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd');
                             }
                         }
                     }));

@@ -7,7 +7,6 @@
 4.0 Message listener
 5.0 Storage change listener
 6.0 Initialization
-7.0 Uninstall URL
 --------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
@@ -275,10 +274,3 @@ chrome.storage.local.get(function(items) {
 
     browserActionIcon();
 });
-
-
-/*-----------------------------------------------------------------------------
-7.0 Uninstall URL
------------------------------------------------------------------------------*/
-
-chrome.runtime.setUninstallURL('http://improvedtube.com/uninstalled');

@@ -12,7 +12,7 @@ Satus.components.switch = function(object, key) {
         ((object.icons || {}).before || '') + '<div class=track><div class=thumb></div></div>' + ((object.icons || {}).after || '') +
         '</div>';
 
-    if (value || value === false) {
+    if (Satus.isset(value) || value === false) {
         element.dataset.value = value;
     } else {
         element.dataset.value = object.value || false;

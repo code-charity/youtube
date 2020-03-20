@@ -1,4 +1,4 @@
-Menu.main.all.main.section.mixer = {
+Menu.main.section.mixer = {
     type: 'folder',
     label: 'mixer',
     icon: '<svg viewBox="0 0 24 24"><path d="M3 10v4c0 .6.5 1 1 1h3l3.3 3.3a1 1 0 0 0 1.7-.7V6.4a1 1 0 0 0-1.7-.7L7 9H4a1 1 0 0 0-1 1zm13.5 2c0-1.8-1-3.3-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 4.5v.2c0 .3.3.7.6.8a7 7 0 0 1 0 13 1 1 0 0 0-.6.8v.3c0 .6.6 1 1.2.8a9 9 0 0 0 0-16.8c-.6-.2-1.2.2-1.2.8z"></svg>',

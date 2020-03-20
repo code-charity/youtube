@@ -34,14 +34,10 @@
 1.1 Position
 -----------------------------------------------------------------------------*/
 
-html[it-header-position=hidden]:not([it-search-focus=true]) #masthead-container,
-html[it-header-position=hidden]:not([it-search-focus=true])  #masthead-positioner
-{
-    transform: translateY(-100%);
-}
-
+html[it-header-position=hidden] #masthead-container,
 html[it-header-position=hidden] app-drawer#guide #guide-spacer,
 html[it-header-position=hidden] ytd-app > ytd-masthead,
+html[it-header-position=hidden] #masthead-positioner,
 html[it-header-position=hidden] #masthead-positioner-height-offset,
 html[it-header-position=hover] app-drawer#guide #guide-spacer,
 html[it-header-position=hover] #masthead-positioner-height-offset,
@@ -506,7 +502,7 @@ html[it-hide-views-count=true] #watch7-views-info > .watch-view-count
     pointer-events: none !important;
 }
 
-[it-likes=icons_only] #text.style-scope.ytd-toggle-button-renderer.style-text,
+[it-likes=icons_only] #text.style-scope.ytd-toggle-button-renderer.style-text, 
 [it-likes=icons_only] #text.style-scope.ytd-toggle-button-renderer.style-default-active
 {
     visibility: hidden !important;

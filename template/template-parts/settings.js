@@ -1,18 +1,13 @@
-/*-----------------------------------------------------------------------------
->>> «SETTINGS» TEMPLATE PART
------------------------------------------------------------------------------*/
-
-Menu.main.all.main.section.settings = {
+Menu.main.section.settings = {
     type: 'folder',
-    icon: '<svg viewBox="0 0 24 24"><path d="M19.4 13l.1-1v-1l2-1.6c.2-.2.3-.5.2-.7l-2-3.4c-.2-.3-.4-.3-.6-.3l-2.5 1-1.7-1-.4-2.6c0-.2-.3-.4-.5-.4h-4c-.3 0-.5.2-.5.4l-.4 2.7c-.6.2-1.1.6-1.7 1L5 5c-.2-.1-.4 0-.6.2l-2 3.4c0 .3 0 .5.2.7l2 1.6a8 8 0 0 0 0 2l-2 1.6c-.2.2-.3.5-.2.7l2 3.4c.2.3.4.3.6.3l2.5-1 1.7 1 .4 2.6c0 .2.2.4.5.4h4c.3 0 .5-.2.5-.4l.4-2.7c.6-.2 1.1-.6 1.7-1l2.5 1c.2.1.4 0 .6-.2l2-3.4c0-.2 0-.5-.2-.7l-2-1.6zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" /></svg>',
-    id: 'satus-folder--settings',
+    icon: '<svg viewBox="0 0 24 24"><path d="M19.4 13l.1-1v-1l2-1.6c.2-.2.3-.5.2-.7l-2-3.4c-.2-.3-.4-.3-.6-.3l-2.5 1-1.7-1-.4-2.6c0-.2-.3-.4-.5-.4h-4c-.3 0-.5.2-.5.4l-.4 2.7c-.6.2-1.1.6-1.7 1L5 5c-.2-.1-.4 0-.6.2l-2 3.4c0 .3 0 .5.2.7l2 1.6a8 8 0 0 0 0 2l-2 1.6c-.2.2-.3.5-.2.7l2 3.4c.2.3.4.3.6.3l2.5-1 1.7 1 .4 2.6c0 .2.2.4.5.4h4c.3 0 .5-.2.5-.4l.4-2.7c.6-.2 1.1-.6 1.7-1l2.5 1c.2.1.4 0 .6-.2l2-3.4c0-.2 0-.5-.2-.7l-2-1.6zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"></svg>',
 
     section: {
         type: 'section',
 
         appearance: {
             type: 'folder',
-            icon: '<svg viewBox="0 0 24 24"><path d="M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z" /></svg>',
+            icon: '<svg viewBox="0 0 24 24"><path d="M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z"></svg>',
 
             general: {
                 type: 'section',
@@ -135,7 +130,7 @@ Menu.main.all.main.section.settings = {
         },
         languages: {
             type: 'folder',
-            icon: '<svg viewBox="0 0 24 24"><path d="M12.9 15l-2.6-2.4c1.8-2 3-4.2 3.8-6.6H17V4h-7V2H8v2H1v2h11.2c-.7 2-1.8 3.8-3.2 5.3-1-1-1.7-2.1-2.3-3.3h-2c.7 1.6 1.7 3.2 3 4.6l-5.1 5L4 19l5-5 3.1 3.1.8-2zm5.6-5h-2L12 22h2l1.1-3H20l1.1 3h2l-4.5-12zm-2.6 7l1.6-4.3 1.6 4.3H16z" /></svg>',
+            icon: '<svg viewBox="0 0 24 24"><path d="M12.9 15l-2.6-2.4c1.8-2 3-4.2 3.8-6.6H17V4h-7V2H8v2H1v2h11.2c-.7 2-1.8 3.8-3.2 5.3-1-1-1.7-2.1-2.3-3.3h-2c.7 1.6 1.7 3.2 3 4.6l-5.1 5L4 19l5-5 3.1 3.1.8-2zm5.6-5h-2L12 22h2l1.1-3H20l1.1 3h2l-4.5-12zm-2.6 7l1.6-4.3 1.6 4.3H16z"></svg>',
             section: {
                 type: 'section',
 
@@ -145,14 +140,7 @@ Menu.main.all.main.section.settings = {
                     onchange: function(name, value) {
                         Satus.memory.set('locale', {});
 
-                        Satus.locale(function() {
-                            document.querySelector('.satus-main__container').innerHTML = '';
-
-                            document.querySelector('.satus-header__title').innerText = Satus.memory.get('locale/languages');
-                            document.querySelector('#search').placeholder = Satus.memory.get('locale/search');
-
-                            Satus.render(document.querySelector('.satus-main__container'), Menu.main.section.settings.section.languages);
-                        });
+                        Satus.locale();
                     },
                     options: [{
                         value: "en",
@@ -430,7 +418,7 @@ Menu.main.all.main.section.settings = {
         backup_and_reset: {
             type: 'folder',
             label: 'backupAndReset',
-            icon: '<svg viewBox="0 0 24 24"><path d="M13.3 3A9 9 0 0 0 4 12H2.2c-.5 0-.7.5-.3.8l2.7 2.8c.2.2.6.2.8 0L8 12.8c.4-.3.1-.8-.3-.8H6a7 7 0 1 1 2.7 5.5 1 1 0 0 0-1.3.1 1 1 0 0 0 0 1.5A9 9 0 0 0 22 11.7C22 7 18 3.1 13.4 3zm-.6 5c-.4 0-.7.3-.7.8v3.6c0 .4.2.7.5.9l3.1 1.8c.4.2.8.1 1-.2.2-.4.1-.8-.2-1l-3-1.8V8.7c0-.4-.2-.7-.7-.7z" /></svg>',
+            icon: '<svg viewBox="0 0 24 24"><path d="M13.3 3A9 9 0 0 0 4 12H2.2c-.5 0-.7.5-.3.8l2.7 2.8c.2.2.6.2.8 0L8 12.8c.4-.3.1-.8-.3-.8H6a7 7 0 1 1 2.7 5.5 1 1 0 0 0-1.3.1 1 1 0 0 0 0 1.5A9 9 0 0 0 22 11.7C22 7 18 3.1 13.4 3zm-.6 5c-.4 0-.7.3-.7.8v3.6c0 .4.2.7.5.9l3.1 1.8c.4.2.8.1 1-.2.2-.4.1-.8-.2-1l-3-1.8V8.7c0-.4-.2-.7-.7-.7z"></svg>',
 
             section: {
                 type: 'section',
@@ -443,16 +431,16 @@ Menu.main.all.main.section.settings = {
 
                     onclick: function() {
                         try {
-                            var input = document.createElement('input');
+                            let input = document.createElement('input');
 
                             input.type = 'file';
                             input.accept = '.json';
 
                             input.addEventListener('change', function() {
-                                var file_reader = new FileReader();
+                                let file_reader = new FileReader();
 
                                 file_reader.onload = function() {
-                                    var data = JSON.parse(this.result);
+                                    let data = JSON.parse(this.result);
 
                                     for (var i in data) {
                                         Satus.storage.set(i, data[i]);
@@ -481,7 +469,7 @@ Menu.main.all.main.section.settings = {
                                                 type: 'button',
                                                 label: 'cancel',
                                                 onclick: function() {
-                                                    var scrim = document.querySelectorAll('.satus-dialog__scrim');
+                                                    let scrim = document.querySelectorAll('.satus-dialog__scrim');
 
                                                     scrim[scrim.length - 1].click();
                                                 }
@@ -490,7 +478,7 @@ Menu.main.all.main.section.settings = {
                                                 type: 'button',
                                                 label: 'OK',
                                                 onclick: function() {
-                                                    var scrim = document.querySelectorAll('.satus-dialog__scrim');
+                                                    let scrim = document.querySelectorAll('.satus-dialog__scrim');
 
                                                     scrim[scrim.length - 1].click();
                                                 }
@@ -557,7 +545,7 @@ Menu.main.all.main.section.settings = {
                                     type: 'button',
                                     label: 'cancel',
                                     onclick: function() {
-                                        var scrim = document.querySelectorAll('.satus-dialog__scrim');
+                                        let scrim = document.querySelectorAll('.satus-dialog__scrim');
 
                                         scrim[scrim.length - 1].click();
                                     }
@@ -566,7 +554,7 @@ Menu.main.all.main.section.settings = {
                                     type: 'button',
                                     label: 'accept',
                                     onclick: function() {
-                                        var scrim = document.querySelectorAll('.satus-dialog__scrim');
+                                        let scrim = document.querySelectorAll('.satus-dialog__scrim');
 
                                         Satus.storage.clear();
 
@@ -641,7 +629,7 @@ Menu.main.all.main.section.settings = {
         date_and_time: {
             type: 'folder',
             label: 'dateAndTime',
-            icon: '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z" /></svg>',
+            icon: '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z"></svg>',
 
             section: {
                 type: 'section',
@@ -655,129 +643,182 @@ Menu.main.all.main.section.settings = {
         },
         about: {
             type: 'folder',
-            icon: '<svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" /></svg>',
+            icon: '<svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></svg>',
 
-            section: {
+            extension_section: {
                 type: 'section',
-                on: {
-                    render: function(component) {
-                        var manifest = chrome.runtime.getManifest(),
-                            user = Satus.user(),
-                            object = {
-                                extension_section: {
-                                    type: 'section',
-                                    label: 'extension',
-                                    style: {
-                                        'flex-direction': 'column',
-                                        'flex': '0'
-                                    },
+                label: 'extension',
+                style: {
+                    'flex-direction': 'column',
+                    'flex': '0'
+                },
 
-                                    version: {
-                                        type: 'text',
-                                        label: 'version',
-                                        value: manifest.version
-                                    },
-                                    permissions: {
-                                        type: 'text',
-                                        label: 'permissions',
-                                        value: manifest.permissions.join(', ').replace('https://www.youtube.com/', 'YouTube')
-                                    },
-                                },
-                                browser_section: {
-                                    type: 'section',
-                                    label: 'browser',
-                                    style: {
-                                        'flex-direction': 'column',
-                                        'flex': '0'
-                                    },
+                version: {
+                    type: 'text',
+                    label: 'version',
+                    value: chrome.runtime.getManifest().version
+                },
+                permissions: {
+                    type: 'text',
+                    label: 'permissions',
+                    value: chrome.runtime.getManifest().permissions.join(', ').replace('https://www.youtube.com/', 'YouTube')
+                },
+            },
 
-                                    name: {
-                                        type: 'text',
-                                        label: 'name',
-                                        value: user.browser.name
-                                    },
-                                    version: {
-                                        type: 'text',
-                                        label: 'version',
-                                        value: user.browser.version
-                                    },
-                                    platform: {
-                                        type: 'text',
-                                        label: 'platform',
-                                        value: user.browser.platform
-                                    },
-                                    video_formats: {
-                                        type: 'text',
-                                        label: 'videoFormats',
-                                        value: user.browser.video
-                                    },
-                                    audio_formats: {
-                                        type: 'text',
-                                        label: 'audioFormats',
-                                        value: user.browser.audio
-                                    },
-                                    flash: {
-                                        type: 'text',
-                                        label: 'flash',
-                                        value: user.browser.flash ? true : false
-                                    }
-                                },
-                                os_section: {
-                                    type: 'section',
-                                    label: 'os',
-                                    style: {
-                                        'flex-direction': 'column',
-                                        'flex': '0'
-                                    },
+            browser_section: {
+                type: 'section',
+                label: 'browser',
+                style: {
+                    'flex-direction': 'column',
+                    'flex': '0'
+                },
 
-                                    os_name: {
-                                        type: 'text',
-                                        label: 'name',
-                                        value: user.os.name
-                                    },
+                name: {
+                    type: 'text',
+                    label: 'name',
+                    value: function() {
+                        //console.log(Satus.user());
+                        return Satus.user().browser.name;
+                    }
+                },
+                version: {
+                    type: 'text',
+                    label: 'version',
+                    value: function() {
+                        return Satus.user().browser.version;
+                    }
+                },
+                platform: {
+                    type: 'text',
+                    label: 'platform',
+                    value: function() {
+                        return Satus.user().browser.platform;
+                    }
+                },
+                video_formats: {
+                    type: 'text',
+                    label: 'videoFormats',
+                    value: function() {
+                        var formats = Satus.user().browser.video,
+                            container = document.createElement('span');
 
-                                    os_type: {
-                                        type: 'text',
-                                        label: 'type',
-                                        value: user.os.type
-                                    }
-                                },
-                                device_section: {
-                                    type: 'section',
-                                    label: 'device',
-                                    style: {
-                                        'flex-direction': 'column',
-                                        'flex': '0'
-                                    },
+                        for (var i in formats) {
+                            if (formats[i]) {
+                                var format = document.createElement('span');
 
-                                    screen: {
-                                        type: 'text',
-                                        label: 'screen',
-                                        value: user.device.screen
-                                    },
-                                    cores: {
-                                        type: 'text',
-                                        label: 'cores',
-                                        value: user.device.cores
-                                    },
-                                    gpu: {
-                                        type: 'text',
-                                        label: 'gpu',
-                                        value: user.device.gpu
-                                    },
-                                    ram: {
-                                        type: 'text',
-                                        label: 'ram',
-                                        value: user.device.ram
-                                    }
-                                }
-                            };
+                                format.innerText = i;
+                                format.dataset.status = formats[i];
 
-                        setTimeout(function() {
-                            Satus.render(component.parentNode, object);
+                                format.style.margin = '0 4px 0 0';
+                                format.style.cursor = 'pointer';
 
-                            component.remove();
-                        });
+                                format.addEventListener('click', function(event) {
+                                    window.open('https://en.m.wikipedia.org/wiki/' + this.innerText, '_blank', 'left=' + (screen.width / 2 - 200) + ',top=' + (screen.height / 2 - 200) + ',height=400,width=400');
+                                });
+
+                                container.appendChild(format);
+                            }
+                        }
+
+                        return container;
+                    }
+                },
+                audio_formats: {
+                    type: 'text',
+                    label: 'audioFormats',
+                    value: function() {
+                        var formats = Satus.user().browser.audio,
+                            container = document.createElement('span');
+
+                        for (var i in formats) {
+                            if (formats[i]) {
+                                var format = document.createElement('span');
+
+                                format.innerText = i;
+                                format.dataset.status = formats[i];
+
+                                format.style.margin = '0 4px 0 0';
+                                format.style.cursor = 'pointer';
+
+                                format.addEventListener('click', function(event) {
+                                    window.open('https://en.m.wikipedia.org/wiki/' + this.innerText, '_blank', 'left=' + (screen.width / 2 - 200) + ',top=' + (screen.height / 2 - 200) + ',height=400,width=400');
+                                });
+
+                                container.appendChild(format);
+                            }
+                        }
+
+                        return container;
+                    }
+                },
+                flash: {
+                    type: 'text',
+                    label: 'flash',
+                    value: function() {
+                        return Satus.user().browser.flash ? true : false;
+                    }
+                }
+            },
+
+            os_section: {
+                type: 'section',
+                label: 'os',
+                style: {
+                    'flex-direction': 'column',
+                    'flex': '0'
+                },
+
+                os_name: {
+                    type: 'text',
+                    label: 'name',
+                    value: function() {
+                        return Satus.user().os.name;
+                    }
+                },
+
+                os_type: {
+                    type: 'text',
+                    label: 'type',
+                    value: function() {
+                        return Satus.user().os.type;
+                    }
+                }
+            },
+
+            device_section: {
+                type: 'section',
+                label: 'device',
+                style: {
+                    'flex-direction': 'column',
+                    'flex': '0'
+                },
+
+                screen: {
+                    type: 'text',
+                    label: 'screen',
+                    value: function() {
+                        return Satus.user().device.screen;
+                    }
+                },
+                cores: {
+                    type: 'text',
+                    label: 'cores',
+                    value: function() {
+                        return Satus.user().device.cores;
+                    }
+                },
+                gpu: {
+                    type: 'text',
+                    label: 'gpu',
+                    value: function() {
+                        return Satus.user().device.gpu;
+                    }
+                },
+                ram: {
+                    type: 'text',
+                    label: 'ram',
+                    value: function() {
+                        return Satus.user().device.ram;
                     }
                 }
             }

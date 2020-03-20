@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "Improve YouTube! (Open-Source for YouTube)",
-    "version": "2.5",
-    "version_name": "2.5-beta",
+    "version": "2.1.42",
+    "version_name": "2.1.42",
 
     "default_locale": "en",
     "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
@@ -30,7 +30,6 @@
             "background.js"
         ]
     },
-    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
     "homepage_url": "https://improvedtube.com",
 
     "content_scripts": [{
@@ -59,10 +58,10 @@
         "js": [
             "youtube/js/migration.js",
             "youtube/js/core.js",
+            "youtube/js/functions.js",
             "youtube/js/events.js",
             "youtube/js/injection.js",
             "youtube/js/mutations.js",
-            "youtube/js/functions.js",
             "youtube/js/features/general.js",
             "youtube/js/features/appearance.js",
             "youtube/js/features/themes.js",
@@ -107,7 +106,7 @@
             "components/switch/switch.css",
             "components/table/table.css",
             "components/text/text.css",
-            "components/text-field/text-field.css",
+            "components/textarea/textarea.css",
             "template/style.css"
         ],
         "js": [
@@ -128,7 +127,8 @@
             "components/switch/switch.js",
             "components/table/table.js",
             "components/text/text.js",
-            "components/text-field/text-field.js",
+            "components/textarea/textarea.js",
+            "template/functions.js",
             "template/header.js",
             "template/main.js",
             "template/template-parts/general.js",
@@ -142,7 +142,7 @@
             "template/template-parts/analyzer.js",
             "template/template-parts/blacklist.js",
             "template/template-parts/settings.js",
-            "template/init.js"
+            "template/index.js"
         ],
         "matches": [
             "https://www.youtube.com/improvedtube"
@@ -160,7 +160,6 @@
         "storage",
         "contextMenus"
     ],
-    "offline_enabled": true,
     "short_name": "ImprovedTube",
     "update_url": "https://clients2.google.com/service/update2/crx",
     "minimum_chrome_version": "49.0"

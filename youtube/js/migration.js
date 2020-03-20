@@ -60,21 +60,6 @@ chrome.storage.local.get(function(object) {
     		---------------------------------------------------------------------*/
 
             /*---------------------------------------------------------------------
-    		1.1 Legacy YouTube
-    		---------------------------------------------------------------------*/
-
-            if (key === 'youtube_version') {
-                if (value === 'old') {
-                    object.legacy_youtube = true;
-                } else {
-                    object.legacy_youtube = false;
-                }
-
-                delete object[key];
-            }
-
-
-            /*---------------------------------------------------------------------
     		1.2 YouTube Home Page
     		---------------------------------------------------------------------*/
             else if (key === 'youtube_home_page') {
@@ -497,21 +482,6 @@ chrome.storage.local.get(function(object) {
             } else {
                 object.player_size = 'do_not_change';
             }
-        }
-
-        chrome.storage.local.clear();
-        chrome.storage.local.set(object);
-
-        location.reload();
-    }
-
-    if (object.hasOwnProperty('legacy_youtube') && object.legacy_youtube_migration !== true) {
-        object.legacy_youtube_migration = true;
-
-        if (object.legacy_youtube === true) {
-            object.legacy_youtube = 'enabled';
-        } else if (object.legacy_youtube === false) {
-            object.legacy_youtube = 'disabled';
         }
 
         chrome.storage.local.clear();
