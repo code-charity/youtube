@@ -1,4 +1,4 @@
-Menu.main.all.main.section.blacklist = {
+Menu.main.section.blacklist = {
     type: 'folder',
     label: 'blacklist',
     icon: '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM4 12a8 8 0 0 1 12.9-6.3L5.7 16.9c-1-1.3-1.7-3-1.7-4.9zm8 8c-1.9 0-3.5-.6-4.9-1.7L18.3 7.1A8 8 0 0 1 12 20z"></svg>',

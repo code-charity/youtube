@@ -1,0 +1,16 @@
+.satus-textarea
+{
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    box-sizing: border-box;
+    padding: 8px;
+
+    resize: none;
+
+    color: var(--text-2);
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    background: var(--background-2);
+}

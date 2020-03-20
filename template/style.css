@@ -1,112 +1,231 @@
 /*-----------------------------------------------------------------------------
->>> TEMPLATE STYLES
+>>> STYLES
 -------------------------------------------------------------------------------
-1.0 General
-    # Hover
-2.0 Header
-    ## Buttons
-    ## «Back» button
-    ## Title
-    ## Search
-       ### Section
-       ### Text field
-       ### Button
-3.0 Main
-    ## Button
-    ## Section
-4.0 «Home»
-5.0 «Appearance» category
-6.0 «Themes» category
-7.0 «Mixer» category
+# Fonts
+# Themes
+# Header
+  # Search
+# Main
+  # Home
+  # Appearance
+  # Themes
+  # Mixer
+  # Analyzer
+  # Blacklist
+  # Fixes
 -----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
-# GENERAL
+# Fonts
 -----------------------------------------------------------------------------*/
-
-#night-mode-ad
-{
-    animation-name: satus-switch--black;
-    animation-duration: 4s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-
-    color: #fafafa;
-    background-color: #000;
-    background-image: radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%) !important;
-    background-repeat: no-repeat !important;
-    background-position: -10px 40px, 200px 0, -30px -20px, 130px 30px !important;
-    background-size: 50px 50px, 50px 50px, 100px 100px, 75px 75px !important;
-}
-
-#night-mode-ad button
-{
-    font-weight: 700;
-}
 
 .satus
 {
-    font-size: 13px;
+    font-family: sans-serif;
 
-    overflow: hidden;
-}
-
-
-/*-----------------------------------------------------------------------------
-## HOVER
------------------------------------------------------------------------------*/
-
-.satus-button,
-.satus-icon-button,
-.satus-folder,
-.satus-select,
-.satus-switch,
-.satus-select__options > div
-{
-    transition: background-color 50ms;
-
-    background-color: transparent;
-}
-
-.satus-button:hover,
-.satus-icon-button:hover,
-.satus-folder:hover,
-.satus-select:hover,
-.satus-switch:hover,
-.satus-select__options > div:hover
-{
-    background-color: var(--main-item-hover--background);
-}
-
-
-
-
-
-/*-----------------------------------------------------------------------------
-# HEADER
------------------------------------------------------------------------------*/
-
-.satus-header
-{
     position: relative;
-    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    color: var(--color-1);
 }
 
-
-/*-----------------------------------------------------------------------------
-## BUTTONS
------------------------------------------------------------------------------*/
-
-.satus-header .satus-button
+input,
+textarea
 {
-    min-width: 40px;
-    height: 40px;
+    font-family: sans-serif;
 }
 
 
 /*-----------------------------------------------------------------------------
-## «BACK» BUTTON
+# Themes
 -----------------------------------------------------------------------------*/
+
+.satus[default-dark-theme=true]
+{
+    --primary: #f96754;
+    --appearance-shadow: rgba(0,0,0,.1);
+    --hover-0: rgba(255, 255, 255, .08);
+    --background-1: #1f1f1f;
+    --text-1: #bbb;
+    --icon-1: #bbb;
+    --background-hover-1: rgba(255, 255, 255, .1);
+    --text-hover-1: #111;
+    --icon-hover-1: #111;
+    --background-2: #282828;
+    --text-2: #eee;
+    --icon-2: #eee;
+    --background-hover-2: rgba(255, 255, 255, .08);
+    --text-hover-2: #111;
+    --icon-hover-2: #111;
+    --background-3: #1f1f1f;
+    --text-3: #bbb;
+    --icon-3: #bbb;
+    --background-hover-3: rgba(0, 0, 0, .5);
+    --text-hover-3: #111;
+    --icon-hover-3: #111;
+}
+
+.satus[night-theme=true]
+{
+    --primary: #f96754;
+    --appearance-shadow: rgba(0,0,0,.1);
+    --hover-0: rgba(255, 255, 255, .08);
+    --background-1: #3a48b4;
+    --text-1: #eee;
+    --icon-1: #eee;
+    --background-hover-1: rgba(255, 255, 255, .1);
+    --text-hover-1: #fafafa;
+    --icon-hover-1: #fafafa;
+    --background-2: #61a7f5;
+    --text-2: #fafafa;
+    --icon-2: #fafafa;
+    --background-hover-2: rgba(255, 255, 255, .08);
+    --text-hover-2: #fafafa;
+    --icon-hover-2: #fafafa;
+    --background-3: #3a48b4;
+    --text-3: #eee;
+    --icon-3: #eee;
+    --background-hover-3: rgba(255, 255, 255, .1);
+    --text-hover-3: #fafafa;
+    --icon-hover-3: #fafafa;
+}
+
+.satus[dawn-theme=true]
+{
+    --primary: #f96754;
+    --appearance-shadow: rgba(0,0,0,.1);
+    --hover-0: rgba(255, 255, 255, .08);
+    --background-1: #ed74a9;
+    --text-1: #eee;
+    --icon-1: #eee;
+    --background-hover-1: rgba(255, 255, 255, .1);
+    --text-hover-1: #fafafa;
+    --icon-hover-1: #fafafa;
+    --background-2: #ffba99;
+    --text-2: #fafafa;
+    --icon-2: #fafafa;
+    --background-hover-2: rgba(255, 255, 255, .08);
+    --text-hover-2: #fafafa;
+    --icon-hover-2: #fafafa;
+    --background-3: #ed74a9;
+    --text-3: #eee;
+    --icon-3: #eee;
+    --background-hover-3: rgba(255, 255, 255, .1);
+    --text-hover-3: #fafafa;
+    --icon-hover-3: #fafafa;
+}
+
+.satus[sunset-theme=true]
+{
+    --primary: #f96754;
+    --appearance-shadow: rgba(0,0,0,.1);
+    --hover-0: rgba(255, 255, 255, .08);
+    --background-1: #2f3364;
+    --text-1: #eee;
+    --icon-1: #eee;
+    --background-hover-1: rgba(255, 255, 255, .1);
+    --text-hover-1: #fafafa;
+    --icon-hover-1: #fafafa;
+    --background-2: #a96165;
+    --text-2: #fafafa;
+    --icon-2: #fafafa;
+    --background-hover-2: rgba(255, 255, 255, .08);
+    --text-hover-2: #fafafa;
+    --icon-hover-2: #fafafa;
+    --background-3: #2f3364;
+    --text-3: #eee;
+    --icon-3: #eee;
+    --background-hover-3: rgba(255, 255, 255, .1);
+    --text-hover-3: #fafafa;
+    --icon-hover-3: #fafafa;
+}
+
+.satus[desert-theme=true]
+{
+    --primary: #f96754;
+    --appearance-shadow: rgba(0,0,0,.1);
+    --hover-0: rgba(255, 255, 255, .08);
+    --background-1: #ffe498;
+    --text-1: #eee;
+    --icon-1: #eee;
+    --background-hover-1: rgba(255, 255, 255, .1);
+    --text-hover-1: #fafafa;
+    --icon-hover-1: #fafafa;
+    --background-2: #9dc2ee;
+    --text-2: #fafafa;
+    --icon-2: #fafafa;
+    --background-hover-2: rgba(255, 255, 255, .08);
+    --text-hover-2: #fafafa;
+    --icon-hover-2: #fafafa;
+    --background-3: #ffe498;
+    --text-3: #eee;
+    --icon-3: #eee;
+    --background-hover-3: rgba(255, 255, 255, .1);
+    --text-hover-3: #fafafa;
+    --icon-hover-3: #fafafa;
+}
+
+.satus[plain-theme=true]
+{
+    --primary: #f96754;
+    --appearance-shadow: rgba(0,0,0,.1);
+    --hover-0: rgba(255, 255, 255, .08);
+    --background-1: #dea975;
+    --text-1: #eee;
+    --icon-1: #eee;
+    --background-hover-1: rgba(255, 255, 255, .1);
+    --text-hover-1: #fafafa;
+    --icon-hover-1: #fafafa;
+    --background-2: #abceb8;
+    --text-2: #fafafa;
+    --icon-2: #fafafa;
+    --background-hover-2: rgba(255, 255, 255, .08);
+    --text-hover-2: #fafafa;
+    --icon-hover-2: #fafafa;
+    --background-3: #dea975;
+    --text-3: #eee;
+    --icon-3: #eee;
+    --background-hover-3: rgba(255, 255, 255, .1);
+    --text-hover-3: #fafafa;
+    --icon-hover-3: #fafafa;
+}
+
+.satus[black-theme=true]
+{
+    --primary: #f96754;
+    --appearance-shadow: rgba(0,0,0,.1);
+    --hover-0: rgba(255, 255, 255, .08);
+    --background-1: #111;
+    --text-1: #eee;
+    --icon-1: #eee;
+    --background-hover-1: rgba(255, 255, 255, .1);
+    --text-hover-1: #fafafa;
+    --icon-hover-1: #fafafa;
+    --background-2: #222;
+    --text-2: #fafafa;
+    --icon-2: #fafafa;
+    --background-hover-2: rgba(255, 255, 255, .08);
+    --text-hover-2: #fafafa;
+    --icon-hover-2: #fafafa;
+    --background-3: #111;
+    --text-3: #eee;
+    --icon-3: #eee;
+    --background-hover-3: rgba(255, 255, 255, .1);
+    --text-hover-3: #fafafa;
+    --icon-hover-3: #fafafa;
+}
+
+
+/*-----------------------------------------------------------------------------
+# Header
+-----------------------------------------------------------------------------*/
+
+.satus-header > .satus-section > .satus-text
+{
+    padding: 0;
+}
 
 .satus-button--back
 {
@@ -114,13 +233,13 @@
 
     visibility: hidden;
 
-    transition: visibility 150ms, opacity 150ms;
+    transition: 150ms;
     pointer-events: none;
 
     opacity: 0;
 }
 
-.satus[data-path]:not([data-path='main/all/main']) .satus-button--back
+.satus:not([data-path='main']) .satus-button--back
 {
     visibility: visible;
 
@@ -130,17 +249,6 @@
     opacity: 1;
 }
 
-.satus-button--back svg
-{
-    width: 20px;
-    height: 20px;
-}
-
-
-/*-----------------------------------------------------------------------------
-## TITLE
------------------------------------------------------------------------------*/
-
 .satus-header__title
 {
     font-size: 15px;
@@ -149,209 +257,79 @@
     position: absolute;
     left: 8px;
 
-    width: auto;
+    margin: 0 0 0 6px;
 
     transition: 200ms;
+    letter-spacing: .25px;
 }
 
-.satus[data-path]:not([data-path='main/all/main']) .satus-header__title
+.satus:not([data-path='main']) .satus-header__title
 {
     left: 56px;
 }
 
-
-input,
-textarea
+.satus-dialog__surface > .satus-button
 {
-    font-family: 'Open Sans', sans-serif;
+    width: 100%;
 }
 
-
-/*-----------------------------------------------------------------------------
-## SEARCH
------------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------------
-### SECTION
------------------------------------------------------------------------------*/
-
-.satus-search-section
+.satus-dialog--vertical-menu .satus-dialog__surface > *
 {
-    position: absolute;
-    z-index: 1;
-    right: 56px;
-
-    overflow: hidden;
-
-    width: calc(100% - 72px);
     height: 40px;
-
-    transition: width 150ms;
-    transition-delay: width 150ms, position 300ms;
-}
-
-.satus[data-path]:not([data-path='main/all/main']) .satus-search-section--collapsed
-{
-    position: relative;
-    right: 0;
-
-    width: 40px;
-
-    transition: width 150ms;
-    transition-delay: width 150ms;
-}
-
-
-/*-----------------------------------------------------------------------------
-### TEXT FIELD
------------------------------------------------------------------------------*/
-
-#search
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    visibility: visible;
-
-    width: 100%;
     min-height: 40px;
-    margin: 0;
-    padding-left: 48px;
-
-    transition: visibility 150ms, opacity 150ms;
-
-    opacity: 1;
-    background: #f4f4f4;
-}
-
-#search[data-length='0']
-{
-    right: 76px;
-    left: auto;
-
-    width: calc(100% - 76px);
-}
-
-.satus[data-path]:not([data-path='main/all/main']) .satus-search-section--collapsed #search
-{
-    visibility: hidden;
-
-    opacity: 0;
 }
 
 
 /*-----------------------------------------------------------------------------
-### BUTTON
+## Search
 -----------------------------------------------------------------------------*/
 
-.satus:not([data-path]) .satus-search-section .satus-button,
-.satus[data-path='main/all/main'] .satus-search-section .satus-button,
-.satus-search-section:not(.satus-search-section--collapsed) .satus-button
-{
-    position: relative;
-    z-index: 1;
-
-    min-width: 32px;
-    height: 32px;
-    margin: 4px;
-}
-
-/*.satus-header .satus-search__cancel
+#search-results
 {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 64px;
+    left: 8px;
 
-    visibility: hidden;
+    overflow-y: auto;
 
-    width: auto;
+    width: calc(100% - 16px);
+    max-height: calc(100vh - 72px);
 
-    opacity: 0;
+    color: var(--text-1);
+    border-radius: 4px;
+    background: var(--background-1);
+    background-color: #fff;
+    box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
+
+    fill: var(--text-1);
 }
-
-.satus[data-path]:not([data-path='main/all/main']) .satus-search-section:not(.satus-search-section--collapsed) .satus-header .satus-search__cancel
-{
-    visibility: visible;
-
-    opacity: 1;
-}*/
-
-
-
 
 
 /*-----------------------------------------------------------------------------
-# MAIN
+# Main
 -----------------------------------------------------------------------------*/
 
-.satus-tabs
-{
-    height: calc(100vh - 58px);
-}
-
-.satus-tabs__head
-{
-    box-shadow: 0 2px 3px rgba(0,0,0,.1);
-}
-
-#satus-folder--settings
-{
-    position: absolute;
-
-    overflow: hidden;
-
-    width: 0;
-    height: 0;
-
-    pointer-events: none;
-
-    opacity: 0;
-}
-
-#forced-playback-speed:not([data-value=true]) + div,
-#forced-volume:not([data-value=true]) + div
-{
-    pointer-events: none;
-
-    opacity: .25;
-
-    filter: grayscale(1);
-}
-
-/*-----------------------------------------------------------------------------
-## BUTTON
------------------------------------------------------------------------------*/
-
-.satus-main .satus-button
-{
-    width: 100%;
-
-    justify-content: flex-start;
-}
-
-/*-----------------------------------------------------------------------------
-## SECTION
------------------------------------------------------------------------------*/
 
 .satus-main .satus-section
 {
     width: calc(100% - 16px);
-    padding: 8px 0;
+    padding: 4px 0;
 
-    border-radius: 8px;
-    box-shadow: 0 0 0 1px var(--main-shadow), 0 1px 0 1px var(--main-shadow), 0 2px 2px 0 var(--main-shadow);
+    border-radius: 4px;
+    background: var(--background-2);
+    box-shadow: 0 0 0 1px var(--appearance-shadow), 0 1px 0 1px var(--appearance-shadow), 0 2px 2px 0 var(--appearance-shadow);
 }
 
-
-
-
+.satus-main .satus-section:not(.satus-section--has-label)
+{
+    margin: 16px auto 8px;    
+}
 
 /*-----------------------------------------------------------------------------
-# HOME
+## Home
 -----------------------------------------------------------------------------*/
 
-.satus:not([improvedtube-home=list]) .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] > .satus-section:first-child
+.satus:not([improvedtube-home=list]) .satus-main__container[data-path='main'] > .satus-section
 {
     display: flex;
     flex-direction: unset;
@@ -360,7 +338,7 @@ textarea
     width: 100%;
     height: unset;
     margin: unset;
-    padding: 8px 0 0 0;
+    padding: 20px 0 0 0;
 
     border: unset;
     background: transparent;
@@ -370,7 +348,7 @@ textarea
     justify-content: space-between;
 }
 
-.satus:not([improvedtube-home=list]) .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] > .satus-section:first-child > *
+.satus:not([improvedtube-home=list]) .satus-main__container[data-path='main'] > .satus-section > *
 {
     flex-direction: column;
 
@@ -385,22 +363,22 @@ textarea
     align-items: center;
 }
 
-.satus:not([improvedtube-home=list]) .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] > .satus-section:first-child .satus-folder span
+.satus:not([improvedtube-home=list]) .satus-main__container[data-path='main'] > .satus-section .satus-folder span
 {
     text-align: center;
 }
 
-.satus:not([improvedtube-home=list]) .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] > .satus-section:first-child > *:hover
+.satus:not([improvedtube-home=list]) .satus-main__container[data-path='main'] > .satus-section > *:hover
 {
     background: transparent;
 }
 
-.satus:not([improvedtube-home=list]) .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] > .satus-section:first-child > * .label
+.satus:not([improvedtube-home=list]) .satus-main__container[data-path='main'] > .satus-section > * .label
 {
     text-align: center;
 }
 
-.satus:not([improvedtube-home=list]) .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] > .satus-section:first-child > * svg
+.satus:not([improvedtube-home=list]) .satus-main__container[data-path='main'] > .satus-section > * svg
 {
     overflow: visible;
 
@@ -412,55 +390,39 @@ textarea
     transition: transform .25s, box-shadow .29s;
 
     border-radius: 50%;
-    background: var(--primary);
-    box-shadow: 0 2px 4px rgba(255,45,32,.6);
+    background: #f96754;
+    box-shadow: 0 1px 2px #de412d, 0 3px 10px rgba(0, 0, 0, .24);
 
-    fill: rgba(255, 255, 255, .85);
+    fill: rgba(255,255,255,.85);
 }
 
-.satus:not([improvedtube-home=list]) .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] > .satus-section:first-child > *:hover svg
+.satus:not([improvedtube-home=list]) .satus-main__container[data-path='main'] > .satus-section > *:hover svg
 {
     transform: scale(.9);
 
-    box-shadow: inset 1px 1px 2px rgba(255, 255, 255, .3), 0 2px 3px rgba(0, 0, 0, .24);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .24);
 }
 
-.satus[it-general=false] .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] .satus-folder:nth-child(1),
-.satus[it-appearance=false] .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] .satus-folder:nth-child(2),
-.satus[it-themes=false] .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] .satus-folder:nth-child(3),
-.satus[it-player=false] .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] .satus-folder:nth-child(4),
-.satus[it-playlist=false] .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] .satus-folder:nth-child(5),
-.satus[it-channel=false] .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] .satus-folder:nth-child(6),
-.satus[it-shortcuts=false] .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] .satus-folder:nth-child(7),
-.satus[it-mixer=false] .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] .satus-folder:nth-child(8),
-.satus[it-analyzer=false] .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] .satus-folder:nth-child(9),
-.satus[it-blacklist=false] .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] .satus-folder:nth-child(10)
+.satus[it-general=false] .satus-main__container[data-path='main'] .satus-folder:nth-child(1),
+.satus[it-appearance=false] .satus-main__container[data-path='main'] .satus-folder:nth-child(2),
+.satus[it-themes=false] .satus-main__container[data-path='main'] .satus-folder:nth-child(3),
+.satus[it-player=false] .satus-main__container[data-path='main'] .satus-folder:nth-child(4),
+.satus[it-playlist=false] .satus-main__container[data-path='main'] .satus-folder:nth-child(5),
+.satus[it-channel=false] .satus-main__container[data-path='main'] .satus-folder:nth-child(6),
+.satus[it-shortcuts=false] .satus-main__container[data-path='main'] .satus-folder:nth-child(7),
+.satus[it-mixer=false] .satus-main__container[data-path='main'] .satus-folder:nth-child(8),
+.satus[it-analyzer=false] .satus-main__container[data-path='main'] .satus-folder:nth-child(9),
+.satus[it-blacklist=false] .satus-main__container[data-path='main'] .satus-folder:nth-child(10)
 {
     display: none;
 }
 
-.satus .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] > .satus-section:last-child
-{
-    display: flex;
-
-    background: transparent;
-    box-shadow: none;
-}
-
-.satus .satus-tabs__body > div:first-child .satus-main__container[data-path='main/all/main'] > .satus-section:last-child > .satus-button
-{
-    justify-content: center;
-}
-
-
-
-
 
 /*-----------------------------------------------------------------------------
-# APPEARANCE CATEGORY
+## Appearance
 -----------------------------------------------------------------------------*/
 
-.satus-main__container[data-path='main/all/main/appearance'] > *
+.satus-main__container[data-path='main/appearance'] > *
 {
     position: absolute;
 
@@ -472,29 +434,29 @@ textarea
     transform: scale(1);
     text-align: center;
 
-    border: 1px solid var(--main-appearance-shadow);
+    border: 1px solid var(--appearance-shadow);
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0);
 
     justify-content: center;
     align-items: center;
 }
 
-.satus-main__container[data-path='main/all/main/appearance'] > *::before,
-.satus-main__container[data-path='main/all/main/appearance'] > *::after
+.satus-main__container[data-path='main/appearance'] > *::before,
+.satus-main__container[data-path='main/appearance'] > *::after
 {
     display: none;
 }
 
-.satus-main__container[data-path='main/all/main/appearance'] > *:hover
+.satus-main__container[data-path='main/appearance'] > *:hover
 {
     z-index: 9;
 
     transform: scale(1.03) translate(-8px, -4px);
 
-    box-shadow: 1px 1px 0 0 var(--main-appearance-shadow), 2px 2px 0 0 var(--main-appearance-shadow), 3px 3px 0 0 var(--main-appearance-shadow), 4px 4px 0 0 var(--main-appearance-shadow), 5px 6px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 1px 1px 0 0 var(--appearance-shadow), 2px 2px 0 0 var(--appearance-shadow), 3px 3px 0 0 var(--appearance-shadow), 4px 4px 0 0 var(--appearance-shadow), 5px 6px 4px 0 rgba(0, 0, 0, .1);
 }
 
-.satus-main__container[data-path='main/all/main/appearance'] > .satus-button--header
+.satus-main__container[data-path='main/appearance'] > .satus-button--header
 {
     top: 16px;
     left: 16px;
@@ -503,15 +465,15 @@ textarea
     height: 40px;
     min-height: auto;
 
-    background-color: var(--background-z-index-1);
+    background-color: var(--background-2);
 }
 
-.satus-main__container[data-path='main/all/main/appearance'] > .satus-button--header:hover
+.satus-main__container[data-path='main/appearance'] > .satus-button--header:hover
 {
     transform: scale(1.03) translate(-9px, -4px);
 }
 
-.satus-main__container[data-path='main/all/main/appearance'] > .satus-button--player
+.satus-main__container[data-path='main/appearance'] > .satus-button--player
 {
     top: 64px;
     left: 16px;
@@ -520,24 +482,23 @@ textarea
     height: 96px;
     min-height: auto;
 
-    color: #eee;
     border-color: #333;
     background-color: #444;
 }
 
-.satus-main__container[data-path='main/all/main/appearance'] > .satus-button--player .label
+.satus-main__container[data-path='main/appearance'] > .satus-button--player .label
 {
     color: #fff;
 }
 
-.satus-main__container[data-path='main/all/main/appearance'] > .satus-button--player:hover
+.satus-main__container[data-path='main/appearance'] > .satus-button--player:hover
 {
     transform: scale(1.03) translate(-7px, -4px);
 
     box-shadow: 1px 1px 0 0 #333, 2px 2px 0 0 #333, 3px 3px 0 0 #333, 4px 4px 0 0 #333, 5px 6px 4px 0 rgba(0, 0, 0, .1);
 }
 
-.satus-main__container[data-path='main/all/main/appearance'] > .satus-button--details
+.satus-main__container[data-path='main/appearance'] > .satus-button--details
 {
     top: 168px;
     left: 16px;
@@ -546,10 +507,10 @@ textarea
     height: 56px;
     min-height: auto;
 
-    background: var(--background-z-index-1);
+    background: var(--background-2);
 }
 
-.satus-main__container[data-path='main/all/main/appearance'] > .satus-button--description
+.satus-main__container[data-path='main/appearance'] > .satus-button--description
 {
     top: 13.5rem;
     left: 1rem;
@@ -558,10 +519,10 @@ textarea
     height: 3.5rem;
     min-height: 3.5rem;
 
-    background: var(--background-z-index-1);
+    background: var(--background-2);
 }
 
-.satus-main__container[data-path='main/all/main/appearance'] > .satus-button--comments
+.satus-main__container[data-path='main/appearance'] > .satus-button--comments
 {
     top: 232px;
     left: 16px;
@@ -570,10 +531,10 @@ textarea
     height: 80px;
     min-height: auto;
 
-    background: var(--background-z-index-1);
+    background: var(--background-2);
 }
 
-.satus-main__container[data-path='main/all/main/appearance'] > .satus-button--footer
+.satus-main__container[data-path='main/appearance'] > .satus-button--footer
 {
     top: 320px;
     left: 16px;
@@ -582,10 +543,10 @@ textarea
     height: 64px;
     min-height: auto;
 
-    background: var(--background-z-index-1);
+    background: var(--background-2);
 }
 
-.satus-main__container[data-path='main/all/main/appearance'] > .satus-button--sidebar
+.satus-main__container[data-path='main/appearance'] > .satus-button--sidebar
 {
     top: 64px;
     left: calc(70% - 8px);
@@ -593,25 +554,25 @@ textarea
     width: calc(30% - 8px);
     height: 160px;
 
-    background: var(--background-z-index-1);
+    background: var(--background-2);
 }
 
 
 /*-----------------------------------------------------------------------------
-# THEMES CATEGORY
+## Themes
 -----------------------------------------------------------------------------*/
 
-.satus-main__container[data-path='main/all/main/themes'] > .satus-switch:first-child
+.satus-main__container[data-path='main/themes'] > .satus-switch:first-child
 {
     margin-top: 16px;
 }
 
-.satus-main__container[data-path='main/all/main/themes'] > .satus-switch:last-child
+.satus-main__container[data-path='main/themes'] > .satus-switch:last-child
 {
     margin-bottom: 16px;
 }
 
-.satus-main__container[data-path='main/all/main/themes'] > .satus-switch
+.satus-main__container[data-path='main/themes'] > .satus-switch
 {
     width: calc(100% - 16px);
     min-height: 80px;
@@ -620,13 +581,13 @@ textarea
     border-radius: 8px;
 }
 
-.satus-main__container[data-path='main/all/main/themes'] > .satus-switch .label
+.satus-main__container[data-path='main/themes'] > .satus-switch .label
 {
     font-size: 15px;
     font-weight: 500;
 
     color: #fff;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, .7);
+    text-shadow: 0 1px 3px rgba(0,0,0,.7);
 }
 
 .satus-switch--dark
@@ -964,7 +925,7 @@ textarea
 
 
 /*-----------------------------------------------------------------------------
-# MIXER CATEGORY
+## Mixer
 -----------------------------------------------------------------------------*/
 
 .satus-section.satus-section--mixer
@@ -995,7 +956,7 @@ textarea
 
     content: '';
 
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0,0,0,.5);
 }
 
 .satus-section.satus-section--mixer::after
@@ -1007,7 +968,7 @@ textarea
 
     content: 'YouTube';
 
-    color: rgba(255, 255, 255, .5);
+    color: rgba(255,255,255,.5);
 }
 
 .satus-section.satus-section--mixer > .label
@@ -1079,7 +1040,7 @@ textarea
 
 
 /*-----------------------------------------------------------------------------
-# ANALYZER CATEGORY
+## Analyzer
 -----------------------------------------------------------------------------*/
 
 .analyzer-top-text
@@ -1092,7 +1053,7 @@ textarea
     margin: 16px 0 0;
     padding: 0 16px;
 
-    background: transparent !important;
+    background: transparent!important;
 
     justify-content: space-between;
 }
@@ -1114,7 +1075,7 @@ textarea
     padding: 16px;
 
     background: var(--background-0) !important;
-    box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 2px rgba(0,0,0,.2);
 }
 
 .analyzer-all-time
@@ -1155,7 +1116,7 @@ textarea
     content: '';
     transform: rotate(-45deg);
 
-    background: linear-gradient(transparent 50%, rgba(0, 0, 0, .05) 50%);
+    background: linear-gradient(transparent 50%, rgba(0,0,0,.05) 50%);
     background-size: 4px 4px;
 }
 
@@ -1218,6 +1179,7 @@ textarea
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }*/
+
 .analyzer-bottom
 {
     display: flex;
@@ -1249,7 +1211,7 @@ textarea
 
 
 /*-----------------------------------------------------------------------------
-# BLACKLIST CATEGORY
+## Blacklist
 -----------------------------------------------------------------------------*/
 
 .satus-section.satus-section--blacklist
@@ -1292,7 +1254,7 @@ textarea
 
     content: '';
 
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0,0,0,.5);
 }
 
 .satus-section.satus-section--blacklist > .label
@@ -1319,28 +1281,24 @@ textarea
 
     content: attr(data-label);
 
-    color: rgba(255, 255, 255, .5);
+    color: rgba(255,255,255,.5);
 }
+
 
 .satus-section.satus-section--blacklist > .satus-section
 {
-    position: absolute;
-    z-index: 999;
-    bottom: 0;
-
-    visibility: hidden;
-
+visibility: hidden;
     width: 100%;
+    transition: .15s;
+    opacity: 0;
+    background: rgba(255,255,255,.95);
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
     margin: 0;
     padding: 0;
-
-    transition: .15s;
-
-    opacity: 0;
     border-radius: 0;
-    background: rgba(255, 255, 255, .95);
-
-    justify-content: center;
+    z-index: 999;
 }
 
 .satus-section.satus-section--blacklist:hover > .satus-section
@@ -1348,4 +1306,19 @@ textarea
     visibility: visible;
 
     opacity: 1;
+}
+
+
+/*-----------------------------------------------------------------------------
+## Fixes
+-----------------------------------------------------------------------------*/
+
+#forced-playback-speed:not([data-value=true]) + div,
+#forced-volume:not([data-value=true]) + div
+{
+    pointer-events: none;
+
+    opacity: .25;
+
+    filter: grayscale(1);
 }

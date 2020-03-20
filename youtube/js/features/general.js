@@ -1,66 +1,11 @@
 /*-----------------------------------------------------------------------------
 >>> GENERAL
 -------------------------------------------------------------------------------
-1.0 Legacy YouTube
-2.0 YouTube Home Page
-3.0 Add «Scroll to top»
-4.0 HD thumbnails
-5.0 Confirmation before closing
+1.0 YouTube Home Page
+2.0 Add «Scroll to top»
+3.0 HD thumbnails
+4.0 Confirmation before closing
 -----------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------------
-1.0 Legacy YouTube
------------------------------------------------------------------------------*/
-
-ImprovedTube.youtubeVersion = function() {
-    var pref = ImprovedTube.getCookieValueByName('PREF'),
-        f6 = ImprovedTube.getParam(pref, 'f6') || '0004',
-        last = f6.slice(-1),
-        disable_polymer = Boolean(ImprovedTube.getParam(location.search.substr(1), 'disable_polymer')),
-        version = (last == '8' || last == '9') || disable_polymer ? 'old' : 'new';
-
-    if (
-        navigator &&
-        navigator.userAgent &&
-        navigator.userAgent.match(/Chrom(e|ium)+\/[0-9.]+/g)[0] &&
-        Number(navigator.userAgent.match(/Chrom(e|ium)+\/[0-9.]+/g)[0].match(/[0-9.]+/g)[0].match(/[0-9]+/g)[0]) <= 49
-    ) {
-        version = 'old';
-    }
-
-    if (version !== 'old' && ImprovedTube.storage.legacy_youtube === 'enabledForced') {
-        ImprovedTube.legacy_youtube();
-    }
-
-    document.documentElement.setAttribute('it-youtube-version', version);
-};
-
-ImprovedTube.legacy_youtube = function() {
-    var option = ImprovedTube.storage.legacy_youtube === 'enabled' || ImprovedTube.storage.legacy_youtube === 'enabledForced',
-        PREF = this.getParams(this.getCookieValueByName('PREF')),
-        result = '';
-
-    if (!this.isset(PREF.f6)) {
-        PREF.f6 = option === true ? '0008' : '';
-    } else if (PREF.f6.length === 4) {
-        PREF.f6 = PREF.f6.slice(0, -1) + (option === true ? '8' : '');
-    } else if (PREF.f6.length === 3) {
-        PREF.f6 += option === true ? '8' : '';
-    } else {
-        PREF.f6 = option === true ? '0008' : '';
-    }
-
-    for (var i in PREF) {
-        result += i + '=' + PREF[i] + '&';
-    }
-
-    this.setCookie('PREF', result.slice(0, -1));
-
-    setTimeout(function() {
-        location.reload();
-    }, 250);
-};
-
 
 /*-----------------------------------------------------------------------------
 2.0 YouTube Home Page

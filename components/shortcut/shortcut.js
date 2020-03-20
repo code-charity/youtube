@@ -159,10 +159,8 @@ Satus.components.shortcut = function(object, name) {
 
         component_scrim.addEventListener('click', close);
         component_button_reset.addEventListener('click', function() {
-            Satus.storage.set(name, null);
+            Satus.storage.remove(name);
             close();
-            value = (Satus.storage.get(name) ? JSON.parse(Satus.storage.get(name)) : false) || object.value || {};
-            update();
         });
         component_button_cancel.addEventListener('click', close);
         component_button_save.addEventListener('click', function() {

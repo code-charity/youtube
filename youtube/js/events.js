@@ -60,14 +60,12 @@ ImprovedTube.events = function() {
             window.yt.player.Application.create = ImprovedTube.ytPlayerApplicationCreateMod(window.yt.player.Application.create);
         }
 
-        var search = document.querySelector('#search') ||  document.querySelector('#masthead-search-term');
-
-        if (search) {
-            search.addEventListener('focus', function() {
+        if (document.querySelector('#search')) {
+            document.querySelector('#search').addEventListener('focus', function() {
                 document.documentElement.setAttribute('it-search-focus', 'true');
             });
 
-            search.addEventListener('blur', function() {
+            document.querySelector('#search').addEventListener('blur', function() {
                 document.documentElement.setAttribute('it-search-focus', 'false');
             });
         }
@@ -131,8 +129,6 @@ ImprovedTube.events = function() {
 
 window.addEventListener('DOMContentLoaded', function() {
     chrome.storage.local.get(function(items) {
-        items.legacy_youtube = document.documentElement.getAttribute('it-youtube-version') == 'old' ? true : false;
-
         chrome.storage.local.set(items);
     });
 });

@@ -35,10 +35,8 @@ Satus.components.select = function(object, name) {
     component.appendChild(component_value);
 
     component.addEventListener('click', function(event) {
-        var this_rect = this.getBoundingClientRect(),
-            component_rect = component.getBoundingClientRect(),
-            component_options = document.createElement('div'),
-            component_scrim = document.createElement('div');
+        var component_options = document.createElement('div'),
+            component_scrim = document.createElement('div');;
 
         event.stopPropagation();
         event.preventDefault();
@@ -54,10 +52,8 @@ Satus.components.select = function(object, name) {
             component_options.remove();
         });
 
-        component_options.style.left = this_rect.x + 'px';
-        component_options.style.top = this_rect.y + this_rect.height - 4 + 'px';
-        component_options.style.maxHeight = window.innerHeight - component_rect.y - component_rect.height + 'px';
-        component_options.style.width = this_rect.width + 'px';
+        component_options.style.top = this.getBoundingClientRect().y + this.getBoundingClientRect().height - 4 + 'px';
+        component_options.style.maxHeight = window.innerHeight - component.getBoundingClientRect().y - component.getBoundingClientRect().height + 'px';
 
         for (var i = 0, l = object.options.length; i < l; i++) {
             var option = document.createElement('div');
