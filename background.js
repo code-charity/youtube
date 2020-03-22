@@ -7,6 +7,7 @@
 4.0 Message listener
 5.0 Storage change listener
 6.0 Initialization
+7.0 Google Analytics
 --------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
@@ -66,6 +67,8 @@ function browserActionIcon() {
             path: 'icons/32g.png'
         });
     }
+
+    _gaq.push(['_trackPageview', '/background-' + chrome.runtime.getManifest().version, 'page-loaded']);
 }
 
 
@@ -274,3 +277,20 @@ chrome.storage.local.get(function(items) {
 
     browserActionIcon();
 });
+
+
+/*-----------------------------------------------------------------------------
+7.0 Google Analytics
+-----------------------------------------------------------------------------*/
+
+var _gaq = _gaq || [],
+    ga = document.createElement('script'),
+    s = document.getElementsByTagName('script')[0];
+
+_gaq.push(['_setAccount', 'UA-88354155-1']);
+_gaq.push(['_setSessionCookieTimeout', 14400000]);
+
+ga.type = 'text/javascript';
+ga.async = true;
+ga.src = 'https://ssl.google-analytics.com/ga.js';
+s.parentNode.insertBefore(ga, s);;
