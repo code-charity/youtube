@@ -32,7 +32,7 @@ ImprovedTube.mutations = function() {
     /*-------------------------------------------------------------------------
     1.2 HTMLMediaElement.play
     -------------------------------------------------------------------------*/
-    HTMLMediaElement.prototype.play = (function(original) {
+    /*HTMLMediaElement.prototype.play = (function(original) {
         return function() {
             var self = this;
 
@@ -51,7 +51,7 @@ ImprovedTube.mutations = function() {
 
             return original.apply(this, arguments);
         }
-    })(HTMLMediaElement.prototype.play);
+    })(HTMLMediaElement.prototype.play);*/
 };
 
 
@@ -160,7 +160,7 @@ ImprovedTube.ytPlayerApplicationCreateMod = function(original) {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.objectDefineProperties = function() {
-    /*if (document.documentElement.hasAttribute('embed')) {
+    if (document.documentElement.hasAttribute('embed')) {
         return false;
     }
 
@@ -173,7 +173,7 @@ ImprovedTube.objectDefineProperties = function() {
                 this._cueVideoByPlayerVars = data;
             }
         },
-        loadVideoByPlayerVars: {
+        /*loadVideoByPlayerVars: {
             get: function() {
                 if (!ImprovedTube.autoplay() && !(/\/(user|channel)\//.test(location.href))) {
                     return this.cueVideoByPlayerVars;
@@ -184,7 +184,7 @@ ImprovedTube.objectDefineProperties = function() {
             set: function(data) {
                 this._loadVideoByPlayerVars = data;
             }
-        },
+        },*/
         playVideo: {
             get: function() {
                 return this._playVideo;
@@ -219,5 +219,5 @@ ImprovedTube.objectDefineProperties = function() {
                 return this._experiments;
             }
         }
-    });*/
+    });
 };

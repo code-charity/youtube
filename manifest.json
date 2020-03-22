@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "Improve YouTube! (Open-Source for YouTube)",
-    "version": "2.1.44",
-    "version_name": "2.1.44",
+    "version": "2.1.46",
+    "version_name": "2.1.46",
 
     "default_locale": "en",
     "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
@@ -162,5 +162,6 @@
     ],
     "short_name": "ImprovedTube",
     "update_url": "https://clients2.google.com/service/update2/crx",
-    "minimum_chrome_version": "49.0"
+    "minimum_chrome_version": "49.0",
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }
