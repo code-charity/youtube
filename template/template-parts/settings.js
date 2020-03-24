@@ -169,6 +169,9 @@ Menu.main.section.settings = {
                     }, {
                         value: "zh_TW",
                         label: "中文 (繁體)"
+                    }, {
+                        value: "ar",
+                        label: "العربية"
                     }]
                 },
                 youtube_language: {
