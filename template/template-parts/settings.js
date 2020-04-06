@@ -454,7 +454,7 @@ Menu.main.section.settings = {
 
                                         message: {
                                             type: 'text',
-                                            label: 'successfullyImportedSettings',
+                                            label: 'settingsSuccessfullyImported',
                                             style: {
                                                 'width': '100%',
                                                 'opacity': '.8'
