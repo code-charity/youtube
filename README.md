@@ -1,5 +1,3 @@
-> [The Future of the ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/issues/246)
-
 ## ImprovedTube
 ![](/assets/rating.svg) ![](/assets/size.svg)</br>
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an extension that is built to improve the user's experience on YouTube. We designed it on our [Satus](https://github.com/victor-savinov/satus) library so that you can manage your settings more efficiently.
