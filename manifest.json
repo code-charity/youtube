@@ -1,167 +1,54 @@
 {
     "manifest_version": 2,
-    "name": "Improve YouTube! (Open-Source for YouTube)",
-    "version": "2.1.46",
-    "version_name": "2.1.46",
-
-    "default_locale": "en",
-    "description": "Make YouTube wonderful&Keep It clean! YouTube Player Size Playback Quality Auto HD Speed Style Adblock Volume Playlist Channel H.264",
+    "name": "ImprovedTube",
+    "version": "3.0",
+    "version_name": "3.0-alpha",
     "icons": {
-        "16": "icons/16.png",
-        "32": "icons/32.png",
-        "48": "icons/48.png",
-        "128": "icons/128.png"
+        "16": "assets/icons/16.png",
+        "32": "assets/icons/32.png",
+        "48": "assets/icons/48.png",
+        "128": "assets/icons/128.png"
     },
-
+    "default_locale": "en",
     "browser_action": {
         "default_icon": {
-            "16": "icons/16g.png",
-            "32": "icons/32g.png",
-            "48": "icons/48g.png",
-            "128": "icons/128g.png"
+            "16": "assets/icons/16g.png",
+            "32": "assets/icons/32g.png",
+            "48": "assets/icons/48g.png",
+            "128": "assets/icons/128g.png"
         },
         "default_popup": "index.html"
     },
-
-    "author": "savetime",
-    "background": {
-        "persistent": false,
-        "scripts": [
-            "background.js"
-        ]
-    },
-    "homepage_url": "https://improvedtube.com",
-
     "content_scripts": [{
-        "all_frames": false,
+        "all_frames": true,
         "css": [
-            "youtube/css/themes.css",
-            "youtube/css/general.css",
-            "youtube/css/appearance.css",
-            "youtube/css/appearance__player-size.css",
-            "youtube/css/player.css",
-            "youtube/css/playlist.css",
-            "youtube/css/channel.css",
-            "youtube/css/blacklist.css",
-            "youtube/css/settings.css",
-            "youtube/css/shortcuts.css",
-            "youtube/css/other.css",
-            "youtube/css/themes/legacy.css",
-            "youtube/css/themes/default.css",
-            "youtube/css/themes/black.css",
-            "youtube/css/themes/dawn.css",
-            "youtube/css/themes/desert.css",
-            "youtube/css/themes/night.css",
-            "youtube/css/themes/plain.css",
-            "youtube/css/themes/sunset.css"
+            "content-scripts.css"
         ],
         "js": [
-            "youtube/js/migration.js",
-            "youtube/js/core.js",
-            "youtube/js/functions.js",
-            "youtube/js/events.js",
-            "youtube/js/injection.js",
-            "youtube/js/mutations.js",
-            "youtube/js/features/general.js",
-            "youtube/js/features/appearance.js",
-            "youtube/js/features/themes.js",
-            "youtube/js/features/player.js",
-            "youtube/js/features/playlist.js",
-            "youtube/js/features/channel.js",
-            "youtube/js/features/shortcuts.js",
-            "youtube/js/features/volume-mixer.js",
-            "youtube/js/features/analyzer.js",
-            "youtube/js/features/blacklist.js",
-            "youtube/js/features/settings.js"
+            "content-scripts.js"
         ],
         "matches": [
             "https://www.youtube.com/*"
         ],
         "exclude_matches": [
             "https://www.youtube.com/improvedtube",
-            "https://www.youtube.com/tv*"
+            "https://www.youtube.com/tv*",
+            "https://www.youtube.com/audiolibrary/*"
         ],
         "run_at": "document_start"
-    }, {
-        "all_frames": true,
-        "js": [
-            "template/youtube.js"
-        ],
-        "matches": [
-            "https://www.youtube.com/improvedtube"
-        ],
-        "run_at": "document_start"
-    }, {
-        "all_frames": true,
-        "css": [
-            "components/button/button.css",
-            "components/dialog/dialog.css",
-            "components/folder/folder.css",
-            "components/header/header.css",
-            "components/main/main.css",
-            "components/section/section.css",
-            "components/select/select.css",
-            "components/shortcut/shortcut.css",
-            "components/slider/slider.css",
-            "components/switch/switch.css",
-            "components/table/table.css",
-            "components/text/text.css",
-            "components/textarea/textarea.css",
-            "template/style.css"
-        ],
-        "js": [
-            "core.js",
-            "modules/render.js",
-            "modules/user.js",
-            "modules/chromium-storage.js",
-            "modules/chromium-locale.js",
-            "components/button/button.js",
-            "components/dialog/dialog.js",
-            "components/folder/folder.js",
-            "components/header/header.js",
-            "components/main/main.js",
-            "components/section/section.js",
-            "components/select/select.js",
-            "components/shortcut/shortcut.js",
-            "components/slider/slider.js",
-            "components/switch/switch.js",
-            "components/table/table.js",
-            "components/text/text.js",
-            "components/textarea/textarea.js",
-            "template/functions.js",
-            "template/header.js",
-            "template/main.js",
-            "template/template-parts/general.js",
-            "template/template-parts/appearance.js",
-            "template/template-parts/themes.js",
-            "template/template-parts/player.js",
-            "template/template-parts/playlist.js",
-            "template/template-parts/channel.js",
-            "template/template-parts/shortcuts.js",
-            "template/template-parts/mixer.js",
-            "template/template-parts/analyzer.js",
-            "template/template-parts/blacklist.js",
-            "template/template-parts/settings.js",
-            "template/index.js"
-        ],
-        "matches": [
-            "https://www.youtube.com/improvedtube"
-        ],
-        "run_at": "document_end"
     }],
-
+    "background": {
+        "persistent": false,
+        "scripts": [
+            "background.js"
+        ]
+    },
     "optional_permissions": [
         "downloads"
     ],
-    "options_page": "index.html",
-
     "permissions": [
         "https://www.youtube.com/",
-        "storage",
-        "contextMenus"
-    ],
-    "short_name": "ImprovedTube",
-    "update_url": "https://clients2.google.com/service/update2/crx",
-    "minimum_chrome_version": "49.0",
-    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
+        "contextMenus",
+        "storage"
+    ]
 }

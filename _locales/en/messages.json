@@ -2,6 +2,33 @@
     "about": {
         "message": "About"
     },
+    "removeRelatedSearchResults": {
+        "message": "Remove related search results"
+    },
+    "topChat": {
+        "message": "Top chat"
+    },
+    "liveChat": {
+        "message": "Live chat"
+    },
+    "font": {
+        "message": "Font"
+    },
+    "liveChatType": {
+        "message": "Live chat type"
+    },
+    "showCardsOnMouseHover": {
+        "message": "Show cards on mouse hover"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "Only one player instance playing"
+    },
+    "developerOptions": {
+        "message": "Developer options"
+    },
+    "customJs": {
+        "message": "Custom JS"
+    },
     "accept": {
         "message": "Accept"
     },
@@ -149,6 +176,9 @@
     "collapsed": {
         "message": "Collapsed"
     },
+    "collapseOfSubscriptionSections": {
+        "message": "Collapse of subscription sections"
+    },
     "comments": {
         "message": "Comments"
     },
@@ -223,6 +253,9 @@
     },
     "draggable": {
         "message": "Draggable"
+    },
+    "email": {
+        "message": "Email"
     },
     "empty": {
         "message": "Empty"
@@ -419,6 +452,9 @@
     "loudnessNormalization": {
         "message": "Loudness normalization"
     },
+    "markWatchedVideos": {
+        "message": "Mark watched videos"
+    },
     "miniPlayer": {
         "message": "Mini player"
     },
@@ -439,6 +475,9 @@
     },
     "night": {
         "message": "Night"
+    },
+    "noActiveFeatures": {
+        "message": "No active features"
     },
     "none": {
         "message": "None"
