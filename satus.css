@@ -1,0 +1,1094 @@
+
+/*--------------------------------------------------------------
+>>> BUTTON
+--------------------------------------------------------------*/
+
+.satus-button
+{
+    font-size: inherit;
+
+    position: relative;
+
+    display: flex;
+
+    margin: 0;
+
+    cursor: pointer;
+
+    color: inherit;
+    border: none;
+    outline: none;
+    background-color: var(--satus-theme-button, transparent);
+
+    -webkit-tap-highlight-color: transparent;
+    align-items: center;
+    -webkit-appearance: none;
+}
+
+.satus-button::before
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    content: '';
+
+    opacity: 0;
+    background-color: var(--satus-theme-button, #000);
+}
+
+.satus-button:focus::before,
+.satus-button:hover::before
+{
+    opacity: .04;
+}
+
+.satus-button__icon
+{
+    width: 24px;
+    height: 24px;
+}
+
+.satus-button svg
+{
+    width: 100%;
+
+    color: inherit;
+
+    fill: currentColor;
+}
+
+.satus-button__icon + .satus-button__label
+{
+    margin-left: 8px;
+}
+
+/*--------------------------------------------------------------
+>>> DIALOG
+--------------------------------------------------------------*/
+
+.satus-dialog
+{
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+
+    display: flex;
+
+    width: 100%;
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.satus-dialog__scrim
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    animation: fadeIn 150ms linear forwards;
+
+    opacity: 0;
+    background: rgba(25,25,25,.2);
+
+    fill: var(--satus-theme-on-surface, #777);
+    backdrop-filter: blur(8px);
+}
+
+.satus-dialog__surface
+{
+    font-size: 14px;
+
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
+
+    width: 95%;
+    min-width: 240px;
+    max-width: 560px;
+    max-height: 80%;
+    padding: 8px 0;
+
+    transform: scale(.8);
+    animation: zoomIn 150ms linear forwards;
+    animation-delay: 20ms;
+
+    opacity: 0;
+    color: var(--satus-theme-on-surface, #777);
+    border-radius: 6px;
+    background-color: var(--satus-theme-surface, #f7f7f6);
+    box-shadow: inset 0 -1px 2px 1px rgba(0,0,0,.1), 0 2px 6px rgba(0, 0, 0, .15);
+}
+
+.satus-dialog--closing .satus-dialog__scrim
+{
+    animation: fadeOut 70ms linear forwards;
+}
+
+.satus-dialog--closing .satus-dialog__surface
+{
+    animation: zoomOut 70ms linear forwards;
+}
+
+@keyframes fadeIn
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut
+{
+    from
+    {
+        opacity: 1;
+    }
+    to
+    {
+        opacity: 0;
+    }
+}
+
+@keyframes zoomIn
+{
+    from
+    {
+        transform: scale(.8);
+
+        opacity: 0;
+    }
+    to
+    {
+        transform: scale(1);
+
+        opacity: 1;
+    }
+}
+
+@keyframes zoomOut
+{
+    from
+    {
+        transform: scale(1);
+
+        opacity: 1;
+    }
+    to
+    {
+        transform: scale(.8);
+
+        opacity: 0;
+    }
+}
+
+/*--------------------------------------------------------------
+>>> FOLDER
+--------------------------------------------------------------*/
+
+.satus-folder
+{
+    font-size: inherit;
+
+    display: flex;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    margin: 0;
+    padding: 0 16px;
+
+    cursor: pointer;
+
+    color: inherit;
+    border: none;
+    outline: none;
+    background-color: var(--satus-theme-button, transparent);
+
+    -webkit-tap-highlight-color: transparent;
+    align-items: center;
+    -webkit-appearance: none;
+}
+
+.satus-folder:focus,
+.satus-folder:hover
+{
+    background-color: rgba(0,0,0,.04);
+}
+
+/*--------------------------------------------------------------
+>>> HEADER
+--------------------------------------------------------------*/
+
+.satus-header
+{
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 58px;
+    padding: 0 8px;
+
+    color: var(--satus-theme-on-surface, #777);
+    background-color: var(--satus-theme-surface, #fff);
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+
+    fill: var(--satus-theme-on-surface, #777);
+}
+
+/*-----------------------------------------------------------------------------
+>>> MAIN
+-------------------------------------------------------------------------------
+1.0 General
+2.0 Animations
+    2.1 Opening
+    2.2 Closing
+-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+1.0 General
+-----------------------------------------------------------------------------*/
+
+.satus-main
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    color: var(--satus-theme-on-surface, #777);
+    background-color: var(--satus-theme-surface, #f7f7f6);
+
+    fill: var(--satus-theme-on-surface, #777);
+}
+
+.satus-main__container
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: auto;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+    transition: 250ms;
+
+    background-color: var(--satus-theme-surface, #f7f7f6);
+
+    will-change: transform;
+}
+
+
+/*-----------------------------------------------------------------------------
+2.0 Animations
+-----------------------------------------------------------------------------*/
+
+.satus-main__container--fade-in-left
+{
+    animation: fadeInLeft 250ms;
+}
+
+.satus-main__container--fade-in-right
+{
+    animation: fadeInRight 250ms;
+}
+
+.satus-main__container--fade-out-left
+{
+    animation: fadeOutLeft 250ms;
+}
+
+.satus-main__container--fade-out-right
+{
+    animation: fadeOutRight 250ms;
+}
+
+@keyframes fadeInLeft
+{
+    from
+    {
+        transform: translateX(-10%);
+
+        opacity: 0;
+    }
+    to
+    {
+        transform: translateX(0%);
+
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight
+{
+    from
+    {
+        transform: translateX(10%);
+
+        opacity: 0;
+    }
+    to
+    {
+        transform: translateX(0%);
+
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutLeft
+{
+    from
+    {
+        transform: translateX(0%);
+
+        opacity: 1;
+    }
+    to
+    {
+        transform: translateX(-10%);
+
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOutRight
+{
+    from
+    {
+        transform: translateX(0%);
+
+        opacity: 1;
+    }
+    to
+    {
+        transform: translateX(10%);
+
+        opacity: 0;
+    }
+}
+
+.satus-scrollbar
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+}
+
+.satus-scrollbar__wrapper
+{
+    overflow-y: scroll;
+
+    width: 150%;
+    height: 100%;
+}
+
+.satus-scrollbar__thumb
+{
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 0;
+
+    padding: 0 2px;
+
+    transition: background-color 200ms, opacity 300ms;
+
+    opacity: 0;
+}
+
+.satus-scrollbar__thumb::after
+{
+    display: block;
+
+    width: 3px;
+    height: 100%;
+
+    content: '';
+
+    background-color: rgba(0,0,0,.2);
+}
+
+.satus-scrollbar__thumb:hover::after
+{
+    background-color: rgba(0,0,0,.4);
+}
+
+.satus-scrollbar.active .satus-scrollbar__thumb,
+.satus-scrollbar__thumb:hover
+{
+    transition: background-color 200ms, opacity 100ms;
+
+    opacity: 1;
+}
+
+/*--------------------------------------------------------------
+>>> SECTION
+--------------------------------------------------------------*/
+
+.satus-section
+{
+    display: inline-flex;
+
+    box-sizing: border-box;
+
+    align-items: center;
+    flex: 1;
+}
+
+/*--------------------------------------------------------------
+>>> SELECT
+--------------------------------------------------------------*/
+
+.satus-select
+{
+    font-size: inherit;
+
+    position: relative;
+
+    display: flex;
+
+    width: 100%;
+    height: 48px;
+    margin: 0;
+    padding: 0 16px;
+
+    color: inherit;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    justify-content: space-between;
+    -webkit-tap-highlight-color: transparent;
+    align-items: center;
+    -webkit-appearance: none;
+}
+
+.satus-select:focus,
+.satus-select:hover
+{
+    background-color: rgba(0,0,0,.04);
+}
+
+.satus-select__value
+{
+    font-size: 12px;
+
+    opacity: .7;
+}
+
+
+.satus-dialog--select-component .satus-dialog__surface
+{
+    position: absolute;
+
+    max-width: unset;
+
+    transform: unset;
+    animation: unset;
+
+    opacity: 1;
+}
+
+.satus-dialog--select-component .satus-section
+{
+    top: 48px;
+
+    flex-direction: column;
+
+    transform: translateY(-16px);
+    animation: listIn 50ms linear forwards;
+    animation-delay: 20ms;
+
+    opacity: .5;
+}
+
+.satus-dialog--select-component .satus-button
+{
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+}
+
+@keyframes listIn
+{
+    from
+    {
+        transform: translateY(-16px);
+
+        opacity: .5;
+    }
+    to
+    {
+        transform: translateY(0);
+
+        opacity: 1;
+    }
+}
+
+.satus-shortcut
+{
+    position: relative;
+
+    display: flex;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    padding: 0 16px;
+
+    cursor: pointer;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.satus-shortcut:hover
+{
+    background: var(--background-hover-1);
+}
+
+.satus-shortcut > .label
+{
+    margin: 0 0 4px 0;
+}
+
+.satus-shortcut > .value
+{
+    font-size: 13px;
+
+    opacity: .5;
+}
+
+.satus-shortcut-dialog-label
+{
+    font-size: 16px;
+    font-weight: 500;
+
+    box-sizing: border-box;
+    width: 100%;
+    margin: 4px 0 10px;
+    padding: 0 16px;
+}
+
+.satus-shortcut__canvas
+{
+    display: flex;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 68px;
+    padding: 16px;
+
+    background: #dedede;
+
+    align-items: center;
+}
+
+.satus-shortcut__key
+{
+    display: flex;
+
+    box-sizing: border-box;
+    min-width: 32px;
+    height: 32px;
+    padding: 4px 8px;
+
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.15), inset 0 -3px 0 rgba(0,0,0,.1);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.satus-shortcut__plus
+{
+    position: relative;
+
+    width: 12px;
+    height: 12px;
+    margin: 8px;
+}
+
+.satus-shortcut__plus::before
+{
+    position: absolute;
+    top: 0;
+    left: 5px;
+
+    width: 2px;
+    height: 12px;
+
+    content: '';
+
+    background-color: #aaa;
+}
+
+.satus-shortcut__plus::after
+{
+    position: absolute;
+    top: 5px;
+    left: 0;
+
+    width: 12px;
+    height: 2px;
+
+    content: '';
+
+    background-color: #aaa;
+}
+
+.satus-shortcut__mouse
+{
+    position: relative;
+
+    display: flex;
+
+    width: 28px;
+    height: 36px;
+
+    border-radius: 50%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.15), inset 0 -3px 0 rgba(0,0,0,.1);
+}
+
+.satus-shortcut__mouse > div
+{
+    position: absolute;
+    top: 0;
+    left: 13px;
+
+    width: 2px;
+    height: 11px;
+
+    border-radius: 2px;
+    background: #ccc;
+}
+
+.satus-shortcut__mouse::before
+{
+    position: absolute;
+    top: -4px;
+    left: 21px;
+
+    width: 2px;
+    height: 18px;
+
+    content: '';
+
+    background: #f96754;
+}
+
+.satus-shortcut__mouse.false::after
+{
+    position: absolute;
+    top: -12px;
+    left: 17px;
+
+    width: 0;
+    height: 0;
+
+    content: '';
+
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #f96754;
+    border-left: 5px solid transparent;
+}
+
+.satus-shortcut__mouse.true::after
+{
+    position: absolute;
+    top: 14px;
+    left: 17px;
+
+    width: 0;
+    height: 0;
+
+    content: '';
+
+    border-top: 8px solid #f96754;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+.satus-section_shortcut
+{
+    width: 100%;
+    margin: 8px 0 0;
+
+    justify-content: flex-end;
+}
+
+.satus-button_shortcut
+{
+    font-weight: 500;
+
+    overflow: hidden;
+
+    height: 40px;
+    min-height: 40px;
+    margin-right: 8px;
+
+    text-transform: uppercase;
+
+    color: #f96754;
+    border-radius: 4px;
+}
+
+/*--------------------------------------------------------------
+>>> SLIDER
+--------------------------------------------------------------*/
+
+.satus-slider
+{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 64px;
+    padding: 0 16px;
+
+    -webkit-user-select:      none;
+       -moz-user-select: -moz-none;
+            user-select:      none;
+
+    outline: none;
+
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.satus-slider::before
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    content: '';
+
+    opacity: 0;
+    background-color: var(--satus-theme-button, #000);
+}
+
+.satus-slider:hover::before
+{
+    opacity: .04;
+}
+
+
+/* LABEL */
+
+.satus-slider__label
+{
+    cursor: default;
+}
+
+
+.satus-slider__range
+{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    opacity: 0;
+}
+
+
+/* TRACK */
+
+.satus-slider__container
+{
+    position: relative;
+
+    width: 100%;
+    height: 12px;
+    margin: 8px 0 0;
+}
+
+.satus-slider__track-container
+{
+    position: absolute;
+    top: calc(50% - 1px);
+
+    width: 100%;
+    height: 2px;
+
+    pointer-events: none;
+}
+
+.satus-slider__track-container::before
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    content: '';
+
+    opacity: .26;
+    background-color: var(--satus-theme-primary, #54d2a3);
+}
+
+.satus-slider__track
+{
+    position: relative;
+
+    width: 0;
+    height: 100%;
+
+    transition: width 100ms ease-out;
+
+    background-color: var(--satus-theme-primary, #54d2a3);
+
+    will-change: width;
+}
+
+.satus-slider__thumb
+{
+    position: absolute;
+    top: -5px;
+    right: -12px;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+    background-color: var(--satus-theme-primary, #54d2a3);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .15);
+}
+
+.satus-slider__ring
+{
+    position: absolute;
+    top: -11px;
+    right: -18px;
+
+    width: 24px;
+    height: 24px;
+
+    transition: 100ms;
+    transform: scale(0);
+
+    opacity: 0;
+    border-radius: 50%;
+    background-color: var(--satus-theme-primary, #54d2a3);
+}
+
+.satus-slider__range:focus + .satus-slider__container .satus-slider__ring
+{
+    transform: scale(1);
+
+    opacity: .25;
+}
+
+/*--------------------------------------------------------------
+>>> SWITCH
+--------------------------------------------------------------*/
+
+.satus-switch
+{
+    position: relative;
+
+    display: flex;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+
+    cursor: pointer;
+    -webkit-user-select:      none;
+       -moz-user-select: -moz-none;
+            user-select:      none;
+
+    background-color: transparent;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.satus-switch:hover
+{
+    background-color: rgba(0,0,0,.04);
+}
+
+.satus-switch__input
+{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    opacity: 0;
+    outline: none;
+
+    -webkit-appearance: none;
+}
+
+
+/* LABEL */
+
+.satus-switch__label
+{
+    padding: 0 16px 0 0;
+}
+
+
+/* TRACK*/
+
+.satus-switch__track
+{
+    position: relative;
+
+    width: 32px;
+    min-width: 32px;
+    height: 18px;
+
+    border-radius: 18px;
+    background: #bdbdbd;
+}
+
+.satus-switch__track::before
+{
+    position: absolute;
+    top: -7px;
+    left: -7px;
+
+    width: 32px;
+    height: 32px;
+
+    content: '';
+    transition: left .1s cubic-bezier(.4, 0, .2, 1), transform 200ms, background-color 200ms;
+    transform: scale(0);
+
+    opacity: 0;
+    border-radius: 50%;
+    background-color: #000;
+
+    will-change: left, transform, background-color;
+}
+
+.satus-switch__input:checked + .satus-switch__track::before
+{
+    left: 8px;
+
+    background-color: var(--satus-theme-primary, #54d2a3);
+}
+
+.satus-switch__input:focus + .satus-switch__track::before
+{
+    transform: scale(1);
+
+    opacity: .08;
+}
+
+.satus-switch__input:checked:focus + .satus-switch__track::before
+{
+    opacity: .25;
+}
+
+.satus-switch__track::after
+{
+    position: absolute;
+
+    width: 14px;
+    height: 14px;
+
+    content: '';
+    transition: transform .1s cubic-bezier(.4, 0, .2, 1);
+    transform: translate(2px, 2px);
+
+    border-radius: 50%;
+    background-color: #fff;
+
+    will-change: transform;
+}
+
+.satus-switch__input:checked + .satus-switch__track
+{
+    background: var(--satus-theme-primary, #54d2a3);
+}
+
+.satus-switch__input:checked + .satus-switch__track::after
+{
+    transform: translate(16px, 2px);
+}
+
+/*--------------------------------------------------------------
+>>> TEXT
+--------------------------------------------------------------*/
+
+.satus-text
+{
+    margin: 0;
+
+    color: inherit;
+    border: none;
+}
+
+/*--------------------------------------------------------------
+>>> TEXT
+--------------------------------------------------------------*/
+
+.satus-text-field
+{
+    font: inherit;
+
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding: 0 8px;
+
+    color: inherit;
+    border: none;
+    outline: none;
+    background: unset;
+}
