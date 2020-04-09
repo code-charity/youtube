@@ -20,6 +20,7 @@ You can learn more about features on [the page](https://github.com/ImprovedTube/
 * [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) by [ImprovedTube](https://github.com/ImprovedTube), [Victor Savinov](https://github.com/victor-savinov)
 * [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga)
 * [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [Leghort](https://github.com/leghort)
+* [Italian](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
 * [Português (Brasil)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json) by [Mike-Correa](https://github.com/Mike-Correa), [dthiago](https://github.com/dthiago)
 * [Русский](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json) by [Victor Savinov](https://github.com/victor-savinov), [WhoIsPrivalov](https://github.com/WhoIsPrivalov)
 * [中文 (简体)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json) by [niceRAM](https://github.com/niceRAM)
