@@ -505,6 +505,9 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         value: "en",
                         label: "English"
                     }, {
+                        value: 'ar',
+                        label: "العربية"
+                    }, {
                         value: "es",
                         label: "Español"
                     }, {
@@ -992,129 +995,130 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
             type: 'folder',
             before: '<svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" /></svg>',
             label: 'about',
+            appearanceId: 'about',
 
             section: {
                 type: 'section',
-                on: {
-                    render: function(component) {
-                        var manifest = chrome.runtime.getManifest(),
-                            user = Satus.user(),
-                            object = {
-                                extension_section: {
-                                    type: 'section',
-                                    label: 'extension',
-                                    style: {
-                                        'flex-direction': 'column',
-                                        'flex': '0'
-                                    },
 
-                                    version: {
-                                        type: 'text',
-                                        label: 'version',
-                                        value: manifest.version
-                                    },
-                                    permissions: {
-                                        type: 'text',
-                                        label: 'permissions',
-                                        value: manifest.permissions.join(', ').replace('https://www.youtube.com/', 'YouTube')
-                                    },
+                onrender: function() {
+                    var component = this,
+                        manifest = chrome.runtime.getManifest(),
+                        user = Satus.modules.user(),
+                        object = {
+                            extension_section: {
+                                type: 'section',
+                                label: 'extension',
+                                style: {
+                                    'flex-direction': 'column',
+                                    'flex': '0'
                                 },
-                                browser_section: {
-                                    type: 'section',
-                                    label: 'browser',
-                                    style: {
-                                        'flex-direction': 'column',
-                                        'flex': '0'
-                                    },
 
-                                    name: {
-                                        type: 'text',
-                                        label: 'name',
-                                        value: user.browser.name
-                                    },
-                                    version: {
-                                        type: 'text',
-                                        label: 'version',
-                                        value: user.browser.version
-                                    },
-                                    platform: {
-                                        type: 'text',
-                                        label: 'platform',
-                                        value: user.browser.platform
-                                    },
-                                    video_formats: {
-                                        type: 'text',
-                                        label: 'videoFormats',
-                                        value: user.browser.video
-                                    },
-                                    audio_formats: {
-                                        type: 'text',
-                                        label: 'audioFormats',
-                                        value: user.browser.audio
-                                    },
-                                    flash: {
-                                        type: 'text',
-                                        label: 'flash',
-                                        value: user.browser.flash ? true : false
-                                    }
+                                version: {
+                                    type: 'text',
+                                    label: 'version',
+                                    value: manifest.version
                                 },
-                                os_section: {
-                                    type: 'section',
-                                    label: 'os',
-                                    style: {
-                                        'flex-direction': 'column',
-                                        'flex': '0'
-                                    },
-
-                                    os_name: {
-                                        type: 'text',
-                                        label: 'name',
-                                        value: user.os.name
-                                    },
-
-                                    os_type: {
-                                        type: 'text',
-                                        label: 'type',
-                                        value: user.os.type
-                                    }
+                                permissions: {
+                                    type: 'text',
+                                    label: 'permissions',
+                                    value: manifest.permissions.join(', ').replace('https://www.youtube.com/', 'YouTube')
                                 },
-                                device_section: {
-                                    type: 'section',
-                                    label: 'device',
-                                    style: {
-                                        'flex-direction': 'column',
-                                        'flex': '0'
-                                    },
+                            },
+                            browser_section: {
+                                type: 'section',
+                                label: 'browser',
+                                style: {
+                                    'flex-direction': 'column',
+                                    'flex': '0'
+                                },
 
-                                    screen: {
-                                        type: 'text',
-                                        label: 'screen',
-                                        value: user.device.screen
-                                    },
-                                    cores: {
-                                        type: 'text',
-                                        label: 'cores',
-                                        value: user.device.cores
-                                    },
-                                    gpu: {
-                                        type: 'text',
-                                        label: 'gpu',
-                                        value: user.device.gpu
-                                    },
-                                    ram: {
-                                        type: 'text',
-                                        label: 'ram',
-                                        value: user.device.ram
-                                    }
+                                name: {
+                                    type: 'text',
+                                    label: 'name',
+                                    value: user.browser.name
+                                },
+                                version: {
+                                    type: 'text',
+                                    label: 'version',
+                                    value: user.browser.version
+                                },
+                                platform: {
+                                    type: 'text',
+                                    label: 'platform',
+                                    value: user.browser.platform
+                                },
+                                video_formats: {
+                                    type: 'text',
+                                    label: 'videoFormats',
+                                    value: user.browser.video
+                                },
+                                audio_formats: {
+                                    type: 'text',
+                                    label: 'audioFormats',
+                                    value: user.browser.audio
+                                },
+                                flash: {
+                                    type: 'text',
+                                    label: 'flash',
+                                    value: user.browser.flash ? true : false
                                 }
-                            };
+                            },
+                            os_section: {
+                                type: 'section',
+                                label: 'os',
+                                style: {
+                                    'flex-direction': 'column',
+                                    'flex': '0'
+                                },
 
-                        setTimeout(function() {
-                            Satus.render(component.parentNode, object);
+                                os_name: {
+                                    type: 'text',
+                                    label: 'name',
+                                    value: user.os.name
+                                },
 
-                            component.remove();
-                        });
-                    }
+                                os_type: {
+                                    type: 'text',
+                                    label: 'type',
+                                    value: user.os.type
+                                }
+                            },
+                            device_section: {
+                                type: 'section',
+                                label: 'device',
+                                style: {
+                                    'flex-direction': 'column',
+                                    'flex': '0'
+                                },
+
+                                screen: {
+                                    type: 'text',
+                                    label: 'screen',
+                                    value: user.device.screen
+                                },
+                                cores: {
+                                    type: 'text',
+                                    label: 'cores',
+                                    value: user.device.cores
+                                },
+                                gpu: {
+                                    type: 'text',
+                                    label: 'gpu',
+                                    value: user.device.gpu
+                                },
+                                ram: {
+                                    type: 'text',
+                                    label: 'ram',
+                                    value: user.device.ram
+                                }
+                            }
+                        };
+
+                    setTimeout(function() {
+                        Satus.render(object, component.parentNode);
+
+                        component.remove();
+                    });
                 }
             }
         }
@@ -1184,6 +1188,270 @@ Menu.main.section.general = {
         only_one_player_instance_playing: {
             type: 'switch',
             label: 'onlyOnePlayerInstancePlaying'
+        }
+    },
+
+    filters: {
+        type: 'section',
+
+        filters: {
+            type: 'folder',
+            label: 'filters',
+
+            section: {
+                type: 'section',
+
+                bluelight: {
+                    type: 'slider',
+                    label: 'bluelight',
+                    step: 1,
+                    max: 90,
+                    value: 0
+                },
+                dim: {
+                    type: 'slider',
+                    label: 'dim',
+                    step: 1,
+                    max: 90,
+                    value: 0
+                }
+            }
+        },
+        schedule: {
+            type: 'folder',
+            label: 'schedule',
+
+            section: {
+                type: 'section',
+
+                schedule: {
+                    type: 'select',
+                    label: 'schedule',
+
+                    options: [{
+                        label: 'disabled',
+                        value: 'disabled'
+                    }, {
+                        label: 'sunsetToSunrise',
+                        value: 'sunset_to_sunrise'
+                    }, {
+                        label: 'systemPeferenceDark',
+                        value: 'system_peference_dark'
+                    }, {
+                        label: 'systemPeferenceLight',
+                        value: 'system_peference_light'
+                    }]
+                },
+                schedule_time_from: {
+                    type: 'select',
+                    label: 'timeFrom',
+                    options: [{
+                        label: '00:00',
+                        value: '00:00'
+                    }, {
+                        label: '01:00',
+                        value: '01:00'
+                    }, {
+                        label: '02:00',
+                        value: '02:00'
+                    }, {
+                        label: '03:00',
+                        value: '03:00'
+                    }, {
+                        label: '04:00',
+                        value: '04:00'
+                    }, {
+                        label: '05:00',
+                        value: '05:00'
+                    }, {
+                        label: '06:00',
+                        value: '06:00'
+                    }, {
+                        label: '07:00',
+                        value: '07:00'
+                    }, {
+                        label: '08:00',
+                        value: '08:00'
+                    }, {
+                        label: '09:00',
+                        value: '09:00'
+                    }, {
+                        label: '10:00',
+                        value: '10:00'
+                    }, {
+                        label: '11:00',
+                        value: '11:00'
+                    }, {
+                        label: '12:00',
+                        value: '12:00'
+                    }, {
+                        label: '13:00',
+                        value: '13:00'
+                    }, {
+                        label: '14:00',
+                        value: '14:00'
+                    }, {
+                        label: '15:00',
+                        value: '15:00'
+                    }, {
+                        label: '16:00',
+                        value: '16:00'
+                    }, {
+                        label: '17:00',
+                        value: '17:00'
+                    }, {
+                        label: '18:00',
+                        value: '18:00'
+                    }, {
+                        label: '19:00',
+                        value: '19:00'
+                    }, {
+                        label: '20:00',
+                        value: '20:00'
+                    }, {
+                        label: '21:00',
+                        value: '21:00'
+                    }, {
+                        label: '22:00',
+                        value: '22:00'
+                    }, {
+                        label: '23:00',
+                        value: '23:00'
+                    }]
+                },
+                schedule_time_to: {
+                    type: 'select',
+                    label: 'timeTo',
+                    options: [{
+                        label: '00:00',
+                        value: '00:00'
+                    }, {
+                        label: '01:00',
+                        value: '01:00'
+                    }, {
+                        label: '02:00',
+                        value: '02:00'
+                    }, {
+                        label: '03:00',
+                        value: '03:00'
+                    }, {
+                        label: '04:00',
+                        value: '04:00'
+                    }, {
+                        label: '05:00',
+                        value: '05:00'
+                    }, {
+                        label: '06:00',
+                        value: '06:00'
+                    }, {
+                        label: '07:00',
+                        value: '07:00'
+                    }, {
+                        label: '08:00',
+                        value: '08:00'
+                    }, {
+                        label: '09:00',
+                        value: '09:00'
+                    }, {
+                        label: '10:00',
+                        value: '10:00'
+                    }, {
+                        label: '11:00',
+                        value: '11:00'
+                    }, {
+                        label: '12:00',
+                        value: '12:00'
+                    }, {
+                        label: '13:00',
+                        value: '13:00'
+                    }, {
+                        label: '14:00',
+                        value: '14:00'
+                    }, {
+                        label: '15:00',
+                        value: '15:00'
+                    }, {
+                        label: '16:00',
+                        value: '16:00'
+                    }, {
+                        label: '17:00',
+                        value: '17:00'
+                    }, {
+                        label: '18:00',
+                        value: '18:00'
+                    }, {
+                        label: '19:00',
+                        value: '19:00'
+                    }, {
+                        label: '20:00',
+                        value: '20:00'
+                    }, {
+                        label: '21:00',
+                        value: '21:00'
+                    }, {
+                        label: '22:00',
+                        value: '22:00'
+                    }, {
+                        label: '23:00',
+                        value: '23:00'
+                    }]
+                }
+            }
+        }
+    },
+
+    fonts: {
+        type: 'section',
+
+        font: {
+            type: 'select',
+            label: 'font',
+            options: [{
+                label: 'Roboto',
+                value: 'Roboto'
+            }, {
+                label: 'Open Sans',
+                value: 'Open+Sans'
+            }, {
+                label: 'Lato',
+                value: 'Lato'
+            }, {
+                label: 'Montserrat',
+                value: 'Montserrat'
+            }, {
+                label: 'Source Sans Pro',
+                value: 'Source+Sans+Pro'
+            }, {
+                label: 'Roboto Condensed',
+                value: 'Roboto+Condensed'
+            }, {
+                label: 'Oswald',
+                value: 'Oswald'
+            }, {
+                label: 'Comfortaa',
+                value: 'Comfortaa'
+            }, {
+                label: 'Roboto Mono',
+                value: 'Roboto+Mono'
+            }, {
+                label: 'Raleway',
+                value: 'Raleway'
+            }, {
+                label: 'Poppins',
+                value: 'Poppins'
+            }, {
+                label: 'Noto Sans',
+                value: 'Noto+Sans'
+            }, {
+                label: 'Roboto Slab',
+                value: 'Roboto+Slab'
+            }, {
+                label: 'Marriweather',
+                value: 'Marriweather'
+            }, {
+                label: 'PT Sans',
+                value: 'PT+Sans'
+            }]
         }
     },
 
@@ -1581,273 +1849,42 @@ Menu.main.section.themes = {
     class: 'satus-folder--themes',
     appearanceId: 'themes',
 
-    filters: {
+    section: {
         type: 'section',
 
-        filters: {
+        my_colors: {
             type: 'folder',
-            label: 'filters',
+            label: 'myColors',
 
             section: {
                 type: 'section',
 
-                bluelight: {
-                    type: 'slider',
-                    label: 'bluelight',
-                    step: 1,
-                    max: 90,
-                    value: 0
-                },
-                dim: {
-                    type: 'slider',
-                    label: 'dim',
-                    step: 1,
-                    max: 90,
-                    value: 0
+                theme_my_colors: {
+                    type: 'switch',
+                    label: 'activate'
                 }
-            }
-        },
-        schedule: {
-            type: 'folder',
-            label: 'schedule',
+            },
 
-            section: {
+            section2: {
                 type: 'section',
 
-                schedule: {
-                    type: 'select',
-                    label: 'schedule',
-
-                    options: [{
-                        label: 'disabled',
-                        value: 'disabled'
-                    }, {
-                        label: 'sunsetToSunrise',
-                        value: 'sunset_to_sunrise'
-                    }, {
-                        label: 'systemPeferenceDark',
-                        value: 'system_peference_dark'
-                    }, {
-                        label: 'systemPeferenceLight',
-                        value: 'system_peference_light'
-                    }]
+                theme_primary_color: {
+                    type: 'color-picker',
+                    label: 'primaryColor',
+                    value: 'rgba(255,255,255)'
                 },
-                schedule_time_from: {
-                    type: 'select',
-                    label: 'timeFrom',
-                    options: [{
-                        label: '00:00',
-                        value: '00:00'
-                    }, {
-                        label: '01:00',
-                        value: '01:00'
-                    }, {
-                        label: '02:00',
-                        value: '02:00'
-                    }, {
-                        label: '03:00',
-                        value: '03:00'
-                    }, {
-                        label: '04:00',
-                        value: '04:00'
-                    }, {
-                        label: '05:00',
-                        value: '05:00'
-                    }, {
-                        label: '06:00',
-                        value: '06:00'
-                    }, {
-                        label: '07:00',
-                        value: '07:00'
-                    }, {
-                        label: '08:00',
-                        value: '08:00'
-                    }, {
-                        label: '09:00',
-                        value: '09:00'
-                    }, {
-                        label: '10:00',
-                        value: '10:00'
-                    }, {
-                        label: '11:00',
-                        value: '11:00'
-                    }, {
-                        label: '12:00',
-                        value: '12:00'
-                    }, {
-                        label: '13:00',
-                        value: '13:00'
-                    }, {
-                        label: '14:00',
-                        value: '14:00'
-                    }, {
-                        label: '15:00',
-                        value: '15:00'
-                    }, {
-                        label: '16:00',
-                        value: '16:00'
-                    }, {
-                        label: '17:00',
-                        value: '17:00'
-                    }, {
-                        label: '18:00',
-                        value: '18:00'
-                    }, {
-                        label: '19:00',
-                        value: '19:00'
-                    }, {
-                        label: '20:00',
-                        value: '20:00'
-                    }, {
-                        label: '21:00',
-                        value: '21:00'
-                    }, {
-                        label: '22:00',
-                        value: '22:00'
-                    }, {
-                        label: '23:00',
-                        value: '23:00'
-                    }]
-                },
-                schedule_time_to: {
-                    type: 'select',
-                    label: 'timeTo',
-                    options: [{
-                        label: '00:00',
-                        value: '00:00'
-                    }, {
-                        label: '01:00',
-                        value: '01:00'
-                    }, {
-                        label: '02:00',
-                        value: '02:00'
-                    }, {
-                        label: '03:00',
-                        value: '03:00'
-                    }, {
-                        label: '04:00',
-                        value: '04:00'
-                    }, {
-                        label: '05:00',
-                        value: '05:00'
-                    }, {
-                        label: '06:00',
-                        value: '06:00'
-                    }, {
-                        label: '07:00',
-                        value: '07:00'
-                    }, {
-                        label: '08:00',
-                        value: '08:00'
-                    }, {
-                        label: '09:00',
-                        value: '09:00'
-                    }, {
-                        label: '10:00',
-                        value: '10:00'
-                    }, {
-                        label: '11:00',
-                        value: '11:00'
-                    }, {
-                        label: '12:00',
-                        value: '12:00'
-                    }, {
-                        label: '13:00',
-                        value: '13:00'
-                    }, {
-                        label: '14:00',
-                        value: '14:00'
-                    }, {
-                        label: '15:00',
-                        value: '15:00'
-                    }, {
-                        label: '16:00',
-                        value: '16:00'
-                    }, {
-                        label: '17:00',
-                        value: '17:00'
-                    }, {
-                        label: '18:00',
-                        value: '18:00'
-                    }, {
-                        label: '19:00',
-                        value: '19:00'
-                    }, {
-                        label: '20:00',
-                        value: '20:00'
-                    }, {
-                        label: '21:00',
-                        value: '21:00'
-                    }, {
-                        label: '22:00',
-                        value: '22:00'
-                    }, {
-                        label: '23:00',
-                        value: '23:00'
-                    }]
+                theme_text_color: {
+                    type: 'color-picker',
+                    label: 'textColor',
+                    value: 'rgba(25,25,25)'
                 }
             }
-        }
-    },
-
-    fonts: {
-        type: 'section',
-
-        font: {
-            type: 'select',
-            label: 'font',
-            options: [{
-                label: 'Roboto',
-                value: 'Roboto'
-            }, {
-                label: 'Open Sans',
-                value: 'Open+Sans'
-            }, {
-                label: 'Lato',
-                value: 'Lato'
-            }, {
-                label: 'Montserrat',
-                value: 'Montserrat'
-            }, {
-                label: 'Source Sans Pro',
-                value: 'Source+Sans+Pro'
-            }, {
-                label: 'Roboto Condensed',
-                value: 'Roboto+Condensed'
-            }, {
-                label: 'Oswald',
-                value: 'Oswald'
-            }, {
-                label: 'Comfortaa',
-                value: 'Comfortaa'
-            }, {
-                label: 'Roboto Mono',
-                value: 'Roboto+Mono'
-            }, {
-                label: 'Raleway',
-                value: 'Raleway'
-            }, {
-                label: 'Poppins',
-                value: 'Poppins'
-            }, {
-                label: 'Noto Sans',
-                value: 'Noto+Sans'
-            }, {
-                label: 'Roboto Slab',
-                value: 'Roboto+Slab'
-            }, {
-                label: 'Marriweather',
-                value: 'Marriweather'
-            }, {
-                label: 'PT Sans',
-                value: 'PT+Sans'
-            }]
         }
     },
 
     default_dark_theme: {
         type: 'switch',
-        label: 'darkTheme',
+        label: 'dark',
         class: ['satus-switch--dark'],
 
         onchange: function(name, value, component) {

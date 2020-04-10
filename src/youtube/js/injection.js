@@ -77,6 +77,10 @@ chrome.storage.onChanged.addListener(function(changes) {
                 injectScript('ImprovedTube.dim();');
                 injectScript('ImprovedTube.theme();');
             }
+
+            if (key === 'theme_primary_color' || key === 'theme_text_color') {
+                injectScript('ImprovedTube.themeEditor();');
+            }
         }
     }
 });

@@ -2,32 +2,8 @@
     "about": {
         "message": "About"
     },
-    "removeRelatedSearchResults": {
-        "message": "Remove related search results"
-    },
-    "topChat": {
-        "message": "Top chat"
-    },
-    "liveChat": {
-        "message": "Live chat"
-    },
-    "font": {
-        "message": "Font"
-    },
-    "liveChatType": {
-        "message": "Live chat type"
-    },
-    "showCardsOnMouseHover": {
-        "message": "Show cards on mouse hover"
-    },
-    "onlyOnePlayerInstancePlaying": {
-        "message": "Only one player instance playing"
-    },
-    "developerOptions": {
-        "message": "Developer options"
-    },
-    "customJs": {
-        "message": "Custom JS"
+    "myColors": {
+        "message": "My colors"
     },
     "accept": {
         "message": "Accept"
@@ -191,6 +167,9 @@
     "cores": {
         "message": "Cores"
     },
+    "customJs": {
+        "message": "Custom JS"
+    },
     "cyan": {
         "message": "Cyan"
     },
@@ -232,6 +211,9 @@
     },
     "details": {
         "message": "Details"
+    },
+    "developerOptions": {
+        "message": "Developer options"
     },
     "device": {
         "message": "Device"
@@ -286,6 +268,9 @@
     },
     "flash": {
         "message": "Flash"
+    },
+    "font": {
+        "message": "Font"
     },
     "footer": {
         "message": "Footer"
@@ -449,6 +434,9 @@
     "liveChat": {
         "message": "Live chat"
     },
+    "liveChatType": {
+        "message": "Live chat type"
+    },
     "loudnessNormalization": {
         "message": "Loudness normalization"
     },
@@ -496,6 +484,9 @@
     },
     "onlyActiveOnYoutube": {
         "message": "Only active on YouTube"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "Only one player instance playing"
     },
     "onSubscribedChannels": {
         "message": "On subscribed channels"
@@ -560,6 +551,9 @@
     "previousVideo": {
         "message": "Previous video"
     },
+    "primaryColor": {
+        "message": "Primary color"
+    },
     "purple": {
         "message": "Purple"
     },
@@ -577,6 +571,9 @@
     },
     "relatedVideos": {
         "message": "Related videos"
+    },
+    "removeRelatedSearchResults": {
+        "message": "Remove related search results"
     },
     "repeat": {
         "message": "Repeat"
@@ -632,6 +629,9 @@
     "shortcuts": {
         "message": "Shortcuts"
     },
+    "showCardsOnMouseHover": {
+        "message": "Show cards on mouse hover"
+    },
     "showChannelVideosCount": {
         "message": "Show channel videos count"
     },
@@ -680,6 +680,9 @@
     "teal": {
         "message": "Teal"
     },
+    "textColor": {
+        "message": "Text color"
+    },
     "themes": {
         "message": "Themes"
     },
@@ -706,6 +709,9 @@
     },
     "todayAt": {
         "message": "Today at"
+    },
+    "topChat": {
+        "message": "Top chat"
     },
     "trailerAutoplay": {
         "message": "Trailer autoplay"
