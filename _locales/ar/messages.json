@@ -2,6 +2,33 @@
     "about": {
         "message": "حول"
     },
+	"removeRelatedSearchResults": {
+        "message": "إزالة نتائج البحث ذات الصلة"
+    },
+    "topChat": {
+        "message": "أهم الدردشة"
+    },
+    "liveChat": {
+        "message": "دردشة مباشرة"
+    },
+    "font": {
+        "message": "الخط"
+    },
+    "liveChatType": {
+        "message": "نوع الدردشة المباشرة"
+    },
+    "showCardsOnMouseHover": {
+        "message": "عرض البطاقات عند تمرير الماوس"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "تشغيل مشغل واحد فقط"
+    },
+    "developerOptions": {
+        "message": "خيارات للمطور"
+    },
+    "customJs": {
+        "message": "مخصص JS"
+    },
     "accept": {
         "message": "قبول"
     },
@@ -149,6 +176,9 @@
     "collapsed": {
         "message": "مخفية"
     },
+	"collapseOfSubscriptionSections": {
+        "message": "ضغط قسم الاشتراكات"
+    },
     "comments": {
         "message": "التعليقات"
     },
@@ -223,6 +253,9 @@
     },
     "draggable": {
         "message": "قابل للسحب"
+    },
+	"email": {
+        "message": "البريد الإلكتروني"
     },
     "empty": {
         "message": "فارغة"
@@ -419,6 +452,9 @@
     "loudnessNormalization": {
         "message": "تطبيع الإزعاج"
     },
+	"markWatchedVideos": {
+        "message": "التعليم على مقاطع الفيديو المشاهدة"
+    },
     "miniPlayer": {
         "message": "المشغل الصغير"
     },
@@ -439,6 +475,9 @@
     },
     "night": {
         "message": "ليل"
+    },
+	"noActiveFeatures": {
+        "message": "لا يوجد ميزات نشطة"
     },
     "none": {
         "message": "لاشيء"
