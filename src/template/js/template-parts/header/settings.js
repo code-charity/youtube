@@ -190,6 +190,9 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         value: "en",
                         label: "English"
                     }, {
+                        value: 'ar',
+                        label: "العربية"
+                    }, {
                         value: "es",
                         label: "Español"
                     }, {
@@ -677,129 +680,130 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
             type: 'folder',
             before: '<svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" /></svg>',
             label: 'about',
+            appearanceId: 'about',
 
             section: {
                 type: 'section',
-                on: {
-                    render: function(component) {
-                        var manifest = chrome.runtime.getManifest(),
-                            user = Satus.user(),
-                            object = {
-                                extension_section: {
-                                    type: 'section',
-                                    label: 'extension',
-                                    style: {
-                                        'flex-direction': 'column',
-                                        'flex': '0'
-                                    },
 
-                                    version: {
-                                        type: 'text',
-                                        label: 'version',
-                                        value: manifest.version
-                                    },
-                                    permissions: {
-                                        type: 'text',
-                                        label: 'permissions',
-                                        value: manifest.permissions.join(', ').replace('https://www.youtube.com/', 'YouTube')
-                                    },
+                onrender: function() {
+                    var component = this,
+                        manifest = chrome.runtime.getManifest(),
+                        user = Satus.modules.user(),
+                        object = {
+                            extension_section: {
+                                type: 'section',
+                                label: 'extension',
+                                style: {
+                                    'flex-direction': 'column',
+                                    'flex': '0'
                                 },
-                                browser_section: {
-                                    type: 'section',
-                                    label: 'browser',
-                                    style: {
-                                        'flex-direction': 'column',
-                                        'flex': '0'
-                                    },
 
-                                    name: {
-                                        type: 'text',
-                                        label: 'name',
-                                        value: user.browser.name
-                                    },
-                                    version: {
-                                        type: 'text',
-                                        label: 'version',
-                                        value: user.browser.version
-                                    },
-                                    platform: {
-                                        type: 'text',
-                                        label: 'platform',
-                                        value: user.browser.platform
-                                    },
-                                    video_formats: {
-                                        type: 'text',
-                                        label: 'videoFormats',
-                                        value: user.browser.video
-                                    },
-                                    audio_formats: {
-                                        type: 'text',
-                                        label: 'audioFormats',
-                                        value: user.browser.audio
-                                    },
-                                    flash: {
-                                        type: 'text',
-                                        label: 'flash',
-                                        value: user.browser.flash ? true : false
-                                    }
+                                version: {
+                                    type: 'text',
+                                    label: 'version',
+                                    value: manifest.version
                                 },
-                                os_section: {
-                                    type: 'section',
-                                    label: 'os',
-                                    style: {
-                                        'flex-direction': 'column',
-                                        'flex': '0'
-                                    },
-
-                                    os_name: {
-                                        type: 'text',
-                                        label: 'name',
-                                        value: user.os.name
-                                    },
-
-                                    os_type: {
-                                        type: 'text',
-                                        label: 'type',
-                                        value: user.os.type
-                                    }
+                                permissions: {
+                                    type: 'text',
+                                    label: 'permissions',
+                                    value: manifest.permissions.join(', ').replace('https://www.youtube.com/', 'YouTube')
                                 },
-                                device_section: {
-                                    type: 'section',
-                                    label: 'device',
-                                    style: {
-                                        'flex-direction': 'column',
-                                        'flex': '0'
-                                    },
+                            },
+                            browser_section: {
+                                type: 'section',
+                                label: 'browser',
+                                style: {
+                                    'flex-direction': 'column',
+                                    'flex': '0'
+                                },
 
-                                    screen: {
-                                        type: 'text',
-                                        label: 'screen',
-                                        value: user.device.screen
-                                    },
-                                    cores: {
-                                        type: 'text',
-                                        label: 'cores',
-                                        value: user.device.cores
-                                    },
-                                    gpu: {
-                                        type: 'text',
-                                        label: 'gpu',
-                                        value: user.device.gpu
-                                    },
-                                    ram: {
-                                        type: 'text',
-                                        label: 'ram',
-                                        value: user.device.ram
-                                    }
+                                name: {
+                                    type: 'text',
+                                    label: 'name',
+                                    value: user.browser.name
+                                },
+                                version: {
+                                    type: 'text',
+                                    label: 'version',
+                                    value: user.browser.version
+                                },
+                                platform: {
+                                    type: 'text',
+                                    label: 'platform',
+                                    value: user.browser.platform
+                                },
+                                video_formats: {
+                                    type: 'text',
+                                    label: 'videoFormats',
+                                    value: user.browser.video
+                                },
+                                audio_formats: {
+                                    type: 'text',
+                                    label: 'audioFormats',
+                                    value: user.browser.audio
+                                },
+                                flash: {
+                                    type: 'text',
+                                    label: 'flash',
+                                    value: user.browser.flash ? true : false
                                 }
-                            };
+                            },
+                            os_section: {
+                                type: 'section',
+                                label: 'os',
+                                style: {
+                                    'flex-direction': 'column',
+                                    'flex': '0'
+                                },
 
-                        setTimeout(function() {
-                            Satus.render(component.parentNode, object);
+                                os_name: {
+                                    type: 'text',
+                                    label: 'name',
+                                    value: user.os.name
+                                },
 
-                            component.remove();
-                        });
-                    }
+                                os_type: {
+                                    type: 'text',
+                                    label: 'type',
+                                    value: user.os.type
+                                }
+                            },
+                            device_section: {
+                                type: 'section',
+                                label: 'device',
+                                style: {
+                                    'flex-direction': 'column',
+                                    'flex': '0'
+                                },
+
+                                screen: {
+                                    type: 'text',
+                                    label: 'screen',
+                                    value: user.device.screen
+                                },
+                                cores: {
+                                    type: 'text',
+                                    label: 'cores',
+                                    value: user.device.cores
+                                },
+                                gpu: {
+                                    type: 'text',
+                                    label: 'gpu',
+                                    value: user.device.gpu
+                                },
+                                ram: {
+                                    type: 'text',
+                                    label: 'ram',
+                                    value: user.device.ram
+                                }
+                            }
+                        };
+
+                    setTimeout(function() {
+                        Satus.render(object, component.parentNode);
+
+                        component.remove();
+                    });
                 }
             }
         }
