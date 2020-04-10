@@ -154,6 +154,7 @@ ImprovedTube.init = function() {
     //this.objectDefineProperties();
     this.confirmation_before_closing();
     this.shortcuts();
+    this.themeEditor();
     this.theme();
     this.font();
     this.bluelight();

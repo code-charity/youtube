@@ -155,6 +155,7 @@ ImprovedTube.init = function() {
     //this.objectDefineProperties();
     this.confirmation_before_closing();
     this.shortcuts();
+    this.themeEditor();
     this.theme();
     this.font();
     this.bluelight();
@@ -3252,7 +3253,64 @@ ImprovedTube.theme = function() {
     } else {
         document.documentElement.removeAttribute('it-theme', );
     }
-};
+};
+
+
+ImprovedTube.themeEditor = function() {
+    if (this.storage.theme_my_colors !== true) {
+        if (document.querySelector('.it-theme-editor')) {
+            document.querySelector('.it-theme-editor').remove();
+        }
+
+        return false;
+    }
+
+    var style = document.querySelector('.it-theme-editor') || document.createElement('style');
+
+    style.className = 'it-theme-editor';
+    style.innerText = 'html{' +
+        '--yt-swatch-textbox-bg:rgba(19,19,19,1)!important;' +
+        '--yt-swatch-icon-color:rgba(136,136,136,1)!important;' +
+        '--yt-spec-brand-background-primary:rgba(0,0,0, 0.1) !important;' +
+        '--yt-spec-brand-background-secondary:rgba(0,0,0, 0.1) !important;' +
+        '--yt-spec-badge-chip-background:rgba(0, 0, 0, 0.05) !important;' +
+        '--yt-spec-verified-badge-background:rgba(0, 0, 0, 0.15) !important;' +
+        '--yt-spec-button-chip-background-hover:rgba(0, 0, 0, 0.10) !important;' +
+        '--yt-spec-brand-button-background:rgba(136,136,136,1) !important;' +
+        '--yt-spec-filled-button-focus-outline:rgba(0, 0, 0, 0.60) !important;' +
+        '--yt-spec-call-to-action-button-focus-outline:rgba(0,0,0, 0.30) !important;' +
+        '--yt-spec-brand-text-button-focus-outline:rgba(204, 0, 0, 0.30) !important;' +
+        '--yt-spec-10-percent-layer:rgba(136,136,136,1) !important;' +
+        '--yt-swatch-primary:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-swatch-primary-darker:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-spec-brand-background-solid:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-spec-general-background-a:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-spec-general-background-b:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-spec-general-background-c:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-spec-touch-response:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-swatch-text: ' + (this.storage.theme_text_color || '') + '!important;' +
+        '--yt-swatch-important-text: ' + (this.storage.theme_text_color || '') + '!important;' +
+        '--yt-swatch-input-text: ' + (this.storage.theme_text_color || '') + '!important;' +
+        '--yt-swatch-logo-override: ' + (this.storage.theme_text_color || '') + '!important;' +
+        '--yt-spec-text-primary:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-text-primary-inverse:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-text-secondary:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-text-disabled:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-icon-active-other:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-icon-inactive:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-icon-disabled:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-filled-button-text:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-call-to-action-inverse:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-brand-icon-active:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-brand-icon-inactive:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-brand-link-text:' + (this.storage.theme_text_color || '') + '!important;' +
+        '--yt-spec-brand-subscribe-button-background:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-wordmark-text:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-selected-nav-text:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '}';
+
+    document.documentElement.appendChild(style);
+}
 /*-----------------------------------------------------------------------------
 >>> VOLUME MIXER
 -------------------------------------------------------------------------------
@@ -3436,6 +3494,10 @@ chrome.storage.onChanged.addListener(function(changes) {
                 injectScript('ImprovedTube.bluelight();');
                 injectScript('ImprovedTube.dim();');
                 injectScript('ImprovedTube.theme();');
+            }
+
+            if (key === 'theme_primary_color' || key === 'theme_text_color') {
+                injectScript('ImprovedTube.themeEditor();');
             }
         }
     }
