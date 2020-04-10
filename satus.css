@@ -67,6 +67,84 @@
 }
 
 /*--------------------------------------------------------------
+>>> COLOR PICKER
+--------------------------------------------------------------*/
+
+.satus-color-picker
+{
+    font-size: inherit;
+
+    position: relative;
+
+    display: flex;
+
+    box-sizing: border-box;
+    margin: 0;
+
+    cursor: pointer;
+
+    color: inherit;
+    border: none;
+    outline: none;
+    background-color: var(--satus-theme-button, transparent);
+
+    justify-content: space-between;
+    -webkit-tap-highlight-color: transparent;
+    align-items: center;
+    -webkit-appearance: none;
+}
+
+.satus-color-picker__value
+{
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+}
+
+.satus-dialog--color-picker .satus-scrollbar__content
+{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.satus-dialog--color-picker .satus-button
+{
+    box-sizing: unset;
+    width: 24px;
+    height: 24px;
+    margin: 0 0 8px;
+    padding: 8px;
+
+    border-radius: 50%;
+}
+
+.satus-dialog--color-picker .satus-button:hover
+{
+    background-color: rgba(0,0,0,.1);
+}
+
+.satus-dialog--color-picker .satus-button::before
+{
+    content: unset;
+}
+
+.satus-dialog--color-picker .satus-button svg
+{
+    fill: transparent;
+    stroke: currentColor;
+}
+
+.satus-dialog--color-picker canvas
+{
+    width: 200px;
+    height: 200px;
+    margin: 0 0 16px;
+}
+
+/*--------------------------------------------------------------
 >>> DIALOG
 --------------------------------------------------------------*/
 
@@ -476,6 +554,8 @@
     margin: 0;
     padding: 0 16px;
 
+    text-align: left;
+
     color: inherit;
     border: none;
     outline: none;
@@ -496,6 +576,8 @@
 .satus-select__value
 {
     font-size: 12px;
+
+    text-align: right;
 
     opacity: .7;
 }
