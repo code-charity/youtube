@@ -2,32 +2,8 @@
     "about": {
         "message": "حول"
     },
-	"removeRelatedSearchResults": {
-        "message": "إزالة نتائج البحث ذات الصلة"
-    },
-    "topChat": {
-        "message": "أهم الدردشة"
-    },
-    "liveChat": {
-        "message": "دردشة مباشرة"
-    },
-    "font": {
-        "message": "الخط"
-    },
-    "liveChatType": {
-        "message": "نوع الدردشة المباشرة"
-    },
-    "showCardsOnMouseHover": {
-        "message": "عرض البطاقات عند تمرير الماوس"
-    },
-    "onlyOnePlayerInstancePlaying": {
-        "message": "تشغيل مشغل واحد فقط"
-    },
-    "developerOptions": {
-        "message": "خيارات للمطور"
-    },
-    "customJs": {
-        "message": "مخصص JS"
+	"myColors": {
+        "message": "ألواني"
     },
     "accept": {
         "message": "قبول"
@@ -191,6 +167,9 @@
     "cores": {
         "message": "النواه"
     },
+	"customJs": {
+        "message": "مخصص JS"
+    },
     "cyan": {
         "message": "ازرق سماوي"
     },
@@ -232,6 +211,9 @@
     },
     "details": {
         "message": "التفاصيل"
+    },
+	"developerOptions": {
+        "message": "خيارات المطور"
     },
     "device": {
         "message": "الجهاز"
@@ -286,6 +268,9 @@
     },
     "flash": {
         "message": "فلاش"
+    },
+	"font": {
+        "message": "الخط"
     },
     "footer": {
         "message": "الحزء السفلي"
@@ -449,6 +434,9 @@
     "liveChat": {
         "message": "الدردشة المباشرة"
     },
+	"liveChatType": {
+        "message": "نوع الدردشة المباشرة"
+    },
     "loudnessNormalization": {
         "message": "تطبيع الإزعاج"
     },
@@ -496,6 +484,9 @@
     },
     "onlyActiveOnYoutube": {
         "message": "نشط فقط على اليوتيوب"
+    },
+	"onlyOnePlayerInstancePlaying": {
+        "message": "تشغيل مشغل واحد فقط"
     },
     "onSubscribedChannels": {
         "message": "على القنوات المشتركة"
@@ -560,6 +551,9 @@
     "previousVideo": {
         "message": "الفيديو السابق"
     },
+	"primaryColor": {
+        "message": "اللون الأصلي"
+    },
     "purple": {
         "message": "أرجواني"
     },
@@ -577,6 +571,9 @@
     },
     "relatedVideos": {
         "message": "فيديوهات ذات علاقة"
+    },
+	"removeRelatedSearchResults": {
+        "message": "إزالة نتائج البحث ذات الصلة"
     },
     "repeat": {
         "message": "تكرار"
@@ -632,6 +629,9 @@
     "shortcuts": {
         "message": "اختصارات"
     },
+	"showCardsOnMouseHover": {
+        "message": "عرض البطاقات عند تمرير الماوس"
+    },
     "showChannelVideosCount": {
         "message": "إظهار عدد مقاطع الفيديو للقناة"
     },
@@ -680,6 +680,9 @@
     "teal": {
         "message": "أزرق مخضر"
     },
+	"textColor": {
+        "message": "لون النص"
+    },
     "themes": {
         "message": "المظاهر"
     },
@@ -706,6 +709,9 @@
     },
     "todayAt": {
         "message": "اليوم الساعة"
+    },
+	"topChat": {
+        "message": "أهم الدردشة"
     },
     "trailerAutoplay": {
         "message": "التشغيل التلقائي للغرض"
