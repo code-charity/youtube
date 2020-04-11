@@ -52,13 +52,17 @@ ImprovedTube.player_quality = function(node) {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.player_volume = function(node) {
-    var volume = Number(ImprovedTube.storage.player_volume);
-
     if (!node) {
         node = document.querySelector('.html5-video-player');
     }
 
-    if (node && ImprovedTube.isset(volume) && ImprovedTube.storage.player_forced_volume === true) {
+    if (node && ImprovedTube.storage.player_forced_volume === true) {
+        var volume = Number(ImprovedTube.storage.player_volume);
+
+        if (!ImprovedTube.isset(volume) || !volume) {
+            volume = 1;
+        }
+
         if (volume >= 0) {
             node.unMute();
         }
