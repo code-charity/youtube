@@ -2,32 +2,14 @@
     "about": {
         "message": "Al riguardo"
     },
-    "removeRelatedSearchResults": {
-        "message": "Rimuovi risultati di ricerca correlati"
+    "translations": {
+        "message": "Translations"
     },
-    "topChat": {
-        "message": "Chat superiore"
+    "customCss": {
+        "message": "Custom CSS"
     },
-    "liveChat": {
-        "message": "Chat live"
-    },
-    "font": {
-        "message": "Font"
-    },
-    "liveChatType": {
-        "message": "Tipologia chat live"
-    },
-    "showCardsOnMouseHover": {
-        "message": "Mostra tessere di fine video al passaggio del mouse"
-    },
-    "onlyOnePlayerInstancePlaying": {
-        "message": "Istanza unica di riproduttore video attiva"
-    },
-    "developerOptions": {
-        "message": "Opzioni per gli sviluppatori"
-    },
-    "customJs": {
-        "message": "JS personalizzato"
+    "myColors": {
+        "message": "My colors"
     },
     "accept": {
         "message": "Accetta"
@@ -191,6 +173,9 @@
     "cores": {
         "message": "Colori"
     },
+    "customJs": {
+        "message": "JS personalizzato"
+    },
     "cyan": {
         "message": "Ciano"
     },
@@ -232,6 +217,9 @@
     },
     "details": {
         "message": "Dettagli"
+    },
+    "developerOptions": {
+        "message": "Opzioni per gli sviluppatori"
     },
     "device": {
         "message": "Dispositivo"
@@ -286,6 +274,9 @@
     },
     "flash": {
         "message": "Flash"
+    },
+    "font": {
+        "message": "Font"
     },
     "footer": {
         "message": "Footer"
@@ -449,6 +440,9 @@
     "liveChat": {
         "message": "Chat dal vivo"
     },
+    "liveChatType": {
+        "message": "Tipologia chat live"
+    },
     "loudnessNormalization": {
         "message": "Normalizzazione rumorosità"
     },
@@ -496,6 +490,9 @@
     },
     "onlyActiveOnYoutube": {
         "message": "Attivo solo su YouTube"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "Istanza unica di riproduttore video attiva"
     },
     "onSubscribedChannels": {
         "message": "Sui canali iscritti"
@@ -560,6 +557,9 @@
     "previousVideo": {
         "message": "Video precedente"
     },
+    "primaryColor": {
+        "message": "Primary color"
+    },
     "purple": {
         "message": "Viola"
     },
@@ -577,6 +577,9 @@
     },
     "relatedVideos": {
         "message": "Video correlati"
+    },
+    "removeRelatedSearchResults": {
+        "message": "Rimuovi risultati di ricerca correlati"
     },
     "repeat": {
         "message": "Ripeti"
@@ -632,6 +635,9 @@
     "shortcuts": {
         "message": "Scorciatoie"
     },
+    "showCardsOnMouseHover": {
+        "message": "Mostra tessere di fine video al passaggio del mouse"
+    },
     "showChannelVideosCount": {
         "message": "Mostra contatore visualizzazioni canale"
     },
@@ -680,6 +686,9 @@
     "teal": {
         "message": "Verde acqua"
     },
+    "textColor": {
+        "message": "Text color"
+    },
     "themes": {
         "message": "Temi"
     },
@@ -706,6 +715,9 @@
     },
     "todayAt": {
         "message": "Oggi alle"
+    },
+    "topChat": {
+        "message": "Chat superiore"
     },
     "trailerAutoplay": {
         "message": "Avvio automatico trailer"

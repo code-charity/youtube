@@ -1,13 +1,15 @@
 document.addEventListener('ImprovedTubeBlacklist', function(event) {
-    chrome.runtime.sendMessage({
-        name: 'improvedtube-blacklist',
-        data: {
-            type: event.detail.type,
-            id: event.detail.id,
-            title: event.detail.title,
-            preview: event.detail.preview
-        }
-    });
+    if (chrome && chrome.runtime) {
+        chrome.runtime.sendMessage({
+            name: 'improvedtube-blacklist',
+            data: {
+                type: event.detail.type,
+                id: event.detail.id,
+                title: event.detail.title,
+                preview: event.detail.preview
+            }
+        });
+    }
 });
 
 ImprovedTube.blacklist = function() {

@@ -37,6 +37,10 @@ chrome.storage.local.get(function(items) {
         injectScript('try{' + items.custom_js + '} catch (err) { console.error(err); }');
     }
 
+    if (items.custom_css && items.custom_css.length > 0) {
+        injectStyle(items.custom_css, 'it-custom-css');
+    }
+
     withoutInjection(items);
 
     content += 'storage:' + JSON.stringify(items);
@@ -80,6 +84,12 @@ chrome.storage.onChanged.addListener(function(changes) {
 
             if (key === 'theme_primary_color' || key === 'theme_text_color') {
                 injectScript('ImprovedTube.themeEditor();');
+            }
+
+            if (items.custom_css && items.custom_css.length > 0) {
+                injectStyle(items.custom_css, 'it-custom-css');
+            } else if (document.querySelector('#it-custom-css')) {
+                document.querySelector('#it-custom-css').remove();
             }
         }
     }

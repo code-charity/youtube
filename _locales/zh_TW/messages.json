@@ -2,8 +2,29 @@
     "about": {
         "message": "關於"
     },
+    "translations": {
+        "message": "Translations"
+    },
+    "customCss": {
+        "message": "Custom CSS"
+    },
+    "myColors": {
+        "message": "My colors"
+    },
+    "accept": {
+        "message": "Accept"
+    },
+    "activate": {
+        "message": "Activate"
+    },
     "activateCaptions": {
         "message": "開啟 字幕"
+    },
+    "activated": {
+        "message": "Activated"
+    },
+    "activatedFeatures": {
+        "message": "Activated features"
     },
     "activateFullscreen": {
         "message": "開啟 全螢幕"
@@ -16,6 +37,9 @@
     },
     "ads": {
         "message": "廣告"
+    },
+    "all": {
+        "message": "All"
     },
     "allow": {
         "message": "允許"
@@ -49,6 +73,9 @@
     },
     "ARROWUP": {
         "message": "⇧"
+    },
+    "audio": {
+        "message": "Audio"
     },
     "audioFormats": {
         "message": "Audio formats"
@@ -101,6 +128,9 @@
     "browserVersion": {
         "message": "瀏覽器 版本"
     },
+    "bubbles": {
+        "message": "Bubbles"
+    },
     "bug": {
         "message": "Bug"
     },
@@ -110,17 +140,26 @@
     "cancel": {
         "message": "Cancel"
     },
+    "categories": {
+        "message": "Categories"
+    },
     "channel": {
         "message": "Channel"
     },
     "channels": {
         "message": "Channels"
     },
+    "clipboard": {
+        "message": "Clipboard"
+    },
     "codecH264": {
         "message": "影片編解碼器 h.264"
     },
     "collapsed": {
         "message": "簡縮"
+    },
+    "collapseOfSubscriptionSections": {
+        "message": "Collapse of subscription sections"
     },
     "comments": {
         "message": "評論"
@@ -133,6 +172,9 @@
     },
     "cores": {
         "message": "Cores"
+    },
+    "customJs": {
+        "message": "Custom JS"
     },
     "cyan": {
         "message": "青色"
@@ -176,6 +218,9 @@
     "details": {
         "message": "細節"
     },
+    "developerOptions": {
+        "message": "Developer options"
+    },
     "device": {
         "message": "Device"
     },
@@ -197,8 +242,17 @@
     "draggable": {
         "message": "可拖動"
     },
+    "email": {
+        "message": "Email"
+    },
+    "empty": {
+        "message": "Empty"
+    },
     "enabled": {
         "message": "啟用"
+    },
+    "enabledForced": {
+        "message": "Enabled (forced)"
     },
     "expanded": {
         "message": "擴展"
@@ -209,6 +263,9 @@
     "extension": {
         "message": "Extension"
     },
+    "file": {
+        "message": "File"
+    },
     "filters": {
         "message": "Filters"
     },
@@ -218,8 +275,14 @@
     "flash": {
         "message": "Flash"
     },
+    "font": {
+        "message": "Font"
+    },
     "footer": {
         "message": "頁腳"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Forced playback speed"
     },
     "forcedTheaterMode": {
         "message": "強制劇院模式"
@@ -311,6 +374,9 @@
     "howLongAgoTheVideoWasUploaded": {
         "message": "視頻上傳了多久"
     },
+    "icons": {
+        "message": "Icons"
+    },
     "iconsOnly": {
         "message": "只有圖標"
     },
@@ -341,6 +407,9 @@
     "indigo": {
         "message": "靛青"
     },
+    "items": {
+        "message": "Items"
+    },
     "languages": {
         "message": "語言"
     },
@@ -365,11 +434,20 @@
     "lime": {
         "message": "Lime"
     },
+    "list": {
+        "message": "List"
+    },
     "liveChat": {
         "message": "Live 聊天視窗"
     },
+    "liveChatType": {
+        "message": "Live chat type"
+    },
     "loudnessNormalization": {
         "message": "Loudness normalization"
+    },
+    "markWatchedVideos": {
+        "message": "Mark watched videos"
     },
     "miniPlayer": {
         "message": "迷你播放器"
@@ -392,6 +470,9 @@
     "night": {
         "message": "夜晚"
     },
+    "noActiveFeatures": {
+        "message": "No active features"
+    },
     "none": {
         "message": "None"
     },
@@ -409,6 +490,9 @@
     },
     "onlyActiveOnYoutube": {
         "message": "僅在YouTube上有效"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "Only one player instance playing"
     },
     "onSubscribedChannels": {
         "message": "On subscribed channels"
@@ -473,6 +557,9 @@
     "previousVideo": {
         "message": "回到之前的影片"
     },
+    "primaryColor": {
+        "message": "Primary color"
+    },
     "purple": {
         "message": "紫色"
     },
@@ -491,6 +578,9 @@
     "relatedVideos": {
         "message": "推薦影片"
     },
+    "removeRelatedSearchResults": {
+        "message": "Remove related search results"
+    },
     "repeat": {
         "message": "重複播放"
     },
@@ -499,6 +589,9 @@
     },
     "resetAllSettings": {
         "message": "重置所有設置"
+    },
+    "resetAllShortcuts": {
+        "message": "Reset all shortcuts"
     },
     "reverse": {
         "message": "Reverse"
@@ -542,6 +635,9 @@
     "shortcuts": {
         "message": "快捷鍵"
     },
+    "showCardsOnMouseHover": {
+        "message": "Show cards on mouse hover"
+    },
     "showChannelVideosCount": {
         "message": "顯示頻道影片數量"
     },
@@ -562,6 +658,12 @@
     },
     "stop": {
         "message": "停止"
+    },
+    "style": {
+        "message": "Style"
+    },
+    "styles": {
+        "message": "Styles"
     },
     "subscriptions": {
         "message": "訂閱內容"
@@ -584,6 +686,9 @@
     "teal": {
         "message": "Teal"
     },
+    "textColor": {
+        "message": "Text color"
+    },
     "themes": {
         "message": "主題"
     },
@@ -596,6 +701,9 @@
     "thisWillResetAllSettings": {
         "message": "這將會重置所有設置。"
     },
+    "thisWillResetAllShortcuts": {
+        "message": "This will reset all shortcuts"
+    },
     "thumbnails": {
         "message": "縮略圖"
     },
@@ -607,6 +715,9 @@
     },
     "todayAt": {
         "message": "Today at"
+    },
+    "topChat": {
+        "message": "Top chat"
     },
     "trailerAutoplay": {
         "message": "預告片自動播放"
@@ -631,6 +742,9 @@
     },
     "version": {
         "message": "版本"
+    },
+    "video": {
+        "message": "Video"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
         "message": "The video description will be expanded to get the name of the category"

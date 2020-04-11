@@ -4,7 +4,7 @@ Satus.storage.import(function() {
     if (!Satus.storage.get('language')) {
         var dialog = {
             type: 'dialog',
-            class: 'satus-dialog--setup',
+            class: 'satus-dialog--setup satus-dialog--setup-language',
 
             en: {
                 type: 'button',
@@ -13,6 +13,10 @@ Satus.storage.import(function() {
             es: {
                 type: 'button',
                 label: "Español"
+            },
+            ar: {
+                type: 'button',
+                label: "العربية"
             },
             de: {
                 type: 'button',

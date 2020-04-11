@@ -30,7 +30,7 @@ function isset(variable) {
     return true;
 }
 
-function getTranslations() {
+function getTranslations(path) {
     var xhr = new XMLHttpRequest();
 
     xhr.addEventListener('load', function() {
@@ -53,7 +53,7 @@ function getTranslations() {
         });
     });
 
-    xhr.open('GET', '../_locales/' + locale_code + '/messages.json', true);
+    xhr.open('GET', path, true);
     xhr.send();
 }
 
@@ -119,7 +119,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
         }
 
         if (request.name === 'translation_request') {
-            getTranslations();
+            getTranslations(request.path);
         }
 
         if (request.name === 'improvedtube-analyzer') {

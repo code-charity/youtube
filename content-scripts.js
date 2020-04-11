@@ -1,4 +1,4 @@
-
+
 /*-----------------------------------------------------------------------------
 >>> CORE
 -------------------------------------------------------------------------------
@@ -175,7 +175,7 @@ ImprovedTube.init = function() {
 
 function withoutInjection(object) {
     youtubeHomePage__documentStart(object.youtube_home_page);
-}
+}
 /*-----------------------------------------------------------------------------
 >>> EVENTS
 -------------------------------------------------------------------------------
@@ -307,7 +307,7 @@ ImprovedTube.events = function() {
         ImprovedTube.allow_autoplay = true;
         ImprovedTube.videoUrl = location.href;
     }, true);
-};
+};
 ImprovedTube.videoUrl = '"null"';
 ImprovedTube.playingTime = 0;
 
@@ -339,13 +339,15 @@ chrome.storage.local.get(function(items) {
                 category = document.querySelector('#watch-description-extras .watch-info-tag-list a').innerText;
             }
 
-            chrome.runtime.sendMessage({
-                name: 'improvedtube-analyzer',
-                value: category
-            });
+            if (chrome && chrome.runtime) {
+                chrome.runtime.sendMessage({
+                    name: 'improvedtube-analyzer',
+                    value: category
+                });
+            }
         }
     });
-});
+});
 /*-----------------------------------------------------------------------------
 >>> APPEARANCE
 -------------------------------------------------------------------------------
@@ -751,17 +753,19 @@ ImprovedTube.related_videos = function() {
             }
         }, 260);
     }
-};
+};
 document.addEventListener('ImprovedTubeBlacklist', function(event) {
-    chrome.runtime.sendMessage({
-        name: 'improvedtube-blacklist',
-        data: {
-            type: event.detail.type,
-            id: event.detail.id,
-            title: event.detail.title,
-            preview: event.detail.preview
-        }
-    });
+    if (chrome && chrome.runtime) {
+        chrome.runtime.sendMessage({
+            name: 'improvedtube-blacklist',
+            data: {
+                type: event.detail.type,
+                id: event.detail.id,
+                title: event.detail.title,
+                preview: event.detail.preview
+            }
+        });
+    }
 });
 
 ImprovedTube.blacklist = function() {
@@ -953,7 +957,7 @@ ImprovedTube.blacklist = function() {
             }
         }
     }
-};
+};
 /*-----------------------------------------------------------------------------
 >>> CHANNEL
 -------------------------------------------------------------------------------
@@ -1005,7 +1009,7 @@ ImprovedTube.channel_default_tab = function() {
             node_list[i].href = node_list[i].getAttribute('it-origin');
         }
     }
-};
+};
 /*-----------------------------------------------------------------------------
 >>> GENERAL
 -------------------------------------------------------------------------------
@@ -1268,14 +1272,16 @@ ImprovedTube.collapse_of_subscription_sections = function() {
 -----------------------------------------------------------------------------*/
 
 document.addEventListener('ImprovedTubeWatched', function(event) {
-    chrome.runtime.sendMessage({
-        name: 'improvedtube-watched',
-        data: {
-            action: event.detail.action,
-            id: event.detail.id,
-            title: event.detail.title
-        }
-    });
+    if (chrome && chrome.runtime) {
+        chrome.runtime.sendMessage({
+            name: 'improvedtube-watched',
+            data: {
+                action: event.detail.action,
+                id: event.detail.id,
+                title: event.detail.title
+            }
+        });
+    }
 });
 
 ImprovedTube.mark_watched_videos = function() {
@@ -1345,7 +1351,7 @@ ImprovedTube.mark_watched_videos = function() {
             }
         }
     }
-};
+};
 /*-----------------------------------------------------------------------------
 >>> PLAYER
 -------------------------------------------------------------------------------
@@ -1400,13 +1406,17 @@ ImprovedTube.player_quality = function(node) {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.player_volume = function(node) {
-    var volume = Number(ImprovedTube.storage.player_volume);
-
     if (!node) {
         node = document.querySelector('.html5-video-player');
     }
 
-    if (node && ImprovedTube.isset(volume) && ImprovedTube.storage.player_forced_volume === true) {
+    if (node && ImprovedTube.storage.player_forced_volume === true) {
+        var volume = Number(ImprovedTube.storage.player_volume);
+
+        if (!ImprovedTube.isset(volume) || !volume) {
+            volume = 1;
+        }
+
         if (volume >= 0) {
             node.unMute();
         }
@@ -2171,7 +2181,7 @@ ImprovedTube.player_loudness_normalization = function() {
             console.log(err);
         }
     }
-};
+};
 /*-----------------------------------------------------------------------------
 >>> PLAYLIST
 -------------------------------------------------------------------------------
@@ -2439,7 +2449,7 @@ ImprovedTube.playlist_shuffle = function() {
             }
         }, 250);
     }
-};
+};
 /*-----------------------------------------------------------------------------
 >>> SETTINGS
 -------------------------------------------------------------------------------
@@ -2674,7 +2684,7 @@ ImprovedTube.youtube_language = function() {
     setTimeout(function() {
         location.reload();
     }, 100);
-};
+};
 /*-----------------------------------------------------------------------------
 >>> SHORTCUTS
 -------------------------------------------------------------------------------
@@ -3006,7 +3016,7 @@ ImprovedTube.shortcuts = function() {
         passive: false,
         capture: true
     });
-};
+};
 /*-----------------------------------------------------------------------------
 >>> THEMES
 -------------------------------------------------------------------------------
@@ -3310,7 +3320,7 @@ ImprovedTube.themeEditor = function() {
         '}';
 
     document.documentElement.appendChild(style);
-}
+}
 /*-----------------------------------------------------------------------------
 >>> VOLUME MIXER
 -------------------------------------------------------------------------------
@@ -3321,7 +3331,7 @@ ImprovedTube.themeEditor = function() {
 1.0 Inject
 -----------------------------------------------------------------------------*/
 
-ImprovedTube.volumeMixer = function() {};
+ImprovedTube.volumeMixer = function() {};
 /*-----------------------------------------------------------------------------
 >>> FUNCTIONS
 -------------------------------------------------------------------------------
@@ -3336,6 +3346,14 @@ function injectScript(string) {
     document.documentElement.appendChild(script);
 
     script.remove();
+}
+
+function injectStyle(string, id) {
+    var style = document.getElementById(id) || document.createElement('style');
+
+    style.textContent = string;
+
+    document.documentElement.appendChild(style);
 }
 
 ImprovedTube.isset = function(variable) {
@@ -3415,7 +3433,7 @@ ImprovedTube.pageType = function() {
 
 chrome.runtime.sendMessage({
     enabled: true
-});
+});
 /*-----------------------------------------------------------------------------
 >>> INJECTION
 -------------------------------------------------------------------------------
@@ -3453,6 +3471,10 @@ chrome.storage.local.get(function(items) {
 
     if (items.custom_js && items.custom_js.length > 0) {
         injectScript('try{' + items.custom_js + '} catch (err) { console.error(err); }');
+    }
+
+    if (items.custom_css && items.custom_css.length > 0) {
+        injectStyle(items.custom_css, 'it-custom-css');
     }
 
     withoutInjection(items);
@@ -3499,6 +3521,12 @@ chrome.storage.onChanged.addListener(function(changes) {
             if (key === 'theme_primary_color' || key === 'theme_text_color') {
                 injectScript('ImprovedTube.themeEditor();');
             }
+
+            if (items.custom_css && items.custom_css.length > 0) {
+                injectStyle(items.custom_css, 'it-custom-css');
+            } else if (document.querySelector('#it-custom-css')) {
+                document.querySelector('#it-custom-css').remove();
+            }
         }
     }
 });
@@ -3543,7 +3571,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             location.reload();
         }, 250);
     }
-});
+});
 /*-----------------------------------------------------------------------------
 >>> MIGRATION
 -------------------------------------------------------------------------------
@@ -4080,7 +4108,7 @@ chrome.storage.local.get(function(object) {
 
         location.reload();
     }
-});
+});
 /*-----------------------------------------------------------------------------
 >>> MUTATIONS
 -------------------------------------------------------------------------------
@@ -4094,10 +4122,12 @@ chrome.storage.local.get(function(object) {
 
 
 document.addEventListener('ImprovedTubePlayVideo', function(event) {
-    chrome.runtime.sendMessage({
-        name: 'improvedtube-play',
-        id: new URL(location.href).searchParams.get('v')
-    });
+    if (chrome && chrome.runtime) {
+        chrome.runtime.sendMessage({
+            name: 'improvedtube-play',
+            id: new URL(location.href).searchParams.get('v')
+        });
+    }
 });
 
 /*-----------------------------------------------------------------------------

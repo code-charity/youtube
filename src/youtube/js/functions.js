@@ -14,6 +14,14 @@ function injectScript(string) {
     script.remove();
 }
 
+function injectStyle(string, id) {
+    var style = document.getElementById(id) || document.createElement('style');
+
+    style.textContent = string;
+
+    document.documentElement.appendChild(style);
+}
+
 ImprovedTube.isset = function(variable) {
     if (typeof variable === 'undefined' || variable === null) {
         return false;

@@ -2,9 +2,6 @@
     "about": {
         "message": "About"
     },
-    "myColors": {
-        "message": "My colors"
-    },
     "accept": {
         "message": "Accept"
     },
@@ -166,6 +163,9 @@
     },
     "cores": {
         "message": "Cores"
+    },
+    "customCss": {
+        "message": "Custom CSS"
     },
     "customJs": {
         "message": "Custom JS"
@@ -449,6 +449,9 @@
     "mixer": {
         "message": "Mixer"
     },
+    "myColors": {
+        "message": "My colors"
+    },
     "name": {
         "message": "Name"
     },
@@ -715,6 +718,9 @@
     },
     "trailerAutoplay": {
         "message": "Trailer autoplay"
+    },
+    "translations": {
+        "message": "Translations"
     },
     "transparentBackground": {
         "message": "Transparent background"

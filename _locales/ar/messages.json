@@ -2,9 +2,6 @@
     "about": {
         "message": "حول"
     },
-	"myColors": {
-        "message": "ألواني"
-    },
     "accept": {
         "message": "قبول"
     },
@@ -152,7 +149,7 @@
     "collapsed": {
         "message": "مخفية"
     },
-	"collapseOfSubscriptionSections": {
+    "collapseOfSubscriptionSections": {
         "message": "ضغط قسم الاشتراكات"
     },
     "comments": {
@@ -167,7 +164,10 @@
     "cores": {
         "message": "النواه"
     },
-	"customJs": {
+    "customCss": {
+        "message": "Custom CSS"
+    },
+    "customJs": {
         "message": "مخصص JS"
     },
     "cyan": {
@@ -212,7 +212,7 @@
     "details": {
         "message": "التفاصيل"
     },
-	"developerOptions": {
+    "developerOptions": {
         "message": "خيارات المطور"
     },
     "device": {
@@ -236,7 +236,7 @@
     "draggable": {
         "message": "قابل للسحب"
     },
-	"email": {
+    "email": {
         "message": "البريد الإلكتروني"
     },
     "empty": {
@@ -269,7 +269,7 @@
     "flash": {
         "message": "فلاش"
     },
-	"font": {
+    "font": {
         "message": "الخط"
     },
     "footer": {
@@ -434,13 +434,13 @@
     "liveChat": {
         "message": "الدردشة المباشرة"
     },
-	"liveChatType": {
+    "liveChatType": {
         "message": "نوع الدردشة المباشرة"
     },
     "loudnessNormalization": {
         "message": "تطبيع الإزعاج"
     },
-	"markWatchedVideos": {
+    "markWatchedVideos": {
         "message": "التعليم على مقاطع الفيديو المشاهدة"
     },
     "miniPlayer": {
@@ -448,6 +448,9 @@
     },
     "mixer": {
         "message": "مهندس الصوت"
+    },
+    "myColors": {
+        "message": "ألواني"
     },
     "name": {
         "message": "الاسم"
@@ -464,7 +467,7 @@
     "night": {
         "message": "ليل"
     },
-	"noActiveFeatures": {
+    "noActiveFeatures": {
         "message": "لا يوجد ميزات نشطة"
     },
     "none": {
@@ -485,7 +488,7 @@
     "onlyActiveOnYoutube": {
         "message": "نشط فقط على اليوتيوب"
     },
-	"onlyOnePlayerInstancePlaying": {
+    "onlyOnePlayerInstancePlaying": {
         "message": "تشغيل مشغل واحد فقط"
     },
     "onSubscribedChannels": {
@@ -551,7 +554,7 @@
     "previousVideo": {
         "message": "الفيديو السابق"
     },
-	"primaryColor": {
+    "primaryColor": {
         "message": "اللون الأصلي"
     },
     "purple": {
@@ -572,7 +575,7 @@
     "relatedVideos": {
         "message": "فيديوهات ذات علاقة"
     },
-	"removeRelatedSearchResults": {
+    "removeRelatedSearchResults": {
         "message": "إزالة نتائج البحث ذات الصلة"
     },
     "repeat": {
@@ -629,7 +632,7 @@
     "shortcuts": {
         "message": "اختصارات"
     },
-	"showCardsOnMouseHover": {
+    "showCardsOnMouseHover": {
         "message": "عرض البطاقات عند تمرير الماوس"
     },
     "showChannelVideosCount": {
@@ -680,7 +683,7 @@
     "teal": {
         "message": "أزرق مخضر"
     },
-	"textColor": {
+    "textColor": {
         "message": "لون النص"
     },
     "themes": {
@@ -710,11 +713,14 @@
     "todayAt": {
         "message": "اليوم الساعة"
     },
-	"topChat": {
+    "topChat": {
         "message": "أهم الدردشة"
     },
     "trailerAutoplay": {
         "message": "التشغيل التلقائي للغرض"
+    },
+    "translations": {
+        "message": "Translations"
     },
     "transparentBackground": {
         "message": "خلفية شفافة"

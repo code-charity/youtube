@@ -260,14 +260,16 @@ ImprovedTube.collapse_of_subscription_sections = function() {
 -----------------------------------------------------------------------------*/
 
 document.addEventListener('ImprovedTubeWatched', function(event) {
-    chrome.runtime.sendMessage({
-        name: 'improvedtube-watched',
-        data: {
-            action: event.detail.action,
-            id: event.detail.id,
-            title: event.detail.title
-        }
-    });
+    if (chrome && chrome.runtime) {
+        chrome.runtime.sendMessage({
+            name: 'improvedtube-watched',
+            data: {
+                action: event.detail.action,
+                id: event.detail.id,
+                title: event.detail.title
+            }
+        });
+    }
 });
 
 ImprovedTube.mark_watched_videos = function() {

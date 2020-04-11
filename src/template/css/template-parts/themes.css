@@ -15,6 +15,7 @@
 .satus-main__container[data-appearance='themes'] .satus-switch
 {
     width: calc(100% - 16px);
+    max-width: 900px;
     height: 80px;
     margin: 8px auto;
 

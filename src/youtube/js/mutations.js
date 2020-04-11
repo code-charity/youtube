@@ -11,10 +11,12 @@
 
 
 document.addEventListener('ImprovedTubePlayVideo', function(event) {
-    chrome.runtime.sendMessage({
-        name: 'improvedtube-play',
-        id: new URL(location.href).searchParams.get('v')
-    });
+    if (chrome && chrome.runtime) {
+        chrome.runtime.sendMessage({
+            name: 'improvedtube-play',
+            id: new URL(location.href).searchParams.get('v')
+        });
+    }
 });
 
 /*-----------------------------------------------------------------------------

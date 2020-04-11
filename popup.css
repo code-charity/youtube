@@ -1,7 +1,7 @@
-
+
 html {
     --satus-theme-primary: #f6b465;
-}
+}
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -50,11 +50,50 @@ body
     background-color: #eee;
 }
 
+body.improvedtube-page
+{
+    width: 100vw;
+    height: 100vh;
+}
+
 button
 {
     font-family: 'Open Sans', sans-serif;
 }
-
+
+.satus-dialog--setup
+{
+    animation: unset;
+}
+
+.satus-dialog--setup .satus-dialog__scrim
+{
+    display: none;
+}
+
+.satus-dialog--setup .satus-dialog__surface
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    max-height: unset;
+
+    transform: unset;
+    animation: unset;
+
+    opacity: 1;
+    border-radius: unset;
+}
+
+.satus-dialog--setup-language .satus-button
+{
+    width: 100%;
+    height: 48px;
+}
+
 /*--------------------------------------------------------------
 >>> HEADER:
 ----------------------------------------------------------------
@@ -164,6 +203,7 @@ body[data-appearance='home'] .satus-text--title
 
     width: calc(100% - 62px);
     min-width: unset;
+    max-width: unset;
     height: 34px;
     padding: 0;
 
@@ -252,7 +292,7 @@ body[data-appearance='home'] .satus-text--title
     width: 18px;
     height: 18px;
 }
-
+
 /*--------------------------------------------------------------
 >>> MAIN:
 ----------------------------------------------------------------
@@ -272,33 +312,6 @@ body[data-appearance='home'] .satus-text--title
     flex: 1;
 }
 
-.satus-dialog--setup
-{
-    animation: unset;
-}
-
-.satus-dialog--setup .satus-dialog__scrim
-{
-    display: none;
-}
-
-.satus-dialog--setup .satus-dialog__surface
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-    max-height: unset;
-
-    transform: unset;
-    animation: unset;
-
-    opacity: 1;
-    border-radius: unset;
-}
-
 
 /*--------------------------------------------------------------
 2.0 SECTION
@@ -311,6 +324,7 @@ body[data-appearance='home'] .satus-text--title
     display: block;
 
     width: calc(100% - 16px);
+    max-width: 900px;
     margin: 16px auto 8px;
 }
 
@@ -384,7 +398,7 @@ body[data-appearance='home'] .satus-text--title
 
     opacity: 1;
 }
-
+
 /*--------------------------------------------------------------
 >>> HOME
 --------------------------------------------------------------*/
@@ -577,7 +591,7 @@ body[data-appearance='home'] .satus-text--title
     fill: transparent;
     stroke: var(--satus-theme-on-surface, #777);
 }
-
+
 /*--------------------------------------------------------------
 # APPEARANCE
 --------------------------------------------------------------*/
@@ -712,7 +726,7 @@ body[data-appearance='home'] .satus-text--title
     height: 160px;
 
     background-color: var(--satus-theme-surface, #fff);
-}
+}
 /*-----------------------------------------------------------------------------
 # THEMES CATEGORY
 -----------------------------------------------------------------------------*/
@@ -730,6 +744,7 @@ body[data-appearance='home'] .satus-text--title
 .satus-main__container[data-appearance='themes'] .satus-switch
 {
     width: calc(100% - 16px);
+    max-width: 900px;
     height: 80px;
     margin: 8px auto;
 
@@ -1077,7 +1092,7 @@ body[data-appearance='home'] .satus-text--title
 {
     background: #000 !important;
 }
-
+
 /*-----------------------------------------------------------------------------
 # BLACKLIST CATEGORY
 -----------------------------------------------------------------------------*/
@@ -1179,7 +1194,7 @@ body[data-appearance='home'] .satus-text--title
     visibility: visible;
 
     opacity: 1;
-}
+}
 /*-----------------------------------------------------------------------------
 # ANALYZER CATEGORY
 -----------------------------------------------------------------------------*/
@@ -1348,7 +1363,7 @@ body[data-appearance='home'] .satus-text--title
 {
     color: #ff9800;
 }
-
+
 /*-----------------------------------------------------------------------------
 # MIXER CATEGORY
 -----------------------------------------------------------------------------*/
@@ -1435,7 +1450,7 @@ body[data-appearance='home'] .satus-text--title
     text-align: center;
 
     opacity: .8;
-}
+}
 .satus-main__container[data-appearance='about'] .satus-text
 {
     display: flex;

@@ -27,7 +27,7 @@ Menu.main.section.themes = {
                 theme_primary_color: {
                     type: 'color-picker',
                     label: 'primaryColor',
-                    value: 'rgba(255,255,255)'
+                    value: 'rgba(200,200,200)'
                 },
                 theme_text_color: {
                     type: 'color-picker',

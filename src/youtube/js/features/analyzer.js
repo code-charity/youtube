@@ -29,10 +29,12 @@ chrome.storage.local.get(function(items) {
                 category = document.querySelector('#watch-description-extras .watch-info-tag-list a').innerText;
             }
 
-            chrome.runtime.sendMessage({
-                name: 'improvedtube-analyzer',
-                value: category
-            });
+            if (chrome && chrome.runtime) {
+                chrome.runtime.sendMessage({
+                    name: 'improvedtube-analyzer',
+                    value: category
+                });
+            }
         }
     });
 });

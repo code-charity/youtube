@@ -1,4 +1,4 @@
-
+
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -55,28 +55,6 @@ Satus.storage.clear = function(callback) {};
 
 Satus.locale = {
     messages: {}
-};
-
-
-/*--------------------------------------------------------------
-# IMPORT LOCALE
---------------------------------------------------------------*/
-
-Satus.locale.import = function(src, callback) {
-    var xhr = new XMLHttpRequest();
-
-    xhr.onload = function() {
-        var object = JSON.parse(this.responseText);
-
-        for (var key in object) {
-            Satus.locale.messages[key] = object[key].message;
-        }
-
-        callback();
-    };
-
-    xhr.open('GET', src, true);
-    xhr.send();
 };
 
 
@@ -205,7 +183,7 @@ Satus.camelize = function(string) {
 
 Satus.getAnimationDuration = function(element) {
     return Number(window.getComputedStyle(element).getPropertyValue('animation-duration').replace(/[^0-9.]/g, '')) * 1000;
-};
+};
 /*--------------------------------------------------------------
 >>> CHROMIUM STORAGE
 ----------------------------------------------------------------
@@ -272,7 +250,52 @@ Satus.storage.clear = function() {
             delete Satus.storage[key];
         }
     }
-};
+};
+/*--------------------------------------------------------------
+# IMPORT LOCALE
+--------------------------------------------------------------*/
+
+Satus.locale.import = function(src, callback) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.onload = function() {
+        try {
+            var object = JSON.parse(this.responseText);
+
+            for (var key in object) {
+                Satus.locale.messages[key] = object[key].message;
+            }
+
+            callback();
+        } catch (err) {
+            function listener(request) {
+                if (request !== null && typeof request === 'object') {
+                    if (request.name === 'translation_response') {
+                        var object = JSON.parse(request.value);
+
+                        chrome.runtime.onMessage.removeListener(listener);
+
+                        for (var key in object) {
+                            Satus.locale.messages[key] = object[key].message;
+                        }
+
+                        callback();
+                    }
+                }
+            }
+
+            chrome.runtime.onMessage.addListener(listener);
+
+            chrome.runtime.sendMessage({
+                name: 'translation_request',
+                path: src
+            });
+        }
+    };
+
+    xhr.open('GET', src, true);
+    xhr.send();
+};
 /*-----------------------------------------------------------------------------
 >>> «SEARCH» MODULE
 -----------------------------------------------------------------------------*/
@@ -305,7 +328,7 @@ Satus.search = function(query, object, callback) {
     }
 
     parse(object);
-};
+};
 /*--------------------------------------------------------------
 >>> STORAGE KEYS
 --------------------------------------------------------------*/
@@ -337,7 +360,7 @@ Satus.modules.updateStorageKeys = function(object, callback) {
     }
 
     parse(object);
-};
+};
 /*-----------------------------------------------------------------------------
 >>> «USER» MODULE
 -------------------------------------------------------------------------------
@@ -697,7 +720,7 @@ Satus.modules.user = function() {
 
 
     return data;
-};
+};
 /*--------------------------------------------------------------
 >>> BUTTON
 --------------------------------------------------------------*/
@@ -724,7 +747,7 @@ Satus.components.button = function(element) {
     }
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> COLOR PICKER
 --------------------------------------------------------------*/
@@ -804,7 +827,7 @@ Satus.components.colorPicker = function(element) {
     component.appendChild(component_value);
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> DIALOG
 --------------------------------------------------------------*/
@@ -892,7 +915,7 @@ Satus.components.dialog = function(element) {
     // END OPTIONS
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> FOLDER
 --------------------------------------------------------------*/
@@ -924,7 +947,7 @@ Satus.components.folder = function(object) {
     }
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> HEADER
 --------------------------------------------------------------*/
@@ -937,7 +960,7 @@ Satus.components.header = function(object) {
 	}
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> MAIN
 --------------------------------------------------------------*/
@@ -1028,7 +1051,7 @@ Satus.components.main = function(object) {
     component.appendChild(component_container);
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> SCROLL BAR
 --------------------------------------------------------------*/
@@ -1044,7 +1067,7 @@ Satus.components.scrollbar = function(parent) {
     component_content.className = 'satus-scrollbar__content';
     component_thumb.className = 'satus-scrollbar__thumb';
 
-    parent.addEventListener('resize', function(event) {
+    window.addEventListener('resize', function(event) {
         component_content.style.width = component.offsetWidth + 'px';
     });
 
@@ -1076,6 +1099,7 @@ Satus.components.scrollbar = function(parent) {
 
     new MutationObserver(function() {
         component_content.style.width = component.offsetWidth + 'px';
+        component_wrapper.style.height = component.offsetHeight + 'px';
 
         if (component_wrapper.scrollHeight > component_wrapper.offsetHeight) {
             component_thumb.style.height = component_wrapper.offsetHeight / component_wrapper.scrollHeight * component_wrapper.offsetHeight + 'px';
@@ -1115,7 +1139,7 @@ Satus.components.scrollbar = function(parent) {
     parent.appendChild(component);
 
     return component_content;
-};
+};
 /*--------------------------------------------------------------
 >>> SECTION
 --------------------------------------------------------------*/
@@ -1128,7 +1152,7 @@ Satus.components.section = function(element) {
 	}
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> SELECT
 --------------------------------------------------------------*/
@@ -1162,24 +1186,17 @@ Satus.components.select = function(element) {
         var position = this.getBoundingClientRect(),
             dialog = {
                 type: 'dialog',
-                class: 'satus-dialog--select-component',
-
-                section: {
-                    type: 'section',
-                    style: {
-                        width: position.width + 'px'
-                    }
-                }
+                class: 'satus-dialog--select-component'
             };
 
         for (var key in element.options) {
-            dialog.section[key] = element.options[key];
+            dialog[key] = element.options[key];
 
-            dialog.section[key].type = 'button';
-            dialog.section[key].dataset = {};
-            dialog.section[key].dataset.key = element.options[key].label;
-            dialog.section[key].dataset.value = element.options[key].value;
-            dialog.section[key].onclick = function() {
+            dialog[key].type = 'button';
+            dialog[key].dataset = {};
+            dialog[key].dataset.key = element.options[key].label;
+            dialog[key].dataset.value = element.options[key].value;
+            dialog[key].onclick = function() {
                 component_value.innerText = Satus.locale.getMessage(this.dataset.key);
 
                 Satus.storage.set(component.dataset.storageKey, this.dataset.value);
@@ -1201,7 +1218,7 @@ Satus.components.select = function(element) {
     component.appendChild(component_value);
 
     return component;
-};
+};
 /*------------------------------------------------------------------------------
 >>> SHORTCUT
 ------------------------------------------------------------------------------*/
@@ -1390,7 +1407,7 @@ Satus.components.shortcut = function(element) {
     component.appendChild(component_value);
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> SLIDER
 --------------------------------------------------------------*/
@@ -1431,6 +1448,8 @@ Satus.components.slider = function(element) {
 
         Satus.storage.set(this.dataset.storageKey, Number(this.value));
 
+        component_thumb.dataset.value = this.value;
+
         if (component.onchange) {
             component.onchange(Number(this.value));
         }
@@ -1439,8 +1458,26 @@ Satus.components.slider = function(element) {
     component.change = function(value) {
         component_range.value = value;
 
+        component_thumb.dataset.value = value;
+
         component_range.oninput();
     };
+
+    component.addEventListener('mousedown', function() {
+        function mousemove() {
+            component.classList.add('satus-slider--dragging');
+        }
+
+        function mouseup() {
+            component.classList.remove('satus-slider--dragging');
+            
+            window.removeEventListener('mousemove', mousemove);
+            window.removeEventListener('mouseup', mouseup);
+        }
+
+        window.addEventListener('mousemove', mousemove);
+        window.addEventListener('mouseup', mouseup);
+    });
 
     if (element.onchange) {
         component.onchange = element.onchange;
@@ -1467,26 +1504,6 @@ Satus.components.slider = function(element) {
     component_track_container.appendChild(component_track);
     component_container.appendChild(component_track_container);
 
-    if (element.storage_key) {
-        var value = Satus.storage.get(element.storage_key) || element.value;
-
-        component_range.dataset.storageKey = element.storage_key;
-
-        if (value) {
-            component_range.value = value;
-
-            if (!Satus.isset(value)) {
-                value = element.value;
-            }
-
-            var offset = (Number(component_range.value) - Number(component_range.min)) / (Number(component_range.max) - Number(component_range.min)) * 100;
-
-            component_track.style.width = 'calc(' + offset + '% - ' + Math.floor(offset * 12 / 100) + 'px)';
-        } else {
-            component_range.value = 0;
-        }
-    }
-
 
     // FOCUS RING
     var component_ring = document.createElement('div');
@@ -1503,9 +1520,31 @@ Satus.components.slider = function(element) {
 
     component_track.appendChild(component_thumb);
 
+    if (element.storage_key) {
+        var value = Satus.storage.get(element.storage_key) || element.value;
+
+        component_range.dataset.storageKey = element.storage_key;
+
+        if (value) {
+            component_range.value = value;
+
+            if (!Satus.isset(value)) {
+                value = element.value;
+            }
+
+            var offset = (Number(component_range.value) - Number(component_range.min)) / (Number(component_range.max) - Number(component_range.min)) * 100;
+
+            component_track.style.width = 'calc(' + offset + '% - ' + Math.floor(offset * 12 / 100) + 'px)';
+            component_thumb.dataset.value = value;
+        } else {
+            component_range.value = 0;
+            component_thumb.dataset.value = 0;
+        }
+    }
+
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> SWITCH
 --------------------------------------------------------------*/
@@ -1644,7 +1683,7 @@ Satus.components.switch = function(element) {
 
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> TEXT
 --------------------------------------------------------------*/
@@ -1671,7 +1710,7 @@ Satus.components.text = function(element) {
     }
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> TEXT FIELD
 --------------------------------------------------------------*/

@@ -59,6 +59,7 @@
     "popup.css": [
         "src/template/css/themes.css",
         "src/template/css/index.css",
+        "src/template/css/setup.css",
         "src/template/css/header.css",
         "src/template/css/main.css",
         "src/template/css/template-parts/home.css",

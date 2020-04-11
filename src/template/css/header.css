@@ -107,6 +107,7 @@ body[data-appearance='home'] .satus-text--title
 
     width: calc(100% - 62px);
     min-width: unset;
+    max-width: unset;
     height: 34px;
     padding: 0;
 
