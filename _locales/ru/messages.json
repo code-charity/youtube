@@ -2,8 +2,29 @@
     "about": {
         "message": "Об ImprovedTube"
     },
+    "translations": {
+        "message": "Translations"
+    },
+    "customCss": {
+        "message": "Custom CSS"
+    },
+    "myColors": {
+        "message": "My colors"
+    },
+    "accept": {
+        "message": "Accept"
+    },
+    "activate": {
+        "message": "Activate"
+    },
     "activateCaptions": {
         "message": "Активировать субтитры"
+    },
+    "activated": {
+        "message": "Activated"
+    },
+    "activatedFeatures": {
+        "message": "Activated features"
     },
     "activateFullscreen": {
         "message": "Перейти в полноэкранный режим"
@@ -16,6 +37,9 @@
     },
     "ads": {
         "message": "Реклама"
+    },
+    "all": {
+        "message": "All"
     },
     "allow": {
         "message": "Разрешить"
@@ -49,6 +73,9 @@
     },
     "ARROWUP": {
         "message": "⇧"
+    },
+    "audio": {
+        "message": "Audio"
     },
     "audioFormats": {
         "message": "Аудио форматы"
@@ -101,6 +128,9 @@
     "browserVersion": {
         "message": "Версия браузера"
     },
+    "bubbles": {
+        "message": "Bubbles"
+    },
     "bug": {
         "message": "Ошибка"
     },
@@ -110,17 +140,26 @@
     "cancel": {
         "message": "Отмена"
     },
+    "categories": {
+        "message": "Categories"
+    },
     "channel": {
         "message": "Канал"
     },
     "channels": {
         "message": "Каналы"
     },
+    "clipboard": {
+        "message": "Clipboard"
+    },
     "codecH264": {
         "message": "Кодек h.264"
     },
     "collapsed": {
         "message": "Свернуть"
+    },
+    "collapseOfSubscriptionSections": {
+        "message": "Collapse of subscription sections"
     },
     "comments": {
         "message": "Комментарии"
@@ -133,6 +172,9 @@
     },
     "cores": {
         "message": "Ядра"
+    },
+    "customJs": {
+        "message": "Custom JS"
     },
     "cyan": {
         "message": "Сине-зелёный"
@@ -176,6 +218,9 @@
     "details": {
         "message": "Детали"
     },
+    "developerOptions": {
+        "message": "Developer options"
+    },
     "device": {
         "message": "Устройство"
     },
@@ -197,8 +242,17 @@
     "draggable": {
         "message": "Перетаскиваемый"
     },
+    "email": {
+        "message": "Email"
+    },
+    "empty": {
+        "message": "Empty"
+    },
     "enabled": {
         "message": "Включено"
+    },
+    "enabledForced": {
+        "message": "Enabled (forced)"
     },
     "expanded": {
         "message": "Развернуть"
@@ -209,14 +263,26 @@
     "extension": {
         "message": "Расширение"
     },
+    "file": {
+        "message": "File"
+    },
     "filters": {
         "message": "Фильтры"
+    },
+    "fitToWindow": {
+        "message": "Fit to window"
     },
     "flash": {
         "message": "Flash"
     },
+    "font": {
+        "message": "Font"
+    },
     "footer": {
         "message": "Подвал"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Forced playback speed"
     },
     "forcedTheaterMode": {
         "message": "Принудительный переход в театральный режим"
@@ -308,6 +374,9 @@
     "howLongAgoTheVideoWasUploaded": {
         "message": "Показать как давно было загружено видео"
     },
+    "icons": {
+        "message": "Icons"
+    },
     "iconsOnly": {
         "message": "Только значки"
     },
@@ -338,6 +407,9 @@
     "indigo": {
         "message": "Индиго"
     },
+    "items": {
+        "message": "Items"
+    },
     "languages": {
         "message": "Языки"
     },
@@ -362,11 +434,20 @@
     "lime": {
         "message": "Лайм"
     },
+    "list": {
+        "message": "List"
+    },
     "liveChat": {
         "message": "Живой чат"
     },
+    "liveChatType": {
+        "message": "Live chat type"
+    },
     "loudnessNormalization": {
         "message": "Нормализация громкости"
+    },
+    "markWatchedVideos": {
+        "message": "Mark watched videos"
     },
     "miniPlayer": {
         "message": "Мини плеер"
@@ -389,6 +470,9 @@
     "night": {
         "message": "Ночь"
     },
+    "noActiveFeatures": {
+        "message": "No active features"
+    },
     "none": {
         "message": "Пусто"
     },
@@ -406,6 +490,9 @@
     },
     "onlyActiveOnYoutube": {
         "message": "Активен только в YouTube"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "Only one player instance playing"
     },
     "onSubscribedChannels": {
         "message": "Только на подписанных каналах"
@@ -470,6 +557,9 @@
     "previousVideo": {
         "message": "Предыдущее видео"
     },
+    "primaryColor": {
+        "message": "Primary color"
+    },
     "purple": {
         "message": "Пурпурный"
     },
@@ -488,6 +578,9 @@
     "relatedVideos": {
         "message": "Похожие видео"
     },
+    "removeRelatedSearchResults": {
+        "message": "Remove related search results"
+    },
     "repeat": {
         "message": "Повтор"
     },
@@ -496,6 +589,9 @@
     },
     "resetAllSettings": {
         "message": "Сбросить все настройки"
+    },
+    "resetAllShortcuts": {
+        "message": "Reset all shortcuts"
     },
     "reverse": {
         "message": "Обратный порядок"
@@ -539,6 +635,9 @@
     "shortcuts": {
         "message": "Горячие клавиши"
     },
+    "showCardsOnMouseHover": {
+        "message": "Show cards on mouse hover"
+    },
     "showChannelVideosCount": {
         "message": "Показать количество видео на канале"
     },
@@ -559,6 +658,12 @@
     },
     "stop": {
         "message": "Стоп"
+    },
+    "style": {
+        "message": "Style"
+    },
+    "styles": {
+        "message": "Styles"
     },
     "subscriptions": {
         "message": "Подписки"
@@ -581,6 +686,9 @@
     "teal": {
         "message": "Бирюзовый"
     },
+    "textColor": {
+        "message": "Text color"
+    },
     "themes": {
         "message": "Темы"
     },
@@ -593,6 +701,9 @@
     "thisWillResetAllSettings": {
         "message": "Это сбросит все настройки."
     },
+    "thisWillResetAllShortcuts": {
+        "message": "This will reset all shortcuts"
+    },
     "thumbnails": {
         "message": "Превью"
     },
@@ -604,6 +715,9 @@
     },
     "todayAt": {
         "message": "Сегодня в"
+    },
+    "topChat": {
+        "message": "Top chat"
     },
     "trailerAutoplay": {
         "message": "Автовоспроизведение трейлера"
@@ -628,6 +742,9 @@
     },
     "version": {
         "message": "Версия"
+    },
+    "video": {
+        "message": "Video"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
         "message": "Описание видео будет развернуто, чтобы получить название категории видео"

@@ -46,6 +46,12 @@ body
     background-color: #eee;
 }
 
+body.improvedtube-page
+{
+    width: 100vw;
+    height: 100vh;
+}
+
 button
 {
     font-family: 'Open Sans', sans-serif;

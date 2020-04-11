@@ -2,8 +2,29 @@
     "about": {
         "message": "Over"
     },
+    "translations": {
+        "message": "Translations"
+    },
+    "customCss": {
+        "message": "Custom CSS"
+    },
+    "myColors": {
+        "message": "My colors"
+    },
+    "accept": {
+        "message": "Accept"
+    },
+    "activate": {
+        "message": "Activate"
+    },
     "activateCaptions": {
         "message": "Activate captions"
+    },
+    "activated": {
+        "message": "Activated"
+    },
+    "activatedFeatures": {
+        "message": "Activated features"
     },
     "activateFullscreen": {
         "message": "Activate fullscreen"
@@ -16,6 +37,9 @@
     },
     "ads": {
         "message": "Ads"
+    },
+    "all": {
+        "message": "All"
     },
     "allow": {
         "message": "Allow"
@@ -49,6 +73,9 @@
     },
     "ARROWUP": {
         "message": "⇧"
+    },
+    "audio": {
+        "message": "Audio"
     },
     "audioFormats": {
         "message": "Audio formats"
@@ -101,6 +128,9 @@
     "browserVersion": {
         "message": "Browser version"
     },
+    "bubbles": {
+        "message": "Bubbles"
+    },
     "bug": {
         "message": "Bug"
     },
@@ -110,17 +140,26 @@
     "cancel": {
         "message": "Cancel"
     },
+    "categories": {
+        "message": "Categories"
+    },
     "channel": {
         "message": "Kanaal"
     },
     "channels": {
         "message": "Channels"
     },
+    "clipboard": {
+        "message": "Clipboard"
+    },
     "codecH264": {
         "message": "Encodering h.264"
     },
     "collapsed": {
         "message": "Ingeklapt"
+    },
+    "collapseOfSubscriptionSections": {
+        "message": "Collapse of subscription sections"
     },
     "comments": {
         "message": "Reacties"
@@ -133,6 +172,9 @@
     },
     "cores": {
         "message": "Cores"
+    },
+    "customJs": {
+        "message": "Custom JS"
     },
     "cyan": {
         "message": "Cyan"
@@ -176,6 +218,9 @@
     "details": {
         "message": "Details"
     },
+    "developerOptions": {
+        "message": "Developer options"
+    },
     "device": {
         "message": "Device"
     },
@@ -197,8 +242,17 @@
     "draggable": {
         "message": "Draggable"
     },
+    "email": {
+        "message": "Email"
+    },
+    "empty": {
+        "message": "Empty"
+    },
     "enabled": {
         "message": "Ingeschakeld"
+    },
+    "enabledForced": {
+        "message": "Enabled (forced)"
     },
     "expanded": {
         "message": "Uitgeklapt"
@@ -209,6 +263,9 @@
     "extension": {
         "message": "Extension"
     },
+    "file": {
+        "message": "File"
+    },
     "filters": {
         "message": "Filters"
     },
@@ -218,8 +275,14 @@
     "flash": {
         "message": "Flash"
     },
+    "font": {
+        "message": "Font"
+    },
     "footer": {
         "message": "Footer"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Forced playback speed"
     },
     "forcedTheaterMode": {
         "message": "Theatermodus afdwingen"
@@ -311,6 +374,9 @@
     "howLongAgoTheVideoWasUploaded": {
         "message": "Wanneer de video werd geüpload"
     },
+    "icons": {
+        "message": "Icons"
+    },
     "iconsOnly": {
         "message": "Alleen pictogrammen"
     },
@@ -341,6 +407,9 @@
     "indigo": {
         "message": "Indigo"
     },
+    "items": {
+        "message": "Items"
+    },
     "languages": {
         "message": "Languages"
     },
@@ -365,11 +434,20 @@
     "lime": {
         "message": "Lime"
     },
+    "list": {
+        "message": "List"
+    },
     "liveChat": {
         "message": "Live chat"
     },
+    "liveChatType": {
+        "message": "Live chat type"
+    },
     "loudnessNormalization": {
         "message": "Volumenormalisering toepassen"
+    },
+    "markWatchedVideos": {
+        "message": "Mark watched videos"
     },
     "miniPlayer": {
         "message": "Minispeler"
@@ -392,6 +470,9 @@
     "night": {
         "message": "Night"
     },
+    "noActiveFeatures": {
+        "message": "No active features"
+    },
     "none": {
         "message": "None"
     },
@@ -409,6 +490,9 @@
     },
     "onlyActiveOnYoutube": {
         "message": "Only active on YouTube"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "Only one player instance playing"
     },
     "onSubscribedChannels": {
         "message": "On subscribed channels"
@@ -473,6 +557,9 @@
     "previousVideo": {
         "message": "Vorige video afspelen"
     },
+    "primaryColor": {
+        "message": "Primary color"
+    },
     "purple": {
         "message": "Purple"
     },
@@ -491,6 +578,9 @@
     "relatedVideos": {
         "message": "Gerelateerde video's"
     },
+    "removeRelatedSearchResults": {
+        "message": "Remove related search results"
+    },
     "repeat": {
         "message": "Herhalen"
     },
@@ -499,6 +589,9 @@
     },
     "resetAllSettings": {
         "message": "Standaardwaarden herstelle"
+    },
+    "resetAllShortcuts": {
+        "message": "Reset all shortcuts"
     },
     "reverse": {
         "message": "Omdraaien"
@@ -542,6 +635,9 @@
     "shortcuts": {
         "message": "Sneltoetsen"
     },
+    "showCardsOnMouseHover": {
+        "message": "Show cards on mouse hover"
+    },
     "showChannelVideosCount": {
         "message": "Aantal video's op kanaal tonen"
     },
@@ -562,6 +658,12 @@
     },
     "stop": {
         "message": "Stop"
+    },
+    "style": {
+        "message": "Style"
+    },
+    "styles": {
+        "message": "Styles"
     },
     "subscriptions": {
         "message": "Subscriptions"
@@ -584,6 +686,9 @@
     "teal": {
         "message": "Teal"
     },
+    "textColor": {
+        "message": "Text color"
+    },
     "themes": {
         "message": "Thema's"
     },
@@ -596,6 +701,9 @@
     "thisWillResetAllSettings": {
         "message": "This will reset all settings."
     },
+    "thisWillResetAllShortcuts": {
+        "message": "This will reset all shortcuts"
+    },
     "thumbnails": {
         "message": "Miniatuurvoorbeelden"
     },
@@ -607,6 +715,9 @@
     },
     "todayAt": {
         "message": "Today at"
+    },
+    "topChat": {
+        "message": "Top chat"
     },
     "trailerAutoplay": {
         "message": "Trailer automatisch afspelen"
@@ -631,6 +742,9 @@
     },
     "version": {
         "message": "Versie"
+    },
+    "video": {
+        "message": "Video"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
         "message": "The video description will be expanded to get the name of the category"

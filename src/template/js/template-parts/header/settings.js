@@ -15,13 +15,13 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
             before: '<svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>',
             label: 'developerOptions',
 
-            section_label: {
+            custom_js_section_label: {
                 type: 'text',
                 class: 'satus-section--label',
                 label: 'customJs'
             },
 
-            section: {
+            custom_js_section: {
                 type: 'section',
                 custom_js: {
                     type: 'text-field',
@@ -32,7 +32,45 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         Satus.storage.set('custom_js', this.value);
                     }
                 }
-            }
+            },
+
+            custom_css_section_label: {
+                type: 'text',
+                class: 'satus-section--label',
+                label: 'customCss'
+            },
+
+            custom_css_section: {
+                type: 'section',
+                custom_css: {
+                    type: 'text-field',
+                    onrender: function() {
+                        this.value = Satus.storage.get('custom_css') || '';
+                    },
+                    oninput: function() {
+                        Satus.storage.set('custom_css', this.value);
+                    }
+                }
+            },
+
+            /*translations_section_label: {
+                type: 'text',
+                class: 'satus-section--label',
+                label: 'translations'
+            },
+
+            translations_section: {
+                type: 'section',
+                onrender: function() {
+                    Satus.search('language', Menu, function(result) {
+                        var languages = result.language.options;
+
+                        for (var i = 0, l = languages.length; i < l; i++) {
+
+                        }
+                    })
+                }
+            }*/
         },
     },
 
@@ -180,8 +218,8 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         Satus.locale(function() {
                             document.querySelector('.satus-main__container').innerHTML = '';
 
-                            document.querySelector('.satus-header__title').innerText = Satus.memory.get('locale/languages');
-                            document.querySelector('#search').placeholder = Satus.memory.get('locale/search');
+                            document.querySelector('.satus-header__title').innerText = Satus.locale.getMessage('languages');
+                            document.querySelector('#search').placeholder = Satus.locale.getMessage('search');
 
                             Satus.render(document.querySelector('.satus-main__container'), Menu.main.section.settings.section.languages);
                         });

@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "ImprovedTube",
     "version": "3.0",
-    "version_name": "3.0-alpha2",
+    "version_name": "3.0-alpha3",
     "icons": {
         "16": "assets/icons/16.png",
         "32": "assets/icons/32.png",
@@ -34,6 +34,29 @@
             "https://www.youtube.com/improvedtube",
             "https://www.youtube.com/tv*",
             "https://www.youtube.com/audiolibrary/*"
+        ],
+        "run_at": "document_start"
+    }, {
+        "all_frames": false,
+        "css": [
+            "satus.css",
+            "popup.css"
+        ],
+        "js": [
+            "satus.js",
+            "popup.js"
+        ],
+        "matches": [
+            "https://www.youtube.com/improvedtube"
+        ],
+        "run_at": "document_end"
+    }, {
+        "all_frames": false,
+        "js": [
+            "page.js"
+        ],
+        "matches": [
+            "https://www.youtube.com/improvedtube"
         ],
         "run_at": "document_start"
     }],

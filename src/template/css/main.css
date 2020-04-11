@@ -17,33 +17,6 @@
     flex: 1;
 }
 
-.satus-dialog--setup
-{
-    animation: unset;
-}
-
-.satus-dialog--setup .satus-dialog__scrim
-{
-    display: none;
-}
-
-.satus-dialog--setup .satus-dialog__surface
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-    max-height: unset;
-
-    transform: unset;
-    animation: unset;
-
-    opacity: 1;
-    border-radius: unset;
-}
-
 
 /*--------------------------------------------------------------
 2.0 SECTION
@@ -56,6 +29,7 @@
     display: block;
 
     width: calc(100% - 16px);
+    max-width: 900px;
     margin: 16px auto 8px;
 }
 
