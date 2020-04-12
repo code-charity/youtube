@@ -89,6 +89,8 @@ ImprovedTube.playerUpdate = function(node, hard) {
         this.playingTime = 0;
         this.allow_autoplay = false;
 
+        document.dispatchEvent(new CustomEvent('ImprovedTubePlayVideo'));
+
         this.fitToWindow();
         this.always_show_progress_bar();
         this.playlist_reverse();
@@ -126,7 +128,7 @@ ImprovedTube.playerUpdate = function(node, hard) {
         this.fitToWindow();
         this.playlist_reverse();
         this.player_hd_thumbnail();
-        this.player_quality(player);
+        //this.player_quality(player);
         this.player_volume(player);
         this.player_playback_speed(player);
         this.up_next_autoplay();
@@ -1415,10 +1417,8 @@ ImprovedTube.player_volume = function(node) {
 
         if (!ImprovedTube.isset(volume) || !volume) {
             volume = 1;
-        }
-
-        if (volume >= 0) {
-            node.unMute();
+        } else if (volume > 1) {
+            volume = volume / 100;
         }
 
         node.querySelector('video').volume = volume;
@@ -4119,8 +4119,6 @@ chrome.storage.local.get(function(object) {
 4.0 ytPlayerApplicationCreateMod
 -----------------------------------------------------------------------------*/
 
-
-
 document.addEventListener('ImprovedTubePlayVideo', function(event) {
     if (chrome && chrome.runtime) {
         chrome.runtime.sendMessage({
@@ -4171,8 +4169,6 @@ ImprovedTube.mutations = function() {
             }
 
             ImprovedTube.player_loudness_normalization();
-
-            document.dispatchEvent(new CustomEvent('ImprovedTubePlayVideo'));
 
             return original.apply(this, arguments);
         }

@@ -516,7 +516,6 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                             var input = document.createElement('input');
 
                             input.type = 'file';
-                            input.accept = '.json';
 
                             input.addEventListener('change', function() {
                                 var file_reader = new FileReader();
