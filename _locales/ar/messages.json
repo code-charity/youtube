@@ -147,7 +147,7 @@
         "message": "h.الترميز 264"
     },
     "collapsed": {
-        "message": "مخفية"
+        "message": "ضغط"
     },
     "collapseOfSubscriptionSections": {
         "message": "ضغط قسم الاشتراكات"
@@ -165,7 +165,7 @@
         "message": "النواه"
     },
     "customCss": {
-        "message": "Custom CSS"
+        "message": "مخصص CSS"
     },
     "customJs": {
         "message": "مخصص JS"
@@ -189,7 +189,7 @@
         "message": "تقليل سرعة التشغيل"
     },
     "decreaseVolume5": {
-        "message": "5% خفض مستوى الصوت"
+        "message": "5% خفض الصوت"
     },
     "deepOrange": {
         "message": "برتقالي غامق"
@@ -330,7 +330,7 @@
         "message": "إخفاء البطاقات"
     },
     "hideDetails": {
-        "message": "أخف التفاصيل"
+        "message": "إخفاء التفاصيل"
     },
     "hideEndscreen": {
         "message": "إخفاء شاشة النهاية"
@@ -348,7 +348,7 @@
         "message": "إخفاء الأزرار اليسرى"
     },
     "hideScrollForDetails": {
-        "message": "إخفاء «التمرير للحصول على التفاصيل»"
+        "message": "«إخفاء «التمرير للحصول على التفاصيل"
     },
     "hideViewsCount": {
         "message": "إخفاء عدد المشاهدات"
@@ -507,7 +507,7 @@
         "message": "الأذونات"
     },
     "pictureInPicture": {
-        "message": "صورة-في-صورة"
+        "message": "صورة داخل صورة"
     },
     "pink": {
         "message": "زهري"
@@ -576,7 +576,7 @@
         "message": "فيديوهات ذات علاقة"
     },
     "removeRelatedSearchResults": {
-        "message": "إزالة نتائج البحث ذات الصلة"
+        "message": "إزالة عمليات بحث مرتبطة بـ"
     },
     "repeat": {
         "message": "تكرار"
@@ -603,7 +603,7 @@
         "message": "حفظ باسم"
     },
     "schedule": {
-        "message": "جدول"
+        "message": "جدوله"
     },
     "screen": {
         "message": "الشاشة"
@@ -711,13 +711,13 @@
         "message": "وقت ل"
     },
     "todayAt": {
-        "message": "اليوم الساعة"
+        "message": "اليوم عند الساعة"
     },
     "topChat": {
         "message": "أهم الدردشة"
     },
     "trailerAutoplay": {
-        "message": "التشغيل التلقائي للغرض"
+        "message": "التشغيل التلقائي للفيديو الدعائي"
     },
     "translations": {
         "message": "Translations"
