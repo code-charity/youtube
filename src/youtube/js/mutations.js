@@ -8,8 +8,6 @@
 4.0 ytPlayerApplicationCreateMod
 -----------------------------------------------------------------------------*/
 
-
-
 document.addEventListener('ImprovedTubePlayVideo', function(event) {
     if (chrome && chrome.runtime) {
         chrome.runtime.sendMessage({
@@ -60,8 +58,6 @@ ImprovedTube.mutations = function() {
             }
 
             ImprovedTube.player_loudness_normalization();
-
-            document.dispatchEvent(new CustomEvent('ImprovedTubePlayVideo'));
 
             return original.apply(this, arguments);
         }

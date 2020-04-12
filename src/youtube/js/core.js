@@ -88,6 +88,8 @@ ImprovedTube.playerUpdate = function(node, hard) {
         this.playingTime = 0;
         this.allow_autoplay = false;
 
+        document.dispatchEvent(new CustomEvent('ImprovedTubePlayVideo'));
+
         this.fitToWindow();
         this.always_show_progress_bar();
         this.playlist_reverse();
@@ -125,7 +127,7 @@ ImprovedTube.playerUpdate = function(node, hard) {
         this.fitToWindow();
         this.playlist_reverse();
         this.player_hd_thumbnail();
-        this.player_quality(player);
+        //this.player_quality(player);
         this.player_volume(player);
         this.player_playback_speed(player);
         this.up_next_autoplay();
