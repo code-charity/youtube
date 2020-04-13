@@ -89,13 +89,35 @@ Menu.main.section.shortcuts = {
                 }
             }
         },
-        shortcut_increase_playback_speed: {
-            type: 'shortcut',
-            label: 'increasePlaybackSpeed'
-        },
-        shortcut_decrease_playback_speed: {
-            type: 'shortcut',
-            label: 'decreasePlaybackSpeed'
+        shortcut_playback_speed: {
+            type: 'folder',
+            label: 'playbackSpeed',
+
+            section_step: {
+                type: 'section',
+
+                shortcut_playback_speed_step: {
+                    type: 'slider',
+                    label: 'step',
+                    min: .05,
+                    max: .5,
+                    step: .05,
+                    value: .05
+                }
+            },
+
+            section: {
+                type: 'section',
+
+                shortcut_increase_playback_speed: {
+                    type: 'shortcut',
+                    label: 'increasePlaybackSpeed'
+                },
+                shortcut_decrease_playback_speed: {
+                    type: 'shortcut',
+                    label: 'decreasePlaybackSpeed'
+                }
+            }
         },
         shortcut_activate_fullscreen: {
             type: 'shortcut',

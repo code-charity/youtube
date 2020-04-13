@@ -13,6 +13,11 @@ Menu.main.section.playlist = {
             label: 'autoplay',
             value: true
         },
+        playlist_up_next_autoplay: {
+            type: 'switch',
+            label: 'upNextAutoplay',
+            value: true
+        },
         playlist_reverse: {
             type: 'switch',
             label: 'reverse'
