@@ -103,6 +103,7 @@ ImprovedTube.playerUpdate = function(node, hard) {
         this.player_screenshot_button();
         this.player_rotate_button();
         this.player_popup_button();
+        this.playlist_up_next_autoplay(player);
 
         this.playlist_repeat();
         this.playlist_shuffle();

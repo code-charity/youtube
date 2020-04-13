@@ -266,3 +266,23 @@ ImprovedTube.playlist_shuffle = function() {
         }, 250);
     }
 };
+
+
+/*-----------------------------------------------------------------------------
+4.0 Up next autoplay
+-----------------------------------------------------------------------------*/
+
+ImprovedTube.playlist_up_next_autoplay_f = function(event) {
+    if (
+        ImprovedTube.getParam(location.href, 'list') &&
+        ImprovedTube.storage.playlist_up_next_autoplay === false &&
+        this.currentTime >= this.duration - 1
+    ) {
+        this.pause();
+    }
+};
+
+ImprovedTube.playlist_up_next_autoplay = function(player) {
+    player.querySelector('video').removeEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
+    player.querySelector('video').addEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
+};

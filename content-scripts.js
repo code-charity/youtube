@@ -104,6 +104,7 @@ ImprovedTube.playerUpdate = function(node, hard) {
         this.player_screenshot_button();
         this.player_rotate_button();
         this.player_popup_button();
+        this.playlist_up_next_autoplay(player);
 
         this.playlist_repeat();
         this.playlist_shuffle();
@@ -2450,6 +2451,26 @@ ImprovedTube.playlist_shuffle = function() {
         }, 250);
     }
 };
+
+
+/*-----------------------------------------------------------------------------
+4.0 Up next autoplay
+-----------------------------------------------------------------------------*/
+
+ImprovedTube.playlist_up_next_autoplay_f = function(event) {
+    if (
+        ImprovedTube.getParam(location.href, 'list') &&
+        ImprovedTube.storage.playlist_up_next_autoplay === false &&
+        this.currentTime >= this.duration - 1
+    ) {
+        this.pause();
+    }
+};
+
+ImprovedTube.playlist_up_next_autoplay = function(player) {
+    player.querySelector('video').removeEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
+    player.querySelector('video').addEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
+};
 /*-----------------------------------------------------------------------------
 >>> SETTINGS
 -------------------------------------------------------------------------------
@@ -2882,7 +2903,7 @@ ImprovedTube.shortcuts = function() {
                 var player = document.querySelector('#movie_player');
 
                 if (player && player.setPlaybackRate && player.getPlaybackRate) {
-                    player.setPlaybackRate(player.getPlaybackRate() + .05);
+                    player.setPlaybackRate(player.getPlaybackRate() + (Number(ImprovedTube.storage.shortcut_playback_step) || .05));
                 }
 
                 showStatus(player, player.getPlaybackRate());
@@ -2891,7 +2912,7 @@ ImprovedTube.shortcuts = function() {
                 var player = document.querySelector('#movie_player');
 
                 if (player && player.setPlaybackRate && player.getPlaybackRate) {
-                    player.setPlaybackRate(player.getPlaybackRate() - .05);
+                    player.setPlaybackRate(player.getPlaybackRate() - (Number(ImprovedTube.storage.shortcut_playback_step) || .05));
                 }
 
                 showStatus(player, player.getPlaybackRate());

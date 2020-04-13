@@ -1228,270 +1228,6 @@ Menu.main.section.general = {
         }
     },
 
-    filters: {
-        type: 'section',
-
-        filters: {
-            type: 'folder',
-            label: 'filters',
-
-            section: {
-                type: 'section',
-
-                bluelight: {
-                    type: 'slider',
-                    label: 'bluelight',
-                    step: 1,
-                    max: 90,
-                    value: 0
-                },
-                dim: {
-                    type: 'slider',
-                    label: 'dim',
-                    step: 1,
-                    max: 90,
-                    value: 0
-                }
-            }
-        },
-        schedule: {
-            type: 'folder',
-            label: 'schedule',
-
-            section: {
-                type: 'section',
-
-                schedule: {
-                    type: 'select',
-                    label: 'schedule',
-
-                    options: [{
-                        label: 'disabled',
-                        value: 'disabled'
-                    }, {
-                        label: 'sunsetToSunrise',
-                        value: 'sunset_to_sunrise'
-                    }, {
-                        label: 'systemPeferenceDark',
-                        value: 'system_peference_dark'
-                    }, {
-                        label: 'systemPeferenceLight',
-                        value: 'system_peference_light'
-                    }]
-                },
-                schedule_time_from: {
-                    type: 'select',
-                    label: 'timeFrom',
-                    options: [{
-                        label: '00:00',
-                        value: '00:00'
-                    }, {
-                        label: '01:00',
-                        value: '01:00'
-                    }, {
-                        label: '02:00',
-                        value: '02:00'
-                    }, {
-                        label: '03:00',
-                        value: '03:00'
-                    }, {
-                        label: '04:00',
-                        value: '04:00'
-                    }, {
-                        label: '05:00',
-                        value: '05:00'
-                    }, {
-                        label: '06:00',
-                        value: '06:00'
-                    }, {
-                        label: '07:00',
-                        value: '07:00'
-                    }, {
-                        label: '08:00',
-                        value: '08:00'
-                    }, {
-                        label: '09:00',
-                        value: '09:00'
-                    }, {
-                        label: '10:00',
-                        value: '10:00'
-                    }, {
-                        label: '11:00',
-                        value: '11:00'
-                    }, {
-                        label: '12:00',
-                        value: '12:00'
-                    }, {
-                        label: '13:00',
-                        value: '13:00'
-                    }, {
-                        label: '14:00',
-                        value: '14:00'
-                    }, {
-                        label: '15:00',
-                        value: '15:00'
-                    }, {
-                        label: '16:00',
-                        value: '16:00'
-                    }, {
-                        label: '17:00',
-                        value: '17:00'
-                    }, {
-                        label: '18:00',
-                        value: '18:00'
-                    }, {
-                        label: '19:00',
-                        value: '19:00'
-                    }, {
-                        label: '20:00',
-                        value: '20:00'
-                    }, {
-                        label: '21:00',
-                        value: '21:00'
-                    }, {
-                        label: '22:00',
-                        value: '22:00'
-                    }, {
-                        label: '23:00',
-                        value: '23:00'
-                    }]
-                },
-                schedule_time_to: {
-                    type: 'select',
-                    label: 'timeTo',
-                    options: [{
-                        label: '00:00',
-                        value: '00:00'
-                    }, {
-                        label: '01:00',
-                        value: '01:00'
-                    }, {
-                        label: '02:00',
-                        value: '02:00'
-                    }, {
-                        label: '03:00',
-                        value: '03:00'
-                    }, {
-                        label: '04:00',
-                        value: '04:00'
-                    }, {
-                        label: '05:00',
-                        value: '05:00'
-                    }, {
-                        label: '06:00',
-                        value: '06:00'
-                    }, {
-                        label: '07:00',
-                        value: '07:00'
-                    }, {
-                        label: '08:00',
-                        value: '08:00'
-                    }, {
-                        label: '09:00',
-                        value: '09:00'
-                    }, {
-                        label: '10:00',
-                        value: '10:00'
-                    }, {
-                        label: '11:00',
-                        value: '11:00'
-                    }, {
-                        label: '12:00',
-                        value: '12:00'
-                    }, {
-                        label: '13:00',
-                        value: '13:00'
-                    }, {
-                        label: '14:00',
-                        value: '14:00'
-                    }, {
-                        label: '15:00',
-                        value: '15:00'
-                    }, {
-                        label: '16:00',
-                        value: '16:00'
-                    }, {
-                        label: '17:00',
-                        value: '17:00'
-                    }, {
-                        label: '18:00',
-                        value: '18:00'
-                    }, {
-                        label: '19:00',
-                        value: '19:00'
-                    }, {
-                        label: '20:00',
-                        value: '20:00'
-                    }, {
-                        label: '21:00',
-                        value: '21:00'
-                    }, {
-                        label: '22:00',
-                        value: '22:00'
-                    }, {
-                        label: '23:00',
-                        value: '23:00'
-                    }]
-                }
-            }
-        }
-    },
-
-    fonts: {
-        type: 'section',
-
-        font: {
-            type: 'select',
-            label: 'font',
-            options: [{
-                label: 'Roboto',
-                value: 'Roboto'
-            }, {
-                label: 'Open Sans',
-                value: 'Open+Sans'
-            }, {
-                label: 'Lato',
-                value: 'Lato'
-            }, {
-                label: 'Montserrat',
-                value: 'Montserrat'
-            }, {
-                label: 'Source Sans Pro',
-                value: 'Source+Sans+Pro'
-            }, {
-                label: 'Roboto Condensed',
-                value: 'Roboto+Condensed'
-            }, {
-                label: 'Oswald',
-                value: 'Oswald'
-            }, {
-                label: 'Comfortaa',
-                value: 'Comfortaa'
-            }, {
-                label: 'Roboto Mono',
-                value: 'Roboto+Mono'
-            }, {
-                label: 'Raleway',
-                value: 'Raleway'
-            }, {
-                label: 'Poppins',
-                value: 'Poppins'
-            }, {
-                label: 'Noto Sans',
-                value: 'Noto+Sans'
-            }, {
-                label: 'Roboto Slab',
-                value: 'Roboto+Slab'
-            }, {
-                label: 'Marriweather',
-                value: 'Marriweather'
-            }, {
-                label: 'PT Sans',
-                value: 'PT+Sans'
-            }]
-        }
-    },
-
     section_label__thumbnails: {
         type: 'text',
         class: 'satus-section--label',
@@ -1916,6 +1652,260 @@ Menu.main.section.themes = {
                     value: 'rgba(25,25,25)'
                 }
             }
+        },
+        filters: {
+            type: 'folder',
+            label: 'filters',
+
+            section: {
+                type: 'section',
+
+                bluelight: {
+                    type: 'slider',
+                    label: 'bluelight',
+                    step: 1,
+                    max: 90,
+                    value: 0
+                },
+                dim: {
+                    type: 'slider',
+                    label: 'dim',
+                    step: 1,
+                    max: 90,
+                    value: 0
+                }
+            }
+        },
+        schedule: {
+            type: 'folder',
+            label: 'schedule',
+
+            section: {
+                type: 'section',
+
+                schedule: {
+                    type: 'select',
+                    label: 'schedule',
+
+                    options: [{
+                        label: 'disabled',
+                        value: 'disabled'
+                    }, {
+                        label: 'sunsetToSunrise',
+                        value: 'sunset_to_sunrise'
+                    }, {
+                        label: 'systemPeferenceDark',
+                        value: 'system_peference_dark'
+                    }, {
+                        label: 'systemPeferenceLight',
+                        value: 'system_peference_light'
+                    }]
+                },
+                schedule_time_from: {
+                    type: 'select',
+                    label: 'timeFrom',
+                    options: [{
+                        label: '00:00',
+                        value: '00:00'
+                    }, {
+                        label: '01:00',
+                        value: '01:00'
+                    }, {
+                        label: '02:00',
+                        value: '02:00'
+                    }, {
+                        label: '03:00',
+                        value: '03:00'
+                    }, {
+                        label: '04:00',
+                        value: '04:00'
+                    }, {
+                        label: '05:00',
+                        value: '05:00'
+                    }, {
+                        label: '06:00',
+                        value: '06:00'
+                    }, {
+                        label: '07:00',
+                        value: '07:00'
+                    }, {
+                        label: '08:00',
+                        value: '08:00'
+                    }, {
+                        label: '09:00',
+                        value: '09:00'
+                    }, {
+                        label: '10:00',
+                        value: '10:00'
+                    }, {
+                        label: '11:00',
+                        value: '11:00'
+                    }, {
+                        label: '12:00',
+                        value: '12:00'
+                    }, {
+                        label: '13:00',
+                        value: '13:00'
+                    }, {
+                        label: '14:00',
+                        value: '14:00'
+                    }, {
+                        label: '15:00',
+                        value: '15:00'
+                    }, {
+                        label: '16:00',
+                        value: '16:00'
+                    }, {
+                        label: '17:00',
+                        value: '17:00'
+                    }, {
+                        label: '18:00',
+                        value: '18:00'
+                    }, {
+                        label: '19:00',
+                        value: '19:00'
+                    }, {
+                        label: '20:00',
+                        value: '20:00'
+                    }, {
+                        label: '21:00',
+                        value: '21:00'
+                    }, {
+                        label: '22:00',
+                        value: '22:00'
+                    }, {
+                        label: '23:00',
+                        value: '23:00'
+                    }]
+                },
+                schedule_time_to: {
+                    type: 'select',
+                    label: 'timeTo',
+                    options: [{
+                        label: '00:00',
+                        value: '00:00'
+                    }, {
+                        label: '01:00',
+                        value: '01:00'
+                    }, {
+                        label: '02:00',
+                        value: '02:00'
+                    }, {
+                        label: '03:00',
+                        value: '03:00'
+                    }, {
+                        label: '04:00',
+                        value: '04:00'
+                    }, {
+                        label: '05:00',
+                        value: '05:00'
+                    }, {
+                        label: '06:00',
+                        value: '06:00'
+                    }, {
+                        label: '07:00',
+                        value: '07:00'
+                    }, {
+                        label: '08:00',
+                        value: '08:00'
+                    }, {
+                        label: '09:00',
+                        value: '09:00'
+                    }, {
+                        label: '10:00',
+                        value: '10:00'
+                    }, {
+                        label: '11:00',
+                        value: '11:00'
+                    }, {
+                        label: '12:00',
+                        value: '12:00'
+                    }, {
+                        label: '13:00',
+                        value: '13:00'
+                    }, {
+                        label: '14:00',
+                        value: '14:00'
+                    }, {
+                        label: '15:00',
+                        value: '15:00'
+                    }, {
+                        label: '16:00',
+                        value: '16:00'
+                    }, {
+                        label: '17:00',
+                        value: '17:00'
+                    }, {
+                        label: '18:00',
+                        value: '18:00'
+                    }, {
+                        label: '19:00',
+                        value: '19:00'
+                    }, {
+                        label: '20:00',
+                        value: '20:00'
+                    }, {
+                        label: '21:00',
+                        value: '21:00'
+                    }, {
+                        label: '22:00',
+                        value: '22:00'
+                    }, {
+                        label: '23:00',
+                        value: '23:00'
+                    }]
+                }
+            }
+        },
+        font: {
+            type: 'select',
+            label: 'font',
+            options: [{
+                label: 'Roboto',
+                value: 'Roboto'
+            }, {
+                label: 'Open Sans',
+                value: 'Open+Sans'
+            }, {
+                label: 'Lato',
+                value: 'Lato'
+            }, {
+                label: 'Montserrat',
+                value: 'Montserrat'
+            }, {
+                label: 'Source Sans Pro',
+                value: 'Source+Sans+Pro'
+            }, {
+                label: 'Roboto Condensed',
+                value: 'Roboto+Condensed'
+            }, {
+                label: 'Oswald',
+                value: 'Oswald'
+            }, {
+                label: 'Comfortaa',
+                value: 'Comfortaa'
+            }, {
+                label: 'Roboto Mono',
+                value: 'Roboto+Mono'
+            }, {
+                label: 'Raleway',
+                value: 'Raleway'
+            }, {
+                label: 'Poppins',
+                value: 'Poppins'
+            }, {
+                label: 'Noto Sans',
+                value: 'Noto+Sans'
+            }, {
+                label: 'Roboto Slab',
+                value: 'Roboto+Slab'
+            }, {
+                label: 'Marriweather',
+                value: 'Marriweather'
+            }, {
+                label: 'PT Sans',
+                value: 'PT+Sans'
+            }]
         }
     },
 
@@ -2324,6 +2314,11 @@ Menu.main.section.playlist = {
             label: 'autoplay',
             value: true
         },
+        playlist_up_next_autoplay: {
+            type: 'switch',
+            label: 'upNextAutoplay',
+            value: true
+        },
         playlist_reverse: {
             type: 'switch',
             label: 'reverse'
@@ -2469,13 +2464,35 @@ Menu.main.section.shortcuts = {
                 }
             }
         },
-        shortcut_increase_playback_speed: {
-            type: 'shortcut',
-            label: 'increasePlaybackSpeed'
-        },
-        shortcut_decrease_playback_speed: {
-            type: 'shortcut',
-            label: 'decreasePlaybackSpeed'
+        shortcut_playback_speed: {
+            type: 'folder',
+            label: 'playbackSpeed',
+
+            section_step: {
+                type: 'section',
+
+                shortcut_playback_speed_step: {
+                    type: 'slider',
+                    label: 'step',
+                    min: .05,
+                    max: .5,
+                    step: .05,
+                    value: .05
+                }
+            },
+
+            section: {
+                type: 'section',
+
+                shortcut_increase_playback_speed: {
+                    type: 'shortcut',
+                    label: 'increasePlaybackSpeed'
+                },
+                shortcut_decrease_playback_speed: {
+                    type: 'shortcut',
+                    label: 'decreasePlaybackSpeed'
+                }
+            }
         },
         shortcut_activate_fullscreen: {
             type: 'shortcut',
