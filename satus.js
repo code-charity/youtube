@@ -1259,10 +1259,24 @@ Satus.components.shortcut = function(element) {
             keys_value.push('<div class=satus-shortcut__key>Space bar</div>');
 
         } else if (typeof value.key === 'string' && ['Shift', 'Control', 'Alt'].indexOf(value.key) === -1) {
-            let key = value.key.toUpperCase();
+            if (value.key === 'ArrowUp') {
+                text_value.push('↑');
+                keys_value.push('<div class=satus-shortcut__key>↑</div>');
+            } else if (value.key === 'ArrowRight') {
+                text_value.push('→');
+                keys_value.push('<div class=satus-shortcut__key>→</div>');
+            } else if (value.key === 'ArrowDown') {
+                text_value.push('↓');
+                keys_value.push('<div class=satus-shortcut__key>↓</div>');
+            } else if (value.key === 'ArrowLeft') {
+                text_value.push('←');
+                keys_value.push('<div class=satus-shortcut__key>←</div>');
+            } else {
+                let key = value.key.toUpperCase();
 
-            text_value.push(key);
-            keys_value.push('<div class=satus-shortcut__key>' + key + '</div>');
+                text_value.push(key);
+                keys_value.push('<div class=satus-shortcut__key>' + key + '</div>');
+            }
         }
 
         if (value.wheel) {

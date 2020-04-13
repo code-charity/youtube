@@ -5,7 +5,13 @@ Menu.main.section.shortcuts = {
     class: 'satus-folder--shortcut',
     appearanceId: 'shortcuts',
 
-    section: {
+    player_section_label: {
+        type: 'text',
+        class: 'satus-section--label',
+        label: 'player'
+    },
+
+    player_section: {
         type: 'section',
 
         shortcut_picture_in_picture: {
@@ -53,13 +59,35 @@ Menu.main.section.shortcuts = {
                 key: 'I'
             }
         },
-        shortcut_increase_volume: {
-            type: 'shortcut',
-            label: 'increaseVolume5'
-        },
-        shortcut_decrease_volume: {
-            type: 'shortcut',
-            label: 'decreaseVolume5'
+        shortcut_volume: {
+            type: 'folder',
+            label: 'volume',
+
+            section_step: {
+                type: 'section',
+
+                shortcut_volume_step: {
+                    type: 'slider',
+                    label: 'step',
+                    min: 1,
+                    max: 10,
+                    step: 1,
+                    value: 5
+                }
+            },
+
+            section: {
+                type: 'section',
+
+                shortcut_increase_volume: {
+                    type: 'shortcut',
+                    label: 'increaseVolume'
+                },
+                shortcut_decrease_volume: {
+                    type: 'shortcut',
+                    label: 'decreaseVolume'
+                }
+            }
         },
         shortcut_increase_playback_speed: {
             type: 'shortcut',
@@ -131,7 +159,18 @@ Menu.main.section.shortcuts = {
         shortcut_screenshot: {
             type: 'shortcut',
             label: 'screenshot'
-        },
+        }
+    },
+
+    appearance_section_label: {
+        type: 'text',
+        class: 'satus-section--label',
+        label: 'appearance'
+    },
+
+    appearance_section: {
+        type: 'section',
+
         shortcut_go_to_search_box: {
             type: 'shortcut',
             label: 'goToSearchBox',

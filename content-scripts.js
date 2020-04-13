@@ -2857,7 +2857,7 @@ ImprovedTube.shortcuts = function() {
                 var player = document.querySelector('.html5-video-player');
 
                 if (player && player.setVolume && player.getVolume) {
-                    player.setVolume(player.getVolume() + 5);
+                    player.setVolume(player.getVolume() + (Number(ImprovedTube.storage.shortcut_volume_step) || 5));
                 }
 
                 showStatus(player, player.getVolume());
@@ -2866,7 +2866,7 @@ ImprovedTube.shortcuts = function() {
                 var player = document.querySelector('.html5-video-player');
 
                 if (player && player.setVolume && player.getVolume) {
-                    player.setVolume(player.getVolume() - 5);
+                    player.setVolume(player.getVolume() - (Number(ImprovedTube.storage.shortcut_volume_step) || 5));
                 }
 
                 showStatus(player, player.getVolume());

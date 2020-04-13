@@ -2,15 +2,6 @@
     "about": {
         "message": "Об ImprovedTube"
     },
-    "translations": {
-        "message": "Переводы"
-    },
-    "customCss": {
-        "message": "Custom CSS"
-    },
-    "myColors": {
-        "message": "Мои цвета"
-    },
     "accept": {
         "message": "Принять"
     },
@@ -172,6 +163,9 @@
     },
     "cores": {
         "message": "Ядра"
+    },
+    "customCss": {
+        "message": "Custom CSS"
     },
     "customJs": {
         "message": "Сustom JS"
@@ -455,6 +449,9 @@
     "mixer": {
         "message": "Миксер"
     },
+    "myColors": {
+        "message": "Мои цвета"
+    },
     "name": {
         "message": "Имя"
     },
@@ -656,6 +653,9 @@
     "static": {
         "message": "Статично"
     },
+    "step": {
+        "message": "Step"
+    },
     "stop": {
         "message": "Стоп"
     },
@@ -721,6 +721,9 @@
     },
     "trailerAutoplay": {
         "message": "Автовоспроизведение трейлера"
+    },
+    "translations": {
+        "message": "Переводы"
     },
     "transparentBackground": {
         "message": "Прозрачный фон"

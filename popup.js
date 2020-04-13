@@ -45,7 +45,7 @@ var Menu = {
 
                             input: {
                                 type: 'text-field',
-                                placeholder: 'Search...',
+                                placeholder: 'search',
                                 oninput: function() {
                                     if (this.value.length > 0) {
                                         Satus.search(this.value, Menu, function(results) {
@@ -142,7 +142,7 @@ Menu.main = {
 Menu.header.section_end.button_vert.onClickRender.active_features = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
-    label: 'Active features',
+    label: 'activeFeatures',
     onclick: function() {
         document.querySelector('.satus-dialog__scrim').click();
     },
@@ -2099,7 +2099,7 @@ Menu.main.section.player = {
                 label: 'onSubscribedChannels',
                 value: 'subscribed_channels'
             }, {
-                label: 'Block all',
+                label: 'blockAll',
                 value: 'block_all'
             }]
         },
@@ -2385,7 +2385,13 @@ Menu.main.section.shortcuts = {
     class: 'satus-folder--shortcut',
     appearanceId: 'shortcuts',
 
-    section: {
+    player_section_label: {
+        type: 'text',
+        class: 'satus-section--label',
+        label: 'player'
+    },
+
+    player_section: {
         type: 'section',
 
         shortcut_picture_in_picture: {
@@ -2433,13 +2439,35 @@ Menu.main.section.shortcuts = {
                 key: 'I'
             }
         },
-        shortcut_increase_volume: {
-            type: 'shortcut',
-            label: 'increaseVolume5'
-        },
-        shortcut_decrease_volume: {
-            type: 'shortcut',
-            label: 'decreaseVolume5'
+        shortcut_volume: {
+            type: 'folder',
+            label: 'volume',
+
+            section_step: {
+                type: 'section',
+
+                shortcut_volume_step: {
+                    type: 'slider',
+                    label: 'step',
+                    min: 1,
+                    max: 10,
+                    step: 1,
+                    value: 5
+                }
+            },
+
+            section: {
+                type: 'section',
+
+                shortcut_increase_volume: {
+                    type: 'shortcut',
+                    label: 'increaseVolume'
+                },
+                shortcut_decrease_volume: {
+                    type: 'shortcut',
+                    label: 'decreaseVolume'
+                }
+            }
         },
         shortcut_increase_playback_speed: {
             type: 'shortcut',
@@ -2511,7 +2539,18 @@ Menu.main.section.shortcuts = {
         shortcut_screenshot: {
             type: 'shortcut',
             label: 'screenshot'
-        },
+        }
+    },
+
+    appearance_section_label: {
+        type: 'text',
+        class: 'satus-section--label',
+        label: 'appearance'
+    },
+
+    appearance_section: {
+        type: 'section',
+
         shortcut_go_to_search_box: {
             type: 'shortcut',
             label: 'goToSearchBox',

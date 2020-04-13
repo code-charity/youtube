@@ -2,15 +2,6 @@
     "about": {
         "message": "Sobre"
     },
-    "translations": {
-        "message": "Translations"
-    },
-    "customCss": {
-        "message": "Custom CSS"
-    },
-    "myColors": {
-        "message": "My colors"
-    },
     "accept": {
         "message": "Accept"
     },
@@ -173,6 +164,9 @@
     "cores": {
         "message": "Núcleos"
     },
+    "customCss": {
+        "message": "Custom CSS"
+    },
     "customJs": {
         "message": "Custom JS"
     },
@@ -194,8 +188,8 @@
     "decreasePlaybackSpeed": {
         "message": "Diminuir velocidade"
     },
-    "decreaseVolume5": {
-        "message": "Diminuir volume 5%"
+    "decreaseVolume": {
+        "message": "Diminuir volume"
     },
     "deepOrange": {
         "message": "Laranja Escuro"
@@ -401,8 +395,8 @@
     "increasePlaybackSpeed": {
         "message": "Aumentar velocidade"
     },
-    "increaseVolume5": {
-        "message": "Diminuir volume 5%"
+    "increaseVolume": {
+        "message": "Diminuir volume"
     },
     "indigo": {
         "message": "Indigo"
@@ -454,6 +448,9 @@
     },
     "mixer": {
         "message": "Mixer"
+    },
+    "myColors": {
+        "message": "My colors"
     },
     "name": {
         "message": "Nome"
@@ -656,6 +653,9 @@
     "static": {
         "message": "Estático"
     },
+    "step": {
+        "message": "Step"
+    },
     "stop": {
         "message": "Parar"
     },
@@ -721,6 +721,9 @@
     },
     "trailerAutoplay": {
         "message": "Reproduzir trailer"
+    },
+    "translations": {
+        "message": "Translations"
     },
     "transparentBackground": {
         "message": "Fundo transparente"

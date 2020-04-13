@@ -650,7 +650,7 @@
 
 .satus-shortcut:hover
 {
-    background: var(--background-hover-1);
+    background-color: rgba(0,0,0,.04);
 }
 
 .satus-shortcut > .label
@@ -833,9 +833,10 @@
 
     overflow: hidden;
 
-    height: 40px;
-    min-height: 40px;
-    margin-right: 8px;
+    height: 28px;
+    min-height: 28px;
+    margin-right: 2px;
+    padding: 4px 8px;
 
     text-transform: uppercase;
 
