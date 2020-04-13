@@ -653,6 +653,9 @@
     "static": {
         "message": "ثابت"
     },
+    "step": {
+        "message": "Step"
+    },
     "stop": {
         "message": "ايقاف"
     },

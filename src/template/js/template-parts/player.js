@@ -58,7 +58,7 @@ Menu.main.section.player = {
                 label: 'onSubscribedChannels',
                 value: 'subscribed_channels'
             }, {
-                label: 'Block all',
+                label: 'blockAll',
                 value: 'block_all'
             }]
         },

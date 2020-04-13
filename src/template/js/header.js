@@ -44,7 +44,7 @@ var Menu = {
 
                             input: {
                                 type: 'text-field',
-                                placeholder: 'Search...',
+                                placeholder: 'search',
                                 oninput: function() {
                                     if (this.value.length > 0) {
                                         Satus.search(this.value, Menu, function(results) {

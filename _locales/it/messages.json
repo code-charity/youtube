@@ -194,8 +194,8 @@
     "decreasePlaybackSpeed": {
         "message": "Riduci la velocità di riproduzione"
     },
-    "decreaseVolume5": {
-        "message": "Riduci volume del 5%"
+    "decreaseVolume": {
+        "message": "Riduci volume del"
     },
     "deepOrange": {
         "message": "Arancione profondo"
@@ -401,8 +401,8 @@
     "increasePlaybackSpeed": {
         "message": "Aumenta velocità di riproduzione"
     },
-    "increaseVolume5": {
-        "message": "Aumenta volume del 5%"
+    "increaseVolume": {
+        "message": "Aumenta volume del"
     },
     "indigo": {
         "message": "Indaco"

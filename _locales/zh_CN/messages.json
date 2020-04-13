@@ -2,15 +2,6 @@
     "about": {
         "message": "关于"
     },
-    "translations": {
-        "message": "Translations"
-    },
-    "customCss": {
-        "message": "Custom CSS"
-    },
-    "myColors": {
-        "message": "My colors"
-    },
     "accept": {
         "message": "Accept"
     },
@@ -173,6 +164,9 @@
     "cores": {
         "message": "核心"
     },
+    "customCss": {
+        "message": "Custom CSS"
+    },
     "customJs": {
         "message": "Custom JS"
     },
@@ -194,7 +188,7 @@
     "decreasePlaybackSpeed": {
         "message": "视频减速"
     },
-    "decreaseVolume5": {
+    "decreaseVolume": {
         "message": "-5%音量"
     },
     "deepOrange": {
@@ -401,7 +395,7 @@
     "increasePlaybackSpeed": {
         "message": "视频加速"
     },
-    "increaseVolume5": {
+    "increaseVolume": {
         "message": "+5%音量"
     },
     "indigo": {
@@ -454,6 +448,9 @@
     },
     "mixer": {
         "message": "混音器"
+    },
+    "myColors": {
+        "message": "My colors"
     },
     "name": {
         "message": "名字"
@@ -656,6 +653,9 @@
     "static": {
         "message": "静态"
     },
+    "step": {
+        "message": "Step"
+    },
     "stop": {
         "message": "停止"
     },
@@ -722,6 +722,9 @@
     "trailerAutoplay": {
         "message": "自动播放预告片"
     },
+    "translations": {
+        "message": "Translations"
+    },
     "transparentBackground": {
         "message": "透明背景"
     },
@@ -730,6 +733,12 @@
     },
     "tryToReloadThePage": {
         "message": "尝试刷新页面"
+    },
+    "turnOff": {
+        "message": "关闭时间"
+    },
+    "turnOn": {
+        "message": "开启时间"
     },
     "type": {
         "message": "类型"
@@ -787,11 +796,5 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube limits video quality to 1080p for h.264 codec"
-    },
-    "turnOff": {
-        "message": "关闭时间"
-    },
-    "turnOn": {
-        "message": "开启时间"
     }
 }

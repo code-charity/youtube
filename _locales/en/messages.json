@@ -188,8 +188,8 @@
     "decreasePlaybackSpeed": {
         "message": "Decrease playback speed"
     },
-    "decreaseVolume5": {
-        "message": "Decrease volume 5%"
+    "decreaseVolume": {
+        "message": "Decrease volume"
     },
     "deepOrange": {
         "message": "Deep orange"
@@ -395,8 +395,8 @@
     "increasePlaybackSpeed": {
         "message": "Increase playback speed"
     },
-    "increaseVolume5": {
-        "message": "Increase volume 5%"
+    "increaseVolume": {
+        "message": "Increase volume"
     },
     "indigo": {
         "message": "Indigo"
@@ -652,6 +652,9 @@
     },
     "static": {
         "message": "Static"
+    },
+    "step": {
+        "message": "Step"
     },
     "stop": {
         "message": "Stop"

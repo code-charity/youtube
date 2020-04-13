@@ -2,15 +2,6 @@
     "about": {
         "message": "Info"
     },
-    "translations": {
-        "message": "Translations"
-    },
-    "customCss": {
-        "message": "Custom CSS"
-    },
-    "myColors": {
-        "message": "My colors"
-    },
     "accept": {
         "message": "Accept"
     },
@@ -173,6 +164,9 @@
     "cores": {
         "message": "Kerne"
     },
+    "customCss": {
+        "message": "Custom CSS"
+    },
     "customJs": {
         "message": "Custom JS"
     },
@@ -194,7 +188,7 @@
     "decreasePlaybackSpeed": {
         "message": "Abspielgeschwindigkeit verringern"
     },
-    "decreaseVolume5": {
+    "decreaseVolume": {
         "message": "Lautstärke reduzieren"
     },
     "deepOrange": {
@@ -401,8 +395,8 @@
     "increasePlaybackSpeed": {
         "message": "Abspiel Geschwingkeit erhöhen"
     },
-    "increaseVolume5": {
-        "message": "Lautstärke 5% erhöhen"
+    "increaseVolume": {
+        "message": "Lautstärke erhöhen"
     },
     "indigo": {
         "message": "Indigo"
@@ -454,6 +448,9 @@
     },
     "mixer": {
         "message": "Mixer"
+    },
+    "myColors": {
+        "message": "My colors"
     },
     "name": {
         "message": "Name"
@@ -656,6 +653,9 @@
     "static": {
         "message": "Statisch"
     },
+    "step": {
+        "message": "Step"
+    },
     "stop": {
         "message": "Stop"
     },
@@ -721,6 +721,9 @@
     },
     "trailerAutoplay": {
         "message": "Trailer autoplay"
+    },
+    "translations": {
+        "message": "Translations"
     },
     "transparentBackground": {
         "message": "Transparenter Hintergrund"

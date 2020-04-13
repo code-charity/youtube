@@ -2,15 +2,6 @@
     "about": {
         "message": "關於"
     },
-    "translations": {
-        "message": "Translations"
-    },
-    "customCss": {
-        "message": "Custom CSS"
-    },
-    "myColors": {
-        "message": "My colors"
-    },
     "accept": {
         "message": "Accept"
     },
@@ -173,6 +164,9 @@
     "cores": {
         "message": "Cores"
     },
+    "customCss": {
+        "message": "Custom CSS"
+    },
     "customJs": {
         "message": "Custom JS"
     },
@@ -194,8 +188,8 @@
     "decreasePlaybackSpeed": {
         "message": "Decrease playback speed"
     },
-    "decreaseVolume5": {
-        "message": "減少音量 5%"
+    "decreaseVolume": {
+        "message": "減少音量"
     },
     "deepOrange": {
         "message": "深橙色"
@@ -401,8 +395,8 @@
     "increasePlaybackSpeed": {
         "message": "Increase playback speed"
     },
-    "increaseVolume5": {
-        "message": "增加音量 5%"
+    "increaseVolume": {
+        "message": "增加音量"
     },
     "indigo": {
         "message": "靛青"
@@ -454,6 +448,9 @@
     },
     "mixer": {
         "message": "音量混合器"
+    },
+    "myColors": {
+        "message": "My colors"
     },
     "name": {
         "message": "Name"
@@ -656,6 +653,9 @@
     "static": {
         "message": "Static"
     },
+    "step": {
+        "message": "Step"
+    },
     "stop": {
         "message": "停止"
     },
@@ -721,6 +721,9 @@
     },
     "trailerAutoplay": {
         "message": "預告片自動播放"
+    },
+    "translations": {
+        "message": "Translations"
     },
     "transparentBackground": {
         "message": "透明背景"
