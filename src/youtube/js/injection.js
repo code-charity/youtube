@@ -86,8 +86,8 @@ chrome.storage.onChanged.addListener(function(changes) {
                 injectScript('ImprovedTube.themeEditor();');
             }
 
-            if (items.custom_css && items.custom_css.length > 0) {
-                injectStyle(items.custom_css, 'it-custom-css');
+            if (['custom_css'].indexOf(key) !== -1 && value.length > 0) {
+                injectStyle(value, 'it-custom-css');
             } else if (document.querySelector('#it-custom-css')) {
                 document.querySelector('#it-custom-css').remove();
             }
