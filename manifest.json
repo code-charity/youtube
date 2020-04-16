@@ -28,7 +28,7 @@
             "content-scripts.js"
         ],
         "matches": [
-            "https://www.youtube.com/*"
+            "https://*.youtube.com/*"
         ],
         "exclude_matches": [
             "https://www.youtube.com/improvedtube",
