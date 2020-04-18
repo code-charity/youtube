@@ -564,6 +564,9 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         value: "ru",
                         label: "Русский"
                     }, {
+                        value: "ja",
+                        label: "日本語"
+                    }, {
                         value: "zh_CN",
                         label: "中文 (简体)"
                     }, {
@@ -2926,6 +2929,10 @@ Satus.storage.import(function() {
             ru: {
                 type: 'button',
                 label: "Русский"
+            },
+            ja: {
+                type: 'button',
+                label: "日本語"
             },
             zh_CN: {
                 type: 'button',
