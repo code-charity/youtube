@@ -38,6 +38,10 @@ Satus.storage.import(function() {
                 type: 'button',
                 label: "Русский"
             },
+            ja: {
+                type: 'button',
+                label: "日本語"
+            },
             zh_CN: {
                 type: 'button',
                 label: "中文 (简体)"
