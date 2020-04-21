@@ -1,0 +1,198 @@
+/*--------------------------------------------------------------
+>>> HEADER:
+----------------------------------------------------------------
+1.0 Buttons
+    1.1 Back button
+2.0 Title
+3.0 Right section
+4.0 Search
+5.0 Vertical menu
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 BUTTONS
+--------------------------------------------------------------*/
+
+.satus-header .satus-button
+{
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+}
+
+.satus-header .satus-button::before
+{
+    border-radius: 50%;
+}
+
+
+/*--------------------------------------------------------------
+1.1 BACK BUTTON
+--------------------------------------------------------------*/
+
+.satus-button--back
+{
+    position: absolute;
+}
+
+.satus-button--back svg
+{
+    fill: none;
+    stroke: currentColor;
+}
+
+body[data-appearance='home'] .satus-button--back
+{
+    visibility: hidden;
+}
+
+
+/*--------------------------------------------------------------
+2.0 TITLE
+--------------------------------------------------------------*/
+
+.satus-text--title
+{
+    font-size: 15px;
+    font-weight: 400;
+
+    position: absolute;
+    left: 56px;
+
+    letter-spacing: .0125em;
+}
+
+body[data-appearance='home'] .satus-text--title
+{
+    left: 14px;
+}
+
+
+/*--------------------------------------------------------------
+3.0 RIGHT SECTION
+--------------------------------------------------------------*/
+
+.satus-section--align-end
+{
+    justify-content: flex-end;
+}
+
+.satus-section--align-end .satus-button + .satus-button
+{
+    margin-left: 8px;
+}
+
+
+/*--------------------------------------------------------------
+4.0 SEARCH
+--------------------------------------------------------------*/
+
+.satus-dialog--search
+{
+    pointer-events: none;
+}
+
+.satus-dialog--search .satus-dialog__scrim
+{
+    display: none;
+}
+
+.satus-dialog--search .satus-dialog__surface
+{
+    position: fixed;
+    top: 11px;
+    right: 8px;
+
+    visibility: unset;
+
+    width: calc(100% - 62px);
+    min-width: unset;
+    max-width: unset;
+    height: 34px;
+    padding: 0;
+
+    transform: unset;
+    animation: unset;
+    pointer-events: all;
+
+    opacity: unset;
+    border: 1px solid rgba(0,0,0,.05);
+    box-shadow: unset;
+}
+
+.satus-dialog--search .satus-dialog__surface .satus-text-field
+{
+    height: 34px;
+}
+
+.satus-dialog--search .satus-dialog__surface .satus-button
+{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+
+    overflow: hidden;
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+}
+
+.satus-dialog--search .satus-dialog__surface .satus-button svg
+{
+    fill: unset;
+    stroke: currentColor;
+}
+
+
+/*--------------------------------------------------------------
+5.0 VERTICAL MENU
+--------------------------------------------------------------*/
+
+.satus-dialog--vertical-menu .satus-dialog__surface
+{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    left: auto;
+
+    min-width: 180px;
+    max-width: 180px;
+
+    transform-origin: right top;
+}
+
+.satus-dialog--vertical-menu .satus-button,
+.satus-dialog--vertical-menu .satus-folder
+{
+    width: 100%;
+    height: 36px;
+    padding: 0 16px;
+
+    text-align: left;
+}
+
+.satus-dialog--vertical-menu .satus-folder svg,
+.satus-dialog--vertical-menu .satus-button svg
+{
+    width: 20px;
+    height: 18px;
+    margin: 0 14px 0 0;
+
+    opacity: .75;
+
+    fill: none;
+    stroke: #f6b465;
+}
+
+.satus-dialog--vertical-menu .satus-folder--mixer svg
+{
+    height: 20px;
+}
+
+.satus-dialog--vertical-menu .satus-button--github svg
+{
+    width: 18px;
+    height: 18px;
+}

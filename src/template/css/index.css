@@ -1,0 +1,58 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Fonts
+# Basic
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# FONTS
+--------------------------------------------------------------*/
+
+@font-face
+{
+    font-family: 'Open Sans';
+    font-weight: 400;
+
+    src: url('assets/fonts/OpenSans-Regular.ttf');
+}
+
+@font-face
+{
+    font-family: 'Open Sans';
+    font-weight: 600;
+
+    src: url('assets/fonts/OpenSans-SemiBold.ttf');
+}
+
+
+/*--------------------------------------------------------------
+# BASIC
+--------------------------------------------------------------*/
+
+body
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+
+    width: 300px;
+    height: 500px;
+    margin: 0;
+
+    background-color: #eee;
+}
+
+body.improvedtube-page
+{
+    width: 100vw;
+    height: 100vh;
+}
+
+button
+{
+    font-family: 'Open Sans', sans-serif;
+}
