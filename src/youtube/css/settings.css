@@ -1,0 +1,170 @@
+/*-----------------------------------------------------------------------------
+>>> SETTINGS
+-------------------------------------------------------------------------------
+1.0 ImprovedTube icon on YouTube
+-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+1.0 ImprovedTube icon on YouTube
+-----------------------------------------------------------------------------*/
+
+html[it-improvedtube-youtube-icon='below_player'] .title.ytd-video-primary-info-renderer
+{
+    overflow: visible !important;
+}
+
+html[it-improvedtube-youtube-icon='below_player'] h1.watch-title-container
+{
+    display: inline-block !important;
+}
+
+html[it-improvedtube-youtube-icon='draggable'] .it-btn
+{
+    position: fixed;
+    z-index: 2147483645;
+    top: calc(100vh - 56px);
+    left: calc(100vw - 64px);
+}
+
+.it-btn
+{
+    z-index: 2147483645;
+
+    user-select: none;
+}
+
+#container.ytd-masthead > .it-btn
+{
+    margin: 0 12px 0 0;
+}
+
+.yt-masthead-logo-container > .it-btn
+{
+    float: left;
+
+    margin: 0 12px 0 0;
+}
+
+#end #buttons .it-btn
+{
+    margin: 3px 0 0 0;
+}
+
+#yt-masthead-user > .it-btn
+{
+    float: right;
+
+    margin: -2px 0 0 14px;
+}
+
+.title.ytd-video-primary-info-renderer > .it-btn,
+#watch-headline-title > .it-btn
+{
+    float: right;
+}
+
+.it-btn__scrim
+{
+    position: fixed;
+    z-index: 2147483645;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+
+    width: 100%;
+    height: 100vh;
+
+    transition: 150ms;
+    pointer-events: none;
+
+    opacity: 0;
+    background: #000;
+}
+
+.it-btn__icon
+{
+    position: relative;
+    z-index: 2147483645;
+
+    width: 32px;
+    height: 32px;
+    margin: 0 0 2px 0;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+    background: #f00;
+}
+
+.it-btn__icon::after
+{
+    position: absolute;
+    top: 9px;
+    left: 12px;
+
+    display: block;
+
+    content: '';
+
+    opacity: .9;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 11px solid #fff;
+}
+
+.it-btn__iframe
+{
+    position: absolute;
+    z-index: 2147483645;
+    top: 50px;
+
+    visibility: hidden;
+
+    width: 320px;
+    max-width: 80vw;
+    height: 500px;
+    max-height: 80vh;
+
+    transition: opacity 150ms;
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+#end #buttons .it-btn__iframe,
+#yt-masthead-user .it-btn__iframe
+{
+    right: 0;
+    left: auto;
+}
+
+.it-btn.it-btn--active .it-btn__scrim
+{
+    visibility: visible;
+
+    pointer-events: all;
+
+    opacity: .5;
+}
+
+.it-btn.it-btn--active .it-btn__iframe
+{
+    visibility: visible;
+
+    pointer-events: all;
+
+    opacity: 1;
+}
+
+.it-btn--dragging,
+.it-btn--dragging .it-btn__icon,
+.it-btn--dragging .it-btn__iframe
+{
+    pointer-events: none !important;
+}
+
+.it-btn--dragging .it-btn__iframe
+{
+    opacity: .75 !important;
+}
