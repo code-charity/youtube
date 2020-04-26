@@ -1261,7 +1261,7 @@ Menu.main.section.appearance = {
     header: {
         type: 'folder',
         label: 'header',
-        class: ['satus-folder--header'],
+        class: 'satus-folder--header',
 
         section: {
             type: 'section',
@@ -1305,7 +1305,7 @@ Menu.main.section.appearance = {
     player: {
         type: 'folder',
         label: 'player',
-        class: ['satus-folder--player'],
+        class: 'satus-folder--player',
 
         section: {
             type: 'section',
@@ -1458,7 +1458,7 @@ Menu.main.section.appearance = {
     details: {
         type: 'folder',
         label: 'details',
-        class: ['satus-folder--details'],
+        class: 'satus-folder--details',
 
         section: {
             type: 'section',
@@ -1518,7 +1518,7 @@ Menu.main.section.appearance = {
     sidebar: {
         type: 'folder',
         label: 'sidebar',
-        class: ['satus-folder--sidebar'],
+        class: 'satus-folder--sidebar',
 
         section: {
             type: 'section',
@@ -1574,7 +1574,7 @@ Menu.main.section.appearance = {
     comments: {
         type: 'folder',
         label: 'comments',
-        class: ['satus-folder--comments'],
+        class: 'satus-folder--comments',
 
         section: {
             type: 'section',
@@ -1599,7 +1599,7 @@ Menu.main.section.appearance = {
     footer: {
         type: 'folder',
         label: 'footer',
-        class: ['satus-folder--footer'],
+        class: 'satus-folder--footer',
 
         section: {
             type: 'section',
@@ -1909,7 +1909,7 @@ Menu.main.section.themes = {
     default_dark_theme: {
         type: 'switch',
         label: 'dark',
-        class: ['satus-switch--dark'],
+        class: 'satus-switch--dark',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -1926,7 +1926,7 @@ Menu.main.section.themes = {
     night_theme: {
         type: 'switch',
         label: 'night',
-        class: ['satus-switch--night'],
+        class: 'satus-switch--night',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -1943,7 +1943,7 @@ Menu.main.section.themes = {
     dawn_theme: {
         type: 'switch',
         label: 'dawn',
-        class: ['satus-switch--dawn'],
+        class: 'satus-switch--dawn',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -1960,7 +1960,7 @@ Menu.main.section.themes = {
     sunset_theme: {
         type: 'switch',
         label: 'sunset',
-        class: ['satus-switch--sunset'],
+        class: 'satus-switch--sunset',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -1977,7 +1977,7 @@ Menu.main.section.themes = {
     desert_theme: {
         type: 'switch',
         label: 'desert',
-        class: ['satus-switch--desert'],
+        class: 'satus-switch--desert',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -1994,7 +1994,7 @@ Menu.main.section.themes = {
     plain_theme: {
         type: 'switch',
         label: 'plain',
-        class: ['satus-switch--plain'],
+        class: 'satus-switch--plain',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -2011,7 +2011,7 @@ Menu.main.section.themes = {
     black_theme: {
         type: 'switch',
         label: 'black',
-        class: ['satus-switch--black'],
+        class: 'satus-switch--black',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -2621,7 +2621,7 @@ Menu.main.section.blacklist = {
                             list[item] = {
                                 type: 'section',
                                 label: title.length > 20 ? title.substr(0, 20) + '...' : title,
-                                class: ['satus-section--blacklist'],
+                                class: 'satus-section--blacklist',
                                 style: {
                                     'background-image': 'url(' + Satus.storage.blacklist.channels[item].preview + ')',
                                     'background-color': '#000'
@@ -2692,7 +2692,7 @@ Menu.main.section.blacklist = {
                             list[item] = {
                                 type: 'section',
                                 label: title.length > 20 ? title.substr(0, 20) + '...' : title,
-                                class: ['satus-section--blacklist'],
+                                class: 'satus-section--blacklist',
                                 style: {
                                     'background-image': 'url(https://img.youtube.com/vi/' + item + '/0.jpg)'
                                 },

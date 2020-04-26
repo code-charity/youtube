@@ -295,7 +295,7 @@ Menu.main.section.themes = {
     default_dark_theme: {
         type: 'switch',
         label: 'dark',
-        class: ['satus-switch--dark'],
+        class: 'satus-switch--dark',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -312,7 +312,7 @@ Menu.main.section.themes = {
     night_theme: {
         type: 'switch',
         label: 'night',
-        class: ['satus-switch--night'],
+        class: 'satus-switch--night',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -329,7 +329,7 @@ Menu.main.section.themes = {
     dawn_theme: {
         type: 'switch',
         label: 'dawn',
-        class: ['satus-switch--dawn'],
+        class: 'satus-switch--dawn',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -346,7 +346,7 @@ Menu.main.section.themes = {
     sunset_theme: {
         type: 'switch',
         label: 'sunset',
-        class: ['satus-switch--sunset'],
+        class: 'satus-switch--sunset',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -363,7 +363,7 @@ Menu.main.section.themes = {
     desert_theme: {
         type: 'switch',
         label: 'desert',
-        class: ['satus-switch--desert'],
+        class: 'satus-switch--desert',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -380,7 +380,7 @@ Menu.main.section.themes = {
     plain_theme: {
         type: 'switch',
         label: 'plain',
-        class: ['satus-switch--plain'],
+        class: 'satus-switch--plain',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
@@ -397,7 +397,7 @@ Menu.main.section.themes = {
     black_theme: {
         type: 'switch',
         label: 'black',
-        class: ['satus-switch--black'],
+        class: 'satus-switch--black',
 
         onchange: function(name, value, component) {
             if (value == 'true') {
