@@ -203,7 +203,7 @@
     color: var(--satus-theme-on-surface, #777);
     border-radius: 6px;
     background-color: var(--satus-theme-surface, #f7f7f6);
-    box-shadow: inset 0 -1px 2px 1px rgba(0,0,0,.1), 0 2px 6px rgba(0, 0, 0, .15);
+    box-shadow: inset 0 -1px 1px 1px rgba(0,0,0,.1), 0 2px 6px rgba(0, 0, 0, .15);
 }
 
 .satus-dialog--closing .satus-dialog__scrim
@@ -327,6 +327,19 @@
     box-shadow: 0 0 3px rgba(0,0,0,.1);
 
     fill: var(--satus-theme-on-surface, #777);
+}
+
+/*--------------------------------------------------------------
+>>> LIST
+--------------------------------------------------------------*/
+
+.satus-list--compact,
+.satus-list--compact li
+{
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
 }
 
 /*-----------------------------------------------------------------------------

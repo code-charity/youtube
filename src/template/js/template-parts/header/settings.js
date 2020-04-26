@@ -240,6 +240,9 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         value: "nl",
                         label: "Dutch"
                     }, {
+                        value: "ja",
+                        label: "日本語"
+                    }, {
                         value: "fr",
                         label: "Français"
                     }, {
@@ -248,9 +251,6 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     }, {
                         value: "ru",
                         label: "Русский"
-                    }, {
-                        value: "ja,
-                        label: "日本語"
                     }, {
                         value: "zh_CN",
                         label: "中文 (简体)"
