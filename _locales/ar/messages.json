@@ -441,7 +441,7 @@
         "message": "تطبيع الإزعاج"
     },
     "markWatchedVideos": {
-        "message": "التعليم على مقاطع الفيديو المشاهدة"
+        "message": "التعليم على الفيديو المشاهد"
     },
     "miniPlayer": {
         "message": "المشغل الصغير"
@@ -654,7 +654,7 @@
         "message": "ثابت"
     },
     "step": {
-        "message": "Step"
+        "message": "خطوة"
     },
     "stop": {
         "message": "ايقاف"
@@ -723,7 +723,7 @@
         "message": "التشغيل التلقائي للفيديو الدعائي"
     },
     "translations": {
-        "message": "Translations"
+        "message": "الترجمات"
     },
     "transparentBackground": {
         "message": "خلفية شفافة"
