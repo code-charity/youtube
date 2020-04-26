@@ -847,14 +847,11 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
 
                                     Satus.render({
                                         type: 'dialog',
+                                        class: 'satus-dialog--confirm',
 
                                         message: {
                                             type: 'text',
-                                            label: 'successfullyImportedSettings',
-                                            style: {
-                                                'width': '100%',
-                                                'opacity': '.8'
-                                            }
+                                            label: 'successfullyImportedSettings'
                                         },
                                         section: {
                                             type: 'section',
@@ -917,14 +914,11 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     onclick: function() {
                         Satus.render({
                             type: 'dialog',
+                            class: 'satus-dialog--confirm',
 
                             message: {
                                 type: 'text',
-                                label: 'thisWillResetAllSettings',
-                                style: {
-                                    'width': '100%',
-                                    'opacity': '.8'
-                                }
+                                label: 'thisWillResetAllSettings'
                             },
                             section: {
                                 type: 'section',

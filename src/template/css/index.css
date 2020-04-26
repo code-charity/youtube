@@ -56,3 +56,33 @@ button
 {
     font-family: 'Open Sans', sans-serif;
 }
+
+
+
+
+
+
+.satus-dialog--confirm .satus-text
+{
+    display: block;
+
+    box-sizing: border-box;
+    padding: 0 16px 8px;
+}
+
+.satus-dialog--confirm .satus-button
+{
+    font-weight: 500;
+
+    overflow: hidden;
+
+    height: 28px;
+    min-height: 28px;
+    margin-right: 2px;
+    padding: 4px 8px;
+
+    text-transform: uppercase;
+
+    color: #f96754;
+    border-radius: 4px;
+}
