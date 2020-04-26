@@ -128,7 +128,7 @@ ImprovedTube.playerUpdate = function(node, hard) {
         this.fitToWindow();
         this.playlist_reverse();
         this.player_hd_thumbnail();
-        //this.player_quality(player);
+        this.player_quality(player);
         this.player_volume(player);
         this.player_playback_speed(player);
         this.up_next_autoplay();

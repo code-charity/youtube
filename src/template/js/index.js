@@ -26,6 +26,10 @@ Satus.storage.import(function() {
                 type: 'button',
                 label: "Dutch"
             },
+            ja: {
+                type: 'button',
+                label: "日本語"
+            },
             fr: {
                 type: 'button',
                 label: "Français"
@@ -37,10 +41,6 @@ Satus.storage.import(function() {
             ru: {
                 type: 'button',
                 label: "Русский"
-            },
-            ja: {
-                type: 'button',
-                label: "日本語"
             },
             zh_CN: {
                 type: 'button',
