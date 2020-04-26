@@ -8,7 +8,7 @@ Menu.main.section.appearance = {
     header: {
         type: 'folder',
         label: 'header',
-        class: ['satus-folder--header'],
+        class: 'satus-folder--header',
 
         section: {
             type: 'section',
@@ -52,7 +52,7 @@ Menu.main.section.appearance = {
     player: {
         type: 'folder',
         label: 'player',
-        class: ['satus-folder--player'],
+        class: 'satus-folder--player',
 
         section: {
             type: 'section',
@@ -205,7 +205,7 @@ Menu.main.section.appearance = {
     details: {
         type: 'folder',
         label: 'details',
-        class: ['satus-folder--details'],
+        class: 'satus-folder--details',
 
         section: {
             type: 'section',
@@ -265,7 +265,7 @@ Menu.main.section.appearance = {
     sidebar: {
         type: 'folder',
         label: 'sidebar',
-        class: ['satus-folder--sidebar'],
+        class: 'satus-folder--sidebar',
 
         section: {
             type: 'section',
@@ -321,7 +321,7 @@ Menu.main.section.appearance = {
     comments: {
         type: 'folder',
         label: 'comments',
-        class: ['satus-folder--comments'],
+        class: 'satus-folder--comments',
 
         section: {
             type: 'section',
@@ -346,7 +346,7 @@ Menu.main.section.appearance = {
     footer: {
         type: 'folder',
         label: 'footer',
-        class: ['satus-folder--footer'],
+        class: 'satus-folder--footer',
 
         section: {
             type: 'section',

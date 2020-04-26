@@ -33,7 +33,7 @@ Menu.main.section.blacklist = {
                             list[item] = {
                                 type: 'section',
                                 label: title.length > 20 ? title.substr(0, 20) + '...' : title,
-                                class: ['satus-section--blacklist'],
+                                class: 'satus-section--blacklist',
                                 style: {
                                     'background-image': 'url(' + Satus.storage.blacklist.channels[item].preview + ')',
                                     'background-color': '#000'
@@ -104,7 +104,7 @@ Menu.main.section.blacklist = {
                             list[item] = {
                                 type: 'section',
                                 label: title.length > 20 ? title.substr(0, 20) + '...' : title,
-                                class: ['satus-section--blacklist'],
+                                class: 'satus-section--blacklist',
                                 style: {
                                     'background-image': 'url(https://img.youtube.com/vi/' + item + '/0.jpg)'
                                 },
