@@ -206,7 +206,8 @@ html[it-player-show-cards-on-mouse-hover=true] .html5-video-player:hover .ytp-ca
 
 html[it-player-color='pink'] .ytp-play-progress,
 html[it-player-color='pink'] .ytp-scrubber-button,
-html[it-player-color='pink'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='pink'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='pink'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #e91e63 !important;
 }
@@ -218,7 +219,8 @@ html[it-player-color='pink'] .ytp-swatch-color
 
 html[it-player-color='purple'] .ytp-play-progress,
 html[it-player-color='purple'] .ytp-scrubber-button,
-html[it-player-color='purple'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='purple'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='purple'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #9c27b0 !important;
 }
@@ -230,7 +232,8 @@ html[it-player-color='purple'] .ytp-swatch-color
 
 html[it-player-color='deep_purple'] .ytp-play-progress,
 html[it-player-color='deep_purple'] .ytp-scrubber-button,
-html[it-player-color='deep_purple'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='deep_purple'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='deep_purple'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #673ab7 !important;
 }
@@ -242,7 +245,8 @@ html[it-player-color='deep_purple'] .ytp-swatch-color
 
 html[it-player-color='indigo'] .ytp-play-progress,
 html[it-player-color='indigo'] .ytp-scrubber-button,
-html[it-player-color='indigo'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='indigo'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='indigo'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #3f51b5 !important;
 }
@@ -254,7 +258,8 @@ html[it-player-color='indigo'] .ytp-swatch-color
 
 html[it-player-color='blue'] .ytp-play-progress,
 html[it-player-color='blue'] .ytp-scrubber-button,
-html[it-player-color='blue'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='blue'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='blue'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #1e88e5 !important;
 }
@@ -266,7 +271,8 @@ html[it-player-color='blue'] .ytp-swatch-color
 
 html[it-player-color='light_blue'] .ytp-play-progress,
 html[it-player-color='light_blue'] .ytp-scrubber-button,
-html[it-player-color='light_blue'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='light_blue'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='light_blue'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #03a9f4 !important;
 }
@@ -278,7 +284,8 @@ html[it-player-color='light_blue'] .ytp-swatch-color
 
 html[it-player-color='cyan'] .ytp-play-progress,
 html[it-player-color='cyan'] .ytp-scrubber-button,
-html[it-player-color='cyan'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='cyan'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='cyan'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #00bcd4 !important;
 }
@@ -290,7 +297,8 @@ html[it-player-color='cyan'] .ytp-swatch-color
 
 html[it-player-color='teal'] .ytp-play-progress,
 html[it-player-color='teal'] .ytp-scrubber-button,
-html[it-player-color='teal'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='teal'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='teal'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #009688 !important;
 }
@@ -302,7 +310,8 @@ html[it-player-color='teal'] .ytp-swatch-color
 
 html[it-player-color='green'] .ytp-play-progress,
 html[it-player-color='green'] .ytp-scrubber-button,
-html[it-player-color='green'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='green'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='green'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #4caf50 !important;
 }
@@ -314,7 +323,8 @@ html[it-player-color='green'] .ytp-swatch-color
 
 html[it-player-color='light_green'] .ytp-play-progress,
 html[it-player-color='light_green'] .ytp-scrubber-button,
-html[it-player-color='light_green'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='light_green'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='light_green'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #8bc34a !important;
 }
@@ -326,7 +336,8 @@ html[it-player-color='light_green'] .ytp-swatch-color
 
 html[it-player-color='lime'] .ytp-play-progress,
 html[it-player-color='lime'] .ytp-scrubber-button,
-html[it-player-color='lime'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='lime'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='lime'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #cddc39 !important;
 }
@@ -338,7 +349,8 @@ html[it-player-color='lime'] .ytp-swatch-color
 
 html[it-player-color='yellow'] .ytp-play-progress,
 html[it-player-color='yellow'] .ytp-scrubber-button,
-html[it-player-color='yellow'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='yellow'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='yellow'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #ffeb3b !important;
 }
@@ -350,7 +362,8 @@ html[it-player-color='yellow'] .ytp-swatch-color
 
 html[it-player-color='amber'] .ytp-play-progress,
 html[it-player-color='amber'] .ytp-scrubber-button,
-html[it-player-color='amber'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='amber'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='amber'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #ffc107 !important;
 }
@@ -362,7 +375,8 @@ html[it-player-color='amber'] .ytp-swatch-color
 
 html[it-player-color='orange'] .ytp-play-progress,
 html[it-player-color='orange'] .ytp-scrubber-button,
-html[it-player-color='orange'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='orange'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='orange'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #ff9800 !important;
 }
@@ -374,7 +388,8 @@ html[it-player-color='orange'] .ytp-swatch-color
 
 html[it-player-color='deep_orange'] .ytp-play-progress,
 html[it-player-color='deep_orange'] .ytp-scrubber-button,
-html[it-player-color='deep_orange'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='deep_orange'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='deep_orange'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #ff5722 !important;
 }
@@ -386,7 +401,8 @@ html[it-player-color='deep_orange'] .ytp-swatch-color
 
 html[it-player-color='brown'] .ytp-play-progress,
 html[it-player-color='brown'] .ytp-scrubber-button,
-html[it-player-color='brown'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='brown'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='brown'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #795548 !important;
 }
@@ -398,7 +414,8 @@ html[it-player-color='brown'] .ytp-swatch-color
 
 html[it-player-color='blue_gray'] .ytp-play-progress,
 html[it-player-color='blue_gray'] .ytp-scrubber-button,
-html[it-player-color='blue_gray'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='blue_gray'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='blue_gray'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #607d8b !important;
 }
@@ -410,7 +427,8 @@ html[it-player-color='blue_gray'] .ytp-swatch-color
 
 html[it-player-color='white'] .ytp-play-progress,
 html[it-player-color='white'] .ytp-scrubber-button,
-html[it-player-color='white'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox
+html[it-player-color='white'] .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color='white'] .ytp-settings-button.ytp-hd-quality-badge:after
 {
     background-color: #fff !important;
 }
