@@ -75,10 +75,10 @@
         "message": "Automatisch"
     },
     "autoFullscreen": {
-        "message": "Autom. beeldvullende modus"
+        "message": "Automatische beeldvullende modus"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Pauzeren bij openen van andere tabbladen"
+        "message": "Pauzeren bij schakelen naar andere tabblad"
     },
     "autoplay": {
         "message": "Automatisch afspelen"
@@ -171,7 +171,7 @@
         "message": "Aangepaste JS"
     },
     "cyan": {
-        "message": "Blauwgroen"
+        "message": "Groenblauw"
     },
     "dark": {
         "message": "Donker"
@@ -282,7 +282,7 @@
         "message": "Altijd theatermodus gebruiken"
     },
     "forcedVolume": {
-        "message": "Vast volume"
+        "message": "Vast volumeniveau gebruiken"
     },
     "foundABug": {
         "message": "Heb je een bug gevonden?"
@@ -321,7 +321,7 @@
         "message": "Verborgen op videopagina"
     },
     "hideAnimatedThumbnails": {
-        "message": "Bewegende miniatuurvoorbeelden verbergen"
+        "message": "Geen bewegende miniatuurvoorbeelden"
     },
     "hideAnnotations": {
         "message": "Aantekeningen verbergen"
@@ -336,7 +336,7 @@
         "message": "Eindscherm verbergen"
     },
     "hideFeaturedContent": {
-        "message": "Uitgelichte inhoud verbergen"
+        "message": "Uitgelichte video's verbergen"
     },
     "hideFooter": {
         "message": "Voettekst verbergen"
@@ -366,7 +366,7 @@
         "message": "Overzweven met cursor op videopagina"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Wanneer de video werd geüpload"
+        "message": "Uploaddatum tonen"
     },
     "icons": {
         "message": "Pictogrammen"
@@ -474,7 +474,7 @@
         "message": "Geen"
     },
     "noOpenVideoTabs": {
-        "message": "Geen videotabbladen actief"
+        "message": "Geen videotabbladen geopend"
     },
     "normal": {
         "message": "Normaal"
@@ -513,7 +513,7 @@
         "message": "Roze"
     },
     "plain": {
-        "message": "Kaal"
+        "message": "Vlakte"
     },
     "platform": {
         "message": "Platform"
