@@ -6,31 +6,31 @@
         "message": "Accepteren"
     },
     "activate": {
-        "message": "Inschakelen"
+        "message": "Activeren"
     },
     "activateCaptions": {
-        "message": "Ondertiteling tonen"
+        "message": "Activeer bijschriften"
     },
     "activated": {
-        "message": "Ingeschakeld"
+        "message": "Geactiveerd"
     },
     "activatedFeatures": {
-        "message": "Ingeschakelde functies"
+        "message": "Geactiveerde features"
     },
     "activateFullscreen": {
-        "message": "Beeldvullende modus gebruiken"
+        "message": "Activeer volledig scherm"
     },
     "activeFeatures": {
-        "message": "Ingeschakelde functies"
+        "message": "Actieve features"
     },
     "addScrollToTop": {
-        "message": "Knop «Scrollen naar bovenkant» tonen"
+        "message": "Voeg «Scroll to top» toe"
     },
     "ads": {
-        "message": "Reclame"
+        "message": "Reclames"
     },
     "all": {
-        "message": "Alle"
+        "message": "Alles"
     },
     "allow": {
         "message": "Toestaan"
@@ -39,10 +39,10 @@
         "message": "60fps toestaan"
     },
     "alwaysActive": {
-        "message": "Altijd inschakelen"
+        "message": "Altijd actief"
     },
     "alwaysShowProgressBar": {
-        "message": "Voortgangsbalk altijd tonen"
+        "message": "Altijd voortgangsbalk laten zien"
     },
     "amber": {
         "message": "Amber"
@@ -69,25 +69,25 @@
         "message": "Audio"
     },
     "audioFormats": {
-        "message": "Audioformaten"
+        "message": "Audio formaten"
     },
     "auto": {
         "message": "Automatisch"
     },
     "autoFullscreen": {
-        "message": "Automatische beeldvullende modus"
+        "message": "Automatisch volledig scherm"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Pauzeren bij schakelen naar ander tabblad"
+        "message": "Automatisch pauzeren bij het wisselen van tabbladen"
     },
     "autoplay": {
         "message": "Automatisch afspelen"
     },
     "backupAndReset": {
-        "message": "Back-up en herstel"
+        "message": "Backup maken & reseten"
     },
     "baseOnSystemColorScheme": {
-        "message": "Gebaseerd op kleurenschema van systeem"
+        "message": "Baseer op kleurenschema van systeem"
     },
     "belowPlayer": {
         "message": "Onder de speler"
@@ -105,7 +105,7 @@
         "message": "Blauw"
     },
     "blueGray": {
-        "message": "Blauwgrijs"
+        "message": "Blauw grijs"
     },
     "bluelight": {
         "message": "Blauw licht"
@@ -117,7 +117,7 @@
         "message": "Browser"
     },
     "browserVersion": {
-        "message": "Browserversie"
+        "message": "Browser versie"
     },
     "bubbles": {
         "message": "Bubbels"
@@ -132,7 +132,7 @@
         "message": "Annuleren"
     },
     "categories": {
-        "message": "Categorieën"
+        "message": "Categoriën"
     },
     "channel": {
         "message": "Kanaal"
@@ -150,13 +150,13 @@
         "message": "Ingeklapt"
     },
     "collapseOfSubscriptionSections": {
-        "message": "Abonnementsecties in-/uitklappen"
+        "message": "Uitklappen van abonnee sectie"
     },
     "comments": {
         "message": "Reacties"
     },
     "confirmationBeforeClosing": {
-        "message": "Bevestiging vragen bij sluiten"
+        "message": "Bevestiging voor sluiten"
     },
     "cookies": {
         "message": "Cookies"
@@ -171,7 +171,7 @@
         "message": "Aangepaste JS"
     },
     "cyan": {
-        "message": "Groenblauw"
+        "message": "Cyaan"
     },
     "dark": {
         "message": "Donker"
@@ -180,22 +180,22 @@
         "message": "Donker thema"
     },
     "dateAndTime": {
-        "message": "Datum en tijd"
+        "message": "Datum & tijd"
     },
     "dawn": {
-        "message": "Dageraad"
+        "message": "Morgenrood"
     },
     "decreasePlaybackSpeed": {
-        "message": "Afspeelsnelheid verlagen"
+        "message": "Verminder afspeelsnelheid"
     },
     "decreaseVolume": {
-        "message": "Volume verlagen"
+        "message": "Verminder volume"
     },
     "deepOrange": {
-        "message": "Donkeroranje"
+        "message": "Donker oranje"
     },
     "deepPurple": {
-        "message": "Donkerpaars"
+        "message": "donker aars"
     },
     "defaultChannelTab": {
         "message": "Standaard kanaaltabblad"
@@ -228,13 +228,13 @@
         "message": "Niet leuk vinden"
     },
     "donate": {
-        "message": "Doneren"
+        "message": "Doneer"
     },
     "doNotChange": {
         "message": "Niet aanpassen"
     },
     "draggable": {
-        "message": "Versleepbaar"
+        "message": "Sleepbaar"
     },
     "email": {
         "message": "E-mail"
@@ -246,7 +246,7 @@
         "message": "Ingeschakeld"
     },
     "enabledForced": {
-        "message": "Ingeschakeld (afgedwongen)"
+        "message": "Ingeschakeld (geforceerd)"
     },
     "expanded": {
         "message": "Uitgeklapt"
@@ -267,7 +267,7 @@
         "message": "Aanpassen aan vensterbreedte"
     },
     "flash": {
-        "message": "Flash"
+        "message": "Flits"
     },
     "font": {
         "message": "Lettertype"
@@ -276,13 +276,13 @@
         "message": "Voettekst"
     },
     "forcedPlaybackSpeed": {
-        "message": "Vaste afspeelsnelheid gebruiken"
+        "message": "Afspeelsnelheid afdwingen"
     },
     "forcedTheaterMode": {
         "message": "Altijd theatermodus gebruiken"
     },
     "forcedVolume": {
-        "message": "Vast volumeniveau gebruiken"
+        "message": "Volume afdwingen"
     },
     "foundABug": {
         "message": "Heb je een bug gevonden?"
@@ -297,7 +297,7 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Ga naar zoekbalk"
+        "message": "Ga naar de zoekbalk"
     },
     "gpu": {
         "message": "GPU"
@@ -324,40 +324,40 @@
         "message": "Geen bewegende miniatuurvoorbeelden"
     },
     "hideAnnotations": {
-        "message": "Aantekeningen verbergen"
+        "message": "Verberg annotaties"
     },
     "hideCards": {
-        "message": "Kaarten verbergen"
+        "message": "Verberg kaarten"
     },
     "hideDetails": {
-        "message": "Details verbergen"
+        "message": "Verberg details"
     },
     "hideEndscreen": {
-        "message": "Eindscherm verbergen"
+        "message": "Verberg eindscherm"
     },
     "hideFeaturedContent": {
-        "message": "Uitgelichte video's verbergen"
+        "message": "Verberg uitgelichte inhoud"
     },
     "hideFooter": {
-        "message": "Voettekst verbergen"
+        "message": "Verberg voettekst"
     },
     "hidePlaylist": {
-        "message": "Afspeellijst verbergen"
+        "message": "Verberg afspeellijst"
     },
     "hideRightButtons": {
-        "message": "Rechterknoppen verbergen"
+        "message": "Verberg rechter knoppen"
     },
     "hideScrollForDetails": {
-        "message": "«Scrollen voor details» verbergen"
+        "message": "Verberg «Scroll for details»"
     },
     "hideViewsCount": {
-        "message": "Aantal weergaven verbergen"
+        "message": "Verberg views teller"
     },
     "history": {
         "message": "Geschiedenis"
     },
     "home": {
-        "message": "Startpagina"
+        "message": "Thuis"
     },
     "hover": {
         "message": "Overzweven met cursor"
@@ -369,7 +369,7 @@
         "message": "Uploaddatum tonen"
     },
     "icons": {
-        "message": "Pictogrammen"
+        "message": "Iconen"
     },
     "iconsOnly": {
         "message": "Alleen pictogrammen"
@@ -381,22 +381,22 @@
         "message": "ImprovedTube-pictogram in browser"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "ImprovedTube-pictogram op YouTube"
+        "message": "ImprovedTube icoon op YouTube"
     },
     "improvedtubeLanguage": {
-        "message": "ImprovedTube-taal"
+        "message": "ImprovedTube taal"
     },
     "improvedtubeVersion": {
-        "message": "ImprovedTube-versie"
+        "message": "ImprovedTube versie"
     },
     "improveLogo": {
         "message": "YouTube-logo verbeteren"
     },
     "increasePlaybackSpeed": {
-        "message": "Afspeelsnelheid verhogen"
+        "message": "Verhoog afspeelsnelheid"
     },
     "increaseVolume": {
-        "message": "Volume verhogen"
+        "message": "Verhoog volume"
     },
     "indigo": {
         "message": "Indigo"
@@ -414,10 +414,10 @@
         "message": "Licht"
     },
     "lightBlue": {
-        "message": "Lichtblauw"
+        "message": "Licht blauw"
     },
     "lightGreen": {
-        "message": "Lichtgroen"
+        "message": "Licht groen"
     },
     "like": {
         "message": "Vind ik leuk"
@@ -432,16 +432,16 @@
         "message": "Lijst"
     },
     "liveChat": {
-        "message": "Live-chat"
+        "message": "Live berichtenvenster"
     },
     "liveChatType": {
-        "message": "Soort live-chat"
+        "message": "Live berichtenvenster type"
     },
     "loudnessNormalization": {
         "message": "Volume normaliseren"
     },
     "markWatchedVideos": {
-        "message": "Bekeken video's markeren"
+        "message": "Merk bekeken videos aan"
     },
     "miniPlayer": {
         "message": "Minispeler"
@@ -450,7 +450,7 @@
         "message": "Mixer"
     },
     "myColors": {
-        "message": "Eigen kleuren"
+        "message": "Mijn kleuren"
     },
     "name": {
         "message": "Naam"
@@ -468,13 +468,13 @@
         "message": "Nacht"
     },
     "noActiveFeatures": {
-        "message": "Geen functies ingeschakeld"
+        "message": "Geen actieve features"
     },
     "none": {
         "message": "Geen"
     },
     "noOpenVideoTabs": {
-        "message": "Geen videotabbladen geopend"
+        "message": "Geen openstaande videotabbladen"
     },
     "normal": {
         "message": "Normaal"
@@ -483,10 +483,10 @@
         "message": "Oud"
     },
     "onAllVideos": {
-        "message": "Op alle video's"
+        "message": "Bij alle videos"
     },
     "onlyActiveOnYoutube": {
-        "message": "Alleen tonen als YouTube geopend is"
+        "message": "Alleen actief op YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Slechts één actieve speler toestaan"
@@ -501,13 +501,13 @@
         "message": "Besturingssysteem"
     },
     "other": {
-        "message": "Overig"
+        "message": "Anders"
     },
     "permissions": {
         "message": "Machtigingen"
     },
     "pictureInPicture": {
-        "message": "Picture-in-picture"
+        "message": "Afbeelding-in-Afbeelding"
     },
     "pink": {
         "message": "Roze"
@@ -543,19 +543,19 @@
         "message": "Pop-upspeler"
     },
     "position": {
-        "message": "Zichtbaarheid"
+        "message": "Positie"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Druk op een toets of gebruik je scrollwiel."
+        "message": "Druk op een toets of muiswiel."
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Druk op een toets of gebruik je scrollwiel"
+        "message": "Druk op een toets of gebruik muiswiel"
     },
     "previousVideo": {
         "message": "Vorige video afspelen"
     },
     "primaryColor": {
-        "message": "Hoofdkleur"
+        "message": "Primaire kleur"
     },
     "purple": {
         "message": "Paars"
@@ -567,7 +567,7 @@
         "message": "RAM"
     },
     "rateUs": {
-        "message": "Beoordeel de extensie"
+        "message": "Geef ons een beoordeling"
     },
     "red": {
         "message": "Rood"
@@ -576,19 +576,19 @@
         "message": "Gerelateerde video's"
     },
     "removeRelatedSearchResults": {
-        "message": "Gerelateerde zoekresultaten verbergen"
+        "message": "Verwijder resultaten van gerelateerde videos"
     },
     "repeat": {
         "message": "Herhalen"
     },
     "reset": {
-        "message": "Standaardwaarden"
+        "message": "Herstel"
     },
     "resetAllSettings": {
         "message": "Standaardwaarden herstellen"
     },
     "resetAllShortcuts": {
-        "message": "Alle sneltoetsen herstellen"
+        "message": "Herstel alle snelkoppelingen"
     },
     "reverse": {
         "message": "Omdraaien"
@@ -606,10 +606,10 @@
         "message": "Schema"
     },
     "screen": {
-        "message": "Scherm"
+        "message": "Beeldscherm"
     },
     "screenshot": {
-        "message": "Schermfoto"
+        "message": "Schermafbeelding"
     },
     "search": {
         "message": "Zoeken"
@@ -618,22 +618,22 @@
         "message": "Alleen zoekbalk"
     },
     "seekBackward10Seconds": {
-        "message": "10 seconden terugspoelen"
+        "message": "Zoek 10 seconde terug"
     },
     "seekForward10Seconds": {
-        "message": "10 seconden vooruitspoelen"
+        "message": "Zoek 10 seconde naar voren"
     },
     "settings": {
         "message": "Instellingen"
     },
     "settingsSuccessfullyImported": {
-        "message": "De instellingen zijn geïmporteerd"
+        "message": "Instellingen succesvol geïmporteerd"
     },
     "shortcuts": {
         "message": "Sneltoetsen"
     },
     "showCardsOnMouseHover": {
-        "message": "Kaarten tonen bij overzweven met cursor"
+        "message": "Laat kaarten zien onder muisaanwijzer"
     },
     "showChannelVideosCount": {
         "message": "Aantal kanaalvideo's tonen"
@@ -651,7 +651,7 @@
         "message": "Vierkante gebruikersafbeeldingen"
     },
     "static": {
-        "message": "Vastgezet"
+        "message": "Statisch"
     },
     "step": {
         "message": "Stap"
@@ -675,46 +675,46 @@
         "message": "Zonsondergang"
     },
     "sunsetToSunrise": {
-        "message": "Zonsopkomst tot zonsondergang"
+        "message": "Zonsondergang tot zonsopkomst"
     },
     "systemPeferenceDark": {
-        "message": "Systeeminstelling: donker"
+        "message": "Systeem voorkeur: donker"
     },
     "systemPeferenceLight": {
-        "message": "Systeeminstelling: licht"
+        "message": "Systeem voorkeur: licht"
     },
     "teal": {
-        "message": "Blauwgroen"
+        "message": "Groenblauw"
     },
     "textColor": {
-        "message": "Tekstkleur"
+        "message": "Tekst kleur"
     },
     "themes": {
         "message": "Thema's"
     },
     "thisWillRemoveAllCookies": {
-        "message": "Hierdoor worden alle cookies verwijderd."
+        "message": "Dit verwijdert alle cookies."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "Hierdoor worden alle YouTube-cookies verwijderd"
+        "message": "Dit verwijdert alle Youtube cookies"
     },
     "thisWillResetAllSettings": {
-        "message": "Hierdoor worden de oorspronkelijke instellingen teruggezet."
+        "message": "Dit herstelt alle instellingen."
     },
     "thisWillResetAllShortcuts": {
-        "message": "Hierdoor worden de oorspronkelijke sneltoetsen teruggezet"
+        "message": "Dit herstelt alle snelkoppelingen"
     },
     "thumbnails": {
         "message": "Miniatuurvoorbeelden"
     },
     "timeFrom": {
-        "message": "Van"
+        "message": "Tijd vanaf"
     },
     "timeTo": {
-        "message": "Tot"
+        "message": "Tijd tot"
     },
     "todayAt": {
-        "message": "Vandaag, om"
+        "message": "Vandaag om"
     },
     "topChat": {
         "message": "Top-chat"
@@ -723,7 +723,7 @@
         "message": "Trailer automatisch afspelen"
     },
     "translations": {
-        "message": "Vertalingen"
+        "message": "vertalingen"
     },
     "transparentBackground": {
         "message": "Doorzichtige achtergrond"
@@ -732,7 +732,7 @@
         "message": "Populair"
     },
     "tryToReloadThePage": {
-        "message": "Herlaad de pagina"
+        "message": "Probeer de pagina te herladen"
     },
     "type": {
         "message": "Soort"
@@ -750,10 +750,10 @@
         "message": "Video"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "De videobeschrijving wordt uitgeklapt om de categorienaam op te vragen"
+        "message": "The video omschrijving wordt uitgeklapt om de naam van de categorie te verkrijgen"
     },
     "videoFormats": {
-        "message": "Videoformaten"
+        "message": "Video formaten"
     },
     "videos": {
         "message": "Video's"
@@ -765,10 +765,10 @@
         "message": "Later bekijken"
     },
     "watchTime": {
-        "message": "Bekeken op"
+        "message": "Kijk tijd"
     },
     "whenTabIsChanged": {
-        "message": "Bij schakelen naar ander tabblad"
+        "message": "Wanneer het tabblat veranderd"
     },
     "white": {
         "message": "Wit"
@@ -786,9 +786,9 @@
         "message": "YouTube-startpagina"
     },
     "youtubeLanguage": {
-        "message": "YouTube-taal"
+        "message": "YouTube taal"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "Bij h.264-video's beperkt YouTube de videokwaliteit tot 1080p."
+        "message": "YouTube limiteerd video kwaliteit tot 1080p voor h.264 codec"
     }
 }
