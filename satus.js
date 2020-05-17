@@ -1209,9 +1209,9 @@ Satus.components.main = function(object) {
 
     return component;
 };
-/*--------------------------------------------------------------
+/*-----------------------------------------------------------------------------
 >>> SCROLL BAR
---------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 
 Satus.components.scrollbar = function(parent) {
     var component = document.createElement('div'),
@@ -1224,29 +1224,50 @@ Satus.components.scrollbar = function(parent) {
     component_content.className = 'satus-scrollbar__content';
     component_thumb.className = 'satus-scrollbar__thumb';
 
-    window.addEventListener('resize', function(event) {
+
+    // RESIZE
+
+    function resize() {
         component_content.style.width = component.offsetWidth + 'px';
+        component_wrapper.style.height = component.offsetHeight + 'px';
+
+        if (component_wrapper.scrollHeight > component_wrapper.offsetHeight) {
+            component_thumb.style.height = component_wrapper.offsetHeight / component_wrapper.scrollHeight * component_wrapper.offsetHeight + 'px';
+        }
+    }
+
+    window.addEventListener('resize', resize);
+
+    new MutationObserver(resize).observe(component_content, {
+        subtree: true,
+        childList: true
     });
 
-    component.interval = false;
+
+    // HOVER
+
+    component.timeout = false;
 
     function active() {
-        if (component.interval) {
-            clearTimeout(component.interval);
+        if (component.timeout) {
+            clearTimeout(component.timeout);
 
-            component.interval = false;
+            component.timeout = false;
         }
 
         component.classList.add('active');
 
-        component.interval = setTimeout(function() {
+        component.timeout = setTimeout(function() {
             component.classList.remove('active');
 
-            component.interval = false;
+            component.timeout = false;
         }, 1000);
     }
 
     component.addEventListener('mousemove', active);
+
+
+    // SCROLL
 
     component_wrapper.addEventListener('scroll', function(event) {
         active();
@@ -1254,20 +1275,12 @@ Satus.components.scrollbar = function(parent) {
         component_thumb.style.top = Math.floor(component_wrapper.scrollTop * (component_wrapper.offsetHeight - component_thumb.offsetHeight) / (component_wrapper.scrollHeight - component_wrapper.offsetHeight)) + 'px';
     });
 
-    new MutationObserver(function() {
-        component_content.style.width = component.offsetWidth + 'px';
-        component_wrapper.style.height = component.offsetHeight + 'px';
-
-        if (component_wrapper.scrollHeight > component_wrapper.offsetHeight) {
-            component_thumb.style.height = component_wrapper.offsetHeight / component_wrapper.scrollHeight * component_wrapper.offsetHeight + 'px';
-        }
-    }).observe(component_content, {
-        subtree: true,
-        childList: true
-    });
-
     component_thumb.addEventListener('mousedown', function(event) {
         var offsetY = event.layerY;
+
+        if (event.button !== 0) {
+            return false;
+        }
 
         function mousemove(event) {
             var offset = 100 / ((component.offsetHeight - component_thumb.offsetHeight) / (event.clientY - offsetY - component.getBoundingClientRect().top)),
@@ -1862,6 +1875,7 @@ Satus.components.table = function(item) {
     var table = document.createElement('div'),
         table_head = document.createElement('div'),
         table_body = document.createElement('div'),
+        component_scrollbar = Satus.components.scrollbar(table_body),
         table_rows = [];
 
     table_head.className = 'satus-table__head';
@@ -1939,13 +1953,13 @@ Satus.components.table = function(item) {
             table.update(sorted_rows);
         };
 
-        Satus.render(col, item.columns[i]);
+        Satus.render(item.columns[i], col);
 
         table_head.appendChild(col);
     }
 
     function update(rows) {
-        this.querySelector('.satus-table__body').innerHTML = '';
+        component_scrollbar.innerHTML = '';
 
         table_rows = rows;
 
@@ -1962,7 +1976,7 @@ Satus.components.table = function(item) {
                 row.appendChild(col);
             }
 
-            this.querySelector('.satus-table__body').appendChild(row);
+            component_scrollbar.appendChild(row);
         }
     }
 
