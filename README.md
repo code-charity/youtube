@@ -4,7 +4,7 @@
 
 ## Features
 
-You can learn more about features on [the page](https://github.com/ImprovedTube/ImprovedTube/wiki/Features).
+[The Future of the ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/issues/246). You can learn more about features on [the page](https://github.com/ImprovedTube/ImprovedTube/wiki/Features).
 
 ## Browsers support 
 
