@@ -56,3 +56,16 @@ You can learn more on [the page](http://improvedtube.com/donate).
 ## Credits
 
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
+
+## Our other projects
+* [History Manager](https://github.com/victor-savinov/history-manager)
+* [To-Do](https://github.com/victor-savinov/to-do)
+* [Regex Search](https://github.com/victor-savinov/regex-search)
+* [Regex Replace](https://github.com/victor-savinov/regex-replace)
+* [Night Mode](https://github.com/victor-savinov/night-mode)
+* [Satus](https://github.com/victor-savinov/satus)
+* [Start Page](https://github.com/victor-savinov/start-page)
+* [Pluviam](https://github.com/victor-savinov/pluviam)
+* [Viscum Player](https://github.com/victor-savinov/viscum-player)
+* [Code Editor](https://github.com/victor-savinov/code-editor)
+* [Theme Engine](https://github.com/victor-savinov/theme-engine)
