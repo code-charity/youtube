@@ -1125,7 +1125,7 @@ Satus.components.list = function(object) {
 Satus.components.main = function(object) {
     var component = document.createElement('main'),
         component_container = document.createElement('div'),
-        component_scrollbar = Satus.components.scrollbar(component_container);
+        component_scrollbar = Satus.components.scrollbar(component_container, object.scrollbar);
 
     component.history = [object];
 
@@ -1213,7 +1213,11 @@ Satus.components.main = function(object) {
 >>> SCROLL BAR
 -----------------------------------------------------------------------------*/
 
-Satus.components.scrollbar = function(parent) {
+Satus.components.scrollbar = function(parent, enabled) {
+    if (enabled === false) {
+        return parent;
+    }
+
     var component = document.createElement('div'),
         component_wrapper = document.createElement('div'),
         component_content = document.createElement('div'),
@@ -1872,124 +1876,157 @@ Satus.components.switch = function(element) {
     return component;
 };
 Satus.components.table = function(item) {
-    var table = document.createElement('div'),
-        table_head = document.createElement('div'),
-        table_body = document.createElement('div'),
-        component_scrollbar = Satus.components.scrollbar(table_body),
-        table_rows = [];
+    var component = document.createElement('div'),
+        component_head = document.createElement('div'),
+        component_body = document.createElement('div'),
+        component_scrollbar = Satus.components.scrollbar(component_body, item.scrollbar),
+        table = document.createElement('table'),
+        thead = document.createElement('thead'),
+        thead_tr = document.createElement('tr'),
+        tbody = document.createElement('tbody');
 
-    table_head.className = 'satus-table__head';
-    table_body.className = 'satus-table__body';
+    component_head.className = 'satus-table__head';
+    component_body.className = 'satus-table__body';
 
-    for (var i = 0, l = item.columns.length; i < l; i++) {
-        var col = document.createElement('div');
+    function update(data) {
+        tbody.innerHTML = '';
 
-        item.columns[i][Object.keys(item.columns[i])[0]].onclick = function() {
-            var index = [Array.prototype.indexOf.call(this.parentNode.parentNode.childNodes, this.parentNode)][0],
-                table_sort = (item.columns[index][Object.keys(item.columns[index])[0]].sort || '').split('/');
+        if (data) {
+            for (var i = 0, l = data.length; i < l; i++) {
+                var tr = document.createElement('tr');
 
-            if (this.parentNode.parentNode.querySelector('.sort-asc') && this !== this.parentNode.parentNode.querySelector('.sort-asc')) {
-                this.parentNode.parentNode.querySelector('.sort-asc').classList.remove('sort-asc');
+                for (var j = 0, k = data[i].length; j < k; j++) {
+                    var td = document.createElement('td'),
+                        span = document.createElement('span');
+
+                    span.innerText = data[i][j];
+
+                    td.appendChild(span);
+                    tr.appendChild(td);
+                }
+
+                tbody.appendChild(tr);
             }
-
-            if (this.parentNode.parentNode.querySelector('.sort-desc') && this !== this.parentNode.parentNode.querySelector('.sort-desc')) {
-                this.parentNode.parentNode.querySelector('.sort-desc').classList.remove('sort-desc');
-            }
-
-            if (this.classList.contains('sort-desc')) {
-                this.classList.remove('sort-desc');
-                this.classList.add('sort-asc');
-            } else if (this.classList.contains('sort-asc')) {
-                this.classList.remove('sort-asc');
-                this.classList.add('sort-desc');
-            } else {
-                this.classList.add('sort-desc');
-            }
-
-            var sorted_rows = table_rows.sort(this.classList.contains('sort-asc') ? function(a, b) {
-                var a1 = a[index],
-                    b1 = b[index];
-
-                for (var i = 0, l = table_sort.length; i < l; i++) {
-                    a1 = a1[table_sort[i]];
-                    b1 = b1[table_sort[i]];
-                }
-
-                if (typeof a1 === 'number') {
-                    return a1 - b1;
-                } else if (typeof a1 === 'string') {
-                    if (a1 < b1) {
-                        return 1;
-                    }
-                    if (a1 > b1) {
-                        return -1;
-                    }
-                } else {
-                    return 0;
-                }
-            } : function(a, b) {
-                var a1 = a[index],
-                    b1 = b[index];
-
-                for (var i = 0, l = table_sort.length; i < l; i++) {
-                    a1 = a1[table_sort[i]];
-                    b1 = b1[table_sort[i]];
-                }
-
-                if (typeof a1 === 'number') {
-                    return b1 - a1;
-                } else if (typeof a1 === 'string') {
-                    if (a1 < b1) {
-                        return -1;
-                    }
-                    if (a1 > b1) {
-                        return 1;
-                    }
-                } else {
-                    return 0;
-                }
-            });
-
-            table.update(sorted_rows);
-        };
-
-        Satus.render(item.columns[i], col);
-
-        table_head.appendChild(col);
-    }
-
-    function update(rows) {
-        component_scrollbar.innerHTML = '';
-
-        table_rows = rows;
-
-        for (var i = 0, l = rows.length; i < l; i++) {
-            var row = document.createElement('div');
-
-            for (var j = 0, k = rows[i].length; j < k; j++) {
-                var col = document.createElement('div');
-
-                if (typeof rows[i][j] === 'object') {
-                    Satus.render(rows[i][j], col);
-                }
-
-                row.appendChild(col);
-            }
-
-            component_scrollbar.appendChild(row);
         }
     }
 
-    table.update = update;
+    function sortArray(array, index, mode) {
+        if (mode === 'asc') {
+            if (typeof array[0][0] === 'number') {
+                sorted = array.sort(function(a, b) {
+                    return a[index] - b[index];
+                });
+            } else {
+                sorted = array.sort(function(a, b) {
+                    if (a[index] < b[index]) {
+                        return -1;
+                    }
 
-    setTimeout(function() {
-        table.update(item.rows);
-    });
+                    if (a[index] > b[index]) {
+                        return 1;
+                    }
 
-    table.appendChild(table_head);
-    table.appendChild(table_body);
+                    return 0;
+                });
+            }
+        } else {
+            if (typeof array[0][0] === 'number') {
+                sorted = array.sort(function(a, b) {
+                    return b[index] - a[index];
+                });
+            } else {
+                sorted = array.sort(function(a, b) {
+                    if (a[index] < b[index]) {
+                        return 1;
+                    }
 
-    return table;
+                    if (a[index] > b[index]) {
+                        return -1;
+                    }
+
+                    return 0;
+                });
+            }
+        }
+
+        return array;
+    }
+
+    function sort() {
+        var mode = this.dataset.sorting,
+            index = Array.prototype.indexOf.call(this.parentElement.children, this),
+            sorted;
+
+        if (mode === 'none') {
+            mode = 'asc';
+        } else if (mode === 'asc') {
+            mode = 'desc';
+        } else if (mode === 'desc') {
+            mode = 'asc';
+        }
+
+        if (this.parentNode.querySelector('div[data-sorting=asc], div[data-sorting=desc]')) {
+            this.parentNode.querySelector('div[data-sorting=asc], div[data-sorting=desc]').dataset.sorting = 'none';
+        }
+
+        this.dataset.sorting = mode;
+
+        sorted = sortArray(component.data, index, mode);
+
+        update(sorted);
+    }
+
+    function resize() {
+        for (var i = 0, l = component_head.children.length; i < l; i++) {
+            component_head.children[i].style.width = thead.querySelectorAll('th')[i].offsetWidth + 'px';
+        }
+    }
+
+    for (var i = 0, l = item.columns.length; i < l; i++) {
+        var column = document.createElement('div'),
+            th = document.createElement('th');
+
+        column.dataset.sorting = 'none';
+        column.addEventListener('click', sort);
+        column.innerHTML = '<span>' + item.columns[i].title + '</span>';
+        th.innerText = item.columns[i].title;
+
+        component_head.appendChild(column);
+        thead_tr.appendChild(th);
+    }
+
+    thead.appendChild(thead_tr);
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    component_scrollbar.appendChild(table);
+
+    component.appendChild(component_head);
+    component.appendChild(component_body);
+
+    component.data = item.data;
+    component.update = function(data, index, mode) {
+        this.querySelectorAll('.satus-table__head > div')[index].dataset.sorting = mode;
+
+        this.data = data;
+
+        update(sortArray(this.data, index, mode));
+    };
+
+    var sorting;
+
+    for (var i = 0, l = item.columns.length; i < l; i++) {
+        if (item.columns[i].hasOwnProperty('sorting')) {
+            component_head.querySelectorAll('div')[i].dataset.sorting = item.columns[i].sorting;
+
+            update(sortArray(item.data, i, item.columns[i].sorting));
+
+            i = l;
+        }
+    }
+
+    setTimeout(resize);
+
+    return component;
 };
 /*--------------------------------------------------------------
 >>> TEXT
