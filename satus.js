@@ -1889,62 +1889,60 @@ Satus.components.table = function(item) {
     component_body.className = 'satus-table__body';
 
     function update(data) {
+        var pages = Math.ceil(component.data.length / component.paging),
+            start = Math.max((component.pagingIndex - 1) * component.paging, 0),
+            end = component.pagingIndex * component.paging;
+
+        if (end > data.length) {
+            end = data.length;
+        } else if (end === 0) {
+            end = component.paging;
+        }
+
         tbody.innerHTML = '';
 
         if (data) {
-            for (var i = 0, l = data.length; i < l; i++) {
-                var tr = document.createElement('tr');
+            for (var i = start, l = end; i < l; i++) {
+                if (data[i]) {
+                    var tr = document.createElement('tr');
 
-                for (var j = 0, k = data[i].length; j < k; j++) {
-                    var td = document.createElement('td'),
-                        span = document.createElement('span');
+                    for (var j = 0, k = data[i].length; j < k; j++) {
+                        var td = document.createElement('td'),
+                            span = document.createElement('span');
 
-                    span.innerText = data[i][j];
+                        span.innerText = data[i][j];
 
-                    td.appendChild(span);
-                    tr.appendChild(td);
+                        td.appendChild(span);
+                        tr.appendChild(td);
+                    }
+
+                    tbody.appendChild(tr);
                 }
-
-                tbody.appendChild(tr);
             }
         }
+
+        component.pagingUpdate();
     }
 
     function sortArray(array, index, mode) {
         if (mode === 'asc') {
-            if (typeof array[0][0] === 'number') {
+            if (typeof array[0][index] === 'number') {
                 sorted = array.sort(function(a, b) {
                     return a[index] - b[index];
                 });
             } else {
                 sorted = array.sort(function(a, b) {
-                    if (a[index] < b[index]) {
-                        return -1;
-                    }
-
-                    if (a[index] > b[index]) {
-                        return 1;
-                    }
-
-                    return 0;
+                    return a[index].localeCompare(b[index]);
                 });
             }
         } else {
-            if (typeof array[0][0] === 'number') {
+            if (typeof array[0][index] === 'number') {
                 sorted = array.sort(function(a, b) {
                     return b[index] - a[index];
                 });
             } else {
                 sorted = array.sort(function(a, b) {
-                    if (a[index] < b[index]) {
-                        return 1;
-                    }
-
-                    if (a[index] > b[index]) {
-                        return -1;
-                    }
-
-                    return 0;
+                    return b[index].localeCompare(a[index]);
                 });
             }
         }
@@ -2004,13 +2002,67 @@ Satus.components.table = function(item) {
     component.appendChild(component_body);
 
     component.data = item.data;
+    component.paging = item.paging;
+    component.pagingIndex = 0;
+
     component.update = function(data, index, mode) {
-        this.querySelectorAll('.satus-table__head > div')[index].dataset.sorting = mode;
+        if (Satus.isset(data)) {
+            this.data = data;
+        }
 
-        this.data = data;
+        if (Satus.isset(index) && Satus.isset(mode)) {
+            this.querySelectorAll('.satus-table__head > div')[index].dataset.sorting = mode;
 
-        update(sortArray(this.data, index, mode));
+            this.data = sortArray(this.data, index, mode);
+        }
+
+        update(this.data);
     };
+
+
+    // PAGING
+
+    function pagingUpdate() {
+        if (typeof this.paging === 'number') {
+            var pages = Math.ceil(this.data.length / this.paging);
+
+            this.querySelector('.satus-table__paging').innerHTML = '';
+
+            for (var i = 1; i <= pages; i++) {
+                var button = document.createElement('button');
+
+                if (i === (this.pagingIndex || 1)) {
+                    button.className = 'active';
+                }
+
+                button.innerText = i;
+                button.parentComponent = this;
+                button.addEventListener('click', function() {
+                    if (this.parentNode.querySelector('button.active')) {
+                        this.parentNode.querySelector('button.active').classList.remove('active');
+                    }
+
+                    this.classList.add('active');
+
+                    this.parentComponent.pagingIndex = Number(this.innerText);
+                    this.parentComponent.update(this.parentComponent.data);
+                });
+
+                this.querySelector('.satus-table__paging').appendChild(button);
+            }
+        }
+    }
+
+    component.pagingUpdate = pagingUpdate;
+
+    component_paging = document.createElement('div');
+
+    component_paging.className = 'satus-table__paging';
+
+    component_scrollbar.appendChild(component_paging);
+
+    // END PAGING
+
 
     var sorting;
 
