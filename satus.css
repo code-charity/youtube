@@ -1339,6 +1339,26 @@
     max-width: 100px;
 }
 
+
+
+.satus-table__paging > button
+{
+    min-width: 32px;
+    height: 32px;
+    padding: 0 8px;
+
+    cursor: pointer;
+
+    color: var(--satus-theme-on-surface, #555);
+    border: none;
+    background: transparent;
+}
+
+.satus-table__paging > button.active
+{
+    color: #2979ff;
+}
+
 /*--------------------------------------------------------------
 >>> TEXT
 --------------------------------------------------------------*/
