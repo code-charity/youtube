@@ -14,6 +14,8 @@
 
 ## Translations
 
+You can help us translate ImprovedTube into your language. Please, check the [wiki page](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations).
+
 * [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
 * [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [ImprovedTube](https://github.com/ImprovedTube)
 * [Dutch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json) by [Heimen Stoffels](https://github.com/Vistaus), [Aron Hoogeveen](https://github.com/aron-hoogeveen)
