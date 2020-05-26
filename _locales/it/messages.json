@@ -63,16 +63,16 @@
         "message": "Aspetto"
     },
     "ARROWDOWN": {
-        "message": "?"
+        "message": "⇩"
     },
     "ARROWLEFT": {
-        "message": "?"
+        "message": "⇦"
     },
     "ARROWRIGHT": {
-        "message": "?"
+        "message": "⇨"
     },
     "ARROWUP": {
-        "message": "?"
+        "message": "⇧"
     },
     "audio": {
         "message": "Audio"
