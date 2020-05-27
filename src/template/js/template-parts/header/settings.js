@@ -225,38 +225,47 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         });
                     },
                     options: [{
-                        value: "en",
-                        label: "English"
+                        value: 'en',
+                        label: 'English'
                     }, {
                         value: 'ar',
-                        label: "العربية"
+                        label: 'العربية'
                     }, {
-                        value: "es",
-                        label: "Español"
+                        value: 'de',
+                        label: 'Deutsch'
                     }, {
-                        value: "de",
-                        label: "Deutsch"
+                        value: 'es',
+                        label: 'Español'
                     }, {
-                        value: "nl",
-                        label: "Dutch"
+                        value: 'fr',
+                        label: 'Français'
                     }, {
-                        value: "ja",
-                        label: "日本語"
+                        value: 'it',
+                        label: 'Italiano'
                     }, {
-                        value: "fr",
-                        label: "Français"
+                        value: 'ja',
+                        label: '日本語'
                     }, {
-                        value: "pt_BR",
-                        label: "Português (Brasil)"
+                        value: 'nl',
+                        label: 'Dutch'
                     }, {
-                        value: "ru",
-                        label: "Русский"
+                        value: 'no',
+                        label: 'Norwegian Bokmål'
                     }, {
-                        value: "zh_CN",
-                        label: "中文 (简体)"
+                        value: 'pt_BR',
+                        label: 'Português (Brasil)'
                     }, {
-                        value: "zh_TW",
-                        label: "中文 (繁體)"
+                        value: 'ru',
+                        label: 'Русский'
+                    }, {
+                        value: 'tr',
+                        label: 'Türkçe'
+                    }, {
+                        value: 'zh_CN',
+                        label: '中文 (简体)'
+                    }, {
+                        value: 'zh_TW',
+                        label: '中文 (繁體)'
                     }]
                 },
                 youtube_language: {
