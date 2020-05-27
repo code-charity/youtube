@@ -540,38 +540,47 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         });
                     },
                     options: [{
-                        value: "en",
-                        label: "English"
+                        value: 'en',
+                        label: 'English'
                     }, {
                         value: 'ar',
-                        label: "العربية"
+                        label: 'العربية'
                     }, {
-                        value: "es",
-                        label: "Español"
+                        value: 'de',
+                        label: 'Deutsch'
                     }, {
-                        value: "de",
-                        label: "Deutsch"
+                        value: 'es',
+                        label: 'Español'
                     }, {
-                        value: "nl",
-                        label: "Dutch"
+                        value: 'fr',
+                        label: 'Français'
                     }, {
-                        value: "ja",
-                        label: "日本語"
+                        value: 'it',
+                        label: 'Italiano'
                     }, {
-                        value: "fr",
-                        label: "Français"
+                        value: 'ja',
+                        label: '日本語'
                     }, {
-                        value: "pt_BR",
-                        label: "Português (Brasil)"
+                        value: 'nl',
+                        label: 'Dutch'
                     }, {
-                        value: "ru",
-                        label: "Русский"
+                        value: 'no',
+                        label: 'Norwegian Bokmål'
                     }, {
-                        value: "zh_CN",
-                        label: "中文 (简体)"
+                        value: 'pt_BR',
+                        label: 'Português (Brasil)'
                     }, {
-                        value: "zh_TW",
-                        label: "中文 (繁體)"
+                        value: 'ru',
+                        label: 'Русский'
+                    }, {
+                        value: 'tr',
+                        label: 'Türkçe'
+                    }, {
+                        value: 'zh_CN',
+                        label: '中文 (简体)'
+                    }, {
+                        value: 'zh_TW',
+                        label: '中文 (繁體)'
                     }]
                 },
                 youtube_language: {
@@ -2894,47 +2903,59 @@ Satus.storage.import(function() {
 
             en: {
                 type: 'button',
-                label: "English"
-            },
-            es: {
-                type: 'button',
-                label: "Español"
+                label: 'English'
             },
             ar: {
                 type: 'button',
-                label: "العربية"
+                label: 'العربية'
             },
             de: {
                 type: 'button',
-                label: "Deutsch"
+                label: 'Deutsch'
             },
-            nl: {
+            es: {
                 type: 'button',
-                label: "Dutch"
-            },
-            ja: {
-                type: 'button',
-                label: "日本語"
+                label: 'Español'
             },
             fr: {
                 type: 'button',
-                label: "Français"
+                label: 'Français'
+            },
+            it: {
+                type: 'button',
+                label: 'Italiano'
+            },
+            ja: {
+                type: 'button',
+                label: '日本語'
+            },
+            nl: {
+                type: 'button',
+                label: 'Dutch'
+            },
+            no: {
+                type: 'button',
+                label: 'Norwegian Bokmål'
             },
             pt_BR: {
                 type: 'button',
-                label: "Português (Brasil)"
+                label: 'Português (Brasil)'
             },
             ru: {
                 type: 'button',
-                label: "Русский"
+                label: 'Русский'
+            },
+            tr: {
+                type: 'button',
+                label: 'Türkçe'
             },
             zh_CN: {
                 type: 'button',
-                label: "中文 (简体)"
+                label: '中文 (简体)'
             },
             zh_TW: {
                 type: 'button',
-                label: "中文 (繁體)"
+                label: '中文 (繁體)'
             }
         };
 

@@ -2488,7 +2488,7 @@ ImprovedTube.improvedtube_youtube_icon_wait = false;
 ImprovedTube.improvedtube_youtube_icon_resize = function() {
     var iframe = document.querySelector('.it-btn__iframe'),
         icon = document.querySelector('.it-btn__icon');
-    
+
     if (iframe && icon) {
         var x = icon.getBoundingClientRect().x,
             y = icon.getBoundingClientRect().y;
@@ -2516,6 +2516,10 @@ ImprovedTube.improvedtube_youtube_icon_resize = function() {
 };
 
 ImprovedTube.improvedtube_youtube_icon = function() {
+    if (window.self !== window.top) {
+        return false;
+    }
+
     if (
         ImprovedTube.storage.improvedtube_youtube_icon === 'disabled' &&
         document.querySelector('.it-btn')
