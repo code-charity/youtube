@@ -19,7 +19,7 @@
         "message": "Opções ativadas"
     },
     "activateFullscreen": {
-        "message": "Ativar ecrãn completo"
+        "message": "Ativar ecrã completo"
     },
     "activeFeatures": {
         "message": "Opções ativas"
@@ -28,7 +28,7 @@
         "message": "Adicionar «Ir para o topo»"
     },
     "ads": {
-        "message": "Anuncios"
+        "message": "Anúncios"
     },
     "all": {
         "message": "Todas"
@@ -67,10 +67,10 @@
         "message": "⇧"
     },
     "audio": {
-        "message": "Audio"
+        "message": "Áudio"
     },
     "audioFormats": {
-        "message": "Formatos de audio"
+        "message": "Formatos de áudio"
     },
     "auto": {
         "message": "Automático"
@@ -85,7 +85,7 @@
         "message": "Reprodução automática"
     },
     "backupAndReset": {
-        "message": "Backup e redefinição"
+        "message": "Cópia de segurança e repor"
     },
     "baseOnSystemColorScheme": {
         "message": "Baseado no esquema de cores do sistema"
