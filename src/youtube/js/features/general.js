@@ -111,7 +111,7 @@ ImprovedTube.youtube_home_page = function() {
 };
 
 function youtubeHomePage__documentStart(option) {
-    if (option && option !== '/' && option !== 'search' && location.pathname === '/') {
+    if (option && option !== '/' && option !== 'search' && location.hostname === 'www.youtube.com' && location.pathname === '/') {
         location.replace(option);
     }
 };
