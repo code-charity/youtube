@@ -42,6 +42,11 @@ Menu.main.section.player = {
             label: 'subtitles',
             value: true
         },
+        player_crop_chapter_titles: {
+            type: 'switch',
+            label: 'cropChapterTitles',
+            value: true
+        },
         up_next_autoplay: {
             type: 'switch',
             label: 'upNextAutoplay',

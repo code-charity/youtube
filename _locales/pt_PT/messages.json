@@ -1,5 +1,8 @@
 
 {
+    "cropChapterTitles": {
+        "message": "Crop chapter titles"
+    },
     "about": {
         "message": "Acerca"
     },
