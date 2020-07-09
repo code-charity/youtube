@@ -33,7 +33,8 @@
         "exclude_matches": [
             "https://www.youtube.com/improvedtube",
             "https://www.youtube.com/tv*",
-            "https://www.youtube.com/audiolibrary/*"
+            "https://www.youtube.com/audiolibrary/*",
+            "http://studio.youtube.com/*"
         ],
         "run_at": "document_start"
     }, {
