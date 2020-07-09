@@ -61,11 +61,9 @@ ImprovedTube.player_volume = function(node) {
 
         if (!ImprovedTube.isset(volume) || !volume) {
             volume = 1;
-        } else if (volume > 1) {
-            volume = volume / 100;
         }
 
-        node.querySelector('video').volume = volume;
+        node.setVolume(volume);
     }
 };
 
