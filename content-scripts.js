@@ -1,4 +1,4 @@
-
+
 /*-----------------------------------------------------------------------------
 >>> CORE
 -------------------------------------------------------------------------------
@@ -178,7 +178,7 @@ ImprovedTube.init = function() {
 
 function withoutInjection(object) {
     youtubeHomePage__documentStart(object.youtube_home_page);
-}
+}
 /*-----------------------------------------------------------------------------
 >>> EVENTS
 -------------------------------------------------------------------------------
@@ -310,7 +310,7 @@ ImprovedTube.events = function() {
         ImprovedTube.allow_autoplay = true;
         ImprovedTube.videoUrl = location.href;
     }, true);
-};
+};
 ImprovedTube.videoUrl = '"null"';
 ImprovedTube.playingTime = 0;
 
@@ -350,7 +350,7 @@ chrome.storage.local.get(function(items) {
             }
         }
     });
-});
+});
 /*-----------------------------------------------------------------------------
 >>> APPEARANCE
 -------------------------------------------------------------------------------
@@ -756,7 +756,7 @@ ImprovedTube.related_videos = function() {
             }
         }, 260);
     }
-};
+};
 document.addEventListener('ImprovedTubeBlacklist', function(event) {
     if (chrome && chrome.runtime) {
         chrome.runtime.sendMessage({
@@ -960,7 +960,7 @@ ImprovedTube.blacklist = function() {
             }
         }
     }
-};
+};
 /*-----------------------------------------------------------------------------
 >>> CHANNEL
 -------------------------------------------------------------------------------
@@ -1012,7 +1012,7 @@ ImprovedTube.channel_default_tab = function() {
             node_list[i].href = node_list[i].getAttribute('it-origin');
         }
     }
-};
+};
 /*-----------------------------------------------------------------------------
 >>> GENERAL
 -------------------------------------------------------------------------------
@@ -1354,7 +1354,7 @@ ImprovedTube.mark_watched_videos = function() {
             }
         }
     }
-};
+};
 /*-----------------------------------------------------------------------------
 >>> PLAYER
 -------------------------------------------------------------------------------
@@ -2182,7 +2182,7 @@ ImprovedTube.player_loudness_normalization = function() {
             console.log(err);
         }
     }
-};
+};
 /*-----------------------------------------------------------------------------
 >>> PLAYLIST
 -------------------------------------------------------------------------------
@@ -2470,7 +2470,7 @@ ImprovedTube.playlist_up_next_autoplay_f = function(event) {
 ImprovedTube.playlist_up_next_autoplay = function(player) {
     player.querySelector('video').removeEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
     player.querySelector('video').addEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
-};
+};
 /*-----------------------------------------------------------------------------
 >>> SETTINGS
 -------------------------------------------------------------------------------
@@ -2709,7 +2709,7 @@ ImprovedTube.youtube_language = function() {
     setTimeout(function() {
         location.reload();
     }, 100);
-};
+};
 /*-----------------------------------------------------------------------------
 >>> SHORTCUTS
 -------------------------------------------------------------------------------
@@ -3041,7 +3041,7 @@ ImprovedTube.shortcuts = function() {
         passive: false,
         capture: true
     });
-};
+};
 /*-----------------------------------------------------------------------------
 >>> THEMES
 -------------------------------------------------------------------------------
@@ -3345,7 +3345,7 @@ ImprovedTube.themeEditor = function() {
         '}';
 
     document.documentElement.appendChild(style);
-}
+}
 /*-----------------------------------------------------------------------------
 >>> VOLUME MIXER
 -------------------------------------------------------------------------------
@@ -3356,7 +3356,7 @@ ImprovedTube.themeEditor = function() {
 1.0 Inject
 -----------------------------------------------------------------------------*/
 
-ImprovedTube.volumeMixer = function() {};
+ImprovedTube.volumeMixer = function() {};
 /*-----------------------------------------------------------------------------
 >>> FUNCTIONS
 -------------------------------------------------------------------------------
@@ -3458,7 +3458,7 @@ ImprovedTube.pageType = function() {
 
 chrome.runtime.sendMessage({
     enabled: true
-});
+});
 /*-----------------------------------------------------------------------------
 >>> INJECTION
 -------------------------------------------------------------------------------
@@ -3596,7 +3596,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             location.reload();
         }, 250);
     }
-});
+});
 /*-----------------------------------------------------------------------------
 >>> MIGRATION
 -------------------------------------------------------------------------------
@@ -4133,7 +4133,7 @@ chrome.storage.local.get(function(object) {
 
         location.reload();
     }
-});
+});
 /*-----------------------------------------------------------------------------
 >>> MUTATIONS
 -------------------------------------------------------------------------------
