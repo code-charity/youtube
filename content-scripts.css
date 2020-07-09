@@ -1,4 +1,4 @@
-
+
 /*-----------------------------------------------------------------------------
 >>> APPEARANCE
 -------------------------------------------------------------------------------
@@ -746,7 +746,7 @@ html[it-hide-footer=true] #footer-container.yt-base-gutter
 {
     display: none !important;
 }
-
+
 /*-----------------------------------------------------------------------------
 >>> APPEARANCE: PLAYER SIZE
 -------------------------------------------------------------------------------
@@ -1255,7 +1255,7 @@ html[it-page-type="video"][it-player-size='fit_to_window'] div#page.watch-wide #
 
 .ytp-cued-thumbnail-overlay {
     z-index: 99
-}
+}
 .improvedtube-add-to-blacklist
 {
     font-size: 32px;
@@ -1292,7 +1292,7 @@ html[it-page-type="video"][it-player-size='fit_to_window'] div#page.watch-wide #
 {
     transform: scale(1.25);
 }
-
+
 /*-----------------------------------------------------------------------------
 >>> CHANNEL
 -------------------------------------------------------------------------------
@@ -1308,7 +1308,7 @@ html[it-channel-hide-featured-content=true] .branded-page-v2-secondary-col
 {
     display: none !important;
 }
-
+
 /*-----------------------------------------------------------------------------
 >>> GENERAL
 -------------------------------------------------------------------------------
@@ -1579,7 +1579,7 @@ html[it-remove-related-search-results=true] li > div.search-refinements
 {
     display: none;
 }
-
+
 .it-rate-notify
 {
     position: fixed;
@@ -1727,7 +1727,7 @@ html:not([it-page-type='video']) .it-rate-notify.it-rate-notify--show
         transform: scale(1);
     }
 }
-
+
 /*-----------------------------------------------------------------------------
 >>> PLAYER
 -------------------------------------------------------------------------------
@@ -2011,7 +2011,7 @@ html[it-mini-player=true] ytd-watch-flexy[hidden] .improvedtube-mini-player
 
     pointer-events: all;
 }
-
+
 html[it-youtube-version=new] #it-playlist-reverse
 {
     display: flex;
@@ -2060,7 +2060,7 @@ html[it-youtube-version=old] #it-playlist-reverse svg
 {
     fill: #fff;
 }
-
+
 /*-----------------------------------------------------------------------------
 >>> SETTINGS
 -------------------------------------------------------------------------------
@@ -2231,7 +2231,7 @@ html[it-improvedtube-youtube-icon='draggable'] .it-btn
 {
     opacity: .75 !important;
 }
-
+
 #it-status
 {
     font-size: 5rem;
@@ -2243,7 +2243,7 @@ html[it-improvedtube-youtube-icon='draggable'] .it-btn
     color: #0ff;
     text-shadow: 1px 1px 2px #000;
 }
-
+
 /*-----------------------------------------------------------------------------
 >>> THEMES
 -------------------------------------------------------------------------------
@@ -2331,7 +2331,7 @@ html[it-bluelight][it-youtube-version=old] body
 {
     visibility: visible !important;
 }
-
+
 [it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])
 {
     --yt-swatch-primary: #000!important;
@@ -2964,7 +2964,7 @@ html[it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-sched
         --yt-chat-bubble-self-background-color: #000;
         --yt-blue-suggestive: transparent;
     }
-}
+}
 [it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])
 {
     --yt-swatch-primary: #d44d5c!important;
@@ -3601,7 +3601,7 @@ html[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedu
     {
         -webkit-filter: grayscale(1) brightness(4);
                 filter: grayscale(1) brightness(4);
-    }
+    }
 [it-youtube-version=old][it-default-dark-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])
 {
     --yt-swatch-header-primary: rgb(34,38,42)!important;
@@ -4164,7 +4164,7 @@ html[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedu
 
         background: rgb(19,19,19)!important;
     }
-}
+}
 [it-desert-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])
 {
     --yt-swatch-primary: #faf9f9!important;
@@ -4787,7 +4787,7 @@ html[it-desert-theme=true]:not([it-schedule=system_peference_dark]):not([it-sche
         --yt-chat-bubble-self-background-color: #faf9f9;
         --yt-blue-suggestive: transparent;
     }
-}
+}
 html[it-theme=true] #author-name.style-scope.yt-live-chat-message-input-renderer,
 html[it-theme=true] #content #message.yt-live-chat-text-message-renderer,
 html[it-theme=true] #delete-account-confirm,
@@ -10024,7 +10024,7 @@ html[it-theme=true] .yt-uix-shelfslider-prev-arrow.yt-uix-tooltip.yt-sprite
     -webkit-filter: brightness(3)!important ;
             filter: brightness(3)!important;
 }
-
+
 [it-night-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])
 {
     --yt-swatch-primary: #003459!important;
@@ -10659,7 +10659,7 @@ html[it-night-theme=true]:not([it-schedule=system_peference_dark]):not([it-sched
         --yt-chat-bubble-self-background-color: #003459;
         --yt-blue-suggestive: transparent;
     }
-}
+}
 [it-plain-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])
 {
     --yt-swatch-primary: #c7efcf!important;
@@ -11282,7 +11282,7 @@ html[it-plain-theme=true]:not([it-schedule=system_peference_dark]):not([it-sched
         --yt-chat-bubble-self-background-color: #c7efcf;
         --yt-blue-suggestive: transparent;
     }
-}
+}
 [it-sunset-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])
 {
     --yt-swatch-primary: #2f3364!important;

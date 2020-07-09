@@ -1,4 +1,4 @@
-
+
 var Menu = {
     header: {
         type: 'header',
@@ -119,7 +119,7 @@ button_email: {
     onclick: function() {
         window.open('https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd');
     }
-}*/
+}*/
 Menu.main = {
     type: 'main',
     appearanceId: 'home',
@@ -138,7 +138,7 @@ Menu.main = {
     section: {
         type: 'section'
     }
-};
+};
 Menu.header.section_end.button_vert.onClickRender.active_features = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
@@ -198,7 +198,7 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
             });
         }
     }
-};
+};
 Menu.header.section_end.button_vert.onClickRender.mixer = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>',
@@ -312,7 +312,7 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
             });
         }
     }
-};
+};
 Menu.header.section_end.button_vert.onClickRender.settings = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>',
@@ -1166,7 +1166,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
             }
         }
     }
-};
+};
 Menu.main.section.general = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>',
@@ -1259,7 +1259,7 @@ Menu.main.section.general = {
             tags: 'preview'
         }
     }
-};
+};
 Menu.main.section.appearance = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
@@ -1620,7 +1620,7 @@ Menu.main.section.appearance = {
             }
         }
     }
-};
+};
 Menu.main.section.themes = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>',
@@ -2034,7 +2034,7 @@ Menu.main.section.themes = {
             }
         }
     }
-};
+};
 Menu.main.section.player = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>',
@@ -2304,7 +2304,7 @@ Menu.main.section.player = {
             label: 'popupPlayer'
         }
     }
-};
+};
 Menu.main.section.playlist = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',
@@ -2343,7 +2343,7 @@ Menu.main.section.playlist = {
             label: 'shuffle'
         }
     }
-};
+};
 Menu.main.section.channel = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>',
@@ -2378,7 +2378,7 @@ Menu.main.section.channel = {
             label: 'hideFeaturedContent'
         }
     }
-};
+};
 Menu.main.section.shortcuts = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>',
@@ -2594,7 +2594,7 @@ Menu.main.section.shortcuts = {
             label: 'darkTheme'
         }
     }
-};
+};
 Menu.main.section.blacklist = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>',
@@ -2755,7 +2755,7 @@ Menu.main.section.blacklist = {
             }
         }
     }
-};
+};
 Menu.main.section.analyzer = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/></svg>',
@@ -2892,7 +2892,7 @@ Menu.main.section.analyzer = {
             this.appendChild(container);
         }
     }
-};
+};
 Satus.storage.import(function() {
     var language = Satus.storage.get('language') || 'en';
 
