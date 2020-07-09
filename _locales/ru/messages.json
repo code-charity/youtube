@@ -1,4 +1,7 @@
 {
+    "cropChapterTitles": {
+        "message": "Обрезать заголовки глав"
+    },
     "about": {
         "message": "Об ImprovedTube"
     },

@@ -10,6 +10,7 @@
     2.2 Screenshot
     2.3 Rotate
     2.4 Popup
+3.0 Crop chapter titles
 -----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
@@ -280,4 +281,18 @@ html[it-mini-player=true] ytd-watch-flexy[hidden] .improvedtube-mini-player
     visibility: visible;
 
     pointer-events: all;
+}
+
+
+
+
+
+
+/*-----------------------------------------------------------------------------
+3.0 Crop chapter titles
+-----------------------------------------------------------------------------*/
+
+html[it-player-crop-chapter-titles='false'] .ytp-chapter-title
+{
+    width: auto !important;
 }
