@@ -63,8 +63,7 @@ Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTub
 
 ## Our other Browser Extensions and Projects:
 * Home:
-  - [History Manager](https://github.com/victor-savinov/history-manager) - [Start Page](https://github.com/victor-savinov/start-page) 
-  - [To-Do](https://github.com/victor-savinov/to-do)
+  - [History Manager](https://github.com/victor-savinov/history-manager)  ◦ [Start Page](https://github.com/victor-savinov/start-page)  ◦ [To-Do](https://github.com/victor-savinov/to-do)
 * Browsing: 
   - [Custom user agent](https://github.com/victor-savinov/custom-user-agent)   
   - [Night Mode](https://github.com/victor-savinov/night-mode) 
