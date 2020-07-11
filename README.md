@@ -62,15 +62,15 @@ You can learn more on [the page](http://improvedtube.com/donate).
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
 
 ## Our other Projects / Browser Extensions:
-*1. Home:* 
+* *Home:* 
   - [History Manager](https://github.com/victor-savinov/history-manager)  o [Start Page](https://github.com/victor-savinov/start-page)  o [To-Do](https://github.com/victor-savinov/to-do)
-*2. Browsing:*  
+* *Browsing:*  
   - [Custom user agent](https://github.com/victor-savinov/custom-user-agent)   
   - [Night Mode](https://github.com/victor-savinov/night-mode) 
   - [Regex Replace](https://github.com/victor-savinov/regex-replace) 
-*3. Research:* 
+* *Research:* 
   - [Regex Search](https://github.com/victor-savinov/regex-search)   
-*4. Development:*
+* *Development:*
   - [Satus](https://github.com/victor-savinov/satus)
   - [Pluviam](https://github.com/victor-savinov/pluviam)
   - [Theme Engine](https://github.com/victor-savinov/theme-engine)
