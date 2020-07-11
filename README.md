@@ -14,7 +14,7 @@
 
 ## Translations
 
-You can help us translate ImprovedTube into your language 🧡. Please, check the [wiki page](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations).
+You can help us translate ImprovedTube into your language ♡. Please, check the [wiki page](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations).
 
 * [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
 * [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [ImprovedTube](https://github.com/ImprovedTube)
@@ -63,7 +63,7 @@ Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTub
 
 ## Our other Projects / Browser Extensions:
 * Home:
-  - [History Manager](https://github.com/victor-savinov/history-manager)  ○ [Start Page](https://github.com/victor-savinov/start-page)  ○ [To-Do](https://github.com/victor-savinov/to-do)
+  - [History Manager](https://github.com/victor-savinov/history-manager)  ⚬ [Start Page](https://github.com/victor-savinov/start-page)  ⚬ [To-Do](https://github.com/victor-savinov/to-do)
 * Browsing:  
   - [Custom user agent](https://github.com/victor-savinov/custom-user-agent)   
   - [Night Mode](https://github.com/victor-savinov/night-mode) 
