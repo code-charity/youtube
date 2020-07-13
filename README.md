@@ -1,16 +1,18 @@
 ## ImprovedTube
 ![](/assets/rating.svg) ![](/assets/size.svg)</br>
-[ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an extension that is built to improve the user's experience on YouTube. We designed it on our [Satus](https://github.com/victor-savinov/satus) library so that you can manage your settings more efficiently.
+[ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an extension that is built since 2012 to improve the user's experience on YouTube. We designed it with our [Satus](https://github.com/victor-savinov/satus) library so that you can manage your settings efficiently.
 
 ## Features
 
 [The Future of the ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/issues/246). You can learn more about features on [the page](https://github.com/ImprovedTube/ImprovedTube/wiki/Features).
 
-## Browsers support 
+## Credits
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="24px" height="24px" />](https://brave.com/?ref=imp716)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="24px" height="24px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
-| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | 1.0+ |
+Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
+
+## Donate
+
+You can learn more on [the page](http://improvedtube.com/donate).
 
 ## Translations
 
@@ -33,6 +35,27 @@ You can help us translate ImprovedTube into your language ♡. Please, check the
 * [中文 (简体)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json) by [niceRAM](https://github.com/niceRAM), [ausers](https://github.com/ausers)
 * [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [water903](https://github.com/water903)
 
+## Browsers support 
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="24px" height="24px" />](https://brave.com/?ref=imp716)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="24px" height="24px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
+| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | 1.0+ |
+
+## Our other Projects / Browser Extensions:
+* Home:
+  - [History Manager](https://github.com/victor-savinov/history-manager)  ⚬ [Start Page](https://github.com/victor-savinov/start-page)  ⚬ [To-Do](https://github.com/victor-savinov/to-do)
+* Browsing:  
+  - [Custom user agent](https://github.com/victor-savinov/custom-user-agent)   
+  - [Night Mode](https://github.com/victor-savinov/night-mode) 
+  - [Regex Replace](https://github.com/victor-savinov/regex-replace) 
+* Research: 
+  - [Regex Search](https://github.com/victor-savinov/regex-search)   
+* Development:
+  - [Satus](https://github.com/victor-savinov/satus)
+  - [Pluviam](https://github.com/victor-savinov/pluviam)
+  - [Theme Engine](https://github.com/victor-savinov/theme-engine)
+  - [Code Editor](https://github.com/victor-savinov/code-editor)
+  - [Viscum Player](https://github.com/victor-savinov/viscum-player)
 
 ## Installation
 
@@ -52,27 +75,3 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
 5. Click on "Load Temporary Add-on…"
 6. Select "manifest.json" file from unzipped folder
-
-## Donate
-
-You can learn more on [the page](http://improvedtube.com/donate).
-
-## Credits
-
-Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
-
-## Our other Projects / Browser Extensions:
-* Home:
-  - [History Manager](https://github.com/victor-savinov/history-manager)  ⚬ [Start Page](https://github.com/victor-savinov/start-page)  ⚬ [To-Do](https://github.com/victor-savinov/to-do)
-* Browsing:  
-  - [Custom user agent](https://github.com/victor-savinov/custom-user-agent)   
-  - [Night Mode](https://github.com/victor-savinov/night-mode) 
-  - [Regex Replace](https://github.com/victor-savinov/regex-replace) 
-* Research: 
-  - [Regex Search](https://github.com/victor-savinov/regex-search)   
-* Development:
-  - [Satus](https://github.com/victor-savinov/satus)
-  - [Pluviam](https://github.com/victor-savinov/pluviam)
-  - [Theme Engine](https://github.com/victor-savinov/theme-engine)
-  - [Code Editor](https://github.com/victor-savinov/code-editor)
-  - [Viscum Player](https://github.com/victor-savinov/viscum-player)
