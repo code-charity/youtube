@@ -1,21 +1,19 @@
 ## ImprovedTube
 ![](/assets/rating.svg) ![](/assets/size.svg)</br>
-[ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an extension that is built since 2012 to improve the user's experience on YouTube. We designed it with our [Satus](https://github.com/victor-savinov/satus) library so that you can manage your settings efficiently.
+[ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an extension that we built to refine the user's experience on YouTube. Since 2012 and for 250,000+ people. The first popular features were simply a larger player + hiding distractions,
+but we added many powerful features to Youtube and want to save your time. And there is so much more left to build. ImprovedTube could actually fly many times higher, with your word of mouth, contributions, translations or donations 
 
 ## Features
-
 [The Future of the ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/issues/246). You can learn more about features on [the page](https://github.com/ImprovedTube/ImprovedTube/wiki/Features).
+Improvedtube is designed with our [Satus](https://github.com/victor-savinov/satus) library so that you can manage your settings efficiently. 
 
 ## Credits
-
-Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
+Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!    
 
 ## Donate
-
 You can learn more on [the page](http://improvedtube.com/donate).
 
 ## Translations
-
 You can help us translate ImprovedTube into your language ♡. Please, check the [wiki page](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations).
 
 * [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
