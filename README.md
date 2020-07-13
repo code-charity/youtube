@@ -6,11 +6,11 @@ The first popular features were simply a larger player + hiding distractions, ye
 #### Features
 You can learn more about features [here](https://github.com/ImprovedTube/ImprovedTube/wiki/Features).   
 
-#### Contributing
+## Contributing
 ImprovedTube can still fly much higher through your word of mouth, contributions or ideas:
 - [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)   ⚬ [Donations](http://improvedtube.com/donate)
 
-## Credits
+#### Credits
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!    
 Improvedtube Interface/Layout is designed with our library [Satus](https://github.com/victor-savinov/satus), to manage settings efficiently. 
 #### Translations:
@@ -54,7 +54,7 @@ You can help us translate ImprovedTube into your language ♡. Please, check the
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | 1.0+ |
 
-#### Installation
+## Installation
 
 #### [Chromium](https://github.com/chromium/chromium) / [Brave](https://brave.com/?ref=imp716) / Vivaldi / Chrome and other
 1. Download & unzip [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
