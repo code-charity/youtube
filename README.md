@@ -5,6 +5,7 @@
 You can learn more about features [here](https://github.com/ImprovedTube/ImprovedTube/wiki/Features).   
 ## Contributing
 ImprovedTube can still fly much higher through your word of mouth, contributions or ideas:
+
   ⚬ [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)  ⚬ [Beta testing](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki)  ⚬ [Donations](http://improvedtube.com/donate)
 #### Credits
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!    
