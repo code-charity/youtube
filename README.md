@@ -6,7 +6,7 @@ You can learn more about features [here](https://github.com/ImprovedTube/Improve
 
 ## Contributing
 ImprovedTube can still fly much higher through your word of mouth, contributions or ideas:
-- [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)  ⚬ [Beta testing](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki)  ⚬ [Donations](http://improvedtube.com/donate)
+  ⚬ [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)  ⚬ [Beta testing](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki)  ⚬ [Donations](http://improvedtube.com/donate)
 
 #### Credits
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!    
@@ -33,7 +33,7 @@ You can help us translate ImprovedTube into your language ♡. Please, check the
 
 ## Our other Projects / Browser Extensions:
 * Home:
-  - [History Manager](https://github.com/victor-savinov/history-manager)  ⚬ [Start Page](https://github.com/victor-savinov/start-page)  ⚬ [To-Do](https://github.com/victor-savinov/to-do)
+   ⚬ [History Manager](https://github.com/victor-savinov/history-manager)  ⚬ [Start Page](https://github.com/victor-savinov/start-page)  ⚬ [To-Do](https://github.com/victor-savinov/to-do)
 * Browsing:  
   - [Custom user agent](https://github.com/victor-savinov/custom-user-agent)   
   - [Night Mode](https://github.com/victor-savinov/night-mode) 
