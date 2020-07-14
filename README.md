@@ -56,7 +56,7 @@ You can help us translate ImprovedTube into your language ♡. Please, check the
 
 #### [Chromium](https://github.com/chromium/chromium) / [Brave](https://brave.com/?ref=imp716) / Vivaldi / Chrome and other
 1. Download & unzip [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
-2. Open Extensions (*chrome://extensions/*) page in your browser
+2. Open Extensions [chrome://extensions/](chrome://extensions/) page in your browser
 3. Activate "Developer mode"
 4. Click on "Load unpacked" button
 5. Select unzipped folder
