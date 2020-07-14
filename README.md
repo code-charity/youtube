@@ -65,8 +65,8 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 
 #### [Firefox](https://github.com/mozilla) / [Waterfox](https://github.com/MrAlex94/Waterfox) / GNUzilla and IceCat and other
 1. Download & unzip [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
-2. Open Add-ons page (*about:addons*) in your browser
+2. Open Add-ons page [about:addons](about:addons) in your browser
 3. Click on "Extensions" tab
-4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
+4. Click on "Debug Add-ons" [about:debugging#/runtime/this-firefox](about:debugging#/runtime/this-firefox)
 5. Click on "Load Temporary Add-on…"
 6. Select "manifest.json" file from unzipped folder
