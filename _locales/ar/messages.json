@@ -1,6 +1,6 @@
 {
     "cropChapterTitles": {
-        "message": "Crop chapter titles"
+        "message": "اقتطاع عناوين الفصول"
     },
     "about": {
         "message": "حول"
@@ -54,7 +54,7 @@
         "message": "المحلل"
     },
     "appearance": {
-        "message": "المظهر الخارجي"
+        "message": "المظهر العام"
     },
     "ARROWDOWN": {
         "message": "⇩"
@@ -111,7 +111,7 @@
         "message": "ازرق رمادي"
     },
     "bluelight": {
-        "message": "ازرق فاتح"
+        "message": "الضوء الأزرق"
     },
     "brown": {
         "message": "بنى"
@@ -435,10 +435,10 @@
         "message": "قائمة"
     },
     "liveChat": {
-        "message": "الدردشة المباشرة"
+        "message": "محادثة مباشرة"
     },
     "liveChatType": {
-        "message": "نوع الدردشة المباشرة"
+        "message": "نوع المحادثة مباشرة"
     },
     "loudnessNormalization": {
         "message": "تطبيع الإزعاج"
@@ -510,7 +510,7 @@
         "message": "الأذونات"
     },
     "pictureInPicture": {
-        "message": "صورة داخل صورة"
+        "message": "فيديو عائم"
     },
     "pink": {
         "message": "زهري"
@@ -720,7 +720,7 @@
         "message": "اليوم عند الساعة"
     },
     "topChat": {
-        "message": "أهم الدردشة"
+        "message": "رسائل المحادثة الهامّة"
     },
     "trailerAutoplay": {
         "message": "التشغيل التلقائي للفيديو الدعائي"
