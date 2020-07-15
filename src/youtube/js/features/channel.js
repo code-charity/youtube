@@ -11,7 +11,9 @@
 ImprovedTube.channel_default_tab = function() {
     if (this.storage.channel_default_tab && this.storage.channel_default_tab !== '/') {
         var value = this.storage.channel_default_tab,
-            node_list = document.querySelectorAll('*:not(#contenteditable-root) > a[href*="user"], *:not(#contenteditable-root) > a[href*="channel"]');
+            node_list = document.querySelectorAll('*:not(#contenteditable-root) > a[href*="user"], ' +
+                                                  '*:not(#contenteditable-root) > a[href*="channel"], ' +
+                                                  '*:not(#contenteditable-root) > a[href*="/c/"]');
 
         for (var i = 0, l = node_list.length; i < l; i++) {
             var node = node_list[i];
@@ -43,7 +45,7 @@ ImprovedTube.channel_default_tab = function() {
             node.parentNode.parentNode.addEventListener('click', click, true);
         }
     } else if (this.storage.channel_default_tab) {
-        var node_list = document.querySelectorAll('a[href*="user"], a[href*="channel"]');
+        var node_list = document.querySelectorAll('a[href*="user"], a[href*="channel"], a[href*="/c/"]');
 
         for (var i = 0, l = node_list.length; i < l; i++) {
             node_list[i].href = node_list[i].getAttribute('it-origin');
