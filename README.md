@@ -29,7 +29,7 @@ You can help us translate ImprovedTube into your language ♡. Please, check the
 * [Türkçe](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json) by [Onur Dumangöz](https://github.com/onurdumangoz)
 * [Русский](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json) by [Victor Savinov](https://github.com/victor-savinov), [WhoIsPrivalov](https://github.com/WhoIsPrivalov), [qweered](https://github.com/qweered)
 * [中文 (简体)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json) by [niceRAM](https://github.com/niceRAM), [ausers](https://github.com/ausers)
-* [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [water903](https://github.com/water903)
+* [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [water903](https://github.com/water903), [Ignatius Liu](https://github.com/suitangi)
 
 ## Our other Projects / Browser Extensions:
 * Home:
