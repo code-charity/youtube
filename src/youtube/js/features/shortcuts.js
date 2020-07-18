@@ -242,6 +242,10 @@ ImprovedTube.shortcuts = function() {
 
                 if (like) {
                     like.click();
+                    // Find if the active disliked element after click
+                    var activeDislikedElmt = document.querySelectorAll('#menu #top-level-buttons ytd-toggle-button-renderer.style-default-active')[0];
+                    // If it is disliked then change element color to red
+                    like.style.color = activeDislikedElmt ? 'red' : '#909090';
                 }
             },
             shortcut_dark_theme: function() {
