@@ -1,4 +1,4 @@
-
+
 /*-----------------------------------------------------------------------------
 >>> CORE
 -------------------------------------------------------------------------------
@@ -178,7 +178,7 @@ ImprovedTube.init = function() {
 
 function withoutInjection(object) {
     youtubeHomePage__documentStart(object.youtube_home_page);
-}
+}
 /*-----------------------------------------------------------------------------
 >>> EVENTS
 -------------------------------------------------------------------------------
@@ -310,7 +310,7 @@ ImprovedTube.events = function() {
         ImprovedTube.allow_autoplay = true;
         ImprovedTube.videoUrl = location.href;
     }, true);
-};
+};
 ImprovedTube.videoUrl = '"null"';
 ImprovedTube.playingTime = 0;
 
@@ -350,7 +350,7 @@ chrome.storage.local.get(function(items) {
             }
         }
     });
-});
+});
 /*-----------------------------------------------------------------------------
 >>> APPEARANCE
 -------------------------------------------------------------------------------
@@ -756,7 +756,7 @@ ImprovedTube.related_videos = function() {
             }
         }, 260);
     }
-};
+};
 document.addEventListener('ImprovedTubeBlacklist', function(event) {
     if (chrome && chrome.runtime) {
         chrome.runtime.sendMessage({
@@ -960,7 +960,7 @@ ImprovedTube.blacklist = function() {
             }
         }
     }
-};
+};
 /*-----------------------------------------------------------------------------
 >>> CHANNEL
 -------------------------------------------------------------------------------
@@ -974,7 +974,9 @@ ImprovedTube.blacklist = function() {
 ImprovedTube.channel_default_tab = function() {
     if (this.storage.channel_default_tab && this.storage.channel_default_tab !== '/') {
         var value = this.storage.channel_default_tab,
-            node_list = document.querySelectorAll('*:not(#contenteditable-root) > a[href*="user"], *:not(#contenteditable-root) > a[href*="channel"]');
+            node_list = document.querySelectorAll('*:not(#contenteditable-root) > a[href*="user"], ' +
+                                                  '*:not(#contenteditable-root) > a[href*="channel"], ' +
+                                                  '*:not(#contenteditable-root) > a[href*="/c/"]');
 
         for (var i = 0, l = node_list.length; i < l; i++) {
             var node = node_list[i];
@@ -1006,13 +1008,14 @@ ImprovedTube.channel_default_tab = function() {
             node.parentNode.parentNode.addEventListener('click', click, true);
         }
     } else if (this.storage.channel_default_tab) {
-        var node_list = document.querySelectorAll('a[href*="user"], a[href*="channel"]');
+        var node_list = document.querySelectorAll('a[href*="user"], a[href*="channel"], a[href*="/c/"]');
 
         for (var i = 0, l = node_list.length; i < l; i++) {
             node_list[i].href = node_list[i].getAttribute('it-origin');
         }
     }
-};
+};
+
 /*-----------------------------------------------------------------------------
 >>> GENERAL
 -------------------------------------------------------------------------------
@@ -1091,7 +1094,7 @@ ImprovedTube.youtube_home_page = function() {
         this.storage.youtube_home_page !== 'search'
     ) {
         var value = this.storage.youtube_home_page,
-            node_list = document.querySelectorAll('a[href="/"], a[href="//www.youtube.com"], a[href="//www.youtube.com/"], a[href="https://www.youtube.com"], a[href="https://www.youtube.com/"], a[it-origin="/"], a[it-origin="//www.youtube.com"], a[it-origin="//www.youtube.com/"], a[it-origin="https://www.youtube.com"], a[it-origin="https://www.youtube.com/"]');
+            node_list = document.querySelectorAll('a[href="/"]:not([role="tablist"]), a[href="//www.youtube.com"]:not([role="tablist"]), a[href="//www.youtube.com/"]:not([role="tablist"]), a[href="https://www.youtube.com"]:not([role="tablist"]), a[href="https://www.youtube.com/"]:not([role="tablist"]), a[it-origin="/"]:not([role="tablist"]), a[it-origin="//www.youtube.com"]:not([role="tablist"]), a[it-origin="//www.youtube.com/"]:not([role="tablist"]), a[it-origin="https://www.youtube.com"]:not([role="tablist"]), a[it-origin="https://www.youtube.com/"]:not([role="tablist"])');
 
         for (var i = 0, l = node_list.length; i < l; i++) {
             var node = node_list[i],
@@ -1354,7 +1357,8 @@ ImprovedTube.mark_watched_videos = function() {
             }
         }
     }
-};
+};
+
 /*-----------------------------------------------------------------------------
 >>> PLAYER
 -------------------------------------------------------------------------------
@@ -2180,7 +2184,7 @@ ImprovedTube.player_loudness_normalization = function() {
             console.log(err);
         }
     }
-};
+};
 /*-----------------------------------------------------------------------------
 >>> PLAYLIST
 -------------------------------------------------------------------------------
@@ -2297,14 +2301,12 @@ ImprovedTube.newPlaylistReverse = function() {
     var list = document.querySelector('#items.playlist-items'),
         videos = document.querySelectorAll('#items.playlist-items > *'),
         clones = [],
-        thumbnails = [],
         titles = [],
         channels = [],
         hrefs = [];
 
     if (videos) {
         for (var i = videos.length - 1; i >= 0; i--) {
-            thumbnails.push(videos[i].querySelector('#img').src);
             titles.push(videos[i].querySelector('#video-title').innerText);
             channels.push(videos[i].querySelector('#byline').innerText);
             hrefs.push(videos[i].querySelector('a').href + '&it-playlist-reverse=true');
@@ -2368,20 +2370,27 @@ ImprovedTube.newPlaylistReverse = function() {
         window.addEventListener('click', prev);
 
         setTimeout(function() {
+            var items = document.querySelectorAll('#items.playlist-items > *');
+            
             for (var i = 0, l = clones.length; i < l; i++) {
-                document.querySelectorAll('#items.playlist-items > *')[i].querySelector('a').href = hrefs[i];
+                var item = items[i];
+                
+                item.querySelector('a').href = hrefs[i];
                 // index
-                document.querySelectorAll('#items.playlist-items > *')[i].querySelector('#index').innerHTML = clones[i].querySelector('#index').innerHTML;
+                item.querySelector('#index').innerHTML = clones[i].querySelector('#index').innerHTML;
                 // thumbnail
-                document.querySelectorAll('#items.playlist-items > *')[i].querySelector('#img').src = thumbnails[i];
-                document.querySelectorAll('#items.playlist-items > *')[i].querySelector('yt-img-shadow').classList.remove('empty');
+                item.querySelector('#thumbnail-container').style.background = 'url(https://i.ytimg.com/vi/' + hrefs[i].match(/v=[^&]*/g)[0].substr(2) + '/hqdefault.jpg) no-repeat center';
+                item.querySelector('#thumbnail-container').style.backgroundSize = 'cover';
+                item.querySelector('yt-img-shadow').classList.remove('empty');
                 // title
-                document.querySelectorAll('#items.playlist-items > *')[i].querySelector('#video-title').innerText = titles[i];
+                item.querySelector('#video-title').innerText = titles[i];
                 // channel
-                document.querySelectorAll('#items.playlist-items > *')[i].querySelector('#byline').innerText = channels[i];
+                item.querySelector('#byline').innerText = channels[i];
             }
 
             //document.querySelector('.html5-video-player .ytp-next-button').parentNode.replaceChild(document.querySelector('.html5-video-player .ytp-next-button').cloneNode.true, document.querySelector('.html5-video-player .ytp-next-button'));
+            
+            document.querySelector('#playlist .playlist-items').scrollTo(0, document.querySelector('ytd-playlist-panel-video-renderer[selected]').offsetTop - document.querySelector('ytd-playlist-panel-video-renderer[selected]').parentNode.offsetTop);
         }, 500);
     }
 };
@@ -2468,7 +2477,8 @@ ImprovedTube.playlist_up_next_autoplay_f = function(event) {
 ImprovedTube.playlist_up_next_autoplay = function(player) {
     player.querySelector('video').removeEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
     player.querySelector('video').addEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
-};
+};
+
 /*-----------------------------------------------------------------------------
 >>> SETTINGS
 -------------------------------------------------------------------------------
@@ -2707,7 +2717,7 @@ ImprovedTube.youtube_language = function() {
     setTimeout(function() {
         location.reload();
     }, 100);
-};
+};
 /*-----------------------------------------------------------------------------
 >>> SHORTCUTS
 -------------------------------------------------------------------------------
@@ -3039,7 +3049,7 @@ ImprovedTube.shortcuts = function() {
         passive: false,
         capture: true
     });
-};
+};
 /*-----------------------------------------------------------------------------
 >>> THEMES
 -------------------------------------------------------------------------------
@@ -3343,7 +3353,7 @@ ImprovedTube.themeEditor = function() {
         '}';
 
     document.documentElement.appendChild(style);
-}
+}
 /*-----------------------------------------------------------------------------
 >>> VOLUME MIXER
 -------------------------------------------------------------------------------
@@ -3354,7 +3364,7 @@ ImprovedTube.themeEditor = function() {
 1.0 Inject
 -----------------------------------------------------------------------------*/
 
-ImprovedTube.volumeMixer = function() {};
+ImprovedTube.volumeMixer = function() {};
 /*-----------------------------------------------------------------------------
 >>> FUNCTIONS
 -------------------------------------------------------------------------------
@@ -3456,7 +3466,7 @@ ImprovedTube.pageType = function() {
 
 chrome.runtime.sendMessage({
     enabled: true
-});
+});
 /*-----------------------------------------------------------------------------
 >>> INJECTION
 -------------------------------------------------------------------------------
@@ -3594,7 +3604,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             location.reload();
         }, 250);
     }
-});
+});
 /*-----------------------------------------------------------------------------
 >>> MIGRATION
 -------------------------------------------------------------------------------
@@ -4131,7 +4141,7 @@ chrome.storage.local.get(function(object) {
 
         location.reload();
     }
-});
+});
 /*-----------------------------------------------------------------------------
 >>> MUTATIONS
 -------------------------------------------------------------------------------

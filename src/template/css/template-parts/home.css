@@ -8,6 +8,8 @@
     margin-top: 16px;
 
     flex-wrap: wrap;
+    
+    background-color: transparent;
 }
 
 
@@ -24,6 +26,11 @@
     padding: 0;
 
     cursor: default;
+}
+
+.satus-main__container[data-appearance='home'] .satus-folder::before
+{
+    background-color: transparent
 }
 
 .satus-main__container[data-appearance='home'] .satus-folder__label

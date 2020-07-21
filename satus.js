@@ -1,4 +1,4 @@
-
+
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -70,7 +70,7 @@ Satus.camelize = function(string) {
 
 Satus.getAnimationDuration = function(element) {
     return Number(window.getComputedStyle(element).getPropertyValue('animation-duration').replace(/[^0-9.]/g, '')) * 1000;
-};
+};
 /*--------------------------------------------------------------
 >>> CHROMIUM STORAGE
 ----------------------------------------------------------------
@@ -173,7 +173,7 @@ Satus.storage.clear = function() {
             delete Satus.storage[key];
         }
     }
-};
+};
 /*--------------------------------------------------------------
 # LOCALE
 --------------------------------------------------------------*/
@@ -235,7 +235,7 @@ Satus.locale.import = function(src, callback) {
 
     xhr.open('GET', src, true);
     xhr.send();
-};
+};
 /*--------------------------------------------------------------
 >>> RENDER
 --------------------------------------------------------------*/
@@ -324,7 +324,7 @@ Satus.render = function(element, container, callback) {
             convert(element[key]);
         }
     }
-};
+};
 /*--------------------------------------------------------------
 # CLONE NODE STYLES
 --------------------------------------------------------------*/
@@ -335,7 +335,7 @@ Satus.cloneNodeStyles = function(origin, target) {
     for (var i = 0, l = origin.children.length; i < l; i++) {
         Satus.cloneNodeStyles(origin.children[i], target.children[i]);
     }
-};
+};
 /*-----------------------------------------------------------------------------
 >>> «SEARCH» MODULE
 -----------------------------------------------------------------------------*/
@@ -368,7 +368,7 @@ Satus.search = function(query, object, callback) {
     }
 
     parse(object);
-};
+};
 /*--------------------------------------------------------------
 >>> STORAGE KEYS
 --------------------------------------------------------------*/
@@ -400,7 +400,7 @@ Satus.modules.updateStorageKeys = function(object, callback) {
     }
 
     parse(object);
-};
+};
 /*-----------------------------------------------------------------------------
 >>> «USER» MODULE
 -------------------------------------------------------------------------------
@@ -760,7 +760,7 @@ Satus.modules.user = function() {
 
 
     return data;
-};
+};
 Satus.on('render', function(component, data) {
     if (data.perspective === true) {
         component.style.willChange = 'transform';
@@ -779,7 +779,7 @@ Satus.on('render', function(component, data) {
             this.style.transform = 'perspective(440px) rotateX(0deg) rotateY(0deg) translateZ(0)';
         });
     }
-});
+});
 /*--------------------------------------------------------------
 >>> BUTTON
 --------------------------------------------------------------*/
@@ -806,7 +806,7 @@ Satus.components.button = function(element) {
     }
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> COLOR PICKER
 --------------------------------------------------------------*/
@@ -886,7 +886,7 @@ Satus.components.colorPicker = function(element) {
     component.appendChild(component_value);
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> DIALOG
 --------------------------------------------------------------*/
@@ -974,7 +974,7 @@ Satus.components.dialog = function(element) {
     // END OPTIONS
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> FOLDER
 --------------------------------------------------------------*/
@@ -983,6 +983,8 @@ Satus.components.folder = function(object) {
     var component = document.createElement('button');
 
     component.object = object;
+
+    component.classList.add('satus-button');
 
     component.addEventListener('click', function() {
         var parent = document.querySelector(component.object.parent) || document.querySelector('.satus-main');
@@ -1006,7 +1008,7 @@ Satus.components.folder = function(object) {
     }
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> HEADER
 --------------------------------------------------------------*/
@@ -1019,7 +1021,7 @@ Satus.components.header = function(object) {
 	}
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> LIST
 --------------------------------------------------------------*/
@@ -1044,10 +1046,16 @@ Satus.components.list = function(object) {
                             clone = false,
                             current_index = Array.from(self.parentNode.children).indexOf(self),
                             bounding = this.getBoundingClientRect(),
+                            first_x = event.clientX,
+                            first_y = event.clientY,
                             offset_x = event.clientX - bounding.left,
                             offset_y = event.clientY - bounding.top;
 
                         function mousemove(event) {
+                            if (Math.abs(first_y - event.clientY) <= 5) {
+                                return false;
+                            }
+                            
                             if (dragging === false) {
                                 clone = self.cloneNode(true);
 
@@ -1068,6 +1076,8 @@ Satus.components.list = function(object) {
 
                             clone.style.left = x + 'px';
                             clone.style.top = y + 'px';
+                            
+                            //return false;
 
                             if (index !== current_index && self.parentNode.children[index]) {
                                 var new_clone = self.cloneNode(true);
@@ -1117,7 +1127,8 @@ Satus.components.list = function(object) {
     }
 
     return ul;
-};
+};
+
 /*--------------------------------------------------------------
 >>> MAIN
 --------------------------------------------------------------*/
@@ -1160,13 +1171,17 @@ Satus.components.main = function(object) {
         }, Satus.getAnimationDuration(container));
     };
 
-    component.open = function(element, callback) {
+    component.open = function(element, callback, animated) {
         var container = this.querySelector('.satus-main__container'),
             component_container = document.createElement('div'),
             component_scrollbar = Satus.components.scrollbar(component_container);
 
-        container.classList.add('satus-main__container--fade-out-left');
-        component_container.className = 'satus-main__container satus-main__container--fade-in-right';
+        if (animated !== false) {
+            container.classList.add('satus-main__container--fade-out-left');
+            component_container.className = 'satus-main__container satus-main__container--fade-in-right';
+        } else {
+            component_container.className = 'satus-main__container';
+        }
 
         this.history.push(element);
 
@@ -1208,7 +1223,7 @@ Satus.components.main = function(object) {
     component.appendChild(component_container);
 
     return component;
-};
+};
 /*-----------------------------------------------------------------------------
 >>> SCROLL BAR
 -----------------------------------------------------------------------------*/
@@ -1313,7 +1328,7 @@ Satus.components.scrollbar = function(parent, enabled) {
     parent.appendChild(component);
 
     return component_content;
-};
+};
 /*--------------------------------------------------------------
 >>> SECTION
 --------------------------------------------------------------*/
@@ -1326,7 +1341,7 @@ Satus.components.section = function(element) {
 	}
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> SELECT
 --------------------------------------------------------------*/
@@ -1336,6 +1351,8 @@ Satus.components.select = function(element) {
         component_label = document.createElement('span'),
         component_value = document.createElement('span'),
         label = Satus.locale.getMessage(element.label);
+
+    component.classList.add('satus-button');
 
     component_label.className = 'satus-select__label';
     component_label.innerText = label;
@@ -1392,7 +1409,7 @@ Satus.components.select = function(element) {
     component.appendChild(component_value);
 
     return component;
-};
+};
 /*------------------------------------------------------------------------------
 >>> SHORTCUT
 ------------------------------------------------------------------------------*/
@@ -1595,7 +1612,7 @@ Satus.components.shortcut = function(element) {
     component.appendChild(component_value);
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> SLIDER
 --------------------------------------------------------------*/
@@ -1732,7 +1749,7 @@ Satus.components.slider = function(element) {
 
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> SWITCH
 --------------------------------------------------------------*/
@@ -1773,13 +1790,7 @@ Satus.components.switch = function(element) {
     }
 
     component_input.addEventListener('change', function() {
-        //if (this.dataset.storageKey) {
         Satus.storage.set(this.dataset.storageKey, this.checked);
-        //}
-
-        if (typeof component.onchange === 'function') {
-            component.onchange();
-        }
     });
 
     component.appendChild(component_input);
@@ -1874,7 +1885,7 @@ Satus.components.switch = function(element) {
 
 
     return component;
-};
+};
 Satus.components.table = function(item) {
     var component = document.createElement('div'),
         component_head = document.createElement('div'),
@@ -2079,7 +2090,7 @@ Satus.components.table = function(item) {
     setTimeout(resize);
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> TEXT
 --------------------------------------------------------------*/
@@ -2106,7 +2117,7 @@ Satus.components.text = function(element) {
     }
 
     return component;
-};
+};
 /*--------------------------------------------------------------
 >>> TEXT FIELD
 --------------------------------------------------------------*/
