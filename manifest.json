@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "ImprovedTube",
-    "version": "3.0.8",
-    "version_name": "3.0-alpha8",
+    "version": "3.0.13",
+    "version_name": "3.0-alpha9",
     "icons": {
         "16": "assets/icons/16.png",
         "32": "assets/icons/32.png",

@@ -76,7 +76,7 @@ ImprovedTube.youtube_home_page = function() {
         this.storage.youtube_home_page !== 'search'
     ) {
         var value = this.storage.youtube_home_page,
-            node_list = document.querySelectorAll('a[href="/"], a[href="//www.youtube.com"], a[href="//www.youtube.com/"], a[href="https://www.youtube.com"], a[href="https://www.youtube.com/"], a[it-origin="/"], a[it-origin="//www.youtube.com"], a[it-origin="//www.youtube.com/"], a[it-origin="https://www.youtube.com"], a[it-origin="https://www.youtube.com/"]');
+            node_list = document.querySelectorAll('a[href="/"]:not([role="tablist"]), a[href="//www.youtube.com"]:not([role="tablist"]), a[href="//www.youtube.com/"]:not([role="tablist"]), a[href="https://www.youtube.com"]:not([role="tablist"]), a[href="https://www.youtube.com/"]:not([role="tablist"]), a[it-origin="/"]:not([role="tablist"]), a[it-origin="//www.youtube.com"]:not([role="tablist"]), a[it-origin="//www.youtube.com/"]:not([role="tablist"]), a[it-origin="https://www.youtube.com"]:not([role="tablist"]), a[it-origin="https://www.youtube.com/"]:not([role="tablist"])');
 
         for (var i = 0, l = node_list.length; i < l; i++) {
             var node = node_list[i],

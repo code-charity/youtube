@@ -81,14 +81,14 @@ html[it-page-type=home][it-youtube-home-page=search] .gstl_50.sbdd_a
     height: 56px;
 
     cursor: pointer;
-    transition: .28s cubic-bezier(.4, 0, .2, 1);
+    transition: background 500ms 250ms, transform 500ms, box-shadow 525ms;
     transform: translateY(88px);
     pointer-events: none;
 
     opacity: 0;
     border-radius: 50%;
-    background: #cd3632;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, .3), 0 0 4px rgba(0, 0, 0, .2);
+    background: linear-gradient(135deg, #f8d266, #f17953);
+    box-shadow: 0 1px 1px 1px rgba(230, 109, 70, .7), 0 3px 5px rgba(0,0,0,.35);
 
     justify-content: center;
     align-items: center;
@@ -111,8 +111,10 @@ html[it-show-scroll-to-top=true] #it-scroll-to-top
     fill: #fff;
 }
 
-#it-scroll-to-top:hover
+html[it-show-scroll-to-top="true"] #it-scroll-to-top:hover
 {
+    transition: background 250ms 125ms, transform 250ms, box-shadow 275ms;
+    transform: translateY(4px) scale(.975);
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
 }
 
