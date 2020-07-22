@@ -86,3 +86,7 @@ button
     color: #f96754;
     border-radius: 4px;
 }
+
+body[data-appearance='home'] > a {
+    display: block !important
+}

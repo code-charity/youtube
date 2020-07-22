@@ -151,7 +151,6 @@ ImprovedTube.playerUpdate = function(node, hard) {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.init = function() {
-    this.youtubeVersion();
     this.player_h264();
     this.player_60fps();
     //this.objectDefineProperties();
