@@ -651,7 +651,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     label: 'deleteYoutubeCookies',
 
                     onclick: function() {
-                        document.querySelector('.satus').appendChild(Satus.components.dialog({
+                        Satus.render({
                             type: 'dialog',
 
                             message: {
@@ -699,7 +699,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                     }
                                 }
                             }
-                        }));
+                        });
                     }
                 }
             }

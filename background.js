@@ -8,6 +8,7 @@
 5.0 Storage change listener
 6.0 Initialization
 7.0 Uninstall URL
+8.0 Google Analytics
 -----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
@@ -290,6 +291,8 @@ chrome.storage.onChanged.addListener(function(changes) {
     }
 
     browserActionIcon();
+    
+    _gaq.push(['_trackPageview', '/improvedtube-' + chrome.runtime.getManifest().version + '/background', 'page-loaded']);
 });
 
 
@@ -307,6 +310,8 @@ chrome.storage.local.get(function(items) {
     }
 
     browserActionIcon();
+    
+    _gaq.push(['_trackPageview', '/improvedtube-' + chrome.runtime.getManifest().version + '/background', 'page-loaded']);
 });
 
 
@@ -315,3 +320,23 @@ chrome.storage.local.get(function(items) {
 -----------------------------------------------------------------------------*/
 
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
+
+
+/*-----------------------------------------------------------------------------
+8.0 GOOGLE ANALYTICS
+-----------------------------------------------------------------------------*/
+
+var _gaq = _gaq || [];
+
+(function() {
+    var ga = document.createElement('script');
+
+    _gaq.push(['_setAccount', 'UA-88354155-1']);
+    _gaq.push(['_setSessionCookieTimeout', 14400000]);
+
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    
+    document.body.appendChild(ga);
+})();
