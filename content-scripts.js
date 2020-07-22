@@ -367,7 +367,7 @@ chrome.storage.local.get(function(items) {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.fitToWindow = function() {
-    if (ImprovedTube.storage.player_size === 'fit_to_window' && !document.documentElement.hasAttribute('embed')) {
+    if (ImprovedTube.storage.player_size === 'fit_to_window' && !document.documentElement.hasAttribute('embed') && window.self !== window.top) {
         var video = document.querySelector('#movie_player video'),
             header = document.documentElement.getAttribute('it-header-position'),
             header_height = header == 'hidden' || header == 'hidden_on_video_page' || header == 'hover' || header == 'hover_on_video_page' ? 0 : 50,
@@ -757,6 +757,7 @@ ImprovedTube.related_videos = function() {
         }, 260);
     }
 };
+
 document.addEventListener('ImprovedTubeBlacklist', function(event) {
     if (chrome && chrome.runtime) {
         chrome.runtime.sendMessage({
