@@ -119,8 +119,8 @@ html[it-page-type="video"][it-header-position='hover_on_video_page'] div#page:no
     --it-header-size: 32px;
 }
 
-html[it-page-type="video"][it-header-position='hover'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #movie_player,
-html[it-page-type="video"][it-header-position='hover_on_video_page'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #movie_player
+html[it-page-type="video"][it-header-position='hover'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .player-theater-container,
+html[it-page-type="video"][it-header-position='hover_on_video_page'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .player-theater-container
 {
     margin-top: 14px;
 }

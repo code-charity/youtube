@@ -174,6 +174,18 @@ ImprovedTube.theme = function() {
                 }
             });
         }
+        
+        var wait2 = setInterval(function() {
+            if (
+                document.querySelector('ytd-app') &&
+                typeof document.querySelector('ytd-app').toggleDarkThemeAttribute_ === 'function' &&
+                document.querySelector('ytd-app').isAppDarkTheme_() === false
+            ) {
+                clearInterval(wait2);
+                    
+                document.querySelector('ytd-app').toggleDarkThemeAttribute_(true);
+            }
+        });
 
         document.documentElement.setAttribute('it-theme', 'true');
     } else {
@@ -185,6 +197,18 @@ ImprovedTube.theme = function() {
                 clearInterval(wait);
 
                 document.body.removeAttribute('dark');
+            }
+        });
+        
+        var wait2 = setInterval(function() {
+            if (
+                document.querySelector('ytd-app') &&
+                typeof document.querySelector('ytd-app').toggleDarkThemeAttribute_ === 'function' &&
+                document.querySelector('ytd-app').isAppDarkTheme_() === true
+            ) {
+                clearInterval(wait2);
+                    
+                document.querySelector('ytd-app').toggleDarkThemeAttribute_(true);
             }
         });
     }
