@@ -9,7 +9,7 @@
         "message": "Accept"
     },
     "activate": {
-        "message": "Activate"
+        "message": "启用"
     },
     "activateCaptions": {
         "message": "启用字幕"
@@ -168,10 +168,10 @@
         "message": "核心"
     },
     "customCss": {
-        "message": "Custom CSS"
+        "message": "自定义CSS"
     },
     "customJs": {
-        "message": "Custom JS"
+        "message": "自定义JS"
     },
     "cyan": {
         "message": "青色"
@@ -216,7 +216,7 @@
         "message": "细节信息"
     },
     "developerOptions": {
-        "message": "Developer options"
+        "message": "开发者选项"
     },
     "device": {
         "message": "设备"
@@ -273,7 +273,7 @@
         "message": "Flash"
     },
     "font": {
-        "message": "Font"
+        "message": "字体"
     },
     "footer": {
         "message": "底部栏"
@@ -444,7 +444,7 @@
         "message": "Loudness normalization"
     },
     "markWatchedVideos": {
-        "message": "Mark watched videos"
+        "message": "标记已观看的视频"
     },
     "miniPlayer": {
         "message": "迷你播放器"
