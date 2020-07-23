@@ -8,6 +8,24 @@ function themeChange(event) {
             }
         }
     }
+    
+    if (Satus.storage.get('default_dark_theme') === true) {
+        document.documentElement.setAttribute('theme', 'dark');
+    } else if (Satus.storage.get('night_theme') === true) {
+        document.documentElement.setAttribute('theme', 'night');
+    } else if (Satus.storage.get('dawn_theme') === true) {
+        document.documentElement.setAttribute('theme', 'dawn');
+    } else if (Satus.storage.get('sunset_theme') === true) {
+        document.documentElement.setAttribute('theme', 'sunset');
+    } else if (Satus.storage.get('desert_theme') === true) {
+        document.documentElement.setAttribute('theme', 'desert');
+    } else if (Satus.storage.get('plain_theme') === true) {
+        document.documentElement.setAttribute('theme', 'plain');
+    } else if (Satus.storage.get('black_theme') === true) {
+        document.documentElement.setAttribute('theme', 'black');
+    } else {
+        document.documentElement.removeAttribute('theme');
+    }
 }
 
 

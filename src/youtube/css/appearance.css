@@ -152,8 +152,7 @@ html[it-header-improve-logo=true] g.ytd-topbar-logo-renderer polygon[fill*='#FFF
 1.3 Hide right buttons
 -----------------------------------------------------------------------------*/
 
-html[it-header-hide-right-buttons=true] #yt-masthead-user,
-html[it-header-hide-right-buttons=true] #masthead #search + #end
+html[it-header-hide-right-buttons=true] ytd-masthead#masthead #container #end
 {
     display: none !important;
 }

@@ -1,3 +1,178 @@
 html {
     --satus-theme-primary: #f6b465;
 }
+
+html[theme="dark"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #2c2b2c;
+	--satus-theme-dialog-text: #b5b5b5;
+
+	--satus-theme-header: #343334;
+	--satus-theme-header-text: #b5b5b5;
+
+	--satus-theme-main: #2c2b2c;
+	--satus-theme-main-text: #b5b5b5;
+
+	--satus-theme-section: #343334;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+html[theme="night"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #61a7f5;
+	--satus-theme-dialog-text: #fafafa;
+
+	--satus-theme-header: #61a7f5;
+	--satus-theme-header-text: #fafafa;
+
+	--satus-theme-main: #3a48b4;
+	--satus-theme-main-text: #fafafa;
+
+	--satus-theme-section: #61a7f5;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+html[theme="dawn"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #ffba99;
+	--satus-theme-dialog-text: #fafafa;
+
+	--satus-theme-header: #ffba99;
+	--satus-theme-header-text: #fafafa;
+
+	--satus-theme-main: #ed74a9;
+	--satus-theme-main-text: #eee;
+
+	--satus-theme-section: #ffba99;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+html[theme="sunset"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #a96165;
+	--satus-theme-dialog-text: #fafafa;
+
+	--satus-theme-header: #a96165;
+	--satus-theme-header-text: #fafafa;
+
+	--satus-theme-main: #2f3364;
+	--satus-theme-main-text: #eee;
+
+	--satus-theme-section: #a96165;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+html[theme="desert"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #9dc2ee;
+	--satus-theme-dialog-text: #fafafa;
+
+	--satus-theme-header: #9dc2ee;
+	--satus-theme-header-text: #fafafa;
+
+	--satus-theme-main: #ffe498;
+	--satus-theme-main-text: #eee;
+
+	--satus-theme-section: #9dc2ee;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+html[theme="plain"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #abceb8;
+	--satus-theme-dialog-text: #fafafa;
+
+	--satus-theme-header: #abceb8;
+	--satus-theme-header-text: #fafafa;
+
+	--satus-theme-main: #dea975;
+	--satus-theme-main-text: #eee;
+
+	--satus-theme-section: #abceb8;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+html[theme="black"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #222;
+	--satus-theme-dialog-text: #fafafa;
+
+	--satus-theme-header: #222;
+	--satus-theme-header-text: #fafafa;
+
+	--satus-theme-main: #111;
+	--satus-theme-main-text: #eee;
+
+	--satus-theme-section: #222;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}

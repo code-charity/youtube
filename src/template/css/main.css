@@ -42,10 +42,8 @@
     margin: 8px auto;
     padding: 8px 0;
 
-    color: var(--satus-theme-on-surface, #777);
     border: 1px solid rgba(0,0,0,.1);
     border-radius: 8px;
-    background-color: var(--satus-theme-surface, #fff);
 }
 
 .satus-main__container:not([data-appearance='home']) .satus-section--message

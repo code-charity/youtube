@@ -263,10 +263,10 @@ ytd-item-section-renderer.it-section-collapsed .it-section-collapse svg,
 
 
 
-html[it-remove-related-search-results=true] ytd-shelf-renderer.style-scope.ytd-item-section-renderer,
+/*html[it-remove-related-search-results=true] ytd-shelf-renderer.style-scope.ytd-item-section-renderer,
 html[it-remove-related-search-results=true] ytd-horizontal-card-list-renderer.style-scope.ytd-item-section-renderer,
 html[it-remove-related-search-results=true] li > div.feed-item-container.browse-list-item-container.yt-section-hover-container.compact-shelf.shelf-item.branded-page-box,
 html[it-remove-related-search-results=true] li > div.search-refinements
 {
     display: none;
-}
+}*/
