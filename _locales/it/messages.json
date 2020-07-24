@@ -1,6 +1,6 @@
 {
     "cropChapterTitles": {
-        "message": "Crop chapter titles"
+        "message": "Ritaglia titoli dei capitoli"
     },
     "about": {
         "message": "Al riguardo"
@@ -18,7 +18,7 @@
         "message": "Accetta"
     },
     "activate": {
-        "message": "Attiva"
+        "message": "Attivo"
     },
     "activateCaptions": {
         "message": "Attiva didascalie"
@@ -327,7 +327,7 @@
         "message": "Nascosta/i"
     },
     "hiddenOnVideoPage": {
-        "message": "Nascosto nella pagina video"
+        "message": "Nascosta nella pagina video"
     },
     "hideAnimatedThumbnails": {
         "message": "Nascondi miniature animate"
@@ -657,7 +657,7 @@
         "message": "Immagini utenti squadrate"
     },
     "static": {
-        "message": "Statico/a"
+        "message": "Statica"
     },
     "stop": {
         "message": "Arresto"
