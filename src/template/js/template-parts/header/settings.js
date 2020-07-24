@@ -240,6 +240,9 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         value: 'fr',
                         label: 'Français'
                     }, {
+                        value: 'id',
+                        label: 'Bahasa Indonesia'
+                    }, {
                         value: 'it',
                         label: 'Italiano'
                     }, {

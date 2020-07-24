@@ -555,6 +555,9 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         value: 'fr',
                         label: 'Français'
                     }, {
+                        value: 'id',
+                        label: 'Bahasa Indonesia'
+                    }, {
                         value: 'it',
                         label: 'Italiano'
                     }, {
@@ -2889,6 +2892,10 @@ Satus.storage.import(function() {
             fr: {
                 type: 'button',
                 label: 'Français'
+            },
+            id: {
+                type: 'button',
+                label: 'Bahasa Indonesia'
             },
             it: {
                 type: 'button',
