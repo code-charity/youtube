@@ -2441,14 +2441,8 @@ ImprovedTube.improvedtube_youtube_icon = function() {
                 referenceNode;
 
             if (option === 'header_left') {
-                parentNode = (
-                    document.querySelector('#container.ytd-masthead') ||
-                    document.querySelector('.yt-masthead-logo-container')
-                );
-                referenceNode = (
-                    document.querySelector('#guide-button.ytd-masthead') ||
-                    document.querySelector('#appbar-guide-button')
-                );
+                parentNode = document.querySelector('ytd-masthead #start');
+                referenceNode = document.querySelector('ytd-masthead #start #guide-button');
             } else if (option === 'header_right') {
                 parentNode = (
                     document.querySelector('#end #buttons') ||
@@ -2617,6 +2611,7 @@ ImprovedTube.youtube_language = function() {
         location.reload();
     }, 100);
 };
+
 /*-----------------------------------------------------------------------------
 >>> SHORTCUTS
 -------------------------------------------------------------------------------
