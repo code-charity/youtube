@@ -73,6 +73,8 @@ ImprovedTube.pageUpdate = function() {
 
 ImprovedTube.playerUpdate = function(node, hard) {
     var player;
+    
+    console.log(node, hard);
 
     if (node && node.type !== 'canplay') {
         player = node;
@@ -4068,7 +4070,7 @@ ImprovedTube.mutations = function() {
                 });
 
                 return;
-            } else if (self.paused === true && self.parentNode.parentNode.getCurrentTime() < 1 || ImprovedTube.videoUrl !== location.href) {
+            } else if (self.paused === true && /*self.parentNode.parentNode.getCurrentTime() < 1 ||*/ ImprovedTube.videoUrl !== location.href) {
                 ImprovedTube.playerUpdate(self.parentNode.parentNode, true);
             }
 

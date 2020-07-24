@@ -72,6 +72,8 @@ ImprovedTube.pageUpdate = function() {
 
 ImprovedTube.playerUpdate = function(node, hard) {
     var player;
+    
+    console.log(node, hard);
 
     if (node && node.type !== 'canplay') {
         player = node;

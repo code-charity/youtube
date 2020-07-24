@@ -53,7 +53,7 @@ ImprovedTube.mutations = function() {
                 });
 
                 return;
-            } else if (self.paused === true && self.parentNode.parentNode.getCurrentTime() < 1 || ImprovedTube.videoUrl !== location.href) {
+            } else if (self.paused === true && /*self.parentNode.parentNode.getCurrentTime() < 1 ||*/ ImprovedTube.videoUrl !== location.href) {
                 ImprovedTube.playerUpdate(self.parentNode.parentNode, true);
             }
 
