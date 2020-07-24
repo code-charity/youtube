@@ -26,6 +26,10 @@ Satus.storage.import(function() {
                 type: 'button',
                 label: 'Français'
             },
+            id: {
+                type: 'button',
+                label: 'Bahasa Indonesia'
+            },
             it: {
                 type: 'button',
                 label: 'Italiano'
