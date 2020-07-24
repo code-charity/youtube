@@ -33,7 +33,7 @@
         "message": "Attiva schermo intero"
     },
     "activeFeatures": {
-        "message": "Funzionalità attive"
+        "message": "Funzioni disponibili"
     },
     "addScrollToTop": {
         "message": "Aggiungi «Scorri in cima»"
@@ -741,7 +741,7 @@
         "message": "Avvio automatico prossimo video"
     },
     "use24HourFormat": {
-        "message": "Usa formato 24 ore"
+        "message": "Usa formato a 24 ore"
     },
     "version": {
         "message": "Versione"
