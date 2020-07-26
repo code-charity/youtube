@@ -85,6 +85,10 @@ Satus.storage.import(function() {
         Satus.render(dialog);
     }
     
+    if (Satus.storage.get('red_popup_theme') === true) {
+        document.documentElement.setAttribute('popup-theme', 'red');
+    }
+    
     if (Satus.storage.get('default_dark_theme') === true) {
         document.documentElement.setAttribute('theme', 'dark');
     }
