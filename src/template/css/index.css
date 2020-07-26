@@ -112,21 +112,17 @@ button
 {
     position: fixed;
     z-index: 9999;
-    bottom: 8px;
-    left: 8px;
-
+    bottom: 16px;
+    left: 16px;
     display: none;
-
     box-sizing: border-box;
     box-shadow: 0 0 3px rgba(0,0,0,.1);
-    width: calc(100% - 16px);
-    height: 48px;
+    width: calc(100% - 32px);
+    height: 42px;
     padding: 8px 16px;
-
     color: var(--satus-theme-main-text);
     border-radius: 4px;
     background: var(--satus-theme-section);
-
     align-items: center;
     justify-content: space-between;
 }
