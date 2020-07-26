@@ -342,6 +342,7 @@ Menu.main.section.themes = {
     red_popup_theme: {
         type: 'switch',
         label: 'Red',
+        value: true,
         class: 'satus-switch--red',
         style: {
             background: '#bb1a1a'
