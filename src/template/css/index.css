@@ -87,6 +87,61 @@ button
     border-radius: 4px;
 }
 
-body[data-appearance='home'] > a {
-    display: block !important
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.it-message
+{
+    position: fixed;
+    z-index: 9999;
+    bottom: 8px;
+    left: 8px;
+
+    display: none;
+
+    box-sizing: border-box;
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+    width: calc(100% - 16px);
+    height: 48px;
+    padding: 8px 16px;
+
+    color: var(--satus-theme-main-text);
+    border-radius: 4px;
+    background: var(--satus-theme-section);
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+body[data-appearance='home'] .it-message {
+    display: flex !important
+}
+
+.it-message a
+{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+
+    text-decoration: none;
+
+    color: var(--satus-theme-main-text);
 }
