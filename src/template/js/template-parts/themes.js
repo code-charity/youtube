@@ -1,6 +1,14 @@
+function themePopupChange() {
+    if (Satus.storage.get('red_popup_theme') === true) {
+        document.documentElement.setAttribute('popup-theme', 'red');
+    } else {
+        document.documentElement.removeAttribute('popup-theme');
+    }
+}
+
 function themeChange(event) {
     if (event.target.checked) {
-        let themes = document.querySelectorAll('.satus-switch > input:checked');
+        let themes = document.querySelectorAll('.satus-switch > input:checked:not([data-storage-key="red_popup_theme"])');
 
         for (let i = 0, l = themes.length; i < l; i++) {
             if (themes[i] !== event.target) {
@@ -322,7 +330,34 @@ Menu.main.section.themes = {
             }]
         }
     },
+    
+    popup_title: {
+        type: 'text',
+        label: 'Popup',
+        style: {
+            margin: '0 12px',
+            fontWeight: '700'
+        }
+    },
+    red_popup_theme: {
+        type: 'switch',
+        label: 'Red',
+        class: 'satus-switch--red',
+        style: {
+            background: '#bb1a1a'
+        },
 
+        onchange: themePopupChange
+    },
+    
+    youtube_title: {
+        type: 'text',
+        label: 'YouTube',
+        style: {
+            margin: '0 12px',
+            fontWeight: '700'
+        }
+    },
     default_dark_theme: {
         type: 'switch',
         label: 'dark',
