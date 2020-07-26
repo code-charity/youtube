@@ -183,7 +183,7 @@ body[data-appearance='home'] .satus-text--title
     opacity: .75;
 
     fill: none;
-    stroke: #f6b465;
+    stroke: var(--satus-theme-primary);
 }
 
 .satus-dialog--vertical-menu .satus-folder--mixer svg

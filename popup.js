@@ -1970,6 +1970,7 @@ Menu.main.section.themes = {
     red_popup_theme: {
         type: 'switch',
         label: 'Red',
+        value: true,
         class: 'satus-switch--red',
         style: {
             background: '#bb1a1a'
@@ -2987,7 +2988,7 @@ Satus.storage.import(function() {
         Satus.render(dialog);
     }
     
-    if (Satus.storage.get('red_popup_theme') === true) {
+    if (Satus.isset(Satus.storage.get('red_popup_theme')) === false || Satus.storage.get('red_popup_theme') === true) {
         document.documentElement.setAttribute('popup-theme', 'red');
     }
     

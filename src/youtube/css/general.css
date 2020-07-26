@@ -104,6 +104,13 @@ html[it-show-scroll-to-top=true] #it-scroll-to-top
     opacity: 1;
 }
 
+html:not([it-red-popup-theme]) #it-scroll-to-top,
+html[it-red-popup-theme="true"] #it-scroll-to-top
+{
+    background: #f73030;
+    box-shadow: 0 3px 5px rgba(0,0,0,.35);
+}
+
 #it-scroll-to-top > svg
 {
     width: 24px;
