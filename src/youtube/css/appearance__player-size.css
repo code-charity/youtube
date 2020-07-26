@@ -507,3 +507,15 @@ html[it-page-type="video"][it-player-size='fit_to_window'] div#page.watch-wide #
 .ytp-cued-thumbnail-overlay {
     z-index: 99
 }
+
+
+
+
+
+html[it-page-type="video"][it-header-position='hidden'][it-player-size='full_window'] .html5-video-player,
+html[it-page-type="video"][it-header-position='hidden_on_video_page'][it-player-size='full_window'] .html5-video-player,
+html[it-page-type="video"][it-header-position='hover'][it-player-size='full_window'] .html5-video-player,
+html[it-page-type="video"][it-header-position='hover_on_video_page'][it-player-size='full_window'] .html5-video-player
+{
+    margin-top: 14px !important;
+}
