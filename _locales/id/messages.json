@@ -24,13 +24,13 @@
         "message": "Aktifkan layar penuh"
     },
     "activeFeatures": {
-        "message": "Fitur aktif"
+        "message": "Fitur yang aktif"
     },
     "addScrollToTop": {
         "message": "Tambah «Gulir ke atas»"
     },
     "ads": {
-        "message": "Iklan"
+        "message": "Tampilkan iklan"
     },
     "all": {
         "message": "Semua"
@@ -51,7 +51,7 @@
         "message": "Amber"
     },
     "analyzer": {
-        "message": "Penganalisa"
+        "message": "Analisa"
     },
     "appearance": {
         "message": "Tampilan"
@@ -81,10 +81,10 @@
         "message": "Layar penuh otomatis"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Jeda otomatis saat mengganti tab"
+        "message": "Jeda saat mengganti tab"
     },
     "autoplay": {
-        "message": "Putar otomatis"
+        "message": "Putar secara otomatis"
     },
     "backupAndReset": {
         "message": "Cadangkan & setel ulang"
@@ -99,7 +99,7 @@
         "message": "Hitam"
     },
     "blacklist": {
-        "message": "Daftar hitam"
+        "message": "Blokir"
     },
     "blockAll": {
         "message": "Blokir semua"
@@ -267,7 +267,7 @@
         "message": "Saringan"
     },
     "fitToWindow": {
-        "message": "Paskan ke jendela"
+        "message": "Sesuaikan dengan layar"
     },
     "flash": {
         "message": "Cahaya"
@@ -291,7 +291,7 @@
         "message": "Menemukan masalah?"
     },
     "fullWindow": {
-        "message": "Jendela penuh"
+        "message": "Layar penuh"
     },
     "general": {
         "message": "Umum"
@@ -300,7 +300,7 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Pergi ke kotak pencarian"
+        "message": "Ke kotak pencarian"
     },
     "gpu": {
         "message": "GPU"
@@ -318,7 +318,7 @@
         "message": "Kepala"
     },
     "hidden": {
-        "message": "Tersembunyi"
+        "message": "Sembunyikan"
     },
     "hiddenOnVideoPage": {
         "message": "Tersembunyi di halaman video"
@@ -516,10 +516,10 @@
         "message": "Merah jambu"
     },
     "plain": {
-        "message": "Polos"
+        "message": "Dataran"
     },
     "platform": {
-        "message": "Serambi"
+        "message": "Platform"
     },
     "playbackSpeed": {
         "message": "Kecepatan pemutar"
@@ -564,7 +564,7 @@
         "message": "Ungu"
     },
     "quality": {
-        "message": "Kualitas"
+        "message": "Kualitas video"
     },
     "ram": {
         "message": "RAM"
@@ -582,7 +582,7 @@
         "message": "Hapus hasil pencarian terkait"
     },
     "repeat": {
-        "message": "Ulang"
+        "message": "Putar ulang"
     },
     "reset": {
         "message": "Setel ulang"
@@ -594,7 +594,7 @@
         "message": "Setel ulang semua pintasan"
     },
     "reverse": {
-        "message": "Balik"
+        "message": "Putar secara terbalik"
     },
     "rotate": {
         "message": "Putar"
@@ -621,10 +621,10 @@
         "message": "Hanya bilah pencarian"
     },
     "seekBackward10Seconds": {
-        "message": "Cari mundur 10 detik"
+        "message": "Mundur 10 detik"
     },
     "seekForward10Seconds": {
-        "message": "Cari maju 10 detik"
+        "message": "Maju 10 detik"
     },
     "settings": {
         "message": "Pengaturan"
@@ -642,7 +642,7 @@
         "message": "Tampilkan jumlah video saluran"
     },
     "shuffle": {
-        "message": "Acak"
+        "message": "Putar secara acak"
     },
     "sidebar": {
         "message": "Bilah samping"
@@ -675,7 +675,7 @@
         "message": "Teks"
     },
     "sunset": {
-        "message": "Matahari terbenam"
+        "message": "Senja"
     },
     "sunsetToSunrise": {
         "message": "Matahari terbenam hingga matahari terbit"
