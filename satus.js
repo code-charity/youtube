@@ -112,6 +112,10 @@ Satus.storage.get = function(name) {
 Satus.storage.set = function(name, value) {
     var items = {},
         target = Satus.storage;
+        
+    if (!Satus.isset(name)) {
+        return false;
+    }
 
     name = name.split('/').filter(function(value) {
         return value != '';
@@ -174,6 +178,7 @@ Satus.storage.clear = function() {
         }
     }
 };
+
 /*--------------------------------------------------------------
 # LOCALE
 --------------------------------------------------------------*/
