@@ -345,8 +345,9 @@ Satus.cloneNodeStyles = function(origin, target) {
 >>> «SEARCH» MODULE
 -----------------------------------------------------------------------------*/
 
-Satus.search = function(query, object, callback) {
+Satus.search = function(query, object, callback, categories) {
     var threads = 0,
+        folder = '',
         results = {};
 
     function parse(items) {
@@ -354,10 +355,21 @@ Satus.search = function(query, object, callback) {
 
         for (var key in items) {
             var item = items[key];
-
+            
+            if (categories === true && item.type === 'folder' && folder !== item.label) {
+                folder = item.label;
+            }
 
             if (['switch', 'select', 'slider'].indexOf(item.type) !== -1 && key.indexOf(query) !== -1) {
-                results[key] = item;
+                if (categories === true) {
+                    if (!results[folder]) {
+                        results[folder] = {};
+                    }
+                    
+                    results[folder][key] = item;
+                } else {
+                    results[key] = item;
+                }
             }
 
             if (typeof item === 'object') {
@@ -374,6 +386,7 @@ Satus.search = function(query, object, callback) {
 
     parse(object);
 };
+
 /*--------------------------------------------------------------
 >>> STORAGE KEYS
 --------------------------------------------------------------*/
