@@ -2605,7 +2605,7 @@ Menu.main.section.blacklist = {
 
         blacklist_activate: {
             type: 'switch',
-            label: 'blacklist'
+            label: 'activate'
         }
     },
 
@@ -2754,6 +2754,7 @@ Menu.main.section.blacklist = {
         }
     }
 };
+
 Menu.main.section.analyzer = {
     type: 'folder',
     before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/></svg>',
@@ -2766,7 +2767,7 @@ Menu.main.section.analyzer = {
         
         analyzer_activation: {
             type: 'switch',
-            label: 'analyzer'
+            label: 'activate'
         }
     },
 

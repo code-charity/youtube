@@ -10,7 +10,7 @@ Menu.main.section.analyzer = {
         
         analyzer_activation: {
             type: 'switch',
-            label: 'analyzer'
+            label: 'activate'
         }
     },
 
