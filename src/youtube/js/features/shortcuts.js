@@ -113,7 +113,7 @@ ImprovedTube.shortcuts = function() {
                     player.setPlaybackQuality('highres');
                 }
             },
-            shortcut_picture_in_picture_shortcut: function() {
+            shortcut_picture_in_picture: function() {
                 var video = document.querySelector('#movie_player video');
 
                 if (video) {
