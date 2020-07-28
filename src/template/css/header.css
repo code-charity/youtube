@@ -62,7 +62,7 @@ body[data-appearance='home'] .satus-button--back
     letter-spacing: .0125em;
 }
 
-html[it-title-version='true'] .satus-text--title::after {
+html[it-title-version='true'] body[data-appearance='home'] .satus-text--title::after {
     content: attr(data-version);
     font: 700 10px sans-serif;
     color: #000;
