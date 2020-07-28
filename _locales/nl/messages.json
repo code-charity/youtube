@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "Merk bekeken videos aan"
     },
-    "miniPlayer": {
-        "message": "Minispeler"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Mixer"

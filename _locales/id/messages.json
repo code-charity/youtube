@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "Tandai video yang ditonton"
     },
-    "miniPlayer": {
-        "message": "Pemutar kecil"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Mixer"

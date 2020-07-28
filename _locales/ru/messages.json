@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "Отмечать просмотренные видео"
     },
-    "miniPlayer": {
-        "message": "Мини-плеер"
+    "customMiniPlayer": {
+        "message": "Новый мини-плеер"
     },
     "mixer": {
         "message": "Миксер"

@@ -447,8 +447,8 @@
     "markWatchedVideos": {
         "message": "Marcar os videos como vistos"
     },
-    "miniPlayer": {
-        "message": "Leitor pequeno"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Mistura"

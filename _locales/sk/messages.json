@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "Označiť ako videné"
     },
-    "miniPlayer": {
-        "message": "Mini prehrávač"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Mixér"

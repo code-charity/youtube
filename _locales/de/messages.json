@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "Mark watched videos"
     },
-    "miniPlayer": {
-        "message": "Mini-Player"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Mixer"

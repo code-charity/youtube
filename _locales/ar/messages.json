@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "التعليم على الفيديو المشاهد"
     },
-    "miniPlayer": {
-        "message": "المشغل الصغير"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "مهندس الصوت"

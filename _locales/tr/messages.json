@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "İzlenen videoları işaretle"
     },
-    "miniPlayer": {
-        "message": "Mini oynatıcı"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Karıştırıcı"
