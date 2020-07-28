@@ -20,6 +20,8 @@ var ImprovedTube = {
 
 ImprovedTube.pageUpdate = function() {
     var not_connected_players = document.querySelectorAll('.html5-video-player:not([it-player-connected])');
+    
+    console.log(not_connected_players);
 
     if (not_connected_players.length > 0) {
         for (var i = 0, l = not_connected_players.length; i < l; i++) {
@@ -75,6 +77,8 @@ ImprovedTube.pageUpdate = function() {
 
 ImprovedTube.playerUpdate = function(node, hard) {
     var player;
+    
+    console.log(node, 'PL');
     
     //console.log(node, hard);
 
@@ -177,6 +181,12 @@ ImprovedTube.init = function() {
     this.related_videos();
     this.mutations();
     this.events();
+    
+    if (window.self === window.top) {
+        window.addEventListener('load', function(){
+            ImprovedTube.player_volume();
+        });
+    }
 };
 
 function withoutInjection(object) {
