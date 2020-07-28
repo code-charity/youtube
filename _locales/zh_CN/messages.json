@@ -327,7 +327,7 @@
         "message": "隐藏动态缩略图"
     },
     "hideAnnotations": {
-        "message": "隐藏 annotations"
+        "message": "隐藏预览图"
     },
     "hideCards": {
         "message": "隐藏 cards"
@@ -336,7 +336,7 @@
         "message": "隐藏详细信息"
     },
     "hideEndscreen": {
-        "message": "隐藏 Endscreen"
+        "message": "隐藏结束画面"
     },
     "hideFeaturedContent": {
         "message": "隐藏精选频道"
@@ -492,7 +492,7 @@
         "message": "仅在 YouTube 上启用"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Only one player instance playing"
+        "message": "同时仅播放一个"
     },
     "onSubscribedChannels": {
         "message": "在订阅频道"
