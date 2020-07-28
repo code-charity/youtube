@@ -1,3 +1,15 @@
+chrome.storage.local.get(function(items) {
+    for (var key in items) {
+        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
+    }
+});
+
+chrome.storage.onChanged.addListener(function(changes) {
+    for (var key in changes) {
+        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), changes[key].newValue);
+    }
+});
+
 Satus.storage.import(function() {
     var language = Satus.storage.get('language') || 'en';
 
