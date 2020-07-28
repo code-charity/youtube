@@ -80,8 +80,6 @@ ImprovedTube.changeArgs = function(args) {
 
             if (args.player_response) {
                 var player_response = JSON.parse(args.player_response);
-                
-                console.log(player_response);
 
                 if (player_response && player_response.adPlacements) {
                     delete player_response.adPlacements;

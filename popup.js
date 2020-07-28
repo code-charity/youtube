@@ -1962,7 +1962,7 @@ Menu.main.section.themes = {
     
     popup_title: {
         type: 'text',
-        label: 'Popup',
+        label: 'ImprovedTube',
         style: {
             margin: '0 12px',
             fontWeight: '700'
@@ -2767,10 +2767,19 @@ Menu.main.section.blacklist = {
 };
 Menu.main.section.analyzer = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/></svg>',
+    before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/></svg>',
     label: 'analyzer',
     class: 'satus-folder--analyzer',
     appearanceId: 'analyzer',
+    
+    activ_section: {
+        type: 'section',
+        
+        analyzer_activation: {
+            type: 'switch',
+            label: 'analyzer'
+        }
+    },
 
     section: {
         type: 'section',
@@ -2902,6 +2911,7 @@ Menu.main.section.analyzer = {
         }
     }
 };
+
 Satus.storage.import(function() {
     var language = Satus.storage.get('language') || 'en';
 
