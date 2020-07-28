@@ -20,8 +20,6 @@ var ImprovedTube = {
 
 ImprovedTube.pageUpdate = function() {
     var not_connected_players = document.querySelectorAll('.html5-video-player:not([it-player-connected])');
-    
-    console.log(not_connected_players);
 
     if (not_connected_players.length > 0) {
         for (var i = 0, l = not_connected_players.length; i < l; i++) {
@@ -77,10 +75,6 @@ ImprovedTube.pageUpdate = function() {
 
 ImprovedTube.playerUpdate = function(node, hard) {
     var player;
-    
-    console.log(node, 'PL');
-    
-    //console.log(node, hard);
 
     if (node && node.type !== 'canplay') {
         player = node;
@@ -2714,7 +2708,7 @@ ImprovedTube.shortcuts = function() {
                     player.setPlaybackQuality('highres');
                 }
             },
-            shortcut_picture_in_picture_shortcut: function() {
+            shortcut_picture_in_picture: function() {
                 var video = document.querySelector('#movie_player video');
 
                 if (video) {
@@ -2931,6 +2925,7 @@ ImprovedTube.shortcuts = function() {
         capture: true
     });
 };
+
 /*-----------------------------------------------------------------------------
 >>> THEMES
 -------------------------------------------------------------------------------
