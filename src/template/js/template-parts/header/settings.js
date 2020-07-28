@@ -86,6 +86,19 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 type: 'section',
                 label: 'general',
 
+                header: {
+                    type: 'folder',
+                    label: 'header',
+                    
+                    section: {
+                        type: 'section',
+                        
+                        title_version: {
+                            type: 'switch',
+                            label: 'version'
+                        }
+                    }
+                },
                 home: {
                     type: 'folder',
                     label: 'home',
