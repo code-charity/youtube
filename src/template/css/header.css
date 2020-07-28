@@ -154,6 +154,37 @@ body[data-appearance='home'] .satus-text--title
 }
 
 
+body[data-appearance="search"] .satus-switch--red,
+body[data-appearance="search"] .satus-switch--dark,
+body[data-appearance="search"] .satus-switch--night,
+body[data-appearance="search"] .satus-switch--dawn,
+body[data-appearance="search"] .satus-switch--sunset,
+body[data-appearance="search"] .satus-switch--desert,
+body[data-appearance="search"] .satus-switch--plain,
+body[data-appearance="search"] .satus-switch--black
+{
+    margin: 4px 8px;
+    width: calc(100% - 16px);
+    border-radius: 6px;
+}
+
+body[data-appearance="search"] .satus-switch--red .satus-switch__label,
+body[data-appearance="search"] .satus-switch--dark .satus-switch__label,
+body[data-appearance="search"] .satus-switch--night .satus-switch__label,
+body[data-appearance="search"] .satus-switch--dawn .satus-switch__label,
+body[data-appearance="search"] .satus-switch--sunset .satus-switch__label,
+body[data-appearance="search"] .satus-switch--black .satus-switch__label
+{
+    color: #fff;
+}
+
+body[data-appearance="search"] .satus-switch--plain .satus-switch__label,
+body[data-appearance="search"] .satus-switch--desert .satus-switch__label
+{
+    color: #222;
+}
+
+
 /*--------------------------------------------------------------
 5.0 VERTICAL MENU
 --------------------------------------------------------------*/

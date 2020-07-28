@@ -36,7 +36,7 @@ var Menu = {
                 icon: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24"><circle cx="11" cy="10.5" r="6" fill="none"/><path d="M20 20l-4-4"/></svg>',
                 onclick: function() {
                     document.querySelector('.satus-main').open({
-                        appearance: 'search'
+                        appearanceId: 'search'
                     }, function() {
                         Satus.render({
                             type: 'dialog',
@@ -51,14 +51,27 @@ var Menu = {
                                 oninput: function() {
                                     if (this.value.length > 0) {
                                         Satus.search(this.value, Menu, function(results) {
+                                            var sorted_results = [];
+                                            
                                             document.querySelector('.satus-main__container').innerHTML = '';
+                                            
+                                            for (var key in results) {
+                                                results[key].type = 'section';
+                                                
+                                                sorted_results.push({
+                                                    type: 'text',
+                                                    label: key,
+                                                    class: 'satus-section--label'
+                                                });
+                                                sorted_results.push(results[key]);
+                                            }
+                                            
+                                            console.log(results);
 
                                             var scroll = Satus.components.scrollbar(document.querySelector('.satus-main__container'));
 
-                                            results.type = 'section';
-
-                                            Satus.render(results, scroll);
-                                        });
+                                            Satus.render(sorted_results, scroll);
+                                        }, true);
                                     } else {
                                         document.querySelector('.satus-main__container').innerHTML = '';
 
