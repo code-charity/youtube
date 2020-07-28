@@ -195,7 +195,7 @@ ImprovedTube.shortcuts = function() {
                 var player = document.querySelector('#movie_player');
 
                 if (player && player.setPlaybackRate && player.getPlaybackRate) {
-                    player.setPlaybackRate(player.getPlaybackRate() + (Number(ImprovedTube.storage.shortcut_playback_step) || .05));
+                    player.setPlaybackRate(player.getPlaybackRate() + (Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05));
                 }
 
                 showStatus(player, player.getPlaybackRate());
@@ -204,7 +204,7 @@ ImprovedTube.shortcuts = function() {
                 var player = document.querySelector('#movie_player');
 
                 if (player && player.setPlaybackRate && player.getPlaybackRate) {
-                    player.setPlaybackRate(player.getPlaybackRate() - (Number(ImprovedTube.storage.shortcut_playback_step) || .05));
+                    player.setPlaybackRate(player.getPlaybackRate() - (Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05));
                 }
 
                 showStatus(player, player.getPlaybackRate());
