@@ -7,7 +7,9 @@
 -----------------------------------------------------------------------------*/
 
 var ImprovedTube = {
-    allow_autoplay: false
+    allow_autoplay: false,
+    videoUrl: '"null"',
+    playingTime: 0
 };
 
 

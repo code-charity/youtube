@@ -333,7 +333,7 @@ Menu.main.section.themes = {
     
     popup_title: {
         type: 'text',
-        label: 'Popup',
+        label: 'ImprovedTube',
         style: {
             margin: '0 12px',
             fontWeight: '700'
