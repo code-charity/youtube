@@ -452,8 +452,8 @@
     "markWatchedVideos": {
         "message": "Contrassegna video visti"
     },
-    "miniPlayer": {
-        "message": "Lettore mini"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Mixer"

@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "視聴した動画にマークを付ける"
     },
-    "miniPlayer": {
-        "message": "ミニプレーヤー"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "ミキサー"

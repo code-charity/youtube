@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "標記已觀看視頻"
     },
-    "miniPlayer": {
-        "message": "迷你播放器"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "音量混合器"
