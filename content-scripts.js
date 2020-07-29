@@ -20,6 +20,8 @@ var ImprovedTube = {
 
 ImprovedTube.pageUpdate = function() {
     var not_connected_players = document.querySelectorAll('.html5-video-player:not([it-player-connected])');
+    
+    ImprovedTube.allow_autoplay = false;
 
     if (not_connected_players.length > 0) {
         for (var i = 0, l = not_connected_players.length; i < l; i++) {
@@ -156,7 +158,6 @@ ImprovedTube.playerUpdate = function(node, hard) {
 ImprovedTube.init = function() {
     this.player_h264();
     this.player_60fps();
-    //this.objectDefineProperties();
     this.confirmation_before_closing();
     this.shortcuts();
     this.themeEditor();
@@ -4064,11 +4065,11 @@ ImprovedTube.mutations = function() {
                 ImprovedTube.allow_autoplay === false
             ) {
                 setTimeout(function() {
-                    self.parentNode.parentNode.stopVideo();
+                    self.parentNode.parentNode.pauseVideo();
                 });
 
                 return;
-            } else if (self.paused === true && /*self.parentNode.parentNode.getCurrentTime() < 1 ||*/ ImprovedTube.videoUrl !== location.href) {
+            } else if (self.paused === true && ImprovedTube.videoUrl !== location.href) {
                 ImprovedTube.playerUpdate(self.parentNode.parentNode, true);
             }
 
@@ -4125,18 +4126,6 @@ ImprovedTube.changeArgs = function(args) {
         // SUBTITLES
         if (ImprovedTube.storage.player_subtitles === false && args.caption_audio_tracks) {
             args.caption_audio_tracks = args.caption_audio_tracks.split(/&d=[0-9]|d=[0-9]&/).join('');
-        }
-
-        // AUTOPLAY
-        if (!ImprovedTube.autoplay()) {
-            args.autoplay = '0';
-            args.suppress_autoplay_on_watch = true;
-            args.fflags = args.fflags.replace(/html5_new_autoplay_redux=true/g, 'html5_new_autoplay_redux=false');
-            args.fflags = args.fflags.replace(/allow_live_autoplay=true/g, 'allow_live_autoplay=false');
-            args.fflags = args.fflags.replace(/mweb_muted_autoplay=true/g, 'mweb_muted_autoplay=false');
-            args.fflags = args.fflags.replace(/web_player_kaios_autoplay=true/g, 'web_player_kaios_autoplay=false');
-            args.fflags = args.fflags.replace(/autoplay_time=8000/g, 'autoplay_time=0');
-            args.fflags = args.fflags.replace(/legacy_autoplay_flag=true/g, 'legacy_autoplay_flag=false');
         }
     }
 
