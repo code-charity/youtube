@@ -143,8 +143,6 @@ Satus.storage.set = function(name, value) {
             items[key] = Satus.storage[key];
         }
     }
-    
-    console.log('SET', items);
 
     chrome.storage.local.set(items);
 };
@@ -156,7 +154,6 @@ Satus.storage.set = function(name, value) {
 
 Satus.storage.import = function(callback) {
     chrome.storage.local.get(function(items) {
-        console.log('GET', items);
         for (var key in items) {
             Satus.storage[key] = items[key];
         }
