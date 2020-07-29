@@ -97,6 +97,8 @@ ImprovedTube.player_hd_thumbnail = function() {
 1.3 Always show progress bar
 -----------------------------------------------------------------------------*/
 
+// TODO: FIX NIGHTLY UGLY ALGO
+
 ImprovedTube.always_show_progress_bar = function() {
     if (ImprovedTube.always_show_progress_bar_interval) {
         clearInterval(ImprovedTube.always_show_progress_bar_interval);
