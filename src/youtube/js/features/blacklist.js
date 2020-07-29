@@ -1,4 +1,8 @@
+// TODO: HIGH CPU USAGE
+
 document.addEventListener('ImprovedTubeBlacklist', function(event) {
+    console.log('Blacklist event');
+    
     if (chrome && chrome.runtime) {
         chrome.runtime.sendMessage({
             name: 'improvedtube-blacklist',
@@ -120,7 +124,7 @@ ImprovedTube.blacklist = function() {
                         detail: {
                             type: 'video',
                             id: video_id,
-                            title: item.querySelector('a#video-title, .title, .yt-lockup-title > a').innerText
+                            title: item.querySelector('#video-title').innerText
                         }
                     }));
 
@@ -133,7 +137,7 @@ ImprovedTube.blacklist = function() {
                     }
 
                     ImprovedTube.storage.blacklist.videos[video_id] = {
-                        title: item.querySelector('a#video-title, .title, .yt-lockup-title > a').innerText
+                        title: item.querySelector('#video-title').innerText
                     };
 
                     ImprovedTube.blacklist();
@@ -187,6 +191,7 @@ ImprovedTube.blacklist = function() {
 
                 while (
                     item.nodeName &&
+                    item.nodeName !== 'YTD-VIDEO-RENDERER' &&
                     item.nodeName !== 'YTD-RICH-ITEM-RENDERER' &&
                     item.nodeName !== 'YTD-COMPACT-VIDEO-RENDERER' &&
                     item.nodeName !== 'YTD-GRID-VIDEO-RENDERER' &&
