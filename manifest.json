@@ -9,6 +9,7 @@
         "128": "assets/icons/128.png"
     },
     "default_locale": "en",
+    "description": "Make YouTube tidy & powerful! YouTube Player Size YouTube Quality Auto HD Colors Playback Speed Style Adblock Playlist Channel H.264",
     "browser_action": {
         "default_icon": {
             "16": "assets/icons/16g.png",
@@ -74,7 +75,7 @@
         "contextMenus",
         "storage"
     ],
-    
+    "offline_enabled": true,
     "update_url": "https://clients2.google.com/service/update2/crx",
     "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }
