@@ -267,6 +267,11 @@ html[it-page-type="video"][it-player-size]:not([it-player-size='do_not_change'])
     max-height: 100vh !important;
 }
 
+html[it-page-type="video"][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player
+{
+    background: #000 !important;
+}
+
 html[it-page-type="video"][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-container
 {
     position: absolute !important;
@@ -275,8 +280,6 @@ html[it-page-type="video"][it-player-size]:not([it-player-size='do_not_change'])
 
     width: 100% !important;
     height: 100% !important;
-
-    background: #000 !important;
 
     justify-content: center !important;
     align-items: center !important;
@@ -365,8 +368,6 @@ html[it-page-type="video"][it-player-size]:not([it-player-size='do_not_change'])
     width: 100% !important;
     height: 100% !important;
 
-    background: #000 !important;
-
     justify-content: center !important;
     align-items: center !important;
 }
@@ -432,10 +433,10 @@ html[it-page-type="video"][it-player-size]:not([it-player-size='do_not_change'])
     height: auto !important;
 }
 
-html[it-page-type="video"][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] div#page.watch-wide .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen) video
+/*html[it-page-type="video"][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] div#page.watch-wide .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen) video
 {
     z-index: 9 !important;
-}
+}*/
 
 html[it-page-type="video"][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] div#page.watch-wide .html5-video-player:not(.improvedtube-mini-player):not(.ytp-fullscreen) .ytp-iv-video-content {
     pointer-events: none !important;
