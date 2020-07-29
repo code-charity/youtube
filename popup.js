@@ -1542,7 +1542,7 @@ Menu.main.section.appearance = {
                     value: 'hidden'
                 }]
             },
-            livechat_type: {
+            /*livechat_type: {
                 type: 'select',
                 label: 'liveChatType',
 
@@ -1553,7 +1553,7 @@ Menu.main.section.appearance = {
                     label: 'liveChat',
                     value: 'live'
                 }]
-            },
+            },*/
             hide_playlist: {
                 type: 'switch',
                 label: 'hidePlaylist'
@@ -1616,6 +1616,7 @@ Menu.main.section.appearance = {
         }
     }
 };
+
 function themePopupChange() {
     if (Satus.storage.get('red_popup_theme') === true) {
         document.documentElement.setAttribute('popup-theme', 'red');
