@@ -155,62 +155,25 @@ ImprovedTube.theme = function() {
             this.isset(ImprovedTube.storage.black_theme) && ImprovedTube.storage.black_theme !== false
         )
     ) {
-        document.documentElement.setAttribute('dark', '');
+        var PREF_OLD = this.getParams(this.getCookieValueByName('PREF')),
+            PREF = this.getParams(this.getCookieValueByName('PREF')),
+            result = '';
 
-        if (ImprovedTube.storage.default_dark_theme === true) {
-            var wait = setInterval(function() {
-                if (document.body) {
-                    clearInterval(wait);
-
-                    document.body.setAttribute('dark', '');
-                }
-            });
-        } else {
-            var wait = setInterval(function() {
-                if (document.body) {
-                    clearInterval(wait);
-
-                    document.body.removeAttribute('dark');
-                }
-            });
+        if (!this.isset(PREF.f6) || this.isset(PREF.f6) && PREF.f6.length !== 3) {
+            PREF.f6 = '400';
+        } else if (PREF.f6.length === 3) {
+            PREF.f6 = '4' + PREF.f6.substr(1);
         }
-        
-        var wait2 = setInterval(function() {
-            if (
-                document.querySelector('ytd-app') &&
-                typeof document.querySelector('ytd-app').toggleDarkThemeAttribute_ === 'function' &&
-                document.querySelector('ytd-app').isAppDarkTheme_() === false
-            ) {
-                clearInterval(wait2);
-                    
-                document.querySelector('ytd-app').toggleDarkThemeAttribute_(true);
-            }
-        });
+
+        for (var i in PREF) {
+            result += i + '=' + PREF[i] + '&';
+        }
+
+        this.setCookie('PREF', result.slice(0, -1));
 
         document.documentElement.setAttribute('it-theme', 'true');
     } else {
         document.documentElement.removeAttribute('it-theme');
-        document.documentElement.removeAttribute('dark');
-        
-        var wait = setInterval(function() {
-            if (document.body) {
-                clearInterval(wait);
-
-                document.body.removeAttribute('dark');
-            }
-        });
-        
-        var wait2 = setInterval(function() {
-            if (
-                document.querySelector('ytd-app') &&
-                typeof document.querySelector('ytd-app').toggleDarkThemeAttribute_ === 'function' &&
-                document.querySelector('ytd-app').isAppDarkTheme_() === true
-            ) {
-                clearInterval(wait2);
-                    
-                document.querySelector('ytd-app').toggleDarkThemeAttribute_(true);
-            }
-        });
     }
 };
 
