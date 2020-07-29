@@ -377,7 +377,13 @@ ImprovedTube.livechat = function() {
 ImprovedTube.livechat_type_wait = false;
 
 ImprovedTube.livechat_type = function() {
-    if (ImprovedTube.storage.livechat_type === 'live') {
+    return false;
+    
+    if (
+        document.documentElement.getAttribute('it-page-type') === 'video' &&
+        ImprovedTube.storage.livechat_type === 'live' &&
+        ImprovedTube.livechat_type_wait === false
+    ) {
         this.livechat_type_wait = setInterval(function() {
             if (document.querySelectorAll('#chat-messages #dropdown a')[1]) {
                 clearInterval(ImprovedTube.livechat_type_wait);
@@ -386,7 +392,11 @@ ImprovedTube.livechat_type = function() {
 
                 document.querySelectorAll('#chat-messages #dropdown a')[1].click();
             }
-        });
+        }, 250);
+    } else if (this.livechat_type_wait !== false) {
+        clearInterval(this.livechat_type_wait);
+
+        ImprovedTube.livechat_type_wait = false;
     }
 };
 

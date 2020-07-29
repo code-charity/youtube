@@ -285,7 +285,7 @@ Menu.main.section.appearance = {
                     value: 'hidden'
                 }]
             },
-            livechat_type: {
+            /*livechat_type: {
                 type: 'select',
                 label: 'liveChatType',
 
@@ -296,7 +296,7 @@ Menu.main.section.appearance = {
                     label: 'liveChat',
                     value: 'live'
                 }]
-            },
+            },*/
             hide_playlist: {
                 type: 'switch',
                 label: 'hidePlaylist'
