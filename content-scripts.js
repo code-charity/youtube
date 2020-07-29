@@ -785,6 +785,8 @@ ImprovedTube.related_videos = function() {
     }
 };
 
+// TODO: HIGH CPU USAGE
+
 document.addEventListener('ImprovedTubeBlacklist', function(event) {
     console.log('Blacklist event');
     
@@ -811,7 +813,11 @@ ImprovedTube.blacklist = function() {
     }
 
     // channel button
-    if (ImprovedTube.storage.blacklist.channels && Object.keys(ImprovedTube.storage.blacklist.channels).indexOf(location.href.replace(/https:\/\/www.youtube.com\/(channel|user)\//g, '').replace(/\/(.)+/g, '')) === -1) {
+    if (
+        !ImprovedTube.isset(ImprovedTube.storage.blacklist.channels) ||
+        (ImprovedTube.storage.blacklist.channels &&
+        Object.keys(ImprovedTube.storage.blacklist.channels).indexOf(location.href.replace(/https:\/\/www.youtube.com\/(channel|user|c)\//g, '').replace(/\/(.)+/g, '')) === -1)
+    ) {
         let channel_items = document.querySelectorAll('#inner-header-container #subscribe-button, .primary-header-upper-section .yt-uix-subscription-button');
 
         for (let i = 0, l = channel_items.length; i < l; i++) {
@@ -869,6 +875,7 @@ ImprovedTube.blacklist = function() {
                 button.style.padding = '6px 12px';
                 button.style.borderRadius = '2px';
                 button.style.boxSizing = 'border-box';
+                button.style.background = '#bb1a1a';
 
                 channel_items[i].parentNode.insertBefore(button, channel_items[i]);
             }
@@ -944,6 +951,7 @@ ImprovedTube.blacklist = function() {
 
             while (
                 item.nodeName &&
+                item.nodeName !== 'YTD-VIDEO-RENDERER' &&
                 item.nodeName !== 'YTD-RICH-ITEM-RENDERER' &&
                 item.nodeName !== 'YTD-COMPACT-VIDEO-RENDERER' &&
                 item.nodeName !== 'YTD-GRID-VIDEO-RENDERER' &&
