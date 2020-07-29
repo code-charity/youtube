@@ -107,10 +107,44 @@ ImprovedTube.always_show_progress_bar = function() {
             var player = document.querySelector('.html5-video-player');
 
             if (player && player.classList.contains('ytp-autohide')) {
-                var played = player.getCurrentTime() * 100 / player.getDuration();
+                var played = player.getCurrentTime() * 100 / player.getDuration(),
+                    loaded = player.getVideoBytesLoaded() * 100,
+                    play_bars = player.querySelectorAll('.ytp-play-progress'),
+                    load_bars = player.querySelectorAll('.ytp-load-progress'),
+                    width = 0,
+                    progress_play = 0,
+                    progress_load = 0;
 
-                player.querySelector('.ytp-play-progress').style.transform = 'scaleX(' + played / 100 + ')';
-                player.querySelector('.ytp-load-progress').style.transform = 'scaleX(' + player.getVideoBytesLoaded() + ')';
+                for (var i = 0, l = play_bars.length; i < l; i++) {
+                    width += play_bars[i].offsetWidth;
+                }
+                
+                var width_percent = width / 100;
+                
+                for (var i = 0, l = play_bars.length; i < l; i++) {
+                    var a = play_bars[i].offsetWidth / width_percent,
+                        b = 0,
+                        c = 0;
+                    
+                    if (played - progress_play >= a) {
+                        b = 100;
+                    } else if (played > progress_play && played < a + progress_play) {
+                        b = 100 * ((played - progress_play) * width_percent) / play_bars[i].offsetWidth;
+                    }
+                    
+                    play_bars[i].style.transform = 'scaleX(' + b / 100 + ')';
+                    
+                    if (loaded - progress_load >= a) {
+                        c = 100;
+                    } else if (loaded > progress_load && loaded < a + progress_load) {
+                        c = 100 * ((loaded - progress_load) * width_percent) / play_bars[i].offsetWidth;
+                    }
+                    
+                    load_bars[i].style.transform = 'scaleX(' + c / 100 + ')';
+                    
+                    progress_play += a;
+                    progress_load += a;
+                }
             }
         }, 100);
     }
