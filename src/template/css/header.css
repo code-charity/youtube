@@ -65,8 +65,7 @@ body[data-appearance='home'] .satus-button--back
 html[it-title-version='true'] body[data-appearance='home'] .satus-text--title::after {
     content: attr(data-version);
     font: 700 10px sans-serif;
-    color: #000;
-    opacity: 0.24;
+    opacity: 0.6;
     margin: 0 0 0 4px;
 }
 
