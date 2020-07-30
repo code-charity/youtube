@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "ImprovedTube",
+    "name": "Improve YouTube! (Open-Source for YouTube)",
     "version": "3.40",
     "icons": {
         "16": "assets/icons/16.png",
