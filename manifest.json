@@ -28,7 +28,7 @@
             "content-scripts.js"
         ],
         "matches": [
-            "https://*.youtube.com/*"
+            "https://www.youtube.com/*"
         ],
         "exclude_matches": [
             "https://www.youtube.com/improvedtube",
@@ -68,10 +68,10 @@
         ]
     },
     "optional_permissions": [
-        "downloads"
+        "downloads", "https://*.youtube.com/*"
     ],
     "permissions": [
-        "https://www.youtube.com/",
+        "https://www.youtube.com/", 
         "contextMenus",
         "storage"
     ],
