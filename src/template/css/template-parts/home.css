@@ -2,7 +2,7 @@
 >>> HOME
 --------------------------------------------------------------*/
 
-.satus-main__container[data-appearance='home'] .satus-section
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-section
 {
     width: 100%;
     margin-top: 16px;
@@ -14,7 +14,7 @@
 
 
 
-.satus-main__container[data-appearance='home'] .satus-folder
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder
 {
     position: relative;
 
@@ -28,12 +28,12 @@
     cursor: default;
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder::before
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder::before
 {
     background-color: transparent
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder__label
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder__label
 {
     position: absolute;
     bottom: 0;
@@ -41,14 +41,14 @@
     pointer-events: none;
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder:focus,
-.satus-main__container[data-appearance='home'] .satus-folder:hover
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder:focus,
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder:hover
 {
     background-color: transparent;
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder svg,
-.satus-main__container[data-appearance='home'] .satus-folder--shortcut__icon
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder svg,
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--shortcut__icon
 {
     display: block;
     overflow: visible;
@@ -67,8 +67,8 @@
     box-shadow: 0 2px 1px 1px rgba(230, 109, 70, .7), 0 3px 5px rgba(0,0,0,.35);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder svg:focus,
-.satus-main__container[data-appearance='home'] .satus-folder svg:hover
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder svg:focus,
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder svg:hover
 {
     transition: background 250ms 125ms, transform 250ms, box-shadow 275ms;
     transform: translateY(4px) scale(.975);
@@ -76,7 +76,7 @@
     box-shadow: 0 1px 1px 0 rgba(230, 109, 70, .7), 0 1px 2px rgba(0,0,0,.35);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--general svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--general svg
 {
     width: 26px;
     height: 26px;
@@ -86,7 +86,7 @@
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--appearance svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--appearance svg
 {
     width: 26px;
     height: 26px;
@@ -96,7 +96,7 @@
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--themes svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--themes svg
 {
     padding: 17px 16px 15px 16px;
 
@@ -104,7 +104,7 @@
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--player svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--player svg
 {
     width: 26px;
     height: 26px;
@@ -114,7 +114,7 @@
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--playlist svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--playlist svg
 {
     padding: 17px 16px 15px 16px;
 
@@ -122,13 +122,13 @@
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--channel svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--channel svg
 {
     fill: transparent;
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--shortcut svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--shortcut svg
 {
     width: 26px;
     height: 26px;
@@ -138,7 +138,7 @@
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--mixer svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--mixer svg
 {
     padding: 17px 16px 15px 16px;
 
@@ -146,7 +146,7 @@
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--blacklist svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--blacklist svg
 {
     width: 26px;
     height: 26px;
@@ -156,7 +156,7 @@
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--analyzer svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--analyzer svg
 {
     width: 26px;
     height: 26px;
@@ -166,34 +166,12 @@
     stroke: rgba(255, 255, 255, .85);
 }
 
-
-
-.satus-main .satus-section--footer
-{
-    position: absolute;
-    bottom: 8px;
-    left: 0;
-
-    justify-content: center;
-}
-
-.satus-main .satus-section--footer .satus-button
-{
-    box-sizing: unset;
-    width: 24px;
-    height: 24px;
-    margin: 0 4px;
-    padding: 4px;
-}
-
-.satus-main .satus-section--footer .satus-button:focus:before,
-.satus-main .satus-section--footer .satus-button:hover:before
-{
-    background-color: unset;
-}
-
-.satus-main .satus-section--footer .satus-button svg
+html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-folder svg
 {
     fill: transparent;
-    stroke: var(--satus-theme-on-surface, #777);
+    stroke: var(--satus-theme-primary);
 }
+
+
+
+

@@ -33,6 +33,7 @@
     margin: 16px auto 8px;
 }
 
+html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-section,
 .satus-main__container:not([data-appearance='home']) .satus-section
 {
     display: block;
@@ -46,6 +47,7 @@
     border-radius: 8px;
 }
 
+html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-section--message,
 .satus-main__container:not([data-appearance='home']) .satus-section--message
 {
     padding-right: 8px;
