@@ -113,8 +113,39 @@ Menu.main = {
 
     section: {
         type: 'section'
+    },
+    
+    footer: {
+        type: 'section',
+        class: 'satus-section--footer',
+        
+        email: {
+            type: 'button',
+            label: 'Email',
+            title: 'bugs@improvedtube.com',
+            onclick: function(){
+                window.open('mailto:bugs@improvedtube.com', '_blank');
+            }
+        },
+        github: {
+            type: 'button',
+            label: 'GitHub',
+            title: '/ImprovedTube/ImprovedTube',
+            onclick: function(){
+                window.open('https://github.com/ImprovedTube/ImprovedTube/', '_blank');
+            }
+        },
+        website: {
+            type: 'button',
+            label: 'Website',
+            title: 'improvedtube.com',
+            onclick: function(){
+                window.open('http://www.improvedtube.com/', '_blank');
+            }
+        }
     }
 };
+
 Menu.header.section_end.button_vert.onClickRender.active_features = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
