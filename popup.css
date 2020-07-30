@@ -1,7 +1,25 @@
 
+/*---------------------------------------------------------------
+>>> THEMES
+-----------------------------------------------------------------
+1.0 Dark
+2.0 Night
+3.0 Dawn
+4.0 Sunset
+5.0 Desert
+6.0 Plain
+7.0 Black
+8.0 Red
+---------------------------------------------------------------*/
+
 html {
     --satus-theme-primary: #f6b465;
 }
+
+
+/*---------------------------------------------------------------
+1.0 DARK
+---------------------------------------------------------------*/
 
 html[theme="dark"]
 {
@@ -28,6 +46,10 @@ html[theme="dark"]
 	--satus-theme-ripple: rgba(255, 255, 255, .04);
 }
 
+/*---------------------------------------------------------------
+2.0 NIGHT
+---------------------------------------------------------------*/
+
 html[theme="night"]
 {
 	--satus-theme-primary: #f6b465;
@@ -52,6 +74,11 @@ html[theme="night"]
 
 	--satus-theme-ripple: rgba(255, 255, 255, .04);
 }
+
+
+/*---------------------------------------------------------------
+3.0 DAWN
+---------------------------------------------------------------*/
 
 html[theme="dawn"]
 {
@@ -78,6 +105,11 @@ html[theme="dawn"]
 	--satus-theme-ripple: rgba(255, 255, 255, .04);
 }
 
+
+/*---------------------------------------------------------------
+4.0 SUNSET
+---------------------------------------------------------------*/
+
 html[theme="sunset"]
 {
 	--satus-theme-primary: #f6b465;
@@ -102,6 +134,11 @@ html[theme="sunset"]
 
 	--satus-theme-ripple: rgba(255, 255, 255, .04);
 }
+
+
+/*---------------------------------------------------------------
+5.0 DESERT
+---------------------------------------------------------------*/
 
 html[theme="desert"]
 {
@@ -128,6 +165,11 @@ html[theme="desert"]
 	--satus-theme-ripple: rgba(255, 255, 255, .04);
 }
 
+
+/*---------------------------------------------------------------
+6.0 PLAIN
+---------------------------------------------------------------*/
+
 html[theme="plain"]
 {
 	--satus-theme-primary: #f6b465;
@@ -152,6 +194,11 @@ html[theme="plain"]
 
 	--satus-theme-ripple: rgba(255, 255, 255, .04);
 }
+
+
+/*---------------------------------------------------------------
+7.0 BLACK
+---------------------------------------------------------------*/
 
 html[theme="black"]
 {
@@ -178,12 +225,17 @@ html[theme="black"]
 	--satus-theme-ripple: rgba(255, 255, 255, .04);
 }
 
+
+/*---------------------------------------------------------------
+8.0 RED
+---------------------------------------------------------------*/
+
 html[popup-theme="red"]
 {
     --satus-theme-primary: #f92525;
 }
 
-html[popup-theme="red"] .satus-main__container[data-appearance='home'] .satus-folder svg
+html:not([it-improvedtube-home='list'])[popup-theme="red"] .satus-main__container[data-appearance='home'] .satus-folder svg
 {
     background: #f73030;
     box-shadow: 0 2px 2px rgba(0,0,0,.35);
@@ -432,11 +484,13 @@ body[data-appearance='home'] .satus-button--back
     letter-spacing: .0125em;
 }
 
-html[it-title-version='true'] body[data-appearance='home'] .satus-text--title::after {
+html[it-title-version='true'] body[data-appearance='home'] .satus-text--title::after
+{
     content: attr(data-version);
     font: 700 10px sans-serif;
     opacity: 0.6;
     margin: 0 0 0 4px;
+    color: var(--satus-theme-header-text);
 }
 
 body[data-appearance='home'] .satus-text--title
