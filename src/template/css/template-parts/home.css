@@ -174,4 +174,15 @@ html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home']
 
 
 
-
+html[it-it-general='false'] .satus-folder--general,
+html[it-it-appearance='false'] .satus-folder--appearance,
+html[it-it-themes='false'] .satus-folder--themes,
+html[it-it-player='false'] .satus-folder--player,
+html[it-it-playlist='false'] .satus-folder--playlist,
+html[it-it-channel='false'] .satus-folder--channel,
+html[it-it-shortcuts='false'] .satus-folder--shortcut,
+html[it-it-blacklist='false'] .satus-folder--blacklist,
+html[it-it-analyzer='false'] .satus-folder--analyzer
+{
+    display: none;
+}
