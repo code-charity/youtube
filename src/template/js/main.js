@@ -15,5 +15,35 @@ Menu.main = {
 
     section: {
         type: 'section'
+    },
+    
+    footer: {
+        type: 'section',
+        class: 'satus-section--footer',
+        
+        email: {
+            type: 'button',
+            label: 'Email',
+            title: 'bugs@improvedtube.com',
+            onclick: function(){
+                window.open('mailto:bugs@improvedtube.com', '_blank');
+            }
+        },
+        github: {
+            type: 'button',
+            label: 'GitHub',
+            title: '/ImprovedTube/ImprovedTube',
+            onclick: function(){
+                window.open('https://github.com/ImprovedTube/ImprovedTube/', '_blank');
+            }
+        },
+        website: {
+            type: 'button',
+            label: 'Website',
+            title: 'improvedtube.com',
+            onclick: function(){
+                window.open('http://www.improvedtube.com/', '_blank');
+            }
+        }
     }
 };

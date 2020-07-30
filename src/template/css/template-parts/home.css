@@ -2,7 +2,7 @@
 >>> HOME
 --------------------------------------------------------------*/
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-section
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-section:not(.satus-section--footer)
 {
     width: 100%;
     margin-top: 16px;

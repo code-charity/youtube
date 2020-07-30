@@ -108,16 +108,16 @@ button
 
 
 
-.it-message
+.satus-section--footer
 {
     position: fixed;
     z-index: 99;
     bottom: 16px;
     left: 16px;
-    display: none;
+    display: flex;
     box-sizing: border-box;
     box-shadow: 0 0 3px rgba(0,0,0,.1);
-    width: calc(100% - 32px);
+    width: 268px;
     height: 42px;
     padding: 8px 16px;
     color: var(--satus-theme-main-text);
@@ -125,19 +125,25 @@ button
     background: var(--satus-theme-section);
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
 }
 
-body[data-appearance='home'] .it-message {
-    display: flex !important
+html[it-improvedtube-home='list'] .satus-section--footer
+{
+    position: static;
+    margin: 8px 16px 16px
 }
 
-.it-message a
+.satus-main .satus-section--footer .satus-button
 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 13px;
-
     text-decoration: none;
-
     color: var(--satus-theme-main-text);
+    text-align: center;
+    height: 32px;
+    justify-content: center;
+    border-radius: 4px;
+    overflow: hidden;
 }
