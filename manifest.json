@@ -1,6 +1,7 @@
 {
     "manifest_version": 2,
-    "name": "ImprovedTube",
+    "short_name" : "ImprovedTube",
+    "name": "Improve YouTube! (Open-Source for YouTube)",
     "version": "3.41",
     "icons": {
         "16": "assets/icons/16.png",
@@ -28,7 +29,7 @@
             "content-scripts.js"
         ],
         "matches": [
-            "https://*.youtube.com/*"
+            "https://www.youtube.com/*"
         ],
         "exclude_matches": [
             "https://www.youtube.com/improvedtube",
@@ -68,10 +69,10 @@
         ]
     },
     "optional_permissions": [
-        "downloads"
+        "downloads", "https://*.youtube.com/*"
     ],
     "permissions": [
-        "https://www.youtube.com/",
+        "https://www.youtube.com/", 
         "contextMenus",
         "storage"
     ],
