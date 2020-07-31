@@ -9,8 +9,8 @@ ImprovedTube can still fly much higher through your word of mouth and contributi
   ⚬ [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)  
   ⚬ [Beta testing](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki)  ⚬ [Donations](http://improvedtube.com/donate)
 #### Credits
-Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!    
-Improvedtube's Interface/Layout is designed with our library [Satus](https://github.com/victor-savinov/satus), to manage settings efficiently. 
+Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
+ImprovedTube's Interface/Layout is designed with our library [Satus](https://github.com/victor-savinov/satus), to manage settings efficiently.
 #### Translations:
 You can help us translate ImprovedTube into your language ♡. Please, check the [wiki page](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations).
 
