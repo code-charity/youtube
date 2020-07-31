@@ -1,6 +1,6 @@
 ## ImprovedTube
 ![](/assets/rating.svg) ![](/assets/size.svg)</br>
-[ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an extension, that we built to refine and sweeten your experience on YouTube *(Since 2012 & for 250,000+ people)*. The first popular features were simply to have a larger player, hide distractions and save your time. Yet we added many powerful features to Youtube. And there is so much left to build. 
+[ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an extension, that we built to refine and sweeten your experience on YouTube *(Since 2012 & for 250,000+ people)*. The first popular features were simply to have a larger player, hide distractions and save your time. Yet we added many powerful features to YouTube. And there is so much left to build.
 #### List of Features
 You can learn more about features [here](https://github.com/ImprovedTube/ImprovedTube/wiki/Features).   
 ## Contributing
@@ -9,8 +9,8 @@ ImprovedTube can still fly much higher through your word of mouth and contributi
   ⚬ [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)  
   ⚬ [Beta testing](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki)  ⚬ [Donations](http://improvedtube.com/donate)
 #### Credits
-Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!    
-Improvedtube's Interface/Layout is designed with our library [Satus](https://github.com/victor-savinov/satus), to manage settings efficiently. 
+Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
+ImprovedTube's Interface/Layout is designed with our library [Satus](https://github.com/victor-savinov/satus), to manage settings efficiently.
 #### Translations:
 You can help us translate ImprovedTube into your language ♡. Please, check the [wiki page](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations).
 
@@ -54,7 +54,7 @@ You can help us translate ImprovedTube into your language ♡. Please, check the
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | 1.0+ |
 
-## Installation from Github
+## Installation from GitHub
 
 #### [Chromium](https://github.com/chromium/chromium) / [Brave](https://brave.com/?ref=imp716) / Vivaldi / Chrome and other
 1. Download & unzip [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
