@@ -478,7 +478,7 @@
         "message": "Nenhuma"
     },
     "noOpenVideoTabs": {
-        "message": "Não abrir janelas de video" 
+        "message": "Não abrir janelas de video"
     },
     "normal": {
         "message": "Normal"
@@ -781,10 +781,10 @@
         "message": "Amarelo"
     },
     "youtubeHeaderLeft": {
-        "message": "Cabeçalho do Youtube (esquerda)"
+        "message": "Cabeçalho do YouTube (esquerda)"
     },
     "youtubeHeaderRight": {
-        "message": "Cabeçalho do Youtube (direita)"
+        "message": "Cabeçalho do YouTube (direita)"
     },
     "youtubeHomePage": {
         "message": "Página principal do YouTube"
