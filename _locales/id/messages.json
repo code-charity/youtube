@@ -384,7 +384,7 @@
         "message": "Ikon ImprovedTube di peramban"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "Ikon ImprovedTube di Youtube"
+        "message": "Ikon ImprovedTube di YouTube"
     },
     "improvedtubeLanguage": {
         "message": "Bahasa ImprovedTube"
@@ -489,7 +489,7 @@
         "message": "Disetiap video"
     },
     "onlyActiveOnYoutube": {
-        "message": "Hanya aktif di Youtube"
+        "message": "Hanya aktif di YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Hanya mainkan satu pemutar"
@@ -780,16 +780,16 @@
         "message": "Kuning"
     },
     "youtubeHeaderLeft": {
-        "message": "Kepala Youtube (kiri)"
+        "message": "Kepala YouTube (kiri)"
     },
     "youtubeHeaderRight": {
-        "message": "Kepala Youtube (kanan)"
+        "message": "Kepala YouTube (kanan)"
     },
     "youtubeHomePage": {
         "message": "Beranda YouTube"
     },
     "youtubeLanguage": {
-        "message": "Bahasa Youtube"
+        "message": "Bahasa YouTube"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube membatasi kualitas video hingga 1080p untuk codec h.264"
