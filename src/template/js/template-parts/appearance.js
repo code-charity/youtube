@@ -199,6 +199,10 @@ Menu.main.section.appearance = {
             always_show_progress_bar: {
                 type: 'switch',
                 label: 'alwaysShowProgressBar'
+            },
+            red_dislike_button: {
+                type: 'switch',
+                label: 'redDislikeButton'
             }
         }
     },
