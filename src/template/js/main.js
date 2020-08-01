@@ -21,6 +21,15 @@ Menu.main = {
         type: 'section',
         class: 'satus-section--footer',
         
+        found_a_bug: {
+            type: 'button',
+            class: 'satus-button--found-a-bug',
+            label: 'found a bug?',
+            title: '/ImprovedTube/ImprovedTube',
+            onclick: function(){
+                window.open('https://github.com/ImprovedTube/ImprovedTube/issues/new', '_blank');
+            }
+        },
         email: {
             type: 'button',
             label: 'Email',

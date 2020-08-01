@@ -125,7 +125,6 @@ button
     background: var(--satus-theme-section);
     align-items: center;
     justify-content: space-between;
-    overflow: hidden;
 }
 
 html[it-improvedtube-home='list'] .satus-section--footer
@@ -146,4 +145,11 @@ html[it-improvedtube-home='list'] .satus-section--footer
     justify-content: center;
     border-radius: 4px;
     overflow: hidden;
+}
+
+.satus-main .satus-section--footer .satus-button--found-a-bug {
+    width: 128px;
+    position: absolute;
+    bottom: 56px;
+    left: 70px;
 }
