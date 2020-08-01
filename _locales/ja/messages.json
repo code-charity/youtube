@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "視聴した動画にマークを付ける"
     },
-    "miniPlayer": {
-        "message": "ミニプレーヤー"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "ミキサー"
@@ -780,10 +780,10 @@
         "message": "黄"
     },
     "youtubeHeaderLeft": {
-        "message": "Youtube のヘッダー左"
+        "message": "YouTube のヘッダー左"
     },
     "youtubeHeaderRight": {
-        "message": "Youtube のヘッダー右"
+        "message": "YouTube のヘッダー右"
     },
     "youtubeHomePage": {
         "message": "YouTube のホームページ"

@@ -8,6 +8,7 @@
 5.0 Storage change listener
 6.0 Initialization
 7.0 Uninstall URL
+8.0 Google Analytics
 -----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
@@ -15,7 +16,8 @@
 -----------------------------------------------------------------------------*/
 
 var locale_code = 'en',
-    browser_icon = false;
+    browser_icon = false,
+    is_legacy_icon = true;
 
 
 /*-----------------------------------------------------------------------------
@@ -58,13 +60,17 @@ function getTranslations(path) {
 }
 
 function browserActionIcon() {
+    var folder = is_legacy_icon === true ? 'icons-legacy' : 'icons';
+    
+    console.log(folder);
+    
     if (browser_icon === 'always') {
         chrome.browserAction.setIcon({
-            path: 'assets/icons/32.png'
+            path: 'assets/' + folder + '/32.png'
         });
     } else {
         chrome.browserAction.setIcon({
-            path: 'assets/icons/32g.png'
+            path: 'assets/' + folder + '/32g.png'
         });
     }
 }
@@ -112,8 +118,10 @@ chrome.contextMenus.onClicked.addListener(function(event) {
 chrome.runtime.onMessage.addListener(function(request, sender) {
     if (isset(request) && typeof request === 'object') {
         if (request.enabled === true && browser_icon !== 'always') {
+            var folder = is_legacy_icon === true ? 'icons-legacy' : 'icons';
+            
             chrome.browserAction.setIcon({
-                path: 'assets/icons/32.png',
+                path: 'assets/' + folder + '/32.png',
                 tabId: sender.tab.id
             });
         }
@@ -289,7 +297,13 @@ chrome.storage.onChanged.addListener(function(changes) {
         browser_icon = changes.improvedtube_browser_icon.newValue;
     }
 
+    if (isset(changes.red_popup_theme)) {
+        is_legacy_icon = changes.red_popup_theme.newValue;
+    }
+
     browserActionIcon();
+    
+    _gaq.push(['_trackPageview', '/improvedtube-' + chrome.runtime.getManifest().version + '/background', 'page-loaded']);
 });
 
 
@@ -306,7 +320,13 @@ chrome.storage.local.get(function(items) {
         browser_icon = items.improvedtube_browser_icon;
     }
 
+    if (isset(items.red_popup_theme)) {
+        browser_icon = items.red_popup_theme;
+    }
+
     browserActionIcon();
+    
+    _gaq.push(['_trackPageview', '/improvedtube-' + chrome.runtime.getManifest().version + '/background', 'page-loaded']);
 });
 
 
@@ -315,3 +335,23 @@ chrome.storage.local.get(function(items) {
 -----------------------------------------------------------------------------*/
 
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
+
+
+/*-----------------------------------------------------------------------------
+8.0 GOOGLE ANALYTICS
+-----------------------------------------------------------------------------*/
+
+var _gaq = _gaq || [];
+
+(function() {
+    var ga = document.createElement('script');
+
+    _gaq.push(['_setAccount', 'UA-88354155-1']);
+    _gaq.push(['_setSessionCookieTimeout', 14400000]);
+
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    
+    document.body.appendChild(ga);
+})();

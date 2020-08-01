@@ -393,7 +393,7 @@
         "message": "Версия ImprovedTube"
     },
     "improveLogo": {
-        "message": "Улучшить логотип Youtube"
+        "message": "Улучшить логотип YouTube"
     },
     "increasePlaybackSpeed": {
         "message": "Увеличить скорость видео"
@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "Отмечать просмотренные видео"
     },
-    "miniPlayer": {
-        "message": "Мини-плеер"
+    "customMiniPlayer": {
+        "message": "Новый мини-плеер"
     },
     "mixer": {
         "message": "Миксер"
@@ -699,7 +699,7 @@
         "message": "Это удалит все куки"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "Вы действительно хотите удалить все куки Youtube?"
+        "message": "Вы действительно хотите удалить все куки YouTube?"
     },
     "thisWillResetAllSettings": {
         "message": "Это сбросит все настройки"

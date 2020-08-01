@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "İzlenen videoları işaretle"
     },
-    "miniPlayer": {
-        "message": "Mini oynatıcı"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Karıştırıcı"
@@ -780,10 +780,10 @@
         "message": "Sarı"
     },
     "youtubeHeaderLeft": {
-        "message": "Youtube Header (sol)"
+        "message": "YouTube Header (sol)"
     },
     "youtubeHeaderRight": {
-        "message": "Youtube Header (sağ)"
+        "message": "YouTube Header (sağ)"
     },
     "youtubeHomePage": {
         "message": "YouTube ana sayfası"

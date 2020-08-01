@@ -1,72 +1,16 @@
 /*-----------------------------------------------------------------------------
 >>> GENERAL
 -------------------------------------------------------------------------------
-1.0 Legacy YouTube
-2.0 YouTube Home Page
-3.0 Add «Scroll to top»
-4.0 HD thumbnails
-5.0 Confirmation before closing
-6.0 Collapse of subscription sections
-7.0 Mark watched videos
+1.0 YouTube Home Page
+2.0 Add «Scroll to top»
+3.0 HD thumbnails
+4.0 Confirmation before closing
+5.0 Collapse of subscription sections
+6.0 Mark watched videos
 -----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
-1.0 Legacy YouTube
------------------------------------------------------------------------------*/
-
-ImprovedTube.youtubeVersion = function() {
-    var pref = ImprovedTube.getCookieValueByName('PREF'),
-        f6 = ImprovedTube.getParam(pref, 'f6') || '0004',
-        last = f6.slice(-1),
-        disable_polymer = Boolean(ImprovedTube.getParam(location.search.substr(1), 'disable_polymer')),
-        version = (last == '8' || last == '9') || disable_polymer ? 'old' : 'new',
-        option = ImprovedTube.storage.legacy_youtube === true ? 'old' : 'new';
-
-    if (
-        navigator &&
-        navigator.userAgent &&
-        navigator.userAgent.match(/Chrom(e|ium)+\/[0-9.]+/g)[0] &&
-        Number(navigator.userAgent.match(/Chrom(e|ium)+\/[0-9.]+/g)[0].match(/[0-9.]+/g)[0].match(/[0-9]+/g)[0]) <= 49
-    ) {
-        version = 'old';
-    }
-
-    if (version !== option) {
-        ImprovedTube.legacy_youtube();
-    }
-
-    document.documentElement.setAttribute('it-youtube-version', version);
-};
-
-ImprovedTube.legacy_youtube = function() {
-    var option = ImprovedTube.storage.legacy_youtube,
-        PREF = this.getParams(this.getCookieValueByName('PREF')),
-        result = '';
-
-    if (!this.isset(PREF.f6)) {
-        PREF.f6 = option === true ? '0008' : '';
-    } else if (PREF.f6.length === 4) {
-        PREF.f6 = PREF.f6.slice(0, -1) + (option === true ? '8' : '');
-    } else if (PREF.f6.length === 3) {
-        PREF.f6 += option === true ? '8' : '';
-    } else {
-        PREF.f6 = option === true ? '0008' : '';
-    }
-
-    for (var i in PREF) {
-        result += i + '=' + PREF[i] + '&';
-    }
-
-    this.setCookie('PREF', result.slice(0, -1));
-
-    setTimeout(function() {
-        location.reload();
-    }, 250);
-};
-
-
-/*-----------------------------------------------------------------------------
-2.0 YouTube Home Page
+1.0 YouTube Home Page
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.youtube_home_page = function() {
@@ -76,7 +20,7 @@ ImprovedTube.youtube_home_page = function() {
         this.storage.youtube_home_page !== 'search'
     ) {
         var value = this.storage.youtube_home_page,
-            node_list = document.querySelectorAll('a[href="/"], a[href="//www.youtube.com"], a[href="//www.youtube.com/"], a[href="https://www.youtube.com"], a[href="https://www.youtube.com/"], a[it-origin="/"], a[it-origin="//www.youtube.com"], a[it-origin="//www.youtube.com/"], a[it-origin="https://www.youtube.com"], a[it-origin="https://www.youtube.com/"]');
+            node_list = document.querySelectorAll('a[href="/"]:not([role="tablist"]), a[href="//www.youtube.com"]:not([role="tablist"]), a[href="//www.youtube.com/"]:not([role="tablist"]), a[href="https://www.youtube.com"]:not([role="tablist"]), a[href="https://www.youtube.com/"]:not([role="tablist"]), a[it-origin="/"]:not([role="tablist"]), a[it-origin="//www.youtube.com"]:not([role="tablist"]), a[it-origin="//www.youtube.com/"]:not([role="tablist"]), a[it-origin="https://www.youtube.com"]:not([role="tablist"]), a[it-origin="https://www.youtube.com/"]:not([role="tablist"])');
 
         for (var i = 0, l = node_list.length; i < l; i++) {
             var node = node_list[i],
@@ -118,7 +62,7 @@ function youtubeHomePage__documentStart(option) {
 
 
 /*-----------------------------------------------------------------------------
-3.0 Add «Scroll to top»
+2.0 Add «Scroll to top»
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.scroll = function() {
@@ -154,7 +98,7 @@ ImprovedTube.add_scroll_to_top = function(is_update) {
 
 
 /*-----------------------------------------------------------------------------
-4.0 HD thumbnails
+3.0 HD thumbnails
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.hd_thumbnails = function() {
@@ -187,7 +131,7 @@ ImprovedTube.hd_thumbnails = function() {
 
 
 /*-----------------------------------------------------------------------------
-5.0 Confirmation before closing
+4.0 Confirmation before closing
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.confirmation_before_closing = function() {
@@ -200,7 +144,7 @@ ImprovedTube.confirmation_before_closing = function() {
 
 
 /*-----------------------------------------------------------------------------
-6.0 Collapse of subscription sections
+5.0 Collapse of subscription sections
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.collapse_of_subscription_sections = function() {
@@ -256,7 +200,7 @@ ImprovedTube.collapse_of_subscription_sections = function() {
 
 
 /*-----------------------------------------------------------------------------
-7.0 Mark watched videos
+6.0 Mark watched videos
 -----------------------------------------------------------------------------*/
 
 document.addEventListener('ImprovedTubeWatched', function(event) {

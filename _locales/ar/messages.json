@@ -81,7 +81,7 @@
         "message": "ملء تلقائي للشاشة"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "الإيقاف التلقائي عند التبديل بين علامات التبويب"
+        "message": "إيقاف تلقائي عند التبديل بين التبويبات"
     },
     "autoplay": {
         "message": "تشغيل تلقائي"
@@ -279,13 +279,13 @@
         "message": "الحزء السفلي"
     },
     "forcedPlaybackSpeed": {
-        "message": "سرعة التشغيل الإجبارية"
+        "message": "تثبيت سرعة التشغيل"
     },
     "forcedTheaterMode": {
-        "message": "وضع المسرح الإجباري"
+        "message": "فرض وضع المسرح"
     },
     "forcedVolume": {
-        "message": "الصوت الإجباري"
+        "message": "تثبيت مستوى الصوت"
     },
     "foundABug": {
         "message": "وجدت خطأ؟"
@@ -357,7 +357,7 @@
         "message": "إخفاء عدد المشاهدات"
     },
     "history": {
-        "message": "التاريخ"
+        "message": "السجلّ"
     },
     "home": {
         "message": "الصفحة الرئيسية"
@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "التعليم على الفيديو المشاهد"
     },
-    "miniPlayer": {
-        "message": "المشغل الصغير"
+    "customMiniPlayer": {
+        "message": "المشغل الصغير المخصص"
     },
     "mixer": {
         "message": "مهندس الصوت"
@@ -732,7 +732,7 @@
         "message": "خلفية شفافة"
     },
     "trending": {
-        "message": "الشائع"
+        "message": "المحتوى الرائج"
     },
     "tryToReloadThePage": {
         "message": "حاول إعادة تحميل الصفحة"
@@ -741,7 +741,7 @@
         "message": "النوع"
     },
     "upNextAutoplay": {
-        "message": "التشغيل التلقائي التالي"
+        "message": "تشغيل التالي تلقائيا"
     },
     "use24HourFormat": {
         "message": "استخدم تنسيق 24 ساعة"

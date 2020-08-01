@@ -1,6 +1,6 @@
 {
     "cropChapterTitles": {
-        "message": "Crop chapter titles"
+        "message": "Ritaglia titoli dei capitoli"
     },
     "about": {
         "message": "Al riguardo"
@@ -18,7 +18,7 @@
         "message": "Accetta"
     },
     "activate": {
-        "message": "Attiva"
+        "message": "Attivo"
     },
     "activateCaptions": {
         "message": "Attiva didascalie"
@@ -33,7 +33,7 @@
         "message": "Attiva schermo intero"
     },
     "activeFeatures": {
-        "message": "Funzionalità attive"
+        "message": "Funzioni disponibili"
     },
     "addScrollToTop": {
         "message": "Aggiungi «Scorri in cima»"
@@ -327,7 +327,7 @@
         "message": "Nascosta/i"
     },
     "hiddenOnVideoPage": {
-        "message": "Nascosto nella pagina video"
+        "message": "Nascosta nella pagina video"
     },
     "hideAnimatedThumbnails": {
         "message": "Nascondi miniature animate"
@@ -452,8 +452,8 @@
     "markWatchedVideos": {
         "message": "Contrassegna video visti"
     },
-    "miniPlayer": {
-        "message": "Lettore mini"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Mixer"
@@ -561,7 +561,7 @@
         "message": "Video precedente"
     },
     "primaryColor": {
-        "message": "Primary color"
+        "message": "Colore primario"
     },
     "purple": {
         "message": "Viola"
@@ -657,7 +657,7 @@
         "message": "Immagini utenti squadrate"
     },
     "static": {
-        "message": "Statico/a"
+        "message": "Statica"
     },
     "stop": {
         "message": "Arresto"
@@ -741,7 +741,7 @@
         "message": "Avvio automatico prossimo video"
     },
     "use24HourFormat": {
-        "message": "Usa formato 24 ore"
+        "message": "Usa formato a 24 ore"
     },
     "version": {
         "message": "Versione"

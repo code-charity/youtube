@@ -7,7 +7,9 @@
 -----------------------------------------------------------------------------*/
 
 var ImprovedTube = {
-    allow_autoplay: false
+    allow_autoplay: false,
+    videoUrl: '"null"',
+    playingTime: 0
 };
 
 
@@ -17,6 +19,8 @@ var ImprovedTube = {
 
 ImprovedTube.pageUpdate = function() {
     var not_connected_players = document.querySelectorAll('.html5-video-player:not([it-player-connected])');
+    
+    ImprovedTube.allow_autoplay = false;
 
     if (not_connected_players.length > 0) {
         for (var i = 0, l = not_connected_players.length; i < l; i++) {
@@ -151,10 +155,8 @@ ImprovedTube.playerUpdate = function(node, hard) {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.init = function() {
-    this.youtubeVersion();
     this.player_h264();
     this.player_60fps();
-    //this.objectDefineProperties();
     this.confirmation_before_closing();
     this.shortcuts();
     this.themeEditor();
@@ -173,6 +175,12 @@ ImprovedTube.init = function() {
     this.related_videos();
     this.mutations();
     this.events();
+    
+    if (window.self === window.top) {
+        window.addEventListener('load', function(){
+            ImprovedTube.player_volume();
+        });
+    }
 };
 
 function withoutInjection(object) {

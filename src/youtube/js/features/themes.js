@@ -137,31 +137,23 @@ ImprovedTube.theme = function() {
         times.from = 0;
     }
 
-    /*if (
-        this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false &&
-        document.documentElement.getAttribute('it-youtube-version') !== 'old'
-    ) {
-        if (
-            document.querySelector('ytd-app') &&
-            typeof document.querySelector('ytd-app').toggleDarkThemeAttribute_ === 'function' &&
-            document.querySelector('ytd-app').isAppDarkTheme_() === false
-        ) {
-            document.querySelector('ytd-app').toggleDarkThemeAttribute_(true);
-        }
-    } else {
-        if (
-            document.querySelector('ytd-app') &&
-            typeof document.querySelector('ytd-app').toggleDarkThemeAttribute_ === 'function' &&
-            document.querySelector('ytd-app').isAppDarkTheme_() === true
-        ) {
-            document.querySelector('ytd-app').toggleDarkThemeAttribute_(true);
-        }
-    }*/
-
     if (
         (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to) &&
-        this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false &&
-        document.documentElement.getAttribute('it-youtube-version') !== 'old'
+        (
+            this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false
+            ||
+            this.isset(ImprovedTube.storage.night_theme) && ImprovedTube.storage.night_theme !== false
+            ||
+            this.isset(ImprovedTube.storage.dawn_theme) && ImprovedTube.storage.dawn_theme !== false
+            ||
+            this.isset(ImprovedTube.storage.sunset_theme) && ImprovedTube.storage.sunset_theme !== false
+            ||
+            this.isset(ImprovedTube.storage.desert_theme) && ImprovedTube.storage.desert_theme !== false
+            ||
+            this.isset(ImprovedTube.storage.plain_theme) && ImprovedTube.storage.plain_theme !== false
+            ||
+            this.isset(ImprovedTube.storage.black_theme) && ImprovedTube.storage.black_theme !== false
+        )
     ) {
         var PREF_OLD = this.getParams(this.getCookieValueByName('PREF')),
             PREF = this.getParams(this.getCookieValueByName('PREF')),
@@ -179,70 +171,9 @@ ImprovedTube.theme = function() {
 
         this.setCookie('PREF', result.slice(0, -1));
 
-        setTimeout(function() {
-            if (
-                document.querySelector('ytd-app') &&
-                typeof document.querySelector('ytd-app').toggleDarkThemeAttribute_ === 'function' &&
-                document.querySelector('ytd-app').isAppDarkTheme_() === false
-            ) {
-                document.querySelector('ytd-app').toggleDarkThemeAttribute_(true);
-            }
-        }, 250);
-
-        return false;
-    }
-
-    if (ImprovedTube.storage.default_dark_theme === false) {
-        var PREF_OLD = this.getParams(this.getCookieValueByName('PREF')),
-            PREF = this.getParams(this.getCookieValueByName('PREF')),
-            result = '';
-
-        if (!this.isset(PREF.f6) || this.isset(PREF.f6) && PREF.f6.length !== 3) {
-            PREF.f6 = '800';
-        } else if (PREF.f6.length === 3) {
-            PREF.f6 = '8' + PREF.f6.substr(1);
-        }
-
-        for (var i in PREF) {
-            result += i + '=' + PREF[i] + '&';
-        }
-
-        this.setCookie('PREF', result.slice(0, -1));
-    }
-
-    if (
-        (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to) &&
-        (this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false ||
-            this.isset(ImprovedTube.storage.night_theme) && ImprovedTube.storage.night_theme !== false ||
-            this.isset(ImprovedTube.storage.dawn_theme) && ImprovedTube.storage.dawn_theme !== false ||
-            this.isset(ImprovedTube.storage.sunset_theme) && ImprovedTube.storage.sunset_theme !== false ||
-            this.isset(ImprovedTube.storage.desert_theme) && ImprovedTube.storage.desert_theme !== false ||
-            this.isset(ImprovedTube.storage.plain_theme) && ImprovedTube.storage.plain_theme !== false ||
-            this.isset(ImprovedTube.storage.black_theme) && ImprovedTube.storage.black_theme !== false)
-    ) {
-        document.documentElement.setAttribute('dark', '');
-
-        if (ImprovedTube.storage.default_dark_theme === true) {
-            var wait = setInterval(function() {
-                if (document.body) {
-                    clearInterval(wait);
-
-                    document.body.setAttribute('dark', '');
-                }
-            });
-        } else {
-            var wait = setInterval(function() {
-                if (document.body) {
-                    clearInterval(wait);
-
-                    document.body.removeAttribute('dark', '');
-                }
-            });
-        }
-
         document.documentElement.setAttribute('it-theme', 'true');
     } else {
-        document.documentElement.removeAttribute('it-theme', );
+        document.documentElement.removeAttribute('it-theme');
     }
 };
 

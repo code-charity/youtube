@@ -1,4 +1,4 @@
-
+
 /*--------------------------------------------------------------
 >>> BUTTON
 --------------------------------------------------------------*/
@@ -18,7 +18,7 @@
     color: inherit;
     border: none;
     outline: none;
-    background-color: var(--satus-theme-button, transparent);
+    background-color: var(--satus-theme-button);
 
     -webkit-tap-highlight-color: transparent;
     align-items: center;
@@ -37,13 +37,13 @@
     content: '';
 
     opacity: 0;
-    background-color: var(--satus-theme-button, #000);
+    background-color: var(--satus-theme-ripple);
 }
 
 .satus-button:focus::before,
 .satus-button:hover::before
 {
-    opacity: .04;
+    opacity: 1;
 }
 
 .satus-button__icon
@@ -58,14 +58,14 @@
 
     color: inherit;
 
-    fill: currentColor;
+    fill: var(--satus-theme-primary);
 }
 
 .satus-button__icon + .satus-button__label
 {
     margin-left: 8px;
 }
-
+
 /*--------------------------------------------------------------
 >>> COLOR PICKER
 --------------------------------------------------------------*/
@@ -86,7 +86,7 @@
     color: inherit;
     border: none;
     outline: none;
-    background-color: var(--satus-theme-button, transparent);
+    background-color: var(--satus-theme-button);
 
     justify-content: space-between;
     -webkit-tap-highlight-color: transparent;
@@ -123,7 +123,7 @@
 
 .satus-dialog--color-picker .satus-button:hover
 {
-    background-color: rgba(0,0,0,.1);
+    background-color: var(--satus-theme-ripple);
 }
 
 .satus-dialog--color-picker .satus-button::before
@@ -134,7 +134,7 @@
 .satus-dialog--color-picker .satus-button svg
 {
     fill: transparent;
-    stroke: currentColor;
+    stroke: var(--satus-theme-primary);
 }
 
 .satus-dialog--color-picker canvas
@@ -143,7 +143,7 @@
     height: 200px;
     margin: 0 0 16px;
 }
-
+
 /*--------------------------------------------------------------
 >>> DIALOG
 --------------------------------------------------------------*/
@@ -178,7 +178,7 @@
     opacity: 0;
     background: rgba(25,25,25,.2);
 
-    fill: var(--satus-theme-on-surface, #777);
+    fill: var(--satus-theme-dialog-text);
     backdrop-filter: blur(8px);
 }
 
@@ -200,9 +200,9 @@
     animation-delay: 20ms;
 
     opacity: 0;
-    color: var(--satus-theme-on-surface, #777);
+    color: var(--satus-theme-dialog-text);
     border-radius: 6px;
-    background-color: var(--satus-theme-surface, #f7f7f6);
+    background-color: var(--satus-theme-dialog);
     box-shadow: inset 0 -1px 1px 1px rgba(0,0,0,.1), 0 2px 6px rgba(0, 0, 0, .15);
 }
 
@@ -271,41 +271,7 @@
         opacity: 0;
     }
 }
-
-/*--------------------------------------------------------------
->>> FOLDER
---------------------------------------------------------------*/
 
-.satus-folder
-{
-    font-size: inherit;
-
-    display: flex;
-
-    box-sizing: border-box;
-    width: 100%;
-    height: 48px;
-    margin: 0;
-    padding: 0 16px;
-
-    cursor: pointer;
-
-    color: inherit;
-    border: none;
-    outline: none;
-    background-color: var(--satus-theme-button, transparent);
-
-    -webkit-tap-highlight-color: transparent;
-    align-items: center;
-    -webkit-appearance: none;
-}
-
-.satus-folder:focus,
-.satus-folder:hover
-{
-    background-color: rgba(0,0,0,.04);
-}
-
 /*--------------------------------------------------------------
 >>> HEADER
 --------------------------------------------------------------*/
@@ -322,13 +288,19 @@
     min-height: 58px;
     padding: 0 8px;
 
-    color: var(--satus-theme-on-surface, #777);
-    background-color: var(--satus-theme-surface, #fff);
+    color: var(--satus-theme-header-text);
+    background-color: var(--satus-theme-header);
     box-shadow: 0 0 3px rgba(0,0,0,.1);
 
-    fill: var(--satus-theme-on-surface, #777);
+    fill: var(--satus-theme-header-text);
 }
-
+
+.satus-header .satus-text--title
+{
+    font-size: 15px;
+    font-weight: 400;
+}
+
 /*--------------------------------------------------------------
 >>> LIST
 --------------------------------------------------------------*/
@@ -341,7 +313,7 @@
 
     list-style: none;
 }
-
+
 /*-----------------------------------------------------------------------------
 >>> MAIN
 -------------------------------------------------------------------------------
@@ -364,10 +336,10 @@
     width: 100%;
     height: 100%;
 
-    color: var(--satus-theme-on-surface, #777);
-    background-color: var(--satus-theme-surface, #f7f7f6);
+    color: var(--satus-theme-main-text);
+    background-color: var(--satus-theme-main);
 
-    fill: var(--satus-theme-on-surface, #777);
+    fill: var(--satus-theme-main-text);
 }
 
 .satus-main__container
@@ -384,7 +356,7 @@
 
     transition: 250ms;
 
-    background-color: var(--satus-theme-surface, #f7f7f6);
+    background-color: var(--satus-theme-main);
 
     will-change: transform;
 }
@@ -477,7 +449,7 @@
         opacity: 0;
     }
 }
-
+
 .satus-scrollbar
 {
     position: relative;
@@ -520,12 +492,12 @@
 
     content: '';
 
-    background-color: rgba(0,0,0,.2);
+    background-color: var(--satus-theme-scrollbar);
 }
 
 .satus-scrollbar__thumb:hover::after
 {
-    background-color: rgba(0,0,0,.4);
+    background-color: var(--satus-theme-scrollbar-focus);
 }
 
 .satus-scrollbar.active .satus-scrollbar__thumb,
@@ -535,7 +507,7 @@
 
     opacity: 1;
 }
-
+
 /*--------------------------------------------------------------
 >>> SECTION
 --------------------------------------------------------------*/
@@ -546,43 +518,19 @@
 
     box-sizing: border-box;
 
+    background-color: var(--satus-theme-section);
+
     align-items: center;
     flex: 1;
-}
+}
+
 /*--------------------------------------------------------------
 >>> SELECT
 --------------------------------------------------------------*/
 
 .satus-select
 {
-    font-size: inherit;
-
-    position: relative;
-
-    display: flex;
-
-    width: 100%;
-    height: 48px;
-    margin: 0;
-    padding: 0 16px;
-
-    text-align: left;
-
-    color: inherit;
-    border: none;
-    outline: none;
-    background-color: transparent;
-
     justify-content: space-between;
-    -webkit-tap-highlight-color: transparent;
-    align-items: center;
-    -webkit-appearance: none;
-}
-
-.satus-select:focus,
-.satus-select:hover
-{
-    background-color: rgba(0,0,0,.04);
 }
 
 .satus-select__value
@@ -642,7 +590,7 @@
         opacity: 1;
     }
 }
-
+
 .satus-shortcut
 {
     position: relative;
@@ -663,7 +611,7 @@
 
 .satus-shortcut:hover
 {
-    background-color: rgba(0,0,0,.04);
+    background-color: var(--satus-theme-ripple);
 }
 
 .satus-shortcut > .label
@@ -856,7 +804,7 @@
     color: #f96754;
     border-radius: 4px;
 }
-
+
 /*--------------------------------------------------------------
 >>> SLIDER
 --------------------------------------------------------------*/
@@ -895,12 +843,12 @@
     content: '';
 
     opacity: 0;
-    background-color: var(--satus-theme-button, #000);
+    background-color: var(--satus-theme-button);
 }
 
 .satus-slider:hover::before
 {
-    opacity: .04;
+    opacity: 1;
 }
 
 
@@ -963,7 +911,7 @@
     content: '';
 
     opacity: .26;
-    background-color: var(--satus-theme-primary, #54d2a3);
+    background-color: var(--satus-theme-primary);
 }
 
 .satus-slider__track
@@ -973,7 +921,7 @@
     width: 0;
     height: 100%;
 
-    background-color: var(--satus-theme-primary, #54d2a3);
+    background-color: var(--satus-theme-primary);
 
     will-change: width;
 }
@@ -993,7 +941,7 @@
     height: 12px;
 
     border-radius: 50%;
-    background-color: var(--satus-theme-primary, #54d2a3);
+    background-color: var(--satus-theme-primary);
     box-shadow: 0 1px 5px rgba(0, 0, 0, .15);
 }
 
@@ -1018,7 +966,7 @@
 
     color: #fff;
     border-radius: 4px;
-    background: rgba(0,0,0,.5);
+    background: var(--satus-theme-tooltip);
 }
 
 .satus-slider:hover .satus-slider__thumb::before,
@@ -1041,7 +989,7 @@
 
     opacity: 0;
     border-radius: 50%;
-    background-color: var(--satus-theme-primary, #54d2a3);
+    background-color: var(--satus-theme-primary);
 }
 
 .satus-slider__range:focus + .satus-slider__container .satus-slider__ring
@@ -1050,7 +998,7 @@
 
     opacity: .25;
 }
-
+
 /*--------------------------------------------------------------
 >>> SWITCH
 --------------------------------------------------------------*/
@@ -1079,7 +1027,7 @@
 
 .satus-switch:hover
 {
-    background-color: rgba(0,0,0,.04);
+    background-color: var(--satus-theme-ripple);
 }
 
 .satus-switch__input
@@ -1188,7 +1136,7 @@
 {
     transform: translate(16px, 2px);
 }
-
+
 /*--------------------------------------------------------------
 >>> TABLE
 --------------------------------------------------------------*/
@@ -1358,7 +1306,7 @@
 {
     color: #2979ff;
 }
-
+
 /*--------------------------------------------------------------
 >>> TEXT
 --------------------------------------------------------------*/
@@ -1370,7 +1318,7 @@
     color: inherit;
     border: none;
 }
-
+
 /*--------------------------------------------------------------
 >>> TEXT
 --------------------------------------------------------------*/
@@ -1389,4 +1337,35 @@
     border: none;
     outline: none;
     background: unset;
+}
+
+/*-----------------------------------------------------------------------------
+>>> THEMES
+-------------------------------------------------------------------------------
+1.0 Default
+-----------------------------------------------------------------------------*/
+
+html
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #f7f7f6;
+	--satus-theme-dialog-text: #777;
+
+	--satus-theme-header: #fff;
+	--satus-theme-header-text: #777;
+
+	--satus-theme-main: #f7f7f6;
+	--satus-theme-main-text: #777;
+
+	--satus-theme-section: #fff;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(0, 0, 0, .2);
+	--satus-theme-scrollbar-focus: rgba(0, 0, 0, .4);
+
+	--satus-theme-tooltip: rgba(0, 0, 0, .4);
+
+	--satus-theme-ripple: rgba(0, 0, 0, .04);
 }

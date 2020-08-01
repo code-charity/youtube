@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "Merk bekeken videos aan"
     },
-    "miniPlayer": {
-        "message": "Minispeler"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Mixer"
@@ -699,7 +699,7 @@
         "message": "Dit verwijdert alle cookies."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "Dit verwijdert alle Youtube cookies"
+        "message": "Dit verwijdert alle YouTube cookies"
     },
     "thisWillResetAllSettings": {
         "message": "Dit herstelt alle instellingen."

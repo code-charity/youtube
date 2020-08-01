@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "Marker sette videoer"
     },
-    "miniPlayer": {
-        "message": "Minispiller"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Mikser"
@@ -780,10 +780,10 @@
         "message": "Gul"
     },
     "youtubeHeaderLeft": {
-        "message": "Youtube Header (til venstre)"
+        "message": "YouTube Header (til venstre)"
     },
     "youtubeHeaderRight": {
-        "message": "Youtube Header (til høyre)"
+        "message": "YouTube Header (til høyre)"
     },
     "youtubeHomePage": {
         "message": "YouTube startside"

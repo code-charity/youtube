@@ -219,6 +219,22 @@ Menu.main.section.appearance = {
                 label: 'hideDetails',
                 tags: 'hide,remove'
             },
+            description: {
+                type: 'select',
+                label: 'description',
+
+                options: [{
+                    label: 'normal',
+                    value: 'normal'
+                }, {
+                    label: 'expanded',
+                    value: 'expanded'
+                }, {
+                    label: 'hidden',
+                    value: 'hidden'
+                }],
+                tags: 'hide,remove'
+            },
             hide_views_count: {
                 type: 'switch',
                 label: 'hideViewsCount',
@@ -247,22 +263,6 @@ Menu.main.section.appearance = {
             channel_videos_count: {
                 type: 'switch',
                 label: 'showChannelVideosCount'
-            },
-            description: {
-                type: 'select',
-                label: 'description',
-
-                options: [{
-                    label: 'normal',
-                    value: 'normal'
-                }, {
-                    label: 'expanded',
-                    value: 'expanded'
-                }, {
-                    label: 'hidden',
-                    value: 'hidden'
-                }],
-                tags: 'hide,remove'
             }
         }
     },
@@ -289,7 +289,7 @@ Menu.main.section.appearance = {
                     value: 'hidden'
                 }]
             },
-            livechat_type: {
+            /*livechat_type: {
                 type: 'select',
                 label: 'liveChatType',
 
@@ -300,7 +300,7 @@ Menu.main.section.appearance = {
                     label: 'liveChat',
                     value: 'live'
                 }]
-            },
+            },*/
             hide_playlist: {
                 type: 'switch',
                 label: 'hidePlaylist'

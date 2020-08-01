@@ -82,8 +82,9 @@ ImprovedTube.player_playback_speed = function(node) {
     if (ImprovedTube.isset(ImprovedTube.storage.player_playback_speed) && ImprovedTube.storage.player_forced_playback_speed === true) {
         node.querySelector('video').playbackRate = playback_speed;
 
-        try {
-            node.setPlaybackRate(playback_speed);
+        try {  if (window.location.href.indexOf("music") < 0){    //quickfix to keep running on music.youtube.com
+           	 node.setPlaybackRate(playback_speed);
+		}
         } catch (err) {}
     }
 };
