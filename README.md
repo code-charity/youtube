@@ -35,13 +35,13 @@ You can help us translate ImprovedTube into your language ♡. Please, check the
 
 ## Our other Projects / Browser Extensions:
 * Home:
-   ⚬ [History Manager](https://github.com/victor-savinov/history-manager)  ⚬ [Start Page](https://github.com/victor-savinov/start-page)  ⚬ [To-Do](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii),_[Github](https://github.com/victor-savinov/to-do)_
+   ⚬ [History Manager](https://github.com/victor-savinov/history-manager)  ⚬ [Start Page](https://github.com/victor-savinov/start-page)  ⚬ [To-Do](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii), _[Github](https://github.com/victor-savinov/to-do))_
 * Browsing:  
   - [Custom user agent](https://github.com/victor-savinov/custom-user-agent)   
-  - [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)(Web Store & _[Github](https://github.com/victor-savinov/night-mode)_ 
-  - [Regex Replace](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)(Web Store & _[Github](https://github.com/victor-savinov/regex-replace)_   
+  - [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)(Web Store & _[Github](https://github.com/victor-savinov/night-mode))_ 
+  - [Regex Replace](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)(Web Store & _[Github](https://github.com/victor-savinov/regex-replace))_   
 * Research: 
-  - [Regex Search](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)(Web Store & _[Github](https://github.com/victor-savinov/regex-search)_ 
+  - [Regex Search](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)(Web Store & _[Github](https://github.com/victor-savinov/regex-search))_ 
 * Development / Components:
   - [Satus](https://github.com/victor-savinov/satus) ⚬ - [Theme Engine](https://github.com/victor-savinov/theme-engine)  ⚬ - [Pluviam](https://github.com/victor-savinov/pluviam) ⚬ - [Code Editor](https://github.com/victor-savinov/code-editor) ⚬ - [Viscum Player](https://github.com/victor-savinov/viscum-player)
 
