@@ -1,8 +1,8 @@
 ## ImprovedTube
 ![](/assets/rating.svg) ![](/assets/size.svg)</br>
-[ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an extension, that we built to refine and sweeten your experience on YouTube *(Since 2012 & for 250,000+ people)*. The first popular features were simply to have a larger player, hide distractions and save your time. Yet we added many powerful features to YouTube. And there is so much left to build.
+[ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an extension, that we built to refine and sweeten your experience on YouTube *(Since 2012 & for 250,000+ people)*. The first popular features were simply to have a larger player, hide distractions and save your time. Yet we added many powerful features to YouTube. And there is so much left to build. ImprovedTube's Interface/Layout is designed with the [Satus] library(https://github.com/victor-savinov/satus), to manage settings efficiently.
 #### List of Features
-You can learn more about features [here](https://github.com/ImprovedTube/ImprovedTube/wiki/Features).   
+Learn more about [our ~100 features!  here](https://github.com/ImprovedTube/ImprovedTube/wiki/Features).   
 ## Contributing
 ImprovedTube can still fly much higher through your word of mouth and contributions:
  
@@ -12,7 +12,6 @@ ImprovedTube can still fly much higher through your word of mouth and contributi
 _For CSS JavaScript or JSON literates: You are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078) to submit any pull request even for learning. We will review them. It's most productive and fun. [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-667068386),  ["Menu struture challenge"](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-667438742) & ['Appereance:player' vs 'Player'](https://github.com/ImprovedTube/ImprovedTube/issues/414#issuecomment-667453738)_
 #### Credits
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
-ImprovedTube's Interface/Layout is designed with our library [Satus](https://github.com/victor-savinov/satus), to manage settings efficiently.
 #### Translations:
 You can help us translate ImprovedTube into your language ♡. Please, check the [wiki page](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations).
 
