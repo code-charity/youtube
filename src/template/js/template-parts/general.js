@@ -8,11 +8,11 @@ Menu.main.section.general = {
     section: {
         type: 'section',
 
-        legacy_youtube: {
+        /*legacy_youtube: {
             type: 'switch',
             label: 'legacyYoutube',
             tags: 'old'
-        },
+        },*/
         youtube_home_page: {
             type: 'select',
             label: 'youtubeHomePage',

@@ -1,7 +1,246 @@
-
+
+/*---------------------------------------------------------------
+>>> THEMES
+-----------------------------------------------------------------
+1.0 Dark
+2.0 Night
+3.0 Dawn
+4.0 Sunset
+5.0 Desert
+6.0 Plain
+7.0 Black
+8.0 Red
+---------------------------------------------------------------*/
+
 html {
     --satus-theme-primary: #f6b465;
-}
+}
+
+
+/*---------------------------------------------------------------
+1.0 DARK
+---------------------------------------------------------------*/
+
+html[theme="dark"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #2c2b2c;
+	--satus-theme-dialog-text: #b5b5b5;
+
+	--satus-theme-header: #343334;
+	--satus-theme-header-text: #b5b5b5;
+
+	--satus-theme-main: #2c2b2c;
+	--satus-theme-main-text: #b5b5b5;
+
+	--satus-theme-section: #343334;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+/*---------------------------------------------------------------
+2.0 NIGHT
+---------------------------------------------------------------*/
+
+html[theme="night"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #61a7f5;
+	--satus-theme-dialog-text: #fafafa;
+
+	--satus-theme-header: #61a7f5;
+	--satus-theme-header-text: #fafafa;
+
+	--satus-theme-main: #3a48b4;
+	--satus-theme-main-text: #fafafa;
+
+	--satus-theme-section: #61a7f5;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+
+/*---------------------------------------------------------------
+3.0 DAWN
+---------------------------------------------------------------*/
+
+html[theme="dawn"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #ffba99;
+	--satus-theme-dialog-text: #fafafa;
+
+	--satus-theme-header: #ffba99;
+	--satus-theme-header-text: #fafafa;
+
+	--satus-theme-main: #ed74a9;
+	--satus-theme-main-text: #eee;
+
+	--satus-theme-section: #ffba99;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+
+/*---------------------------------------------------------------
+4.0 SUNSET
+---------------------------------------------------------------*/
+
+html[theme="sunset"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #a96165;
+	--satus-theme-dialog-text: #fafafa;
+
+	--satus-theme-header: #a96165;
+	--satus-theme-header-text: #fafafa;
+
+	--satus-theme-main: #2f3364;
+	--satus-theme-main-text: #eee;
+
+	--satus-theme-section: #a96165;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+
+/*---------------------------------------------------------------
+5.0 DESERT
+---------------------------------------------------------------*/
+
+html[theme="desert"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #9dc2ee;
+	--satus-theme-dialog-text: #fafafa;
+
+	--satus-theme-header: #9dc2ee;
+	--satus-theme-header-text: #fafafa;
+
+	--satus-theme-main: #ffe498;
+	--satus-theme-main-text: #eee;
+
+	--satus-theme-section: #9dc2ee;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+
+/*---------------------------------------------------------------
+6.0 PLAIN
+---------------------------------------------------------------*/
+
+html[theme="plain"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #abceb8;
+	--satus-theme-dialog-text: #fafafa;
+
+	--satus-theme-header: #abceb8;
+	--satus-theme-header-text: #fafafa;
+
+	--satus-theme-main: #dea975;
+	--satus-theme-main-text: #eee;
+
+	--satus-theme-section: #abceb8;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+
+/*---------------------------------------------------------------
+7.0 BLACK
+---------------------------------------------------------------*/
+
+html[theme="black"]
+{
+	--satus-theme-primary: #f6b465;
+
+	--satus-theme-dialog: #222;
+	--satus-theme-dialog-text: #fafafa;
+
+	--satus-theme-header: #222;
+	--satus-theme-header-text: #fafafa;
+
+	--satus-theme-main: #111;
+	--satus-theme-main-text: #eee;
+
+	--satus-theme-section: #222;
+
+	--satus-theme-button: transparent;
+
+	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
+	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+
+	--satus-theme-tooltip: rgba(10, 10, 10, .7);
+
+	--satus-theme-ripple: rgba(255, 255, 255, .04);
+}
+
+
+/*---------------------------------------------------------------
+8.0 RED
+---------------------------------------------------------------*/
+
+html[popup-theme="red"]
+{
+    --satus-theme-primary: #f92525;
+}
+
+html:not([it-improvedtube-home='list'])[popup-theme="red"] .satus-main__container[data-appearance='home'] .satus-folder svg
+{
+    background: #f73030;
+    box-shadow: 0 2px 2px rgba(0,0,0,.35);
+}
+
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -90,7 +329,74 @@ button
     color: #f96754;
     border-radius: 4px;
 }
-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.satus-section--footer
+{
+    position: fixed;
+    z-index: 99;
+    bottom: 16px;
+    left: 16px;
+    display: flex;
+    box-sizing: border-box;
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+    width: 268px;
+    height: 42px;
+    padding: 8px 16px;
+    color: var(--satus-theme-main-text);
+    border-radius: 4px;
+    background: var(--satus-theme-section);
+    align-items: center;
+    justify-content: space-between;
+}
+
+html[it-improvedtube-home='list'] .satus-section--footer
+{
+    position: static;
+    margin: 8px 16px 16px
+}
+
+.satus-main .satus-section--footer .satus-button
+{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--satus-theme-main-text);
+    text-align: center;
+    height: 32px;
+    justify-content: center;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.satus-main .satus-section--footer .satus-button--found-a-bug {
+    width: 128px;
+    position: absolute;
+    bottom: 56px;
+    left: 70px;
+}
+
 .satus-dialog--setup
 {
     animation: unset;
@@ -106,6 +412,8 @@ button
     position: absolute;
     top: 0;
     left: 0;
+    
+    padding: 0;
 
     width: 100%;
     height: 100%;
@@ -123,7 +431,7 @@ button
     width: 100%;
     height: 48px;
 }
-
+
 /*--------------------------------------------------------------
 >>> HEADER:
 ----------------------------------------------------------------
@@ -186,6 +494,15 @@ body[data-appearance='home'] .satus-button--back
     left: 56px;
 
     letter-spacing: .0125em;
+}
+
+html[it-title-version='true'] body[data-appearance='home'] .satus-text--title::after
+{
+    content: attr(data-version);
+    font: 700 10px sans-serif;
+    opacity: 0.6;
+    margin: 0 0 0 4px;
+    color: var(--satus-theme-header-text);
 }
 
 body[data-appearance='home'] .satus-text--title
@@ -272,6 +589,37 @@ body[data-appearance='home'] .satus-text--title
 }
 
 
+body[data-appearance="search"] .satus-switch--red,
+body[data-appearance="search"] .satus-switch--dark,
+body[data-appearance="search"] .satus-switch--night,
+body[data-appearance="search"] .satus-switch--dawn,
+body[data-appearance="search"] .satus-switch--sunset,
+body[data-appearance="search"] .satus-switch--desert,
+body[data-appearance="search"] .satus-switch--plain,
+body[data-appearance="search"] .satus-switch--black
+{
+    margin: 4px 8px;
+    width: calc(100% - 16px);
+    border-radius: 6px;
+}
+
+body[data-appearance="search"] .satus-switch--red .satus-switch__label,
+body[data-appearance="search"] .satus-switch--dark .satus-switch__label,
+body[data-appearance="search"] .satus-switch--night .satus-switch__label,
+body[data-appearance="search"] .satus-switch--dawn .satus-switch__label,
+body[data-appearance="search"] .satus-switch--sunset .satus-switch__label,
+body[data-appearance="search"] .satus-switch--black .satus-switch__label
+{
+    color: #fff;
+}
+
+body[data-appearance="search"] .satus-switch--plain .satus-switch__label,
+body[data-appearance="search"] .satus-switch--desert .satus-switch__label
+{
+    color: #222;
+}
+
+
 /*--------------------------------------------------------------
 5.0 VERTICAL MENU
 --------------------------------------------------------------*/
@@ -309,7 +657,7 @@ body[data-appearance='home'] .satus-text--title
     opacity: .75;
 
     fill: none;
-    stroke: #f6b465;
+    stroke: var(--satus-theme-primary);
 }
 
 .satus-dialog--vertical-menu .satus-folder--mixer svg
@@ -322,7 +670,7 @@ body[data-appearance='home'] .satus-text--title
     width: 18px;
     height: 18px;
 }
-
+
 /*--------------------------------------------------------------
 >>> MAIN:
 ----------------------------------------------------------------
@@ -358,7 +706,8 @@ body[data-appearance='home'] .satus-text--title
     margin: 16px auto 8px;
 }
 
-.satus-main__container:not([data-appearance='home']) .satus-section
+html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-section:not(.satus-section--footer),
+.satus-main__container:not([data-appearance='home']) .satus-section:not(.satus-section--footer)
 {
     display: block;
 
@@ -367,12 +716,11 @@ body[data-appearance='home'] .satus-text--title
     margin: 8px auto;
     padding: 8px 0;
 
-    color: var(--satus-theme-on-surface, #777);
     border: 1px solid rgba(0,0,0,.1);
     border-radius: 8px;
-    background-color: var(--satus-theme-surface, #fff);
 }
 
+html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-section--message,
 .satus-main__container:not([data-appearance='home']) .satus-section--message
 {
     padding-right: 8px;
@@ -393,7 +741,7 @@ body[data-appearance='home'] .satus-text--title
     opacity: .75;
 
     stroke: none;
-    fill: #f6b465;
+    fill: var(--satus-theme-primary);
 }
 
 
@@ -406,6 +754,7 @@ body[data-appearance='home'] .satus-text--title
     width: 100%;
     height: 48px;
     padding: 0 16px;
+    text-align: left;
 }
 
 
@@ -428,22 +777,24 @@ body[data-appearance='home'] .satus-text--title
 
     opacity: 1;
 }
-
+
 /*--------------------------------------------------------------
 >>> HOME
 --------------------------------------------------------------*/
 
-.satus-main__container[data-appearance='home'] .satus-section
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-section:not(.satus-section--footer)
 {
     width: 100%;
     margin-top: 16px;
 
     flex-wrap: wrap;
+    
+    background-color: transparent;
 }
 
 
 
-.satus-main__container[data-appearance='home'] .satus-folder
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder
 {
     position: relative;
 
@@ -457,7 +808,12 @@ body[data-appearance='home'] .satus-text--title
     cursor: default;
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder__label
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder::before
+{
+    background-color: transparent
+}
+
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder__label
 {
     position: absolute;
     bottom: 0;
@@ -465,14 +821,14 @@ body[data-appearance='home'] .satus-text--title
     pointer-events: none;
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder:focus,
-.satus-main__container[data-appearance='home'] .satus-folder:hover
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder:focus,
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder:hover
 {
     background-color: transparent;
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder svg,
-.satus-main__container[data-appearance='home'] .satus-folder--shortcut__icon
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder svg,
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--shortcut__icon
 {
     display: block;
     overflow: visible;
@@ -491,8 +847,8 @@ body[data-appearance='home'] .satus-text--title
     box-shadow: 0 2px 1px 1px rgba(230, 109, 70, .7), 0 3px 5px rgba(0,0,0,.35);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder svg:focus,
-.satus-main__container[data-appearance='home'] .satus-folder svg:hover
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder svg:focus,
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder svg:hover
 {
     transition: background 250ms 125ms, transform 250ms, box-shadow 275ms;
     transform: translateY(4px) scale(.975);
@@ -500,7 +856,7 @@ body[data-appearance='home'] .satus-text--title
     box-shadow: 0 1px 1px 0 rgba(230, 109, 70, .7), 0 1px 2px rgba(0,0,0,.35);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--general svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--general svg
 {
     width: 26px;
     height: 26px;
@@ -510,7 +866,7 @@ body[data-appearance='home'] .satus-text--title
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--appearance svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--appearance svg
 {
     width: 26px;
     height: 26px;
@@ -520,7 +876,7 @@ body[data-appearance='home'] .satus-text--title
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--themes svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--themes svg
 {
     padding: 17px 16px 15px 16px;
 
@@ -528,7 +884,7 @@ body[data-appearance='home'] .satus-text--title
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--player svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--player svg
 {
     width: 26px;
     height: 26px;
@@ -538,7 +894,7 @@ body[data-appearance='home'] .satus-text--title
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--playlist svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--playlist svg
 {
     padding: 17px 16px 15px 16px;
 
@@ -546,13 +902,13 @@ body[data-appearance='home'] .satus-text--title
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--channel svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--channel svg
 {
     fill: transparent;
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--shortcut svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--shortcut svg
 {
     width: 26px;
     height: 26px;
@@ -562,7 +918,7 @@ body[data-appearance='home'] .satus-text--title
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--mixer svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--mixer svg
 {
     padding: 17px 16px 15px 16px;
 
@@ -570,7 +926,7 @@ body[data-appearance='home'] .satus-text--title
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--blacklist svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--blacklist svg
 {
     width: 26px;
     height: 26px;
@@ -580,7 +936,7 @@ body[data-appearance='home'] .satus-text--title
     stroke: rgba(255, 255, 255, .85);
 }
 
-.satus-main__container[data-appearance='home'] .satus-folder--analyzer svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--analyzer svg
 {
     width: 26px;
     height: 26px;
@@ -590,38 +946,27 @@ body[data-appearance='home'] .satus-text--title
     stroke: rgba(255, 255, 255, .85);
 }
 
-
-
-.satus-main .satus-section--footer
-{
-    position: absolute;
-    bottom: 8px;
-    left: 0;
-
-    justify-content: center;
-}
-
-.satus-main .satus-section--footer .satus-button
-{
-    box-sizing: unset;
-    width: 24px;
-    height: 24px;
-    margin: 0 4px;
-    padding: 4px;
-}
-
-.satus-main .satus-section--footer .satus-button:focus:before,
-.satus-main .satus-section--footer .satus-button:hover:before
-{
-    background-color: unset;
-}
-
-.satus-main .satus-section--footer .satus-button svg
+html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-folder svg
 {
     fill: transparent;
-    stroke: var(--satus-theme-on-surface, #777);
+    stroke: var(--satus-theme-primary);
 }
-
+
+
+
+html[it-it-general='false'] .satus-folder--general,
+html[it-it-appearance='false'] .satus-folder--appearance,
+html[it-it-themes='false'] .satus-folder--themes,
+html[it-it-player='false'] .satus-folder--player,
+html[it-it-playlist='false'] .satus-folder--playlist,
+html[it-it-channel='false'] .satus-folder--channel,
+html[it-it-shortcuts='false'] .satus-folder--shortcut,
+html[it-it-blacklist='false'] .satus-folder--blacklist,
+html[it-it-analyzer='false'] .satus-folder--analyzer
+{
+    display: none;
+}
+
 /*--------------------------------------------------------------
 # APPEARANCE
 --------------------------------------------------------------*/
@@ -756,7 +1101,7 @@ body[data-appearance='home'] .satus-text--title
     height: 160px;
 
     background-color: var(--satus-theme-surface, #fff);
-}
+}
 /*-----------------------------------------------------------------------------
 # THEMES CATEGORY
 -----------------------------------------------------------------------------*/
@@ -1122,7 +1467,7 @@ body[data-appearance='home'] .satus-text--title
 {
     background: #000 !important;
 }
-
+
 /*-----------------------------------------------------------------------------
 # BLACKLIST CATEGORY
 -----------------------------------------------------------------------------*/
@@ -1224,7 +1569,7 @@ body[data-appearance='home'] .satus-text--title
     visibility: visible;
 
     opacity: 1;
-}
+}
 /*-----------------------------------------------------------------------------
 # ANALYZER CATEGORY
 -----------------------------------------------------------------------------*/
@@ -1393,7 +1738,7 @@ body[data-appearance='home'] .satus-text--title
 {
     color: #ff9800;
 }
-
+
 /*-----------------------------------------------------------------------------
 # MIXER CATEGORY
 -----------------------------------------------------------------------------*/
@@ -1480,7 +1825,7 @@ body[data-appearance='home'] .satus-text--title
     text-align: center;
 
     opacity: .8;
-}
+}
 .satus-main__container[data-appearance='about'] .satus-text
 {
     display: flex;
@@ -1488,7 +1833,7 @@ body[data-appearance='home'] .satus-text--title
     box-sizing: border-box;
     width: 100%;
     min-height: 48px;
-    padding: 0 8px;
+    padding: 0 16px;
 
     justify-content: space-between;
     align-items: center;

@@ -10,7 +10,7 @@ Menu.main.section.blacklist = {
 
         blacklist_activate: {
             type: 'switch',
-            label: 'blacklist'
+            label: 'activate'
         }
     },
 

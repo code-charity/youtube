@@ -1,24 +1,36 @@
 /*-----------------------------------------------------------------------------
 >>> PLAYER
 -------------------------------------------------------------------------------
-1.0 Mini player
-    1.1 Position and size
-    1.2 Dragging
-    1.3 Multipage
-2.0 Custom player button
-    2.1 Repeat
-    2.2 Screenshot
-    2.3 Rotate
-    2.4 Popup
-3.0 Crop chapter titles
+1.0 Ads
+2.0 Mini player
+    2.1 Position and size
+    2.2 Dragging
+    2.3 Multipage
+3.0 Custom player button
+    3.1 Repeat
+    3.2 Screenshot
+    3.3 Rotate
+    3.4 Popup
+4.0 Crop chapter titles
+-----------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------
+1.0 Ads
+---------------------------------------------------------------*/
+
+html[it-player-ads="block_all"] .video-ads.ytp-ad-module,
+html[it-player-ads="subscribed_channels"] .video-ads.ytp-ad-module
+{
+    display: none !important
+}
+
+
+/*-----------------------------------------------------------------------------
+2.0 Mini player
 -----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
-1.0 Mini player
------------------------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------------------
-1.1 Position and size
+2.1 Position and size
 -----------------------------------------------------------------------------*/
 
 .improvedtube-mini-player
@@ -55,7 +67,7 @@ html[data-mini-player=true] .ytp-contextmenu
 
 
 /*-----------------------------------------------------------------------------
-1.2 Dragging
+2.2 Dragging
 -----------------------------------------------------------------------------*/
 
 .improvedtube-mini-player.dragging
@@ -118,7 +130,7 @@ html[data-cursor='sw-resize'] *
 
 
 /*-----------------------------------------------------------------------------
-1.3 Multipage
+2.3 Multipage
 -----------------------------------------------------------------------------*/
 
 html[it-mini-player=true] ytd-watch-flexy[hidden]
@@ -151,7 +163,7 @@ html[it-mini-player=true] ytd-watch-flexy[hidden] .improvedtube-mini-player
 
 
 /*-----------------------------------------------------------------------------
-2.0 Custom player button
+3.0 Custom player button
 -----------------------------------------------------------------------------*/
 
 #it-repeat-button,
@@ -185,7 +197,7 @@ html[it-mini-player=true] ytd-watch-flexy[hidden] .improvedtube-mini-player
 
 
 /*-----------------------------------------------------------------------------
-2.1 Repeat
+3.1 Repeat
 -----------------------------------------------------------------------------*/
 
 #it-repeat-button svg
@@ -198,7 +210,7 @@ html[it-mini-player=true] ytd-watch-flexy[hidden] .improvedtube-mini-player
 
 
 /*-----------------------------------------------------------------------------
-2.2 Screenshot
+3.2 Screenshot
 -----------------------------------------------------------------------------*/
 
 #it-screenshot-button svg
@@ -211,7 +223,7 @@ html[it-mini-player=true] ytd-watch-flexy[hidden] .improvedtube-mini-player
 
 
 /*-----------------------------------------------------------------------------
-2.3 Rotate
+3.3 Rotate
 -----------------------------------------------------------------------------*/
 
 #it-rotate-button svg
@@ -224,7 +236,7 @@ html[it-mini-player=true] ytd-watch-flexy[hidden] .improvedtube-mini-player
 
 
 /*-----------------------------------------------------------------------------
-2.4 Popup
+3.4 Popup
 -----------------------------------------------------------------------------*/
 
 #it-popup-player-button svg
@@ -289,7 +301,7 @@ html[it-mini-player=true] ytd-watch-flexy[hidden] .improvedtube-mini-player
 
 
 /*-----------------------------------------------------------------------------
-3.0 Crop chapter titles
+4.0 Crop chapter titles
 -----------------------------------------------------------------------------*/
 
 html[it-player-crop-chapter-titles='false'] .ytp-chapter-title

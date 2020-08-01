@@ -81,6 +81,10 @@ chrome.storage.onChanged.addListener(function(changes) {
                 injectScript('ImprovedTube.dim();');
                 injectScript('ImprovedTube.theme();');
             }
+            
+            if (key.indexOf('theme') !== -1){
+                injectScript('ImprovedTube.theme();');
+            }
 
             if (key === 'theme_primary_color' || key === 'theme_text_color') {
                 injectScript('ImprovedTube.themeEditor();');
@@ -104,23 +108,23 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     var name = request.name || '',
         value = request.value;
 
-    if (request.name === 'improvedtube-play') {
+    if (name === 'improvedtube-play') {
         if (request.id && request.id !== new URL(location.href).searchParams.get('v')) {
             injectScript(['if (document.querySelector(".html5-video-player") && !ImprovedTube.focused && ImprovedTube.storage.only_one_player_instance_playing) { document.querySelector(".html5-video-player").pauseVideo();}']);
         }
-    } else if (typeof request == 'object' && request.name == 'request_volume' && document.querySelector('video')) {
+    } else if (name == 'request_volume' && document.querySelector('video')) {
         sendResponse({
             value: document.querySelector('video').volume * 100
         });
-    } else if (typeof request == 'object' && request.name == 'change_volume') {
+    } else if (name == 'change_volume') {
         injectScript(['if(document.querySelector(".html5-video-player")){document.querySelector(".html5-video-player").setVolume(' + request.volume + ');}'], 'improvedtube-mixer-data');
-    } else if (typeof request == 'object' && request.name == 'request_playback_speed' && document.querySelector('video')) {
+    } else if (name == 'request_playback_speed' && document.querySelector('video')) {
         sendResponse({
             value: document.querySelector('video').playbackRate
         });
-    } else if (typeof request == 'object' && request.name == 'change_playback_speed') {
+    } else if (name == 'change_playback_speed') {
         injectScript(['if(document.querySelector(".html5-video-player video")){document.querySelector(".html5-video-player video").playbackRate = ' + request.playback_speed + ';}'], 'improvedtube-mixer-data');
-    } else if (request === 'delete_youtube_cookies') {
+    } else if (name === 'delete_youtube_cookies') {
         var cookies = document.cookie.split(';');
 
         for (var i = 0; i < cookies.length; i++) {

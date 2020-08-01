@@ -1,3 +1,15 @@
+chrome.storage.local.get(function(items) {
+    for (var key in items) {
+        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
+    }
+});
+
+chrome.storage.onChanged.addListener(function(changes) {
+    for (var key in changes) {
+        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), changes[key].newValue);
+    }
+});
+
 Satus.storage.import(function() {
     var language = Satus.storage.get('language') || 'en';
 
@@ -25,6 +37,10 @@ Satus.storage.import(function() {
             fr: {
                 type: 'button',
                 label: 'Français'
+            },
+            id: {
+                type: 'button',
+                label: 'Bahasa Indonesia'
             },
             it: {
                 type: 'button',
@@ -80,6 +96,38 @@ Satus.storage.import(function() {
 
         Satus.render(dialog);
     }
+    
+    if (Satus.isset(Satus.storage.get('red_popup_theme')) === false || Satus.storage.get('red_popup_theme') === true) {
+        document.documentElement.setAttribute('popup-theme', 'red');
+    }
+    
+    if (Satus.storage.get('default_dark_theme') === true) {
+        document.documentElement.setAttribute('theme', 'dark');
+    }
+    
+    if (Satus.storage.get('night_theme') === true) {
+        document.documentElement.setAttribute('theme', 'night');
+    }
+    
+    if (Satus.storage.get('dawn_theme') === true) {
+        document.documentElement.setAttribute('theme', 'dawn');
+    }
+    
+    if (Satus.storage.get('sunset_theme') === true) {
+        document.documentElement.setAttribute('theme', 'sunset');
+    }
+    
+    if (Satus.storage.get('desert_theme') === true) {
+        document.documentElement.setAttribute('theme', 'desert');
+    }
+    
+    if (Satus.storage.get('plain_theme') === true) {
+        document.documentElement.setAttribute('theme', 'plain');
+    }
+    
+    if (Satus.storage.get('black_theme') === true) {
+        document.documentElement.setAttribute('theme', 'black');
+    }
 
     Satus.locale.import('_locales/' + language + '/messages.json', function() {
         Satus.modules.updateStorageKeys(Menu, function() {
@@ -87,3 +135,5 @@ Satus.storage.import(function() {
         });
     });
 });
+
+
