@@ -792,7 +792,7 @@
         "message": "Idioma de YouTube"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
+        "message": "YouTube limita calidad de video a 1080p para el codec h.264"
     },
     "redDislikeButton": {
         "message": "Show dislike button red colour"
