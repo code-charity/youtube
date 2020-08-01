@@ -568,6 +568,10 @@ html[it-hide-views-count=true] #watch7-views-info > .watch-view-count
     color: transparent !important;
 }
 
+[it-red-dislike-button=true] #top-level-buttons > ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active > a
+{
+    color: #fc0000 !important;
+}
 
 
 /*-----------------------------------------------------------------------------
