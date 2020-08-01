@@ -795,6 +795,6 @@
         "message": "YouTube limits video quality to 1080p for h.264 codec"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "Mostrar color rojo del botón No me gusta"
     }
 }
