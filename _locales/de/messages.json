@@ -300,7 +300,7 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Youtube Suche"
+        "message": "YouTube Suche"
     },
     "gpu": {
         "message": "GPU"
@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "Mark watched videos"
     },
-    "miniPlayer": {
-        "message": "Mini-Player"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Mixer"
@@ -477,7 +477,7 @@
         "message": "None"
     },
     "noOpenVideoTabs": {
-        "message": "Keine Youtube Videos geöffnet"
+        "message": "Keine YouTube Videos geöffnet"
     },
     "normal": {
         "message": "Normal"
@@ -489,7 +489,7 @@
         "message": "in allen Videos"
     },
     "onlyActiveOnYoutube": {
-        "message": "nur auf Youtube rot färben"
+        "message": "nur auf YouTube rot färben"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Only one player instance playing"
@@ -696,7 +696,7 @@
         "message": "Farbschemen"
     },
     "thisWillRemoveAllCookies": {
-        "message": "Alle Youtube Cookies werden gelöscht"
+        "message": "Alle YouTube Cookies werden gelöscht"
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "This will remove all YouTube cookies"
@@ -780,10 +780,10 @@
         "message": "Gelb"
     },
     "youtubeHeaderLeft": {
-        "message": "Youtube Kopfzeile (Links)"
+        "message": "YouTube Kopfzeile (Links)"
     },
     "youtubeHeaderRight": {
-        "message": "Youtube Kopfzeile (Rechts)"
+        "message": "YouTube Kopfzeile (Rechts)"
     },
     "youtubeHomePage": {
         "message": "YouTube Startseite"

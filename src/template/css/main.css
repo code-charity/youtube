@@ -33,7 +33,8 @@
     margin: 16px auto 8px;
 }
 
-.satus-main__container:not([data-appearance='home']) .satus-section
+html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-section:not(.satus-section--footer),
+.satus-main__container:not([data-appearance='home']) .satus-section:not(.satus-section--footer)
 {
     display: block;
 
@@ -42,12 +43,11 @@
     margin: 8px auto;
     padding: 8px 0;
 
-    color: var(--satus-theme-on-surface, #777);
     border: 1px solid rgba(0,0,0,.1);
     border-radius: 8px;
-    background-color: var(--satus-theme-surface, #fff);
 }
 
+html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-section--message,
 .satus-main__container:not([data-appearance='home']) .satus-section--message
 {
     padding-right: 8px;
@@ -68,7 +68,7 @@
     opacity: .75;
 
     stroke: none;
-    fill: #f6b465;
+    fill: var(--satus-theme-primary);
 }
 
 
@@ -81,6 +81,7 @@
     width: 100%;
     height: 48px;
     padding: 0 16px;
+    text-align: left;
 }
 
 

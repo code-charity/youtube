@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "標記已觀看視頻"
     },
-    "miniPlayer": {
-        "message": "迷你播放器"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "音量混合器"
@@ -780,10 +780,10 @@
         "message": "黃色"
     },
     "youtubeHeaderLeft": {
-        "message": "Youtube 標頭 (左)"
+        "message": "YouTube 標頭 (左)"
     },
     "youtubeHeaderRight": {
-        "message": "Youtube 標頭 (右)"
+        "message": "YouTube 標頭 (右)"
     },
     "youtubeHomePage": {
         "message": "默認的YouTube主頁"

@@ -1,3 +1,42 @@
+function themePopupChange() {
+    if (Satus.storage.get('red_popup_theme') === true) {
+        document.documentElement.setAttribute('popup-theme', 'red');
+    } else {
+        document.documentElement.removeAttribute('popup-theme');
+    }
+}
+
+function themeChange(event) {
+    if (event.target.checked) {
+        let themes = document.querySelectorAll('.satus-switch > input:checked:not([data-storage-key="red_popup_theme"])');
+
+        for (let i = 0, l = themes.length; i < l; i++) {
+            if (themes[i] !== event.target) {
+                themes[i].click();
+            }
+        }
+    }
+    
+    if (Satus.storage.get('default_dark_theme') === true) {
+        document.documentElement.setAttribute('theme', 'dark');
+    } else if (Satus.storage.get('night_theme') === true) {
+        document.documentElement.setAttribute('theme', 'night');
+    } else if (Satus.storage.get('dawn_theme') === true) {
+        document.documentElement.setAttribute('theme', 'dawn');
+    } else if (Satus.storage.get('sunset_theme') === true) {
+        document.documentElement.setAttribute('theme', 'sunset');
+    } else if (Satus.storage.get('desert_theme') === true) {
+        document.documentElement.setAttribute('theme', 'desert');
+    } else if (Satus.storage.get('plain_theme') === true) {
+        document.documentElement.setAttribute('theme', 'plain');
+    } else if (Satus.storage.get('black_theme') === true) {
+        document.documentElement.setAttribute('theme', 'black');
+    } else {
+        document.documentElement.removeAttribute('theme');
+    }
+}
+
+
 Menu.main.section.themes = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>',
@@ -291,124 +330,82 @@ Menu.main.section.themes = {
             }]
         }
     },
+    
+    popup_title: {
+        type: 'text',
+        label: 'ImprovedTube',
+        style: {
+            margin: '0 12px',
+            fontWeight: '700'
+        }
+    },
+    red_popup_theme: {
+        type: 'switch',
+        label: 'Red',
+        value: true,
+        class: 'satus-switch--red',
+        style: {
+            background: '#bb1a1a'
+        },
 
+        onchange: themePopupChange
+    },
+    
+    youtube_title: {
+        type: 'text',
+        label: 'YouTube',
+        style: {
+            margin: '0 12px',
+            fontWeight: '700'
+        }
+    },
     default_dark_theme: {
         type: 'switch',
         label: 'dark',
         class: 'satus-switch--dark',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     },
     night_theme: {
         type: 'switch',
         label: 'night',
         class: 'satus-switch--night',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     },
     dawn_theme: {
         type: 'switch',
         label: 'dawn',
         class: 'satus-switch--dawn',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     },
     sunset_theme: {
         type: 'switch',
         label: 'sunset',
         class: 'satus-switch--sunset',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     },
     desert_theme: {
         type: 'switch',
         label: 'desert',
         class: 'satus-switch--desert',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     },
     plain_theme: {
         type: 'switch',
         label: 'plain',
         class: 'satus-switch--plain',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     },
     black_theme: {
         type: 'switch',
         label: 'black',
         class: 'satus-switch--black',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     }
 };

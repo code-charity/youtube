@@ -1,4 +1,4 @@
-
+
 var Menu = {
     header: {
         type: 'header',
@@ -10,7 +10,7 @@ var Menu = {
             button_back: {
                 type: 'button',
                 class: 'satus-button--back',
-                before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M14 18l-6-6 6-6"/></svg>',
+                before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M14 18l-6-6 6-6"/></svg>',
                 onclick: function() {
                     if (document.querySelector('.satus-dialog__scrim')) {
                         document.querySelector('.satus-dialog__scrim').click();
@@ -22,7 +22,10 @@ var Menu = {
             title: {
                 type: 'text',
                 class: 'satus-text--title',
-                innerText: 'ImprovedTube'
+                innerText: 'ImprovedTube',
+                dataset: {
+                    version: chrome && chrome.runtime && chrome.runtime.getManifest ? chrome.runtime.getManifest().version : ''
+                }
             }
         },
         section_end: {
@@ -31,10 +34,10 @@ var Menu = {
 
             button_search: {
                 type: 'button',
-                icon: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24"><circle cx="11" cy="10.5" r="6" fill="none"/><path d="M20 20l-4-4"/></svg>',
+                icon: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24"><circle cx="11" cy="10.5" r="6" fill="none"/><path d="M20 20l-4-4"/></svg>',
                 onclick: function() {
                     document.querySelector('.satus-main').open({
-                        appearance: 'search'
+                        appearanceId: 'search'
                     }, function() {
                         Satus.render({
                             type: 'dialog',
@@ -49,14 +52,27 @@ var Menu = {
                                 oninput: function() {
                                     if (this.value.length > 0) {
                                         Satus.search(this.value, Menu, function(results) {
+                                            var sorted_results = [];
+                                            
                                             document.querySelector('.satus-main__container').innerHTML = '';
+                                            
+                                            for (var key in results) {
+                                                results[key].type = 'section';
+                                                
+                                                sorted_results.push({
+                                                    type: 'text',
+                                                    label: key,
+                                                    class: 'satus-section--label'
+                                                });
+                                                sorted_results.push(results[key]);
+                                            }
+                                            
+                                            console.log(results);
 
                                             var scroll = Satus.components.scrollbar(document.querySelector('.satus-main__container'));
 
-                                            results.type = 'section';
-
-                                            Satus.render(results, scroll);
-                                        });
+                                            Satus.render(sorted_results, scroll);
+                                        }, true);
                                     } else {
                                         document.querySelector('.satus-main__container').innerHTML = '';
 
@@ -64,23 +80,13 @@ var Menu = {
                                     }
                                 }
                             }
-                            /*,
-                                                    close: {
-                                                        type: 'button',
-                                                        before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>',
-                                                        onclick: function() {
-                                                            document.querySelector('.satus-dialog__scrim').click();
-
-                                                            document.querySelector('.satus-main').back();
-                                                        }
-                                                    }*/
                         });
                     });
                 }
             },
             button_vert: {
                 type: 'button',
-                icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5.25" r="0.45"/><circle cx="12" cy="12" r="0.45"/><circle cx="12" cy="18.75" r="0.45"/></svg>',
+                icon: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5.25" r="0.45"/><circle cx="12" cy="12" r="0.45"/><circle cx="12" cy="18.75" r="0.45"/></svg>',
                 onClickRender: {
                     type: 'dialog',
                     class: 'satus-dialog--vertical-menu'
@@ -90,36 +96,6 @@ var Menu = {
     }
 };
 
-
-
-
-
-/*
-button_github: {
-    type: 'button',
-    class: 'satus-button--github',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>',
-    label: 'GitHub',
-    onclick: function() {
-        window.open('https://github.com/ImprovedTube/ImprovedTube/');
-    }
-},
-button_rate_us: {
-    type: 'button',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg>',
-    label: 'rateUs',
-    onclick: function() {
-        window.open('https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd');
-    }
-},
-button_email: {
-    type: 'button',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>',
-    label: 'email',
-    onclick: function() {
-        window.open('https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd');
-    }
-}*/
 Menu.main = {
     type: 'main',
     appearanceId: 'home',
@@ -137,8 +113,48 @@ Menu.main = {
 
     section: {
         type: 'section'
+    },
+    
+    footer: {
+        type: 'section',
+        class: 'satus-section--footer',
+        
+        found_a_bug: {
+            type: 'button',
+            class: 'satus-button--found-a-bug',
+            label: 'found a bug?',
+            title: '/ImprovedTube/ImprovedTube',
+            onclick: function(){
+                window.open('https://github.com/ImprovedTube/ImprovedTube/issues/new', '_blank');
+            }
+        },
+        email: {
+            type: 'button',
+            label: 'Email',
+            title: 'bugs@improvedtube.com',
+            onclick: function(){
+                window.open('mailto:bugs@improvedtube.com', '_blank');
+            }
+        },
+        github: {
+            type: 'button',
+            label: 'GitHub',
+            title: '/ImprovedTube/ImprovedTube',
+            onclick: function(){
+                window.open('https://github.com/ImprovedTube/ImprovedTube/', '_blank');
+            }
+        },
+        website: {
+            type: 'button',
+            label: 'Website',
+            title: 'improvedtube.com',
+            onclick: function(){
+                window.open('http://www.improvedtube.com/', '_blank');
+            }
+        }
     }
-};
+};
+
 Menu.header.section_end.button_vert.onClickRender.active_features = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
@@ -198,7 +214,7 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
             });
         }
     }
-};
+};
 Menu.header.section_end.button_vert.onClickRender.mixer = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>',
@@ -312,7 +328,8 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
             });
         }
     }
-};
+};
+
 Menu.header.section_end.button_vert.onClickRender.settings = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>',
@@ -401,6 +418,19 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 type: 'section',
                 label: 'general',
 
+                header: {
+                    type: 'folder',
+                    label: 'header',
+                    
+                    section: {
+                        type: 'section',
+                        
+                        title_version: {
+                            type: 'switch',
+                            label: 'version'
+                        }
+                    }
+                },
                 home: {
                     type: 'folder',
                     label: 'home',
@@ -554,6 +584,9 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     }, {
                         value: 'fr',
                         label: 'Français'
+                    }, {
+                        value: 'id',
+                        label: 'Bahasa Indonesia'
                     }, {
                         value: 'it',
                         label: 'Italiano'
@@ -966,7 +999,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     label: 'deleteYoutubeCookies',
 
                     onclick: function() {
-                        document.querySelector('.satus').appendChild(Satus.components.dialog({
+                        Satus.render({
                             type: 'dialog',
 
                             message: {
@@ -1014,7 +1047,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                     }
                                 }
                             }
-                        }));
+                        });
                     }
                 }
             }
@@ -1166,7 +1199,8 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
             }
         }
     }
-};
+};
+
 Menu.main.section.general = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>',
@@ -1177,11 +1211,11 @@ Menu.main.section.general = {
     section: {
         type: 'section',
 
-        legacy_youtube: {
+        /*legacy_youtube: {
             type: 'switch',
             label: 'legacyYoutube',
             tags: 'old'
-        },
+        },*/
         youtube_home_page: {
             type: 'select',
             label: 'youtubeHomePage',
@@ -1259,7 +1293,8 @@ Menu.main.section.general = {
             tags: 'preview'
         }
     }
-};
+};
+
 Menu.main.section.appearance = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
@@ -1477,6 +1512,22 @@ Menu.main.section.appearance = {
                 label: 'hideDetails',
                 tags: 'hide,remove'
             },
+            description: {
+                type: 'select',
+                label: 'description',
+
+                options: [{
+                    label: 'normal',
+                    value: 'normal'
+                }, {
+                    label: 'expanded',
+                    value: 'expanded'
+                }, {
+                    label: 'hidden',
+                    value: 'hidden'
+                }],
+                tags: 'hide,remove'
+            },
             hide_views_count: {
                 type: 'switch',
                 label: 'hideViewsCount',
@@ -1505,22 +1556,6 @@ Menu.main.section.appearance = {
             channel_videos_count: {
                 type: 'switch',
                 label: 'showChannelVideosCount'
-            },
-            description: {
-                type: 'select',
-                label: 'description',
-
-                options: [{
-                    label: 'normal',
-                    value: 'normal'
-                }, {
-                    label: 'expanded',
-                    value: 'expanded'
-                }, {
-                    label: 'hidden',
-                    value: 'hidden'
-                }],
-                tags: 'hide,remove'
             }
         }
     },
@@ -1547,7 +1582,7 @@ Menu.main.section.appearance = {
                     value: 'hidden'
                 }]
             },
-            livechat_type: {
+            /*livechat_type: {
                 type: 'select',
                 label: 'liveChatType',
 
@@ -1558,7 +1593,7 @@ Menu.main.section.appearance = {
                     label: 'liveChat',
                     value: 'live'
                 }]
-            },
+            },*/
             hide_playlist: {
                 type: 'switch',
                 label: 'hidePlaylist'
@@ -1620,7 +1655,47 @@ Menu.main.section.appearance = {
             }
         }
     }
-};
+};
+
+function themePopupChange() {
+    if (Satus.storage.get('red_popup_theme') === true) {
+        document.documentElement.setAttribute('popup-theme', 'red');
+    } else {
+        document.documentElement.removeAttribute('popup-theme');
+    }
+}
+
+function themeChange(event) {
+    if (event.target.checked) {
+        let themes = document.querySelectorAll('.satus-switch > input:checked:not([data-storage-key="red_popup_theme"])');
+
+        for (let i = 0, l = themes.length; i < l; i++) {
+            if (themes[i] !== event.target) {
+                themes[i].click();
+            }
+        }
+    }
+    
+    if (Satus.storage.get('default_dark_theme') === true) {
+        document.documentElement.setAttribute('theme', 'dark');
+    } else if (Satus.storage.get('night_theme') === true) {
+        document.documentElement.setAttribute('theme', 'night');
+    } else if (Satus.storage.get('dawn_theme') === true) {
+        document.documentElement.setAttribute('theme', 'dawn');
+    } else if (Satus.storage.get('sunset_theme') === true) {
+        document.documentElement.setAttribute('theme', 'sunset');
+    } else if (Satus.storage.get('desert_theme') === true) {
+        document.documentElement.setAttribute('theme', 'desert');
+    } else if (Satus.storage.get('plain_theme') === true) {
+        document.documentElement.setAttribute('theme', 'plain');
+    } else if (Satus.storage.get('black_theme') === true) {
+        document.documentElement.setAttribute('theme', 'black');
+    } else {
+        document.documentElement.removeAttribute('theme');
+    }
+}
+
+
 Menu.main.section.themes = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>',
@@ -1914,127 +1989,86 @@ Menu.main.section.themes = {
             }]
         }
     },
+    
+    popup_title: {
+        type: 'text',
+        label: 'ImprovedTube',
+        style: {
+            margin: '0 12px',
+            fontWeight: '700'
+        }
+    },
+    red_popup_theme: {
+        type: 'switch',
+        label: 'Red',
+        value: true,
+        class: 'satus-switch--red',
+        style: {
+            background: '#bb1a1a'
+        },
 
+        onchange: themePopupChange
+    },
+    
+    youtube_title: {
+        type: 'text',
+        label: 'YouTube',
+        style: {
+            margin: '0 12px',
+            fontWeight: '700'
+        }
+    },
     default_dark_theme: {
         type: 'switch',
         label: 'dark',
         class: 'satus-switch--dark',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     },
     night_theme: {
         type: 'switch',
         label: 'night',
         class: 'satus-switch--night',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     },
     dawn_theme: {
         type: 'switch',
         label: 'dawn',
         class: 'satus-switch--dawn',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     },
     sunset_theme: {
         type: 'switch',
         label: 'sunset',
         class: 'satus-switch--sunset',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     },
     desert_theme: {
         type: 'switch',
         label: 'desert',
         class: 'satus-switch--desert',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     },
     plain_theme: {
         type: 'switch',
         label: 'plain',
         class: 'satus-switch--plain',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     },
     black_theme: {
         type: 'switch',
         label: 'black',
         class: 'satus-switch--black',
 
-        onchange: function(name, value, component) {
-            if (value == 'true') {
-                let themes = component.parentNode.querySelectorAll('.satus-switch[data-value="true"]');
-
-                for (let i = 0, l = themes.length; i < l; i++) {
-                    if (themes[i] !== component) {
-                        themes[i].click();
-                    }
-                }
-            }
-        }
+        onchange: themeChange
     }
-};
+};
+
 Menu.main.section.player = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>',
@@ -2106,7 +2140,7 @@ Menu.main.section.player = {
         },
         mini_player: {
             type: 'switch',
-            label: 'miniPlayer'
+            label: 'customMiniPlayer'
         },
         player_autofullscreen: {
             type: 'switch',
@@ -2309,7 +2343,8 @@ Menu.main.section.player = {
             label: 'popupPlayer'
         }
     }
-};
+};
+
 Menu.main.section.playlist = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',
@@ -2348,7 +2383,7 @@ Menu.main.section.playlist = {
             label: 'shuffle'
         }
     }
-};
+};
 Menu.main.section.channel = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>',
@@ -2383,7 +2418,7 @@ Menu.main.section.channel = {
             label: 'hideFeaturedContent'
         }
     }
-};
+};
 Menu.main.section.shortcuts = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>',
@@ -2599,7 +2634,7 @@ Menu.main.section.shortcuts = {
             label: 'darkTheme'
         }
     }
-};
+};
 Menu.main.section.blacklist = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>',
@@ -2612,7 +2647,7 @@ Menu.main.section.blacklist = {
 
         blacklist_activate: {
             type: 'switch',
-            label: 'blacklist'
+            label: 'activate'
         }
     },
 
@@ -2760,13 +2795,23 @@ Menu.main.section.blacklist = {
             }
         }
     }
-};
+};
+
 Menu.main.section.analyzer = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/></svg>',
+    before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/></svg>',
     label: 'analyzer',
     class: 'satus-folder--analyzer',
     appearanceId: 'analyzer',
+    
+    activ_section: {
+        type: 'section',
+        
+        analyzer_activation: {
+            type: 'switch',
+            label: 'activate'
+        }
+    },
 
     section: {
         type: 'section',
@@ -2897,7 +2942,20 @@ Menu.main.section.analyzer = {
             this.appendChild(container);
         }
     }
-};
+};
+
+chrome.storage.local.get(function(items) {
+    for (var key in items) {
+        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
+    }
+});
+
+chrome.storage.onChanged.addListener(function(changes) {
+    for (var key in changes) {
+        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), changes[key].newValue);
+    }
+});
+
 Satus.storage.import(function() {
     var language = Satus.storage.get('language') || 'en';
 
@@ -2925,6 +2983,10 @@ Satus.storage.import(function() {
             fr: {
                 type: 'button',
                 label: 'Français'
+            },
+            id: {
+                type: 'button',
+                label: 'Bahasa Indonesia'
             },
             it: {
                 type: 'button',
@@ -2980,6 +3042,38 @@ Satus.storage.import(function() {
 
         Satus.render(dialog);
     }
+    
+    if (Satus.isset(Satus.storage.get('red_popup_theme')) === false || Satus.storage.get('red_popup_theme') === true) {
+        document.documentElement.setAttribute('popup-theme', 'red');
+    }
+    
+    if (Satus.storage.get('default_dark_theme') === true) {
+        document.documentElement.setAttribute('theme', 'dark');
+    }
+    
+    if (Satus.storage.get('night_theme') === true) {
+        document.documentElement.setAttribute('theme', 'night');
+    }
+    
+    if (Satus.storage.get('dawn_theme') === true) {
+        document.documentElement.setAttribute('theme', 'dawn');
+    }
+    
+    if (Satus.storage.get('sunset_theme') === true) {
+        document.documentElement.setAttribute('theme', 'sunset');
+    }
+    
+    if (Satus.storage.get('desert_theme') === true) {
+        document.documentElement.setAttribute('theme', 'desert');
+    }
+    
+    if (Satus.storage.get('plain_theme') === true) {
+        document.documentElement.setAttribute('theme', 'plain');
+    }
+    
+    if (Satus.storage.get('black_theme') === true) {
+        document.documentElement.setAttribute('theme', 'black');
+    }
 
     Satus.locale.import('_locales/' + language + '/messages.json', function() {
         Satus.modules.updateStorageKeys(Menu, function() {
@@ -2987,3 +3081,5 @@ Satus.storage.import(function() {
         });
     });
 });
+
+

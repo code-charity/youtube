@@ -446,8 +446,8 @@
     "markWatchedVideos": {
         "message": "Mark watched videos"
     },
-    "miniPlayer": {
-        "message": "Mini player"
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "mixer": {
         "message": "Mélangeur de volume"
@@ -780,13 +780,13 @@
         "message": "Yellow"
     },
     "youtubeHeaderLeft": {
-        "message": "Youtube Header (left)"
+        "message": "YouTube Header (left)"
     },
     "youtubeHeaderRight": {
-        "message": "Youtube Header (right)"
+        "message": "YouTube Header (right)"
     },
     "youtubeHomePage": {
-        "message": "Page d'accueil Youtube"
+        "message": "Page d'accueil YouTube"
     },
     "youtubeLanguage": {
         "message": "YouTube language"

@@ -69,7 +69,7 @@ Menu.main.section.player = {
         },
         mini_player: {
             type: 'switch',
-            label: 'miniPlayer'
+            label: 'customMiniPlayer'
         },
         player_autofullscreen: {
             type: 'switch',

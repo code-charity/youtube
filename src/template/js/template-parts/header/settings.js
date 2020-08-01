@@ -86,6 +86,19 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 type: 'section',
                 label: 'general',
 
+                header: {
+                    type: 'folder',
+                    label: 'header',
+                    
+                    section: {
+                        type: 'section',
+                        
+                        title_version: {
+                            type: 'switch',
+                            label: 'version'
+                        }
+                    }
+                },
                 home: {
                     type: 'folder',
                     label: 'home',
@@ -239,6 +252,9 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     }, {
                         value: 'fr',
                         label: 'Français'
+                    }, {
+                        value: 'id',
+                        label: 'Bahasa Indonesia'
                     }, {
                         value: 'it',
                         label: 'Italiano'
@@ -651,7 +667,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     label: 'deleteYoutubeCookies',
 
                     onclick: function() {
-                        document.querySelector('.satus').appendChild(Satus.components.dialog({
+                        Satus.render({
                             type: 'dialog',
 
                             message: {
@@ -699,7 +715,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                     }
                                 }
                             }
-                        }));
+                        });
                     }
                 }
             }

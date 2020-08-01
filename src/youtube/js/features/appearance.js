@@ -14,7 +14,7 @@
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.fitToWindow = function() {
-    if (ImprovedTube.storage.player_size === 'fit_to_window' && !document.documentElement.hasAttribute('embed')) {
+    if (ImprovedTube.storage.player_size === 'fit_to_window' && !document.documentElement.hasAttribute('embed') && window.self !== window.top) {
         var video = document.querySelector('#movie_player video'),
             header = document.documentElement.getAttribute('it-header-position'),
             header_height = header == 'hidden' || header == 'hidden_on_video_page' || header == 'hover' || header == 'hover_on_video_page' ? 0 : 50,
@@ -45,7 +45,7 @@ ImprovedTube.fitToWindow = function() {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.forced_theater_mode = function() {
-    if (this.storage.forced_theater_mode === true || ImprovedTube.storage.player_size === 'fit_to_window') {
+    if (window.self === window.top && (this.storage.forced_theater_mode === true || ImprovedTube.storage.player_size === 'fit_to_window')) {
         var is_applied = false;
 
         if (/wide\=1/.test(document.cookie)) {
@@ -97,6 +97,8 @@ ImprovedTube.player_hd_thumbnail = function() {
 1.3 Always show progress bar
 -----------------------------------------------------------------------------*/
 
+// TODO: FIX NIGHTLY UGLY ALGO
+
 ImprovedTube.always_show_progress_bar = function() {
     if (ImprovedTube.always_show_progress_bar_interval) {
         clearInterval(ImprovedTube.always_show_progress_bar_interval);
@@ -107,10 +109,44 @@ ImprovedTube.always_show_progress_bar = function() {
             var player = document.querySelector('.html5-video-player');
 
             if (player && player.classList.contains('ytp-autohide')) {
-                var played = player.getCurrentTime() * 100 / player.getDuration();
+                var played = player.getCurrentTime() * 100 / player.getDuration(),
+                    loaded = player.getVideoBytesLoaded() * 100,
+                    play_bars = player.querySelectorAll('.ytp-play-progress'),
+                    load_bars = player.querySelectorAll('.ytp-load-progress'),
+                    width = 0,
+                    progress_play = 0,
+                    progress_load = 0;
 
-                player.querySelector('.ytp-play-progress').style.transform = 'scaleX(' + played / 100 + ')';
-                player.querySelector('.ytp-load-progress').style.transform = 'scaleX(' + player.getVideoBytesLoaded() + ')';
+                for (var i = 0, l = play_bars.length; i < l; i++) {
+                    width += play_bars[i].offsetWidth;
+                }
+                
+                var width_percent = width / 100;
+                
+                for (var i = 0, l = play_bars.length; i < l; i++) {
+                    var a = play_bars[i].offsetWidth / width_percent,
+                        b = 0,
+                        c = 0;
+                    
+                    if (played - progress_play >= a) {
+                        b = 100;
+                    } else if (played > progress_play && played < a + progress_play) {
+                        b = 100 * ((played - progress_play) * width_percent) / play_bars[i].offsetWidth;
+                    }
+                    
+                    play_bars[i].style.transform = 'scaleX(' + b / 100 + ')';
+                    
+                    if (loaded - progress_load >= a) {
+                        c = 100;
+                    } else if (loaded > progress_load && loaded < a + progress_load) {
+                        c = 100 * ((loaded - progress_load) * width_percent) / play_bars[i].offsetWidth;
+                    }
+                    
+                    load_bars[i].style.transform = 'scaleX(' + c / 100 + ')';
+                    
+                    progress_play += a;
+                    progress_load += a;
+                }
             }
         }, 100);
     }
@@ -341,7 +377,13 @@ ImprovedTube.livechat = function() {
 ImprovedTube.livechat_type_wait = false;
 
 ImprovedTube.livechat_type = function() {
-    if (ImprovedTube.storage.livechat_type === 'live') {
+    return false;
+    
+    if (
+        document.documentElement.getAttribute('it-page-type') === 'video' &&
+        ImprovedTube.storage.livechat_type === 'live' &&
+        ImprovedTube.livechat_type_wait === false
+    ) {
         this.livechat_type_wait = setInterval(function() {
             if (document.querySelectorAll('#chat-messages #dropdown a')[1]) {
                 clearInterval(ImprovedTube.livechat_type_wait);
@@ -350,7 +392,11 @@ ImprovedTube.livechat_type = function() {
 
                 document.querySelectorAll('#chat-messages #dropdown a')[1].click();
             }
-        });
+        }, 250);
+    } else if (this.livechat_type_wait !== false) {
+        clearInterval(this.livechat_type_wait);
+
+        ImprovedTube.livechat_type_wait = false;
     }
 };
 
