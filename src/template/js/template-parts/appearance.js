@@ -215,6 +215,22 @@ Menu.main.section.appearance = {
                 label: 'hideDetails',
                 tags: 'hide,remove'
             },
+            description: {
+                type: 'select',
+                label: 'description',
+
+                options: [{
+                    label: 'normal',
+                    value: 'normal'
+                }, {
+                    label: 'expanded',
+                    value: 'expanded'
+                }, {
+                    label: 'hidden',
+                    value: 'hidden'
+                }],
+                tags: 'hide,remove'
+            },
             hide_views_count: {
                 type: 'switch',
                 label: 'hideViewsCount',
@@ -243,22 +259,6 @@ Menu.main.section.appearance = {
             channel_videos_count: {
                 type: 'switch',
                 label: 'showChannelVideosCount'
-            },
-            description: {
-                type: 'select',
-                label: 'description',
-
-                options: [{
-                    label: 'normal',
-                    value: 'normal'
-                }, {
-                    label: 'expanded',
-                    value: 'expanded'
-                }, {
-                    label: 'hidden',
-                    value: 'hidden'
-                }],
-                tags: 'hide,remove'
             }
         }
     },
