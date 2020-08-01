@@ -793,5 +793,8 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube begrenzt die Qualität auf 1080 Zeilen für den h.264 Codec"
+    },
+    "redDislikeButton": {
+        "message": "Show dislike button red colour"
     }
 }
