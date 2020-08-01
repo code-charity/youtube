@@ -453,7 +453,7 @@
         "message": "Contrassegna video visti"
     },
     "customMiniPlayer": {
-        "message": "Custom Mini-Player"
+        "message": "Mini lettore personalizzato"
     },
     "mixer": {
         "message": "Mixer"
@@ -462,7 +462,7 @@
         "message": "Nome"
     },
     "nativeMiniPlayer": {
-        "message": "Lettore mini nativo"
+        "message": "Mini lettore nativo"
     },
     "new": {
         "message": "Nuovo"

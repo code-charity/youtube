@@ -20,7 +20,9 @@ var ImprovedTube = {
 ImprovedTube.pageUpdate = function() {
     var not_connected_players = document.querySelectorAll('.html5-video-player:not([it-player-connected])');
     
-    ImprovedTube.allow_autoplay = false;
+    if (ImprovedTube.videoUrl !== location.href) {
+        ImprovedTube.allow_autoplay = false;
+    }
 
     if (not_connected_players.length > 0) {
         for (var i = 0, l = not_connected_players.length; i < l; i++) {
@@ -76,6 +78,8 @@ ImprovedTube.pageUpdate = function() {
 
 ImprovedTube.playerUpdate = function(node, hard) {
     var player;
+    
+    console.log('Player update');
 
     if (node && node.type !== 'canplay') {
         player = node;
