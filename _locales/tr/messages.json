@@ -793,5 +793,8 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube, h.264 codec bileşeni için video kalitesini 1080p ile sınırlar"
+    },
+    "redDislikeButton": {
+        "message": "Show dislike button red colour"
     }
 }

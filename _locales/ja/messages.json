@@ -793,5 +793,8 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube はH.264コーデックの画質を1080pに制限しています"
+    },
+    "redDislikeButton": {
+        "message": "Show dislike button red colour"
     }
 }
