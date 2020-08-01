@@ -18,7 +18,7 @@ You can help us translate ImprovedTube into your language ♡. Please, check the
 * [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
 * [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [ImprovedTube](https://github.com/ImprovedTube)
 * [Dutch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json) by [Heimen Stoffels](https://github.com/Vistaus), [Aron Hoogeveen](https://github.com/aron-hoogeveen)
-* [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) by [ImprovedTube](https://github.com/ImprovedTube), [Victor Savinov](https://github.com/victor-savinov)
+* [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) by [ImprovedTube](https://github.com/ImprovedTube)
 * [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor)
 * [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [Leghort](https://github.com/leghort)
 * [Italian](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
@@ -29,7 +29,7 @@ You can help us translate ImprovedTube into your language ♡. Please, check the
 * [Português (Brasil)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json) by [Mike-Correa](https://github.com/Mike-Correa), [dthiago](https://github.com/dthiago)
 * [Slovac](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json) by [bbc-s](https://github.com/bbc-s)
 * [Türkçe](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json) by [Onur Dumangöz](https://github.com/onurdumangoz)
-* [Русский](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json) by [Victor Savinov](https://github.com/victor-savinov), [WhoIsPrivalov](https://github.com/WhoIsPrivalov), [qweered](https://github.com/qweered)
+* [Русский](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json) by [WhoIsPrivalov](https://github.com/WhoIsPrivalov), [qweered](https://github.com/qweered)
 * [中文 (简体)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json) by [niceRAM](https://github.com/niceRAM), [ausers](https://github.com/ausers)
 * [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [water903](https://github.com/water903), [Ignatius Liu](https://github.com/suitangi)
 
