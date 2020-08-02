@@ -61,6 +61,11 @@ button
 
 
 
+.satus-dialog--confirm .satus-section
+{
+    display: flex;
+    background-color: transparent;
+}
 
 .satus-dialog--confirm .satus-text
 {
