@@ -795,6 +795,6 @@
         "message": "يحد اليوتيوب من جودة الفيديو الى ١٠٨٠ لـ الترميز h.264"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "إظهار زر لم يعجبني باللون الأحمر"
     }
 }
