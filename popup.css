@@ -355,13 +355,13 @@ button
 {
     position: fixed;
     z-index: 99;
-    bottom: 16px;
+    bottom: 10px;
     left: 16px;
     display: flex;
     box-sizing: border-box;
     box-shadow: 0 0 3px rgba(0,0,0,.1);
     width: 268px;
-    height: 42px;
+    height: 38px;
     padding: 8px 16px;
     color: var(--satus-theme-main-text);
     border-radius: 4px;
@@ -393,7 +393,7 @@ html[it-improvedtube-home='list'] .satus-section--footer
 .satus-main .satus-section--footer .satus-button--found-a-bug {
     width: 128px;
     position: absolute;
-    bottom: 56px;
+    bottom: 48px;
     left: 70px;
 }
 
