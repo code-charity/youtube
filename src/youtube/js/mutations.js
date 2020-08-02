@@ -46,7 +46,8 @@ ImprovedTube.mutations = function() {
 
             if (
                 ImprovedTube.autoplay() === false &&
-                ImprovedTube.allow_autoplay === false
+                ImprovedTube.allow_autoplay === false &&
+                this.parentNode.parentNode.classList.contains('ad-showing') === false
             ) {
                 setTimeout(function() {
                     self.parentNode.parentNode.pauseVideo();

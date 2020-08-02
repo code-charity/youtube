@@ -1556,6 +1556,10 @@ Menu.main.section.appearance = {
             channel_videos_count: {
                 type: 'switch',
                 label: 'showChannelVideosCount'
+            },
+            red_dislike_button: {
+                type: 'switch',
+                label: 'redDislikeButton'
             }
         }
     },
