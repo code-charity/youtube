@@ -669,6 +669,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     onclick: function() {
                         Satus.render({
                             type: 'dialog',
+                            class: 'satus-dialog--confirm',
 
                             message: {
                                 type: 'text',
