@@ -78,8 +78,6 @@ ImprovedTube.pageUpdate = function() {
 
 ImprovedTube.playerUpdate = function(node, hard) {
     var player;
-    
-    console.log('Player update');
 
     if (node && node.type !== 'canplay') {
         player = node;
@@ -112,6 +110,7 @@ ImprovedTube.playerUpdate = function(node, hard) {
         this.player_rotate_button();
         this.player_popup_button();
         this.playlist_up_next_autoplay(player);
+		this.mini_player();
 
         this.playlist_repeat();
         this.playlist_shuffle();
@@ -145,6 +144,7 @@ ImprovedTube.playerUpdate = function(node, hard) {
         this.player_screenshot_button();
         this.player_rotate_button();
         this.player_popup_button();
+		this.mini_player();
 
         this.playlist_repeat();
         this.playlist_shuffle();
@@ -172,7 +172,6 @@ ImprovedTube.init = function() {
     this.improvedtube_youtube_icon();
     this.add_scroll_to_top();
     this.player_autopause_when_switching_tabs();
-    this.mini_player();
     this.forced_theater_mode();
     this.comments();
     this.livechat();

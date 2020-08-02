@@ -116,8 +116,14 @@ ImprovedTube.events = function() {
     -------------------------------------------------------------------------*/
 
     window.addEventListener('keydown', function() {
-        ImprovedTube.allow_autoplay = true;
         ImprovedTube.videoUrl = location.href;
+        
+        if (
+            document.querySelector('.html5-video-player') &&
+            document.querySelector('.html5-video-player').classList.contains('ad-showing') === false
+        ) {
+            ImprovedTube.allow_autoplay = true;
+        }
     }, true);
 
 
@@ -126,7 +132,13 @@ ImprovedTube.events = function() {
     -------------------------------------------------------------------------*/
 
     window.addEventListener('mousedown', function() {
-        ImprovedTube.allow_autoplay = true;
         ImprovedTube.videoUrl = location.href;
+        
+        if (
+            document.querySelector('.html5-video-player') &&
+            document.querySelector('.html5-video-player').classList.contains('ad-showing') === false
+        ) {
+            ImprovedTube.allow_autoplay = true;
+        }
     }, true);
 };

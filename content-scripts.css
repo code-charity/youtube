@@ -569,6 +569,10 @@ html[it-hide-views-count=true] #watch7-views-info > .watch-view-count
     color: transparent !important;
 }
 
+[it-red-dislike-button=true] #top-level-buttons > ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active > a
+{
+    color: #fc0000 !important;
+}
 
 
 /*-----------------------------------------------------------------------------
@@ -1778,12 +1782,14 @@ html[it-player-ads="subscribed_channels"] .video-ads.ytp-ad-module
 2.1 Position and size
 -----------------------------------------------------------------------------*/
 
-.improvedtube-mini-player
+.it-mini-player
 {
     position: fixed !important;
     z-index: 2147483646 !important;
     top: 0 !important;
     left: 0 !important;
+    width: 200px !important;
+    height: 160px !important;
 
     box-shadow: rgba(0, 0, 0, .4) 0 2px 8px !important;
 
