@@ -129,9 +129,11 @@ Menu.main.section.player = {
             label: 'codecH264',
 
             onclick: function() {
-                if (component.dataset.value === 'true') {
-                    Satus.components.dialog.create({
+                console.log(this.dataset.value);
+                if (this.querySelector('input').checked === true) {
+                    Satus.render({
                         type: 'dialog',
+                        class: 'satus-dialog--confirm',
 
                         message: {
                             type: 'text',
