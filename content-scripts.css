@@ -1782,36 +1782,49 @@ html[it-player-ads="subscribed_channels"] .video-ads.ytp-ad-module
 2.1 Position and size
 -----------------------------------------------------------------------------*/
 
-.improvedtube-mini-player
+.it-mini-player
 {
     position: fixed !important;
-    z-index: 2147483646 !important;
-    top: 0 !important;
-    left: 0 !important;
+    z-index: 2147483648 !important;
+    left: 0!important;
+    top: 0!important;
+    margin: 0!important;
 
     box-shadow: rgba(0, 0, 0, .4) 0 2px 8px !important;
 
     will-change: transform, width, height !important;
+    
+    background: #000 !important;
 }
 
-.improvedtube-mini-player .html5-video-container,
-.improvedtube-mini-player video
+.it-mini-player .html5-video-container,
+.it-mini-player video
 {
-    top: 0 !important;
     left: 0 !important;
-
+    top: 0 !important;
     width: 100% !important;
     height: 100% !important;
 }
 
-.improvedtube-mini-player .ytp-chrome-bottom
+.it-mini-player .ytp-chrome-bottom
 {
     width: calc(100% - 24px) !important;
 }
 
-html[data-mini-player=true] .ytp-contextmenu
+.it-mini-player .ytp-chapter-hover-container
 {
-    z-index: 2147483647 !important;
+    width: 100% !important;
+}
+
+html[it-mini-player=true] .ytp-contextmenu
+{
+    z-index: 2147483649 !important;
+}
+
+.it-mini-player .ytp-miniplayer-button,
+.it-mini-player .ytp-size-button
+{
+    display: none !important;
 }
 
 
@@ -1841,40 +1854,38 @@ html[data-cursor='e-resize'] *
     cursor: e-resize !important;
 }
 
-html[data-cursor='n-resize'],
-html[data-cursor='n-resize'] *
+html[it-mini-player-cursor='n-resize']::after,
+html[it-mini-player-cursor='e-resize']::after,
+html[it-mini-player-cursor='s-resize']::after,
+html[it-mini-player-cursor='w-resize']::after
 {
-    cursor: n-resize !important;
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2147483650;
 }
 
-html[data-cursor='s-resize'],
-html[data-cursor='s-resize'] *
+html[it-mini-player-cursor='n-resize']::after
 {
-    cursor: s-resize !important;
+    cursor: n-resize;
 }
 
-html[data-cursor='nw-resize'],
-html[data-cursor='nw-resize'] *
+html[it-mini-player-cursor='e-resize']::after
 {
-    cursor: nw-resize !important;
+    cursor: e-resize;
 }
 
-html[data-cursor='ne-resize'],
-html[data-cursor='ne-resize'] *
+html[it-mini-player-cursor='s-resize']::after
 {
-    cursor: ne-resize !important;
+    cursor: s-resize;
 }
 
-html[data-cursor='se-resize'],
-html[data-cursor='se-resize'] *
+html[it-mini-player-cursor='w-resize']::after
 {
-    cursor: se-resize !important;
-}
-
-html[data-cursor='sw-resize'],
-html[data-cursor='sw-resize'] *
-{
-    cursor: sw-resize !important;
+    cursor: w-resize;
 }
 
 
