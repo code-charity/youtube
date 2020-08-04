@@ -1613,6 +1613,9 @@ ImprovedTube.mini_player__scroll = function () {
         
         ImprovedTube.mini_player__element.classList.add('it-mini-player');
         
+        ImprovedTube.mini_player__x = Math.max(0, Math.min(ImprovedTube.mini_player__x, document.body.offsetWidth - ImprovedTube.mini_player__width));
+        ImprovedTube.mini_player__y = Math.max(0, Math.min(ImprovedTube.mini_player__y, window.innerHeight - ImprovedTube.mini_player__height));
+        
         ImprovedTube.mini_player__setPosition(ImprovedTube.mini_player__x, ImprovedTube.mini_player__y);
         
         ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__width, ImprovedTube.mini_player__height);
@@ -1626,7 +1629,7 @@ ImprovedTube.mini_player__scroll = function () {
         ImprovedTube.mini_player__element.classList.remove('it-mini-player');
         ImprovedTube.mini_player__move = false;
         ImprovedTube.mini_player__setPosition(0, 0);
-        ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__original_width, ImprovedTube.mini_player__original_height);
+        ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__element.parentNode.offsetWidth, ImprovedTube.mini_player__element.parentNode.offsetHeight);
 
         window.removeEventListener('mousedown', ImprovedTube.mini_player__mousedown);
         window.removeEventListener('mousemove', ImprovedTube.mini_player__cursorUpdate);

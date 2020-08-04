@@ -39,13 +39,18 @@ html[it-player-ads="subscribed_channels"] .video-ads.ytp-ad-module
     z-index: 2147483648 !important;
     left: 0!important;
     top: 0!important;
-    margin: 0!important;
 
     box-shadow: rgba(0, 0, 0, .4) 0 2px 8px !important;
 
     will-change: transform, width, height !important;
     
     background: #000 !important;
+}
+
+html[it-page-type="video"][it-header-position="hover_on_video_page"][it-player-size="full_window"] .html5-video-player.it-mini-player,
+html[it-page-type="video"][it-header-position="hover"][it-player-size="full_window"] .html5-video-player.it-mini-player
+{
+    margin-top: 0!important;
 }
 
 .it-mini-player .html5-video-container,
