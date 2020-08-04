@@ -1857,7 +1857,11 @@ html[data-cursor='e-resize'] *
 html[it-mini-player-cursor='n-resize']::after,
 html[it-mini-player-cursor='e-resize']::after,
 html[it-mini-player-cursor='s-resize']::after,
-html[it-mini-player-cursor='w-resize']::after
+html[it-mini-player-cursor='w-resize']::after,
+html[it-mini-player-cursor='ne-resize']::after,
+html[it-mini-player-cursor='se-resize']::after,
+html[it-mini-player-cursor='sw-resize']::after,
+html[it-mini-player-cursor='nw-resize']::after
 {
     content: '';
     position: fixed;
@@ -1886,6 +1890,26 @@ html[it-mini-player-cursor='s-resize']::after
 html[it-mini-player-cursor='w-resize']::after
 {
     cursor: w-resize;
+}
+
+html[it-mini-player-cursor='ne-resize']::after
+{
+    cursor: ne-resize;
+}
+
+html[it-mini-player-cursor='se-resize']::after
+{
+    cursor: se-resize;
+}
+
+html[it-mini-player-cursor='sw-resize']::after
+{
+    cursor: sw-resize;
+}
+
+html[it-mini-player-cursor='nw-resize']::after
+{
+    cursor: nw-resize;
 }
 
 
