@@ -134,8 +134,10 @@ button
 
 html[it-improvedtube-home='list'] .satus-section--footer
 {
-    position: static;
-    margin: 8px 16px 16px
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 50px 16px 16px;
 }
 
 .satus-main .satus-section--footer .satus-button
