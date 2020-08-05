@@ -1616,6 +1616,9 @@ ImprovedTube.mini_player__scroll = function () {
         ImprovedTube.mini_player__x = Math.max(0, Math.min(ImprovedTube.mini_player__x, document.body.offsetWidth - ImprovedTube.mini_player__width));
         ImprovedTube.mini_player__y = Math.max(0, Math.min(ImprovedTube.mini_player__y, window.innerHeight - ImprovedTube.mini_player__height));
         
+        ImprovedTube.mini_player__cursor = '';
+        document.documentElement.removeAttribute('it-mini-player-cursor');
+        
         ImprovedTube.mini_player__setPosition(ImprovedTube.mini_player__x, ImprovedTube.mini_player__y);
         
         ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__width, ImprovedTube.mini_player__height);
@@ -1631,6 +1634,9 @@ ImprovedTube.mini_player__scroll = function () {
         ImprovedTube.mini_player__setPosition(0, 0);
         ImprovedTube.mini_player__element.style.width = '';
         ImprovedTube.mini_player__element.style.height = '';
+        
+        ImprovedTube.mini_player__cursor = '';
+        document.documentElement.removeAttribute('it-mini-player-cursor');
 
         window.removeEventListener('mousedown', ImprovedTube.mini_player__mousedown);
         window.removeEventListener('mousemove', ImprovedTube.mini_player__cursorUpdate);
@@ -4084,6 +4090,7 @@ ImprovedTube.mutations = function() {
                 this.parentNode.parentNode.classList.contains('ad-showing') === false
             ) {
                 setTimeout(function() {
+                    //console.log('PAUSE');
                     self.parentNode.parentNode.pauseVideo();
                 });
 
