@@ -19,10 +19,6 @@ var ImprovedTube = {
 
 ImprovedTube.pageUpdate = function() {
     var not_connected_players = document.querySelectorAll('.html5-video-player:not([it-player-connected])');
-    
-    if (ImprovedTube.videoUrl !== location.href) {
-        ImprovedTube.allow_autoplay = false;
-    }
 
     if (not_connected_players.length > 0) {
         for (var i = 0, l = not_connected_players.length; i < l; i++) {
@@ -92,7 +88,6 @@ ImprovedTube.playerUpdate = function(node, hard) {
     if (this.videoUrl !== location.href) {
         this.videoUrl = location.href;
         this.playingTime = 0;
-        this.allow_autoplay = false;
 
         document.dispatchEvent(new CustomEvent('ImprovedTubePlayVideo'));
 
@@ -130,7 +125,6 @@ ImprovedTube.playerUpdate = function(node, hard) {
         }
     } else if (hard) {
         this.videoUrl = location.href;
-        this.allow_autoplay = true;
 
         this.fitToWindow();
         this.playlist_reverse();

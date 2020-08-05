@@ -20,10 +20,6 @@ var ImprovedTube = {
 
 ImprovedTube.pageUpdate = function() {
     var not_connected_players = document.querySelectorAll('.html5-video-player:not([it-player-connected])');
-    
-    if (ImprovedTube.videoUrl !== location.href) {
-        ImprovedTube.allow_autoplay = false;
-    }
 
     if (not_connected_players.length > 0) {
         for (var i = 0, l = not_connected_players.length; i < l; i++) {
@@ -93,7 +89,6 @@ ImprovedTube.playerUpdate = function(node, hard) {
     if (this.videoUrl !== location.href) {
         this.videoUrl = location.href;
         this.playingTime = 0;
-        this.allow_autoplay = false;
 
         document.dispatchEvent(new CustomEvent('ImprovedTubePlayVideo'));
 
@@ -131,7 +126,6 @@ ImprovedTube.playerUpdate = function(node, hard) {
         }
     } else if (hard) {
         this.videoUrl = location.href;
-        this.allow_autoplay = true;
 
         this.fitToWindow();
         this.playlist_reverse();
@@ -295,7 +289,6 @@ ImprovedTube.events = function() {
     -------------------------------------------------------------------------*/
 
     window.addEventListener('spfrequest', function() {
-        ImprovedTube.allow_autoplay = false;
         ImprovedTube.pageUpdate();
     });
 
@@ -309,8 +302,6 @@ ImprovedTube.events = function() {
     -------------------------------------------------------------------------*/
 
     window.addEventListener('keydown', function() {
-        ImprovedTube.videoUrl = location.href;
-        
         if (
             document.querySelector('.html5-video-player') &&
             document.querySelector('.html5-video-player').classList.contains('ad-showing') === false
@@ -324,14 +315,19 @@ ImprovedTube.events = function() {
     7.0 Mousedown
     -------------------------------------------------------------------------*/
 
-    window.addEventListener('mousedown', function() {
-        ImprovedTube.videoUrl = location.href;
-        
-        if (
-            document.querySelector('.html5-video-player') &&
-            document.querySelector('.html5-video-player').classList.contains('ad-showing') === false
-        ) {
-            ImprovedTube.allow_autoplay = true;
+    window.addEventListener('mousedown', function(event) {
+        for (var i = 0, l = event.path.length; i < l; i++) {
+            if (
+                document.querySelector('.html5-video-player') &&
+                document.querySelector('.html5-video-player').classList.contains('ad-showing') === false &&
+                event.path[i].classList &&
+                (
+                    event.path[i].classList.contains('html5-main-video') ||
+                    event.path[i].classList.contains('ytp-play-button')
+                )
+            ) {
+                ImprovedTube.allow_autoplay = true;
+            }
         }
     }, true);
 };
@@ -4083,6 +4079,10 @@ ImprovedTube.mutations = function() {
     HTMLMediaElement.prototype.play = (function(original) {
         return function() {
             var self = this;
+            
+            if (ImprovedTube.videoUrl !== location.href) {
+                ImprovedTube.allow_autoplay = false;
+            }
 
             if (
                 ImprovedTube.autoplay() === false &&
@@ -4090,13 +4090,16 @@ ImprovedTube.mutations = function() {
                 this.parentNode.parentNode.classList.contains('ad-showing') === false
             ) {
                 setTimeout(function() {
-                    //console.log('PAUSE');
                     self.parentNode.parentNode.pauseVideo();
                 });
 
                 return;
             } else if (self.paused === true && ImprovedTube.videoUrl !== location.href) {
                 ImprovedTube.playerUpdate(self.parentNode.parentNode, true);
+            }
+            
+            if (ImprovedTube.videoUrl !== location.href) {
+                ImprovedTube.videoUrl = location.href;
             }
 
             ImprovedTube.player_loudness_normalization();
