@@ -483,17 +483,17 @@ html[it-hide-scroll-for-details=true] ytd-app[scrolling_]
 2.8 Always show progress bar
 -----------------------------------------------------------------------------*/
 
-html[it-always-show-progress-bar=true] .html5-video-player:not(.improvedtube-mini-player).ytp-autohide .ytp-chrome-bottom
+html[it-always-show-progress-bar=true] .html5-video-player:not(.it-mini-player).ytp-autohide .ytp-chrome-bottom
 {
     opacity: 1 !important;
 }
 
-html[it-always-show-progress-bar=true] .html5-video-player:not(.improvedtube-mini-player).ytp-autohide .ytp-chrome-bottom .ytp-chrome-controls
+html[it-always-show-progress-bar=true] .html5-video-player:not(.it-mini-player).ytp-autohide .ytp-chrome-bottom .ytp-chrome-controls
 {
     opacity: 0 !important;
 }
 
-html[it-always-show-progress-bar=true] .html5-video-player:not(.improvedtube-mini-player).ytp-autohide .ytp-chrome-bottom .ytp-progress-bar-container
+html[it-always-show-progress-bar=true] .html5-video-player:not(.it-mini-player).ytp-autohide .ytp-chrome-bottom .ytp-progress-bar-container
 {
     bottom: 0 !important;
 }
