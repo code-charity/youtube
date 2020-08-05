@@ -50,6 +50,7 @@ ImprovedTube.mutations = function() {
                 this.parentNode.parentNode.classList.contains('ad-showing') === false
             ) {
                 setTimeout(function() {
+                    //console.log('PAUSE');
                     self.parentNode.parentNode.pauseVideo();
                 });
 
