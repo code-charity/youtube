@@ -102,7 +102,6 @@ ImprovedTube.events = function() {
     -------------------------------------------------------------------------*/
 
     window.addEventListener('spfrequest', function() {
-        ImprovedTube.allow_autoplay = false;
         ImprovedTube.pageUpdate();
     });
 
@@ -116,8 +115,6 @@ ImprovedTube.events = function() {
     -------------------------------------------------------------------------*/
 
     window.addEventListener('keydown', function() {
-        ImprovedTube.videoUrl = location.href;
-        
         if (
             document.querySelector('.html5-video-player') &&
             document.querySelector('.html5-video-player').classList.contains('ad-showing') === false
@@ -131,14 +128,19 @@ ImprovedTube.events = function() {
     7.0 Mousedown
     -------------------------------------------------------------------------*/
 
-    window.addEventListener('mousedown', function() {
-        ImprovedTube.videoUrl = location.href;
-        
-        if (
-            document.querySelector('.html5-video-player') &&
-            document.querySelector('.html5-video-player').classList.contains('ad-showing') === false
-        ) {
-            ImprovedTube.allow_autoplay = true;
+    window.addEventListener('mousedown', function(event) {
+        for (var i = 0, l = event.path.length; i < l; i++) {
+            if (
+                document.querySelector('.html5-video-player') &&
+                document.querySelector('.html5-video-player').classList.contains('ad-showing') === false &&
+                event.path[i].classList &&
+                (
+                    event.path[i].classList.contains('html5-main-video') ||
+                    event.path[i].classList.contains('ytp-play-button')
+                )
+            ) {
+                ImprovedTube.allow_autoplay = true;
+            }
         }
     }, true);
 };
