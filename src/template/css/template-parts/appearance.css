@@ -41,7 +41,8 @@
     height: 40px;
     min-height: auto;
 
-    background-color: var(--satus-theme-surface, #fff);
+    background-color: var(--satus-theme-dialog);
+    color: var(--satus-theme-dialog-text);
 }
 
 .satus-main__container[data-appearance='appearance'] .satus-folder--header:hover
@@ -84,7 +85,8 @@
     height: 56px;
     min-height: auto;
 
-    background-color: var(--satus-theme-surface, #fff);
+    background-color: var(--satus-theme-dialog);
+    color: var(--satus-theme-dialog-text);
 }
 
 .satus-main__container[data-appearance='appearance'] .satus-folder--description
@@ -96,7 +98,8 @@
     height: 3.5rem;
     min-height: 3.5rem;
 
-    background-color: var(--satus-theme-surface, #fff);
+    background-color: var(--satus-theme-dialog);
+    color: var(--satus-theme-dialog-text);
 }
 
 .satus-main__container[data-appearance='appearance'] .satus-folder--comments
@@ -108,7 +111,8 @@
     height: 80px;
     min-height: auto;
 
-    background-color: var(--satus-theme-surface, #fff);
+    background-color: var(--satus-theme-dialog);
+    color: var(--satus-theme-dialog-text);
 }
 
 .satus-main__container[data-appearance='appearance'] .satus-folder--footer
@@ -120,7 +124,8 @@
     height: 64px;
     min-height: auto;
 
-    background-color: var(--satus-theme-surface, #fff);
+    background-color: var(--satus-theme-dialog);
+    color: var(--satus-theme-dialog-text);
 }
 
 .satus-main__container[data-appearance='appearance'] .satus-folder--sidebar
@@ -131,5 +136,6 @@
     width: calc(30% - 8px);
     height: 160px;
 
-    background-color: var(--satus-theme-surface, #fff);
+    background-color: var(--satus-theme-dialog);
+    color: var(--satus-theme-dialog-text);
 }
