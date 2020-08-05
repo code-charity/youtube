@@ -155,7 +155,8 @@ html[it-header-improve-logo=true] g.ytd-topbar-logo-renderer polygon[fill*='#FFF
 
 html[it-header-hide-right-buttons=true] ytd-masthead#masthead #container #end
 {
-    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 
