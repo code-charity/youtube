@@ -267,7 +267,8 @@ ImprovedTube.mini_player__scroll = function () {
         ImprovedTube.mini_player__element.classList.remove('it-mini-player');
         ImprovedTube.mini_player__move = false;
         ImprovedTube.mini_player__setPosition(0, 0);
-        ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__element.parentNode.offsetWidth, ImprovedTube.mini_player__element.parentNode.offsetHeight);
+        ImprovedTube.mini_player__element.style.width = '';
+        ImprovedTube.mini_player__element.style.height = '';
 
         window.removeEventListener('mousedown', ImprovedTube.mini_player__mousedown);
         window.removeEventListener('mousemove', ImprovedTube.mini_player__cursorUpdate);
