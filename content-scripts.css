@@ -116,6 +116,14 @@ html[it-header-position=static] #masthead-positioner
     z-index: 999999999999 !important;
 }
 
+html[it-header-position=hover] ytd-app[masthead-hidden_] ytd-masthead,
+html[it-header-position=hover] ytd-app[scrolling_] ytd-masthead,
+html[it-header-position=hover_on_video_page][it-page-type='video'] ytd-app[masthead-hidden_] ytd-masthead,
+html[it-header-position=hover_on_video_page][it-page-type='video'] ytd-app[scrolling_] ytd-masthead
+{
+    display: none !important;
+}
+
 
 /*-----------------------------------------------------------------------------
 1.2 Logo
