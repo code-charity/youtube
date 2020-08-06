@@ -68,6 +68,3 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
 5. Click on "Load Temporary Add-on…"
 6. Select "manifest.json" file from unzipped folder
-
-
-<img width="734" alt="browser extension versions" src="https://user-images.githubusercontent.com/25022245/89504731-cbbfd800-d7c8-11ea-9b36-a6523ebaa69e.png">
