@@ -8,7 +8,7 @@ ImprovedTube can still fly much higher through your word of mouth and contributi
  
   ⚬ [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)  ⚬  [Beta testing](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki)  ⚬ [Donations](http://improvedtube.com/donate) ⚬
 
-_For 'CSS-, JavaScript- or JSON-literates': You are welcome to [submit any pull request](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)(even for learning. We will review them. It's most productive and fun): [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-667068386),  ["Menu struture challenge"](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-667438742) & ['Appereance:player' vs 'Player'](https://github.com/ImprovedTube/ImprovedTube/issues/414#issuecomment-667453738)_
+_For 'CSS-, JavaScript- or JSON-literates': You are welcome to [submit any pull request](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)(even for learning. We will review them. It's most productive and fun): [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-667068386),  [Menu struture challenge / 'Appereance:player' vs 'Player'](https://github.com/ImprovedTube/ImprovedTube/issues/414#issuecomment-667453738)_
 #### Credits
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
 #### Translations:
@@ -68,3 +68,6 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
 5. Click on "Load Temporary Add-on…"
 6. Select "manifest.json" file from unzipped folder
+
+
+<img width="734" alt="browser extension versions" src="https://user-images.githubusercontent.com/25022245/89504731-cbbfd800-d7c8-11ea-9b36-a6523ebaa69e.png">
