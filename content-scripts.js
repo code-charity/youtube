@@ -1642,8 +1642,6 @@ ImprovedTube.mini_player__scroll = function () {
 };
 
 ImprovedTube.mini_player__mousedown = function (event) {
-    event.preventDefault();
-    
     if (event.button !== 0) {
         return false;
     }
@@ -1651,12 +1649,20 @@ ImprovedTube.mini_player__mousedown = function (event) {
     if (ImprovedTube.mini_player__resize() === true) {
         return false;
     }
+    
+    var is_player = false;
         
     for (var i = 0, l = event.path.length; i < l; i++) {
-        if ((event.path[i].classList && event.path[i].classList.contains('it-mini-player')) === false && i === l - 1) {
-            return false;
+        if ((event.path[i].classList && event.path[i].classList.contains('it-mini-player')) === true) {
+            is_player = true;
         }
     }
+    
+    if (is_player === false) {
+        return false;
+    }
+    
+    event.preventDefault();
     
     var bcr = ImprovedTube.mini_player__element.getBoundingClientRect();
     

@@ -1776,11 +1776,11 @@ html:not([it-page-type='video']) .it-rate-notify.it-rate-notify--show
 1.0 Ads
 ---------------------------------------------------------------*/
 
-html[it-player-ads="block_all"] .video-ads.ytp-ad-module,
+/*html[it-player-ads="block_all"] .video-ads.ytp-ad-module,
 html[it-player-ads="subscribed_channels"] .video-ads.ytp-ad-module
 {
     display: none !important
-}
+}*/
 
 
 /*-----------------------------------------------------------------------------
