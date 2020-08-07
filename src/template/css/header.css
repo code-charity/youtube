@@ -1,17 +1,17 @@
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 >>> HEADER:
-----------------------------------------------------------------
+-----------------------------------------------------------------
 1.0 Buttons
     1.1 Back button
 2.0 Title
 3.0 Right section
 4.0 Search
 5.0 Vertical menu
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 1.0 BUTTONS
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 .satus-header .satus-button
 {
@@ -26,9 +26,9 @@
 }
 
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 1.1 BACK BUTTON
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 .satus-button--back
 {
@@ -47,9 +47,9 @@ body[data-appearance='home'] .satus-button--back
 }
 
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 2.0 TITLE
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 .satus-text--title
 {
@@ -64,10 +64,13 @@ body[data-appearance='home'] .satus-button--back
 
 html[it-title-version='true'] body[data-appearance='home'] .satus-text--title::after
 {
-    content: attr(data-version);
     font: 700 10px sans-serif;
-    opacity: 0.6;
+
     margin: 0 0 0 4px;
+
+    content: attr(data-version);
+
+    opacity: .6;
     color: var(--satus-theme-header-text);
 }
 
@@ -77,9 +80,9 @@ body[data-appearance='home'] .satus-text--title
 }
 
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 3.0 RIGHT SECTION
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 .satus-section--align-end
 {
@@ -92,9 +95,9 @@ body[data-appearance='home'] .satus-text--title
 }
 
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 4.0 SEARCH
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 .satus-dialog--search
 {
@@ -155,40 +158,41 @@ body[data-appearance='home'] .satus-text--title
 }
 
 
-body[data-appearance="search"] .satus-switch--red,
-body[data-appearance="search"] .satus-switch--dark,
-body[data-appearance="search"] .satus-switch--night,
-body[data-appearance="search"] .satus-switch--dawn,
-body[data-appearance="search"] .satus-switch--sunset,
-body[data-appearance="search"] .satus-switch--desert,
-body[data-appearance="search"] .satus-switch--plain,
-body[data-appearance="search"] .satus-switch--black
+body[data-appearance='search'] .satus-switch--red,
+body[data-appearance='search'] .satus-switch--dark,
+body[data-appearance='search'] .satus-switch--night,
+body[data-appearance='search'] .satus-switch--dawn,
+body[data-appearance='search'] .satus-switch--sunset,
+body[data-appearance='search'] .satus-switch--desert,
+body[data-appearance='search'] .satus-switch--plain,
+body[data-appearance='search'] .satus-switch--black
 {
-    margin: 4px 8px;
     width: calc(100% - 16px);
+    margin: 4px 8px;
+
     border-radius: 6px;
 }
 
-body[data-appearance="search"] .satus-switch--red .satus-switch__label,
-body[data-appearance="search"] .satus-switch--dark .satus-switch__label,
-body[data-appearance="search"] .satus-switch--night .satus-switch__label,
-body[data-appearance="search"] .satus-switch--dawn .satus-switch__label,
-body[data-appearance="search"] .satus-switch--sunset .satus-switch__label,
-body[data-appearance="search"] .satus-switch--black .satus-switch__label
+body[data-appearance='search'] .satus-switch--red .satus-switch__label,
+body[data-appearance='search'] .satus-switch--dark .satus-switch__label,
+body[data-appearance='search'] .satus-switch--night .satus-switch__label,
+body[data-appearance='search'] .satus-switch--dawn .satus-switch__label,
+body[data-appearance='search'] .satus-switch--sunset .satus-switch__label,
+body[data-appearance='search'] .satus-switch--black .satus-switch__label
 {
     color: #fff;
 }
 
-body[data-appearance="search"] .satus-switch--plain .satus-switch__label,
-body[data-appearance="search"] .satus-switch--desert .satus-switch__label
+body[data-appearance='search'] .satus-switch--plain .satus-switch__label,
+body[data-appearance='search'] .satus-switch--desert .satus-switch__label
 {
     color: #222;
 }
 
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 5.0 VERTICAL MENU
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 .satus-dialog--vertical-menu .satus-dialog__surface
 {
