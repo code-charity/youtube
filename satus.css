@@ -1166,16 +1166,14 @@
 
 .satus-table__head
 {
-    position: absolute;
+    position: relative;
     z-index: 1;
-    top: 0;
-    left: 0;
 
     display: flex;
 
     box-sizing: border-box;
     width: 100%;
-    height: 48px;
+    height: 44px;
     padding: 0 8px;
 
     background: #fff;
@@ -1188,10 +1186,18 @@
 
     display: inline-flex;
 
+    box-sizing: border-box;
+    padding: 0 8px 0 0;
+
     opacity: .7;
 
     flex-shrink: 0;
     align-items: center;
+}
+
+.satus-table__head > div:last-child
+{
+    padding: 0;
 }
 
 .satus-table__head > div:hover
@@ -1243,57 +1249,49 @@
     overflow: hidden;
 
     width: 100%;
-    height: 100%;
+    height: calc(100% - 48px);
 
     background: #fff;
 }
 
-.satus-table table
+.satus-table__row
 {
-    width: 100%;
-
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-
-.satus-table thead
-{
-    font-weight: 700;
-
-    visibility: hidden;
-}
-
-.satus-table thead th
-{
-    height: 48px;
-}
-
-.satus-table th
-{
-    padding: 0 0 0 8px;
-}
-
-.satus-table th:last-child
-{
+    display: flex;
+    
     padding: 0 8px;
+    
+    box-sizing: border-box;
+    
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.satus-table td
+.satus-table__row:nth-child(2n)
 {
-    padding: 4px 0 4px 8px;
+    background: rgba(0,0,0,.03)
 }
 
-.satus-table td:last-child
+.satus-table__cell
 {
-    padding: 4px 8px;
-}
-
-.satus-table td > span
-{
-    display: block;
     overflow: hidden;
 
-    max-width: 100px;
+    box-sizing: border-box;
+    padding: 8px 8px 8px 0;
+
+    white-space: nowrap;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+            hyphens: auto;
+
+    overflow-wrap: break-word;
+    flex-shrink: 0;
+    
+    text-overflow: ellipsis;
+}
+
+.satus-table__cell:last-child
+{
+    padding-right: 0;
 }
 
 

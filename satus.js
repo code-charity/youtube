@@ -1910,11 +1910,9 @@ Satus.components.table = function(item) {
         component_head = document.createElement('div'),
         component_body = document.createElement('div'),
         component_scrollbar = Satus.components.scrollbar(component_body, item.scrollbar),
-        table = document.createElement('table'),
-        thead = document.createElement('thead'),
-        thead_tr = document.createElement('tr'),
-        tbody = document.createElement('tbody');
-
+        table = document.createElement('div');
+        
+    table.className = 'satus-table__container';
     component_head.className = 'satus-table__head';
     component_body.className = 'satus-table__body';
 
@@ -1929,24 +1927,31 @@ Satus.components.table = function(item) {
             end = component.paging;
         }
 
-        tbody.innerHTML = '';
+        table.innerHTML = '';
 
         if (data) {
             for (var i = start, l = end; i < l; i++) {
                 if (data[i]) {
-                    var tr = document.createElement('tr');
+                    var tr = document.createElement('div');
+                    
+                    tr.className = 'satus-table__row';
 
                     for (var j = 0, k = data[i].length; j < k; j++) {
-                        var td = document.createElement('td'),
-                            span = document.createElement('span');
+                        var td = document.createElement('div');
 
-                        span.innerText = data[i][j];
+                    
+                        td.className = 'satus-table__cell';
+                        
+                        if (data[i][j].html) {
+                            td.innerHTML = data[i][j].html;
+                        } else {
+                            td.innerText = data[i][j].text;
+                        }
 
-                        td.appendChild(span);
                         tr.appendChild(td);
                     }
 
-                    tbody.appendChild(tr);
+                    table.appendChild(tr);
                 }
             }
         }
@@ -1956,23 +1961,23 @@ Satus.components.table = function(item) {
 
     function sortArray(array, index, mode) {
         if (mode === 'asc') {
-            if (typeof array[0][index] === 'number') {
+            if (typeof array[0][index].text === 'number') {
                 sorted = array.sort(function(a, b) {
-                    return a[index] - b[index];
+                    return a[index].text - b[index].text;
                 });
             } else {
                 sorted = array.sort(function(a, b) {
-                    return a[index].localeCompare(b[index]);
+                    return a[index].text.localeCompare(b[index].text);
                 });
             }
         } else {
-            if (typeof array[0][index] === 'number') {
+            if (typeof array[0][index].text === 'number') {
                 sorted = array.sort(function(a, b) {
-                    return b[index] - a[index];
+                    return b[index].text - a[index].text;
                 });
             } else {
                 sorted = array.sort(function(a, b) {
-                    return b[index].localeCompare(a[index]);
+                    return b[index].text.localeCompare(a[index].text);
                 });
             }
         }
@@ -2004,28 +2009,18 @@ Satus.components.table = function(item) {
         update(sorted);
     }
 
-    function resize() {
-        for (var i = 0, l = component_head.children.length; i < l; i++) {
-            component_head.children[i].style.width = thead.querySelectorAll('th')[i].offsetWidth + 'px';
-        }
-    }
+    function resize() {}
 
     for (var i = 0, l = item.columns.length; i < l; i++) {
-        var column = document.createElement('div'),
-            th = document.createElement('th');
+        var column = document.createElement('div');
 
         column.dataset.sorting = 'none';
         column.addEventListener('click', sort);
         column.innerHTML = '<span>' + item.columns[i].title + '</span>';
-        th.innerText = item.columns[i].title;
 
         component_head.appendChild(column);
-        thead_tr.appendChild(th);
     }
 
-    thead.appendChild(thead_tr);
-    table.appendChild(thead);
-    table.appendChild(tbody);
     component_scrollbar.appendChild(table);
 
     component.appendChild(component_head);
@@ -2081,6 +2076,8 @@ Satus.components.table = function(item) {
                 this.querySelector('.satus-table__paging').appendChild(button);
             }
         }
+        
+        resize();
     }
 
     component.pagingUpdate = pagingUpdate;
@@ -2110,6 +2107,7 @@ Satus.components.table = function(item) {
 
     return component;
 };
+
 /*--------------------------------------------------------------
 >>> TEXT
 --------------------------------------------------------------*/
