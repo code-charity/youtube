@@ -178,6 +178,10 @@ Menu.main.section.shortcuts = {
                 }
             }
         },
+        shortcut_custom_mini_player: {
+            type: 'shortcut',
+            label: 'customMiniPlayer'
+        },
         shortcut_screenshot: {
             type: 'shortcut',
             label: 'screenshot'

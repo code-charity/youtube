@@ -2606,6 +2606,10 @@ Menu.main.section.shortcuts = {
                 }
             }
         },
+        shortcut_custom_mini_player: {
+            type: 'shortcut',
+            label: 'customMiniPlayer'
+        },
         shortcut_screenshot: {
             type: 'shortcut',
             label: 'screenshot'
@@ -2642,6 +2646,7 @@ Menu.main.section.shortcuts = {
         }
     }
 };
+
 Menu.main.section.blacklist = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>',
