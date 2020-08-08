@@ -1269,8 +1269,10 @@ html[it-page-type="video"][it-player-size='fit_to_window'] div#page.watch-wide #
 
 
 
-html[it-page-type="video"][it-header-position='hover'][it-player-size='full_window'] .html5-video-player,
-html[it-page-type="video"][it-header-position='hover_on_video_page'][it-player-size='full_window'] .html5-video-player
+html[it-page-type="video"][it-header-position='hover'][it-player-size='full_window'] ytd-app:not([masthead-hidden_]) .html5-video-player,
+html[it-page-type="video"][it-header-position='hover'][it-player-size='full_window'] ytd-app:not([scrolling_]) .html5-video-player,
+html[it-page-type="video"][it-header-position='hover_on_video_page'][it-player-size='full_window'] ytd-app:not([masthead-hidden_]) .html5-video-player,
+html[it-page-type="video"][it-header-position='hover_on_video_page'][it-player-size='full_window'] ytd-app:not([scrolling_]) .html5-video-player
 {
     margin-top: 14px !important;
 }
