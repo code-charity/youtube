@@ -526,8 +526,16 @@ ImprovedTube.mini_player = function() {
         window.addEventListener('scroll', ImprovedTube.mini_player__scroll);
     } else {
         ImprovedTube.mini_player__mode = false;
+        ImprovedTube.mini_player__element.classList.remove('it-mini-player');
+        ImprovedTube.mini_player__move = false;
+        ImprovedTube.mini_player__setPosition(0, 0);
+        ImprovedTube.mini_player__element.style.width = '';
+        ImprovedTube.mini_player__element.style.height = '';
         
         ImprovedTube.mini_player__element.classList.remove('it-mini-player');
+        
+        ImprovedTube.mini_player__cursor = '';
+        document.documentElement.removeAttribute('it-mini-player-cursor');
         
         window.dispatchEvent(new Event('resize'));
         
@@ -536,6 +544,7 @@ ImprovedTube.mini_player = function() {
         window.removeEventListener('mouseup', ImprovedTube.mini_player__mouseup);
         window.removeEventListener('click', ImprovedTube.mini_player__click);
         window.removeEventListener('scroll', ImprovedTube.mini_player__scroll);
+        window.removeEventListener('mousemove', ImprovedTube.mini_player__cursorUpdate);
     }
 };
 
