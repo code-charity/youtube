@@ -1,4 +1,4 @@
-## ImprovedTube
+## ImprovedTube ([BETA](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/lodjfjlkodalimdjgncejhkadjhacgki))
 ![](/assets/rating.svg) ![](/assets/size.svg)</br>
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an extension, that we built to refine and sweeten your experience on YouTube *(Since 2012 & for 250,000+ people every week)*. The first popular features were simply to have a larger player, hide distractions and save your time. Yet we added many powerful features to YouTube. And there is so much left to build. ImprovedTube's Interface/Layout is designed with our [Satus library](https://github.com/victor-savinov/satus), to manage settings efficiently.
 #### List of Features
