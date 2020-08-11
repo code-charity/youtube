@@ -22,6 +22,7 @@ You can help us translate ImprovedTube into your language ♡. Please, check the
 * [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor)
 * [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [Leghort](https://github.com/leghort)
 * [Italian](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
+* [Hindi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hin/messages.json) by [MONISHA MANDAL](https://github.com/monishamandal02)
 * [Korean](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [Seung-chan Mok](https://github.com/msc9533)
 * [Norwegian Bokmål](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/no/messages.json) by [Master3395](https://github.com/Master3395)
 * [日本語](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json) by [utuhiro78](https://github.com/utuhiro78)
