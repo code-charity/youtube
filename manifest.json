@@ -10,7 +10,7 @@
         "128": "assets/icons/128.png"
     },
     "default_locale": "en",
-    "description": "Make YouTube tidy & powerful! YouTube Player Size YouTube Quality Auto HD Colors Playback Speed Style Adblock Playlist Channel H.264",
+    "description": "Make YouTube tidy & powerful! YouTube Player Size Theme Quality Auto HD Colors Playback Speed Style Ad adblock Playlist Channel H.264",
     "browser_action": {
         "default_icon": {
             "16": "assets/icons/16g.png",
