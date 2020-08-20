@@ -793,5 +793,8 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube는 h.264 코덱에서 비디오 품질을 1080p로 제한합니다"
+    },
+    "hideGradientBottom": {
+        "message": "Hide Gradient Bottom"
     }
 }
