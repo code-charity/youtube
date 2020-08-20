@@ -802,5 +802,8 @@
     },
     "redDislikeButton": {
         "message": "Show dislike button red colour"
+    },
+    "hideGradientBottom": {
+        "message": "Hide Gradient Bottom"
     }
 }
