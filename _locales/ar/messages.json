@@ -796,5 +796,8 @@
     },
     "redDislikeButton": {
         "message": "إظهار زر لم يعجبني باللون الأحمر"
+    },
+    "hideGradientBottom": {
+        "message": "Hide Gradient Bottom"
     }
 }

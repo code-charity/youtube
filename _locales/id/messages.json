@@ -793,5 +793,8 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube membatasi kualitas video hingga 1080p untuk codec h.264"
+    },
+    "hideGradientBottom": {
+        "message": "Hide Gradient Bottom"
     }
 }
