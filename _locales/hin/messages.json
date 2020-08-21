@@ -796,6 +796,9 @@
     },
     "redDislikeButton": {
         "message": "नापसंद बटन लाल रंग दिखाएं"
+    },
+    "hideGradientBottom": {
+        "message": "Hide Gradient Bottom"
     }
 }
 

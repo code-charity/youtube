@@ -13,6 +13,7 @@
     2.6 Endscreen
     2.7 Sroll for details
     2.8 Always show progress bar
+    2.9 Hide Gradient Bottom
 3.0 Details
     3.1 Style
     3.2 Views count
@@ -507,6 +508,14 @@ html[it-always-show-progress-bar=true] .html5-video-player:not(.it-mini-player).
     bottom: 0 !important;
 }
 
+/*-----------------------------------------------------------------------------
+2.9 Hide Gradient Bottom
+-----------------------------------------------------------------------------*/
+
+html[it-hide-gradient-bottom=true] .ytp-gradient-bottom
+{
+    display: none;
+}
 
 /*-----------------------------------------------------------------------------
 3.0 Details
