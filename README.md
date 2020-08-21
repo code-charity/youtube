@@ -8,8 +8,8 @@ ImprovedTube can still fly much higher through your word of mouth and contributi
 
    ⚬ [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)  ⚬  [Beta testing](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki)  ⚬ [Donations](http://improvedtube.com/donate) ⚬
    
-⚬ For 'CSS-, JavaScript- or JSON-literates': You are welcome to [submit any pull request](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)(even for learning. We will review them. It's most productive and fun): ⚬ [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) ⚬
-[Menu struturing challenge / 'Appereance:player' vs 'Player'](https://github.com/ImprovedTube/ImprovedTube/issues/414#issuecomment-667453738)
+⚬ For 'CSS-, JavaScript- or JSON-literates': You are welcome to [submit any pull request](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)(even for learning. We will review them. It's most productive and fun): ⚬ [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) ⚬ 
+_[Menu struturing challenge / 'Appereance:player' vs 'Player'](https://github.com/ImprovedTube/ImprovedTube/issues/414#issuecomment-667453738)_
 #### Credits
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
 #### Translations:
