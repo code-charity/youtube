@@ -90,7 +90,7 @@
         "message": "إعادة تعيين والنسخ الاحتياطي"
     },
     "baseOnSystemColorScheme": {
-        "message": "يناء على نظام ألوان النظام"
+        "message": "يناء على ألوان النظام"
     },
     "belowPlayer": {
         "message": "اسفل المشغل"
@@ -195,7 +195,7 @@
         "message": "5% خفض الصوت"
     },
     "deepOrange": {
-        "message": "برتقالي غامق"
+        "message": "برتقالي داكن"
     },
     "deepPurple": {
         "message": "أرجواني داكن"
@@ -222,7 +222,7 @@
         "message": "الجهاز"
     },
     "dim": {
-        "message": "قاتمة"
+        "message": "داكن"
     },
     "disabled": {
         "message": "معطل"
@@ -318,7 +318,7 @@
         "message": "الجزء العلوي"
     },
     "hidden": {
-        "message": "إخفاء"
+        "message": "مخفي"
     },
     "hiddenOnVideoPage": {
         "message": "مخفي على صفحة الفيديو"
@@ -798,6 +798,6 @@
         "message": "إظهار زر لم يعجبني باللون الأحمر"
     },
     "hideGradientBottom": {
-        "message": "Hide Gradient Bottom"
+        "message": "إخفاء التدرج الأسود السفلي"
     }
 }
