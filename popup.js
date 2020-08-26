@@ -1497,6 +1497,10 @@ Menu.main.section.appearance = {
             always_show_progress_bar: {
                 type: 'switch',
                 label: 'alwaysShowProgressBar'
+            },
+            hide_gradient_bottom: {
+                type: 'switch',
+                label: 'hideGradientBottom'
             }
         }
     },
