@@ -122,7 +122,7 @@ Menu.main = {
         found_a_bug: {
             type: 'button',
             class: 'satus-button--found-a-bug',
-            label: 'found a bug?',
+            label: 'foundABug',
             title: '/ImprovedTube/ImprovedTube',
             onclick: function(){
                 window.open('https://github.com/ImprovedTube/ImprovedTube/issues/new', '_blank');
