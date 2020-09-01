@@ -799,5 +799,8 @@
     },
     "hideGradientBottom": {
         "message": "إخفاء التدرج الأسود السفلي"
+    },
+    "statsForNerds": {
+        "message": "Show Stats for Nerds"
     }
 }
