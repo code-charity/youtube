@@ -2978,6 +2978,37 @@ ImprovedTube.shortcuts = function() {
                     
                     window.dispatchEvent(new Event('resize'));
                 }
+            },
+            shortcut_stats_for_nerds: function() {
+                var player = document.querySelector('#movie_player');
+
+                if(player) {
+                    if(player.querySelector('.html5-video-info-panel')) {
+                        var statsForNerdsPanel = player.querySelector('.html5-video-info-panel');
+                        var displayType = statsForNerdsPanel.style.display;
+
+                        if(displayType != 'none') {
+                            statsForNerdsPanel.querySelector('.html5-video-info-panel-close').click();
+                        } else {
+                            var rightClickMenu = document.querySelector('.ytp-popup.ytp-contextmenu .ytp-panel .ytp-panel-menu');
+    
+                            if(rightClickMenu && rightClickMenu.querySelector('div:nth-child(7)')) {
+                                rightClickMenu.querySelector('div:nth-child(7) .ytp-menuitem-content').click();
+                            }
+                        }
+                    } else {
+                        if(document.createEvent) {
+                            var rightClickEvent = document.createEvent('HTMLEvents');
+                            rightClickEvent.initEvent('contextmenu', true, false);
+                            player.dispatchEvent(rightClickEvent);
+                        }
+                        var rightClickMenu = document.querySelector('.ytp-popup.ytp-contextmenu .ytp-panel .ytp-panel-menu');
+
+                        if(rightClickMenu && rightClickMenu.querySelector('div:nth-child(7)')) {
+                            rightClickMenu.querySelector('div:nth-child(7) .ytp-menuitem-content').click();
+                        }
+                    }
+                }
             }
         };
 
