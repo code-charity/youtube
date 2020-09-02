@@ -800,5 +800,8 @@
     },
     "hideGradientBottom": {
         "message": "Hide Gradient Bottom"
+    },
+    "statsForNerds": {
+        "message": "Show Stats for Nerds"
     }
 }
