@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-*  _PROBLEM: Does your feature request relate to a problem?  Which problem?  is. Ex. I'm always frustrated when [...]_ 
+*  _PROBLEM: Does your feature request relate to a problem? Which problem is? Ex. I'm always frustrated when [...]_ 
 ------
 *  _SOLUTION: Describe what you'd like (A clear and concise description of what you want to happen). Please consider screenshots or sketches if it makes sense_
 ------
@@ -26,4 +26,4 @@ SHORT | Table
 *Alternatives*|         type here
 *Scope*         |           type here
 *Side effects*|             type here
-*Context*      |         T h a n k   Y o u!
+*Context*      |         T h a n k     y o u !
