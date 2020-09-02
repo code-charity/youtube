@@ -799,5 +799,8 @@
     },
     "hideGradientBottom": {
         "message": "グラデーションの下部を隠す"
+    },
+    "statsForNerds": {
+        "message": "Show Stats for Nerds"
     }
 }
