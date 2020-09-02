@@ -17,15 +17,15 @@ If it was fixed recently you can wait ot try the [latest update (https://github.
 (You can also check the different date/age of all three versions)
 
 ## 2. A bug Report Template:
-*Describe the **bug**:  (a clear / concise description of what the bug is)*
-*Steps to **reproduce** the issue:*
-* **Expected** (/preferred) behavior*
-* **Screenshots** (If applicable)*
-*Additional **context** (if any)*
+ ⚬ *Describe the **bug**:  (a clear / concise description of what the bug is)*
+ ⚬ *Steps to **reproduce** the issue:*
+ ⚬ **Expected** (/preferred) behavior*
+ ⚬ **Screenshots** (If applicable)*
+ ⚬ Additional **context** (if any)*
 
 ##  3. Your Setup:   Consider to fill in the following **details**:  
-⚬ **Settings**: Attach exported settings `(ImprovedTube -> Settings -> Backup & reset -> Export settings)`
-⚬ Version [e.g. ImprovedTube 3.21  You can find it at the ⋮ icon>settings>version]  
-⚬ OS: [e.g. Linux Ubuntu 16 /  Windows 7 / Mac OSX /  iOS ]  
-⚬ Browser [e.g.  Chromium 83.0.4103.116  / Firefox / Safari / ...] 
-⚬ Device: [if applicable e.g. iPhone4]
+   ⚬ Settings:   Attach exported settings `(ImprovedTube -> Settings -> Backup & reset -> Export settings)`
+   ⚬  Version:   [e.g. ImprovedTube 3.21  You can find it at the ⋮ icon>settings>version]  
+   ⚬         OS: [e.g. Linux Ubuntu 16 /  Windows 7 / Mac OSX /  iOS ]  
+   ⚬ Browser: [e.g.  Chromium 83.0.4103.116  / Firefox / Safari / ...] 
+   ⚬   Device: [if applicable e.g. iPhone4]
