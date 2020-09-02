@@ -185,10 +185,6 @@ Menu.main.section.shortcuts = {
         shortcut_screenshot: {
             type: 'shortcut',
             label: 'screenshot'
-        },
-        shortcut_stats_for_nerds: {
-            type: 'shortcut',
-            label: 'statsForNerds'
         }
     },
 
