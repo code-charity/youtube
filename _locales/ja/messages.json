@@ -1,6 +1,6 @@
 {
     "cropChapterTitles": {
-        "message": "Crop chapter titles"
+        "message": "チャプターのタイトルをトリミングする"
     },
     "about": {
         "message": "このソフトについて"
@@ -426,7 +426,7 @@
         "message": "高評価"
     },
     "likes": {
-        "message": "高評価"
+        "message": "評価"
     },
     "lime": {
         "message": "ライム"
@@ -447,7 +447,7 @@
         "message": "視聴した動画にマークを付ける"
     },
     "customMiniPlayer": {
-        "message": "Custom Mini-Player"
+        "message": "カスタムミニプレーヤー"
     },
     "mixer": {
         "message": "ミキサー"
@@ -795,9 +795,9 @@
         "message": "YouTube はH.264コーデックの画質を1080pに制限しています"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "低評価ボタンを赤色で表示する"
     },
     "hideGradientBottom": {
-        "message": "Hide Gradient Bottom"
+        "message": "グラデーションの下部を隠す"
     }
 }
