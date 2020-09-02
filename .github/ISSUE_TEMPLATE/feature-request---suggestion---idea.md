@@ -1,23 +1,29 @@
 ---
 name: Feature request / suggestion / idea
 about: Suggest an idea for this project
-title: 'IDEA:'
-labels: ''
+title: "(IDEA)"
+labels: Help Wanted
 assignees: ''
 
 ---
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+* _PROBLEM: Does your feature request relate to a problem? Which problem is? Ex. I'm always frustrated when [...]_ 
+------
+* _SOLUTION: Describe what you'd like (A clear and concise description of what you want to happen). Please consider screenshots or sketches if it makes sense_
+------
+* _ALTERNATIVES: Describe what you've considered: Alternative solutions or features you consider as equal or inferior)._
+------
+* _RELEVANCE / SCOPE:  Would this be good by for everybody by default? (hypothetically). Estimate how many percent of our users (or all youtube users) should/would use your idea?_
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+* _"SIDE EFFECTS":  Is there a conflict with any other feature? Or who might NOT want this? How many percent of users could be bothered by it even filling space in our menu?_
 
-**Relevance / Scope**   Estimate how many percent of users of Youtube or Improvedtube should be users of your idea? Would it be good by default ? (hypothetically)
-** "Side effects" ** Who might NOT want this? How many percent of users could be bothered by it even filling our menu?
-
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+* _CONTEXT:  any other context._
+------
+ ⚬ SHORT Table | (Summary)   
+------------ | -------------
+*Problem*     | ....TYPE  HERE.................................................................................................................................................
+*Solution*     |       TYPE HERE         
+*Alternatives*|         type here
+*Scope*         |           type here
+*Side effects*|             type here
+*Context*      |         T h a n k     y o u !
