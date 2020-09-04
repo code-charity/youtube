@@ -24,6 +24,7 @@
     6.1 Live chat
     6.2 Playlist
     6.3 Related videos
+    6.4 Sidebar and thumbnail position
 7.0 Footer
 -----------------------------------------------------------------------------*/
 
@@ -756,6 +757,19 @@ html[it-related-videos=collapsed].related-videos-collapsed #improvedtube-collaps
     box-shadow: inset 0 1px 0 #ddd;
 }
 
+/*-----------------------------------------------------------------------------
+6.4 Sidebar and thumbnail position
+-----------------------------------------------------------------------------*/
+
+html[it-sidebar-left='true'] #columns>#primary,
+html[it-sidebar-left='true'] #head>#upnext   /* also moving autoplay button to the outside as the glow bothers next to the video */
+{   
+    order:7;
+}
+html[it-thumbnails-right='true'] #dismissable>ytd-thumbnail
+{
+    order:7; 
+}
 
 /*-----------------------------------------------------------------------------
 7.0 Footer
