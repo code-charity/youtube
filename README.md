@@ -10,7 +10,7 @@ ImprovedTube can (should?) fly much higher through your word of mouth and contri
   
 ⚬ **For CSS-, JavaScript- and JSON-literates: [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)**. <br> ImprovedTube's Interface/Layout is designed with our [Satus library](https://github.com/victor-savinov/satus) to manage settings efficiently. <br> Improvedtube uses a lot of CSS, making it technically unique.(_[Github Search: language:CSS size:>3000 App OR Extension](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension&type=Repositories&s=updated&o=desc)_)
 
-⚬ **Newbies**: You are welcome to [submit any pull request](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)(even for learning. We will review them. It's productive and fun) ⚬ _Menu [struture](https://github.com/ImprovedTube/ImprovedTube/issues/414#issuecomment-667453738) challenge / 'Appereance:player' vs 'Player'...)_
+⚬ **Newbies**: You are welcome to [submit any pull request](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)(even for learning. We will review them. It's productive and fun) <br> ⚬ Menu [struture](https://github.com/ImprovedTube/ImprovedTube/issues/414#issuecomment-667453738) challenge / 'Appereance:player' vs 'Player'...)
 #### Credits
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
 #### Translations:
