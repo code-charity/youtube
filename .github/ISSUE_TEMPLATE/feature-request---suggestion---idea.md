@@ -13,17 +13,4 @@ assignees: ''
 ------
 * _ALTERNATIVES: Describe what you've considered: Alternative solutions or features you consider as equal or inferior)._
 ------
-* _RELEVANCE / SCOPE:  Would this be good by for everybody by default? (hypothetically). Estimate how many percent of our users (or all youtube users) should/would use your idea?_
-
-* _"SIDE EFFECTS":  Is there a conflict with any other feature? Or who might NOT want this? How many percent of users could be bothered by it even filling space in our menu?_
-
-* _CONTEXT:  any other context._
-------
- ⚬ SHORT Table | (Summary)   
------------- | -------------
-*Problem*     | ....TYPE  HERE.................................................................................................................................................
-*Solution*     |       TYPE HERE         
-*Alternatives*|         type here
-*Scope*         |           type here
-*Side effects*|             type here
-*Context*      |         T h a n k     y o u !
+* _RELEVANCE / SCOPE:  Would this be good by for everybody by default? (hypothetically). Estimate how many
