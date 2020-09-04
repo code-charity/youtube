@@ -1,9 +1,9 @@
-### ImprovedTube ([STABLE](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd), [BETA](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/lodjfjlkodalimdjgncejhkadjhacgki))
+## ImprovedTube ([STABLE](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd), [BETA](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/lodjfjlkodalimdjgncejhkadjhacgki))
 ![](/assets/rating.svg) ![](/assets/size.svg)</br>
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an [extension](https://en.wikipedia.org/wiki/Browser_extension), that we built to refine & sweeten your experience on YouTube *(Since 2012 & for 250,000+ people / week)*. <br> The first popular features were simply to have a larger player, hide distractions and save your time. Yet we added many powerful features enhancing YouTube functionality. And there is so much left to build. 
-### List of Features
+## List of Features
 Learn more about our [~100 features!](https://github.com/ImprovedTube/ImprovedTube/wiki/Features)       (...please help us documenting our unique features with screenshots or videos)
-### Contributing 
+## Contributing 
 ImprovedTube can (should?) fly much higher through your word of mouth and contributions:
 
    ⚬ [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)  ⚬  [Beta testing](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki)   ⚬ [Donations](http://improvedtube.com/donate) ⚬
@@ -11,7 +11,7 @@ ImprovedTube can (should?) fly much higher through your word of mouth and contri
 ⚬ **For CSS-, JavaScript- and JSON-literates: [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)**. <br> ImprovedTube's Interface/Layout is designed with our [Satus library](https://github.com/victor-savinov/satus) to manage settings efficiently. <br> Improvedtube uses a lot of CSS, making it technically unique.(_[language:CSS size:>3000 Extension OR App](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_)
 
 ⚬ **Newbies**: You are welcome to [submit any pull request](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)(even for learning. We will review them. It's productive and fun) <br> ⚬ ['Menu struture challenge'](https://github.com/ImprovedTube/ImprovedTube/issues/414#issuecomment-667453738)(_'Appereance:player' vs 'Player'_ ...)
-### Credits
+## Credits
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
 ### Translations:
 You can help us translate ImprovedTube into your language ♡. Please, check the [wiki page](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations).
@@ -46,6 +46,7 @@ You can help us translate ImprovedTube into your language ♡. Please, check the
   - [Regex Search](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)(_[Github](https://github.com/victor-savinov/regex-search))_ 
 * Development / Components:   ⚬ [Satus](https://github.com/victor-savinov/satus) ⚬  [Theme Engine](https://github.com/victor-savinov/theme-engine)  ⚬ [Pluviam](https://github.com/victor-savinov/pluviam) ⚬ [Code Editor](https://github.com/victor-savinov/code-editor) ⚬ [Viscum Player](https://github.com/victor-savinov/viscum-player)
 
+-----
 ### Browsers support 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="24px" height="24px" />](https://brave.com/?ref=imp716)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="24px" height="24px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
