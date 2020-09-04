@@ -2,7 +2,7 @@
 ![](/assets/rating.svg) ![](/assets/size.svg)</br>
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an extension, that we built to refine and sweeten your experience on YouTube *(Since 2012 & for 250,000+ people / week)*. The first popular features were simply to have a larger player, hide distractions and save your time. Yet we added many powerful features to YouTube. And there is so much left to build. 
 ## List of Features
-Learn more about our [~100 features!](https://github.com/ImprovedTube/ImprovedTube/wiki/Features).     (...please help us documenting our unique features with screenshots or videos)
+Learn more about our [~100 features!](https://github.com/ImprovedTube/ImprovedTube/wiki/Features)       (...please help us documenting our unique features with screenshots or videos)
 ## Contributing 
 ImprovedTube can (should?) fly much higher through your word of mouth and contributions:
 
