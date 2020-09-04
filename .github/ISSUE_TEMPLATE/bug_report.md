@@ -13,9 +13,9 @@ Before submitting click "PREVIEW" -->
 — With [GitHub's issue search (use this link)](https://github.com/ImprovedTube/ImprovedTube/issues?q=)  (else removing "is:issue is:open" from the standard search)       
 
 2. If you find the issue, then check if its status is  "closed" (fixed) already?
-If it was fixed recently you can wait ot try the [latest update](https://github.com/ImprovedTube/ImprovedTube/archive/master.zip) requiring [manual installation](https://github.com/ImprovedTube/ImprovedTube#installation-from-github) 
-(Or our [BETA in Google Web Store] (https://chrome.google.com/webstore/detail/improvedtube/lodjfjlkodalimdjgncejhkadjhacgki) 
-(You can also check the different date/age of all three versions)
+If it was fixed recently you can wait or try: [our latest code](https://github.com/ImprovedTube/ImprovedTube/archive/master.zip)  with [installation from github](https://github.com/ImprovedTube/ImprovedTube#installation-from-github) 
+Or our  [BETA in Google Web Store](https://chrome.google.com/webstore/detail/improvedtube/lodjfjlkodalimdjgncejhkadjhacgki)
+If it was update recently enough. (You can see the date)
 
 ## 2. bug Report:
  ⚬ *Bug*:  
