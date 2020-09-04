@@ -4,9 +4,7 @@
 ## List of Features
 Learn more about our [~100 features!](https://github.com/ImprovedTube/ImprovedTube/wiki/Features)       (...please help us documenting our unique features with screenshots or videos)
 ## Contributing 
-ImprovedTube can (should?) fly much higher through your word of mouth and contributions:
-
-   ⚬ [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)  ⚬  [Beta testing](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki)   ⚬ [Donations](http://improvedtube.com/donate) ⚬
+ImprovedTube can (should?) fly much higher through your word of mouth and contributions: <br> ⚬ [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)   <br>
   
 ⚬ **For CSS-, JavaScript- and JSON-literates: [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)**. <br> ImprovedTube's Interface/Layout is designed with our [Satus library](https://github.com/victor-savinov/satus) to manage settings efficiently. <br> Improvedtube uses a lot of CSS, making it technically unique.(_[language:CSS size:>3000 Extension OR App](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_)
 
