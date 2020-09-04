@@ -5,16 +5,16 @@
 Learn more about our [~100 features!](https://github.com/ImprovedTube/ImprovedTube/wiki/Features).   
 ## Contributing
 ImprovedTube can (should?) fly much higher through your word of mouth and contributions:
-   ⚬ [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)  ⚬  [Beta testing](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki)  ⚬ [Donations](http://improvedtube.com/donate) ⚬
+
+   ⚬ [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)  ⚬  [Beta testing](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki)   ⚬ [Donations](http://improvedtube.com/donate) ⚬
   
-⚬ For 'CSS-, JavaScript- or JSON-literates': ⚬ [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) 
+⚬ For 'CSS-, JavaScript- and JSON-literates': ⚬ [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)   
 
 ⚬ Newbies: You are welcome to [submit any pull request](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)(even for learning. We will review them. It's productive and fun) ⚬ _Menu [struture](https://github.com/ImprovedTube/ImprovedTube/issues/414#issuecomment-667453738) challenge / 'Appereance:player' vs 'Player'...)_
 #### Credits
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
 #### Translations:
 You can help us translate ImprovedTube into your language ♡. Please, check the [wiki page](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations).
-
 * [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
 * [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
 * [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [ImprovedTube](https://github.com/ImprovedTube)
