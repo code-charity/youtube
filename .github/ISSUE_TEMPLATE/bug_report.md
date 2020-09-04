@@ -18,31 +18,30 @@ If it was fixed recently you can wait ot try the [latest update](https://github.
 (You can also check the different date/age of all three versions)
 
 ## 2. bug Report:
- ⚬ *bug*:  
+ ⚬ *Bug*:  
 <!-- a clear / concise description of what the bug is -->
  
- ⚬ *how*:  
+ ⚬ *How*:  
 <!-- Steps to **reproduce** the issue  -->
  
- ⚬ *Expected* (/preferred) behavior
+ ⚬ *Expected (/preferred) behavior*:
  
- ⚬ *Screenshots* (If applicable)
- 
- ⚬ Additional *context* (if any)
+ ⚬ *Screenshots*:  <!-- (If applicable) -->   
+/ ⚬ *Context*:       <!-- (Additional context, if any)  --> 
 
-##  3. Setup:  
+##  3. Setup:    
 <!-- Consider to fill in your following **details**:  -->
- ⚬ Settings:  
-<!--  Attach exported settings  `(ImprovedTube -> Settings -> Backup & reset -> Export settings)`  -->
-
  ⚬  Version:   
 <!--  [e.g. ImprovedTube 3.21  You can find it at the ⋮ icon>settings>version]   -->
 
- ⚬   OS:  
- <!--  [e.g. Linux Ubuntu 16 /  Windows 7 / Mac OSX /  iOS ]  -->
-
  ⚬ Browser:  
 <!--  [e.g.  Chromium 83.0.4103.116  / Firefox / Safari / ...] -->
+
+ ⚬ Settings:  
+<!--  Attach exported settings  `(ImprovedTube -> Settings -> Backup & reset -> Export settings)`  -->
+
+ ⚬   OS:  
+ <!--  [e.g. Linux Ubuntu 16 /  Windows 7 / Mac OSX /  iOS ]  -->
 
  ⚬   Device:   
 <!--  [if applicable e.g. iPhone4] -->
