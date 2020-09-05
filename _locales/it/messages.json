@@ -537,10 +537,10 @@
         "message": "Dimensione lettore"
     },
     "playlist": {
-        "message": "Playlist"
+        "message": "Elenco riproduzione"
     },
     "playlists": {
-        "message": "Playlist"
+        "message": "Elenchi riproduzione"
     },
     "playPause": {
         "message": "Avvio / Pausa"
@@ -792,12 +792,12 @@
         "message": "YouTube limita la qualità video a 1080p per il codec h.264"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "Mostra pulsante Non mi piace in rosso"
     },
     "hideGradientBottom": {
-        "message": "Hide Gradient Bottom"
+        "message": "Nascondi fondo gradiente"
     },
     "statsForNerds": {
-        "message": "Show Stats for Nerds"
+        "message": "Visualizza statistiche per nerd"
     }
 }
