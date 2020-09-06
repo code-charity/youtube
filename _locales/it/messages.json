@@ -537,10 +537,10 @@
         "message": "Dimensione lettore"
     },
     "playlist": {
-        "message": "Elenco riproduzione"
+        "message": "Playlist"
     },
     "playlists": {
-        "message": "Elenchi riproduzione"
+        "message": "Playlist"
     },
     "playPause": {
         "message": "Avvio / Pausa"
