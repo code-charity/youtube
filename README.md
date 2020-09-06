@@ -4,9 +4,9 @@
 ## List of Features
 Learn more about our [~100 features!](https://github.com/ImprovedTube/ImprovedTube/wiki/Features)       (...please help us documenting our unique features with screenshots or videos)
 ## Contributing 
-ImprovedTube can fly much higher through your contribution or word of mouth: <br> ⚬ [Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)   <br>
-⚬ **For CSS-, JavaScript- and JSON-literates:    [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)**.   <br>
-⚬ **Newbies** are welcome to [submit any pull requests](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)(even for learning. We will review them. It's productive and fun) <br> ⚬ ['Menu **struture** challenge'](https://github.com/ImprovedTube/ImprovedTube/issues/414#issuecomment-667453738)(_'Appereance:player' vs 'Player'_ ...)  [Example 2](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-667438742)
+ImprovedTube can fly much higher through your thoughts or word of mouth: <br> 
+⚬ **[Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)**   <br>
+⚬ **For CSS or JavaScript-literates:  [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)**  ⚬ **Newbies** are welcome to [submit] any pull requests(https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)(even for learning. We will review them well. It's productive and fun) <br> 
 ## Credits
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
 ### Translations:
