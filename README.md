@@ -6,7 +6,7 @@ Learn more about our [~100 features!](https://github.com/ImprovedTube/ImprovedTu
 ## Contributing 
 ImprovedTube can fly much higher through your thoughts or word of mouth: <br> 
 ⚬ **[Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)**   <br>
-⚬ For **CSS** or **JavaScript**-literates:  [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) <br> ⚬ ***Newbies*** are welcome to [submit](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078) anything, even for learning. We will review it. It's productive & fun) <br> 
+⚬ For **CSS** or **JavaScript**-literates:  [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) <br> ⚬ ***Newbies*** are welcome to [submit](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078) anything, even for learning. We will review it. It's productive & fun. <br> 
 ## Credits
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
 ### Translations:
