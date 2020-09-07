@@ -2,12 +2,11 @@
 ![](/assets/rating.svg) ![](/assets/size.svg)</br>
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) is an [extension](https://en.wikipedia.org/wiki/Browser_extension), that we built to refine & sweeten your experience on YouTube *(Since 2012 & for 250,000 people/week)*.  The first popular features were simply to have a larger player, hide distractions and save your time. By now we also have many powerful features enhancing YouTube functionality. And there is so much left to build! ...  - Technically ImprovedTube is the only project (in the world) providing 12000 lines of CSS to adjust another service🦄(youtube) (_cmiiw: Github-[search](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_). - ImprovedTube's User Interface is designed with our library **[Satus](https://github.com/victor-savinov/satus)** to manage your settings efficiently.
 ## List of Features
-Learn more about our [~100 features!](https://github.com/ImprovedTube/ImprovedTube/wiki/Features)       (...please help us documenting our unique features with screenshots or videos)
+Learn more about our [~100 features!](https://github.com/ImprovedTube/ImprovedTube/wiki/Features)       (*please help us documenting our unique features with screenshots or videos*)
 ## Contributing 
 ImprovedTube can fly much higher through your thoughts or word of mouth: <br> 
 ⚬ **[Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)**   <br>
-⚬ For **CSS** or **JavaScript**-literates:  [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) 
-<br> ( ⚬ Newbies are welcome to [submit](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078) anything, even for learning. We will review it. It's productive & fun.) <br> 
+⚬ For **CSS** or **JavaScript**-literates:  [Editing ImprovedTube](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) *(Newbies are welcome to [submit](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078) anything. We will review it. Coding is productive & fun.)* <br> 
 ## Credits
 Big thanks to all our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)!
 ### Translations:
@@ -36,8 +35,8 @@ You can help us translate ImprovedTube into your language ♡. Please, check the
 * Home:
    ⚬ [History Manager](https://github.com/victor-savinov/history-manager)  ⚬ [Start Page](https://github.com/victor-savinov/start-page)  ⚬ [To-Do](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)(_[Github](https://github.com/victor-savinov/to-do))_
 * Browsing:  
-  - [Custom user agent](https://github.com/victor-savinov/custom-user-agent)   
-  - [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)(_Web Store & [Github](https://github.com/victor-savinov/night-mode))_ 
+  - [Custom user agent](https://github.com/victor-savinov/custom-user-agent)
+  - [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)(_Web store + [Github](https://github.com/victor-savinov/night-mode))_ 
   - [Regex Replace](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)(_[Github](https://github.com/victor-savinov/regex-replace))_   
 * Research: 
   - [Regex Search](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)(_[Github](https://github.com/victor-savinov/regex-search))_ 
