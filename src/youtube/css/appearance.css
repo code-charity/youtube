@@ -193,22 +193,16 @@ html[it-player-hide-cards=true] .ytp-ce-element,
 html[it-player-hide-cards=true] .ytp-ce-video,
 html[it-player-hide-cards=true] .ytp-cards-button,
 html[it-player-hide-cards=true] .ytp-cards-teaser,
-html[it-player-show-cards-on-mouse-hover=true] .html5-video-player:not(:hover) .ytp-ce-element,
-html[it-player-show-cards-on-mouse-hover=true] .html5-video-player:not(:hover) .ytp-ce-video,
-html[it-player-show-cards-on-mouse-hover=true] .html5-video-player:not(:hover) .ytp-cards-button,
-html[it-player-show-cards-on-mouse-hover=true] .html5-video-player:not(:hover) .ytp-cards-teaser
+html[it-player-show-cards-on-mouse-hover=true] .ytp-cards-button
 {
     display: none !important;
 }
 
-html[it-player-show-cards-on-mouse-hover=true] .html5-video-player:hover .ytp-ce-element,
-html[it-player-show-cards-on-mouse-hover=true] .html5-video-player:hover .ytp-ce-video,
-html[it-player-show-cards-on-mouse-hover=true] .html5-video-player:hover .ytp-cards-button,
-html[it-player-show-cards-on-mouse-hover=true] .html5-video-player:hover .ytp-cards-teaser
+html[it-player-show-cards-on-mouse-hover=true] .html5-video-player:hover .iv-drawer
 {
     display: block !important;
+    transform: none;
 }
-
 
 /*-----------------------------------------------------------------------------
 2.4 Color
