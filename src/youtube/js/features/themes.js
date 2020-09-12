@@ -103,19 +103,21 @@ ImprovedTube.dim = function() {
 
 ImprovedTube.font = function() {
     if (this.storage.font) {
-        if (!document.querySelector('.it-font-family')) {
-            var link = document.createElement('link');
-
-            link.rel = 'stylesheet';
-
-            document.documentElement.appendChild(link);
-        } else {
-            var link = document.querySelector('.it-font-family');
+        if(this.storage.font != 'Default') {
+            if (!document.querySelector('.it-font-family')) {
+                var link = document.createElement('link');
+                
+                link.rel = 'stylesheet';
+                
+                document.documentElement.appendChild(link);
+            } else {
+                var link = document.querySelector('.it-font-family');
+            }
+            
+            link.href = '//fonts.googleapis.com/css2?family=' + this.storage.font;
+            
+            document.documentElement.style.fontFamily = this.storage.font.replace(/\+/g, ' ');
         }
-
-        link.href = '//fonts.googleapis.com/css2?family=' + this.storage.font;
-
-        document.documentElement.style.fontFamily = this.storage.font.replace(/\+/g, ' ');
     }
 };
 
