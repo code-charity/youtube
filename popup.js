@@ -1951,6 +1951,9 @@ Menu.main.section.themes = {
             type: 'select',
             label: 'font',
             options: [{
+                label: 'Default',
+                value: 'Default'
+            }, {
                 label: 'Roboto',
                 value: 'Roboto'
             }, {
