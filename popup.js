@@ -122,7 +122,7 @@ Menu.main = {
         found_a_bug: {
             type: 'button',
             class: 'satus-button--found-a-bug',
-            label: 'foundABug',
+            label: 'found a bug?',
             title: '/ImprovedTube/ImprovedTube',
             onclick: function(){
                 window.open('https://github.com/ImprovedTube/ImprovedTube/issues/new', '_blank');
@@ -1355,11 +1355,11 @@ Menu.main.section.appearance = {
         section: {
             type: 'section',
 
-            player_hide_annotations: {
+            /*player_hide_annotations: {
                 type: 'switch',
                 label: 'hideAnnotations',
                 tags: 'hide,remove,elements'
-            },
+            },*/
             player_hide_cards: {
                 type: 'switch',
                 label: 'hideCards',
@@ -1575,7 +1575,30 @@ Menu.main.section.appearance = {
 
         section: {
             type: 'section',
-
+            sidebar_left: {
+                type: 'switch',
+                label: 'Sidebar on the Left'
+            },
+            thumbnails_right: {
+                type: 'switch',
+                label: 'Thumbnails on the Right'
+            },
+            related_videos: {
+                type: 'select',
+                label: 'relatedVideos',
+                options: [{
+                    label: 'normal',
+                    value: 'normal'
+                }, {
+                    label: 'collapsed',
+                    value: 'collapsed'
+                }, {
+                    label: 'hidden',
+                    value: 'hidden'
+                }],
+                tags: 'right'
+            },
+            
             livechat: {
                 type: 'select',
                 label: 'liveChat',
@@ -1606,21 +1629,6 @@ Menu.main.section.appearance = {
             hide_playlist: {
                 type: 'switch',
                 label: 'hidePlaylist'
-            },
-            related_videos: {
-                type: 'select',
-                label: 'relatedVideos',
-                options: [{
-                    label: 'normal',
-                    value: 'normal'
-                }, {
-                    label: 'collapsed',
-                    value: 'collapsed'
-                }, {
-                    label: 'hidden',
-                    value: 'hidden'
-                }],
-                tags: 'right'
             }
         }
     },

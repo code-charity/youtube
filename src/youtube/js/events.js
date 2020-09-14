@@ -76,6 +76,24 @@ ImprovedTube.events = function() {
     window.addEventListener('resize', function() {
         ImprovedTube.fitToWindow();
         ImprovedTube.improvedtube_youtube_icon_resize();
+        
+        setTimeout(function() {
+            if (document.querySelector('.html5-video-player video') && document.querySelector('.it-rotate-styles')) {
+                var video = document.querySelector('.html5-video-player video'),
+                    transform = '',
+                    rotate = (document.querySelector('.it-rotate-styles') && document.querySelector('.it-rotate-styles').textContent.match(/rotate\([0-9.]+deg\)/g) || [''])[0];
+
+                rotate = Number((rotate.match(/[0-9.]+/g) || [])[0]) || 0;
+
+                transform += 'rotate(' + rotate + 'deg)';
+
+                if (rotate == 90 || rotate == 270) {
+                    transform += ' scale(' + video.offsetHeight / video.offsetWidth + ')';
+                }
+                
+                document.querySelector('.it-rotate-styles').textContent = '.html5-video-player:not(it-mini-player) video {transform:' + transform + '}';
+            }
+        }, 500);
     });
 
     window.addEventListener('scroll', function() {

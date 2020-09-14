@@ -769,7 +769,7 @@ ImprovedTube.player_rotate_button = function() {
             onclick: function() {
                 var video = document.querySelector('.html5-video-player video'),
                     transform = '',
-                    rotate = (video.style.transform.match(/rotate\([0-9.]+deg\)/g) || [''])[0];
+                    rotate = (document.querySelector('.it-rotate-styles') && document.querySelector('.it-rotate-styles').textContent.match(/rotate\([0-9.]+deg\)/g) || [''])[0];
 
                 rotate = Number((rotate.match(/[0-9.]+/g) || [])[0]) || 0;
 
@@ -785,12 +785,23 @@ ImprovedTube.player_rotate_button = function() {
                     transform += ' scale(' + video.offsetHeight / video.offsetWidth + ')';
                 }
 
-                video.style.transform = transform;
+                //video.style.transform = transform;
+                
+                if (!document.querySelector('.it-rotate-styles')) {
+                    var styles = document.createElement('style');
+                    
+                    styles.className = 'it-rotate-styles';
+                    
+                    document.body.appendChild(styles);
+                }
+                
+                document.querySelector('.it-rotate-styles').textContent = '.html5-video-player:not(it-mini-player) video {transform:' + transform + '}';
             },
             title: 'Rotate'
         });
     } else if (document.querySelector('.it-rotate-button')) {
         document.querySelector('.it-rotate-button').remove();
+        document.querySelector('.it-rotate-styles').remove();
     }
 };
 
