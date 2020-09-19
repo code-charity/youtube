@@ -1,7 +1,7 @@
-## [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  is an [extension](https://en.wikipedia.org/wiki/Browser_extension), that we built to refine & sweeten your experience on [YouTube](https://en.wikipedia.org/wiki/YouTube).  The first popular features were simply to have a larger player, hide distractions and save your time. By now we also have many powerful features enhancing YouTube functionality. And there is so much left to build! ...  - ImprovedTube's User Interface is designed with our library **[Satus](https://github.com/victor-savinov/satus)** to manage your settings efficiently. - Technically, Improvedtube is the only project providing so much CSS to adjust another service🦄<font size="-2">(_[cmiiw](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_)</font>
+## [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  is an [extension](https://en.wikipedia.org/wiki/Browser_extension), that we built to refine & sweeten your experience on [YouTube](https://en.wikipedia.org/wiki/YouTube).  The first popular features were simply to have a larger player, hide distractions and save your time. By now we also have many powerful features enhancing YouTube functionality. And there is so much left to build! ...  - ImprovedTube's User Interface is designed with our library **[Satus](https://github.com/victor-savinov/satus)** to manage your settings efficiently. - Technically, Improvedtube is the only project providing so much CSS to adjust another service🦄<font size="-2">(_[cmiiw](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_)</font>
 
-## Translations
+## [Translations](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations)
 * [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
 * [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
 * [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [Termuellinator](https://github.com/Termuellinator) (*in part*)
@@ -57,9 +57,8 @@ ImprovedTube can fly much higher through your effort, thoughts or word of mouth 
 - For **CSS** or **JavaScript**-literates: [**Editing ImprovedTube**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) <br>  *(Newbies are welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will review it well. We love to code)* <br> 
 ## Translations
 You can help us translate ImprovedTube into your language.  Please, check the [wiki page](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations).
-## Credits  
-Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) 🤩 🌟 
- 
+## Credits 
+Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) 
 ## Our other Projects 
 #### Extensions
 * Home: ⚬ [History Manager](https://github.com/victor-savinov/history-manager)  ⚬ [Start Page](https://github.com/victor-savinov/start-page)  ⚬ [To-Do](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)(_[Github](https://github.com/victor-savinov/to-do))_
