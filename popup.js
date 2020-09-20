@@ -10,7 +10,7 @@ var Menu = {
             button_back: {
                 type: 'button',
                 class: 'satus-button--back',
-                before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M14 18l-6-6 6-6"/></svg>',
+                before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M14 18l-6-6 6-6"/></svg>',
                 onclick: function() {
                     if (document.querySelector('.satus-dialog__scrim')) {
                         document.querySelector('.satus-dialog__scrim').click();
@@ -37,7 +37,7 @@ var Menu = {
                 icon: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24"><circle cx="11" cy="10.5" r="6" fill="none"/><path d="M20 20l-4-4"/></svg>',
                 onclick: function() {
                     document.querySelector('.satus-main').open({
-                        appearanceId: 'search'
+                        appearanceKey: 'search'
                     }, function() {
                         Satus.render({
                             type: 'dialog',
@@ -53,12 +53,12 @@ var Menu = {
                                     if (this.value.length > 0) {
                                         Satus.search(this.value, Menu, function(results) {
                                             var sorted_results = [];
-                                            
+
                                             document.querySelector('.satus-main__container').innerHTML = '';
-                                            
+
                                             for (var key in results) {
                                                 results[key].type = 'section';
-                                                
+
                                                 sorted_results.push({
                                                     type: 'text',
                                                     label: key,
@@ -66,8 +66,6 @@ var Menu = {
                                                 });
                                                 sorted_results.push(results[key]);
                                             }
-                                            
-                                            console.log(results);
 
                                             var scroll = Satus.components.scrollbar(document.querySelector('.satus-main__container'));
 
@@ -89,7 +87,35 @@ var Menu = {
                 icon: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5.25" r="0.45"/><circle cx="12" cy="12" r="0.45"/><circle cx="12" cy="18.75" r="0.45"/></svg>',
                 onClickRender: {
                     type: 'dialog',
-                    class: 'satus-dialog--vertical-menu'
+                    class: 'satus-dialog--vertical-menu',
+
+                    email: {
+                        type: 'button',
+                        label: 'Email',
+                        title: 'bugs@improvedtube.com',
+                        before: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>',
+                        onclick: function() {
+                            window.open('mailto:bugs@improvedtube.com', '_blank');
+                        }
+                    },
+                    github: {
+                        type: 'button',
+                        label: 'GitHub',
+                        title: '/ImprovedTube/ImprovedTube',
+                        before: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>',
+                        onclick: function() {
+                            window.open('https://github.com/ImprovedTube/ImprovedTube/', '_blank');
+                        }
+                    },
+                    website: {
+                        type: 'button',
+                        label: 'Website',
+                        title: 'improvedtube.com',
+                        before: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>',
+                        onclick: function() {
+                            window.open('http://www.improvedtube.com/', '_blank');
+                        }
+                    }
                 }
             }
         }
@@ -98,66 +124,29 @@ var Menu = {
 
 Menu.main = {
     type: 'main',
-    appearanceId: 'home',
-    on: {
-        change: function(container) {
-            var item = this.history[this.history.length - 1],
-                id = item.appearanceId;
-
-            document.body.dataset.appearance = id;
-            container.dataset.appearance = id;
-
-            document.querySelector('.satus-text--title').innerText = Satus.locale.getMessage(item.label) || 'ImprovedTube';
-        }
+    appearanceKey: 'home',
+    onchange: function() {
+        document.querySelector('.satus-text--title').innerText = satus.locale.getMessage(this.history[this.history.length - 1].label) || 'ImprovedTube';
     },
 
     section: {
         type: 'section'
     },
-    
+
     footer: {
-        type: 'section',
-        class: 'satus-section--footer',
-        
-        found_a_bug: {
-            type: 'button',
-            class: 'satus-button--found-a-bug',
-            label: 'found a bug?',
-            title: '/ImprovedTube/ImprovedTube',
-            onclick: function(){
-                window.open('https://github.com/ImprovedTube/ImprovedTube/issues/new', '_blank');
-            }
-        },
-        email: {
-            type: 'button',
-            label: 'Email',
-            title: 'bugs@improvedtube.com',
-            onclick: function(){
-                window.open('mailto:bugs@improvedtube.com', '_blank');
-            }
-        },
-        github: {
-            type: 'button',
-            label: 'GitHub',
-            title: '/ImprovedTube/ImprovedTube',
-            onclick: function(){
-                window.open('https://github.com/ImprovedTube/ImprovedTube/', '_blank');
-            }
-        },
-        website: {
-            type: 'button',
-            label: 'Website',
-            title: 'improvedtube.com',
-            onclick: function(){
-                window.open('http://www.improvedtube.com/', '_blank');
-            }
+        type: 'button',
+        class: 'satus-button--ad',
+        label: 'DARK MODE',
+        title: 'Dark Mode',
+        onclick: function() {
+            window.open('https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl', '_blank');
         }
     }
 };
 
 Menu.header.section_end.button_vert.onClickRender.active_features = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
     label: 'activeFeatures',
     onclick: function() {
         document.querySelector('.satus-dialog__scrim').click();
@@ -215,12 +204,13 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
         }
     }
 };
+
 Menu.header.section_end.button_vert.onClickRender.mixer = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>',
     label: 'mixer',
     class: 'satus-folder--mixer',
-    appearanceId: 'mixer',
+    appearanceKey: 'mixer',
     onopen: function() {
         var self = this;
 
@@ -332,7 +322,7 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
 
 Menu.header.section_end.button_vert.onClickRender.settings = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>',
     label: 'settings',
     parent: '.satus-main__container',
     onclick: function() {
@@ -1072,7 +1062,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
             type: 'folder',
             before: '<svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" /></svg>',
             label: 'about',
-            appearanceId: 'about',
+            appearanceKey: 'about',
 
             section: {
                 type: 'section',
@@ -1207,7 +1197,7 @@ Menu.main.section.general = {
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>',
     label: 'general',
     class: 'satus-folder--general',
-    appearanceId: 'general',
+    appearanceKey: 'general',
 
     section: {
         type: 'section',
@@ -1301,7 +1291,7 @@ Menu.main.section.appearance = {
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
     label: 'appearance',
     class: 'satus-folder--appearance',
-    appearanceId: 'appearance',
+    appearanceKey: 'appearance',
 
     header: {
         type: 'folder',
@@ -1718,7 +1708,7 @@ Menu.main.section.themes = {
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>',
     label: 'themes',
     class: 'satus-folder--themes',
-    appearanceId: 'themes',
+    appearanceKey: 'themes',
 
     section: {
         type: 'section',
@@ -2094,7 +2084,7 @@ Menu.main.section.player = {
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>',
     label: 'player',
     class: 'satus-folder--player',
-    appearanceId: 'player',
+    appearanceKey: 'player',
 
     general: {
         type: 'section',
@@ -2372,7 +2362,7 @@ Menu.main.section.playlist = {
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',
     label: 'playlist',
     class: 'satus-folder--playlist',
-    appearanceId: 'playlist',
+    appearanceKey: 'playlist',
 
     section: {
         type: 'section',
@@ -2406,12 +2396,13 @@ Menu.main.section.playlist = {
         }
     }
 };
+
 Menu.main.section.channel = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>',
     label: 'channel',
     class: 'satus-folder--channel',
-    appearanceId: 'channel',
+    appearanceKey: 'channel',
 
     section: {
         type: 'section',
@@ -2441,12 +2432,13 @@ Menu.main.section.channel = {
         }
     }
 };
+
 Menu.main.section.shortcuts = {
     type: 'folder',
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>',
     label: 'shortcuts',
     class: 'satus-folder--shortcut',
-    appearanceId: 'shortcuts',
+    appearanceKey: 'shortcuts',
 
     player_section_label: {
         type: 'text',
@@ -2671,7 +2663,7 @@ Menu.main.section.blacklist = {
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>',
     label: 'blacklist',
     class: 'satus-folder--blacklist',
-    appearanceId: 'blacklist',
+    appearanceKey: 'blacklist',
 
     section_activate: {
         type: 'section',
@@ -2833,7 +2825,7 @@ Menu.main.section.analyzer = {
     before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/></svg>',
     label: 'analyzer',
     class: 'satus-folder--analyzer',
-    appearanceId: 'analyzer',
+    appearanceKey: 'analyzer',
     
     activ_section: {
         type: 'section',

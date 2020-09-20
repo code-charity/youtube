@@ -525,26 +525,26 @@ Satus.modules.user = function() {
 
     return data;
 };
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 >>> CHROMIUM STORAGE
-----------------------------------------------------------------
+-----------------------------------------------------------------
 1.0 Get
 2.0 Set
 3.0 Import
 4.0 Clear
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
-Satus.storage = {
+satus.storage = {
     data: {}
 };
 
-/*--------------------------------------------------------------
-# GET
---------------------------------------------------------------*/
+/*---------------------------------------------------------------
+1.0 GET
+---------------------------------------------------------------*/
 
-Satus.storage.get = function(name) {
+satus.storage.get = function(name) {
     if (satus.isset(name)) {
-        var target = Satus.storage;
+        var target = satus.storage.data;
 
         name = name.split('/').filter(function(value) {
             return value != '';
@@ -563,15 +563,15 @@ Satus.storage.get = function(name) {
 };
 
 
-/*--------------------------------------------------------------
-# SET
---------------------------------------------------------------*/
+/*---------------------------------------------------------------
+2.0 SET
+---------------------------------------------------------------*/
 
-Satus.storage.set = function(name, value) {
+satus.storage.set = function(name, value) {
     var items = {},
-        target = Satus.storage;
+        target = Satus.storage.data;
         
-    if (!Satus.isset(name)) {
+    if (!satus.isset(name)) {
         return false;
     }
 
@@ -596,25 +596,21 @@ Satus.storage.set = function(name, value) {
         }
     }
 
-    for (var key in Satus.storage) {
-        if (typeof Satus.storage[key] !== 'function') {
-            items[key] = Satus.storage[key];
-        }
+    for (var key in satus.storage.data) {
+        items[key] = satus.storage.data[key];
     }
 
     chrome.storage.local.set(items);
 };
 
 
-/*--------------------------------------------------------------
-# IMPORT
---------------------------------------------------------------*/
+/*---------------------------------------------------------------
+3.0 IMPORT
+---------------------------------------------------------------*/
 
-Satus.storage.import = function(callback) {
+satus.storage.import = function(callback) {
     chrome.storage.local.get(function(items) {
-        for (var key in items) {
-            Satus.storage[key] = items[key];
-        }
+        satus.storage.data = items;
 
         if (callback) {
             callback();
@@ -623,18 +619,14 @@ Satus.storage.import = function(callback) {
 };
 
 
-/*--------------------------------------------------------------
-# CLEAR
---------------------------------------------------------------*/
+/*---------------------------------------------------------------
+4.0 CLEAR
+---------------------------------------------------------------*/
 
-Satus.storage.clear = function() {
+satus.storage.clear = function() {
     chrome.storage.local.clear();
 
-    for (var key in Satus.storage) {
-        if (typeof Satus.storage[key] !== 'function') {
-            delete Satus.storage[key];
-        }
-    }
+    delete satus.storage.data;
 };
 
 /*-----------------------------------------------------------------------------
@@ -868,25 +860,27 @@ Satus.components.table = function(item) {
     }
 
     function sortArray(array, index, mode) {
-        if (mode === 'asc') {
-            if (typeof array[0][index].text === 'number') {
-                sorted = array.sort(function(a, b) {
-                    return a[index].text - b[index].text;
-                });
+        if (array[0]) {
+            if (mode === 'asc') {
+                if (typeof array[0][index].text === 'number') {
+                    sorted = array.sort(function(a, b) {
+                        return a[index].text - b[index].text;
+                    });
+                } else {
+                    sorted = array.sort(function(a, b) {
+                        return a[index].text.localeCompare(b[index].text);
+                    });
+                }
             } else {
-                sorted = array.sort(function(a, b) {
-                    return a[index].text.localeCompare(b[index].text);
-                });
-            }
-        } else {
-            if (typeof array[0][index].text === 'number') {
-                sorted = array.sort(function(a, b) {
-                    return b[index].text - a[index].text;
-                });
-            } else {
-                sorted = array.sort(function(a, b) {
-                    return b[index].text.localeCompare(a[index].text);
-                });
+                if (typeof array[0][index].text === 'number') {
+                    sorted = array.sort(function(a, b) {
+                        return b[index].text - a[index].text;
+                    });
+                } else {
+                    sorted = array.sort(function(a, b) {
+                        return b[index].text.localeCompare(a[index].text);
+                    });
+                }
             }
         }
 
@@ -940,7 +934,7 @@ Satus.components.table = function(item) {
 
     component.data = item.data;
     component.paging = item.paging;
-    component.pagingIndex = 0;
+    component.pagingIndex = 1;
 
     component.update = function(data, index, mode) {
         if (Satus.isset(data)) {
@@ -971,35 +965,54 @@ Satus.components.table = function(item) {
 
 
     // PAGING
+    function pagingButton(i, c) {
+        var button = document.createElement('button');
+        
+        if (i === component.pagingIndex) {
+            button.className = 'active';
+        }
+
+        button.innerText = i;
+        button.parentComponent = component;
+        button.addEventListener('click', function() {
+            this.parentComponent.pagingIndex = Number(this.innerText);
+            this.parentComponent.update(this.parentComponent.data);
+            this.parentComponent.pagingUpdate();
+        });
+
+        c.appendChild(button);
+    }
 
     function pagingUpdate() {
         if (typeof this.paging === 'number') {
-            var pages = Math.ceil(this.data.length / this.paging);
+            var pages = Math.ceil(this.data.length / this.paging),
+                c = this.querySelector('.satus-table__paging');
 
-            this.querySelector('.satus-table__paging').innerHTML = '';
-
-            for (var i = 1; i <= pages; i++) {
-                var button = document.createElement('button');
-
-                if (i === (this.pagingIndex || 1)) {
-                    button.className = 'active';
-                }
-
-                button.innerText = i;
-                button.parentComponent = this;
-                button.addEventListener('click', function() {
-                    if (this.parentNode.querySelector('button.active')) {
-                        this.parentNode.querySelector('button.active').classList.remove('active');
-                    }
-
-                    this.classList.add('active');
-
-                    this.parentComponent.pagingIndex = Number(this.innerText);
-                    this.parentComponent.update(this.parentComponent.data);
-                });
-
-                this.querySelector('.satus-table__paging').appendChild(button);
+            c.innerHTML = '';
+            
+            pagingButton(1, c);
+            
+            if (component.pagingIndex - 2 > 2) {
+                var span = document.createElement('span');
+                
+                span.innerText = '...';
+                
+                c.appendChild(span);
             }
+
+            for (var i = component.pagingIndex - 2 < 2 ? 2 : component.pagingIndex - 2, l = component.pagingIndex + 2 > pages - 1 ? pages - 1 : component.pagingIndex + 2; i <= l; i++) {
+                pagingButton(i, c);
+            }
+            
+            if (component.pagingIndex + 2 < pages - 1) {
+                var span = document.createElement('span');
+                
+                span.innerText = '...';
+                
+                c.appendChild(span);
+            }
+            
+            pagingButton(pages, c);
         }
         
         resize();
@@ -1368,103 +1381,73 @@ Satus.components.textField = function(element) {
 --------------------------------------------------------------*/
 
 Satus.components.main = function(object) {
-    var component = document.createElement('main'),
-        component_container = document.createElement('div'),
-        component_scrollbar = Satus.components.scrollbar(component_container, object.scrollbar);
+    var component = document.createElement('main');
 
     component.history = [object];
-
-    component.back = function() {
-        var container = this.querySelector('.satus-main__container'),
+    
+    function create(self, animation, callback) {
+        var container = self.querySelector('.satus-main__container'),
             component_container = document.createElement('div'),
-            component_scrollbar = Satus.components.scrollbar(component_container);
-
-        container.classList.add('satus-animation--fade-out-right');
-        component_container.className = 'satus-main__container satus-animation--fade-in-left';
-
-        this.history.pop();
-
-        for (var key in this.history[this.history.length - 1]) {
-            Satus.render(this.history[this.history.length - 1][key], component_scrollbar);
-        }
-
-        this.appendChild(component_container);
-
-        if (this.historyListener) {
-            this.historyListener(component_container);
-        }
-
-        if (this.history[this.history.length - 1].onopen) {
-            component_scrollbar.onopen = this.history[this.history.length - 1].onopen;
-
-            component_scrollbar.onopen();
-        }
+            component_scrollbar = Satus.components.scrollbar(component_container),
+            object = self.history[self.history.length - 1];
         
-        var id = this.history[this.history.length - 1].appearanceKey;
+        component_container.className = 'satus-main__container';
         
-        document.body.dataset.appearance = id;
-        this.dataset.appearance = id;
-
-        setTimeout(function() {
-            container.remove();
-        }, Satus.getAnimationDuration(container));
-    };
-
-    component.open = function(element, callback, animated) {
-        var container = this.querySelector('.satus-main__container'),
-            component_container = document.createElement('div'),
-            component_scrollbar = Satus.components.scrollbar(component_container);
-
-        if (animated !== false) {
+        if (animation === 2) {
             container.classList.add('satus-animation--fade-out-left');
             component_container.className = 'satus-main__container satus-animation--fade-in-right';
-        } else {
-            component_container.className = 'satus-main__container';
+        } else if (animation === 1) {
+            self.history.pop();
+            
+            object = self.history[self.history.length - 1];
+            
+            container.classList.add('satus-animation--fade-out-right');
+            component_container.className = 'satus-main__container satus-animation--fade-in-left';
+        }
+        
+        document.body.dataset.appearance = object.appearanceKey;
+        component_container.dataset.appearance = object.appearanceKey;
+
+        for (var key in object) {
+            Satus.render(object[key], component_scrollbar);
         }
 
-        this.history.push(element);
-
-        for (var key in this.history[this.history.length - 1]) {
-            Satus.render(this.history[this.history.length - 1][key], component_scrollbar);
+        self.appendChild(component_container);
+        
+        if (self.historyListener) {
+            self.historyListener(component_container);
         }
 
-        this.appendChild(component_container);
-
-        if (this.historyListener) {
-            this.historyListener(component_container);
-        }
-
-        if (callback) {
-            component_scrollbar.onopen = callback;
+        if (object.onopen || callback) {
+            component_scrollbar.onopen = object.onopen || callback;
 
             component_scrollbar.onopen();
         }
         
-        var id = this.history[this.history.length - 1].appearanceKey;
-        
-        document.body.dataset.appearance = id;
-        this.dataset.appearance = id;
+        if (container) {
+            setTimeout(function() {
+                container.remove();
+            }, Satus.getAnimationDuration(container));
+        }
+    }
 
-        setTimeout(function() {
-            container.remove();
-        }, Satus.getAnimationDuration(container));
+    create(component, 0);
+    
+    component.back = function() {
+        create(this, 1);
     };
-
-    component_container.className = 'satus-main__container';
-
-    if (object.on && object.on.change) {
-        component.historyListener = object.on.change;
+    
+    component.open = function(element, callback) {
+        this.history.push(element);
+        
+        create(this, 2, callback);
+    };
+    
+    if (object.on && object.on.change || object.onchange) {
+        component.historyListener = object.on && object.on.change || object.onchange;
+        
+        component.historyListener(component.querySelector('.satus-main__container'));
     }
-
-    if (component.historyListener) {
-        component.historyListener(component_container);
-    }
-
-    for (var key in object) {
-        Satus.render(object[key], component_scrollbar);
-    }
-
-    component.appendChild(component_container);
 
     return component;
 };
@@ -2315,6 +2298,11 @@ satus.components.shortcut = function(object) {
         
         component_button_save.addEventListener('click', function() {
             Satus.storage.set(object.storage_key, JSON.stringify(value));
+            
+            if (typeof object.onchange === 'function') {
+                object.onchange(object, value);
+            }
+            
             close();
         });
 

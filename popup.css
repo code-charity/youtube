@@ -307,6 +307,7 @@ button
 .satus-dialog--confirm .satus-section
 {
     display: flex;
+
     background-color: transparent;
 }
 
@@ -356,52 +357,74 @@ button
 
 
 
-.satus-section--footer
+.satus-main .satus-button.satus-button--ad
 {
     position: fixed;
     z-index: 99;
-    bottom: 10px;
+    bottom: 16px;
     left: 16px;
+
     display: flex;
+
     box-sizing: border-box;
-    box-shadow: 0 0 3px rgba(0,0,0,.1);
     width: 268px;
     height: 38px;
+    height: 80px;
     padding: 8px 16px;
+
     color: var(--satus-theme-main-text);
+    border-radius: 8px;
     border-radius: 4px;
     background: var(--satus-theme-section);
+    background: #242424;
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+
     align-items: center;
     justify-content: space-between;
 }
 
-html[it-improvedtube-home='list'] .satus-section--footer
+.satus-button--ad .satus-button__label
+{
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: rgba(255,255,255,.9);
+    text-shadow: 2px 1px 2px rgba(0,0,0,.6);
+}
+
+.satus-button--ad::after
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    content: '';
+    animation-name: satus-switch--dark;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    pointer-events: none;
+
+    background: radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%) !important;
+    background-repeat: no-repeat !important;
+    background-position: -10px 40px, 200px 0, -30px -20px, 130px 30px !important;
+    background-size: 50px 50px, 50px 50px, 100px 100px, 75px 75px !important;
+
+    filter: blur(8px);
+}
+
+html[it-improvedtube-home='list'] .satus-main .satus-button.satus-button--ad
 {
     position: relative;
-    left: 0;
     top: 0;
+    left: 0;
+
     margin: 50px 16px 16px;
-}
-
-.satus-main .satus-section--footer .satus-button
-{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    text-decoration: none;
-    color: var(--satus-theme-main-text);
-    text-align: center;
-    height: 32px;
-    justify-content: center;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.satus-main .satus-section--footer .satus-button--found-a-bug {
-    width: 128px;
-    position: absolute;
-    bottom: 48px;
-    left: 70px;
 }
 
 .satus-dialog--setup

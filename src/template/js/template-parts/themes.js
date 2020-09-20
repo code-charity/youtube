@@ -42,7 +42,7 @@ Menu.main.section.themes = {
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>',
     label: 'themes',
     class: 'satus-folder--themes',
-    appearanceId: 'themes',
+    appearanceKey: 'themes',
 
     section: {
         type: 'section',
