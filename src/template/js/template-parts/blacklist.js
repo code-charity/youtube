@@ -3,7 +3,7 @@ Menu.main.section.blacklist = {
     before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>',
     label: 'blacklist',
     class: 'satus-folder--blacklist',
-    appearanceId: 'blacklist',
+    appearanceKey: 'blacklist',
 
     section_activate: {
         type: 'section',
