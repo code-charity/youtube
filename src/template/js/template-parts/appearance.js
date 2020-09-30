@@ -1,6 +1,6 @@
 Menu.main.section.appearance = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
     label: 'appearance',
     class: 'satus-folder--appearance',
     appearanceKey: 'appearance',
@@ -57,11 +57,6 @@ Menu.main.section.appearance = {
         section: {
             type: 'section',
 
-            /*player_hide_annotations: {
-                type: 'switch',
-                label: 'hideAnnotations',
-                tags: 'hide,remove,elements'
-            },*/
             player_hide_cards: {
                 type: 'switch',
                 label: 'hideCards',
@@ -300,7 +295,7 @@ Menu.main.section.appearance = {
                 }],
                 tags: 'right'
             },
-            
+
             livechat: {
                 type: 'select',
                 label: 'liveChat',
@@ -316,18 +311,6 @@ Menu.main.section.appearance = {
                     value: 'hidden'
                 }]
             },
-            /*livechat_type: {
-                type: 'select',
-                label: 'liveChatType',
-
-                options: [{
-                    label: 'topChat',
-                    value: 'top'
-                }, {
-                    label: 'liveChat',
-                    value: 'live'
-                }]
-            },*/
             hide_playlist: {
                 type: 'switch',
                 label: 'hidePlaylist'

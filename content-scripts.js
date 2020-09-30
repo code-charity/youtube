@@ -352,7 +352,7 @@ ImprovedTube.events = function() {
 
 chrome.storage.local.get(function(items) {
     document.addEventListener('ImprovedTubeAnalyzer', function() {
-        if (items.analyzer_activation !== false) {
+        if (items.analyzer_activation === true) {
             if (document.querySelector('ytd-channel-name a') && chrome && chrome.runtime) {
                 chrome.runtime.sendMessage({
                     name: 'improvedtube-analyzer',
@@ -997,7 +997,7 @@ ImprovedTube.blacklist = function() {
                 let channel_href = item.querySelector('.ytd-channel-name a, a.spf-link[href*="/user/"], a.spf-link[href*="/channel/"]').href;
 
                 for (var key in ImprovedTube.storage.blacklist.channels) {
-                    if (channel_href.indexOf(key) !== -1) {
+                    if (item.style && channel_href.indexOf(key) !== -1) {
                         item.style.display = 'none';
                     }
                 }

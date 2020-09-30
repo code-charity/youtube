@@ -1,7 +1,7 @@
 
-/*-----------------------------------------------------------------------------
+/*---------------------------------------------------------------
 >>> ANIMATIONS
------------------------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 .satus-animation--fade-in
 {
@@ -33,6 +33,16 @@
     animation: fadeOutRight 250ms;
 }
 
+.satus-animation--zoom-in
+{
+    animation: zoomIn 250ms;
+}
+
+.satus-animation--zoom-out
+{
+    animation: zoomOut 250ms;
+}
+
 @keyframes fadeIn
 {
     from
@@ -41,8 +51,6 @@
     }
     to
     {
-        transform: translateX(0%);
-
         opacity: 1;
     }
 }
@@ -55,8 +63,6 @@
     }
     to
     {
-        transform: translateX(0%);
-
         opacity: 0;
     }
 }
@@ -125,17 +131,51 @@
     }
 }
 
-/*-----------------------------------------------------------------------------
+@keyframes zoomIn
+{
+    from
+    {
+        transform: scale(.8);
+
+        opacity: 0;
+    }
+    to
+    {
+        transform: scale(1);
+
+        opacity: 1;
+    }
+}
+
+@keyframes zoomOut
+{
+    from
+    {
+        transform: scale(1);
+
+        opacity: 1;
+    }
+    to
+    {
+        transform: scale(.8);
+
+        opacity: 0;
+    }
+}
+
+/*---------------------------------------------------------------
 >>> THEMES
--------------------------------------------------------------------------------
+-----------------------------------------------------------------
 1.0 Default
------------------------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 html
 {
 	--satus-theme-primary: #f6b465;
 
 	--satus-theme-dialog: #f7f7f6;
+    --satus-theme-dialog-backdrop: rgba(25,25,25,.2);
+    --satus-theme-dialog-shadow: inset 0 -1px 1px 1px rgba(0,0,0,.1), 0 2px 6px rgba(0, 0, 0, .15);
 	--satus-theme-dialog-text: #777;
 
 	--satus-theme-header: #fff;
@@ -154,6 +194,8 @@ html
 	--satus-theme-tooltip: rgba(0, 0, 0, .4);
 
 	--satus-theme-ripple: rgba(0, 0, 0, .04);
+    
+    --satus-theme-shortcut: #fff;
     
     
     
@@ -394,11 +436,7 @@ html
     width: 36px;
     height: 36px;
     padding: 6px;
-}
-
-.satus-header .satus-button::before
-{
-    border-radius: 50%;
+     border-radius: 50%;
 }
 
 
@@ -463,23 +501,31 @@ body[data-appearance='home'] .satus-text--title
     text-align: left;
 }
 
-.satus-dialog--vertical-menu .satus-folder svg,
 .satus-dialog--vertical-menu .satus-button svg
 {
     width: 20px;
-    height: 18px;
-    margin: 0 14px 0 0;
+    height: 20px;
 
     opacity: .75;
 }
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 >>> SELECT
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
-.satus-select
+.satus-select > svg
 {
-    justify-content: space-between;
+    width: 20px
+}
+
+.satus-select > svg + .satus-select__label
+{
+    margin: 0 0 0 8px;
+}
+
+.satus-select__label
+{
+    flex: 1
 }
 
 .satus-select__value
@@ -489,6 +535,8 @@ body[data-appearance='home'] .satus-text--title
     text-align: right;
 
     opacity: .7;
+
+    flex: 1;
 }
 
 
@@ -766,18 +814,18 @@ body[data-appearance='home'] .satus-text--title
     z-index: 1
 }
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 >>> FOLDER
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
-.satus-folder
+.satus-button.satus-folder
 {
-    text-align: left
+    text-transform: unset
 }
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 >>> TEXT
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 .satus-text-field
 {
@@ -795,15 +843,16 @@ body[data-appearance='home'] .satus-text--title
     background: unset;
 }
 
-/*-----------------------------------------------------------------------------
+/*---------------------------------------------------------------
 >>> MAIN
--------------------------------------------------------------------------------
+-----------------------------------------------------------------
 1.0 General
------------------------------------------------------------------------------*/
+2.0 Other
+---------------------------------------------------------------*/
 
-/*-----------------------------------------------------------------------------
-1.0 General
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+1.0 GENERAL
+---------------------------------------------------------------*/
 
 .satus-main
 {
@@ -817,7 +866,7 @@ body[data-appearance='home'] .satus-text--title
     color: var(--satus-theme-main-text);
     background-color: var(--satus-theme-main);
 
-    fill: var(--satus-theme-main-text);
+    flex: 1;
 }
 
 .satus-main__container
@@ -835,8 +884,24 @@ body[data-appearance='home'] .satus-text--title
     transition: 250ms;
 
     background-color: var(--satus-theme-main);
+}
 
-    will-change: transform;
+
+/*---------------------------------------------------------------
+2.0 OTHER
+---------------------------------------------------------------*/
+
+.satus-main .satus-button
+{
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+
+    text-align: left;
+
+    border-radius: 0;
+
+    justify-content: flex-start;
 }
 
 /*--------------------------------------------------------------
@@ -1053,6 +1118,8 @@ body[data-appearance='home'] .satus-text--title
 
 .satus-scrollbar__content
 {
+    display: inline-block;
+    
     min-height: 100%;
 }
 
@@ -1109,9 +1176,16 @@ body[data-appearance='home'] .satus-text--title
     list-style: none;
 }
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 >>> DIALOG
---------------------------------------------------------------*/
+-----------------------------------------------------------------
+1.0 General
+2.0 Other
+---------------------------------------------------------------*/
+
+/*---------------------------------------------------------------
+1.0 GENERAL
+---------------------------------------------------------------*/
 
 .satus-dialog
 {
@@ -1122,7 +1196,7 @@ body[data-appearance='home'] .satus-text--title
 
     display: flex;
 
-    width: 100%;
+    width: 100vw;
     height: 100vh;
 
     justify-content: center;
@@ -1141,9 +1215,8 @@ body[data-appearance='home'] .satus-text--title
     animation: fadeIn 150ms linear forwards;
 
     opacity: 0;
-    background: rgba(25,25,25,.2);
+    background: var(--satus-theme-dialog-backdrop);
 
-    fill: var(--satus-theme-dialog-text);
     backdrop-filter: blur(8px);
 }
 
@@ -1168,7 +1241,7 @@ body[data-appearance='home'] .satus-text--title
     color: var(--satus-theme-dialog-text);
     border-radius: 6px;
     background-color: var(--satus-theme-dialog);
-    box-shadow: inset 0 -1px 1px 1px rgba(0,0,0,.1), 0 2px 6px rgba(0, 0, 0, .15);
+    box-shadow: var(--satus-theme-dialog-shadow);
 }
 
 .satus-dialog--closing .satus-dialog__scrim
@@ -1181,126 +1254,58 @@ body[data-appearance='home'] .satus-text--title
     animation: zoomOut 70ms linear forwards;
 }
 
-@keyframes fadeIn
+
+/*---------------------------------------------------------------
+2.0 OTHER
+---------------------------------------------------------------*/
+
+.satus-dialog .satus-button
 {
-    from
-    {
-        opacity: 0;
-    }
-    to
-    {
-        opacity: 1;
-    }
+    justify-content: flex-start
 }
 
-@keyframes fadeOut
-{
-    from
-    {
-        opacity: 1;
-    }
-    to
-    {
-        opacity: 0;
-    }
-}
-
-@keyframes zoomIn
-{
-    from
-    {
-        transform: scale(.8);
-
-        opacity: 0;
-    }
-    to
-    {
-        transform: scale(1);
-
-        opacity: 1;
-    }
-}
-
-@keyframes zoomOut
-{
-    from
-    {
-        transform: scale(1);
-
-        opacity: 1;
-    }
-    to
-    {
-        transform: scale(.8);
-
-        opacity: 0;
-    }
-}
-
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 >>> BUTTON
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 .satus-button
 {
-    font-size: inherit;
-    font-family: inherit;
+    font: inherit;
 
-    position: relative;
+    display: inline-flex;
 
-    display: flex;
-
+    height: 36px;
     margin: 0;
+    padding: 0 8px;
 
     cursor: pointer;
 
     color: inherit;
     border: none;
+    border-radius: 4px;
     outline: none;
-    background-color: var(--satus-theme-button);
+    background-color: transparent;
 
-    -webkit-tap-highlight-color: transparent;
     align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
     -webkit-appearance: none;
 }
 
-.satus-button::before
+.satus-button:hover
 {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    content: '';
-
-    opacity: 0;
     background-color: var(--satus-theme-ripple);
 }
 
-.satus-button:focus::before,
-.satus-button:hover::before
+.satus-button > svg
 {
-    opacity: 1;
+    width: 22px;
+    height: 22px
 }
 
-.satus-button__icon
+.satus-button > svg + .satus-button__label
 {
-    width: 24px;
-    height: 24px;
-}
-
-.satus-button svg
-{
-    width: 100%;
-
-    color: inherit;
-}
-
-.satus-button__icon + .satus-button__label
-{
-    margin-left: 8px;
+    margin: 0 0 0 8px
 }
 
 /*--------------------------------------------------------------
@@ -1344,82 +1349,53 @@ body[data-appearance='home'] .satus-text--title
     margin: 16px auto 8px;
 }
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 >>> COLOR PICKER
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 .satus-color-picker
-{
-    font-size: inherit;
-
-    position: relative;
-
-    display: flex;
-
-    box-sizing: border-box;
-    margin: 0;
-
-    cursor: pointer;
-
-    color: inherit;
-    border: none;
-    outline: none;
-    background-color: var(--satus-theme-button);
-
-    justify-content: space-between;
-    -webkit-tap-highlight-color: transparent;
-    align-items: center;
-    -webkit-appearance: none;
-}
-
-.satus-color-picker__value
-{
-    width: 24px;
-    height: 24px;
-
-    border-radius: 50%;
-}
-
-.satus-dialog--color-picker .satus-scrollbar__content
 {
     display: flex;
     flex-direction: column;
 
+    justify-content: center;
     align-items: center;
 }
 
-.satus-dialog--color-picker .satus-button
+.satus-color-picker__container
 {
-    box-sizing: unset;
-    width: 24px;
-    height: 24px;
-    margin: 0 0 8px;
-    padding: 8px;
+    position: relative;
+}
 
+.satus-color-picker canvas
+{
     border-radius: 50%;
 }
 
-.satus-dialog--color-picker .satus-button:hover
+.satus-color-picker__cursor
 {
-    background-color: var(--satus-theme-ripple);
+    position: absolute;
+    top: 128px;
+    left: 128px;
+
+    width: 12px;
+    height: 12px;
+
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+    border: 2px solid rgba(0,0,0,.4);
+    border-radius: 50%;
 }
 
-.satus-dialog--color-picker .satus-button::before
+.satus-color-picker__value
 {
-    content: unset;
-}
+    width: 28px;
+    height: 28px;
+    margin: 0 8px 0 0;
 
-.satus-dialog--color-picker .satus-button svg
-{
-    fill: transparent;
-    stroke: var(--satus-theme-primary);
-}
-
-.satus-dialog--color-picker canvas
-{
-    width: 200px;
-    height: 200px;
-    margin: 0 0 16px;
+    border: 2px solid #dcdcdc;
+    border-radius: 4px;
 }
 
 /*---------------------------------------------------------------
@@ -1495,7 +1471,7 @@ body[data-appearance='home'] .satus-text--title
 
     border: 1px solid rgba(0,0,0,.1);
     border-radius: 4px;
-    background: #fff;
+    background: var(--satus-theme-shortcut);
     box-shadow: 0 1px 1px rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.1);
 
     align-items: center;

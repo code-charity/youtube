@@ -8,15 +8,15 @@ function themePopupChange() {
 
 function themeChange(event) {
     if (event.target.checked) {
-        let themes = document.querySelectorAll('.satus-switch > input:checked:not([data-storage-key="red_popup_theme"])');
+        var themes = document.querySelectorAll('.satus-switch > input:checked:not([data-storage-key="red_popup_theme"])');
 
-        for (let i = 0, l = themes.length; i < l; i++) {
+        for (var i = 0, l = themes.length; i < l; i++) {
             if (themes[i] !== event.target) {
                 themes[i].click();
             }
         }
     }
-    
+
     if (Satus.storage.get('default_dark_theme') === true) {
         document.documentElement.setAttribute('theme', 'dark');
     } else if (Satus.storage.get('night_theme') === true) {
@@ -333,35 +333,7 @@ Menu.main.section.themes = {
             }]
         }
     },
-    
-    popup_title: {
-        type: 'text',
-        label: 'ImprovedTube',
-        style: {
-            margin: '0 12px',
-            fontWeight: '700'
-        }
-    },
-    red_popup_theme: {
-        type: 'switch',
-        label: 'Red',
-        value: true,
-        class: 'satus-switch--red',
-        style: {
-            background: '#bb1a1a'
-        },
 
-        onchange: themePopupChange
-    },
-    
-    youtube_title: {
-        type: 'text',
-        label: 'YouTube',
-        style: {
-            margin: '0 12px',
-            fontWeight: '700'
-        }
-    },
     default_dark_theme: {
         type: 'switch',
         label: 'dark',
