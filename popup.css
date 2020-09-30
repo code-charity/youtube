@@ -40,6 +40,8 @@ html[theme="dark"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -69,6 +71,8 @@ html[theme="night"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -99,6 +103,8 @@ html[theme="dawn"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -129,6 +135,8 @@ html[theme="sunset"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -159,6 +167,8 @@ html[theme="desert"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -189,6 +199,8 @@ html[theme="plain"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -219,6 +231,8 @@ html[theme="black"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -241,21 +255,20 @@ html:not([it-improvedtube-home='list'])[popup-theme="red"] .satus-main__containe
     box-shadow: 0 2px 2px rgba(0,0,0,.35);
 }
 
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
+/*---------------------------------------------------------------
+>>> INDEX
+-----------------------------------------------------------------
 # Fonts
 # Basic
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 # FONTS
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 @font-face
 {
     font-family: 'Open Sans';
-    font-weight: 400;
 
     src: url('assets/fonts/OpenSans-Regular.ttf');
 }
@@ -269,9 +282,9 @@ html:not([it-improvedtube-home='list'])[popup-theme="red"] .satus-main__containe
 }
 
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 # BASIC
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 body
 {
@@ -282,11 +295,9 @@ body
     overflow: hidden;
     flex-direction: column;
 
-    width: 300px;
-    height: 500px;
     margin: 0;
 
-    background-color: #eee;
+    background-color: var(--satus-theme-main);
 }
 
 body.improvedtube-page
@@ -295,236 +306,17 @@ body.improvedtube-page
     height: 100vh;
 }
 
-button
-{
-    font-family: 'Open Sans', sans-serif;
-}
-
-
-
-
-
-.satus-dialog--confirm .satus-section
-{
-    display: flex;
-
-    background-color: transparent;
-}
-
-.satus-dialog--confirm .satus-text
-{
-    display: block;
-
-    box-sizing: border-box;
-    padding: 0 16px 8px;
-}
-
-.satus-dialog--confirm .satus-button
-{
-    font-weight: 500;
-
-    overflow: hidden;
-
-    height: 28px;
-    min-height: 28px;
-    margin-right: 2px;
-    padding: 4px 8px;
-
-    text-transform: uppercase;
-
-    color: #f96754;
-    border-radius: 4px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.satus-main .satus-button.satus-button--ad
-{
-    position: fixed;
-    z-index: 99;
-    bottom: 16px;
-    left: 16px;
-
-    display: flex;
-
-    box-sizing: border-box;
-    width: 268px;
-    height: 38px;
-    height: 80px;
-    padding: 8px 16px;
-
-    color: var(--satus-theme-main-text);
-    border-radius: 8px;
-    border-radius: 4px;
-    background: var(--satus-theme-section);
-    background: #242424;
-    box-shadow: 0 0 3px rgba(0,0,0,.1);
-
-    align-items: center;
-    justify-content: space-between;
-}
-
-.satus-button--ad .satus-button__label
-{
-    font-size: 16px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    color: rgba(255,255,255,.9);
-    text-shadow: 2px 1px 2px rgba(0,0,0,.6);
-}
-
-.satus-button--ad::after
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    content: '';
-    animation-name: satus-switch--dark;
-    animation-duration: 4s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    pointer-events: none;
-
-    background: radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%) !important;
-    background-repeat: no-repeat !important;
-    background-position: -10px 40px, 200px 0, -30px -20px, 130px 30px !important;
-    background-size: 50px 50px, 50px 50px, 100px 100px, 75px 75px !important;
-
-    filter: blur(8px);
-}
-
-html[it-improvedtube-home='list'] .satus-main .satus-button.satus-button--ad
-{
-    position: relative;
-    top: 0;
-    left: 0;
-
-    margin: 50px 16px 16px;
-}
-
-.satus-dialog--setup
-{
-    animation: unset;
-}
-
-.satus-dialog--setup .satus-dialog__scrim
-{
-    display: none;
-}
-
-.satus-dialog--setup .satus-dialog__surface
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    
-    padding: 0;
-
-    width: 100%;
-    height: 100%;
-    max-height: unset;
-
-    transform: unset;
-    animation: unset;
-
-    opacity: 1;
-    border-radius: unset;
-}
-
-.satus-dialog--setup-language .satus-button
-{
-    width: 100%;
-    height: 48px;
-}
-
 /*---------------------------------------------------------------
 >>> HEADER:
 -----------------------------------------------------------------
-1.0 Buttons
-    1.1 Back button
-2.0 Title
+1.0 Title
 3.0 Right section
 4.0 Search
-5.0 Vertical menu
 ---------------------------------------------------------------*/
-
-/*---------------------------------------------------------------
-1.0 BUTTONS
----------------------------------------------------------------*/
-
-.satus-header .satus-button
-{
-    width: 36px;
-    height: 36px;
-    padding: 6px;
-}
-
-.satus-header .satus-button::before
-{
-    border-radius: 50%;
-}
-
-
-/*---------------------------------------------------------------
-1.1 BACK BUTTON
----------------------------------------------------------------*/
-
-.satus-button--back
-{
-    position: absolute;
-}
-
-.satus-button--back svg
-{
-    fill: none;
-    stroke: currentColor;
-}
-
-body[data-appearance='home'] .satus-button--back
-{
-    visibility: hidden;
-}
-
 
 /*---------------------------------------------------------------
 2.0 TITLE
 ---------------------------------------------------------------*/
-
-.satus-text--title
-{
-    font-size: 15px;
-    font-weight: 400;
-
-    position: absolute;
-    left: 56px;
-
-    letter-spacing: .0125em;
-}
 
 html[it-title-version='true'] body[data-appearance='home'] .satus-text--title::after
 {
@@ -536,11 +328,6 @@ html[it-title-version='true'] body[data-appearance='home'] .satus-text--title::a
 
     opacity: .6;
     color: var(--satus-theme-header-text);
-}
-
-body[data-appearance='home'] .satus-text--title
-{
-    left: 14px;
 }
 
 
@@ -621,7 +408,6 @@ body[data-appearance='home'] .satus-text--title
     stroke: currentColor;
 }
 
-
 body[data-appearance='search'] .satus-switch--red,
 body[data-appearance='search'] .satus-switch--dark,
 body[data-appearance='search'] .satus-switch--night,
@@ -653,95 +439,20 @@ body[data-appearance='search'] .satus-switch--desert .satus-switch__label
     color: #222;
 }
 
-
 /*---------------------------------------------------------------
-5.0 VERTICAL MENU
+>>> MAIN
+-----------------------------------------------------------------
+1.0 Section
+2.0 Folder
+3.0 Ad
 ---------------------------------------------------------------*/
 
-.satus-dialog--vertical-menu .satus-dialog__surface
-{
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    left: auto;
+/*---------------------------------------------------------------
+1.0 SECTION
+---------------------------------------------------------------*/
 
-    min-width: 180px;
-    max-width: 180px;
-
-    transform-origin: right top;
-}
-
-.satus-dialog--vertical-menu .satus-button,
-.satus-dialog--vertical-menu .satus-folder
-{
-    width: 100%;
-    height: 36px;
-    padding: 0 16px;
-
-    text-align: left;
-}
-
-.satus-dialog--vertical-menu .satus-folder svg,
-.satus-dialog--vertical-menu .satus-button svg
-{
-    width: 20px;
-    height: 18px;
-    margin: 0 14px 0 0;
-
-    opacity: .75;
-
-    fill: none;
-    stroke: var(--satus-theme-primary);
-}
-
-.satus-dialog--vertical-menu .satus-folder--mixer svg
-{
-    height: 20px;
-}
-
-.satus-dialog--vertical-menu .satus-button--github svg
-{
-    width: 18px;
-    height: 18px;
-}
-
-/*--------------------------------------------------------------
->>> MAIN:
-----------------------------------------------------------------
-1.0 Basic
-2.0 Section
-3.0 Folder
-4.0 Button
-5.0 Custom
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-1.0 BASIC
---------------------------------------------------------------*/
-
-.satus-main
-{
-    flex: 1;
-}
-
-
-/*--------------------------------------------------------------
-2.0 SECTION
---------------------------------------------------------------*/
-
-.satus-main .satus-section--label
-{
-    font-size: 17px;
-
-    display: block;
-
-    width: calc(100% - 16px);
-    max-width: 900px;
-    margin: 16px auto 8px;
-}
-
-html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-section:not(.satus-section--footer),
-.satus-main__container:not([data-appearance='home']) .satus-section:not(.satus-section--footer)
+html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-section,
+.satus-main__container:not([data-appearance='home']) .satus-section
 {
     display: block;
 
@@ -762,9 +473,9 @@ html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home']
 }
 
 
-/*--------------------------------------------------------------
-3.0 FOLDER
---------------------------------------------------------------*/
+/*---------------------------------------------------------------
+2.0 FOLDER
+--------------------------------------------------------------*-/
 
 .satus-main .satus-folder svg
 {
@@ -779,44 +490,119 @@ html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home']
 }
 
 
-/*--------------------------------------------------------------
-4.0 BUTTON
---------------------------------------------------------------*/
+/*---------------------------------------------------------------
+3.0 AD
+---------------------------------------------------------------*/
 
-.satus-main .satus-button
+.satus-main .satus-button.satus-button--ad
 {
-    width: 100%;
-    height: 48px;
-    padding: 0 16px;
-    text-align: left;
+    position: fixed;
+    z-index: 99;
+    bottom: 16px;
+    left: 16px;
+
+    display: flex;
+
+    box-sizing: border-box;
+    width: 268px;
+    height: 38px;
+    height: 80px;
+    padding: 8px 16px;
+
+    color: var(--satus-theme-main-text);
+    border-radius: 8px;
+    border-radius: 4px;
+    background: var(--satus-theme-section);
+    background: #242424;
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+
+    align-items: center;
+    justify-content: space-between;
 }
 
-
-/*--------------------------------------------------------------
-5.0 CUSTOM
---------------------------------------------------------------*/
-
-#forced-playback-speed + *,
-#forced-volume + *
+.satus-button--ad .satus-button__label
 {
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: rgba(255,255,255,.9);
+    text-shadow: 2px 1px 2px rgba(0,0,0,.6);
+}
+
+.satus-button--ad::after
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    content: '';
+    animation-name: satus-switch--dark;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
     pointer-events: none;
 
-    opacity: .5;
+    background: radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%) !important;
+    background-repeat: no-repeat !important;
+    background-position: -10px 40px, 200px 0, -30px -20px, 130px 30px !important;
+    background-size: 50px 50px, 50px 50px, 100px 100px, 75px 75px !important;
+
+    filter: blur(8px);
 }
 
-#forced-playback-speed[data-value=true] + *,
-#forced-volume[data-value=true] + *
+html[it-improvedtube-home='list'] .satus-main .satus-button.satus-button--ad
 {
-    pointer-events: all;
+    position: relative;
+    top: 0;
+    left: 0;
 
-    opacity: 1;
+    margin: 50px 16px 16px;
 }
 
-/*--------------------------------------------------------------
->>> HOME
---------------------------------------------------------------*/
+/*.satus-dialog--confirm .satus-section
+{
+    display: flex;
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-section:not(.satus-section--footer)
+    background-color: transparent;
+}
+
+.satus-dialog--confirm .satus-text
+{
+    display: block;
+
+    box-sizing: border-box;
+    padding: 0 16px 8px;
+}
+
+.satus-dialog--confirm .satus-button
+{
+    font-weight: 500;
+
+    overflow: hidden;
+
+    height: 28px;
+    min-height: 28px;
+    margin-right: 2px;
+    padding: 4px 8px;
+
+    text-transform: uppercase;
+
+    color: #f96754;
+    border-radius: 4px;
+}*/
+
+/*---------------------------------------------------------------
+>>> HOME
+-----------------------------------------------------------------
+1.0 
+---------------------------------------------------------------*/
+
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-section
 {
     width: 100%;
     margin-top: 16px;
@@ -842,23 +628,14 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     cursor: default;
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder::before
-{
-    background-color: transparent
-}
-
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder__label
-{
-    position: absolute;
-    bottom: 0;
-
-    pointer-events: none;
-}
-
 html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder:focus,
 html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder:hover
 {
     background-color: transparent;
+}
+
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button__label{
+    margin-left: 0
 }
 
 html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder svg,
@@ -1507,6 +1284,26 @@ html[it-it-analyzer='false'] .satus-folder--analyzer
 .satus-switch--black
 {
     background: #000 !important;
+}
+
+/*---------------------------------------------------------------
+>>> PLAYER
+---------------------------------------------------------------*/
+
+#forced-playback-speed + *,
+#forced-volume + *
+{
+    pointer-events: none;
+
+    opacity: .5;
+}
+
+[it-player-forced-playback-speed=true] #forced-playback-speed + *,
+[it-player-forced-volume=true] #forced-volume + *
+{
+    pointer-events: all;
+
+    opacity: 1;
 }
 
 /*-----------------------------------------------------------------------------

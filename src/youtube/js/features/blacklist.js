@@ -179,7 +179,7 @@ ImprovedTube.blacklist = function() {
                 let channel_href = item.querySelector('.ytd-channel-name a, a.spf-link[href*="/user/"], a.spf-link[href*="/channel/"]').href;
 
                 for (var key in ImprovedTube.storage.blacklist.channels) {
-                    if (channel_href.indexOf(key) !== -1) {
+                    if (item.style && channel_href.indexOf(key) !== -1) {
                         item.style.display = 'none';
                     }
                 }

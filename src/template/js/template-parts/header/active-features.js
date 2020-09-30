@@ -1,6 +1,6 @@
-Menu.header.section_end.button_vert.onClickRender.active_features = {
+Menu.header.section_end.button_vert.onclick.active_features = {
     type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
+    before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
     label: 'activeFeatures',
     onclick: function() {
         document.querySelector('.satus-dialog__scrim').click();
@@ -14,9 +14,9 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
                 storage = Satus.storage;
 
             function search(string, object) {
-                let result = [];
+                var result = [];
 
-                for (let i in object) {
+                for (var i in object) {
                     if (object[i].type) {
                         if (/(button|select|shortcut|slider|switch)/.test(object[i].type)) {
                             if (i.indexOf(string) !== -1 || (object[i].tags && object[i].tags.indexOf(string) !== -1)) {
@@ -25,10 +25,10 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
                                 }
                             }
                         } else {
-                            let response = search(string, object[i]);
+                            var response = search(string, object[i]);
 
                             if (response.length > 0) {
-                                for (let j = 0, l = response.length; j < l; j++) {
+                                for (var j = 0, l = response.length; j < l; j++) {
                                     result.push(response[i]);
                                 }
                             }

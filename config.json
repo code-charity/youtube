@@ -59,12 +59,12 @@
     "popup.css": [
         "src/template/css/themes.css",
         "src/template/css/index.css",
-        "src/template/css/setup.css",
         "src/template/css/header.css",
         "src/template/css/main.css",
         "src/template/css/template-parts/home.css",
         "src/template/css/template-parts/appearance.css",
         "src/template/css/template-parts/themes.css",
+        "src/template/css/template-parts/player.css",
         "src/template/css/template-parts/blacklist.css",
         "src/template/css/template-parts/analyzer.css",
         "src/template/css/template-parts/mixer.css",

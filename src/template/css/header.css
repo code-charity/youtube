@@ -1,66 +1,14 @@
 /*---------------------------------------------------------------
 >>> HEADER:
 -----------------------------------------------------------------
-1.0 Buttons
-    1.1 Back button
-2.0 Title
+1.0 Title
 3.0 Right section
 4.0 Search
-5.0 Vertical menu
 ---------------------------------------------------------------*/
-
-/*---------------------------------------------------------------
-1.0 BUTTONS
----------------------------------------------------------------*/
-
-.satus-header .satus-button
-{
-    width: 36px;
-    height: 36px;
-    padding: 6px;
-}
-
-.satus-header .satus-button::before
-{
-    border-radius: 50%;
-}
-
-
-/*---------------------------------------------------------------
-1.1 BACK BUTTON
----------------------------------------------------------------*/
-
-.satus-button--back
-{
-    position: absolute;
-}
-
-.satus-button--back svg
-{
-    fill: none;
-    stroke: currentColor;
-}
-
-body[data-appearance='home'] .satus-button--back
-{
-    visibility: hidden;
-}
-
 
 /*---------------------------------------------------------------
 2.0 TITLE
 ---------------------------------------------------------------*/
-
-.satus-text--title
-{
-    font-size: 15px;
-    font-weight: 400;
-
-    position: absolute;
-    left: 56px;
-
-    letter-spacing: .0125em;
-}
 
 html[it-title-version='true'] body[data-appearance='home'] .satus-text--title::after
 {
@@ -72,11 +20,6 @@ html[it-title-version='true'] body[data-appearance='home'] .satus-text--title::a
 
     opacity: .6;
     color: var(--satus-theme-header-text);
-}
-
-body[data-appearance='home'] .satus-text--title
-{
-    left: 14px;
 }
 
 
@@ -157,7 +100,6 @@ body[data-appearance='home'] .satus-text--title
     stroke: currentColor;
 }
 
-
 body[data-appearance='search'] .satus-switch--red,
 body[data-appearance='search'] .satus-switch--dark,
 body[data-appearance='search'] .satus-switch--night,
@@ -187,56 +129,4 @@ body[data-appearance='search'] .satus-switch--plain .satus-switch__label,
 body[data-appearance='search'] .satus-switch--desert .satus-switch__label
 {
     color: #222;
-}
-
-
-/*---------------------------------------------------------------
-5.0 VERTICAL MENU
----------------------------------------------------------------*/
-
-.satus-dialog--vertical-menu .satus-dialog__surface
-{
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    left: auto;
-
-    min-width: 180px;
-    max-width: 180px;
-
-    transform-origin: right top;
-}
-
-.satus-dialog--vertical-menu .satus-button,
-.satus-dialog--vertical-menu .satus-folder
-{
-    width: 100%;
-    height: 36px;
-    padding: 0 16px;
-
-    text-align: left;
-}
-
-.satus-dialog--vertical-menu .satus-folder svg,
-.satus-dialog--vertical-menu .satus-button svg
-{
-    width: 20px;
-    height: 18px;
-    margin: 0 14px 0 0;
-
-    opacity: .75;
-
-    fill: none;
-    stroke: var(--satus-theme-primary);
-}
-
-.satus-dialog--vertical-menu .satus-folder--mixer svg
-{
-    height: 20px;
-}
-
-.satus-dialog--vertical-menu .satus-button--github svg
-{
-    width: 18px;
-    height: 18px;
 }

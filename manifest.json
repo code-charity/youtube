@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "short_name" : "ImprovedTube",
     "name": "Improve YouTube! (Open-Source for YouTube)",
-    "version": "3.110",
+    "version": "3.150-beta",
     "icons": {
         "16": "assets/icons/16.png",
         "32": "assets/icons/32.png",
@@ -69,7 +69,8 @@
         ]
     },
     "optional_permissions": [
-        "downloads", "https://*.youtube.com/*"
+        "downloads",
+        "https://*.youtube.com/*"
     ],
     "permissions": [
         "https://www.youtube.com/", 

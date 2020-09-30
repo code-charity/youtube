@@ -4,10 +4,10 @@ Menu.main.section.analyzer = {
     label: 'analyzer',
     class: 'satus-folder--analyzer',
     appearanceKey: 'analyzer',
-    
+
     activ_section: {
         type: 'section',
-        
+
         analyzer_activation: {
             type: 'switch',
             label: 'activate'

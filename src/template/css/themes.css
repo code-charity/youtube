@@ -39,6 +39,8 @@ html[theme="dark"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -68,6 +70,8 @@ html[theme="night"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -98,6 +102,8 @@ html[theme="dawn"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -128,6 +134,8 @@ html[theme="sunset"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -158,6 +166,8 @@ html[theme="desert"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -188,6 +198,8 @@ html[theme="plain"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
@@ -218,6 +230,8 @@ html[theme="black"]
 
 	--satus-theme-scrollbar: rgba(255, 255, 255, .2);
 	--satus-theme-scrollbar-focus: rgba(255, 255, 255, .4);
+    
+    --satus-theme-shortcut: #444;
 
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 

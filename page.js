@@ -1,13 +1,22 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.documentElement.innerHTML = [
-        '<!doctype html>',
-        '<html>',
-        '<head>',
-        '<meta charset="utf-8">',
-        '<meta name="viewport" content="width=device-width,initial-scale=1">',
-        '<title>ImprovedTube</title>',
-        '</head>',
-        '<body class="improvedtube-page"></body>',
-        '</html>'
-    ].join('');
-});
+document.documentElement.innerHTML = `
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>ImprovedTube</title>
+		<style>
+            html, body {
+                width: 100vw;
+                height: 100vh
+            }
+		</style>
+		<link rel="stylesheet" href="satus.css">
+		<link rel="stylesheet" href="popup.css">
+	</head>
+	<body>
+		<script src="satus.js"></script>
+		<script src="popup.js"></script>
+	</body>
+</html>
+`;

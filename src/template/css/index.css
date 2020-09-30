@@ -1,18 +1,17 @@
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
+/*---------------------------------------------------------------
+>>> INDEX
+-----------------------------------------------------------------
 # Fonts
 # Basic
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 # FONTS
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 @font-face
 {
     font-family: 'Open Sans';
-    font-weight: 400;
 
     src: url('assets/fonts/OpenSans-Regular.ttf');
 }
@@ -26,9 +25,9 @@
 }
 
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 # BASIC
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
 body
 {
@@ -39,147 +38,13 @@ body
     overflow: hidden;
     flex-direction: column;
 
-    width: 300px;
-    height: 500px;
     margin: 0;
 
-    background-color: #eee;
+    background-color: var(--satus-theme-main);
 }
 
 body.improvedtube-page
 {
     width: 100vw;
     height: 100vh;
-}
-
-button
-{
-    font-family: 'Open Sans', sans-serif;
-}
-
-
-
-
-
-.satus-dialog--confirm .satus-section
-{
-    display: flex;
-
-    background-color: transparent;
-}
-
-.satus-dialog--confirm .satus-text
-{
-    display: block;
-
-    box-sizing: border-box;
-    padding: 0 16px 8px;
-}
-
-.satus-dialog--confirm .satus-button
-{
-    font-weight: 500;
-
-    overflow: hidden;
-
-    height: 28px;
-    min-height: 28px;
-    margin-right: 2px;
-    padding: 4px 8px;
-
-    text-transform: uppercase;
-
-    color: #f96754;
-    border-radius: 4px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.satus-main .satus-button.satus-button--ad
-{
-    position: fixed;
-    z-index: 99;
-    bottom: 16px;
-    left: 16px;
-
-    display: flex;
-
-    box-sizing: border-box;
-    width: 268px;
-    height: 38px;
-    height: 80px;
-    padding: 8px 16px;
-
-    color: var(--satus-theme-main-text);
-    border-radius: 8px;
-    border-radius: 4px;
-    background: var(--satus-theme-section);
-    background: #242424;
-    box-shadow: 0 0 3px rgba(0,0,0,.1);
-
-    align-items: center;
-    justify-content: space-between;
-}
-
-.satus-button--ad .satus-button__label
-{
-    font-size: 16px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    color: rgba(255,255,255,.9);
-    text-shadow: 2px 1px 2px rgba(0,0,0,.6);
-}
-
-.satus-button--ad::after
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    content: '';
-    animation-name: satus-switch--dark;
-    animation-duration: 4s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    pointer-events: none;
-
-    background: radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%), radial-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2), transparent 60%) !important;
-    background-repeat: no-repeat !important;
-    background-position: -10px 40px, 200px 0, -30px -20px, 130px 30px !important;
-    background-size: 50px 50px, 50px 50px, 100px 100px, 75px 75px !important;
-
-    filter: blur(8px);
-}
-
-html[it-improvedtube-home='list'] .satus-main .satus-button.satus-button--ad
-{
-    position: relative;
-    top: 0;
-    left: 0;
-
-    margin: 50px 16px 16px;
 }

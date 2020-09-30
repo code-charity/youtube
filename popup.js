@@ -10,7 +10,7 @@ var Menu = {
             button_back: {
                 type: 'button',
                 class: 'satus-button--back',
-                before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M14 18l-6-6 6-6"/></svg>',
+                before: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M14 18l-6-6 6-6"/></svg>',
                 onclick: function() {
                     if (document.querySelector('.satus-dialog__scrim')) {
                         document.querySelector('.satus-dialog__scrim').click();
@@ -34,7 +34,7 @@ var Menu = {
 
             button_search: {
                 type: 'button',
-                icon: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24"><circle cx="11" cy="10.5" r="6" fill="none"/><path d="M20 20l-4-4"/></svg>',
+                before: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24"><circle cx="11" cy="10.5" r="6" fill="none"/><path d="M20 20l-4-4"/></svg>',
                 onclick: function() {
                     document.querySelector('.satus-main').open({
                         appearanceKey: 'search'
@@ -84,8 +84,8 @@ var Menu = {
             },
             button_vert: {
                 type: 'button',
-                icon: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5.25" r="0.45"/><circle cx="12" cy="12" r="0.45"/><circle cx="12" cy="18.75" r="0.45"/></svg>',
-                onClickRender: {
+                before: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5.25" r="0.45"/><circle cx="12" cy="12" r="0.45"/><circle cx="12" cy="18.75" r="0.45"/></svg>',
+                onclick: {
                     type: 'dialog',
                     class: 'satus-dialog--vertical-menu',
 
@@ -93,7 +93,7 @@ var Menu = {
                         type: 'button',
                         label: 'Email',
                         title: 'bugs@improvedtube.com',
-                        before: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>',
+                        before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>',
                         onclick: function() {
                             window.open('mailto:bugs@improvedtube.com', '_blank');
                         }
@@ -102,7 +102,7 @@ var Menu = {
                         type: 'button',
                         label: 'GitHub',
                         title: '/ImprovedTube/ImprovedTube',
-                        before: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>',
+                        before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>',
                         onclick: function() {
                             window.open('https://github.com/ImprovedTube/ImprovedTube/', '_blank');
                         }
@@ -111,7 +111,7 @@ var Menu = {
                         type: 'button',
                         label: 'Website',
                         title: 'improvedtube.com',
-                        before: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>',
+                        before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>',
                         onclick: function() {
                             window.open('http://www.improvedtube.com/', '_blank');
                         }
@@ -144,9 +144,9 @@ Menu.main = {
     }
 };
 
-Menu.header.section_end.button_vert.onClickRender.active_features = {
+Menu.header.section_end.button_vert.onclick.active_features = {
     type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
+    before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
     label: 'activeFeatures',
     onclick: function() {
         document.querySelector('.satus-dialog__scrim').click();
@@ -160,9 +160,9 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
                 storage = Satus.storage;
 
             function search(string, object) {
-                let result = [];
+                var result = [];
 
-                for (let i in object) {
+                for (var i in object) {
                     if (object[i].type) {
                         if (/(button|select|shortcut|slider|switch)/.test(object[i].type)) {
                             if (i.indexOf(string) !== -1 || (object[i].tags && object[i].tags.indexOf(string) !== -1)) {
@@ -171,10 +171,10 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
                                 }
                             }
                         } else {
-                            let response = search(string, object[i]);
+                            var response = search(string, object[i]);
 
                             if (response.length > 0) {
-                                for (let j = 0, l = response.length; j < l; j++) {
+                                for (var j = 0, l = response.length; j < l; j++) {
                                     result.push(response[i]);
                                 }
                             }
@@ -205,9 +205,9 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
     }
 };
 
-Menu.header.section_end.button_vert.onClickRender.mixer = {
+Menu.header.section_end.button_vert.onclick.mixer = {
     type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>',
+    before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>',
     label: 'mixer',
     class: 'satus-folder--mixer',
     appearanceKey: 'mixer',
@@ -320,9 +320,9 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
     }
 };
 
-Menu.header.section_end.button_vert.onClickRender.settings = {
+Menu.header.section_end.button_vert.onclick.settings = {
     type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>',
+    before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>',
     label: 'settings',
     parent: '.satus-main__container',
     onclick: function() {
@@ -334,7 +334,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
 
         developer_options: {
             type: 'folder',
-            before: '<svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>',
+            before: '<svg fill="var(--satus-theme-primary)" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>',
             label: 'developerOptions',
 
             custom_js_section_label: {
@@ -348,10 +348,10 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 custom_js: {
                     type: 'text-field',
                     onrender: function() {
-                        this.value = Satus.storage.get('custom_js') || '';
+                        this.value = satus.storage.get('custom_js') || '';
                     },
                     oninput: function() {
-                        Satus.storage.set('custom_js', this.value);
+                        satus.storage.set('custom_js', this.value);
                     }
                 }
             },
@@ -367,32 +367,13 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 custom_css: {
                     type: 'text-field',
                     onrender: function() {
-                        this.value = Satus.storage.get('custom_css') || '';
+                        this.value = satus.storage.get('custom_css') || '';
                     },
                     oninput: function() {
-                        Satus.storage.set('custom_css', this.value);
+                        satus.storage.set('custom_css', this.value);
                     }
                 }
-            },
-
-            /*translations_section_label: {
-                type: 'text',
-                class: 'satus-section--label',
-                label: 'translations'
-            },
-
-            translations_section: {
-                type: 'section',
-                onrender: function() {
-                    Satus.search('language', Menu, function(result) {
-                        var languages = result.language.options;
-
-                        for (var i = 0, l = languages.length; i < l; i++) {
-
-                        }
-                    })
-                }
-            }*/
+            }
         },
     },
 
@@ -401,7 +382,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
 
         appearance: {
             type: 'folder',
-            before: '<svg viewBox="0 0 24 24"><path d="M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z" /></svg>',
+            before: '<svg fill="var(--satus-theme-primary)" viewBox="0 0 24 24"><path d="M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z" /></svg>',
             label: 'appearance',
 
             general: {
@@ -411,10 +392,10 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 header: {
                     type: 'folder',
                     label: 'header',
-                    
+
                     section: {
                         type: 'section',
-                        
+
                         title_version: {
                             type: 'switch',
                             label: 'version'
@@ -538,7 +519,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
         },
         languages: {
             type: 'folder',
-            before: '<svg viewBox="0 0 24 24"><path d="M12.9 15l-2.6-2.4c1.8-2 3-4.2 3.8-6.6H17V4h-7V2H8v2H1v2h11.2c-.7 2-1.8 3.8-3.2 5.3-1-1-1.7-2.1-2.3-3.3h-2c.7 1.6 1.7 3.2 3 4.6l-5.1 5L4 19l5-5 3.1 3.1.8-2zm5.6-5h-2L12 22h2l1.1-3H20l1.1 3h2l-4.5-12zm-2.6 7l1.6-4.3 1.6 4.3H16z" /></svg>',
+            before: '<svg fill="var(--satus-theme-primary)" viewBox="0 0 24 24"><path d="M12.9 15l-2.6-2.4c1.8-2 3-4.2 3.8-6.6H17V4h-7V2H8v2H1v2h11.2c-.7 2-1.8 3.8-3.2 5.3-1-1-1.7-2.1-2.3-3.3h-2c.7 1.6 1.7 3.2 3 4.6l-5.1 5L4 19l5-5 3.1 3.1.8-2zm5.6-5h-2L12 22h2l1.1-3H20l1.1 3h2l-4.5-12zm-2.6 7l1.6-4.3 1.6 4.3H16z" /></svg>',
             label: 'languages',
 
             section: {
@@ -548,15 +529,15 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     label: 'improvedtubeLanguage',
                     type: 'select',
                     onchange: function(name, value) {
-                        Satus.memory.set('locale', {});
+                        satus.locale.messages = {};
 
-                        Satus.locale(function() {
+                        satus.locale.import(function() {
                             document.querySelector('.satus-main__container').innerHTML = '';
 
-                            document.querySelector('.satus-header__title').innerText = Satus.locale.getMessage('languages');
-                            document.querySelector('#search').placeholder = Satus.locale.getMessage('search');
+                            document.querySelector('.satus-header__title').innerText = satus.locale.getMessage('languages');
+                            document.querySelector('#search').placeholder = satus.locale.getMessage('search');
 
-                            Satus.render(document.querySelector('.satus-main__container'), Menu.main.section.settings.section.languages);
+                            satus.render(document.querySelector('.satus-main__container'), Menu.main.section.settings.section.languages);
                         });
                     },
                     options: [{
@@ -853,7 +834,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
         backup_and_reset: {
             type: 'folder',
             label: 'backupAndReset',
-            before: '<svg viewBox="0 0 24 24"><path d="M13.3 3A9 9 0 0 0 4 12H2.2c-.5 0-.7.5-.3.8l2.7 2.8c.2.2.6.2.8 0L8 12.8c.4-.3.1-.8-.3-.8H6a7 7 0 1 1 2.7 5.5 1 1 0 0 0-1.3.1 1 1 0 0 0 0 1.5A9 9 0 0 0 22 11.7C22 7 18 3.1 13.4 3zm-.6 5c-.4 0-.7.3-.7.8v3.6c0 .4.2.7.5.9l3.1 1.8c.4.2.8.1 1-.2.2-.4.1-.8-.2-1l-3-1.8V8.7c0-.4-.2-.7-.7-.7z" /></svg>',
+            before: '<svg fill="var(--satus-theme-primary)" viewBox="0 0 24 24"><path d="M13.3 3A9 9 0 0 0 4 12H2.2c-.5 0-.7.5-.3.8l2.7 2.8c.2.2.6.2.8 0L8 12.8c.4-.3.1-.8-.3-.8H6a7 7 0 1 1 2.7 5.5 1 1 0 0 0-1.3.1 1 1 0 0 0 0 1.5A9 9 0 0 0 22 11.7C22 7 18 3.1 13.4 3zm-.6 5c-.4 0-.7.3-.7.8v3.6c0 .4.2.7.5.9l3.1 1.8c.4.2.8.1 1-.2.2-.4.1-.8-.2-1l-3-1.8V8.7c0-.4-.2-.7-.7-.7z" /></svg>',
 
             section: {
                 type: 'section',
@@ -874,10 +855,10 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                     var data = JSON.parse(this.result);
 
                                     for (var i in data) {
-                                        Satus.storage.set(i, data[i]);
+                                        satus.storage.set(i, data[i]);
                                     }
 
-                                    Satus.render({
+                                    satus.render({
                                         type: 'dialog',
                                         class: 'satus-dialog--confirm',
 
@@ -935,7 +916,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         chrome.runtime.sendMessage({
                             name: 'download',
                             filename: 'improvedtube-settings.json',
-                            value: Satus.storage
+                            value: satus.storage
                         });
                     }
                 },
@@ -944,7 +925,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     label: 'resetAllSettings',
 
                     onclick: function() {
-                        Satus.render({
+                        satus.render({
                             type: 'dialog',
                             class: 'satus-dialog--confirm',
 
@@ -975,7 +956,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                     onclick: function() {
                                         var scrim = document.querySelectorAll('.satus-dialog__scrim');
 
-                                        Satus.storage.clear();
+                                        satus.storage.clear();
 
                                         scrim[scrim.length - 1].click();
                                     }
@@ -989,7 +970,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     label: 'deleteYoutubeCookies',
 
                     onclick: function() {
-                        Satus.render({
+                        satus.render({
                             type: 'dialog',
                             class: 'satus-dialog--confirm',
 
@@ -1046,7 +1027,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
         date_and_time: {
             type: 'folder',
             label: 'dateAndTime',
-            before: '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z" /></svg>',
+            before: '<svg fill="var(--satus-theme-primary)" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z" /></svg>',
 
             section: {
                 type: 'section',
@@ -1060,7 +1041,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
         },
         about: {
             type: 'folder',
-            before: '<svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" /></svg>',
+            before: '<svg fill="var(--satus-theme-primary)" viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" /></svg>',
             label: 'about',
             appearanceKey: 'about',
 
@@ -1070,7 +1051,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 onrender: function() {
                     var component = this,
                         manifest = chrome.runtime.getManifest(),
-                        user = Satus.modules.user(),
+                        user = satus.modules.user(),
                         object = {
                             extension_section: {
                                 type: 'section',
@@ -1182,7 +1163,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         };
 
                     setTimeout(function() {
-                        Satus.render(object, component.parentNode);
+                        satus.render(object, component.parentNode);
 
                         component.remove();
                     });
@@ -1194,7 +1175,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
 
 Menu.main.section.general = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>',
     label: 'general',
     class: 'satus-folder--general',
     appearanceKey: 'general',
@@ -1202,11 +1183,6 @@ Menu.main.section.general = {
     section: {
         type: 'section',
 
-        /*legacy_youtube: {
-            type: 'switch',
-            label: 'legacyYoutube',
-            tags: 'old'
-        },*/
         youtube_home_page: {
             type: 'select',
             label: 'youtubeHomePage',
@@ -1288,7 +1264,7 @@ Menu.main.section.general = {
 
 Menu.main.section.appearance = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
     label: 'appearance',
     class: 'satus-folder--appearance',
     appearanceKey: 'appearance',
@@ -1345,11 +1321,6 @@ Menu.main.section.appearance = {
         section: {
             type: 'section',
 
-            /*player_hide_annotations: {
-                type: 'switch',
-                label: 'hideAnnotations',
-                tags: 'hide,remove,elements'
-            },*/
             player_hide_cards: {
                 type: 'switch',
                 label: 'hideCards',
@@ -1588,7 +1559,7 @@ Menu.main.section.appearance = {
                 }],
                 tags: 'right'
             },
-            
+
             livechat: {
                 type: 'select',
                 label: 'liveChat',
@@ -1604,18 +1575,6 @@ Menu.main.section.appearance = {
                     value: 'hidden'
                 }]
             },
-            /*livechat_type: {
-                type: 'select',
-                label: 'liveChatType',
-
-                options: [{
-                    label: 'topChat',
-                    value: 'top'
-                }, {
-                    label: 'liveChat',
-                    value: 'live'
-                }]
-            },*/
             hide_playlist: {
                 type: 'switch',
                 label: 'hidePlaylist'
@@ -1674,15 +1633,15 @@ function themePopupChange() {
 
 function themeChange(event) {
     if (event.target.checked) {
-        let themes = document.querySelectorAll('.satus-switch > input:checked:not([data-storage-key="red_popup_theme"])');
+        var themes = document.querySelectorAll('.satus-switch > input:checked:not([data-storage-key="red_popup_theme"])');
 
-        for (let i = 0, l = themes.length; i < l; i++) {
+        for (var i = 0, l = themes.length; i < l; i++) {
             if (themes[i] !== event.target) {
                 themes[i].click();
             }
         }
     }
-    
+
     if (Satus.storage.get('default_dark_theme') === true) {
         document.documentElement.setAttribute('theme', 'dark');
     } else if (Satus.storage.get('night_theme') === true) {
@@ -1999,35 +1958,7 @@ Menu.main.section.themes = {
             }]
         }
     },
-    
-    popup_title: {
-        type: 'text',
-        label: 'ImprovedTube',
-        style: {
-            margin: '0 12px',
-            fontWeight: '700'
-        }
-    },
-    red_popup_theme: {
-        type: 'switch',
-        label: 'Red',
-        value: true,
-        class: 'satus-switch--red',
-        style: {
-            background: '#bb1a1a'
-        },
 
-        onchange: themePopupChange
-    },
-    
-    youtube_title: {
-        type: 'text',
-        label: 'YouTube',
-        style: {
-            margin: '0 12px',
-            fontWeight: '700'
-        }
-    },
     default_dark_theme: {
         type: 'switch',
         label: 'dark',
@@ -2081,7 +2012,7 @@ Menu.main.section.themes = {
 
 Menu.main.section.player = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>',
     label: 'player',
     class: 'satus-folder--player',
     appearanceKey: 'player',
@@ -2359,7 +2290,7 @@ Menu.main.section.player = {
 
 Menu.main.section.playlist = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',
     label: 'playlist',
     class: 'satus-folder--playlist',
     appearanceKey: 'playlist',
@@ -2399,7 +2330,7 @@ Menu.main.section.playlist = {
 
 Menu.main.section.channel = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>',
     label: 'channel',
     class: 'satus-folder--channel',
     appearanceKey: 'channel',
@@ -2435,7 +2366,7 @@ Menu.main.section.channel = {
 
 Menu.main.section.shortcuts = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>',
+    before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>',
     label: 'shortcuts',
     class: 'satus-folder--shortcut',
     appearanceKey: 'shortcuts',
@@ -2660,7 +2591,7 @@ Menu.main.section.shortcuts = {
 
 Menu.main.section.blacklist = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>',
+    before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>',
     label: 'blacklist',
     class: 'satus-folder--blacklist',
     appearanceKey: 'blacklist',
@@ -2683,19 +2614,19 @@ Menu.main.section.blacklist = {
             onopen: function() {
                 var self = this;
 
-                if (Satus.storage.blacklist && Satus.storage.blacklist.channels) {
+                if (satus.storage.data.blacklist && satus.storage.data.blacklist.channels) {
                     var list = {};
 
-                    for (var item in Satus.storage.blacklist.channels) {
-                        if (Satus.storage.blacklist.channels[item] !== false) {
-                            var title = Satus.storage.blacklist.channels[item].title || '';
+                    for (var item in satus.storage.data.blacklist.channels) {
+                        if (satus.storage.data.blacklist.channels[item] !== false) {
+                            var title = satus.storage.data.blacklist.channels[item].title || '';
 
                             list[item] = {
                                 type: 'section',
                                 label: title.length > 20 ? title.substr(0, 20) + '...' : title,
                                 class: 'satus-section--blacklist',
                                 style: {
-                                    'background-image': 'url(' + Satus.storage.blacklist.channels[item].preview + ')',
+                                    'background-image': 'url(' + satus.storage.data.blacklist.channels[item].preview + ')',
                                     'background-color': '#000'
                                 },
 
@@ -2704,11 +2635,11 @@ Menu.main.section.blacklist = {
 
                                     delete: {
                                         type: 'button',
-                                        icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
+                                        before: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
                                         onclick: function() {
-                                            delete Satus.storage.blacklist.channels[item];
+                                            delete satus.storage.data.blacklist.channels[item];
 
-                                            Satus.storage.set('blacklist', Satus.storage.blacklist);
+                                            satus.storage.set('blacklist', satus.storage.data.blacklist);
 
                                             this.classList.add('removing');
 
@@ -2754,12 +2685,12 @@ Menu.main.section.blacklist = {
             onopen: function() {
                 var self = this;
 
-                if (Satus.storage.blacklist && Satus.storage.blacklist.videos) {
+                if (satus.storage.data.blacklist && satus.storage.data.blacklist.videos) {
                     let list = {};
 
-                    for (let item in Satus.storage.blacklist.videos) {
-                        if (Satus.storage.blacklist.videos[item] !== false) {
-                            let title = Satus.storage.blacklist.videos[item].title || '';
+                    for (let item in satus.storage.data.blacklist.videos) {
+                        if (satus.storage.data.blacklist.videos[item] !== false) {
+                            let title = satus.storage.data.blacklist.videos[item].title || '';
 
                             list[item] = {
                                 type: 'section',
@@ -2774,11 +2705,11 @@ Menu.main.section.blacklist = {
 
                                     delete: {
                                         type: 'button',
-                                        icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
+                                        before: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
                                         onclick: function() {
-                                            delete Satus.storage.blacklist.videos[item];
+                                            delete satus.storage.data.blacklist.videos[item];
 
-                                            Satus.storage.set('blacklist', Satus.storage.blacklist);
+                                            satus.storage.set('blacklist', satus.storage.data.blacklist);
                                             this.parentNode.parentNode.classList.add('removing');
 
                                             setTimeout(function() {
@@ -2826,10 +2757,10 @@ Menu.main.section.analyzer = {
     label: 'analyzer',
     class: 'satus-folder--analyzer',
     appearanceKey: 'analyzer',
-    
+
     activ_section: {
         type: 'section',
-        
+
         analyzer_activation: {
             type: 'switch',
             label: 'activate'
@@ -2979,130 +2910,38 @@ chrome.storage.onChanged.addListener(function(changes) {
     }
 });
 
-Satus.storage.import(function() {
-    var language = Satus.storage.get('language') || 'en';
-
-    if (!Satus.storage.get('language')) {
-        var dialog = {
-            type: 'dialog',
-            class: 'satus-dialog--setup satus-dialog--setup-language',
-
-            en: {
-                type: 'button',
-                label: 'English'
-            },
-            ar: {
-                type: 'button',
-                label: 'العربية'
-            },
-            de: {
-                type: 'button',
-                label: 'Deutsch'
-            },
-            es: {
-                type: 'button',
-                label: 'Español'
-            },
-            fr: {
-                type: 'button',
-                label: 'Français'
-            },
-            id: {
-                type: 'button',
-                label: 'Bahasa Indonesia'
-            },
-            it: {
-                type: 'button',
-                label: 'Italiano'
-            },
-            ja: {
-                type: 'button',
-                label: '日本語'
-            },
-            nl: {
-                type: 'button',
-                label: 'Dutch'
-            },
-            no: {
-                type: 'button',
-                label: 'Norwegian Bokmål'
-            },
-            pt_BR: {
-                type: 'button',
-                label: 'Português (Brasil)'
-            },
-            ru: {
-                type: 'button',
-                label: 'Русский'
-            },
-            tr: {
-                type: 'button',
-                label: 'Türkçe'
-            },
-            zh_CN: {
-                type: 'button',
-                label: '中文 (简体)'
-            },
-            zh_TW: {
-                type: 'button',
-                label: '中文 (繁體)'
-            }
-        };
-
-        for (var key in dialog) {
-            if (typeof dialog[key] === 'object') {
-                dialog[key].dataset = {
-                    key: key
-                };
-
-                dialog[key].onclick = function() {
-                    Satus.storage.set('language', this.dataset.key);
-
-                    document.querySelector('.satus-dialog--setup .satus-dialog__scrim').click();
-                };
-            }
-        }
-
-        Satus.render(dialog);
-    }
-    
-    if (Satus.isset(Satus.storage.get('red_popup_theme')) === false || Satus.storage.get('red_popup_theme') === true) {
-        document.documentElement.setAttribute('popup-theme', 'red');
-    }
-    
-    if (Satus.storage.get('default_dark_theme') === true) {
+satus.storage.import(function() {
+    if (satus.storage.get('default_dark_theme') === true) {
         document.documentElement.setAttribute('theme', 'dark');
     }
     
-    if (Satus.storage.get('night_theme') === true) {
+    if (satus.storage.get('night_theme') === true) {
         document.documentElement.setAttribute('theme', 'night');
     }
     
-    if (Satus.storage.get('dawn_theme') === true) {
+    if (satus.storage.get('dawn_theme') === true) {
         document.documentElement.setAttribute('theme', 'dawn');
     }
     
-    if (Satus.storage.get('sunset_theme') === true) {
+    if (satus.storage.get('sunset_theme') === true) {
         document.documentElement.setAttribute('theme', 'sunset');
     }
     
-    if (Satus.storage.get('desert_theme') === true) {
+    if (satus.storage.get('desert_theme') === true) {
         document.documentElement.setAttribute('theme', 'desert');
     }
     
-    if (Satus.storage.get('plain_theme') === true) {
+    if (satus.storage.get('plain_theme') === true) {
         document.documentElement.setAttribute('theme', 'plain');
     }
     
-    if (Satus.storage.get('black_theme') === true) {
+    if (satus.storage.get('black_theme') === true) {
         document.documentElement.setAttribute('theme', 'black');
     }
 
-    Satus.locale.import('_locales/' + language + '/messages.json', function() {
-        Satus.modules.updateStorageKeys(Menu, function() {
-            Satus.render(Menu, document.body);
+    satus.locale.import(satus.storage.get('language'), function() {
+        satus.modules.updateStorageKeys(Menu, function() {
+            satus.render(Menu, document.body);
         });
     });
 });
-
-
