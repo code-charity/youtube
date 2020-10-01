@@ -20,7 +20,7 @@
 * [Türkçe](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json) by [Onur Dumangöz](https://github.com/onurdumangoz)
 * [Русский](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json) by [WhoIsPrivalov](https://github.com/WhoIsPrivalov), [qweered](https://github.com/qweered)
 * [中文 (简体)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json) by [niceRAM](https://github.com/niceRAM), [ausers](https://github.com/ausers)
-* [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [water903](https://github.com/water903), [Ignatius Liu](https://github.com/suitangi)
+* [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [Still34](https://github.com/still34), [water903](https://github.com/water903), [Ignatius Liu](https://github.com/suitangi) 
 -----
 
 ## Install from source
