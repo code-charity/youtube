@@ -6,7 +6,7 @@
         "message": "À propos"
     },
     "accept": {
-        "message": "Accept"
+        "message": "Accepter"
     },
     "activate": {
         "message": "Activate"
@@ -27,10 +27,10 @@
         "message": "Active features"
     },
     "addScrollToTop": {
-        "message": "Add «Scroll to top»"
+        "message": "Ajouter « Retour en haut »"
     },
     "ads": {
-        "message": "Ads"
+        "message": "Pubs"
     },
     "all": {
         "message": "All"
@@ -78,10 +78,10 @@
         "message": "Auto"
     },
     "autoFullscreen": {
-        "message": "Auto-plein écran"
+        "message": "Plein écran automatique"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Autopause when switching tabs"
+        "message": "Mettre en pause lors d'un changement d'onglet"
     },
     "autoplay": {
         "message": "Lecture automatique"
@@ -135,16 +135,16 @@
         "message": "Cancel"
     },
     "categories": {
-        "message": "Categories"
+        "message": "Catégories"
     },
     "channel": {
-        "message": "chaîne"
+        "message": "Chaîne"
     },
     "channels": {
-        "message": "chaînes"
+        "message": "Chaînes"
     },
     "clipboard": {
-        "message": "Clipboard"
+        "message": "Presse-papier"
     },
     "codecH264": {
         "message": "Codec h.264"
@@ -183,7 +183,7 @@
         "message": "Dark theme"
     },
     "dateAndTime": {
-        "message": "Date & time"
+        "message": "Date & heure"
     },
     "dawn": {
         "message": "Dawn"
@@ -234,7 +234,7 @@
         "message": "Donate"
     },
     "doNotChange": {
-        "message": "Ne pas changez"
+        "message": "Ne pas changer"
     },
     "draggable": {
         "message": "Draggable"
@@ -243,7 +243,7 @@
         "message": "Email"
     },
     "empty": {
-        "message": "Empty"
+        "message": "Vide"
     },
     "enabled": {
         "message": "Activé"
@@ -744,7 +744,7 @@
         "message": "Cocher LECTURE AUTOMATIQUE"
     },
     "use24HourFormat": {
-        "message": "Use 24-hour format"
+        "message": "Utiliser le format 24 heure"
     },
     "version": {
         "message": "Version"
@@ -759,7 +759,7 @@
         "message": "Video formats"
     },
     "videos": {
-        "message": "Videos"
+        "message": "Vidéos"
     },
     "volume": {
         "message": "Volume"
@@ -771,28 +771,28 @@
         "message": "Watch time"
     },
     "whenTabIsChanged": {
-        "message": "When tab is changed"
+        "message": "Lors d'un changement d'onglet"
     },
     "white": {
-        "message": "White"
+        "message": "Blanc"
     },
     "yellow": {
-        "message": "Yellow"
+        "message": "Jaune"
     },
     "youtubeHeaderLeft": {
-        "message": "YouTube Header (left)"
+        "message": "Header de YouTube (gauche)"
     },
     "youtubeHeaderRight": {
-        "message": "YouTube Header (right)"
+        "message": "Header de YouTube (right)"
     },
     "youtubeHomePage": {
         "message": "Page d'accueil YouTube"
     },
     "youtubeLanguage": {
-        "message": "YouTube language"
+        "message": "Langue de YouTube"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
+        "message": "YouTube limite la qualité vidéo à 1080p pour le codec H264"
     },
     "redDislikeButton": {
         "message": "Show dislike button red colour"
