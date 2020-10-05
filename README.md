@@ -8,7 +8,7 @@
 * [Dutch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json) by [Heimen Stoffels](https://github.com/Vistaus), [Aron Hoogeveen](https://github.com/aron-hoogeveen)
 * [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) by __ ( *+ all [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)*)
 * [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor)
-* [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [Leghort](https://github.com/leghort)
+* [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [Leghort](https://github.com/leghort), [Eymiks](https://github.com/Eymiks)
 * [Italian](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
 * [Hindi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hin/messages.json) by [MONISHA MANDAL](https://github.com/monishamandal02)
 * [Korean](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [Seung-chan Mok](https://github.com/msc9533)
