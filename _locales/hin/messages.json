@@ -798,10 +798,10 @@
         "message": "नापसंद बटन लाल रंग दिखाएं"
     },
     "hideGradientBottom": {
-        "message": "Hide Gradient Bottom"
+        "message": "ग्रेडिएंट बॉटम छुपाएं"
     },
     "statsForNerds": {
-        "message": "Show Stats for Nerds"
+        "message": "डेवलपर के लिए आँकड़े दिखाएँ"
     }
 }
 
