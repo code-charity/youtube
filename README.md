@@ -4,7 +4,7 @@
 ## [Translations](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations)
 * [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
 * [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
-* [Bengali](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bravo68Web](https://github.com/BRAVO68WEB)_ (+Hindi update)_
+* [Bengali](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bravo68Web](https://github.com/BRAVO68WEB) _(+Hindi update)_
 * [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [Termuellinator](https://github.com/Termuellinator) (*in part*)
 * [Dutch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json) by [Heimen Stoffels](https://github.com/Vistaus), [Aron Hoogeveen](https://github.com/aron-hoogeveen)
 * [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) by __ ( *+ all [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors)*)
