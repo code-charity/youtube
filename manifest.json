@@ -3,7 +3,7 @@
     "short_name" : "ImprovedTube",
     "name": "Improve YouTube! (Open-Source for YouTube)",
     "version": "3.150",
-    "version_name": "3.150-beta",
+    "version_name": "3.150",
     "icons": {
         "16": "assets/icons/16.png",
         "32": "assets/icons/32.png",

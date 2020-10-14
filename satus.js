@@ -73,6 +73,64 @@ Satus.getAnimationDuration = function(element) {
     return Number(window.getComputedStyle(element).getPropertyValue('animation-duration').replace(/[^0-9.]/g, '')) * 1000;
 };
 
+/*---------------------------------------------------------------
+>>> AES-CTR
+-----------------------------------------------------------------
+1.0 Encryption
+2.0 Decryption
+---------------------------------------------------------------*/
+
+satus.aes = {};
+
+/*---------------------------------------------------------------
+1.0 ENCRYPTION
+---------------------------------------------------------------*/
+
+satus.aes.encrypt = async function(text, password) {
+    var iv = crypto.getRandomValues(new Uint8Array(12)),
+        algorithm = {
+            name: 'AES-GCM',
+            iv: iv
+        };
+    
+    return Array.from(iv).map(b => ('00' + b.toString(16)).slice(-2)).join('') + btoa(Array.from(new Uint8Array(await crypto.subtle.encrypt(
+        algorithm,
+        await crypto.subtle.importKey('raw', await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password)), algorithm, false, ['encrypt']),
+        new TextEncoder().encode(text)
+    ))).map(byte => String.fromCharCode(byte)).join(''));
+};
+
+
+/*---------------------------------------------------------------
+2.0 DECRYPTION
+---------------------------------------------------------------*/
+
+satus.aes.decrypt = async function(text, password) {
+    var iv = text.slice(0,24).match(/.{2}/g).map(byte => parseInt(byte, 16)),
+        algorithm = {
+            name: 'AES-GCM',
+            iv: new Uint8Array(iv)
+        };
+        
+    try {
+       var data = new TextDecoder().decode(await crypto.subtle.decrypt(
+            algorithm,
+            await crypto.subtle.importKey(
+                'raw',
+                await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password)),
+                algorithm,
+                false,
+                ['decrypt']
+            ),
+            new Uint8Array(atob(text.slice(24)).match(/[\s\S]/g).map(ch => ch.charCodeAt(0)))
+        )); 
+    } catch (err) {
+        return false;
+    }
+    
+    return data;
+};
+
 /*--------------------------------------------------------------
 # LOCALE
 --------------------------------------------------------------*/
@@ -540,110 +598,6 @@ satus.math.degToRad = function(degrees) {
     return degrees * (Math.PI / 180);
 };
 
-/*---------------------------------------------------------------
->>> CHROMIUM STORAGE
------------------------------------------------------------------
-1.0 Get
-2.0 Set
-3.0 Import
-4.0 Clear
----------------------------------------------------------------*/
-
-satus.storage = {
-    data: {}
-};
-
-/*---------------------------------------------------------------
-1.0 GET
----------------------------------------------------------------*/
-
-satus.storage.get = function(name) {
-    if (satus.isset(name)) {
-        var target = satus.storage.data;
-
-        name = name.split('/').filter(function(value) {
-            return value != '';
-        });
-
-        for (var i = 0, l = name.length; i < l; i++) {
-            if (Satus.isset(target[name[i]])) {
-                target = target[name[i]];
-            } else {
-                return undefined;
-            }
-        }
-
-        return target;
-    }
-};
-
-
-/*---------------------------------------------------------------
-2.0 SET
----------------------------------------------------------------*/
-
-satus.storage.set = function(name, value) {
-    var items = {},
-        target = Satus.storage.data;
-        
-    if (!satus.isset(name)) {
-        return false;
-    }
-
-    name = name.split('/').filter(function(value) {
-        return value != '';
-    });
-
-    for (var i = 0, l = name.length; i < l; i++) {
-        var item = name[i];
-
-        if (i < l - 1) {
-
-            if (target[item]) {
-                target = target[item];
-            } else {
-                target[item] = {};
-
-                target = target[item];
-            }
-        } else {
-            target[item] = value;
-        }
-    }
-
-    for (var key in satus.storage.data) {
-        items[key] = satus.storage.data[key];
-    }
-
-    chrome.storage.local.set(items);
-};
-
-
-/*---------------------------------------------------------------
-3.0 IMPORT
----------------------------------------------------------------*/
-
-satus.storage.import = function(callback) {
-    chrome.storage.local.get(function(items) {
-        satus.storage.data = items;
-
-        if (callback) {
-            callback();
-        }
-    });
-};
-
-
-/*---------------------------------------------------------------
-4.0 CLEAR
----------------------------------------------------------------*/
-
-satus.storage.clear = function() {
-    chrome.storage.local.clear();
-
-    delete satus.storage.data;
-};
-
 /*-----------------------------------------------------------------------------
 >>> «SEARCH» MODULE
 -----------------------------------------------------------------------------*/
@@ -784,6 +738,122 @@ Satus.render = function(element, container, callback) {
     }
 };
 
+/*---------------------------------------------------------------
+>>> CHROMIUM STORAGE
+-----------------------------------------------------------------
+1.0 Get
+2.0 Set
+3.0 Import
+4.0 Clear
+---------------------------------------------------------------*/
+
+satus.storage = {
+    data: {}
+};
+
+/*---------------------------------------------------------------
+1.0 GET
+---------------------------------------------------------------*/
+
+satus.storage.get = function(name) {
+    if (satus.isset(name)) {
+        var target = satus.storage.data;
+
+        name = name.split('/').filter(function(value) {
+            return value != '';
+        });
+
+        for (var i = 0, l = name.length; i < l; i++) {
+            if (Satus.isset(target[name[i]])) {
+                target = target[name[i]];
+            } else {
+                return undefined;
+            }
+        }
+
+        return target;
+    }
+};
+
+
+/*---------------------------------------------------------------
+2.0 SET
+---------------------------------------------------------------*/
+
+satus.storage.set = function(name, value) {
+    var items = {},
+        target = Satus.storage.data;
+        
+    if (!satus.isset(name)) {
+        return false;
+    }
+
+    name = name.split('/').filter(function(value) {
+        return value != '';
+    });
+
+    for (var i = 0, l = name.length; i < l; i++) {
+        var item = name[i];
+
+        if (i < l - 1) {
+
+            if (target[item]) {
+                target = target[item];
+            } else {
+                target[item] = {};
+
+                target = target[item];
+            }
+        } else {
+            target[item] = value;
+        }
+    }
+
+    for (var key in satus.storage.data) {
+        items[key] = satus.storage.data[key];
+    }
+
+    chrome.storage.local.set(items);
+};
+
+
+/*---------------------------------------------------------------
+3.0 IMPORT
+---------------------------------------------------------------*/
+
+satus.storage.import = function(name, callback) {
+    if (typeof name === 'function') {
+        chrome.storage.local.get(function(items) {
+            satus.storage.data = items;
+
+            if (name) {
+                name(items);
+            }
+        });
+    } else {
+        chrome.storage.local.get(name, function(items) {
+            for (var key in items) {
+                satus.storage.data[key] = items[key];
+            }
+
+            if (callback) {
+                callback(items[name]);
+            }
+        });
+    }
+};
+
+
+/*---------------------------------------------------------------
+4.0 CLEAR
+---------------------------------------------------------------*/
+
+satus.storage.clear = function() {
+    chrome.storage.local.clear();
+
+    delete satus.storage.data;
+};
+
 /*--------------------------------------------------------------
 >>> STORAGE KEYS
 --------------------------------------------------------------*/
@@ -828,7 +898,7 @@ Satus.components.table = function(item) {
     component_body.className = 'satus-table__body';
 
     function update(data) {
-        var pages = Math.ceil(component.data.length / component.paging),
+        var pages = item.pages,
             start = Math.max((component.pagingIndex - 1) * component.paging, 0),
             end = component.pagingIndex * component.paging;
 
@@ -939,6 +1009,11 @@ Satus.components.table = function(item) {
 
         column.dataset.sorting = 'none';
         column.addEventListener('click', sort);
+        column.addEventListener('click', function() {
+            if (typeof item.beforeUpdate === 'function') {
+                item.beforeUpdate(item);
+            }
+        });
         column.innerHTML = '<span>' + item.columns[i].title + '</span>';
 
         component_head.appendChild(column);
@@ -951,11 +1026,16 @@ Satus.components.table = function(item) {
 
     component.data = item.data;
     component.paging = item.paging;
+    component.pages = item.pages;
     component.pagingIndex = 1;
 
-    component.update = function(data, index, mode) {
+    component.update = function(data, update_pages) {
         if (Satus.isset(data)) {
             this.data = data;
+        }
+        
+        if (update_pages !== false) {
+            item.pages = Math.ceil(this.data.length / this.paging);
         }
         
         if (this.querySelector('div[data-sorting=asc], div[data-sorting=desc]')) {
@@ -992,6 +1072,10 @@ Satus.components.table = function(item) {
         button.innerText = i;
         button.parentComponent = component;
         button.addEventListener('click', function() {
+            if (typeof item.beforeUpdate === 'function') {
+                item.beforeUpdate(item);
+            }
+            
             this.parentComponent.pagingIndex = Number(this.innerText);
             this.parentComponent.update(this.parentComponent.data);
             this.parentComponent.pagingUpdate();
@@ -1002,34 +1086,36 @@ Satus.components.table = function(item) {
 
     function pagingUpdate() {
         if (typeof this.paging === 'number') {
-            var pages = Math.ceil(this.data.length / this.paging),
+            var pages = item.pages,
                 c = this.querySelector('.satus-table__paging');
 
             c.innerHTML = '';
             
-            pagingButton(1, c);
+            if (pages > 1) {
+                pagingButton(1, c);
             
-            if (component.pagingIndex - 2 > 2) {
-                var span = document.createElement('span');
-                
-                span.innerText = '...';
-                
-                c.appendChild(span);
-            }
+                if (component.pagingIndex - 2 > 2) {
+                    var span = document.createElement('span');
+                    
+                    span.innerText = '...';
+                    
+                    c.appendChild(span);
+                }
 
-            for (var i = component.pagingIndex - 2 < 2 ? 2 : component.pagingIndex - 2, l = component.pagingIndex + 2 > pages - 1 ? pages - 1 : component.pagingIndex + 2; i <= l; i++) {
-                pagingButton(i, c);
-            }
-            
-            if (component.pagingIndex + 2 < pages - 1) {
-                var span = document.createElement('span');
+                for (var i = component.pagingIndex - 2 < 2 ? 2 : component.pagingIndex - 2, l = component.pagingIndex + 2 > pages - 1 ? pages - 1 : component.pagingIndex + 2; i <= l; i++) {
+                    pagingButton(i, c);
+                }
                 
-                span.innerText = '...';
+                if (component.pagingIndex + 2 < pages - 1) {
+                    var span = document.createElement('span');
+                    
+                    span.innerText = '...';
+                    
+                    c.appendChild(span);
+                }
                 
-                c.appendChild(span);
+                pagingButton(pages, c);
             }
-            
-            pagingButton(pages, c);
         }
         
         resize();
@@ -1046,7 +1132,7 @@ Satus.components.table = function(item) {
     // END PAGING
     
     if (item.data) {
-        component.update(item.data);
+        component.update(item.data, false);
     }
     
     return component;
@@ -1114,6 +1200,10 @@ Satus.components.select = function(element) {
                 component_value.innerText = Satus.locale.getMessage(this.dataset.key);
 
                 Satus.storage.set(component.dataset.storageKey, this.dataset.value);
+                
+                if (typeof element.onchange === 'function') {
+                    element.onchange(this.dataset.key, this.dataset.value);
+                }
 
                 var parent = this.parentNode;
 
@@ -1133,6 +1223,7 @@ Satus.components.select = function(element) {
 
     return component;
 };
+
 /*--------------------------------------------------------------
 >>> SWITCH
 --------------------------------------------------------------*/
@@ -1180,11 +1271,14 @@ Satus.components.switch = function(element) {
 
 
     // TRACK
-    var component_track = document.createElement('div');
+    var component_value = document.createElement('div'),
+        component_track = document.createElement('div');
 
+    component_value.className = 'satus-switch__value';
     component_track.className = 'satus-switch__track';
 
-    component.appendChild(component_track);
+    component_value.appendChild(component_track);
+    component.appendChild(component_value);
 
 
     // MOUSE MOVE
@@ -1269,6 +1363,7 @@ Satus.components.switch = function(element) {
 
     return component;
 };
+
 /*--------------------------------------------------------------
 >>> TABS
 --------------------------------------------------------------*/
@@ -1783,14 +1878,18 @@ Satus.components.list = function(object) {
 
                             clone.style.left = x + 'px';
                             clone.style.top = y + 'px';
-                            
-                            //return false;
 
-                            if (index !== current_index && self.parentNode.children[index]) {
+                            if (index !== current_index) {
                                 var new_clone = self.cloneNode(true);
+                                
+                                index = Math.max(Math.min(index, self.parentNode.children.length - 1), 0);
 
                                 if (index > 0) {
-                                    self.parentNode.insertBefore(new_clone, self.parentNode.children[index].nextSibling);
+                                    if (index > current_index) {
+                                        self.parentNode.insertBefore(new_clone, self.parentNode.children[index].nextSibling);
+                                    } else {
+                                        self.parentNode.insertBefore(new_clone, self.parentNode.children[index]);
+                                    }
                                 } else {
                                     self.parentNode.insertBefore(new_clone, self.parentNode.children[index]);
                                 }
@@ -1814,6 +1913,10 @@ Satus.components.list = function(object) {
                                 clone.remove();
                                 self.style.visibility = '';
                             }
+                            
+                            if (typeof object.onend === 'function') {
+                                    object.onend();
+                                }
 
                             window.removeEventListener('mousemove', mousemove);
                             window.removeEventListener('mouseup', mouseup);
@@ -1870,6 +1973,14 @@ Satus.components.dialog = function(element) {
 
     function keydown(event) {
         if (event.keyCode === 27) {
+            if (element.clickclose === false) {
+                return false;
+            }
+            
+            if (typeof element.onclickclose === 'function') {
+                element.onclickclose();
+            }
+        
             event.preventDefault();
             
             close();
@@ -1895,11 +2006,25 @@ Satus.components.dialog = function(element) {
         }
     }
 
-    component_scrim.addEventListener('click', close);
-    window.addEventListener('keydown', keydown);
+    component_scrim.addEventListener('click', function() {
+        if (element.clickclose === false) {
+            return false;
+        }
+        
+        if (typeof element.onclickclose === 'function') {
+            element.onclickclose();
+        }
+        
+        close();
+    });
+    window.addEventListener('keydown', function(event) {
+        keydown(event);
+    });
 
     component.appendChild(component_scrim);
     component.appendChild(component_surface);
+    
+    component.close = close;
 
     // OPTIONS
 

@@ -1,6 +1,6 @@
-/*--------------------------------------------------------------
-# APPEARANCE
---------------------------------------------------------------*/
+/*---------------------------------------------------------------
+>>> APPEARANCE
+---------------------------------------------------------------*/
 
 .satus-main__container[data-appearance='appearance'] .satus-folder
 {
@@ -17,6 +17,8 @@
     border: 1px solid var(--main-appearance-shadow, #dfdfdf);
     border-radius: 6px;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0);
+    
+    background: var(--satus-theme-section);
 
     justify-content: center;
     align-items: center;
@@ -40,9 +42,6 @@
     width: calc(100% - 32px);
     height: 40px;
     min-height: auto;
-
-    background-color: var(--satus-theme-dialog);
-    color: var(--satus-theme-dialog-text);
 }
 
 .satus-main__container[data-appearance='appearance'] .satus-folder--header:hover
@@ -84,9 +83,6 @@
     width: calc(70% - 32px);
     height: 56px;
     min-height: auto;
-
-    background-color: var(--satus-theme-dialog);
-    color: var(--satus-theme-dialog-text);
 }
 
 .satus-main__container[data-appearance='appearance'] .satus-folder--description
@@ -97,9 +93,6 @@
     width: calc(70% - 2rem);
     height: 3.5rem;
     min-height: 3.5rem;
-
-    background-color: var(--satus-theme-dialog);
-    color: var(--satus-theme-dialog-text);
 }
 
 .satus-main__container[data-appearance='appearance'] .satus-folder--comments
@@ -111,8 +104,7 @@
     height: 80px;
     min-height: auto;
 
-    background-color: var(--satus-theme-dialog);
-    color: var(--satus-theme-dialog-text);
+    background: var(--satus-theme-section)
 }
 
 .satus-main__container[data-appearance='appearance'] .satus-folder--footer
@@ -124,8 +116,7 @@
     height: 64px;
     min-height: auto;
 
-    background-color: var(--satus-theme-dialog);
-    color: var(--satus-theme-dialog-text);
+    background: var(--satus-theme-section)
 }
 
 .satus-main__container[data-appearance='appearance'] .satus-folder--sidebar
@@ -135,7 +126,4 @@
 
     width: calc(30% - 8px);
     height: 160px;
-
-    background-color: var(--satus-theme-dialog);
-    color: var(--satus-theme-dialog-text);
 }

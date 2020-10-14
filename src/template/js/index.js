@@ -11,6 +11,7 @@ chrome.storage.onChanged.addListener(function(changes) {
 });
 
 satus.storage.import(function() {
+    console.log('h');
     if (satus.storage.get('default_dark_theme') === true) {
         document.documentElement.setAttribute('theme', 'dark');
     }
