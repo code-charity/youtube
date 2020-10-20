@@ -24,7 +24,7 @@
         "message": "Vollbild aktivieren"
     },
     "activeFeatures": {
-        "message": "Meine aktiven Funktionen"
+        "message": "Aktive Funktionen"
     },
     "addScrollToTop": {
         "message": "«Nach Oben»-Button"
@@ -39,7 +39,7 @@
         "message": "zulassen"
     },
     "allow60fps": {
-        "message": "60 fps zulassen"
+        "message": "60fps zulassen"
     },
     "alwaysActive": {
         "message": "Immer aktiv"
@@ -51,7 +51,7 @@
         "message": "Bernstein"
     },
     "analyzer": {
-        "message": "Analyzer"
+        "message": "Analyse"
     },
     "appearance": {
         "message": "Aussehen"
@@ -72,7 +72,7 @@
         "message": "Audio"
     },
     "audioFormats": {
-        "message": "Audio Formate"
+        "message": "Audio-Formate"
     },
     "auto": {
         "message": "Auto"
@@ -90,10 +90,10 @@
         "message": "Sichern oder zurücksetzen"
     },
     "baseOnSystemColorScheme": {
-        "message": "auf Systemfarben basieren"
+        "message": "Basierend von Systemfarben"
     },
     "belowPlayer": {
-        "message": "Unterm Player"
+        "message": "Unter Player"
     },
     "black": {
         "message": "Schwarz"
@@ -138,13 +138,13 @@
         "message": "Kategorien"
     },
     "channel": {
-        "message": "Channel"
+        "message": "Kanal"
     },
     "channels": {
-        "message": "Channels"
+        "message": "Kanäle"
     },
     "clipboard": {
-        "message": "Clipboard"
+        "message": "Zwischenablage"
     },
     "codecH264": {
         "message": "Codec h.264"
@@ -156,7 +156,7 @@
         "message": "Abos einklappen"
     },
     "comments": {
-        "message": "Kommentar"
+        "message": "Kommentare"
     },
     "confirmationBeforeClosing": {
         "message": "Bestätigung beim Schließen"
@@ -168,10 +168,10 @@
         "message": "Kerne"
     },
     "customCss": {
-        "message": "Custom CSS"
+        "message": "Angepasstes CSS"
     },
     "customJs": {
-        "message": "Custom JS"
+        "message": "Angepasstes JS"
     },
     "cyan": {
         "message": "Cyan"
@@ -180,7 +180,7 @@
         "message": "Dunkel"
     },
     "darkTheme": {
-        "message": "Dark theme"
+        "message": "Dark-Theme"
     },
     "dateAndTime": {
         "message": "Datum & Uhrzeit"
@@ -195,16 +195,16 @@
         "message": "Lautstärke reduzieren"
     },
     "deepOrange": {
-        "message": "dunkel-Orange"
+        "message": "Dunkel-Orange"
     },
     "deepPurple": {
-        "message": "dunkel-Lila"
+        "message": "Dunkel-Lila"
     },
     "defaultChannelTab": {
-        "message": "Standard Channel Tab"
+        "message": "Standard-Kanal Tab"
     },
     "deleteYoutubeCookies": {
-        "message": "YouTube Cookies löschen"
+        "message": "YouTube-Cookies löschen"
     },
     "description": {
         "message": "Beschreibung"
@@ -228,7 +228,7 @@
         "message": "ausgeschaltet"
     },
     "dislike": {
-        "message": "Dislike"
+        "message": "'Mag ich nicht'"
     },
     "donate": {
         "message": "Spenden"
@@ -237,13 +237,13 @@
         "message": "Nicht ändern"
     },
     "draggable": {
-        "message": "Verschiebbar"
+        "message": "Ziehbar"
     },
     "email": {
-        "message": "Email"
+        "message": "E-Mail"
     },
     "empty": {
-        "message": "Leer"
+        "message": "leer"
     },
     "enabled": {
         "message": "aktiviert"
@@ -255,10 +255,10 @@
         "message": "ausgeklappt"
     },
     "exportSettings": {
-        "message": "Einstellungen als Datei speichern"
+        "message": "Einstellungen als Datei exportieren"
     },
     "extension": {
-        "message": "Extension"
+        "message": "Erweiterung"
     },
     "file": {
         "message": "Datei"
@@ -270,10 +270,10 @@
         "message": "Ans Fenster anpassen"
     },
     "flash": {
-        "message": "Flash"
+        "message": "Blitz"
     },
     "font": {
-        "message": "Font"
+        "message": "Schriftart"
     },
     "footer": {
         "message": "Fußzeile"
@@ -309,10 +309,10 @@
         "message": "Grün"
     },
     "hdThumbnail": {
-        "message": "HD Vorschaubild"
+        "message": "HD-Vorschaubild"
     },
     "hdThumbnails": {
-        "message": "HD Vorschaubilder"
+        "message": "HD-Vorschaubilder"
     },
     "header": {
         "message": "Header / 'Kopfzeile'"
@@ -321,7 +321,7 @@
         "message": "Ausblenden"
     },
     "hiddenOnVideoPage": {
-        "message": "Ausblenden auf Video Seiten"
+        "message": "Auf Videoseiten ausblenden"
     },
     "hideAnimatedThumbnails": {
         "message": "Keine animierten Vorschaubilder"
@@ -336,7 +336,7 @@
         "message": "Details ausblenden"
     },
     "hideEndscreen": {
-        "message": "Schlussbildschirme ausblenden"
+        "message": "Abspannelemente ausblenden"
     },
     "hideFeaturedContent": {
         "message": "'Empfohlene Inhalte' ausblenden"
@@ -354,7 +354,7 @@
         "message": "«Für Details scrollen» ausblenden"
     },
     "hideViewsCount": {
-        "message": "Zuschauerzähler ausblenden"
+        "message": "Videoaufrufe ausblenden"
     },
     "history": {
         "message": "Verlauf"
@@ -381,10 +381,10 @@
         "message": "Einstellungen importieren"
     },
     "improvedtubeIconInBrowser": {
-        "message": "ImprovedTube icon im Browser"
+        "message": "ImprovedTube Icon im Browser"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "ImprovedTube icon auf YouTube"
+        "message": "ImprovedTube Icon auf YouTube"
     },
     "improvedtubeLanguage": {
         "message": "ImprovedTube Sprache"
@@ -435,10 +435,10 @@
         "message": "Liste"
     },
     "liveChat": {
-        "message": "Live Chat"
+        "message": "Live-Chat"
     },
     "liveChatType": {
-        "message": "Live Chat Typ"
+        "message": "Live-Chat Typ"
     },
     "loudnessNormalization": {
         "message": "Lautstärke normalisieren"
@@ -447,10 +447,10 @@
         "message": "gesehene Videos markieren"
     },
     "customMiniPlayer": {
-        "message": "Custom Mini-Player"
+        "message": "Benutzerdefinierter Mini-Player"
     },
     "mixer": {
-        "message": "Mixer"
+        "message": "Mischpult"
     },
     "myColors": {
         "message": "Meine Farben"
@@ -495,7 +495,7 @@
         "message": "Nur ein Video gleichzeitig"
     },
     "onSubscribedChannels": {
-        "message": "nur in abonnierten Channels"
+        "message": "nur in abonnierten Kanälen"
     },
     "orange": {
         "message": "Orange"
@@ -528,10 +528,10 @@
         "message": "Player"
     },
     "playerColor": {
-        "message": "Player Farbe"
+        "message": "Playerfarbe"
     },
     "playerSize": {
-        "message": "Player Größe"
+        "message": "Playergröße"
     },
     "playlist": {
         "message": "Playlist"
@@ -543,7 +543,7 @@
         "message": "Play / Pause"
     },
     "popupPlayer": {
-        "message": "Player in eigenem Fenster"
+        "message": "Player in Popup"
     },
     "position": {
         "message": "Position"
@@ -570,7 +570,7 @@
         "message": "RAM"
     },
     "rateUs": {
-        "message": "Bewerte mich"
+        "message": "Bewerten"
     },
     "red": {
         "message": "Rot"
@@ -582,7 +582,7 @@
         "message": "Verwandte Suchergebnisse entfernen"
     },
     "repeat": {
-        "message": "Repeat"
+        "message": "Wiederholen"
     },
     "reset": {
         "message": "Zurücksetzen"
@@ -600,13 +600,13 @@
         "message": "Drehen"
     },
     "save": {
-        "message": "Speicher"
+        "message": "Speichern"
     },
     "saveAs": {
-        "message": "Speichern unter"
+        "message": "Speichern als"
     },
     "schedule": {
-        "message": "Nachtschaltung"
+        "message": "Planen"
     },
     "screen": {
         "message": "Bildschirm"
@@ -723,7 +723,7 @@
         "message": "Top chat"
     },
     "trailerAutoplay": {
-        "message": "Trailer autoplay"
+        "message": "Automatische Vorschau"
     },
     "translations": {
         "message": "Übersetzungen"
@@ -795,12 +795,12 @@
         "message": "YouTube begrenzt die Qualität auf 1080p für den h.264 Codec"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "Zeige 'Mag ich nicht' Button rot"
     },
     "hideGradientBottom": {
-        "message": "Hide Gradient Bottom"
+        "message": "Farbverlauf ausblenden"
     },
     "statsForNerds": {
-        "message": "Show Stats for Nerds"
+        "message": "Statistik für Nerds"
     }
 }
