@@ -93,7 +93,7 @@
         "message": "Basierend von Systemfarben"
     },
     "belowPlayer": {
-        "message": "Unter Player"
+        "message": "Unterm Player"
     },
     "black": {
         "message": "Schwarz"
@@ -168,10 +168,10 @@
         "message": "Kerne"
     },
     "customCss": {
-        "message": "Angepasstes CSS"
+        "message": "CSS hinzufügen"
     },
     "customJs": {
-        "message": "Angepasstes JS"
+        "message": "JS hinzufügen"
     },
     "cyan": {
         "message": "Cyan"
@@ -237,7 +237,7 @@
         "message": "Nicht ändern"
     },
     "draggable": {
-        "message": "Ziehbar"
+        "message": "Verschiebbar"
     },
     "email": {
         "message": "E-Mail"
@@ -270,7 +270,7 @@
         "message": "Ans Fenster anpassen"
     },
     "flash": {
-        "message": "Blitz"
+        "message": "Flash"
     },
     "font": {
         "message": "Schriftart"
@@ -336,7 +336,7 @@
         "message": "Details ausblenden"
     },
     "hideEndscreen": {
-        "message": "Abspannelemente ausblenden"
+        "message": "Schlussbildschirme ausblenden"
     },
     "hideFeaturedContent": {
         "message": "'Empfohlene Inhalte' ausblenden"
@@ -543,7 +543,7 @@
         "message": "Play / Pause"
     },
     "popupPlayer": {
-        "message": "Player in Popup"
+        "message": "Player in eigenem Fenster"
     },
     "position": {
         "message": "Position"
@@ -570,7 +570,7 @@
         "message": "RAM"
     },
     "rateUs": {
-        "message": "Bewerten"
+        "message": "Bewerte mich!"
     },
     "red": {
         "message": "Rot"
@@ -582,7 +582,7 @@
         "message": "Verwandte Suchergebnisse entfernen"
     },
     "repeat": {
-        "message": "Wiederholen"
+        "message": "Repeat(Wiederholen)"
     },
     "reset": {
         "message": "Zurücksetzen"
@@ -606,7 +606,7 @@
         "message": "Speichern als"
     },
     "schedule": {
-        "message": "Planen"
+        "message": "Nachtschaltung planen"
     },
     "screen": {
         "message": "Bildschirm"
@@ -723,7 +723,7 @@
         "message": "Top chat"
     },
     "trailerAutoplay": {
-        "message": "Automatische Vorschau"
+        "message": "Trailer (Kanal-Intro) autoplay"
     },
     "translations": {
         "message": "Übersetzungen"
