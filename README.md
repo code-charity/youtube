@@ -5,7 +5,7 @@ An extension, that we built to refine & sweeten your experience on YouTube.  The
 * [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
 * [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
 * [Bengali](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json) by [Bravo68Web](https://github.com/BRAVO68WEB) _(+Hindi update)_
-* [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [Termuellinator](https://github.com/Termuellinator) (updates)
+* [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) updated [TerMuellinator](https://github.com/Termuellinator) and [css-sMueller](https://github.com/css-smueller)
 * [Dutch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json) by [Heimen Stoffels](https://github.com/Vistaus), [Aron Hoogeveen](https://github.com/aron-hoogeveen)
 * [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)  _proofreaders wanted_ 
 * [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor)
@@ -19,9 +19,9 @@ An extension, that we built to refine & sweeten your experience on YouTube.  The
 * [Português (Brasil)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json) by [Mike-Correa](https://github.com/Mike-Correa), [dthiago](https://github.com/dthiago)
 * [Slovac](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json) by [bbc-s](https://github.com/bbc-s)
 * [Türkçe](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json) by [Onur Dumangöz](https://github.com/onurdumangoz)
-* [Русский](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json) by [WhoIsPrivalov](https://github.com/WhoIsPrivalov) (updates), [qweered](https://github.com/qweered) (updates)
+* [Русский](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json) updated by [WhoIsPrivalov](https://github.com/WhoIsPrivalov) and [qweered](https://github.com/qweered)
 * [中文 (简体)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json) by [niceRAM](https://github.com/niceRAM), [ausers](https://github.com/ausers)
-* [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [Still34](https://github.com/still34), [water903](https://github.com/water903), [Ignatius Liu](https://github.com/suitangi) 
+* [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [Still34](https://github.com/still34), [water903](https://github.com/water903) and [Ignatius Liu](https://github.com/suitangi) 
 -----
 
 ## Install from source
