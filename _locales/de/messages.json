@@ -93,7 +93,7 @@
         "message": "Basierend von Systemfarben"
     },
     "belowPlayer": {
-        "message": "Unterm Player"
+        "message": "Unter dem Player"
     },
     "black": {
         "message": "Schwarz"
@@ -336,7 +336,7 @@
         "message": "Details ausblenden"
     },
     "hideEndscreen": {
-        "message": "Schlussbildschirme ausblenden"
+        "message": "Endkarten ausblenden (Schlussbildschirme)"
     },
     "hideFeaturedContent": {
         "message": "'Empfohlene Inhalte' ausblenden"
@@ -723,7 +723,7 @@
         "message": "Top chat"
     },
     "trailerAutoplay": {
-        "message": "Trailer (Kanal-Intro) autoplay"
+        "message": "Trailer autoplay (Kanal-Intro automatisch losspielen)"
     },
     "translations": {
         "message": "Übersetzungen"
