@@ -59,7 +59,7 @@ ImprovedTube can fly much higher through your effort, thoughts or word of mouth 
 - For **CSS** or **JavaScript**-literates: [**Editing ImprovedTube**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) <br>  *(Newbies are welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will review it well. We love to code)* <br> 
 ## Credits
 Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) 
-## Our other Projects 
+## Our Projects 
 #### Extensions
 * Home: ⚬ [History Manager](https://github.com/victor-savinov/history-manager)  ⚬ [Start Page](https://github.com/victor-savinov/start-page)  ⚬ [To-Do](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)(_[Github](https://github.com/victor-savinov/to-do))_
 * Browsing: ⚬ [Custom user agent](https://github.com/victor-savinov/custom-user-agent) ⚬ [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)(_Web store + [Github](https://github.com/victor-savinov/night-mode))_  ⚬ [Regex Replace](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)(_[Github](https://github.com/victor-savinov/regex-replace))_   
