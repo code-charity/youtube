@@ -10,6 +10,7 @@ An extension, that we built to refine & sweeten your experience on YouTube.  The
 * [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)  _proofreaders wanted_ 
 * [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor)
 * [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [Leghort](https://github.com/leghort), [Eymiks](https://github.com/Eymiks), [Solvabl](https://github.com/Solvabl)
+* [Greek](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json) by [karl01101101](https://github.com/karl01101101)
 * [Italian](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
 * [Hindi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hin/messages.json) by [MONISHA MANDAL](https://github.com/monishamandal02)
 * [Korean](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [Seung-chan Mok](https://github.com/msc9533)
