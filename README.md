@@ -66,9 +66,9 @@ Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTub
 * Research: ⚬  [Regex Search](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)(_[Github](https://github.com/victor-savinov/regex-search))_ 
 * Development / Components:   ⚬ [Satus](https://github.com/victor-savinov/satus) ⚬  [Theme Engine](https://github.com/victor-savinov/theme-engine)  ⚬ [Pluviam](https://github.com/victor-savinov/pluviam) ⚬ [Code Editor](https://github.com/victor-savinov/code-editor) ⚬ [Viscum Player](https://github.com/victor-savinov/vbeiscum-player)
 ### Ideas
-Have you got a great idea / concept what we should work on next? ideas@improvedtube.com
+Have you got a great idea / plan / concept?  ideas@improvedtube.com
 ### Expertise
-Do you need to run an extension, app or site with many users and great feedback score?  
+Do you need to run an extension, app or site with many users and a great feedback score?  
 We would like to help good causes and fund ours. Projects@improvedtube.com
 
 ![Stargazers over time](https://starchart.cc/ImprovedTube/YouTube.svg)
