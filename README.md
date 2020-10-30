@@ -58,7 +58,7 @@ ImprovedTube can fly much higher through your effort, thoughts or word of mouth 
 - **[Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)**
 - For **CSS** or **JavaScript**-literates: [**Editing ImprovedTube**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) <br>  *(Newbies are welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will review it well. We love to code)* <br> 
 ## Credits
-Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) 
+Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
 
 ----
 ### Our Projects 
