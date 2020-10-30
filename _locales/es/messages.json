@@ -795,12 +795,12 @@
         "message": "YouTube limita calidad de video a 1080p para el codec h.264"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "Mostrar el botón de dislike de color rojo"
     },
     "hideGradientBottom": {
-        "message": "Hide Gradient Bottom"
+        "message": "Ocultar parte inferior degradada"
     },
     "statsForNerds": {
-        "message": "Show Stats for Nerds"
+        "message": "Mostrar estadísticas para Nerds"
     }
 }
