@@ -312,6 +312,14 @@ ImprovedTube.shortcuts = function() {
                         }
                     }
                 }
+            },
+            shortcut_toggle_cards: function() {
+                const html = document.getElementsByTagName("html")[0];
+                if(html.getAttribute("it-player-hide-cards") === "true") {
+                    html.setAttribute("it-player-hide-cards", "false");
+                } else {
+                    html.setAttribute("it-player-hide-cards", true);
+                }
             }
         };
 
