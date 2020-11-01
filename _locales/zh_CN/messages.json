@@ -808,5 +808,8 @@
     },
     "statsForNerds": {
         "message": "显示专业信息"
+    },
+    "toggleCards": {
+        "message": "Toggle cards"
     }
 }

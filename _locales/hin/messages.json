@@ -802,6 +802,9 @@
     },
     "statsForNerds": {
         "message": "डेवलपर के लिए आँकड़े दिखाएँ"
+    },
+    "toggleCards": {
+        "message": "Toggle cards"
     }
 }
 
