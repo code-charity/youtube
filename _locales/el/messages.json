@@ -802,5 +802,8 @@
     },
     "statsForNerds": {
         "message": "Δείξε τα Στατιστικά για Σπασίκλες"
+    },
+    "toggleCards": {
+        "message": "Toggle cards"
     }
 }

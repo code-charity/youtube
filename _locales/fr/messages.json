@@ -802,5 +802,8 @@
     },
     "statsForNerds": {
         "message": "Statistiques pour nerd"
+    },
+    "toggleCards": {
+        "message": "Toggle cards"
     }
 }

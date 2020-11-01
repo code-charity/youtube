@@ -802,5 +802,8 @@
     },
     "statsForNerds": {
         "message": "顯示「統計資料」按鈕"
+    },
+    "toggleCards": {
+        "message": "Toggle cards"
     }
 }
