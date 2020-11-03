@@ -1237,6 +1237,9 @@ Menu.main.section.general = {
             type: 'select',
             label: 'geoPreference',
             options: [{
+                label: "Default",
+                value: ""
+            },{
                 label: "Algeria",
                 value: "DZ"
             }, {
