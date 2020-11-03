@@ -66,6 +66,7 @@ ImprovedTube.pageUpdate = function() {
     ImprovedTube.channel_videos_count();
     ImprovedTube.collapse_of_subscription_sections();
     ImprovedTube.mark_watched_videos();
+    ImprovedTube.geo_preference();
 };
 
 
@@ -1096,6 +1097,7 @@ ImprovedTube.channel_default_tab = function() {
 4.0 Confirmation before closing
 5.0 Collapse of subscription sections
 6.0 Mark watched videos
+7.0 Geo Preference
 -----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
@@ -1372,6 +1374,28 @@ ImprovedTube.mark_watched_videos = function() {
             }
         }
     }
+};
+
+/*-----------------------------------------------------------------------------
+7.0 Geo Preference
+-----------------------------------------------------------------------------*/
+
+ImprovedTube.geo_preference = function() {
+    var target = this.storage.geo_preference;
+
+    if(typeof target === 'undefined' || target === '') // default
+        return;
+
+    var pref = this.getCookieValueByName('PREF'),
+        gl = this.getParam(pref, 'gl');
+
+    if(gl === target)
+        return;
+
+    if(gl)
+        this.setCookie('PREF', pref.replace('gl=' + gl, 'gl=' + target));
+    else
+        this.setCookie('PREF', pref + '&gl=' + target);
 };
 
 /*-----------------------------------------------------------------------------
