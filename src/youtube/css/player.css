@@ -67,9 +67,14 @@ html[it-page-type="video"][it-header-position="hover"][it-player-size="full_wind
     width: calc(100% - 24px) !important;
 }
 
+.it-mini-player .ytp-chapters-container
+{
+    display: flex;
+}
+
 .it-mini-player .ytp-chapter-hover-container
 {
-    width: 100% !important;
+    flex-grow: 1;
 }
 
 html[it-mini-player=true] .ytp-contextmenu
