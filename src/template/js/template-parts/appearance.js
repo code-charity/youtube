@@ -57,6 +57,11 @@ Menu.main.section.appearance = {
         section: {
             type: 'section',
 
+           player_hide_annotations: {	           
+                type: 'switch',	                
+                label: 'hideAnnotations',	    
+				tags: 'hide,remove,elements'
+            },
             player_hide_cards: {
                 type: 'switch',
                 label: 'hideCards',
