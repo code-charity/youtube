@@ -189,6 +189,10 @@ Menu.main.section.shortcuts = {
         shortcut_stats_for_nerds: {
             type: 'shortcut',
             label: 'statsForNerds'
+        },
+        shortcut_toggle_cards: {
+            type: 'shortcut',
+            label: 'toggleCards'
         }
     },
 

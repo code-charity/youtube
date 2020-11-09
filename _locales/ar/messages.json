@@ -802,5 +802,8 @@
     },
     "statsForNerds": {
         "message": "عرض الإحصاءات المفصلة"
+    },
+    "toggleCards": {
+        "message": "Toggle cards"
     }
 }

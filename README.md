@@ -8,8 +8,9 @@ An extension, that we built to refine & sweeten your experience on YouTube.  The
 * [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) updated [TerMuellinator](https://github.com/Termuellinator) and [css-sMueller](https://github.com/css-smueller)
 * [Dutch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json) by [Heimen Stoffels](https://github.com/Vistaus), [Aron Hoogeveen](https://github.com/aron-hoogeveen)
 * [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)  _proofreaders wanted_ 
-* [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor)
+* [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor), [dimateos](https://github.com/dimateos) (update Nov. 2020)  
 * [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [Leghort](https://github.com/leghort), [Eymiks](https://github.com/Eymiks), [Solvabl](https://github.com/Solvabl)
+* [Greek](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json) by [karl01101101](https://github.com/karl01101101)
 * [Italian](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
 * [Hindi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hin/messages.json) by [MONISHA MANDAL](https://github.com/monishamandal02)
 * [Korean](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [Seung-chan Mok](https://github.com/msc9533)
@@ -57,11 +58,21 @@ ImprovedTube can fly much higher through your effort, thoughts or word of mouth 
 - **[Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)**
 - For **CSS** or **JavaScript**-literates: [**Editing ImprovedTube**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) <br>  *(Newbies are welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will review it well. We love to code)* <br> 
 ## Credits
-Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) 
-## Our other Projects 
-#### Extensions
+Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
+
+----
+### Our Projects 
+### Extensions
 * Home: ⚬ [History Manager](https://github.com/victor-savinov/history-manager)  ⚬ [Start Page](https://github.com/victor-savinov/start-page)  ⚬ [To-Do](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)(_[Github](https://github.com/victor-savinov/to-do))_
 * Browsing: ⚬ [Custom user agent](https://github.com/victor-savinov/custom-user-agent) ⚬ [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)(_Web store + [Github](https://github.com/victor-savinov/night-mode))_  ⚬ [Regex Replace](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)(_[Github](https://github.com/victor-savinov/regex-replace))_   
 * Research: ⚬  [Regex Search](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)(_[Github](https://github.com/victor-savinov/regex-search))_ 
-* Development / Components:   ⚬ [Satus](https://github.com/victor-savinov/satus) ⚬  [Theme Engine](https://github.com/victor-savinov/theme-engine)  ⚬ [Pluviam](https://github.com/victor-savinov/pluviam) ⚬ [Code Editor](https://github.com/victor-savinov/code-editor) ⚬ [Viscum Player](https://github.com/victor-savinov/viscum-player)
+* Development / Components:   ⚬ [Satus](https://github.com/victor-savinov/satus) ⚬  [Theme Engine](https://github.com/victor-savinov/theme-engine)  ⚬ [Pluviam](https://github.com/victor-savinov/pluviam) ⚬ [Code Editor](https://github.com/victor-savinov/code-editor) ⚬ [Viscum Player](https://github.com/victor-savinov/vbeiscum-player)
+### Ideas
+Have you got a great idea / plan / concept?  ideas@improvedtube.com
+### Expertise
+Do you need to run an extension, app or site with many users and a great feedback score?  
+We would like to help good causes and fund ours. Projects@improvedtube.com
+
+<img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="700px">
+
 
