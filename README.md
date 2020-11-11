@@ -2,12 +2,11 @@
 An extension, that we built to refine & sweeten your experience on YouTube.  The first popular features were simply to have a larger player, hide distractions and save your time. By now we also have many powerful features enhancing YouTube functionality. And there is so much left to build! ...  - ImprovedTube's User Interface is designed with our library **[Satus](https://github.com/victor-savinov/satus)** to manage your settings efficiently. - Technically, ImprovedTube is the only project providing so much CSS to adjust another service🦄<font size="-2">(_[cmiiw](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_)</font>
 
 ## ToDo
-### Documentation, Screenshots, Videos 
-(Preview: Learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) )
-### [most wanted New Feature Requests](https://github.com/ImprovedTube/YouTube/issues?q=label%3ANew%20feature+sort%3Acomments-desc+)  
-(You can add an issue numbers to your donation)
-### [most important Bugs](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+) 
-(There are small bounty payments available on all popular Issues, especially labled priority or bug.)
+**Documentation, Screenshots, Videos** (Preview: Learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) )
+
+[**most wanted new feature requests**](https://github.com/ImprovedTube/YouTube/issues?q=label%3ANew%20feature+sort%3Acomments-desc+)   You can add an issue number to your donation
+
+[**most important Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+)  There are small bounty payments available on the popular Issues. Especially label "priority".
 
 ## Contributing 
 ImprovedTube can fly much higher through your effort, thoughts or word of mouth <br> 
@@ -20,27 +19,13 @@ ImprovedTube can fly much higher through your effort, thoughts or word of mouth 
 
 Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
 
-### Browsers support     (Firefox & Safari Store listings links will be added later)
-
-
-
-### Browsers support 
+### Browsers support     (Firefox & Safari Store listings links will be added)
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="24px" height="24px" />](https://brave.com/?ref=imp716)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="24px" height="24px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
-
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | 1.0+ |
 
-
-
 ----
-
-
-
-
-
-
 
 ## [Translations](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations)
 * [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
