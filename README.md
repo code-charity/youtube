@@ -3,7 +3,7 @@ An extension, that we built to refine & sweeten your experience on YouTube.  The
 
 ## ToDo
 - **Documentation, Screenshots, Videos** - Preview: Learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) 
-- [Most wanted **New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3ANew%20feature+sort%3Acomments-desc+)  - You can add an issue number to your donation.
+- [Most wanted **New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"New%20feature"+sort%3Acomments-desc+)  - You can add an issue number to your donation.
 
 - [Most wanted **Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+)  - There are small bounty payments available on the popular Issues. Especially label "priority".
 
