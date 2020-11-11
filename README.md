@@ -3,7 +3,6 @@ An extension, that we built to refine & sweeten your experience on YouTube.  The
 
 ## ToDo
 - **Documentation, Screenshots, Videos** - Preview: Learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) 
-
 - [Most wanted **New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3ANew%20feature+sort%3Acomments-desc+)  - You can add an issue number to your donation.
 
 - [Most wanted **Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+)  - There are small bounty payments available on the popular Issues. Especially label "priority".
@@ -19,10 +18,10 @@ Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTub
 
 ---
 
-#### Browsers support     (Firefox & Safari Store listings links to be added)
+#### Browsers support     (Firefox & Safari Store listings links to be added) 
 |[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="29px" />](https://brave.com/?ref=imp716)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="24px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://safari)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| Brave <br> 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
+| 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
 
 ## [Translations](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations)
 * [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
@@ -57,7 +56,7 @@ Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTub
 Have you got a great idea / plan / concept?  ideas@improvedtube.com
 ### Expertise
 Do you need to run an extension, app or site with many users and a great feedback score?  
-We would like to help good causes and fund ours. Projects@improvedtube.com
+We would like to help good causes and fund ours. projects@improvedtube.com
 
 <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="700px">
 
