@@ -4,7 +4,7 @@ An extension, that we built to refine & sweeten your experience on YouTube.  The
 ## ToDo
 - **Documentation, Screenshots, Videos** - Preview: Learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) 
 
-- [Most wanted **New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3ANew%20feature+sort%3Acomments-desc+)  - You can add an issue number to your donation
+- [Most wanted **New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3ANew%20feature+sort%3Acomments-desc+)  - You can add an issue number to your donation.
 
 - [Most wanted **Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+)  - There are small bounty payments available on the popular Issues. Especially label "priority".
 
@@ -12,7 +12,7 @@ ImprovedTube can fly much higher through your effort, thoughts or word of mouth 
 
 - **[On contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)**
 
-- For **CSS** or **JavaScript**-literates: [**Editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) <br>  *(Newbies are welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will all contributions. We love to code & collaborate)* <br> 
+- For **CSS** or **JavaScript**-literates: [**Editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) <br>  *(Newbies are welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will review all contributions. We love to code & collaborate)* <br> 
 
 ## Credits 
 Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
