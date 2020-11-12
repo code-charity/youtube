@@ -3,15 +3,15 @@ An extension, that we built to refine & sweeten your experience on YouTube.  The
 
 ## ToDo
 - **Documentation, Screenshots, Videos**  *(to learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))*
-- [Most wanted **New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"New%20feature"+sort%3Acomments-desc+is%3Aopen)  *(You can add an issue number to your donation.)*
+- [Most wanted **New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"New%20feature"+sort%3Acomments-desc+is%3Aopen)  *(you can add an issue-number to your donation.)*
 
-- [Most wanted **Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) *(We can offer small bounties (payments) on solved Issues. Especially label "priority".)*
+- [Most wanted **Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) *(we can offer small bounties (payments) on solved Issues. Especially label "priority".)*
 
 ImprovedTube can fly much higher through your effort, thoughts or word of mouth: <br> 
 
 - **[Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)**
 
-- [**How to start editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) <br>  *(For **CSS** or **JavaScript**-literates. Newbies are also welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will review all contributions. We love to code & collaborate)* <br> 
+- [**How to start editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  *(For **CSS** or **JavaScript**-literates. Newbies are also welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will review all contributions. We love to code & collaborate)* <br> 
 
 ## Credits 
 Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
