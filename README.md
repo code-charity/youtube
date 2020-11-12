@@ -5,12 +5,12 @@ An extension, that we built to refine & sweeten your experience on YouTube.  The
 - **Documentation, Screenshots, Videos**  *(to learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))* 
 - **[Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)**
 
-ImprovedTube can fly much higher through your effort, thoughts or word of mouth. Please spread the word. Improved didnt afford advertisement yet, else it would have millions of users and we could work much faster.
+ImprovedTube can fly much higher through your effort, thoughts or word of mouth. Please spread the word. 
+(ImprovedTube didn't afford advertisement yet, else it would have millions of users and we could work much faster.)
 
-#### Most active Issues:
-- [**New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"New%20feature"+sort%3Acomments-desc+is%3Aopen)  *(you can add an issue-number to your donation.)*
--  [**Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) *(we can offer small bounties(payment/compensation) on solved Issues. Especially label "priority")*
--  [**Topics**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A%22new+feature%22+) *(threads neither labeled Bug nor New Feature*)
+- [**active Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) *(we can offer small bounties(payment/compensation) on solved Issues. Especially label "priority")*
+- [**Most wanted new Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"New%20feature"+sort%3Acomments-desc+is%3Aopen)  *(you can add an issue-number to your donation.)*
+- [**active Topics**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A%22new+feature%22+) *(threads neither labeled Bug nor New Feature*)
 
 [**How to start editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  *(For CSS or JavaScript-literates. Newbies are also welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will review all contributions. We love to code & collaborate)* <br> 
 
