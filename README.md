@@ -2,16 +2,16 @@
 An extension, that we built to refine & sweeten your experience on YouTube.  The first popular features were simply to have a larger player, hide distractions and save your time. By now we also have many powerful features enhancing YouTube functionality. And there is so much left to build! ...  - ImprovedTube's User Interface is designed with our library **[Satus](https://github.com/victor-savinov/satus)** to manage your settings efficiently. - Technically, ImprovedTube is the only project providing so much CSS to adjust another service🦄<font size="-2">(_[cmiiw](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_)</font>
 
 ## ToDo
-- **Documentation, Screenshots, Videos** - Preview: Learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) 
-- [Most wanted **New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"New%20feature"+sort%3Acomments-desc+is%3Aopen)  - You can add an issue number to your donation.
+- **Documentation, Screenshots, Videos**  *(to learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))*
+- [Most wanted **New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"New%20feature"+sort%3Acomments-desc+is%3Aopen)  *(You can add an issue number to your donation.)*
 
-- [Most wanted **Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen)  - There are small bounty payments available on the popular Issues. Especially label "priority".
+- [Most wanted **Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) *(We can offer small bounties (payments) on solved Issues. Especially label "priority".)*
 
-ImprovedTube can fly much higher through your effort, thoughts or word of mouth <br> 
+ImprovedTube can fly much higher through your effort, thoughts or word of mouth: <br> 
 
-- **[On contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)**
+- **[Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)**
 
-- For **CSS** or **JavaScript**-literates: [**Editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) <br>  *(Newbies are welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will review all contributions. We love to code & collaborate)* <br> 
+- [**How to start editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) <br>  *(For **CSS** or **JavaScript**-literates. Newbies are also welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will review all contributions. We love to code & collaborate)* <br> 
 
 ## Credits 
 Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
