@@ -474,7 +474,7 @@
         "message": "Notte"
     },
     "noActiveFeatures": {
-        "message": "Nessuna funzionalità attiva"
+        "message": "Nessuna funzionalità attivata"
     },
     "none": {
         "message": "Alcuno/a"
@@ -801,6 +801,6 @@
         "message": "Visualizza statistiche per nerd"
     },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "Dis/attiva tessere di fine video"
     }
 }
