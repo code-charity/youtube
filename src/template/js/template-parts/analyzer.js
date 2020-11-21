@@ -1,12 +1,13 @@
 Menu.main.section.analyzer = {
-    type: 'folder',
+    type: 'button',
     before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/></svg>',
     label: 'analyzer',
-    class: 'satus-folder--analyzer',
+    class: 'satus-button--analyzer',
     appearanceKey: 'analyzer',
 
     activ_section: {
         type: 'section',
+        variant: 'card',
 
         analyzer_activation: {
             type: 'switch',
@@ -16,12 +17,13 @@ Menu.main.section.analyzer = {
 
     section: {
         type: 'section',
+        variant: 'card',
         style: {
             'flex-direction': 'column',
             'align-items': 'flex-start'
         },
         onrender: function() {
-            var data = Satus.storage.get('analyzer') || {},
+            var data = satus.storage.get('analyzer') || {},
                 all_data = {},
                 all_data_sort = [],
                 all_time_value = 0,
@@ -67,8 +69,8 @@ Menu.main.section.analyzer = {
 
             var now_minutes = new Date().getMinutes();
 
-            watch_time.innerText = Satus.locale.getMessage('watchTime') || 'watchTime';
-            today_at.innerText = Satus.locale.getMessage('todayAt') + ' ' + (new Date().getHours() + ':' + (now_minutes < 10 ? '0' + now_minutes : now_minutes)) || 'todayAt';
+            watch_time.innerText = satus.locale.getMessage('watchTime') || 'watchTime';
+            today_at.innerText = satus.locale.getMessage('todayAt') + ' ' + (new Date().getHours() + ':' + (now_minutes < 10 ? '0' + now_minutes : now_minutes)) || 'todayAt';
             all_time.innerText = Math.floor(all_time_value / 60) + 'h ' + (all_time_value - Math.floor(all_time_value / 60) * 60) + 'm';
 
             let h = 0;

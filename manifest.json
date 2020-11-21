@@ -1,17 +1,20 @@
 {
     "manifest_version": 2,
-    "short_name" : "ImprovedTube",
     "name": "Improve YouTube! (Open-Source for YouTube)",
-    "version": "3.150",
-    "version_name": "3.150",
+    "short_name" : "ImprovedTube",
+    "description": "Make YouTube tidy & powerful! YouTube Player Size Theme Quality Auto HD Colors Playback Speed Style ad block Playlist Channel H.264",
+    "version": "3.300",
+    "version_name": "3.300-beta",
+
+    "default_locale": "en",
+
     "icons": {
         "16": "assets/icons/16.png",
         "32": "assets/icons/32.png",
         "48": "assets/icons/48.png",
         "128": "assets/icons/128.png"
     },
-    "default_locale": "en",
-    "description": "Make YouTube tidy & powerful! YouTube Player Size Theme Quality Auto HD Colors Playback Speed Style ad block Playlist Channel H.264",
+    
     "browser_action": {
         "default_icon": {
             "16": "assets/icons/16g.png",
@@ -21,6 +24,9 @@
         },
         "default_popup": "index.html"
     },
+    
+    "options_page": "options.html",
+    
     "content_scripts": [{
         "all_frames": true,
         "css": [
@@ -63,22 +69,27 @@
         ],
         "run_at": "document_start"
     }],
+    
     "background": {
         "persistent": false,
         "scripts": [
             "background.js"
         ]
     },
+    
     "optional_permissions": [
         "downloads",
         "https://*.youtube.com/*"
     ],
+    
     "permissions": [
         "https://www.youtube.com/", 
         "contextMenus",
         "storage"
     ],
+    
     "offline_enabled": true,
+    
     "update_url": "https://clients2.google.com/service/update2/crx",
     "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }

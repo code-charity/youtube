@@ -38,7 +38,7 @@ var Menu = {
                     document.querySelector('.satus-main').open({
                         appearanceKey: 'search'
                     }, function() {
-                        Satus.render({
+                        satus.render({
                             type: 'dialog',
                             class: 'satus-dialog--search',
                             onclose: function() {
@@ -50,30 +50,31 @@ var Menu = {
                                 placeholder: 'search',
                                 oninput: function() {
                                     if (this.value.length > 0) {
-                                        Satus.search(this.value, Menu, function(results) {
+                                        satus.search(this.value, Menu, function(results) {
                                             var sorted_results = [];
 
                                             document.querySelector('.satus-main__container').innerHTML = '';
 
                                             for (var key in results) {
                                                 results[key].type = 'section';
+                                                results[key].variant = 'card';
 
                                                 sorted_results.push({
                                                     type: 'text',
                                                     label: key,
-                                                    class: 'satus-section--label'
+                                                    variant: 'section-label'
                                                 });
                                                 sorted_results.push(results[key]);
                                             }
 
-                                            var scroll = Satus.components.scrollbar(document.querySelector('.satus-main__container'));
+                                            var scroll = satus.components.scrollbar(document.querySelector('.satus-main__container'));
 
-                                            Satus.render(sorted_results, scroll);
+                                            satus.render(sorted_results, scroll);
                                         }, true);
                                     } else {
                                         document.querySelector('.satus-main__container').innerHTML = '';
 
-                                        Satus.render({}, document.querySelector('.satus-main__container'));
+                                        satus.render({}, document.querySelector('.satus-main__container'));
                                     }
                                 }
                             }
@@ -90,6 +91,7 @@ var Menu = {
 
                     email: {
                         type: 'button',
+                        variant: 'list-item',
                         label: 'Email',
                         title: 'bugs@improvedtube.com',
                         before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>',
@@ -99,6 +101,7 @@ var Menu = {
                     },
                     github: {
                         type: 'button',
+                        variant: 'list-item',
                         label: 'GitHub',
                         title: '/ImprovedTube/ImprovedTube',
                         before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>',
@@ -108,6 +111,7 @@ var Menu = {
                     },
                     website: {
                         type: 'button',
+                        variant: 'list-item',
                         label: 'Website',
                         title: 'improvedtube.com',
                         before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>',

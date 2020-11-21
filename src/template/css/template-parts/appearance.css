@@ -2,7 +2,7 @@
 >>> APPEARANCE
 ---------------------------------------------------------------*/
 
-.satus-main__container[data-appearance='appearance'] .satus-folder
+.satus-main__container[data-appearance='appearance'] .satus-button
 {
     position: absolute;
 
@@ -24,7 +24,7 @@
     align-items: center;
 }
 
-.satus-main__container[data-appearance='appearance'] .satus-folder:hover
+.satus-main__container[data-appearance='appearance'] .satus-button:hover
 {
     z-index: 9;
 
@@ -34,7 +34,7 @@
     box-shadow: 1px 1px 0 0 var(--main-appearance-shadow, #dfdfdf), 2px 2px 0 0 var(--main-appearance-shadow, #dfdfdf), 3px 3px 0 0 var(--main-appearance-shadow, #dfdfdf), 4px 4px 0 0 var(--main-appearance-shadow, #dfdfdf), 5px 6px 4px 0 rgba(0, 0, 0, .1);
 }
 
-.satus-main__container[data-appearance='appearance'] .satus-folder--header
+.satus-main__container[data-appearance='appearance'] .satus-button--header
 {
     top: 16px;
     left: 16px;
@@ -44,12 +44,12 @@
     min-height: auto;
 }
 
-.satus-main__container[data-appearance='appearance'] .satus-folder--header:hover
+.satus-main__container[data-appearance='appearance'] .satus-button--header:hover
 {
     transform: scale(1.03) translate(-9px, -4px);
 }
 
-.satus-main__container[data-appearance='appearance'] .satus-folder--player
+.satus-main__container[data-appearance='appearance'] .satus-button--player
 {
     top: 64px;
     left: 16px;
@@ -63,19 +63,19 @@
     background-color: #444;
 }
 
-.satus-main__container[data-appearance='appearance'] .satus-folder--player .label
+.satus-main__container[data-appearance='appearance'] .satus-button--player .label
 {
     color: #fff;
 }
 
-.satus-main__container[data-appearance='appearance'] .satus-folder--player:hover
+.satus-main__container[data-appearance='appearance'] .satus-button--player:hover
 {
     transform: scale(1.03) translate(-7px, -4px);
 
     box-shadow: 1px 1px 0 0 #333, 2px 2px 0 0 #333, 3px 3px 0 0 #333, 4px 4px 0 0 #333, 5px 6px 4px 0 rgba(0, 0, 0, .1);
 }
 
-.satus-main__container[data-appearance='appearance'] .satus-folder--details
+.satus-main__container[data-appearance='appearance'] .satus-button--details
 {
     top: 168px;
     left: 16px;
@@ -85,7 +85,7 @@
     min-height: auto;
 }
 
-.satus-main__container[data-appearance='appearance'] .satus-folder--description
+.satus-main__container[data-appearance='appearance'] .satus-button--description
 {
     top: 13.5rem;
     left: 1rem;
@@ -95,7 +95,7 @@
     min-height: 3.5rem;
 }
 
-.satus-main__container[data-appearance='appearance'] .satus-folder--comments
+.satus-main__container[data-appearance='appearance'] .satus-button--comments
 {
     top: 232px;
     left: 16px;
@@ -107,7 +107,7 @@
     background: var(--satus-theme-section)
 }
 
-.satus-main__container[data-appearance='appearance'] .satus-folder--footer
+.satus-main__container[data-appearance='appearance'] .satus-button--footer
 {
     top: 320px;
     left: 16px;
@@ -119,7 +119,7 @@
     background: var(--satus-theme-section)
 }
 
-.satus-main__container[data-appearance='appearance'] .satus-folder--sidebar
+.satus-main__container[data-appearance='appearance'] .satus-button--sidebar
 {
     top: 64px;
     left: calc(70% - 8px);

@@ -1,18 +1,18 @@
 /*---------------------------------------------------------------
 >>> BACKGROUND
 -----------------------------------------------------------------
-1.0 Global variables
-2.0 Functions
-3.0 Context menu items
-4.0 Message listener
-5.0 Storage change listener
-6.0 Initialization
-7.0 Uninstall URL
-8.0 Google Analytics
+# Global variables
+# Functions
+# Context menu items
+# Message listener
+# Storage change listener
+# Initialization
+# Uninstall URL
+# Google Analytics
 ---------------------------------------------------------------*/
 
 /*---------------------------------------------------------------
-1.0 GLOBAL VARIABLES
+# GLOBAL VARIABLES
 ---------------------------------------------------------------*/
 
 var locale_code = 'en',
@@ -20,7 +20,7 @@ var locale_code = 'en',
 
 
 /*---------------------------------------------------------------
-2.0 FUNCTIONS
+# FUNCTIONS
 ---------------------------------------------------------------*/
 
 function isset(variable) {
@@ -72,7 +72,7 @@ function browserActionIcon() {
 
 
 /*---------------------------------------------------------------
-3.0 CONTEXT MENU ITEMS
+# CONTEXT MENU ITEMS
 ---------------------------------------------------------------*/
 
 chrome.contextMenus.removeAll();
@@ -107,7 +107,7 @@ chrome.contextMenus.onClicked.addListener(function(event) {
 
 
 /*---------------------------------------------------------------
-4.0 MESSAGE LISTENER
+# MESSAGE LISTENER
 ---------------------------------------------------------------*/
 
 chrome.runtime.onMessage.addListener(function(request, sender) {
@@ -278,7 +278,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 
 
 /*---------------------------------------------------------------
-5.0 STORAGE CHANGE LISTENER
+# STORAGE CHANGE LISTENER
 ---------------------------------------------------------------*/
 
 chrome.storage.onChanged.addListener(function(changes) {
@@ -297,7 +297,7 @@ chrome.storage.onChanged.addListener(function(changes) {
 
 
 /*---------------------------------------------------------------
-6.0 INITIALIZATION
+# INITIALIZATION
 ---------------------------------------------------------------*/
 
 chrome.storage.local.get(function(items) {
@@ -316,19 +316,19 @@ chrome.storage.local.get(function(items) {
 
 
 /*---------------------------------------------------------------
-7.0 UNINSTALL URL
+# UNINSTALL URL
 ---------------------------------------------------------------*/
 
-chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
+//chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
 
 
 /*---------------------------------------------------------------
-8.0 GOOGLE ANALYTICS
+# GOOGLE ANALYTICS
 ---------------------------------------------------------------*/
 
 var _gaq = _gaq || [];
 
-(function() {
+/*(function() {
     var ga = document.createElement('script');
 
     _gaq.push(['_setAccount', 'UA-88354155-1']);
@@ -339,4 +339,4 @@ var _gaq = _gaq || [];
     ga.src = 'https://ssl.google-analytics.com/ga.js';
     
     document.body.appendChild(ga);
-})();
+})();*/

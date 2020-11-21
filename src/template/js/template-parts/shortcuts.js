@@ -1,18 +1,19 @@
 Menu.main.section.shortcuts = {
-    type: 'folder',
+    type: 'button',
     before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>',
     label: 'shortcuts',
-    class: 'satus-folder--shortcut',
+    class: 'satus-button--shortcut',
     appearanceKey: 'shortcuts',
 
     player_section_label: {
         type: 'text',
-        class: 'satus-section--label',
+        variant: 'section-label',
         label: 'player'
     },
 
     player_section: {
         type: 'section',
+        variant: 'card',
 
         shortcut_picture_in_picture: {
             type: 'shortcut',
@@ -60,11 +61,12 @@ Menu.main.section.shortcuts = {
             }
         },
         shortcut_volume: {
-            type: 'folder',
+            type: 'button',
             label: 'volume',
 
             section_step: {
                 type: 'section',
+                variant: 'card',
 
                 shortcut_volume_step: {
                     type: 'slider',
@@ -78,23 +80,39 @@ Menu.main.section.shortcuts = {
 
             section: {
                 type: 'section',
+                variant: 'card',
 
                 shortcut_increase_volume: {
                     type: 'shortcut',
-                    label: 'increaseVolume'
+                    label: 'increaseVolume',
+                    custom_data: {
+                        on_top_of_player: {
+                            type: 'switch',
+                            label: 'onTopOfPlayer',
+                            storage: false
+                        }
+                    }
                 },
                 shortcut_decrease_volume: {
                     type: 'shortcut',
-                    label: 'decreaseVolume'
+                    label: 'decreaseVolume',
+                    custom_data: {
+                        on_top_of_player: {
+                            type: 'switch',
+                            label: 'onTopOfPlayer',
+                            storage: false
+                        }
+                    }
                 }
             }
         },
         shortcut_playback_speed: {
-            type: 'folder',
+            type: 'button',
             label: 'playbackSpeed',
 
             section_step: {
                 type: 'section',
+                variant: 'card',
 
                 shortcut_playback_speed_step: {
                     type: 'slider',
@@ -108,6 +126,7 @@ Menu.main.section.shortcuts = {
 
             section: {
                 type: 'section',
+                variant: 'card',
 
                 shortcut_increase_playback_speed: {
                     type: 'shortcut',
@@ -134,11 +153,12 @@ Menu.main.section.shortcuts = {
             }
         },
         shortcut_quality: {
-            type: 'folder',
+            type: 'button',
             label: 'quality',
 
             section: {
                 type: 'section',
+                variant: 'card',
 
                 shortcut_240p: {
                     type: 'shortcut',
@@ -198,12 +218,13 @@ Menu.main.section.shortcuts = {
 
     appearance_section_label: {
         type: 'text',
-        class: 'satus-section--label',
+        variant: 'section-label',
         label: 'appearance'
     },
 
     appearance_section: {
         type: 'section',
+        variant: 'card',
 
         shortcut_go_to_search_box: {
             type: 'shortcut',

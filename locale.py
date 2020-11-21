@@ -34,7 +34,7 @@ def addItem(allFiles):
         with open(keyFile, "r+") as json_file:
             data = json.load(json_file)
             
-            data[lowerCamelCase(message)] = {
+            data[re.sub(r"[^a-zA-Z0-9]", "", lowerCamelCase(message))] = {
                 "message": message
             }
             

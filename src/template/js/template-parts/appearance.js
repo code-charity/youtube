@@ -1,17 +1,18 @@
 Menu.main.section.appearance = {
-    type: 'folder',
+    type: 'button',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
     label: 'appearance',
-    class: 'satus-folder--appearance',
+    class: 'satus-button--appearance',
     appearanceKey: 'appearance',
 
     header: {
-        type: 'folder',
+        type: 'button',
         label: 'header',
-        class: 'satus-folder--header',
+        class: 'satus-button--header',
 
         section: {
             type: 'section',
+            variant: 'card',
 
             header_position: {
                 type: 'select',
@@ -50,12 +51,13 @@ Menu.main.section.appearance = {
         }
     },
     player: {
-        type: 'folder',
+        type: 'button',
         label: 'player',
-        class: 'satus-folder--player',
+        class: 'satus-button--player',
 
         section: {
             type: 'section',
+            variant: 'card',
 
            player_hide_annotations: {	           
                 type: 'switch',	                
@@ -207,12 +209,13 @@ Menu.main.section.appearance = {
         }
     },
     details: {
-        type: 'folder',
+        type: 'button',
         label: 'details',
-        class: 'satus-folder--details',
+        class: 'satus-button--details',
 
         section: {
             type: 'section',
+            variant: 'card',
 
             hide_details: {
                 type: 'switch',
@@ -271,12 +274,14 @@ Menu.main.section.appearance = {
         }
     },
     sidebar: {
-        type: 'folder',
+        type: 'button',
         label: 'sidebar',
-        class: 'satus-folder--sidebar',
+        class: 'satus-button--sidebar',
 
         section: {
             type: 'section',
+            variant: 'card',
+
             sidebar_left: {
                 type: 'switch',
                 label: 'Sidebar on the Left'
@@ -323,12 +328,13 @@ Menu.main.section.appearance = {
         }
     },
     comments: {
-        type: 'folder',
+        type: 'button',
         label: 'comments',
-        class: 'satus-folder--comments',
+        class: 'satus-button--comments',
 
         section: {
             type: 'section',
+            variant: 'card',
 
             comments: {
                 type: 'select',
@@ -348,12 +354,13 @@ Menu.main.section.appearance = {
         }
     },
     footer: {
-        type: 'folder',
+        type: 'button',
         label: 'footer',
-        class: 'satus-folder--footer',
+        class: 'satus-button--footer',
 
         section: {
             type: 'section',
+            variant: 'card',
 
             hide_footer: {
                 type: 'switch',

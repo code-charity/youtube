@@ -1,5 +1,5 @@
 function themePopupChange() {
-    if (Satus.storage.get('red_popup_theme') === true) {
+    if (satus.storage.get('red_popup_theme') === true) {
         document.documentElement.setAttribute('popup-theme', 'red');
     } else {
         document.documentElement.removeAttribute('popup-theme');
@@ -17,42 +17,44 @@ function themeChange(event) {
         }
     }
 
-    if (Satus.storage.get('default_dark_theme') === true) {
+    if (satus.storage.get('default_dark_theme') === true) {
         document.documentElement.setAttribute('theme', 'dark');
-    } else if (Satus.storage.get('night_theme') === true) {
+    } else if (satus.storage.get('night_theme') === true) {
         document.documentElement.setAttribute('theme', 'night');
-    } else if (Satus.storage.get('dawn_theme') === true) {
+    } else if (satus.storage.get('dawn_theme') === true) {
         document.documentElement.setAttribute('theme', 'dawn');
-    } else if (Satus.storage.get('sunset_theme') === true) {
+    } else if (satus.storage.get('sunset_theme') === true) {
         document.documentElement.setAttribute('theme', 'sunset');
-    } else if (Satus.storage.get('desert_theme') === true) {
+    } else if (satus.storage.get('desert_theme') === true) {
         document.documentElement.setAttribute('theme', 'desert');
-    } else if (Satus.storage.get('plain_theme') === true) {
+    } else if (satus.storage.get('plain_theme') === true) {
         document.documentElement.setAttribute('theme', 'plain');
-    } else if (Satus.storage.get('black_theme') === true) {
+    } else if (satus.storage.get('black_theme') === true) {
         document.documentElement.setAttribute('theme', 'black');
     } else {
         document.documentElement.removeAttribute('theme');
     }
 }
 
-
 Menu.main.section.themes = {
-    type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>',
+    type: 'button',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>',
     label: 'themes',
-    class: 'satus-folder--themes',
+    class: 'satus-button--themes',
     appearanceKey: 'themes',
 
     section: {
         type: 'section',
+        variant: 'card',
 
         my_colors: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             label: 'myColors',
 
             section: {
                 type: 'section',
+                variant: 'card',
 
                 theme_my_colors: {
                     type: 'switch',
@@ -62,25 +64,30 @@ Menu.main.section.themes = {
 
             section2: {
                 type: 'section',
+                variant: 'card',
 
                 theme_primary_color: {
                     type: 'color-picker',
                     label: 'primaryColor',
+                    variant: 'list-item',
                     value: 'rgba(200,200,200)'
                 },
                 theme_text_color: {
                     type: 'color-picker',
                     label: 'textColor',
+                    variant: 'list-item',
                     value: 'rgba(25,25,25)'
                 }
             }
         },
         filters: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             label: 'filters',
 
             section: {
                 type: 'section',
+                variant: 'card',
 
                 bluelight: {
                     type: 'slider',
@@ -99,11 +106,13 @@ Menu.main.section.themes = {
             }
         },
         schedule: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             label: 'schedule',
 
             section: {
                 type: 'section',
+                variant: 'card',
 
                 schedule: {
                     type: 'select',
