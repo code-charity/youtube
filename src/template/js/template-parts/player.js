@@ -1,12 +1,13 @@
 Menu.main.section.player = {
-    type: 'folder',
+    type: 'button',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>',
     label: 'player',
-    class: 'satus-folder--player',
+    class: 'satus-button--player',
     appearanceKey: 'player',
 
     general: {
         type: 'section',
+        variant: 'card',
 
         player_autoplay: {
             type: 'switch',
@@ -22,10 +23,10 @@ Menu.main.section.player = {
             label: 'forcedPlaybackSpeed',
             id: 'forced-playback-speed',
             onrender: function() {
-                this.dataset.value = Satus.storage.player_forced_playback_speed;
+                this.dataset.value = satus.storage.player_forced_playback_speed;
             },
             onchange: function() {
-                this.dataset.value = Satus.storage.player_forced_playback_speed;
+                this.dataset.value = satus.storage.player_forced_playback_speed;
             }
         },
         player_playback_speed: {
@@ -79,12 +80,13 @@ Menu.main.section.player = {
 
     section_label__videos: {
         type: 'text',
-        class: 'satus-section--label',
+        variant: 'section-label',
         label: 'videos'
     },
 
     video: {
         type: 'section',
+        variant: 'card',
 
         player_quality: {
             type: 'select',
@@ -127,28 +129,64 @@ Menu.main.section.player = {
         player_h264: {
             type: 'switch',
             label: 'codecH264',
-
             onclick: function() {
-                console.log(this.dataset.value);
                 if (this.querySelector('input').checked === true) {
-                    Satus.render({
+                    satus.render({
                         type: 'dialog',
                         class: 'satus-dialog--confirm',
 
                         message: {
                             type: 'text',
-                            label: 'youtubeLimitsVideoQualityTo1080pForH264Codec',
-                            style: {
-                                'width': '100%',
-                                'opacity': '.8'
-                            }
+                            class: 'satus-dialog__message',
+                            label: 'youtubeLimitsVideoQualityTo1080pForH264Codec'
                         },
                         section: {
                             type: 'section',
-                            class: 'controls',
-                            style: {
-                                'justify-content': 'flex-end'
+                            class: 'satus-section--actions',
+
+                            cancel: {
+                                type: 'button',
+                                variant: 'text',
+                                label: 'cancel',
+                                onclick: function() {
+                                    let scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                    scrim[scrim.length - 1].click();
+                                }
                             },
+                            ok: {
+                                type: 'button',
+                                variant: 'text',
+                                label: 'OK',
+                                onclick: function() {
+                                    let scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                    scrim[scrim.length - 1].click();
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        },
+        player_60fps: {
+            type: 'switch',
+            label: 'allow60fps',
+            value: true,
+            onclick: function() {
+                if (this.querySelector('input').checked === true) {
+                    satus.render({
+                        type: 'dialog',
+                        class: 'satus-dialog--confirm',
+
+                        message: {
+                            type: 'text',
+                            class: 'satus-dialog__message',
+                            label: 'youtubeLimitsVideoQualityTo1080pForH264Codec'
+                        },
+                        section: {
+                            type: 'section',
+                            class: 'satus-section--actions',
 
                             cancel: {
                                 type: 'button',
@@ -173,21 +211,17 @@ Menu.main.section.player = {
                 }
             }
         },
-        player_60fps: {
-            type: 'switch',
-            label: 'allow60fps',
-            value: true
-        },
     },
 
     section_label__audio: {
         type: 'text',
-        class: 'satus-section--label',
+        variant: 'section-label',
         label: 'audio'
     },
 
     audio: {
         type: 'section',
+        variant: 'card',
         label: 'audio',
 
         player_forced_volume: {
@@ -195,10 +229,10 @@ Menu.main.section.player = {
             label: 'forcedVolume',
             id: 'forced-volume',
             onrender: function() {
-                this.dataset.value = Satus.storage.player_forced_volume;
+                this.dataset.value = satus.storage.player_forced_volume;
             },
             onchange: function() {
-                this.dataset.value = Satus.storage.player_forced_volume;
+                this.dataset.value = satus.storage.player_forced_volume;
             }
         },
         player_volume: {
@@ -217,19 +251,22 @@ Menu.main.section.player = {
 
     section_label__buttons: {
         type: 'text',
-        class: 'satus-section--label',
+        variant: 'section-label',
         label: 'buttons'
     },
 
     buttons: {
         type: 'section',
+        variant: 'card',
 
         player_screenshot: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             label: 'screenshot',
 
             section: {
                 type: 'section',
+                variant: 'card',
 
                 player_screenshot_button: {
                     type: 'switch',
@@ -249,11 +286,13 @@ Menu.main.section.player = {
             }
         },
         player_repeat: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             label: 'repeat',
 
             section: {
                 type: 'section',
+                variant: 'card',
 
                 player_repeat_button: {
                     type: 'switch',

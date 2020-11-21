@@ -24,6 +24,13 @@
     src: url('assets/fonts/OpenSans-SemiBold.ttf');
 }
 
+@font-face
+{
+    font-family: 'Xanh Mono';
+
+    src: url('assets/fonts/XanhMono-Regular.ttf');
+}
+
 
 /*---------------------------------------------------------------
 # BASIC

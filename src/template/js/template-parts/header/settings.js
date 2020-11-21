@@ -1,5 +1,6 @@
 Menu.header.section_end.button_vert.onclick.settings = {
-    type: 'folder',
+    type: 'button',
+    variant: 'list-item',
     before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>',
     label: 'settings',
     parent: '.satus-main__container',
@@ -9,20 +10,24 @@ Menu.header.section_end.button_vert.onclick.settings = {
 
     section: {
         type: 'section',
+        variant: 'card',
 
         developer_options: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             before: '<svg fill="var(--satus-theme-primary)" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>',
             label: 'developerOptions',
 
             custom_js_section_label: {
                 type: 'text',
-                class: 'satus-section--label',
+                variant: 'section-label',
                 label: 'customJs'
             },
 
             custom_js_section: {
                 type: 'section',
+                variant: 'card',
+
                 custom_js: {
                     type: 'text-field',
                     onrender: function() {
@@ -36,12 +41,14 @@ Menu.header.section_end.button_vert.onclick.settings = {
 
             custom_css_section_label: {
                 type: 'text',
-                class: 'satus-section--label',
+                variant: 'section-label',
                 label: 'customCss'
             },
 
             custom_css_section: {
                 type: 'section',
+                variant: 'card',
+
                 custom_css: {
                     type: 'text-field',
                     onrender: function() {
@@ -57,22 +64,27 @@ Menu.header.section_end.button_vert.onclick.settings = {
 
     section0: {
         type: 'section',
+        variant: 'card',
 
         appearance: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             before: '<svg fill="var(--satus-theme-primary)" viewBox="0 0 24 24"><path d="M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z" /></svg>',
             label: 'appearance',
 
             general: {
                 type: 'section',
+                variant: 'card',
                 label: 'general',
 
                 header: {
-                    type: 'folder',
+                    type: 'button',
+                    variant: 'list-item',
                     label: 'header',
 
                     section: {
                         type: 'section',
+                        variant: 'card',
 
                         title_version: {
                             type: 'switch',
@@ -81,11 +93,13 @@ Menu.header.section_end.button_vert.onclick.settings = {
                     }
                 },
                 home: {
-                    type: 'folder',
+                    type: 'button',
+                    variant: 'list-item',
                     label: 'home',
 
                     section: {
                         type: 'section',
+                        variant: 'card',
 
                         improvedtube_home: {
                             type: 'select',
@@ -102,6 +116,7 @@ Menu.header.section_end.button_vert.onclick.settings = {
 
                     categories: {
                         type: 'section',
+                        variant: 'card',
                         label: 'categories',
 
                         it_general: {
@@ -159,6 +174,7 @@ Menu.header.section_end.button_vert.onclick.settings = {
             },
             icons: {
                 type: 'section',
+                variant: 'card',
                 label: 'icons',
 
                 improvedtube_youtube_icon: {
@@ -196,12 +212,14 @@ Menu.header.section_end.button_vert.onclick.settings = {
             }
         },
         languages: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             before: '<svg fill="var(--satus-theme-primary)" viewBox="0 0 24 24"><path d="M12.9 15l-2.6-2.4c1.8-2 3-4.2 3.8-6.6H17V4h-7V2H8v2H1v2h11.2c-.7 2-1.8 3.8-3.2 5.3-1-1-1.7-2.1-2.3-3.3h-2c.7 1.6 1.7 3.2 3 4.6l-5.1 5L4 19l5-5 3.1 3.1.8-2zm5.6-5h-2L12 22h2l1.1-3H20l1.1 3h2l-4.5-12zm-2.6 7l1.6-4.3 1.6 4.3H16z" /></svg>',
             label: 'languages',
 
             section: {
                 type: 'section',
+                variant: 'card',
 
                 language: {
                     label: 'improvedtubeLanguage',
@@ -510,14 +528,17 @@ Menu.header.section_end.button_vert.onclick.settings = {
             }
         },
         backup_and_reset: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             label: 'backupAndReset',
             before: '<svg fill="var(--satus-theme-primary)" viewBox="0 0 24 24"><path d="M13.3 3A9 9 0 0 0 4 12H2.2c-.5 0-.7.5-.3.8l2.7 2.8c.2.2.6.2.8 0L8 12.8c.4-.3.1-.8-.3-.8H6a7 7 0 1 1 2.7 5.5 1 1 0 0 0-1.3.1 1 1 0 0 0 0 1.5A9 9 0 0 0 22 11.7C22 7 18 3.1 13.4 3zm-.6 5c-.4 0-.7.3-.7.8v3.6c0 .4.2.7.5.9l3.1 1.8c.4.2.8.1 1-.2.2-.4.1-.8-.2-1l-3-1.8V8.7c0-.4-.2-.7-.7-.7z" /></svg>',
 
             section: {
                 type: 'section',
+                variant: 'card',
                 import_settings: {
                     type: 'button',
+                    variant: 'list-item',
                     label: 'importSettings',
 
                     onclick: function() {
@@ -546,6 +567,7 @@ Menu.header.section_end.button_vert.onclick.settings = {
                                         },
                                         section: {
                                             type: 'section',
+                                            variant: 'card',
                                             class: 'controls',
                                             style: {
                                                 'justify-content': 'flex-end',
@@ -588,6 +610,7 @@ Menu.header.section_end.button_vert.onclick.settings = {
                 },
                 export_settings: {
                     type: 'button',
+                    variant: 'list-item',
                     label: 'exportSettings',
 
                     onclick: function() {
@@ -600,6 +623,7 @@ Menu.header.section_end.button_vert.onclick.settings = {
                 },
                 reset_all_settings: {
                     type: 'button',
+                    variant: 'list-item',
                     label: 'resetAllSettings',
 
                     onclick: function() {
@@ -613,6 +637,7 @@ Menu.header.section_end.button_vert.onclick.settings = {
                             },
                             section: {
                                 type: 'section',
+                                variant: 'card',
                                 class: 'controls',
                                 style: {
                                     'justify-content': 'flex-end',
@@ -645,6 +670,7 @@ Menu.header.section_end.button_vert.onclick.settings = {
                 },
                 delete_youtube_cookies: {
                     type: 'button',
+                    variant: 'list-item',
                     label: 'deleteYoutubeCookies',
 
                     onclick: function() {
@@ -662,6 +688,7 @@ Menu.header.section_end.button_vert.onclick.settings = {
                             },
                             section: {
                                 type: 'section',
+                                variant: 'card',
                                 class: 'controls',
                                 style: {
                                     'justify-content': 'flex-end',
@@ -703,12 +730,14 @@ Menu.header.section_end.button_vert.onclick.settings = {
             }
         },
         date_and_time: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             label: 'dateAndTime',
             before: '<svg fill="var(--satus-theme-primary)" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z" /></svg>',
 
             section: {
                 type: 'section',
+                variant: 'card',
 
                 use_24_hour_format: {
                     type: 'switch',
@@ -718,21 +747,23 @@ Menu.header.section_end.button_vert.onclick.settings = {
             }
         },
         about: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             before: '<svg fill="var(--satus-theme-primary)" viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" /></svg>',
             label: 'about',
             appearanceKey: 'about',
 
             section: {
                 type: 'section',
-
+                variant: 'card',
                 onrender: function() {
                     var component = this,
                         manifest = chrome.runtime.getManifest(),
-                        user = satus.modules.user(),
+                        user = satus.user(),
                         object = {
                             extension_section: {
                                 type: 'section',
+                                variant: 'card',
                                 label: 'extension',
                                 style: {
                                     'flex-direction': 'column',
@@ -752,6 +783,7 @@ Menu.header.section_end.button_vert.onclick.settings = {
                             },
                             browser_section: {
                                 type: 'section',
+                                variant: 'card',
                                 label: 'browser',
                                 style: {
                                     'flex-direction': 'column',
@@ -791,6 +823,7 @@ Menu.header.section_end.button_vert.onclick.settings = {
                             },
                             os_section: {
                                 type: 'section',
+                                variant: 'card',
                                 label: 'os',
                                 style: {
                                     'flex-direction': 'column',
@@ -811,6 +844,7 @@ Menu.header.section_end.button_vert.onclick.settings = {
                             },
                             device_section: {
                                 type: 'section',
+                                variant: 'card',
                                 label: 'device',
                                 style: {
                                     'flex-direction': 'column',

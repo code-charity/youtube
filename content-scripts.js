@@ -1,4 +1,4 @@
-
+
 /*-----------------------------------------------------------------------------
 >>> CORE
 -------------------------------------------------------------------------------
@@ -66,7 +66,6 @@ ImprovedTube.pageUpdate = function() {
     ImprovedTube.channel_videos_count();
     ImprovedTube.collapse_of_subscription_sections();
     ImprovedTube.mark_watched_videos();
-    ImprovedTube.geo_preference();
 };
 
 
@@ -185,7 +184,7 @@ ImprovedTube.init = function() {
 function withoutInjection(object) {
     youtubeHomePage__documentStart(object.youtube_home_page);
 }
-
+
 /*-----------------------------------------------------------------------------
 >>> EVENTS
 -------------------------------------------------------------------------------
@@ -350,7 +349,7 @@ ImprovedTube.events = function() {
         }
     }, true);
 };
-
+
 chrome.storage.local.get(function(items) {
     document.addEventListener('ImprovedTubeAnalyzer', function() {
         if (items.analyzer_activation === true) {
@@ -363,7 +362,7 @@ chrome.storage.local.get(function(items) {
         }
     });
 });
-
+
 /*-----------------------------------------------------------------------------
 >>> APPEARANCE
 -------------------------------------------------------------------------------
@@ -816,7 +815,7 @@ ImprovedTube.related_videos = function() {
         }, 260);
     }
 };
-
+
 // TODO: HIGH CPU USAGE
 
 document.addEventListener('ImprovedTubeBlacklist', function(event) {
@@ -1032,7 +1031,7 @@ ImprovedTube.blacklist = function() {
         }
     }
 };
-
+
 /*-----------------------------------------------------------------------------
 >>> CHANNEL
 -------------------------------------------------------------------------------
@@ -1087,7 +1086,7 @@ ImprovedTube.channel_default_tab = function() {
         }
     }
 };
-
+
 /*-----------------------------------------------------------------------------
 >>> GENERAL
 -------------------------------------------------------------------------------
@@ -1097,7 +1096,6 @@ ImprovedTube.channel_default_tab = function() {
 4.0 Confirmation before closing
 5.0 Collapse of subscription sections
 6.0 Mark watched videos
-7.0 Geo Preference
 -----------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------
@@ -1124,7 +1122,7 @@ ImprovedTube.youtube_home_page = function() {
             }
 
             node.href = value;
-
+            node.outerHTML = String(node.outerHTML);
             node.addEventListener('click', function() {
                 if (
                     this.data &&
@@ -1141,6 +1139,7 @@ ImprovedTube.youtube_home_page = function() {
 
         for (var i = 0, l = node_list.length; i < l; i++) {
             node_list[i].href = node_list[i].getAttribute('it-origin') || '/';
+            node_list[i].outerHTML = String(node.node_list[i].outerHTML);
         }
     }
 };
@@ -1375,29 +1374,7 @@ ImprovedTube.mark_watched_videos = function() {
         }
     }
 };
-
-/*-----------------------------------------------------------------------------
-7.0 Geo Preference
------------------------------------------------------------------------------*/
-
-ImprovedTube.geo_preference = function() {
-    var target = this.storage.geo_preference;
-
-    if(typeof target === 'undefined' || target === '') // default
-        return;
-
-    var pref = this.getCookieValueByName('PREF'),
-        gl = this.getParam(pref, 'gl');
-
-    if(gl === target)
-        return;
-
-    if(gl)
-        this.setCookie('PREF', pref.replace('gl=' + gl, 'gl=' + target));
-    else
-        this.setCookie('PREF', pref + '&gl=' + target);
-};
-
+
 /*-----------------------------------------------------------------------------
 >>> PLAYER
 -------------------------------------------------------------------------------
@@ -1899,6 +1876,8 @@ ImprovedTube.mini_player__resize_mouseUp = function(event) {
     ImprovedTube.mini_player__y = bcr.top;
     ImprovedTube.mini_player__width = bcr.width;
     ImprovedTube.mini_player__height = bcr.height;
+
+    window.dispatchEvent(new Event('resize'));
     
     var strg = JSON.parse(localStorage.getItem('improedtube-mini-player')) || {};
     
@@ -2267,7 +2246,7 @@ ImprovedTube.player_loudness_normalization = function() {
         }
     }
 };
-
+
 /*-----------------------------------------------------------------------------
 >>> PLAYLIST
 -------------------------------------------------------------------------------
@@ -2513,7 +2492,7 @@ ImprovedTube.playlist_up_next_autoplay = function(player) {
     player.querySelector('video').removeEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
     player.querySelector('video').addEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
 };
-
+
 /*-----------------------------------------------------------------------------
 >>> SETTINGS
 -------------------------------------------------------------------------------
@@ -2747,7 +2726,7 @@ ImprovedTube.youtube_language = function() {
         location.reload();
     }, 100);
 };
-
+
 /*-----------------------------------------------------------------------------
 >>> SHORTCUTS
 -------------------------------------------------------------------------------
@@ -2942,22 +2921,22 @@ ImprovedTube.shortcuts = function() {
                 }
             },
             shortcut_increase_playback_speed: function() {
-                var player = document.querySelector('#movie_player');
+                var video = document.querySelector('#movie_player video');
 
-                if (player && player.setPlaybackRate && player.getPlaybackRate) {
-                    player.setPlaybackRate(player.getPlaybackRate() + (Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05));
+                if (video && video.playbackRate) {
+                    video.playbackRate = Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step)).toFixed(2)), .1);
+
+                    showStatus(document.querySelector('#movie_player'), video.playbackRate);
                 }
-
-                showStatus(player, player.getPlaybackRate());
             },
             shortcut_decrease_playback_speed: function() {
-                var player = document.querySelector('#movie_player');
+                var video = document.querySelector('#movie_player video');
 
-                if (player && player.setPlaybackRate && player.getPlaybackRate) {
-                    player.setPlaybackRate(player.getPlaybackRate() - (Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05));
+                if (video && video.playbackRate) {
+                    video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step)).toFixed(2)), .1);
+
+                    showStatus(document.querySelector('#movie_player'), video.playbackRate);
                 }
-
-                showStatus(player, player.getPlaybackRate());
             },
             shortcut_go_to_search_box: function() {
                 var search = document.querySelector('#search');
@@ -3062,6 +3041,14 @@ ImprovedTube.shortcuts = function() {
                         }
                     }
                 }
+            },
+            shortcut_toggle_cards: function() {
+                const html = document.getElementsByTagName("html")[0];
+                if(html.getAttribute("it-player-hide-cards") === "true") {
+                    html.setAttribute("it-player-hide-cards", "false");
+                } else {
+                    html.setAttribute("it-player-hide-cards", true);
+                }
             }
         };
 
@@ -3075,7 +3062,7 @@ ImprovedTube.shortcuts = function() {
                     (data.ctrlKey === keys.ctrlKey || !self.isset(data.ctrlKey)) &&
                     (data.altKey === keys.altKey || !self.isset(data.altKey)) &&
                     ((data.wheel > 0) === (wheel > 0) || !self.isset(data.wheel)) &&
-                    ((hover === true && (data.wheel > 0) === (wheel > 0) && Object.keys(keys).length === 0 && keys.constructor === Object) || (self.isset(data.key) || self.isset(data.altKey) || self.isset(data.ctrlKey)))
+                    (((data.on_top_of_player === true ? hover === true : true) && (data.wheel > 0) === (wheel > 0) && Object.keys(keys).length === 0 && keys.constructor === Object) || (self.isset(data.key) || self.isset(data.altKey) || self.isset(data.ctrlKey)))
                 ) {
                     if (type === 'wheel' && self.isset(data.wheel) || type === 'keys') {
                         event.preventDefault();
@@ -3140,7 +3127,7 @@ ImprovedTube.shortcuts = function() {
         capture: true
     });
 };
-
+
 /*-----------------------------------------------------------------------------
 >>> THEMES
 -------------------------------------------------------------------------------
@@ -3378,7 +3365,7 @@ ImprovedTube.themeEditor = function() {
 
     document.documentElement.appendChild(style);
 }
-
+
 /*-----------------------------------------------------------------------------
 >>> VOLUME MIXER
 -------------------------------------------------------------------------------
@@ -3389,7 +3376,7 @@ ImprovedTube.themeEditor = function() {
 1.0 Inject
 -----------------------------------------------------------------------------*/
 
-ImprovedTube.volumeMixer = function() {};
+ImprovedTube.volumeMixer = function() {};
 /*-----------------------------------------------------------------------------
 >>> FUNCTIONS
 -------------------------------------------------------------------------------
@@ -3491,7 +3478,7 @@ ImprovedTube.pageType = function() {
 
 chrome.runtime.sendMessage({
     enabled: true
-});
+});
 /*-----------------------------------------------------------------------------
 >>> INJECTION
 -------------------------------------------------------------------------------
@@ -3634,7 +3621,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         }, 250);
     }
 });
-
+
 /*-----------------------------------------------------------------------------
 >>> MIGRATION
 -------------------------------------------------------------------------------
@@ -4171,7 +4158,7 @@ chrome.storage.local.get(function(object) {
 
         location.reload();
     }
-});
+});
 /*-----------------------------------------------------------------------------
 >>> MUTATIONS
 -------------------------------------------------------------------------------

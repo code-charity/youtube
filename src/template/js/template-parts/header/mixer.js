@@ -1,8 +1,9 @@
 Menu.header.section_end.button_vert.onclick.mixer = {
-    type: 'folder',
+    type: 'button',
+    variant: 'list-item',
     before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>',
     label: 'mixer',
-    class: 'satus-folder--mixer',
+    class: 'satus-button--mixer',
     appearanceKey: 'mixer',
     onopen: function() {
         var self = this;
@@ -26,7 +27,7 @@ Menu.header.section_end.button_vert.onclick.mixer = {
                                 section: {
                                     type: 'section',
                                     dataset: {
-                                        'noConnectionLabel': Satus.locale.getMessage('tryToReloadThePage') || 'tryToReloadThePage'
+                                        'noConnectionLabel': satus.locale.getMessage('tryToReloadThePage') || 'tryToReloadThePage'
                                     },
 
                                     mixer_volume: {
@@ -107,7 +108,7 @@ Menu.header.section_end.button_vert.onclick.mixer = {
 
                 document.querySelector('.satus-dialog__scrim').click();
 
-                Satus.render(mixer, self);
+                satus.render(mixer, self);
             });
         }
     }

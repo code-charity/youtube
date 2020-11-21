@@ -6,7 +6,8 @@ Menu.main = {
     },
 
     section: {
-        type: 'section'
+        type: 'section',
+        variant: 'card'
     },
 
     footer: {

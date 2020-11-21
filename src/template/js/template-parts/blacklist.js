@@ -1,12 +1,13 @@
 Menu.main.section.blacklist = {
-    type: 'folder',
+    type: 'button',
     before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>',
     label: 'blacklist',
-    class: 'satus-folder--blacklist',
+    class: 'satus-button--blacklist',
     appearanceKey: 'blacklist',
 
     section_activate: {
         type: 'section',
+        variant: 'card',
 
         blacklist_activate: {
             type: 'switch',
@@ -16,9 +17,11 @@ Menu.main.section.blacklist = {
 
     section: {
         type: 'section',
+        variant: 'card',
 
         channels: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             label: 'channels',
             onopen: function() {
                 var self = this;
@@ -32,6 +35,7 @@ Menu.main.section.blacklist = {
 
                             list[item] = {
                                 type: 'section',
+                                variant: 'card',
                                 label: title.length > 20 ? title.substr(0, 20) + '...' : title,
                                 class: 'satus-section--blacklist',
                                 style: {
@@ -41,6 +45,7 @@ Menu.main.section.blacklist = {
 
                                 section: {
                                     type: 'section',
+                                    variant: 'card',
 
                                     delete: {
                                         type: 'button',
@@ -65,6 +70,7 @@ Menu.main.section.blacklist = {
                     if (Object.keys(list).length === 0) {
                         list.section = {
                             type: 'section',
+                            variant: 'card',
                             class: 'satus-section--message',
 
                             error: {
@@ -74,10 +80,11 @@ Menu.main.section.blacklist = {
                         };
                     }
 
-                    Satus.render(list, this);
+                    satus.render(list, this);
                 } else {
-                    Satus.render({
+                    satus.render({
                         type: 'section',
+                        variant: 'card',
                         class: 'satus-section--message',
 
                         error: {
@@ -89,7 +96,8 @@ Menu.main.section.blacklist = {
             }
         },
         videos: {
-            type: 'folder',
+            type: 'button',
+            variant: 'list-item',
             label: 'videos',
             onopen: function() {
                 var self = this;
@@ -103,6 +111,7 @@ Menu.main.section.blacklist = {
 
                             list[item] = {
                                 type: 'section',
+                                variant: 'card',
                                 label: title.length > 20 ? title.substr(0, 20) + '...' : title,
                                 class: 'satus-section--blacklist',
                                 style: {
@@ -134,6 +143,7 @@ Menu.main.section.blacklist = {
                     if (Object.keys(list).length === 0) {
                         list.section = {
                             type: 'section',
+                            variant: 'card',
                             class: 'satus-section--message',
 
                             error: {
@@ -143,10 +153,11 @@ Menu.main.section.blacklist = {
                         };
                     }
 
-                    Satus.render(list, this);
+                    satus.render(list, this);
                 } else {
-                    Satus.render({
+                    satus.render({
                         type: 'section',
+                        variant: 'card',
                         class: 'satus-section--message',
 
                         error: {

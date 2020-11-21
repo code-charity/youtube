@@ -1,5 +1,6 @@
 Menu.header.section_end.button_vert.onclick.active_features = {
-    type: 'folder',
+    type: 'button',
+    variant: 'list-item',
     before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
     label: 'activeFeatures',
     onclick: function() {
@@ -11,7 +12,7 @@ Menu.header.section_end.button_vert.onclick.active_features = {
         onrender: function() {
             var component = this,
                 new_menu = {},
-                storage = Satus.storage;
+                storage = satus.storage;
 
             function search(string, object) {
                 var result = [];
@@ -45,9 +46,9 @@ Menu.header.section_end.button_vert.onclick.active_features = {
 
             setTimeout(function() {
                 if (Object.keys(new_menu).length > 0) {
-                    Satus.render(new_menu, component);
+                    satus.render(new_menu, component);
                 } else {
-                    Satus.render({
+                    satus.render({
                         text: {
                             type: 'text',
                             label: 'noActiveFeatures'

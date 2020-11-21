@@ -6,17 +6,20 @@
 
 html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-section
 {
+    display: flex;
+
     width: 100%;
     margin-top: 16px;
+    padding: 0;
+
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
 
     flex-wrap: wrap;
-    
-    background-color: transparent;
 }
 
-
-
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button:not(.satus-button--ad)
 {
     position: relative;
 
@@ -30,18 +33,19 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     cursor: default;
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder:focus,
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder:hover
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button:not(.satus-button--ad):focus,
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button:not(.satus-button--ad):hover
 {
     background-color: transparent;
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button__label{
-    margin-left: 0
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button__label
+{
+    margin-left: 0;
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder svg,
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--shortcut__icon
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button:not(.satus-button--ad) svg,
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button--shortcut__icon
 {
     display: block;
     overflow: visible;
@@ -60,8 +64,8 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     box-shadow: 0 2px 1px 1px rgba(230, 109, 70, .7), 0 3px 5px rgba(0,0,0,.35);
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder svg:focus,
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder svg:hover
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button:not(.satus-button--ad) svg:focus,
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button:not(.satus-button--ad) svg:hover
 {
     transition: background 250ms 125ms, transform 250ms, box-shadow 275ms;
     transform: translateY(4px) scale(.975);
@@ -69,7 +73,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     box-shadow: 0 1px 1px 0 rgba(230, 109, 70, .7), 0 1px 2px rgba(0,0,0,.35);
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--general svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button--general svg
 {
     width: 26px;
     height: 26px;
@@ -79,7 +83,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     stroke: rgba(255, 255, 255, .85);
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--appearance svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button--appearance svg
 {
     width: 26px;
     height: 26px;
@@ -89,7 +93,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     stroke: rgba(255, 255, 255, .85);
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--themes svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button--themes svg
 {
     padding: 17px 16px 15px 16px;
 
@@ -97,7 +101,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     stroke: rgba(255, 255, 255, .85);
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--player svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button--player svg
 {
     width: 26px;
     height: 26px;
@@ -107,7 +111,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     stroke: rgba(255, 255, 255, .85);
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--playlist svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button--playlist svg
 {
     padding: 17px 16px 15px 16px;
 
@@ -115,13 +119,13 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     stroke: rgba(255, 255, 255, .85);
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--channel svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button--channel svg
 {
     fill: transparent;
     stroke: rgba(255, 255, 255, .85);
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--shortcut svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button--shortcut svg
 {
     width: 26px;
     height: 26px;
@@ -131,7 +135,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     stroke: rgba(255, 255, 255, .85);
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--mixer svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button--mixer svg
 {
     padding: 17px 16px 15px 16px;
 
@@ -139,7 +143,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     stroke: rgba(255, 255, 255, .85);
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--blacklist svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button--blacklist svg
 {
     width: 26px;
     height: 26px;
@@ -149,7 +153,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     stroke: rgba(255, 255, 255, .85);
 }
 
-html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--analyzer svg
+html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-button--analyzer svg
 {
     width: 26px;
     height: 26px;
@@ -159,7 +163,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     stroke: rgba(255, 255, 255, .85);
 }
 
-html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-folder svg
+html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-button:not(.satus-button--ad) svg
 {
     fill: transparent;
     stroke: var(--satus-theme-primary);
@@ -167,15 +171,15 @@ html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home']
 
 
 
-html[it-it-general='false'] .satus-folder--general,
-html[it-it-appearance='false'] .satus-folder--appearance,
-html[it-it-themes='false'] .satus-folder--themes,
-html[it-it-player='false'] .satus-folder--player,
-html[it-it-playlist='false'] .satus-folder--playlist,
-html[it-it-channel='false'] .satus-folder--channel,
-html[it-it-shortcuts='false'] .satus-folder--shortcut,
-html[it-it-blacklist='false'] .satus-folder--blacklist,
-html[it-it-analyzer='false'] .satus-folder--analyzer
+html[it-it-general='false'] .satus-button--general,
+html[it-it-appearance='false'] .satus-button--appearance,
+html[it-it-themes='false'] .satus-button--themes,
+html[it-it-player='false'] .satus-button--player,
+html[it-it-playlist='false'] .satus-button--playlist,
+html[it-it-channel='false'] .satus-button--channel,
+html[it-it-shortcuts='false'] .satus-button--shortcut,
+html[it-it-blacklist='false'] .satus-button--blacklist,
+html[it-it-analyzer='false'] .satus-button--analyzer
 {
     display: none;
 }

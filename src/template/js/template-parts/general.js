@@ -1,12 +1,13 @@
 Menu.main.section.general = {
-    type: 'folder',
+    type: 'button',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>',
     label: 'general',
-    class: 'satus-folder--general',
+    class: 'satus-button--general',
     appearanceKey: 'general',
 
     section: {
         type: 'section',
+        variant: 'card',
 
         youtube_home_page: {
             type: 'select',
@@ -62,12 +63,13 @@ Menu.main.section.general = {
 
     section_label__thumbnails: {
         type: 'text',
-        class: 'satus-section--label',
+        variant: 'section-label',
         label: 'thumbnails'
     },
 
     thumbnails_section: {
         type: 'section',
+        variant: 'card',
 
         squared_user_images: {
             type: 'switch',

@@ -1,48 +1,59 @@
-chrome.storage.local.get(function(items) {
+/*------------------------------------------------------
+>>> INDEX
+--------------------------------------------------------
+# Import
+# On changed
+------------------------------------------------------*/
+
+/*------------------------------------------------------
+# IMPORT
+------------------------------------------------------*/
+
+satus.storage.import(function(items) {
+    var html = document.documentElement;
+
+    if (
+        chrome &&
+        chrome.runtime &&
+        chrome.runtime.getManifest().version_name.indexOf('beta') === -1
+    ) {
+        html.setAttribute('stable-version', '');
+    }
+
     for (var key in items) {
-        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
-    }
-});
-
-chrome.storage.onChanged.addListener(function(changes) {
-    for (var key in changes) {
-        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), changes[key].newValue);
-    }
-});
-
-satus.storage.import(function() {
-    console.log('h');
-    if (satus.storage.get('default_dark_theme') === true) {
-        document.documentElement.setAttribute('theme', 'dark');
-    }
-    
-    if (satus.storage.get('night_theme') === true) {
-        document.documentElement.setAttribute('theme', 'night');
-    }
-    
-    if (satus.storage.get('dawn_theme') === true) {
-        document.documentElement.setAttribute('theme', 'dawn');
-    }
-    
-    if (satus.storage.get('sunset_theme') === true) {
-        document.documentElement.setAttribute('theme', 'sunset');
-    }
-    
-    if (satus.storage.get('desert_theme') === true) {
-        document.documentElement.setAttribute('theme', 'desert');
-    }
-    
-    if (satus.storage.get('plain_theme') === true) {
-        document.documentElement.setAttribute('theme', 'plain');
-    }
-    
-    if (satus.storage.get('black_theme') === true) {
-        document.documentElement.setAttribute('theme', 'black');
+        html.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
     }
 
-    satus.locale.import(satus.storage.get('language'), function() {
-        satus.modules.updateStorageKeys(Menu, function() {
+    if (items.default_dark_theme === true) {
+        html.setAttribute('theme', 'dark');
+    } else if (items.night_theme === true) {
+        html.setAttribute('theme', 'night');
+    } else if (items.dawn_theme === true) {
+        html.setAttribute('theme', 'dawn');
+    } else if (items.sunset_theme === true) {
+        html.setAttribute('theme', 'sunset');
+    } else if (items.desert_theme === true) {
+        html.setAttribute('theme', 'desert');
+    } else if (items.plain_theme === true) {
+        html.setAttribute('theme', 'plain');
+    } else if (items.black_theme === true) {
+        html.setAttribute('theme', 'black');
+    }
+
+    satus.locale.import(items.language, function() {
+        satus.updateStorageKeys(Menu, function() {
             satus.render(Menu, document.body);
         });
     });
+});
+
+
+/*------------------------------------------------------
+# ON CHANGED
+------------------------------------------------------*/
+
+satus.storage.onChanged(function(items) {
+    for (var key in items) {
+        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key].newValue);
+    }
 });
