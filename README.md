@@ -29,7 +29,7 @@ Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTub
 * [Greek](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json) by [karl01101101](https://github.com/karl01101101)
 * [Italian](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
 * [Hindi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hin/messages.json) by [MONISHA MANDAL](https://github.com/monishamandal02)
-* [Korean](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [Seung-chan Mok](https://github.com/msc9533)
+* [Korean](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [Seung-chan Mok](https://github.com/msc9533), updates by [LYHyoung](https://github.com/LYHyoung)
 * [Norwegian Bokmål](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/no/messages.json) by [Master3395](https://github.com/Master3395)
 * [日本語](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json) by [utuhiro78](https://github.com/utuhiro78)
 * [Português](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json) by [DrNopt](https://github.com/DrNopt)
