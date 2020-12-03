@@ -23,8 +23,8 @@ Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTub
 * [Bengali](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json) by [Bravo68Web](https://github.com/BRAVO68WEB) _(+Hindi update)_
 * [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) updated [TerMuellinator](https://github.com/Termuellinator) and [css-sMueller](https://github.com/css-smueller)
 * [Dutch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json) by [Heimen Stoffels](https://github.com/Vistaus), [Aron Hoogeveen](https://github.com/aron-hoogeveen)
-* [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)  _proofreaders wanted_ 
-* [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor), [dimateos](https://github.com/dimateos) (update Nov. 2020)  
+* [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)  _proofreaders wanted!_ 
+* [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor), updated by[dimateos](https://github.com/dimateos)   
 * [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [Leghort](https://github.com/leghort), [Eymiks](https://github.com/Eymiks), [Solvabl](https://github.com/Solvabl)
 * [Greek](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json) by [karl01101101](https://github.com/karl01101101)
 * [Italian](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
@@ -50,7 +50,7 @@ Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTub
 Have you got a great idea / plan / concept?  ideas@improvedtube.com
 ### Expertise
 Do you need to run an extension, app or site with many users and a great feedback score?  
-We would like to help good causes and fund ours. projects@improvedtube.com
+We would like to help good causes and fund ours, projects@improvedtube.com
 <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="500px">
 
 -----
