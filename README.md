@@ -14,7 +14,6 @@
 </p>
 
 ## Installation ⚙️
--------
 
 ### Browsers support      
 
@@ -22,40 +21,12 @@
 |:-----:|:--------:| ------ | ----- | ------- | ----- | ------ | ------- |
 | 0.52+ | 49.0+    | 49.0+  | 79.0+ | 44.0+   | 36.0  | x.x+   |  1.0+   |
 
-### Install from source
-
-##### [Chromium](https://github.com/chromium/chromium) / [Brave](https://brave.com/?ref=imp716) / Vivaldi / Chrome and other
-
-1. Download & unzip [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
-
-2. Open Extensions (*chrome://extensions/*) page in your browser
-
-3. Activate "Developer mode"
-
-4. Click on "Load unpacked" button
-
-5. Select unzipped folder
-
-
-Or use one of the published versions: [Stable](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd), [Beta](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki).
-
-
-
-##### [Firefox](https://github.com/mozilla) / [Waterfox](https://github.com/MrAlex94/Waterfox) / GNUzilla and IceCat and other
-
-1. Download & unzip [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
-
-2. Open Add-ons page (*about:addons*) in your browser
-
-3. Click on "Extensions" tab
-
-4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
-
-5. Click on "Load Temporary Add-on…"
-
-6. Select "manifest.json" file from unzipped folder
-
-
+ #### For Chrome and chromium based Browsers :
+  
+ - Stable version : [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=flat-square)](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)
+ - Beta version : [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/lodjfjlkodalimdjgncejhkadjhacgki?style=flat-square)](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/lodjfjlkodalimdjgncejhkadjhacgki)
+  
+#### For Firefox browser and git version installation on chromium based browsers, follow [Installation Guide](https://github.com/ImprovedTube/YouTube/wiki/Installation-Guide) page.
 
 ## ToDo  
 - [ ] Documentation, Screenshots, Videos (to learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))
