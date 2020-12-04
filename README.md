@@ -24,6 +24,7 @@
  #### For Chrome and chromium based Browsers :
   
  - Stable version : [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=flat-square)](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)
+ 
  - Beta version : [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/lodjfjlkodalimdjgncejhkadjhacgki?style=flat-square)](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/lodjfjlkodalimdjgncejhkadjhacgki)
   
 #### For Firefox browser and git version installation on chromium based browsers, follow [Installation Guide](https://github.com/ImprovedTube/YouTube/wiki/Installation-Guide) page.
