@@ -1,5 +1,80 @@
-## [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) 
-An extension, that we built to refine & sweeten your experience on YouTube. The first popular features were simply to have a larger player, hide distractions and save your time. By now we also have many powerful features enhancing YouTube functionality. And there is so much left to build! ...  - ImprovedTube's User Interface is designed with our library **[Satus](https://github.com/victor-savinov/satus)** to manage your settings efficiently. - Technically, ImprovedTube is the only project providing so much CSS to adjust another service🦄<font size="-2">(_[cmiiw](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_)</font>
+<h1 align="center"> ImprovedTube </h1>
+<!-- badges -->
+<p align="center">
+      <a href="#">
+        <img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
+      </a>
+      <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
+        <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" />
+      </a>
+      
+</p>
+  <p align="center"> An extension, that we built to refine & sweeten your experience on YouTube. The first popular features were simply to have a larger player, hide distractions and save your time. By now we also have many powerful features enhancing YouTube functionality. And there is so much left to build! <br> ImprovedTube's User Interface is designed with our library <a href=https://github.com/victor-savinov/satus>Satus</a> to manage your settings efficiently. Technically, ImprovedTube is the only project providing so much CSS to adjust another service 🦄 <a href=https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc>cmiiw</a><br>
+
+</p>
+
+Requirements 🔍
+----------
+
+`
+Insert here
+`
+  - first
+
+  - second
+
+Installation 📡
+----------
+
+`
+Insert here
+`
+  - first
+
+  - second
+
+```
+function codeSample(thisRepo repository) {
+    thisRepo.fork()
+}
+```
+
+Get Started 🎉
+----------
+
+`
+Insert here
+`
+  - first
+
+  - second
+
+```
+function codeSample(thisRepo repository) {
+    thisRepo.fork()
+}
+```
+
+Usage ⚙️
+-------
+
+1. Clone this repo
+2. Enjoy!
+
+```
+function codeSample(thisRepo repository) {
+    thisRepo.clone()
+}
+```
+
+
+**To Do:**
+
+- [x] Clone this repo
+- [ ] Enjoy!
+
+--------------------------
+
 
 ## ToDo  
 - [ ] Documentation, Screenshots, Videos (to learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))
@@ -17,28 +92,9 @@ An extension, that we built to refine & sweeten your experience on YouTube. The 
 ## Credits 
 Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
 
-## [Translations](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations)
-* [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
-* [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
-* [Bengali](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json) by [Bravo68Web](https://github.com/BRAVO68WEB) _(+Hindi update)_
-* [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) updated [TerMuellinator](https://github.com/Termuellinator) and [css-sMueller](https://github.com/css-smueller)
-* [Dutch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json) by [Heimen Stoffels](https://github.com/Vistaus), [Aron Hoogeveen](https://github.com/aron-hoogeveen)
-* [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)  _proofreaders wanted!_ 
-* [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor), updated by[dimateos](https://github.com/dimateos)   
-* [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [Leghort](https://github.com/leghort), [Eymiks](https://github.com/Eymiks), [Solvabl](https://github.com/Solvabl)
-* [Greek](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json) by [karl01101101](https://github.com/karl01101101)
-* [Italian](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
-* [Hindi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hin/messages.json) by [MONISHA MANDAL](https://github.com/monishamandal02)
-* [Korean](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [Seung-chan Mok](https://github.com/msc9533) and [LYHyoung](https://github.com/LYHyoung)
-* [Norwegian Bokmål](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/no/messages.json) by [Master3395](https://github.com/Master3395) and [Allan Nordhøy](https://github.com/comradekingu)
-* [日本語](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json) by [utuhiro78](https://github.com/utuhiro78)
-* [Português](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json) by [DrNopt](https://github.com/DrNopt)
-* [Português (Brasil)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json) by [Mike-Correa](https://github.com/Mike-Correa), [dthiago](https://github.com/dthiago)
-* [Slovac](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json) by [bbc-s](https://github.com/bbc-s)
-* [Türkçe](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json) by [Onur Dumangöz](https://github.com/onurdumangoz), updated by [daswareinfach](https://github.com/daswareinfach)
-* [Русский](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json) updated by [WhoIsPrivalov](https://github.com/WhoIsPrivalov) and [qweered](https://github.com/qweered)
-* [中文 (简体)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json) by [niceRAM](https://github.com/niceRAM), [ausers](https://github.com/ausers)
-* [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [Still34](https://github.com/still34), [water903](https://github.com/water903) and [Ignatius Liu](https://github.com/suitangi) 
+## Translations
+_For translations please visit [Translations](https://github.com/ImprovedTube/YouTube/wiki/Translations) and [Translated Versions](https://github.com/ImprovedTube/YouTube/wiki/Translated-Versions) wiki pages.
+
 ----
 ## Our Work & Projects 
 ### Extensions
