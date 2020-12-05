@@ -13,6 +13,34 @@
 
 </p>
 
+## Features :
+
+Some main features of ImrovedTube includes :
+
+- Video Quality
+
+- Themes cutomizations
+
+- Thumbnail Customizations
+
+- Repeat and Screenshot Buttons
+
+- Popup Player
+
+- Ads management
+
+- Hide Cards and Annotations
+
+- Customise Video page Apperance (Descripption , related videos etc)
+
+- Channel page Customizations
+
+- Shortcuts Customizations
+
+- Volume Mixer
+  
+_For a complete list of features please visit [features](https://github.com/ImprovedTube/YouTube/wiki/Features) page._
+
 ## Installation ⚙️
 
 ### Browsers support      
