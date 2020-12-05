@@ -9,7 +9,7 @@
       </a>
       
 </p>
-  <p align="center"> An extension, that we built to refine & sweeten your experience on YouTube. The first popular features were simply to have a larger player, hide distractions and save your time. By now we also have many powerful features enhancing YouTube functionality. And there is so much left to build! <br> ImprovedTube's User Interface is designed with our library <a href=https://github.com/victor-savinov/satus>Satus</a> to manage your settings efficiently. Technically, ImprovedTube is the only project providing so much CSS to adjust another service 🦄 <a href=https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc>cmiiw</a><br>
+  <p align="center"> An extensionthat has many powerful features enhancing YouTube functionality. <br> ImprovedTube's User Interface is designed with our library <a href=https://github.com/victor-savinov/satus>Satus</a> to manage your settings efficiently. Technically, ImprovedTube is the only project providing so much CSS to adjust another service 🦄 <a href=https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc>cmiiw</a><br>
 
 </p>
 
