@@ -1,28 +1,27 @@
-/*-----------------------------------------------------------------------------
+/*---------------------------------------------------------------
 >>> BACKGROUND
--------------------------------------------------------------------------------
-1.0 Global variables
-2.0 Functions
-3.0 Context menu items
-4.0 Message listener
-5.0 Storage change listener
-6.0 Initialization
-7.0 Uninstall URL
-8.0 Google Analytics
------------------------------------------------------------------------------*/
+-----------------------------------------------------------------
+# Global variables
+# Functions
+# Context menu items
+# Message listener
+# Storage change listener
+# Initialization
+# Uninstall URL
+# Google Analytics
+---------------------------------------------------------------*/
 
-/*-----------------------------------------------------------------------------
-1.0 GLOBAL VARIABLES
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# GLOBAL VARIABLES
+---------------------------------------------------------------*/
 
 var locale_code = 'en',
-    browser_icon = false,
-    is_legacy_icon = true;
+    browser_icon = false;
 
 
-/*-----------------------------------------------------------------------------
-2.0 FUNCTIONS
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# FUNCTIONS
+---------------------------------------------------------------*/
 
 function isset(variable) {
     if (typeof variable === 'undefined' || variable === null) {
@@ -60,25 +59,21 @@ function getTranslations(path) {
 }
 
 function browserActionIcon() {
-    var folder = is_legacy_icon === true ? 'icons-legacy' : 'icons';
-    
-    console.log(folder);
-    
     if (browser_icon === 'always') {
         chrome.browserAction.setIcon({
-            path: 'assets/' + folder + '/32.png'
+            path: 'assets/icons/32.png'
         });
     } else {
         chrome.browserAction.setIcon({
-            path: 'assets/' + folder + '/32g.png'
+            path: 'assets/icons/32g.png'
         });
     }
 }
 
 
-/*-----------------------------------------------------------------------------
-3.0 CONTEXT MENU ITEMS
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# CONTEXT MENU ITEMS
+---------------------------------------------------------------*/
 
 chrome.contextMenus.removeAll();
 
@@ -111,17 +106,15 @@ chrome.contextMenus.onClicked.addListener(function(event) {
 });
 
 
-/*-----------------------------------------------------------------------------
-4.0 MESSAGE LISTENER
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# MESSAGE LISTENER
+---------------------------------------------------------------*/
 
 chrome.runtime.onMessage.addListener(function(request, sender) {
     if (isset(request) && typeof request === 'object') {
         if (request.enabled === true && browser_icon !== 'always') {
-            var folder = is_legacy_icon === true ? 'icons-legacy' : 'icons';
-            
             chrome.browserAction.setIcon({
-                path: 'assets/' + folder + '/32.png',
+                path: 'assets/icons/32.png',
                 tabId: sender.tab.id
             });
         }
@@ -284,9 +277,9 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 });
 
 
-/*-----------------------------------------------------------------------------
-5.0 STORAGE CHANGE LISTENER
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# STORAGE CHANGE LISTENER
+---------------------------------------------------------------*/
 
 chrome.storage.onChanged.addListener(function(changes) {
     if (isset(changes.improvedtube_language)) {
@@ -297,19 +290,15 @@ chrome.storage.onChanged.addListener(function(changes) {
         browser_icon = changes.improvedtube_browser_icon.newValue;
     }
 
-    if (isset(changes.red_popup_theme)) {
-        is_legacy_icon = changes.red_popup_theme.newValue;
-    }
-
     browserActionIcon();
-    
+
     _gaq.push(['_trackPageview', '/improvedtube-' + chrome.runtime.getManifest().version + '/background', 'page-loaded']);
 });
 
 
-/*-----------------------------------------------------------------------------
-6.0 INITIALIZATION
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# INITIALIZATION
+---------------------------------------------------------------*/
 
 chrome.storage.local.get(function(items) {
     if (isset(items.improvedtube_language)) {
@@ -320,26 +309,22 @@ chrome.storage.local.get(function(items) {
         browser_icon = items.improvedtube_browser_icon;
     }
 
-    if (isset(items.red_popup_theme)) {
-        browser_icon = items.red_popup_theme;
-    }
-
     browserActionIcon();
-    
+
     _gaq.push(['_trackPageview', '/improvedtube-' + chrome.runtime.getManifest().version + '/background', 'page-loaded']);
 });
 
 
-/*-----------------------------------------------------------------------------
-7.0 UNINSTALL URL
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# UNINSTALL URL
+---------------------------------------------------------------*/
 
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
 
 
-/*-----------------------------------------------------------------------------
-8.0 GOOGLE ANALYTICS
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# GOOGLE ANALYTICS
+---------------------------------------------------------------*/
 
 var _gaq = _gaq || [];
 
@@ -352,6 +337,6 @@ var _gaq = _gaq || [];
     ga.type = 'text/javascript';
     ga.async = true;
     ga.src = 'https://ssl.google-analytics.com/ga.js';
-    
+
     document.body.appendChild(ga);
 })();
