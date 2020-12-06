@@ -2900,22 +2900,22 @@ ImprovedTube.shortcuts = function() {
                 }
             },
             shortcut_increase_playback_speed: function() {
-                var player = document.querySelector('#movie_player');
+                var video = document.querySelector('#movie_player video');
 
-                if (player && player.setPlaybackRate && player.getPlaybackRate) {
-                    player.setPlaybackRate(player.getPlaybackRate() + (Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05));
+                if (video && video.playbackRate) {
+                    video.playbackRate = Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step)).toFixed(2)), .1);
+
+                    showStatus(document.querySelector('#movie_player'), video.playbackRate);
                 }
-
-                showStatus(player, player.getPlaybackRate());
             },
             shortcut_decrease_playback_speed: function() {
-                var player = document.querySelector('#movie_player');
+                var video = document.querySelector('#movie_player video');
 
-                if (player && player.setPlaybackRate && player.getPlaybackRate) {
-                    player.setPlaybackRate(player.getPlaybackRate() - (Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05));
+                if (video && video.playbackRate) {
+                    video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step)).toFixed(2)), .1);
+
+                    showStatus(document.querySelector('#movie_player'), video.playbackRate);
                 }
-
-                showStatus(player, player.getPlaybackRate());
             },
             shortcut_go_to_search_box: function() {
                 var search = document.querySelector('#search');
@@ -3002,7 +3002,7 @@ ImprovedTube.shortcuts = function() {
                     (data.ctrlKey === keys.ctrlKey || !self.isset(data.ctrlKey)) &&
                     (data.altKey === keys.altKey || !self.isset(data.altKey)) &&
                     ((data.wheel > 0) === (wheel > 0) || !self.isset(data.wheel)) &&
-                    ((hover === true && (data.wheel > 0) === (wheel > 0) && Object.keys(keys).length === 0 && keys.constructor === Object) || (self.isset(data.key) || self.isset(data.altKey) || self.isset(data.ctrlKey)))
+                    (((data.on_top_of_player === true ? hover === true : true) && (data.wheel > 0) === (wheel > 0) && Object.keys(keys).length === 0 && keys.constructor === Object) || (self.isset(data.key) || self.isset(data.altKey) || self.isset(data.ctrlKey)))
                 ) {
                     if (type === 'wheel' && self.isset(data.wheel) || type === 'keys') {
                         event.preventDefault();
