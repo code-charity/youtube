@@ -28,6 +28,8 @@
         },
         "default_popup": "index.html"
     },
+    
+    "options_page": "options.html",
 
     "content_scripts": [{
         "all_frames": true,
