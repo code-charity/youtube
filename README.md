@@ -97,7 +97,7 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 6. Select "manifest.json" file from unzipped folder
 
 
-### Some features of ImrovedTube:
+### Some features of ImprovedTube:
 
 - Video Quality
 
@@ -119,10 +119,10 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 
 - Hotkeys (Shortcuts) Customizations
 
-- Statisics
+- Statistics
 
 - Volume Mixer
 
-_Full List: [features](https://github.com/ImprovedTube/YouTube/wiki/Features) page._
+_[Full List](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
 
