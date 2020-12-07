@@ -16,8 +16,7 @@
 -  [ ]  [**active Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) *(we can offer small bounties(payment/compensation) on solved Issues. Especially label "priority")*
 -  [ ]  [**most wanted new Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"New%20feature"+sort%3Acomments-desc+is%3Aopen)  *(you can add an issue-number to your donation.)*
 -  [ ]  [**active Topics**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A%22new+feature%22+) *(threads neither labeled 'Bug' nor 'New Feature'*)
-
-[**How to start editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  *(For CSS or JavaScript-literates. Newbies are also welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will review all contributions. We love to code & collaborate)* <br> 
+- [**How to start editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  *(For CSS or JavaScript-literates. Newbies are also welcome to [try](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We will review all contributions. We love to code & collaborate)* <br> 
 
 ## Credits 
 Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
