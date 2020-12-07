@@ -97,7 +97,7 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 6. Select "manifest.json" file from unzipped folder
 
 
-### Some features of ImprovedTube:
+## Some features of ImprovedTube:
 
 - Video Quality
 
