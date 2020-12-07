@@ -1,4 +1,3 @@
-
 var Menu = {
     header: {
         type: 'header',
@@ -53,12 +52,12 @@ var Menu = {
                                     if (this.value.length > 0) {
                                         Satus.search(this.value, Menu, function(results) {
                                             var sorted_results = [];
-                                            
+
                                             document.querySelector('.satus-main__container').innerHTML = '';
-                                            
+
                                             for (var key in results) {
                                                 results[key].type = 'section';
-                                                
+
                                                 sorted_results.push({
                                                     type: 'text',
                                                     label: key,
@@ -66,7 +65,7 @@ var Menu = {
                                                 });
                                                 sorted_results.push(results[key]);
                                             }
-                                            
+
                                             console.log(results);
 
                                             var scroll = Satus.components.scrollbar(document.querySelector('.satus-main__container'));
@@ -89,35 +88,7 @@ var Menu = {
                 icon: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5.25" r="0.45"/><circle cx="12" cy="12" r="0.45"/><circle cx="12" cy="18.75" r="0.45"/></svg>',
                 onClickRender: {
                     type: 'dialog',
-                    class: 'satus-dialog--vertical-menu',
-                    
-                    email: {
-                        type: 'button',
-                        label: 'Email',
-                        title: 'bugs@improvedtube.com',
-                        before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>',
-                        onclick: function() {
-                            window.open('mailto:bugs@improvedtube.com', '_blank');
-                        }
-                    },
-                    github: {
-                        type: 'button',
-                        label: 'GitHub',
-                        title: '/ImprovedTube/ImprovedTube',
-                        before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>',
-                        onclick: function() {
-                            window.open('https://github.com/ImprovedTube/ImprovedTube/', '_blank');
-                        }
-                    },
-                    website: {
-                        type: 'button',
-                        label: 'Website',
-                        title: 'improvedtube.com',
-                        before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>',
-                        onclick: function() {
-                            window.open('http://www.improvedtube.com/', '_blank');
-                        }
-                    }
+                    class: 'satus-dialog--vertical-menu'
                 }
             }
         }
@@ -150,6 +121,36 @@ Menu.main = {
         title: 'Dark Mode',
         onclick: function() {
             window.open('https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl', '_blank');
+        }
+    },
+
+    info: {
+        type: 'section',
+        class: 'satus-section--info',
+
+        email: {
+            type: 'button',
+            label: 'Email',
+            title: 'bugs@improvedtube.com',
+            onclick: function() {
+                window.open('mailto:bugs@improvedtube.com', '_blank');
+            }
+        },
+        github: {
+            type: 'button',
+            label: 'GitHub',
+            title: '/ImprovedTube/ImprovedTube',
+            onclick: function() {
+                window.open('https://github.com/ImprovedTube/ImprovedTube/', '_blank');
+            }
+        },
+        website: {
+            type: 'button',
+            label: 'Website',
+            title: 'improvedtube.com',
+            onclick: function() {
+                window.open('http://www.improvedtube.com/', '_blank');
+            }
         }
     }
 };
@@ -420,10 +421,10 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 header: {
                     type: 'folder',
                     label: 'header',
-                    
+
                     section: {
                         type: 'section',
-                        
+
                         title_version: {
                             type: 'switch',
                             label: 'version'
@@ -1679,7 +1680,7 @@ function themeChange(event) {
             }
         }
     }
-    
+
     if (Satus.storage.get('default_dark_theme') === true) {
         document.documentElement.setAttribute('theme', 'dark');
     } else if (Satus.storage.get('night_theme') === true) {
@@ -1993,7 +1994,7 @@ Menu.main.section.themes = {
             }]
         }
     },
-    
+
     popup_title: {
         type: 'text',
         label: 'ImprovedTube',
@@ -2013,7 +2014,7 @@ Menu.main.section.themes = {
 
         onchange: themePopupChange
     },
-    
+
     youtube_title: {
         type: 'text',
         label: 'YouTube',
@@ -2814,10 +2815,10 @@ Menu.main.section.analyzer = {
     label: 'analyzer',
     class: 'satus-folder--analyzer',
     appearanceId: 'analyzer',
-    
+
     activ_section: {
         type: 'section',
-        
+
         analyzer_activation: {
             type: 'switch',
             label: 'activate'
@@ -3053,35 +3054,35 @@ Satus.storage.import(function() {
 
         Satus.render(dialog);
     }
-    
+
     if (Satus.isset(Satus.storage.get('red_popup_theme')) === false || Satus.storage.get('red_popup_theme') === true) {
         document.documentElement.setAttribute('popup-theme', 'red');
     }
-    
+
     if (Satus.storage.get('default_dark_theme') === true) {
         document.documentElement.setAttribute('theme', 'dark');
     }
-    
+
     if (Satus.storage.get('night_theme') === true) {
         document.documentElement.setAttribute('theme', 'night');
     }
-    
+
     if (Satus.storage.get('dawn_theme') === true) {
         document.documentElement.setAttribute('theme', 'dawn');
     }
-    
+
     if (Satus.storage.get('sunset_theme') === true) {
         document.documentElement.setAttribute('theme', 'sunset');
     }
-    
+
     if (Satus.storage.get('desert_theme') === true) {
         document.documentElement.setAttribute('theme', 'desert');
     }
-    
+
     if (Satus.storage.get('plain_theme') === true) {
         document.documentElement.setAttribute('theme', 'plain');
     }
-    
+
     if (Satus.storage.get('black_theme') === true) {
         document.documentElement.setAttribute('theme', 'black');
     }
@@ -3092,5 +3093,3 @@ Satus.storage.import(function() {
         });
     });
 });
-
-

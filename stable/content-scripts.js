@@ -172,6 +172,7 @@ ImprovedTube.init = function() {
     this.related_videos();
     this.mutations();
     this.events();
+    this.player_ads();
 
     if (window.self === window.top) {
         window.addEventListener('load', function() {
@@ -800,8 +801,6 @@ ImprovedTube.related_videos = function() {
 // TODO: HIGH CPU USAGE
 
 document.addEventListener('ImprovedTubeBlacklist', function(event) {
-    console.log('Blacklist event');
-
     if (chrome && chrome.runtime) {
         chrome.runtime.sendMessage({
             name: 'improvedtube-blacklist',
@@ -2076,9 +2075,7 @@ ImprovedTube.screenshot = function() {
                             'image/png': blob
                         })
                     ]);
-                } catch (error) {
-                    console.error(error);
-                }
+                } catch (error) {}
             }
 
             setTimeout(function() {
@@ -2220,9 +2217,7 @@ ImprovedTube.player_loudness_normalization = function() {
             } else {
                 document.querySelector('video').volume = 100;
             }
-        } catch (err) {
-            console.log(err);
-        }
+        } catch (err) {}
     }
 };
 
@@ -3053,8 +3048,6 @@ ImprovedTube.shortcuts = function() {
                 hover = true;
             }
         }
-
-        console.log(hover);
     }, {
         passive: false,
         capture: true
@@ -3449,7 +3442,7 @@ chrome.storage.local.get(function(items) {
     }
 
     if (items.custom_js && items.custom_js.length > 0) {
-        injectScript('try{' + items.custom_js + '} catch (err) { console.error(err); }');
+        injectScript('try{' + items.custom_js + '} catch (err) {}');
     }
 
     if (items.custom_css && items.custom_css.length > 0) {
@@ -4115,6 +4108,27 @@ document.addEventListener('ImprovedTubePlayVideo', function(event) {
 /*-----------------------------------------------------------------------------
 1.0 Mutations
 -----------------------------------------------------------------------------*/
+
+ImprovedTube.adInterval = false;
+ImprovedTube.AdSkipButton = false;
+
+ImprovedTube.player_ads = function() {
+    if (ImprovedTube.adInterval) {
+        clearInterval(ImprovedTube.adInterval);
+    }
+
+    if (ImprovedTube.storage.player_ads === 'block_all' || ImprovedTube.storage.player_ads === 'subscribed_channels') {
+        ImprovedTube.adInterval = setInterval(function() {
+            if (!ImprovedTube.AdSkipButton) {
+                ImprovedTube.AdSkipButton = document.querySelector('.ytp-ad-skip-button.ytp-button');
+            }
+
+            if (ImprovedTube.AdSkipButton) {
+                ImprovedTube.AdSkipButton.click();
+            }
+        }, 250);
+    }
+};
 
 ImprovedTube.mutations = function() {
     /*-------------------------------------------------------------------------

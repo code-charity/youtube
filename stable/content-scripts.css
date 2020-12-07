@@ -178,8 +178,8 @@ html[it-header-hide-right-buttons=true] ytd-masthead#masthead #container #end
 
 html[it-player-ads='subscribed_channels'] #related #player-ads,
 html[it-player-ads='block_all'] #related #player-ads,
-html[it-player-ads='subscribed_channels'] .html5-video-player .video-ads.ytp-ad-module,
-html[it-player-ads='block_all'] .html5-video-player .video-ads.ytp-ad-module
+html[it-player-ads='subscribed_channels'] #masthead-ad,
+html[it-player-ads='block_all'] #masthead-ad
 {
     display: none !important;
 }

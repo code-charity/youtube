@@ -266,7 +266,7 @@ body
     flex-direction: column;
 
     width: 300px;
-    height: 500px;
+    height: 532px;
     margin: 0;
 
     background-color: #eee;
@@ -1851,6 +1851,40 @@ html[it-it-analyzer='false'] .satus-folder--analyzer
 /*---------------------------------------------------------------
 # AD
 ---------------------------------------------------------------*/
+
+.satus-section--info
+{
+    position: absolute;
+    z-index: 99;
+    bottom: 104px;
+    left: 32px;
+
+    display: flex;
+
+    width: calc(100% - 64px) !important;
+
+    justify-content: space-between;
+}
+
+.satus-section--info .satus-button
+{
+    font-weight: 700;
+    overflow: hidden;
+    width: auto;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--satus-theme-primary);
+    color: #fff;
+    opacity: 0.5;
+    padding: 0 10px;
+}
+
+.satus-section--info .satus-button:hover {
+    opacity: 1
+}
+
+
+
 
 .satus-main .satus-button.satus-button--ad
 {
