@@ -55,7 +55,7 @@ Have you got a great idea / plan / concept?  ideas@improvedtube.com
 ### Expertise
 Do you need to run an extension, app or site with many users and a great feedback score?  
 We would like to help good causes and fund ours, projects@improvedtube.com
-<img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="500px">
+<img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="600px">
 
 -----
 ## Browsers support     (Firefox & Safari Store listings links to be added) 
