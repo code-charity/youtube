@@ -123,6 +123,6 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 
 - Volume Mixer
 
-_For a complete list of features please visit [features](https://github.com/ImprovedTube/YouTube/wiki/Features) page._
+_Full List: [features](https://github.com/ImprovedTube/YouTube/wiki/Features) page._
 
 
