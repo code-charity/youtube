@@ -3002,7 +3002,7 @@ ImprovedTube.shortcuts = function() {
                     (data.ctrlKey === keys.ctrlKey || !self.isset(data.ctrlKey)) &&
                     (data.altKey === keys.altKey || !self.isset(data.altKey)) &&
                     ((data.wheel > 0) === (wheel > 0) || !self.isset(data.wheel)) &&
-                    (((data.on_top_of_player === true ? hover === true : true) && (data.wheel > 0) === (wheel > 0) && Object.keys(keys).length === 0 && keys.constructor === Object) || (self.isset(data.key) || self.isset(data.altKey) || self.isset(data.ctrlKey)))
+                    ((hover === true && (data.wheel > 0) === (wheel > 0) && Object.keys(keys).length === 0 && keys.constructor === Object) || (self.isset(data.key) || self.isset(data.altKey) || self.isset(data.ctrlKey)))
                 ) {
                     if (type === 'wheel' && self.isset(data.wheel) || type === 'keys') {
                         event.preventDefault();
@@ -3053,6 +3053,8 @@ ImprovedTube.shortcuts = function() {
                 hover = true;
             }
         }
+
+        console.log(hover);
     }, {
         passive: false,
         capture: true
