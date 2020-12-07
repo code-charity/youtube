@@ -9,11 +9,10 @@
 5.0 Desert
 6.0 Plain
 7.0 Black
-8.0 Red
 ---------------------------------------------------------------*/
 
 html {
-    --satus-theme-primary: #f6b465;
+    --satus-theme-primary: #ff4158;
 }
 
 
@@ -23,7 +22,7 @@ html {
 
 html[theme="dark"]
 {
-	--satus-theme-primary: #f6b465;
+	--satus-theme-primary: #ff4158;
 
 	--satus-theme-dialog: #2c2b2c;
 	--satus-theme-dialog-text: #b5b5b5;
@@ -52,7 +51,7 @@ html[theme="dark"]
 
 html[theme="night"]
 {
-	--satus-theme-primary: #f6b465;
+	--satus-theme-primary: #ff4158;
 
 	--satus-theme-dialog: #61a7f5;
 	--satus-theme-dialog-text: #fafafa;
@@ -82,7 +81,7 @@ html[theme="night"]
 
 html[theme="dawn"]
 {
-	--satus-theme-primary: #f6b465;
+	--satus-theme-primary: #ff4158;
 
 	--satus-theme-dialog: #ffba99;
 	--satus-theme-dialog-text: #fafafa;
@@ -112,7 +111,7 @@ html[theme="dawn"]
 
 html[theme="sunset"]
 {
-	--satus-theme-primary: #f6b465;
+	--satus-theme-primary: #ff4158;
 
 	--satus-theme-dialog: #a96165;
 	--satus-theme-dialog-text: #fafafa;
@@ -142,7 +141,7 @@ html[theme="sunset"]
 
 html[theme="desert"]
 {
-	--satus-theme-primary: #f6b465;
+	--satus-theme-primary: #ff4158;
 
 	--satus-theme-dialog: #9dc2ee;
 	--satus-theme-dialog-text: #fafafa;
@@ -172,7 +171,7 @@ html[theme="desert"]
 
 html[theme="plain"]
 {
-	--satus-theme-primary: #f6b465;
+	--satus-theme-primary: #ff4158;
 
 	--satus-theme-dialog: #abceb8;
 	--satus-theme-dialog-text: #fafafa;
@@ -202,7 +201,7 @@ html[theme="plain"]
 
 html[theme="black"]
 {
-	--satus-theme-primary: #f6b465;
+	--satus-theme-primary: #ff4158;
 
 	--satus-theme-dialog: #222;
 	--satus-theme-dialog-text: #fafafa;
@@ -223,22 +222,6 @@ html[theme="black"]
 	--satus-theme-tooltip: rgba(10, 10, 10, .7);
 
 	--satus-theme-ripple: rgba(255, 255, 255, .04);
-}
-
-
-/*---------------------------------------------------------------
-8.0 RED
----------------------------------------------------------------*/
-
-html[popup-theme="red"]
-{
-    --satus-theme-primary: #f92525;
-}
-
-html:not([it-improvedtube-home='list'])[popup-theme="red"] .satus-main__container[data-appearance='home'] .satus-folder svg
-{
-    background: #f73030;
-    box-shadow: 0 2px 2px rgba(0,0,0,.35);
 }
 
 /*--------------------------------------------------------------
@@ -854,8 +837,8 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
 
     opacity: .95;
     border-radius: 50%;
-    background: linear-gradient(135deg, #f8d266, #f17953);
-    box-shadow: 0 2px 1px 1px rgba(230, 109, 70, .7), 0 3px 5px rgba(0,0,0,.35);
+    background: linear-gradient(135deg, #ff4158, #ff001f);
+    box-shadow: 0 2px 1px 1px rgb(222, 0, 27, .7), 0 3px 5px rgba(0,0,0,.35);
 }
 
 html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder svg:focus,
@@ -864,7 +847,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     transition: background 250ms 125ms, transform 250ms, box-shadow 275ms;
     transform: translateY(4px) scale(.975);
 
-    box-shadow: 0 1px 1px 0 rgba(230, 109, 70, .7), 0 1px 2px rgba(0,0,0,.35);
+    box-shadow: 0 1px 1px 0 rgba(222, 0, 27, .7), 0 1px 2px rgba(0,0,0,.35);
 }
 
 html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder--general svg
@@ -1895,12 +1878,12 @@ html[it-it-analyzer='false'] .satus-folder--analyzer
 .satus-button--ad .satus-button__label
 {
     font-size: 22px;
+    font-weight: 700;
 
-    letter-spacing: 1px;
-
-    color: rgba(255,255,255,.9);
+    color: rgba(255,255,255,.85);
     text-shadow: 2px 1px 2px rgba(0,0,0,.6);
 }
+
 
 @keyframes satusSwitchDark
 {
