@@ -172,6 +172,20 @@ html[it-header-hide-right-buttons=true] ytd-masthead#masthead #container #end
 2.0 Player
 -----------------------------------------------------------------------------*/
 
+/*---------------------------------------------------------------
+# ADS
+---------------------------------------------------------------*/
+
+html[it-player-ads='subscribed_channels'] #related #player-ads,
+html[it-player-ads='block_all'] #related #player-ads,
+html[it-player-ads='subscribed_channels'] .html5-video-player .video-ads.ytp-ad-module,
+html[it-player-ads='block_all'] .html5-video-player .video-ads.ytp-ad-module
+{
+    display: none !important;
+}
+
+
+
 /*-----------------------------------------------------------------------------
 2.1 Annotations
 -----------------------------------------------------------------------------*/
