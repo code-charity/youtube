@@ -1,5 +1,10 @@
-## [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
-An extension, that we built to refine & sweeten your experience on YouTube. The first popular features were simply to have a larger player, hide distractions and save your time. By now we also have many powerful features enhancing YouTube functionality. And there is so much left to build! ...  - ImprovedTube's User Interface is designed with our library **[Satus](https://github.com/victor-savinov/satus)** to manage your settings efficiently. - Technically, ImprovedTube is the only project providing so much CSS to adjust another service🦄<font size="-2">(_[cmiiw](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_)</font>
+ <p align="center">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
+      <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
+        <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /> </p>  
+
+##  [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) ,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; an extension, that we built to refine & sweeten your experience on YouTube. The first popular features were simply to have a larger player, hide distractions and save your time. By now we also have many powerful features enhancing YouTube functionality. And there is so much left to build! ...  - ImprovedTube's User Interface is designed with our library **[Satus](https://github.com/victor-savinov/satus)** to manage your settings efficiently. - Technically, ImprovedTube is the only project providing so much CSS to adjust another service🦄<font size="-2">(_[cmiiw](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_)</font>
+
 
 ## ToDo  
 - **Documentation, Screenshots, Videos**  *(to learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))* 
@@ -59,7 +64,7 @@ We would like to help good causes and fund ours, projects@improvedtube.com
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
 
-## Install from source
+## Install from source ⚙️	
 
 #### [Chromium](https://github.com/chromium/chromium) / [Brave](https://brave.com/?ref=imp716) / Vivaldi / Chrome and other
 
@@ -77,7 +82,6 @@ We would like to help good causes and fund ours, projects@improvedtube.com
 Or use one of the published versions: [Stable](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd), [Beta](https://chrome.google.com/webstore/detail/improvedtube-youtube-exte/lodjfjlkodalimdjgncejhkadjhacgki).
 
 
-
 #### [Firefox](https://github.com/mozilla) / [Waterfox](https://github.com/MrAlex94/Waterfox) / GNUzilla and IceCat and other
 
 1. Download & unzip [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
@@ -93,5 +97,32 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 6. Select "manifest.json" file from unzipped folder
 
 
+### Some features of ImrovedTube:
+
+- Video Quality
+
+- Themes cutomizations
+
+- Thumbnail Customizations
+
+- Repeat and Screenshot Buttons
+
+- Popup Player
+
+- Ads management
+
+- Hide Cards and Annotations
+
+- Customise Video page Apperance (always expand description , hide related videos etc)
+
+- Channel page Customizations
+
+- Hotkeys (Shortcuts) Customizations
+
+- Statisics
+
+- Volume Mixer
+
+_For a complete list of features please visit [features](https://github.com/ImprovedTube/YouTube/wiki/Features) page._
 
 
