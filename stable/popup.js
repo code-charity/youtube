@@ -38,7 +38,7 @@ var Menu = {
                     document.querySelector('.satus-main').open({
                         appearanceId: 'search'
                     }, function() {
-                        Satus.render({
+                        satus.render({
                             type: 'dialog',
                             class: 'satus-dialog--search',
                             onclose: function() {
@@ -50,7 +50,7 @@ var Menu = {
                                 placeholder: 'search',
                                 oninput: function() {
                                     if (this.value.length > 0) {
-                                        Satus.search(this.value, Menu, function(results) {
+                                        satus.search(this.value, Menu, function(results) {
                                             var sorted_results = [];
 
                                             document.querySelector('.satus-main__container').innerHTML = '';
@@ -68,14 +68,14 @@ var Menu = {
 
                                             console.log(results);
 
-                                            var scroll = Satus.components.scrollbar(document.querySelector('.satus-main__container'));
+                                            var scroll = satus.components.scrollbar(document.querySelector('.satus-main__container'));
 
-                                            Satus.render(sorted_results, scroll);
+                                            satus.render(sorted_results, scroll);
                                         }, true);
                                     } else {
                                         document.querySelector('.satus-main__container').innerHTML = '';
 
-                                        Satus.render({}, document.querySelector('.satus-main__container'));
+                                        satus.render({}, document.querySelector('.satus-main__container'));
                                     }
                                 }
                             }
@@ -106,7 +106,7 @@ Menu.main = {
             document.body.dataset.appearance = id;
             container.dataset.appearance = id;
 
-            document.querySelector('.satus-text--title').innerText = Satus.locale.getMessage(item.label) || 'ImprovedTube';
+            document.querySelector('.satus-text--title').innerText = satus.locale.getMessage(item.label) || 'ImprovedTube';
         }
     },
 
@@ -168,7 +168,7 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
         onrender: function() {
             var component = this,
                 new_menu = {},
-                storage = Satus.storage;
+                storage = satus.storage;
 
             function search(string, object) {
                 let result = [];
@@ -202,9 +202,9 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
 
             setTimeout(function() {
                 if (Object.keys(new_menu).length > 0) {
-                    Satus.render(new_menu, component);
+                    satus.render(new_menu, component);
                 } else {
-                    Satus.render({
+                    satus.render({
                         text: {
                             type: 'text',
                             label: 'noActiveFeatures'
@@ -243,7 +243,7 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
                                 section: {
                                     type: 'section',
                                     dataset: {
-                                        'noConnectionLabel': Satus.locale.getMessage('tryToReloadThePage') || 'tryToReloadThePage'
+                                        'noConnectionLabel': satus.locale.getMessage('tryToReloadThePage') || 'tryToReloadThePage'
                                     },
 
                                     mixer_volume: {
@@ -324,7 +324,7 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
 
                 document.querySelector('.satus-dialog__scrim').click();
 
-                Satus.render(mixer, self);
+                satus.render(mixer, self);
             });
         }
     }
@@ -358,10 +358,10 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 custom_js: {
                     type: 'text-field',
                     onrender: function() {
-                        this.value = Satus.storage.get('custom_js') || '';
+                        this.value = satus.storage.get('custom_js') || '';
                     },
                     oninput: function() {
-                        Satus.storage.set('custom_js', this.value);
+                        satus.storage.set('custom_js', this.value);
                     }
                 }
             },
@@ -377,10 +377,10 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 custom_css: {
                     type: 'text-field',
                     onrender: function() {
-                        this.value = Satus.storage.get('custom_css') || '';
+                        this.value = satus.storage.get('custom_css') || '';
                     },
                     oninput: function() {
-                        Satus.storage.set('custom_css', this.value);
+                        satus.storage.set('custom_css', this.value);
                     }
                 }
             },
@@ -394,7 +394,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
             translations_section: {
                 type: 'section',
                 onrender: function() {
-                    Satus.search('language', Menu, function(result) {
+                    satus.search('language', Menu, function(result) {
                         var languages = result.language.options;
 
                         for (var i = 0, l = languages.length; i < l; i++) {
@@ -558,62 +558,83 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     label: 'improvedtubeLanguage',
                     type: 'select',
                     onchange: function(name, value) {
-                        Satus.memory.set('locale', {});
+                        satus.memory.set('locale', {});
 
-                        Satus.locale(function() {
+                        satus.locale(function() {
                             document.querySelector('.satus-main__container').innerHTML = '';
 
-                            document.querySelector('.satus-header__title').innerText = Satus.locale.getMessage('languages');
-                            document.querySelector('#search').placeholder = Satus.locale.getMessage('search');
+                            document.querySelector('.satus-header__title').innerText = satus.locale.getMessage('languages');
+                            document.querySelector('#search').placeholder = satus.locale.getMessage('search');
 
-                            Satus.render(document.querySelector('.satus-main__container'), Menu.main.section.settings.section.languages);
+                            satus.render(document.querySelector('.satus-main__container'), Menu.main.section.settings.section.languages);
                         });
                     },
                     options: [{
                         value: 'en',
                         label: 'English'
                     }, {
-                        value: 'ar',
-                        label: 'العربية'
-                    }, {
-                        value: 'de',
-                        label: 'Deutsch'
+                        value: 'ko',
+                        label: '한국어'
                     }, {
                         value: 'es',
-                        label: 'Español'
-                    }, {
-                        value: 'fr',
-                        label: 'Français'
-                    }, {
-                        value: 'id',
-                        label: 'Bahasa Indonesia'
-                    }, {
-                        value: 'it',
-                        label: 'Italiano'
-                    }, {
-                        value: 'ja',
-                        label: '日本語'
-                    }, {
-                        value: 'nl',
-                        label: 'Dutch'
-                    }, {
-                        value: 'no',
-                        label: 'Norwegian Bokmål'
-                    }, {
-                        value: 'pt_BR',
-                        label: 'Português (Brasil)'
+                        label: 'Español (España)'
                     }, {
                         value: 'ru',
                         label: 'Русский'
                     }, {
-                        value: 'tr',
-                        label: 'Türkçe'
+                        value: 'de',
+                        label: 'Deutsch'
+                    }, {
+                        value: 'zh_TW',
+                        label: '中文 (繁體)'
+                    }, {
+                        value: 'pt_PT',
+                        label: 'Português'
+                    }, {
+                        value: 'pt_BR',
+                        label: 'Português (Brasil)'
                     }, {
                         value: 'zh_CN',
                         label: '中文 (简体)'
                     }, {
-                        value: 'zh_TW',
-                        label: '中文 (繁體)'
+                        value: 'fr',
+                        label: 'Français'
+                    }, {
+                        value: 'ja',
+                        label: '日本語'
+                    }, {
+                        value: 'tr',
+                        label: 'Türkçe'
+                    }, {
+                        value: 'tr',
+                        label: 'Italiano'
+                    }, {
+                        value: 'nl',
+                        label: 'Nederlands'
+                    }, {
+                        value: 'ar',
+                        label: 'العربية'
+                    }, {
+                        value: 'id',
+                        label: 'Bahasa Indonesia'
+                    }, {
+                        value: 'nb',
+                        label: 'Norsk'
+                    },  {
+                        value: 'nb_NO',
+                        label: 'Norsk (Bokmål)'
+                    }, {
+                        value: 'el',
+                        label: 'Ελληνικά'
+                    }, {
+                        value: 'bn',
+                        label: 'বাংলা'
+                    }, {
+                        value: 'hin',
+                        label: 'हिन्दी'
+                    }, {
+                        value: 'sk',
+                        label: 'Slovenčina'
                     }]
                 },
                 youtube_language: {
@@ -884,10 +905,10 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                     var data = JSON.parse(this.result);
 
                                     for (var i in data) {
-                                        Satus.storage.set(i, data[i]);
+                                        satus.storage.set(i, data[i]);
                                     }
 
-                                    Satus.render({
+                                    satus.render({
                                         type: 'dialog',
                                         class: 'satus-dialog--confirm',
 
@@ -945,7 +966,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         chrome.runtime.sendMessage({
                             name: 'download',
                             filename: 'improvedtube-settings.json',
-                            value: Satus.storage
+                            value: satus.storage
                         });
                     }
                 },
@@ -954,7 +975,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     label: 'resetAllSettings',
 
                     onclick: function() {
-                        Satus.render({
+                        satus.render({
                             type: 'dialog',
                             class: 'satus-dialog--confirm',
 
@@ -985,7 +1006,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                     onclick: function() {
                                         var scrim = document.querySelectorAll('.satus-dialog__scrim');
 
-                                        Satus.storage.clear();
+                                        satus.storage.clear();
 
                                         scrim[scrim.length - 1].click();
                                     }
@@ -999,7 +1020,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     label: 'deleteYoutubeCookies',
 
                     onclick: function() {
-                        Satus.render({
+                        satus.render({
                             type: 'dialog',
                             class: 'satus-dialog--confirm',
 
@@ -1080,7 +1101,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 onrender: function() {
                     var component = this,
                         manifest = chrome.runtime.getManifest(),
-                        user = Satus.modules.user(),
+                        user = satus.modules.user(),
                         object = {
                             extension_section: {
                                 type: 'section',
@@ -1192,7 +1213,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                         };
 
                     setTimeout(function() {
-                        Satus.render(object, component.parentNode);
+                        satus.render(object, component.parentNode);
 
                         component.remove();
                     });
@@ -1663,7 +1684,7 @@ Menu.main.section.appearance = {
 };
 
 function themePopupChange() {
-    if (Satus.storage.get('red_popup_theme') === true) {
+    if (satus.storage.get('red_popup_theme') === true) {
         document.documentElement.setAttribute('popup-theme', 'red');
     } else {
         document.documentElement.removeAttribute('popup-theme');
@@ -1681,19 +1702,19 @@ function themeChange(event) {
         }
     }
 
-    if (Satus.storage.get('default_dark_theme') === true) {
+    if (satus.storage.get('default_dark_theme') === true) {
         document.documentElement.setAttribute('theme', 'dark');
-    } else if (Satus.storage.get('night_theme') === true) {
+    } else if (satus.storage.get('night_theme') === true) {
         document.documentElement.setAttribute('theme', 'night');
-    } else if (Satus.storage.get('dawn_theme') === true) {
+    } else if (satus.storage.get('dawn_theme') === true) {
         document.documentElement.setAttribute('theme', 'dawn');
-    } else if (Satus.storage.get('sunset_theme') === true) {
+    } else if (satus.storage.get('sunset_theme') === true) {
         document.documentElement.setAttribute('theme', 'sunset');
-    } else if (Satus.storage.get('desert_theme') === true) {
+    } else if (satus.storage.get('desert_theme') === true) {
         document.documentElement.setAttribute('theme', 'desert');
-    } else if (Satus.storage.get('plain_theme') === true) {
+    } else if (satus.storage.get('plain_theme') === true) {
         document.documentElement.setAttribute('theme', 'plain');
-    } else if (Satus.storage.get('black_theme') === true) {
+    } else if (satus.storage.get('black_theme') === true) {
         document.documentElement.setAttribute('theme', 'black');
     } else {
         document.documentElement.removeAttribute('theme');
@@ -2098,10 +2119,10 @@ Menu.main.section.player = {
             label: 'forcedPlaybackSpeed',
             id: 'forced-playback-speed',
             onrender: function() {
-                this.dataset.value = Satus.storage.player_forced_playback_speed;
+                this.dataset.value = satus.storage.player_forced_playback_speed;
             },
             onchange: function() {
-                this.dataset.value = Satus.storage.player_forced_playback_speed;
+                this.dataset.value = satus.storage.player_forced_playback_speed;
             }
         },
         player_playback_speed: {
@@ -2207,7 +2228,7 @@ Menu.main.section.player = {
             onclick: function() {
                 console.log(this.dataset.value);
                 if (this.querySelector('input').checked === true) {
-                    Satus.render({
+                    satus.render({
                         type: 'dialog',
                         class: 'satus-dialog--confirm',
 
@@ -2271,10 +2292,10 @@ Menu.main.section.player = {
             label: 'forcedVolume',
             id: 'forced-volume',
             onrender: function() {
-                this.dataset.value = Satus.storage.player_forced_volume;
+                this.dataset.value = satus.storage.player_forced_volume;
             },
             onchange: function() {
-                this.dataset.value = Satus.storage.player_forced_volume;
+                this.dataset.value = satus.storage.player_forced_volume;
             }
         },
         player_volume: {
@@ -2672,19 +2693,19 @@ Menu.main.section.blacklist = {
             onopen: function() {
                 var self = this;
 
-                if (Satus.storage.blacklist && Satus.storage.blacklist.channels) {
+                if (satus.storage.blacklist && satus.storage.blacklist.channels) {
                     var list = {};
 
-                    for (var item in Satus.storage.blacklist.channels) {
-                        if (Satus.storage.blacklist.channels[item] !== false) {
-                            var title = Satus.storage.blacklist.channels[item].title || '';
+                    for (var item in satus.storage.blacklist.channels) {
+                        if (satus.storage.blacklist.channels[item] !== false) {
+                            var title = satus.storage.blacklist.channels[item].title || '';
 
                             list[item] = {
                                 type: 'section',
                                 label: title.length > 20 ? title.substr(0, 20) + '...' : title,
                                 class: 'satus-section--blacklist',
                                 style: {
-                                    'background-image': 'url(' + Satus.storage.blacklist.channels[item].preview + ')',
+                                    'background-image': 'url(' + satus.storage.blacklist.channels[item].preview + ')',
                                     'background-color': '#000'
                                 },
 
@@ -2695,9 +2716,9 @@ Menu.main.section.blacklist = {
                                         type: 'button',
                                         icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
                                         onclick: function() {
-                                            delete Satus.storage.blacklist.channels[item];
+                                            delete satus.storage.blacklist.channels[item];
 
-                                            Satus.storage.set('blacklist', Satus.storage.blacklist);
+                                            satus.storage.set('blacklist', satus.storage.blacklist);
 
                                             this.classList.add('removing');
 
@@ -2723,9 +2744,9 @@ Menu.main.section.blacklist = {
                         };
                     }
 
-                    Satus.render(list, this);
+                    satus.render(list, this);
                 } else {
-                    Satus.render({
+                    satus.render({
                         type: 'section',
                         class: 'satus-section--message',
 
@@ -2743,12 +2764,12 @@ Menu.main.section.blacklist = {
             onopen: function() {
                 var self = this;
 
-                if (Satus.storage.blacklist && Satus.storage.blacklist.videos) {
+                if (satus.storage.blacklist && satus.storage.blacklist.videos) {
                     let list = {};
 
-                    for (let item in Satus.storage.blacklist.videos) {
-                        if (Satus.storage.blacklist.videos[item] !== false) {
-                            let title = Satus.storage.blacklist.videos[item].title || '';
+                    for (let item in satus.storage.blacklist.videos) {
+                        if (satus.storage.blacklist.videos[item] !== false) {
+                            let title = satus.storage.blacklist.videos[item].title || '';
 
                             list[item] = {
                                 type: 'section',
@@ -2765,9 +2786,9 @@ Menu.main.section.blacklist = {
                                         type: 'button',
                                         icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
                                         onclick: function() {
-                                            delete Satus.storage.blacklist.videos[item];
+                                            delete satus.storage.blacklist.videos[item];
 
-                                            Satus.storage.set('blacklist', Satus.storage.blacklist);
+                                            satus.storage.set('blacklist', satus.storage.blacklist);
                                             this.parentNode.parentNode.classList.add('removing');
 
                                             setTimeout(function() {
@@ -2792,9 +2813,9 @@ Menu.main.section.blacklist = {
                         };
                     }
 
-                    Satus.render(list, this);
+                    satus.render(list, this);
                 } else {
-                    Satus.render({
+                    satus.render({
                         type: 'section',
                         class: 'satus-section--message',
 
@@ -2832,7 +2853,7 @@ Menu.main.section.analyzer = {
             'align-items': 'flex-start'
         },
         onrender: function() {
-            var data = Satus.storage.get('analyzer') || {},
+            var data = satus.storage.get('analyzer') || {},
                 all_data = {},
                 all_data_sort = [],
                 all_time_value = 0,
@@ -2878,8 +2899,8 @@ Menu.main.section.analyzer = {
 
             var now_minutes = new Date().getMinutes();
 
-            watch_time.innerText = Satus.locale.getMessage('watchTime') || 'watchTime';
-            today_at.innerText = Satus.locale.getMessage('todayAt') + ' ' + (new Date().getHours() + ':' + (now_minutes < 10 ? '0' + now_minutes : now_minutes)) || 'todayAt';
+            watch_time.innerText = satus.locale.getMessage('watchTime') || 'watchTime';
+            today_at.innerText = satus.locale.getMessage('todayAt') + ' ' + (new Date().getHours() + ':' + (now_minutes < 10 ? '0' + now_minutes : now_minutes)) || 'todayAt';
             all_time.innerText = Math.floor(all_time_value / 60) + 'h ' + (all_time_value - Math.floor(all_time_value / 60) * 60) + 'm';
 
             let h = 0;
@@ -2968,128 +2989,42 @@ chrome.storage.onChanged.addListener(function(changes) {
     }
 });
 
-Satus.storage.import(function() {
-    var language = Satus.storage.get('language') || 'en';
-
-    if (!Satus.storage.get('language')) {
-        var dialog = {
-            type: 'dialog',
-            class: 'satus-dialog--setup satus-dialog--setup-language',
-
-            en: {
-                type: 'button',
-                label: 'English'
-            },
-            ar: {
-                type: 'button',
-                label: 'العربية'
-            },
-            de: {
-                type: 'button',
-                label: 'Deutsch'
-            },
-            es: {
-                type: 'button',
-                label: 'Español'
-            },
-            fr: {
-                type: 'button',
-                label: 'Français'
-            },
-            id: {
-                type: 'button',
-                label: 'Bahasa Indonesia'
-            },
-            it: {
-                type: 'button',
-                label: 'Italiano'
-            },
-            ja: {
-                type: 'button',
-                label: '日本語'
-            },
-            nl: {
-                type: 'button',
-                label: 'Dutch'
-            },
-            no: {
-                type: 'button',
-                label: 'Norwegian Bokmål'
-            },
-            pt_BR: {
-                type: 'button',
-                label: 'Português (Brasil)'
-            },
-            ru: {
-                type: 'button',
-                label: 'Русский'
-            },
-            tr: {
-                type: 'button',
-                label: 'Türkçe'
-            },
-            zh_CN: {
-                type: 'button',
-                label: '中文 (简体)'
-            },
-            zh_TW: {
-                type: 'button',
-                label: '中文 (繁體)'
-            }
-        };
-
-        for (var key in dialog) {
-            if (typeof dialog[key] === 'object') {
-                dialog[key].dataset = {
-                    key: key
-                };
-
-                dialog[key].onclick = function() {
-                    Satus.storage.set('language', this.dataset.key);
-
-                    document.querySelector('.satus-dialog--setup .satus-dialog__scrim').click();
-                };
-            }
-        }
-
-        Satus.render(dialog);
-    }
-
-    if (Satus.isset(Satus.storage.get('red_popup_theme')) === false || Satus.storage.get('red_popup_theme') === true) {
+satus.storage.import(function() {
+    if (satus.isset(satus.storage.get('red_popup_theme')) === false || satus.storage.get('red_popup_theme') === true) {
         document.documentElement.setAttribute('popup-theme', 'red');
     }
 
-    if (Satus.storage.get('default_dark_theme') === true) {
+    if (satus.storage.get('default_dark_theme') === true) {
         document.documentElement.setAttribute('theme', 'dark');
     }
 
-    if (Satus.storage.get('night_theme') === true) {
+    if (satus.storage.get('night_theme') === true) {
         document.documentElement.setAttribute('theme', 'night');
     }
 
-    if (Satus.storage.get('dawn_theme') === true) {
+    if (satus.storage.get('dawn_theme') === true) {
         document.documentElement.setAttribute('theme', 'dawn');
     }
 
-    if (Satus.storage.get('sunset_theme') === true) {
+    if (satus.storage.get('sunset_theme') === true) {
         document.documentElement.setAttribute('theme', 'sunset');
     }
 
-    if (Satus.storage.get('desert_theme') === true) {
+    if (satus.storage.get('desert_theme') === true) {
         document.documentElement.setAttribute('theme', 'desert');
     }
 
-    if (Satus.storage.get('plain_theme') === true) {
+    if (satus.storage.get('plain_theme') === true) {
         document.documentElement.setAttribute('theme', 'plain');
     }
 
-    if (Satus.storage.get('black_theme') === true) {
+    if (satus.storage.get('black_theme') === true) {
         document.documentElement.setAttribute('theme', 'black');
     }
 
-    Satus.locale.import('_locales/' + language + '/messages.json', function() {
-        Satus.modules.updateStorageKeys(Menu, function() {
-            Satus.render(Menu, document.body);
+    satus.locale.import(satus.storage.get('language'), function() {
+        satus.modules.updateStorageKeys(Menu, function() {
+            satus.render(Menu, document.body);
         });
     });
 });

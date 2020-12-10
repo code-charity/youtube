@@ -8,16 +8,16 @@
 # Animation duration
 --------------------------------------------------------------*/
 
-var Satus = {};
+var satus = {};
 
 
 /*--------------------------------------------------------------
 # EVENTS
 --------------------------------------------------------------*/
 
-Satus.events = {};
+satus.events = {};
 
-Satus.on = function(event, handler) {
+satus.on = function(event, handler) {
     if (!this.isset(this.events[event])) {
         this.events[event] = [];
     }
@@ -30,21 +30,21 @@ Satus.on = function(event, handler) {
 # COMPONENTS
 --------------------------------------------------------------*/
 
-Satus.components = {};
+satus.components = {};
 
 
 /*--------------------------------------------------------------
 # MODULES
 --------------------------------------------------------------*/
 
-Satus.modules = {};
+satus.modules = {};
 
 
 /*--------------------------------------------------------------
 # ISSET
 --------------------------------------------------------------*/
 
-Satus.isset = function(variable) {
+satus.isset = function(variable) {
     if (typeof variable === 'undefined' || variable === null) {
         return false;
     }
@@ -57,7 +57,7 @@ Satus.isset = function(variable) {
 # CAMELIZE
 --------------------------------------------------------------*/
 
-Satus.camelize = function(string) {
+satus.camelize = function(string) {
     return string.replace(/-[a-z]/g, function(match) {
         return match[1].toUpperCase();
     });
@@ -68,7 +68,7 @@ Satus.camelize = function(string) {
 # ANIMATION DURATION
 --------------------------------------------------------------*/
 
-Satus.getAnimationDuration = function(element) {
+satus.getAnimationDuration = function(element) {
     return Number(window.getComputedStyle(element).getPropertyValue('animation-duration').replace(/[^0-9.]/g, '')) * 1000;
 };
 /*--------------------------------------------------------------
@@ -80,21 +80,21 @@ Satus.getAnimationDuration = function(element) {
 4.0 Clear
 --------------------------------------------------------------*/
 
-Satus.storage = {};
+satus.storage = {};
 
 /*--------------------------------------------------------------
 # GET
 --------------------------------------------------------------*/
 
-Satus.storage.get = function(name) {
-    var target = Satus.storage;
+satus.storage.get = function(name) {
+    var target = satus.storage;
 
     name = name.split('/').filter(function(value) {
         return value != '';
     });
 
     for (var i = 0, l = name.length; i < l; i++) {
-        if (Satus.isset(target[name[i]])) {
+        if (satus.isset(target[name[i]])) {
             target = target[name[i]];
         } else {
             return undefined;
@@ -109,11 +109,11 @@ Satus.storage.get = function(name) {
 # SET
 --------------------------------------------------------------*/
 
-Satus.storage.set = function(name, value) {
+satus.storage.set = function(name, value) {
     var items = {},
-        target = Satus.storage;
+        target = satus.storage;
         
-    if (!Satus.isset(name)) {
+    if (!satus.isset(name)) {
         return false;
     }
 
@@ -138,9 +138,9 @@ Satus.storage.set = function(name, value) {
         }
     }
 
-    for (var key in Satus.storage) {
-        if (typeof Satus.storage[key] !== 'function') {
-            items[key] = Satus.storage[key];
+    for (var key in satus.storage) {
+        if (typeof satus.storage[key] !== 'function') {
+            items[key] = satus.storage[key];
         }
     }
 
@@ -152,10 +152,10 @@ Satus.storage.set = function(name, value) {
 # IMPORT
 --------------------------------------------------------------*/
 
-Satus.storage.import = function(callback) {
+satus.storage.import = function(callback) {
     chrome.storage.local.get(function(items) {
         for (var key in items) {
-            Satus.storage[key] = items[key];
+            satus.storage[key] = items[key];
         }
 
         if (callback) {
@@ -169,49 +169,63 @@ Satus.storage.import = function(callback) {
 # CLEAR
 --------------------------------------------------------------*/
 
-Satus.storage.clear = function() {
+satus.storage.clear = function() {
     chrome.storage.local.clear();
 
-    for (var key in Satus.storage) {
-        if (typeof Satus.storage[key] !== 'function') {
-            delete Satus.storage[key];
+    for (var key in satus.storage) {
+        if (typeof satus.storage[key] !== 'function') {
+            delete satus.storage[key];
         }
     }
 };
 
-/*--------------------------------------------------------------
-# LOCALE
---------------------------------------------------------------*/
+/*---------------------------------------------------------------
+>>> LOCALE
+-----------------------------------------------------------------
+# Get message
+# Import locale
+---------------------------------------------------------------*/
 
-Satus.locale = {
+satus.locale = {
     messages: {}
 };
 
 
-/*--------------------------------------------------------------
+/*---------------------------------------------------------------
 # GET MESSAGE
---------------------------------------------------------------*/
+---------------------------------------------------------------*/
 
-Satus.locale.getMessage = function(string) {
+satus.locale.getMessage = function(string) {
     return this.messages[string] || string;
 };
 
-/*--------------------------------------------------------------
-# IMPORT LOCALE
---------------------------------------------------------------*/
+satus.locale.get = satus.locale.getMessage;
 
-Satus.locale.import = function(src, callback) {
+
+/*---------------------------------------------------------------
+# IMPORT LOCALE
+---------------------------------------------------------------*/
+
+satus.locale.import = function(language, callback) {
     var xhr = new XMLHttpRequest();
+
+    if (typeof language === 'function') {
+        var callback = language;
+    }
+
+    if (typeof language !== 'string') {
+        var language = chrome.i18n.getUILanguage();
+    }
 
     xhr.onload = function() {
         try {
             var object = JSON.parse(this.responseText);
 
             for (var key in object) {
-                Satus.locale.messages[key] = object[key].message;
+                satus.locale.messages[key] = object[key].message;
             }
 
-            callback();
+            callback(language);
         } catch (err) {
             function listener(request) {
                 if (request !== null && typeof request === 'object') {
@@ -221,10 +235,10 @@ Satus.locale.import = function(src, callback) {
                         chrome.runtime.onMessage.removeListener(listener);
 
                         for (var key in object) {
-                            Satus.locale.messages[key] = object[key].message;
+                            satus.locale.messages[key] = object[key].message;
                         }
 
-                        callback();
+                        callback(language);
                     }
                 }
             }
@@ -233,28 +247,37 @@ Satus.locale.import = function(src, callback) {
 
             chrome.runtime.sendMessage({
                 name: 'translation_request',
-                path: src
+                path: '_locales/' + language + '/messages.json'
             });
         }
     };
 
-    xhr.open('GET', src, true);
+    xhr.onerror = function() {
+        if (language === 'en') {
+            callback();
+        } else {
+            satus.locale.import('en', callback);
+        }
+    };
+
+    xhr.open('GET', '_locales/' + language + '/messages.json', true);
     xhr.send();
 };
+
 /*--------------------------------------------------------------
 >>> RENDER
 --------------------------------------------------------------*/
 
-Satus.render = function(element, container, callback) {
+satus.render = function(element, container, callback) {
     function convert(object) {
         if (object && object.type) {
-            var type = Satus.camelize(object.type),
-                component = Satus.components[type](object),
+            var type = satus.camelize(object.type),
+                component = satus.components[type](object),
                 excluded_properties = ['type', 'label', 'class', 'title', 'storage'];
 
             function applyProperties(object, target) {
                 for (var key in object) {
-                    if (Satus.isset(object[key]) && typeof object[key] === 'object' && !object[key].type) {
+                    if (satus.isset(object[key]) && typeof object[key] === 'object' && !object[key].type) {
                         if (typeof target[key] !== 'object') {
                             target[key] = {};
                         }
@@ -302,13 +325,13 @@ Satus.render = function(element, container, callback) {
 
             if (typeof component.onClickRender === 'object') {
                 component.addEventListener('click', function() {
-                    Satus.render(component.onClickRender);
+                    satus.render(component.onClickRender);
                 });
             }
 
-            if (Satus.isset(Satus.events.render)) {
-                for (var i = 0, l = Satus.events.render.length; i < l; i++) {
-                    Satus.events.render[i](component, object);
+            if (satus.isset(satus.events.render)) {
+                for (var i = 0, l = satus.events.render.length; i < l; i++) {
+                    satus.events.render[i](component, object);
                 }
             }
 
@@ -334,18 +357,18 @@ Satus.render = function(element, container, callback) {
 # CLONE NODE STYLES
 --------------------------------------------------------------*/
 
-Satus.cloneNodeStyles = function(origin, target) {
+satus.cloneNodeStyles = function(origin, target) {
     target.style.cssText = window.getComputedStyle(origin, '').cssText;
 
     for (var i = 0, l = origin.children.length; i < l; i++) {
-        Satus.cloneNodeStyles(origin.children[i], target.children[i]);
+        satus.cloneNodeStyles(origin.children[i], target.children[i]);
     }
 };
 /*-----------------------------------------------------------------------------
 >>> «SEARCH» MODULE
 -----------------------------------------------------------------------------*/
 
-Satus.search = function(query, object, callback, categories) {
+satus.search = function(query, object, callback, categories) {
     var threads = 0,
         folder = '',
         results = {};
@@ -391,7 +414,7 @@ Satus.search = function(query, object, callback, categories) {
 >>> STORAGE KEYS
 --------------------------------------------------------------*/
 
-Satus.modules.updateStorageKeys = function(object, callback) {
+satus.modules.updateStorageKeys = function(object, callback) {
     var threads = 0;
 
     function parse(items) {
@@ -447,7 +470,7 @@ Satus.modules.updateStorageKeys = function(object, callback) {
 4.0 Clearing
 -----------------------------------------------------------------------------*/
 
-Satus.modules.user = function() {
+satus.modules.user = function() {
     /*-----------------------------------------------------------------------------
     1.0 VARIABLES
     -----------------------------------------------------------------------------*/
@@ -779,7 +802,7 @@ Satus.modules.user = function() {
 
     return data;
 };
-Satus.on('render', function(component, data) {
+satus.on('render', function(component, data) {
     if (data.perspective === true) {
         component.style.willChange = 'transform';
         component.style.transformStyle = 'preserve-3d';
@@ -802,10 +825,10 @@ Satus.on('render', function(component, data) {
 >>> BUTTON
 --------------------------------------------------------------*/
 
-Satus.components.button = function(element) {
+satus.components.button = function(element) {
     var component = document.createElement('button');
 
-    if (Satus.isset(element.icon)) {
+    if (satus.isset(element.icon)) {
         var component_icon = document.createElement('span');
 
         component_icon.className = 'satus-button__icon';
@@ -814,11 +837,11 @@ Satus.components.button = function(element) {
         component.appendChild(component_icon);
     }
 
-    if (Satus.isset(element.label)) {
+    if (satus.isset(element.label)) {
         var component_label = document.createElement('span');
 
         component_label.className = 'satus-button__label';
-        component_label.innerText = Satus.locale.getMessage(element.label);
+        component_label.innerText = satus.locale.getMessage(element.label);
 
         component.appendChild(component_label);
     }
@@ -829,19 +852,19 @@ Satus.components.button = function(element) {
 >>> COLOR PICKER
 --------------------------------------------------------------*/
 
-Satus.components.colorPicker = function(element) {
+satus.components.colorPicker = function(element) {
     var component = document.createElement('div'),
         component_value = document.createElement('div');
 
     element.class = 'satus-button';
     component_value.className = 'satus-color-picker__value';
-    component_value.style.backgroundColor = Satus.storage.get(element.storage_key) || element.value || '';
+    component_value.style.backgroundColor = satus.storage.get(element.storage_key) || element.value || '';
 
-    if (Satus.isset(element.label)) {
+    if (satus.isset(element.label)) {
         var component_label = document.createElement('span');
 
         component_label.className = 'satus-button__label';
-        component_label.innerText = Satus.locale.getMessage(element.label);
+        component_label.innerText = satus.locale.getMessage(element.label);
 
         component.appendChild(component_label);
     }
@@ -852,7 +875,7 @@ Satus.components.colorPicker = function(element) {
             close = document.createElement('button'),
             ctx = component_canvas.getContext('2d'),
             image = new Image(),
-            dialog = Satus.components.dialog({});
+            dialog = satus.components.dialog({});
 
         close.className = 'satus-button';
         close.innerHTML = '<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
@@ -873,7 +896,7 @@ Satus.components.colorPicker = function(element) {
 
             component_value.style.backgroundColor = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
 
-            Satus.storage.set(element.storage_key, component_value.style.backgroundColor);
+            satus.storage.set(element.storage_key, component_value.style.backgroundColor);
         }
 
         function mouseup(event) {
@@ -909,18 +932,18 @@ Satus.components.colorPicker = function(element) {
 >>> DIALOG
 --------------------------------------------------------------*/
 
-Satus.components.dialog = function(element) {
+satus.components.dialog = function(element) {
     var component = document.createElement('div'),
         component_scrim = document.createElement('div'),
         component_surface = document.createElement('div'),
-        component_scrollbar = Satus.components.scrollbar(component_surface),
+        component_scrollbar = satus.components.scrollbar(component_surface),
         options = element.options || {};
 
     component_scrim.className = 'satus-dialog__scrim';
     component_surface.className = 'satus-dialog__surface';
 
     for (var key in element) {
-        Satus.render(element[key], component_scrollbar);
+        satus.render(element[key], component_scrollbar);
     }
 
     function close() {
@@ -934,7 +957,7 @@ Satus.components.dialog = function(element) {
 
         setTimeout(function() {
             component.remove();
-        }, Satus.getAnimationDuration(component_surface));
+        }, satus.getAnimationDuration(component_surface));
     }
 
     function keydown(event) {
@@ -997,7 +1020,7 @@ Satus.components.dialog = function(element) {
 >>> FOLDER
 --------------------------------------------------------------*/
 
-Satus.components.folder = function(object) {
+satus.components.folder = function(object) {
     var component = document.createElement('button');
 
     component.object = object;
@@ -1016,11 +1039,11 @@ Satus.components.folder = function(object) {
         parent.open(this.object, object.onopen);
     });
 
-    if (Satus.isset(object.label)) {
+    if (satus.isset(object.label)) {
         var component_label = document.createElement('span');
 
         component_label.className = 'satus-folder__label';
-        component_label.innerText = Satus.locale.getMessage(object.label);
+        component_label.innerText = satus.locale.getMessage(object.label);
 
         component.appendChild(component_label);
     }
@@ -1031,11 +1054,11 @@ Satus.components.folder = function(object) {
 >>> HEADER
 --------------------------------------------------------------*/
 
-Satus.components.header = function(object) {
+satus.components.header = function(object) {
     var component = document.createElement('header');
 
 	for (var key in object) {
-		Satus.render(object[key], component);
+		satus.render(object[key], component);
 	}
 
     return component;
@@ -1044,7 +1067,7 @@ Satus.components.header = function(object) {
 >>> LIST
 --------------------------------------------------------------*/
 
-Satus.components.list = function(object) {
+satus.components.list = function(object) {
     var ul = document.createElement('ul');
 
     if (object.compact === true) {
@@ -1053,7 +1076,7 @@ Satus.components.list = function(object) {
     }
 
     for (var key in object) {
-        if (Satus.isset(object[key].type)) {
+        if (satus.isset(object[key].type)) {
             var li = document.createElement('li');
 
             if (object.sortable === true) {
@@ -1077,7 +1100,7 @@ Satus.components.list = function(object) {
                             if (dragging === false) {
                                 clone = self.cloneNode(true);
 
-                                Satus.cloneNodeStyles(self, clone);
+                                satus.cloneNodeStyles(self, clone);
                                 clone.style.position = 'fixed';
                                 clone.style.pointerEvents = 'none';
                                 clone.style.backgroundColor = '#fff';
@@ -1138,7 +1161,7 @@ Satus.components.list = function(object) {
                 li.addEventListener('mousedown', mousedown);
             }
 
-            Satus.render(object[key], li);
+            satus.render(object[key], li);
 
             ul.appendChild(li);
         }
@@ -1151,17 +1174,17 @@ Satus.components.list = function(object) {
 >>> MAIN
 --------------------------------------------------------------*/
 
-Satus.components.main = function(object) {
+satus.components.main = function(object) {
     var component = document.createElement('main'),
         component_container = document.createElement('div'),
-        component_scrollbar = Satus.components.scrollbar(component_container, object.scrollbar);
+        component_scrollbar = satus.components.scrollbar(component_container, object.scrollbar);
 
     component.history = [object];
 
     component.back = function() {
         var container = this.querySelector('.satus-main__container'),
             component_container = document.createElement('div'),
-            component_scrollbar = Satus.components.scrollbar(component_container);
+            component_scrollbar = satus.components.scrollbar(component_container);
 
         container.classList.add('satus-main__container--fade-out-right');
         component_container.className = 'satus-main__container satus-main__container--fade-in-left';
@@ -1169,7 +1192,7 @@ Satus.components.main = function(object) {
         this.history.pop();
 
         for (var key in this.history[this.history.length - 1]) {
-            Satus.render(this.history[this.history.length - 1][key], component_scrollbar);
+            satus.render(this.history[this.history.length - 1][key], component_scrollbar);
         }
 
         this.appendChild(component_container);
@@ -1186,13 +1209,13 @@ Satus.components.main = function(object) {
 
         setTimeout(function() {
             container.remove();
-        }, Satus.getAnimationDuration(container));
+        }, satus.getAnimationDuration(container));
     };
 
     component.open = function(element, callback, animated) {
         var container = this.querySelector('.satus-main__container'),
             component_container = document.createElement('div'),
-            component_scrollbar = Satus.components.scrollbar(component_container);
+            component_scrollbar = satus.components.scrollbar(component_container);
 
         if (animated !== false) {
             container.classList.add('satus-main__container--fade-out-left');
@@ -1204,7 +1227,7 @@ Satus.components.main = function(object) {
         this.history.push(element);
 
         for (var key in this.history[this.history.length - 1]) {
-            Satus.render(this.history[this.history.length - 1][key], component_scrollbar);
+            satus.render(this.history[this.history.length - 1][key], component_scrollbar);
         }
 
         this.appendChild(component_container);
@@ -1221,7 +1244,7 @@ Satus.components.main = function(object) {
 
         setTimeout(function() {
             container.remove();
-        }, Satus.getAnimationDuration(container));
+        }, satus.getAnimationDuration(container));
     };
 
     component_container.className = 'satus-main__container';
@@ -1235,7 +1258,7 @@ Satus.components.main = function(object) {
     }
 
     for (var key in object) {
-        Satus.render(object[key], component_scrollbar);
+        satus.render(object[key], component_scrollbar);
     }
 
     component.appendChild(component_container);
@@ -1246,7 +1269,7 @@ Satus.components.main = function(object) {
 >>> SCROLL BAR
 -----------------------------------------------------------------------------*/
 
-Satus.components.scrollbar = function(parent, enabled) {
+satus.components.scrollbar = function(parent, enabled) {
     if (enabled === false) {
         return parent;
     }
@@ -1351,11 +1374,11 @@ Satus.components.scrollbar = function(parent, enabled) {
 >>> SECTION
 --------------------------------------------------------------*/
 
-Satus.components.section = function(element) {
+satus.components.section = function(element) {
     var component = document.createElement('section');
 
 	for (var key in element) {
-		Satus.render(element[key], component);
+		satus.render(element[key], component);
 	}
 
     return component;
@@ -1365,11 +1388,11 @@ Satus.components.section = function(element) {
 >>> SELECT
 --------------------------------------------------------------*/
 
-Satus.components.select = function(element) {
+satus.components.select = function(element) {
     var component = document.createElement('button'),
         component_label = document.createElement('span'),
         component_value = document.createElement('span'),
-        label = Satus.locale.getMessage(element.label);
+        label = satus.locale.getMessage(element.label);
 
     component.classList.add('satus-button');
 
@@ -1379,7 +1402,7 @@ Satus.components.select = function(element) {
     component_value.className = 'satus-select__value';
 
     if (element.storage_key) {
-        var value = Satus.storage.get(element.storage_key);
+        var value = satus.storage.get(element.storage_key);
 
         component.dataset.storageKey = element.storage_key;
 
@@ -1389,7 +1412,7 @@ Satus.components.select = function(element) {
             }
         }
 
-        component_value.innerText = Satus.locale.getMessage(value || element.options[0].label);
+        component_value.innerText = satus.locale.getMessage(value || element.options[0].label);
     }
 
     component.onclick = function() {
@@ -1407,9 +1430,9 @@ Satus.components.select = function(element) {
             dialog[key].dataset.key = element.options[key].label;
             dialog[key].dataset.value = element.options[key].value;
             dialog[key].onclick = function() {
-                component_value.innerText = Satus.locale.getMessage(this.dataset.key);
+                component_value.innerText = satus.locale.getMessage(this.dataset.key);
 
-                Satus.storage.set(component.dataset.storageKey, this.dataset.value);
+                satus.storage.set(component.dataset.storageKey, this.dataset.value);
 
                 var parent = this.parentNode;
 
@@ -1421,7 +1444,7 @@ Satus.components.select = function(element) {
             };
         }
 
-        Satus.render(dialog);
+        satus.render(dialog);
     };
 
     component.appendChild(component_label);
@@ -1433,9 +1456,9 @@ Satus.components.select = function(element) {
 >>> SHORTCUT
 ------------------------------------------------------------------------------*/
 
-Satus.components.shortcut = function(element) {
+satus.components.shortcut = function(element) {
     var self = this,
-        value = (Satus.storage.get(element.storage_key) ? JSON.parse(Satus.storage.get(element.storage_key)) : false) || element.value || {},
+        value = (satus.storage.get(element.storage_key) ? JSON.parse(satus.storage.get(element.storage_key)) : false) || element.value || {},
         component = document.createElement('div'),
         component_label = document.createElement('span'),
         component_value = document.createElement('span'),
@@ -1499,7 +1522,7 @@ Satus.components.shortcut = function(element) {
             if (keys_value.length > 0) {
                 canvas.innerHTML = keys_value.join('<div class=satus-shortcut__plus></div>');
             } else {
-                canvas.innerText = Satus.locale.getMessage('pressAnyKeyOrUseMouseWheel');
+                canvas.innerText = satus.locale.getMessage('pressAnyKeyOrUseMouseWheel');
             }
         }
     }
@@ -1508,7 +1531,7 @@ Satus.components.shortcut = function(element) {
 
     component_value.dataset.value = component_value.innerText;
 
-    component_label.innerText = Satus.locale.getMessage(element.label);
+    component_label.innerText = satus.locale.getMessage(element.label);
 
     component.addEventListener('click', function() {
         let component_dialog = document.createElement('div'),
@@ -1532,9 +1555,9 @@ Satus.components.shortcut = function(element) {
         component_button_save.className = 'satus-button satus-button_shortcut';
 
         component_dialog_label.innerText = component_label.innerText;
-        component_button_reset.innerText = Satus.locale.getMessage('reset');
-        component_button_cancel.innerText = Satus.locale.getMessage('cancel');
-        component_button_save.innerText = Satus.locale.getMessage('save');
+        component_button_reset.innerText = satus.locale.getMessage('reset');
+        component_button_cancel.innerText = satus.locale.getMessage('cancel');
+        component_button_save.innerText = satus.locale.getMessage('save');
 
         update(component_canvas);
 
@@ -1602,14 +1625,14 @@ Satus.components.shortcut = function(element) {
 
         component_scrim.addEventListener('click', close);
         component_button_reset.addEventListener('click', function() {
-            Satus.storage.set(element.storage_key, null);
+            satus.storage.set(element.storage_key, null);
             close();
-            value = (Satus.storage.get(element.storage_key) ? JSON.parse(Satus.storage.get(element.storage_key)) : false) || object.value || {};
+            value = (satus.storage.get(element.storage_key) ? JSON.parse(satus.storage.get(element.storage_key)) : false) || object.value || {};
             update();
         });
         component_button_cancel.addEventListener('click', close);
         component_button_save.addEventListener('click', function() {
-            Satus.storage.set(element.storage_key, JSON.stringify(value));
+            satus.storage.set(element.storage_key, JSON.stringify(value));
             close(false);
         });
 
@@ -1636,15 +1659,15 @@ Satus.components.shortcut = function(element) {
 >>> SLIDER
 --------------------------------------------------------------*/
 
-Satus.components.slider = function(element) {
+satus.components.slider = function(element) {
     var component = document.createElement('div');
 
     // LABEL
-    if (Satus.isset(element.label)) {
+    if (satus.isset(element.label)) {
         var component_label = document.createElement('span');
 
         component_label.className = 'satus-slider__label';
-        component_label.innerText = Satus.locale.getMessage(element.label);
+        component_label.innerText = satus.locale.getMessage(element.label);
 
         component.appendChild(component_label);
     }
@@ -1670,7 +1693,7 @@ Satus.components.slider = function(element) {
 
         track.style.width = 'calc(' + offset + '% - ' + Math.floor(offset * 12 / 100) + 'px)';
 
-        Satus.storage.set(this.dataset.storageKey, Number(this.value));
+        satus.storage.set(this.dataset.storageKey, Number(this.value));
 
         component_thumb.dataset.value = this.value;
 
@@ -1745,14 +1768,14 @@ Satus.components.slider = function(element) {
     component_track.appendChild(component_thumb);
 
     if (element.storage_key) {
-        var value = Satus.storage.get(element.storage_key) || element.value;
+        var value = satus.storage.get(element.storage_key) || element.value;
 
         component_range.dataset.storageKey = element.storage_key;
 
         if (value) {
             component_range.value = value;
 
-            if (!Satus.isset(value)) {
+            if (!satus.isset(value)) {
                 value = element.value;
             }
 
@@ -1773,16 +1796,16 @@ Satus.components.slider = function(element) {
 >>> SWITCH
 --------------------------------------------------------------*/
 
-Satus.components.switch = function(element) {
+satus.components.switch = function(element) {
     var component = document.createElement('div'),
         value;
 
     // LABEL
-    if (Satus.isset(element.label)) {
+    if (satus.isset(element.label)) {
         var component_label = document.createElement('span');
 
         component_label.className = 'satus-switch__label';
-        component_label.innerText = Satus.locale.getMessage(element.label);
+        component_label.innerText = satus.locale.getMessage(element.label);
 
         component.appendChild(component_label);
     }
@@ -1795,12 +1818,12 @@ Satus.components.switch = function(element) {
     component_input.className = 'satus-switch__input';
 
     if (element.storage_key) {
-        value = Satus.storage.get(element.storage_key);
+        value = satus.storage.get(element.storage_key);
 
         component_input.dataset.storageKey = element.storage_key;
     }
 
-    if (!Satus.isset(value)) {
+    if (!satus.isset(value)) {
         value = element.value;
     }
 
@@ -1809,7 +1832,7 @@ Satus.components.switch = function(element) {
     }
 
     component_input.addEventListener('change', function() {
-        Satus.storage.set(this.dataset.storageKey, this.checked);
+        satus.storage.set(this.dataset.storageKey, this.checked);
     });
 
     component.appendChild(component_input);
@@ -1905,11 +1928,11 @@ Satus.components.switch = function(element) {
 
     return component;
 };
-Satus.components.table = function(item) {
+satus.components.table = function(item) {
     var component = document.createElement('div'),
         component_head = document.createElement('div'),
         component_body = document.createElement('div'),
-        component_scrollbar = Satus.components.scrollbar(component_body, item.scrollbar),
+        component_scrollbar = satus.components.scrollbar(component_body, item.scrollbar),
         table = document.createElement('div');
         
     table.className = 'satus-table__container';
@@ -2041,7 +2064,7 @@ Satus.components.table = function(item) {
     component.pagingIndex = 0;
 
     component.update = function(data, index, mode) {
-        if (Satus.isset(data)) {
+        if (satus.isset(data)) {
             this.data = data;
         }
         
@@ -2124,23 +2147,23 @@ Satus.components.table = function(item) {
 >>> TEXT
 --------------------------------------------------------------*/
 
-Satus.components.text = function(element) {
+satus.components.text = function(element) {
     var component = document.createElement('span');
 
-    if (Satus.isset(element.label)) {
+    if (satus.isset(element.label)) {
         var component_label = document.createElement('span');
 
         component_label.className = 'satus-text__label';
-        component_label.innerText = Satus.locale.getMessage(element.label);
+        component_label.innerText = satus.locale.getMessage(element.label);
 
         component.appendChild(component_label);
     }
 
-    if (Satus.isset(element.value)) {
+    if (satus.isset(element.value)) {
         var component_value = document.createElement('span');
 
         component_value.className = 'satus-text__value';
-        component_value.innerText = Satus.locale.getMessage(element.value);
+        component_value.innerText = satus.locale.getMessage(element.value);
 
         component.appendChild(component_value);
     }
@@ -2151,7 +2174,7 @@ Satus.components.text = function(element) {
 >>> TEXT FIELD
 --------------------------------------------------------------*/
 
-Satus.components.textField = function(element) {
+satus.components.textField = function(element) {
     var component = element.rows > 1 ? document.createElement('textarea') : document.createElement('input');
 
     component.type = 'text';
