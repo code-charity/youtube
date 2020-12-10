@@ -1101,7 +1101,6 @@ ImprovedTube.youtube_home_page = function() {
             }
 
             node.href = value;
-            node.outerHTML = String(node.outerHTML);
             node.addEventListener('click', function() {
                 if (
                     this.data &&
@@ -1118,7 +1117,6 @@ ImprovedTube.youtube_home_page = function() {
 
         for (var i = 0, l = node_list.length; i < l; i++) {
             node_list[i].href = node_list[i].getAttribute('it-origin') || '/';
-            node_list[i].outerHTML = String(node.node_list[i].outerHTML);
         }
     }
 };
