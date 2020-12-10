@@ -792,7 +792,7 @@
         "message": "لغة اليوتيوب"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "يحد اليوتيوب من جودة الفيديو الى ١٠٨٠ لـ الترميز h.264"
+        "message": "h.264 يحد اليوتيوب من جودة الفيديو الى ١٠٨٠ لـ الترميز"
     },
     "redDislikeButton": {
         "message": "إظهار زر لم يعجبني باللون الأحمر"
@@ -804,6 +804,6 @@
         "message": "عرض الإحصاءات المفصلة"
     },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "تبديل وضع البطاقات"
     }
 }
