@@ -1,4 +1,4 @@
- <p align="center">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
+ <p align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
       <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
         <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /> </p>  
 
@@ -6,17 +6,17 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; an extension, that we built to refine & sweeten your experience on YouTube. The first popular features were simply to have a larger player, hide distractions and save your time. By now we also have many powerful features enhancing YouTube functionality. And there is so much left to build! ...  - ImprovedTube's User Interface is designed with our library **[Satus](https://github.com/victor-savinov/satus)** to manage your settings efficiently. - Technically, ImprovedTube is the only project providing so much CSS to adjust another service🦄<font size="-2">(_[cmiiw](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_)</font>
 
 ## ToDo 📝
-- [ ] **Documentation, Screenshots, Videos**  *(to learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))* 
+- [ ] **Documentation, Screenshots, Videos** &nbsp;&nbsp;&nbsp;&nbsp;*(will help to learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))* 
 - **[Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)**
 
 *ImprovedTube can fly much higher through your effort, thoughts or word of mouth 🌱. 
 (ImprovedTube didn't afford advertisement yet, else it would have millions of users and we could work much faster.)*
 
--  [ ]  [**active Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) *(we aim to offer (small) bounties on issues labeled '[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen)'. Please ask)*
--  [ ]  [**most wanted new Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"feature%20request"+sort%3Acomments-desc+is%3Aopen)  *( - you can add a wish 🌟🧚 / an issue-number to your donation.)*
--  [ ]  [**active Topics**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A%22feature+request%22+) *- threads neither labeled 'Bug' nor 'New Feature' yet*
-- [**How to start editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  *(For CSS or JavaScript-literates)* 
-- Newbies are welcome to [try too](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). *(We review all edits. We love to code & collaborate)* <br>
+-  [ ]  [**active Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(we aim to offer (small) bounties on issues labeled '[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen)'. Please ask)*
+-  [ ]  [**most wanted new Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"feature%20request"+sort%3Acomments-desc+is%3Aopen)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *(you can add a wish 🌟🧚 / an issue-number to your donation.)*  
+-  [ ]  [**other active Issues**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A%22feature+request%22+)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(or not labeled 'Bug' or 'Feature' just yet)* 
+- [**How to start editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(For CSS or JavaScript-literates)* 
+- Newbies are welcome to [try too](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(We review all edits. We love to code & collaborate)* <br>
 
 ## Credits 
 Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
