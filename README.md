@@ -96,15 +96,18 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 6. Select "manifest.json" file from unzipped folder
 
 
+
+
+
+
+
 ## Some features of ImprovedTube:
 
 - Video Quality
 
-- Themes cutomizations
+- Themes & customizations
 
-- Thumbnail Customizations
-
-- Repeat and Screenshot Buttons
+- Repeat-, Screenshot-, Rotate-Buttons
 
 - Popup Player
 
@@ -112,7 +115,7 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 
 - Hide Cards and Annotations
 
-- Customise Video page Apperance (always expand description , hide related videos etc)
+- Customise Video page Apperance (always expand description , hide related videos etc.)
 
 - Channel page Customizations
 
