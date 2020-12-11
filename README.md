@@ -12,9 +12,9 @@
 *ImprovedTube can fly much higher through your effort, thoughts or word of mouth. Please spread the word. 
 (ImprovedTube didn't afford advertisement yet, else it would have millions of users and we could work much faster.)*
 
--  [ ]  [**active Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) *(we aim to offer (small) bounties on issues labeled '[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen)'. Please ask)*
--  [ ]  [**most wanted new Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"feature%20request"+sort%3Acomments-desc+is%3Aopen)  *(you can add a wish 🌟🧚 / an issue-number to your donation.)*
--  [ ]  [**active Topics**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A%22feature+request%22+) *(threads neither labeled 'Bug' nor 'New Feature' yet*)
+-  [ ]  [**active Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) * (we aim to offer (small) bounties on issues labeled '[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen)'. Please ask) *
+-  [ ]  [**most wanted new Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"feature%20request"+sort%3Acomments-desc+is%3Aopen)  * - you can add a wish 🌟🧚 / an issue-number to your donation.*
+-  [ ]  [**active Topics**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A%22feature+request%22+) * - threads neither labeled 'Bug' nor 'New Feature' yet*
 - [**How to start editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  *(For CSS or JavaScript-literates)* 
 - Newbies are welcome to [try too](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). *(We review all edits. We love to code & collaborate)* <br>
 
