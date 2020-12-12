@@ -1,8 +1,8 @@
 ---
 name: Feature request / suggestion / idea
 about: Suggest an idea for this project
-title: "(IDEA)"
-labels: Help Wanted
+title: ''
+labels: Feature request
 assignees: ''
 
 ---
@@ -35,6 +35,7 @@ assignees: ''
 
 ⚬ _CONTEXT_:       <!-- any other context. -->
 // 
+ Thank  you!
 
 SHORT Table | (Summary)     
 ------------ | -------------   
@@ -43,4 +44,4 @@ SHORT Table | (Summary)
 *Alternatives*|         
 *Scope*         |           
 *Side effects*|        
-*Context*      |                                              T h a n k     y o u !
+*Context*      |
