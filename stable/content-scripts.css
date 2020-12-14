@@ -27,6 +27,27 @@
 7.0 Footer
 -----------------------------------------------------------------------------*/
 
+#it-reverse-playlist
+{
+    width: 40px;
+    height: 40px;
+}
+
+#it-reverse-playlist svg
+{
+    fill: var(--yt-spec-icon-inactive);
+}
+
+#it-reverse-playlist.active svg
+{
+    fill: var(--yt-spec-icon-active-other);
+}
+
+
+
+
+
+
 /*-----------------------------------------------------------------------------
 1.0 Header
 -----------------------------------------------------------------------------*/
