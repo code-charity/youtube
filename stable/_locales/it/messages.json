@@ -234,7 +234,7 @@
         "message": "Non gradire"
     },
     "donate": {
-        "message": "Donare"
+        "message": "Donazione"
     },
     "doNotChange": {
         "message": "Non cambiare"
@@ -543,7 +543,7 @@
         "message": "Playlist"
     },
     "playPause": {
-        "message": "Avvio / Pausa"
+        "message": "Avvio/Pausa"
     },
     "popupPlayer": {
         "message": "Lettore pop-up"
