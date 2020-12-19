@@ -387,19 +387,19 @@
         "message": "Importa impostazioni"
     },
     "improvedtubeIconInBrowser": {
-        "message": "Icona ImprovedTube nel browser"
+        "message": "Icona nel browser"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "Icona ImprovedTube su YouTube"
+        "message": "Icona su YouTube"
     },
     "improvedtubeLanguage": {
-        "message": "Lingua ImprovedTube"
+        "message": "Lingua"
     },
     "improvedtubeVersion": {
-        "message": "Versione ImprovedTube"
+        "message": "Versione"
     },
     "improveLogo": {
-        "message": "Migliora logo"
+        "message": "Migliora logo YouTube"
     },
     "increasePlaybackSpeed": {
         "message": "Aumenta velocità riproduzione"
@@ -474,7 +474,7 @@
         "message": "Notte"
     },
     "noActiveFeatures": {
-        "message": "Nessuna funzionalità attivata"
+        "message": "Nessuna funzione attivata"
     },
     "none": {
         "message": "Alcuno/a"
@@ -498,13 +498,13 @@
         "message": "Istanza unica di riproduzione attiva"
     },
     "onSubscribedChannels": {
-        "message": "Su canali iscritti"
+        "message": "In canali sottoscritti"
     },
     "orange": {
         "message": "Arancione"
     },
     "os": {
-        "message": "Sistema operativo"
+        "message": "Sistema Operativo"
     },
     "other": {
         "message": "Altro"
@@ -642,7 +642,7 @@
         "message": "Scorciatoie"
     },
     "showCardsOnMouseHover": {
-        "message": "Mostra tessere di fine video al passaggio del mouse"
+        "message": "Mostra tessere di fine video al passaggio del puntatore"
     },
     "showChannelVideosCount": {
         "message": "Mostra contatore visualizzazioni canale"
@@ -780,7 +780,7 @@
         "message": "Tempo di visione"
     },
     "whenTabIsChanged": {
-        "message": "Quando la scheda è cambiata"
+        "message": "Quando si cambia scheda"
     },
     "white": {
         "message": "Bianco"
