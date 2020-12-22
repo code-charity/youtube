@@ -21,7 +21,7 @@
 ## Credits 
 Big thanks ♡ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
 
-## [Translations 🌎](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations)
+## [Translations 🌎👪🥇](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations)
 -  [x]  [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
 -  [x]  [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
 -  [x]  [Bengali](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json) by [Bravo68Web](https://github.com/BRAVO68WEB) _(+Hindi update)_
