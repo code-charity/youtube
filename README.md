@@ -5,7 +5,7 @@
 ##  [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) ,
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; an extension, that we built to refine & sweeten your experience on YouTube. The first popular features were simply to have a larger player, hide distractions and save your time. By now we also have many powerful features enhancing YouTube functionality. And there is so much left to build! ...  - ImprovedTube's User Interface is designed with our library **[Satus](https://github.com/victor-savinov/satus)** to manage your settings efficiently. - Technically, ImprovedTube is the only project providing so much CSS to adjust another service🦄<font size="-2">(_[cmiiw](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_)</font>
 
-## ToDo 📝
+## 📝ToDo 
 - [ ] **Documentation, Screenshots, Videos** &nbsp;&nbsp;&nbsp;&nbsp;*(will help to learn more about our [~80 Features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))* 
 - **[Contributing without programming](https://github.com/ImprovedTube/ImprovedTube/issues/246)**
 
@@ -18,10 +18,10 @@
 - [**How to start editing our CSS, JS, JSON**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(For CSS or JavaScript-literates)* 
 - Newbies are welcome to [try too](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(We review all edits. We love to code & collaborate)* <br>
 
-## Credits 🥇
+## 🥇Credits 
 Big thanks ♡ to our [contributors 👪](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
 
-## [Translations🌎](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations)
+## [🌎Translations](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations)
 -  [x]  [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
 -  [x]  [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
 -  [x]  [Bengali](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json) by [Bravo68Web](https://github.com/BRAVO68WEB) _(+Hindi update)_
