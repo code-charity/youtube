@@ -340,3 +340,29 @@ var _gaq = _gaq || [];
 
     document.body.appendChild(ga);
 })();*/
+
+
+
+
+
+
+
+
+
+chrome.tabs.onActivated.addListener(function(activeInfo) {
+    chrome.tabs.query({}, function(tabs) {
+        chrome.tabs.sendMessage(activeInfo.tabId, {
+            action: 'focus'
+        });
+
+        for (var i = 0, l = tabs.length; i < l; i++) {
+            if (tabs[i].id !== activeInfo.tabId) {
+                if (tabs[i].hasOwnProperty('url')) {
+                    chrome.tabs.sendMessage(tabs[i].id, {
+                        action: 'blur'
+                    });
+                }
+            }
+        }
+    });
+});

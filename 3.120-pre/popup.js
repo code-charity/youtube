@@ -1,3 +1,27 @@
+/*------------------------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+--------------------------------------------------------------------------------
+1.0 Header
+  1.1 Mixer
+  1.2 Settings
+  1.3 Active features
+2.0 Main
+  2.1 General
+  2.2 Appearance
+  2.3 Themes
+  2.4 Player
+  2.5 Playlist
+  2.6 Channel
+  2.7 Shortcuts
+  2.8 Blacklist
+  2.9 Analyzer
+3.0 Initialization
+------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+1.0 HEADER
+------------------------------------------------------------------------------*/
+
 var Menu = {
     header: {
         type: 'header',
@@ -95,69 +119,14 @@ var Menu = {
     }
 };
 
-Menu.main = {
-    type: 'main',
-    appearanceId: 'home',
-    on: {
-        change: function(container) {
-            var item = this.history[this.history.length - 1],
-                id = item.appearanceId;
 
-            document.body.dataset.appearance = id;
-            container.dataset.appearance = id;
-
-            document.querySelector('.satus-text--title').innerText = satus.locale.getMessage(item.label) || 'ImprovedTube';
-        }
-    },
-
-    section: {
-        type: 'section'
-    },
-
-    footer: {
-        type: 'button',
-        class: 'satus-button--ad',
-        label: 'DARK MODE',
-        title: 'Dark Mode',
-        onclick: function() {
-            window.open('https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl', '_blank');
-        }
-    },
-
-    info: {
-        type: 'section',
-        class: 'satus-section--info',
-
-        email: {
-            type: 'button',
-            label: 'Email',
-            title: 'bugs@improvedtube.com',
-            onclick: function() {
-                window.open('mailto:bugs@improvedtube.com', '_blank');
-            }
-        },
-        github: {
-            type: 'button',
-            label: 'GitHub',
-            title: '/ImprovedTube/ImprovedTube',
-            onclick: function() {
-                window.open('https://github.com/ImprovedTube/ImprovedTube/', '_blank');
-            }
-        },
-        website: {
-            type: 'button',
-            label: 'Website',
-            title: 'improvedtube.com',
-            onclick: function() {
-                window.open('http://www.improvedtube.com/', '_blank');
-            }
-        }
-    }
-};
+/*------------------------------------------------------------------------------
+1.1 ACTIVE FEATURES
+------------------------------------------------------------------------------*/
 
 Menu.header.section_end.button_vert.onClickRender.active_features = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
     label: 'activeFeatures',
     onclick: function() {
         document.querySelector('.satus-dialog__scrim').click();
@@ -215,124 +184,15 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
         }
     }
 };
-Menu.header.section_end.button_vert.onClickRender.mixer = {
-    type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>',
-    label: 'mixer',
-    class: 'satus-folder--mixer',
-    appearanceId: 'mixer',
-    onopen: function() {
-        var self = this;
 
-        if (chrome && chrome.tabs) {
-            chrome.tabs.query({}, function(tabs) {
-                var mixer = {};
 
-                for (var i = 0, l = tabs.length; i < l; i++) {
-                    if (tabs[i].hasOwnProperty('url')) {
-                        var tab = tabs[i];
-
-                        if (/(\?|\&)v=/.test(tab.url)) {
-                            mixer[i] = {
-                                type: 'section',
-                                class: 'satus-section--mixer',
-                                style: {
-                                    'background': 'url(https://img.youtube.com/vi/' + tab.url.match(/(\?|\&)v=[^&]+/)[0].substr(3) + '/0.jpg) center center / cover no-repeat #000',
-                                },
-
-                                section: {
-                                    type: 'section',
-                                    dataset: {
-                                        'noConnectionLabel': satus.locale.getMessage('tryToReloadThePage') || 'tryToReloadThePage'
-                                    },
-
-                                    mixer_volume: {
-                                        type: 'slider',
-                                        label: 'volume',
-                                        dataset: {
-                                            id: tab.id,
-                                            element: 'audio'
-                                        },
-                                        max: 100,
-                                        onrender: function() {
-                                            var self = this;
-
-                                            chrome.tabs.sendMessage(Number(this.dataset.id), {
-                                                name: 'request_volume'
-                                            }, function(response) {
-                                                if (response) {
-                                                    document.querySelector('div[data-element="audio"][data-id="' + Number(self.dataset.id) + '"]').change(response.value);
-                                                } else {
-                                                    self.parentNode.parentNode.classList.add('noconnection');
-                                                }
-                                            });
-                                        },
-                                        onchange: function(value) {
-                                            chrome.tabs.sendMessage(Number(this.dataset.id), {
-                                                name: 'change_volume',
-                                                volume: value
-                                            });
-                                        }
-                                    },
-                                    mixer_playback_speed: {
-                                        type: 'slider',
-                                        label: 'playbackSpeed',
-                                        dataset: {
-                                            id: tab.id,
-                                            element: 'playback_speed'
-                                        },
-                                        min: .1,
-                                        max: 8,
-                                        step: .05,
-                                        onrender: function() {
-                                            var self = this;
-
-                                            chrome.tabs.sendMessage(Number(this.dataset.id), {
-                                                name: 'request_playback_speed'
-                                            }, function(response) {
-                                                if (response) {
-                                                    document.querySelector('div[data-element="playback_speed"][data-id="' + Number(self.dataset.id) + '"]').change(Number(response.value));
-                                                } else {
-                                                    self.parentNode.parentNode.classList.add('noconnection');
-                                                }
-                                            });
-                                        },
-                                        onchange: function(value) {
-                                            chrome.tabs.sendMessage(Number(this.dataset.id), {
-                                                name: 'change_playback_speed',
-                                                playback_speed: value
-                                            });
-                                        }
-                                    }
-                                }
-                            };
-                        }
-                    }
-                }
-
-                if (Object.entries(mixer).length === 0) {
-                    mixer.section = {
-                        type: 'section',
-
-                        message: {
-                            type: 'text',
-                            class: 'satus-section--message',
-                            label: 'noOpenVideoTabs'
-                        }
-                    };
-                }
-
-                document.querySelector('.satus-dialog__scrim').click();
-
-                satus.render(mixer, self);
-            });
-        }
-    }
-};
+/*------------------------------------------------------------------------------
+1.2 SETTINGS
+------------------------------------------------------------------------------*/
 
 Menu.header.section_end.button_vert.onClickRender.settings = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>',
     label: 'settings',
     parent: '.satus-main__container',
     onclick: function() {
@@ -620,7 +480,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     }, {
                         value: 'nb',
                         label: 'Norsk'
-                    },  {
+                    }, {
                         value: 'nb_NO',
                         label: 'Norsk (Bokmål)'
                     }, {
@@ -1223,9 +1083,199 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
     }
 };
 
+
+/*------------------------------------------------------------------------------
+1.3 MIXER
+------------------------------------------------------------------------------*/
+
+Menu.header.section_end.button_vert.onClickRender.mixer = {
+    type: 'folder',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>',
+    label: 'mixer',
+    class: 'satus-folder--mixer',
+    appearanceId: 'mixer',
+    onopen: function() {
+        var self = this;
+
+        if (chrome && chrome.tabs) {
+            chrome.tabs.query({}, function(tabs) {
+                var mixer = {};
+
+                for (var i = 0, l = tabs.length; i < l; i++) {
+                    if (tabs[i].hasOwnProperty('url')) {
+                        var tab = tabs[i];
+
+                        if (/(\?|\&)v=/.test(tab.url)) {
+                            mixer[i] = {
+                                type: 'section',
+                                class: 'satus-section--mixer',
+                                style: {
+                                    'background': 'url(https://img.youtube.com/vi/' + tab.url.match(/(\?|\&)v=[^&]+/)[0].substr(3) + '/0.jpg) center center / cover no-repeat #000',
+                                },
+
+                                section: {
+                                    type: 'section',
+                                    dataset: {
+                                        'noConnectionLabel': satus.locale.getMessage('tryToReloadThePage') || 'tryToReloadThePage'
+                                    },
+
+                                    mixer_volume: {
+                                        type: 'slider',
+                                        label: 'volume',
+                                        dataset: {
+                                            id: tab.id,
+                                            element: 'audio'
+                                        },
+                                        max: 100,
+                                        onrender: function() {
+                                            var self = this;
+
+                                            chrome.tabs.sendMessage(Number(this.dataset.id), {
+                                                name: 'request_volume'
+                                            }, function(response) {
+                                                if (response) {
+                                                    document.querySelector('div[data-element="audio"][data-id="' + Number(self.dataset.id) + '"]').change(response.value);
+                                                } else {
+                                                    self.parentNode.parentNode.classList.add('noconnection');
+                                                }
+                                            });
+                                        },
+                                        onchange: function(value) {
+                                            chrome.tabs.sendMessage(Number(this.dataset.id), {
+                                                name: 'change_volume',
+                                                volume: value
+                                            });
+                                        }
+                                    },
+                                    mixer_playback_speed: {
+                                        type: 'slider',
+                                        label: 'playbackSpeed',
+                                        dataset: {
+                                            id: tab.id,
+                                            element: 'playback_speed'
+                                        },
+                                        min: .1,
+                                        max: 8,
+                                        step: .05,
+                                        onrender: function() {
+                                            var self = this;
+
+                                            chrome.tabs.sendMessage(Number(this.dataset.id), {
+                                                name: 'request_playback_speed'
+                                            }, function(response) {
+                                                if (response) {
+                                                    document.querySelector('div[data-element="playback_speed"][data-id="' + Number(self.dataset.id) + '"]').change(Number(response.value));
+                                                } else {
+                                                    self.parentNode.parentNode.classList.add('noconnection');
+                                                }
+                                            });
+                                        },
+                                        onchange: function(value) {
+                                            chrome.tabs.sendMessage(Number(this.dataset.id), {
+                                                name: 'change_playback_speed',
+                                                playback_speed: value
+                                            });
+                                        }
+                                    }
+                                }
+                            };
+                        }
+                    }
+                }
+
+                if (Object.entries(mixer).length === 0) {
+                    mixer.section = {
+                        type: 'section',
+
+                        message: {
+                            type: 'text',
+                            class: 'satus-section--message',
+                            label: 'noOpenVideoTabs'
+                        }
+                    };
+                }
+
+                document.querySelector('.satus-dialog__scrim').click();
+
+                satus.render(mixer, self);
+            });
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+2.0 MAIN
+------------------------------------------------------------------------------*/
+
+Menu.main = {
+    type: 'main',
+    appearanceId: 'home',
+    on: {
+        change: function(container) {
+            var item = this.history[this.history.length - 1],
+                id = item.appearanceId;
+
+            document.body.dataset.appearance = id;
+            container.dataset.appearance = id;
+
+            document.querySelector('.satus-text--title').innerText = satus.locale.getMessage(item.label) || 'ImprovedTube';
+        }
+    },
+
+    section: {
+        type: 'section'
+    },
+
+    footer: {
+        type: 'button',
+        class: 'satus-button--ad',
+        label: 'DARK MODE',
+        title: 'Dark Mode',
+        onclick: function() {
+            window.open('https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl', '_blank');
+        }
+    },
+
+    info: {
+        type: 'section',
+        class: 'satus-section--info',
+
+        email: {
+            type: 'button',
+            label: 'Email',
+            title: 'bugs@improvedtube.com',
+            onclick: function() {
+                window.open('mailto:bugs@improvedtube.com', '_blank');
+            }
+        },
+        github: {
+            type: 'button',
+            label: 'GitHub',
+            title: '/ImprovedTube/ImprovedTube',
+            onclick: function() {
+                window.open('https://github.com/ImprovedTube/ImprovedTube/', '_blank');
+            }
+        },
+        website: {
+            type: 'button',
+            label: 'Website',
+            title: 'improvedtube.com',
+            onclick: function() {
+                window.open('http://www.improvedtube.com/', '_blank');
+            }
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+2.1 GENERAL
+------------------------------------------------------------------------------*/
+
 Menu.main.section.general = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>',
     label: 'general',
     class: 'satus-folder--general',
     appearanceId: 'general',
@@ -1317,9 +1367,14 @@ Menu.main.section.general = {
     }
 };
 
+
+/*------------------------------------------------------------------------------
+2.2 APPEARANCE
+------------------------------------------------------------------------------*/
+
 Menu.main.section.appearance = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
     label: 'appearance',
     class: 'satus-folder--appearance',
     appearanceId: 'appearance',
@@ -1683,48 +1738,14 @@ Menu.main.section.appearance = {
     }
 };
 
-function themePopupChange() {
-    if (satus.storage.get('red_popup_theme') === true) {
-        document.documentElement.setAttribute('popup-theme', 'red');
-    } else {
-        document.documentElement.removeAttribute('popup-theme');
-    }
-}
 
-function themeChange(event) {
-    if (event.target.checked) {
-        let themes = document.querySelectorAll('.satus-switch > input:checked:not([data-storage-key="red_popup_theme"])');
-
-        for (let i = 0, l = themes.length; i < l; i++) {
-            if (themes[i] !== event.target) {
-                themes[i].click();
-            }
-        }
-    }
-
-    if (satus.storage.get('default_dark_theme') === true) {
-        document.documentElement.setAttribute('theme', 'dark');
-    } else if (satus.storage.get('night_theme') === true) {
-        document.documentElement.setAttribute('theme', 'night');
-    } else if (satus.storage.get('dawn_theme') === true) {
-        document.documentElement.setAttribute('theme', 'dawn');
-    } else if (satus.storage.get('sunset_theme') === true) {
-        document.documentElement.setAttribute('theme', 'sunset');
-    } else if (satus.storage.get('desert_theme') === true) {
-        document.documentElement.setAttribute('theme', 'desert');
-    } else if (satus.storage.get('plain_theme') === true) {
-        document.documentElement.setAttribute('theme', 'plain');
-    } else if (satus.storage.get('black_theme') === true) {
-        document.documentElement.setAttribute('theme', 'black');
-    } else {
-        document.documentElement.removeAttribute('theme');
-    }
-}
-
+/*------------------------------------------------------------------------------
+2.3 THEMES
+------------------------------------------------------------------------------*/
 
 Menu.main.section.themes = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>',
     label: 'themes',
     class: 'satus-folder--themes',
     appearanceId: 'themes',
@@ -2016,34 +2037,6 @@ Menu.main.section.themes = {
         }
     },
 
-    popup_title: {
-        type: 'text',
-        label: 'ImprovedTube',
-        style: {
-            margin: '0 12px',
-            fontWeight: '700'
-        }
-    },
-    red_popup_theme: {
-        type: 'switch',
-        label: 'Red',
-        value: true,
-        class: 'satus-switch--red',
-        style: {
-            background: '#bb1a1a'
-        },
-
-        onchange: themePopupChange
-    },
-
-    youtube_title: {
-        type: 'text',
-        label: 'YouTube',
-        style: {
-            margin: '0 12px',
-            fontWeight: '700'
-        }
-    },
     default_dark_theme: {
         type: 'switch',
         label: 'dark',
@@ -2095,9 +2088,14 @@ Menu.main.section.themes = {
     }
 };
 
+
+/*------------------------------------------------------------------------------
+2.4 PLAYER
+------------------------------------------------------------------------------*/
+
 Menu.main.section.player = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>',
     label: 'player',
     class: 'satus-folder--player',
     appearanceId: 'player',
@@ -2373,9 +2371,14 @@ Menu.main.section.player = {
     }
 };
 
+
+/*------------------------------------------------------------------------------
+2.5 PLAYLIST
+------------------------------------------------------------------------------*/
+
 Menu.main.section.playlist = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',
     label: 'playlist',
     class: 'satus-folder--playlist',
     appearanceId: 'playlist',
@@ -2412,9 +2415,15 @@ Menu.main.section.playlist = {
         }
     }
 };
+
+
+/*------------------------------------------------------------------------------
+2.6 CHANNEL
+------------------------------------------------------------------------------*/
+
 Menu.main.section.channel = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>',
+    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>',
     label: 'channel',
     class: 'satus-folder--channel',
     appearanceId: 'channel',
@@ -2447,9 +2456,15 @@ Menu.main.section.channel = {
         }
     }
 };
+
+
+/*------------------------------------------------------------------------------
+2.7 SHORTCUTS
+------------------------------------------------------------------------------*/
+
 Menu.main.section.shortcuts = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>',
+    before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>',
     label: 'shortcuts',
     class: 'satus-folder--shortcut',
     appearanceId: 'shortcuts',
@@ -2676,9 +2691,14 @@ Menu.main.section.shortcuts = {
     }
 };
 
+
+/*------------------------------------------------------------------------------
+2.8 BLACKLIST
+------------------------------------------------------------------------------*/
+
 Menu.main.section.blacklist = {
     type: 'folder',
-    before: '<svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>',
+    before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>',
     label: 'blacklist',
     class: 'satus-folder--blacklist',
     appearanceId: 'blacklist',
@@ -2838,6 +2858,11 @@ Menu.main.section.blacklist = {
     }
 };
 
+
+/*------------------------------------------------------------------------------
+2.9 ANALYZER
+------------------------------------------------------------------------------*/
+
 Menu.main.section.analyzer = {
     type: 'folder',
     before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/></svg>',
@@ -2985,19 +3010,54 @@ Menu.main.section.analyzer = {
     }
 };
 
-chrome.storage.local.get(function(items) {
-    for (var key in items) {
-        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
-    }
-});
 
-chrome.storage.onChanged.addListener(function(changes) {
-    for (var key in changes) {
-        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), changes[key].newValue);
+/*------------------------------------------------------------------------------
+3.0 INITIALIZATION
+------------------------------------------------------------------------------*/
+
+function themePopupChange() {
+    if (satus.storage.get('red_popup_theme') === true) {
+        document.documentElement.setAttribute('popup-theme', 'red');
+    } else {
+        document.documentElement.removeAttribute('popup-theme');
     }
-});
+}
+
+function themeChange(event) {
+    if (event.target.checked) {
+        let themes = document.querySelectorAll('.satus-switch > input:checked:not([data-storage-key="red_popup_theme"])');
+
+        for (let i = 0, l = themes.length; i < l; i++) {
+            if (themes[i] !== event.target) {
+                themes[i].click();
+            }
+        }
+    }
+
+    if (satus.storage.get('default_dark_theme') === true) {
+        document.documentElement.setAttribute('theme', 'dark');
+    } else if (satus.storage.get('night_theme') === true) {
+        document.documentElement.setAttribute('theme', 'night');
+    } else if (satus.storage.get('dawn_theme') === true) {
+        document.documentElement.setAttribute('theme', 'dawn');
+    } else if (satus.storage.get('sunset_theme') === true) {
+        document.documentElement.setAttribute('theme', 'sunset');
+    } else if (satus.storage.get('desert_theme') === true) {
+        document.documentElement.setAttribute('theme', 'desert');
+    } else if (satus.storage.get('plain_theme') === true) {
+        document.documentElement.setAttribute('theme', 'plain');
+    } else if (satus.storage.get('black_theme') === true) {
+        document.documentElement.setAttribute('theme', 'black');
+    } else {
+        document.documentElement.removeAttribute('theme');
+    }
+}
 
 satus.storage.import(function() {
+    for (var key in satus.storage.data) {
+        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
+    }
+
     if (satus.isset(satus.storage.get('red_popup_theme')) === false || satus.storage.get('red_popup_theme') === true) {
         document.documentElement.setAttribute('popup-theme', 'red');
     }
@@ -3035,4 +3095,10 @@ satus.storage.import(function() {
             satus.render(Menu, document.body);
         });
     });
+});
+
+chrome.storage.onChanged.addListener(function(changes) {
+    for (var key in changes) {
+        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), changes[key].newValue);
+    }
 });
