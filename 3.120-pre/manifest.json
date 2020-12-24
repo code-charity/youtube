@@ -32,7 +32,7 @@
       {
          "all_frames":true,
          "css":[
-            "content-scripts.css"
+            "content-styles.css"
          ],
          "exclude_matches":[
             "https://www.youtube.com/improvedtube",
@@ -41,6 +41,7 @@
             "http://studio.youtube.com/*"
          ],
          "js":[
+            "youtube-scripts.js",
             "content-scripts.js"
          ],
          "matches":[
