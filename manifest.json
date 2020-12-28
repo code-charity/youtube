@@ -1,0 +1,86 @@
+{
+    "manifest_version": 2,
+    "name": "*Improve YouTube!☕🧩 YouTube-&Video-Tools 🎞️🧪",
+    "short_name": "ImprovedTube",
+    "description": "Make YouTube tidy & powerful! YouTube Player Size Theme Quality Colors ad-block Playback Speed Style Playlist Channel H.264 Auto HD",
+    "version": "3.120",
+    "version_name": "3.120-testing",
+    "default_locale": "en",
+    "icons": {
+        "128": "assets/icons/128.png",
+        "16": "assets/icons/16.png",
+        "32": "assets/icons/32.png",
+        "48": "assets/icons/48.png"
+    },
+    "background": {
+        "persistent": false,
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "browser_action": {
+        "default_icon": {
+            "128": "assets/icons/128g.png",
+            "16": "assets/icons/16g.png",
+            "32": "assets/icons/32g.png",
+            "48": "assets/icons/48g.png"
+        },
+        "default_popup": "index.html"
+    },
+    "options_page": "options.html",
+    "content_scripts": [{
+        "all_frames": true,
+        "css": [
+            "content-styles.css"
+        ],
+        "exclude_matches": [
+            "https://www.youtube.com/improvedtube",
+            "https://www.youtube.com/tv*",
+            "https://www.youtube.com/audiolibrary/*",
+            "http://studio.youtube.com/*"
+        ],
+        "js": [
+            "youtube-scripts.js",
+            "content-scripts.js"
+        ],
+        "matches": [
+            "https://www.youtube.com/*"
+        ],
+        "run_at": "document_start"
+    }, {
+        "all_frames": true,
+        "css": [
+            "satus.css",
+            "popup.css"
+        ],
+        "js": [
+            "satus.js",
+            "popup.js"
+        ],
+        "matches": [
+            "https://www.youtube.com/improvedtube"
+        ],
+        "run_at": "document_end"
+    }, {
+        "all_frames": true,
+        "js": [
+            "page.js"
+        ],
+        "matches": [
+            "https://www.youtube.com/improvedtube"
+        ],
+        "run_at": "document_start"
+    }],
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+    "offline_enabled": true,
+    "permissions": [
+        "https://www.youtube.com/",
+        "contextMenus",
+        "storage"
+    ],
+    "optional_permissions": [
+        "downloads",
+        "https://*.youtube.com/*"
+    ],
+    "update_url": "https://clients2.google.com/service/update2/crx"
+}
