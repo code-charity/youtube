@@ -351,7 +351,7 @@
         "message": "Nascondi fondo gradiente"
     },
     "hidePlaylist": {
-        "message": "Nascondi playlist"
+        "message": "Nascondi scaletta"
     },
     "hideRightButtons": {
         "message": "Nascondi pulsanti sulla destra"
@@ -537,10 +537,10 @@
         "message": "Dimensione lettore"
     },
     "playlist": {
-        "message": "Playlist"
+        "message": "Scaletta"
     },
     "playlists": {
-        "message": "Playlist"
+        "message": "Scalette"
     },
     "playPause": {
         "message": "Avvio/Pausa"
