@@ -18,7 +18,12 @@
 function youtubeHomePage(option) {
     if (location.pathname === '/') {
         if (location.hostname === 'www.youtube.com') {
-            if (option !== '/' && option !== 'search') {
+            if (
+                option === '/feed/trending' ||
+                option === '/feed/subscriptions' ||
+                option === '/feed/history' ||
+                option === '/playlist?list=WL'
+            ) {
                 location.replace(option);
             }
         }
@@ -46,15 +51,47 @@ function camelize(string) {
 
 function attributes(items) {
     var whitelist = {
-        'youtube-home-page': true
+        'remove-related-search-results': true,
+        'squared-user-images': true,
+        'hide-animated-thumbnails': true,
+        'header-position': true,
+        'header-improve-logo': true,
+        'header-hide-right-buttons': true,
+        'player-hide-annotations': true,
+        'player-hide-cards': true,
+        'player-show-cards-on-mouse-hover': true,
+        'player-size': true,
+        'player-color': true,
+        'player-transparent-background': true,
+        'player-hide-endscreen': true,
+        'hide-scroll-for-details': true,
+        'always-show-progress-bar': true,
+        'hide-details': true,
+        'description': true,
+        'hide-views-count': true,
+        'likes': true,
+        'red-dislike-button': true,
+        'livechat': true,
+        'hide-playlist': true,
+        'related-videos': true,
+        'comments': true,
+        'hide-footer': true,
+        'night-theme': true,
+        'dawn-theme': true,
+        'sunset-theme': true,
+        'desert-theme': true,
+        'plain-theme': true,
+        'black-theme': true,
+        'player-crop-chapter-titles': true,
+        'player-ads': true
     };
 
     for (var key in items) {
         var attribute = key.replace(/_/g, '-');
 
-        //if (whitelist.hasOwnProperty(attribute)) {
+        if (whitelist.hasOwnProperty(attribute)) {
             document.documentElement.setAttribute('it-' + attribute, items[key]);
-        //}
+        }
     }
 }
 
@@ -63,14 +100,26 @@ function attributes(items) {
 3.0 INITIALIZATION
 ------------------------------------------------------------------------------*/
 
-function injectScript(textContent) {
+function injectScript(string) {
     var script = document.createElement('script');
 
-    script.textContent = textContent;
+    script.textContent = string;
 
     document.documentElement.appendChild(script);
 
     script.remove();
+}
+
+function injectStyles(string, id) {
+    var style = document.createElement('style');
+
+    style.textContent = string;
+
+    if (id) {
+        style.id = id;
+    }
+
+    document.documentElement.appendChild(style);
 }
 
 chrome.storage.local.get('youtube_home_page', function(items) {

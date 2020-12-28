@@ -1663,18 +1663,6 @@ Menu.main.section.appearance = {
                     value: 'hidden'
                 }]
             },
-            /*livechat_type: {
-                type: 'select',
-                label: 'liveChatType',
-
-                options: [{
-                    label: 'topChat',
-                    value: 'top'
-                }, {
-                    label: 'liveChat',
-                    value: 'live'
-                }]
-            },*/
             hide_playlist: {
                 type: 'switch',
                 label: 'hidePlaylist'
@@ -3014,14 +3002,6 @@ Menu.main.section.analyzer = {
 /*------------------------------------------------------------------------------
 3.0 INITIALIZATION
 ------------------------------------------------------------------------------*/
-
-function themePopupChange() {
-    if (satus.storage.get('red_popup_theme') === true) {
-        document.documentElement.setAttribute('popup-theme', 'red');
-    } else {
-        document.documentElement.removeAttribute('popup-theme');
-    }
-}
 
 function themeChange(event) {
     if (event.target.checked) {

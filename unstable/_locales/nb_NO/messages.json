@@ -805,8 +805,8 @@
     },
     "toggleCards": {
         "message": "Veksle kort"
-    }
-        "geoPreference": {
+    },
+    "geoPreference": {
         "message": "Geo-preferanse"
     }
 }
