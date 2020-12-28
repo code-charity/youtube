@@ -4,6 +4,8 @@
 0.0 Global variable
 0.0 Page update listener
 0.0 Initialization
+0.0 Onfocus
+0.0 Onplay
 
 1.0 General
   1.1 YouTube home page
@@ -26,6 +28,11 @@
     2.3.2 Show channel videos count
   2.5 Comments
 3.0 Themes
+  3.1 My colors
+  3.2 Bluelight
+  3.3 Dim
+  3.4 Font
+  3.5 Themes
 4.0 Player
   4.1 Autoplay
   4.2 Autopause when switching tabs
@@ -54,6 +61,10 @@
 7.0 Shortcuts
 8.0 Blacklist
 9.0 Analyzer
+10.0 Settings
+   10.1 ImprovedTube icon
+   10.2 Delete YouTube cookies
+   10.3 YouTube language
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
@@ -78,15 +89,55 @@ ImprovedTube.pageUpdateListener = function() {
         ImprovedTube.collapseOfSubscriptionSections();
         ImprovedTube.markWatchedVideos();
         ImprovedTube.hdThumbnails();
-        ImprovedTube.forcedTheaterMode();
-        ImprovedTube.playerHdThumbnail();
-        ImprovedTube.alwaysShowProgressBar();
-        ImprovedTube.livechat();
-        ImprovedTube.relatedVideos();
-        ImprovedTube.howLongAgoTheVideoWasUploaded();
-        ImprovedTube.channelVideosCount();
-        ImprovedTube.comments();
+
+        ImprovedTube.videoPageUpdate();
+
+        ImprovedTube.blacklist();
+
+        ImprovedTube.improvedtubeYoutubeIcon();
     });
+};
+
+ImprovedTube.videoPageUpdate = function() {
+    if (this.page_type === 'video') {
+        this.forcedTheaterMode();
+        this.playerHdThumbnail();
+        this.alwaysShowProgressBar();
+        this.livechat();
+        this.relatedVideos();
+        this.howLongAgoTheVideoWasUploaded();
+        this.channelVideosCount();
+        this.comments();
+
+        this.upNextAutoplay();
+        this.playerAutofullscreen();
+        this.playerScreenshotButton();
+        this.playerRepeatButton();
+        this.playerRotateButton();
+        this.playerPopupButton();
+
+        this.playlistUpNextAutoplay();
+        this.playlistReverse();
+        this.playlistRepeat();
+        this.playlistShuffle();
+
+        this.channelDefaultTab();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 PLAYER UPDATE
+------------------------------------------------------------------------------*/
+
+ImprovedTube.playerUpdate = function() {
+    this.playerPlaybackSpeed();
+    this.subtitles();
+    this.playerAds();
+    this.mini_player();
+    this.playerQuality();
+    this.playerVolume();
+    this.playlistUpNextAutoplay();
 };
 
 
@@ -102,14 +153,18 @@ ImprovedTube.DOMContentLoaded = function() {
         ImprovedTube.confirmationBeforeClosing();
         ImprovedTube.markWatchedVideos();
         ImprovedTube.hdThumbnails();
-        ImprovedTube.forcedTheaterMode();
-        ImprovedTube.playerHdThumbnail();
-        ImprovedTube.alwaysShowProgressBar();
-        ImprovedTube.livechat();
-        ImprovedTube.relatedVideos();
-        ImprovedTube.howLongAgoTheVideoWasUploaded();
-        ImprovedTube.channelVideosCount();
-        ImprovedTube.comments();
+
+        ImprovedTube.myColors();
+        ImprovedTube.bluelight();
+        ImprovedTube.dim();
+        ImprovedTube.font();
+        ImprovedTube.themes();
+
+        ImprovedTube.videoPageUpdate();
+
+        ImprovedTube.blacklist();
+
+        ImprovedTube.improvedtubeYoutubeIcon();
 
         ImprovedTube.pageUpdateListener();
     });
@@ -121,14 +176,23 @@ ImprovedTube.DOMContentLoaded = function() {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.init = function() {
-    ImprovedTube.pageType();
-    ImprovedTube.DOMContentLoaded();
+    this.playerH264();
+    this.player60fps();
+    this.pageType();
+    this.shortcuts();
+    this.DOMContentLoaded();
+    this.onplay();
+    this.onkeydown();
+    this.onmousedown();
 };
 
 
 /*------------------------------------------------------------------------------
 0.0 PAGE TYPE
 ------------------------------------------------------------------------------*/
+
+ImprovedTube.video_url = false;
+ImprovedTube.page_type = false;
 
 ImprovedTube.pageType = function() {
     var href = location.href,
@@ -142,7 +206,95 @@ ImprovedTube.pageType = function() {
         type = 'channel';
     }
 
+    this.page_type = type;
+
     document.documentElement.setAttribute('it-page-type', type);
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 ONFOCUS
+------------------------------------------------------------------------------*/
+
+ImprovedTube.focus = false;
+ImprovedTube.played_before_blur = false;
+
+ImprovedTube.onfocus = function() {
+    this.onlyOnePlayerInstancePlaying();
+    this.playerAutopauseWhenSwitchingTabs();
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 ONPLAY
+------------------------------------------------------------------------------*/
+
+ImprovedTube.onplay = function() {
+    HTMLMediaElement.prototype.play = (function(original) {
+        return function() {
+            ImprovedTube.autoplay(this);
+            ImprovedTube.playerLoudnessNormalization();
+
+            if (ImprovedTube.video_url !== location.href) {
+                ImprovedTube.video_url = location.href;
+
+                ImprovedTube.playerUpdate();
+            }
+
+            return original.apply(this, arguments);
+        }
+    })(HTMLMediaElement.prototype.play);
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 ONKEYDOWN
+------------------------------------------------------------------------------*/
+
+ImprovedTube.onkeydown = function() {
+    window.addEventListener('keydown', function() {
+        if (
+            document.querySelector('.html5-video-player') &&
+            document.querySelector('.html5-video-player').classList.contains('ad-showing') === false
+        ) {
+            ImprovedTube.allow_autoplay = true;
+        }
+    }, true);
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 ONMOUSEDOWN
+------------------------------------------------------------------------------*/
+
+ImprovedTube.onmousedown = function(event) {
+    window.addEventListener('mousedown', function(event) {
+        for (var i = 0, l = event.path.length; i < l; i++) {
+            if (
+                document.querySelector('.html5-video-player') &&
+                document.querySelector('.html5-video-player').classList.contains('ad-showing') === false &&
+                event.path[i].classList &&
+                (
+                    event.path[i].classList.contains('html5-main-video') ||
+                    event.path[i].classList.contains('ytp-play-button')
+                )
+            ) {
+                ImprovedTube.allow_autoplay = true;
+            }
+        }
+    }, true);
+};
+
+
+ImprovedTube.getCookieValueByName = function(name) {
+    var match = document.cookie.match(new RegExp('([; ]' + name + '|^' + name + ')([^\\s;]*)', 'g'));
+
+    if (match) {
+        var cookie = match[0];
+
+        return cookie.replace(name + '=', '').replace(' ', '');
+    } else
+        return '';
 };
 
 ImprovedTube.getParam = function(query, name) {
@@ -164,12 +316,68 @@ ImprovedTube.getParam = function(query, name) {
     }
 };
 
-ImprovedTube.focus = false;
-ImprovedTube.played_before_blur = false;
+ImprovedTube.getParams = function(query) {
+    var params = query.split('&'),
+        result = {};
 
-ImprovedTube.onfocus = function() {
-    this.onlyOnePlayerInstancePlaying();
+    for (var i = 0, l = params.length; i < l; i++) {
+        params[i] = params[i].split('=');
+
+        result[params[i][0]] = params[i][1];
+    }
+
+    return result;
 };
+
+ImprovedTube.setCookie = function(name, value) {
+    var date = new Date();
+
+    date.setTime(date.getTime() + 3.154e+10);
+
+    document.cookie = name + '=' + value + '; path=/; domain=.youtube.com; expires=' + date.toGMTString();
+};
+
+ImprovedTube.createPlayerButton = function(node, options) {
+    var controls = document.querySelector('.html5-video-player .ytp-left-controls');
+
+    if (controls) {
+        var button = document.createElement('button');
+
+        button.className = 'ytp-button it-player-button';
+
+        button.dataset.title = options.title;
+
+        if (options.id) {
+            if (node.querySelector('#' + options.id)) {
+                node.querySelector('#' + options.id).remove();
+            }
+
+            button.id = options.id;
+        }
+
+        if (options.html) {
+            button.innerHTML = options.html;
+        }
+
+        button.style.opacity = options.opacity || '.5';
+
+        if (options.onclick) {
+            button.onclick = options.onclick;
+        }
+
+        controls.insertBefore(button, controls.childNodes[3]);
+    }
+};
+
+ImprovedTube.reverse = function(parent) {
+    for (var i = 1, l = parent.childNodes.length; i < l; i++) {
+        parent.insertBefore(parent.childNodes[i], parent.firstChild);
+    }
+};
+
+
+
+
 
 
 
@@ -186,22 +394,23 @@ ImprovedTube.onfocus = function() {
 ImprovedTube.youtubeHomePage = function() {
     var option = this.storage.youtube_home_page;
 
-    if (['/', 'search', null].indexOf(option) === -1) {
+    if (
+        option === '/feed/trending' ||
+        option === '/feed/subscriptions' ||
+        option === '/feed/history' ||
+        option === '/playlist?list=WL'
+    ) {
         var node_list = document.querySelectorAll(`
-            	a[href="/"]:not([role="tablist"]),
-            	a[href="https://www.youtube.com/"]:not([role="tablist"]),
-            	a[it-origin="/"]:not([role="tablist"]),
-            	a[it-origin="https://www.youtube.com/"]:not([role="tablist"])
+            	a[href="/"]:not([role=tablist]),
+            	a[href="https://www.youtube.com/"]:not([role=tablist]),
+            	a[it-origin="/"]:not([role=tablist])
             `);
 
         for (var i = 0, l = node_list.length; i < l; i++) {
-            var node = node_list[i],
-                pathname = new URL((node.getAttribute('it-origin') || node.href)).pathname;
+            var node = node_list[i];
 
-            if (pathname === '/') {
-                if (!node.hasAttribute('it-origin')) {
-                    node.setAttribute('it-origin', node.href);
-                }
+            if (node.hasAttribute('it-origin') === false) {
+                node.setAttribute('it-origin', '/');
             }
 
             node.href = option;
@@ -217,13 +426,10 @@ ImprovedTube.youtubeHomePage = function() {
             }, true);
         }
     } else {
-        var node_list = document.querySelectorAll(`
-            	a[it-origin="/"]:not([role="tablist"]),
-            	a[it-origin="https://www.youtube.com/"]:not([role="tablist"])
-            `);
+        var node_list = document.querySelectorAll('a[it-origin="/"]:not([role=tablist])');
 
         for (var i = 0, l = node_list.length; i < l; i++) {
-            node_list[i].href = node_list[i].getAttribute('it-origin');
+            node_list[i].href = '/';
         }
     }
 };
@@ -871,6 +1077,243 @@ ImprovedTube.comments = function() {
 
 
 /*------------------------------------------------------------------------------
+3.0 THEMES
+------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+3.1 MY COLORS
+------------------------------------------------------------------------------*/
+
+ImprovedTube.myColors = function() {
+    if (this.storage.theme_my_colors !== true) {
+        if (document.querySelector('.it-theme-editor')) {
+            document.querySelector('.it-theme-editor').remove();
+        }
+
+        return false;
+    }
+
+    var style = document.querySelector('.it-theme-editor') || document.createElement('style');
+
+    style.className = 'it-theme-editor';
+    style.innerText = 'html{' +
+        '--yt-swatch-textbox-bg:rgba(19,19,19,1)!important;' +
+        '--yt-swatch-icon-color:rgba(136,136,136,1)!important;' +
+        '--yt-spec-brand-background-primary:rgba(0,0,0, 0.1) !important;' +
+        '--yt-spec-brand-background-secondary:rgba(0,0,0, 0.1) !important;' +
+        '--yt-spec-badge-chip-background:rgba(0, 0, 0, 0.05) !important;' +
+        '--yt-spec-verified-badge-background:rgba(0, 0, 0, 0.15) !important;' +
+        '--yt-spec-button-chip-background-hover:rgba(0, 0, 0, 0.10) !important;' +
+        '--yt-spec-brand-button-background:rgba(136,136,136,1) !important;' +
+        '--yt-spec-filled-button-focus-outline:rgba(0, 0, 0, 0.60) !important;' +
+        '--yt-spec-call-to-action-button-focus-outline:rgba(0,0,0, 0.30) !important;' +
+        '--yt-spec-brand-text-button-focus-outline:rgba(204, 0, 0, 0.30) !important;' +
+        '--yt-spec-10-percent-layer:rgba(136,136,136,1) !important;' +
+        '--yt-swatch-primary:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-swatch-primary-darker:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-spec-brand-background-solid:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-spec-general-background-a:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-spec-general-background-b:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-spec-general-background-c:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-spec-touch-response:' + (this.storage.theme_primary_color || '') + '!important;' +
+        '--yt-swatch-text: ' + (this.storage.theme_text_color || '') + '!important;' +
+        '--yt-swatch-important-text: ' + (this.storage.theme_text_color || '') + '!important;' +
+        '--yt-swatch-input-text: ' + (this.storage.theme_text_color || '') + '!important;' +
+        '--yt-swatch-logo-override: ' + (this.storage.theme_text_color || '') + '!important;' +
+        '--yt-spec-text-primary:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-text-primary-inverse:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-text-secondary:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-text-disabled:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-icon-active-other:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-icon-inactive:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-icon-disabled:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-filled-button-text:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-call-to-action-inverse:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-brand-icon-active:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-brand-icon-inactive:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-brand-link-text:' + (this.storage.theme_text_color || '') + '!important;' +
+        '--yt-spec-brand-subscribe-button-background:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-wordmark-text:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '--yt-spec-selected-nav-text:' + (this.storage.theme_text_color || '') + ' !important;' +
+        '}';
+
+    document.documentElement.appendChild(style);
+};
+
+
+/*------------------------------------------------------------------------------
+3.2 BLUELIGHT
+------------------------------------------------------------------------------*/
+
+ImprovedTube.bluelight = function() {
+    var value = this.storage.bluelight,
+        times = {
+            from: Number((this.storage.schedule_time_from || '00:00').substr(0, 2)),
+            to: Number((this.storage.schedule_time_to || '00:00').substr(0, 2))
+        },
+        current_time = new Date().getHours();
+
+    if (times.to < times.from && current_time > times.from && current_time < 24) {
+        times.to += 24;
+    } else if (times.to < times.from && current_time < times.to) {
+        times.from = 0;
+    }
+
+    if (
+        this.isset(value) && value !== 0 && value !== '0' &&
+        (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to)
+    ) {
+        if (!document.querySelector('#it-bluelight')) {
+            var container = document.createElement('div');
+
+            container.id = 'it-bluelight';
+            container.innerHTML = '<svg version=1.1 viewBox="0 0 1 1"><filter id=it-bluelight-filter><feColorMatrix type=matrix values="1 0 0 0 0 0 1 0 0 0 0 0 ' + (1 - parseFloat(value) / 100) + ' 0 0 0 0 0 1 0"></feColorMatrix></filter></svg>';
+
+            document.documentElement.appendChild(container);
+        } else {
+            document.querySelector('#it-bluelight-filter feColorMatrix').setAttribute('values', '1 0 0 0 0 0 1 0 0 0 0 0 ' + (1 - parseFloat(value) / 100) + ' 0 0 0 0 0 1 0');
+        }
+    } else if (document.querySelector('#it-bluelight')) {
+        document.querySelector('#it-bluelight').remove();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+3.3 DIM
+------------------------------------------------------------------------------*/
+
+ImprovedTube.dim = function() {
+    var value = this.storage.dim,
+        times = {
+            from: Number((this.storage.schedule_time_from || '00:00').substr(0, 2)),
+            to: Number((this.storage.schedule_time_to || '00:00').substr(0, 2))
+        },
+        current_time = new Date().getHours();
+
+    if (times.to < times.from && current_time > times.from && current_time < 24) {
+        times.to += 24;
+    } else if (times.to < times.from && current_time < times.to) {
+        times.from = 0;
+    };
+
+    if (
+        this.isset(value) && value !== 0 && value !== '0' &&
+        (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to)
+    ) {
+        if (!document.querySelector('#it-dim')) {
+            var container = document.createElement('div');
+
+            container.id = 'it-dim';
+            container.style.opacity = parseInt(Number(value)) / 100 || 0;
+
+            document.documentElement.appendChild(container);
+        } else {
+            document.querySelector('#it-dim').style.opacity = parseInt(Number(value)) / 100 || 0;
+        }
+
+        if (!document.querySelector('#it-dim-player')) {
+            var container = document.createElement('div');
+
+            container.id = 'it-dim-player';
+            container.style.opacity = parseInt(Number(value)) / 100 || 0;
+
+            if (document.querySelector('.html5-video-player')) {
+                document.querySelector('.html5-video-player').appendChild(container);
+            }
+        } else {
+            document.querySelector('#it-dim-player').style.opacity = parseInt(Number(value)) / 100 || 0;
+        }
+    } else {
+        if (document.querySelector('#it-dim')) {
+            document.querySelector('#it-dim').remove();
+        }
+
+        if (document.querySelector('#it-dim-player')) {
+            document.querySelector('#it-dim-player').remove();
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+3.4 FONT
+------------------------------------------------------------------------------*/
+
+ImprovedTube.font = function() {
+    if (this.storage.font) {
+        if (this.storage.font != 'Default') {
+            if (!document.querySelector('.it-font-family')) {
+                var link = document.createElement('link');
+
+                link.rel = 'stylesheet';
+
+                document.documentElement.appendChild(link);
+            } else {
+                var link = document.querySelector('.it-font-family');
+            }
+
+            link.href = '//fonts.googleapis.com/css2?family=' + this.storage.font;
+
+            document.documentElement.style.fontFamily = this.storage.font.replace(/\+/g, ' ');
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+3.5 THEMES
+------------------------------------------------------------------------------*/
+
+ImprovedTube.themes = function() {
+    var times = {
+            from: Number((this.storage.schedule_time_from || '00:00').substr(0, 2)),
+            to: Number((this.storage.schedule_time_to || '00:00').substr(0, 2))
+        },
+        current_time = new Date().getHours();
+
+    if (times.to < times.from && current_time > times.from && current_time < 24) {
+        times.to += 24;
+    } else if (times.to < times.from && current_time < times.to) {
+        times.from = 0;
+    }
+
+    if (
+        (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to) &&
+        (
+            this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false ||
+            this.isset(ImprovedTube.storage.night_theme) && ImprovedTube.storage.night_theme !== false ||
+            this.isset(ImprovedTube.storage.dawn_theme) && ImprovedTube.storage.dawn_theme !== false ||
+            this.isset(ImprovedTube.storage.sunset_theme) && ImprovedTube.storage.sunset_theme !== false ||
+            this.isset(ImprovedTube.storage.desert_theme) && ImprovedTube.storage.desert_theme !== false ||
+            this.isset(ImprovedTube.storage.plain_theme) && ImprovedTube.storage.plain_theme !== false ||
+            this.isset(ImprovedTube.storage.black_theme) && ImprovedTube.storage.black_theme !== false
+        )
+    ) {
+        var PREF_OLD = this.getParams(this.getCookieValueByName('PREF')),
+            PREF = this.getParams(this.getCookieValueByName('PREF')),
+            result = '';
+
+        if (!this.isset(PREF.f6) || this.isset(PREF.f6) && PREF.f6.length !== 3) {
+            PREF.f6 = '400';
+        } else if (PREF.f6.length === 3) {
+            PREF.f6 = '4' + PREF.f6.substr(1);
+        }
+
+        for (var i in PREF) {
+            result += i + '=' + PREF[i] + '&';
+        }
+
+        this.setCookie('PREF', result.slice(0, -1));
+
+        document.documentElement.setAttribute('it-theme', 'true');
+    } else {
+        document.documentElement.removeAttribute('it-theme');
+    }
+};
+
+
+/*------------------------------------------------------------------------------
 4.0 PLAYER
 --------------------------------------------------------------------------------
 TODO: CONNECT & TEST
@@ -880,16 +1323,26 @@ TODO: CONNECT & TEST
 4.1 AUTOPLAY
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.autoplay = function() {
-    if (
-        (/\/watch\?/.test(location.href) && !/list=/.test(location.href) && this.storage.player_autoplay === false) ||
-        (/\/watch\?/.test(location.href) && /list=/.test(location.href) && this.storage.playlist_autoplay === false) ||
-        (/\/(channel|user|c)\//.test(location.href) && this.storage.channel_trailer_autoplay === false)
-    ) {
-        return false;
+ImprovedTube.allow_autoplay = false;
+
+ImprovedTube.autoplay = function(video) {
+    if (ImprovedTube.video_url !== location.href) {
+        ImprovedTube.allow_autoplay = false;
     }
 
-    return true;
+    if (
+        (
+            (/\/watch\?/.test(location.href) && !/list=/.test(location.href) && ImprovedTube.storage.player_autoplay === false) ||
+            (/\/watch\?/.test(location.href) && /list=/.test(location.href) && ImprovedTube.storage.playlist_autoplay === false) ||
+            (/\/(channel|user|c)\//.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
+        ) === true &&
+        ImprovedTube.allow_autoplay === false &&
+        video.parentNode.parentNode.classList.contains('ad-showing') === false
+    ) {
+        setTimeout(function() {
+            video.parentNode.parentNode.pauseVideo();
+        });
+    }
 };
 
 
@@ -898,29 +1351,18 @@ ImprovedTube.autoplay = function() {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerAutopauseWhenSwitchingTabs = function() {
-    window.addEventListener('blur', function() {
-        ImprovedTube.focused = false;
+    var video = document.querySelector('.html5-video-player video');
 
-        if (
-            ImprovedTube.storage.player_autopause_when_switching_tabs === true &&
-            /\/watch/.test(location.href) &&
-            document.querySelector('.html5-video-player video')
-        ) {
-            document.querySelector('.html5-video-player video').pause();
+    if (this.storage.player_autopause_when_switching_tabs === true && video) {
+
+        if (this.focus === false && video.paused === false) {
+            video.pause();
+
+            this.played_before_blur = true;
+        } else if (this.focus === true && this.played_before_blur === true) {
+            video.play();
         }
-    });
-
-    window.addEventListener('focus', function() {
-        ImprovedTube.focused = true;
-
-        if (
-            ImprovedTube.storage.player_autopause_when_switching_tabs === true &&
-            /\/watch/.test(location.href) &&
-            document.querySelector('.html5-video-player video')
-        ) {
-            document.querySelector('.html5-video-player video').play();
-        }
-    });
+    }
 };
 
 
@@ -929,16 +1371,12 @@ ImprovedTube.playerAutopauseWhenSwitchingTabs = function() {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerPlaybackSpeed = function(node) {
-    var playback_speed = Number(ImprovedTube.storage.player_playback_speed);
-
-    if (!node) {
-        node = document.querySelector('.html5-video-player');
-    }
+    var option = Number(ImprovedTube.storage.player_playback_speed);
 
     if (ImprovedTube.isset(ImprovedTube.storage.player_playback_speed) && ImprovedTube.storage.player_forced_playback_speed === true) {
         try {
             if (window.location.href.indexOf('music') < 0) {
-                node.querySelector('video').playbackRate = playback_speed;
+                document.querySelector('.html5-video-player').querySelector('video').playbackRate = option;
             }
         } catch (err) {}
     }
@@ -959,25 +1397,18 @@ ImprovedTube.subtitles = function() {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.upNextAutoplay = function() {
-    if (this.isset(this.storage.up_next_autoplay)) {
-        var wait = setInterval(function() {
-            if (
-                document.querySelector('#related #head.ytd-compact-autoplay-renderer #toggle') ||
-                document.querySelector('#autoplay-checkbox')
-            ) {
-                clearInterval(wait);
+    var option = this.storage.up_next_autoplay;
 
-                var option = ImprovedTube.storage.up_next_autoplay,
-                    new_youtube_toggle = document.querySelector('#related #head.ytd-compact-autoplay-renderer #toggle'),
-                    old_youtube_toggle = document.querySelector('#autoplay-checkbox');
+    if (this.isset(option)) {
+        var toggle = document.querySelector('#related #head.ytd-compact-autoplay-renderer #toggle');
 
-                if (new_youtube_toggle && (option === true && !new_youtube_toggle.hasAttribute('checked') || option === false && new_youtube_toggle.hasAttribute('checked'))) {
-                    new_youtube_toggle.click();
-                } else if (old_youtube_toggle && (option === true && !old_youtube_toggle.hasAttribute('checked') || option === false && old_youtube_toggle.hasAttribute('checked'))) {
-                    old_youtube_toggle.click();
-                }
+        if (toggle) {
+            var option = ImprovedTube.storage.up_next_autoplay;
+
+            if (option === true && !toggle.hasAttribute('checked') || option === false && toggle.hasAttribute('checked')) {
+                toggle.click();
             }
-        }, 250);
+        }
     }
 };
 
@@ -1731,9 +2162,11 @@ ImprovedTube.playlist_up_next_autoplay_f = function(event) {
     }
 };
 
-ImprovedTube.playlistUpNextAutoplay = function(player) {
-    player.querySelector('video').removeEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
-    player.querySelector('video').addEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
+ImprovedTube.playlistUpNextAutoplay = function() {
+    var video = document.querySelector('video');
+
+    video.removeEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
+    video.addEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
 };
 
 
@@ -2530,3 +2963,234 @@ document.addEventListener('ImprovedTubeAnalyzer', function() {
         }
     }
 });
+
+
+/*------------------------------------------------------------------------------
+10.0 SETTINGS
+------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+10.1 IMPROVEDTUBE ICON
+------------------------------------------------------------------------------*/
+
+ImprovedTube.improvedtube_youtube_icon_wait = false;
+
+ImprovedTube.improvedtube_youtube_icon_resize = function() {
+    var iframe = document.querySelector('.it-btn__iframe'),
+        icon = document.querySelector('.it-btn__icon');
+
+    if (iframe && icon) {
+        var x = icon.getBoundingClientRect().x,
+            y = icon.getBoundingClientRect().y;
+
+        if (x < window.innerWidth / 2) {
+            iframe.style.right = 'auto';
+            iframe.style.left = '0px';
+        } else {
+            iframe.style.right = '0px';
+            iframe.style.left = 'auto';
+        }
+
+        if (y < window.innerHeight / 2) {
+            iframe.style.top = '50px';
+            iframe.style.bottom = 'auto';
+
+            iframe.style.height = Math.min(500, window.innerHeight - Math.max(0, iframe.getBoundingClientRect().top) - 16) + 'px';
+        } else {
+            iframe.style.top = 'auto';
+            iframe.style.bottom = '50px';
+
+            iframe.style.height = Math.min(500, window.innerHeight - Math.max(0, window.innerHeight - iframe.getBoundingClientRect().y - iframe.getBoundingClientRect().height) - 16) + 'px';
+        }
+    }
+};
+
+ImprovedTube.improvedtubeYoutubeIcon = function() {
+    if (window.self !== window.top) {
+        return false;
+    }
+
+    if (
+        ImprovedTube.storage.improvedtube_youtube_icon === 'disabled' &&
+        document.querySelector('.it-btn')
+    ) {
+        document.querySelector('.it-btn').remove();
+    }
+
+    if (this.improvedtube_youtube_icon_wait === false) {
+        this.improvedtube_youtube_icon_wait = setInterval(function() {
+            var option = ImprovedTube.storage.improvedtube_youtube_icon,
+                parentNode,
+                referenceNode;
+
+            if (option === 'header_left') {
+                parentNode = document.querySelector('ytd-masthead #start');
+                referenceNode = document.querySelector('ytd-masthead #start #guide-button');
+            } else if (option === 'header_right') {
+                parentNode = (
+                    document.querySelector('#end #buttons') ||
+                    document.querySelector('#yt-masthead-user')
+                );
+            } else if (option === 'draggable') {
+                parentNode = document.body || document.querySelector('body');
+            } else if (option === 'below_player') {
+                parentNode = (
+                    document.querySelector('.title.ytd-video-primary-info-renderer') ||
+                    document.querySelector('#watch-headline-title')
+                );
+            }
+
+            if (document.querySelector('.it-btn')) {
+                if (!parentNode.querySelector(':scope > .it-btn')) {
+                    document.querySelector('.it-btn').remove();
+                } else {
+                    clearInterval(ImprovedTube.improvedtube_youtube_icon_wait);
+
+                    ImprovedTube.improvedtube_youtube_icon_wait = false;
+
+                    return false;
+                }
+            }
+
+            if (
+                ImprovedTube.isset(option) &&
+                option !== 'disabled' &&
+                parentNode && (option === 'header_left' ? referenceNode : true)
+            ) {
+                clearInterval(ImprovedTube.improvedtube_youtube_icon_wait);
+
+                ImprovedTube.improvedtube_youtube_icon_wait = false;
+
+                var button = document.createElement('div');
+
+                button.className = 'it-btn';
+                button.innerHTML = '<div class=it-btn__scrim></div><div class=it-btn__icon><iframe class=it-btn__iframe src=//www.youtube.com/improvedtube></iframe></div>';
+                button.addEventListener('click', function() {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    this.classList.toggle('it-btn--active');
+                    ImprovedTube.improvedtube_youtube_icon_resize();
+
+                    return false;
+                }, true);
+
+                if (option === 'draggable') {
+                    var position = localStorage.getItem('IT_ICON');
+
+                    if (ImprovedTube.isset(position)) {
+                        position = JSON.parse(position);
+
+                        button.style.left = position.x + 'px';
+                        button.style.top = position.y + 'px';
+                    }
+
+                    function move(event) {
+                        button.classList.add('it-btn--dragging');
+
+                        if (event.clientX < window.innerWidth / 2) {
+                            if (event.clientX - Number(button.dataset.x) >= 16) {
+                                button.style.left = event.clientX - Number(button.dataset.x) + 'px';
+                            } else {
+                                button.style.left = '16px';
+                            }
+                        } else {
+                            if (event.clientX + (48 + window.innerWidth - document.querySelector('body').offsetWidth) - Number(button.dataset.x) <= window.innerWidth) {
+                                button.style.left = event.clientX - Number(button.dataset.x) + 'px';
+                            } else {
+                                button.style.left = 'calc(100vw - ' + (48 + window.innerWidth - document.querySelector('body').offsetWidth) + 'px)';
+                            }
+                        }
+
+                        if (event.clientY < window.innerHeight / 2) {
+                            if (event.clientY - Number(button.dataset.y) >= 16) {
+                                button.style.top = event.clientY - Number(button.dataset.y) + 'px';
+                            } else {
+                                button.style.top = '16px';
+                            }
+                        } else {
+                            if (event.clientY + 48 - Number(button.dataset.y) <= window.innerHeight) {
+                                button.style.top = event.clientY - Number(button.dataset.y) + 'px';
+                            } else {
+                                button.style.top = 'calc(100vh - 48px)';
+                            }
+                        }
+
+                        ImprovedTube.improvedtube_youtube_icon_resize();
+                    }
+
+                    button.addEventListener('mousedown', function(event) {
+                        this.dataset.x = event.layerX;
+                        this.dataset.y = event.layerY;
+
+                        window.addEventListener('mousemove', move);
+                    });
+
+                    window.addEventListener('mouseup', function() {
+                        button.classList.remove('it-btn--dragging');
+
+                        window.removeEventListener('mousemove', move);
+
+                        localStorage.setItem('IT_ICON', JSON.stringify({
+                            x: button.offsetLeft,
+                            y: button.offsetTop
+                        }));
+
+                        setTimeout(function() {
+                            button.style.pointerEvents = '';
+                        });
+                    });
+                }
+
+                if (option === 'header_left') {
+                    parentNode.insertBefore(button, referenceNode);
+                } else {
+                    parentNode.appendChild(button);
+                }
+
+                ImprovedTube.improvedtube_youtube_icon_resize();
+            }
+        }, 250);
+    }
+};
+
+
+/*-----------------------------------------------------------------------------
+10.2 DELETE YOUTUBE COOKIES
+-----------------------------------------------------------------------------*/
+
+ImprovedTube.deleteYoutubeCookies = function() {
+    var cookies = document.cookie.split(';');
+
+    for (var i = 0, l = cookies.length; i < l; i++) {
+        var cookie = cookies[i],
+            eqPos = cookie.indexOf('='),
+            name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+
+        document.cookie = name + '=; domain=.youtube.com; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    }
+
+    setTimeout(function() {
+        location.reload();
+    }, 100);
+};
+
+
+/*-----------------------------------------------------------------------------
+10.3 YOUTUBE LANGUAGE
+-----------------------------------------------------------------------------*/
+
+ImprovedTube.youtubeLanguage = function() {
+    var pref = ImprovedTube.getCookieValueByName('PREF'),
+        hl = ImprovedTube.getParam(pref, 'hl');
+
+    if (hl) {
+        ImprovedTube.setCookie('PREF', pref.replace('hl=' + hl, 'hl=' + ImprovedTube.storage.youtube_language));
+    } else {
+        ImprovedTube.setCookie('PREF', pref + '&hl=' + ImprovedTube.storage.youtube_language);
+    }
+
+    setTimeout(function() {
+        location.reload();
+    }, 100);
+};
