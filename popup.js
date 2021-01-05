@@ -753,67 +753,11 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     label: 'importSettings',
 
                     onclick: function() {
-                        try {
-                            var input = document.createElement('input');
-
-                            input.type = 'file';
-
-                            input.addEventListener('change', function() {
-                                var file_reader = new FileReader();
-
-                                file_reader.onload = function() {
-                                    var data = JSON.parse(this.result);
-
-                                    for (var i in data) {
-                                        satus.storage.set(i, data[i]);
-                                    }
-
-                                    satus.render({
-                                        type: 'dialog',
-                                        class: 'satus-dialog--confirm',
-
-                                        message: {
-                                            type: 'text',
-                                            label: 'successfullyImportedSettings'
-                                        },
-                                        section: {
-                                            type: 'section',
-                                            class: 'controls',
-                                            style: {
-                                                'justify-content': 'flex-end',
-                                                'display': 'flex'
-                                            },
-
-                                            cancel: {
-                                                type: 'button',
-                                                label: 'cancel',
-                                                onclick: function() {
-                                                    var scrim = document.querySelectorAll('.satus-dialog__scrim');
-
-                                                    scrim[scrim.length - 1].click();
-                                                }
-                                            },
-                                            ok: {
-                                                type: 'button',
-                                                label: 'OK',
-                                                onclick: function() {
-                                                    var scrim = document.querySelectorAll('.satus-dialog__scrim');
-
-                                                    scrim[scrim.length - 1].click();
-                                                }
-                                            }
-                                        }
-                                    });
-                                };
-
-                                file_reader.readAsText(this.files[0]);
-                            });
-
-                            input.click();
-                        } catch (err) {
-                            chrome.runtime.sendMessage({
-                                name: 'dialog-error',
-                                value: err
+                        if (location.href.indexOf('/options.html') !== -1) {
+                            importData();
+                        } else {
+                            chrome.tabs.create({
+                                url: 'options.html?action=import'
                             });
                         }
                     }
@@ -823,11 +767,13 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     label: 'exportSettings',
 
                     onclick: function() {
-                        chrome.runtime.sendMessage({
-                            name: 'download',
-                            filename: 'improvedtube-settings.json',
-                            value: satus.storage
-                        });
+                        if (location.href.indexOf('/options.html') !== -1) {
+                            exportData();
+                        } else {
+                            chrome.tabs.create({
+                                url: 'options.html?action=export'
+                            });
+                        }
                     }
                 },
                 reset_all_settings: {
@@ -867,6 +813,8 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                         var scrim = document.querySelectorAll('.satus-dialog__scrim');
 
                                         satus.storage.clear();
+
+                                        location.reload();
 
                                         scrim[scrim.length - 1].click();
                                     }
@@ -3072,7 +3020,13 @@ satus.storage.import(function() {
 
     satus.locale.import(satus.storage.get('language'), function() {
         satus.modules.updateStorageKeys(Menu, function() {
-            satus.render(Menu, document.body);
+            if (location.href.indexOf('action=import') !== -1) {
+                importData();
+            } else if (location.href.indexOf('action=export') !== -1) {
+                exportData();
+            } else {
+                satus.render(Menu, document.body);
+            }
         });
     });
 });
@@ -3082,3 +3036,123 @@ chrome.storage.onChanged.addListener(function(changes) {
         document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), changes[key].newValue);
     }
 });
+
+
+
+
+
+function importData() {
+    satus.render({
+        type: 'dialog',
+
+        select_file: {
+            type: 'button',
+            label: 'selectFile',
+            onclick: function() {
+                var input = document.createElement('input');
+
+                input.type = 'file';
+
+                input.addEventListener('change', function() {
+                    var file_reader = new FileReader();
+
+                    file_reader.onload = function() {
+                        var data = JSON.parse(this.result);
+
+                        for (var key in data) {
+                            satus.storage.set(key, data[key]);
+                        }
+
+                        if (location.href.indexOf('action=import') !== -1) {
+                            window.close();
+                        } else {
+                            document.querySelector('.satus-dialog__scrim').click();
+
+                            satus.render({
+                                type: 'dialog',
+
+                                message: {
+                                    type: 'text',
+                                    label: 'dataImportedSuccessfully'
+                                },
+                                section: {
+                                    type: 'section',
+                                    class: 'controls',
+
+                                    ok: {
+                                        type: 'button',
+                                        label: 'ok',
+                                        onclick: function() {
+                                            document.querySelector('.satus-dialog__scrim').click();
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    };
+
+                    file_reader.readAsText(this.files[0]);
+                });
+
+                input.click();
+            }
+        }
+    });
+}
+
+function exportData() {
+    var blob = new Blob([JSON.stringify(satus.storage.data)], {
+        type: 'application/json;charset=utf-8'
+    });
+
+    satus.render({
+        type: 'dialog',
+
+        export: {
+            type: 'button',
+            label: 'export',
+            onclick: function() {
+                chrome.permissions.request({
+                    permissions: ['downloads']
+                }, function(granted) {
+                    if (granted) {
+                        chrome.downloads.download({
+                            url: URL.createObjectURL(blob),
+                            filename: 'improvedtube.json',
+                            saveAs: true
+                        }, function() {
+                            setTimeout(function() {
+                                if (location.href.indexOf('action=export') !== -1) {
+                                    window.close();
+                                } else {
+                                    document.querySelector('.satus-dialog__scrim').click();
+
+                                    satus.render({
+                                        type: 'dialog',
+
+                                        message: {
+                                            type: 'text',
+                                            label: 'dataExportedSuccessfully'
+                                        },
+                                        section: {
+                                            type: 'section',
+                                            class: 'controls',
+
+                                            ok: {
+                                                type: 'button',
+                                                label: 'ok',
+                                                onclick: function() {
+                                                    document.querySelector('.satus-dialog__scrim').click();
+                                                }
+                                            }
+                                        }
+                                    });
+                                }
+                            }, 100);
+                        });
+                    }
+                });
+            }
+        }
+    });
+}
