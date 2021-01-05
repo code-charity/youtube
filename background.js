@@ -54,6 +54,10 @@ function getTranslations(path) {
         });
     });
 
+    xhr.addEventListener('error', function() {
+        getTranslations('_locales/en/messages.json');
+    });
+
     xhr.open('GET', path, true);
     xhr.send();
 }

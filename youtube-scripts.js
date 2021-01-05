@@ -554,6 +554,7 @@ ImprovedTube.markWatchedVideos = function() {
 
                 button.className = 'it-mark-watched' + (this.storage.watched && this.storage.watched[this.getParam(new URL(video_items[i].href || 'https://www.youtube.com/').search.substr(1), 'v')] ? ' watched' : '');
                 button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12a11.8 11.8 0 0022 0c-1.7-4.4-6-7.5-11-7.5zM12 17a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z"/></svg>';
+                
                 button.addEventListener('click', function(event) {
                     var watched = this.classList.contains('watched') ? false : true;
 
@@ -584,14 +585,14 @@ ImprovedTube.markWatchedVideos = function() {
 
                         if (watched === true) {
                             ImprovedTube.storage.watched[video_id] = {
-                                title: item.querySelector('a#video-title, .title, .yt-lockup-title > a').innerText
+                                title: item.querySelector('#video-title').innerText
                             };
 
                             document.dispatchEvent(new CustomEvent('ImprovedTubeWatched', {
                                 detail: {
                                     action: 'set',
                                     id: video_id,
-                                    title: item.querySelector('a#video-title, .title, .yt-lockup-title > a').innerText
+                                    title: item.querySelector('#video-title').innerText
                                 }
                             }));
                         } else if (ImprovedTube.storage.watched[video_id]) {
@@ -604,7 +605,9 @@ ImprovedTube.markWatchedVideos = function() {
                                 }
                             }));
                         }
-                    } catch (err) {}
+                    } catch (err) {
+                        console.log(err);
+                    }
                 });
 
                 video_items[i].appendChild(button);
@@ -615,6 +618,7 @@ ImprovedTube.markWatchedVideos = function() {
 
 document.addEventListener('ImprovedTubeWatched', function(event) {
     if (chrome && chrome.runtime) {
+        console.log(event.detail);
         chrome.runtime.sendMessage({
             name: 'improvedtube-watched',
             data: {
