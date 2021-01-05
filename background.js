@@ -332,7 +332,7 @@ chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
 
 var _gaq = _gaq || [];
 
-/*(function() {
+(function() {
     var ga = document.createElement('script');
 
     _gaq.push(['_setAccount', 'UA-88354155-1']);
@@ -343,7 +343,7 @@ var _gaq = _gaq || [];
     ga.src = 'https://ssl.google-analytics.com/ga.js';
 
     document.body.appendChild(ga);
-})();*/
+})();
 
 
 
