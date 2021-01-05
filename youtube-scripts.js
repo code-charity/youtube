@@ -202,7 +202,7 @@ ImprovedTube.pageType = function() {
         type = 'home';
     } else if (/\/watch\?/.test(href)) {
         type = 'video';
-    } else if (/\/channel|user\//.test(href)) {
+    } else if (/\/channel|user|c\//.test(href)) {
         type = 'channel';
     }
 
@@ -2776,7 +2776,7 @@ ImprovedTube.blacklist = function() {
                     event.stopPropagation();
 
                     try {
-                        video_id = location.href.replace(/https:\/\/www.youtube.com\/(channel|user)\//g, '').replace(/\/(.)+/g, '');
+                        video_id = location.href.replace(/https:\/\/www.youtube.com\/(channel|user|c)\//g, '').replace(/\/(.)+/g, '');
 
                         document.dispatchEvent(new CustomEvent('ImprovedTubeBlacklist', {
                             detail: {
