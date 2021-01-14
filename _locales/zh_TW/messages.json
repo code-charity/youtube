@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "允許 60fps"
     },
+    "allowHDR": {
+        "message": "Allow HDR"
+    },
     "alwaysActive": {
         "message": "始終有效"
     },

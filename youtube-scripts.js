@@ -51,6 +51,7 @@
   4.15 Repeat
   4.16 Rotate
   4.17 Popup player
+  4.18 Allow HDR
 5.0 Playlist
   5.1 Up next autoplay
   5.2 Reverse
@@ -178,6 +179,7 @@ ImprovedTube.DOMContentLoaded = function() {
 ImprovedTube.init = function() {
     this.playerH264();
     this.player60fps();
+    this.playerHDR();
     this.pageType();
     this.shortcuts();
     this.DOMContentLoaded();
@@ -554,7 +556,7 @@ ImprovedTube.markWatchedVideos = function() {
 
                 button.className = 'it-mark-watched' + (this.storage.watched && this.storage.watched[this.getParam(new URL(video_items[i].href || 'https://www.youtube.com/').search.substr(1), 'v')] ? ' watched' : '');
                 button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12a11.8 11.8 0 0022 0c-1.7-4.4-6-7.5-11-7.5zM12 17a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z"/></svg>';
-                
+
                 button.addEventListener('click', function(event) {
                     var watched = this.classList.contains('watched') ? false : true;
 
@@ -2145,6 +2147,19 @@ ImprovedTube.playerPopupButton = function() {
     }
 };
 
+/*------------------------------------------------------------------------------
+4.18 ALLOW HDR
+------------------------------------------------------------------------------*/
+
+ImprovedTube.playerHDR = function() {
+    if (this.storage.player_HDR === false) {
+          Object.defineProperty(window.screen, "pixelDepth", {
+            enumerable: true,
+            configurable: true,
+            value: 24
+          });
+    }
+};
 
 /*------------------------------------------------------------------------------
 5.0 PLAYLIST

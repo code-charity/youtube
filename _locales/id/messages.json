@@ -41,6 +41,9 @@
     "allow60fps": {
         "message": "Izinkan 60fps"
     },
+    "allowHDR": {
+        "message": "Allow HDR"
+    },
     "alwaysActive": {
         "message": "Selalu aktif"
     },

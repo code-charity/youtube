@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "60fps की अनुमति दें"
     },
+    "allowHDR": {
+        "message": "Allow HDR"
+    },
     "alwaysActive": {
         "message": "हमेशा सक्रिय"
     },
