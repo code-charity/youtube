@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "السماح لـ60إطار"
     },
+    "allowHDR": {
+        "message": "Allow HDR"
+    },
     "alwaysActive": {
         "message": "دائما نشط"
     },

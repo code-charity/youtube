@@ -2209,6 +2209,11 @@ Menu.main.section.player = {
             label: 'allow60fps',
             value: true
         },
+        player_HDR: {
+            type: 'switch',
+            label: 'allowHDR',
+            value: true
+        },
     },
 
     section_label__audio: {
