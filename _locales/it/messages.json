@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "Permetti 60 fps"
     },
+    "allowHDR": {
+        "message": "Allow HDR"
+    },
     "alwaysActive": {
         "message": "Sempre attivo"
     },

@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "60에프피에스(fps) 허용"
     },
+    "allowHDR": {
+        "message": "Allow HDR"
+    },
     "alwaysActive": {
         "message": "항상 활성화"
     },
