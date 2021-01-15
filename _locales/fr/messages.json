@@ -38,8 +38,8 @@
     "allow60fps": {
         "message": "Jouer à 60 fps"
     },
-    "allowHDR": {
-        "message": "Allow HDR"
+    "forceSDR": {
+        "message": "Force SDR"
     },
     "alwaysActive": {
         "message": "Toujours activé"

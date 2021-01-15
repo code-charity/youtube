@@ -38,8 +38,8 @@
     "allow60fps": {
         "message": "60에프피에스(fps) 허용"
     },
-    "allowHDR": {
-        "message": "Allow HDR"
+    "forceSDR": {
+        "message": "Force SDR"
     },
     "alwaysActive": {
         "message": "항상 활성화"
