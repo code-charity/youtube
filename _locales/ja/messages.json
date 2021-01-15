@@ -38,8 +38,8 @@
     "allow60fps": {
         "message": "60fpsを許可する"
     },
-    "allowHDR": {
-        "message": "Allow HDR"
+    "forceSDR": {
+        "message": "Force SDR"
     },
     "alwaysActive": {
         "message": "常に有効"
