@@ -38,8 +38,8 @@
     "allow60fps": {
         "message": "السماح لـ60إطار"
     },
-    "allowHDR": {
-        "message": "Allow HDR"
+    "forceSDR": {
+        "message": "Force SDR"
     },
     "alwaysActive": {
         "message": "دائما نشط"

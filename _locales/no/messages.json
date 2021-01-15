@@ -38,8 +38,8 @@
     "allow60fps": {
         "message": "Tillat 60fps"
     },
-    "allowHDR": {
-        "message": "Allow HDR"
+    "forceSDR": {
+        "message": "Force SDR"
     },
     "alwaysActive": {
         "message": "Alltid aktiv"

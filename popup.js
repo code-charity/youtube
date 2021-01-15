@@ -2209,10 +2209,10 @@ Menu.main.section.player = {
             label: 'allow60fps',
             value: true
         },
-        player_HDR: {
+        player_SDR: {
             type: 'switch',
-            label: 'allowHDR',
-            value: true
+            label: 'forceSDR',
+            value: false
         },
     },
 

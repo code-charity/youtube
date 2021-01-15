@@ -38,8 +38,8 @@
     "allow60fps": {
         "message": "60fps'e izin ver"
     },
-    "allowHDR": {
-        "message": "Allow HDR"
+    "forceSDR": {
+        "message": "Force SDR"
     },
     "alwaysActive": {
         "message": "Sürekli etkin"
