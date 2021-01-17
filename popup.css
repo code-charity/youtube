@@ -809,9 +809,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
 
 html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder__label
 {
-    position: absolute;
-    bottom: 0;
-
+    text-align: center;
     pointer-events: none;
 }
 
