@@ -83,7 +83,8 @@ function attributes(items) {
         'plain-theme': true,
         'black-theme': true,
         'player-crop-chapter-titles': true,
-        'player-ads': true
+        'player-ads': true,
+        'improvedtube-youtube-icon': true
     };
 
     for (var key in items) {
