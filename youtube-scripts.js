@@ -1736,6 +1736,8 @@ ImprovedTube.mini_player__resize_mouseUp = function(event) {
     ImprovedTube.mini_player__width = bcr.width;
     ImprovedTube.mini_player__height = bcr.height;
 
+    window.dispatchEvent(new Event('resize'));
+    
     var strg = JSON.parse(localStorage.getItem('improedtube-mini-player')) || {};
 
     strg.width = ImprovedTube.mini_player__width;

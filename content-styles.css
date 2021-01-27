@@ -2540,6 +2540,7 @@ html[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedu
         -webkit-filter: grayscale(1) brightness(4);
                 filter: grayscale(1) brightness(4);
     }
+}
 
 [it-youtube-version=old][it-default-dark-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light])
 {
