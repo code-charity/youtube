@@ -159,7 +159,7 @@ satus.storage.import = function(callback) {
         }
 
         if (callback) {
-            callback();
+            callback(items);
         }
     });
 };
