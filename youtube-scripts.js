@@ -184,6 +184,10 @@ ImprovedTube.init = function() {
     this.onplay();
     this.onkeydown();
     this.onmousedown();
+
+    window.addEventListener('load', function() {
+        ImprovedTube.hdThumbnails();
+    });
 };
 
 
@@ -554,7 +558,7 @@ ImprovedTube.markWatchedVideos = function() {
 
                 button.className = 'it-mark-watched' + (this.storage.watched && this.storage.watched[this.getParam(new URL(video_items[i].href || 'https://www.youtube.com/').search.substr(1), 'v')] ? ' watched' : '');
                 button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12a11.8 11.8 0 0022 0c-1.7-4.4-6-7.5-11-7.5zM12 17a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z"/></svg>';
-                
+
                 button.addEventListener('click', function(event) {
                     var watched = this.classList.contains('watched') ? false : true;
 
@@ -2181,34 +2185,6 @@ ImprovedTube.playlistUpNextAutoplay = function() {
 ImprovedTube.playlistReverseUrl = false;
 ImprovedTube.playlistReversed = false;
 
-ImprovedTube.playlistReverseNextPrev = function() {
-    var ytd_watch = document.querySelector('ytd-watch-flexy');
-
-    for (var i = 0, l = ytd_watch.data.contents.twoColumnWatchNextResults.autoplay.autoplay.sets.length; i < l; i++) {
-        var autoplay = ytd_watch.data.contents.twoColumnWatchNextResults.autoplay.autoplay.sets;
-
-        if (autoplay[i].previousButtonVideo && autoplay[i].nextButtonVideo) {
-            autoplay[i].autoplayVideo = autoplay[i].previousButtonVideo;
-            autoplay[i].previousButtonVideo = autoplay[i].nextButtonVideo;
-            autoplay[i].nextButtonVideo = autoplay[i].autoplayVideo;
-        }
-    }
-
-    for (var i = 0, l = ytd_watch.data.contents.twoColumnWatchNextResults.autoplay.autoplay.modifiedSets.length; i < l; i++) {
-        var autoplay = ytd_watch.data.contents.twoColumnWatchNextResults.autoplay.autoplay.modifiedSets;
-
-        if (autoplay[i].previousButtonVideo && autoplay[i].nextButtonVideo) {
-            autoplay[i].autoplayVideo = autoplay[i].previousButtonVideo;
-            autoplay[i].previousButtonVideo = autoplay[i].nextButtonVideo;
-            autoplay[i].nextButtonVideo = autoplay[i].autoplayVideo;
-        }
-    }
-
-    ytd_watch.updatePageData_(JSON.parse(JSON.stringify(ytd_watch.data)));
-
-    document.querySelector('yt-navigation-manager').updatePlayer_(null, ytd_watch.data.contents.twoColumnWatchNextResults.autoplay.autoplay, null, ytd_watch.data.contents.twoColumnWatchNextResults.playlist);
-};
-
 ImprovedTube.playlistReverse = function() {
     if (this.playlistReverseUrl !== location.href && document.querySelector('ytd-watch-flexy ytd-playlist-panel-renderer') && document.querySelector('ytd-watch-flexy ytd-playlist-panel-renderer #playlist-action-menu')) {
         var button = document.querySelector('#it-reverse-playlist');
@@ -2216,6 +2192,29 @@ ImprovedTube.playlistReverse = function() {
         this.playlistReverseUrl = location.href;
 
         if (this.storage.playlist_reverse === true) {
+            if (ImprovedTube.playlistReversed === true) {
+                setTimeout(function() {
+                    ImprovedTube.reverse(document.querySelector('ytd-playlist-panel-renderer .playlist-items'));
+
+                    setTimeout(function() {
+                        var next_button = document.querySelector('.ytp-next-button');
+
+                        next_button.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            event.stopPropagation();
+
+                            return false;
+                        }, true);
+
+                        next_button.href = document.querySelector('#playlist [selected] + * a').href;
+                        next_button.dataset.preview = document.querySelector('#playlist [selected] + * img').src;
+                        next_button.dataset.tooltipText = document.querySelector('#playlist [selected] + * #video-title').innerText;
+
+                        console.log('reverse');
+                    }, 1000);
+                }, 500);
+            }
+
             if (!button) {
                 button = document.createElement('button');
 
@@ -2231,7 +2230,20 @@ ImprovedTube.playlistReverse = function() {
 
                     ImprovedTube.playlistReversed = !ImprovedTube.playlistReversed;
 
-                    ImprovedTube.playlistReverseNextPrev();
+                    setTimeout(function() {
+                        var next_button = document.querySelector('.ytp-next-button');
+
+                        next_button.addEventListener('click', function(event) {
+                            event.preventDefault();
+
+                            return false;
+                        }, true);
+
+                        next_button.href = document.querySelector('#playlist [selected] + * a').href;
+                        next_button.dataset.preview = document.querySelector('#playlist [selected] + * img').src;
+                        next_button.dataset.tooltipText = document.querySelector('#playlist [selected] + * #video-title').innerText;
+                    }, 500);
+
                     ImprovedTube.reverse(document.querySelector('ytd-playlist-panel-renderer .playlist-items'));
 
                     return false;
@@ -3073,6 +3085,19 @@ ImprovedTube.improvedtubeYoutubeIcon = function() {
                     event.preventDefault();
                     event.stopPropagation();
 
+                    button.classList.remove('it-btn--dragging');
+
+                    window.removeEventListener('mousemove', move);
+
+                    localStorage.setItem('IT_ICON', JSON.stringify({
+                        x: button.offsetLeft,
+                        y: button.offsetTop
+                    }));
+
+                    setTimeout(function() {
+                        button.style.pointerEvents = '';
+                    });
+
                     this.classList.toggle('it-btn--active');
                     ImprovedTube.improvedtube_youtube_icon_resize();
 
@@ -3107,16 +3132,16 @@ ImprovedTube.improvedtubeYoutubeIcon = function() {
                         }
 
                         if (event.clientY < window.innerHeight / 2) {
-                            if (event.clientY - Number(button.dataset.y) >= 16) {
+                            if (event.clientY - Number(button.dataset.y) >= 12) {
                                 button.style.top = event.clientY - Number(button.dataset.y) + 'px';
                             } else {
-                                button.style.top = '16px';
+                                button.style.top = '12px';
                             }
                         } else {
-                            if (event.clientY + 48 - Number(button.dataset.y) <= window.innerHeight) {
+                            if (event.clientY + 44 - Number(button.dataset.y) <= window.innerHeight) {
                                 button.style.top = event.clientY - Number(button.dataset.y) + 'px';
                             } else {
-                                button.style.top = 'calc(100vh - 48px)';
+                                button.style.top = 'calc(100vh - 44px)';
                             }
                         }
 
