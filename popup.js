@@ -2981,8 +2981,20 @@ function themeChange(event) {
     }
 }
 
-satus.storage.import(function() {
-    for (var key in satus.storage.data) {
+satus.storage.import(function(items) {
+    satus.locale.import(satus.storage.get('language'), function() {
+        satus.modules.updateStorageKeys(Menu, function() {
+            if (location.href.indexOf('action=import') !== -1) {
+                importData();
+            } else if (location.href.indexOf('action=export') !== -1) {
+                exportData();
+            } else {
+                satus.render(Menu, document.body);
+            }
+        });
+    });
+
+    for (var key in satus.storage) {
         document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
     }
 
@@ -3017,18 +3029,6 @@ satus.storage.import(function() {
     if (satus.storage.get('black_theme') === true) {
         document.documentElement.setAttribute('theme', 'black');
     }
-
-    satus.locale.import(satus.storage.get('language'), function() {
-        satus.modules.updateStorageKeys(Menu, function() {
-            if (location.href.indexOf('action=import') !== -1) {
-                importData();
-            } else if (location.href.indexOf('action=export') !== -1) {
-                exportData();
-            } else {
-                satus.render(Menu, document.body);
-            }
-        });
-    });
 });
 
 chrome.storage.onChanged.addListener(function(changes) {
@@ -3101,7 +3101,15 @@ function importData() {
 }
 
 function exportData() {
-    var blob = new Blob([JSON.stringify(satus.storage.data)], {
+    var data = {};
+
+    for (var key in satus.storage) {
+        if (typeof satus.storage[key] !== 'function') {
+            data[key] = satus.storage[key];
+        }
+    }
+
+    var blob = new Blob([JSON.stringify(data)], {
         type: 'application/json;charset=utf-8'
     });
 

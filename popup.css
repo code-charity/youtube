@@ -811,6 +811,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
 {
     text-align: center;
     pointer-events: none;
+    line-height: 12px;
 }
 
 html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder:focus,
