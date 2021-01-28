@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "60fps की अनुमति दें"
     },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
     "alwaysActive": {
         "message": "हमेशा सक्रिय"
     },
