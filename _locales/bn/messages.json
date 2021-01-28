@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "60 ফ্রেম প্রতি সেকেন্ অনুমতি দিনড"
     },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
     "alwaysActive": {
         "message": "সর্বদা সক্রিয়"
     },

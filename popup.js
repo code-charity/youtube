@@ -2209,6 +2209,11 @@ Menu.main.section.player = {
             label: 'allow60fps',
             value: true
         },
+        player_SDR: {
+            type: 'switch',
+            label: 'forceSDR',
+            value: false
+        },
     },
 
     section_label__audio: {

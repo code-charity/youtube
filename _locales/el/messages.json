@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "Επίτρεψε 60fps"
     },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
     "alwaysActive": {
         "message": "Πάντοτε ενεργό"
     },
