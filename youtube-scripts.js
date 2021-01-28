@@ -51,6 +51,7 @@
   4.15 Repeat
   4.16 Rotate
   4.17 Popup player
+  4.18 Force SDR
 5.0 Playlist
   5.1 Up next autoplay
   5.2 Reverse
@@ -178,6 +179,7 @@ ImprovedTube.DOMContentLoaded = function() {
 ImprovedTube.init = function() {
     this.playerH264();
     this.player60fps();
+    this.playerSDR();
     this.pageType();
     this.shortcuts();
     this.DOMContentLoaded();
@@ -2151,6 +2153,19 @@ ImprovedTube.playerPopupButton = function() {
     }
 };
 
+/*------------------------------------------------------------------------------
+4.18 Force SDR
+------------------------------------------------------------------------------*/
+
+ImprovedTube.playerSDR = function() {
+    if (this.storage.player_SDR === true) {
+          Object.defineProperty(window.screen, "pixelDepth", {
+            enumerable: true,
+            configurable: true,
+            value: 24
+          });
+    }
+};
 
 /*------------------------------------------------------------------------------
 5.0 PLAYLIST
