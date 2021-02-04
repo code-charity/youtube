@@ -1,4 +1,4 @@
-<h1 align="center">⭐️⭐️⭐️OUR NEW EXTENSION - <a href="https://github.com/victor-savinov/frame-by-frame">FRAME BY FRAME</a>⭐️⭐️⭐️</h1>
+<h1 align="center">⭐️⭐️OUR NEW EXTENSION - <a href="https://github.com/victor-savinov/frame-by-frame">FRAME BY FRAME</a>⭐️⭐️</h1>
  <br>
  <br>
  <p align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
