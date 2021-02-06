@@ -23,6 +23,15 @@
 ## 🥇Credits 
 Big thanks ♡ to our [contributors 👪](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
 
+## Our Projects / Products
+### Extensions 
+* **Home:** ⚬ **History Manager** [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/history-manager)  ⚬ Start Page [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/start-page)  ⚬ [**To-Do**](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/to-do) 
+* **Browsing:** ⚬ [**HID Control**(Deny overwriting Right-Click, Ctrl+F,...)](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/hid-control-prevention) ⚬ [**Custom user agent**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj) [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/custom-user-agent) ⚬ [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/night-mode)  ⚬ [**Regex Replace**](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/regex-replace)   
+  * **Video/Media:** ⚬ [**Frame by Frame**](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/frame-by-frame)  ⚬ [**unBlob**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/unblob) 
+  * **Research:** ⚬  [**Regex Search** (Ctrl+F+Shift)](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/regex-search) 
+#### **Development / Components:**   ⚬ [**Satus**](https://github.com/victor-savinov/satus) ⚬  [Theme Engine](https://github.com/victor-savinov/theme-engine)  ⚬ [Pluviam](https://github.com/victor-savinov/pluviam) ⚬ [Code Editor](https://github.com/victor-savinov/code-editor) ⚬ [Viscum Player](https://github.com/victor-savinov/vbeiscum-player)
+
+
 ## [🌎Translations](https://github.com/ImprovedTube/ImprovedTube/wiki/Translations)
 -  [x]  [Arabic](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
 -  [x]  [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
@@ -46,22 +55,15 @@ Big thanks ♡ to our [contributors 👪](https://github.com/ImprovedTube/Improv
 -  [x]  [中文 (简体)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json) by [niceRAM](https://github.com/niceRAM), [ausers](https://github.com/ausers)
 -  [x]  [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [Still34](https://github.com/still34), [water903](https://github.com/water903) and [Ignatius Liu](https://github.com/suitangi) 
 ----
-## Our Work & Projects 
-### Extensions 
-* **Home:** ⚬ **History Manager** [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/history-manager)  ⚬ Start Page [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/start-page)  ⚬ [**To-Do**](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/to-do) 
-* **Browsing:** ⚬ [**HID Control**(Deny overwriting Right-Click, Ctrl+F,...)](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/hid-control-prevention) ⚬ [**Custom user agent**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj) [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/custom-user-agent) ⚬ [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/night-mode)  ⚬ [**Regex Replace**](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/regex-replace)   
-  * **Video/Media:** ⚬ [**Frame by Frame**](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/frame-by-frame)  ⚬ [**unBlob**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/unblob) 
-  * **Research:** ⚬  [**Regex Search** (Ctrl+F+Shift)](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/regex-search) 
-#### **Development / Components:**   ⚬ [**Satus**](https://github.com/victor-savinov/satus) ⚬  [Theme Engine](https://github.com/victor-savinov/theme-engine)  ⚬ [Pluviam](https://github.com/victor-savinov/pluviam) ⚬ [Code Editor](https://github.com/victor-savinov/code-editor) ⚬ [Viscum Player](https://github.com/victor-savinov/vbeiscum-player)
+## Our Work
 ### Ideas
 Have you got a great idea / plan / concept?  ideas@improvedtube.com
 ### Expertise
 Do you need to run an extension, app or site with many users and a great feedback score?  
 We would like to help good causes and fund ours, projects@improvedtube.com
 <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="600px">
-
 -----
-## Browsers support     (Firefox & Safari Store listings links to be added) 
+## ImprovedTube Browsers support  (Firefox & Safari Store listings links to be added) 
 |[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="28px" />](https://brave.com)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="28px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://www.microsoft.com/edge)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](https://www.opera.com/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://www.apple.com/safari/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
@@ -97,9 +99,6 @@ Or use one of the published versions: [Stable](https://chrome.google.com/webstor
 5. Click on "Load Temporary Add-on…"
 
 6. Select "manifest.json" file from unzipped folder
-
-
-
 
 
 
