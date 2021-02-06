@@ -62,7 +62,7 @@ Big thanks ♡ to our [contributors 👪](https://github.com/ImprovedTube/Improv
 ## 💼 Our Work 
 ### 💡 Ideas 
 Got a great idea / plan / concept?  ideas@improvedtube.com
-### 👩‍💻 Expertise / Consulting / Outsourcing
+### 👩‍💻 Expertise / Consulting 
 Do you need to run a extension, site or app with many users and a great feedback score?  
 We would like to help good / meaningful causes. And we need to fund our's...  projects@improvedtube.com
 
