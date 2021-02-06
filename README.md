@@ -1,4 +1,4 @@
-<h1 align="center">⭐️NEW EXTENSION: <a href="https://github.com/victor-savinov/frame-by-frame">FRAME BY FRAME</a>⭐️</h1><hr>
+<h1 align="right">⭐️NEW EXTENSION: <a href="https://github.com/victor-savinov/frame-by-frame">FRAME BY FRAME</a>⭐️</h1><hr>
  <p align="center"><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
       <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
         <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /> </p>  
@@ -15,7 +15,7 @@
    - [*How to start editing our CSS, JS, JSON*](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(For CSS or JavaScript-literates)* 
      - *Newbies are welcome to* [*try too*](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(We review all edits. We love to code & collaborate)* <br>
 
-## 🥇Credits 
+## 🏵️Credits 
 Big thanks ♡ to our [contributors 👪](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
 
 ### 🌾 Our Projects 
