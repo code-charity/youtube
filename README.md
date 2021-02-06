@@ -1,7 +1,5 @@
 <h1 align="center">⭐️⭐️OUR NEW EXTENSION - <a href="https://github.com/victor-savinov/frame-by-frame">FRAME BY FRAME</a>⭐️⭐️</h1>
- <br>
- <br>
-  <br>
+<hr><br>
  <p align="center"><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
       <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
         <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /> </p>  
