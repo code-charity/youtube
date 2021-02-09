@@ -1,4 +1,6 @@
-<h1 align="right">⭐️NEW EXTENSION: <a href="https://github.com/victor-savinov/frame-by-frame">FRAME BY FRAME</a></h1>
+## &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⭐️Try Our [New Extensions](https://github.com/ImprovedTube/YouTube-Extension#extensions-new)!  [**Frame by Frame**](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)[<img src="https://github.com/favicon.ico" height="24px">](https://github.com/victor-savinov/frame-by-frame), [**HID Control**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl)[<img src="https://github.com/favicon.ico" height="24px">](https://github.com/victor-savinov/hid-control-prevention),  [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)[<img src="https://github.com/favicon.ico" height="24px">](https://github.com/victor-savinov/night-mode)
+  
+  
  <p align="center"><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
       <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
         <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /> </p>  
