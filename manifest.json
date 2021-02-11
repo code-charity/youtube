@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
-    "name": "*Improve YouTube!☕🧩 YouTube-&Video-Tools 🎞️🧪",
+    "name": "*Improve YouTube!☕🧩 YouTube-&Video-Tools🎞️",
     "short_name": "ImprovedTube",
     "description": "Make YouTube tidy & powerful! YouTube Player Size Theme Quality Colors ad-block Playback Speed Style Playlist Channel H.264 Auto HD",
-    "version": "3.123",
+    "version": "3.153",
     "version_name": "3.120-pre-stable",
     "default_locale": "en",
     "icons": {
