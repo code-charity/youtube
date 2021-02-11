@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "Permetti 60 fps"
     },
+    "forceSDR": {
+        "message": "Forza SDR"
+    },
     "alwaysActive": {
         "message": "Sempre attivo"
     },
@@ -192,22 +195,22 @@
         "message": "Albeggio"
     },
     "decreasePlaybackSpeed": {
-        "message": "Riduci velocità riproduzione"
+        "message": "Riduci velocità di riproduzione"
     },
     "decreaseVolume": {
-        "message": "Riduci volume"
+        "message": "Diminuisci volume"
     },
     "deepOrange": {
-        "message": "Arancione profondo"
+        "message": "Arancione intenso"
     },
     "deepPurple": {
-        "message": "Viola profondo"
+        "message": "Viola intenso"
     },
     "defaultChannelTab": {
-        "message": "Scheda predefinita canale"
+        "message": "Scheda predefinita"
     },
     "deleteYoutubeCookies": {
-        "message": "Cancella cookie di YouTube"
+        "message": "Cancella cookie YouTube"
     },
     "description": {
         "message": "Descrizione"
@@ -219,7 +222,7 @@
         "message": "Dettagli"
     },
     "developerOptions": {
-        "message": "Opzioni per gli sviluppatori"
+        "message": "Opzioni per sviluppatori"
     },
     "device": {
         "message": "Dispositivo"
@@ -231,7 +234,7 @@
         "message": "Disabilitato"
     },
     "dislike": {
-        "message": "Non gradire"
+        "message": "Non mi piace"
     },
     "donate": {
         "message": "Donazione"
@@ -282,7 +285,7 @@
         "message": "Piè di pagina"
     },
     "forcedPlaybackSpeed": {
-        "message": "Velocità riproduzione forzata"
+        "message": "Velocità di riproduzione forzata"
     },
     "forcedTheaterMode": {
         "message": "Modalità cinema forzata"
@@ -291,7 +294,7 @@
         "message": "Volume forzato"
     },
     "foundABug": {
-        "message": "Trovato un bug?"
+        "message": "Trovato un difetto?"
     },
     "fullWindow": {
         "message": "Finestra intera"
@@ -345,7 +348,7 @@
         "message": "Nascondi contenuti in primo piano"
     },
     "hideFooter": {
-        "message": "Nascondi footer"
+        "message": "Nascondi piè di pagina"
     },
     "hideGradientBottom": {
         "message": "Nascondi fondo gradiente"
@@ -402,7 +405,7 @@
         "message": "Migliora logo YouTube"
     },
     "increasePlaybackSpeed": {
-        "message": "Aumenta velocità riproduzione"
+        "message": "Incrementa velocità di riproduzione"
     },
     "increaseVolume": {
         "message": "Aumenta volume"
@@ -525,7 +528,7 @@
         "message": "Piattaforma"
     },
     "playbackSpeed": {
-        "message": "Velocità riproduzione"
+        "message": "Velocità di riproduzione"
     },
     "player": {
         "message": "Lettore"
@@ -708,10 +711,10 @@
         "message": "Questo rimuoverà tutti i cookie di YouTube"
     },
     "thisWillResetAllSettings": {
-        "message": "Questo rimuoverà tutte le impostazioni"
+        "message": "Questo reimposterà l'intera configurazione"
     },
     "thisWillResetAllShortcuts": {
-        "message": "Questo Reimposterà tutte le scorciatoie"
+        "message": "Questo reimposterà tutte le scorciatoie"
     },
     "thumbnails": {
         "message": "Miniature"
@@ -741,7 +744,7 @@
         "message": "Sfondo trasparente"
     },
     "trending": {
-        "message": "Di tendenza"
+        "message": "In tendenza"
     },
     "tryToReloadThePage": {
         "message": "Provare a ricaricare la pagina"
