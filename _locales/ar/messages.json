@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "السماح لـ60إطار"
     },
+    "forceSDR": {
+        "message": "SDR فرض"
+    },
     "alwaysActive": {
         "message": "دائما نشط"
     },
