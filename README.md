@@ -40,17 +40,17 @@ Big thanks ♡ to our [contributors 👪](https://github.com/ImprovedTube/Improv
 -  [x]  [Greek](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json) by [karl01101101](https://github.com/karl01101101)
 -  [x]  [Italian](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
 -  [x]  [Hindi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hin/messages.json) by [MONISHA MANDAL](https://github.com/monishamandal02)
--  [ ]  [Japanese](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/jp/messages.json) still missing! 🥺
+-  [ ]  [Japanese](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/jp/messages.json) _still missing! 🥺_
 -  [x]  [Korean](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [Seung-chan Mok](https://github.com/msc9533) and [LYHyoung](https://github.com/LYHyoung)
--  [ ]  [Malay](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) missing 
+-  [ ]  [Malay](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) _missing_
 -  [x]  [Norwegian Bokmål](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/no/messages.json) by [Master3395](https://github.com/Master3395) and [Allan Nordhøy](https://github.com/comradekingu)
 -  [x]  [日本語](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json) by [utuhiro78](https://github.com/utuhiro78)
--  [ ]  [Polish](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) missing 
+-  [ ]  [Polish](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) _missing_ 
 -  [x]  [Português](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json) by [DrNopt](https://github.com/DrNopt)
 -  [x]  [Português (Brasil)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json) by [Mike-Correa](https://github.com/Mike-Correa), [dthiago](https://github.com/dthiago)
--  [ ]  [Punjabi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) missing. Who's from Pakistan? 
+-  [ ]  [Punjabi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) _missing. Who's from Pakistan?_ 
 -  [x]  [Slovac](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json) by [bbc-s](https://github.com/bbc-s)
--  [ ]  [Thai](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) missing 
+-  [ ]  [Thai](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) _missing_ 
 -  [x] [Türkçe](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json) by [Onur Dumangöz](https://github.com/onurdumangoz), updated by [daswareinfach](https://github.com/daswareinfach)
 -  [x]  [Русский](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json) updated by [WhoIsPrivalov](https://github.com/WhoIsPrivalov) and [qweered](https://github.com/qweered)
 -  [ ]  [Vietnamese](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vt/messages.json) missing 
