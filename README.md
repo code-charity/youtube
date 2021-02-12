@@ -5,7 +5,7 @@
       <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
         <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /> </p>  
 
-##  ['ImprovedTube'](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) ,
+##  [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd) ,
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is an extension, that we built to refine & sweeten your experience on YouTube. A One-Stop-Shop with many powerful features enhancing YouTube functionality, yet liteweight. The first popular features were simply to have a larger player, hide distractions and save your time or tidy up but there was (and is) so much more left to build! ...  - ImprovedTube's User Interface is designed with our UI library **[Satus](https://github.com/victor-savinov/satus)** to manage your settings efficiently. And to create more powerful and familiar apps. BTW, technically, ImprovedTube is the only project in the world providing so much CSS to adjust another site🦄<font size="-2">(_[cmiiw](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)_)</font>
 
 ## 📝ToDo 
