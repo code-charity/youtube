@@ -48,7 +48,7 @@ Big thanks ♡ to our [contributors 👪](https://github.com/ImprovedTube/Improv
 -  [ ]  [Polish](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) missing 
 -  [x]  [Português](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json) by [DrNopt](https://github.com/DrNopt)
 -  [x]  [Português (Brasil)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json) by [Mike-Correa](https://github.com/Mike-Correa), [dthiago](https://github.com/dthiago)
--  [ ]  [Punjabi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) missing. Anybody? 
+-  [ ]  [Punjabi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) missing. Who's from Pakistan? 
 -  [x]  [Slovac](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json) by [bbc-s](https://github.com/bbc-s)
 -  [ ]  [Thai](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) missing 
 -  [x] [Türkçe](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json) by [Onur Dumangöz](https://github.com/onurdumangoz), updated by [daswareinfach](https://github.com/daswareinfach)
