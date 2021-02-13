@@ -39,7 +39,7 @@
         "message": "60fps'e izin ver"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "SDR Zorla"
     },
     "alwaysActive": {
         "message": "Sürekli etkin"
@@ -177,7 +177,7 @@
         "message": "Özel JS"
     },
     "customMiniPlayer": {
-        "message": "Custom Mini-Player"
+        "message": "Özel Mini Oynatıcı"
     },
     "cyan": {
         "message": "Camgöbeği"
