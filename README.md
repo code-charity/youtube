@@ -60,7 +60,7 @@ Big thanks ♡ to our [contributors 👪](https://github.com/ImprovedTube/Improv
 ## 💼 Our Work 
 ###  💡 Ideas
 Got great ideas? ideas@improvedtube.com
-### 👩‍💻 Expertise / Consulting 
+### 👩‍💻👨🏽‍💻👩🏿‍💻 Expertise / Consulting 
 Do you need to run an extension, site or app with many users and a great feedback score?  
 We would like to help good / meaningful causes. Projects@improvedtube.com
 <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="480px">
