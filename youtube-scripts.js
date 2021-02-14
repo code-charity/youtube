@@ -2005,7 +2005,7 @@ ImprovedTube.screenshot = function() {
 
                 a.href = URL.createObjectURL(blob);
 
-                a.download = location.href.match(/(\?|\&)v=[^&]+/)[0].substr(3) + '-' + new Date(document.querySelector('video').getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + '.png';
+                a.download = location.href.match(/(\?|\&)v=[^&]+/)[0].substr(3) + '-' + new Date(document.querySelector('.html5-video-player').getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + '.png';
 
                 a.click();
             } else {
