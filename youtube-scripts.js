@@ -91,6 +91,8 @@ ImprovedTube.pageUpdateListener = function() {
         ImprovedTube.markWatchedVideos();
         ImprovedTube.hdThumbnails();
 
+        ImprovedTube.channelDefaultTab();
+
         ImprovedTube.videoPageUpdate();
 
         ImprovedTube.blacklist();
@@ -121,8 +123,6 @@ ImprovedTube.videoPageUpdate = function() {
         this.playlistReverse();
         this.playlistRepeat();
         this.playlistShuffle();
-
-        this.channelDefaultTab();
 
         var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');
 
@@ -167,6 +167,8 @@ ImprovedTube.DOMContentLoaded = function() {
         ImprovedTube.markWatchedVideos();
         ImprovedTube.hdThumbnails();
 
+        ImprovedTube.channelDefaultTab();
+
         ImprovedTube.myColors();
         ImprovedTube.bluelight();
         ImprovedTube.dim();
@@ -201,6 +203,7 @@ ImprovedTube.init = function() {
 
     window.addEventListener('load', function() {
         ImprovedTube.hdThumbnails();
+        ImprovedTube.channelDefaultTab();
     });
 };
 
@@ -2170,11 +2173,11 @@ ImprovedTube.playerPopupButton = function() {
 
 ImprovedTube.playerSDR = function() {
     if (this.storage.player_SDR === true) {
-          Object.defineProperty(window.screen, "pixelDepth", {
+        Object.defineProperty(window.screen, "pixelDepth", {
             enumerable: true,
             configurable: true,
             value: 24
-          });
+        });
     }
 };
 
@@ -2384,7 +2387,8 @@ ImprovedTube.channelDefaultTab = function() {
         for (var i = 0, l = node_list.length; i < l; i++) {
             var node = node_list[i];
 
-            if (!node.getAttribute('it-origin') ||
+            if (
+                !node.getAttribute('it-origin') ||
                 node.hasAttribute('it-origin') &&
                 node.getAttribute('it-origin').replace(/\/(home|videos|playlists)+$/g, '') != node.href.replace(/\/(home|videos|playlists)+$/g, '')
             ) {
@@ -2968,7 +2972,7 @@ ImprovedTube.blacklist = function() {
 
                 for (var key in ImprovedTube.storage.blacklist.channels) {
                     if (item.style && channel_href.indexOf(key) !== -1) {
-                        item.style.display = 'none';
+                        item.style.opacity = '.1';
                     }
                 }
             }
@@ -2996,7 +3000,7 @@ ImprovedTube.blacklist = function() {
                     item = item.parentNode;
                 }
 
-                item.style.display = 'none';
+                item.style.opacity = '.1';
             }
         }
     }
