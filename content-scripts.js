@@ -36,12 +36,8 @@ function youtubeHomePage(option) {
 ------------------------------------------------------------------------------*/
 
 function isset(variable) {
-    if (typeof variable === 'undefined' || variable === null) {
-        return false;
-    }
-
-    return true;
-};
+    return !(typeof variable === 'undefined' || variable === null);
+}
 
 function camelize(string) {
     return string.replace(/_[a-z]/g, function(match) {
