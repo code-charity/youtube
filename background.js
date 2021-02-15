@@ -24,11 +24,7 @@ var locale_code = 'en',
 ---------------------------------------------------------------*/
 
 function isset(variable) {
-    if (typeof variable === 'undefined' || variable === null) {
-        return false;
-    }
-
-    return true;
+    return !(typeof variable === 'undefined' || variable === null);
 }
 
 function getTranslations(path) {
