@@ -128,7 +128,7 @@ ytd-item-section-renderer .it-section-collapse svg {
     width: 24px;
     height: 24px;
     transition: transform 150ms;
-    fill: var(--ytd-menu-renderer-button-color, var(--yt-spec-icon-inactive));
+    fill: var(--yt-spec-icon-inactive);
 }
 
 ytd-item-section-renderer .it-section-collapse:hover svg {
@@ -228,7 +228,7 @@ html[it-remove-related-search-results=true] li>div.search-refinements {
     left: 4px;
     width: 20px;
     height: 20px;
-    fill: var(--ytd-menu-renderer-button-color, var(--yt-spec-icon-inactive, #aaa));
+    fill: var(--yt-spec-icon-inactive, #aaa);
 }
 
 *:hover>.it-mark-watched {
@@ -746,7 +746,7 @@ html[it-player-color]:not([it-player-color='red']) .ytp-settings-button.ytp-hd-q
     background-color: var(--it-player-color) !important;
 }
 
-html[it-player-color]([it-player-color='red']) .ytp-swatch-color {
+html[it-player-color]:not([it-player-color='red']) .ytp-swatch-color {
     color: var(--it-player-color) !important;
 }
 
