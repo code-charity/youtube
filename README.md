@@ -5,7 +5,7 @@
 </p>
 
 
-<h1 align="center">ImprovedTube</h1>
+<h1 align="center">Improve YouTube!</h1>
 
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
