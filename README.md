@@ -7,21 +7,6 @@
 
 <h1 align="center">ImprovedTube</h1>
 
-
-<p align="center">
-	«Improve YouTube!» (
-	<code>/ImprovedTube/</code>) is a lightweight browser extension with a simple UI, powerful features.
-	<br>
-	<br>
-  	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a>
-	·
-	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>
-	·
-	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report bug</a>
-	·
-	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a>
-</p>
-
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 		<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Web Store">
@@ -35,6 +20,21 @@
 	<a href="https://addons.opera.com/en/extensions/details/improvedtube-youtube-extension/">
 		<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera add-ons">
 	</a>
+</p>
+
+
+<p align="center">
+	«Improve YouTube!» (
+	<code>/ImprovedTube/</code>) is a lightweight browser extension with a simple UI, powerful features.
+	<br>
+	<br>
+  	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a>
+	·
+	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>
+	·
+	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report bug</a>
+	·
+	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a>
 </p>
 
 
