@@ -9,6 +9,12 @@
 
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
+		<img src="https://github.com/victor-savinov/previews/blob/main/improvedtube/screenshot-github.png">
+	</a>
+</p>
+
+<p align="center">
+	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 		<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Web Store">
 	</a>
 	<a href="#">
