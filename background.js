@@ -266,7 +266,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 
                         chrome.downloads.download({
                             url: URL.createObjectURL(blob),
-                            filename: 'improvedtube_' + (date.getMonth() + 1) + '_' + date.getDate() + '_' + date.getFullYear() + '.json',
+                            filename: 'improvedtube_' + (date.getMonth() + 1) + '_' + date.getDate() + '_' + date.getFullYear() + '.txt',
                             saveAs: true
                         });
                     }
