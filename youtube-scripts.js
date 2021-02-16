@@ -2402,8 +2402,6 @@ ImprovedTube.channelDefaultTab = function() {
             }
 
             node.addEventListener('click', click, true);
-            node.parentNode.addEventListener('click', click, true);
-            node.parentNode.parentNode.addEventListener('click', click, true);
         }
     } else if (this.storage.channel_default_tab) {
         var node_list = document.querySelectorAll('a[href*="user"], a[href*="channel"], a[href*="/c/"]');
