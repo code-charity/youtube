@@ -966,7 +966,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                 flash: {
                                     type: 'text',
                                     label: 'flash',
-                                    value: user.browser.flash ? true : false
+                                    value: !!user.browser.flash
                                 }
                             },
                             os_section: {
@@ -2848,15 +2848,16 @@ Menu.main.section.analyzer = {
             chart.className = 'analyzer-chart';
             bottom_text_container.className = 'analyzer-bottom';
 
-            if (data[current_date]) {
-                for (let i in data[current_date]) {
-                    if (data[current_date][i]) {
-                        for (let j in data[current_date][i]) {
+            let currentDateData = data[current_date];
+            if (currentDateData) {
+                for (let i in currentDateData) {
+                    if (currentDateData[i]) {
+                        for (let j in currentDateData[i]) {
                             if (!all_data[j]) {
                                 all_data[j] = 0;
                             }
 
-                            all_data[j] += data[current_date][i][j];
+                            all_data[j] += currentDateData[i][j];
                         }
                     }
                 }
@@ -2893,8 +2894,8 @@ Menu.main.section.analyzer = {
 
                     data_column.className = 'analyzer-data-column';
 
-                    if (data[current_date] && data[current_date][hours]) {
-                        for (let k in data[current_date][hours]) {
+                    if (currentDateData && currentDateData[hours]) {
+                        for (let k in currentDateData[hours]) {
                             let block = document.createElement('div');
 
                             block.className = 'analyzer-data';

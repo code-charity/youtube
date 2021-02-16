@@ -577,7 +577,7 @@ body[data-appearance='home'] .satus-text--title
 
 .satus-dialog--search .satus-dialog__surface .satus-button svg
 {
-    fill: unset;
+    fill: none;
     stroke: currentColor;
 }
 
@@ -837,7 +837,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
     opacity: .95;
     border-radius: 50%;
     background: linear-gradient(135deg, #ff4158, #ff001f);
-    box-shadow: 0 2px 1px 1px rgb(222, 0, 27, .7), 0 3px 5px rgba(0,0,0,.35);
+    box-shadow: 0 2px 1px 1px rgba(222, 0, 27, .7), 0 3px 5px rgba(0,0,0,.35);
 }
 
 html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder svg:focus,
@@ -1605,7 +1605,7 @@ html[it-it-analyzer='false'] .satus-folder--analyzer
     margin: 8px 0 16px;
     padding: 16px;
 
-    background: var(--background-0) !important;
+    background: var(--background-0) !important; /* var --background-0 is not specified anywhere */
     box-shadow: 0 0 2px rgba(0, 0, 0, .2);
 }
 
