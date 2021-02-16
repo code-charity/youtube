@@ -591,7 +591,6 @@ html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change'])
     width: auto !important;
     height: calc(var(--it-player-size) - var(--it-header-size)) !important;
     min-height: auto !important;
-    max-height: 100vh !important;
 }
 
 html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player {

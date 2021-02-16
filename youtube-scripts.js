@@ -1,11 +1,7 @@
 /*------------------------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 --------------------------------------------------------------------------------
-0.0 Global variable
-0.0 Page update listener
-0.0 Initialization
-0.0 Onfocus
-0.0 Onplay
+1.0 Global variable
 
 1.0 General
   1.1 YouTube home page
@@ -66,6 +62,11 @@
    10.1 ImprovedTube icon
    10.2 Delete YouTube cookies
    10.3 YouTube language
+
+0.0 Page update listener
+0.0 Onfocus
+0.0 Onplay
+0.0 Initialization
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
@@ -75,330 +76,6 @@ The variable "ImprovedTube" is used on the YouTube side.
 ------------------------------------------------------------------------------*/
 
 var ImprovedTube = {};
-
-
-/*------------------------------------------------------------------------------
-0.0 PAGE UPDATE LISTENER
-------------------------------------------------------------------------------*/
-
-ImprovedTube.pageUpdateListener = function() {
-    window.addEventListener('yt-page-data-updated', function() {
-        ImprovedTube.played_before_blur = false;
-
-        ImprovedTube.pageType();
-        ImprovedTube.youtubeHomePage();
-        ImprovedTube.collapseOfSubscriptionSections();
-        ImprovedTube.markWatchedVideos();
-        ImprovedTube.hdThumbnails();
-
-        ImprovedTube.channelDefaultTab();
-
-        ImprovedTube.videoPageUpdate();
-
-        ImprovedTube.blacklist();
-
-        ImprovedTube.improvedtubeYoutubeIcon();
-    });
-};
-
-ImprovedTube.videoPageUpdate = function() {
-    if (this.page_type === 'video') {
-        this.forcedTheaterMode();
-        this.playerHdThumbnail();
-        this.alwaysShowProgressBar();
-        this.livechat();
-        this.relatedVideos();
-        this.howLongAgoTheVideoWasUploaded();
-        this.channelVideosCount();
-        this.comments();
-
-        this.upNextAutoplay();
-        this.playerAutofullscreen();
-        this.playerScreenshotButton();
-        this.playerRepeatButton();
-        this.playerRotateButton();
-        this.playerPopupButton();
-
-        this.playlistUpNextAutoplay();
-        this.playlistReverse();
-        this.playlistRepeat();
-        this.playlistShuffle();
-
-        var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');
-
-        if (video_id) {
-            document.dispatchEvent(new CustomEvent('ImprovedTubeWatched', {
-                detail: {
-                    action: 'set',
-                    id: video_id,
-                    title: document.title
-                }
-            }));
-        }
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-0.0 PLAYER UPDATE
-------------------------------------------------------------------------------*/
-
-ImprovedTube.playerUpdate = function() {
-    this.playerPlaybackSpeed();
-    this.subtitles();
-    this.playerAds();
-    this.mini_player();
-    this.playerQuality();
-    this.playerVolume();
-    this.playlistUpNextAutoplay();
-};
-
-
-/*------------------------------------------------------------------------------
-0.0 DOM CONTENT LOADED
-------------------------------------------------------------------------------*/
-
-ImprovedTube.DOMContentLoaded = function() {
-    window.addEventListener('DOMContentLoaded', function() {
-        ImprovedTube.youtubeHomePage();
-        ImprovedTube.collapseOfSubscriptionSections();
-        ImprovedTube.addScrollToTop();
-        ImprovedTube.confirmationBeforeClosing();
-        ImprovedTube.markWatchedVideos();
-        ImprovedTube.hdThumbnails();
-
-        ImprovedTube.channelDefaultTab();
-
-        ImprovedTube.myColors();
-        ImprovedTube.bluelight();
-        ImprovedTube.dim();
-        ImprovedTube.font();
-        ImprovedTube.themes();
-
-        ImprovedTube.videoPageUpdate();
-
-        ImprovedTube.blacklist();
-
-        ImprovedTube.improvedtubeYoutubeIcon();
-
-        ImprovedTube.pageUpdateListener();
-    });
-};
-
-
-/*------------------------------------------------------------------------------
-0.0 INITIALIZATION
-------------------------------------------------------------------------------*/
-
-ImprovedTube.init = function() {
-    this.playerH264();
-    this.player60fps();
-    this.playerSDR();
-    this.pageType();
-    this.shortcuts();
-    this.DOMContentLoaded();
-    this.onplay();
-    this.onkeydown();
-    this.onmousedown();
-
-    window.addEventListener('load', function() {
-        ImprovedTube.hdThumbnails();
-        ImprovedTube.channelDefaultTab();
-    });
-};
-
-
-/*------------------------------------------------------------------------------
-0.0 PAGE TYPE
-------------------------------------------------------------------------------*/
-
-ImprovedTube.video_url = false;
-ImprovedTube.page_type = false;
-
-ImprovedTube.pageType = function() {
-    var href = location.href,
-        type = '';
-
-    if (location.pathname == '/') {
-        type = 'home';
-    } else if (/\/watch\?/.test(href)) {
-        type = 'video';
-    } else if (/\/channel|user|c\//.test(href)) {
-        type = 'channel';
-    }
-
-    this.page_type = type;
-
-    document.documentElement.setAttribute('it-page-type', type);
-};
-
-
-/*------------------------------------------------------------------------------
-0.0 ONFOCUS
-------------------------------------------------------------------------------*/
-
-ImprovedTube.focus = false;
-ImprovedTube.played_before_blur = false;
-
-ImprovedTube.onfocus = function() {
-    this.onlyOnePlayerInstancePlaying();
-    this.playerAutopauseWhenSwitchingTabs();
-};
-
-
-/*------------------------------------------------------------------------------
-0.0 ONPLAY
-------------------------------------------------------------------------------*/
-
-ImprovedTube.onplay = function() {
-    HTMLMediaElement.prototype.play = (function(original) {
-        return function() {
-            ImprovedTube.autoplay(this);
-            ImprovedTube.playerLoudnessNormalization();
-
-            if (ImprovedTube.video_url !== location.href) {
-                ImprovedTube.video_url = location.href;
-
-                ImprovedTube.playerUpdate();
-            }
-
-            return original.apply(this, arguments);
-        }
-    })(HTMLMediaElement.prototype.play);
-};
-
-
-/*------------------------------------------------------------------------------
-0.0 ONKEYDOWN
-------------------------------------------------------------------------------*/
-
-ImprovedTube.onkeydown = function() {
-    window.addEventListener('keydown', function() {
-        if (
-            document.querySelector('.html5-video-player') &&
-            document.querySelector('.html5-video-player').classList.contains('ad-showing') === false
-        ) {
-            ImprovedTube.allow_autoplay = true;
-        }
-    }, true);
-};
-
-
-/*------------------------------------------------------------------------------
-0.0 ONMOUSEDOWN
-------------------------------------------------------------------------------*/
-
-ImprovedTube.onmousedown = function(event) {
-    window.addEventListener('mousedown', function(event) {
-        for (var i = 0, l = event.path.length; i < l; i++) {
-            if (
-                document.querySelector('.html5-video-player') &&
-                document.querySelector('.html5-video-player').classList.contains('ad-showing') === false &&
-                event.path[i].classList &&
-                (
-                    event.path[i].classList.contains('html5-main-video') ||
-                    event.path[i].classList.contains('ytp-play-button')
-                )
-            ) {
-                ImprovedTube.allow_autoplay = true;
-            }
-        }
-    }, true);
-};
-
-
-ImprovedTube.getCookieValueByName = function(name) {
-    var match = document.cookie.match(new RegExp('([; ]' + name + '|^' + name + ')([^\\s;]*)', 'g'));
-
-    if (match) {
-        var cookie = match[0];
-
-        return cookie.replace(name + '=', '').replace(' ', '');
-    } else
-        return '';
-};
-
-ImprovedTube.getParam = function(query, name) {
-    var params = query.split('&'),
-        param = false;
-
-    for (var i = 0; i < params.length; i++) {
-        params[i] = params[i].split('=');
-
-        if (params[i][0] == name) {
-            param = params[i][1];
-        }
-    }
-
-    if (param) {
-        return param;
-    } else {
-        return false;
-    }
-};
-
-ImprovedTube.getParams = function(query) {
-    var params = query.split('&'),
-        result = {};
-
-    for (var i = 0, l = params.length; i < l; i++) {
-        params[i] = params[i].split('=');
-
-        result[params[i][0]] = params[i][1];
-    }
-
-    return result;
-};
-
-ImprovedTube.setCookie = function(name, value) {
-    var date = new Date();
-
-    date.setTime(date.getTime() + 3.154e+10);
-
-    document.cookie = name + '=' + value + '; path=/; domain=.youtube.com; expires=' + date.toGMTString();
-};
-
-ImprovedTube.createPlayerButton = function(node, options) {
-    var controls = document.querySelector('.html5-video-player .ytp-left-controls');
-
-    if (controls) {
-        var button = document.createElement('button');
-
-        button.className = 'ytp-button it-player-button';
-
-        button.dataset.title = options.title;
-
-        if (options.id) {
-            if (node.querySelector('#' + options.id)) {
-                node.querySelector('#' + options.id).remove();
-            }
-
-            button.id = options.id;
-        }
-
-        if (options.html) {
-            button.innerHTML = options.html;
-        }
-
-        button.style.opacity = options.opacity || '.5';
-
-        if (options.onclick) {
-            button.onclick = options.onclick;
-        }
-
-        controls.insertBefore(button, controls.childNodes[3]);
-    }
-};
-
-ImprovedTube.reverse = function(parent) {
-    for (var i = 1, l = parent.childNodes.length; i < l; i++) {
-        parent.insertBefore(parent.childNodes[i], parent.firstChild);
-    }
-};
-
-
-
-
 
 
 
@@ -2387,8 +2064,7 @@ ImprovedTube.channelDefaultTab = function() {
         for (var i = 0, l = node_list.length; i < l; i++) {
             var node = node_list[i];
 
-            if (
-                !node.getAttribute('it-origin') ||
+            if (!node.getAttribute('it-origin') ||
                 node.hasAttribute('it-origin') &&
                 node.getAttribute('it-origin').replace(/\/(home|videos|playlists)+$/g, '') != node.href.replace(/\/(home|videos|playlists)+$/g, '')
             ) {
@@ -3264,4 +2940,327 @@ ImprovedTube.youtubeLanguage = function() {
     setTimeout(function() {
         location.reload();
     }, 100);
+};
+
+
+
+
+
+/*------------------------------------------------------------------------------
+0.0 PAGE UPDATE LISTENER
+------------------------------------------------------------------------------*/
+
+ImprovedTube.pageUpdateListener = function() {
+    window.addEventListener('yt-page-data-updated', function() {
+        ImprovedTube.played_before_blur = false;
+
+        ImprovedTube.pageType();
+        ImprovedTube.youtubeHomePage();
+        ImprovedTube.collapseOfSubscriptionSections();
+        ImprovedTube.markWatchedVideos();
+        ImprovedTube.hdThumbnails();
+
+        ImprovedTube.channelDefaultTab();
+
+        ImprovedTube.videoPageUpdate();
+
+        ImprovedTube.blacklist();
+
+        ImprovedTube.improvedtubeYoutubeIcon();
+    });
+};
+
+ImprovedTube.videoPageUpdate = function() {
+    if (this.page_type === 'video') {
+        this.forcedTheaterMode();
+        this.playerHdThumbnail();
+        this.alwaysShowProgressBar();
+        this.livechat();
+        this.relatedVideos();
+        this.howLongAgoTheVideoWasUploaded();
+        this.channelVideosCount();
+        this.comments();
+
+        this.upNextAutoplay();
+        this.playerAutofullscreen();
+        this.playerScreenshotButton();
+        this.playerRepeatButton();
+        this.playerRotateButton();
+        this.playerPopupButton();
+
+        this.playlistUpNextAutoplay();
+        this.playlistReverse();
+        this.playlistRepeat();
+        this.playlistShuffle();
+
+        var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');
+
+        if (video_id) {
+            document.dispatchEvent(new CustomEvent('ImprovedTubeWatched', {
+                detail: {
+                    action: 'set',
+                    id: video_id,
+                    title: document.title
+                }
+            }));
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 PLAYER UPDATE
+------------------------------------------------------------------------------*/
+
+ImprovedTube.playerUpdate = function() {
+    this.playerPlaybackSpeed();
+    this.subtitles();
+    this.playerAds();
+    this.mini_player();
+    this.playerQuality();
+    this.playerVolume();
+    this.playlistUpNextAutoplay();
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 DOM CONTENT LOADED
+------------------------------------------------------------------------------*/
+
+ImprovedTube.DOMContentLoaded = function() {
+    window.addEventListener('DOMContentLoaded', function() {
+        ImprovedTube.youtubeHomePage();
+        ImprovedTube.collapseOfSubscriptionSections();
+        ImprovedTube.addScrollToTop();
+        ImprovedTube.confirmationBeforeClosing();
+        ImprovedTube.markWatchedVideos();
+        ImprovedTube.hdThumbnails();
+
+        ImprovedTube.channelDefaultTab();
+
+        ImprovedTube.myColors();
+        ImprovedTube.bluelight();
+        ImprovedTube.dim();
+        ImprovedTube.font();
+        ImprovedTube.themes();
+
+        ImprovedTube.videoPageUpdate();
+
+        ImprovedTube.blacklist();
+
+        ImprovedTube.improvedtubeYoutubeIcon();
+
+        ImprovedTube.pageUpdateListener();
+    });
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 PAGE TYPE
+------------------------------------------------------------------------------*/
+
+ImprovedTube.video_url = false;
+ImprovedTube.page_type = false;
+
+ImprovedTube.pageType = function() {
+    var href = location.href,
+        type = '';
+
+    if (location.pathname == '/') {
+        type = 'home';
+    } else if (/\/watch\?/.test(href)) {
+        type = 'video';
+    } else if (/\/channel|user|c\//.test(href)) {
+        type = 'channel';
+    }
+
+    this.page_type = type;
+
+    document.documentElement.setAttribute('it-page-type', type);
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 ONFOCUS
+------------------------------------------------------------------------------*/
+
+ImprovedTube.focus = false;
+ImprovedTube.played_before_blur = false;
+
+ImprovedTube.onfocus = function() {
+    this.onlyOnePlayerInstancePlaying();
+    this.playerAutopauseWhenSwitchingTabs();
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 ONPLAY
+------------------------------------------------------------------------------*/
+
+ImprovedTube.onplay = function() {
+    HTMLMediaElement.prototype.play = (function(original) {
+        return function() {
+            ImprovedTube.autoplay(this);
+            ImprovedTube.playerLoudnessNormalization();
+
+            if (ImprovedTube.video_url !== location.href) {
+                ImprovedTube.video_url = location.href;
+
+                ImprovedTube.playerUpdate();
+            }
+
+            return original.apply(this, arguments);
+        }
+    })(HTMLMediaElement.prototype.play);
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 ONKEYDOWN
+------------------------------------------------------------------------------*/
+
+ImprovedTube.onkeydown = function() {
+    window.addEventListener('keydown', function() {
+        if (
+            document.querySelector('.html5-video-player') &&
+            document.querySelector('.html5-video-player').classList.contains('ad-showing') === false
+        ) {
+            ImprovedTube.allow_autoplay = true;
+        }
+    }, true);
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 ONMOUSEDOWN
+------------------------------------------------------------------------------*/
+
+ImprovedTube.onmousedown = function(event) {
+    window.addEventListener('mousedown', function(event) {
+        for (var i = 0, l = event.path.length; i < l; i++) {
+            if (
+                document.querySelector('.html5-video-player') &&
+                document.querySelector('.html5-video-player').classList.contains('ad-showing') === false &&
+                event.path[i].classList &&
+                (
+                    event.path[i].classList.contains('html5-main-video') ||
+                    event.path[i].classList.contains('ytp-play-button')
+                )
+            ) {
+                ImprovedTube.allow_autoplay = true;
+            }
+        }
+    }, true);
+};
+
+
+ImprovedTube.getCookieValueByName = function(name) {
+    var match = document.cookie.match(new RegExp('([; ]' + name + '|^' + name + ')([^\\s;]*)', 'g'));
+
+    if (match) {
+        var cookie = match[0];
+
+        return cookie.replace(name + '=', '').replace(' ', '');
+    } else
+        return '';
+};
+
+ImprovedTube.getParam = function(query, name) {
+    var params = query.split('&'),
+        param = false;
+
+    for (var i = 0; i < params.length; i++) {
+        params[i] = params[i].split('=');
+
+        if (params[i][0] == name) {
+            param = params[i][1];
+        }
+    }
+
+    if (param) {
+        return param;
+    } else {
+        return false;
+    }
+};
+
+ImprovedTube.getParams = function(query) {
+    var params = query.split('&'),
+        result = {};
+
+    for (var i = 0, l = params.length; i < l; i++) {
+        params[i] = params[i].split('=');
+
+        result[params[i][0]] = params[i][1];
+    }
+
+    return result;
+};
+
+ImprovedTube.setCookie = function(name, value) {
+    var date = new Date();
+
+    date.setTime(date.getTime() + 3.154e+10);
+
+    document.cookie = name + '=' + value + '; path=/; domain=.youtube.com; expires=' + date.toGMTString();
+};
+
+ImprovedTube.createPlayerButton = function(node, options) {
+    var controls = document.querySelector('.html5-video-player .ytp-left-controls');
+
+    if (controls) {
+        var button = document.createElement('button');
+
+        button.className = 'ytp-button it-player-button';
+
+        button.dataset.title = options.title;
+
+        if (options.id) {
+            if (node.querySelector('#' + options.id)) {
+                node.querySelector('#' + options.id).remove();
+            }
+
+            button.id = options.id;
+        }
+
+        if (options.html) {
+            button.innerHTML = options.html;
+        }
+
+        button.style.opacity = options.opacity || '.5';
+
+        if (options.onclick) {
+            button.onclick = options.onclick;
+        }
+
+        controls.insertBefore(button, controls.childNodes[3]);
+    }
+};
+
+ImprovedTube.reverse = function(parent) {
+    for (var i = 1, l = parent.childNodes.length; i < l; i++) {
+        parent.insertBefore(parent.childNodes[i], parent.firstChild);
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+0.0 INITIALIZATION
+------------------------------------------------------------------------------*/
+
+ImprovedTube.init = function() {
+    this.playerH264();
+    this.player60fps();
+    this.playerSDR();
+    this.pageType();
+    this.shortcuts();
+    this.DOMContentLoaded();
+    this.onplay();
+    this.onkeydown();
+    this.onmousedown();
+
+    window.addEventListener('load', function() {
+        ImprovedTube.hdThumbnails();
+        ImprovedTube.channelDefaultTab();
+    });
 };
