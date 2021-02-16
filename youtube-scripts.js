@@ -577,7 +577,7 @@ ImprovedTube.markWatchedVideos = function() {
                 button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12a11.8 11.8 0 0022 0c-1.7-4.4-6-7.5-11-7.5zM12 17a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z"/></svg>';
 
                 button.addEventListener('click', function(event) {
-                    var watched = this.classList.contains('watched') ? false : true;
+                    var watched = !this.classList.contains('watched');
 
                     event.preventDefault();
                     event.stopPropagation();
@@ -1266,7 +1266,7 @@ ImprovedTube.dim = function() {
 
 ImprovedTube.font = function() {
     if (this.storage.font) {
-        if (this.storage.font != 'Default') {
+        if (this.storage.font !== 'Default') {
             if (!document.querySelector('.it-font-family')) {
                 var link = document.createElement('link');
 
