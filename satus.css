@@ -831,7 +831,7 @@
     padding: 0 16px;
 
     -webkit-user-select:      none;
-       -moz-user-select: -moz-none;
+       -moz-user-select:      none;
             user-select:      none;
 
     outline: none;
@@ -1025,7 +1025,7 @@
 
     cursor: pointer;
     -webkit-user-select:      none;
-       -moz-user-select: -moz-none;
+       -moz-user-select:      none;
             user-select:      none;
 
     background-color: transparent;
@@ -1357,7 +1357,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    padding: 0 8px;
+    padding: 0 8px; /* it overwrites padding above; remove one of them */
 
     color: inherit;
     border: none;
