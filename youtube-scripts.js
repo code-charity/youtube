@@ -1637,15 +1637,20 @@ ImprovedTube.playerVolume = function(node) {
 4.13 LOUDNESS NORMALIZATION
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.playerLoudnessNormalization = function() {
-    if (document.querySelector('video')) {
-        document.querySelector('video').onvolumechange = function(event) {
-            if (document.querySelector('.ytp-volume-panel') && ImprovedTube.storage.player_loudness_normalization === false) {
-                var volume = Number(document.querySelector('.ytp-volume-panel').getAttribute('aria-valuenow'));
+ImprovedTube.onvolumechange = function(event) {
+    if (document.querySelector('.ytp-volume-panel') && ImprovedTube.storage.player_loudness_normalization === false) {
+        var volume = Number(document.querySelector('.ytp-volume-panel').getAttribute('aria-valuenow'));
 
-                document.querySelector('video').volume = volume / 100;
-            }
-        };
+        this.volume = volume / 100;
+    }
+};
+
+ImprovedTube.playerLoudnessNormalization = function() {
+    var video = document.querySelector('video');
+
+    if (video) {
+        video.removeEventListener('volumechange', ImprovedTube.onvolumechange);
+        video.addEventListener('volumechange', ImprovedTube.onvolumechange);
     }
 
     if (ImprovedTube.storage.player_loudness_normalization === false) {
@@ -1658,9 +1663,9 @@ ImprovedTube.playerLoudnessNormalization = function() {
                 local_storage = JSON.parse(JSON.parse(local_storage).data);
                 local_storage = Number(local_storage.volume);
 
-                document.querySelector('video').volume = local_storage / 100;
+                video.volume = local_storage / 100;
             } else {
-                document.querySelector('video').volume = 100;
+                video.volume = 100;
             }
         } catch (err) {}
     }
