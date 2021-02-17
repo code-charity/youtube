@@ -1126,16 +1126,26 @@ ImprovedTube.playerAds = function() {
         clearInterval(ImprovedTube.adInterval);
     }
 
-    if (ImprovedTube.storage.player_ads === 'block_all' || ImprovedTube.storage.player_ads === 'subscribed_channels') {
+    if (ImprovedTube.storage.player_ads === 'block_all') {
         ImprovedTube.adInterval = setInterval(function() {
-            if (!ImprovedTube.AdSkipButton) {
-                ImprovedTube.AdSkipButton = document.querySelector('.ytp-ad-skip-button.ytp-button');
-            }
+            var button = document.querySelector('.ytp-ad-skip-button.ytp-button');
 
-            if (ImprovedTube.AdSkipButton) {
-                ImprovedTube.AdSkipButton.click();
+            if (button) {
+                button.click();
+
+                clearInterval(ImprovedTube.adInterval);
             }
-        }, 250);
+        }, 50);
+    } else if (ImprovedTube.storage.player_ads === 'subscribed_channels') {
+        ImprovedTube.adInterval = setInterval(function() {
+            var button = document.querySelector('.ytp-ad-skip-button.ytp-button');
+
+            if (button && !document.querySelector('#meta paper-button[subscribed]')) {
+                button.click();
+
+                clearInterval(ImprovedTube.adInterval);
+            }
+        }, 50);
     }
 };
 
@@ -3012,10 +3022,23 @@ ImprovedTube.videoPageUpdate = function() {
 0.0 PLAYER UPDATE
 ------------------------------------------------------------------------------*/
 
+ImprovedTube.video_src = false;
+
+ImprovedTube.videoUpdated = function() {
+    this.playerAds();
+};
+
+ImprovedTube.timeupdate = function() {
+    if (ImprovedTube.video_src !== this.src) {
+        ImprovedTube.video_src = this.src;
+
+        ImprovedTube.videoUpdated();
+    }
+};
+
 ImprovedTube.playerUpdate = function() {
     this.playerPlaybackSpeed();
     this.subtitles();
-    this.playerAds();
     this.mini_player();
     this.playerQuality();
     this.playerVolume();
@@ -3100,6 +3123,9 @@ ImprovedTube.onfocus = function() {
 ImprovedTube.onplay = function() {
     HTMLMediaElement.prototype.play = (function(original) {
         return function() {
+            this.removeEventListener('timeupdate', ImprovedTube.timeupdate);
+            this.addEventListener('timeupdate', ImprovedTube.timeupdate);
+
             ImprovedTube.autoplay(this);
             ImprovedTube.playerLoudnessNormalization();
 
