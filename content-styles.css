@@ -590,6 +590,7 @@ html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change'])
 html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) #player-theater-container {
     width: auto !important;
     height: calc(var(--it-player-size) - var(--it-header-size)) !important;
+    max-height: none !important;
     min-height: auto !important;
 }
 
