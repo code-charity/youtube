@@ -3,8 +3,8 @@
     "name": "Improve YouTube! (testing)",
     "short_name": "ImprovedTube",
     "description": "Make YouTube tidy & powerful! YouTube Player Size Theme Quality Colors ad-block Playback Speed Style Playlist Channel H.264 Auto HD",
-    "version": "3.160",
-    "version_name": "3.160-testing",
+    "version": "3.162",
+    "version_name": "3.162-testing",
     "default_locale": "en",
     "icons": {
         "128": "assets/icons/128.png",
