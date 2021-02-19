@@ -73,20 +73,20 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [x] [한국어](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [msc9533](https://github.com/msc9533), [LYHyoung](https://github.com/LYHyoung)
 
 
-## 🔧 Install from source
+## 🔧 Install from source / Testing Latest version
 
-#### [Chromium](https://github.com/chromium/chromium) / [Brave](https://brave.com/?ref=imp716) / Vivaldi / Chrome
+#### Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...
 
 1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
-2. Open the Extensions (*chrome://extensions/*) page in your browser
+2. Go to your Browser's Extensions page (*chrome://extensions/*) 
 3. Activate "Developer mode"
 4. Click the "Load unpacked" button
 5. Select the extracted folder
 
-#### [LibreWolf](https://librewolf-community.gitlab.io/) / [Firefox](https://github.com/mozilla) / [Waterfox](https://github.com/MrAlex94/Waterfox) / GNUzilla / IceCat
+####  Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat
 
 1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
-2. Open Add-ons page (*about:addons*) in your browser
+2. Go to Add-ons (*about:addons*) 
 3. Click on "Extensions" tab
 4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
 5. Click on "Load Temporary Add-on…"
