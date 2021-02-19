@@ -92,4 +92,4 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 5. Click on "Load Temporary Add-on…"
 6. Select the "manifest.json" file from unzipped folder
 
-
+#### [Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)
