@@ -1,11 +1,11 @@
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-		<img src="https://github.com/victor-savinov/icons/blob/master/improvedtube/red-raised-128.png">
+		<img src="https://github.com/victor-savinov/icons/blob/master/improvedtube/red-raised-48.png">
 	</a>
 </p>
 
 
-<h1 align="center">Improve YouTube!</h1>
+<h1 align="center">«Improve YouTube!»</h1>
 
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
@@ -30,8 +30,7 @@
 
 
 <p align="center">
-	«Improve YouTube!» (
-	<code>/ImprovedTube/</code>) is a lightweight browser extension with a simple UI, powerful features.
+        <code>/ImprovedTube/</code> is a lightweight browser extension with a simple UI and powerful features.
 	<br>
 	<br>
   	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a>
@@ -42,11 +41,11 @@
 	·
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a>
 </p>
+<br><br>
 
+## 🙏 Credits
 
-<br>
-<br>
-
+Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) and [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
 
 ## 🌎 Translations
 
@@ -94,6 +93,3 @@
 6. Select the "manifest.json" file from unzipped folder
 
 
-## 🙏 Credits
-
-Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) and [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
