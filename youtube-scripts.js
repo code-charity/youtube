@@ -1865,7 +1865,7 @@ ImprovedTube.playerPopupButton = function() {
 
 ImprovedTube.playerSDR = function() {
     if (this.storage.player_SDR === true) {
-        Object.defineProperty(window.screen, "pixelDepth", {
+        Object.defineProperty(window.screen, 'pixelDepth', {
             enumerable: true,
             configurable: true,
             value: 24

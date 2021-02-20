@@ -3110,7 +3110,11 @@ function exportData() {
     var data = {};
 
     for (var key in satus.storage) {
-        if (typeof satus.storage[key] !== 'function') {
+        if (
+            typeof satus.storage[key] !== 'function' &&
+            key !== 'blacklist' &&
+            key !== 'watched'
+        ) {
             data[key] = satus.storage[key];
         }
     }
