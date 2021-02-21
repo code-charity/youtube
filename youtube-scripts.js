@@ -1834,7 +1834,7 @@ ImprovedTube.playerRotateButton = function() {
 
 
 /*------------------------------------------------------------------------------
-4.15 POPUP PLAYER
+4.17 POPUP PLAYER
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerPopupButton = function() {
