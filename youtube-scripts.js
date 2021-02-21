@@ -1853,11 +1853,12 @@ ImprovedTube.playerPopupButton = function() {
                 var url = new URL(window.location.href);
                 // Retrieve playlist identification parameter to check if single video or playlist
                 var playlistId = url.searchParams.get('list');
+                var startTime = parseInt(node.getCurrentTime());
 
                 // Build Embedded url
                 var popOutUrl = '//www.youtube.com/embed/' 
                     + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8) 
-                    + '?start=' + parseInt(node.getCurrentTime()) 
+                    + '?start=' + startTime 
                     + '&autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1');
 
                 
@@ -1866,17 +1867,16 @@ ImprovedTube.playerPopupButton = function() {
                     popOutUrl += '&listType=playlist&list=' + playlistId;
                     // Add index, this defines wich item of the playlist to start playing, if empty first item starts playing
                     popOutUrl += '&index=' + url.searchParams.get('index');
-                    /*
-                    KNOWN LIMITATION: opening a playlist will neglect the 'start' parameter
-                    This means the video will always start from the beginning of the video and
-                    will NOT skip to the timestamp where the user left off
-                    This issue could potentially be solved by executing 
-                    'player.seekTo(seconds:Number, allowSeekAhead:Boolean):Void' 
-                    in the new window.
-                    */
                 }
 
-                window.open(popOutUrl, '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=' + node.offsetWidth + ',height=' + node.offsetHeight);
+                var popOutPlayerWindow = window.open(popOutUrl, '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=' + node.offsetWidth + ',height=' + node.offsetHeight);
+
+                // Workaround to resume video on latest starting position on playing playlist
+                // Will only be triggered once
+                popOutPlayerWindow.window.onload = function () {
+                    popOutPlayerWindow.document.querySelector('video').currentTime = startTime;
+                    popOutPlayerWindow.window.onload = null;
+                }
             },
             title: 'Popup'
         });
