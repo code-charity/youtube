@@ -18,6 +18,8 @@
 var locale_code = 'en',
     browser_icon = false;
 
+var POPOUT_PADDING_WIDTH = 16;
+var POPOUT_PADDING_HEIGHT = 38;
 
 /*---------------------------------------------------------------
 # FUNCTIONS
@@ -262,8 +264,8 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
                     tabId: tab.id,
                     type: 'popup',
                     focused: true,
-                    width: request.data.width,
-                    height: request.data.height
+                    width: request.data.width + POPOUT_PADDING_WIDTH,
+                    height: request.data.height + POPOUT_PADDING_HEIGHT
                 });
 
                 // WORKAROUND playlist on popout not resuming from last video timestamp
