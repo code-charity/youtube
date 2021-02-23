@@ -9,7 +9,7 @@
 
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-		<img src="https://github.com/victor-savinov/previews/blob/main/improvedtube/screenshot-github.png">
+		<img src="https://github.com/victor-savinov/previews/blob/master/improvedtube/screenshot-github.png">
 	</a>
 </p>
 
