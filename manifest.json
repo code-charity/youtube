@@ -76,7 +76,8 @@
     "permissions": [
         "https://www.youtube.com/",
         "contextMenus",
-        "storage"
+        "storage",
+        "tabs"
     ],
     "optional_permissions": [
         "downloads",
