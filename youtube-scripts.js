@@ -89,7 +89,7 @@ var ImprovedTube = {};
 1.1 YOUTUBE HOME PAGE
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.youtubeHomePage = function() {
+ImprovedTube.youtubeHomePage = function () {
     var option = this.storage.youtube_home_page;
 
     if (
@@ -112,7 +112,7 @@ ImprovedTube.youtubeHomePage = function() {
             }
 
             node.href = option;
-            node.addEventListener('click', function() {
+            node.addEventListener('click', function () {
                 if (
                     this.data &&
                     this.data.commandMetadata &&
@@ -1809,7 +1809,7 @@ ImprovedTube.playerRotateButton = function () {
                 transform += 'rotate(' + rotate + 'deg)';
 
                 if (rotate == 90 || rotate == 270) {
-                    transform += ' scale(' + video.offsetHeight / video.offsetWidth + ')';
+                    transform += ' scale(' + video.offsetWidth / video.offsetHeight + ')';
                 }
 
                 //video.style.transform = transform;
