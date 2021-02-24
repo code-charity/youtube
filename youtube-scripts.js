@@ -89,7 +89,7 @@ var ImprovedTube = {};
 1.1 YOUTUBE HOME PAGE
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.youtubeHomePage = function() {
+ImprovedTube.youtubeHomePage = function () {
     var option = this.storage.youtube_home_page;
 
     if (
@@ -112,7 +112,7 @@ ImprovedTube.youtubeHomePage = function() {
             }
 
             node.href = option;
-            node.addEventListener('click', function() {
+            node.addEventListener('click', function () {
                 if (
                     this.data &&
                     this.data.commandMetadata &&
@@ -1847,46 +1847,52 @@ ImprovedTube.playerPopupButton = function () {
             id: 'it-popup-player-button',
             html: '<svg viewBox="0 0 24 24"><path d="M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z"></svg>',
             opacity: 1,
-            onclick: function (event) {
-                node.pauseVideo();
-
-                var url = new URL(window.location.href);
-                // Retrieve playlist identification parameter to check if single video or playlist
-                var playlistId = url.searchParams.get('list');
-                var startTime = parseInt(node.getCurrentTime());
-
-                // Build Embedded url
-                var popOutUrl = location.protocol + '//www.youtube.com/embed/'
-                    + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8)
-                    + '?start=' + startTime
-                    + '&autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1');
-
-
-                if (playlistId) {
-                    // Use listType playlist and add id of the playlist
-                    popOutUrl += '&listType=playlist&list=' + playlistId;
-                    // Add index, this defines wich item of the playlist to start playing, if empty first item starts playing
-                    popOutUrl += '&index=' + url.searchParams.get('index');
-                }
-
-                // Use dispatchEvent for sending it through the Chrome Runtime
-                // This makes it possible to open the popup player without address bar
-                // See 'background.js' for further implementation
-                document.dispatchEvent(new CustomEvent('OpenPopupPlayer', {
-                    detail: {
-                        url: popOutUrl,
-                        width: node.offsetWidth,
-                        height: node.offsetHeight,
-                        startTime: startTime
-                    }
-                }));
-            },
+            onclick: ImprovedTube.createPopUpWindow,
             title: 'Popup'
         });
     } else if (document.querySelector('.it-popup-player-button')) {
         document.querySelector('.it-popup-player-button').remove();
     }
 };
+
+ImprovedTube.createPopUpWindow = function () {
+    if (!node) {
+        var node = document.querySelector('.html5-video-player');
+    }
+
+    node.pauseVideo();
+
+    var url = new URL(window.location.href);
+    // Retrieve playlist identification parameter to check if single video or playlist
+    var playlistId = url.searchParams.get('list');
+    var startTime = parseInt(node.getCurrentTime());
+
+    // Build Embedded url
+    var popOutUrl = location.protocol + '//www.youtube.com/embed/'
+        + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8)
+        + '?start=' + startTime
+        + '&autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1');
+
+
+    if (playlistId) {
+        // Use listType playlist and add id of the playlist
+        popOutUrl += '&listType=playlist&list=' + playlistId;
+        // Add index, this defines wich item of the playlist to start playing, if empty first item starts playing
+        popOutUrl += '&index=' + url.searchParams.get('index');
+    }
+
+    // Use dispatchEvent for sending it through the Chrome Runtime
+    // This makes it possible to open the popup player without address bar
+    // See 'background.js' for further implementation
+    document.dispatchEvent(new CustomEvent('OpenPopupPlayer', {
+        detail: {
+            url: popOutUrl,
+            width: node.offsetWidth,
+            height: node.offsetHeight,
+            startTime: startTime
+        }
+    }));
+}
 
 document.addEventListener('OpenPopupPlayer', function (event) {
     if (chrome && chrome.runtime) {
@@ -2441,6 +2447,9 @@ ImprovedTube.shortcuts = function () {
             },
             shortcut_toggle_cards: function () {
                 document.documentElement.toggleAttribute('it-player-hide-cards');
+            },
+            shortcut_popup_player: function () {
+                ImprovedTube.createPopUpWindow();
             }
         };
 
