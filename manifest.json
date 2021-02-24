@@ -76,12 +76,12 @@
     "permissions": [
         "https://www.youtube.com/",
         "contextMenus",
-        "storage",
-        "tabs"
+        "storage"
     ],
     "optional_permissions": [
         "downloads",
-        "https://*.youtube.com/*"
+        "https://*.youtube.com/*",
+        "tabs"
     ],
     "update_url": "https://clients2.google.com/service/update2/crx"
 }
