@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "Allow 60fps"
     },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
     "alwaysActive": {
         "message": "Always active"
     },
@@ -164,11 +167,17 @@
     "cores": {
         "message": "Cores"
     },
+    "cropChapterTitles": {
+        "message": "Crop chapter titles"
+    },
     "customCss": {
         "message": "Custom CSS"
     },
     "customJs": {
         "message": "Custom JS"
+    },
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "cyan": {
         "message": "Cyan"
@@ -293,6 +302,9 @@
     "general": {
         "message": "General"
     },
+    "geoPreference": {
+        "message": "Geo Preference"
+    },
     "github": {
         "message": "GitHub"
     },
@@ -340,6 +352,9 @@
     },
     "hideFooter": {
         "message": "Hide footer"
+    },
+    "hideGradientBottom": {
+        "message": "Hide Gradient Bottom"
     },
     "hidePlaylist": {
         "message": "Hide playlist"
@@ -442,9 +457,6 @@
     },
     "markWatchedVideos": {
         "message": "Mark watched videos"
-    },
-    "miniPlayer": {
-        "message": "Mini player"
     },
     "mixer": {
         "message": "Mixer"
@@ -572,6 +584,9 @@
     "red": {
         "message": "Red"
     },
+    "redDislikeButton": {
+        "message": "Show dislike button red colour"
+    },
     "relatedVideos": {
         "message": "Related videos"
     },
@@ -653,6 +668,9 @@
     "static": {
         "message": "Static"
     },
+    "statsForNerds": {
+        "message": "Show Stats for Nerds"
+    },
     "step": {
         "message": "Step"
     },
@@ -716,6 +734,9 @@
     "todayAt": {
         "message": "Today at"
     },
+    "toggleCards": {
+        "message": "Toggle cards"
+    },
     "topChat": {
         "message": "Top chat"
     },
@@ -777,10 +798,10 @@
         "message": "Yellow"
     },
     "youtubeHeaderLeft": {
-        "message": "Youtube Header (left)"
+        "message": "YouTube Header (left)"
     },
     "youtubeHeaderRight": {
-        "message": "Youtube Header (right)"
+        "message": "YouTube Header (right)"
     },
     "youtubeHomePage": {
         "message": "YouTube home page"
