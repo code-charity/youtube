@@ -2598,6 +2598,10 @@ Menu.main.section.shortcuts = {
         shortcut_toggle_cards: {
             type: 'shortcut',
             label: 'toggleCards'
+        },
+        shortcut_popup_player: {
+            type: 'shortcut',
+            label: 'openPopupPlayer'
         }
     },
 
