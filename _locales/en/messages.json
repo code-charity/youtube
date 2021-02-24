@@ -179,6 +179,9 @@
     "customMiniPlayer": {
         "message": "Custom Mini-Player"
     },
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
+    },
     "cyan": {
         "message": "Cyan"
     },
