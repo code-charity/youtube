@@ -179,6 +179,9 @@
     "customMiniPlayer": {
         "message": "Aangepaste minispeler"
     },
+    "openPopupPlayer": {
+        "message": "Open de video in een nieuw venster"
+    },
     "cyan": {
         "message": "Groenblauw"
     },
