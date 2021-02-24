@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "Permitir 60fps"
     },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
     "alwaysActive": {
         "message": "Sempre ativo"
     },
@@ -164,11 +167,17 @@
     "cores": {
         "message": "Núcleos"
     },
+    "cropChapterTitles": {
+        "message": "Crop chapter titles"
+    },
     "customCss": {
         "message": "Custom CSS"
     },
     "customJs": {
         "message": "Custom JS"
+    },
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "cyan": {
         "message": "Ciano"
@@ -341,6 +350,9 @@
     "hideFooter": {
         "message": "Ocultar rodapé"
     },
+    "hideGradientBottom": {
+        "message": "Hide Gradient Bottom"
+    },
     "hidePlaylist": {
         "message": "Ocultar playlist"
     },
@@ -442,9 +454,6 @@
     },
     "markWatchedVideos": {
         "message": "Mark watched videos"
-    },
-    "miniPlayer": {
-        "message": "Mini player"
     },
     "mixer": {
         "message": "Mixer"
@@ -572,6 +581,9 @@
     "red": {
         "message": "Vermelho"
     },
+    "redDislikeButton": {
+        "message": "Show dislike button red colour"
+    },
     "relatedVideos": {
         "message": "Vídeos relacionados"
     },
@@ -653,6 +665,9 @@
     "static": {
         "message": "Estático"
     },
+    "statsForNerds": {
+        "message": "Show Stats for Nerds"
+    },
     "step": {
         "message": "Step"
     },
@@ -715,6 +730,9 @@
     },
     "todayAt": {
         "message": "Hoje às"
+    },
+    "toggleCards": {
+        "message": "Toggle cards"
     },
     "topChat": {
         "message": "Top chat"

@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "Разрешить 60fps"
     },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
     "alwaysActive": {
         "message": "Всегда активный"
     },
@@ -164,11 +167,17 @@
     "cores": {
         "message": "Ядра"
     },
+    "cropChapterTitles": {
+        "message": "Обрезать заголовки глав"
+    },
     "customCss": {
         "message": "Custom CSS"
     },
     "customJs": {
         "message": "Сustom JS"
+    },
+    "customMiniPlayer": {
+        "message": "Новый мини-плеер"
     },
     "cyan": {
         "message": "Сине-зелёный"
@@ -341,6 +350,9 @@
     "hideFooter": {
         "message": "Скрыть нижний колонтитул"
     },
+    "hideGradientBottom": {
+        "message": "Hide Gradient Bottom"
+    },
     "hidePlaylist": {
         "message": "Скрыть плейлист"
     },
@@ -390,7 +402,7 @@
         "message": "Версия ImprovedTube"
     },
     "improveLogo": {
-        "message": "Улучшить логотип Youtube"
+        "message": "Улучшить логотип YouTube"
     },
     "increasePlaybackSpeed": {
         "message": "Увеличить скорость видео"
@@ -442,9 +454,6 @@
     },
     "markWatchedVideos": {
         "message": "Отмечать просмотренные видео"
-    },
-    "miniPlayer": {
-        "message": "Мини-плеер"
     },
     "mixer": {
         "message": "Миксер"
@@ -572,6 +581,9 @@
     "red": {
         "message": "Красный"
     },
+    "redDislikeButton": {
+        "message": "Show dislike button red colour"
+    },
     "relatedVideos": {
         "message": "Похожие видео"
     },
@@ -653,6 +665,9 @@
     "static": {
         "message": "Статично"
     },
+    "statsForNerds": {
+        "message": "Show Stats for Nerds"
+    },
     "step": {
         "message": "Step"
     },
@@ -696,7 +711,7 @@
         "message": "Это удалит все куки"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "Вы действительно хотите удалить все куки Youtube?"
+        "message": "Вы действительно хотите удалить все куки YouTube?"
     },
     "thisWillResetAllSettings": {
         "message": "Это сбросит все настройки"
@@ -715,6 +730,9 @@
     },
     "todayAt": {
         "message": "Сегодня в"
+    },
+    "toggleCards": {
+        "message": "Toggle cards"
     },
     "topChat": {
         "message": "Top chat"

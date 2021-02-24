@@ -38,6 +38,9 @@
     "allow60fps": {
         "message": "60fpsを許可する"
     },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
     "alwaysActive": {
         "message": "常に有効"
     },
@@ -164,11 +167,17 @@
     "cores": {
         "message": "コア数"
     },
+    "cropChapterTitles": {
+        "message": "チャプターのタイトルをトリミングする"
+    },
     "customCss": {
         "message": "カスタム CSS"
     },
     "customJs": {
         "message": "カスタム JS"
+    },
+    "customMiniPlayer": {
+        "message": "カスタムミニプレーヤー"
     },
     "cyan": {
         "message": "シアン"
@@ -341,6 +350,9 @@
     "hideFooter": {
         "message": "フッターを隠す"
     },
+    "hideGradientBottom": {
+        "message": "グラデーションの下部を隠す"
+    },
     "hidePlaylist": {
         "message": "再生リストを隠す"
     },
@@ -423,7 +435,7 @@
         "message": "高評価"
     },
     "likes": {
-        "message": "高評価"
+        "message": "評価"
     },
     "lime": {
         "message": "ライム"
@@ -442,9 +454,6 @@
     },
     "markWatchedVideos": {
         "message": "視聴した動画にマークを付ける"
-    },
-    "miniPlayer": {
-        "message": "ミニプレーヤー"
     },
     "mixer": {
         "message": "ミキサー"
@@ -572,6 +581,9 @@
     "red": {
         "message": "赤"
     },
+    "redDislikeButton": {
+        "message": "低評価ボタンを赤色で表示する"
+    },
     "relatedVideos": {
         "message": "関連動画"
     },
@@ -653,6 +665,9 @@
     "static": {
         "message": "スタティック"
     },
+    "statsForNerds": {
+        "message": "Show Stats for Nerds"
+    },
     "step": {
         "message": "ステップ"
     },
@@ -716,6 +731,9 @@
     "todayAt": {
         "message": "測定時刻"
     },
+    "toggleCards": {
+        "message": "Toggle cards"
+    },
     "topChat": {
         "message": "上位チャット"
     },
@@ -777,10 +795,10 @@
         "message": "黄"
     },
     "youtubeHeaderLeft": {
-        "message": "Youtube のヘッダー左"
+        "message": "YouTube のヘッダー左"
     },
     "youtubeHeaderRight": {
-        "message": "Youtube のヘッダー右"
+        "message": "YouTube のヘッダー右"
     },
     "youtubeHomePage": {
         "message": "YouTube のホームページ"

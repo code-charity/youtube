@@ -1,41 +1,40 @@
-/*-----------------------------------------------------------------------------
+/*---------------------------------------------------------------
 >>> BACKGROUND
--------------------------------------------------------------------------------
-1.0 Global variables
-2.0 Functions
-3.0 Context menu items
-4.0 Message listener
-5.0 Storage change listener
-6.0 Initialization
-7.0 Uninstall URL
------------------------------------------------------------------------------*/
+-----------------------------------------------------------------
+# Global variables
+# Functions
+# Context menu items
+# Message listener
+# Storage change listener
+# Initialization
+# Uninstall URL
+# Google Analytics
+---------------------------------------------------------------*/
 
-/*-----------------------------------------------------------------------------
-1.0 GLOBAL VARIABLES
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# GLOBAL VARIABLES
+---------------------------------------------------------------*/
 
 var locale_code = 'en',
     browser_icon = false;
 
+var POPOUT_PADDING_WIDTH = 16;
+var POPOUT_PADDING_HEIGHT = 38;
 
-/*-----------------------------------------------------------------------------
-2.0 FUNCTIONS
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# FUNCTIONS
+---------------------------------------------------------------*/
 
 function isset(variable) {
-    if (typeof variable === 'undefined' || variable === null) {
-        return false;
-    }
-
-    return true;
+    return !(typeof variable === 'undefined' || variable === null);
 }
 
 function getTranslations(path) {
     var xhr = new XMLHttpRequest();
 
-    xhr.addEventListener('load', function() {
+    xhr.addEventListener('load', function () {
         if (chrome && chrome.tabs) {
-            chrome.tabs.query({}, function(tabs) {
+            chrome.tabs.query({}, function (tabs) {
                 for (var i = 0, l = tabs.length; i < l; i++) {
                     if (tabs[i].hasOwnProperty('url')) {
                         chrome.tabs.sendMessage(tabs[i].id, {
@@ -51,6 +50,10 @@ function getTranslations(path) {
             name: 'translation_response',
             value: xhr.responseText
         });
+    });
+
+    xhr.addEventListener('error', function () {
+        getTranslations('_locales/en/messages.json');
     });
 
     xhr.open('GET', path, true);
@@ -70,9 +73,9 @@ function browserActionIcon() {
 }
 
 
-/*-----------------------------------------------------------------------------
-3.0 CONTEXT MENU ITEMS
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# CONTEXT MENU ITEMS
+---------------------------------------------------------------*/
 
 chrome.contextMenus.removeAll();
 
@@ -94,7 +97,7 @@ chrome.contextMenus.create({
     contexts: ['browser_action']
 });
 
-chrome.contextMenus.onClicked.addListener(function(event) {
+chrome.contextMenus.onClicked.addListener(function (event) {
     if (event.menuItemId === '1111') {
         window.open('https://www.improvedtube.com/donate');
     } else if (event.menuItemId === '1112') {
@@ -105,11 +108,11 @@ chrome.contextMenus.onClicked.addListener(function(event) {
 });
 
 
-/*-----------------------------------------------------------------------------
-4.0 MESSAGE LISTENER
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# MESSAGE LISTENER
+---------------------------------------------------------------*/
 
-chrome.runtime.onMessage.addListener(function(request, sender) {
+chrome.runtime.onMessage.addListener(function (request, sender) {
     if (isset(request) && typeof request === 'object') {
         if (request.enabled === true && browser_icon !== 'always') {
             chrome.browserAction.setIcon({
@@ -127,7 +130,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
                 date = new Date().toDateString(),
                 hours = new Date().getHours() + ':00';
 
-            chrome.storage.local.get(function(items) {
+            chrome.storage.local.get(function (items) {
                 if (!items.analyzer) {
                     items.analyzer = {};
                 }
@@ -153,7 +156,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
         }
 
         if (request.name === 'improvedtube-blacklist') {
-            chrome.storage.local.get(function(items) {
+            chrome.storage.local.get(function (items) {
                 if (!items.blacklist || typeof items.blacklist !== 'object') {
                     items.blacklist = {};
                 }
@@ -186,7 +189,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
         }
 
         if (request.name === 'improvedtube-watched') {
-            chrome.storage.local.get(function(items) {
+            chrome.storage.local.get(function (items) {
                 if (!items.watched || typeof items.watched !== 'object') {
                     items.watched = {};
                 }
@@ -211,7 +214,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
             chrome.permissions.request({
                 permissions: ['downloads'],
                 origins: ['https://www.youtube.com/*']
-            }, function(granted) {
+            }, function (granted) {
                 if (granted) {
                     try {
                         var blob = new Blob([JSON.stringify(request.value)], {
@@ -239,7 +242,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
         }
 
         if (request.name === 'improvedtube-play') {
-            chrome.tabs.query({}, function(tabs) {
+            chrome.tabs.query({}, function (tabs) {
                 for (var i = 0, l = tabs.length; i < l; i++) {
                     if (tabs[i].hasOwnProperty('url')) {
                         chrome.tabs.sendMessage(tabs[i].id, {
@@ -251,21 +254,51 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
             });
         }
 
+        if (request.name === 'open-popup-player') {
+            chrome.tabs.create({
+                url: request.data.url,
+                active: true
+            }, function (tab) {
+                // After the tab has been created, open a window to inject the tab
+                chrome.windows.create({
+                    tabId: tab.id,
+                    type: 'popup',
+                    focused: true,
+                    width: request.data.width + POPOUT_PADDING_WIDTH,
+                    height: request.data.height + POPOUT_PADDING_HEIGHT
+                });
+
+                // WORKAROUND playlist on popout not resuming from last video timestamp
+                // If start time was found in the request data skip the video to that time
+                if (request.data.startTime) {
+                    chrome.tabs.executeScript(tab.id, {
+                        code:
+                            `
+                            window.onload = function () {
+                                window.document.querySelector('video').currentTime =` + request.data.startTime + `
+                                window.onload = null;
+                            };
+                            `
+                    });
+                }
+            });
+        }
+
         if (isset(request.export)) {
-            chrome.storage.local.get(function(data) {
+            chrome.storage.local.get(function (data) {
                 chrome.permissions.request({
                     permissions: ['downloads'],
                     origins: ['https://www.youtube.com/*']
-                }, function(granted) {
+                }, function (granted) {
                     if (granted) {
                         var blob = new Blob([JSON.stringify(data)], {
-                                type: 'application/octet-stream'
-                            }),
+                            type: 'application/octet-stream'
+                        }),
                             date = new Date();
 
                         chrome.downloads.download({
                             url: URL.createObjectURL(blob),
-                            filename: 'improvedtube_' + (date.getMonth() + 1) + '_' + date.getDate() + '_' + date.getFullYear() + '.json',
+                            filename: 'improvedtube_' + (date.getMonth() + 1) + '_' + date.getDate() + '_' + date.getFullYear() + '.txt',
                             saveAs: true
                         });
                     }
@@ -276,11 +309,11 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 });
 
 
-/*-----------------------------------------------------------------------------
-5.0 STORAGE CHANGE LISTENER
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# STORAGE CHANGE LISTENER
+---------------------------------------------------------------*/
 
-chrome.storage.onChanged.addListener(function(changes) {
+chrome.storage.onChanged.addListener(function (changes) {
     if (isset(changes.improvedtube_language)) {
         locale_code = changes.improvedtube_language.newValue;
     }
@@ -290,14 +323,16 @@ chrome.storage.onChanged.addListener(function(changes) {
     }
 
     browserActionIcon();
+
+    _gaq.push(['_trackPageview', '/improvedtube-' + chrome.runtime.getManifest().version + '/background', 'page-loaded']);
 });
 
 
-/*-----------------------------------------------------------------------------
-6.0 INITIALIZATION
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# INITIALIZATION
+---------------------------------------------------------------*/
 
-chrome.storage.local.get(function(items) {
+chrome.storage.local.get(function (items) {
     if (isset(items.improvedtube_language)) {
         locale_code = items.improvedtube_language;
     }
@@ -307,11 +342,53 @@ chrome.storage.local.get(function(items) {
     }
 
     browserActionIcon();
+
+    _gaq.push(['_trackPageview', '/improvedtube-' + chrome.runtime.getManifest().version + '/background', 'page-loaded']);
 });
 
 
-/*-----------------------------------------------------------------------------
-7.0 UNINSTALL URL
------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------
+# UNINSTALL URL
+---------------------------------------------------------------*/
 
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
+
+
+/*---------------------------------------------------------------
+# GOOGLE ANALYTICS
+---------------------------------------------------------------*/
+
+var _gaq = _gaq || [];
+
+/*(function() {
+    var ga = document.createElement('script');
+
+    _gaq.push(['_setAccount', 'UA-88354155-1']);
+    _gaq.push(['_setSessionCookieTimeout', 14400000]);
+
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+
+    document.body.appendChild(ga);
+})();*/
+
+
+chrome.tabs.onActivated.addListener(function (activeInfo) {
+    chrome.tabs.query({}, function (tabs) {
+        chrome.tabs.sendMessage(activeInfo.tabId, {
+            action: 'focus'
+        });
+
+        for (var i = 0, l = tabs.length; i < l; i++) {
+            if (tabs[i].id !== activeInfo.tabId) {
+                if (tabs[i].hasOwnProperty('url')) {
+                    chrome.tabs.sendMessage(tabs[i].id, {
+                        action: 'blur'
+                    });
+                }
+            }
+        }
+    });
+});
+
