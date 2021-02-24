@@ -3,34 +3,34 @@
         "message": "關於"
     },
     "accept": {
-        "message": "Accept"
+        "message": "接受"
     },
     "activate": {
-        "message": "Activate"
+        "message": "啟用"
     },
     "activateCaptions": {
-        "message": "開啟 字幕"
+        "message": "開啟字幕"
     },
     "activated": {
-        "message": "Activated"
+        "message": "啟用"
     },
     "activatedFeatures": {
-        "message": "Activated features"
+        "message": "已啟用功能"
     },
     "activateFullscreen": {
-        "message": "開啟 全螢幕"
+        "message": "開啟全螢幕"
     },
     "activeFeatures": {
-        "message": "Active features"
+        "message": "已啟用功能"
     },
     "addScrollToTop": {
-        "message": "滾動到頂部按鈕"
+        "message": "新增「回到頂部」按鈕"
     },
     "ads": {
         "message": "廣告"
     },
     "all": {
-        "message": "All"
+        "message": "所有"
     },
     "allow": {
         "message": "允許"
@@ -38,17 +38,20 @@
     "allow60fps": {
         "message": "允許 60fps"
     },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
     "alwaysActive": {
         "message": "始終有效"
     },
     "alwaysShowProgressBar": {
-        "message": "Always show progress bar"
+        "message": "一律顯示進度條"
     },
     "amber": {
         "message": "琥珀色"
     },
     "analyzer": {
-        "message": "Analyzer"
+        "message": "分析儀"
     },
     "appearance": {
         "message": "外貌"
@@ -66,19 +69,19 @@
         "message": "⇧"
     },
     "audio": {
-        "message": "Audio"
+        "message": "音頻"
     },
     "audioFormats": {
-        "message": "Audio formats"
+        "message": "音頻格式"
     },
     "auto": {
-        "message": "Auto"
+        "message": "自動"
     },
     "autoFullscreen": {
         "message": "自動全螢幕"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Autopause when switching tabs"
+        "message": "切換分頁時自動暫停"
     },
     "autoplay": {
         "message": "自動播放"
@@ -87,19 +90,19 @@
         "message": "備份&重置"
     },
     "baseOnSystemColorScheme": {
-        "message": "Base on system color scheme"
+        "message": "使用系統配色方案"
     },
     "belowPlayer": {
-        "message": "Below player"
+        "message": "於播放器底下"
     },
     "black": {
         "message": "黑色"
     },
     "blacklist": {
-        "message": "Blacklist"
+        "message": "黑名單"
     },
     "blockAll": {
-        "message": "Block all"
+        "message": "封鎖所有"
     },
     "blue": {
         "message": "藍色"
@@ -117,31 +120,31 @@
         "message": "瀏覽器"
     },
     "browserVersion": {
-        "message": "瀏覽器 版本"
+        "message": "瀏覽器版本"
     },
     "bubbles": {
         "message": "Bubbles"
     },
     "bug": {
-        "message": "Bug"
+        "message": "問題"
     },
     "buttons": {
-        "message": "Buttons"
+        "message": "按鈕"
     },
     "cancel": {
-        "message": "Cancel"
+        "message": "取消"
     },
     "categories": {
-        "message": "Categories"
+        "message": "類別"
     },
     "channel": {
-        "message": "Channel"
+        "message": "頻道"
     },
     "channels": {
-        "message": "Channels"
+        "message": "頻道"
     },
     "clipboard": {
-        "message": "Clipboard"
+        "message": "剪贴板"
     },
     "codecH264": {
         "message": "影片編解碼器 h.264"
@@ -150,13 +153,13 @@
         "message": "簡縮"
     },
     "collapseOfSubscriptionSections": {
-        "message": "Collapse of subscription sections"
+        "message": "於訂閱區顯示縮放按鈕"
     },
     "comments": {
         "message": "評論"
     },
     "confirmationBeforeClosing": {
-        "message": "Confirmation before closing"
+        "message": "關閉前先確認"
     },
     "cookies": {
         "message": "Cookies"
@@ -164,20 +167,26 @@
     "cores": {
         "message": "Cores"
     },
+    "cropChapterTitles": {
+        "message": "截斷章節名稱"
+    },
     "customCss": {
-        "message": "Custom CSS"
+        "message": "自訂 CSS"
     },
     "customJs": {
-        "message": "Custom JS"
+        "message": "自訂 JS"
+    },
+    "customMiniPlayer": {
+        "message": "自訂迷你播放器"
     },
     "cyan": {
         "message": "青色"
     },
     "dark": {
-        "message": "Dark"
+        "message": "暗黑"
     },
     "darkTheme": {
-        "message": "Dark theme"
+        "message": "暗黑主題"
     },
     "dateAndTime": {
         "message": "日期和時間"
@@ -186,10 +195,10 @@
         "message": "黎明"
     },
     "decreasePlaybackSpeed": {
-        "message": "Decrease playback speed"
+        "message": "降低播放速度"
     },
     "decreaseVolume": {
-        "message": "減少音量"
+        "message": "減輕音量"
     },
     "deepOrange": {
         "message": "深橙色"
@@ -198,7 +207,7 @@
         "message": "深紫色"
     },
     "defaultChannelTab": {
-        "message": "默認頻道標籤"
+        "message": "預設頻道標籤"
     },
     "deleteYoutubeCookies": {
         "message": "刪除 YouTube cookies"
@@ -213,10 +222,10 @@
         "message": "細節"
     },
     "developerOptions": {
-        "message": "Developer options"
+        "message": "開發人員選項"
     },
     "device": {
-        "message": "Device"
+        "message": "裝置"
     },
     "dim": {
         "message": "光線暗度"
@@ -225,7 +234,7 @@
         "message": "關閉"
     },
     "dislike": {
-        "message": "Dislike"
+        "message": "不喜歡"
     },
     "donate": {
         "message": "捐贈"
@@ -240,13 +249,13 @@
         "message": "Email"
     },
     "empty": {
-        "message": "Empty"
+        "message": "空白"
     },
     "enabled": {
         "message": "啟用"
     },
     "enabledForced": {
-        "message": "Enabled (forced)"
+        "message": "強制啟用"
     },
     "expanded": {
         "message": "擴展"
@@ -255,43 +264,43 @@
         "message": "導出設定"
     },
     "extension": {
-        "message": "Extension"
+        "message": "擴充元件"
     },
     "file": {
-        "message": "File"
+        "message": "檔案"
     },
     "filters": {
-        "message": "Filters"
+        "message": "濾鏡"
     },
     "fitToWindow": {
-        "message": "Fit to window"
+        "message": "依視窗大小縮放"
     },
     "flash": {
         "message": "Flash"
     },
     "font": {
-        "message": "Font"
+        "message": "字體"
     },
     "footer": {
         "message": "頁腳"
     },
     "forcedPlaybackSpeed": {
-        "message": "Forced playback speed"
+        "message": "強制播放速度"
     },
     "forcedTheaterMode": {
         "message": "強制劇院模式"
     },
     "forcedVolume": {
-        "message": "Forced volume"
+        "message": "強制播放音量"
     },
     "foundABug": {
-        "message": "Found a bug?"
+        "message": "遇到問題了嗎?"
     },
     "fullWindow": {
-        "message": "Full window"
+        "message": "全螢幕"
     },
     "general": {
-        "message": "General"
+        "message": "一般"
     },
     "github": {
         "message": "GitHub"
@@ -306,52 +315,55 @@
         "message": "綠色"
     },
     "hdThumbnail": {
-        "message": "HD 縮略圖"
+        "message": "HD 縮圖"
     },
     "hdThumbnails": {
-        "message": "HD thumbnails"
+        "message": "HD 縮圖"
     },
     "header": {
-        "message": "Header"
+        "message": "標頭"
     },
     "hidden": {
         "message": "隱藏"
     },
     "hiddenOnVideoPage": {
-        "message": "隱藏在影片頁面上"
+        "message": "於影片頁面自動隱藏"
     },
     "hideAnimatedThumbnails": {
         "message": "隱藏動態的縮略圖"
     },
     "hideAnnotations": {
-        "message": "Hide 註釋"
+        "message": "隱藏註解"
     },
     "hideCards": {
-        "message": "Hide 右上角的卡片"
+        "message": "隱藏資訊卡"
     },
     "hideDetails": {
         "message": "隱藏細節"
     },
     "hideEndscreen": {
-        "message": "Hide endscreen"
+        "message": "隱藏結束畫面"
     },
     "hideFeaturedContent": {
-        "message": "Hide featured content"
+        "message": "隱藏精選影片"
     },
     "hideFooter": {
-        "message": "Hide footer"
+        "message": "隱藏頁腳"
+    },
+    "hideGradientBottom": {
+        "message": "隱藏底部漸層圖層"
     },
     "hidePlaylist": {
-        "message": "Hide playlist"
+        "message": "隱藏播放清單"
     },
     "hideRightButtons": {
-        "message": "Hide right buttons"
+        "message": "隱藏右側按鈕"
     },
     "hideScrollForDetails": {
-        "message": "Hide 滾動查看詳細信息"
+        "message": "隱藏「向下捲動即可查看詳情」"
     },
     "hideViewsCount": {
-        "message": "Hide 觀看次數"
+        "message": "隱藏觀看次數"
     },
     "history": {
         "message": "觀看記錄"
@@ -360,16 +372,16 @@
         "message": "首頁"
     },
     "hover": {
-        "message": "Hover"
+        "message": "滑鼠暫留時顯示"
     },
     "hoverOnVideoPage": {
-        "message": "Hover on video page"
+        "message": "於影片頁面滑鼠暫留時顯示"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "視頻上傳了多久"
+        "message": "影片上傳了多久"
     },
     "icons": {
-        "message": "Icons"
+        "message": "圖標"
     },
     "iconsOnly": {
         "message": "只有圖標"
@@ -390,10 +402,10 @@
         "message": "ImprovedTube 版本"
     },
     "improveLogo": {
-        "message": "Improve logo"
+        "message": "改進 YouTube 圖示"
     },
     "increasePlaybackSpeed": {
-        "message": "Increase playback speed"
+        "message": "提高播放速度"
     },
     "increaseVolume": {
         "message": "增加音量"
@@ -402,13 +414,13 @@
         "message": "靛青"
     },
     "items": {
-        "message": "Items"
+        "message": "項目"
     },
     "languages": {
         "message": "語言"
     },
     "legacyYoutube": {
-        "message": "Legacy YouTube"
+        "message": "舊版 YouTube"
     },
     "light": {
         "message": "Light"
@@ -420,46 +432,43 @@
         "message": "淺綠色"
     },
     "like": {
-        "message": "Like"
+        "message": "喜歡"
     },
     "likes": {
-        "message": "Likes圖標"
+        "message": "顯示按讚數量"
     },
     "lime": {
-        "message": "Lime"
+        "message": "萊姆色"
     },
     "list": {
-        "message": "List"
+        "message": "清單"
     },
     "liveChat": {
         "message": "Live 聊天視窗"
     },
     "liveChatType": {
-        "message": "Live chat type"
+        "message": "Live 聊天視窗種類"
     },
     "loudnessNormalization": {
-        "message": "Loudness normalization"
+        "message": "音量標準化"
     },
     "markWatchedVideos": {
-        "message": "Mark watched videos"
-    },
-    "miniPlayer": {
-        "message": "迷你播放器"
+        "message": "標記已觀看影片"
     },
     "mixer": {
         "message": "音量混合器"
     },
     "myColors": {
-        "message": "My colors"
+        "message": "自訂主色"
     },
     "name": {
-        "message": "Name"
+        "message": "名稱"
     },
     "nativeMiniPlayer": {
-        "message": "Native mini player"
+        "message": "內建迷你播放器"
     },
     "new": {
-        "message": "New"
+        "message": "新增"
     },
     "nextVideo": {
         "message": "下一個影片"
@@ -468,46 +477,46 @@
         "message": "夜晚"
     },
     "noActiveFeatures": {
-        "message": "No active features"
+        "message": "無已啟用功能"
     },
     "none": {
-        "message": "None"
+        "message": "無"
     },
     "noOpenVideoTabs": {
-        "message": "No open video tabs"
+        "message": "無已開啟之影片頁面"
     },
     "normal": {
         "message": "正常"
     },
     "old": {
-        "message": "Old"
+        "message": "舊版"
     },
     "onAllVideos": {
-        "message": "On all videos"
+        "message": "於所有影片中"
     },
     "onlyActiveOnYoutube": {
         "message": "僅在YouTube上有效"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Only one player instance playing"
+        "message": "同時間僅限播放單一影片"
     },
     "onSubscribedChannels": {
-        "message": "On subscribed channels"
+        "message": "於已訂閱的頻道中"
     },
     "orange": {
         "message": "橘色"
     },
     "os": {
-        "message": "OS"
+        "message": "操作系統"
     },
     "other": {
-        "message": "Other"
+        "message": "其他"
     },
     "permissions": {
         "message": "權限"
     },
     "pictureInPicture": {
-        "message": "Picture-in-Picture"
+        "message": "子母畫面"
     },
     "pink": {
         "message": "粉紅色"
@@ -522,7 +531,7 @@
         "message": "播放速度"
     },
     "player": {
-        "message": "Player"
+        "message": "播放器"
     },
     "playerColor": {
         "message": "影片進度條顏色"
@@ -543,13 +552,13 @@
         "message": "彈出播放器"
     },
     "position": {
-        "message": "Position"
+        "message": "位置"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Press any key or use mouse wheel."
+        "message": "按任意鍵或使用滑鼠滾輪。"
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "按任意鍵或使用鼠標滾輪."
+        "message": "按任意鍵或使用鼠標滾輪。"
     },
     "previousVideo": {
         "message": "回到之前的影片"
@@ -561,7 +570,7 @@
         "message": "紫色"
     },
     "quality": {
-        "message": "Quality"
+        "message": "品質"
     },
     "ram": {
         "message": "RAM"
@@ -572,86 +581,92 @@
     "red": {
         "message": "紅色"
     },
+    "redDislikeButton": {
+        "message": "將「不喜歡」數量以紅色顯示"
+    },
     "relatedVideos": {
         "message": "推薦影片"
     },
     "removeRelatedSearchResults": {
-        "message": "Remove related search results"
+        "message": "移除搜尋相關結果"
     },
     "repeat": {
         "message": "重複播放"
     },
     "reset": {
-        "message": "Reset"
+        "message": "重置"
     },
     "resetAllSettings": {
-        "message": "重置所有設置"
+        "message": "重置所有設定"
     },
     "resetAllShortcuts": {
-        "message": "Reset all shortcuts"
+        "message": "重置所有快捷鍵"
     },
     "reverse": {
-        "message": "Reverse"
+        "message": "回播"
     },
     "rotate": {
         "message": "旋轉影片"
     },
     "save": {
-        "message": "Save"
+        "message": "儲存"
     },
     "saveAs": {
-        "message": "Save as"
+        "message": "另存為"
     },
     "schedule": {
-        "message": "時間表"
+        "message": "排程"
     },
     "screen": {
-        "message": "Screen"
+        "message": "螢幕"
     },
     "screenshot": {
         "message": "截圖"
     },
     "search": {
-        "message": "Search"
+        "message": "搜尋"
     },
     "searchBarOnly": {
-        "message": "Search bar only"
+        "message": "僅顯示搜尋列"
     },
     "seekBackward10Seconds": {
-        "message": "向後搜尋10秒"
+        "message": "倒退10秒"
     },
     "seekForward10Seconds": {
-        "message": "向前邁進10秒"
+        "message": "前進10秒"
     },
     "settings": {
         "message": "設定"
     },
     "settingsSuccessfullyImported": {
-        "message": "Settings successfully imported"
+        "message": "設定成功導入"
     },
     "shortcuts": {
         "message": "快捷鍵"
     },
     "showCardsOnMouseHover": {
-        "message": "Show cards on mouse hover"
+        "message": "滑鼠暫留時顯示資訊卡"
     },
     "showChannelVideosCount": {
         "message": "顯示頻道影片數量"
     },
     "shuffle": {
-        "message": "Shuffle"
+        "message": "隨機播放"
     },
     "sidebar": {
         "message": "側邊欄"
     },
     "spacebar": {
-        "message": "Spacebar"
+        "message": "空格鍵"
     },
     "squaredUserImages": {
-        "message": "方正的用戶圖像"
+        "message": "方形用戶圖像"
     },
     "static": {
-        "message": "Static"
+        "message": "靜止"
+    },
+    "statsForNerds": {
+        "message": "顯示「統計資料」按鈕"
     },
     "step": {
         "message": "Step"
@@ -660,61 +675,64 @@
         "message": "停止"
     },
     "style": {
-        "message": "Style"
+        "message": "樣式"
     },
     "styles": {
-        "message": "Styles"
+        "message": "樣式"
     },
     "subscriptions": {
         "message": "訂閱內容"
     },
     "subtitles": {
-        "message": "允許 字幕"
+        "message": "允許字幕"
     },
     "sunset": {
         "message": "日落"
     },
     "sunsetToSunrise": {
-        "message": "Sunset to sunrise"
+        "message": "日出至入落"
     },
     "systemPeferenceDark": {
-        "message": "System peference: dark"
+        "message": "系統預設: 暗黑模式"
     },
     "systemPeferenceLight": {
-        "message": "System peference: light"
+        "message": "系統預設: 白天模式"
     },
     "teal": {
-        "message": "Teal"
+        "message": "藍綠色"
     },
     "textColor": {
-        "message": "Text color"
+        "message": "文字顏色"
     },
     "themes": {
         "message": "主題"
     },
     "thisWillRemoveAllCookies": {
-        "message": "這將刪除所有的cookies."
+        "message": "這將刪除所有的 cookies。"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "This will remove all YouTube cookies"
+        "message": "這會刪除所有 YouTube Cookies。"
     },
     "thisWillResetAllSettings": {
-        "message": "這將會重置所有設置。"
+        "message": "這會重置所有設定。"
     },
     "thisWillResetAllShortcuts": {
-        "message": "This will reset all shortcuts"
+        "message": "這會重置所有快捷鍵。"
     },
     "thumbnails": {
         "message": "縮略圖"
     },
     "timeFrom": {
-        "message": "Time from"
+        "message": "開始時間"
     },
     "timeTo": {
-        "message": "Time to"
+        "message": "結束時間"
     },
     "todayAt": {
-        "message": "Today at"
+        "message": "自今日"
+    },
+    "toggleCards": {
+        "message": "Toggle cards"
     },
     "topChat": {
         "message": "Top chat"
@@ -723,7 +741,7 @@
         "message": "預告片自動播放"
     },
     "translations": {
-        "message": "Translations"
+        "message": "翻譯"
     },
     "transparentBackground": {
         "message": "透明背景"
@@ -732,13 +750,13 @@
         "message": "發燒影片"
     },
     "tryToReloadThePage": {
-        "message": "Try to reload the page"
+        "message": "嘗試重新整理頁面"
     },
     "type": {
-        "message": "Type"
+        "message": "種類"
     },
     "upNextAutoplay": {
-        "message": "下一個影片自動播放"
+        "message": "自動播放下一個影片"
     },
     "use24HourFormat": {
         "message": "使用24小時格式"
@@ -747,13 +765,13 @@
         "message": "版本"
     },
     "video": {
-        "message": "Video"
+        "message": "影片"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
         "message": "The video description will be expanded to get the name of the category"
     },
     "videoFormats": {
-        "message": "Video formats"
+        "message": "影片格式"
     },
     "videos": {
         "message": "影片"
@@ -765,7 +783,7 @@
         "message": "稍後觀看"
     },
     "watchTime": {
-        "message": "Watch time"
+        "message": "已觀看時間"
     },
     "whenTabIsChanged": {
         "message": "When tab is changed"
@@ -777,18 +795,18 @@
         "message": "黃色"
     },
     "youtubeHeaderLeft": {
-        "message": "Youtube Header (left)"
+        "message": "YouTube 標頭 (左)"
     },
     "youtubeHeaderRight": {
-        "message": "Youtube Header (right)"
+        "message": "YouTube 標頭 (右)"
     },
     "youtubeHomePage": {
-        "message": "默認的YouTube主頁"
+        "message": "預設的YouTube主頁"
     },
     "youtubeLanguage": {
         "message": "YouTube 語言"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
+        "message": "使用 H.264 編碼時，YouTube 會將畫質限定為 1080p 內。"
     }
 }

@@ -3,19 +3,19 @@
         "message": "关于"
     },
     "accept": {
-        "message": "Accept"
+        "message": "接受"
     },
     "activate": {
-        "message": "Activate"
+        "message": "启用"
     },
     "activateCaptions": {
         "message": "启用字幕"
     },
     "activated": {
-        "message": "Activated"
+        "message": "启用"
     },
     "activatedFeatures": {
-        "message": "Activated features"
+        "message": "已启用功能"
     },
     "activateFullscreen": {
         "message": "启用全屏"
@@ -30,13 +30,16 @@
         "message": "广告"
     },
     "all": {
-        "message": "All"
+        "message": "所有"
     },
     "allow": {
         "message": "允许"
     },
     "allow60fps": {
         "message": "允许60FPS"
+    },
+    "forceSDR": {
+        "message": "Force SDR"
     },
     "alwaysActive": {
         "message": "始终启用"
@@ -66,7 +69,7 @@
         "message": "⇧"
     },
     "audio": {
-        "message": "Audio"
+        "message": "音频"
     },
     "audioFormats": {
         "message": "音频格式"
@@ -120,7 +123,7 @@
         "message": "浏览器版本"
     },
     "bubbles": {
-        "message": "Bubbles"
+        "message": "网格"
     },
     "bug": {
         "message": "Bug"
@@ -132,7 +135,7 @@
         "message": "取消"
     },
     "categories": {
-        "message": "Categories"
+        "message": "分类"
     },
     "channel": {
         "message": "电影和节目"
@@ -141,16 +144,16 @@
         "message": "频道"
     },
     "clipboard": {
-        "message": "Clipboard"
+        "message": "粘贴板"
     },
     "codecH264": {
-        "message": "Codec h.264"
+        "message": "采用 h.264 编码"
     },
     "collapsed": {
         "message": "收起"
     },
     "collapseOfSubscriptionSections": {
-        "message": "Collapse of subscription sections"
+        "message": "订阅区域显示展开/收起按钮"
     },
     "comments": {
         "message": "评论"
@@ -164,11 +167,17 @@
     "cores": {
         "message": "核心"
     },
+    "cropChapterTitles": {
+        "message": "裁剪章节标题"
+    },
     "customCss": {
-        "message": "Custom CSS"
+        "message": "自定义CSS"
     },
     "customJs": {
-        "message": "Custom JS"
+        "message": "自定义JS"
+    },
+    "customMiniPlayer": {
+        "message": "自定义迷你播放器"
     },
     "cyan": {
         "message": "青色"
@@ -213,7 +222,7 @@
         "message": "细节信息"
     },
     "developerOptions": {
-        "message": "Developer options"
+        "message": "开发者选项"
     },
     "device": {
         "message": "设备"
@@ -225,7 +234,7 @@
         "message": "停用"
     },
     "dislike": {
-        "message": "点踩"
+        "message": "踩一下"
     },
     "donate": {
         "message": "支持"
@@ -240,13 +249,13 @@
         "message": "Email"
     },
     "empty": {
-        "message": "Empty"
+        "message": "暂无"
     },
     "enabled": {
         "message": "启用"
     },
     "enabledForced": {
-        "message": "Enabled (forced)"
+        "message": "强制启用"
     },
     "expanded": {
         "message": "展开"
@@ -270,13 +279,13 @@
         "message": "Flash"
     },
     "font": {
-        "message": "Font"
+        "message": "字体"
     },
     "footer": {
         "message": "底部栏"
     },
     "forcedPlaybackSpeed": {
-        "message": "Forced playback speed"
+        "message": "强制设置播放速度"
     },
     "forcedTheaterMode": {
         "message": "强制设置剧场模式"
@@ -285,7 +294,7 @@
         "message": "强制修改音量"
     },
     "foundABug": {
-        "message": "Found a bug?"
+        "message": "发现了一个 Bug?"
     },
     "fullWindow": {
         "message": "全屏"
@@ -324,22 +333,25 @@
         "message": "隐藏动态缩略图"
     },
     "hideAnnotations": {
-        "message": "隐藏 annotations"
+        "message": "隐藏预览图"
     },
     "hideCards": {
-        "message": "隐藏 cards"
+        "message": "隐藏信息卡片"
     },
     "hideDetails": {
         "message": "隐藏详细信息"
     },
     "hideEndscreen": {
-        "message": "隐藏 Endscreen"
+        "message": "隐藏结束画面"
     },
     "hideFeaturedContent": {
         "message": "隐藏精选频道"
     },
     "hideFooter": {
         "message": "隐藏底部栏"
+    },
+    "hideGradientBottom": {
+        "message": "隐藏底部渐变层"
     },
     "hidePlaylist": {
         "message": "隐藏播放列表"
@@ -369,7 +381,7 @@
         "message": "投稿于多久之前"
     },
     "icons": {
-        "message": "Icons"
+        "message": "图标"
     },
     "iconsOnly": {
         "message": "仅显示图标"
@@ -390,7 +402,7 @@
         "message": "ImprovedTube 版本"
     },
     "improveLogo": {
-        "message": "Improve logo"
+        "message": "优化图标"
     },
     "increasePlaybackSpeed": {
         "message": "视频加速"
@@ -420,37 +432,34 @@
         "message": "浅绿色"
     },
     "like": {
-        "message": "点赞"
+        "message": "顶一下"
     },
     "likes": {
-        "message": "点赞总数"
+        "message": "顶/踩总数"
     },
     "lime": {
         "message": "石灰色"
     },
     "list": {
-        "message": "List"
+        "message": "列表"
     },
     "liveChat": {
         "message": "实时聊天"
     },
     "liveChatType": {
-        "message": "Live chat type"
+        "message": "事实聊天类型"
     },
     "loudnessNormalization": {
-        "message": "Loudness normalization"
+        "message": "音量标准化"
     },
     "markWatchedVideos": {
-        "message": "Mark watched videos"
-    },
-    "miniPlayer": {
-        "message": "迷你播放器"
+        "message": "标记已观看的视频"
     },
     "mixer": {
         "message": "混音器"
     },
     "myColors": {
-        "message": "My colors"
+        "message": "自定义颜色"
     },
     "name": {
         "message": "名字"
@@ -468,7 +477,7 @@
         "message": "夜色"
     },
     "noActiveFeatures": {
-        "message": "No active features"
+        "message": "没有已启用功能"
     },
     "none": {
         "message": "无"
@@ -489,7 +498,7 @@
         "message": "仅在 YouTube 上启用"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Only one player instance playing"
+        "message": "同时仅播放一个"
     },
     "onSubscribedChannels": {
         "message": "在订阅频道"
@@ -572,11 +581,14 @@
     "red": {
         "message": "红色"
     },
+    "redDislikeButton": {
+        "message": "踩按钮显示为红色"
+    },
     "relatedVideos": {
         "message": "相关视频"
     },
     "removeRelatedSearchResults": {
-        "message": "Remove related search results"
+        "message": "隐藏搜索相关结果"
     },
     "repeat": {
         "message": "循环"
@@ -588,7 +600,7 @@
         "message": "重置所有设置"
     },
     "resetAllShortcuts": {
-        "message": "Reset all shortcuts"
+        "message": "重置所有快捷键"
     },
     "reverse": {
         "message": "逆序"
@@ -627,13 +639,13 @@
         "message": "ImprovedTube 设置"
     },
     "settingsSuccessfullyImported": {
-        "message": "Settings successfully imported"
+        "message": "设置导入成功"
     },
     "shortcuts": {
         "message": "快捷键"
     },
     "showCardsOnMouseHover": {
-        "message": "Show cards on mouse hover"
+        "message": "鼠标悬浮时显示信息卡片"
     },
     "showChannelVideosCount": {
         "message": "显示频道内视频数"
@@ -653,6 +665,9 @@
     "static": {
         "message": "静态"
     },
+    "statsForNerds": {
+        "message": "显示专业信息"
+    },
     "step": {
         "message": "Step"
     },
@@ -660,10 +675,10 @@
         "message": "停止"
     },
     "style": {
-        "message": "Style"
+        "message": "样式"
     },
     "styles": {
-        "message": "Styles"
+        "message": "样式"
     },
     "subscriptions": {
         "message": "订阅内容"
@@ -687,7 +702,7 @@
         "message": "蓝绿色"
     },
     "textColor": {
-        "message": "Text color"
+        "message": "文字颜色"
     },
     "themes": {
         "message": "主题"
@@ -702,7 +717,7 @@
         "message": "将重置所有设置."
     },
     "thisWillResetAllShortcuts": {
-        "message": "This will reset all shortcuts"
+        "message": "将会重置所有快捷键"
     },
     "thumbnails": {
         "message": "缩略图"
@@ -714,7 +729,10 @@
         "message": "结束时间"
     },
     "todayAt": {
-        "message": "Today at"
+        "message": "截止今天"
+    },
+    "toggleCards": {
+        "message": "Toggle cards"
     },
     "topChat": {
         "message": "Top chat"
@@ -723,7 +741,7 @@
         "message": "自动播放预告片"
     },
     "translations": {
-        "message": "Translations"
+        "message": "翻译"
     },
     "transparentBackground": {
         "message": "透明背景"
@@ -753,7 +771,7 @@
         "message": "版本"
     },
     "video": {
-        "message": "Video"
+        "message": "视频"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
         "message": "The video description will be expanded to get the name of the category"
@@ -795,6 +813,6 @@
         "message": "YouTube 语言"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
+        "message": "采用 H.264 编解码时，YouTube 会将视频画质设为 1080p"
     }
 }
