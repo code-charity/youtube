@@ -24,7 +24,7 @@
         "message": "启用功能"
     },
     "addScrollToTop": {
-        "message": "返回顶部按钮"
+        "message": "增加【返回顶部】按钮"
     },
     "ads": {
         "message": "广告"
@@ -138,7 +138,7 @@
         "message": "分类"
     },
     "channel": {
-        "message": "电影和节目"
+        "message": "频道"
     },
     "channels": {
         "message": "频道"
@@ -159,7 +159,7 @@
         "message": "评论"
     },
     "confirmationBeforeClosing": {
-        "message": "页面关闭前提示"
+        "message": "页面关闭确认"
     },
     "cookies": {
         "message": "Cookies"
@@ -198,7 +198,7 @@
         "message": "视频减速"
     },
     "decreaseVolume": {
-        "message": "-5%音量"
+        "message": "降低音量"
     },
     "deepOrange": {
         "message": "深橙色"
@@ -228,7 +228,7 @@
         "message": "设备"
     },
     "dim": {
-        "message": "遮罩程度"
+        "message": "遮罩层厚度"
     },
     "disabled": {
         "message": "停用"
@@ -267,10 +267,10 @@
         "message": "扩展"
     },
     "file": {
-        "message": "File"
+        "message": "文件"
     },
     "filters": {
-        "message": "过滤"
+        "message": "滤镜"
     },
     "fitToWindow": {
         "message": "窗口自适应"
@@ -294,7 +294,7 @@
         "message": "强制修改音量"
     },
     "foundABug": {
-        "message": "发现了一个 Bug?"
+        "message": "遇到了Bug?"
     },
     "fullWindow": {
         "message": "全屏"
@@ -306,7 +306,7 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "转到搜索栏"
+        "message": "转到搜索框"
     },
     "gpu": {
         "message": "GPU"
@@ -408,13 +408,13 @@
         "message": "视频加速"
     },
     "increaseVolume": {
-        "message": "+5%音量"
+        "message": "增加音量"
     },
     "indigo": {
         "message": "靛青色"
     },
     "items": {
-        "message": "Items"
+        "message": "项目"
     },
     "languages": {
         "message": "语言"
@@ -444,16 +444,16 @@
         "message": "列表"
     },
     "liveChat": {
-        "message": "实时聊天"
+        "message": "实时聊天窗"
     },
     "liveChatType": {
-        "message": "事实聊天类型"
+        "message": "实时聊天窗类型"
     },
     "loudnessNormalization": {
         "message": "音量标准化"
     },
     "markWatchedVideos": {
-        "message": "标记已观看的视频"
+        "message": "标记为已观看"
     },
     "mixer": {
         "message": "混音器"
@@ -477,13 +477,13 @@
         "message": "夜色"
     },
     "noActiveFeatures": {
-        "message": "没有已启用功能"
+        "message": "没有已启用的功能"
     },
     "none": {
         "message": "无"
     },
     "noOpenVideoTabs": {
-        "message": "没有打开视频标签"
+        "message": "没有已打开的视频标签"
     },
     "normal": {
         "message": "正常"
@@ -546,7 +546,7 @@
         "message": "稍后观看"
     },
     "playPause": {
-        "message": "播放 / 暂停"
+        "message": "播放/暂停"
     },
     "popupPlayer": {
         "message": "弹出播放器"
@@ -564,7 +564,7 @@
         "message": "下一个视频"
     },
     "primaryColor": {
-        "message": "Primary color"
+        "message": "主色调"
     },
     "purple": {
         "message": "紫色"
@@ -582,7 +582,7 @@
         "message": "红色"
     },
     "redDislikeButton": {
-        "message": "踩按钮显示为红色"
+        "message": "将【踩一下】设置为红色"
     },
     "relatedVideos": {
         "message": "相关视频"
@@ -792,7 +792,7 @@
         "message": "观看时间"
     },
     "whenTabIsChanged": {
-        "message": "标签更改时"
+        "message": "切换标签时"
     },
     "white": {
         "message": "白色"
@@ -807,7 +807,7 @@
         "message": "Youtube标题（右）"
     },
     "youtubeHomePage": {
-        "message": "YouTube 主页"
+        "message": "YouTube默认主页"
     },
     "youtubeLanguage": {
         "message": "YouTube 语言"
