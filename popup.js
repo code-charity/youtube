@@ -1178,10 +1178,291 @@ Menu.main = {
     footer: {
         type: 'button',
         class: 'satus-button--ad',
-        label: 'DARK MODE',
-        title: 'Dark Mode',
+        title: 'Frame By Frame',
+        innerHTML: `
+        <div class="satus-button--ad-box">
+            <div class="satus-button--ad-block"></div>
+        </div>
+
+        <div class="satus-button--ad-title--shadow">Frame By Frame</div>
+        <div class="satus-button--ad-title">Frame By Frame</div>
+
+        <div class="satus-button--ad-subtitle--shadow">For videos</div>
+        <div class="satus-button--ad-subtitle">For videos</div>
+
+        <div class="satus-button--ad-time"></div>
+        <style>
+        .satus-button--ad
+        {
+            font-family: 'OpenSans', sans-serif;
+
+            width: 268px !important;
+            height: 80px !important;
+
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+
+            color: #fff;
+            border-radius: 6px;
+            background: #4b4abf;
+
+            transform-style: preserve-3d;
+        }
+
+        .satus-button--ad-title,
+        .satus-button--ad-title--shadow
+        {
+            font-size: 18px;
+            font-weight: 700;
+
+            position: absolute;
+            top: 16px;
+            left: 16px;
+
+            display: flex;
+
+            transform: translateZ(16px);
+            letter-spacing: -.5px;
+
+            align-items: center;
+        }
+
+        .satus-button--ad-title--shadow
+        {
+            top: 17px;
+            left: 17px;
+
+            transform: translateZ(6px);
+
+            opacity: .2;
+            color: #000;
+        }
+
+        .satus-button--ad-subtitle,
+        .satus-button--ad-subtitle--shadow
+        {
+            font-size: 14px;
+            font-weight: 600;
+
+            position: absolute;
+            top: 40px;
+            left: 16px;
+
+            display: flex;
+
+            transform: translateZ(10px);
+            letter-spacing: -.5px;
+
+            color: #28d0c8;
+
+            align-items: center;
+        }
+
+        .satus-button--ad-subtitle--shadow
+        {
+            top: 41px;
+            left: 17px;
+
+            transform: translateZ(4px);
+
+            opacity: .2;
+            color: #000;
+        }
+
+        .satus-button--ad-box
+        {
+            position: absolute;
+            top: 0;
+            right: 16px;
+
+            width: 64px;
+            height: 64px;
+
+            background: rgba(0,0,0,.3);
+        }
+
+        .satus-button--ad-block
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 16px;
+            height: 16px;
+
+            animation-name: block;
+            animation-duration: 8s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+
+            background: #d02828;
+        }
+
+        .satus-button--ad-time
+        {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            width: 0;
+            height: 3px;
+
+            animation-name: time;
+            animation-duration: 8s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+
+            border-bottom-left-radius: 6px;
+            background: #fff;
+        }
+
+
+        @keyframes time
+        {
+            0%
+            {
+                width: 0;
+            }
+            35%
+            {
+                width: 100%;
+            }
+            100%
+            {
+                width: 0;
+            }
+        }
+
+
+        @keyframes block
+        {
+            0%
+            {
+                transform: translate(0,0) scale(1,1);
+
+                background: #d02828;
+            }
+            1%
+            {
+                transform: translate(0,0) scale(1,1);
+
+                background: #d02828;
+            }
+            4%
+            {
+                transform: translate(24px,0) scale(4,1);
+
+                background: #d02828;
+            }
+            5%
+            {
+                transform: translate(48px,0) scale(1,1);
+
+                background: #c628d0;
+            }
+            6%
+            {
+                transform: translate(48px,0) scale(.5,2);
+
+                background: #28d0c8;
+            }
+            8%
+            {
+                transform: translate(46px,0) scale(1.25,.9);
+
+                background: #c628d0;
+            }
+            10%
+            {
+                transform: translate(48px,0) scale(1,1);
+
+                background: #d02828;
+            }
+
+            19%
+            {
+                transform: translate(48px,24px) scale(.4,4);
+
+                background: #d02828;
+            }
+            21%
+            {
+                transform: translate(48px,24px) scale(.4,4);
+
+                background: #c628d0;
+            }
+            22%
+            {
+                transform: translate(48px,48px) scale(1,1);
+
+                background: #28d0c8;
+            }
+
+            24%
+            {
+                transform: translate(48px,48px);
+
+                background: #28d0c8;
+            }
+            25%
+            {
+                transform: translate(42px,47px) scale(1,1) rotate(-45deg);
+
+                background: #28d0c8;
+            }
+            27%
+            {
+                transform: translate(40px,48px) scale(1,1) rotate(-90deg);
+
+                background: #28d0c8;
+            }
+            27.1%
+            {
+                transform: translate(40px,49px) scale(1.3,.7) rotate(-90deg);
+
+                background: #28d0c8;
+            }
+            29%
+            {
+                transform: translate(40px,48px) scale(1,1) rotate(-90deg);
+
+                background: #28d0c8;
+            }
+
+            33%
+            {
+                transform: translate(40px,47px) scale(1,1) rotate(-135deg);
+
+                background: #28d0c8;
+            }
+            35%
+            {
+                transform: translate(36px,48px) scale(1,1) rotate(-180deg);
+
+                background: #28d0c8;
+            }
+            35.1%
+            {
+                transform: translate(36px,49px) scale(1.3,.7) rotate(-180deg);
+
+                background: #28d0c8;
+            }
+            38%
+            {
+                transform: translate(36px,48px) scale(1,1) rotate(-180deg);
+
+                background: #28d0c8;
+            }
+        }
+
+        html[it-improvedtube-home='list'] .satus-main__container[data-appearance='home'] .satus-section--info
+        {
+            display: none !important
+        }
+
+        </style>
+        `,
         onclick: function() {
-            window.open('https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl', '_blank');
+            window.open('https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh', '_blank');
         }
     },
 
