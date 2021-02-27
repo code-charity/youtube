@@ -72,7 +72,11 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
    6. Select the "manifest.json" file from unzipped folder
 
  - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
-<br><br><br><br><br>
+<br><br>
+<a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox-disabled.png" alt="Firefox add-ons"></a>
+<a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge-disabled.png" alt="Microsoft Store"></a>
+<a href="https://addons.opera.com/en/extensions/details/improvedtube-youtube-extension/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera add-ons"></a>
+<br>
 
 ## 📝ToDo (Draft)
 - [ ] **Full Documentation, screenshots, videos** &nbsp;&nbsp;&nbsp;&nbsp; to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))
@@ -148,6 +152,4 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
 
-<a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox-disabled.png" alt="Firefox add-ons"></a>
-<a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge-disabled.png" alt="Microsoft Store"></a>
-<a href="https://addons.opera.com/en/extensions/details/improvedtube-youtube-extension/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera add-ons"></a>
+
