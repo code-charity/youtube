@@ -8,13 +8,13 @@
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 		<img src="https://github.com/victor-savinov/previews/blob/master/improvedtube/screenshot-github.png">
-	</a>
+	</a> 
+<br><a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Web Store"></a> <br>
+	  
 </p>
 <p align="center">
         <code>/ImprovedTube/</code> is a lightweight browser extension with a simple UI and powerful features.
-	<br>
-<p align="center"><a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Web Store"></a></p>
-	<br>	
+	<br><br>
   	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a>
 	·
 	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>
