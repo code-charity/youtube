@@ -79,7 +79,8 @@
     ],
     "optional_permissions": [
         "downloads",
-        "https://*.youtube.com/*"
+        "https://*.youtube.com/*",
+        "tabs"
     ],
     "update_url": "https://clients2.google.com/service/update2/crx"
 }
