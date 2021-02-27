@@ -77,22 +77,19 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 
 1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)  *(or download the repo & run the build.py!)*
 
-#### Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...
+ -  **Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**
+   2. Go to your Browser's Extensions page (*chrome://extensions/*) 
+   3. Activate "Developer mode"
+   4. Click the "Load unpacked" button  ( & Select the extracted folder)
 
-2. Go to your Browser's Extensions page (*chrome://extensions/*) 
-3. Activate "Developer mode"
-4. Click the "Load unpacked" button  *( & Select the extracted folder)*
+ -  **Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat**
+   2. Go to Add-ons (*about:addons*) 
+   3. Click on "Extensions" tab
+   4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
+   5. Click on "Load Temporary Add-on…"
+   6. Select the "manifest.json" file from unzipped folder
 
-####  Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat
-
-2. Go to Add-ons (*about:addons*) 
-3. Click on "Extensions" tab
-4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
-5. Click on "Load Temporary Add-on…"
-6. Select the "manifest.json" file from unzipped folder
-
-#### [Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)
-
+ - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
 <br><br>
 
 
