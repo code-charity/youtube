@@ -72,12 +72,12 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
    6. Select the "manifest.json" file from unzipped folder
 
  - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
-<br><br><br><br>
+<br><br><br><br><br>
 
 ## 📝ToDo (Draft)
 - [ ] **Full Documentation, screenshots, videos** &nbsp;&nbsp;&nbsp;&nbsp; to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))
   - [*Contributing without programming*](https://github.com/ImprovedTube/ImprovedTube/YouTube-Extension/discussions/753)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._  
+ _We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._  
 
 **Code & Concept**:
 -  [ ]  [**1. Active Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A🐞bug+sort%3Acomments-desc+is%3Aopen) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(we aim to offer (small) bounties on bugs/[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen). Please ask)*
