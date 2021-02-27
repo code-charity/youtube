@@ -72,11 +72,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
    6. Select the "manifest.json" file from unzipped folder
 
  - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
-<br><br>
-<a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox-disabled.png" alt="Firefox add-ons"></a>
-<a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge-disabled.png" alt="Microsoft Store"></a>
-<a href="https://addons.opera.com/en/extensions/details/improvedtube-youtube-extension/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera add-ons"></a>
-<br>
+<br><br><br><br>
 
 ## 📝ToDo (Draft)
 - [ ] **Full Documentation, screenshots, videos** &nbsp;&nbsp;&nbsp;&nbsp; to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))
@@ -147,6 +143,7 @@ Big thanks ♡ to our [contributors 👪](https://github.com/ImprovedTube/Improv
 _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
 ## ImprovedTube web-browser support (Firefox and Safari store listing links to be added) 
+<a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox-disabled.png" alt="Firefox add-ons"></a> <a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge-disabled.png" alt="Microsoft Store"></a><a href="https://addons.opera.com/en/extensions/details/improvedtube-youtube-extension/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera add-ons"></a>
 
 |[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="28px" />](https://brave.com)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="28px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://www.microsoft.com/edge)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](https://www.opera.com/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://www.apple.com/safari/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
