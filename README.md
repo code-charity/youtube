@@ -47,7 +47,7 @@
 
 Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) and [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
 
-## 🌎 Translations
+### 🌎 Translations
 
 - [x] [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
 - [x] [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [Termuellinator](https://github.com/Termuellinator), [css-smueller](https://github.com/css-smueller)
@@ -73,19 +73,18 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [x] [한국어](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [msc9533](https://github.com/msc9533), [LYHyoung](https://github.com/LYHyoung)
 
 
-## 🔧 Install from source / Testing Latest version
+## 🔧 Install from source *(/Testing)*
+
+1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)  *(or download the repo & run the build.py)*
 
 #### Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...
 
-1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
 2. Go to your Browser's Extensions page (*chrome://extensions/*) 
 3. Activate "Developer mode"
-4. Click the "Load unpacked" button
-5. Select the extracted folder
+4. Click the "Load unpacked" button  *( & Select the extracted folder)*
 
 ####  Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat
 
-1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
 2. Go to Add-ons (*about:addons*) 
 3. Click on "Extensions" tab
 4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
@@ -93,3 +92,77 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 6. Select the "manifest.json" file from unzipped folder
 
 #### [Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)
+
+<br><br><br><br>
+
+## 📝ToDo
+- [ ] **Documentation, screenshots, videos** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))* 
+  - [*Contributing without programming*](https://github.com/ImprovedTube/ImprovedTube/YouTube-Extension/discussions/753) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( _We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._  
+
+**Code & Concept**:
+-  [ ]  [**1. Active Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A🐞bug+sort%3Acomments-desc+is%3Aopen) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(we aim to offer (small) bounties on bugs/[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen). Please ask)*
+-  [ ]  [**2. Most wanted New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"✨feature%20wish"+sort%3Acomments-desc+is%3Aopen)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(you can add a wish 🌟🧚 / an issue-number to your donation.)*  
+-  [ ]  [**3. Other active topics**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3A🐞bug++-label%3A%22✨feature+wish%22+) 
+   - [*How to start editing our CSS, JavaScript, JSON*](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(For CSS or JavaScript-literates)* 
+     - *Newcomers are welcome to* [*try too*](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(We happily review all edits. We love to code and collaborate)* <br>
+    
+**Language:**
+- [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _proofreaders wanted!_ 
+- [ ] [Japanese](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/jp/messages.json) _still missing 🥺. Quick drafts welcome!_  
+- [ ] [Malay](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) 
+- [ ] [Polish](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json)
+- [ ] [Punjabi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) _Who's from Pakistan?_
+- [ ] [Thai](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) 
+- [ ] [Vietnamese](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vt/messages.json)
+
+
+### 🌾 Our Projects
+### Extensions (New)
+* **Home:** **History Manager** [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/history-manager), Start Page [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/start-page),  [**To-Do**](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/to-do) 
+* **Browsing:**  [**HID Control**(Deny overwriting Right-Click, Ctrl+F,...)](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/hid-control-prevention), [**Custom user agent**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj) [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/custom-user-agent), [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/night-mode), [**Regex Replace**](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/regex-replace)   
+  * **Video/Media:** **Equalizer**[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/equalizer), [**Frame by Frame**](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/frame-by-frame), [**unBlob**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/unblob) 
+  * **Research:** [**Regex Search** (Ctrl+F+Shift)](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/regex-search) 
+  
+**Development:** [**Satus**](https://github.com/victor-savinov/satus), [Theme Engine](https://github.com/victor-savinov/theme-engine),   [Pluviam](https://github.com/victor-savinov/pluviam), [Code Editor](https://github.com/victor-savinov/code-editor),  [Viscum Player](https://github.com/victor-savinov/vbeiscum-player) 
+
+
+## 💼 Our Work 
+###  💡 Ideas
+Got great ideas? ideas@improvedtube.com
+### 👩‍💻👨🏽‍💻👩🏿‍💻 Expertise / Consoluting
+Do you need to run an extension, site or app with many users and a great feedback score?  We would like to help good / meaningful causes. Projects@improvedtube.com<img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="480px">
+
+-----
+
+## Old Introduction:
+
+<p align="center"><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
+      <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
+        <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /> </p>
+
+##  [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  is an extension built to refine and sweeten your YouTube experience. A one-stop-shop with many powerful features to enhance YouTube, yet liteweight. A larger player, tidy UI and hiding distractions were the first loved features. Simply to save time. But that is not all… - there was so much left to build and there are many clever features to come still. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImprovedTube is designed with our own UI library: **[Satus](https://github.com/victor-savinov/satus)**, to manage your settings efficiently and to create more powerful and familiar apps. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please spread the word: ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned (too much work). No other project provides so much CSS to adjust a website[🦄](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)</font>.
+
+## 🏵️Credits
+Big thanks ♡ to our [contributors 👪](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) and [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
+	
+## Some ImprovedTube features:
+- Video quality
+- Themes and customisation
+- Repeat-, screenshot-, rotate-buttons
+- Pop-up player
+- Ads management
+- Hide Cards and Annotations
+- Customise video page appearance (always expand description, hide related videos etc.)
+- Channel page customisations
+- Customisation of hotkeys/shortcuts
+- Statistics
+- Volume mixer
+_[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
+
+## ImprovedTube web-browser support (Firefox and Safari store listing links to be added) 
+
+|[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="28px" />](https://brave.com)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="28px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://www.microsoft.com/edge)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](https://www.opera.com/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://www.apple.com/safari/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
+| --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
