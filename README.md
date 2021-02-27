@@ -1,9 +1,7 @@
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-		<img src="https://github.com/victor-savinov/icons/blob/master/improvedtube/red-raised-48.png">
-	</a>
+		<img src="https://github.com/victor-savinov/icons/blob/master/improvedtube/red-raised-48.png"></a>
 </p>
-
 
 <h1 align="center">«Improve YouTube!»</h1>
 
@@ -12,19 +10,9 @@
 		<img src="https://github.com/victor-savinov/previews/blob/master/improvedtube/screenshot-github.png">
 	</a>
 </p>
-
-<p align="center">
-	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-		<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Web Store">
-	</a>
-
-</p>
-
-
 <p align="center">
         <code>/ImprovedTube/</code> is a lightweight browser extension with a simple UI and powerful features.
-	<br>
-	<br>
+	<br><br>
   	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a>
 	·
 	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>
@@ -32,6 +20,9 @@
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report bug</a>
 	·
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a>
+</p>
+<p align="center">
+	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Web Store"></a>
 </p>
 
 ## 🙏 Credits
