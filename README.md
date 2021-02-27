@@ -93,8 +93,8 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 
 #### [Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)
 
-----
 <br><br>
+
 
 ## 📝ToDo
 - [ ] **Documentation, screenshots, videos** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))* 
