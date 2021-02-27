@@ -73,9 +73,9 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [x] [한국어](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [msc9533](https://github.com/msc9533), [LYHyoung](https://github.com/LYHyoung)
 
 
-## 🔧 Install from source *(/Testing)*
+## 🔧 Install from source
 
-1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)  *(or download the repo & run the build.py)*
+1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)  *(or download the repo & run the build.py!)*
 
 #### Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...
 
@@ -93,7 +93,8 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 
 #### [Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)
 
-<br><br><br><br>
+----
+<br><br>
 
 ## 📝ToDo
 - [ ] **Documentation, screenshots, videos** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))* 
@@ -129,12 +130,14 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 ## 💼 Our Work 
 ###  💡 Ideas
 Got great ideas? ideas@improvedtube.com
-### 👩‍💻👨🏽‍💻👩🏿‍💻 Expertise / Consoluting
-Do you need to run an extension, site or app with many users and a great feedback score?  We would like to help good / meaningful causes. Projects@improvedtube.com<img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="480px">
+###  👩‍💻 👨🏽‍💻 👩🏿‍💻 Expertise / Consoluting
+Do you need to run an extension, site or app with many users and a great feedback score?  We would like to help good / meaningful causes. Projects@improvedtube.com 
+
+<img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="480px">
 
 -----
 
-## Old Introduction:
+## Old Intro:
 
 <p align="center"><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
       <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
