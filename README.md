@@ -97,8 +97,9 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 
 
 ## 📝ToDo
-- [ ] **Documentation, screenshots, videos** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))* 
-  - [*Contributing without programming*](https://github.com/ImprovedTube/ImprovedTube/YouTube-Extension/discussions/753) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( _We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._  
+- [ ] **Full Documentation, screenshots, videos** &nbsp;&nbsp;&nbsp;&nbsp; to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))
+  - [*Contributing without programming*](https://github.com/ImprovedTube/ImprovedTube/YouTube-Extension/discussions/753)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._  
 
 **Code & Concept**:
 -  [ ]  [**1. Active Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A🐞bug+sort%3Acomments-desc+is%3Aopen) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(we aim to offer (small) bounties on bugs/[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen). Please ask)*
@@ -107,7 +108,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
    - [*How to start editing our CSS, JavaScript, JSON*](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(For CSS or JavaScript-literates)* 
      - *Newcomers are welcome to* [*try too*](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(We happily review all edits. We love to code and collaborate)* <br>
     
-**Language:**
+  **Language:**
 - [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _proofreaders wanted!_ 
 - [ ] [Japanese](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/jp/messages.json) _still missing 🥺. Quick drafts welcome!_  
 - [ ] [Malay](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) 
@@ -115,7 +116,6 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [ ] [Punjabi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) _Who's from Pakistan?_
 - [ ] [Thai](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) 
 - [ ] [Vietnamese](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vt/messages.json)
-
 
 ### 🌾 Our Projects
 ### Extensions (New)
@@ -125,7 +125,6 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
   * **Research:** [**Regex Search** (Ctrl+F+Shift)](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/regex-search) 
   
 **Development:** [**Satus**](https://github.com/victor-savinov/satus), [Theme Engine](https://github.com/victor-savinov/theme-engine),   [Pluviam](https://github.com/victor-savinov/pluviam), [Code Editor](https://github.com/victor-savinov/code-editor),  [Viscum Player](https://github.com/victor-savinov/vbeiscum-player) 
-
 
 ## 💼 Our Work 
 ###  💡 Ideas
