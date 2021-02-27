@@ -9,8 +9,7 @@
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 		<img src="https://github.com/victor-savinov/previews/blob/master/improvedtube/screenshot-github.png">
 	</a> 
-<br><a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Extension"></a> <a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox-disabled.png" alt="Firefox add-ons"></a> <a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge-disabled.png" alt="Edge Youtube Extension"></a> <a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera Extension"></a> <br> <br>
-	  
+<br><a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Extension"></a> <a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox-disabled.png" alt="Firefox add-ons"></a> <a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge-disabled.png" alt="Edge Youtube Extension"></a> <a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera Extension"></a> 	  
 </p>
 <p align="center">
         <code>/ImprovedTube/</code> is a lightweight browser extension with a simple UI and powerful features.
