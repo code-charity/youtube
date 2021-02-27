@@ -17,15 +17,7 @@
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 		<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Web Store">
 	</a>
-	<a href="#">
-		<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox-disabled.png" alt="Firefox add-ons">
-	</a>
-	<a href="#">
-		<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge-disabled.png" alt="Microsoft Store">
-	</a>
-	<a href="https://addons.opera.com/en/extensions/details/improvedtube-youtube-extension/">
-		<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera add-ons">
-	</a>
+
 </p>
 
 
@@ -80,7 +72,8 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
  -  **Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**
    2. Go to your Browser's Extensions page (*chrome://extensions/*) 
    3. Activate "Developer mode"
-   4. Click the "Load unpacked" button  ( & Select the extracted folder)
+   4. Click the "Load unpacked" button <br>
+      & Select the extracted folder
 
  -  **Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat**
    2. Go to Add-ons (*about:addons*) 
@@ -165,3 +158,7 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 |[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="28px" />](https://brave.com)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="28px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://www.microsoft.com/edge)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](https://www.opera.com/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://www.apple.com/safari/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
+
+<a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox-disabled.png" alt="Firefox add-ons"></a>
+<a href="#"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge-disabled.png" alt="Microsoft Store"></a>
+<a href="https://addons.opera.com/en/extensions/details/improvedtube-youtube-extension/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera add-ons"></a>
