@@ -33,10 +33,8 @@
 	·
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a>
 </p>
-<br><br>
 
 ## 🙏 Credits
-
 Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) and [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
 
 ### 🌎 Translations
@@ -85,7 +83,6 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
  - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
 <br><br>
 
-
 ## 📝ToDo
 - [ ] **Full Documentation, screenshots, videos** &nbsp;&nbsp;&nbsp;&nbsp; to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features))
   - [*Contributing without programming*](https://github.com/ImprovedTube/ImprovedTube/YouTube-Extension/discussions/753)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -108,7 +105,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [ ] [Vietnamese](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vt/messages.json)
 
 ### 🌾 Our Projects
-### Extensions (New)
+### Extensions (\*new\*)
 * **Home:** **History Manager** [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/history-manager), Start Page [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/start-page),  [**To-Do**](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/to-do) 
 * **Browsing:**  [**HID Control**(Deny overwriting Right-Click, Ctrl+F,...)](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/hid-control-prevention), [**Custom user agent**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj) [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/custom-user-agent), [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/night-mode), [**Regex Replace**](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/regex-replace)   
   * **Video/Media:** **Equalizer**[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/equalizer), [**Frame by Frame**](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/frame-by-frame), [**unBlob**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/unblob) 
