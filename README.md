@@ -112,7 +112,6 @@ We like to help good / meaningful causes. projects@improvedtube.com
 
 <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="480px">
 
------
 
 ## Old Intro:
 
