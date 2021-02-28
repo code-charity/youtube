@@ -71,17 +71,17 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
    6. Select the "manifest.json" file from unzipped folder
 
  - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
-<br><br><br><br><br>
+<br><br><br><br>
 
 ## 📝ToDo (Draft)
 - [ ] **Full Documentation, screenshots, videos** &nbsp;&nbsp;&nbsp;&nbsp; to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features)
-  - [*Contributing without programming*](https://github.com/ImprovedTube/ImprovedTube/YouTube-Extension/discussions/753)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  - [**Contributing without programming**](https://github.com/ImprovedTube/ImprovedTube/YouTube-Extension/discussions/753)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  _We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._  
 
 **Code & Concept**:
--  [ ]  [**1. Active Bugs**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A🐞bug+sort%3Acomments-desc+is%3Aopen) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(we aim to offer (small) bounties on bugs/[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen). Please ask)*
--  [ ]  [**2. Most wanted New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"✨feature%20wish"+sort%3Acomments-desc+is%3Aopen)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(you can add a wish 🌟🧚 / an issue-number to your donation.)*  
--  [ ]  [**3. Other active topics**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3A🐞bug++-label%3A%22✨feature+wish%22+) 
+-  [ ]  [**1. Active Bugs🐞**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(we aim to offer (small) bounties on bugs/[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen). Please ask)*
+-  [ ]  [**2. Most wanted New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"Feature%20Request"+sort%3Acomments-desc+is%3Aopen)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(you can add a wish 🌟🧚 / an issue-number to your donation.)*  
+-  [ ]  [**3. Other active topics**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A"Feature%20Request") 
    - [*How to start editing our CSS, JavaScript, JSON*](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(For CSS or JavaScript-literates)* 
      - *Newcomers are welcome to* [*try too*](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(We happily review all edits. We love to code and collaborate)* <br>
     
