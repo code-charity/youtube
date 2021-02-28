@@ -125,6 +125,18 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
             getTranslations(request.path);
         }
 
+        if (request.name === 'improvedtube-only-one-player') {
+            chrome.tabs.query({}, function(tabs) {
+                for (var i = 0, l = tabs.length; i < l; i++) {
+                    if (tabs[i].hasOwnProperty('url') && sender.tab.id !== tabs[i].id) {
+                        chrome.tabs.sendMessage(tabs[i].id, {
+                            action: 'improvedtube-pause'
+                        });
+                    }
+                }
+            });
+        }
+
         if (request.name === 'improvedtube-analyzer') {
             var data = request.value,
                 date = new Date().toDateString(),

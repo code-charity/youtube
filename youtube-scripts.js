@@ -338,16 +338,21 @@ ImprovedTube.onlyOnePlayerInstancePlaying = function() {
     var video = document.querySelector('.html5-video-player video');
 
     if (this.storage.only_one_player_instance_playing === true && video) {
+        if (this.focus === true) {
+            document.dispatchEvent(new CustomEvent('ImprovedTubeOnlyOnePlayer'));
 
-        if (this.focus === false && video.paused === false) {
-            video.pause();
-
-            this.played_before_blur = true;
-        } else if (this.focus === true && this.played_before_blur === true) {
             video.play();
         }
     }
 };
+
+document.addEventListener('ImprovedTubeOnlyOnePlayer', function(event) {
+    if (chrome && chrome.runtime) {
+        chrome.runtime.sendMessage({
+            name: 'improvedtube-only-one-player'
+        });
+    }
+});
 
 
 /*------------------------------------------------------------------------------
