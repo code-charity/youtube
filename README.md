@@ -70,8 +70,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
  - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
 <br><br><br><br>
 
-## 📝ToDo (Draft)
-
+## 📝ToDo 
 
 - [ ] **0. Documentation, screenshots, videos**  -  to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features)   _We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._  
 - [ ] [**1. Active Bugs🐞**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) - *(we aim to offer (small) bounties on bugs/[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen). Please ask)*
@@ -81,7 +80,6 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) - *(For code literates)* - (*Newcomers are welcome[ .](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078) We happily review all edits & love to collaborate)* 
 - [ ] **Languages missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**   _Quick drafts welcome!_  
 - [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _editors/proofreaders wanted!_ 
-
 
 
 ### 🌾 Our Projects
@@ -99,7 +97,6 @@ Got great ideas? ideas@improvedtube.com
 ###  👩‍💻 👨🏽‍💻 👩🏿‍💻 Expertise / Advice
 Do you need to run an extension, site, app or repo with many users and a great feedback score?  
 We like to help good meaningful causes. projects@improvedtube.com  <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="80px">
-
 
 
 ## Old Intro:
