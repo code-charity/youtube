@@ -83,9 +83,9 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 
  - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) &nbsp;&nbsp; - *(For code literates)* - (*Newcomers are welcome [too](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)* <br>
  
-**Languages: **   
-[] [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _proofreaders wanted!_ 
-[] **Missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**   _Quick drafts welcome!_  
+ **Languages:**    
+- [ ] [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _editors/proofreaders wanted!_ 
+- [ ] **Missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**   _Quick drafts welcome!_  
 
 ### 🌾 Our Projects
 ### Extensions (\*new\*)
