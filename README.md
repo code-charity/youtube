@@ -19,6 +19,8 @@
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a>
 </p>
 
+<br>
+<br>
 
 ## 🙏 Credits
 Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) and [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
@@ -41,6 +43,9 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 		<td><samp>qqseudey582dz72l23nspw0ch8ezlgty25jpqjdkun</samp></td>
 	</tr>
 </table>
+
+<br>
+<br>
 
 ### 🌎 Translations
 
@@ -66,6 +71,9 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [x] [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [Still34](https://github.com/Still34), [water903](https://github.com/water903), [suitangi](https://github.com/suitangi)
 - [x] [日本語](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json) by [utuhiro78](https://github.com/utuhiro78)
 - [x] [한국어](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [msc9533](https://github.com/msc9533), [LYHyoung](https://github.com/LYHyoung)
+
+<br>
+<br>
 
 ## 🔧 Install from source
 
