@@ -80,9 +80,9 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [ ] [**3. Other active topics**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A"Feature%20Request") 
 
 
-[**Contributing without programming**](https://github.com/ImprovedTube/ImprovedTube/YouTube-Extension/discussions/753)
+ - [**Contributing without programming**](https://github.com/ImprovedTube/ImprovedTube/YouTube-Extension/discussions/753)
 
-[**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) &nbsp;&nbsp; - *(For code literates)* - (*Newcomers are welcome [too](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)* <br>
+ - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) &nbsp;&nbsp; - *(For code literates)* - (*Newcomers are welcome [too](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)* <br>
     
   **Language:**
 - [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _proofreaders wanted!_ 
