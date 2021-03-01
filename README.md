@@ -87,11 +87,11 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
     
   **Language:**
 - [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _proofreaders wanted!_ 
-- [ ] [Malay](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) 
-- [ ] [Polish](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) _Quick drafts welcome!_  
-- [ ] [Punjabi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) _Who's from Pakistan?_
-- [ ] [Thai](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales//messages.json) 
-- [ ] [Vietnamese](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vt/messages.json)
+- [ ] [Malay](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) 
+- [ ] [Polish](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _Quick drafts welcome!_  
+- [ ] [Punjabi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _Who's from Pakistan?_
+- [ ] [Thai](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) 
+- [ ] [Vietnamese](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
 ### 🌾 Our Projects
 ### Extensions (\*new\*)
