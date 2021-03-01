@@ -82,14 +82,10 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
  - [**Contributing without programming**](https://github.com/ImprovedTube/ImprovedTube/YouTube-Extension/discussions/753)
 
  - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) &nbsp;&nbsp; - *(For code literates)* - (*Newcomers are welcome [too](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)* <br>
-    
-  **Language:**
-- [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _proofreaders wanted!_ 
-- [ ] [Malay](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) 
-- [ ] [Polish](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _Quick drafts welcome!_  
-- [ ] [Punjabi](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _Who's from Pakistan?_
-- [ ] [Thai](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) 
-- [ ] [Vietnamese](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
+ 
+**Languages: **   
+[] [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _proofreaders wanted!_ 
+[] **Missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**   _Quick drafts welcome!_  
 
 ### 🌾 Our Projects
 ### Extensions (\*new\*)
