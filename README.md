@@ -81,7 +81,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _editors/proofreaders wanted!_ 
 
 
-### 🌾 Our Projects
+## 🌾 Our Projects
 ### Extensions (\*new\*)
 * **Home:** **History Manager** [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/history-manager), Start Page [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/start-page),  [**To-Do**](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/to-do) 
 * **Browsing:**  [**HID Control**(Deny overwriting Right-Click, Ctrl+F,...)](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/hid-control-prevention), [**Custom user agent**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj) [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/custom-user-agent), [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/night-mode), [**Regex Replace**](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/regex-replace)   
