@@ -24,17 +24,17 @@
 ## 🙏 Credits
 Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) and [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
 
-<table><tr><td><img src="https://ethereum.org/static/da3e74023b0d48abaf82cda76e36939a/31987/ethereum-logo-landscape-purple.png" alt="Ethereum" height="30px">/USDC</td>
+<table><tr><td><img src="https://ethereum.org/static/da3e74023b0d48abaf82cda76e36939a/31987/ethereum-logo-landscape-purple.png" alt="Ethereum" height="25px"></td>
 		<td><samp>0xf6E03Ffa6B04c972C45c91D6Bc449Be81E1C527c</samp></td>
 	</tr><tr>
-		<td><img src="https://www.bitcoincash.org/images/media-kit/6-bitcoin-cash-logo-horizontal.svg" alt="BitcoinCash" height="30px"></td>
+		<td><img src="https://www.bitcoincash.org/images/media-kit/6-bitcoin-cash-logo-horizontal.svg" alt="BitcoinCash" height="25px"></td>
 		<td><samp>qqseudey582dz72l23nspw0ch8ezlgty25jpqjdkun</samp></td>
 	</tr>
 	<tr>
 		<td><img src="https://assets-global.website-files.com/5deac75ecad2173c2ccccbc7/5dec8960504967fd31147f62_Stellar_lockup_black_RGB.svg" alt="Stellar" height="30px"></td>	<td><samp>GC25BRDKV5HIJX4IZJXFNKG5PWEPZX56NZKTDJ5YCR4O6YY7Y3M2JL65</samp></td>
 	</tr>
 	<tr>
-		<td><img src="https://bitcoin.org/img/icons/logotop.svg" alt="Bitcoin" height="30px"></td>
+		<td><img src="https://bitcoin.org/img/icons/logotop.svg" alt="Bitcoin" height="25px"></td>
 		<td><samp>144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL</samp></td>
 	</tr>
 	
