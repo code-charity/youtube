@@ -20,7 +20,6 @@
 </p>
 
 <br>
-<br>
 
 ## 🙏 Credits
 Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) and [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
@@ -70,8 +69,6 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [x] [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [Still34](https://github.com/Still34), [water903](https://github.com/water903), [suitangi](https://github.com/suitangi)
 - [x] [日本語](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json) by [utuhiro78](https://github.com/utuhiro78)
 - [x] [한국어](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [msc9533](https://github.com/msc9533), [LYHyoung](https://github.com/LYHyoung)
-
-<br>
 <br>
 
 ## 🔧 Install from source
@@ -108,5 +105,4 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 
 ## 🌾 Our Projects
 ### Extensions (\*new\*)
-* **Home:** **History Manager** [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/history-manager), Start Page [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/start-page),  [**To-Do**](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/to-do) 
-* **Browsing:**  [**HID Control**(Deny overwriting Right-Click, Ctrl+F,...)](https://
+* **Home:** **History Manager** [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/history-manager), Start Page [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/start-page),  [**To-Do**](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/vi
