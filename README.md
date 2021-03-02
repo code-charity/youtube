@@ -24,7 +24,7 @@
 ## 🙏 Credits
 Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) and [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
 
-<table><tr><td><img src="https://ethereum.org/static/da3e74023b0d48abaf82cda76e36939a/31987/ethereum-logo-landscape-purple.png" alt="Ethereum" height="28px"></td>
+<table align="right"><tr><td><img src="https://ethereum.org/static/da3e74023b0d48abaf82cda76e36939a/31987/ethereum-logo-landscape-purple.png" alt="Ethereum" height="28px"></td>
 		<td><samp>0xf6E03Ffa6B04c972C45c91D6Bc449Be81E1C527c</samp></td>
 	</tr><tr>
 		<td><img src="https://www.bitcoincash.org/images/media-kit/6-bitcoin-cash-logo-horizontal.svg" alt="BitcoinCash" height="21px"></td>
@@ -39,8 +39,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 	</tr>
 	
 </table>
-
-<br>
+<br><br><br><br><br><br>
 
 ### 🌎 Translations
 
