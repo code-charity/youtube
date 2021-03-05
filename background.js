@@ -334,8 +334,6 @@ chrome.storage.local.get(function(items) {
             ga: a
         });
     }
-
-    console.log(a - (items.ga || 0));
 });
 
 

@@ -93,6 +93,7 @@ html[it-page-type=home][it-youtube-home-page=search] #yt-masthead-content {
     pointer-events: all;
     justify-content: center;
     align-items: center;
+    background: var(--yt-spec-general-background-a);
 }
 
 html[it-page-type=home][it-youtube-home-page=search] ytd-searchbox>form {
