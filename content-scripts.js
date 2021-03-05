@@ -47,6 +47,7 @@ function camelize(string) {
 
 function attributes(items) {
     var whitelist = {
+        'youtube-home-page': true,
         'remove-related-search-results': true,
         'squared-user-images': true,
         'hide-animated-thumbnails': true,
