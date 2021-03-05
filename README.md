@@ -1,6 +1,6 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
->      🔔 We are focused on UX now. So your wishes for New Features might have to wait. Please keep up posting them
+>      🔔 We are focused on UX now. So many wishes for New Features might have to wait. Please keep up posting them
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 		<img src="https://github.com/victor-savinov/previews/blob/master/improvedtube/screenshot-github.png">
