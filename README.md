@@ -1,5 +1,6 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
+> 🔔 We are focused on UX now. So your wishes for New Features might have to wait. Please keep up posting them
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 		<img src="https://github.com/victor-savinov/previews/blob/master/improvedtube/screenshot-github.png">
@@ -19,8 +20,6 @@
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a>
 </p>
 
-> 🔔 We are focused on UX now. So your wishes for New Features might have to wait. Please keep up posting them
-
 ## 🙏 Credits
 Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) and [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
 
@@ -39,7 +38,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 	</tr>
 	
 </table>
-<br><br><br><br>
+<br><br><br>
 
 ### 🌎 Translations
 
@@ -67,26 +66,6 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [x] [한국어](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [msc9533](https://github.com/msc9533), [LYHyoung](https://github.com/LYHyoung)
 <br>
 
-## 🔧 Install from source
-
-1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)  *(or download the repo & run the build.py!)*
-
- -  **Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**
-   2. Go to your Browser's Extensions page (*chrome://extensions/*) 
-   3. Activate "Developer mode"
-   4. Click the "Load unpacked" button <br>
-      & Select the extracted folder
-
- -  **Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat**
-   2. Go to Add-ons (*about:addons*) 
-   3. Click on "Extensions" tab
-   4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
-   5. Click on "Load Temporary Add-on…"
-   6. Select the "manifest.json" file from unzipped folder
-
- - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
-
-
 ## 📝ToDo 
 
 - [ ] **0. Documentation, screenshots, videos** 
@@ -98,6 +77,37 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 > - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) - *(For code literates)* - (*Newcomers are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)* 
 - [ ] **Languages missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**   _Quick drafts welcome!_  
 - [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _editors/proofreaders wanted!_ 
+
+## 🔧 Install from source
+
+1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)  *(or download the repo & run the build.py!)*
+
+ -  **Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**
+
+   2. Go to your Browser's Extensions page (*chrome://extensions/*) 
+
+   3. Activate "Developer mode"
+
+   4. Click the "Load unpacked" button <br>
+
+      & Select the extracted folder
+
+ -  **Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat**
+
+   2. Go to Add-ons (*about:addons*) 
+
+   3. Click on "Extensions" tab
+
+   4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
+
+   5. Click on "Load Temporary Add-on…"
+
+   6. Select the "manifest.json" file from unzipped folder
+
+ - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
+
+
+
 
 
 ## 🌾 Our Projects
