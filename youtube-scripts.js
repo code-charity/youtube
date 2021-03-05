@@ -1106,12 +1106,13 @@ ImprovedTube.upNextAutoplay = function() {
     var option = this.storage.up_next_autoplay;
 
     if (this.isset(option)) {
-        var toggle = document.querySelector('#related #head.ytd-compact-autoplay-renderer #toggle');
+        var toggle = document.querySelector('.ytp-right-controls .ytp-autonav-toggle-button'),
+            attribute = toggle.getAttribute('aria-checked');
 
         if (toggle) {
             var option = ImprovedTube.storage.up_next_autoplay;
 
-            if (option === true && !toggle.hasAttribute('checked') || option === false && toggle.hasAttribute('checked')) {
+            if (option === true && attribute === 'false' || option === false && attribute === 'true') {
                 toggle.click();
             }
         }
