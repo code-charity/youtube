@@ -1,5 +1,7 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
+> :exclamation: We are focused on improving stability. Features and pull requests later...
+
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 		<img src="https://github.com/victor-savinov/previews/blob/master/improvedtube/screenshot-github.png">
