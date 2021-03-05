@@ -38,7 +38,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 	</tr>
 	
 </table>
-<br><br><br>
+<br><br><br><br><br>
 
 ### 🌎 Translations
 
@@ -78,6 +78,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [ ] **Languages missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**   _Quick drafts welcome!_  
 - [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _editors/proofreaders wanted!_ 
 
+
 ## 🔧 Install from source
 
 1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)  *(or download the repo & run the build.py!)*
@@ -107,9 +108,6 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
  - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
 
 
-
-
-
 ## 🌾 Our Projects
 ### Extensions (\*new\*)
 * **Home:** **History Manager** [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/history-manager), Start Page [  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/start-page),  [**To-Do**](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/to-do) 
@@ -118,6 +116,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
   * **Research:** [**Regex Search** (Ctrl+F+Shift)](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/regex-search) 
   
 **Development:** [**Satus**](https://github.com/victor-savinov/satus), [Theme Engine](https://github.com/victor-savinov/theme-engine),   [Pluviam](https://github.com/victor-savinov/pluviam), [Code Editor](https://github.com/victor-savinov/code-editor),  [Viscum Player](https://github.com/victor-savinov/vbeiscum-player) 
+
 ## 💼 Our Work 
 ### 💡 Ideas
 Got great ideas? ideas@improvedtube.com
