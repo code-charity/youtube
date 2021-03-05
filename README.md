@@ -1,6 +1,6 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
-> 🔔 We are focused on UX now. So your wishes for New Features might have to wait. Please keep up posting them
+>      🔔 We are focused on UX now. So your wishes for New Features might have to wait. Please keep up posting them
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 		<img src="https://github.com/victor-savinov/previews/blob/master/improvedtube/screenshot-github.png">
@@ -71,7 +71,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 > We still need to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _(We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._  
 - [ ] [**1. Active Bugs🐞**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) - *(we aim to offer (small) bounties on bugs/[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen). Please ask)*
 - [ ] [**2. Most wanted New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"Feature%20Request"+sort%3Acomments-desc+is%3Aopen) - *(you can add a wish 🌟🧚 / an issue-number to your donation.)*  
-- [ ] [**3. Other active topics**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A"Feature%20Request") 
+- [ ] [**3. All other topics (Plans, UX, ...)**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A"Feature%20Request") 
 > - [**Contributing without programming**](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)
 > - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) - *(For code literates)* - (*Newcomers are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)* 
 - [ ] **Languages missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**   _Quick drafts welcome!_  
