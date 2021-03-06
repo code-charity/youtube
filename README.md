@@ -46,7 +46,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 
 - [x] [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
 - [x] [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [Termuellinator](https://github.com/Termuellinator), [css-smueller](https://github.com/css-smueller)
-- [x] [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) Proofreaders: ___ 
+- [x] [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) Proofreaders: __ 
 - [x] [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor), [dimateos](https://github.com/dimateos)
 - [x] [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [leghort](https://github.com/leghort), [Eymiks](https://github.com/Eymiks), [Solvabl](https://github.com/Solvabl)
 - [x] [Italiano](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
