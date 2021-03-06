@@ -46,7 +46,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 
 - [x] [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
 - [x] [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [Termuellinator](https://github.com/Termuellinator), [css-smueller](https://github.com/css-smueller)
-- [x] [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
+- [x] [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) Proofreaders: ___ 
 - [x] [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor), [dimateos](https://github.com/dimateos)
 - [x] [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [leghort](https://github.com/leghort), [Eymiks](https://github.com/Eymiks), [Solvabl](https://github.com/Solvabl)
 - [x] [Italiano](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
@@ -76,8 +76,8 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [ ] [**3. All other topics (Plans, UX, ...)**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A"Feature%20Request") 
 > - [**Contributing without programming**](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)
 > - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> - *(For code literates)* - (*Newcomers are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)*  </code>
-- [ ] **Languages missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**   _Quick drafts welcome!_  
-- [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _editors/proofreaders wanted!_ 
+- [ ] **Languages missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**  <code> _Quick drafts welcome!_  </code>
+- Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
 
 ## 🔧 Install from source
