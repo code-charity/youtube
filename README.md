@@ -77,7 +77,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 > - [**Contributing without programming**](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)
 > - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> - *(For code literates)* - (*Newcomers are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)*  </code>
 - [ ] **Languages missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**  <code> _Quick drafts welcome!_  </code>
-- Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
+- [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
 
 ## 🔧 Install from source
