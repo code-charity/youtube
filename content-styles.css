@@ -740,14 +740,14 @@ html[it-player-color='white'] {
     --it-player-color: #fff;
 }
 
-html[it-player-color]:not([it-player-color='red']) .ytp-play-progress,
-html[it-player-color]:not([it-player-color='red']) .ytp-scrubber-button,
-html[it-player-color]:not([it-player-color='red']) .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
-html[it-player-color]:not([it-player-color='red']) .ytp-settings-button.ytp-hd-quality-badge:after {
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-play-progress,
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-scrubber-button,
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-settings-button.ytp-hd-quality-badge:after {
     background-color: var(--it-player-color) !important;
 }
 
-html[it-player-color]:not([it-player-color='red']) .ytp-swatch-color {
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-swatch-color {
     color: var(--it-player-color) !important;
 }
 
