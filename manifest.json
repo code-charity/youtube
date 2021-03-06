@@ -3,7 +3,7 @@
     "name": "Improve YouTube! (Open-Source for YouTube)",
     "short_name": "ImprovedTube",
     "description": "Make YouTube tidy & powerful! YouTube Player Size Theme Quality Auto HD Colors Playback Speed Style ad block Playlist Channel H.264",
-    "version": "3.181",
+    "version": "3.182",
     "default_locale": "en",
     "icons": {
         "128": "assets/icons/128.png",
