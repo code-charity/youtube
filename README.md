@@ -1,5 +1,9 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
+
+>      🔔 We are focused on bugs & UX now. So many wishes for New Features might have to wait.
+>      Please keep them up
+
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 		<img src="https://github.com/victor-savinov/previews/blob/master/improvedtube/screenshot-github.png">
@@ -19,33 +23,31 @@
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a>
 </p>
 
-<br>
-
 ## 🙏 Credits
 Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) and [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
 
-<table align="right"><tr><td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://ethereum.org/static/da3e74023b0d48abaf82cda76e36939a/31987/ethereum-logo-landscape-purple.png" alt="Ethereum" height="28px"></td>
+<table align="right"><tr><td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://ethereum.org/static/da3e74023b0d48abaf82cda76e36939a/31987/ethereum-logo-landscape-purple.png" alt="Ethereum" height="23px"></td>
 		<td><samp>0xf6E03Ffa6B04c972C45c91D6Bc449Be81E1C527c</samp></td>
 	</tr><tr>
-		<td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"> <a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://www.bitcoincash.org/images/media-kit/6-bitcoin-cash-logo-horizontal.svg" alt="BitcoinCash" height="21px"></td>
+		<td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"> <a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://bitcoincash.org/graphics/img/6-bitcoin-cash-logo-horizontal-small.png" alt="BitcoinCash" height="16px"></td>
 		<td><samp>qqseudey582dz72l23nspw0ch8ezlgty25jpqjdkun</samp></td>
 	</tr>
 	<tr>
-		<td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://assets-global.website-files.com/5deac75ecad2173c2ccccbc7/5dec8960504967fd31147f62_Stellar_lockup_black_RGB.svg" alt="Stellar" height="30px"></td>	<td><samp>GC25BRDKV5HIJX4IZJXFNKG5PWEPZX56NZKTDJ5YCR4O6YY7Y3M2JL65</samp></td>
+		<td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://assets-global.website-files.com/5deac75ecad2173c2ccccbc7/5dec8960504967fd31147f62_Stellar_lockup_black_RGB.svg" alt="Stellar" height="25px"></td>	<td><samp>GC25BRDKV5HIJX4IZJXFNKG5PWEPZX56NZKTDJ5YCR4O6YY7Y3M2JL65</samp></td>
 	</tr>
 	<tr>
-		<td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://bitcoin.org/img/icons/logotop.svg" alt="Bitcoin" height="25px"></td>
+		<td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://bitcoin.org/img/icons/logotop.svg" alt="Bitcoin" height="20px"></td>
 		<td><samp>144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL</samp></td>
 	</tr>
 	
 </table>
-<br><br><br><br><br><br>
+<br><br><br><br><br>
 
 ### 🌎 Translations
 
 - [x] [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23)
 - [x] [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [Termuellinator](https://github.com/Termuellinator), [css-smueller](https://github.com/css-smueller)
-- [x] [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
+- [x] [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) Proofreaders: __ 
 - [x] [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor), [dimateos](https://github.com/dimateos)
 - [x] [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [leghort](https://github.com/leghort), [Eymiks](https://github.com/Eymiks), [Solvabl](https://github.com/Solvabl)
 - [x] [Italiano](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
@@ -65,38 +67,47 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [x] [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [Still34](https://github.com/Still34), [water903](https://github.com/water903), [suitangi](https://github.com/suitangi)
 - [x] [日本語](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json) by [utuhiro78](https://github.com/utuhiro78)
 - [x] [한국어](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [msc9533](https://github.com/msc9533), [LYHyoung](https://github.com/LYHyoung)
-<br>
-
-## 🔧 Install from source
-
-1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)  *(or download the repo & run the build.py!)*
-
- -  **Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**
-   2. Go to your Browser's Extensions page (*chrome://extensions/*) 
-   3. Activate "Developer mode"
-   4. Click the "Load unpacked" button <br>
-      & Select the extracted folder
-
- -  **Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat**
-   2. Go to Add-ons (*about:addons*) 
-   3. Click on "Extensions" tab
-   4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
-   5. Click on "Load Temporary Add-on…"
-   6. Select the "manifest.json" file from unzipped folder
-
- - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
-
 
 ## 📝ToDo 
 
-- [ ] **0. Documentation, screenshots, videos**  -  to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features)   _We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._  
-- [ ] [**1. Active Bugs🐞**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) - *(we aim to offer (small) bounties on bugs/[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen). Please ask)*
-- [ ] [**2. Most wanted New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"Feature%20Request"+sort%3Acomments-desc+is%3Aopen) - *(you can add a wish 🌟🧚 / an issue-number to your donation.)*  
-- [ ] [**3. Other active topics**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A"Feature%20Request") 
-- [**Contributing without programming**](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)
-- [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163) - *(For code literates)* - (*Newcomers are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)* 
-- [ ] **Languages missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**   _Quick drafts welcome!_  
-- [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) _editors/proofreaders wanted!_ 
+- [ ] **0. Documentation, screenshots, videos** 
+> <code> We still need to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _(We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._ </code>
+- [ ] [**1. Active Bugs🐞**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) <code> - *(we aim to offer (small) bounties on bugs/[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen). Please ask)* </code>
+- [ ] [**2. Most wanted New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"Feature%20Request"+sort%3Acomments-desc+is%3Aopen)  <code> - *(you can add a wish 🌟🧚 / an issue-number to your donation.)*  </code>
+- [ ] [**3. Other Topics Plans, UX, ...**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A"Feature%20Request") 
+> - [**Contributing without programming**](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)
+> - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> - *(For code literates)* - (*Newcomers are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)*  </code>
+- [ ] **Languages missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**  <code> _Quick drafts welcome!_  </code>
+- [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
+
+
+## 🔧 Install from source
+
+1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)  *(or download the repo & run the [build.py](https://github.com/code4charity/YouTube-Extension/wiki/build.py)!)*
+
+ -  **Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**
+
+   2. Go to your Browser's Extensions page (*chrome://extensions/*) 
+
+   3. Activate "Developer mode"
+
+   4. Click the "Load unpacked" button <br>
+
+      & Select the extracted folder
+
+ -  **Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat**
+
+   2. Go to Add-ons (*about:addons*) 
+
+   3. Click on "Extensions" tab
+
+   4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
+
+   5. Click on "Load Temporary Add-on…"
+
+   6. Select the "manifest.json" file from unzipped folder
+
+ - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
 
 
 ## 🌾 Our Projects
@@ -107,12 +118,13 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
   * **Research:** [**Regex Search** (Ctrl+F+Shift)](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)[  <img src="https://github.com/favicon.ico" height="15px">](https://github.com/victor-savinov/regex-search) 
   
 **Development:** [**Satus**](https://github.com/victor-savinov/satus), [Theme Engine](https://github.com/victor-savinov/theme-engine),   [Pluviam](https://github.com/victor-savinov/pluviam), [Code Editor](https://github.com/victor-savinov/code-editor),  [Viscum Player](https://github.com/victor-savinov/vbeiscum-player) 
+
 ## 💼 Our Work 
 ### 💡 Ideas
 Got great ideas? ideas@improvedtube.com
 ### 👨🏽‍💻 👩🏿‍💻 👩‍💻  Expertise / Advice
 Do you need to run an extension, site, app or repo with many users and a great feedback score?  
-We like to help good meaningful causes. projects@improvedtube.com  <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="80px">
+We like to help good meaningful causes. projects@improvedtube.com  <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="110px">
 
 <hr> 
 
