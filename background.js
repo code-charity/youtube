@@ -18,9 +18,6 @@
 var locale_code = 'en',
     browser_icon = false;
 
-var POPOUT_PADDING_WIDTH = 16;
-var POPOUT_PADDING_HEIGHT = 38;
-
 /*---------------------------------------------------------------
 # FUNCTIONS
 ---------------------------------------------------------------*/
