@@ -1,7 +1,7 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
 
-> <code> 🔔 We are focused on bugs & UX now. So many wishes for New Features might have to wait. Please keep up posting them </code> 
+> <code> 🔔 We are focused on bugs & UX now. So wishes for New Features might have to wait. Please keep them up! </code> 
 
 
 <p align="center">
