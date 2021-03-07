@@ -44,7 +44,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 	</tr>
 	
 </table>
-<br><br><br><br>
+<br><br><br><br><br>
 
 ### 🌎 Translations
 
