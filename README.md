@@ -39,7 +39,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 		<td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://assets-global.website-files.com/5deac75ecad2173c2ccccbc7/5dec8960504967fd31147f62_Stellar_lockup_black_RGB.svg" alt="Stellar" height="20px"></td>	<td><samp>GC25BRDKV5HIJX4IZJXFNKG5PWEPZX56NZKTDJ5YCR4O6YY7Y3M2JL65</samp></td>
 	</tr>
 	<tr>
-		<td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://bitcoin.org/img/icons/logotop.svg" alt="Bitcoin" height="16px"></td>
+		<td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://bitcoin.org/img/icons/logotop.svg" alt="Bitcoin" height="15px"></td>
 		<td><samp>144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL</samp></td>
 	</tr>
 	
