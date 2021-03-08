@@ -143,9 +143,6 @@ We like to help good meaningful causes. projects@improvedtube.com  <img src="htt
       <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
         <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /> </p>
 	
-## 🏵️Credits
-Big thanks ♡ to our [contributors 👪](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)
-	
 ## Some ImprovedTube features:
 - Video quality
 - Themes and customisation
