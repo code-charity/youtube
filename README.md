@@ -20,6 +20,10 @@
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report bug</a>
 	·
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a> 
+	
+## Usage rights
+
+You can use the contents of this repository, and improve them, under the latest [GNU Affero License](https://www.google.com/search?q=gnu+affero+license).
 
 
 ## 🙏 Credits
