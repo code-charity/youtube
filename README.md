@@ -1,7 +1,6 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
-<p  align="right"> <code> 📟 We are focused on bugs & UX. Wishes for New Features might have to wait but please keep them up! </code> 
-</p>
+> 📟 We are focused on bugs & UX. Wishes for New Features might have to wait but please keep them up! 
 
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
