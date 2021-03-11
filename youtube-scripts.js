@@ -3038,6 +3038,10 @@ ImprovedTube.video_src = false;
 
 ImprovedTube.videoUpdated = function() {
     this.playerAds();
+    this.playerPlaybackSpeed();
+    this.playerQuality();
+    this.playerVolume();
+    this.playlistUpNextAutoplay();
 };
 
 ImprovedTube.timeupdate = function() {
