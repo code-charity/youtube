@@ -82,7 +82,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 
 ## 🔧 Install from source
 
-1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)  *(or download the repo & run the [build.py](https://github.com/code4charity/YouTube-Extension/wiki/build.py)!)*
+1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
 
  -  **Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**
 
