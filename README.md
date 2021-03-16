@@ -57,6 +57,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [x] [Português (Brasil)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json) by [dthiago](https://github.com/dthiago), [Mike-Correa](https://github.com/Mike-Correa)
 - [x] [Slovenčina](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json) by [bbc-s](https://github.com/bbc-s)
 - [x] [Türkçe](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json) by [onurdumangoz](https://github.com/onurdumangoz), [daswareinfach](https://github.com/daswareinfach)
+- [x] [Română](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ro/messages.json) by [hateofhades](https://github.com/hateofhades)
 - [x] [Русский](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json) by [qweered](https://github.com/qweered), [alexesprit](https://github.com/alexesprit)
 - [x] [ελληνικά](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json) by [molyvius](https://github.com/molyvius)
 - [x] [العربية](https://github.com/code4charity/YouTube-Extension/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
