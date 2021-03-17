@@ -2247,6 +2247,14 @@ ImprovedTube.shortcuts = function() {
                     player.stopVideo();
                 }
             },
+            shortcut_toggle_autoplay: function() {
+                var toggle = document.querySelector('.ytp-autonav-toggle-button'),
+					attribute = toggle.getAttribute('aria-checked') === 'true';
+
+                if (toggle) {
+					toggle.click();
+                }
+            },
             shortcut_next_video: function() {
                 var player = document.querySelector('#movie_player');
 
