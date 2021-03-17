@@ -99,9 +99,9 @@ ImprovedTube.youtubeHomePage = function() {
         option === '/playlist?list=WL'
     ) {
         var node_list = document.querySelectorAll(`
-            	a[href="/"]:not([role=tablist]),
-            	a[href="https://www.youtube.com/"]:not([role=tablist]),
-            	a[it-origin="/"]:not([role=tablist])
+                a[href="/"]:not([role=tablist]),
+                a[href="https://www.youtube.com/"]:not([role=tablist]),
+                a[it-origin="/"]:not([role=tablist])
             `);
 
         for (var i = 0, l = node_list.length; i < l; i++) {
@@ -2249,10 +2249,10 @@ ImprovedTube.shortcuts = function() {
             },
             shortcut_toggle_autoplay: function() {
                 var toggle = document.querySelector('.ytp-autonav-toggle-button'),
-					attribute = toggle.getAttribute('aria-checked') === 'true';
+                    attribute = toggle.getAttribute('aria-checked') === 'true';
 
                 if (toggle) {
-					toggle.click();
+                    toggle.click();
                 }
             },
             shortcut_next_video: function() {
