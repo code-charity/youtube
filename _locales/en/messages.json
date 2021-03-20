@@ -344,6 +344,9 @@
     "hideCards": {
         "message": "Hide cards"
     },
+    "hideControls": {
+        "message": "Hide player controls"
+    },
     "hideDetails": {
         "message": "Hide details"
     },
@@ -745,6 +748,9 @@
     },
     "toggleCards": {
         "message": "Toggle cards"
+    },
+    "toggleControls": {
+        "message": "Toggle player controls"
     },
     "topChat": {
         "message": "Top chat"
