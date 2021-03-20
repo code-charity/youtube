@@ -48,6 +48,7 @@
   4.16 Rotate
   4.17 Popup player
   4.18 Force SDR
+  4.19 Hide controls
 5.0 Playlist
   5.1 Up next autoplay
   5.2 Reverse
@@ -1878,6 +1879,23 @@ ImprovedTube.playerSDR = function() {
 };
 
 /*------------------------------------------------------------------------------
+4.19 Hide controls
+------------------------------------------------------------------------------*/
+
+ImprovedTube.playerControls = function() {
+    if (!node) {
+		var node = document.querySelector('.html5-video-player');
+	}
+
+    if (this.storage.player_hide_controls === true) {
+        node.hideControls();
+    }
+    else {
+        node.showControls();
+    }
+};
+
+/*------------------------------------------------------------------------------
 5.0 PLAYLIST
 --------------------------------------------------------------------------------
 TODO: CONNECT & TEST
@@ -2229,6 +2247,20 @@ ImprovedTube.shortcuts = function() {
                     video.requestPictureInPicture();
                 }
             },
+            shortcut_toggle_controls: function() {
+                var player = document.querySelector('.html5-video-player');
+
+                if (player && player.hideControls && player.showControls) {
+                	ImprovedTube.storage.player_hide_controls = !ImprovedTube.storage.player_hide_controls;
+
+                    if (ImprovedTube.storage.player_hide_controls === true) {
+                        player.hideControls();
+                    }
+                    else {
+                    	player.showControls();
+                    }
+                }
+            },
             shortcut_play_pause: function() {
                 var video = document.querySelector('#movie_player video');
 
@@ -2245,14 +2277,6 @@ ImprovedTube.shortcuts = function() {
 
                 if (player) {
                     player.stopVideo();
-                }
-            },
-            shortcut_toggle_autoplay: function() {
-                var toggle = document.querySelector('.ytp-autonav-toggle-button'),
-                    attribute = toggle.getAttribute('aria-checked') === 'true';
-
-                if (toggle) {
-                    toggle.click();
                 }
             },
             shortcut_next_video: function() {
@@ -3017,6 +3041,7 @@ ImprovedTube.videoPageUpdate = function() {
         this.playerRepeatButton();
         this.playerRotateButton();
         this.playerPopupButton();
+        this.playerControls();
 
         this.playlistUpNextAutoplay();
         this.playlistReverse();
