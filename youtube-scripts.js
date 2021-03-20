@@ -11,6 +11,7 @@
   1.5 Mark watched videos
   1.6 Only one player instance playing
   1.7 HD thumbnails
+  1.8 Hide thumbnail overlay
 2.0 Appearance
   2.1 Player
     2.1.1 Forced theater mode
@@ -99,9 +100,9 @@ ImprovedTube.youtubeHomePage = function() {
         option === '/playlist?list=WL'
     ) {
         var node_list = document.querySelectorAll(`
-            	a[href="/"]:not([role=tablist]),
-            	a[href="https://www.youtube.com/"]:not([role=tablist]),
-            	a[it-origin="/"]:not([role=tablist])
+                a[href="/"]:not([role=tablist]),
+                a[href="https://www.youtube.com/"]:not([role=tablist]),
+                a[it-origin="/"]:not([role=tablist])
             `);
 
         for (var i = 0, l = node_list.length; i < l; i++) {
@@ -383,6 +384,20 @@ ImprovedTube.hdThumbnails = function() {
             if (images[i].dataset.defaultSrc) {
                 images[i].src = images[i].dataset.defaultSrc;
             }
+        }
+    }
+};
+
+/*------------------------------------------------------------------------------
+1.8 HIDE THUMBNAIL OVERLAY
+------------------------------------------------------------------------------*/
+
+ImprovedTube.hideThumbnailOverlay = function() {
+    if (this.storage.hide_thumbnail_overlay === true) {
+        var overlays = document.querySelectorAll('#hover-overlays');
+
+        for (var i = 0, l = overlays.length; i < l; i++) {
+            overlays[i].remove();
         }
     }
 };
@@ -2981,6 +2996,7 @@ ImprovedTube.pageUpdateListener = function() {
         ImprovedTube.collapseOfSubscriptionSections();
         ImprovedTube.markWatchedVideos();
         ImprovedTube.hdThumbnails();
+        ImprovedTube.hideThumbnailOverlay();
 
         ImprovedTube.channelDefaultTab();
 
@@ -3074,6 +3090,7 @@ ImprovedTube.DOMContentLoaded = function() {
         ImprovedTube.confirmationBeforeClosing();
         ImprovedTube.markWatchedVideos();
         ImprovedTube.hdThumbnails();
+        ImprovedTube.hideThumbnailOverlay();
 
         ImprovedTube.channelDefaultTab();
 
@@ -3303,6 +3320,7 @@ ImprovedTube.init = function() {
 
     window.addEventListener('load', function() {
         ImprovedTube.hdThumbnails();
+        ImprovedTube.hideThumbnailOverlay();
         ImprovedTube.channelDefaultTab();
     });
 };
