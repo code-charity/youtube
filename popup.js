@@ -1592,6 +1592,11 @@ Menu.main.section.general = {
             type: 'switch',
             label: 'hideAnimatedThumbnails',
             tags: 'preview'
+        },
+        hide_thumbnail_overlay: {
+            type: 'switch',
+            label: 'hideThumbnailOverlay',
+            tags: 'preview'
         }
     }
 };
