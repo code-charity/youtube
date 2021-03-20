@@ -2720,6 +2720,10 @@ Menu.main.section.shortcuts = {
             type: 'shortcut',
             label: 'stop'
         },
+        shortcut_toggle_autoplay: {
+            type: 'shortcut',
+            label: 'toggleAutoplay'
+        },
         shortcut_next_video: {
             type: 'shortcut',
             label: 'nextVideo',

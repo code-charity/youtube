@@ -740,6 +740,9 @@
     "todayAt": {
         "message": "Today at"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "Toggle cards"
     },
