@@ -2589,6 +2589,11 @@ Menu.main.section.player = {
         player_popup_button: {
             type: 'switch',
             label: 'popupPlayer'
+        },
+        player_hide_controls: {
+            type: 'switch',
+            label: 'hideControls',
+            value: false
         }
     }
 };
@@ -2700,6 +2705,10 @@ Menu.main.section.shortcuts = {
     player_section: {
         type: 'section',
 
+        shortcut_toggle_controls: {
+            type: 'shortcut',
+            label: 'toggleControls'
+        },
         shortcut_picture_in_picture: {
             type: 'shortcut',
             label: 'pictureInPicture'
