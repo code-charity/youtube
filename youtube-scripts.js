@@ -397,7 +397,7 @@ ImprovedTube.hideThumbnailOverlay = function() {
         var overlays = document.querySelectorAll('#hover-overlays');
 
         for (var i = 0, l = overlays.length; i < l; i++) {
-            overlays[i].remove();
+            overlays[i].style.display = "none";
         }
     }
 };
