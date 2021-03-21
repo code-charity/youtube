@@ -168,7 +168,7 @@
         "message": "Çekirdekler"
     },
     "cropChapterTitles": {
-        "message": "Crop chapter titles"
+        "message": "Bölüm başlıklarını kırp"
     },
     "customCss": {
         "message": "Özel CSS"
@@ -375,7 +375,7 @@
         "message": "Hover"
     },
     "hoverOnVideoPage": {
-        "message": "Hover on video page"
+        "message": "Videonun Üzerinde Hover"
     },
     "howLongAgoTheVideoWasUploaded": {
         "message": "Video ne kadar süre önce yüklendi"
@@ -498,7 +498,7 @@
         "message": "Yalnızca YouTube'da etkin"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Only one player instance playing"
+        "message": "Sadece bir oynatıcı örneği"
     },
     "onSubscribedChannels": {
         "message": "Abone olunan kanallarda"
@@ -582,7 +582,7 @@
         "message": "Kırmızı"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "Beğenmeme düğmesinini kırmızı renkte göster"
     },
     "relatedVideos": {
         "message": "İlgili videolar"
@@ -732,10 +732,10 @@
         "message": "Bugün"
     },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "Kartları aç/kapat"
     },
     "topChat": {
-        "message": "Top chat"
+        "message": "En İyi Sohbet Mesajları"
     },
     "trailerAutoplay": {
         "message": "Fragman otomatik oynatımı"
@@ -747,7 +747,7 @@
         "message": "Saydam arka plan"
     },
     "trending": {
-        "message": "Trending"
+        "message": "Trendler"
     },
     "tryToReloadThePage": {
         "message": "Sayfayı yeniden yüklemeyi deneyin"
