@@ -1133,24 +1133,24 @@ ImprovedTube.playerAds = function() {
     var button = document.querySelector('.ytp-ad-skip-button.ytp-button');
 
     if(button) {
-		if (ImprovedTube.storage.player_ads === 'block_all') {
-			ImprovedTube.adInterval = setInterval(function() {
-				if (button) {
-					button.click();
+        if (ImprovedTube.storage.player_ads === 'block_all') {
+            ImprovedTube.adInterval = setInterval(function() {
+                if (button) {
+                    button.click();
 
-					clearInterval(ImprovedTube.adInterval);
-				}
-			}, 50);
-		} else if (ImprovedTube.storage.player_ads === 'subscribed_channels') {
-			ImprovedTube.adInterval = setInterval(function() {
-				if (button && !document.querySelector('#meta paper-button[subscribed]')) {
-					button.click();
+                    clearInterval(ImprovedTube.adInterval);
+                }
+            }, 50);
+        } else if (ImprovedTube.storage.player_ads === 'subscribed_channels') {
+            ImprovedTube.adInterval = setInterval(function() {
+                if (button && !document.querySelector('#meta paper-button[subscribed]')) {
+                    button.click();
 
-					clearInterval(ImprovedTube.adInterval);
-				}
-			}, 50);
-		}
-	}
+                    clearInterval(ImprovedTube.adInterval);
+                }
+            }, 50);
+        }
+    }
 };
 
 
