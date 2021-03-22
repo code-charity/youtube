@@ -1,10 +1,10 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
-> 📟 We are focused on bugs & UX. Wishes for New Features might have to wait but please keep them up! 
+> 📟 Firefox & Edge published! Please try <br> 📟 We are focused on bugs & UX. Wishes for New Features might have to wait but please keep them up! 
 
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-		<img src="https://github.com/victor-savinov/previews/blob/master/improvedtube/screenshot-github.png">
+     <img  alt="youtube extension" src="https://user-images.githubusercontent.com/25022245/112033467-bd4ae480-8b3d-11eb-89dd-976aac4f8fd6.png">
 	</a> 
 <br> <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Extension"></a> <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox.png" alt="Firefox add-ons"></a> <a href="https://microsoftedge.microsoft.com/addons/detail/knbckijjjbmkjiagojjneoplbjilfllc"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge.png" alt="Edge Youtube Extension" width="151"></a> <a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/"><img width="120" src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera Extension"></a>
 <a href="https://github.com/code4charity/YouTube-Extension/blob/master/README.md#-install-from-source"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="33px" height="33px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="30px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="25px" height="25px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="15px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="15px" height="15px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="12px" height="12px"></a>
