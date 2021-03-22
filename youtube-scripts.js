@@ -3015,6 +3015,8 @@ ImprovedTube.videoPageUpdate = function() {
         this.playlistRepeat();
         this.playlistShuffle();
 
+        ImprovedTube.initialVideoUpdateDone = true;
+
         var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');
 
         if (video_id) {
@@ -3035,13 +3037,17 @@ ImprovedTube.videoPageUpdate = function() {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.video_src = false;
+ImprovedTube.initialVideoUpdateDone = false;
 
 ImprovedTube.videoUpdated = function() {
     this.playerAds();
     this.playerPlaybackSpeed();
-    this.playerQuality();
     this.playerVolume();
     this.playlistUpNextAutoplay();
+
+    if (ImprovedTube.initialVideoUpdateDone !== true) {
+        this.playerQuality();
+    }
 };
 
 ImprovedTube.timeupdate = function() {
