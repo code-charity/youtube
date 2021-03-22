@@ -1,6 +1,6 @@
 {
     "cropChapterTitles": {
-        "message": "Hilangkan judul babak"
+        "message": "Potong bagian judul "
     },
     "about": {
         "message": "Tentang"
@@ -54,7 +54,7 @@
         "message": "Amber"
     },
     "analyzer": {
-        "message": "Analisa"
+        "message": "Pengnalisa"
     },
     "appearance": {
         "message": "Tampilan"
