@@ -1130,27 +1130,27 @@ ImprovedTube.playerAds = function() {
         clearInterval(ImprovedTube.adInterval);
     }
 
-    if (ImprovedTube.storage.player_ads === 'block_all') {
-        ImprovedTube.adInterval = setInterval(function() {
-            var button = document.querySelector('.ytp-ad-skip-button.ytp-button');
+    var button = document.querySelector('.ytp-ad-skip-button.ytp-button');
 
-            if (button) {
-                button.click();
+    if(button) {
+		if (ImprovedTube.storage.player_ads === 'block_all') {
+			ImprovedTube.adInterval = setInterval(function() {
+				if (button) {
+					button.click();
 
-                clearInterval(ImprovedTube.adInterval);
-            }
-        }, 50);
-    } else if (ImprovedTube.storage.player_ads === 'subscribed_channels') {
-        ImprovedTube.adInterval = setInterval(function() {
-            var button = document.querySelector('.ytp-ad-skip-button.ytp-button');
+					clearInterval(ImprovedTube.adInterval);
+				}
+			}, 50);
+		} else if (ImprovedTube.storage.player_ads === 'subscribed_channels') {
+			ImprovedTube.adInterval = setInterval(function() {
+				if (button && !document.querySelector('#meta paper-button[subscribed]')) {
+					button.click();
 
-            if (button && !document.querySelector('#meta paper-button[subscribed]')) {
-                button.click();
-
-                clearInterval(ImprovedTube.adInterval);
-            }
-        }, 50);
-    }
+					clearInterval(ImprovedTube.adInterval);
+				}
+			}, 50);
+		}
+	}
 };
 
 
@@ -3041,12 +3041,12 @@ ImprovedTube.initialVideoUpdateDone = false;
 
 ImprovedTube.videoUpdated = function() {
     this.playerAds();
-    this.playerPlaybackSpeed();
-    this.playerVolume();
-    this.playlistUpNextAutoplay();
 
     if (ImprovedTube.initialVideoUpdateDone !== true) {
         this.playerQuality();
+        this.playerPlaybackSpeed();
+        this.playerVolume();
+        this.playlistUpNextAutoplay();
     }
 };
 
