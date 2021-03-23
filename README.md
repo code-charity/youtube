@@ -2,7 +2,7 @@
 
 > :grey_question: ImprovedTube controls under the YouTube player ([842](https://github.com/code4charity/YouTube-Extension/issues/842))
 
-> 📟 Firefox & Edge published! Please try <br> 📟 We are focused on bugs & UX. Wishes for New Features might have to wait but please keep them up! 
+> 📟 Firefox, Edge, Opera published! Please try / rate <br> 📟 We are focused on bugs & UX. Wishes for New Features might have to wait but please keep them up! 
 
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
