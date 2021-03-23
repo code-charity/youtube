@@ -62,8 +62,10 @@
 9.0 Analyzer
 10.0 Settings
    10.1 ImprovedTube icon
-   10.2 Delete YouTube cookies
-   10.3 YouTube language
+   10.2 ImprovedTube button (sidebar)
+   10.3 ImprovedTube player buttons
+   10.4 Delete YouTube cookies
+   10.5 YouTube language
 
 0.0 Page update listener
 0.0 Onfocus
@@ -80,9 +82,6 @@ The variable "ImprovedTube" is used on the YouTube side.
 var ImprovedTube = {};
 
 
-
-
-
 /*------------------------------------------------------------------------------
 1.0 GENERAL
 ------------------------------------------------------------------------------*/
@@ -91,7 +90,7 @@ var ImprovedTube = {};
 1.1 YOUTUBE HOME PAGE
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.youtubeHomePage = function () {
+ImprovedTube.youtubeHomePage = function() {
     var option = this.storage.youtube_home_page;
 
     if (
@@ -114,7 +113,7 @@ ImprovedTube.youtubeHomePage = function () {
             }
 
             node.href = option;
-            node.addEventListener('click', function () {
+            node.addEventListener('click', function() {
                 if (
                     this.data &&
                     this.data.commandMetadata &&
@@ -1148,7 +1147,7 @@ ImprovedTube.playerAds = function() {
 
     var button = document.querySelector('.ytp-ad-skip-button.ytp-button');
 
-    if(button) {
+    if (button) {
         if (ImprovedTube.storage.player_ads === 'block_all') {
             ImprovedTube.adInterval = setInterval(function() {
                 if (button) {
@@ -1813,7 +1812,7 @@ ImprovedTube.playerRotateButton = function() {
             id: 'it-rotate-button',
             html: '<svg viewBox="0 0 24 24"><path d="M15.55 5.55L11 1v3.07a8 8 0 0 0 0 15.86v-2.02a6 6 0 0 1 0-11.82V10l4.55-4.45zM19.93 11a7.9 7.9 0 0 0-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47h2.02zM13 17.9v2.02a7.92 7.92 0 0 0 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03zm3.89-2.42l1.42 1.41A7.9 7.9 0 0 0 19.93 13h-2.02a5.9 5.9 0 0 1-1.02 2.48z"/></svg>',
             opacity: 1,
-            onclick: function () {
+            onclick: function() {
                 var video = node.querySelector('video'),
                     player = node,
                     transform = '',
@@ -1900,13 +1899,12 @@ ImprovedTube.playerSDR = function() {
 
 ImprovedTube.playerControls = function() {
     if (!node) {
-		var node = document.querySelector('.html5-video-player');
-	}
+        var node = document.querySelector('.html5-video-player');
+    }
 
     if (this.storage.player_hide_controls === true) {
         node.hideControls();
-    }
-    else {
+    } else {
         node.showControls();
     }
 };
@@ -2267,13 +2265,12 @@ ImprovedTube.shortcuts = function() {
                 var player = document.querySelector('.html5-video-player');
 
                 if (player && player.hideControls && player.showControls) {
-                	ImprovedTube.storage.player_hide_controls = !ImprovedTube.storage.player_hide_controls;
+                    ImprovedTube.storage.player_hide_controls = !ImprovedTube.storage.player_hide_controls;
 
                     if (ImprovedTube.storage.player_hide_controls === true) {
                         player.hideControls();
-                    }
-                    else {
-                    	player.showControls();
+                    } else {
+                        player.showControls();
                     }
                 }
             },
@@ -2979,9 +2976,86 @@ ImprovedTube.improvedtubeYoutubeIcon = function() {
     }
 };
 
+/*------------------------------------------------------------------------------
+10.2 IMPROVEDTUBE BUTTON (SIDEBAR)
+------------------------------------------------------------------------------*/
+
+ImprovedTube.improvedtube_youtube_sidebar_button_wait = false;
+
+ImprovedTube.improvedtubeYoutubeSidebarButton = function() {
+    if (window.self !== window.top) {
+        return false;
+    }
+
+    if (
+        ImprovedTube.storage.improvedtube_youtube_sidebar_button_wait === false &&
+        document.querySelector('.improvedtube-sidebar-a')
+    ) {
+        document.querySelector('.improvedtube-sidebar-a').remove();
+    }
+
+    if (this.improvedtube_youtube_sidebar_button_wait === false) {
+        this.improvedtube_youtube_sidebar_button_wait = setInterval(function() {
+            var second_section = document.querySelector('#guide ytd-guide-collapsible-section-entry-renderer');
+
+            if (second_section && !document.querySelector('.improvedtube-sidebar-a')) {
+                var a = document.createElement('a');
+
+                a.className = 'improvedtube-sidebar-a';
+                a.href = 'https://www.youtube.com/improvedtube';
+                a.innerText = 'ImprovedTube';
+
+                second_section.parentNode.insertBefore(a, second_section);
+            }
+        }, 250);
+    }
+};
+
+/*------------------------------------------------------------------------------
+10.3 IMPROVEDTUBE PLAYER BUTTONS
+------------------------------------------------------------------------------*/
+
+ImprovedTube.improvedtube_youtube_player_buttons_wait = false;
+
+ImprovedTube.improvedtubeYoutubePlayerButtons = function() {
+    if (window.self !== window.top) {
+        return false;
+    }
+
+    if (this.improvedtube_youtube_player_buttons_wait === false) {
+        this.improvedtube_youtube_player_buttons_wait = setInterval(function() {
+            var second_section = document.querySelector('#info #menu-container.ytd-video-primary-info-renderer');
+
+            if (second_section && !document.querySelector('.improvedtube-player-button')) {
+                var screenshot_button = document.createElement('button'),
+                    pip_button = document.createElement('button');
+
+                screenshot_button.className = 'improvedtube-player-button';
+                screenshot_button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"></svg>';
+                screenshot_button.dataset.tooltip = 'Screenshot';
+                screenshot_button.onclick = ImprovedTube.screenshot;
+
+                pip_button.className = 'improvedtube-player-button';
+                pip_button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z"></svg>';
+                pip_button.dataset.tooltip = 'Picture in picture';
+                pip_button.onclick = function() {
+                    var video = document.querySelector('#movie_player video');
+
+                    if (video) {
+                        video.requestPictureInPicture();
+                    }
+                };
+
+                second_section.parentNode.insertBefore(screenshot_button, second_section);
+                second_section.parentNode.insertBefore(pip_button, second_section);
+            }
+        }, 250);
+    }
+};
+
 
 /*-----------------------------------------------------------------------------
-10.2 DELETE YOUTUBE COOKIES
+10.4 DELETE YOUTUBE COOKIES
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.deleteYoutubeCookies = function() {
@@ -3002,7 +3076,7 @@ ImprovedTube.deleteYoutubeCookies = function() {
 
 
 /*-----------------------------------------------------------------------------
-10.3 YOUTUBE LANGUAGE
+10.5 YOUTUBE LANGUAGE
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.youtubeLanguage = function() {
@@ -3046,6 +3120,8 @@ ImprovedTube.pageUpdateListener = function() {
         ImprovedTube.blacklist();
 
         ImprovedTube.improvedtubeYoutubeIcon();
+        ImprovedTube.improvedtubeYoutubeSidebarButton();
+        ImprovedTube.improvedtubeYoutubePlayerButtons();
     });
 };
 
@@ -3153,6 +3229,8 @@ ImprovedTube.DOMContentLoaded = function() {
         ImprovedTube.blacklist();
 
         ImprovedTube.improvedtubeYoutubeIcon();
+        ImprovedTube.improvedtubeYoutubeSidebarButton();
+        ImprovedTube.improvedtubeYoutubePlayerButtons();
 
         ImprovedTube.pageUpdateListener();
     });
