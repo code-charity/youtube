@@ -93,6 +93,7 @@ html[it-page-type=home][it-youtube-home-page=search] #yt-masthead-content {
     pointer-events: all;
     justify-content: center;
     align-items: center;
+    background: var(--yt-spec-general-background-a);
 }
 
 html[it-page-type=home][it-youtube-home-page=search] ytd-searchbox>form {
@@ -608,7 +609,7 @@ html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change'])
 }
 
 html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) video {
-    position: static !important;
+    position: relative !important;
     top: 0 !important;
     left: 0 !important;
     width: auto !important;
@@ -635,13 +636,13 @@ html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change'])
 }
 
 html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) .html5-video-container {
-    position: static !important;
+    position: relative !important;
     display: inline-block !important;
     width: auto !important;
 }
 
 html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) video {
-    position: static !important;
+    position: relative !important;
     width: auto !important;
     max-width: 100vw !important;
 }
@@ -650,12 +651,12 @@ html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change'])
     pointer-events: none !important;
 }
 
-html[it-page-type="video"][it-header-position='hover'][it-player-size='full_window'] ytd-app:not([masthead-hidden_]) .html5-video-player,
+/*html[it-page-type="video"][it-header-position='hover'][it-player-size='full_window'] ytd-app:not([masthead-hidden_]) .html5-video-player,
 html[it-page-type="video"][it-header-position='hover'][it-player-size='full_window'] ytd-app:not([scrolling_]) .html5-video-player,
 html[it-page-type="video"][it-header-position='hover_on_video_page'][it-player-size='full_window'] ytd-app:not([masthead-hidden_]) .html5-video-player,
 html[it-page-type="video"][it-header-position='hover_on_video_page'][it-player-size='full_window'] ytd-app:not([scrolling_]) .html5-video-player {
     margin-top: 14px !important;
-}
+}*/
 
 html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) .ytp-tooltip.ytp-preview {
     top: auto !important;
@@ -739,14 +740,14 @@ html[it-player-color='white'] {
     --it-player-color: #fff;
 }
 
-html[it-player-color]:not([it-player-color='red']) .ytp-play-progress,
-html[it-player-color]:not([it-player-color='red']) .ytp-scrubber-button,
-html[it-player-color]:not([it-player-color='red']) .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
-html[it-player-color]:not([it-player-color='red']) .ytp-settings-button.ytp-hd-quality-badge:after {
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-play-progress,
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-scrubber-button,
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox,
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-settings-button.ytp-hd-quality-badge:after {
     background-color: var(--it-player-color) !important;
 }
 
-html[it-player-color]:not([it-player-color='red']) .ytp-swatch-color {
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-swatch-color {
     color: var(--it-player-color) !important;
 }
 

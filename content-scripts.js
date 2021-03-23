@@ -47,6 +47,7 @@ function camelize(string) {
 
 function attributes(items) {
     var whitelist = {
+        'youtube-home-page': true,
         'remove-related-search-results': true,
         'squared-user-images': true,
         'hide-animated-thumbnails': true,
@@ -172,6 +173,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         injectScript('ImprovedTube.focus = true;');
     } else if (request.action === 'blur') {
         injectScript('ImprovedTube.focus = false;');
+    } else if (request.action === 'improvedtube-pause') {
+        injectScript('if (document.querySelector("video")) { document.querySelector("video").pause(); }');
     }
 
     injectScript('ImprovedTube.onfocus();');
