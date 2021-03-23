@@ -91,7 +91,7 @@ var ImprovedTube = {};
 1.1 YOUTUBE HOME PAGE
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.youtubeHomePage = function() {
+ImprovedTube.youtubeHomePage = function () {
     var option = this.storage.youtube_home_page;
 
     if (
@@ -114,7 +114,7 @@ ImprovedTube.youtubeHomePage = function() {
             }
 
             node.href = option;
-            node.addEventListener('click', function() {
+            node.addEventListener('click', function () {
                 if (
                     this.data &&
                     this.data.commandMetadata &&
@@ -1813,27 +1813,28 @@ ImprovedTube.playerRotateButton = function() {
             id: 'it-rotate-button',
             html: '<svg viewBox="0 0 24 24"><path d="M15.55 5.55L11 1v3.07a8 8 0 0 0 0 15.86v-2.02a6 6 0 0 1 0-11.82V10l4.55-4.45zM19.93 11a7.9 7.9 0 0 0-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47h2.02zM13 17.9v2.02a7.92 7.92 0 0 0 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03zm3.89-2.42l1.42 1.41A7.9 7.9 0 0 0 19.93 13h-2.02a5.9 5.9 0 0 1-1.02 2.48z"/></svg>',
             opacity: 1,
-            onclick: function() {
-                var video = document.querySelector('.html5-video-player video'),
+            onclick: function () {
+                var video = node.querySelector('video'),
+                    player = node,
                     transform = '',
                     rotate = (document.querySelector('.it-rotate-styles') && document.querySelector('.it-rotate-styles').textContent.match(/rotate\([0-9.]+deg\)/g) || [''])[0];
-
                 rotate = Number((rotate.match(/[0-9.]+/g) || [])[0]) || 0;
 
-                if (rotate < 270 && rotate % 90 == 0) {
-                    rotate = rotate + 90;
-                } else {
-                    rotate = 0;
+                var nextRotate = (rotate < 270 && rotate % 90 == 0) ? rotate + 90 : 0;
+
+                transform += 'rotate(' + nextRotate + 'deg)';
+
+                if (nextRotate == 90 || nextRotate == 270) {
+                    var isVerticalVideo = video.videoHeight > video.videoWidth;
+
+                    var playerLongSide = isVerticalVideo ? player.clientWidth : player.clientHeight;
+                    var playerShortSide = isVerticalVideo ? player.clientHeight : player.clientWidth;
+
+                    var videoScaleForPlayerSize = playerLongSide / playerShortSide;
+
+                    transform += ' scale(' + videoScaleForPlayerSize + ')';
                 }
-
-                transform += 'rotate(' + rotate + 'deg)';
-
-                if (rotate == 90 || rotate == 270) {
-                    transform += ' scale(' + video.offsetHeight / video.offsetWidth + ')';
-                }
-
                 //video.style.transform = transform;
-
                 if (!document.querySelector('.it-rotate-styles')) {
                     var styles = document.createElement('style');
 
