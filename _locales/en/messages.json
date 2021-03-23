@@ -179,6 +179,9 @@
     "customMiniPlayer": {
         "message": "Custom Mini-Player"
     },
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
+    },
     "cyan": {
         "message": "Cyan"
     },
@@ -341,6 +344,9 @@
     "hideCards": {
         "message": "Hide cards"
     },
+    "hideControls": {
+        "message": "Hide player controls"
+    },
     "hideDetails": {
         "message": "Hide details"
     },
@@ -364,6 +370,9 @@
     },
     "hideScrollForDetails": {
         "message": "Hide «Scroll for details»"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide buttons on thumbnails"
     },
     "hideViewsCount": {
         "message": "Hide views count"
@@ -734,8 +743,14 @@
     "todayAt": {
         "message": "Today at"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "Toggle cards"
+    },
+    "toggleControls": {
+        "message": "Toggle player controls"
     },
     "topChat": {
         "message": "Top chat"

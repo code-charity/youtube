@@ -1,10 +1,9 @@
 {
     "manifest_version": 2,
-    "name": "Improve YouTube! (testing)",
+    "name": "Improve YouTube! (Open-Source for YouTube)",
     "short_name": "ImprovedTube",
-    "description": "Make YouTube tidy & powerful! YouTube Player Size Theme Quality Colors ad-block Playback Speed Style Playlist Channel H.264 Auto HD",
-    "version": "3.164",
-    "version_name": "3.164-testing",
+    "description": "Make YouTube tidy & powerful! YouTube Player Size Theme Quality Auto HD Colors Playback Speed Style ad block Playlist Channel H.264",
+    "version": "3.184",
     "default_locale": "en",
     "icons": {
         "128": "assets/icons/128.png",
@@ -76,8 +75,7 @@
     "permissions": [
         "https://www.youtube.com/",
         "contextMenus",
-        "storage",
-        "tabs"
+        "storage"
     ],
     "optional_permissions": [
         "downloads",

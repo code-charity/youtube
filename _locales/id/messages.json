@@ -1,6 +1,6 @@
 {
     "cropChapterTitles": {
-        "message": "Hilangkan judul babak"
+        "message": "Potong bagian judul "
     },
     "about": {
         "message": "Tentang"
@@ -54,7 +54,7 @@
         "message": "Amber"
     },
     "analyzer": {
-        "message": "Analisa"
+        "message": "Pengnalisa"
     },
     "appearance": {
         "message": "Tampilan"
@@ -783,10 +783,10 @@
         "message": "Kuning"
     },
     "youtubeHeaderLeft": {
-        "message": "Kepala YouTube (kiri)"
+        "message": "Header YouTube (kiri)"
     },
     "youtubeHeaderRight": {
-        "message": "Kepala YouTube (kanan)"
+        "message": "Header YouTube (kanan)"
     },
     "youtubeHomePage": {
         "message": "Beranda YouTube"
@@ -798,12 +798,12 @@
         "message": "YouTube membatasi kualitas video hingga 1080p untuk codec h.264"
     },
     "hideGradientBottom": {
-        "message": "Hide Gradient Bottom"
+            "message": "Sembunyikan Gradient Bagian Bawah"
     },
     "statsForNerds": {
-        "message": "Show Stats for Nerds"
+        "message": "Tampilkan statistik bagi para 'kutu buku'"
     },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "Alihkan kartu"
     }
 }
