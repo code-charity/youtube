@@ -368,6 +368,9 @@
     "hideScrollForDetails": {
         "message": "Hide «Scroll for details»"
     },
+    "hideThumbnailOverlay": {
+        "message": "Hide buttons on thumbnails"
+    },
     "hideViewsCount": {
         "message": "Hide views count"
     },
