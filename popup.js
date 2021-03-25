@@ -3255,6 +3255,15 @@ Menu.main.section.analyzer = {
     }
 };
 
+Menu.main.section.firefox = {
+    type: 'button',
+    class: 'satus-firefox',
+    innerHTML: '<img src="https://github.com/code4charity/YouTube-Extension/raw/master/previews/firefox.png">',
+    onclick: function() {
+        window.open('https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/', '_blank');
+    }
+};
+
 
 /*------------------------------------------------------------------------------
 3.0 INITIALIZATION
