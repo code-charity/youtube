@@ -11,6 +11,17 @@
 7.0 Black
 ---------------------------------------------------------------*/
 
+.satus-firefox {
+    justify-content: center;
+    height: auto;
+    margin: 20px 16px;
+    background: transparent;
+}
+
+.satus-firefox::before {
+    content: none
+}
+
 html {
     --satus-theme-primary: #ff4158;
 }
