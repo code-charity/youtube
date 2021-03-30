@@ -97,7 +97,9 @@ ImprovedTube.youtubeHomePage = function() {
         option === '/feed/trending' ||
         option === '/feed/subscriptions' ||
         option === '/feed/history' ||
-        option === '/playlist?list=WL'
+        option === '/playlist?list=WL' ||
+        option === '/playlist?list=LL' ||
+        option === '/feed/library'
     ) {
         var node_list = document.querySelectorAll(`
                 a[href="/"]:not([role=tablist]),
