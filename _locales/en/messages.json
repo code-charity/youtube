@@ -360,7 +360,7 @@
         "message": "Hide footer"
     },
     "hideGradientBottom": {
-        "message": "Hide Gradient Bottom"
+        "message": "Hide shadow around player-bar"
     },
     "hidePlaylist": {
         "message": "Hide playlist"
