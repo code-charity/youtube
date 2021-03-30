@@ -1233,6 +1233,9 @@ Menu.main.section.general = {
                 label: 'home',
                 value: '/'
             }, {
+                label: 'search',
+                value: 'search'
+            }, {
                 label: 'trending',
                 value: '/feed/trending'
             }, {
@@ -1245,8 +1248,11 @@ Menu.main.section.general = {
                 label: 'watchLater',
                 value: '/playlist?list=WL'
             }, {
-                label: 'search',
-                value: 'search'
+                label: '👍 liked',
+                value: '/playlist?list=LL'
+            }, {
+                label: 'library',
+                value: '/feed/library'
             }],
             tags: 'trending,subscriptions,history,watch,search'
         },
