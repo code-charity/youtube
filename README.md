@@ -91,12 +91,12 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
   
 **Development:** [**Satus**](https://github.com/victor-savinov/satus), [Theme Engine](https://github.com/victor-savinov/theme-engine),   [Pluviam](https://github.com/victor-savinov/pluviam), [Code Editor](https://github.com/victor-savinov/code-editor),  [Viscum Player](https://github.com/victor-savinov/vbeiscum-player) 
 
-## 💼 Our Work 
+##  💼 Our Work 
 ### 💡 Ideas
 Got great ideas? ideas@improvedtube.com
-### 👨🏽‍💻 👩🏿‍💻 👩‍💻  Expertise / Advice
+### 👨🏽‍💻 👩🏿‍💻 👩‍💻 Expertise / Advice <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="130px">
 Do you need to run an extension, site, app or repo with many users and a great feedback score?  
-We like to help good meaningful causes. projects@improvedtube.com  <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="110px">
+We like to help good meaningful causes. projects@improvedtube.com  
 
 
 ## 🔧 Install from source
