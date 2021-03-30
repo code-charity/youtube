@@ -1628,7 +1628,7 @@ satus.components.shortcut = function(element) {
         component_button_reset.addEventListener('click', function() {
             satus.storage.set(element.storage_key, null);
             close();
-            value = (satus.storage.get(element.storage_key) ? JSON.parse(satus.storage.get(element.storage_key)) : false) || object.value || {};
+            value = (satus.storage.get(element.storage_key) ? JSON.parse(satus.storage.get(element.storage_key)) : false) || element.value || {};
             update();
         });
         component_button_cancel.addEventListener('click', close);
