@@ -22,7 +22,9 @@ function youtubeHomePage(option) {
                 option === '/feed/trending' ||
                 option === '/feed/subscriptions' ||
                 option === '/feed/history' ||
-                option === '/playlist?list=WL'
+                option === '/playlist?list=WL'  ||
+                option === '/playlist?list=LL'  ||
+                option === '/feed/library'
             ) {
                 location.replace(option);
             }
