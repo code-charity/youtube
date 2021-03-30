@@ -5575,13 +5575,22 @@ html[it-mini-player-cursor='nw-resize']::after {
 /*------------------------------------------------------------------------------
 6.1 FEATURED CONTENT
 --------------------------------------------------------------------------------
-TODO: FIX
+FIXED #535 FlaviuIusan
 ------------------------------------------------------------------------------*/
 
-html[it-channel-hide-featured-content=true] #secondary.ytd-two-column-browse-results-renderer {
-    display: none;
+html[it-channel-hide-featured-content=true] #secondary #contents.style-scope.ytd-browse-secondary-contents-renderer,
+html[it-channel-hide-featured-content=true] .branded-page-v2-secondary-col
+{
+    display: none !important;
 }
 
+html[it-channel-hide-featured-content=true] #secondary.ytd-two-column-browse-results-renderer,
+html[it-channel-hide-featured-content=true] #secondary ytd-browse-secondary-contents-renderer
+{
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+}
 
 /*------------------------------------------------------------------------------
 7.0 SHORTCUTS
