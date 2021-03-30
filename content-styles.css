@@ -25,9 +25,11 @@
     2.2.8 Hide "Scroll for details"
     2.2.9 Always show progress bar
   2.3 Sidebar
-    2.3.1 Livachat
+    2.3.1 Livechat
     2.3.2 Hide playlist
-    2.3.3 Relative videos
+    2.3.3 Related videos
+    2.3.4 Sidebar Position
+    2.3.5 Thumbnails
   2.4 Details
     2.4.1 Hide details
     2.4.2 Description
@@ -886,6 +888,29 @@ html[it-related-videos=collapsed].related-videos-collapsed #improvedtube-collaps
     box-shadow: inset 0 1px 0 #ddd;
 }
 
+/*-----------------------------------------------------------------------------
+2.3.4 Sidebar position
+-----------------------------------------------------------------------------*/
+
+html[it-sidebar-left='true'] #columns>#primary,
+html[it-sidebar-left='true'] #head>#upnext   /* also moving autoplay button to the outside as the glow bothers next to the video */
+{   
+    order:7;
+}
+
+/*-----------------------------------------------------------------------------
+2.3.5 Thumbnails
+-----------------------------------------------------------------------------*/
+
+html[it-thumbnails-right='true'] #dismissable>ytd-thumbnail
+{
+    order:7; 
+}
+
+html[it-thumbnails-hide='true'] #dismissable>ytd-thumbnail
+{
+    display:none; 
+}
 
 /*------------------------------------------------------------------------------
 2.4 DETAILS
