@@ -1595,18 +1595,7 @@ Menu.main.section.appearance = {
         section: {
             type: 'section',
 
-               sidebar_left: {
-                type: 'switch',
-                label: 'Sidebar to the Left'
-            },
-            thumbnails_right: {
-                type: 'switch',
-                label: 'Thumbnails to the Right'
-            },
-            thumbnails_hide: {
-                type: 'switch',
-                label: 'Hide Thumbnails'
-            },
+              
             related_videos: {
                 type: 'select',
                 label: 'relatedVideos',
@@ -1641,6 +1630,18 @@ Menu.main.section.appearance = {
             hide_playlist: {
                 type: 'switch',
                 label: 'hidePlaylist'
+            },
+            sidebar_left: {
+                type: 'switch',
+                label: 'Sidebar to the Left'
+            },
+            thumbnails_right: {
+                type: 'switch',
+                label: 'Thumbnails to the Right'
+            },
+            thumbnails_hide: {
+                type: 'switch',
+                label: 'Hide Thumbnails'
             }
         }
     },
