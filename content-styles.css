@@ -912,12 +912,12 @@ html[it-sidebar-left='true'] #head>#upnext   /* also moving autoplay button to t
 2.3.5 Thumbnails
 -----------------------------------------------------------------------------*/
 
-html[it-thumbnails-right='true'] #dismissable>ytd-thumbnail
+html[it-thumbnails-right='true'] #dismissible>ytd-thumbnail
 {
     order:7; 
 }
 
-html[it-thumbnails-hide='true'] #dismissable>ytd-thumbnail
+html[it-thumbnails-hide='true'] #dismissible>ytd-thumbnail
 {
     display:none; 
 }
