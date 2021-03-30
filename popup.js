@@ -1233,9 +1233,6 @@ Menu.main.section.general = {
                 label: 'home',
                 value: '/'
             }, {
-                label: 'search',
-                value: 'search'
-            }, {
                 label: 'trending',
                 value: '/feed/trending'
             }, {
@@ -1247,6 +1244,9 @@ Menu.main.section.general = {
             }, {
                 label: 'watchLater',
                 value: '/playlist?list=WL'
+            }, {
+                label: 'search',
+                value: 'search'
             }, {
                 label: '👍 liked',
                 value: '/playlist?list=LL'
@@ -2734,58 +2734,9 @@ Menu.main.section.shortcuts = {
     player_section: {
         type: 'section',
 
-        shortcut_toggle_controls: {
-            type: 'shortcut',
-            label: 'toggleControls'
-        },
         shortcut_picture_in_picture: {
             type: 'shortcut',
             label: 'pictureInPicture'
-        },
-        shortcut_play_pause: {
-            type: 'shortcut',
-            label: 'playPause',
-            value: {
-                key: ' '
-            }
-        },
-        shortcut_stop: {
-            type: 'shortcut',
-            label: 'stop'
-        },
-        shortcut_toggle_autoplay: {
-            type: 'shortcut',
-            label: 'toggleAutoplay'
-        },
-        shortcut_next_video: {
-            type: 'shortcut',
-            label: 'nextVideo',
-            value: {
-                key: 'N',
-                shiftKey: true
-            }
-        },
-        shortcut_prev_video: {
-            type: 'shortcut',
-            label: 'previousVideo',
-            value: {
-                key: 'P',
-                shiftKey: true
-            }
-        },
-        shortcut_seek_backward: {
-            type: 'shortcut',
-            label: 'seekBackward10Seconds',
-            value: {
-                key: 'J'
-            }
-        },
-        shortcut_seek_forward: {
-            type: 'shortcut',
-            label: 'seekForward10Seconds',
-            value: {
-                key: 'I'
-            }
         },
         shortcut_volume: {
             type: 'folder',
@@ -2817,6 +2768,10 @@ Menu.main.section.shortcuts = {
                 }
             }
         },
+        shortcut_screenshot: {
+            type: 'shortcut',
+            label: 'screenshot'
+        },
         shortcut_playback_speed: {
             type: 'folder',
             label: 'playbackSpeed',
@@ -2847,6 +2802,56 @@ Menu.main.section.shortcuts = {
                 }
             }
         },
+        shortcut_toggle_controls: {
+            type: 'shortcut',
+            label: 'toggleControls'
+        },
+        shortcut_next_video: {
+            type: 'shortcut',
+            label: 'nextVideo',
+            value: {
+                key: 'N',
+                shiftKey: true
+            }
+        },
+        shortcut_prev_video: {
+            type: 'shortcut',
+            label: 'previousVideo',
+            value: {
+                key: 'P',
+                shiftKey: true
+            }
+        },       
+        shortcut_play_pause: {
+            type: 'shortcut',
+            label: 'playPause',
+            value: {
+                key: ' '
+            }
+        },
+        shortcut_stop: {
+            type: 'shortcut',
+            label: 'stop'
+        },
+        shortcut_toggle_autoplay: {
+            type: 'shortcut',
+            label: 'toggleAutoplay'
+        },
+        shortcut_seek_backward: {
+            type: 'shortcut',
+            label: 'seekBackward10Seconds',
+            value: {
+                key: 'J'
+            }
+        },
+        shortcut_seek_forward: {
+            type: 'shortcut',
+            label: 'seekForward10Seconds',
+            value: {
+                key: 'I'
+            }
+        },
+
         shortcut_activate_fullscreen: {
             type: 'shortcut',
             label: 'activateFullscreen',
@@ -2910,10 +2915,6 @@ Menu.main.section.shortcuts = {
             type: 'shortcut',
             label: 'customMiniPlayer'
         },
-        shortcut_screenshot: {
-            type: 'shortcut',
-            label: 'screenshot'
-        },
         shortcut_stats_for_nerds: {
             type: 'shortcut',
             label: 'statsForNerds'
@@ -2931,7 +2932,7 @@ Menu.main.section.shortcuts = {
     appearance_section_label: {
         type: 'text',
         class: 'satus-section--label',
-        label: 'appearance'
+        label: 'YouTube'
     },
 
     appearance_section: {
