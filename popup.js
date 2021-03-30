@@ -1937,8 +1937,8 @@ Menu.main.section.themes = {
             type: 'select',
             label: 'font',
             options: [{
-                label: 'Roboto',
-                value: 'Roboto'
+                label: 'Youtube standard (Roboto)',
+                value: 'Default'
             }, {
                 label: 'Open Sans',
                 value: 'Open+Sans'
