@@ -2363,16 +2363,19 @@ ImprovedTube.shortcuts = function() {
                     video.playbackRate =  1 } else {   // aligning at 1.0 independent of minimum
 
                     video.playbackRate = Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
-					          }            
+		    }            
                     showStatus(document.querySelector('#movie_player'), video.playbackRate);
                 }
             },
             shortcut_decrease_playback_speed: function() {
                 var video = document.querySelector('#movie_player video');
-
+		    
                 if (video && video.playbackRate) {
-                    video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
+		    if ( video.playbackRate < 0.1+ImprovedTube.storage.shortcut_playback_speed_step ) {  
+		    video.playbackRate =  video.playbackRate*0.7 } else {   // slow down near minimum
 
+                    video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
+		    }
                     showStatus(document.querySelector('#movie_player'), video.playbackRate);
                 }
             },
