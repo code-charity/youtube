@@ -2371,7 +2371,7 @@ ImprovedTube.shortcuts = function() {
                 var video = document.querySelector('#movie_player video');
 		    
                 if (video && video.playbackRate) {
-		    if ( video.playbackRate < 0.1+ImprovedTube.storage.shortcut_playback_speed_step ) {  
+		    if ( video.playbackRate < 0.15+ImprovedTube.storage.shortcut_playback_speed_step ) {  
 		    video.playbackRate =  video.playbackRate*0.7 } else {   // slow down near minimum
 
                     video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
