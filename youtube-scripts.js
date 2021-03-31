@@ -2372,7 +2372,7 @@ ImprovedTube.shortcuts = function() {
 		    
                 if (video && video.playbackRate) {
 		    if ( video.playbackRate < 0.15+ImprovedTube.storage.shortcut_playback_speed_step ) {  
-		    video.playbackRate =  video.playbackRate*0.7 } else {   // slow down near minimum
+		    video.playbackRate =  (video.playbackRate*0.7).toFixed(3) } else {   // slow down near minimum
 
                     video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
 		    }
