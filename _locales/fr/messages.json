@@ -132,7 +132,7 @@
         "message": "Boutons"
     },
     "cancel": {
-        "message": "Annuler"
+        "message": "Retour"
     },
     "categories": {
         "message": "Catégories"
@@ -178,6 +178,9 @@
     },
     "customMiniPlayer": {
         "message": "Mini-lecteur personnalisé"
+    },
+    "openPopupPlayer": {
+        "message": "Ouvrir Video/playlist dans un nouvelle onglet"
     },
     "cyan": {
         "message": "Cyan"
@@ -306,7 +309,7 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Aller à la barre de recherche"
+        "message": "Barre de recherche"
     },
     "gpu": {
         "message": "GPU"
@@ -315,10 +318,10 @@
         "message": "Vert"
     },
     "hdThumbnail": {
-        "message": "Vignette HD"
+        "message": "Miniature HD"
     },
     "hdThumbnails": {
-        "message": "Vignettes HD"
+        "message": "Miniatures HD"
     },
     "header": {
         "message": "Tête de page"
@@ -330,7 +333,7 @@
         "message": "Caché sur la page de la vidéo"
     },
     "hideAnimatedThumbnails": {
-        "message": "Vignettes sans animation"
+        "message": "Miniatures sans animation"
     },
     "hideAnnotations": {
         "message": "Cacher les annotations"
@@ -546,7 +549,7 @@
         "message": "Listes de lecture"
     },
     "playPause": {
-        "message": "Jouer / Pause"
+        "message": "Lire / Pause"
     },
     "popupPlayer": {
         "message": "Détacher le lecteur"
@@ -597,10 +600,10 @@
         "message": "Réintialiser"
     },
     "resetAllSettings": {
-        "message": "Réinitialiser les réglages"
+        "message": "Annuler réglages"
     },
     "resetAllShortcuts": {
-        "message": "Réinitialiser les raccourcis"
+        "message": "Annuler raccourcis"
     },
     "reverse": {
         "message": "Inverser"
@@ -609,13 +612,13 @@
         "message": "Faire pivoter la vidéo"
     },
     "save": {
-        "message": "Sauvegarder"
+        "message": "Ok"
     },
     "saveAs": {
         "message": "Sauvegarder sous"
     },
     "schedule": {
-        "message": "Planifier"
+        "message": "Plage horaire"
     },
     "screen": {
         "message": "Écran"
@@ -720,7 +723,7 @@
         "message": "Réintialiser les raccourcis."
     },
     "thumbnails": {
-        "message": "Vignettes"
+        "message": "Miniature"
     },
     "timeFrom": {
         "message": "Temps de"
@@ -730,6 +733,9 @@
     },
     "todayAt": {
         "message": "Aujourd'hui à"
+    },
+    "toggleAutoplay": {
+        "message": "Basculer lecture auto"
     },
     "toggleCards": {
         "message": "Toggle cards"
