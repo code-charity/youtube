@@ -2987,7 +2987,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function() {
 /*------------------------------------------------------------------------------
 10.2 IMPROVEDTUBE BUTTON (SIDEBAR)
 ------------------------------------------------------------------------------*/
-
+/*
 ImprovedTube.improvedtube_youtube_sidebar_button_wait = false;
 
 ImprovedTube.improvedtubeYoutubeSidebarButton = function() {
@@ -3022,7 +3022,7 @@ ImprovedTube.improvedtubeYoutubeSidebarButton = function() {
 /*------------------------------------------------------------------------------
 10.3 IMPROVEDTUBE PLAYER BUTTONS
 ------------------------------------------------------------------------------*/
-
+/*
 ImprovedTube.improvedtube_youtube_player_buttons_wait = false;
 
 ImprovedTube.improvedtubeYoutubePlayerButtons = function() {
