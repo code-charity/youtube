@@ -1147,29 +1147,28 @@ ImprovedTube.playerAds = function() {
         clearInterval(ImprovedTube.adInterval);
     }
 
-    var button = document.querySelector('.ytp-ad-skip-button.ytp-button');
+    if (ImprovedTube.storage.player_ads === 'block_all') {
+        ImprovedTube.adInterval = setInterval(function() {
+            var button = document.querySelector('.ytp-ad-skip-button.ytp-button');
 
-    if (button) {
-        if (ImprovedTube.storage.player_ads === 'block_all') {
-            ImprovedTube.adInterval = setInterval(function() {
-                if (button) {
-                    button.click();
+            if (button) {
+                button.click();
 
-                    clearInterval(ImprovedTube.adInterval);
-                }
-            }, 50);
-        } else if (ImprovedTube.storage.player_ads === 'subscribed_channels') {
-            ImprovedTube.adInterval = setInterval(function() {
-                if (button && !document.querySelector('#meta paper-button[subscribed]')) {
-                    button.click();
+                clearInterval(ImprovedTube.adInterval);
+            }
+        }, 50);
+    } else if (ImprovedTube.storage.player_ads === 'subscribed_channels') {
+        ImprovedTube.adInterval = setInterval(function() {
+            var button = document.querySelector('.ytp-ad-skip-button.ytp-button');
 
-                    clearInterval(ImprovedTube.adInterval);
-                }
-            }, 50);
-        }
+            if (button && !document.querySelector('#meta paper-button[subscribed]')) {
+                button.click();
+
+                clearInterval(ImprovedTube.adInterval);
+            }
+        }, 50);
     }
 };
-
 
 /*------------------------------------------------------------------------------
 4.7 CUSTOM MINI-PLAYER
