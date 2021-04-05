@@ -3127,8 +3127,8 @@ ImprovedTube.pageUpdateListener = function() {
         ImprovedTube.blacklist();
 
         ImprovedTube.improvedtubeYoutubeIcon();
-        ImprovedTube.improvedtubeYoutubeSidebarButton();
-        ImprovedTube.improvedtubeYoutubePlayerButtons();
+   //     ImprovedTube.improvedtubeYoutubeSidebarButton();
+   //     ImprovedTube.improvedtubeYoutubePlayerButtons();
     });
 };
 
@@ -3236,8 +3236,8 @@ ImprovedTube.DOMContentLoaded = function() {
         ImprovedTube.blacklist();
 
         ImprovedTube.improvedtubeYoutubeIcon();
-        ImprovedTube.improvedtubeYoutubeSidebarButton();
-        ImprovedTube.improvedtubeYoutubePlayerButtons();
+    //    ImprovedTube.improvedtubeYoutubeSidebarButton();
+    //    ImprovedTube.improvedtubeYoutubePlayerButtons();
 
         ImprovedTube.pageUpdateListener();
     });
