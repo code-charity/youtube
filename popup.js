@@ -1259,20 +1259,10 @@ Menu.main.section.general = {
         collapse_of_subscription_sections: {
             type: 'switch',
             label: 'collapseOfSubscriptionSections'
-        },
-        add_scroll_to_top: {
-            type: 'switch',
-            label: 'addScrollToTop',
-            tags: 'up'
-        },
+        },       
         remove_related_search_results: {
             type: 'switch',
             label: 'removeRelatedSearchResults'
-        },
-        confirmation_before_closing: {
-            type: 'switch',
-            label: 'confirmationBeforeClosing',
-            tags: 'random prevent close exit'
         },
         mark_watched_videos: {
             type: 'switch',
@@ -1281,6 +1271,16 @@ Menu.main.section.general = {
         only_one_player_instance_playing: {
             type: 'switch',
             label: 'onlyOnePlayerInstancePlaying'
+        },
+        confirmation_before_closing: {
+            type: 'switch',
+            label: 'confirmationBeforeClosing',
+            tags: 'random prevent close exit'
+        },
+        add_scroll_to_top: {
+            type: 'switch',
+            label: 'addScrollToTop',
+            tags: 'up'
         }
     },
 
@@ -2354,6 +2354,25 @@ Menu.main.section.player = {
             label: 'autoplay',
             value: true
         },
+        player_autofullscreen: {
+            type: 'switch',
+            label: 'autoFullscreen'
+        },
+        player_ads: {
+            label: 'ads',
+            type: 'select',
+            options: [{
+                label: 'onAllVideos',
+                value: 'all_videos',
+                default: 'true'
+            }, {
+                label: 'onSubscribedChannels',
+                value: 'subscribed_channels'
+            }, {
+                label: 'blockAll',
+                value: 'block_all'
+            }]
+        },
         player_autopause_when_switching_tabs: {
             type: 'switch',
             label: 'autopauseWhenSwitchingTabs'
@@ -2393,28 +2412,9 @@ Menu.main.section.player = {
             label: 'upNextAutoplay',
             value: true
         },
-        player_ads: {
-            label: 'ads',
-            type: 'select',
-            options: [{
-                label: 'onAllVideos',
-                value: 'all_videos',
-                default: 'true'
-            }, {
-                label: 'onSubscribedChannels',
-                value: 'subscribed_channels'
-            }, {
-                label: 'blockAll',
-                value: 'block_all'
-            }]
-        },
         mini_player: {
             type: 'switch',
             label: 'customMiniPlayer'
-        },
-        player_autofullscreen: {
-            type: 'switch',
-            label: 'autoFullscreen'
         }
     },
 
