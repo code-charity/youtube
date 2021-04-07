@@ -495,6 +495,9 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     }, {
                         value: 'sk',
                         label: 'Slovenčina'
+                    }, {
+                        value: 'pl',
+                        label: 'Polski'
                     }]
                 },
                 youtube_language: {
