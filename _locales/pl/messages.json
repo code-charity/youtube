@@ -207,7 +207,7 @@
         "message": "Głęboki pomarańczowy"
     },
     "deepPurple": {
-        "message": "Glęboki fioletowy"
+        "message": "Głęboki fioletowy"
     },
     "defaultChannelTab": {
         "message": "Domyślna zakładka na kanałach"
@@ -261,7 +261,7 @@
         "message": "Włączony (wymuszony)"
     },
     "expanded": {
-        "message": "Rozwinięte"
+        "message": "Rozwinięty"
     },
     "exportSettings": {
         "message": "Eksport ustawień"
@@ -327,7 +327,7 @@
         "message": "Miniatury HD"
     },
     "header": {
-        "message": "Nagłówki"
+        "message": "Nagłówek"
     },
     "hidden": {
         "message": "Ukryty"
@@ -438,7 +438,7 @@
         "message": "Jasny"
     },
     "lightBlue": {
-        "message": "jasnoniebieski"
+        "message": "Jasnoniebieski"
     },
     "lightGreen": {
         "message": "Jasnozielony"
@@ -450,7 +450,7 @@
         "message": "Polubienia"
     },
     "lime": {
-        "message": "Lime"
+        "message": "Limonkowy"
     },
     "list": {
         "message": "Lista"
@@ -699,7 +699,7 @@
         "message": "Napisy"
     },
     "sunset": {
-        "message": "Zachód słońca"
+        "message": "Zachód"
     },
     "sunsetToSunrise": {
         "message": "Od zachodu do wschodu słońca"
@@ -735,10 +735,10 @@
         "message": "Miniatury"
     },
     "timeFrom": {
-        "message": "Czas od"
+        "message": "Od"
     },
     "timeTo": {
-        "message": "Czas do"
+        "message": "Do"
     },
     "todayAt": {
         "message": "Dzisiaj o"
