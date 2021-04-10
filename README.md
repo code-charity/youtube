@@ -25,24 +25,20 @@
 
 
 ## 🙏 Credits
-Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors) and [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
+Big thanks ❤️ to our [contributors / developers](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors), [translators](https://github.com/code4charity/YouTube-Extension/blob/master/README.md#translators & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
 
-<table align="right"><tr><td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://ethereum.org/static/da3e74023b0d48abaf82cda76e36939a/31987/ethereum-logo-landscape-purple.png" alt="Ethereum" height="18px"></td>
-		<td><samp>0xf6E03Ffa6B04c972C45c91D6Bc449Be81E1C527c</samp></td>
-	</tr><tr>
-		<td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"> <a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://bitcoincash.org/graphics/img/6-bitcoin-cash-logo-horizontal-small.png" alt="BitcoinCash" height="12px"></td>
-		<td><samp>qqseudey582dz72l23nspw0ch8ezlgty25jpqjdkun</samp></td>
-	</tr>
-	<tr>
-		<td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://assets-global.website-files.com/5deac75ecad2173c2ccccbc7/5dec8960504967fd31147f62_Stellar_lockup_black_RGB.svg" alt="Stellar" height="20px"></td>	<td><samp>GC25BRDKV5HIJX4IZJXFNKG5PWEPZX56NZKTDJ5YCR4O6YY7Y3M2JL65</samp></td>
-	</tr>
-	<tr>
-		<td><a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><img src="https://bitcoin.org/img/icons/logotop.svg" alt="Bitcoin" height="15px"></td>
-		<td><samp>144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL</samp></td>
-	</tr>
-	
-</table>
-<br><br><br><br><br>
+## 📝ToDo 
+
+- [ ] **0. Documentation, screenshots, videos** 
+> <code> We still need to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _(We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._ </code>
+- [ ] [**1. Active Bugs🐞**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) <code> - *(we aim to offer (small) bounties on bugs/[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen). Please ask)* </code>
+- [ ] [**2. Most wanted New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"Feature%20Request"+sort%3Acomments-desc+is%3Aopen)  <code> - *(you can add a wish 🌟🧚 / an issue-number to your donation.)*  </code>
+- [ ] [**3. Other Topics, Plans, UX, Questions ...**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A"Feature%20Request") 
+> - [**Contributing without programming**](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)
+> - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> - *(For code literates)* - (*Newcomers are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)*  </code>
+- [ ] **Languages missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**  <code> _Quick drafts welcome!_  </code>
+- [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
+
 
 ### 🌎 Translations
 
@@ -70,19 +66,7 @@ Big thanks ❤️ to our [contributors](https://github.com/ImprovedTube/Improved
 - [x] [日本語](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json) by [utuhiro78](https://github.com/utuhiro78)
 - [x] [한국어](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [msc9533](https://github.com/msc9533), [LYHyoung](https://github.com/LYHyoung)
 
-## 📝ToDo 
-
-- [ ] **0. Documentation, screenshots, videos** 
-> <code> We still need to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _(We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._ </code>
-- [ ] [**1. Active Bugs🐞**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen) <code> - *(we aim to offer (small) bounties on bugs/[priority](https://github.com/ImprovedTube/YouTube/issues?q=label%3Apriority+sort%3Acomments-desc+is%3Aopen). Please ask)* </code>
-- [ ] [**2. Most wanted New Features**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"Feature%20Request"+sort%3Acomments-desc+is%3Aopen)  <code> - *(you can add a wish 🌟🧚 / an issue-number to your donation.)*  </code>
-- [ ] [**3. Other Topics, Plans, UX, Questions ...**](https://github.com/ImprovedTube/YouTube/issues?q=sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A"Feature%20Request") 
-> - [**Contributing without programming**](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)
-> - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> - *(For code literates)* - (*Newcomers are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)*  </code>
-- [ ] **Languages missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**  <code> _Quick drafts welcome!_  </code>
-- [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
-
-## 🌾 Our Projects
+## 🌾 Projects
 ### Extensions (\*new\*)
 * **Home:** **History Manager** [  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/history-manager), Start Page [  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/start-page),  [**To-Do**](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/to-do) 
 * **Browsing:**  [**HID Control**(Deny overwriting Right-Click, Ctrl+F,...)](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) [  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/hid-control-prevention), [**Custom user agent**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj) [  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/custom-user-agent), [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)[  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/night-mode), [**Regex Replace**](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)[  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/regex-replace)   
