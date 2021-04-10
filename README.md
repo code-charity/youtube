@@ -24,7 +24,6 @@
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a> 
 
 
-	
 ## 🙏 Credits  
 Big thanks ❤️ to our [contributors / developers](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors), [translators](https://github.com/code4charity/YouTube-Extension/blob/master/README.md#-translators) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
 
@@ -38,7 +37,6 @@ Big thanks ❤️ to our [contributors / developers](https://github.com/Improved
 > - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> - *(For code literates)* - (*Newcomers are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)*  </code>
 - [ ] **Languages missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**  <code> _Quick drafts welcome!_  </code>
 - [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
-
 
 ### 🌎 Translators
 
@@ -76,9 +74,10 @@ Big thanks ❤️ to our [contributors / developers](https://github.com/Improved
 **Development:** [**Satus**](https://github.com/victor-savinov/satus), [Theme Engine](https://github.com/victor-savinov/theme-engine),   [Pluviam](https://github.com/victor-savinov/pluviam), [Code Editor](https://github.com/victor-savinov/code-editor),  [Viscum Player](https://github.com/victor-savinov/vbeiscum-player) 
 
 ##  💼 Our Work 
-### 💡 Ideas
+### 💡 Ideas   
 Got great ideas? ideas@improvedtube.com
-### 👨🏽‍💻 👩🏿‍💻 👩‍💻 Expertise / Advice <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="130px">
+### 👨🏽‍💻 👩🏿‍💻 👩‍💻 Expertise / Advice <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="122px"> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> <img width="180" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png">
+
 Do you need to run an extension, site, app or repo with many users and a great feedback score?  
 We like to help good meaningful causes. projects@improvedtube.com  
 
