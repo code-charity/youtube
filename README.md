@@ -24,7 +24,8 @@
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a> 
 
 
-## 🙏 Credits
+	
+## 🙏 Credits  
 Big thanks ❤️ to our [contributors / developers](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors), [translators](https://github.com/code4charity/YouTube-Extension/blob/master/README.md#-translators) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
 
 ## 📝ToDo 
