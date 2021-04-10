@@ -25,7 +25,7 @@
 
 
 ## 🙏 Credits
-Big thanks ❤️ to our [contributors / developers](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors), [translators](https://github.com/code4charity/YouTube-Extension/blob/master/README.md#translators & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
+Big thanks ❤️ to our [contributors / developers](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors), [translators](https://github.com/code4charity/YouTube-Extension/blob/master/README.md#translators) & [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
 
 ## 📝ToDo 
 
@@ -40,7 +40,7 @@ Big thanks ❤️ to our [contributors / developers](https://github.com/Improved
 - [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
 
-### 🌎 Translations
+### 🌎 Translators
 
 - [x] [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23), [Abdul Muttaqin](https://github.com/fdciabdul)
 - [x] [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [Termuellinator](https://github.com/Termuellinator), [css-smueller](https://github.com/css-smueller)
