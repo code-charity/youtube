@@ -82,6 +82,7 @@ Got great ideas? ideas@improvedtube.com
 Do you need to run an extension, site, app or repo with many users and a great feedback score?  
 We like to help good meaningful causes. projects@improvedtube.com  
 
+<hr> 
 
 ## 🔧 Install from source
 
@@ -111,7 +112,7 @@ We like to help good meaningful causes. projects@improvedtube.com
 
  - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
  
-<hr> 
+
 
 #### old Introduction:	
 
