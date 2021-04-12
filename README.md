@@ -21,12 +21,15 @@
 	·
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report bug</a>
 	·
-	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a> 
+	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a><br><br>
+ 
+_"enhances YouTube in meaningful ways"_ <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px"></a>    _"Might be the best YouTube Extension Ever"_ <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px"></a>
 
+</p>
 
 ## 🙏 Credits  
 Big thanks ❤️ to our [contributors, developers](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors), wiki-Authors, [translators](https://github.com/code4charity/YouTube-Extension/blob/master/README.md#-translators), [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL).
-(/ sponsors: Your slogan/Icon can be here)
+(/sponsors: Your slogan/Icon can be here)
 ## 📝ToDo 
 - [ ] **0. Documentation Wiki, screenshots, videos**  <code> We still need to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _(We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._ </code>
 - [ ] **1. Code:** [**Bugs🐞**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen-label%3A_+) <code> *(we aim to offer (small) bounties on issues. Please ask)* </code>
