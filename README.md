@@ -31,13 +31,11 @@ Big thanks ❤️ to our [contributors / developers](https://github.com/Improved
 
 - [ ] **0. Documentation, screenshots, videos**  <code> We still need to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _(We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._ </code>
 
-issues:
 - [ ] 1. [**Bugs🐞**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen-label%3A_+) <code> - *(we aim to offer (small) bounties on issues. Please ask)* </code>
-- [ ] 2. [**Feature Requests🌟🧚**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"Feature%20Request"+sort%3Acomments-desc+is%3Aopen-label%3A_+)    &    [**Plans📚**](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen+label%3A%F0%9F%93%9APlan) <code> (_specification added. often Unique/Special/Complex_)</code> <br>  _( [Questions/Other](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A%22Feature+Request%22+-label%3A📚Plan+) )_
-
+- [ ] 2. [**Feature Requests🌟🧚**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"Feature%20Request"+sort%3Acomments-desc+is%3Aopen-label%3A_+)    &    [**Plans📚**](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen+label%3A%F0%9F%93%9APlan) <code> (_specification added. often Unique/Special/Complex_)</code> <br>  _( [Questions&untagged issues)](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A%22Feature+Request%22+-label%3A📚Plan+) )_
 > - [**Contributing without programming**](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)  
+> - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> - *(For code literates)* - (*Newcomers are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We review all edits & love to collaborate)*  </code>
 - [ ] [**Discussions**](https://github.com/code4charity/YouTube-Extension/discussions?discussions_q=category%3A%22Organization%22++category%3A%22ToDo%22+category%3A%22Wishes+%26+Ideas%22++) <code> , Plans, Brainstorming, Ideas about ImprovedTube's Future & Structure </code>
-> - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> - *(For code literates)* - (*Newcomers are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We happily review all edits & love to collaborate)*  </code>
 - [ ] **Translations missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**  <code> _Quick drafts welcome!_  </code>
 - [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
