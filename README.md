@@ -21,7 +21,7 @@
 	·
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report bug</a>
 	·
-	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a><br><br>
+	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a><br>
  
 _"enhances YouTube in meaningful ways"_ <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px"></a>    _"Might be the best YouTube Extension Ever"_ <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px"></a>
 
