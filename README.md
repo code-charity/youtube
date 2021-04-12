@@ -49,6 +49,7 @@ Big thanks ❤️ to our [contributors / developers](https://github.com/Improved
 - [x] [Nederlands](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json) by [aron-hoogeveen](https://github.com/aron-hoogeveen), [Vistaus](https://github.com/Vistaus)
 - [x] [Norsk](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/no/messages.json) by [master3395](https://github.com/master3395), [comradekingu](https://github.com/comradekingu)
 - [x] [Norsk Bokmål](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nb_NO/messages.json) by [comradekingu](https://github.com/comradekingu)
+- [x] [Polski](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pl/messages.json) by [FluidExtractor](https://github.com/FluidExtractor)
 - [x] [Português](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json) by [DrNopt](https://github.com/DrNopt)
 - [x] [Português (Brasil)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json) by [dthiago](https://github.com/dthiago), [Mike-Correa](https://github.com/Mike-Correa)
 - [x] [Slovenčina](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json) by [bbc-s](https://github.com/bbc-s)
