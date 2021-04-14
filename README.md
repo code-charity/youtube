@@ -23,7 +23,7 @@
 	·
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a><br>
  
-_"enhances YouTube in meaningful ways"_ <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px"></a>    _"Might be the best YouTube Extension Ever"_ <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  _"enhances YouTube in meaningful ways"_ <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px"></a>    _"Might be the best YouTube Extension Ever"_ <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px"></a>
 
 </p>
 
@@ -38,7 +38,7 @@ Big thanks ❤️ to our [contributors, developers](https://github.com/ImprovedT
 - [ ] **2.** [**'Discussions'**](https://github.com/code4charity/YouTube-Extension/discussions?discussions_q=category%3A%22Organization%22++category%3A%22ToDo%22+category%3A%22Wishes+%26+Ideas%22++)<code>, Brainstorming & preparing ImprovedTube's Future & Structure</code>
 > - [**Contributing without programming**](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)  
 > - [**How to start editing our CSS, JavaScript, json**](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> *(For code literates)* (*Newcomers are [welcome](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078). We review all edits & love to collaborate)*  </code>
-- [ ] **Translations missing: Malay, Polish, Punjabi, Thai, Vietnamese, ...**  <code> _(quick drafts welcome)_  </code>
+- [ ] **Translations missing: Malay, Punjabi, Thai, Vietnamese, ...**  <code> _(quick drafts welcome)_  </code>
 - [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
 ### 🌎 Translators
