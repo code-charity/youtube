@@ -28,7 +28,7 @@
 </p>
 
 ## 🙏 Credits  
-Big thanks ❤️ to our [contributors, developers](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors), [translators](https://github.com/code4charity/YouTube-Extension/blob/master/README.md#-translators), future wiki-authors, [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)/
+Big thanks ❤️ to our [contributors, developers](https://github.com/ImprovedTube/ImprovedTube/graphs/contributors), [translators](https://github.com/code4charity/YouTube-Extension#--translators--), future wiki-authors, [donators](https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL)/
 future sponsors.
 ## 📝ToDo 
 - [ ] **0. Documentation Wiki, screenshots, videos**  <code> We still need to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _(We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._ </code>
