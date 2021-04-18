@@ -1,7 +1,7 @@
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  _"enhances YouTube in meaningful ways"_ <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   _"Might be the best YouTube Extension Ever"_ <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px"></a>
 <h1 align="center">«Improve YouTube!»</h1>
 
-> :grey_question: ImprovedTube controls in, under or around the Video player ([842](https://github.com/code4charity/YouTube-Extension/issues/842))
-
+> :grey_question: 🗳 ImprovedTube controls in, under or around the Video player ([842](https://github.com/code4charity/YouTube-Extension/issues/842))  
 > 📟 Firefox, Edge, Opera published! Please try / rate <br> 📟 We are focused on bugs & UX. Wishes for New Features might have to wait but please keep them up! 
 
 <p align="center">
@@ -16,9 +16,7 @@
         <code>/ImprovedTube/</code> is a lightweight browser extension with a simple UI and powerful features.
 	<br><br><a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a>
 	·	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report bug</a>
-	·	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Wish features</a>        ·	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>  </b>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  _"enhances YouTube in meaningful ways"_ <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   _"Might be the best YouTube Extension Ever"_ <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px"></a></p>  
+	·	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Wish features</a>        ·	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>  </b></p>  
 <h2 align="right"> 🙏 Credits &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h2>
 <table align="right"><tr><td>
 Big thanks ❤️ to our <br> 
