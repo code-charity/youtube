@@ -62,6 +62,8 @@ Big thanks ❤️ to our <br>
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json">中文 (繁體)</a> by <a href="https://github.com/Still34">Still34</a>, <a href="https://github.com/water903">water903</a>, <a href="https://github.com/suitangi">suitangi</a><br>
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json">日本語</a> by <a href="https://github.com/utuhiro78">utuhiro78</a><br>
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json">한국어</a> by <a href="https://github.com/msc9533">msc9533</a>, <a href="https://github.com/LYHyoung">LYHyoung</a><br>
+(= Russian, Greek, Arabian, Hindi, Bengali <br>
+Chinese, Taiwanese, Japanese, Korean) 	
 </td></tr></table>
 
 ## 🐣 Projects 
