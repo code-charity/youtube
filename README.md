@@ -1,6 +1,6 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
-> :grey_question: ImprovedTube controls under the YouTube player ([842](https://github.com/code4charity/YouTube-Extension/issues/842))
+> :grey_question: ImprovedTube controls in, under or around the Video player ([842](https://github.com/code4charity/YouTube-Extension/issues/842))
 
 > 📟 Firefox, Edge, Opera published! Please try / rate <br> 📟 We are focused on bugs & UX. Wishes for New Features might have to wait but please keep them up! 
 
