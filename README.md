@@ -9,21 +9,16 @@
      <img  alt="youtube extension" src="https://github.com/victor-savinov/previews/raw/master/improvedtube/screenshot-github.png">
 	</a> 
 <br> &nbsp;&nbsp;&nbsp; <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Extension"></a> <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox.png" alt="Firefox add-ons"></a> <a href="https://microsoftedge.microsoft.com/addons/detail/knbckijjjbmkjiagojjneoplbjilfllc"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge.png" alt="Edge Youtube Extension" width="150"></a> <a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/"><img width="132" src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera Extension"></a>
-<a href="https://github.com/code4charity/YouTube-Extension/blob/master/README.md#-install-from-source"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="33px" height="33px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="30px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="25px" height="25px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="15px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="11px" height="11px"></a><a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/" ><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="opera" width="16px" height="14px"></a> 
+<a href="https://github.com/code4charity/YouTube-Extension/README.md#-install-from-source"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="33px" height="33px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="30px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="25px" height="25px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="15px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="11px" height="11px"></a><a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/" ><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="opera" width="16px" height="14px"></a> 
 </p>
 
 <p align="center"><b>
         <code>/ImprovedTube/</code> is a lightweight browser extension with a simple UI and powerful features.
-	<br><br>
-  	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a>
-	·
-	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report bug</a>
-	·
-	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Wish features</a><br>
-        .
-	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a></b>
+	<br><br><a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a>
+	·	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report bug</a>
+	·	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Wish features</a>        ·	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>  </b>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  _"enhances YouTube in meaningful ways"_ <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   _"Might be the best YouTube Extension Ever"_ <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px"></a></p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  _"enhances YouTube in meaningful ways"_ <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   _"Might be the best YouTube Extension Ever"_ <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px"></a></p>  
 <h2 align="right"> 🙏 Credits &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h2>
 <table align="right"><tr><td>
 Big thanks ❤️ to our <br> 
