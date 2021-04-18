@@ -42,7 +42,7 @@ future sponsors.
 - [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
 <h3 align="right"> 🌎 Translators 💕&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
-<table align="right"><tr><td align="center">
+<table align="right"><tr><td><td></td><td></td>
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json">Bahasa Indonesia</a> by <a href="https://github.com/Bagus23">Bagus23</a>, <a href="https://github.com/fdciabdul">Abdul Muttaqin</a><br>
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json">Deutsch</a> by <a href="https://github.com/Termuellinator">Termuellinator</a>, <a href="https://github.com/css-smueller">css-smueller</a><br>
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json">English</a> Proofreaders: __ <br>
