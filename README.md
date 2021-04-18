@@ -23,7 +23,7 @@
 	·
 	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Request feature</a><br>
  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  _"enhances YouTube in meaningful ways"_ <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   _"Might be the best YouTube Extension Ever"_ <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  _"enhances YouTube in meaningful ways"_ <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px"></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   _"Might be the best YouTube Extension Ever"_ <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px"></a>
 
 </p>
 
@@ -41,32 +41,34 @@ future sponsors.
 - [ ] **Translations missing: Malay, Punjabi, Thai, Vietnamese, ...**  <code> _(quick drafts welcome)_  </code>
 - [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
-### 🌎 Translators
+<h3 align="right"> 🌎 Translators 👏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
+<table align="right"><tr><td>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json">Bahasa Indonesia</a> by <a href="https://github.com/Bagus23">Bagus23</a>, <a href="https://github.com/fdciabdul">Abdul Muttaqin</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json">Deutsch</a> by <a href="https://github.com/Termuellinator">Termuellinator</a>, <a href="https://github.com/css-smueller">css-smueller</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json">English</a> Proofreaders: __ <br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json">Español</a> by <a href="https://github.com/Kioraga">Kioraga</a>, <a href="https://github.com/Compvictor">Compvictor</a>, <a href="https://github.com/dimateos">dimateos</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json">Français</a> by <a href="https://github.com/leghort">leghort</a>, <a href="https://github.com/Eymiks">Eymiks</a>, <a href="https://github.com/Solvabl">Solvabl</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json">Italiano</a> by <a href="https://github.com/urfausto">urfausto</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json">Nederlands</a> by <a href="https://github.com/aron-hoogeveen">aron-hoogeveen</a>, <a href="https://github.com/Vistaus">Vistaus</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/no/messages.json">Norsk</a> by <a href="https://github.com/master3395">master3395</a>, <a href="https://github.com/comradekingu">comradekingu</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nb_NO/messages.json">Norsk Bokmål</a> by <a href="https://github.com/comradekingu">comradekingu</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pl/messages.json">Polski</a> by <a href="https://github.com/FluidExtractor">FluidExtractor</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json">Português</a> by <a href="https://github.com/DrNopt">DrNopt</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json">Português (Brasil)</a> by <a href="https://github.com/dthiago">dthiago</a>, <a href="https://github.com/Mike-Correa">Mike-Correa</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json">Slovenčina</a> by <a href="https://github.com/bbc-s">bbc-s</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json">Türkçe</a> by <a href="https://github.com/onurdumangoz">onurdumangoz</a>, <a href="https://github.com/daswareinfach">daswareinfach</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ro/messages.json">Română</a> by <a href="https://github.com/hateofhades">hateofhades</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json">Русский</a> by <a href="https://github.com/qweered">qweered</a>, <a href="https://github.com/alexesprit">alexesprit</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json">ελληνικά</a> by <a href="https://github.com/molyvius">molyvius</a><br>
+✓️ <a href="https://github.com/code4charity/YouTube-Extension/blob/master/_locales/ar/messages.json">العربية</a> by <a href="https://github.com/Raayib">Raayib</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hin/messages.json">हिन्दी</a> by <a href="https://github.com/monishamandal02">monishamandal02</a>, <a href="https://github.com/BRAVO68WEB">BRAVO68WEB</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json">বাংলা</a> by <a href="https://github.com/BRAVO68WEB">BRAVO68WEB</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json">中文 (简体)</a> by <a href="https://github.com/niceRAM">niceRAM</a>, <a href="https://github.com/ausers">ausers</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json">中文 (繁體)</a> by <a href="https://github.com/Still34">Still34</a>, <a href="https://github.com/water903">water903</a>, <a href="https://github.com/suitangi">suitangi</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json">日本語</a> by <a href="https://github.com/utuhiro78">utuhiro78</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json">한국어</a> by <a href="https://github.com/msc9533">msc9533</a>, <a href="https://github.com/LYHyoung">LYHyoung</a><br>
+</td></tr></table>
 
-- [x] [Bahasa Indonesia](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json) by [Bagus23](https://github.com/Bagus23), [Abdul Muttaqin](https://github.com/fdciabdul)
-- [x] [Deutsch](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json) by [Termuellinator](https://github.com/Termuellinator), [css-smueller](https://github.com/css-smueller)
-- [x] [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) Proofreaders: __ 
-- [x] [Español](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json) by [Kioraga](https://github.com/Kioraga), [Compvictor](https://github.com/Compvictor), [dimateos](https://github.com/dimateos)
-- [x] [Français](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json) by [leghort](https://github.com/leghort), [Eymiks](https://github.com/Eymiks), [Solvabl](https://github.com/Solvabl)
-- [x] [Italiano](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json) by [urfausto](https://github.com/urfausto)
-- [x] [Nederlands](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json) by [aron-hoogeveen](https://github.com/aron-hoogeveen), [Vistaus](https://github.com/Vistaus)
-- [x] [Norsk](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/no/messages.json) by [master3395](https://github.com/master3395), [comradekingu](https://github.com/comradekingu)
-- [x] [Norsk Bokmål](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nb_NO/messages.json) by [comradekingu](https://github.com/comradekingu)
-- [x] [Polski](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pl/messages.json) by [FluidExtractor](https://github.com/FluidExtractor)
-- [x] [Português](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json) by [DrNopt](https://github.com/DrNopt)
-- [x] [Português (Brasil)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json) by [dthiago](https://github.com/dthiago), [Mike-Correa](https://github.com/Mike-Correa)
-- [x] [Slovenčina](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json) by [bbc-s](https://github.com/bbc-s)
-- [x] [Türkçe](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json) by [onurdumangoz](https://github.com/onurdumangoz), [daswareinfach](https://github.com/daswareinfach)
-- [x] [Română](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ro/messages.json) by [hateofhades](https://github.com/hateofhades)
-- [x] [Русский](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json) by [qweered](https://github.com/qweered), [alexesprit](https://github.com/alexesprit)
-- [x] [ελληνικά](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json) by [molyvius](https://github.com/molyvius)
-- [x] [العربية](https://github.com/code4charity/YouTube-Extension/blob/master/_locales/ar/messages.json) by [Raayib](https://github.com/Raayib)
-- [x] [हिन्दी](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hin/messages.json) by [monishamandal02](https://github.com/monishamandal02), [BRAVO68WEB](https://github.com/BRAVO68WEB)
-- [x] [বাংলা](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json) by [BRAVO68WEB](https://github.com/BRAVO68WEB)
-- [x] [中文 (简体)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json) by [niceRAM](https://github.com/niceRAM), [ausers](https://github.com/ausers)
-- [x] [中文 (繁體)](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json) by [Still34](https://github.com/Still34), [water903](https://github.com/water903), [suitangi](https://github.com/suitangi)
-- [x] [日本語](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json) by [utuhiro78](https://github.com/utuhiro78)
-- [x] [한국어](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json) by [msc9533](https://github.com/msc9533), [LYHyoung](https://github.com/LYHyoung)
 ## 🌾 Projects 
 ### Extensions (\*new\*🐣)
 * <b>Home: 
@@ -74,23 +76,46 @@ History Manager</b><a href="https://github.com/victor-savinov/history-manager"><
 Start Page  <a href="https://github.com/victor-savinov/start-page"><img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px"></a>,  [**To-Do**](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/to-do) 
 * **Research:** 
 [**Regex Search** ('Ctrl+F+Shift')](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)[  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/regex-search) 
-* **Browsing:**  * [**HID Control**(Deny overwriting Right-Click, Ctrl+F,...)](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) [  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/hid-control-prevention),  * [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)[  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/night-mode), * [**Custom user agent**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj) [  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/custom-user-agent), * [**Regex Replace**](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)[  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/regex-replace)   
+* **Browsing:**  * [**HID Control**(Deny overwriting Right-Click, Ctrl+F,...)](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) [  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/hid-control-prevention),  <br> * [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)[  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/night-mode), * [**Custom user agent**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj) [  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/custom-user-agent), * [**Regex Replace**](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)[  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/regex-replace)   
   * **Video/Media:** 
 [**Frame by Frame**](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)[  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/frame-by-frame), 
 **Equalizer**[  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/equalizer), 
 [**unBlob**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[  <img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/unblob) 
   
-**Development:** [**Satus**](https://github.com/victor-savinov/satus), [Theme Engine](https://github.com/victor-savinov/theme-engine),   [Pluviam](https://github.com/victor-savinov/pluviam), [Code Editor](https://github.com/victor-savinov/code-editor),  [Viscum Player](https://github.com/victor-savinov/vbeiscum-player) 
+**Development:** [**Satus**](https://github.com/victor-savinov/satus), [Theme Engine](https://github.com/victor-savinov/theme-engine), <br> [Pluviam](https://github.com/victor-savinov/pluviam), [Code Editor](https://github.com/victor-savinov/code-editor),  [Viscum Player](https://github.com/victor-savinov/vbeiscum-player) 
 </td></tr></table>
-##  💼 Our Work 
+
+##  💼 Our Work <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="118px"> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
 ### 💡 Ideas   
 Got great ideas? ideas@improvedtube.com
-### 👨🏽‍💻 👩🏿‍💻 👩‍💻 Expertise / Advice <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="122px"> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> <img width="180" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png">
+### 👨🏽‍💻 👩🏿‍💻 👩‍💻 Expertise / Advice <img width="180" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png">
 
 Do you need to run an extension, site, app or repo with many users and a great feedback score?  
 We like to help good meaningful causes. projects@improvedtube.com  
 
 <hr> 
+
+#### old Introduction:	
+
+##  [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  is an extension we built to refine and sweeten your YouTube experience. A one-stop-shop with many powerful features to enhance YouTube, yet liteweight. A larger player, tidy UI and hiding distractions were the first loved features. Simply to save time. But that is not all… - there was so much left to build and there are many clever features to come still. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImprovedTube is designed with our own UI library: **[Satus](https://github.com/victor-savinov/satus)**, to manage your settings efficiently and to create more powerful and familiar apps. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please spread the word: ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned. No other project provides so much CSS to adjust a website[🦄](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)</font>.
+<p align="center"><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
+      <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
+        <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /> </a> </p>
+	
+## Some ImprovedTube features:
+- Video quality
+- Themes and customisation
+- Repeat-, screenshot-, rotate-buttons
+- Pop-up player
+- Ads management
+- Hide Cards and Annotations
+- Customise video page appearance (always expand description, hide related videos etc.)
+- Channel page customisations
+- Customisation of hotkeys/shortcuts
+- Statistics
+- Volume mixer
+_[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
 ## 🔧 Install from source
 
@@ -120,29 +145,6 @@ We like to help good meaningful causes. projects@improvedtube.com
 
  - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
  
-
-
-#### old Introduction:	
-
-##  [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  is an extension we built to refine and sweeten your YouTube experience. A one-stop-shop with many powerful features to enhance YouTube, yet liteweight. A larger player, tidy UI and hiding distractions were the first loved features. Simply to save time. But that is not all… - there was so much left to build and there are many clever features to come still. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImprovedTube is designed with our own UI library: **[Satus](https://github.com/victor-savinov/satus)**, to manage your settings efficiently and to create more powerful and familiar apps. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please spread the word: ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned. No other project provides so much CSS to adjust a website[🦄](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)</font>.
-<p align="center"><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
-      <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-        <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /> </a> </p>
-	
-## Some ImprovedTube features:
-- Video quality
-- Themes and customisation
-- Repeat-, screenshot-, rotate-buttons
-- Pop-up player
-- Ads management
-- Hide Cards and Annotations
-- Customise video page appearance (always expand description, hide related videos etc.)
-- Channel page customisations
-- Customisation of hotkeys/shortcuts
-- Statistics
-- Volume mixer
-_[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
  #### Web browser support 
 |[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="28px" />](https://brave.com)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="28px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://www.microsoft.com/edge)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](https://addons.opera.com/en/extensions/details/install-chrome-extensions/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://www.apple.com/safari/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
