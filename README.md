@@ -66,8 +66,8 @@ Big thanks ❤️ to our <br>
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json">한국어</a> by <a href="https://github.com/msc9533">msc9533</a>, <a href="https://github.com/LYHyoung">LYHyoung</a><br>
 </td></tr></table>
 
-## 🌾 Projects 
-### Extensions (\*new\*🐣)
+## 🐣 Projects 
+### Extensions (\*new\*)
 * <b>Home/Daily: History Manager</b><a href="https://github.com/victor-savinov/history-manager"><img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px"></a>, 
 Start Page <a href="https://github.com/victor-savinov/start-page"><img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px"></a>,[ToDo](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/victor-savinov/to-do) 
 * **Research:** 
@@ -80,7 +80,7 @@ Start Page <a href="https://github.com/victor-savinov/start-page"><img src="http
 **Open-Source & Github:**
 
 
-##  💼 Our Work <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="118px"> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
+##  🌾 Our Work <img src="https://starchart.cc/ImprovedTube/YouTube.svg" alt="starchart.cc Github Stargazers over time"   width="118px"> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
 ### 💡 Ideas   
 Got great ideas? ideas@improvedtube.com
 ### 👨🏽‍💻 👩🏿‍💻 👩‍💻 Expertise / Advice <img width="180" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png">
