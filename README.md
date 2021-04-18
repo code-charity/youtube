@@ -41,7 +41,7 @@ future sponsors.
 - [ ] **Translations missing: Malay, Punjabi, Thai, Vietnamese, ...**  <code> _(quick drafts welcome)_  </code>
 - [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
-<h3 align="right"> 🌎 Translators 👏&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
+<h3 align="right"> 🌎 Translators 💕&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
 <table align="right"><tr><td align="center">
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json">Bahasa Indonesia</a> by <a href="https://github.com/Bagus23">Bagus23</a>, <a href="https://github.com/fdciabdul">Abdul Muttaqin</a><br>
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json">Deutsch</a> by <a href="https://github.com/Termuellinator">Termuellinator</a>, <a href="https://github.com/css-smueller">css-smueller</a><br>
