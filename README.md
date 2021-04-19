@@ -17,7 +17,7 @@
 	<br><br><a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a>
 	·	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report bug</a>
 	·	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Wish features</a>        ·	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>  </b></p>  
-<h2 align="right"> 🙏 Credits &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h2>
+<h3 align="right"> 🙏 Credits &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
 <table align="right"><tr><td>
 Big thanks ❤️ to our <br> 
 <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors, developers</a>, 
