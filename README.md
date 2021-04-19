@@ -23,7 +23,7 @@ Big thanks ❤️ to our <br>
 <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors, developers</a>, 
 <br><href="https://github.com/code4charity/YouTube-Extension#--translators--">translators</a>, future wiki-authors,
 <br><a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>
-, future sponsors <br>(your logo/slogan can be here)</td></tr></table>
+, future sponsors</td></tr></table>
 
 ## 📝ToDo 
 - [ ] **0. Documentation Wiki, screenshots, videos** <code> We need to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _(We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._ </code>
