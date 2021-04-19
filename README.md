@@ -2,7 +2,7 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
 > :grey_question: ImprovedTube controls in, under or around the Video player ([842](https://github.com/code4charity/YouTube-Extension/issues/842))  
-> 📟 Firefox, Edge, Opera done! (Please try/rate) + You might enjoy our [dark mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak any style on every site <br> 📟 We are focused on bugs & UX. Wishes for New Features might have to wait but please keep them up! 
+> 📟 Firefox, Edge, Opera done! (Please try/rate) + You might enjoy our [dark mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak any view on any site <br> 📟 We are focused on bugs & UX. Wishes for New Features might have to wait but please keep them up! 
 
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
