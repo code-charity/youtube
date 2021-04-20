@@ -25,7 +25,9 @@ Big thanks ❤️ to our <br>
 <br><a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>
 , future sponsors</td></tr></table>
 
+
 ## 📝ToDo 
+Please spread the word 📣. ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned.
 - [ ] **0. Documentation Wiki, screenshots, videos** <code> We need to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _(We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._ </code>
 - [ ] **1. Code:** [**Bugs🐞**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen-label%3A_+) <code> *(we aim to offer (small) bounties on issues. Please ask)* </code>
 - [ ] **+** [**Feature Requests🌟🧚**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"Feature%20Request"+sort%3Acomments-desc+is%3Aopen-label%3A_+) 
@@ -88,10 +90,10 @@ We like to help good meaningful causes. projects@improvedtube.com
 
 <hr> 
 
-#### old Introduction:	
+#### Long Introduction:	
 
 ##  [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  is an extension we built to refine and sweeten your YouTube experience. A one-stop-shop with many powerful features to enhance YouTube, yet liteweight. A larger player, tidy UI and hiding distractions were the first loved features. Simply to save time. But that is not all… - there was so much left to build and there are many clever features to come still. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImprovedTube is designed with our own UI library: **[Satus](https://github.com/victor-savinov/satus)**, to manage your settings efficiently and to create more powerful and familiar apps. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please spread the word: ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned. No other project provides so much CSS to adjust a website[🦄](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)</font>.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  is an extension we built to refine and sweeten your YouTube experience. A one-stop-shop with many powerful features to enhance YouTube, yet liteweight. A larger player, tidy UI and hiding distractions were the first loved features. Simple & effient. But that is not all… - there was so much left to build and there are many clever features to come still. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImprovedTube is designed with our own pure UI library: **[Satus](https://github.com/victor-savinov/satus)**, to manage your settings efficiently - and to create more powerful and familiar apps (['ImprovedTube cousins'](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)). &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please spread the word: ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned. No other project provides so much CSS to adjust a website[🦄](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)</font>.
 <p align="center"><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
       <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
         <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /> </a> </p>
