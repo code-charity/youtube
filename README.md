@@ -13,10 +13,10 @@
 </p>
 
 <p align="center"><b>
-	<code>/ImprovedTube/</code> </b> is a lightweight 🍃 browser extension with a <b> pretty UI & powerful features.
+	<code>/ImprovedTube/</code> </b> is a lightweight 🍃 browser extension with a pretty UI & powerful features.
 	<br><br><a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a>
 	·	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report bug</a>
-	·	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Wish features</a>        ·	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>  </b></p>  
+	·	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Wish features</a>        ·	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a> </p>  
 <h3 align="right"> 🙏 Credits &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
 <table align="right"><tr><td>
 Big thanks ❤️ to our <br> 
