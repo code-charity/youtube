@@ -88,7 +88,7 @@ Got great ideas? ideas@improvedtube.com
 Do you need to run an extension, site, app or repo with many users and a great feedback score?  
 We like to help good meaningful causes. projects@improvedtube.com  
 
-<hr> 
+<hr> <hr>
 
 #### Long Introduction:	
 
