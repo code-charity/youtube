@@ -28,7 +28,7 @@ Big thanks ❤️ to our <br>
 
 ## 🧩 ToDo
 ImprovedTube is the only project of it's kind. (Other open YouTube Extensions resigned.) Please spread the word 📣
-- [ ] **0. Documentation Wiki, screenshots, videos** <code> We need to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _(We did no documentation let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._ </code>
+- [ ] **0. Documentation Wiki, screenshots, videos** <code> We need to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _We did no documentation before (let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._</code>
 - [ ] **1. Code:** [**Bugs🐞**](https://github.com/ImprovedTube/YouTube/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen-label%3A_+) <code> *(we aim to offer (small) bounties on issues. Please ask)* </code>
 - [ ] **+** [**Feature Requests🌟🧚**](https://github.com/ImprovedTube/YouTube/issues?q=label%3A"Feature%20Request"+sort%3Acomments-desc+is%3Aopen-label%3A_+) 
     - with [**Plans📚**](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen+label%3A%F0%9F%93%9APlan)<code>_=specification added. often Unique/Special/Complex_</code>  _(, &[Rest](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A%22Feature+Request%22+-label%3A📚Plan+-label%3A_)questions/untagged_)
