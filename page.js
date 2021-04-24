@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <meta name="viewport" content="width=device-width,initial-scale=1">
                 <title>ImprovedTube</title>
             </head>
-            <body style="width:100%;overflow:auto"></body>
+            <body></body>
         </html>
         `;
 });
