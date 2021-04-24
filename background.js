@@ -1,26 +1,27 @@
-/*---------------------------------------------------------------
+/*--------------------------------------------------------------
 >>> BACKGROUND
------------------------------------------------------------------
+----------------------------------------------------------------
 # Global variables
 # Functions
 # Context menu items
 # Message listener
 # Storage change listener
-# Initialization
+# Tab focus/blur
 # Uninstall URL
 # Google Analytics
----------------------------------------------------------------*/
+# Initialization
+--------------------------------------------------------------*/
 
-/*---------------------------------------------------------------
+/*--------------------------------------------------------------
 # GLOBAL VARIABLES
----------------------------------------------------------------*/
+--------------------------------------------------------------*/
 
 var locale_code = 'en',
     browser_icon = false;
 
-/*---------------------------------------------------------------
+/*--------------------------------------------------------------
 # FUNCTIONS
----------------------------------------------------------------*/
+--------------------------------------------------------------*/
 
 function isset(variable) {
     return !(typeof variable === 'undefined' || variable === null);
@@ -70,9 +71,9 @@ function browserActionIcon() {
 }
 
 
-/*---------------------------------------------------------------
+/*--------------------------------------------------------------
 # CONTEXT MENU ITEMS
----------------------------------------------------------------*/
+--------------------------------------------------------------*/
 
 chrome.contextMenus.removeAll();
 
@@ -105,9 +106,9 @@ chrome.contextMenus.onClicked.addListener(function(event) {
 });
 
 
-/*---------------------------------------------------------------
+/*--------------------------------------------------------------
 # MESSAGE LISTENER
----------------------------------------------------------------*/
+--------------------------------------------------------------*/
 
 chrome.runtime.onMessage.addListener(function(request, sender) {
     if (isset(request) && typeof request === 'object') {
@@ -288,9 +289,9 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 });
 
 
-/*---------------------------------------------------------------
+/*--------------------------------------------------------------
 # STORAGE CHANGE LISTENER
----------------------------------------------------------------*/
+--------------------------------------------------------------*/
 
 chrome.storage.onChanged.addListener(function(changes) {
     if (isset(changes.improvedtube_language)) {
@@ -305,9 +306,59 @@ chrome.storage.onChanged.addListener(function(changes) {
 });
 
 
-/*---------------------------------------------------------------
+/*--------------------------------------------------------------
+# TAB FOCUS/BLUR
+--------------------------------------------------------------*/
+
+chrome.tabs.onActivated.addListener(function(activeInfo) {
+    chrome.tabs.query({}, function(tabs) {
+        chrome.tabs.sendMessage(activeInfo.tabId, {
+            action: 'focus'
+        });
+
+        for (var i = 0, l = tabs.length; i < l; i++) {
+            if (tabs[i].id !== activeInfo.tabId) {
+                if (tabs[i].hasOwnProperty('url')) {
+                    chrome.tabs.sendMessage(tabs[i].id, {
+                        action: 'blur'
+                    });
+                }
+            }
+        }
+    });
+});
+
+
+/*--------------------------------------------------------------
+# UNINSTALL URL
+--------------------------------------------------------------*/
+
+chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
+
+
+/*--------------------------------------------------------------
+# GOOGLE ANALYTICS
+--------------------------------------------------------------*/
+
+var _gaq = _gaq || [];
+
+(function() {
+    var ga = document.createElement('script');
+
+    _gaq.push(['_setAccount', 'UA-88354155-1']);
+    _gaq.push(['_setSessionCookieTimeout', 14400000]);
+
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+
+    document.body.appendChild(ga);
+})();
+
+
+/*--------------------------------------------------------------
 # INITIALIZATION
----------------------------------------------------------------*/
+--------------------------------------------------------------*/
 
 chrome.storage.local.get(function(items) {
     if (isset(items.improvedtube_language)) {
@@ -331,50 +382,4 @@ chrome.storage.local.get(function(items) {
             ga: a
         });
     }
-});
-
-
-/*---------------------------------------------------------------
-# UNINSTALL URL
----------------------------------------------------------------*/
-
-chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
-
-
-/*---------------------------------------------------------------
-# GOOGLE ANALYTICS
----------------------------------------------------------------*/
-
-var _gaq = _gaq || [];
-
-(function() {
-    var ga = document.createElement('script');
-
-    _gaq.push(['_setAccount', 'UA-88354155-1']);
-    _gaq.push(['_setSessionCookieTimeout', 14400000]);
-
-    ga.type = 'text/javascript';
-    ga.async = true;
-    ga.src = 'https://ssl.google-analytics.com/ga.js';
-
-    document.body.appendChild(ga);
-})();
-
-
-chrome.tabs.onActivated.addListener(function(activeInfo) {
-    chrome.tabs.query({}, function(tabs) {
-        chrome.tabs.sendMessage(activeInfo.tabId, {
-            action: 'focus'
-        });
-
-        for (var i = 0, l = tabs.length; i < l; i++) {
-            if (tabs[i].id !== activeInfo.tabId) {
-                if (tabs[i].hasOwnProperty('url')) {
-                    chrome.tabs.sendMessage(tabs[i].id, {
-                        action: 'blur'
-                    });
-                }
-            }
-        }
-    });
 });

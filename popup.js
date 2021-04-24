@@ -1,26 +1,29 @@
-/*------------------------------------------------------------------------------
+/*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
---------------------------------------------------------------------------------
-1.0 Header
-  1.1 Mixer
-  1.2 Settings
-  1.3 Active features
-2.0 Main
-  2.1 General
-  2.2 Appearance
-  2.3 Themes
-  2.4 Player
-  2.5 Playlist
-  2.6 Channel
-  2.7 Shortcuts
-  2.8 Blacklist
-  2.9 Analyzer
-3.0 Initialization
-------------------------------------------------------------------------------*/
+----------------------------------------------------------------
+# Header
+    # Mixer
+    # Settings
+    # Active features
+# Main
+    # General
+    # Appearance
+    # Themes
+    # Player
+    # Playlist
+    # Channel
+    # Shortcuts
+    # Blacklist
+    # Analyzer
+    # Firefox button
+# Export data
+# Import data
+# Initialization
+--------------------------------------------------------------*/
 
-/*------------------------------------------------------------------------------
-1.0 HEADER
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# HEADER
+--------------------------------------------------------------*/
 
 var Menu = {
     header: {
@@ -120,9 +123,9 @@ var Menu = {
 };
 
 
-/*------------------------------------------------------------------------------
-1.1 ACTIVE FEATURES
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# ACTIVE FEATURES
+--------------------------------------------------------------*/
 
 Menu.header.section_end.button_vert.onClickRender.active_features = {
     type: 'folder',
@@ -186,9 +189,9 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
 };
 
 
-/*------------------------------------------------------------------------------
-1.2 SETTINGS
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# SETTINGS
+--------------------------------------------------------------*/
 
 Menu.header.section_end.button_vert.onClickRender.settings = {
     type: 'folder',
@@ -1035,9 +1038,9 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
 };
 
 
-/*------------------------------------------------------------------------------
-1.3 MIXER
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# MIXER
+--------------------------------------------------------------*/
 
 Menu.header.section_end.button_vert.onClickRender.mixer = {
     type: 'folder',
@@ -1155,9 +1158,9 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
 };
 
 
-/*------------------------------------------------------------------------------
-2.0 MAIN
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# MAIN
+--------------------------------------------------------------*/
 
 Menu.main = {
     type: 'main',
@@ -1210,9 +1213,9 @@ Menu.main = {
 };
 
 
-/*------------------------------------------------------------------------------
-2.1 GENERAL
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# GENERAL
+--------------------------------------------------------------*/
 
 Menu.main.section.general = {
     type: 'folder',
@@ -1320,9 +1323,9 @@ Menu.main.section.general = {
 };
 
 
-/*------------------------------------------------------------------------------
-2.2 APPEARANCE
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# APPEARANCE
+--------------------------------------------------------------*/
 
 Menu.main.section.appearance = {
     type: 'folder',
@@ -1697,9 +1700,9 @@ Menu.main.section.appearance = {
 };
 
 
-/*------------------------------------------------------------------------------
-2.3 THEMES
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# THEMES
+--------------------------------------------------------------*/
 
 Menu.main.section.themes = {
     type: 'folder',
@@ -2047,9 +2050,9 @@ Menu.main.section.themes = {
 };
 
 
-/*------------------------------------------------------------------------------
-2.4 PLAYER
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# PLAYER
+--------------------------------------------------------------*/
 
 Menu.main.section.player = {
     type: 'folder',
@@ -2631,9 +2634,9 @@ Menu.main.section.player = {
 };
 
 
-/*------------------------------------------------------------------------------
-2.5 PLAYLIST
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# PLAYLIST
+--------------------------------------------------------------*/
 
 Menu.main.section.playlist = {
     type: 'folder',
@@ -2676,9 +2679,9 @@ Menu.main.section.playlist = {
 };
 
 
-/*------------------------------------------------------------------------------
-2.6 CHANNEL
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# CHANNEL
+--------------------------------------------------------------*/
 
 Menu.main.section.channel = {
     type: 'folder',
@@ -2717,9 +2720,9 @@ Menu.main.section.channel = {
 };
 
 
-/*------------------------------------------------------------------------------
-2.7 SHORTCUTS
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# SHORTCUTS
+--------------------------------------------------------------*/
 
 Menu.main.section.shortcuts = {
     type: 'folder',
@@ -2964,9 +2967,9 @@ Menu.main.section.shortcuts = {
 };
 
 
-/*------------------------------------------------------------------------------
-2.8 BLACKLIST
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# BLACKLIST
+--------------------------------------------------------------*/
 
 Menu.main.section.blacklist = {
     type: 'folder',
@@ -3131,9 +3134,9 @@ Menu.main.section.blacklist = {
 };
 
 
-/*------------------------------------------------------------------------------
-2.9 ANALYZER
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# ANALYZER
+--------------------------------------------------------------*/
 
 Menu.main.section.analyzer = {
     type: 'folder',
@@ -3283,6 +3286,11 @@ Menu.main.section.analyzer = {
     }
 };
 
+
+/*--------------------------------------------------------------
+# FIREFOX BUTTON
+--------------------------------------------------------------*/
+
 Menu.main.section.firefox = {
     type: 'button',
     class: 'satus-firefox',
@@ -3293,9 +3301,147 @@ Menu.main.section.firefox = {
 };
 
 
-/*------------------------------------------------------------------------------
-3.0 INITIALIZATION
-------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# EXPORT DATA
+--------------------------------------------------------------*/
+
+function exportData() {
+    var data = {};
+
+    for (var key in satus.storage) {
+        if (
+            typeof satus.storage[key] !== 'function' &&
+            key !== 'blacklist' &&
+            key !== 'watched'
+        ) {
+            data[key] = satus.storage[key];
+        }
+    }
+
+    var blob = new Blob([JSON.stringify(data)], {
+        type: 'application/json;charset=utf-8'
+    });
+
+    satus.render({
+        type: 'dialog',
+
+        export: {
+            type: 'button',
+            label: 'export',
+            onclick: function() {
+                chrome.permissions.request({
+                    permissions: ['downloads']
+                }, function(granted) {
+                    if (granted) {
+                        chrome.downloads.download({
+                            url: URL.createObjectURL(blob),
+                            filename: 'improvedtube.json',
+                            saveAs: true
+                        }, function() {
+                            setTimeout(function() {
+                                if (location.href.indexOf('action=export') !== -1) {
+                                    window.close();
+                                } else {
+                                    document.querySelector('.satus-dialog__scrim').click();
+
+                                    satus.render({
+                                        type: 'dialog',
+
+                                        message: {
+                                            type: 'text',
+                                            label: 'dataExportedSuccessfully'
+                                        },
+                                        section: {
+                                            type: 'section',
+                                            class: 'controls',
+
+                                            ok: {
+                                                type: 'button',
+                                                label: 'ok',
+                                                onclick: function() {
+                                                    document.querySelector('.satus-dialog__scrim').click();
+                                                }
+                                            }
+                                        }
+                                    });
+                                }
+                            }, 100);
+                        });
+                    }
+                });
+            }
+        }
+    });
+}
+
+
+/*--------------------------------------------------------------
+# IMPORT DATA
+--------------------------------------------------------------*/
+
+function importData() {
+    satus.render({
+        type: 'dialog',
+
+        select_file: {
+            type: 'button',
+            label: 'selectFile',
+            onclick: function() {
+                var input = document.createElement('input');
+
+                input.type = 'file';
+
+                input.addEventListener('change', function() {
+                    var file_reader = new FileReader();
+
+                    file_reader.onload = function() {
+                        var data = JSON.parse(this.result);
+
+                        for (var key in data) {
+                            satus.storage.set(key, data[key]);
+                        }
+
+                        if (location.href.indexOf('action=import') !== -1) {
+                            window.close();
+                        } else {
+                            document.querySelector('.satus-dialog__scrim').click();
+
+                            satus.render({
+                                type: 'dialog',
+
+                                message: {
+                                    type: 'text',
+                                    label: 'dataImportedSuccessfully'
+                                },
+                                section: {
+                                    type: 'section',
+                                    class: 'controls',
+
+                                    ok: {
+                                        type: 'button',
+                                        label: 'ok',
+                                        onclick: function() {
+                                            document.querySelector('.satus-dialog__scrim').click();
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    };
+
+                    file_reader.readAsText(this.files[0]);
+                });
+
+                input.click();
+            }
+        }
+    });
+}
+
+
+/*--------------------------------------------------------------
+# INITIALIZATION
+--------------------------------------------------------------*/
 
 function themeChange(event) {
     if (event.target.checked) {
@@ -3382,135 +3528,3 @@ chrome.storage.onChanged.addListener(function(changes) {
         document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), changes[key].newValue);
     }
 });
-
-
-
-
-
-function importData() {
-    satus.render({
-        type: 'dialog',
-
-        select_file: {
-            type: 'button',
-            label: 'selectFile',
-            onclick: function() {
-                var input = document.createElement('input');
-
-                input.type = 'file';
-
-                input.addEventListener('change', function() {
-                    var file_reader = new FileReader();
-
-                    file_reader.onload = function() {
-                        var data = JSON.parse(this.result);
-
-                        for (var key in data) {
-                            satus.storage.set(key, data[key]);
-                        }
-
-                        if (location.href.indexOf('action=import') !== -1) {
-                            window.close();
-                        } else {
-                            document.querySelector('.satus-dialog__scrim').click();
-
-                            satus.render({
-                                type: 'dialog',
-
-                                message: {
-                                    type: 'text',
-                                    label: 'dataImportedSuccessfully'
-                                },
-                                section: {
-                                    type: 'section',
-                                    class: 'controls',
-
-                                    ok: {
-                                        type: 'button',
-                                        label: 'ok',
-                                        onclick: function() {
-                                            document.querySelector('.satus-dialog__scrim').click();
-                                        }
-                                    }
-                                }
-                            });
-                        }
-                    };
-
-                    file_reader.readAsText(this.files[0]);
-                });
-
-                input.click();
-            }
-        }
-    });
-}
-
-function exportData() {
-    var data = {};
-
-    for (var key in satus.storage) {
-        if (
-            typeof satus.storage[key] !== 'function' &&
-            key !== 'blacklist' &&
-            key !== 'watched'
-        ) {
-            data[key] = satus.storage[key];
-        }
-    }
-
-    var blob = new Blob([JSON.stringify(data)], {
-        type: 'application/json;charset=utf-8'
-    });
-
-    satus.render({
-        type: 'dialog',
-
-        export: {
-            type: 'button',
-            label: 'export',
-            onclick: function() {
-                chrome.permissions.request({
-                    permissions: ['downloads']
-                }, function(granted) {
-                    if (granted) {
-                        chrome.downloads.download({
-                            url: URL.createObjectURL(blob),
-                            filename: 'improvedtube.json',
-                            saveAs: true
-                        }, function() {
-                            setTimeout(function() {
-                                if (location.href.indexOf('action=export') !== -1) {
-                                    window.close();
-                                } else {
-                                    document.querySelector('.satus-dialog__scrim').click();
-
-                                    satus.render({
-                                        type: 'dialog',
-
-                                        message: {
-                                            type: 'text',
-                                            label: 'dataExportedSuccessfully'
-                                        },
-                                        section: {
-                                            type: 'section',
-                                            class: 'controls',
-
-                                            ok: {
-                                                type: 'button',
-                                                label: 'ok',
-                                                onclick: function() {
-                                                    document.querySelector('.satus-dialog__scrim').click();
-                                                }
-                                            }
-                                        }
-                                    });
-                                }
-                            }, 100);
-                        });
-                    }
-                });
-            }
-        }
-    });
-}
