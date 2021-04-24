@@ -1915,3 +1915,24 @@ html[it-improvedtube-home='list'] .satus-section--info
     border: none !important;
     display: flex !important;
 }
+
+
+/*---------------------------------------------------------------
+# OPTIONS
+---------------------------------------------------------------*/
+
+@media (min-width: 301px)
+{
+    html
+    {
+        display: flex;
+        justify-content: center;
+    }
+
+    body
+    {
+        height: 100vh;
+        width: 100%;
+        max-width: 768px;
+    }
+}
