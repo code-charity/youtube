@@ -1,1397 +1,1091 @@
-
 /*--------------------------------------------------------------
->>> BUTTON
+>>> SATUS
+----------------------------------------------------------------
+# Body
+# Components
+    # Button
+    # Color picker
+    # Dialog
+    # Folder
+    # Header
+    # List
+    # Main
+    # Section
+    # Select
+    # Slider
+    # Switch
+    # Table
+    # Text
+    # Text field
 --------------------------------------------------------------*/
 
-.satus-button
-{
+/*--------------------------------------------------------------
+# BODY
+--------------------------------------------------------------*/
+
+body {
+    --satus-theme-primary: #f6b465;
+    --satus-theme-dialog: #f7f7f6;
+    --satus-theme-dialog-text: #777;
+    --satus-theme-header: #fff;
+    --satus-theme-header-text: #777;
+    --satus-theme-main: #f7f7f6;
+    --satus-theme-main-text: #777;
+    --satus-theme-section: #fff;
+    --satus-theme-button: transparent;
+    --satus-theme-scrollbar: rgba(0, 0, 0, .2);
+    --satus-theme-scrollbar-focus: rgba(0, 0, 0, .4);
+    --satus-theme-tooltip: rgba(0, 0, 0, .4);
+    --satus-theme-ripple: rgba(0, 0, 0, .04);
+}
+
+
+/*--------------------------------------------------------------
+# COMPONENTS
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# BUTTON
+--------------------------------------------------------------*/
+
+.satus-button {
     font-size: inherit;
-
     position: relative;
-
     display: flex;
-
     margin: 0;
-
     cursor: pointer;
-
     color: inherit;
     border: none;
     outline: none;
     background-color: var(--satus-theme-button);
-
     -webkit-tap-highlight-color: transparent;
     align-items: center;
     -webkit-appearance: none;
 }
 
-.satus-button::before
-{
+.satus-button::before {
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
-
     content: '';
-
     opacity: 0;
     background-color: var(--satus-theme-ripple);
 }
 
 .satus-button:focus::before,
-.satus-button:hover::before
-{
+.satus-button:hover::before {
     opacity: 1;
 }
 
-.satus-button__icon
-{
+.satus-button__icon {
     width: 24px;
     height: 24px;
 }
 
-.satus-button svg
-{
+.satus-button svg {
     width: 100%;
-
     color: inherit;
-
     fill: var(--satus-theme-primary);
 }
 
-.satus-button__icon + .satus-button__label
-{
+.satus-button__icon+.satus-button__label {
     margin-left: 8px;
 }
 
+
 /*--------------------------------------------------------------
->>> COLOR PICKER
+# COLOR PICKER
 --------------------------------------------------------------*/
 
-.satus-color-picker
-{
+.satus-color-picker {
     font-size: inherit;
-
     position: relative;
-
     display: flex;
-
     box-sizing: border-box;
     margin: 0;
-
     cursor: pointer;
-
     color: inherit;
     border: none;
     outline: none;
     background-color: var(--satus-theme-button);
-
     justify-content: space-between;
     -webkit-tap-highlight-color: transparent;
     align-items: center;
     -webkit-appearance: none;
 }
 
-.satus-color-picker__value
-{
+.satus-color-picker__value {
     width: 24px;
     height: 24px;
-
     border-radius: 50%;
 }
 
-.satus-dialog--color-picker .satus-scrollbar__content
-{
+.satus-dialog--color-picker .satus-scrollbar__content {
     display: flex;
     flex-direction: column;
-
     align-items: center;
 }
 
-.satus-dialog--color-picker .satus-button
-{
+.satus-dialog--color-picker .satus-button {
     box-sizing: unset;
     width: 24px;
     height: 24px;
     margin: 0 0 8px;
     padding: 8px;
-
     border-radius: 50%;
 }
 
-.satus-dialog--color-picker .satus-button:hover
-{
+.satus-dialog--color-picker .satus-button:hover {
     background-color: var(--satus-theme-ripple);
 }
 
-.satus-dialog--color-picker .satus-button::before
-{
+.satus-dialog--color-picker .satus-button::before {
     content: unset;
 }
 
-.satus-dialog--color-picker .satus-button svg
-{
+.satus-dialog--color-picker .satus-button svg {
     fill: transparent;
     stroke: var(--satus-theme-primary);
 }
 
-.satus-dialog--color-picker canvas
-{
+.satus-dialog--color-picker canvas {
     width: 200px;
     height: 200px;
     margin: 0 0 16px;
 }
 
+
 /*--------------------------------------------------------------
->>> DIALOG
+# DIALOG
 --------------------------------------------------------------*/
 
-.satus-dialog
-{
+.satus-dialog {
     position: absolute;
     z-index: 100;
     top: 0;
     left: 0;
-
     display: flex;
-
     width: 100%;
     height: 100vh;
-
     justify-content: center;
     align-items: center;
 }
 
-.satus-dialog__scrim
-{
+.satus-dialog__scrim {
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
-
     animation: fadeIn 150ms linear forwards;
-
     opacity: 0;
-    background: rgba(25,25,25,.2);
-
+    background: rgba(25, 25, 25, .2);
     fill: var(--satus-theme-dialog-text);
     backdrop-filter: blur(8px);
 }
 
-.satus-dialog__surface
-{
+.satus-dialog__surface {
     font-size: 14px;
-
     display: flex;
     flex-direction: column;
-
     width: 95%;
     min-width: 240px;
     max-width: 560px;
     max-height: 80%;
     padding: 8px 0;
-
     transform: scale(.8);
     animation: zoomIn 150ms linear forwards;
     animation-delay: 20ms;
-
     opacity: 0;
     color: var(--satus-theme-dialog-text);
     border-radius: 6px;
     background-color: var(--satus-theme-dialog);
-    box-shadow: inset 0 -1px 1px 1px rgba(0,0,0,.1), 0 2px 6px rgba(0, 0, 0, .15);
+    box-shadow: inset 0 -1px 1px 1px rgba(0, 0, 0, .1), 0 2px 6px rgba(0, 0, 0, .15);
 }
 
-.satus-dialog--closing .satus-dialog__scrim
-{
+.satus-dialog--closing .satus-dialog__scrim {
     animation: fadeOut 70ms linear forwards;
 }
 
-.satus-dialog--closing .satus-dialog__surface
-{
+.satus-dialog--closing .satus-dialog__surface {
     animation: zoomOut 70ms linear forwards;
 }
 
-@keyframes fadeIn
-{
-    from
-    {
+@keyframes fadeIn {
+    from {
         opacity: 0;
     }
-    to
-    {
+    to {
         opacity: 1;
     }
 }
 
-@keyframes fadeOut
-{
-    from
-    {
+@keyframes fadeOut {
+    from {
         opacity: 1;
     }
-    to
-    {
+    to {
         opacity: 0;
     }
 }
 
-@keyframes zoomIn
-{
-    from
-    {
+@keyframes zoomIn {
+    from {
         transform: scale(.8);
-
         opacity: 0;
     }
-    to
-    {
+    to {
         transform: scale(1);
-
         opacity: 1;
     }
 }
 
-@keyframes zoomOut
-{
-    from
-    {
+@keyframes zoomOut {
+    from {
         transform: scale(1);
-
         opacity: 1;
     }
-    to
-    {
+    to {
         transform: scale(.8);
-
         opacity: 0;
     }
 }
+
 
 /*--------------------------------------------------------------
->>> FOLDER
+# FOLDER
 --------------------------------------------------------------*/
 
-.satus-folder
-{
-    text-align: left
+.satus-folder {
+    text-align: left;
 }
 
+
 /*--------------------------------------------------------------
->>> HEADER
+# HEADER
 --------------------------------------------------------------*/
 
-.satus-header
-{
+.satus-header {
     position: relative;
     z-index: 1;
-
     display: flex;
-
     box-sizing: border-box;
     width: 100%;
     min-height: 58px;
     padding: 0 8px;
-
     color: var(--satus-theme-header-text);
     background-color: var(--satus-theme-header);
-    box-shadow: 0 0 3px rgba(0,0,0,.1);
-
+    box-shadow: 0 0 3px rgba(0, 0, 0, .1);
     fill: var(--satus-theme-header-text);
 }
 
-.satus-header .satus-text--title
-{
+.satus-header .satus-text--title {
     font-size: 15px;
     font-weight: 400;
 }
 
+
 /*--------------------------------------------------------------
->>> LIST
+# LIST
 --------------------------------------------------------------*/
 
 .satus-list--compact,
-.satus-list--compact li
-{
+.satus-list--compact li {
     margin: 0;
     padding: 0;
-
     list-style: none;
 }
 
-/*-----------------------------------------------------------------------------
->>> MAIN
--------------------------------------------------------------------------------
-1.0 General
-2.0 Animations
-    2.1 Opening
-    2.2 Closing
------------------------------------------------------------------------------*/
 
-/*-----------------------------------------------------------------------------
-1.0 General
------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+#  MAIN
+----------------------------------------------------------------
+# General
+# Animations
+    # Opening
+    # Closing
+--------------------------------------------------------------*/
 
-.satus-main
-{
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+.satus-main {
     position: relative;
-
     overflow: hidden;
-
     width: 100%;
     height: 100%;
-
     color: var(--satus-theme-main-text);
     background-color: var(--satus-theme-main);
-
     fill: var(--satus-theme-main-text);
 }
 
-.satus-main__container
-{
+.satus-main__container {
     position: absolute;
     top: 0;
     left: 0;
-
     overflow: auto;
-
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-
     transition: 250ms;
-
     background-color: var(--satus-theme-main);
-
     will-change: transform;
 }
 
 
-/*-----------------------------------------------------------------------------
-2.0 Animations
------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Animations
+--------------------------------------------------------------*/
 
-.satus-main__container--fade-in-left
-{
+.satus-main__container--fade-in-left {
     animation: fadeInLeft 250ms;
 }
 
-.satus-main__container--fade-in-right
-{
+.satus-main__container--fade-in-right {
     animation: fadeInRight 250ms;
 }
 
-.satus-main__container--fade-out-left
-{
+.satus-main__container--fade-out-left {
     animation: fadeOutLeft 250ms;
 }
 
-.satus-main__container--fade-out-right
-{
+.satus-main__container--fade-out-right {
     animation: fadeOutRight 250ms;
 }
 
-@keyframes fadeInLeft
-{
-    from
-    {
+@keyframes fadeInLeft {
+    from {
         transform: translateX(-10%);
-
         opacity: 0;
     }
-    to
-    {
+    to {
         transform: translateX(0%);
-
         opacity: 1;
     }
 }
 
-@keyframes fadeInRight
-{
-    from
-    {
+@keyframes fadeInRight {
+    from {
         transform: translateX(10%);
-
         opacity: 0;
     }
-    to
-    {
+    to {
         transform: translateX(0%);
-
         opacity: 1;
     }
 }
 
-@keyframes fadeOutLeft
-{
-    from
-    {
+@keyframes fadeOutLeft {
+    from {
         transform: translateX(0%);
-
         opacity: 1;
     }
-    to
-    {
+    to {
         transform: translateX(-10%);
-
         opacity: 0;
     }
 }
 
-@keyframes fadeOutRight
-{
-    from
-    {
+@keyframes fadeOutRight {
+    from {
         transform: translateX(0%);
-
         opacity: 1;
     }
-    to
-    {
+    to {
         transform: translateX(10%);
-
         opacity: 0;
     }
 }
 
-.satus-scrollbar
-{
+.satus-scrollbar {
     position: relative;
-
     overflow: hidden;
-
     width: 100%;
     height: 100%;
 }
 
-.satus-scrollbar__wrapper
-{
+.satus-scrollbar__wrapper {
     overflow-y: scroll;
-
     width: 150%;
     height: 100%;
 }
 
-.satus-scrollbar__thumb
-{
+.satus-scrollbar__thumb {
     position: absolute;
     z-index: 999;
     top: 0;
     right: 0;
-
     min-height: 32px;
     padding: 0 2px;
-
     transition: background-color 200ms, opacity 300ms;
-
     opacity: 0;
 }
 
-.satus-scrollbar__thumb::after
-{
+.satus-scrollbar__thumb::after {
     display: block;
-
     width: 3px;
     height: 100%;
-
     content: '';
-
     background-color: var(--satus-theme-scrollbar);
 }
 
-.satus-scrollbar__thumb:hover::after
-{
+.satus-scrollbar__thumb:hover::after {
     background-color: var(--satus-theme-scrollbar-focus);
 }
 
 .satus-scrollbar.active .satus-scrollbar__thumb,
-.satus-scrollbar__thumb:hover
-{
+.satus-scrollbar__thumb:hover {
     transition: background-color 200ms, opacity 100ms;
-
     opacity: 1;
 }
 
+
 /*--------------------------------------------------------------
->>> SECTION
+# SECTION
 --------------------------------------------------------------*/
 
-.satus-section
-{
+.satus-section {
     display: inline-flex;
-
     box-sizing: border-box;
-
     background-color: var(--satus-theme-section);
-
     align-items: center;
     flex: 1;
 }
 
+
 /*--------------------------------------------------------------
->>> SELECT
+# SELECT
 --------------------------------------------------------------*/
 
-.satus-select
-{
+.satus-select {
     justify-content: space-between;
 }
 
-.satus-select__value
-{
+.satus-select__value {
     font-size: 12px;
-
     text-align: right;
-
     opacity: .7;
 }
 
-
-.satus-dialog--select-component .satus-dialog__surface
-{
+.satus-dialog--select-component .satus-dialog__surface {
     position: absolute;
-
     max-width: unset;
-
     transform: unset;
     animation: unset;
-
     opacity: 1;
 }
 
-.satus-dialog--select-component .satus-section
-{
+.satus-dialog--select-component .satus-section {
     top: 48px;
-
     flex-direction: column;
-
     transform: translateY(-16px);
     animation: listIn 50ms linear forwards;
     animation-delay: 20ms;
-
     opacity: .5;
 }
 
-.satus-dialog--select-component .satus-button
-{
+.satus-dialog--select-component .satus-button {
     width: 100%;
     height: 48px;
     padding: 0 16px;
 }
 
-@keyframes listIn
-{
-    from
-    {
+@keyframes listIn {
+    from {
         transform: translateY(-16px);
-
         opacity: .5;
     }
-    to
-    {
+    to {
         transform: translateY(0);
-
         opacity: 1;
     }
 }
 
-.satus-shortcut
-{
+.satus-shortcut {
     position: relative;
-
     display: flex;
-
     box-sizing: border-box;
     width: 100%;
     height: 48px;
     min-height: 48px;
     padding: 0 16px;
-
     cursor: pointer;
-
     justify-content: space-between;
     align-items: center;
 }
 
-.satus-shortcut:hover
-{
+.satus-shortcut:hover {
     background-color: var(--satus-theme-ripple);
 }
 
-.satus-shortcut > .label
-{
+.satus-shortcut>.label {
     margin: 0 0 4px 0;
 }
 
-.satus-shortcut > .value
-{
+.satus-shortcut>.value {
     font-size: 13px;
-
     opacity: .5;
 }
 
-.satus-shortcut-dialog-label
-{
+.satus-shortcut-dialog-label {
     font-size: 16px;
     font-weight: 500;
-
     box-sizing: border-box;
     width: 100%;
     margin: 4px 0 10px;
     padding: 0 16px;
 }
 
-.satus-shortcut__canvas
-{
+.satus-shortcut__canvas {
     display: flex;
-
     box-sizing: border-box;
     width: 100%;
     height: 68px;
     padding: 16px;
-
     background: #dedede;
-
     align-items: center;
 }
 
-.satus-shortcut__key
-{
+.satus-shortcut__key {
     display: flex;
-
     box-sizing: border-box;
     min-width: 32px;
     height: 32px;
     padding: 4px 8px;
-
     border-radius: 4px;
     background: #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,.15), inset 0 -3px 0 rgba(0,0,0,.1);
-
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .15), inset 0 -3px 0 rgba(0, 0, 0, .1);
     align-items: center;
     justify-content: center;
 }
 
-.satus-shortcut__plus
-{
+.satus-shortcut__plus {
     position: relative;
-
     width: 12px;
     height: 12px;
     margin: 8px;
 }
 
-.satus-shortcut__plus::before
-{
+.satus-shortcut__plus::before {
     position: absolute;
     top: 0;
     left: 5px;
-
     width: 2px;
     height: 12px;
-
     content: '';
-
     background-color: #aaa;
 }
 
-.satus-shortcut__plus::after
-{
+.satus-shortcut__plus::after {
     position: absolute;
     top: 5px;
     left: 0;
-
     width: 12px;
     height: 2px;
-
     content: '';
-
     background-color: #aaa;
 }
 
-.satus-shortcut__mouse
-{
+.satus-shortcut__mouse {
     position: relative;
-
     display: flex;
-
     width: 28px;
     height: 36px;
-
     border-radius: 50%;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     background: #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,.15), inset 0 -3px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .15), inset 0 -3px 0 rgba(0, 0, 0, .1);
 }
 
-.satus-shortcut__mouse > div
-{
+.satus-shortcut__mouse>div {
     position: absolute;
     top: 0;
     left: 13px;
-
     width: 2px;
     height: 11px;
-
     border-radius: 2px;
     background: #ccc;
 }
 
-.satus-shortcut__mouse::before
-{
+.satus-shortcut__mouse::before {
     position: absolute;
     top: -4px;
     left: 21px;
-
     width: 2px;
     height: 18px;
-
     content: '';
-
     background: #f96754;
 }
 
-.satus-shortcut__mouse.false::after
-{
+.satus-shortcut__mouse.false::after {
     position: absolute;
     top: -12px;
     left: 17px;
-
     width: 0;
     height: 0;
-
     content: '';
-
     border-right: 5px solid transparent;
     border-bottom: 8px solid #f96754;
     border-left: 5px solid transparent;
 }
 
-.satus-shortcut__mouse.true::after
-{
+.satus-shortcut__mouse.true::after {
     position: absolute;
     top: 14px;
     left: 17px;
-
     width: 0;
     height: 0;
-
     content: '';
-
     border-top: 8px solid #f96754;
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
 }
 
-.satus-section_shortcut
-{
+.satus-section_shortcut {
     width: 100%;
     margin: 8px 0 0;
-
     justify-content: flex-end;
 }
 
-.satus-button_shortcut
-{
+.satus-button_shortcut {
     font-weight: 500;
-
     overflow: hidden;
-
     height: 28px;
     min-height: 28px;
     margin-right: 2px;
     padding: 4px 8px;
-
     text-transform: uppercase;
-
     color: #f96754;
     border-radius: 4px;
 }
 
+
 /*--------------------------------------------------------------
->>> SLIDER
+# SLIDER
 --------------------------------------------------------------*/
 
-.satus-slider
-{
+.satus-slider {
     position: relative;
-
     display: flex;
     flex-direction: column;
-
     box-sizing: border-box;
     width: 100%;
     min-height: 64px;
     padding: 0 16px;
-
-    -webkit-user-select:      none;
-       -moz-user-select:      none;
-            user-select:      none;
-
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
     outline: none;
-
     align-items: flex-start;
     justify-content: center;
 }
 
-.satus-slider::before
-{
+.satus-slider::before {
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
-
     content: '';
-
     opacity: 0;
     background-color: var(--satus-theme-button);
 }
 
-.satus-slider:hover::before
-{
+.satus-slider:hover::before {
     opacity: 1;
 }
 
 
 /* LABEL */
 
-.satus-slider__label
-{
+.satus-slider__label {
     cursor: default;
 }
 
-
-.satus-slider__range
-{
+.satus-slider__range {
     position: absolute;
     z-index: 1;
     top: 0;
     left: 0;
-
     box-sizing: border-box;
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-
     opacity: 0;
 }
 
 
 /* TRACK */
 
-.satus-slider__container
-{
+.satus-slider__container {
     position: relative;
-
     width: 100%;
     height: 12px;
     margin: 8px 0 0;
 }
 
-.satus-slider__track-container
-{
+.satus-slider__track-container {
     position: absolute;
     top: calc(50% - 1px);
-
     width: 100%;
     height: 2px;
-
     pointer-events: none;
 }
 
-.satus-slider__track-container::before
-{
+.satus-slider__track-container::before {
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 2px;
-
     content: '';
-
     opacity: .26;
     background-color: var(--satus-theme-primary);
 }
 
-.satus-slider__track
-{
+.satus-slider__track {
     position: relative;
-
     width: 0;
     height: 100%;
-
     background-color: var(--satus-theme-primary);
-
     will-change: width;
 }
 
-.satus-slider:not(.satus-slider--dragging) .satus-slider__track
-{
+.satus-slider:not(.satus-slider--dragging) .satus-slider__track {
     transition: width 100ms ease-out;
 }
 
-.satus-slider__thumb
-{
+.satus-slider__thumb {
     position: absolute;
     top: -5px;
     right: -12px;
-
     width: 12px;
     height: 12px;
-
     border-radius: 50%;
     background-color: var(--satus-theme-primary);
     box-shadow: 0 1px 5px rgba(0, 0, 0, .15);
 }
 
-.satus-slider .satus-slider__thumb::before
-{
+.satus-slider .satus-slider__thumb::before {
     font-size: 13px;
-
     position: absolute;
     top: -34px;
     left: 50%;
-
     visibility: hidden;
-
     box-sizing: border-box;
     min-width: 28px;
     padding: 4px 4px;
-
     content: attr(data-value);
     transform: translateX(-50%);
     text-align: center;
     pointer-events: none;
-
     color: #fff;
     border-radius: 4px;
     background: var(--satus-theme-tooltip);
 }
 
 .satus-slider:hover .satus-slider__thumb::before,
-.satus-slider__range:focus .satus-slider__container .satus-slider__thumb::before
-{
+.satus-slider__range:focus .satus-slider__container .satus-slider__thumb::before {
     visibility: visible;
 }
 
-.satus-slider__ring
-{
+.satus-slider__ring {
     position: absolute;
     top: -11px;
     right: -18px;
-
     width: 24px;
     height: 24px;
-
     transition: 100ms;
     transform: scale(0);
-
     opacity: 0;
     border-radius: 50%;
     background-color: var(--satus-theme-primary);
 }
 
-.satus-slider__range:focus + .satus-slider__container .satus-slider__ring
-{
+.satus-slider__range:focus+.satus-slider__container .satus-slider__ring {
     transform: scale(1);
-
     opacity: .25;
 }
 
+
 /*--------------------------------------------------------------
->>> SWITCH
+# SWITCH
 --------------------------------------------------------------*/
 
-.satus-switch
-{
+.satus-switch {
     position: relative;
-
     display: flex;
-
     box-sizing: border-box;
     width: 100%;
     height: 48px;
     padding: 0 16px;
-
     cursor: pointer;
-    -webkit-user-select:      none;
-       -moz-user-select:      none;
-            user-select:      none;
-
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
     background-color: transparent;
-
     align-items: center;
     justify-content: space-between;
 }
 
-.satus-switch:hover
-{
+.satus-switch:hover {
     background-color: var(--satus-theme-ripple);
 }
 
-.satus-switch__input
-{
+.satus-switch__input {
     position: absolute;
     z-index: 1;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-
     opacity: 0;
     outline: none;
-
     -webkit-appearance: none;
 }
 
 
 /* LABEL */
 
-.satus-switch__label
-{
+.satus-switch__label {
     padding: 0 16px 0 0;
 }
 
 
 /* TRACK*/
 
-.satus-switch__track
-{
+.satus-switch__track {
     position: relative;
-
     width: 32px;
     min-width: 32px;
     height: 18px;
-
     border-radius: 18px;
     background: #bdbdbd;
 }
 
-.satus-switch__track::before
-{
+.satus-switch__track::before {
     position: absolute;
     top: -7px;
     left: -7px;
-
     width: 32px;
     height: 32px;
-
     content: '';
     transition: left .1s cubic-bezier(.4, 0, .2, 1), transform 200ms, background-color 200ms;
     transform: scale(0);
-
     opacity: 0;
     border-radius: 50%;
     background-color: #000;
-
     will-change: left, transform, background-color;
 }
 
-.satus-switch__input:checked + .satus-switch__track::before
-{
+.satus-switch__input:checked+.satus-switch__track::before {
     left: 8px;
-
     background-color: var(--satus-theme-primary, #54d2a3);
 }
 
-.satus-switch__input:focus + .satus-switch__track::before
-{
+.satus-switch__input:focus+.satus-switch__track::before {
     transform: scale(1);
-
     opacity: .08;
 }
 
-.satus-switch__input:checked:focus + .satus-switch__track::before
-{
+.satus-switch__input:checked:focus+.satus-switch__track::before {
     opacity: .25;
 }
 
-.satus-switch__track::after
-{
+.satus-switch__track::after {
     position: absolute;
-
     width: 14px;
     height: 14px;
-
     content: '';
     transition: transform .1s cubic-bezier(.4, 0, .2, 1);
     transform: translate(2px, 2px);
-
     border-radius: 50%;
     background-color: #fff;
-
     will-change: transform;
 }
 
-.satus-switch__input:checked + .satus-switch__track
-{
+.satus-switch__input:checked+.satus-switch__track {
     background: var(--satus-theme-primary, #54d2a3);
 }
 
-.satus-switch__input:checked + .satus-switch__track::after
-{
+.satus-switch__input:checked+.satus-switch__track::after {
     transform: translate(16px, 2px);
 }
 
+
 /*--------------------------------------------------------------
->>> TABLE
+# TABLE
 --------------------------------------------------------------*/
 
-.satus-table
-{
+.satus-table {
     font-size: .875rem;
-
     position: relative;
-
-    overflow: hidden;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     box-sizing: border-box;
-
     border: 1px solid #ececec;
     border-radius: 6px;
 }
 
-.satus-table__head
-{
+.satus-table__head {
     position: relative;
     z-index: 1;
-
     display: flex;
-
     box-sizing: border-box;
     width: 100%;
     height: 44px;
     padding: 0 8px;
-
     background: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
 }
 
-.satus-table__head > div
-{
+.satus-table__head>div {
     font-weight: 600;
-
     display: inline-flex;
-
     box-sizing: border-box;
     padding: 0 8px 0 0;
-
     opacity: .7;
-
     flex-shrink: 0;
     align-items: center;
 }
 
-.satus-table__head > div:last-child
-{
+.satus-table__head>div:last-child {
     padding: 0;
 }
 
-.satus-table__head > div:hover
-{
+.satus-table__head>div:hover {
     cursor: pointer;
-
     opacity: 1;
 }
 
-.satus-table__head > div[data-sorting=false]:hover
-{
+.satus-table__head>div[data-sorting=false]:hover {
     cursor: default;
 }
 
-.satus-table__head > div > span
-{
+.satus-table__head>div>span {
     position: relative;
 }
 
-.satus-table__head > div[data-sorting=asc] > span::after
-{
+.satus-table__head>div[data-sorting=asc]>span::after {
     position: absolute;
     top: calc(50% - 2px);
     right: -14px;
-
     width: 0;
     height: 0;
-
     content: '';
-
     border-right: 4px solid transparent;
     border-bottom: 5px solid currentColor;
     border-left: 4px solid transparent;
 }
 
-.satus-table__head > div[data-sorting=desc] > span::after
-{
+.satus-table__head>div[data-sorting=desc]>span::after {
     position: absolute;
     top: calc(50% - 2px);
     right: -13px;
-
     width: 0;
     height: 0;
-
     content: '';
-
     border-top: 5px solid currentColor;
     border-right: 4px solid transparent;
     border-left: 4px solid transparent;
 }
 
-.satus-table__body
-{
+.satus-table__body {
     overflow: hidden;
-    flex: 1;
-
     width: 100%;
     height: calc(100% - 48px);
-
     background: #fff;
+    flex: 1;
 }
 
-.satus-table__row
-{
+.satus-table__row {
     display: flex;
-    
-    padding: 0 8px;
-    
     box-sizing: border-box;
-    
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
-.satus-table__row:nth-child(2n)
-{
-    background: rgba(0,0,0,.03)
+.satus-table__row:nth-child(2n) {
+    background: rgba(0, 0, 0, .03);
 }
 
-.satus-table__cell
-{
+.satus-table__cell {
     overflow: hidden;
-
     box-sizing: border-box;
     padding: 8px 8px 8px 0;
-
     white-space: nowrap;
+    text-overflow: ellipsis;
     word-wrap: break-word;
     -webkit-hyphens: auto;
-       -moz-hyphens: auto;
-            hyphens: auto;
-
+    -moz-hyphens: auto;
+    hyphens: auto;
     overflow-wrap: break-word;
     flex-shrink: 0;
-    
-    text-overflow: ellipsis;
 }
 
-.satus-table__cell:last-child
-{
+.satus-table__cell:last-child {
     padding-right: 0;
 }
 
-.satus-table__cell input
-{
-    width: 100%;
-    margin: 5px 0;
-    border: 1px solid #d2d2d2;
+.satus-table__cell input {
     box-sizing: border-box;
-    padding: 1px 2px;
-    border-radius: 4px;
+    width: 100%;
     height: calc(100% - 10px);
-    outline: none
+    margin: 5px 0;
+    padding: 1px 2px;
+    border: 1px solid #d2d2d2;
+    border-radius: 4px;
+    outline: none;
 }
 
-
-
-.satus-table__paging > button
-{
+.satus-table__paging>button {
     min-width: 32px;
     height: 32px;
     padding: 0 8px;
-
     cursor: pointer;
-
     color: var(--satus-theme-on-surface, #555);
     border: none;
     background: transparent;
 }
 
-.satus-table__paging > button.active
-{
+.satus-table__paging>button.active {
     color: #2979ff;
 }
 
+
 /*--------------------------------------------------------------
->>> TEXT
+# TEXT
 --------------------------------------------------------------*/
 
-.satus-text
-{
+.satus-text {
     margin: 0;
-
     color: inherit;
     border: none;
 }
 
+
 /*--------------------------------------------------------------
->>> TEXT
+# TEXT FIELD
 --------------------------------------------------------------*/
 
-.satus-text-field
-{
+.satus-text-field {
     font: inherit;
-
     box-sizing: border-box;
     width: 100%;
     margin: 0;
     padding: 0;
-    padding: 0 8px; /* it overwrites padding above; remove one of them */
-
+    padding: 0 8px;
+    /* it overwrites padding above; remove one of them */
     color: inherit;
     border: none;
     outline: none;
     background: unset;
-}
-
-/*-----------------------------------------------------------------------------
->>> THEMES
--------------------------------------------------------------------------------
-1.0 Default
------------------------------------------------------------------------------*/
-
-html
-{
-	--satus-theme-primary: #f6b465;
-
-	--satus-theme-dialog: #f7f7f6;
-	--satus-theme-dialog-text: #777;
-
-	--satus-theme-header: #fff;
-	--satus-theme-header-text: #777;
-
-	--satus-theme-main: #f7f7f6;
-	--satus-theme-main-text: #777;
-
-	--satus-theme-section: #fff;
-
-	--satus-theme-button: transparent;
-
-	--satus-theme-scrollbar: rgba(0, 0, 0, .2);
-	--satus-theme-scrollbar-focus: rgba(0, 0, 0, .4);
-
-	--satus-theme-tooltip: rgba(0, 0, 0, .4);
-
-	--satus-theme-ripple: rgba(0, 0, 0, .04);
 }
