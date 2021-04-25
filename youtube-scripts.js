@@ -1098,7 +1098,7 @@ ImprovedTube.playerPlaybackSpeed = function(node) {
 
     if (ImprovedTube.isset(ImprovedTube.storage.player_playback_speed) && ImprovedTube.storage.player_forced_playback_speed === true) {
         try {
-            if (window.location.href.indexOf('music') < 0) {
+            if (window.location.href.indexOf('music') === -1) {
                 document.querySelector('.html5-video-player').querySelector('video').playbackRate = option;
             }
         } catch (err) {}
@@ -3202,12 +3202,21 @@ ImprovedTube.timeupdate = function() {
         ImprovedTube.video_src = this.src;
 
         ImprovedTube.videoUpdated();
+    } else if (ImprovedTube.latestVideoDuration !== this.duration) {
+        ImprovedTube.latestVideoDuration = this.duration;
+
+        ImprovedTube.playerQuality();
+        ImprovedTube.playerPlaybackSpeed();
+        ImprovedTube.playerVolume();
+        ImprovedTube.playlistUpNextAutoplay();
     }
 };
 
 ImprovedTube.ended = function() {
     ImprovedTube.playlistReverseOnEnded();
 };
+
+ImprovedTube.latestVideoDuration = 0;
 
 ImprovedTube.playerUpdate = function() {
     this.playerPlaybackSpeed();
