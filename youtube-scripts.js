@@ -2029,6 +2029,12 @@ ImprovedTube.playlistReverse = function() {
     }
 };
 
+ImprovedTube.playlistReverseOnEnded = function() {
+    if (this.playlistReversed === true) {
+        window.open((document.querySelector('#playlist [selected] + * a') || document.querySelector('#playlist ytd-playlist-panel-video-renderer a')).href + '&reverse', '_self');
+    }
+};
+
 
 /*------------------------------------------------------------------------------
 5.3 REPEAT
@@ -3199,6 +3205,10 @@ ImprovedTube.timeupdate = function() {
     }
 };
 
+ImprovedTube.ended = function() {
+    ImprovedTube.playlistReverseOnEnded();
+};
+
 ImprovedTube.playerUpdate = function() {
     this.playerPlaybackSpeed();
     this.subtitles();
@@ -3291,6 +3301,9 @@ ImprovedTube.onplay = function() {
         return function() {
             this.removeEventListener('timeupdate', ImprovedTube.timeupdate);
             this.addEventListener('timeupdate', ImprovedTube.timeupdate);
+
+            this.removeEventListener('ended', ImprovedTube.ended, true);
+            this.addEventListener('ended', ImprovedTube.ended, true);
 
             ImprovedTube.autoplay(this);
             ImprovedTube.playerLoudnessNormalization();

@@ -6,6 +6,14 @@
 # Main
 # Dialog
 # Themes
+    # Default
+    # Dark
+    # Night
+    # Dawn
+    # Sunset
+    # Desert
+    # Plain
+    # Black
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -15,8 +23,6 @@
 body {
     font-family: sans-serif;
     font-size: 14px;
-    display: flex;
-    flex-direction: column;
     width: 320px;
     height: 532px;
     margin: 0;
@@ -222,7 +228,7 @@ body[data-appearance='search'] .satus-switch--desert .satus-switch__label {
 --------------------------------------------------------------*/
 
 .satus-main {
-    flex: 1;
+    height: calc(100% - 58px);
 }
 
 
@@ -1161,6 +1167,10 @@ html[it-improvedtube-home='list'] .satus-section--info
 # THEMES
 --------------------------------------------------------------*/
 
+/*--------------------------------------------------------------
+# DEFAULT
+--------------------------------------------------------------*/
+
 body {
     --satus-theme-primary: #ff4158;
 }
@@ -1170,7 +1180,7 @@ body {
 # DARK
 --------------------------------------------------------------*/
 
-html[theme='dark'] body {
+html[theme=dark] body {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #2c2b2c;
     --satus-theme-dialog-text: #b5b5b5;
@@ -1191,7 +1201,7 @@ html[theme='dark'] body {
 # NIGHT
 --------------------------------------------------------------*/
 
-html[theme='night'] body {
+html[theme=night] body {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #61a7f5;
     --satus-theme-dialog-text: #fafafa;
@@ -1212,7 +1222,7 @@ html[theme='night'] body {
 # DAWN
 --------------------------------------------------------------*/
 
-html[theme='dawn'] body {
+html[theme=dawn] body {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #ffba99;
     --satus-theme-dialog-text: #fafafa;
@@ -1230,10 +1240,10 @@ html[theme='dawn'] body {
 
 
 /*--------------------------------------------------------------
-#SUNSET
+# SUNSET
 --------------------------------------------------------------*/
 
-html[theme='sunset'] body {
+html[theme=sunset] body {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #a96165;
     --satus-theme-dialog-text: #fafafa;
@@ -1254,7 +1264,7 @@ html[theme='sunset'] body {
 # DESERT
 --------------------------------------------------------------*/
 
-html[theme='desert'] body {
+html[theme=desert] body {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #9dc2ee;
     --satus-theme-dialog-text: #fafafa;
@@ -1275,7 +1285,7 @@ html[theme='desert'] body {
 # PLAIN
 --------------------------------------------------------------*/
 
-html[theme='plain'] body {
+html[theme=plain] body {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #abceb8;
     --satus-theme-dialog-text: #fafafa;
@@ -1296,7 +1306,7 @@ html[theme='plain'] body {
 # BLACK
 --------------------------------------------------------------*/
 
-html[theme='black'] body {
+html[theme=black] body {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #222;
     --satus-theme-dialog-text: #fafafa;
