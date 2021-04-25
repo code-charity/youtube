@@ -1644,7 +1644,7 @@ ImprovedTube.playerVolume = function(node) {
     if (node && ImprovedTube.storage.player_forced_volume === true) {
         var volume = Number(ImprovedTube.storage.player_volume);
 
-        if (!ImprovedTube.isset(volume) || !volume) {
+        if (!ImprovedTube.isset(volume)) {
             volume = 1;
         }
 
