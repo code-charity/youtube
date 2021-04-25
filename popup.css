@@ -21,7 +21,6 @@
 --------------------------------------------------------------*/
 
 body {
-    font-family: sans-serif;
     font-size: 14px;
     width: 320px;
     height: 532px;
@@ -79,7 +78,7 @@ body[data-appearance='home'] .satus-button--back {
 }
 
 html[it-title-version='true'] body[data-appearance='home'] .satus-text--title::after {
-    font: 700 10px sans-serif;
+    font: 700 10px;
     margin: 0 0 0 4px;
     content: attr(data-version);
     opacity: .6;
