@@ -55,6 +55,7 @@ ImprovedTube is the only project of it's kind. (Other open YouTube Extensions re
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json">Slovenčina</a> by <a href="https://github.com/bbc-s">bbc-s</a><br>
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json">Türkçe</a> by <a href="https://github.com/onurdumangoz">onurdumangoz</a>, <a href="https://github.com/daswareinfach">daswareinfach</a><br>
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ro/messages.json">Română</a> by <a href="https://github.com/hateofhades">hateofhades</a><br>
+✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hr/messages.json">Hrvatski</a> by <a href="https://github.com/mbeara">mbeara</a><br>
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json">Русский</a> by <a href="https://github.com/qweered">qweered</a>, <a href="https://github.com/alexesprit">alexesprit</a><br>
 ✓️ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json">ελληνικά</a> by <a href="https://github.com/molyvius">molyvius</a><br>
 ✓️ <a href="https://github.com/code4charity/YouTube-Extension/blob/master/_locales/ar/messages.json">العربية</a> by <a href="https://github.com/Raayib">Raayib</a><br>
