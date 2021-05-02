@@ -7,4 +7,4 @@ More:
 (but repo should also have m.youtube  permissions(,facebook,everywhere)
 (only the Google Webstore version remains www.youtube - unless we announce a change there)
 
-4. Firefox version currently has uncommented   // video.parentNode.parentNode.pauseVideo();   as autopause bug was confusing
+4. Firefox version currently has commented   // video.parentNode.parentNode.pauseVideo();   as autopause bug was confusing
