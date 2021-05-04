@@ -509,6 +509,9 @@
     "onSubscribedChannels": {
         "message": "於已訂閱的頻道中"
     },
+    "openPopupPlayer": {
+        "message": "開啟影片或播放清單於新視窗中"
+    },
     "orange": {
         "message": "橘色"
     },
