@@ -179,6 +179,9 @@
     "customMiniPlayer": {
         "message": "自定义迷你播放器"
     },
+    "openPopupPlayer": {
+        "message": "在新窗口打开视频/播放列表"
+    },
     "cyan": {
         "message": "青色"
     },
@@ -302,6 +305,9 @@
     "general": {
         "message": "一般设置"
     },
+    "geoPreference": {
+        "message": "Geo Preference"
+    },
     "github": {
         "message": "GitHub"
     },
@@ -338,6 +344,9 @@
     "hideCards": {
         "message": "隐藏信息卡片"
     },
+    "hideControls": {
+        "message": "隐藏播放控制器"
+    },
     "hideDetails": {
         "message": "隐藏详细信息"
     },
@@ -362,8 +371,11 @@
     "hideScrollForDetails": {
         "message": "隐藏 «滚动至详细信息»"
     },
+    "hideThumbnailOverlay": {
+        "message": "隐藏缩略图上的按钮"
+    },
     "hideViewsCount": {
-        "message": "隐藏播放量"
+        "message": "隐藏观看量"
     },
     "history": {
         "message": "历史记录"
@@ -732,10 +744,10 @@
         "message": "截止今天"
     },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "切换卡片"
     },
     "topChat": {
-        "message": "Top chat"
+        "message": "热门聊天"
     },
     "trailerAutoplay": {
         "message": "自动播放预告片"
@@ -774,7 +786,7 @@
         "message": "视频"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "The video description will be expanded to get the name of the category"
+        "message": "扩展视频简介到分类"
     },
     "videoFormats": {
         "message": "视频格式"
