@@ -39,7 +39,7 @@
         "message": "允許 60fps"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "強制使用標準動態範圍 (SDR)"
     },
     "alwaysActive": {
         "message": "始終有效"
@@ -51,7 +51,7 @@
         "message": "琥珀色"
     },
     "analyzer": {
-        "message": "分析儀"
+        "message": "觀看紀錄"
     },
     "appearance": {
         "message": "外貌"
@@ -87,7 +87,7 @@
         "message": "自動播放"
     },
     "backupAndReset": {
-        "message": "備份&重置"
+        "message": "備份 & 重置"
     },
     "baseOnSystemColorScheme": {
         "message": "使用系統配色方案"
@@ -144,10 +144,10 @@
         "message": "頻道"
     },
     "clipboard": {
-        "message": "剪贴板"
+        "message": "剪貼簿"
     },
     "codecH264": {
-        "message": "影片編解碼器 h.264"
+        "message": "使用 H.264 解碼"
     },
     "collapsed": {
         "message": "簡縮"
@@ -338,6 +338,9 @@
     "hideCards": {
         "message": "隱藏資訊卡"
     },
+    "hideControls": {
+        "message": "隱藏播放器控制"
+    },
     "hideDetails": {
         "message": "隱藏細節"
     },
@@ -362,6 +365,9 @@
     "hideScrollForDetails": {
         "message": "隱藏「向下捲動即可查看詳情」"
     },
+    "hideThumbnailOverlay": {
+        "message": "隱藏縮圖上的按鈕"
+    },
     "hideViewsCount": {
         "message": "隱藏觀看次數"
     },
@@ -378,7 +384,7 @@
         "message": "於影片頁面滑鼠暫留時顯示"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "影片上傳了多久"
+        "message": "顯示影片上傳時間"
     },
     "icons": {
         "message": "圖標"
@@ -390,10 +396,10 @@
         "message": "導入設定"
     },
     "improvedtubeIconInBrowser": {
-        "message": "ImprovedTube icon in Browser"
+        "message": "於瀏覽器中顯示 ImprovedTube 圖示"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "ImprovedTube icon on YouTube"
+        "message": "於 YouTube 中顯示 ImprovedTube 圖示"
     },
     "improvedtubeLanguage": {
         "message": "ImprovedTube 語言"
@@ -405,7 +411,7 @@
         "message": "改進 YouTube 圖示"
     },
     "increasePlaybackSpeed": {
-        "message": "提高播放速度"
+        "message": "加快播放速度"
     },
     "increaseVolume": {
         "message": "增加音量"
@@ -495,7 +501,7 @@
         "message": "於所有影片中"
     },
     "onlyActiveOnYoutube": {
-        "message": "僅在YouTube上有效"
+        "message": "僅在 YouTube 上有效"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "同時間僅限播放單一影片"
@@ -503,11 +509,14 @@
     "onSubscribedChannels": {
         "message": "於已訂閱的頻道中"
     },
+    "openPopupPlayer": {
+        "message": "開啟影片或播放清單於新視窗中"
+    },
     "orange": {
         "message": "橘色"
     },
     "os": {
-        "message": "操作系統"
+        "message": "作業系統"
     },
     "other": {
         "message": "其他"
@@ -525,7 +534,7 @@
         "message": "樸素"
     },
     "platform": {
-        "message": "Platform"
+        "message": "平台"
     },
     "playbackSpeed": {
         "message": "播放速度"
@@ -564,7 +573,7 @@
         "message": "回到之前的影片"
     },
     "primaryColor": {
-        "message": "Primary color"
+        "message": "主要顏色"
     },
     "purple": {
         "message": "紫色"
@@ -711,13 +720,13 @@
         "message": "這將刪除所有的 cookies。"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "這會刪除所有 YouTube Cookies。"
+        "message": "這將刪除所有 YouTube Cookies。"
     },
     "thisWillResetAllSettings": {
-        "message": "這會重置所有設定。"
+        "message": "這將重置所有設定。"
     },
     "thisWillResetAllShortcuts": {
-        "message": "這會重置所有快捷鍵。"
+        "message": "這將重置所有快捷鍵。"
     },
     "thumbnails": {
         "message": "縮略圖"
@@ -732,7 +741,10 @@
         "message": "自今日"
     },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "啟用結束畫面"
+    },
+    "toggleControls": {
+        "message": "開關播放器控制"
     },
     "topChat": {
         "message": "Top chat"
@@ -768,7 +780,7 @@
         "message": "影片"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "The video description will be expanded to get the name of the category"
+        "message": "影片敘述將自動展開以顯示影片分類名稱"
     },
     "videoFormats": {
         "message": "影片格式"
@@ -786,7 +798,7 @@
         "message": "已觀看時間"
     },
     "whenTabIsChanged": {
-        "message": "When tab is changed"
+        "message": "當分頁改變時"
     },
     "white": {
         "message": "白色"
@@ -801,12 +813,12 @@
         "message": "YouTube 標頭 (右)"
     },
     "youtubeHomePage": {
-        "message": "預設的YouTube主頁"
+        "message": "預設的 YouTube 主頁"
     },
     "youtubeLanguage": {
         "message": "YouTube 語言"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "使用 H.264 編碼時，YouTube 會將畫質限定為 1080p 內。"
+        "message": "使用 H.264 編碼時，YouTube 會將畫質限制為 1080p 內。"
     }
 }
