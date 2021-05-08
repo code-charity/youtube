@@ -16,6 +16,7 @@
     # Black
 --------------------------------------------------------------*/
 
+
 /*--------------------------------------------------------------
 # BODY
 --------------------------------------------------------------*/
@@ -31,6 +32,7 @@ body {
 /*--------------------------------------------------------------
 # HEADER
 --------------------------------------------------------------*/
+
 
 /*--------------------------------------------------------------
 # BUTTONS
@@ -107,76 +109,83 @@ body[data-appearance='home'] .satus-text--title {
 # SEARCH
 --------------------------------------------------------------*/
 
-.satus-dialog--search {
-    pointer-events: none;
+.satus-button--close-search {
+    position: absolute;
+    display: none;
+    min-width: 36px;
+    padding: 8px !important;
 }
 
-.satus-dialog--search .satus-dialog__scrim {
+.satus-button--close-search::before {
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+}
+
+.search-field {
+    display: none;
+    height: 36px;
+    background: var(--satus-theme-main);
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, .1);
+}
+
+body[data-search='true'] .search-field,
+body[data-search='true'] .satus-button--close-search {
+    display: block;
+}
+
+body[data-search='true'] .satus-section--align-start {
+    flex: 0;
+}
+
+body[data-search='true'] .search-button,
+body[data-search='true'] .vert-button,
+body[data-search='true'] .satus-text--title,
+body[data-search='true'] .satus-button--back {
     display: none;
 }
 
-.satus-dialog--search .satus-dialog__surface {
-    position: fixed;
-    top: 11px;
-    right: 8px;
-    visibility: unset;
-    width: calc(100% - 62px);
-    min-width: unset;
-    max-width: unset;
-    height: 34px;
-    padding: 0;
-    transform: unset;
-    animation: unset;
-    pointer-events: all;
-    opacity: unset;
-    border: 1px solid rgba(0, 0, 0, .05);
-    box-shadow: unset;
-}
-
-.satus-dialog--search .satus-dialog__surface .satus-text-field {
-    height: 34px;
-}
-
-.satus-dialog--search .satus-dialog__surface .satus-button {
-    position: absolute;
-    top: 3px;
-    right: 3px;
+.search-results {
+    top: 48px;
     overflow: hidden;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+    height: calc(100vh - 48px);
 }
 
-.satus-dialog--search .satus-dialog__surface .satus-button svg {
-    fill: none;
-    stroke: currentColor;
+.search-results .satus-dialog__scrim {
+    backdrop-filter: none;
 }
 
-body[data-appearance='search'] .satus-switch--red,
-body[data-appearance='search'] .satus-switch--dark,
-body[data-appearance='search'] .satus-switch--night,
-body[data-appearance='search'] .satus-switch--dawn,
-body[data-appearance='search'] .satus-switch--sunset,
-body[data-appearance='search'] .satus-switch--desert,
-body[data-appearance='search'] .satus-switch--plain,
-body[data-appearance='search'] .satus-switch--black {
-    width: calc(100% - 16px);
-    margin: 4px 8px;
-    border-radius: 6px;
+.search-results .satus-dialog__surface {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    padding: 0;
+    transform-origin: top;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: var(--satus-theme-main);
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, .2);
 }
 
-body[data-appearance='search'] .satus-switch--red .satus-switch__label,
-body[data-appearance='search'] .satus-switch--dark .satus-switch__label,
-body[data-appearance='search'] .satus-switch--night .satus-switch__label,
-body[data-appearance='search'] .satus-switch--dawn .satus-switch__label,
-body[data-appearance='search'] .satus-switch--sunset .satus-switch__label,
-body[data-appearance='search'] .satus-switch--black .satus-switch__label {
-    color: #fff;
+.search-results .satus-scrollbar__content {
+    display: flex;
+    flex-direction: column;
 }
 
-body[data-appearance='search'] .satus-switch--plain .satus-switch__label,
-body[data-appearance='search'] .satus-switch--desert .satus-switch__label {
-    color: #222;
+.search-results .satus-section {
+    flex-direction: column;
+    background: var(--satus-theme-main);
+}
+
+.search-results .satus-section>* {
+    width: 100%;
+    height: 40px;
+    padding: 0 16px;
+}
+
+.search-results .satus-select__label {
+    text-align: left;
 }
 
 
@@ -318,7 +327,7 @@ html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='
 html:not([it-improvedtube-home='list']) .satus-main__container[data-appearance='home'] .satus-folder {
     position: relative;
     flex-direction: column;
-    width: 64px;
+    width: 70px;
     height: 86px;
     margin: 0 18px 14px;
     padding: 0;
@@ -1077,43 +1086,37 @@ html[it-it-analyzer='false'] .satus-folder--analyzer {
 # INFO
 --------------------------------------------------------------*/
 
-.satus-section--info
-{
+.satus-section--info {
     position: absolute;
     z-index: 99;
     bottom: 16px;
-    left: 32px;
-
+    left: 16px;
     display: flex;
-
-    width: calc(100% - 64px) !important;
-
+    width: calc(100% - 32px) !important;
     justify-content: space-between;
 }
 
-.satus-section--info .satus-button
-{
+.satus-section--info .satus-button {
     font-weight: 700;
     overflow: hidden;
     width: auto;
     height: 28px;
+    padding: 0 10px;
+    opacity: .5;
+    color: #fff;
     border-radius: 6px;
     background: var(--satus-theme-primary);
-    color: #fff;
-    opacity: 0.5;
-    padding: 0 10px;
 }
 
 .satus-section--info .satus-button:hover {
-    opacity: 1
+    opacity: 1;
 }
 
-html[it-improvedtube-home='list'] .satus-section--info
-{
+html[it-improvedtube-home='list'] .satus-section--info {
     position: static !important;
-    background: transparent !important;
-    border: none !important;
     display: flex !important;
+    border: none !important;
+    background: transparent !important;
 }
 
 
@@ -1165,6 +1168,7 @@ html[it-improvedtube-home='list'] .satus-section--info
 /*--------------------------------------------------------------
 # THEMES
 --------------------------------------------------------------*/
+
 
 /*--------------------------------------------------------------
 # DEFAULT

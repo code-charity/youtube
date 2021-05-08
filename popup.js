@@ -15,7 +15,6 @@
     # Shortcuts
     # Blacklist
     # Analyzer
-    # Firefox button
 # Export data
 # Import data
 # Initialization
@@ -37,7 +36,7 @@ var Menu = {
                 type: 'button',
                 class: 'satus-button--back',
                 before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M14 18l-6-6 6-6"/></svg>',
-                onclick: function() {
+                onclick: function () {
                     if (document.querySelector('.satus-dialog__scrim')) {
                         document.querySelector('.satus-dialog__scrim').click();
                     } else {
@@ -58,60 +57,111 @@ var Menu = {
             type: 'section',
             class: 'satus-section--align-end',
 
-            button_search: {
-                type: 'button',
-                icon: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24"><circle cx="11" cy="10.5" r="6" fill="none"/><path d="M20 20l-4-4"/></svg>',
-                onclick: function() {
-                    document.querySelector('.satus-main').open({
-                        appearanceId: 'search'
-                    }, function() {
-                        satus.render({
-                            type: 'dialog',
-                            class: 'satus-dialog--search',
-                            onclose: function() {
-                                document.querySelector('.satus-main').back();
-                            },
+            search_field: {
+                type: 'text-field',
+                class: 'search-field',
+                placeholder: 'search',
+                autofocus: true,
+                oninput: function (event) {
+                    var value = this.value.trim();
 
-                            input: {
-                                type: 'text-field',
-                                placeholder: 'search',
-                                oninput: function() {
-                                    if (this.value.length > 0) {
-                                        satus.search(this.value, Menu, function(results) {
-                                            var sorted_results = [];
+                    if (value.length > 0) {
+                        satus.search(value, Menu, function (results) {
+                            var parent = document.querySelector('.search-results .satus-scrollbar__content'),
+                                skeleton = {
+                                    type: 'dialog',
+                                    class: 'search-results'
+                                };
 
-                                            document.querySelector('.satus-main__container').innerHTML = '';
+                            for (var key in results) {
+                                results[key].type = 'section';
 
-                                            for (var key in results) {
-                                                results[key].type = 'section';
+                                skeleton[key] = results[key];
+                            }
 
-                                                sorted_results.push({
-                                                    type: 'text',
-                                                    label: key,
-                                                    class: 'satus-section--label'
-                                                });
-                                                sorted_results.push(results[key]);
-                                            }
-
-                                            console.log(results);
-
-                                            var scroll = satus.components.scrollbar(document.querySelector('.satus-main__container'));
-
-                                            satus.render(sorted_results, scroll);
-                                        }, true);
-                                    } else {
-                                        document.querySelector('.satus-main__container').innerHTML = '';
-
-                                        satus.render({}, document.querySelector('.satus-main__container'));
+                            if (Object.keys(results).length === 0) {
+                                if (parent) {
+                                    document.querySelector('.search-results').remove();
+                                }
+                            } else {
+                                if (parent) {
+                                    while (parent.children[0]) {
+                                        parent.children[0].remove();
                                     }
+
+                                    satus.render(results, parent);
+                                } else {
+                                    satus.render(skeleton);
+
+                                    document.querySelector('.search-results .satus-dialog__scrim').addEventListener('click', function () {
+                                        document.body.dataset.search = false;
+                                    });
                                 }
                             }
-                        });
+                        }, true);
+                    } else {
+                        var results = document.querySelector('.search-results');
+
+                        if (results) {
+                            results.close();
+                        }
+                    }
+                },
+                onblur: function () {
+                    if (this.value.length === 0) {
+                        document.body.dataset.search = false;
+                    }
+                },
+                onkeydown: function (event) {
+                    var value = this.value,
+                        key = event.key;
+
+                    setTimeout(function () {
+                        if (value.length === 0 && key === 'Backspace') {
+                            var results = document.querySelector('.search-results');
+
+                            if (results) {
+                                results.close();
+                            }
+
+                            document.body.dataset.search = false;
+                        }
+                    });
+                }
+            },
+            search_close: {
+                type: 'button',
+                class: 'satus-button--close-search',
+                before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>',
+                onclick: function () {
+                    var results = document.querySelector('.search-results');
+
+                    if (results) {
+                        results.close();
+                    }
+
+                    document.body.dataset.search = false;
+                }
+            },
+            button_search: {
+                type: 'button',
+                class: 'search-button',
+                icon: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24"><circle cx="11" cy="10.5" r="6" fill="none"/><path d="M20 20l-4-4"/></svg>',
+                onclick: function () {
+                    var search_field = document.querySelector('.search-field');
+
+                    search_field.value = '';
+
+                    document.body.dataset.search = true;
+
+                    setTimeout(function () {
+                        search_field.focus();
                     });
                 }
             },
             button_vert: {
                 type: 'button',
+                class: 'vert-button',
                 icon: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5.25" r="0.45"/><circle cx="12" cy="12" r="0.45"/><circle cx="12" cy="18.75" r="0.45"/></svg>',
                 onClickRender: {
                     type: 'dialog',
@@ -122,6 +172,28 @@ var Menu = {
     }
 };
 
+window.addEventListener('keypress', function (event) {
+    if (
+        document.activeElement && ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'].indexOf(document.activeElement.tagName) !== -1 ||
+        event.target.isContentEditable ||
+        document.querySelector('.satus-dialog')
+    ) {
+        return false;
+    }
+
+    if (event.key === 'f' && document.body.dataset.search === 'false') {
+        var search_field = document.querySelector('.search-field');
+
+        search_field.value = '';
+
+        document.body.dataset.search = true;
+
+        setTimeout(function () {
+            search_field.focus();
+        });
+    }
+});
+
 
 /*--------------------------------------------------------------
 # ACTIVE FEATURES
@@ -131,13 +203,13 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
     type: 'folder',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
     label: 'activeFeatures',
-    onclick: function() {
+    onclick: function () {
         document.querySelector('.satus-dialog__scrim').click();
     },
 
     section: {
         type: 'section',
-        onrender: function() {
+        onrender: function () {
             var component = this,
                 new_menu = {},
                 storage = satus.storage;
@@ -172,7 +244,7 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
                 search(key, Menu)
             }
 
-            setTimeout(function() {
+            setTimeout(function () {
                 if (Object.keys(new_menu).length > 0) {
                     satus.render(new_menu, component);
                 } else {
@@ -198,7 +270,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>',
     label: 'settings',
     parent: '.satus-main__container',
-    onclick: function() {
+    onclick: function () {
         document.querySelector('.satus-dialog__scrim').click();
     },
 
@@ -220,10 +292,10 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 type: 'section',
                 custom_js: {
                     type: 'text-field',
-                    onrender: function() {
+                    onrender: function () {
                         this.value = satus.storage.get('custom_js') || '';
                     },
-                    oninput: function() {
+                    oninput: function () {
                         satus.storage.set('custom_js', this.value);
                     }
                 }
@@ -239,10 +311,10 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 type: 'section',
                 custom_css: {
                     type: 'text-field',
-                    onrender: function() {
+                    onrender: function () {
                         this.value = satus.storage.get('custom_css') || '';
                     },
-                    oninput: function() {
+                    oninput: function () {
                         satus.storage.set('custom_css', this.value);
                     }
                 }
@@ -420,10 +492,10 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                 language: {
                     label: 'improvedtubeLanguage',
                     type: 'select',
-                    onchange: function(name, value) {
+                    onchange: function (name, value) {
                         satus.memory.set('locale', {});
 
-                        satus.locale(function() {
+                        satus.locale(function () {
                             document.querySelector('.satus-main__container').innerHTML = '';
 
                             document.querySelector('.satus-header__title').innerText = satus.locale.getMessage('languages');
@@ -758,7 +830,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     type: 'button',
                     label: 'importSettings',
 
-                    onclick: function() {
+                    onclick: function () {
                         if (location.href.indexOf('/options.html') !== -1) {
                             importData();
                         } else {
@@ -772,7 +844,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     type: 'button',
                     label: 'exportSettings',
 
-                    onclick: function() {
+                    onclick: function () {
                         if (location.href.indexOf('/options.html') !== -1) {
                             exportData();
                         } else {
@@ -786,7 +858,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     type: 'button',
                     label: 'resetAllSettings',
 
-                    onclick: function() {
+                    onclick: function () {
                         satus.render({
                             type: 'dialog',
                             class: 'satus-dialog--confirm',
@@ -806,7 +878,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                 cancel: {
                                     type: 'button',
                                     label: 'cancel',
-                                    onclick: function() {
+                                    onclick: function () {
                                         var scrim = document.querySelectorAll('.satus-dialog__scrim');
 
                                         scrim[scrim.length - 1].click();
@@ -815,7 +887,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                 accept: {
                                     type: 'button',
                                     label: 'accept',
-                                    onclick: function() {
+                                    onclick: function () {
                                         var scrim = document.querySelectorAll('.satus-dialog__scrim');
 
                                         satus.storage.clear();
@@ -833,7 +905,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                     type: 'button',
                     label: 'deleteYoutubeCookies',
 
-                    onclick: function() {
+                    onclick: function () {
                         satus.render({
                             type: 'dialog',
                             class: 'satus-dialog--confirm',
@@ -857,7 +929,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                 cancel: {
                                     type: 'button',
                                     label: 'cancel',
-                                    onclick: function() {
+                                    onclick: function () {
                                         var scrim = document.querySelectorAll('.satus-dialog__scrim');
 
                                         scrim[scrim.length - 1].click();
@@ -866,10 +938,10 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                                 accept: {
                                     type: 'button',
                                     label: 'accept',
-                                    onclick: function() {
+                                    onclick: function () {
                                         var scrim = document.querySelectorAll('.satus-dialog__scrim');
 
-                                        chrome.tabs.query({}, function(tabs) {
+                                        chrome.tabs.query({}, function (tabs) {
                                             for (var i = 0, l = tabs.length; i < l; i++) {
                                                 if (tabs[i].hasOwnProperty('url')) {
                                                     chrome.tabs.sendMessage(tabs[i].id, {
@@ -912,7 +984,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
             section: {
                 type: 'section',
 
-                onrender: function() {
+                onrender: function () {
                     var component = this,
                         manifest = chrome.runtime.getManifest(),
                         user = satus.modules.user(),
@@ -1026,7 +1098,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                             }
                         };
 
-                    setTimeout(function() {
+                    setTimeout(function () {
                         satus.render(object, component.parentNode);
 
                         component.remove();
@@ -1048,11 +1120,11 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
     label: 'mixer',
     class: 'satus-folder--mixer',
     appearanceId: 'mixer',
-    onopen: function() {
+    onopen: function () {
         var self = this;
 
         if (chrome && chrome.tabs) {
-            chrome.tabs.query({}, function(tabs) {
+            chrome.tabs.query({}, function (tabs) {
                 var mixer = {};
 
                 for (var i = 0, l = tabs.length; i < l; i++) {
@@ -1081,12 +1153,12 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
                                             element: 'audio'
                                         },
                                         max: 100,
-                                        onrender: function() {
+                                        onrender: function () {
                                             var self = this;
 
                                             chrome.tabs.sendMessage(Number(this.dataset.id), {
                                                 name: 'request_volume'
-                                            }, function(response) {
+                                            }, function (response) {
                                                 if (response) {
                                                     document.querySelector('div[data-element="audio"][data-id="' + Number(self.dataset.id) + '"]').change(response.value);
                                                 } else {
@@ -1094,7 +1166,7 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
                                                 }
                                             });
                                         },
-                                        onchange: function(value) {
+                                        onchange: function (value) {
                                             chrome.tabs.sendMessage(Number(this.dataset.id), {
                                                 name: 'change_volume',
                                                 volume: value
@@ -1111,12 +1183,12 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
                                         min: .1,
                                         max: 8,
                                         step: .05,
-                                        onrender: function() {
+                                        onrender: function () {
                                             var self = this;
 
                                             chrome.tabs.sendMessage(Number(this.dataset.id), {
                                                 name: 'request_playback_speed'
-                                            }, function(response) {
+                                            }, function (response) {
                                                 if (response) {
                                                     document.querySelector('div[data-element="playback_speed"][data-id="' + Number(self.dataset.id) + '"]').change(Number(response.value));
                                                 } else {
@@ -1124,7 +1196,7 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
                                                 }
                                             });
                                         },
-                                        onchange: function(value) {
+                                        onchange: function (value) {
                                             chrome.tabs.sendMessage(Number(this.dataset.id), {
                                                 name: 'change_playback_speed',
                                                 playback_speed: value
@@ -1166,9 +1238,15 @@ Menu.main = {
     type: 'main',
     appearanceId: 'home',
     on: {
-        change: function(container) {
+        change: function (container) {
             var item = this.history[this.history.length - 1],
                 id = item.appearanceId;
+
+            if (!satus.isset(document.body.dataset.search)) {
+                document.body.dataset.search = true;
+            } else {
+                document.body.dataset.search = false;
+            }
 
             document.body.dataset.appearance = id;
             container.dataset.appearance = id;
@@ -1189,7 +1267,7 @@ Menu.main = {
             type: 'button',
             label: 'Email',
             title: 'bugs@improvedtube.com',
-            onclick: function() {
+            onclick: function () {
                 window.open('mailto:bugs@improvedtube.com', '_blank');
             }
         },
@@ -1197,7 +1275,7 @@ Menu.main = {
             type: 'button',
             label: 'GitHub',
             title: '/ImprovedTube/ImprovedTube',
-            onclick: function() {
+            onclick: function () {
                 window.open('https://github.com/ImprovedTube/ImprovedTube/', '_blank');
             }
         },
@@ -1205,8 +1283,15 @@ Menu.main = {
             type: 'button',
             label: 'Website',
             title: 'improvedtube.com',
-            onclick: function() {
+            onclick: function () {
                 window.open('http://www.improvedtube.com/', '_blank');
+            }
+        },
+        firefox: {
+            type: 'button',
+            label: 'Firefox',
+            onclick: function () {
+                window.open('https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/', '_blank');
             }
         }
     }
@@ -1265,7 +1350,7 @@ Menu.main.section.general = {
         collapse_of_subscription_sections: {
             type: 'switch',
             label: 'collapseOfSubscriptionSections'
-        },       
+        },
         remove_related_search_results: {
             type: 'switch',
             label: 'removeRelatedSearchResults'
@@ -1607,7 +1692,7 @@ Menu.main.section.appearance = {
         section: {
             type: 'section',
 
-              
+
             related_videos: {
                 type: 'select',
                 label: 'relatedVideos',
@@ -1623,8 +1708,8 @@ Menu.main.section.appearance = {
                 }],
                 tags: 'right'
             },
-          
-          livechat: {
+
+            livechat: {
                 type: 'select',
                 label: 'liveChat',
 
@@ -2096,10 +2181,10 @@ Menu.main.section.player = {
             type: 'switch',
             label: 'forcedPlaybackSpeed',
             id: 'forced-playback-speed',
-            onrender: function() {
+            onrender: function () {
                 this.dataset.value = satus.storage.player_forced_playback_speed;
             },
-            onchange: function() {
+            onchange: function () {
                 this.dataset.value = satus.storage.player_forced_playback_speed;
             }
         },
@@ -2184,7 +2269,7 @@ Menu.main.section.player = {
             type: 'switch',
             label: 'codecH264',
 
-            onclick: function() {
+            onclick: function () {
                 console.log(this.dataset.value);
                 if (this.querySelector('input').checked === true) {
                     satus.render({
@@ -2209,7 +2294,7 @@ Menu.main.section.player = {
                             cancel: {
                                 type: 'button',
                                 label: 'cancel',
-                                onclick: function() {
+                                onclick: function () {
                                     let scrim = document.querySelectorAll('.satus-dialog__scrim');
 
                                     scrim[scrim.length - 1].click();
@@ -2218,7 +2303,7 @@ Menu.main.section.player = {
                             ok: {
                                 type: 'button',
                                 label: 'OK',
-                                onclick: function() {
+                                onclick: function () {
                                     let scrim = document.querySelectorAll('.satus-dialog__scrim');
 
                                     scrim[scrim.length - 1].click();
@@ -2255,10 +2340,10 @@ Menu.main.section.player = {
             type: 'switch',
             label: 'forcedVolume',
             id: 'forced-volume',
-            onrender: function() {
+            onrender: function () {
                 this.dataset.value = satus.storage.player_forced_volume;
             },
-            onchange: function() {
+            onchange: function () {
                 this.dataset.value = satus.storage.player_forced_volume;
             }
         },
@@ -2536,7 +2621,7 @@ Menu.main.section.shortcuts = {
                 key: 'P',
                 shiftKey: true
             }
-        },       
+        },
         shortcut_play_pause: {
             type: 'shortcut',
             label: 'playPause',
@@ -2702,7 +2787,7 @@ Menu.main.section.blacklist = {
         channels: {
             type: 'folder',
             label: 'channels',
-            onopen: function() {
+            onopen: function () {
                 var self = this;
 
                 if (satus.storage.blacklist && satus.storage.blacklist.channels) {
@@ -2727,14 +2812,14 @@ Menu.main.section.blacklist = {
                                     delete: {
                                         type: 'button',
                                         icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
-                                        onclick: function() {
+                                        onclick: function () {
                                             delete satus.storage.blacklist.channels[item];
 
                                             satus.storage.set('blacklist', satus.storage.blacklist);
 
                                             this.classList.add('removing');
 
-                                            setTimeout(function() {
+                                            setTimeout(function () {
                                                 self.remove();
                                             }, 250);
                                         }
@@ -2773,7 +2858,7 @@ Menu.main.section.blacklist = {
         videos: {
             type: 'folder',
             label: 'videos',
-            onopen: function() {
+            onopen: function () {
                 var self = this;
 
                 if (satus.storage.blacklist && satus.storage.blacklist.videos) {
@@ -2797,13 +2882,13 @@ Menu.main.section.blacklist = {
                                     delete: {
                                         type: 'button',
                                         icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
-                                        onclick: function() {
+                                        onclick: function () {
                                             delete satus.storage.blacklist.videos[item];
 
                                             satus.storage.set('blacklist', satus.storage.blacklist);
                                             this.parentNode.parentNode.classList.add('removing');
 
-                                            setTimeout(function() {
+                                            setTimeout(function () {
                                                 self.parentNode.parentNode.remove();
                                             }, 250);
                                         }
@@ -2869,7 +2954,7 @@ Menu.main.section.analyzer = {
             'flex-direction': 'column',
             'align-items': 'flex-start'
         },
-        onrender: function() {
+        onrender: function () {
             var data = satus.storage.get('analyzer') || {},
                 all_data = {},
                 all_data_sort = [],
@@ -2911,7 +2996,7 @@ Menu.main.section.analyzer = {
                 all_time_value += all_data[i];
             }
 
-            all_data_sort.sort(function(a, b) {
+            all_data_sort.sort(function (a, b) {
                 return b[1] - a[1];
             });
 
@@ -2997,20 +3082,6 @@ Menu.main.section.analyzer = {
 
 
 /*--------------------------------------------------------------
-# FIREFOX BUTTON
---------------------------------------------------------------*/
-
-Menu.main.section.firefox = {
-    type: 'button',
-    class: 'satus-firefox',
-    innerHTML: '<img src="https://github.com/code4charity/YouTube-Extension/raw/master/previews/firefox.png">',
-    onclick: function() {
-        window.open('https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/', '_blank');
-    }
-};
-
-
-/*--------------------------------------------------------------
 # EXPORT DATA
 --------------------------------------------------------------*/
 
@@ -3037,17 +3108,17 @@ function exportData() {
         export: {
             type: 'button',
             label: 'export',
-            onclick: function() {
+            onclick: function () {
                 chrome.permissions.request({
                     permissions: ['downloads']
-                }, function(granted) {
+                }, function (granted) {
                     if (granted) {
                         chrome.downloads.download({
                             url: URL.createObjectURL(blob),
                             filename: 'improvedtube.json',
                             saveAs: true
-                        }, function() {
-                            setTimeout(function() {
+                        }, function () {
+                            setTimeout(function () {
                                 if (location.href.indexOf('action=export') !== -1) {
                                     window.close();
                                 } else {
@@ -3067,7 +3138,7 @@ function exportData() {
                                             ok: {
                                                 type: 'button',
                                                 label: 'ok',
-                                                onclick: function() {
+                                                onclick: function () {
                                                     document.querySelector('.satus-dialog__scrim').click();
                                                 }
                                             }
@@ -3095,15 +3166,15 @@ function importData() {
         select_file: {
             type: 'button',
             label: 'selectFile',
-            onclick: function() {
+            onclick: function () {
                 var input = document.createElement('input');
 
                 input.type = 'file';
 
-                input.addEventListener('change', function() {
+                input.addEventListener('change', function () {
                     var file_reader = new FileReader();
 
-                    file_reader.onload = function() {
+                    file_reader.onload = function () {
                         var data = JSON.parse(this.result);
 
                         for (var key in data) {
@@ -3129,7 +3200,7 @@ function importData() {
                                     ok: {
                                         type: 'button',
                                         label: 'ok',
-                                        onclick: function() {
+                                        onclick: function () {
                                             document.querySelector('.satus-dialog__scrim').click();
                                         }
                                     }
@@ -3182,9 +3253,9 @@ function themeChange(event) {
     }
 }
 
-satus.storage.import(function(items) {
-    satus.locale.import(satus.storage.get('language'), function() {
-        satus.modules.updateStorageKeys(Menu, function() {
+satus.storage.import(function (items) {
+    satus.locale.import(satus.storage.get('language'), function () {
+        satus.modules.updateStorageKeys(Menu, function () {
             if (location.href.indexOf('action=import') !== -1) {
                 importData();
             } else if (location.href.indexOf('action=export') !== -1) {
@@ -3232,7 +3303,7 @@ satus.storage.import(function(items) {
     }
 });
 
-chrome.storage.onChanged.addListener(function(changes) {
+chrome.storage.onChanged.addListener(function (changes) {
     for (var key in changes) {
         document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), changes[key].newValue);
     }
