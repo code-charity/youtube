@@ -1,4 +1,3 @@
-
 /*--------------------------------------------------------------
 >>> SATUS
 ----------------------------------------------------------------
@@ -42,7 +41,7 @@ var satus = {};
 
 satus.events = {};
 
-satus.on = function(event, handler) {
+satus.on = function (event, handler) {
     if (!this.isset(this.events[event])) {
         this.events[event] = [];
     }
@@ -69,7 +68,7 @@ satus.modules = {};
 # ISSET
 --------------------------------------------------------------*/
 
-satus.isset = function(variable) {
+satus.isset = function (variable) {
     if (typeof variable === 'undefined' || variable === null) {
         return false;
     }
@@ -82,8 +81,8 @@ satus.isset = function(variable) {
 # CAMELIZE
 --------------------------------------------------------------*/
 
-satus.camelize = function(string) {
-    return string.replace(/-[a-z]/g, function(match) {
+satus.camelize = function (string) {
+    return string.replace(/-[a-z]/g, function (match) {
         return match[1].toUpperCase();
     });
 };
@@ -93,7 +92,7 @@ satus.camelize = function(string) {
 # ANIMATION DURATION
 --------------------------------------------------------------*/
 
-satus.getAnimationDuration = function(element) {
+satus.getAnimationDuration = function (element) {
     return Number(window.getComputedStyle(element).getPropertyValue('animation-duration').replace(/[^0-9.]/g, '')) * 1000;
 };
 
@@ -108,10 +107,10 @@ satus.getAnimationDuration = function(element) {
 
 satus.storage = {};
 
-satus.storage.get = function(name) {
+satus.storage.get = function (name) {
     var target = satus.storage;
 
-    name = name.split('/').filter(function(value) {
+    name = name.split('/').filter(function (value) {
         return value != '';
     });
 
@@ -126,15 +125,15 @@ satus.storage.get = function(name) {
     return target;
 };
 
-satus.storage.set = function(name, value) {
+satus.storage.set = function (name, value) {
     var items = {},
         target = satus.storage;
-        
+
     if (!satus.isset(name)) {
         return false;
     }
 
-    name = name.split('/').filter(function(value) {
+    name = name.split('/').filter(function (value) {
         return value != '';
     });
 
@@ -164,8 +163,8 @@ satus.storage.set = function(name, value) {
     chrome.storage.local.set(items);
 };
 
-satus.storage.import = function(callback) {
-    chrome.storage.local.get(function(items) {
+satus.storage.import = function (callback) {
+    chrome.storage.local.get(function (items) {
         for (var key in items) {
             satus.storage[key] = items[key];
         }
@@ -176,7 +175,7 @@ satus.storage.import = function(callback) {
     });
 };
 
-satus.storage.clear = function() {
+satus.storage.clear = function () {
     chrome.storage.local.clear();
 
     for (var key in satus.storage) {
@@ -195,13 +194,13 @@ satus.locale = {
     messages: {}
 };
 
-satus.locale.getMessage = function(string) {
+satus.locale.getMessage = function (string) {
     return this.messages[string] || string;
 };
 
 satus.locale.get = satus.locale.getMessage;
 
-satus.locale.import = function(language, callback) {
+satus.locale.import = function (language, callback) {
     var xhr = new XMLHttpRequest();
 
     if (typeof language === 'function') {
@@ -212,7 +211,7 @@ satus.locale.import = function(language, callback) {
         var language = chrome.i18n.getUILanguage();
     }
 
-    xhr.onload = function() {
+    xhr.onload = function () {
         try {
             var object = JSON.parse(this.responseText);
 
@@ -248,7 +247,7 @@ satus.locale.import = function(language, callback) {
         }
     };
 
-    xhr.onerror = function() {
+    xhr.onerror = function () {
         if (language === 'en') {
             callback();
         } else {
@@ -265,7 +264,7 @@ satus.locale.import = function(language, callback) {
 # RENDER
 --------------------------------------------------------------*/
 
-satus.render = function(element, container, callback) {
+satus.render = function (element, container, callback) {
     function convert(object) {
         if (object && object.type) {
             var type = satus.camelize(object.type),
@@ -321,7 +320,7 @@ satus.render = function(element, container, callback) {
             (container || document.body).appendChild(component);
 
             if (typeof component.onClickRender === 'object') {
-                component.addEventListener('click', function() {
+                component.addEventListener('click', function () {
                     satus.render(component.onClickRender);
                 });
             }
@@ -356,7 +355,7 @@ satus.render = function(element, container, callback) {
 # CLONE NODE STYLES
 --------------------------------------------------------------*/
 
-satus.cloneNodeStyles = function(origin, target) {
+satus.cloneNodeStyles = function (origin, target) {
     target.style.cssText = window.getComputedStyle(origin, '').cssText;
 
     for (var i = 0, l = origin.children.length; i < l; i++) {
@@ -369,27 +368,36 @@ satus.cloneNodeStyles = function(origin, target) {
 # SEARCH
 --------------------------------------------------------------*/
 
-satus.search = function(query, object, callback, categories) {
+satus.search = function (query, object, callback, categories) {
     var threads = 0,
         folder = '',
         results = {};
+
+    query = query.toLowerCase();
 
     function parse(items) {
         threads++;
 
         for (var key in items) {
-            var item = items[key];
-            
+            var item = items[key],
+                key_locale = (satus.locale.messages[item.label] || '').toLowerCase();
+
             if (categories === true && item.type === 'folder' && folder !== item.label) {
                 folder = item.label;
             }
 
-            if (['switch', 'select', 'slider'].indexOf(item.type) !== -1 && key.indexOf(query) !== -1) {
+            if (
+                ['switch', 'select', 'slider'].indexOf(item.type) !== -1 &&
+                (
+                    key.indexOf(query) !== -1 ||
+                    key_locale.indexOf(query) !== -1
+                )
+            ) {
                 if (categories === true) {
                     if (!results[folder]) {
                         results[folder] = {};
                     }
-                    
+
                     results[folder][key] = item;
                 } else {
                     results[key] = item;
@@ -416,7 +424,7 @@ satus.search = function(query, object, callback, categories) {
 # STORAGE KEYS
 --------------------------------------------------------------*/
 
-satus.modules.updateStorageKeys = function(object, callback) {
+satus.modules.updateStorageKeys = function (object, callback) {
     var threads = 0;
 
     function parse(items) {
@@ -450,7 +458,7 @@ satus.modules.updateStorageKeys = function(object, callback) {
 # USER
 --------------------------------------------------------------*/
 
-satus.modules.user = function() {
+satus.modules.user = function () {
     /*--------------------------------------------------------------
     1.0 VARIABLES
     --------------------------------------------------------------*/
@@ -782,13 +790,13 @@ satus.modules.user = function() {
 
     return data;
 };
-satus.on('render', function(component, data) {
+satus.on('render', function (component, data) {
     if (data.perspective === true) {
         component.style.willChange = 'transform';
         component.style.transformStyle = 'preserve-3d';
         component.style.transition = '.4s';
 
-        component.addEventListener('mousemove', function(event) {
+        component.addEventListener('mousemove', function (event) {
             var bounding = component.getBoundingClientRect(),
                 dx = event.clientX - bounding.left - bounding.width / 2,
                 dy = event.clientY - bounding.top - bounding.height / 2;
@@ -796,7 +804,7 @@ satus.on('render', function(component, data) {
             this.style.transform = 'perspective(440px) rotateX(' + dy * -1 + 'deg) rotateY(' + dx + 'deg) translateZ(0)';
         });
 
-        component.addEventListener('mouseout', function(event) {
+        component.addEventListener('mouseout', function (event) {
             this.style.transform = 'perspective(440px) rotateX(0deg) rotateY(0deg) translateZ(0)';
         });
     }
@@ -811,7 +819,7 @@ satus.on('render', function(component, data) {
 # BUTTON
 --------------------------------------------------------------*/
 
-satus.components.button = function(element) {
+satus.components.button = function (element) {
     var component = document.createElement('button');
 
     if (satus.isset(element.icon)) {
@@ -840,7 +848,7 @@ satus.components.button = function(element) {
 # COLOR PICKER
 --------------------------------------------------------------*/
 
-satus.components.colorPicker = function(element) {
+satus.components.colorPicker = function (element) {
     var component = document.createElement('div'),
         component_value = document.createElement('div');
 
@@ -857,7 +865,7 @@ satus.components.colorPicker = function(element) {
         component.appendChild(component_label);
     }
 
-    component.addEventListener('click', function() {
+    component.addEventListener('click', function () {
         var component = document.createElement('div'),
             component_canvas = document.createElement('canvas'),
             close = document.createElement('button'),
@@ -867,7 +875,7 @@ satus.components.colorPicker = function(element) {
 
         close.className = 'satus-button';
         close.innerHTML = '<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
-        close.onclick = function() {
+        close.onclick = function () {
             dialog.querySelector('.satus-dialog__scrim').click();
         };
 
@@ -892,13 +900,13 @@ satus.components.colorPicker = function(element) {
             window.removeEventListener('mouseup', mouseup);
         }
 
-        component_canvas.addEventListener('mousedown', function() {
+        component_canvas.addEventListener('mousedown', function () {
             select(event);
             this.addEventListener('mousemove', select);
             window.addEventListener('mouseup', mouseup);
         });
 
-        image.onload = function() {
+        image.onload = function () {
             ctx.drawImage(image, 0, 0);
 
             image.remove();
@@ -922,11 +930,11 @@ satus.components.colorPicker = function(element) {
 # DIALOG
 --------------------------------------------------------------*/
 
-satus.components.dialog = function(element) {
+satus.components.dialog = function (element) {
     var component = document.createElement('div'),
         component_scrim = document.createElement('div'),
         component_surface = document.createElement('div'),
-        component_scrollbar = satus.components.scrollbar(component_surface),
+        component_scrollbar = satus.components.scrollbar(component_surface, element.scrollbar),
         options = element.options || {};
 
     component_scrim.className = 'satus-dialog__scrim';
@@ -945,7 +953,7 @@ satus.components.dialog = function(element) {
             element.onclose();
         }
 
-        setTimeout(function() {
+        setTimeout(function () {
             component.remove();
         }, satus.getAnimationDuration(component_surface));
     }
@@ -977,6 +985,8 @@ satus.components.dialog = function(element) {
             }
         }
     }
+
+    component.close = close;
 
     component_scrim.addEventListener('click', close);
     window.addEventListener('keydown', keydown);
@@ -1012,14 +1022,14 @@ satus.components.dialog = function(element) {
 # FOLDER
 --------------------------------------------------------------*/
 
-satus.components.folder = function(object) {
+satus.components.folder = function (object) {
     var component = document.createElement('button');
 
     component.object = object;
 
     component.classList.add('satus-button');
 
-    component.addEventListener('click', function() {
+    component.addEventListener('click', function () {
         var parent = document.querySelector(component.object.parent) || document.querySelector('.satus-main');
 
         if (!component.object.parent || !parent.classList.contains('satus-main')) {
@@ -1048,12 +1058,12 @@ satus.components.folder = function(object) {
 # HEADER
 --------------------------------------------------------------*/
 
-satus.components.header = function(object) {
+satus.components.header = function (object) {
     var component = document.createElement('header');
 
-	for (var key in object) {
-		satus.render(object[key], component);
-	}
+    for (var key in object) {
+        satus.render(object[key], component);
+    }
 
     return component;
 };
@@ -1063,7 +1073,7 @@ satus.components.header = function(object) {
 # LIST
 --------------------------------------------------------------*/
 
-satus.components.list = function(object) {
+satus.components.list = function (object) {
     var ul = document.createElement('ul');
 
     if (object.compact === true) {
@@ -1092,7 +1102,7 @@ satus.components.list = function(object) {
                             if (Math.abs(first_y - event.clientY) <= 5) {
                                 return false;
                             }
-                            
+
                             if (dragging === false) {
                                 clone = self.cloneNode(true);
 
@@ -1113,7 +1123,7 @@ satus.components.list = function(object) {
 
                             clone.style.left = x + 'px';
                             clone.style.top = y + 'px';
-                            
+
                             //return false;
 
                             if (index !== current_index && self.parentNode.children[index]) {
@@ -1171,14 +1181,14 @@ satus.components.list = function(object) {
 # MAIN
 --------------------------------------------------------------*/
 
-satus.components.main = function(object) {
+satus.components.main = function (object) {
     var component = document.createElement('main'),
         component_container = document.createElement('div'),
         component_scrollbar = satus.components.scrollbar(component_container, object.scrollbar);
 
     component.history = [object];
 
-    component.back = function() {
+    component.back = function () {
         var container = this.querySelector('.satus-main__container'),
             component_container = document.createElement('div'),
             component_scrollbar = satus.components.scrollbar(component_container);
@@ -1204,12 +1214,12 @@ satus.components.main = function(object) {
             component_scrollbar.onopen();
         }
 
-        setTimeout(function() {
+        setTimeout(function () {
             container.remove();
         }, satus.getAnimationDuration(container));
     };
 
-    component.open = function(element, callback, animated) {
+    component.open = function (element, callback, animated) {
         var container = this.querySelector('.satus-main__container'),
             component_container = document.createElement('div'),
             component_scrollbar = satus.components.scrollbar(component_container);
@@ -1239,7 +1249,7 @@ satus.components.main = function(object) {
             component_scrollbar.onopen();
         }
 
-        setTimeout(function() {
+        setTimeout(function () {
             container.remove();
         }, satus.getAnimationDuration(container));
     };
@@ -1268,7 +1278,7 @@ satus.components.main = function(object) {
 # SCROLL BAR
 --------------------------------------------------------------*/
 
-satus.components.scrollbar = function(parent, enabled) {
+satus.components.scrollbar = function (parent, enabled) {
     if (enabled === false) {
         return parent;
     }
@@ -1292,6 +1302,9 @@ satus.components.scrollbar = function(parent, enabled) {
 
         if (component_wrapper.scrollHeight > component_wrapper.offsetHeight) {
             component_thumb.style.height = component_wrapper.offsetHeight / component_wrapper.scrollHeight * component_wrapper.offsetHeight + 'px';
+        } else {
+            component_wrapper.style.height = '';
+            component_thumb.style.height = '';
         }
     }
 
@@ -1316,7 +1329,7 @@ satus.components.scrollbar = function(parent, enabled) {
 
         component.classList.add('active');
 
-        component.timeout = setTimeout(function() {
+        component.timeout = setTimeout(function () {
             component.classList.remove('active');
 
             component.timeout = false;
@@ -1328,13 +1341,13 @@ satus.components.scrollbar = function(parent, enabled) {
 
     // SCROLL
 
-    component_wrapper.addEventListener('scroll', function(event) {
+    component_wrapper.addEventListener('scroll', function (event) {
         active();
 
         component_thumb.style.top = Math.floor(component_wrapper.scrollTop * (component_wrapper.offsetHeight - component_thumb.offsetHeight) / (component_wrapper.scrollHeight - component_wrapper.offsetHeight)) + 'px';
     });
 
-    component_thumb.addEventListener('mousedown', function(event) {
+    component_thumb.addEventListener('mousedown', function (event) {
         var offsetY = event.layerY;
 
         if (event.button !== 0) {
@@ -1375,12 +1388,12 @@ satus.components.scrollbar = function(parent, enabled) {
 # SECTION
 --------------------------------------------------------------*/
 
-satus.components.section = function(element) {
+satus.components.section = function (element) {
     var component = document.createElement('section');
 
-	for (var key in element) {
-		satus.render(element[key], component);
-	}
+    for (var key in element) {
+        satus.render(element[key], component);
+    }
 
     return component;
 };
@@ -1390,7 +1403,7 @@ satus.components.section = function(element) {
 # SELECT
 --------------------------------------------------------------*/
 
-satus.components.select = function(element) {
+satus.components.select = function (element) {
     var component = document.createElement('button'),
         component_label = document.createElement('span'),
         component_value = document.createElement('span'),
@@ -1417,7 +1430,7 @@ satus.components.select = function(element) {
         component_value.innerText = satus.locale.getMessage(value || element.options[0].label);
     }
 
-    component.onclick = function() {
+    component.onclick = function () {
         var position = this.getBoundingClientRect(),
             dialog = {
                 type: 'dialog',
@@ -1431,7 +1444,7 @@ satus.components.select = function(element) {
             dialog[key].dataset = {};
             dialog[key].dataset.key = element.options[key].label;
             dialog[key].dataset.value = element.options[key].value;
-            dialog[key].onclick = function() {
+            dialog[key].onclick = function () {
                 component_value.innerText = satus.locale.getMessage(this.dataset.key);
 
                 satus.storage.set(component.dataset.storageKey, this.dataset.value);
@@ -1460,7 +1473,7 @@ satus.components.select = function(element) {
 # SHORTCUT
 ---------------------------------------------------------------*/
 
-satus.components.shortcut = function(element) {
+satus.components.shortcut = function (element) {
     var self = this,
         value = (satus.storage.get(element.storage_key) ? JSON.parse(satus.storage.get(element.storage_key)) : false) || element.value || {},
         component = document.createElement('div'),
@@ -1537,7 +1550,7 @@ satus.components.shortcut = function(element) {
 
     component_label.innerText = satus.locale.getMessage(element.label);
 
-    component.addEventListener('click', function() {
+    component.addEventListener('click', function () {
         let component_dialog = document.createElement('div'),
             component_dialog_label = document.createElement('span'),
             component_scrim = document.createElement('div'),
@@ -1598,7 +1611,7 @@ satus.components.shortcut = function(element) {
 
             clearTimeout(mousewheel_timeout);
 
-            mousewheel_timeout = setTimeout(function() {
+            mousewheel_timeout = setTimeout(function () {
                 mousewheel_only = true;
             }, 300);
 
@@ -1622,20 +1635,20 @@ satus.components.shortcut = function(element) {
 
             component_dialog.classList.remove('satus-dialog_open');
 
-            setTimeout(function() {
+            setTimeout(function () {
                 component_dialog.remove();
             }, Number(document.defaultView.getComputedStyle(component_dialog, '').getPropertyValue('animation-duration').replace(/[^0-9.]/g, '') * 1000));
         }
 
         component_scrim.addEventListener('click', close);
-        component_button_reset.addEventListener('click', function() {
+        component_button_reset.addEventListener('click', function () {
             satus.storage.set(element.storage_key, null);
             close();
             value = (satus.storage.get(element.storage_key) ? JSON.parse(satus.storage.get(element.storage_key)) : false) || element.value || {};
             update();
         });
         component_button_cancel.addEventListener('click', close);
-        component_button_save.addEventListener('click', function() {
+        component_button_save.addEventListener('click', function () {
             satus.storage.set(element.storage_key, JSON.stringify(value));
             close(false);
         });
@@ -1665,7 +1678,7 @@ satus.components.shortcut = function(element) {
 # SLIDER
 --------------------------------------------------------------*/
 
-satus.components.slider = function(element) {
+satus.components.slider = function (element) {
     var component = document.createElement('div');
 
     // LABEL
@@ -1688,7 +1701,7 @@ satus.components.slider = function(element) {
     component_range.max = element.max || 10;
     component_range.step = element.step || 1;
 
-    component_range.oninput = function() {
+    component_range.oninput = function () {
         var track = this.parentNode.querySelector('.satus-slider__track'),
             thumb = this.parentNode.querySelector('.satus-slider__thumb'),
             min = Number(this.min) || 0,
@@ -1708,7 +1721,7 @@ satus.components.slider = function(element) {
         }
     };
 
-    component.change = function(value) {
+    component.change = function (value) {
         component_range.value = value;
 
         component_thumb.dataset.value = value;
@@ -1716,14 +1729,14 @@ satus.components.slider = function(element) {
         component_range.oninput();
     };
 
-    component.addEventListener('mousedown', function() {
+    component.addEventListener('mousedown', function () {
         function mousemove() {
             component.classList.add('satus-slider--dragging');
         }
 
         function mouseup() {
             component.classList.remove('satus-slider--dragging');
-            
+
             window.removeEventListener('mousemove', mousemove);
             window.removeEventListener('mouseup', mouseup);
         }
@@ -1804,7 +1817,7 @@ satus.components.slider = function(element) {
 # SWITCH
 --------------------------------------------------------------*/
 
-satus.components.switch = function(element) {
+satus.components.switch = function (element) {
     var component = document.createElement('div'),
         value;
 
@@ -1839,7 +1852,7 @@ satus.components.switch = function(element) {
         component_input.checked = value;
     }
 
-    component_input.addEventListener('change', function() {
+    component_input.addEventListener('change', function () {
         satus.storage.set(this.dataset.storageKey, this.checked);
     });
 
@@ -1855,7 +1868,7 @@ satus.components.switch = function(element) {
 
 
     // MOUSE MOVE
-    component_track.addEventListener('mousedown', function(event) {
+    component_track.addEventListener('mousedown', function (event) {
         var prevent = false,
             difference = 0;
 
@@ -1901,7 +1914,7 @@ satus.components.switch = function(element) {
 
 
     // TOUCH MOVE
-    component_track.addEventListener('touchstart', function(event) {
+    component_track.addEventListener('touchstart', function (event) {
         var previous_x = 0,
             difference = 0;
 
@@ -1936,13 +1949,13 @@ satus.components.switch = function(element) {
 
     return component;
 };
-satus.components.table = function(item) {
+satus.components.table = function (item) {
     var component = document.createElement('div'),
         component_head = document.createElement('div'),
         component_body = document.createElement('div'),
         component_scrollbar = satus.components.scrollbar(component_body, item.scrollbar),
         table = document.createElement('div');
-        
+
     table.className = 'satus-table__container';
     component_head.className = 'satus-table__head';
     component_body.className = 'satus-table__body';
@@ -1964,24 +1977,24 @@ satus.components.table = function(item) {
             for (var i = start, l = end; i < l; i++) {
                 if (data[i]) {
                     var tr = document.createElement('div');
-                    
+
                     tr.className = 'satus-table__row';
 
                     for (var j = 0, k = data[i].length; j < k; j++) {
                         var td = document.createElement('div');
 
-                    
+
                         td.className = 'satus-table__cell';
-                        
+
                         if (data[i][j].html) {
                             td.innerHTML = data[i][j].html;
                         } else if (data[i][j].text) {
                             td.innerText = data[i][j].text;
                         }
-                        
+
                         if (data[i][j].onrender) {
                             td.onrender = data[i][j].onrender;
-                            
+
                             td.onrender();
                         }
 
@@ -1999,21 +2012,21 @@ satus.components.table = function(item) {
     function sortArray(array, index, mode) {
         if (mode === 'asc') {
             if (typeof array[0][index].text === 'number') {
-                sorted = array.sort(function(a, b) {
+                sorted = array.sort(function (a, b) {
                     return a[index].text - b[index].text;
                 });
             } else {
-                sorted = array.sort(function(a, b) {
+                sorted = array.sort(function (a, b) {
                     return a[index].text.localeCompare(b[index].text);
                 });
             }
         } else {
             if (typeof array[0][index].text === 'number') {
-                sorted = array.sort(function(a, b) {
+                sorted = array.sort(function (a, b) {
                     return b[index].text - a[index].text;
                 });
             } else {
-                sorted = array.sort(function(a, b) {
+                sorted = array.sort(function (a, b) {
                     return b[index].text.localeCompare(a[index].text);
                 });
             }
@@ -2026,7 +2039,7 @@ satus.components.table = function(item) {
         var mode = this.dataset.sorting,
             index = Array.prototype.indexOf.call(this.parentElement.children, this),
             sorted;
-                
+
         if (component.data[0][index] && component.data[0][index].hasOwnProperty('text')) {
             if (mode === 'none') {
                 mode = 'asc';
@@ -2071,15 +2084,15 @@ satus.components.table = function(item) {
     component.paging = item.paging;
     component.pagingIndex = 0;
 
-    component.update = function(data, index, mode) {
+    component.update = function (data, index, mode) {
         if (satus.isset(data)) {
             this.data = data;
         }
-        
+
         if (this.querySelector('div[data-sorting=asc], div[data-sorting=desc]')) {
             var mode = this.querySelector('div[data-sorting=asc], div[data-sorting=desc]').dataset.sorting,
                 index = Array.prototype.indexOf.call(this.querySelector('div[data-sorting=asc], div[data-sorting=desc]').parentElement.children, this.querySelector('div[data-sorting=asc], div[data-sorting=desc]'));
-            
+
             update(sortArray(this.data, index, mode));
         } else {
             for (var i = 0, l = item.columns.length; i < l; i++) {
@@ -2089,7 +2102,7 @@ satus.components.table = function(item) {
                     } else {
                         this.querySelectorAll('.satus-table__head > div')[i].dataset.sorting = false;
                     }
-                    
+
                     update(sortArray(this.data, i, item.columns[i].sorting));
 
                     i = l;
@@ -2116,7 +2129,7 @@ satus.components.table = function(item) {
 
                 button.innerText = i;
                 button.parentComponent = this;
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     if (this.parentNode.querySelector('button.active')) {
                         this.parentNode.querySelector('button.active').classList.remove('active');
                     }
@@ -2130,7 +2143,7 @@ satus.components.table = function(item) {
                 this.querySelector('.satus-table__paging').appendChild(button);
             }
         }
-        
+
         resize();
     }
 
@@ -2143,11 +2156,11 @@ satus.components.table = function(item) {
     component_scrollbar.appendChild(component_paging);
 
     // END PAGING
-    
+
     if (item.data) {
         component.update(item.data);
     }
-    
+
     return component;
 };
 
@@ -2156,7 +2169,7 @@ satus.components.table = function(item) {
 # TEXT
 --------------------------------------------------------------*/
 
-satus.components.text = function(element) {
+satus.components.text = function (element) {
     var component = document.createElement('span');
 
     if (satus.isset(element.label)) {
@@ -2185,10 +2198,15 @@ satus.components.text = function(element) {
 # TEXT FIELD
 --------------------------------------------------------------*/
 
-satus.components.textField = function(element) {
+satus.components.textField = function (element) {
     var component = element.rows > 1 ? document.createElement('textarea') : document.createElement('input');
 
     component.type = 'text';
+
+    // PLACEHOLDER
+    if (satus.isset(element.placeholder)) {
+        element.placeholder = satus.locale.getMessage(element.placeholder);
+    }
 
     return component;
 };
