@@ -1,4 +1,19 @@
 {
+    "ARROWDOWN": {
+        "message": "\u21e9"
+    },
+    "ARROWLEFT": {
+        "message": "\u21e6"
+    },
+    "ARROWRIGHT": {
+        "message": "\u21e8"
+    },
+    "ARROWUP": {
+        "message": "\u21e7"
+    },
+    "__MSG_description__": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+    },
     "about": {
         "message": "Om"
     },
@@ -11,20 +26,20 @@
     "activateCaptions": {
         "message": "Aktiver underteksting"
     },
+    "activateFullscreen": {
+        "message": "Aktiver fullskjerm"
+    },
     "activated": {
         "message": "Aktivert"
     },
     "activatedFeatures": {
         "message": "Aktiverte funksjoner"
     },
-    "activateFullscreen": {
-        "message": "Aktiver fullskjerm"
-    },
     "activeFeatures": {
         "message": "Aktive funksjoner"
     },
     "addScrollToTop": {
-        "message": "Legg til «Rull til toppen»"
+        "message": "Legg til \u00abRull til toppen\u00bb"
     },
     "ads": {
         "message": "Reklamer"
@@ -37,9 +52,6 @@
     },
     "allow60fps": {
         "message": "Tillat 60 bps"
-    },
-    "forceSDR": {
-        "message": "Force SDR"
     },
     "alwaysActive": {
         "message": "Alltid aktiv"
@@ -56,18 +68,6 @@
     "appearance": {
         "message": "Utseende"
     },
-    "ARROWDOWN": {
-        "message": "⇩"
-    },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
-    },
     "audio": {
         "message": "Lyd"
     },
@@ -81,7 +81,7 @@
         "message": "Auto-fullskjerm"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Autopause når du bytter faner"
+        "message": "Autopause n\u00e5r du bytter faner"
     },
     "autoplay": {
         "message": "Autoplay"
@@ -90,7 +90,7 @@
         "message": "Sikkerhetskopiering og tilbakestilling"
     },
     "baseOnSystemColorScheme": {
-        "message": "Baser på systemfargevalg"
+        "message": "Baser p\u00e5 systemfargevalg"
     },
     "belowPlayer": {
         "message": "Nedenfor avspiller"
@@ -105,13 +105,13 @@
         "message": "Blokker alle"
     },
     "blue": {
-        "message": "Blå"
+        "message": "Bl\u00e5"
     },
     "blueGray": {
-        "message": "Blågrå"
+        "message": "Bl\u00e5gr\u00e5"
     },
     "bluelight": {
-        "message": "Blålys"
+        "message": "Bl\u00e5lys"
     },
     "brown": {
         "message": "Brun"
@@ -149,17 +149,17 @@
     "codecH264": {
         "message": "H.264-kodek"
     },
-    "collapsed": {
-        "message": "kollapset"
-    },
     "collapseOfSubscriptionSections": {
         "message": "Kollaps av abonnementsdelene"
+    },
+    "collapsed": {
+        "message": "kollapset"
     },
     "comments": {
         "message": "Kommentarer"
     },
     "confirmationBeforeClosing": {
-        "message": "Bekreftelse før stenging"
+        "message": "Bekreftelse f\u00f8r stenging"
     },
     "cookies": {
         "message": "Informasjonskapslene"
@@ -168,7 +168,7 @@
         "message": "Kjerner"
     },
     "cropChapterTitles": {
-        "message": "Beskjær kapitteltitler"
+        "message": "Beskj\u00e6r kapitteltitler"
     },
     "customCss": {
         "message": "Tilpasset CSS"
@@ -180,13 +180,13 @@
         "message": "Egendefinert miniavspiller"
     },
     "cyan": {
-        "message": "Blålilla"
+        "message": "Bl\u00e5lilla"
     },
     "dark": {
-        "message": "Mørk"
+        "message": "M\u00f8rk"
     },
     "darkTheme": {
-        "message": "Mørk drakt"
+        "message": "M\u00f8rk drakt"
     },
     "dateAndTime": {
         "message": "Dato og klokkeslett"
@@ -204,7 +204,7 @@
         "message": "Dyporansje"
     },
     "deepPurple": {
-        "message": "Mørkelilla"
+        "message": "M\u00f8rkelilla"
     },
     "defaultChannelTab": {
         "message": "Forvalgt kanalfane"
@@ -216,7 +216,7 @@
         "message": "Beskrivelse"
     },
     "desert": {
-        "message": "Ørken"
+        "message": "\u00d8rken"
     },
     "details": {
         "message": "Detaljer"
@@ -231,16 +231,16 @@
         "message": "Dim"
     },
     "disabled": {
-        "message": "Avslått"
+        "message": "Avsl\u00e5tt"
     },
     "dislike": {
         "message": "Mislik"
     },
-    "donate": {
-        "message": "Doner"
-    },
     "doNotChange": {
         "message": "Ikke endre"
+    },
+    "donate": {
+        "message": "Doner"
     },
     "draggable": {
         "message": "Flyttbare"
@@ -284,6 +284,9 @@
     "footer": {
         "message": "Bunntekst"
     },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
     "forcedPlaybackSpeed": {
         "message": "Tvungen avspillingshastighet"
     },
@@ -309,13 +312,13 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Gå til søkefeltet"
+        "message": "G\u00e5 til s\u00f8kefeltet"
     },
     "gpu": {
         "message": "GPU"
     },
     "green": {
-        "message": "Grønn"
+        "message": "Gr\u00f8nn"
     },
     "hdThumbnail": {
         "message": "HD-miniatyrbilde"
@@ -330,7 +333,7 @@
         "message": "Skjult"
     },
     "hiddenOnVideoPage": {
-        "message": "Skjult på videosiden"
+        "message": "Skjult p\u00e5 videosiden"
     },
     "hideAnimatedThumbnails": {
         "message": "Skjul animerte miniatyrbilder"
@@ -360,10 +363,10 @@
         "message": "Skjul spilleliste"
     },
     "hideRightButtons": {
-        "message": "Skjul høyre-knapper"
+        "message": "Skjul h\u00f8yre-knapper"
     },
     "hideScrollForDetails": {
-        "message": "Skjul «Bla for detaljer»"
+        "message": "Skjul \u00abBla for detaljer\u00bb"
     },
     "hideViewsCount": {
         "message": "Skjul visningsteller"
@@ -378,7 +381,7 @@
         "message": "Hold"
     },
     "hoverOnVideoPage": {
-        "message": "Hold musepekeren på videosiden"
+        "message": "Hold musepekeren p\u00e5 videosiden"
     },
     "howLongAgoTheVideoWasUploaded": {
         "message": "Hvor lenge siden videoen ble opplastet"
@@ -392,26 +395,26 @@
     "importSettings": {
         "message": "Importer innstillinger"
     },
+    "improveLogo": {
+        "message": "Forbedre logo"
+    },
     "improvedtubeIconInBrowser": {
         "message": "ImprovedTube-ikonet i nettleseren"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "ImprovedTube-ikonet på YouTube"
+        "message": "ImprovedTube-ikonet p\u00e5 YouTube"
     },
     "improvedtubeLanguage": {
-        "message": "ImprovedTube-språk"
+        "message": "ImprovedTube-spr\u00e5k"
     },
     "improvedtubeVersion": {
         "message": "ImprovedTube-versjon"
     },
-    "improveLogo": {
-        "message": "Forbedre logo"
-    },
     "increasePlaybackSpeed": {
-        "message": "Øk avspillingshastigheten"
+        "message": "\u00d8k avspillingshastigheten"
     },
     "increaseVolume": {
-        "message": "Øk lydstyrken"
+        "message": "\u00d8k lydstyrken"
     },
     "indigo": {
         "message": "Indigo"
@@ -420,7 +423,7 @@
         "message": "Elementer"
     },
     "languages": {
-        "message": "Språk"
+        "message": "Spr\u00e5k"
     },
     "legacyYoutube": {
         "message": "Gammeldags YouTube"
@@ -429,10 +432,10 @@
         "message": "Lys"
     },
     "lightBlue": {
-        "message": "Lyseblå"
+        "message": "Lysebl\u00e5"
     },
     "lightGreen": {
-        "message": "Lysegrønn"
+        "message": "Lysegr\u00f8nn"
     },
     "like": {
         "message": "Gunst"
@@ -482,11 +485,11 @@
     "noActiveFeatures": {
         "message": "Ingen aktive funksjoner"
     },
+    "noOpenVideoTabs": {
+        "message": "Ingen \u00e5pne videofaner"
+    },
     "none": {
         "message": "Ingen"
-    },
-    "noOpenVideoTabs": {
-        "message": "Ingen åpne videofaner"
     },
     "normal": {
         "message": "Normal"
@@ -495,16 +498,16 @@
         "message": "Gammel"
     },
     "onAllVideos": {
-        "message": "På alle videoer"
-    },
-    "onlyActiveOnYoutube": {
-        "message": "Kun aktiv på YouTube"
-    },
-    "onlyOnePlayerInstancePlaying": {
-        "message": "Kun én avspiller viser noe"
+        "message": "P\u00e5 alle videoer"
     },
     "onSubscribedChannels": {
-        "message": "På abonnementskanaler"
+        "message": "P\u00e5 abonnementskanaler"
+    },
+    "onlyActiveOnYoutube": {
+        "message": "Kun aktiv p\u00e5 YouTube"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "Kun \u00e9n avspiller viser noe"
     },
     "orange": {
         "message": "Oransje"
@@ -530,6 +533,9 @@
     "platform": {
         "message": "Plattform"
     },
+    "playPause": {
+        "message": "Spill / Pause"
+    },
     "playbackSpeed": {
         "message": "Avspillingshastighet"
     },
@@ -540,16 +546,13 @@
         "message": "Avspiller-farge"
     },
     "playerSize": {
-        "message": "Avspiller-størrelse"
+        "message": "Avspiller-st\u00f8rrelse"
     },
     "playlist": {
         "message": "Spilleliste"
     },
     "playlists": {
         "message": "Spillelister"
-    },
-    "playPause": {
-        "message": "Spill / Pause"
     },
     "popupPlayer": {
         "message": "Oppsprettsspiller"
@@ -558,10 +561,10 @@
         "message": "Posisjon"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Trykk på hvilken som helst tast, eller bruk musehjulet."
+        "message": "Trykk p\u00e5 hvilken som helst tast, eller bruk musehjulet."
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Trykk på hvilken som helst tast, eller bruk musehjulet"
+        "message": "Trykk p\u00e5 hvilken som helst tast, eller bruk musehjulet"
     },
     "previousVideo": {
         "message": "Forrige video"
@@ -582,16 +585,16 @@
         "message": "Rangere oss"
     },
     "red": {
-        "message": "Rød"
+        "message": "R\u00f8d"
     },
     "redDislikeButton": {
-        "message": "Vis tommel ned i rød farge"
+        "message": "Vis tommel ned i r\u00f8d farge"
     },
     "relatedVideos": {
         "message": "Relaterte videoer"
     },
     "removeRelatedSearchResults": {
-        "message": "Fjern relaterte søkeresultater"
+        "message": "Fjern relaterte s\u00f8keresultater"
     },
     "repeat": {
         "message": "Gjenta"
@@ -627,10 +630,10 @@
         "message": "Skjeravbildning"
     },
     "search": {
-        "message": "Søk"
+        "message": "S\u00f8k"
     },
     "searchBarOnly": {
-        "message": "Bare søkefelt"
+        "message": "Bare s\u00f8kefelt"
     },
     "seekBackward10Seconds": {
         "message": "Spol 10 sekunder bakover"
@@ -648,13 +651,13 @@
         "message": "Snarveier"
     },
     "showCardsOnMouseHover": {
-        "message": "Vis kort på musepekeren"
+        "message": "Vis kort p\u00e5 musepekeren"
     },
     "showChannelVideosCount": {
         "message": "Vis antall kanaler"
     },
     "shuffle": {
-        "message": "Tilfeldig rekkefølge"
+        "message": "Tilfeldig rekkef\u00f8lge"
     },
     "sidebar": {
         "message": "Sidepanel"
@@ -696,13 +699,13 @@
         "message": "Solnedgang til soloppgang"
     },
     "systemPeferenceDark": {
-        "message": "Systeminnstillinger: mørk"
+        "message": "Systeminnstillinger: m\u00f8rk"
     },
     "systemPeferenceLight": {
         "message": "Systeminnstillinger: lys"
     },
     "teal": {
-        "message": "Blågrønn"
+        "message": "Bl\u00e5gr\u00f8nn"
     },
     "textColor": {
         "message": "Tekstfarge"
@@ -753,13 +756,13 @@
         "message": "Trender"
     },
     "tryToReloadThePage": {
-        "message": "Forsøk å laste inn siden på nytt"
+        "message": "Fors\u00f8k \u00e5 laste inn siden p\u00e5 nytt"
     },
     "type": {
         "message": "Type"
     },
     "upNextAutoplay": {
-        "message": "«Spilles senere»-autospilling"
+        "message": "\u00abSpilles senere\u00bb-autospilling"
     },
     "use24HourFormat": {
         "message": "Bruk 24-timersformat"
@@ -771,7 +774,7 @@
         "message": "Video"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "Videobeskrivelsen vil bli utvidet for å få med navnet på kategorien"
+        "message": "Videobeskrivelsen vil bli utvidet for \u00e5 f\u00e5 med navnet p\u00e5 kategorien"
     },
     "videoFormats": {
         "message": "Video-formater"
@@ -789,7 +792,7 @@
         "message": "Tid sett"
     },
     "whenTabIsChanged": {
-        "message": "Når fanen endres"
+        "message": "N\u00e5r fanen endres"
     },
     "white": {
         "message": "Hvit"
@@ -801,13 +804,13 @@
         "message": "YouTube-topptekst (til venstre)"
     },
     "youtubeHeaderRight": {
-        "message": "YouTube-topptekst (til høyre)"
+        "message": "YouTube-topptekst (til h\u00f8yre)"
     },
     "youtubeHomePage": {
         "message": "YouTube-startside"
     },
     "youtubeLanguage": {
-        "message": "YouTube-språk"
+        "message": "YouTube-spr\u00e5k"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube begrenser videokvaliteten til 1080p for H.264-kodeket"
