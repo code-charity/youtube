@@ -1,815 +1,815 @@
 {
     "ARROWDOWN": {
-        "message": "\u21e9"
+        "message": "⇩"
     },
     "ARROWLEFT": {
-        "message": "\u21e6"
+        "message": "⇦"
     },
     "ARROWRIGHT": {
-        "message": "\u21e8"
+        "message": "⇨"
     },
     "ARROWUP": {
-        "message": "\u21e7"
+        "message": "⇧"
     },
     "__MSG_description__": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "about": {
-        "message": "\u062d\u0648\u0644"
+        "message": "حول"
     },
     "accept": {
-        "message": "\u0642\u0628\u0648\u0644"
+        "message": "قبول"
     },
     "activate": {
-        "message": "\u062a\u0641\u0639\u064a\u0644"
+        "message": "تفعيل"
     },
     "activateCaptions": {
-        "message": "\u062a\u0641\u0639\u064a\u0644 \u0627\u0644\u062a\u0631\u062c\u0645\u0629"
+        "message": "تفعيل الترجمة"
     },
     "activateFullscreen": {
-        "message": "\u062a\u0641\u0639\u064a\u0644 \u0645\u0644\u0621 \u0627\u0644\u0634\u0627\u0634\u0629"
+        "message": "تفعيل ملء الشاشة"
     },
     "activated": {
-        "message": "\u0645\u0641\u0639\u0644"
+        "message": "مفعل"
     },
     "activatedFeatures": {
-        "message": "\u0627\u0644\u0645\u064a\u0632\u0627\u062a \u0627\u0644\u0645\u0641\u0639\u0644\u0629"
+        "message": "الميزات المفعلة"
     },
     "activeFeatures": {
-        "message": "\u0627\u0644\u0645\u064a\u0632\u0627\u062a \u0627\u0644\u0646\u0634\u0637\u0629"
+        "message": "الميزات النشطة"
     },
     "addScrollToTop": {
-        "message": "\u0622\u0636\u0641 \u0627\u0644\u0635\u0639\u0648\u062f \u0644\u0623\u0639\u0644\u0649"
+        "message": "آضف الصعود لأعلى"
     },
     "ads": {
-        "message": "\u0627\u0644\u0627\u0639\u0644\u0627\u0646\u0627\u062a"
+        "message": "الاعلانات"
     },
     "all": {
-        "message": "\u0627\u0644\u0643\u0644"
+        "message": "الكل"
     },
     "allow": {
-        "message": "\u0633\u0645\u0627\u062d"
+        "message": "سماح"
     },
     "allow60fps": {
-        "message": "\u0627\u0644\u0633\u0645\u0627\u062d \u0644\u064060\u0625\u0637\u0627\u0631"
+        "message": "السماح لـ60إطار"
     },
     "alwaysActive": {
-        "message": "\u062f\u0627\u0626\u0645\u0627 \u0646\u0634\u0637"
+        "message": "دائما نشط"
     },
     "alwaysShowProgressBar": {
-        "message": "\u0625\u0638\u0647\u0627\u0631 \u0634\u0631\u064a\u0637 \u0627\u0644\u062a\u0642\u062f\u0645 \u062f\u0627\u0626\u0645\u064b\u0627"
+        "message": "إظهار شريط التقدم دائمًا"
     },
     "amber": {
-        "message": "\u0627\u0644\u0639\u0646\u0628\u0631"
+        "message": "العنبر"
     },
     "analyzer": {
-        "message": "\u0627\u0644\u0645\u062d\u0644\u0644"
+        "message": "المحلل"
     },
     "appearance": {
-        "message": "\u0627\u0644\u0645\u0638\u0647\u0631 \u0627\u0644\u0639\u0627\u0645"
+        "message": "المظهر العام"
     },
     "audio": {
-        "message": "\u0627\u0644\u0635\u0648\u062a"
+        "message": "الصوت"
     },
     "audioFormats": {
-        "message": "\u062a\u0646\u0633\u064a\u0642\u0627\u062a \u0627\u0644\u0635\u0648\u062a"
+        "message": "تنسيقات الصوت"
     },
     "auto": {
-        "message": "\u062a\u0644\u0642\u0627\u0626\u064a"
+        "message": "تلقائي"
     },
     "autoFullscreen": {
-        "message": "\u0645\u0644\u0621 \u062a\u0644\u0642\u0627\u0626\u064a \u0644\u0644\u0634\u0627\u0634\u0629"
+        "message": "ملء تلقائي للشاشة"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "\u0625\u064a\u0642\u0627\u0641 \u062a\u0644\u0642\u0627\u0626\u064a \u0639\u0646\u062f \u0627\u0644\u062a\u0628\u062f\u064a\u0644 \u0628\u064a\u0646 \u0627\u0644\u062a\u0628\u0648\u064a\u0628\u0627\u062a"
+        "message": "إيقاف تلقائي عند التبديل بين التبويبات"
     },
     "autoplay": {
-        "message": "\u062a\u0634\u063a\u064a\u0644 \u062a\u0644\u0642\u0627\u0626\u064a"
+        "message": "تشغيل تلقائي"
     },
     "backupAndReset": {
-        "message": "\u0625\u0639\u0627\u062f\u0629 \u062a\u0639\u064a\u064a\u0646 \u0648\u0627\u0644\u0646\u0633\u062e \u0627\u0644\u0627\u062d\u062a\u064a\u0627\u0637\u064a"
+        "message": "إعادة تعيين والنسخ الاحتياطي"
     },
     "baseOnSystemColorScheme": {
-        "message": "\u064a\u0646\u0627\u0621 \u0639\u0644\u0649 \u0623\u0644\u0648\u0627\u0646 \u0627\u0644\u0646\u0638\u0627\u0645"
+        "message": "يناء على ألوان النظام"
     },
     "belowPlayer": {
-        "message": "\u0627\u0633\u0641\u0644 \u0627\u0644\u0645\u0634\u063a\u0644"
+        "message": "اسفل المشغل"
     },
     "black": {
-        "message": "\u0627\u0633\u0648\u062f"
+        "message": "اسود"
     },
     "blacklist": {
-        "message": "\u0627\u0644\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0633\u0648\u062f\u0627\u0621"
+        "message": "القائمة السوداء"
     },
     "blockAll": {
-        "message": "\u062d\u0638\u0631 \u0627\u0644\u0643\u0644"
+        "message": "حظر الكل"
     },
     "blue": {
-        "message": "\u0627\u0632\u0631\u0642"
+        "message": "ازرق"
     },
     "blueGray": {
-        "message": "\u0627\u0632\u0631\u0642 \u0631\u0645\u0627\u062f\u064a"
+        "message": "ازرق رمادي"
     },
     "bluelight": {
-        "message": "\u0627\u0644\u0636\u0648\u0621 \u0627\u0644\u0623\u0632\u0631\u0642"
+        "message": "الضوء الأزرق"
     },
     "brown": {
-        "message": "\u0628\u0646\u0649"
+        "message": "بنى"
     },
     "browser": {
-        "message": "\u0627\u0644\u0645\u062a\u0635\u0641\u062d"
+        "message": "المتصفح"
     },
     "browserVersion": {
-        "message": "\u0625\u0635\u062f\u0627\u0631 \u0627\u0644\u0645\u062a\u0635\u0641\u062d"
+        "message": "إصدار المتصفح"
     },
     "bubbles": {
-        "message": "\u0641\u0642\u0627\u0639\u0627\u062a"
+        "message": "فقاعات"
     },
     "bug": {
-        "message": "\u062e\u0644\u0644 \u0628\u0631\u0645\u062c\u064a"
+        "message": "خلل برمجي"
     },
     "buttons": {
-        "message": "\u0623\u0632\u0631\u0627\u0631"
+        "message": "أزرار"
     },
     "cancel": {
-        "message": "\u0625\u0644\u063a\u0627\u0621"
+        "message": "إلغاء"
     },
     "categories": {
-        "message": "\u0627\u0644\u062a\u0635\u0646\u064a\u0641\u0627\u062a"
+        "message": "التصنيفات"
     },
     "channel": {
-        "message": "\u0642\u0646\u0627\u0629"
+        "message": "قناة"
     },
     "channels": {
-        "message": "\u0627\u0644\u0642\u0646\u0648\u0627\u062a"
+        "message": "القنوات"
     },
     "clipboard": {
-        "message": "\u0627\u0644\u062d\u0627\u0641\u0638\u0629"
+        "message": "الحافظة"
     },
     "codecH264": {
-        "message": "h.\u0627\u0644\u062a\u0631\u0645\u064a\u0632 264"
+        "message": "h.الترميز 264"
     },
     "collapseOfSubscriptionSections": {
-        "message": "\u0636\u063a\u0637 \u0642\u0633\u0645 \u0627\u0644\u0627\u0634\u062a\u0631\u0627\u0643\u0627\u062a"
+        "message": "ضغط قسم الاشتراكات"
     },
     "collapsed": {
-        "message": "\u0636\u063a\u0637"
+        "message": "ضغط"
     },
     "comments": {
-        "message": "\u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a"
+        "message": "التعليقات"
     },
     "confirmationBeforeClosing": {
-        "message": "\u0627\u0644\u062a\u0623\u0643\u064a\u062f \u0642\u0628\u0644 \u0627\u0644\u0625\u063a\u0644\u0627\u0642"
+        "message": "التأكيد قبل الإغلاق"
     },
     "cookies": {
-        "message": "\u0645\u0644\u0641\u0627\u062a \u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0627\u0631\u062a\u0628\u0627\u0637"
+        "message": "ملفات تعريف الارتباط"
     },
     "cores": {
-        "message": "\u0627\u0644\u0646\u0648\u0627\u0647"
+        "message": "النواه"
     },
     "cropChapterTitles": {
-        "message": "\u0627\u0642\u062a\u0637\u0627\u0639 \u0639\u0646\u0627\u0648\u064a\u0646 \u0627\u0644\u0641\u0635\u0648\u0644"
+        "message": "اقتطاع عناوين الفصول"
     },
     "customCss": {
-        "message": "\u0645\u062e\u0635\u0635 CSS"
+        "message": "مخصص CSS"
     },
     "customJs": {
-        "message": "\u0645\u062e\u0635\u0635 JS"
+        "message": "مخصص JS"
     },
     "customMiniPlayer": {
-        "message": "\u0627\u0644\u0645\u0634\u063a\u0644 \u0627\u0644\u0635\u063a\u064a\u0631 \u0627\u0644\u0645\u062e\u0635\u0635"
+        "message": "المشغل الصغير المخصص"
     },
     "cyan": {
-        "message": "\u0627\u0632\u0631\u0642 \u0633\u0645\u0627\u0648\u064a"
+        "message": "ازرق سماوي"
     },
     "dark": {
-        "message": "\u062f\u0627\u0643\u0646"
+        "message": "داكن"
     },
     "darkTheme": {
-        "message": "\u0645\u0638\u0647\u0631 \u062f\u0627\u0643\u0646"
+        "message": "مظهر داكن"
     },
     "dateAndTime": {
-        "message": "\u0627\u0644\u062a\u0627\u0631\u064a\u062e \u0648\u0627\u0644\u0648\u0642\u062a"
+        "message": "التاريخ والوقت"
     },
     "dawn": {
-        "message": "\u0641\u062c\u0631"
+        "message": "فجر"
     },
     "decreasePlaybackSpeed": {
-        "message": "\u062a\u0642\u0644\u064a\u0644 \u0633\u0631\u0639\u0629 \u0627\u0644\u062a\u0634\u063a\u064a\u0644"
+        "message": "تقليل سرعة التشغيل"
     },
     "decreaseVolume5": {
-        "message": "5% \u062e\u0641\u0636 \u0627\u0644\u0635\u0648\u062a"
+        "message": "5% خفض الصوت"
     },
     "deepOrange": {
-        "message": "\u0628\u0631\u062a\u0642\u0627\u0644\u064a \u062f\u0627\u0643\u0646"
+        "message": "برتقالي داكن"
     },
     "deepPurple": {
-        "message": "\u0623\u0631\u062c\u0648\u0627\u0646\u064a \u062f\u0627\u0643\u0646"
+        "message": "أرجواني داكن"
     },
     "defaultChannelTab": {
-        "message": "\u0639\u0644\u0627\u0645\u0629 \u062a\u0628\u0648\u064a\u0628 \u0627\u0644\u0642\u0646\u0627\u0629 \u0627\u0644\u0627\u0641\u062a\u0631\u0627\u0636\u064a\u0629"
+        "message": "علامة تبويب القناة الافتراضية"
     },
     "deleteYoutubeCookies": {
-        "message": "\u062d\u0630\u0641 \u0645\u0644\u0641\u0627\u062a \u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0627\u0631\u062a\u0628\u0627\u0637 \u0645\u0646 \u0627\u0644\u064a\u0648\u062a\u064a\u0648\u0628"
+        "message": "حذف ملفات تعريف الارتباط من اليوتيوب"
     },
     "description": {
-        "message": "\u0627\u0644\u0648\u0635\u0641"
+        "message": "الوصف"
     },
     "desert": {
-        "message": "\u0635\u062d\u0631\u0627\u0621"
+        "message": "صحراء"
     },
     "details": {
-        "message": "\u0627\u0644\u062a\u0641\u0627\u0635\u064a\u0644"
+        "message": "التفاصيل"
     },
     "developerOptions": {
-        "message": "\u062e\u064a\u0627\u0631\u0627\u062a \u0627\u0644\u0645\u0637\u0648\u0631"
+        "message": "خيارات المطور"
     },
     "device": {
-        "message": "\u0627\u0644\u062c\u0647\u0627\u0632"
+        "message": "الجهاز"
     },
     "dim": {
-        "message": "\u062f\u0627\u0643\u0646"
+        "message": "داكن"
     },
     "disabled": {
-        "message": "\u0645\u0639\u0637\u0644"
+        "message": "معطل"
     },
     "dislike": {
-        "message": "\u0644\u0645 \u064a\u0639\u062c\u0628\u0646\u0649"
+        "message": "لم يعجبنى"
     },
     "doNotChange": {
-        "message": "\u0627\u0644\u0625\u0641\u062a\u0631\u0627\u0636\u064a"
+        "message": "الإفتراضي"
     },
     "donate": {
-        "message": "\u062a\u0628\u0631\u0639"
+        "message": "تبرع"
     },
     "draggable": {
-        "message": "\u0642\u0627\u0628\u0644 \u0644\u0644\u0633\u062d\u0628"
+        "message": "قابل للسحب"
     },
     "email": {
-        "message": "\u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a"
+        "message": "البريد الإلكتروني"
     },
     "empty": {
-        "message": "\u0641\u0627\u0631\u063a\u0629"
+        "message": "فارغة"
     },
     "enabled": {
-        "message": "\u0645\u0645\u0643\u0651\u0646"
+        "message": "ممكّن"
     },
     "enabledForced": {
-        "message": "\u0645\u0645\u0643\u0651\u0646 (\u0625\u062c\u0628\u0627\u0631\u064a)"
+        "message": "ممكّن (إجباري)"
     },
     "expanded": {
-        "message": "\u0645\u0648\u0633\u0639"
+        "message": "موسع"
     },
     "exportSettings": {
-        "message": "\u062a\u0635\u062f\u064a\u0631 \u0627\u0644\u0625\u0639\u062f\u0627\u062f\u0627\u062a"
+        "message": "تصدير الإعدادات"
     },
     "extension": {
-        "message": "\u0627\u0644\u0625\u0636\u0627\u0641\u0629"
+        "message": "الإضافة"
     },
     "file": {
-        "message": "\u0645\u0644\u0641"
+        "message": "ملف"
     },
     "filters": {
-        "message": "\u0645\u0631\u0634\u062d\u0627\u062a"
+        "message": "مرشحات"
     },
     "fitToWindow": {
-        "message": "\u0645\u0646\u0627\u0633\u0628 \u0644\u0644\u0646\u0627\u0641\u0630\u0629"
+        "message": "مناسب للنافذة"
     },
     "flash": {
-        "message": "\u0641\u0644\u0627\u0634"
+        "message": "فلاش"
     },
     "font": {
-        "message": "\u0627\u0644\u062e\u0637"
+        "message": "الخط"
     },
     "footer": {
-        "message": "\u0627\u0644\u062d\u0632\u0621 \u0627\u0644\u0633\u0641\u0644\u064a"
+        "message": "الحزء السفلي"
     },
     "forceSDR": {
-        "message": "SDR \u0641\u0631\u0636"
+        "message": "SDR فرض"
     },
     "forcedPlaybackSpeed": {
-        "message": "\u062a\u062b\u0628\u064a\u062a \u0633\u0631\u0639\u0629 \u0627\u0644\u062a\u0634\u063a\u064a\u0644"
+        "message": "تثبيت سرعة التشغيل"
     },
     "forcedTheaterMode": {
-        "message": "\u0641\u0631\u0636 \u0648\u0636\u0639 \u0627\u0644\u0645\u0633\u0631\u062d"
+        "message": "فرض وضع المسرح"
     },
     "forcedVolume": {
-        "message": "\u062a\u062b\u0628\u064a\u062a \u0645\u0633\u062a\u0648\u0649 \u0627\u0644\u0635\u0648\u062a"
+        "message": "تثبيت مستوى الصوت"
     },
     "foundABug": {
-        "message": "\u0648\u062c\u062f\u062a \u062e\u0637\u0623\u061f"
+        "message": "وجدت خطأ؟"
     },
     "fullWindow": {
-        "message": "\u0646\u0627\u0641\u0630\u0629 \u0643\u0627\u0645\u0644\u0629"
+        "message": "نافذة كاملة"
     },
     "general": {
-        "message": "\u0639\u0627\u0645"
+        "message": "عام"
     },
     "github": {
-        "message": "\u062c\u064a\u062a\u0647\u0628"
+        "message": "جيتهب"
     },
     "goToSearchBox": {
-        "message": "\u0627\u0646\u062a\u0642\u0644 \u0625\u0644\u0649 \u0645\u0631\u0628\u0639 \u0627\u0644\u0628\u062d\u062b"
+        "message": "انتقل إلى مربع البحث"
     },
     "gpu": {
-        "message": "\u0643\u0631\u062a \u0627\u0644\u0634\u0627\u0634\u0629"
+        "message": "كرت الشاشة"
     },
     "green": {
-        "message": "\u0623\u062e\u0636\u0631"
+        "message": "أخضر"
     },
     "hdThumbnail": {
-        "message": "\u0635\u0648\u0631\u0629 \u0645\u0635\u063a\u0631\u0629 \u0639\u0627\u0644\u064a\u0629 \u0627\u0644\u062f\u0642\u0629"
+        "message": "صورة مصغرة عالية الدقة"
     },
     "hdThumbnails": {
-        "message": "\u0635\u0648\u0631 \u0645\u0635\u063a\u0631\u0629 \u0639\u0627\u0644\u064a\u0629 \u0627\u0644\u062f\u0642\u0629"
+        "message": "صور مصغرة عالية الدقة"
     },
     "header": {
-        "message": "\u0627\u0644\u062c\u0632\u0621 \u0627\u0644\u0639\u0644\u0648\u064a"
+        "message": "الجزء العلوي"
     },
     "hidden": {
-        "message": "\u0645\u062e\u0641\u064a"
+        "message": "مخفي"
     },
     "hiddenOnVideoPage": {
-        "message": "\u0645\u062e\u0641\u064a \u0639\u0644\u0649 \u0635\u0641\u062d\u0629 \u0627\u0644\u0641\u064a\u062f\u064a\u0648"
+        "message": "مخفي على صفحة الفيديو"
     },
     "hideAnimatedThumbnails": {
-        "message": "\u0625\u062e\u0641\u0627\u0621 \u0627\u0644\u0635\u0648\u0631 \u0627\u0644\u0645\u0635\u063a\u0631\u0629 \u0627\u0644\u0645\u062a\u062d\u0631\u0643\u0629"
+        "message": "إخفاء الصور المصغرة المتحركة"
     },
     "hideAnnotations": {
-        "message": "\u0625\u062e\u0641\u0627\u0621 \u0627\u0644\u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0627\u0644\u062a\u0648\u0636\u064a\u062d\u064a\u0629"
+        "message": "إخفاء التعليقات التوضيحية"
     },
     "hideCards": {
-        "message": "\u0625\u062e\u0641\u0627\u0621 \u0627\u0644\u0628\u0637\u0627\u0642\u0627\u062a"
+        "message": "إخفاء البطاقات"
     },
     "hideDetails": {
-        "message": "\u0625\u062e\u0641\u0627\u0621 \u0627\u0644\u062a\u0641\u0627\u0635\u064a\u0644"
+        "message": "إخفاء التفاصيل"
     },
     "hideEndscreen": {
-        "message": "\u0625\u062e\u0641\u0627\u0621 \u0634\u0627\u0634\u0629 \u0627\u0644\u0646\u0647\u0627\u064a\u0629"
+        "message": "إخفاء شاشة النهاية"
     },
     "hideFeaturedContent": {
-        "message": "\u0625\u062e\u0641\u0627\u0621 \u0627\u0644\u0645\u062d\u062a\u0648\u0649 \u0627\u0644\u0645\u0645\u064a\u0632"
+        "message": "إخفاء المحتوى المميز"
     },
     "hideFooter": {
-        "message": "\u0625\u062e\u0641\u0627\u0621 \u0627\u0644\u062c\u0632\u0621 \u0627\u0644\u0633\u0641\u0644\u064a"
+        "message": "إخفاء الجزء السفلي"
     },
     "hideGradientBottom": {
-        "message": "\u0625\u062e\u0641\u0627\u0621 \u0627\u0644\u062a\u062f\u0631\u062c \u0627\u0644\u0623\u0633\u0648\u062f \u0627\u0644\u0633\u0641\u0644\u064a"
+        "message": "إخفاء التدرج الأسود السفلي"
     },
     "hidePlaylist": {
-        "message": "\u0625\u062e\u0641\u0627\u0621 \u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u062a\u0634\u063a\u064a\u0644"
+        "message": "إخفاء قائمة التشغيل"
     },
     "hideRightButtons": {
-        "message": "\u0625\u062e\u0641\u0627\u0621 \u0627\u0644\u0623\u0632\u0631\u0627\u0631 \u0627\u0644\u064a\u0633\u0631\u0649"
+        "message": "إخفاء الأزرار اليسرى"
     },
     "hideScrollForDetails": {
-        "message": "\u00ab\u0625\u062e\u0641\u0627\u0621 \u00ab\u0627\u0644\u062a\u0645\u0631\u064a\u0631 \u0644\u0644\u062d\u0635\u0648\u0644 \u0639\u0644\u0649 \u0627\u0644\u062a\u0641\u0627\u0635\u064a\u0644"
+        "message": "«إخفاء «التمرير للحصول على التفاصيل"
     },
     "hideViewsCount": {
-        "message": "\u0625\u062e\u0641\u0627\u0621 \u0639\u062f\u062f \u0627\u0644\u0645\u0634\u0627\u0647\u062f\u0627\u062a"
+        "message": "إخفاء عدد المشاهدات"
     },
     "history": {
-        "message": "\u0627\u0644\u0633\u062c\u0644\u0651"
+        "message": "السجلّ"
     },
     "home": {
-        "message": "\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629"
+        "message": "الصفحة الرئيسية"
     },
     "hover": {
-        "message": "\u062a\u0645\u0631\u064a\u0631"
+        "message": "تمرير"
     },
     "hoverOnVideoPage": {
-        "message": "\u062a\u0645\u0631\u064a\u0631 \u0641\u0648\u0642 \u0635\u0641\u062d\u0629 \u0627\u0644\u0641\u064a\u062f\u064a\u0648"
+        "message": "تمرير فوق صفحة الفيديو"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "\u0645\u0646\u0630 \u0645\u062a\u0649 \u062a\u0645 \u062a\u062d\u0645\u064a\u0644 \u0627\u0644\u0641\u064a\u062f\u064a\u0648"
+        "message": "منذ متى تم تحميل الفيديو"
     },
     "icons": {
-        "message": "\u0623\u064a\u0642\u0648\u0646\u0627\u062a"
+        "message": "أيقونات"
     },
     "iconsOnly": {
-        "message": "\u0623\u064a\u0642\u0648\u0646\u0627\u062a \u0641\u0642\u0637"
+        "message": "أيقونات فقط"
     },
     "importSettings": {
-        "message": "\u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0627\u0644\u0627\u0639\u062f\u0627\u062f\u0627\u062a"
+        "message": "استيراد الاعدادات"
     },
     "improveLogo": {
-        "message": "\u062a\u062d\u0633\u064a\u0646 \u0627\u0644\u0634\u0639\u0627\u0631"
+        "message": "تحسين الشعار"
     },
     "improvedtubeIconInBrowser": {
-        "message": "\u0641\u064a \u0627\u0644\u0645\u062a\u0635\u0641\u062d ImprovedTube \u0627\u064a\u0642\u0648\u0646\u0629"
+        "message": "في المتصفح ImprovedTube ايقونة"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "\u0641\u064a \u0627\u0644\u064a\u0648\u062a\u064a\u0648\u0628 ImprovedTube \u0627\u064a\u0642\u0648\u0646\u0629"
+        "message": "في اليوتيوب ImprovedTube ايقونة"
     },
     "improvedtubeLanguage": {
-        "message": "ImprovedTube \u0644\u063a\u0629"
+        "message": "ImprovedTube لغة"
     },
     "improvedtubeVersion": {
-        "message": "ImprovedTube \u0627\u0635\u062f\u0627\u0631"
+        "message": "ImprovedTube اصدار"
     },
     "increasePlaybackSpeed": {
-        "message": "\u0632\u064a\u0627\u062f\u0629 \u0633\u0631\u0639\u0629 \u0627\u0644\u062a\u0634\u063a\u064a\u0644"
+        "message": "زيادة سرعة التشغيل"
     },
     "increaseVolume5": {
-        "message": "5% \u0632\u064a\u0627\u062f\u0629 \u0627\u0644\u0635\u0648\u062a"
+        "message": "5% زيادة الصوت"
     },
     "indigo": {
-        "message": "\u0646\u064a\u0644\u064a"
+        "message": "نيلي"
     },
     "items": {
-        "message": "\u0627\u0644\u0639\u0646\u0627\u0635\u0631"
+        "message": "العناصر"
     },
     "languages": {
-        "message": "\u0627\u0644\u0644\u063a\u0627\u062a"
+        "message": "اللغات"
     },
     "legacyYoutube": {
-        "message": "\u0627\u0644\u064a\u0648\u062a\u064a\u0648\u0628 \u0627\u0644\u0642\u062f\u064a\u0645"
+        "message": "اليوتيوب القديم"
     },
     "light": {
-        "message": "\u0636\u0648\u0621"
+        "message": "ضوء"
     },
     "lightBlue": {
-        "message": "\u0623\u0632\u0631\u0642 \u0641\u0627\u062a\u062d"
+        "message": "أزرق فاتح"
     },
     "lightGreen": {
-        "message": "\u0627\u062e\u0636\u0631 \u0641\u0627\u062a\u062d"
+        "message": "اخضر فاتح"
     },
     "like": {
-        "message": "\u0627\u0639\u062d\u0628\u0646\u064a"
+        "message": "اعحبني"
     },
     "likes": {
-        "message": "\u0627\u0644\u0625\u0639\u062c\u0627\u0628\u0627\u062a"
+        "message": "الإعجابات"
     },
     "lime": {
-        "message": "\u062c\u064a\u0631"
+        "message": "جير"
     },
     "list": {
-        "message": "\u0642\u0627\u0626\u0645\u0629"
+        "message": "قائمة"
     },
     "liveChat": {
-        "message": "\u0645\u062d\u0627\u062f\u062b\u0629 \u0645\u0628\u0627\u0634\u0631\u0629"
+        "message": "محادثة مباشرة"
     },
     "liveChatType": {
-        "message": "\u0646\u0648\u0639 \u0627\u0644\u0645\u062d\u0627\u062f\u062b\u0629 \u0645\u0628\u0627\u0634\u0631\u0629"
+        "message": "نوع المحادثة مباشرة"
     },
     "loudnessNormalization": {
-        "message": "\u062a\u0637\u0628\u064a\u0639 \u0627\u0644\u0625\u0632\u0639\u0627\u062c"
+        "message": "تطبيع الإزعاج"
     },
     "markWatchedVideos": {
-        "message": "\u0627\u0644\u062a\u0639\u0644\u064a\u0645 \u0639\u0644\u0649 \u0627\u0644\u0641\u064a\u062f\u064a\u0648 \u0627\u0644\u0645\u0634\u0627\u0647\u062f"
+        "message": "التعليم على الفيديو المشاهد"
     },
     "mixer": {
-        "message": "\u0645\u0647\u0646\u062f\u0633 \u0627\u0644\u0635\u0648\u062a"
+        "message": "مهندس الصوت"
     },
     "myColors": {
-        "message": "\u0623\u0644\u0648\u0627\u0646\u064a"
+        "message": "ألواني"
     },
     "name": {
-        "message": "\u0627\u0644\u0627\u0633\u0645"
+        "message": "الاسم"
     },
     "nativeMiniPlayer": {
-        "message": "\u0627\u0644\u0645\u0634\u063a\u0644 \u0627\u0644\u0627\u0641\u062a\u0631\u0627\u0636\u064a \u0627\u0644\u0635\u063a\u064a\u0631"
+        "message": "المشغل الافتراضي الصغير"
     },
     "new": {
-        "message": "\u062c\u062f\u064a\u062f"
+        "message": "جديد"
     },
     "nextVideo": {
-        "message": "\u0627\u0644\u0641\u064a\u062f\u064a\u0648 \u0627\u0644\u062a\u0627\u0644\u064a"
+        "message": "الفيديو التالي"
     },
     "night": {
-        "message": "\u0644\u064a\u0644"
+        "message": "ليل"
     },
     "noActiveFeatures": {
-        "message": "\u0644\u0627 \u064a\u0648\u062c\u062f \u0645\u064a\u0632\u0627\u062a \u0646\u0634\u0637\u0629"
+        "message": "لا يوجد ميزات نشطة"
     },
     "noOpenVideoTabs": {
-        "message": "\u0644\u0627 \u062a\u0648\u062c\u062f \u0639\u0644\u0627\u0645\u0627\u062a \u062a\u0628\u0648\u064a\u0628 \u0641\u064a\u062f\u064a\u0648 \u0645\u0641\u062a\u0648\u062d\u0629"
+        "message": "لا توجد علامات تبويب فيديو مفتوحة"
     },
     "none": {
-        "message": "\u0644\u0627\u0634\u064a\u0621"
+        "message": "لاشيء"
     },
     "normal": {
-        "message": "\u0639\u0627\u062f\u064a"
+        "message": "عادي"
     },
     "old": {
-        "message": "\u0642\u062f\u064a\u0645"
+        "message": "قديم"
     },
     "onAllVideos": {
-        "message": "\u0639\u0644\u0649 \u062c\u0645\u064a\u0639 \u0645\u0642\u0627\u0637\u0639 \u0627\u0644\u0641\u064a\u062f\u064a\u0648"
+        "message": "على جميع مقاطع الفيديو"
     },
     "onSubscribedChannels": {
-        "message": "\u0639\u0644\u0649 \u0627\u0644\u0642\u0646\u0648\u0627\u062a \u0627\u0644\u0645\u0634\u062a\u0631\u0643\u0629"
+        "message": "على القنوات المشتركة"
     },
     "onlyActiveOnYoutube": {
-        "message": "\u0646\u0634\u0637 \u0641\u0642\u0637 \u0639\u0644\u0649 \u0627\u0644\u064a\u0648\u062a\u064a\u0648\u0628"
+        "message": "نشط فقط على اليوتيوب"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "\u062a\u0634\u063a\u064a\u0644 \u0645\u0634\u063a\u0644 \u0648\u0627\u062d\u062f \u0641\u0642\u0637"
+        "message": "تشغيل مشغل واحد فقط"
     },
     "orange": {
-        "message": "\u0628\u0631\u062a\u0642\u0627\u0644\u064a"
+        "message": "برتقالي"
     },
     "os": {
-        "message": "\u0646\u0638\u0627\u0645 \u0627\u0644\u062a\u0634\u063a\u064a\u0644"
+        "message": "نظام التشغيل"
     },
     "other": {
-        "message": "\u0622\u062e\u0631"
+        "message": "آخر"
     },
     "permissions": {
-        "message": "\u0627\u0644\u0623\u0630\u0648\u0646\u0627\u062a"
+        "message": "الأذونات"
     },
     "pictureInPicture": {
-        "message": "\u0641\u064a\u062f\u064a\u0648 \u0639\u0627\u0626\u0645"
+        "message": "فيديو عائم"
     },
     "pink": {
-        "message": "\u0632\u0647\u0631\u064a"
+        "message": "زهري"
     },
     "plain": {
-        "message": "\u0639\u0627\u062f\u064a"
+        "message": "عادي"
     },
     "platform": {
-        "message": "\u0627\u0644\u0645\u0646\u0635\u0629"
+        "message": "المنصة"
     },
     "playPause": {
-        "message": "\u062a\u0634\u063a\u064a\u0644 / \u0627\u064a\u0642\u0627\u0641"
+        "message": "تشغيل / ايقاف"
     },
     "playbackSpeed": {
-        "message": "\u0633\u0631\u0639\u0629 \u0627\u0644\u062a\u0634\u063a\u064a\u0644"
+        "message": "سرعة التشغيل"
     },
     "player": {
-        "message": "\u0627\u0644\u0645\u0634\u063a\u0644"
+        "message": "المشغل"
     },
     "playerColor": {
-        "message": "\u0644\u0648\u0646 \u0627\u0644\u0645\u0634\u063a\u0644"
+        "message": "لون المشغل"
     },
     "playerSize": {
-        "message": "\u062d\u062c\u0645 \u0627\u0644\u0645\u0634\u063a\u0644"
+        "message": "حجم المشغل"
     },
     "playlist": {
-        "message": "\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u062a\u0634\u063a\u064a\u0644"
+        "message": "قائمة التشغيل"
     },
     "playlists": {
-        "message": "\u0642\u0648\u0627\u0626\u0645 \u0627\u0644\u062a\u0634\u063a\u064a\u0644"
+        "message": "قوائم التشغيل"
     },
     "popupPlayer": {
-        "message": "\u0645\u0634\u0641\u0644 \u0645\u0646\u0628\u062b\u0642"
+        "message": "مشفل منبثق"
     },
     "position": {
-        "message": "\u0627\u0644\u062a\u0645\u0648\u0636\u0639"
+        "message": "التموضع"
     },
     "pressAnyKeyOrScroll": {
-        "message": ".\u0627\u0636\u063a\u0637 \u0639\u0644\u0649 \u0623\u064a \u0645\u0641\u062a\u0627\u062d \u0623\u0648 \u0627\u0633\u062a\u062e\u062f\u0645 \u0639\u062c\u0644\u0629 \u0627\u0644\u0645\u0627\u0648\u0633"
+        "message": ".اضغط على أي مفتاح أو استخدم عجلة الماوس"
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "\u0627\u0636\u063a\u0637 \u0639\u0644\u0649 \u0623\u064a \u0645\u0641\u062a\u0627\u062d \u0623\u0648 \u0627\u0633\u062a\u062e\u062f\u0645 \u0639\u062c\u0644\u0629 \u0627\u0644\u0645\u0627\u0648\u0633"
+        "message": "اضغط على أي مفتاح أو استخدم عجلة الماوس"
     },
     "previousVideo": {
-        "message": "\u0627\u0644\u0641\u064a\u062f\u064a\u0648 \u0627\u0644\u0633\u0627\u0628\u0642"
+        "message": "الفيديو السابق"
     },
     "primaryColor": {
-        "message": "\u0627\u0644\u0644\u0648\u0646 \u0627\u0644\u0623\u0635\u0644\u064a"
+        "message": "اللون الأصلي"
     },
     "purple": {
-        "message": "\u0623\u0631\u062c\u0648\u0627\u0646\u064a"
+        "message": "أرجواني"
     },
     "quality": {
-        "message": "\u0627\u0644\u062c\u0648\u062f\u0629"
+        "message": "الجودة"
     },
     "ram": {
-        "message": "\u0627\u0644\u0630\u0627\u0643\u0631\u0629 \u0627\u0644\u0639\u0634\u0648\u0627\u0626\u064a\u0629"
+        "message": "الذاكرة العشوائية"
     },
     "rateUs": {
-        "message": "\u0642\u064a\u0645\u0646\u0627"
+        "message": "قيمنا"
     },
     "red": {
-        "message": "\u0627\u062d\u0645\u0631"
+        "message": "احمر"
     },
     "redDislikeButton": {
-        "message": "\u0625\u0638\u0647\u0627\u0631 \u0632\u0631 \u0644\u0645 \u064a\u0639\u062c\u0628\u0646\u064a \u0628\u0627\u0644\u0644\u0648\u0646 \u0627\u0644\u0623\u062d\u0645\u0631"
+        "message": "إظهار زر لم يعجبني باللون الأحمر"
     },
     "relatedVideos": {
-        "message": "\u0641\u064a\u062f\u064a\u0648\u0647\u0627\u062a \u0630\u0627\u062a \u0639\u0644\u0627\u0642\u0629"
+        "message": "فيديوهات ذات علاقة"
     },
     "removeRelatedSearchResults": {
-        "message": "\u0625\u0632\u0627\u0644\u0629 \u0639\u0645\u0644\u064a\u0627\u062a \u0628\u062d\u062b \u0645\u0631\u062a\u0628\u0637\u0629 \u0628\u0640"
+        "message": "إزالة عمليات بحث مرتبطة بـ"
     },
     "repeat": {
-        "message": "\u062a\u0643\u0631\u0627\u0631"
+        "message": "تكرار"
     },
     "reset": {
-        "message": "\u0625\u0639\u0627\u062f\u0629 \u062a\u0639\u064a\u064a\u0646"
+        "message": "إعادة تعيين"
     },
     "resetAllSettings": {
-        "message": "\u0625\u0639\u0627\u062f\u0629 \u062a\u0639\u064a\u064a\u0646 \u0643\u0627\u0641\u0629 \u0627\u0644\u0625\u0639\u062f\u0627\u062f\u0627\u062a"
+        "message": "إعادة تعيين كافة الإعدادات"
     },
     "resetAllShortcuts": {
-        "message": "\u0625\u0639\u0627\u062f\u0629 \u062a\u0639\u064a\u064a\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0627\u062e\u062a\u0635\u0627\u0631\u0627\u062a"
+        "message": "إعادة تعيين جميع الاختصارات"
     },
     "reverse": {
-        "message": "\u0639\u0643\u0633"
+        "message": "عكس"
     },
     "rotate": {
-        "message": "\u0627\u0633\u062a\u062f\u0627\u0631\u0629"
+        "message": "استدارة"
     },
     "save": {
-        "message": "\u062d\u0641\u0638"
+        "message": "حفظ"
     },
     "saveAs": {
-        "message": "\u062d\u0641\u0638 \u0628\u0627\u0633\u0645"
+        "message": "حفظ باسم"
     },
     "schedule": {
-        "message": "\u062c\u062f\u0648\u0644\u0647"
+        "message": "جدوله"
     },
     "screen": {
-        "message": "\u0627\u0644\u0634\u0627\u0634\u0629"
+        "message": "الشاشة"
     },
     "screenshot": {
-        "message": "\u0644\u0642\u0637\u0629 \u0634\u0627\u0634\u0629"
+        "message": "لقطة شاشة"
     },
     "search": {
-        "message": "\u0628\u062d\u062b"
+        "message": "بحث"
     },
     "searchBarOnly": {
-        "message": "\u0634\u0631\u064a\u0637 \u0627\u0644\u0628\u062d\u062b \u0641\u0642\u0637"
+        "message": "شريط البحث فقط"
     },
     "seekBackward10Seconds": {
-        "message": "\u0625\u0631\u062c\u0627\u0639 \u0628\u0645\u0642\u062f\u0627\u0631 10 \u062b\u0648\u0627\u0646\u064d"
+        "message": "إرجاع بمقدار 10 ثوانٍ"
     },
     "seekForward10Seconds": {
-        "message": "\u062a\u0642\u062f\u064a\u0645 10 \u062b\u0648\u0627\u0646\u064d \u0625\u0644\u0649 \u0627\u0644\u0623\u0645\u0627\u0645"
+        "message": "تقديم 10 ثوانٍ إلى الأمام"
     },
     "settings": {
-        "message": "\u0627\u0644\u0625\u0639\u062f\u0627\u062f\u0627\u062a"
+        "message": "الإعدادات"
     },
     "settingsSuccessfullyImported": {
-        "message": "\u062a\u0645 \u0627\u0633\u062a\u064a\u0631\u0627\u062f \u0627\u0644\u0625\u0639\u062f\u0627\u062f\u0627\u062a \u0628\u0646\u062c\u0627\u062d"
+        "message": "تم استيراد الإعدادات بنجاح"
     },
     "shortcuts": {
-        "message": "\u0627\u062e\u062a\u0635\u0627\u0631\u0627\u062a"
+        "message": "اختصارات"
     },
     "showCardsOnMouseHover": {
-        "message": "\u0639\u0631\u0636 \u0627\u0644\u0628\u0637\u0627\u0642\u0627\u062a \u0639\u0646\u062f \u062a\u0645\u0631\u064a\u0631 \u0627\u0644\u0645\u0627\u0648\u0633"
+        "message": "عرض البطاقات عند تمرير الماوس"
     },
     "showChannelVideosCount": {
-        "message": "\u0625\u0638\u0647\u0627\u0631 \u0639\u062f\u062f \u0645\u0642\u0627\u0637\u0639 \u0627\u0644\u0641\u064a\u062f\u064a\u0648 \u0644\u0644\u0642\u0646\u0627\u0629"
+        "message": "إظهار عدد مقاطع الفيديو للقناة"
     },
     "shuffle": {
-        "message": "\u0639\u0634\u0648\u0627\u0626\u064a"
+        "message": "عشوائي"
     },
     "sidebar": {
-        "message": "\u0627\u0644\u0634\u0631\u064a\u0637 \u0627\u0644\u062c\u0627\u0646\u0628\u064a"
+        "message": "الشريط الجانبي"
     },
     "spacebar": {
-        "message": "\u0645\u0641\u062a\u0627\u062d \u0627\u0644\u0645\u0633\u0627\u0641\u0629"
+        "message": "مفتاح المسافة"
     },
     "squaredUserImages": {
-        "message": "\u0635\u0648\u0631 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\u064a\u0646 \u0645\u0631\u0628\u0639\u0629"
+        "message": "صور المستخدمين مربعة"
     },
     "static": {
-        "message": "\u062b\u0627\u0628\u062a"
+        "message": "ثابت"
     },
     "statsForNerds": {
-        "message": "\u0639\u0631\u0636 \u0627\u0644\u0625\u062d\u0635\u0627\u0621\u0627\u062a \u0627\u0644\u0645\u0641\u0635\u0644\u0629"
+        "message": "عرض الإحصاءات المفصلة"
     },
     "step": {
-        "message": "\u062e\u0637\u0648\u0629"
+        "message": "خطوة"
     },
     "stop": {
-        "message": "\u0627\u064a\u0642\u0627\u0641"
+        "message": "ايقاف"
     },
     "style": {
-        "message": "\u0646\u0645\u0637"
+        "message": "نمط"
     },
     "styles": {
-        "message": "\u0627\u0644\u0623\u0646\u0645\u0627\u0637"
+        "message": "الأنماط"
     },
     "subscriptions": {
-        "message": "\u0627\u0644\u0627\u0634\u062a\u0631\u0627\u0643\u0627\u062a"
+        "message": "الاشتراكات"
     },
     "subtitles": {
-        "message": "\u0627\u0644\u062a\u0631\u062c\u0645\u0627\u062a"
+        "message": "الترجمات"
     },
     "sunset": {
-        "message": "\u063a\u0631\u0648\u0628 \u0627\u0644\u0634\u0645\u0633"
+        "message": "غروب الشمس"
     },
     "sunsetToSunrise": {
-        "message": "\u0645\u0646 \u063a\u0631\u0648\u0628 \u0627\u0644\u0634\u0645\u0633 \u0625\u0644\u0649 \u0634\u0631\u0648\u0642\u0647\u0627"
+        "message": "من غروب الشمس إلى شروقها"
     },
     "systemPeferenceDark": {
-        "message": "\u062a\u0641\u0636\u064a\u0644 \u0627\u0644\u0646\u0638\u0627\u0645: \u062f\u0627\u0643\u0646"
+        "message": "تفضيل النظام: داكن"
     },
     "systemPeferenceLight": {
-        "message": "\u062a\u0641\u0636\u064a\u0644 \u0627\u0644\u0646\u0638\u0627\u0645: \u0641\u0627\u062a\u062d"
+        "message": "تفضيل النظام: فاتح"
     },
     "teal": {
-        "message": "\u0623\u0632\u0631\u0642 \u0645\u062e\u0636\u0631"
+        "message": "أزرق مخضر"
     },
     "textColor": {
-        "message": "\u0644\u0648\u0646 \u0627\u0644\u0646\u0635"
+        "message": "لون النص"
     },
     "themes": {
-        "message": "\u0627\u0644\u0645\u0638\u0627\u0647\u0631"
+        "message": "المظاهر"
     },
     "thisWillRemoveAllCookies": {
-        "message": ".\u0633\u064a\u0624\u062f\u064a \u0647\u0630\u0627 \u0625\u0644\u0649 \u0625\u0632\u0627\u0644\u0629 \u0643\u0627\u0641\u0629 \u0645\u0644\u0641\u0627\u062a \u062a\u0639\u0631\u064a\u0641 \u0627\u0644\u0627\u0631\u062a\u0628\u0627\u0637"
+        "message": ".سيؤدي هذا إلى إزالة كافة ملفات تعريف الارتباط"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "\u0633\u064a\u0624\u062f\u064a \u0647\u0630\u0627 \u0625\u0644\u0649 \u0625\u0632\u0627\u0644\u0629 \u062c\u0645\u064a\u0639 \u0645\u0644\u0641\u0627\u062a \u062a\u0639\u0631\u064a\u0641 \u0627\u0631\u062a\u0628\u0627\u0637 \u0627\u0644\u064a\u0648\u062a\u064a\u0648\u0628"
+        "message": "سيؤدي هذا إلى إزالة جميع ملفات تعريف ارتباط اليوتيوب"
     },
     "thisWillResetAllSettings": {
-        "message": ".\u0633\u064a\u0624\u062f\u064a \u0647\u0630\u0627 \u0625\u0644\u0649 \u0625\u0639\u0627\u062f\u0629 \u062a\u0639\u064a\u064a\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0625\u0639\u062f\u0627\u062f\u0627\u062a"
+        "message": ".سيؤدي هذا إلى إعادة تعيين جميع الإعدادات"
     },
     "thisWillResetAllShortcuts": {
-        "message": "\u0633\u064a\u0624\u062f\u064a \u0647\u0630\u0627 \u0625\u0644\u0649 \u0625\u0639\u0627\u062f\u0629 \u062a\u0639\u064a\u064a\u0646 \u062c\u0645\u064a\u0639 \u0627\u0644\u0627\u062e\u062a\u0635\u0627\u0631\u0627\u062a"
+        "message": "سيؤدي هذا إلى إعادة تعيين جميع الاختصارات"
     },
     "thumbnails": {
-        "message": "\u0627\u0644\u0635\u0648\u0631 \u0627\u0644\u0645\u0635\u063a\u0631\u0629"
+        "message": "الصور المصغرة"
     },
     "timeFrom": {
-        "message": "\u0627\u0644\u0648\u0642\u062a \u0645\u0646"
+        "message": "الوقت من"
     },
     "timeTo": {
-        "message": "\u0648\u0642\u062a \u0644"
+        "message": "وقت ل"
     },
     "todayAt": {
-        "message": "\u0627\u0644\u064a\u0648\u0645 \u0639\u0646\u062f \u0627\u0644\u0633\u0627\u0639\u0629"
+        "message": "اليوم عند الساعة"
     },
     "toggleCards": {
-        "message": "\u062a\u0628\u062f\u064a\u0644 \u0648\u0636\u0639 \u0627\u0644\u0628\u0637\u0627\u0642\u0627\u062a"
+        "message": "تبديل وضع البطاقات"
     },
     "topChat": {
-        "message": "\u0631\u0633\u0627\u0626\u0644 \u0627\u0644\u0645\u062d\u0627\u062f\u062b\u0629 \u0627\u0644\u0647\u0627\u0645\u0651\u0629"
+        "message": "رسائل المحادثة الهامّة"
     },
     "trailerAutoplay": {
-        "message": "\u0627\u0644\u062a\u0634\u063a\u064a\u0644 \u0627\u0644\u062a\u0644\u0642\u0627\u0626\u064a \u0644\u0644\u0641\u064a\u062f\u064a\u0648 \u0627\u0644\u062f\u0639\u0627\u0626\u064a"
+        "message": "التشغيل التلقائي للفيديو الدعائي"
     },
     "translations": {
-        "message": "\u0627\u0644\u062a\u0631\u062c\u0645\u0627\u062a"
+        "message": "الترجمات"
     },
     "transparentBackground": {
-        "message": "\u062e\u0644\u0641\u064a\u0629 \u0634\u0641\u0627\u0641\u0629"
+        "message": "خلفية شفافة"
     },
     "trending": {
-        "message": "\u0627\u0644\u0645\u062d\u062a\u0648\u0649 \u0627\u0644\u0631\u0627\u0626\u062c"
+        "message": "المحتوى الرائج"
     },
     "tryToReloadThePage": {
-        "message": "\u062d\u0627\u0648\u0644 \u0625\u0639\u0627\u062f\u0629 \u062a\u062d\u0645\u064a\u0644 \u0627\u0644\u0635\u0641\u062d\u0629"
+        "message": "حاول إعادة تحميل الصفحة"
     },
     "type": {
-        "message": "\u0627\u0644\u0646\u0648\u0639"
+        "message": "النوع"
     },
     "upNextAutoplay": {
-        "message": "\u062a\u0634\u063a\u064a\u0644 \u0627\u0644\u062a\u0627\u0644\u064a \u062a\u0644\u0642\u0627\u0626\u064a\u0627"
+        "message": "تشغيل التالي تلقائيا"
     },
     "use24HourFormat": {
-        "message": "\u0627\u0633\u062a\u062e\u062f\u0645 \u062a\u0646\u0633\u064a\u0642 24 \u0633\u0627\u0639\u0629"
+        "message": "استخدم تنسيق 24 ساعة"
     },
     "version": {
-        "message": "\u0627\u0644\u0625\u0635\u062f\u0627\u0631"
+        "message": "الإصدار"
     },
     "video": {
-        "message": "\u0627\u0644\u0641\u064a\u062f\u064a\u0648"
+        "message": "الفيديو"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "\u0633\u064a\u062a\u0645 \u062a\u0648\u0633\u064a\u0639 \u0648\u0635\u0641 \u0627\u0644\u0641\u064a\u062f\u064a\u0648 \u0644\u0644\u062d\u0635\u0648\u0644 \u0639\u0644\u0649 \u0627\u0633\u0645 \u0627\u0644\u0641\u0626\u0629"
+        "message": "سيتم توسيع وصف الفيديو للحصول على اسم الفئة"
     },
     "videoFormats": {
-        "message": "\u062a\u0646\u0633\u064a\u0642\u0627\u062a \u0627\u0644\u0641\u064a\u062f\u064a\u0648"
+        "message": "تنسيقات الفيديو"
     },
     "videos": {
-        "message": "\u0627\u0644\u0641\u064a\u062f\u064a\u0648\u0647\u0627\u062a"
+        "message": "الفيديوهات"
     },
     "volume": {
-        "message": "\u0627\u0644\u0635\u0648\u062a"
+        "message": "الصوت"
     },
     "watchLater": {
-        "message": "\u0627\u0644\u0645\u0634\u0627\u0647\u062f\u0629 \u0644\u0627\u062d\u0642\u0627"
+        "message": "المشاهدة لاحقا"
     },
     "watchTime": {
-        "message": "\u0648\u0642\u062a \u0627\u0644\u0645\u0634\u0627\u0647\u062f\u0629"
+        "message": "وقت المشاهدة"
     },
     "whenTabIsChanged": {
-        "message": "\u0639\u0646\u062f\u0645\u0627 \u064a\u062a\u0645 \u062a\u063a\u064a\u064a\u0631 \u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u062a\u0628\u0648\u064a\u0628"
+        "message": "عندما يتم تغيير علامة التبويب"
     },
     "white": {
-        "message": "\u0623\u0628\u064a\u0636"
+        "message": "أبيض"
     },
     "yellow": {
-        "message": "\u0623\u0635\u0641\u0631"
+        "message": "أصفر"
     },
     "youtubeHeaderLeft": {
-        "message": "\u062c\u0632\u0621 \u0627\u0644\u064a\u0648\u062a\u064a\u0648\u0628 \u0627\u0644\u0639\u0644\u0648\u064a  (\u064a\u0633\u0627\u0631) "
+        "message": "جزء اليوتيوب العلوي  (يسار) "
     },
     "youtubeHeaderRight": {
-        "message": "\u062c\u0632\u0621 \u0627\u0644\u064a\u0648\u062a\u064a\u0648\u0628 \u0627\u0644\u0639\u0644\u0648\u064a (\u064a\u0645\u064a\u0646)"
+        "message": "جزء اليوتيوب العلوي (يمين)"
     },
     "youtubeHomePage": {
-        "message": "\u0635\u0641\u062d\u0629 \u0627\u0644\u064a\u0648\u062a\u064a\u0648\u0628 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629"
+        "message": "صفحة اليوتيوب الرئيسية"
     },
     "youtubeLanguage": {
-        "message": "\u0644\u063a\u0629 \u0627\u0644\u064a\u0648\u062a\u064a\u0648\u0628"
+        "message": "لغة اليوتيوب"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "h.264 \u064a\u062d\u062f \u0627\u0644\u064a\u0648\u062a\u064a\u0648\u0628 \u0645\u0646 \u062c\u0648\u062f\u0629 \u0627\u0644\u0641\u064a\u062f\u064a\u0648 \u0627\u0644\u0649 \u0661\u0660\u0668\u0660 \u0644\u0640 \u0627\u0644\u062a\u0631\u0645\u064a\u0632"
+        "message": "h.264 يحد اليوتيوب من جودة الفيديو الى ١٠٨٠ لـ الترميز"
     }
 }
