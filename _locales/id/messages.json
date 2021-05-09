@@ -1,15 +1,15 @@
 {
     "ARROWDOWN": {
-        "message": "\u21e9"
+        "message": "⇩"
     },
     "ARROWLEFT": {
-        "message": "\u21e6"
+        "message": "⇦"
     },
     "ARROWRIGHT": {
-        "message": "\u21e8"
+        "message": "⇨"
     },
     "ARROWUP": {
-        "message": "\u21e7"
+        "message": "⇧"
     },
     "__MSG_description__": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
@@ -39,7 +39,7 @@
         "message": "Fitur yang aktif"
     },
     "addScrollToTop": {
-        "message": "Tambah \u00abGulir ke atas\u00bb"
+        "message": "Tambah «Gulir ke atas»"
     },
     "ads": {
         "message": "Tampilkan iklan"
@@ -363,7 +363,7 @@
         "message": "Sembunyikan tombol kanan"
     },
     "hideScrollForDetails": {
-        "message": "Sembunyikan \u00abgulir untuk detail\u00bb"
+        "message": "Sembunyikan «gulir untuk detail»"
     },
     "hideViewsCount": {
         "message": "Sembunyikan jumlah penayangan"

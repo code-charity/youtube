@@ -1,812 +1,812 @@
 {
     "ARROWDOWN": {
-        "message": "\u21e9"
+        "message": "⇩"
     },
     "ARROWLEFT": {
-        "message": "\u21e6"
+        "message": "⇦"
     },
     "ARROWRIGHT": {
-        "message": "\u21e8"
+        "message": "⇨"
     },
     "ARROWUP": {
-        "message": "\u21e7"
+        "message": "⇧"
     },
     "__MSG_description__": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "about": {
-        "message": "\uc815\ubcf4"
+        "message": "정보"
     },
     "accept": {
-        "message": "\ub3d9\uc758"
+        "message": "동의"
     },
     "activate": {
-        "message": "\ud65c\uc131\ud654"
+        "message": "활성화"
     },
     "activateCaptions": {
-        "message": "\uc790\ub9c9 \ud65c\uc131\ud654"
+        "message": "자막 활성화"
     },
     "activateFullscreen": {
-        "message": "\uc804\uccb4\ud654\uba74 \ud65c\uc131\ud654"
+        "message": "전체화면 활성화"
     },
     "activated": {
-        "message": "\ud65c\uc131\ud654\ub428"
+        "message": "활성화됨"
     },
     "activatedFeatures": {
-        "message": "\ud65c\uc131\ud654\ub41c \uae30\ub2a5"
+        "message": "활성화된 기능"
     },
     "activeFeatures": {
-        "message": "\ud65c\uc131 \uae30\ub2a5"
+        "message": "활성 기능"
     },
     "addScrollToTop": {
-        "message": "<<\ub9e8\uc704\ub85c>> \ucd94\uac00"
+        "message": "<<맨위로>> 추가"
     },
     "ads": {
-        "message": "\uad11\uace0"
+        "message": "광고"
     },
     "all": {
-        "message": "\ubaa8\ub450"
+        "message": "모두"
     },
     "allow": {
-        "message": "\ud5c8\uc6a9"
+        "message": "허용"
     },
     "allow60fps": {
-        "message": "60\uc5d0\ud504\ud53c\uc5d0\uc2a4(fps) \ud5c8\uc6a9"
+        "message": "60에프피에스(fps) 허용"
     },
     "alwaysActive": {
-        "message": "\ud56d\uc0c1 \ud65c\uc131\ud654"
+        "message": "항상 활성화"
     },
     "alwaysShowProgressBar": {
-        "message": "\uc7ac\uc0dd \uc9c4\ud589 \uc0c1\ud0dc \ud56d\uc0c1 \ud45c\uc2dc"
+        "message": "재생 진행 상태 항상 표시"
     },
     "amber": {
-        "message": "\ud638\ubc15\uc0c9"
+        "message": "호박색"
     },
     "analyzer": {
-        "message": "\ubd84\uc11d"
+        "message": "분석"
     },
     "appearance": {
-        "message": "\uc678\uad00"
+        "message": "외관"
     },
     "audio": {
-        "message": "\uc624\ub514\uc624"
+        "message": "오디오"
     },
     "audioFormats": {
-        "message": "\uc624\ub514\uc624 \ud615\uc2dd"
+        "message": "오디오 형식"
     },
     "auto": {
-        "message": "\uc790\ub3d9"
+        "message": "자동"
     },
     "autoFullscreen": {
-        "message": "\uc790\ub3d9 \uc804\uccb4\ud654\uba74"
+        "message": "자동 전체화면"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "\ud0ed\uc804\ud658\uc2dc \uc790\ub3d9 \uc77c\uc2dc\uc815\uc9c0"
+        "message": "탭전환시 자동 일시정지"
     },
     "autoplay": {
-        "message": "\uc790\ub3d9\uc7ac\uc0dd"
+        "message": "자동재생"
     },
     "backupAndReset": {
-        "message": "\ubc31\uc5c5 & \ub9ac\uc14b"
+        "message": "백업 & 리셋"
     },
     "baseOnSystemColorScheme": {
-        "message": "\uc2dc\uc2a4\ud15c \uc0c9 \uad6c\uc131\ud45c \uae30\ubc18"
+        "message": "시스템 색 구성표 기반"
     },
     "belowPlayer": {
-        "message": "\ud50c\ub808\uc774\uc5b4 \uc544\ub798"
+        "message": "플레이어 아래"
     },
     "black": {
-        "message": "\uac80\uc815"
+        "message": "검정"
     },
     "blacklist": {
-        "message": "\ube14\ub799\ub9ac\uc2a4\ud2b8"
+        "message": "블랙리스트"
     },
     "blockAll": {
-        "message": "\ubaa8\ub450 \ucc28\ub2e8"
+        "message": "모두 차단"
     },
     "blue": {
-        "message": "\ud30c\ub791"
+        "message": "파랑"
     },
     "blueGray": {
-        "message": "\ube14\ub8e8\uadf8\ub808\uc774"
+        "message": "블루그레이"
     },
     "bluelight": {
-        "message": "\ube14\ub8e8\ub77c\uc774\ud2b8"
+        "message": "블루라이트"
     },
     "brown": {
-        "message": "\uac08\uc0c9"
+        "message": "갈색"
     },
     "browser": {
-        "message": "\ube0c\ub77c\uc6b0\uc800"
+        "message": "브라우저"
     },
     "browserVersion": {
-        "message": "\ube0c\ub77c\uc6b0\uc800 \ubc84\uc804"
+        "message": "브라우저 버전"
     },
     "bubbles": {
-        "message": "\ubc84\ube14"
+        "message": "버블"
     },
     "bug": {
-        "message": "\ubc84\uadf8"
+        "message": "버그"
     },
     "buttons": {
-        "message": "\ubc84\ud2bc"
+        "message": "버튼"
     },
     "cancel": {
-        "message": "\ucde8\uc18c"
+        "message": "취소"
     },
     "categories": {
-        "message": "\uce74\ud14c\uace0\ub9ac"
+        "message": "카테고리"
     },
     "channel": {
-        "message": "\ucc44\ub110"
+        "message": "채널"
     },
     "channels": {
-        "message": "\ucc44\ub110"
+        "message": "채널"
     },
     "clipboard": {
-        "message": "\ud074\ub9bd\ubcf4\ub4dc"
+        "message": "클립보드"
     },
     "codecH264": {
-        "message": "\ucf54\ub371 h.264"
+        "message": "코덱 h.264"
     },
     "collapseOfSubscriptionSections": {
-        "message": "\uad6c\ub3c5\uc139\uc158 \ucd95\uc18c"
+        "message": "구독섹션 축소"
     },
     "collapsed": {
-        "message": "\ucd95\uc18c\ub428"
+        "message": "축소됨"
     },
     "comments": {
-        "message": "\ub313\uae00"
+        "message": "댓글"
     },
     "confirmationBeforeClosing": {
-        "message": "\ub2eb\uae30\uc804\uc5d0 \ud655\uc778\ud558\uae30"
+        "message": "닫기전에 확인하기"
     },
     "cookies": {
-        "message": "\ucfe0\ud0a4"
+        "message": "쿠키"
     },
     "cores": {
-        "message": "\ucf54\uc5b4"
+        "message": "코어"
     },
     "cropChapterTitles": {
-        "message": "\uc81c\ubaa9 \uc790\ub974\uae30"
+        "message": "제목 자르기"
     },
     "customCss": {
-        "message": "\uc0ac\uc6a9\uc790 \uc9c0\uc815 \uce90\uc2a4\uce90\uc774\ud305 \uc2a4\ud0c0\uc77c \uc2dc\ud2b8(CSS)"
+        "message": "사용자 지정 캐스캐이팅 스타일 시트(CSS)"
     },
     "customJs": {
-        "message": "\uc0ac\uc6a9\uc790 \uc9c0\uc815 \uc790\ubc14\uc2a4\ud06c\ub9bd\ud2b8(JS)"
+        "message": "사용자 지정 자바스크립트(JS)"
     },
     "customMiniPlayer": {
-        "message": "\ucee4\uc2a4\ud140 \ubbf8\ub2c8\ud50c\ub808\uc774\uc5b4"
+        "message": "커스텀 미니플레이어"
     },
     "cyan": {
-        "message": "\uc625\uc0c9"
+        "message": "옥색"
     },
     "dark": {
-        "message": "\ub2e4\ud06c"
+        "message": "다크"
     },
     "darkTheme": {
-        "message": "\ub2e4\ud06c \ud14c\ub9c8"
+        "message": "다크 테마"
     },
     "dateAndTime": {
-        "message": "\ub0a0\uc9dc & \uc2dc\uac04"
+        "message": "날짜 & 시간"
     },
     "dawn": {
-        "message": "\uc11d\uc591"
+        "message": "석양"
     },
     "decreasePlaybackSpeed": {
-        "message": "\ub418\uac10\uae30 \uc18d\ub3c4 \uac10\uc18c"
+        "message": "되감기 속도 감소"
     },
     "decreaseVolume": {
-        "message": "\ubcfc\ub968 \uac10\uc18c"
+        "message": "볼륨 감소"
     },
     "deepOrange": {
-        "message": "\uc9c4\ud55c \uc8fc\ud669"
+        "message": "진한 주황"
     },
     "deepPurple": {
-        "message": "\uc9c4\ud55c \ubcf4\ub77c"
+        "message": "진한 보라"
     },
     "defaultChannelTab": {
-        "message": "\uae30\ubcf8 \ucc44\ub110 \ud0ed"
+        "message": "기본 채널 탭"
     },
     "deleteYoutubeCookies": {
-        "message": "\uc720\ud29c\ube0c \ucfe0\ud0a4 \uc0ad\uc81c"
+        "message": "유튜브 쿠키 삭제"
     },
     "description": {
-        "message": "\uc124\uba85"
+        "message": "설명"
     },
     "desert": {
-        "message": "\uc0ac\ub9c9"
+        "message": "사막"
     },
     "details": {
-        "message": "\uc790\uc138\ud788"
+        "message": "자세히"
     },
     "developerOptions": {
-        "message": "\uac1c\ubc1c\uc790 \uc635\uc158"
+        "message": "개발자 옵션"
     },
     "device": {
-        "message": "\uae30\uae30"
+        "message": "기기"
     },
     "dim": {
-        "message": "\uc5b4\ub461\uac8c"
+        "message": "어둡게"
     },
     "disabled": {
-        "message": "\ube44\ud65c\uc131\ud654"
+        "message": "비활성화"
     },
     "dislike": {
-        "message": "\uc2eb\uc5b4\uc694"
+        "message": "싫어요"
     },
     "doNotChange": {
-        "message": "\ubc14\uafb8\uc9c0 \uc54a\uc74c"
+        "message": "바꾸지 않음"
     },
     "donate": {
-        "message": "\ud6c4\uc6d0\ud558\uae30"
+        "message": "후원하기"
     },
     "draggable": {
-        "message": "\ub4dc\ub798\uadf8 \uac00\ub2a5"
+        "message": "드래그 가능"
     },
     "email": {
-        "message": "\uc774\uba54\uc77c"
+        "message": "이메일"
     },
     "empty": {
-        "message": "\ube44\uc5b4\uc788\uc74c"
+        "message": "비어있음"
     },
     "enabled": {
-        "message": "\ud65c\uc131\ud654"
+        "message": "활성화"
     },
     "enabledForced": {
-        "message": "\ud65c\uc131\ud654 (\uac15\uc81c)"
+        "message": "활성화 (강제)"
     },
     "expanded": {
-        "message": "\ud655\uc7a5"
+        "message": "확장"
     },
     "exportSettings": {
-        "message": "\uc124\uc815 \ub0b4\ubcf4\ub0b4\uae30"
+        "message": "설정 내보내기"
     },
     "extension": {
-        "message": "\ud655\ub300"
+        "message": "확대"
     },
     "file": {
-        "message": "\ud30c\uc77c"
+        "message": "파일"
     },
     "filters": {
-        "message": "\ud544\ud130"
+        "message": "필터"
     },
     "fitToWindow": {
-        "message": "\ucc3d\ud06c\uae30\uc5d0 \ub9de\ucd94\uae30"
+        "message": "창크기에 맞추기"
     },
     "flash": {
-        "message": "\ud50c\ub798\uc2dc"
+        "message": "플래시"
     },
     "font": {
-        "message": "\uae00\uaf34"
+        "message": "글꼴"
     },
     "footer": {
-        "message": "\ud558\ub2e8"
+        "message": "하단"
     },
     "forceSDR": {
         "message": "Force SDR"
     },
     "forcedPlaybackSpeed": {
-        "message": "\ub418\uac10\uae30 \uc18d\ub3c4 \uac15\uc81c\uc124\uc815"
+        "message": "되감기 속도 강제설정"
     },
     "forcedTheaterMode": {
-        "message": "\uac15\uc81c \uc601\ud654\uad00 \ubaa8\ub4dc"
+        "message": "강제 영화관 모드"
     },
     "forcedVolume": {
-        "message": "\ubcfc\ub968 \uac15\uc81c\uc124\uc815"
+        "message": "볼륨 강제설정"
     },
     "foundABug": {
-        "message": "\ubc84\uadf8\uc2e0\uace0"
+        "message": "버그신고"
     },
     "fullWindow": {
-        "message": "\uc804\uccb4 \ud654\uba74"
+        "message": "전체 화면"
     },
     "general": {
-        "message": "\uc77c\ubc18"
+        "message": "일반"
     },
     "github": {
-        "message": "\uae43\ud5c8\ube0c(GitHub)"
+        "message": "깃허브(GitHub)"
     },
     "goToSearchBox": {
-        "message": "\uac80\uc0c9\ucc3d\uc73c\ub85c \uc774\ub3d9"
+        "message": "검색창으로 이동"
     },
     "gpu": {
-        "message": "\uadf8\ub798\ud53d \ucc98\ub9ac \uc7a5\uce58"
+        "message": "그래픽 처리 장치"
     },
     "green": {
-        "message": "\ucd08\ub85d"
+        "message": "초록"
     },
     "hdThumbnail": {
-        "message": "HD \uc378\ub124\uc77c"
+        "message": "HD 썸네일"
     },
     "hdThumbnails": {
-        "message": "HD \uc378\ub124\uc77c"
+        "message": "HD 썸네일"
     },
     "header": {
-        "message": "\ud5e4\ub354"
+        "message": "헤더"
     },
     "hidden": {
-        "message": "\uc228\uae40"
+        "message": "숨김"
     },
     "hiddenOnVideoPage": {
-        "message": "\ube44\ub514\uc624 \ud398\uc774\uc9c0 \uc228\uae30\uae30"
+        "message": "비디오 페이지 숨기기"
     },
     "hideAnimatedThumbnails": {
-        "message": "\uc378\ub124\uc77c \uc560\ub2c8\uba54\uc774\uc158 \uc228\uae30\uae30"
+        "message": "썸네일 애니메이션 숨기기"
     },
     "hideAnnotations": {
-        "message": "\uc124\uba85 \uc228\uae30\uae30"
+        "message": "설명 숨기기"
     },
     "hideCards": {
-        "message": "\uce74\ub4dc \uc228\uae30\uae30"
+        "message": "카드 숨기기"
     },
     "hideDetails": {
-        "message": "\uc0c1\uc138\uc124\uba85 \uc228\uae30\uae30"
+        "message": "상세설명 숨기기"
     },
     "hideEndscreen": {
-        "message": "\uc885\ub8cc\ud6c4 \ud654\uba74 \uc228\uae30\uae30"
+        "message": "종료후 화면 숨기기"
     },
     "hideFeaturedContent": {
-        "message": "\ucd94\ucc9c \uc601\uc0c1 \uc228\uae30\uae30"
+        "message": "추천 영상 숨기기"
     },
     "hideFooter": {
-        "message": "\ud558\ub2e8 \uc228\uae30\uae30"
+        "message": "하단 숨기기"
     },
     "hideGradientBottom": {
-        "message": "\uadf8\ub77c\ub370\uc774\uc158 \ub9e8 \uc544\ub798\ub85c \uc228\uae30\uae30"
+        "message": "그라데이션 맨 아래로 숨기기"
     },
     "hidePlaylist": {
-        "message": "\uc7ac\uc0dd \ubaa9\ub85d \uc228\uae30\uae30"
+        "message": "재생 목록 숨기기"
     },
     "hideRightButtons": {
-        "message": "\uc624\ub978\ucabd \ubc84\ud2bc \uc228\uae30\uae30"
+        "message": "오른쪽 버튼 숨기기"
     },
     "hideScrollForDetails": {
-        "message": "\u00ab\uc2a4\ud06c\ub864 \ud558\uc5ec \uc790\uc138\ud55c \uc124\uba85\u00bb \uc228\uae30\uae30"
+        "message": "«스크롤 하여 자세한 설명» 숨기기"
     },
     "hideViewsCount": {
-        "message": "\uc870\ud68c\uc218 \uc228\uae30\uae30"
+        "message": "조회수 숨기기"
     },
     "history": {
-        "message": "\ud788\uc2a4\ud1a0\ub9ac"
+        "message": "히스토리"
     },
     "home": {
-        "message": "\ud648"
+        "message": "홈"
     },
     "hover": {
-        "message": "\ub744\uc6b0\uae30"
+        "message": "띄우기"
     },
     "hoverOnVideoPage": {
-        "message": "\ube44\ub514\uc624 \ud398\uc774\uc9c0 \ub744\uc6b0\uae30"
+        "message": "비디오 페이지 띄우기"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "\uc5c5\ub85c\ub4dc \uc2dc\uae30"
+        "message": "업로드 시기"
     },
     "icons": {
-        "message": "\uc544\uc774\ucf58"
+        "message": "아이콘"
     },
     "iconsOnly": {
-        "message": "\uc544\uc774\ucf58\ub9cc"
+        "message": "아이콘만"
     },
     "importSettings": {
-        "message": "\uc124\uc815 \ubd88\ub7ec\uc624\uae30"
+        "message": "설정 불러오기"
     },
     "improveLogo": {
-        "message": "\ud5a5\uc0c1\ub41c \ub85c\uace0"
+        "message": "향상된 로고"
     },
     "improvedtubeIconInBrowser": {
-        "message": "\ud5a5\uc0c1\ub41c \ube0c\ub77c\uc6b0\uc800 \uc544\uc774\ucf58"
+        "message": "향상된 브라우저 아이콘"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "\ud5a5\uc0c1\ub41c \uc720\ud29c\ube0c \uc544\uc774\ucf58"
+        "message": "향상된 유튜브 아이콘"
     },
     "improvedtubeLanguage": {
-        "message": "\ud5a5\uc0c1\ub41c \uc720\ud29c\ube0c \uc5b8\uc5b4"
+        "message": "향상된 유튜브 언어"
     },
     "improvedtubeVersion": {
-        "message": "\ud5a5\uc0c1\ub41c \uc720\ud29c\ube0c \ubc84\uc804"
+        "message": "향상된 유튜브 버전"
     },
     "increasePlaybackSpeed": {
-        "message": "\ub418\uac10\uae30 \uc18d\ub3c4 \uc99d\uac00"
+        "message": "되감기 속도 증가"
     },
     "increaseVolume": {
-        "message": "\ubcfc\ub968 \uc99d\uac00"
+        "message": "볼륨 증가"
     },
     "indigo": {
-        "message": "\ub0a8\uc0c9"
+        "message": "남색"
     },
     "items": {
-        "message": "\uc694\uc18c"
+        "message": "요소"
     },
     "languages": {
-        "message": "\uc5b8\uc5b4"
+        "message": "언어"
     },
     "legacyYoutube": {
-        "message": "\ub808\uac70\uc2dc \uc720\ud29c\ube0c"
+        "message": "레거시 유튜브"
     },
     "light": {
-        "message": "\ubc1d\uac8c"
+        "message": "밝게"
     },
     "lightBlue": {
-        "message": "\uc5f0\ud30c\ub791"
+        "message": "연파랑"
     },
     "lightGreen": {
-        "message": "\uc5f0\ucd08\ub85d"
+        "message": "연초록"
     },
     "like": {
-        "message": "\uc88b\uc544\uc694"
+        "message": "좋아요"
     },
     "likes": {
-        "message": "\uc88b\uc544\uc694"
+        "message": "좋아요"
     },
     "lime": {
-        "message": "\ub77c\uc784"
+        "message": "라임"
     },
     "list": {
-        "message": "\ub9ac\uc2a4\ud2b8"
+        "message": "리스트"
     },
     "liveChat": {
-        "message": "\uc2e4\uc2dc\uac04 \ucc44\ud305"
+        "message": "실시간 채팅"
     },
     "liveChatType": {
-        "message": "\uc2e4\uc2dc\uac04 \ucc44\ud305 \uc720\ud615"
+        "message": "실시간 채팅 유형"
     },
     "loudnessNormalization": {
-        "message": "\ubcfc\ub968 \uc790\ub3d9\uc870\uc815"
+        "message": "볼륨 자동조정"
     },
     "markWatchedVideos": {
-        "message": "\uc2dc\uccad\ud55c \uc601\uc0c1 \ud45c\uc2dc"
+        "message": "시청한 영상 표시"
     },
     "mixer": {
-        "message": "\ubbf9\uc11c"
+        "message": "믹서"
     },
     "myColors": {
-        "message": "\ub0b4 \uceec\ub7ec"
+        "message": "내 컬러"
     },
     "name": {
-        "message": "\uc774\ub984"
+        "message": "이름"
     },
     "nativeMiniPlayer": {
-        "message": "\ub124\uc774\ud2f0\ube0c \ubbf8\ub2c8\ud50c\ub808\uc774\uc5b4"
+        "message": "네이티브 미니플레이어"
     },
     "new": {
-        "message": "\uc0c8\ub85c\uc6b4 \uc18c\uc2dd"
+        "message": "새로운 소식"
     },
     "nextVideo": {
-        "message": "\ub2e4\uc74c \uc601\uc0c1"
+        "message": "다음 영상"
     },
     "night": {
-        "message": "\uc800\ub158"
+        "message": "저녘"
     },
     "noActiveFeatures": {
-        "message": "\ud65c\uc131 \uae30\ub2a5 \uc5c6\uc74c"
+        "message": "활성 기능 없음"
     },
     "noOpenVideoTabs": {
-        "message": "\uc5f4\ub9b0 \ube44\ub514\uc624 \ud0ed \uc5c6\uc74c"
+        "message": "열린 비디오 탭 없음"
     },
     "none": {
-        "message": "\uc5c6\uc74c"
+        "message": "없음"
     },
     "normal": {
-        "message": "\uae30\ubcf8"
+        "message": "기본"
     },
     "old": {
-        "message": "\uc624\ub798\ub428"
+        "message": "오래됨"
     },
     "onAllVideos": {
-        "message": "\ubaa8\ub4e0 \ube44\ub514\uc624"
+        "message": "모든 비디오"
     },
     "onSubscribedChannels": {
-        "message": "\uad6c\ub3c5\ud55c \ucc44\ub110"
+        "message": "구독한 채널"
     },
     "onlyActiveOnYoutube": {
-        "message": "\uc720\ud29c\ube0c\ub9cc \ud65c\uc131\ud654"
+        "message": "유튜브만 활성화"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "\ud558\ub098\uc758 \ud50c\ub808\uc774\uc5b4\ub9cc \uc7ac\uc0dd"
+        "message": "하나의 플레이어만 재생"
     },
     "orange": {
-        "message": "\uc8fc\ud669"
+        "message": "주황"
     },
     "os": {
-        "message": "\uc6b4\uc601\uccb4\uc81c"
+        "message": "운영체제"
     },
     "other": {
-        "message": "\uae30\ud0c0"
+        "message": "기타"
     },
     "permissions": {
-        "message": "\uad8c\ud55c"
+        "message": "권한"
     },
     "pictureInPicture": {
-        "message": "\ud53d\ucc98 \uc778 \ud53d\ucc98(PIP) \uc7ac\uc0dd"
+        "message": "픽처 인 픽처(PIP) 재생"
     },
     "pink": {
-        "message": "\ubd84\ud64d"
+        "message": "분홍"
     },
     "plain": {
-        "message": "\ubb34\uc0c9"
+        "message": "무색"
     },
     "platform": {
-        "message": "\ud50c\ub7ab\ud3fc"
+        "message": "플랫폼"
     },
     "playPause": {
-        "message": "\uc7ac\uc0dd / \uc77c\uc2dc\uc815\uc9c0"
+        "message": "재생 / 일시정지"
     },
     "playbackSpeed": {
-        "message": "\ub418\uac10\uae30 \uc18d\ub3c4"
+        "message": "되감기 속도"
     },
     "player": {
-        "message": "\ud50c\ub808\uc774\uc5b4"
+        "message": "플레이어"
     },
     "playerColor": {
-        "message": "\ud50c\ub808\uc774\uc5b4 \uceec\ub7ec"
+        "message": "플레이어 컬러"
     },
     "playerSize": {
-        "message": "\ud50c\ub808\uc774\uc5b4 \ud06c\uae30"
+        "message": "플레이어 크기"
     },
     "playlist": {
-        "message": "\ud50c\ub808\uc774\ub9ac\uc2a4\ud2b8"
+        "message": "플레이리스트"
     },
     "playlists": {
-        "message": "\ud50c\ub808\uc774\ub9ac\uc2a4\ud2b8"
+        "message": "플레이리스트"
     },
     "popupPlayer": {
-        "message": "\ud31d\uc5c5 \ud50c\ub808\uc774\uc5b4"
+        "message": "팝업 플레이어"
     },
     "position": {
-        "message": "\uc704\uce58"
+        "message": "위치"
     },
     "pressAnyKeyOrScroll": {
-        "message": "\uc0ac\uc6a9\ud560 \ub2e8\ucd95\ud0a4 \ub610\ub294 \ub9c8\uc6b0\uc2a4 \ud720\uc744 \ub204\ub974\uc138\uc694."
+        "message": "사용할 단축키 또는 마우스 휠을 누르세요."
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "\uc0ac\uc6a9\ud560 \ub2e8\ucd95\ud0a4 \ub610\ub294 \ub9c8\uc6b0\uc2a4 \ud720\uc744 \ub204\ub974\uc138\uc694."
+        "message": "사용할 단축키 또는 마우스 휠을 누르세요."
     },
     "previousVideo": {
-        "message": "\uc774\uc804 \uc601\uc0c1"
+        "message": "이전 영상"
     },
     "primaryColor": {
-        "message": "\uc8fc \uc0c9\uc0c1"
+        "message": "주 색상"
     },
     "purple": {
-        "message": "\ubcf4\ub77c"
+        "message": "보라"
     },
     "quality": {
-        "message": "\ud004\ub9ac\ud2f0"
+        "message": "퀄리티"
     },
     "ram": {
-        "message": "\ub7a8"
+        "message": "램"
     },
     "rateUs": {
-        "message": "\ud3c9\uac00\ud558\uae30"
+        "message": "평가하기"
     },
     "red": {
-        "message": "\ube68\uac15"
+        "message": "빨강"
     },
     "relatedVideos": {
-        "message": "\uad00\ub828 \uc601\uc0c1"
+        "message": "관련 영상"
     },
     "removeRelatedSearchResults": {
-        "message": "\uad00\ub828 \uac80\uc0c9\uacb0\uacfc \uc81c\uac70"
+        "message": "관련 검색결과 제거"
     },
     "repeat": {
-        "message": "\ubc18\ubcf5"
+        "message": "반복"
     },
     "reset": {
-        "message": "\ub9ac\uc14b"
+        "message": "리셋"
     },
     "resetAllSettings": {
-        "message": "\ubaa8\ub4e0 \uc124\uc815 \ub9ac\uc14b"
+        "message": "모든 설정 리셋"
     },
     "resetAllShortcuts": {
-        "message": "\ubaa8\ub4e0 \ub2e8\ucd95\ud0a4 \ub9ac\uc14b"
+        "message": "모든 단축키 리셋"
     },
     "reverse": {
-        "message": "\ubc18\ub300\ub85c"
+        "message": "반대로"
     },
     "rotate": {
-        "message": "\ud68c\uc804"
+        "message": "회전"
     },
     "save": {
-        "message": "\uc800\uc7a5"
+        "message": "저장"
     },
     "saveAs": {
-        "message": "\ub2e4\ub978\uc774\ub984\uc73c\ub85c \uc800\uc7a5"
+        "message": "다른이름으로 저장"
     },
     "schedule": {
-        "message": "\uc2a4\ucf00\uc904"
+        "message": "스케줄"
     },
     "screen": {
-        "message": "\uc2a4\ud06c\ub9b0"
+        "message": "스크린"
     },
     "screenshot": {
-        "message": "\uc2a4\ud06c\ub9b0\uc0f7"
+        "message": "스크린샷"
     },
     "search": {
-        "message": "\uac80\uc0c9"
+        "message": "검색"
     },
     "searchBarOnly": {
-        "message": "\uac80\uc0c9\ucc3d\ub9cc"
+        "message": "검색창만"
     },
     "seekBackward10Seconds": {
-        "message": "\ub4a4\ub85c 10\ucd08"
+        "message": "뒤로 10초"
     },
     "seekForward10Seconds": {
-        "message": "\uc55e\uc73c\ub85c 10\ucd08"
+        "message": "앞으로 10초"
     },
     "settings": {
-        "message": "\uc124\uc815"
+        "message": "설정"
     },
     "settingsSuccessfullyImported": {
-        "message": "\uc124\uc815 \ub0b4\ubcf4\ub0b4\uae30 \uc644\ub8cc"
+        "message": "설정 내보내기 완료"
     },
     "shortcuts": {
-        "message": "\ub2e8\ucd95\ud0a4"
+        "message": "단축키"
     },
     "showCardsOnMouseHover": {
-        "message": "\ub9c8\uc6b0\uc2a4 \uc62c\ub9b4 \ub54c \uce74\ub4dc\ubcf4\uae30"
+        "message": "마우스 올릴 때 카드보기"
     },
     "showChannelVideosCount": {
-        "message": "\ucc44\ub110\uc758 \ube44\ub514\uc624\uc218 \ud45c\uc2dc"
+        "message": "채널의 비디오수 표시"
     },
     "shuffle": {
-        "message": "\uc154\ud50c"
+        "message": "셔플"
     },
     "sidebar": {
-        "message": "\uc0ac\uc774\ub4dc\ubc14"
+        "message": "사이드바"
     },
     "spacebar": {
-        "message": "\uc2a4\ud398\uc774\uc2a4\ubc14"
+        "message": "스페이스바"
     },
     "squaredUserImages": {
-        "message": "\uc815\uc0ac\uac01\ud615 \ud504\ub85c\ud544\uc0ac\uc9c4"
+        "message": "정사각형 프로필사진"
     },
     "static": {
-        "message": "\uace0\uc815"
+        "message": "고정"
     },
     "statsForNerds": {
-        "message": "\ub108\ub4dc \ud1b5\uacc4 \ud45c\uc2dc"
+        "message": "너드 통계 표시"
     },
     "step": {
-        "message": "\uc2a4\ud15d"
+        "message": "스텝"
     },
     "stop": {
-        "message": "\uc815\uc9c0"
+        "message": "정지"
     },
     "style": {
-        "message": "\uc2a4\ud0c0\uc77c"
+        "message": "스타일"
     },
     "styles": {
-        "message": "\uc2a4\ud0c0\uc77c"
+        "message": "스타일"
     },
     "subscriptions": {
-        "message": "\uad6c\ub3c5"
+        "message": "구독"
     },
     "subtitles": {
-        "message": "\uc790\ub9c9"
+        "message": "자막"
     },
     "sunset": {
-        "message": "\uc77c\ubab0"
+        "message": "일몰"
     },
     "sunsetToSunrise": {
-        "message": "\uc77c\ubab0\ubd80\ud130 \uc77c\ucd9c\uae4c\uc9c0"
+        "message": "일몰부터 일출까지"
     },
     "systemPeferenceDark": {
-        "message": "\uac1c\uc778 \uc124\uc815: \ub2e4\ud06c"
+        "message": "개인 설정: 다크"
     },
     "systemPeferenceLight": {
-        "message": "\uac1c\uc778 \uc124\uc815: \ub77c\uc774\ud2b8"
+        "message": "개인 설정: 라이트"
     },
     "teal": {
-        "message": "\uccad\ub85d"
+        "message": "청록"
     },
     "textColor": {
-        "message": "\ud14d\uc2a4\ud2b8 \uc0c9\uc0c1"
+        "message": "텍스트 색상"
     },
     "themes": {
-        "message": "\ud14c\ub9c8"
+        "message": "테마"
     },
     "thisWillRemoveAllCookies": {
-        "message": "\ubaa8\ub4e0 \ucfe0\ud0a4\ub97c \uc0ad\uc81c\ud569\ub2c8\ub2e4."
+        "message": "모든 쿠키를 삭제합니다."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "\ubaa8\ub4e0 \uc720\ud29c\ube0c \ucfe0\ud0a4\ub97c \uc0ad\uc81c\ud569\ub2c8\ub2e4."
+        "message": "모든 유튜브 쿠키를 삭제합니다."
     },
     "thisWillResetAllSettings": {
-        "message": "\ubaa8\ub4e0 \uc124\uc815\uc744 \ucd08\uae30\ud654 \ud569\ub2c8\ub2e4."
+        "message": "모든 설정을 초기화 합니다."
     },
     "thisWillResetAllShortcuts": {
-        "message": "\ubaa8\ub4e0 \ub2e8\ucd95\ud0a4\ub97c \ucd08\uae30\ud654 \ud569\ub2c8\ub2e4."
+        "message": "모든 단축키를 초기화 합니다."
     },
     "thumbnails": {
-        "message": "\uc378\ub124\uc77c"
+        "message": "썸네일"
     },
     "timeFrom": {
-        "message": "\ub2e4\uc74c\uc2dc\uac04 \ubd80\ud130"
+        "message": "다음시간 부터"
     },
     "timeTo": {
-        "message": "\ub2e4\uc74c\uc2dc\uac04 \uae4c\uc9c0"
+        "message": "다음시간 까지"
     },
     "todayAt": {
-        "message": "\uc624\ub298\uc758"
+        "message": "오늘의"
     },
     "toggleCards": {
-        "message": "\ud1a0\uae00 \uce74\ub4dc"
+        "message": "토글 카드"
     },
     "topChat": {
-        "message": "\ud0d1 \ucc57"
+        "message": "탑 챗"
     },
     "trailerAutoplay": {
-        "message": "\ud2b8\ub808\uc77c\ub7ec \uc790\ub3d9\uc7ac\uc0dd"
+        "message": "트레일러 자동재생"
     },
     "translations": {
-        "message": "\ubc88\uc5ed"
+        "message": "번역"
     },
     "transparentBackground": {
-        "message": "\ud22c\uba85\ud55c \ubc30\uacbd"
+        "message": "투명한 배경"
     },
     "trending": {
-        "message": "\uc778\uae30"
+        "message": "인기"
     },
     "tryToReloadThePage": {
-        "message": "\uc0c8\ub85c\uace0\uce68\uc744 \uc2dc\ub3c4\ud558\uc2ed\uc2dc\uc624"
+        "message": "새로고침을 시도하십시오"
     },
     "type": {
-        "message": "\ud0c0\uc785"
+        "message": "타입"
     },
     "upNextAutoplay": {
-        "message": "\ub2e4\uc74c\uc601\uc0c1 \uc790\ub3d9\uc7ac\uc0dd"
+        "message": "다음영상 자동재생"
     },
     "use24HourFormat": {
-        "message": "24\uc2dc\uac04 \ud615\uc2dd \uc0ac\uc6a9"
+        "message": "24시간 형식 사용"
     },
     "version": {
-        "message": "\ubc84\uc83c"
+        "message": "버젼"
     },
     "video": {
-        "message": "\uc601\uc0c1"
+        "message": "영상"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "\uce74\ud14c\uace0\ub9ac\uc758 \uc774\ub984\uc744 \uc5bb\uae30 \uc704\ud574 \ube44\ub514\uc624 \uc124\uba85\uc774 \ud655\uc7a5\ub429\ub2c8\ub2e4"
+        "message": "카테고리의 이름을 얻기 위해 비디오 설명이 확장됩니다"
     },
     "videoFormats": {
-        "message": "\ube44\ub514\uc624 \ud615\uc2dd"
+        "message": "비디오 형식"
     },
     "videos": {
-        "message": "\ube44\ub514\uc624"
+        "message": "비디오"
     },
     "volume": {
-        "message": "\uc74c\ub7c9"
+        "message": "음량"
     },
     "watchLater": {
-        "message": "\ub098\uc911\uc5d0 \ubcf4\uae30"
+        "message": "나중에 보기"
     },
     "watchTime": {
-        "message": "\uc2dc\uac04 \ubcf4\uae30"
+        "message": "시간 보기"
     },
     "whenTabIsChanged": {
-        "message": "\ud0ed\uc774 \ubc14\ub014\ub54c"
+        "message": "탭이 바뀔때"
     },
     "white": {
-        "message": "\ud558\uc591"
+        "message": "하양"
     },
     "yellow": {
-        "message": "\ub178\ub791"
+        "message": "노랑"
     },
     "youtubeHeaderLeft": {
-        "message": "\uc720\ud29c\ube0c \ud5e4\ub354 (\uc67c\ucabd)"
+        "message": "유튜브 헤더 (왼쪽)"
     },
     "youtubeHeaderRight": {
-        "message": "\uc720\ud29c\ube0c \ud5e4\ub354 (\uc624\ub978\ucabd)"
+        "message": "유튜브 헤더 (오른쪽)"
     },
     "youtubeHomePage": {
-        "message": "\uc720\ud29c\ube0c \ud648\ud398\uc774\uc9c0"
+        "message": "유튜브 홈페이지"
     },
     "youtubeLanguage": {
-        "message": "\uc720\ud29c\ube0c \uc5b8\uc5b4"
+        "message": "유튜브 언어"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "\uc720\ud29c\ube0c\ub294 h.264 \ucf54\ub371\uc5d0\uc11c \ube44\ub514\uc624 \ud488\uc9c8\uc744 1080p\ub85c \uc81c\ud55c\ud569\ub2c8\ub2e4"
+        "message": "유튜브는 h.264 코덱에서 비디오 품질을 1080p로 제한합니다"
     }
 }

@@ -1,815 +1,815 @@
 {
     "ARROWDOWN": {
-        "message": "\u21e9"
+        "message": "⇩"
     },
     "ARROWLEFT": {
-        "message": "\u21e6"
+        "message": "⇦"
     },
     "ARROWRIGHT": {
-        "message": "\u21e8"
+        "message": "⇨"
     },
     "ARROWUP": {
-        "message": "\u21e7"
+        "message": "⇧"
     },
     "__MSG_description__": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "about": {
-        "message": "\u3053\u306e\u30bd\u30d5\u30c8\u306b\u3064\u3044\u3066"
+        "message": "このソフトについて"
     },
     "accept": {
-        "message": "\u4e86\u89e3"
+        "message": "了解"
     },
     "activate": {
-        "message": "\u6709\u52b9\u306b\u3059\u308b"
+        "message": "有効にする"
     },
     "activateCaptions": {
-        "message": "\u30ad\u30e3\u30d7\u30b7\u30e7\u30f3\u3092\u6709\u52b9\u306b\u3059\u308b"
+        "message": "キャプションを有効にする"
     },
     "activateFullscreen": {
-        "message": "\u5168\u753b\u9762\u306b\u3059\u308b"
+        "message": "全画面にする"
     },
     "activated": {
-        "message": "\u6709\u52b9\u5316"
+        "message": "有効化"
     },
     "activatedFeatures": {
-        "message": "\u6709\u52b9\u5316\u3055\u308c\u305f\u6a5f\u80fd"
+        "message": "有効化された機能"
     },
     "activeFeatures": {
-        "message": "\u6a5f\u80fd\u306e\u5207\u308a\u66ff\u3048"
+        "message": "機能の切り替え"
     },
     "addScrollToTop": {
-        "message": "\u300c\u4e00\u756a\u4e0a\u306b\u30b9\u30af\u30ed\u30fc\u30eb\u300d\u306e\u30dc\u30bf\u30f3\u3092\u8ffd\u52a0\u3059\u308b"
+        "message": "「一番上にスクロール」のボタンを追加する"
     },
     "ads": {
-        "message": "\u5e83\u544a"
+        "message": "広告"
     },
     "all": {
-        "message": "\u3059\u3079\u3066"
+        "message": "すべて"
     },
     "allow": {
-        "message": "\u8a31\u53ef"
+        "message": "許可"
     },
     "allow60fps": {
-        "message": "60fps\u3092\u8a31\u53ef\u3059\u308b"
+        "message": "60fpsを許可する"
     },
     "alwaysActive": {
-        "message": "\u5e38\u306b\u6709\u52b9"
+        "message": "常に有効"
     },
     "alwaysShowProgressBar": {
-        "message": "\u5e38\u306b\u30d7\u30ed\u30b0\u30ec\u30b9\u30d0\u30fc\u3092\u8868\u793a\u3059\u308b"
+        "message": "常にプログレスバーを表示する"
     },
     "amber": {
-        "message": "\u30a2\u30f3\u30d0\u30fc"
+        "message": "アンバー"
     },
     "analyzer": {
-        "message": "\u5206\u6790"
+        "message": "分析"
     },
     "appearance": {
-        "message": "\u5916\u89b3"
+        "message": "外観"
     },
     "audio": {
-        "message": "\u97f3\u58f0"
+        "message": "音声"
     },
     "audioFormats": {
-        "message": "\u97f3\u58f0\u5f62\u5f0f"
+        "message": "音声形式"
     },
     "auto": {
-        "message": "\u81ea\u52d5"
+        "message": "自動"
     },
     "autoFullscreen": {
-        "message": "\u81ea\u52d5\u7684\u306b\u5168\u753b\u9762\u306b\u3059\u308b"
+        "message": "自動的に全画面にする"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "\u30bf\u30d6\u5207\u308a\u66ff\u3048\u3067\u81ea\u52d5\u7684\u306b\u4e00\u6642\u505c\u6b62"
+        "message": "タブ切り替えで自動的に一時停止"
     },
     "autoplay": {
-        "message": "\u81ea\u52d5\u518d\u751f"
+        "message": "自動再生"
     },
     "backupAndReset": {
-        "message": "\u30d0\u30c3\u30af\u30a2\u30c3\u30d7\u3068\u30ea\u30bb\u30c3\u30c8"
+        "message": "バックアップとリセット"
     },
     "baseOnSystemColorScheme": {
-        "message": "\u30b7\u30b9\u30c6\u30e0\u306e\u8272\u306b\u5408\u308f\u305b\u308b"
+        "message": "システムの色に合わせる"
     },
     "belowPlayer": {
-        "message": "\u30d7\u30ec\u30fc\u30e4\u30fc\u306e\u4e0b"
+        "message": "プレーヤーの下"
     },
     "black": {
-        "message": "\u9ed2"
+        "message": "黒"
     },
     "blacklist": {
-        "message": "\u30d6\u30e9\u30c3\u30af\u30ea\u30b9\u30c8"
+        "message": "ブラックリスト"
     },
     "blockAll": {
-        "message": "\u3059\u3079\u3066\u30d6\u30ed\u30c3\u30af\u3059\u308b"
+        "message": "すべてブロックする"
     },
     "blue": {
-        "message": "\u9752"
+        "message": "青"
     },
     "blueGray": {
-        "message": "\u9752\u307f\u304c\u304b\u3063\u305f\u7070"
+        "message": "青みがかった灰"
     },
     "bluelight": {
-        "message": "\u30d6\u30eb\u30fc\u30e9\u30a4\u30c8"
+        "message": "ブルーライト"
     },
     "brown": {
-        "message": "\u8336"
+        "message": "茶"
     },
     "browser": {
-        "message": "\u30d6\u30e9\u30a6\u30b6\u30fc"
+        "message": "ブラウザー"
     },
     "browserVersion": {
-        "message": "\u30d6\u30e9\u30a6\u30b6\u30fc\u306e\u30d0\u30fc\u30b8\u30e7\u30f3"
+        "message": "ブラウザーのバージョン"
     },
     "bubbles": {
-        "message": "\u30d0\u30d6\u30eb"
+        "message": "バブル"
     },
     "bug": {
-        "message": "\u30d0\u30b0"
+        "message": "バグ"
     },
     "buttons": {
-        "message": "\u30dc\u30bf\u30f3"
+        "message": "ボタン"
     },
     "cancel": {
-        "message": "\u30ad\u30e3\u30f3\u30bb\u30eb"
+        "message": "キャンセル"
     },
     "categories": {
-        "message": "\u30ab\u30c6\u30b4\u30ea\u30fc"
+        "message": "カテゴリー"
     },
     "channel": {
-        "message": "\u30c1\u30e3\u30f3\u30cd\u30eb"
+        "message": "チャンネル"
     },
     "channels": {
-        "message": "\u30c1\u30e3\u30f3\u30cd\u30eb"
+        "message": "チャンネル"
     },
     "clipboard": {
-        "message": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9"
+        "message": "クリップボード"
     },
     "codecH264": {
-        "message": "H.264\u30b3\u30fc\u30c7\u30c3\u30af"
+        "message": "H.264コーデック"
     },
     "collapseOfSubscriptionSections": {
-        "message": "\u30b5\u30d6\u30b9\u30af\u30ea\u30d7\u30b7\u30e7\u30f3\u90e8\u5206\u3092\u7573\u3080"
+        "message": "サブスクリプション部分を畳む"
     },
     "collapsed": {
-        "message": "\u7573\u3080"
+        "message": "畳む"
     },
     "comments": {
-        "message": "\u30b3\u30e1\u30f3\u30c8"
+        "message": "コメント"
     },
     "confirmationBeforeClosing": {
-        "message": "\u9589\u3058\u308b\u524d\u306b\u78ba\u8a8d\u3059\u308b"
+        "message": "閉じる前に確認する"
     },
     "cookies": {
         "message": "Cookie"
     },
     "cores": {
-        "message": "\u30b3\u30a2\u6570"
+        "message": "コア数"
     },
     "cropChapterTitles": {
-        "message": "\u30c1\u30e3\u30d7\u30bf\u30fc\u306e\u30bf\u30a4\u30c8\u30eb\u3092\u30c8\u30ea\u30df\u30f3\u30b0\u3059\u308b"
+        "message": "チャプターのタイトルをトリミングする"
     },
     "customCss": {
-        "message": "\u30ab\u30b9\u30bf\u30e0 CSS"
+        "message": "カスタム CSS"
     },
     "customJs": {
-        "message": "\u30ab\u30b9\u30bf\u30e0 JS"
+        "message": "カスタム JS"
     },
     "customMiniPlayer": {
-        "message": "\u30ab\u30b9\u30bf\u30e0\u30df\u30cb\u30d7\u30ec\u30fc\u30e4\u30fc"
+        "message": "カスタムミニプレーヤー"
     },
     "cyan": {
-        "message": "\u30b7\u30a2\u30f3"
+        "message": "シアン"
     },
     "dark": {
-        "message": "\u30c0\u30fc\u30af"
+        "message": "ダーク"
     },
     "darkTheme": {
-        "message": "\u30c0\u30fc\u30af\u30c6\u30fc\u30de"
+        "message": "ダークテーマ"
     },
     "dateAndTime": {
-        "message": "\u65e5\u4ed8\u3068\u6642\u523b"
+        "message": "日付と時刻"
     },
     "dawn": {
-        "message": "\u591c\u660e\u3051"
+        "message": "夜明け"
     },
     "decreasePlaybackSpeed": {
-        "message": "\u518d\u751f\u901f\u5ea6\u3092\u4e0b\u3052\u308b"
+        "message": "再生速度を下げる"
     },
     "decreaseVolume": {
-        "message": "\u97f3\u91cf\u3092\u4e0b\u3052\u308b"
+        "message": "音量を下げる"
     },
     "deepOrange": {
-        "message": "\u6df1\u3044\u30aa\u30ec\u30f3\u30b8"
+        "message": "深いオレンジ"
     },
     "deepPurple": {
-        "message": "\u6df1\u3044\u7d2b"
+        "message": "深い紫"
     },
     "defaultChannelTab": {
-        "message": "\u30c7\u30d5\u30a9\u30eb\u30c8\u306e\u30c1\u30e3\u30f3\u30cd\u30eb\u30bf\u30d6"
+        "message": "デフォルトのチャンネルタブ"
     },
     "deleteYoutubeCookies": {
-        "message": "YouTube \u306e Cookie \u3092\u524a\u9664\u3059\u308b"
+        "message": "YouTube の Cookie を削除する"
     },
     "description": {
-        "message": "\u8aac\u660e"
+        "message": "説明"
     },
     "desert": {
-        "message": "\u7802\u6f20"
+        "message": "砂漠"
     },
     "details": {
-        "message": "\u8a73\u7d30"
+        "message": "詳細"
     },
     "developerOptions": {
-        "message": "\u958b\u767a\u8005\u5411\u3051\u30aa\u30d7\u30b7\u30e7\u30f3"
+        "message": "開発者向けオプション"
     },
     "device": {
-        "message": "\u30c7\u30d0\u30a4\u30b9"
+        "message": "デバイス"
     },
     "dim": {
-        "message": "\u6697\u3055"
+        "message": "暗さ"
     },
     "disabled": {
-        "message": "\u7121\u52b9"
+        "message": "無効"
     },
     "dislike": {
-        "message": "\u4f4e\u8a55\u4fa1"
+        "message": "低評価"
     },
     "doNotChange": {
-        "message": "\u5909\u66f4\u3057\u306a\u3044"
+        "message": "変更しない"
     },
     "donate": {
-        "message": "\u5bc4\u4ed8\u3059\u308b"
+        "message": "寄付する"
     },
     "draggable": {
-        "message": "\u30c9\u30e9\u30c3\u30b0\u53ef\u80fd\u306b\u3059\u308b"
+        "message": "ドラッグ可能にする"
     },
     "email": {
         "message": "Email"
     },
     "empty": {
-        "message": "\u306a\u3057"
+        "message": "なし"
     },
     "enabled": {
-        "message": "\u6709\u52b9"
+        "message": "有効"
     },
     "enabledForced": {
-        "message": "\u6709\u52b9 (\u5f37\u5236)"
+        "message": "有効 (強制)"
     },
     "expanded": {
-        "message": "\u5e83\u3052\u308b"
+        "message": "広げる"
     },
     "exportSettings": {
-        "message": "\u8a2d\u5b9a\u3092\u30a8\u30af\u30b9\u30dd\u30fc\u30c8\u3059\u308b"
+        "message": "設定をエクスポートする"
     },
     "extension": {
-        "message": "\u62e1\u5f35"
+        "message": "拡張"
     },
     "file": {
-        "message": "\u30d5\u30a1\u30a4\u30eb"
+        "message": "ファイル"
     },
     "filters": {
-        "message": "\u30d5\u30a3\u30eb\u30bf\u30fc"
+        "message": "フィルター"
     },
     "fitToWindow": {
-        "message": "\u30a6\u30a3\u30f3\u30c9\u30a6\u306b\u5408\u308f\u305b\u308b"
+        "message": "ウィンドウに合わせる"
     },
     "flash": {
         "message": "Flash"
     },
     "font": {
-        "message": "\u30d5\u30a9\u30f3\u30c8"
+        "message": "フォント"
     },
     "footer": {
-        "message": "\u30d5\u30c3\u30bf\u30fc"
+        "message": "フッター"
     },
     "forceSDR": {
         "message": "Force SDR"
     },
     "forcedPlaybackSpeed": {
-        "message": "\u518d\u751f\u901f\u5ea6\u3092\u6307\u5b9a\u3059\u308b"
+        "message": "再生速度を指定する"
     },
     "forcedTheaterMode": {
-        "message": "\u30b7\u30a2\u30bf\u30fc\u30e2\u30fc\u30c9\u306b\u3059\u308b"
+        "message": "シアターモードにする"
     },
     "forcedVolume": {
-        "message": "\u97f3\u91cf\u3092\u6307\u5b9a\u3059\u308b"
+        "message": "音量を指定する"
     },
     "foundABug": {
-        "message": "\u30d0\u30b0\u5831\u544a"
+        "message": "バグ報告"
     },
     "fullWindow": {
-        "message": "\u30d5\u30eb\u30a6\u30a3\u30f3\u30c9\u30a6"
+        "message": "フルウィンドウ"
     },
     "general": {
-        "message": "\u4e00\u822c"
+        "message": "一般"
     },
     "github": {
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "\u691c\u7d22\u30dc\u30c3\u30af\u30b9\u306b\u884c\u304f"
+        "message": "検索ボックスに行く"
     },
     "gpu": {
         "message": "GPU"
     },
     "green": {
-        "message": "\u7dd1"
+        "message": "緑"
     },
     "hdThumbnail": {
-        "message": "HD\u30b5\u30e0\u30cd\u30a4\u30eb"
+        "message": "HDサムネイル"
     },
     "hdThumbnails": {
-        "message": "HD\u30b5\u30e0\u30cd\u30a4\u30eb"
+        "message": "HDサムネイル"
     },
     "header": {
-        "message": "\u30d8\u30c3\u30c0\u30fc"
+        "message": "ヘッダー"
     },
     "hidden": {
-        "message": "\u96a0\u3059"
+        "message": "隠す"
     },
     "hiddenOnVideoPage": {
-        "message": "\u52d5\u753b\u30da\u30fc\u30b8\u3067\u306f\u96a0\u3059"
+        "message": "動画ページでは隠す"
     },
     "hideAnimatedThumbnails": {
-        "message": "\u30b5\u30e0\u30cd\u30a4\u30eb\u306e\u30a2\u30cb\u30e1\u30fc\u30b7\u30e7\u30f3\u3092\u884c\u308f\u306a\u3044"
+        "message": "サムネイルのアニメーションを行わない"
     },
     "hideAnnotations": {
-        "message": "\u30a2\u30ce\u30c6\u30fc\u30b7\u30e7\u30f3\u3092\u96a0\u3059"
+        "message": "アノテーションを隠す"
     },
     "hideCards": {
-        "message": "\u30ab\u30fc\u30c9\u3092\u96a0\u3059"
+        "message": "カードを隠す"
     },
     "hideDetails": {
-        "message": "\u8a73\u7d30\u3092\u96a0\u3059"
+        "message": "詳細を隠す"
     },
     "hideEndscreen": {
-        "message": "\u518d\u751f\u7d42\u4e86\u6642\u306e\u753b\u9762\u3092\u96a0\u3059"
+        "message": "再生終了時の画面を隠す"
     },
     "hideFeaturedContent": {
-        "message": "\u304a\u3059\u3059\u3081\u30c1\u30e3\u30f3\u30cd\u30eb\u3092\u975e\u8868\u793a\u306b\u3059\u308b"
+        "message": "おすすめチャンネルを非表示にする"
     },
     "hideFooter": {
-        "message": "\u30d5\u30c3\u30bf\u30fc\u3092\u96a0\u3059"
+        "message": "フッターを隠す"
     },
     "hideGradientBottom": {
-        "message": "\u30b0\u30e9\u30c7\u30fc\u30b7\u30e7\u30f3\u306e\u4e0b\u90e8\u3092\u96a0\u3059"
+        "message": "グラデーションの下部を隠す"
     },
     "hidePlaylist": {
-        "message": "\u518d\u751f\u30ea\u30b9\u30c8\u3092\u96a0\u3059"
+        "message": "再生リストを隠す"
     },
     "hideRightButtons": {
-        "message": "\u53f3\u30dc\u30bf\u30f3\u3092\u96a0\u3059"
+        "message": "右ボタンを隠す"
     },
     "hideScrollForDetails": {
-        "message": "\u300c\u30b9\u30af\u30ed\u30fc\u30eb\u3057\u3066\u8a73\u7d30\u3092\u8868\u793a\u300d\u3092\u96a0\u3059"
+        "message": "「スクロールして詳細を表示」を隠す"
     },
     "hideViewsCount": {
-        "message": "\u8996\u8074\u6570\u3092\u96a0\u3059"
+        "message": "視聴数を隠す"
     },
     "history": {
-        "message": "\u5c65\u6b74"
+        "message": "履歴"
     },
     "home": {
-        "message": "\u30db\u30fc\u30e0"
+        "message": "ホーム"
     },
     "hover": {
-        "message": "\u30db\u30d0\u30fc"
+        "message": "ホバー"
     },
     "hoverOnVideoPage": {
-        "message": "\u52d5\u753b\u30da\u30fc\u30b8\u3067\u306f\u30db\u30d0\u30fc"
+        "message": "動画ページではホバー"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "\u52d5\u753b\u304c\u30a2\u30c3\u30d7\u30ed\u30fc\u30c9\u3055\u308c\u3066\u304b\u3089\u306e\u6642\u9593"
+        "message": "動画がアップロードされてからの時間"
     },
     "icons": {
-        "message": "\u30a2\u30a4\u30b3\u30f3"
+        "message": "アイコン"
     },
     "iconsOnly": {
-        "message": "\u30a2\u30a4\u30b3\u30f3\u306e\u307f"
+        "message": "アイコンのみ"
     },
     "importSettings": {
-        "message": "\u8a2d\u5b9a\u3092\u30a4\u30f3\u30dd\u30fc\u30c8\u3059\u308b"
+        "message": "設定をインポートする"
     },
     "improveLogo": {
-        "message": "\u30ed\u30b4\u3092\u6539\u826f\u3059\u308b"
+        "message": "ロゴを改良する"
     },
     "improvedtubeIconInBrowser": {
-        "message": "ImprovedTube\u30a2\u30a4\u30b3\u30f3\u3092\u30d6\u30e9\u30a6\u30b6\u306b\u8868\u793a\u3059\u308b"
+        "message": "ImprovedTubeアイコンをブラウザに表示する"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "ImprovedTube\u30a2\u30a4\u30b3\u30f3\u3092YouTube\u306b\u8868\u793a\u3059\u308b"
+        "message": "ImprovedTubeアイコンをYouTubeに表示する"
     },
     "improvedtubeLanguage": {
-        "message": "ImprovedTube \u306e\u8a00\u8a9e"
+        "message": "ImprovedTube の言語"
     },
     "improvedtubeVersion": {
-        "message": "ImprovedTube \u306e\u30d0\u30fc\u30b8\u30e7\u30f3"
+        "message": "ImprovedTube のバージョン"
     },
     "increasePlaybackSpeed": {
-        "message": "\u518d\u751f\u901f\u5ea6\u3092\u4e0a\u3052\u308b"
+        "message": "再生速度を上げる"
     },
     "increaseVolume": {
-        "message": "\u97f3\u91cf\u3092\u4e0a\u3052\u308b"
+        "message": "音量を上げる"
     },
     "indigo": {
-        "message": "\u30a4\u30f3\u30c7\u30a3\u30b4"
+        "message": "インディゴ"
     },
     "items": {
-        "message": "\u30a2\u30a4\u30c6\u30e0"
+        "message": "アイテム"
     },
     "languages": {
-        "message": "\u8a00\u8a9e"
+        "message": "言語"
     },
     "legacyYoutube": {
-        "message": "\u53e4\u3044 YouTube \u306b\u3059\u308b"
+        "message": "古い YouTube にする"
     },
     "light": {
-        "message": "\u30e9\u30a4\u30c8"
+        "message": "ライト"
     },
     "lightBlue": {
-        "message": "\u8584\u3044\u9752"
+        "message": "薄い青"
     },
     "lightGreen": {
-        "message": "\u8584\u3044\u7dd1"
+        "message": "薄い緑"
     },
     "like": {
-        "message": "\u9ad8\u8a55\u4fa1"
+        "message": "高評価"
     },
     "likes": {
-        "message": "\u8a55\u4fa1"
+        "message": "評価"
     },
     "lime": {
-        "message": "\u30e9\u30a4\u30e0"
+        "message": "ライム"
     },
     "list": {
-        "message": "\u30ea\u30b9\u30c8"
+        "message": "リスト"
     },
     "liveChat": {
-        "message": "\u30e9\u30a4\u30d6\u30c1\u30e3\u30c3\u30c8"
+        "message": "ライブチャット"
     },
     "liveChatType": {
-        "message": "\u30e9\u30a4\u30d6\u30c1\u30e3\u30c3\u30c8\u306e\u7a2e\u985e"
+        "message": "ライブチャットの種類"
     },
     "loudnessNormalization": {
-        "message": "\u97f3\u91cf\u306e\u30ce\u30fc\u30de\u30ea\u30bc\u30fc\u30b7\u30e7\u30f3"
+        "message": "音量のノーマリゼーション"
     },
     "markWatchedVideos": {
-        "message": "\u8996\u8074\u3057\u305f\u52d5\u753b\u306b\u30de\u30fc\u30af\u3092\u4ed8\u3051\u308b"
+        "message": "視聴した動画にマークを付ける"
     },
     "mixer": {
-        "message": "\u30df\u30ad\u30b5\u30fc"
+        "message": "ミキサー"
     },
     "myColors": {
-        "message": "\u8272\u8a2d\u5b9a"
+        "message": "色設定"
     },
     "name": {
-        "message": "\u540d\u524d"
+        "message": "名前"
     },
     "nativeMiniPlayer": {
-        "message": "\u30cd\u30a4\u30c6\u30a3\u30d6\u30df\u30cb\u30d7\u30ec\u30fc\u30e4\u30fc"
+        "message": "ネイティブミニプレーヤー"
     },
     "new": {
-        "message": "\u65b0\u898f"
+        "message": "新規"
     },
     "nextVideo": {
-        "message": "\u6b21\u306e\u52d5\u753b"
+        "message": "次の動画"
     },
     "night": {
-        "message": "\u591c"
+        "message": "夜"
     },
     "noActiveFeatures": {
-        "message": "\u6709\u52b9\u5316\u3055\u308c\u305f\u6a5f\u80fd\u304c\u3042\u308a\u307e\u305b\u3093"
+        "message": "有効化された機能がありません"
     },
     "noOpenVideoTabs": {
-        "message": "\u958b\u3044\u3066\u3044\u308b\u52d5\u753b\u30bf\u30d6\u304c\u3042\u308a\u307e\u305b\u3093"
+        "message": "開いている動画タブがありません"
     },
     "none": {
-        "message": "\u306a\u3057"
+        "message": "なし"
     },
     "normal": {
-        "message": "\u6a19\u6e96"
+        "message": "標準"
     },
     "old": {
         "message": "Old"
     },
     "onAllVideos": {
-        "message": "\u3059\u3079\u3066\u8a31\u53ef\u3059\u308b"
+        "message": "すべて許可する"
     },
     "onSubscribedChannels": {
-        "message": "\u767b\u9332\u3057\u305f\u30c1\u30e3\u30f3\u30cd\u30eb\u3067\u306f\u8a31\u53ef\u3059\u308b"
+        "message": "登録したチャンネルでは許可する"
     },
     "onlyActiveOnYoutube": {
-        "message": "YouTube \u3067\u6709\u52b9"
+        "message": "YouTube で有効"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "1\u3064\u306e\u30d7\u30ec\u30fc\u30e4\u30fc\u30a4\u30f3\u30b9\u30bf\u30f3\u30b9\u306e\u307f\u306b\u3059\u308b"
+        "message": "1つのプレーヤーインスタンスのみにする"
     },
     "orange": {
-        "message": "\u30aa\u30ec\u30f3\u30b8"
+        "message": "オレンジ"
     },
     "os": {
         "message": "OS"
     },
     "other": {
-        "message": "\u305d\u306e\u4ed6"
+        "message": "その他"
     },
     "permissions": {
-        "message": "\u6a29\u9650"
+        "message": "権限"
     },
     "pictureInPicture": {
-        "message": "\u30d4\u30af\u30c1\u30e3\u30fc\u30a4\u30f3\u30d4\u30af\u30c1\u30e3\u30fc"
+        "message": "ピクチャーインピクチャー"
     },
     "pink": {
-        "message": "\u30d4\u30f3\u30af"
+        "message": "ピンク"
     },
     "plain": {
-        "message": "\u30d7\u30ec\u30fc\u30f3"
+        "message": "プレーン"
     },
     "platform": {
-        "message": "\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0"
+        "message": "プラットフォーム"
     },
     "playPause": {
-        "message": "\u518d\u751f/\u4e00\u6642\u505c\u6b62"
+        "message": "再生/一時停止"
     },
     "playbackSpeed": {
-        "message": "\u518d\u751f\u901f\u5ea6"
+        "message": "再生速度"
     },
     "player": {
-        "message": "\u30d7\u30ec\u30fc\u30e4\u30fc"
+        "message": "プレーヤー"
     },
     "playerColor": {
-        "message": "\u30d7\u30ec\u30fc\u30e4\u30fc\u306e\u8272"
+        "message": "プレーヤーの色"
     },
     "playerSize": {
-        "message": "\u30d7\u30ec\u30fc\u30e4\u30fc\u306e\u30b5\u30a4\u30ba"
+        "message": "プレーヤーのサイズ"
     },
     "playlist": {
-        "message": "\u518d\u751f\u30ea\u30b9\u30c8"
+        "message": "再生リスト"
     },
     "playlists": {
-        "message": "\u518d\u751f\u30ea\u30b9\u30c8"
+        "message": "再生リスト"
     },
     "popupPlayer": {
-        "message": "\u30dd\u30c3\u30d7\u30a2\u30c3\u30d7\u30d7\u30ec\u30fc\u30e4\u30fc"
+        "message": "ポップアッププレーヤー"
     },
     "position": {
-        "message": "\u4f4d\u7f6e"
+        "message": "位置"
     },
     "pressAnyKeyOrScroll": {
-        "message": "\u4efb\u610f\u306e\u30ad\u30fc\u3092\u62bc\u3059\u304b\u3001\u30de\u30a6\u30b9\u30db\u30a4\u30fc\u30eb\u3092\u4f7f\u7528\u3057\u3066\u304f\u3060\u3055\u3044"
+        "message": "任意のキーを押すか、マウスホイールを使用してください"
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "\u4efb\u610f\u306e\u30ad\u30fc\u3092\u62bc\u3059\u304b\u3001\u30de\u30a6\u30b9\u30db\u30a4\u30fc\u30eb\u3092\u4f7f\u7528\u3057\u3066\u304f\u3060\u3055\u3044"
+        "message": "任意のキーを押すか、マウスホイールを使用してください"
     },
     "previousVideo": {
-        "message": "\u524d\u306e\u52d5\u753b"
+        "message": "前の動画"
     },
     "primaryColor": {
-        "message": "\u5168\u4f53\u306e\u8272"
+        "message": "全体の色"
     },
     "purple": {
-        "message": "\u7d2b"
+        "message": "紫"
     },
     "quality": {
-        "message": "\u753b\u8cea"
+        "message": "画質"
     },
     "ram": {
         "message": "RAM"
     },
     "rateUs": {
-        "message": "\u8a55\u4fa1\u3059\u308b"
+        "message": "評価する"
     },
     "red": {
-        "message": "\u8d64"
+        "message": "赤"
     },
     "redDislikeButton": {
-        "message": "\u4f4e\u8a55\u4fa1\u30dc\u30bf\u30f3\u3092\u8d64\u8272\u3067\u8868\u793a\u3059\u308b"
+        "message": "低評価ボタンを赤色で表示する"
     },
     "relatedVideos": {
-        "message": "\u95a2\u9023\u52d5\u753b"
+        "message": "関連動画"
     },
     "removeRelatedSearchResults": {
-        "message": "\u95a2\u9023\u52d5\u753b\u3092\u691c\u7d22\u7d50\u679c\u304b\u3089\u524a\u9664\u3059\u308b"
+        "message": "関連動画を検索結果から削除する"
     },
     "repeat": {
-        "message": "\u30ea\u30d4\u30fc\u30c8"
+        "message": "リピート"
     },
     "reset": {
-        "message": "\u30ea\u30bb\u30c3\u30c8"
+        "message": "リセット"
     },
     "resetAllSettings": {
-        "message": "\u3059\u3079\u3066\u306e\u8a2d\u5b9a\u3092\u30ea\u30bb\u30c3\u30c8\u3059\u308b"
+        "message": "すべての設定をリセットする"
     },
     "resetAllShortcuts": {
-        "message": "\u3059\u3079\u3066\u306e\u30b7\u30e7\u30fc\u30c8\u30ab\u30c3\u30c8\u3092\u30ea\u30bb\u30c3\u30c8\u3059\u308b"
+        "message": "すべてのショートカットをリセットする"
     },
     "reverse": {
-        "message": "\u9006\u9806\u306b\u3059\u308b"
+        "message": "逆順にする"
     },
     "rotate": {
-        "message": "\u56de\u8ee2"
+        "message": "回転"
     },
     "save": {
-        "message": "\u4fdd\u5b58"
+        "message": "保存"
     },
     "saveAs": {
-        "message": "\u5225\u540d\u3067\u4fdd\u5b58\u3059\u308b"
+        "message": "別名で保存する"
     },
     "schedule": {
-        "message": "\u30b9\u30b1\u30b8\u30e5\u30fc\u30eb"
+        "message": "スケジュール"
     },
     "screen": {
-        "message": "\u30b9\u30af\u30ea\u30fc\u30f3"
+        "message": "スクリーン"
     },
     "screenshot": {
-        "message": "\u30b9\u30af\u30ea\u30fc\u30f3\u30b7\u30e7\u30c3\u30c8"
+        "message": "スクリーンショット"
     },
     "search": {
-        "message": "\u691c\u7d22"
+        "message": "検索"
     },
     "searchBarOnly": {
-        "message": "\u691c\u7d22\u30d0\u30fc\u306e\u307f"
+        "message": "検索バーのみ"
     },
     "seekBackward10Seconds": {
-        "message": "10\u79d2\u623b\u308b"
+        "message": "10秒戻る"
     },
     "seekForward10Seconds": {
-        "message": "10\u79d2\u9032\u3080"
+        "message": "10秒進む"
     },
     "settings": {
-        "message": "\u8a2d\u5b9a"
+        "message": "設定"
     },
     "settingsSuccessfullyImported": {
-        "message": "\u8a2d\u5b9a\u3092\u6b63\u5e38\u306b\u30a4\u30f3\u30dd\u30fc\u30c8\u3057\u307e\u3057\u305f"
+        "message": "設定を正常にインポートしました"
     },
     "shortcuts": {
-        "message": "\u30b7\u30e7\u30fc\u30c8\u30ab\u30c3\u30c8"
+        "message": "ショートカット"
     },
     "showCardsOnMouseHover": {
-        "message": "\u30de\u30a6\u30b9\u30aa\u30fc\u30d0\u30fc\u3067\u30ab\u30fc\u30c9\u3092\u8868\u793a\u3059\u308b"
+        "message": "マウスオーバーでカードを表示する"
     },
     "showChannelVideosCount": {
-        "message": "\u30c1\u30e3\u30f3\u30cd\u30eb\u306e\u52d5\u753b\u6570\u3092\u8868\u793a\u3059\u308b"
+        "message": "チャンネルの動画数を表示する"
     },
     "shuffle": {
-        "message": "\u30b7\u30e3\u30c3\u30d5\u30eb"
+        "message": "シャッフル"
     },
     "sidebar": {
-        "message": "\u30b5\u30a4\u30c9\u30d0\u30fc"
+        "message": "サイドバー"
     },
     "spacebar": {
-        "message": "\u30b9\u30da\u30fc\u30b9\u30ad\u30fc"
+        "message": "スペースキー"
     },
     "squaredUserImages": {
-        "message": "\u30e6\u30fc\u30b6\u30fc\u753b\u50cf\u3092\u56db\u89d2\u306b\u3059\u308b"
+        "message": "ユーザー画像を四角にする"
     },
     "static": {
-        "message": "\u30b9\u30bf\u30c6\u30a3\u30c3\u30af"
+        "message": "スタティック"
     },
     "statsForNerds": {
         "message": "Show Stats for Nerds"
     },
     "step": {
-        "message": "\u30b9\u30c6\u30c3\u30d7"
+        "message": "ステップ"
     },
     "stop": {
-        "message": "\u505c\u6b62"
+        "message": "停止"
     },
     "style": {
-        "message": "\u30b9\u30bf\u30a4\u30eb"
+        "message": "スタイル"
     },
     "styles": {
-        "message": "\u30b9\u30bf\u30a4\u30eb"
+        "message": "スタイル"
     },
     "subscriptions": {
-        "message": "\u767b\u9332\u30c1\u30e3\u30f3\u30cd\u30eb"
+        "message": "登録チャンネル"
     },
     "subtitles": {
-        "message": "\u30b5\u30d6\u30bf\u30a4\u30c8\u30eb"
+        "message": "サブタイトル"
     },
     "sunset": {
-        "message": "\u5915\u713c\u3051"
+        "message": "夕焼け"
     },
     "sunsetToSunrise": {
-        "message": "\u5915\u713c\u3051\u304b\u3089\u65e5\u306e\u51fa\u3078"
+        "message": "夕焼けから日の出へ"
     },
     "systemPeferenceDark": {
-        "message": "\u30b7\u30b9\u30c6\u30e0\u8a2d\u5b9a: \u30c0\u30fc\u30af"
+        "message": "システム設定: ダーク"
     },
     "systemPeferenceLight": {
-        "message": "\u30b7\u30b9\u30c6\u30e0\u8a2d\u5b9a: \u30e9\u30a4\u30c8"
+        "message": "システム設定: ライト"
     },
     "teal": {
-        "message": "\u30c6\u30a3\u30fc\u30eb"
+        "message": "ティール"
     },
     "textColor": {
-        "message": "\u6587\u5b57\u306e\u8272"
+        "message": "文字の色"
     },
     "themes": {
-        "message": "\u30c6\u30fc\u30de"
+        "message": "テーマ"
     },
     "thisWillRemoveAllCookies": {
-        "message": "\u3053\u308c\u306f\u3059\u3079\u3066\u306e Cookie \u3092\u524a\u9664\u3057\u307e\u3059\u3002"
+        "message": "これはすべての Cookie を削除します。"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "YouTube \u306e\u3059\u3079\u3066\u306e Cookie \u3092\u524a\u9664\u3057\u307e\u3059"
+        "message": "YouTube のすべての Cookie を削除します"
     },
     "thisWillResetAllSettings": {
-        "message": "\u3059\u3079\u3066\u306e\u8a2d\u5b9a\u3092\u30ea\u30bb\u30c3\u30c8\u3057\u307e\u3059\u3002"
+        "message": "すべての設定をリセットします。"
     },
     "thisWillResetAllShortcuts": {
-        "message": "\u3059\u3079\u3066\u306e\u30b7\u30e7\u30fc\u30c8\u30ab\u30c3\u30c8\u3092\u30ea\u30bb\u30c3\u30c8\u3057\u307e\u3059"
+        "message": "すべてのショートカットをリセットします"
     },
     "thumbnails": {
-        "message": "\u30b5\u30e0\u30cd\u30a4\u30eb"
+        "message": "サムネイル"
     },
     "timeFrom": {
-        "message": "\u3053\u306e\u6642\u9593\u304b\u3089"
+        "message": "この時間から"
     },
     "timeTo": {
-        "message": "\u3053\u306e\u6642\u9593\u307e\u3067"
+        "message": "この時間まで"
     },
     "todayAt": {
-        "message": "\u6e2c\u5b9a\u6642\u523b"
+        "message": "測定時刻"
     },
     "toggleCards": {
         "message": "Toggle cards"
     },
     "topChat": {
-        "message": "\u4e0a\u4f4d\u30c1\u30e3\u30c3\u30c8"
+        "message": "上位チャット"
     },
     "trailerAutoplay": {
-        "message": "\u30c8\u30ec\u30fc\u30e9\u30fc\u3092\u81ea\u52d5\u518d\u751f\u3059\u308b"
+        "message": "トレーラーを自動再生する"
     },
     "translations": {
-        "message": "\u7ffb\u8a33"
+        "message": "翻訳"
     },
     "transparentBackground": {
-        "message": "\u900f\u660e\u306a\u80cc\u666f"
+        "message": "透明な背景"
     },
     "trending": {
-        "message": "\u6025\u4e0a\u6607"
+        "message": "急上昇"
     },
     "tryToReloadThePage": {
-        "message": "\u30da\u30fc\u30b8\u3092\u30ea\u30ed\u30fc\u30c9\u3057\u3066\u307f\u3066\u304f\u3060\u3055\u3044"
+        "message": "ページをリロードしてみてください"
     },
     "type": {
-        "message": "\u7a2e\u985e"
+        "message": "種類"
     },
     "upNextAutoplay": {
-        "message": "\u6b21\u306e\u52d5\u753b\u3092\u81ea\u52d5\u518d\u751f\u3059\u308b"
+        "message": "次の動画を自動再生する"
     },
     "use24HourFormat": {
-        "message": "24\u6642\u9593\u8868\u793a\u306b\u3059\u308b"
+        "message": "24時間表示にする"
     },
     "version": {
-        "message": "\u30d0\u30fc\u30b8\u30e7\u30f3"
+        "message": "バージョン"
     },
     "video": {
-        "message": "\u52d5\u753b"
+        "message": "動画"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "\u52d5\u753b\u306e\u8aac\u660e\u306f\u30ab\u30c6\u30b4\u30ea\u540d\u3092\u53d6\u5f97\u3059\u308b\u305f\u3081\u306b\u5e83\u3052\u3089\u308c\u307e\u3059"
+        "message": "動画の説明はカテゴリ名を取得するために広げられます"
     },
     "videoFormats": {
-        "message": "\u52d5\u753b\u5f62\u5f0f"
+        "message": "動画形式"
     },
     "videos": {
-        "message": "\u52d5\u753b"
+        "message": "動画"
     },
     "volume": {
-        "message": "\u97f3\u91cf"
+        "message": "音量"
     },
     "watchLater": {
-        "message": "\u5f8c\u3067\u898b\u308b"
+        "message": "後で見る"
     },
     "watchTime": {
-        "message": "\u8996\u8074\u6642\u9593"
+        "message": "視聴時間"
     },
     "whenTabIsChanged": {
-        "message": "\u30bf\u30d6\u3092\u5909\u66f4\u3057\u305f\u3068\u304d"
+        "message": "タブを変更したとき"
     },
     "white": {
-        "message": "\u767d"
+        "message": "白"
     },
     "yellow": {
-        "message": "\u9ec4"
+        "message": "黄"
     },
     "youtubeHeaderLeft": {
-        "message": "YouTube \u306e\u30d8\u30c3\u30c0\u30fc\u5de6"
+        "message": "YouTube のヘッダー左"
     },
     "youtubeHeaderRight": {
-        "message": "YouTube \u306e\u30d8\u30c3\u30c0\u30fc\u53f3"
+        "message": "YouTube のヘッダー右"
     },
     "youtubeHomePage": {
-        "message": "YouTube \u306e\u30db\u30fc\u30e0\u30da\u30fc\u30b8"
+        "message": "YouTube のホームページ"
     },
     "youtubeLanguage": {
-        "message": "YouTube \u306e\u8a00\u8a9e"
+        "message": "YouTube の言語"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube \u306fH.264\u30b3\u30fc\u30c7\u30c3\u30af\u306e\u753b\u8cea\u30921080p\u306b\u5236\u9650\u3057\u3066\u3044\u307e\u3059"
+        "message": "YouTube はH.264コーデックの画質を1080pに制限しています"
     }
 }

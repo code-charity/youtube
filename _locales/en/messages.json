@@ -1,15 +1,15 @@
 {
     "ARROWDOWN": {
-        "message": "\u21e9"
+        "message": "⇩"
     },
     "ARROWLEFT": {
-        "message": "\u21e6"
+        "message": "⇦"
     },
     "ARROWRIGHT": {
-        "message": "\u21e8"
+        "message": "⇨"
     },
     "ARROWUP": {
-        "message": "\u21e7"
+        "message": "⇧"
     },
     "__MSG_description__": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
@@ -39,7 +39,7 @@
         "message": "Active features"
     },
     "addScrollToTop": {
-        "message": "Add \u00abScroll to top\u00bb"
+        "message": "Add «Scroll to top»"
     },
     "ads": {
         "message": "Ads"
@@ -369,7 +369,7 @@
         "message": "Hide right buttons"
     },
     "hideScrollForDetails": {
-        "message": "Hide \u00abScroll for details\u00bb"
+        "message": "Hide «Scroll for details»"
     },
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"

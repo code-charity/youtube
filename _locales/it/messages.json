@@ -1,15 +1,15 @@
 {
     "ARROWDOWN": {
-        "message": "\u21e9"
+        "message": "⇩"
     },
     "ARROWLEFT": {
-        "message": "\u21e6"
+        "message": "⇦"
     },
     "ARROWRIGHT": {
-        "message": "\u21e8"
+        "message": "⇨"
     },
     "ARROWUP": {
-        "message": "\u21e7"
+        "message": "⇧"
     },
     "__MSG_description__": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
@@ -33,16 +33,16 @@
         "message": "Attivato/a"
     },
     "activatedFeatures": {
-        "message": "Funzionalit\u00e0 attivate"
+        "message": "Funzionalità attivate"
     },
     "activeFeatures": {
         "message": "Funzioni disponibili"
     },
     "addScrollToTop": {
-        "message": "Aggiungi \u00abScorri in cima\u00bb"
+        "message": "Aggiungi «Scorri in cima»"
     },
     "ads": {
-        "message": "Pubblicit\u00e0"
+        "message": "Pubblicità"
     },
     "all": {
         "message": "Tutte"
@@ -195,7 +195,7 @@
         "message": "Albeggio"
     },
     "decreasePlaybackSpeed": {
-        "message": "Riduci velocit\u00e0 di riproduzione"
+        "message": "Riduci velocità di riproduzione"
     },
     "decreaseVolume": {
         "message": "Diminuisci volume"
@@ -282,16 +282,16 @@
         "message": "Font"
     },
     "footer": {
-        "message": "Pi\u00e8 di pagina"
+        "message": "Piè di pagina"
     },
     "forceSDR": {
         "message": "Forza SDR"
     },
     "forcedPlaybackSpeed": {
-        "message": "Velocit\u00e0 di riproduzione forzata"
+        "message": "Velocità di riproduzione forzata"
     },
     "forcedTheaterMode": {
-        "message": "Modalit\u00e0 cinema forzata"
+        "message": "Modalità cinema forzata"
     },
     "forcedVolume": {
         "message": "Volume forzato"
@@ -318,10 +318,10 @@
         "message": "Verde"
     },
     "hdThumbnail": {
-        "message": "Miniatura in alt\u00e0 qualit\u00e0"
+        "message": "Miniatura in altà qualità"
     },
     "hdThumbnails": {
-        "message": "Miniature in alta qualit\u00e0"
+        "message": "Miniature in alta qualità"
     },
     "header": {
         "message": "Intestazione"
@@ -351,7 +351,7 @@
         "message": "Nascondi contenuti in primo piano"
     },
     "hideFooter": {
-        "message": "Nascondi pi\u00e8 di pagina"
+        "message": "Nascondi piè di pagina"
     },
     "hideGradientBottom": {
         "message": "Nascondi fondo gradiente"
@@ -363,7 +363,7 @@
         "message": "Nascondi pulsanti sulla destra"
     },
     "hideScrollForDetails": {
-        "message": "Nascondi \u00abScorri per dettagli\u00bb"
+        "message": "Nascondi «Scorri per dettagli»"
     },
     "hideViewsCount": {
         "message": "Nascondi contatore visualizzazioni"
@@ -381,7 +381,7 @@
         "message": "In sospensione sulla pagine del video"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Quanto tempo fa il video \u00e8 stato caricato"
+        "message": "Quanto tempo fa il video è stato caricato"
     },
     "icons": {
         "message": "Icone"
@@ -408,7 +408,7 @@
         "message": "Versione"
     },
     "increasePlaybackSpeed": {
-        "message": "Incrementa velocit\u00e0 di riproduzione"
+        "message": "Incrementa velocità di riproduzione"
     },
     "increaseVolume": {
         "message": "Aumenta volume"
@@ -453,7 +453,7 @@
         "message": "Tipologia chat dal vivo"
     },
     "loudnessNormalization": {
-        "message": "Normalizzazione rumorosit\u00e0"
+        "message": "Normalizzazione rumorosità"
     },
     "markWatchedVideos": {
         "message": "Contrassegna video visti"
@@ -534,7 +534,7 @@
         "message": "Avvio/Pausa"
     },
     "playbackSpeed": {
-        "message": "Velocit\u00e0 di riproduzione"
+        "message": "Velocità di riproduzione"
     },
     "player": {
         "message": "Lettore"
@@ -573,7 +573,7 @@
         "message": "Viola"
     },
     "quality": {
-        "message": "Qualit\u00e0"
+        "message": "Qualità"
     },
     "ram": {
         "message": "RAM"
@@ -708,16 +708,16 @@
         "message": "Temi"
     },
     "thisWillRemoveAllCookies": {
-        "message": "Questo rimuover\u00e0 tutti i cookie"
+        "message": "Questo rimuoverà tutti i cookie"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "Questo rimuover\u00e0 tutti i cookie di YouTube"
+        "message": "Questo rimuoverà tutti i cookie di YouTube"
     },
     "thisWillResetAllSettings": {
-        "message": "Questo reimposter\u00e0 l'intera configurazione"
+        "message": "Questo reimposterà l'intera configurazione"
     },
     "thisWillResetAllShortcuts": {
-        "message": "Questo reimposter\u00e0 tutte le scorciatoie"
+        "message": "Questo reimposterà tutte le scorciatoie"
     },
     "thumbnails": {
         "message": "Miniature"
@@ -768,7 +768,7 @@
         "message": "Video"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "La descrizione del video verr\u00e0 espansa per ottenere il nome della categoria"
+        "message": "La descrizione del video verrà espansa per ottenere il nome della categoria"
     },
     "videoFormats": {
         "message": "Formati video"
@@ -780,7 +780,7 @@
         "message": "Volume"
     },
     "watchLater": {
-        "message": "Guarda pi\u00f9 tardi"
+        "message": "Guarda più tardi"
     },
     "watchTime": {
         "message": "Tempo di visione"
@@ -807,6 +807,6 @@
         "message": "Lingua YouTube"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limita la qualit\u00e0 video a 1080p per il codec h.264"
+        "message": "YouTube limita la qualità video a 1080p per il codec h.264"
     }
 }

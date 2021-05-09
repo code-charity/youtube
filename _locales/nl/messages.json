@@ -1,15 +1,15 @@
 {
     "ARROWDOWN": {
-        "message": "\u21e9"
+        "message": "⇩"
     },
     "ARROWLEFT": {
-        "message": "\u21e6"
+        "message": "⇦"
     },
     "ARROWRIGHT": {
-        "message": "\u21e8"
+        "message": "⇨"
     },
     "ARROWUP": {
-        "message": "\u21e7"
+        "message": "⇧"
     },
     "__MSG_description__": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
@@ -39,7 +39,7 @@
         "message": "Actieve features"
     },
     "addScrollToTop": {
-        "message": "Voeg \u00abScroll to top\u00bb toe"
+        "message": "Voeg «Scroll to top» toe"
     },
     "ads": {
         "message": "Reclames"
@@ -135,7 +135,7 @@
         "message": "Annuleren"
     },
     "categories": {
-        "message": "Categori\u00ebn"
+        "message": "Categoriën"
     },
     "channel": {
         "message": "Kanaal"
@@ -363,7 +363,7 @@
         "message": "Verberg rechter knoppen"
     },
     "hideScrollForDetails": {
-        "message": "Verberg \u00abScroll for details\u00bb"
+        "message": "Verberg «Scroll for details»"
     },
     "hideViewsCount": {
         "message": "Verberg views teller"
@@ -504,7 +504,7 @@
         "message": "Alleen actief op YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Slechts \u00e9\u00e9n actieve speler toestaan"
+        "message": "Slechts één actieve speler toestaan"
     },
     "orange": {
         "message": "Oranje"
@@ -642,7 +642,7 @@
         "message": "Instellingen"
     },
     "settingsSuccessfullyImported": {
-        "message": "Instellingen succesvol ge\u00efmporteerd"
+        "message": "Instellingen succesvol geïmporteerd"
     },
     "shortcuts": {
         "message": "Sneltoetsen"
