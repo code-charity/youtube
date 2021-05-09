@@ -1,812 +1,815 @@
 {
+    "ARROWDOWN": {
+        "message": "\u21e9"
+    },
+    "ARROWLEFT": {
+        "message": "\u21e6"
+    },
+    "ARROWRIGHT": {
+        "message": "\u21e8"
+    },
+    "ARROWUP": {
+        "message": "\u21e7"
+    },
+    "__MSG_description__": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+    },
     "about": {
-        "message": "के बारे में"
+        "message": "\u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902"
     },
     "accept": {
-        "message": "स्वीकार"
+        "message": "\u0938\u094d\u0935\u0940\u0915\u093e\u0930"
     },
     "activate": {
-        "message": "सक्रिय"
+        "message": "\u0938\u0915\u094d\u0930\u093f\u092f"
     },
     "activateCaptions": {
-        "message": "कैप्शन सक्रिय करें"
-    },
-    "activated": {
-        "message": "सक्रिय"
-    },
-    "activatedFeatures": {
-        "message": "सक्रिय विशेषताएं"
+        "message": "\u0915\u0948\u092a\u094d\u0936\u0928 \u0938\u0915\u094d\u0930\u093f\u092f \u0915\u0930\u0947\u0902"
     },
     "activateFullscreen": {
-        "message": "पूर्णस्क्रीन सक्रिय करें"
+        "message": "\u092a\u0942\u0930\u094d\u0923\u0938\u094d\u0915\u094d\u0930\u0940\u0928 \u0938\u0915\u094d\u0930\u093f\u092f \u0915\u0930\u0947\u0902"
+    },
+    "activated": {
+        "message": "\u0938\u0915\u094d\u0930\u093f\u092f"
+    },
+    "activatedFeatures": {
+        "message": "\u0938\u0915\u094d\u0930\u093f\u092f \u0935\u093f\u0936\u0947\u0937\u0924\u093e\u090f\u0902"
     },
     "activeFeatures": {
-        "message": "सक्रिय विशेषताएं"
+        "message": "\u0938\u0915\u094d\u0930\u093f\u092f \u0935\u093f\u0936\u0947\u0937\u0924\u093e\u090f\u0902"
     },
     "addScrollToTop": {
-        "message": "«शीर्ष पर स्क्रॉल करें» जोड़ें"
+        "message": "\u00ab\u0936\u0940\u0930\u094d\u0937 \u092a\u0930 \u0938\u094d\u0915\u094d\u0930\u0949\u0932 \u0915\u0930\u0947\u0902\u00bb \u091c\u094b\u0921\u093c\u0947\u0902"
     },
     "ads": {
-        "message": "विज्ञापन"
+        "message": "\u0935\u093f\u091c\u094d\u091e\u093e\u092a\u0928"
     },
     "all": {
-        "message": "सब"
+        "message": "\u0938\u092c"
     },
     "allow": {
-        "message": "अनुमति"
+        "message": "\u0905\u0928\u0941\u092e\u0924\u093f"
     },
     "allow60fps": {
-        "message": "60fps की अनुमति दें"
+        "message": "60fps \u0915\u0940 \u0905\u0928\u0941\u092e\u0924\u093f \u0926\u0947\u0902"
+    },
+    "alwaysActive": {
+        "message": "\u0939\u092e\u0947\u0936\u093e \u0938\u0915\u094d\u0930\u093f\u092f"
+    },
+    "alwaysShowProgressBar": {
+        "message": "\u0939\u092e\u0947\u0936\u093e \u092a\u094d\u0930\u0917\u0924\u093f \u092c\u093e\u0930 \u0926\u093f\u0916\u093e\u090f\u0902"
+    },
+    "amber": {
+        "message": "\u0905\u0902\u092c\u0930"
+    },
+    "analyzer": {
+        "message": "\u0935\u093f\u0936\u094d\u0932\u0947\u0937\u0915"
+    },
+    "appearance": {
+        "message": "\u0926\u093f\u0916\u093e\u0935\u091f"
+    },
+    "audio": {
+        "message": "\u0911\u0921\u093f\u092f\u094b"
+    },
+    "audioFormats": {
+        "message": "\u0911\u0921\u093f\u092f\u094b \u092a\u094d\u0930\u093e\u0930\u0942\u092a"
+    },
+    "auto": {
+        "message": "\u0916\u0941\u0926 \u092c \u0916\u0941\u0926"
+    },
+    "autoFullscreen": {
+        "message": "\u0938\u094d\u0935\u0924: \u092a\u0942\u0930\u094d\u0923 \u0938\u094d\u0915\u094d\u0930\u0940\u0928"
+    },
+    "autopauseWhenSwitchingTabs": {
+        "message": "\u091f\u0948\u092c \u0938\u094d\u0935\u093f\u091a \u0915\u0930\u0924\u0947 \u0938\u092e\u092f \u0911\u091f\u094b\u092a\u0949\u091c"
+    },
+    "autoplay": {
+        "message": "\u0938\u094d\u0935\u0924: \u092a\u094d\u0932\u0947"
+    },
+    "backupAndReset": {
+        "message": "\u092c\u0948\u0915\u0905\u092a \u092a\u0941\u0928\u0930\u094d\u0938\u094d\u0925\u093e\u092a\u093f\u0924 \u0915\u0930\u0928\u093e"
+    },
+    "baseOnSystemColorScheme": {
+        "message": "\u0938\u093f\u0938\u094d\u091f\u092e \u0930\u0902\u0917 \u092f\u094b\u091c\u0928\u093e \u0915\u0947 \u0906\u0927\u093e\u0930 \u092a\u0930"
+    },
+    "belowPlayer": {
+        "message": "\u092a\u094d\u0932\u0947\u092f\u0930 \u0915\u0947 \u0928\u0940\u091a\u0947"
+    },
+    "black": {
+        "message": "\u0915\u093e\u0932\u093e"
+    },
+    "blacklist": {
+        "message": "\u0915\u093e\u0932\u093e \u0938\u0942\u091a\u0940 \u092e\u0947\u0902 \u0921\u093e\u0932\u0928\u093e"
+    },
+    "blockAll": {
+        "message": "\u0938\u092d\u0940 \u0915\u094b \u0905\u0935\u0930\u094b\u0927\u093f\u0924 \u0915\u0930\u0947\u0902"
+    },
+    "blue": {
+        "message": "\u0928\u0940\u0932\u093e"
+    },
+    "blueGray": {
+        "message": "\u0928\u0940\u0932\u093e \u0938\u094d\u0932\u0947\u091f\u0940"
+    },
+    "bluelight": {
+        "message": "\u0928\u0940\u0932\u0940 \u092c\u0924\u094d\u0924\u0940"
+    },
+    "brown": {
+        "message": "\u092d\u0942\u0930\u093e"
+    },
+    "browser": {
+        "message": "\u092c\u094d\u0930\u093e\u0909\u091c\u093c\u0930"
+    },
+    "browserVersion": {
+        "message": "\u092c\u094d\u0930\u093e\u0909\u091c\u093c\u0930 \u0938\u0902\u0938\u094d\u0915\u0930\u0923"
+    },
+    "bubbles": {
+        "message": "\u092c\u0941\u0932\u092c\u0941\u0932\u0947"
+    },
+    "bug": {
+        "message": "\u092c\u0917"
+    },
+    "buttons": {
+        "message": "\u092c\u091f\u0928"
+    },
+    "cancel": {
+        "message": "\u0930\u0926\u094d\u0926"
+    },
+    "categories": {
+        "message": "\u0936\u094d\u0930\u0947\u0923\u093f\u092f\u093e\u0901"
+    },
+    "channel": {
+        "message": "\u091a\u0948\u0928\u0932"
+    },
+    "channels": {
+        "message": "\u091a\u0948\u0928\u0932"
+    },
+    "clipboard": {
+        "message": "\u0915\u094d\u0932\u093f\u092a\u092c\u094b\u0930\u094d\u0921"
+    },
+    "codecH264": {
+        "message": "\u0915\u094b\u0921\u0915 \u091c 64\u0968\u096c\u096a 64"
+    },
+    "collapseOfSubscriptionSections": {
+        "message": "\u0938\u0926\u0938\u094d\u092f\u0924\u093e \u0935\u0930\u094d\u0917\u094b\u0902 \u0915\u093e \u092a\u0924\u0928"
+    },
+    "collapsed": {
+        "message": "\u0938\u0902\u0915\u094d\u0937\u093f\u092a\u094d\u0924"
+    },
+    "comments": {
+        "message": "\u091f\u093f\u092a\u094d\u092a\u0923\u093f\u092f\u093e\u0901"
+    },
+    "confirmationBeforeClosing": {
+        "message": "\u092c\u0902\u0926 \u0915\u0930\u0928\u0947 \u0938\u0947 \u092a\u0939\u0932\u0947 \u092a\u0941\u0937\u094d\u091f\u093f"
+    },
+    "cookies": {
+        "message": "\u0915\u0941\u0915\u0940\u091c\u093c"
+    },
+    "cores": {
+        "message": "\u0915\u094b\u0930"
+    },
+    "cropChapterTitles": {
+        "message": "\u092b\u0938\u0932 \u0905\u0927\u094d\u092f\u093e\u092f \u0915\u0947 \u0936\u0940\u0930\u094d\u0937\u0915"
+    },
+    "customCss": {
+        "message": "\u0915\u0938\u094d\u091f\u092e \u0938\u0940\u090f\u0938\u090f\u0938"
+    },
+    "customJs": {
+        "message": "\u0915\u0938\u094d\u091f\u092e \u091c\u0947\u090f\u0938"
+    },
+    "customMiniPlayer": {
+        "message": "\u0915\u0938\u094d\u091f\u092e \u092e\u093f\u0928\u0940 \u092a\u094d\u0932\u0947\u092f\u0930"
+    },
+    "cyan": {
+        "message": "\u0938\u093f\u092f\u093e\u0928"
+    },
+    "dark": {
+        "message": "\u0905\u0902\u0927\u0947\u0930\u093e"
+    },
+    "darkTheme": {
+        "message": "\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e"
+    },
+    "dateAndTime": {
+        "message": "\u0926\u093f\u0928\u093e\u0902\u0915 \u0914\u0930 \u0938\u092e\u092f"
+    },
+    "dawn": {
+        "message": "\u092d\u094b\u0930"
+    },
+    "decreasePlaybackSpeed": {
+        "message": "\u092a\u093e\u0930\u094d\u0936\u094d\u0935 \u0917\u0924\u093f \u092e\u0947\u0902 \u0915\u092e\u0940"
+    },
+    "decreaseVolume": {
+        "message": "\u0927\u094d\u0935\u0928\u093f \u0915\u092e"
+    },
+    "deepOrange": {
+        "message": "\u0917\u0939\u0930\u093e \u0928\u093e\u0930\u0902\u0917\u0940"
+    },
+    "deepPurple": {
+        "message": "\u0917\u0939\u0930\u093e \u092c\u0948\u0902\u0917\u0928\u0940"
+    },
+    "defaultChannelTab": {
+        "message": "\u0921\u093f\u092b\u093c\u0949\u0932\u094d\u091f \u091a\u0948\u0928\u0932 \u091f\u0948\u092c"
+    },
+    "deleteYoutubeCookies": {
+        "message": "\u092f\u0942\u091f\u094d\u092f\u0942\u092c \u0915\u0941\u0915\u0940\u091c\u093c \u0939\u091f\u093e\u090f\u0902"
+    },
+    "description": {
+        "message": "\u0935\u093f\u0935\u0930\u0923"
+    },
+    "desert": {
+        "message": "\u0930\u0947\u0917\u093f\u0938\u094d\u0924\u093e\u0928"
+    },
+    "details": {
+        "message": "\u0935\u093f\u0935\u0930\u0923"
+    },
+    "developerOptions": {
+        "message": "\u0921\u0947\u0935\u0932\u092a\u0930 \u0935\u093f\u0915\u0932\u094d\u092a"
+    },
+    "device": {
+        "message": "\u092f\u0941\u0915\u094d\u0924\u093f"
+    },
+    "dim": {
+        "message": "\u092e\u0902\u0926"
+    },
+    "disabled": {
+        "message": "\u0935\u093f\u0915\u0932\u093e\u0902\u0917"
+    },
+    "dislike": {
+        "message": "\u0928\u093e\u092a\u0938\u0928\u094d\u0926"
+    },
+    "doNotChange": {
+        "message": "\u092e\u0924 \u092c\u0926\u0932\u094b"
+    },
+    "donate": {
+        "message": "\u0926\u093e\u0928"
+    },
+    "draggable": {
+        "message": "\u0916\u0940\u0902\u091a\u0928\u0947 \u092f\u094b\u0917\u094d\u092f"
+    },
+    "email": {
+        "message": "\u0908\u092e\u0947\u0932"
+    },
+    "empty": {
+        "message": "\u0916\u093e\u0932\u0940"
+    },
+    "enabled": {
+        "message": "\u0938\u0915\u094d\u0930\u093f\u092f"
+    },
+    "enabledForced": {
+        "message": "\u0938\u0915\u094d\u0930\u093f\u092f(\u092e\u091c\u092c\u0942\u0930)"
+    },
+    "expanded": {
+        "message": "\u0935\u093f\u0938\u094d\u0924\u093e\u0930\u093f\u0924"
+    },
+    "exportSettings": {
+        "message": "\u0928\u093f\u0930\u094d\u092f\u093e\u0924 \u0938\u0947\u091f\u093f\u0902\u0917\u094d\u0938"
+    },
+    "extension": {
+        "message": "\u090f\u0915\u094d\u0938\u091f\u0947\u0902\u0936\u0928"
+    },
+    "file": {
+        "message": "\u092b\u093c\u093e\u0907\u0932"
+    },
+    "filters": {
+        "message": "\u092b\u093f\u0932\u094d\u091f\u0930"
+    },
+    "fitToWindow": {
+        "message": "\u0938\u094d\u0915\u094d\u0930\u0940\u0928 \u092b\u093f\u091f"
+    },
+    "flash": {
+        "message": "\u091a\u092e\u0915"
+    },
+    "font": {
+        "message": "\u092b\u093c\u0949\u0928\u094d\u091f"
+    },
+    "footer": {
+        "message": "\u092a\u093e\u0926 \u0932\u0947\u0916"
     },
     "forceSDR": {
         "message": "Force SDR"
     },
-    "alwaysActive": {
-        "message": "हमेशा सक्रिय"
-    },
-    "alwaysShowProgressBar": {
-        "message": "हमेशा प्रगति बार दिखाएं"
-    },
-    "amber": {
-        "message": "अंबर"
-    },
-    "analyzer": {
-        "message": "विश्लेषक"
-    },
-    "appearance": {
-        "message": "दिखावट"
-    },
-    "ARROWDOWN": {
-        "message": "⇩"
-    },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
-    },
-    "audio": {
-        "message": "ऑडियो"
-    },
-    "audioFormats": {
-        "message": "ऑडियो प्रारूप"
-    },
-    "auto": {
-        "message": "खुद ब खुद"
-    },
-    "autoFullscreen": {
-        "message": "स्वत: पूर्ण स्क्रीन"
-    },
-    "autopauseWhenSwitchingTabs": {
-        "message": "टैब स्विच करते समय ऑटोपॉज"
-    },
-    "autoplay": {
-        "message": "स्वत: प्ले"
-    },
-    "backupAndReset": {
-        "message": "बैकअप पुनर्स्थापित करना"
-    },
-    "baseOnSystemColorScheme": {
-        "message": "सिस्टम रंग योजना के आधार पर"
-    },
-    "belowPlayer": {
-        "message": "प्लेयर के नीचे"
-    },
-    "black": {
-        "message": "काला"
-    },
-    "blacklist": {
-        "message": "काला सूची में डालना"
-    },
-    "blockAll": {
-        "message": "सभी को अवरोधित करें"
-    },
-    "blue": {
-        "message": "नीला"
-    },
-    "blueGray": {
-        "message": "नीला स्लेटी"
-    },
-    "bluelight": {
-        "message": "नीली बत्ती"
-    },
-    "brown": {
-        "message": "भूरा"
-    },
-    "browser": {
-        "message": "ब्राउज़र"
-    },
-    "browserVersion": {
-        "message": "ब्राउज़र संस्करण"
-    },
-    "bubbles": {
-        "message": "बुलबुले"
-    },
-    "bug": {
-        "message": "बग"
-    },
-    "buttons": {
-        "message": "बटन"
-    },
-    "cancel": {
-        "message": "रद्द"
-    },
-    "categories": {
-        "message": "श्रेणियाँ"
-    },
-    "channel": {
-        "message": "चैनल"
-    },
-    "channels": {
-        "message": "चैनल"
-    },
-    "clipboard": {
-        "message": "क्लिपबोर्ड"
-    },
-    "codecH264": {
-        "message": "कोडक ज 64२६४ 64"
-    },
-    "collapsed": {
-        "message": "संक्षिप्त"
-    },
-    "collapseOfSubscriptionSections": {
-        "message": "सदस्यता वर्गों का पतन"
-    },
-    "comments": {
-        "message": "टिप्पणियाँ"
-    },
-    "confirmationBeforeClosing": {
-        "message": "बंद करने से पहले पुष्टि"
-    },
-    "cookies": {
-        "message": "कुकीज़"
-    },
-    "cores": {
-        "message": "कोर"
-    },
-    "cropChapterTitles": {
-        "message": "फसल अध्याय के शीर्षक"
-    },
-    "customCss": {
-        "message": "कस्टम सीएसएस"
-    },
-    "customJs": {
-        "message": "कस्टम जेएस"
-    },
-    "customMiniPlayer": {
-        "message": "कस्टम मिनी प्लेयर"
-    },
-    "cyan": {
-        "message": "सियान"
-    },
-    "dark": {
-        "message": "अंधेरा"
-    },
-    "darkTheme": {
-        "message": "डार्क थीम"
-    },
-    "dateAndTime": {
-        "message": "दिनांक और समय"
-    },
-    "dawn": {
-        "message": "भोर"
-    },
-    "decreasePlaybackSpeed": {
-        "message": "पार्श्व गति में कमी"
-    },
-    "decreaseVolume": {
-        "message": "ध्वनि कम"
-    },
-    "deepOrange": {
-        "message": "गहरा नारंगी"
-    },
-    "deepPurple": {
-        "message": "गहरा बैंगनी"
-    },
-    "defaultChannelTab": {
-        "message": "डिफ़ॉल्ट चैनल टैब"
-    },
-    "deleteYoutubeCookies": {
-        "message": "यूट्यूब कुकीज़ हटाएं"
-    },
-    "description": {
-        "message": "विवरण"
-    },
-    "desert": {
-        "message": "रेगिस्तान"
-    },
-    "details": {
-        "message": "विवरण"
-    },
-    "developerOptions": {
-        "message": "डेवलपर विकल्प"
-    },
-    "device": {
-        "message": "युक्ति"
-    },
-    "dim": {
-        "message": "मंद"
-    },
-    "disabled": {
-        "message": "विकलांग"
-    },
-    "dislike": {
-        "message": "नापसन्द"
-    },
-    "donate": {
-        "message": "दान"
-    },
-    "doNotChange": {
-        "message": "मत बदलो"
-    },
-    "draggable": {
-        "message": "खींचने योग्य"
-    },
-    "email": {
-        "message": "ईमेल"
-    },
-    "empty": {
-        "message": "खाली"
-    },
-    "enabled": {
-        "message": "सक्रिय"
-    },
-    "enabledForced": {
-        "message": "सक्रिय(मजबूर)"
-    },
-    "expanded": {
-        "message": "विस्तारित"
-    },
-    "exportSettings": {
-        "message": "निर्यात सेटिंग्स"
-    },
-    "extension": {
-        "message": "एक्सटेंशन"
-    },
-    "file": {
-        "message": "फ़ाइल"
-    },
-    "filters": {
-        "message": "फिल्टर"
-    },
-    "fitToWindow": {
-        "message": "स्क्रीन फिट"
-    },
-    "flash": {
-        "message": "चमक"
-    },
-    "font": {
-        "message": "फ़ॉन्ट"
-    },
-    "footer": {
-        "message": "पाद लेख"
-    },
     "forcedPlaybackSpeed": {
-        "message": "जबरन पार्श्व गति"
+        "message": "\u091c\u092c\u0930\u0928 \u092a\u093e\u0930\u094d\u0936\u094d\u0935 \u0917\u0924\u093f"
     },
     "forcedTheaterMode": {
-        "message": "जबरन थिएटर मोड"
+        "message": "\u091c\u092c\u0930\u0928 \u0925\u093f\u090f\u091f\u0930 \u092e\u094b\u0921"
     },
     "forcedVolume": {
-        "message": "जबरन ध्वनि"
+        "message": "\u091c\u092c\u0930\u0928 \u0927\u094d\u0935\u0928\u093f"
     },
     "foundABug": {
-        "message": "बग मिला?"
+        "message": "\u092c\u0917 \u092e\u093f\u0932\u093e?"
     },
     "fullWindow": {
-        "message": "पूर्ण स्क्रीन"
+        "message": "\u092a\u0942\u0930\u094d\u0923 \u0938\u094d\u0915\u094d\u0930\u0940\u0928"
     },
     "general": {
-        "message": "सामान्य"
+        "message": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f"
     },
     "github": {
-        "message": "गिटहब"
+        "message": "\u0917\u093f\u091f\u0939\u092c"
     },
     "goToSearchBox": {
-        "message": "सर्च बॉक्स पर जाएं"
+        "message": "\u0938\u0930\u094d\u091a \u092c\u0949\u0915\u094d\u0938 \u092a\u0930 \u091c\u093e\u090f\u0902"
     },
     "gpu": {
-        "message": "जी पी यू"
+        "message": "\u091c\u0940 \u092a\u0940 \u092f\u0942"
     },
     "green": {
-        "message": "हरा"
+        "message": "\u0939\u0930\u093e"
     },
     "hdThumbnail": {
-        "message": "एच डी थंबनेल"
+        "message": "\u090f\u091a \u0921\u0940 \u0925\u0902\u092c\u0928\u0947\u0932"
     },
     "hdThumbnails": {
-        "message": "एच डी थंबनेल"
+        "message": "\u090f\u091a \u0921\u0940 \u0925\u0902\u092c\u0928\u0947\u0932"
     },
     "header": {
-        "message": "हैडर"
+        "message": "\u0939\u0948\u0921\u0930"
     },
     "hidden": {
-        "message": "छिपा हुआ"
+        "message": "\u091b\u093f\u092a\u093e \u0939\u0941\u0906"
     },
     "hiddenOnVideoPage": {
-        "message": "वीडियो पेज पर छिपा हुआ"
+        "message": "\u0935\u0940\u0921\u093f\u092f\u094b \u092a\u0947\u091c \u092a\u0930 \u091b\u093f\u092a\u093e \u0939\u0941\u0906"
     },
     "hideAnimatedThumbnails": {
-        "message": "वीडियो पेज पर छिपा हुआ"
+        "message": "\u0935\u0940\u0921\u093f\u092f\u094b \u092a\u0947\u091c \u092a\u0930 \u091b\u093f\u092a\u093e \u0939\u0941\u0906"
     },
     "hideAnnotations": {
-        "message": "एनोटेशन छुपाएं"
+        "message": "\u090f\u0928\u094b\u091f\u0947\u0936\u0928 \u091b\u0941\u092a\u093e\u090f\u0902"
     },
     "hideCards": {
-        "message": "पत्ते छिपाओ"
+        "message": "\u092a\u0924\u094d\u0924\u0947 \u091b\u093f\u092a\u093e\u0913"
     },
     "hideDetails": {
-        "message": "जानकारी छिपाएँ"
+        "message": "\u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u091b\u093f\u092a\u093e\u090f\u0901"
     },
     "hideEndscreen": {
-        "message": "अंत स्क्रीन छिपाएँ"
+        "message": "\u0905\u0902\u0924 \u0938\u094d\u0915\u094d\u0930\u0940\u0928 \u091b\u093f\u092a\u093e\u090f\u0901"
     },
     "hideFeaturedContent": {
-        "message": "विशेषताओं को छिपाएँ"
+        "message": "\u0935\u093f\u0936\u0947\u0937\u0924\u093e\u0913\u0902 \u0915\u094b \u091b\u093f\u092a\u093e\u090f\u0901"
     },
     "hideFooter": {
-        "message": "पाद छिपाएँ"
+        "message": "\u092a\u093e\u0926 \u091b\u093f\u092a\u093e\u090f\u0901"
     },
     "hideGradientBottom": {
-        "message": "ग्रेडिएंट बॉटम छुपाएं"
+        "message": "\u0917\u094d\u0930\u0947\u0921\u093f\u090f\u0902\u091f \u092c\u0949\u091f\u092e \u091b\u0941\u092a\u093e\u090f\u0902"
     },
     "hidePlaylist": {
-        "message": "प्लेलिस्ट छिपाएं"
+        "message": "\u092a\u094d\u0932\u0947\u0932\u093f\u0938\u094d\u091f \u091b\u093f\u092a\u093e\u090f\u0902"
     },
     "hideRightButtons": {
-        "message": "दाएं बटन छुपाएं"
+        "message": "\u0926\u093e\u090f\u0902 \u092c\u091f\u0928 \u091b\u0941\u092a\u093e\u090f\u0902"
     },
     "hideScrollForDetails": {
-        "message": "छिपाएँ «विवरण के लिए स्क्रॉल»"
+        "message": "\u091b\u093f\u092a\u093e\u090f\u0901 \u00ab\u0935\u093f\u0935\u0930\u0923 \u0915\u0947 \u0932\u093f\u090f \u0938\u094d\u0915\u094d\u0930\u0949\u0932\u00bb"
     },
     "hideViewsCount": {
-        "message": "व्यू काउंट छिपाएं"
+        "message": "\u0935\u094d\u092f\u0942 \u0915\u093e\u0909\u0902\u091f \u091b\u093f\u092a\u093e\u090f\u0902"
     },
     "history": {
-        "message": "इतिहास"
+        "message": "\u0907\u0924\u093f\u0939\u093e\u0938"
     },
     "home": {
-        "message": "घर"
+        "message": "\u0918\u0930"
     },
     "hover": {
-        "message": "होवर"
+        "message": "\u0939\u094b\u0935\u0930"
     },
     "hoverOnVideoPage": {
-        "message": "वीडियो पेज पर होवर"
+        "message": "\u0935\u0940\u0921\u093f\u092f\u094b \u092a\u0947\u091c \u092a\u0930 \u0939\u094b\u0935\u0930"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "वीडियो कितनी देर पहले अपलोड किया गया था"
+        "message": "\u0935\u0940\u0921\u093f\u092f\u094b \u0915\u093f\u0924\u0928\u0940 \u0926\u0947\u0930 \u092a\u0939\u0932\u0947 \u0905\u092a\u0932\u094b\u0921 \u0915\u093f\u092f\u093e \u0917\u092f\u093e \u0925\u093e"
     },
     "icons": {
-        "message": "प्रतीक"
+        "message": "\u092a\u094d\u0930\u0924\u0940\u0915"
     },
     "iconsOnly": {
-        "message": "केवल प्रतीक"
+        "message": "\u0915\u0947\u0935\u0932 \u092a\u094d\u0930\u0924\u0940\u0915"
     },
     "importSettings": {
-        "message": "सेटिंग आयात करना"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "ब्राउज़र में बेहतर आइकन"
-    },
-    "improvedtubeIconOnYoutube": {
-        "message": "यूट्यूब पर बेहतर आइकन"
-    },
-    "improvedtubeLanguage": {
-        "message": "ImprovedTube भाषा"
-    },
-    "improvedtubeVersion": {
-        "message": "ImprovedTube संस्करण"
+        "message": "\u0938\u0947\u091f\u093f\u0902\u0917 \u0906\u092f\u093e\u0924 \u0915\u0930\u0928\u093e"
     },
     "improveLogo": {
-        "message": "लोगो सुधारो"
+        "message": "\u0932\u094b\u0917\u094b \u0938\u0941\u0927\u093e\u0930\u094b"
+    },
+    "improvedtubeIconInBrowser": {
+        "message": "\u092c\u094d\u0930\u093e\u0909\u091c\u093c\u0930 \u092e\u0947\u0902 \u092c\u0947\u0939\u0924\u0930 \u0906\u0907\u0915\u0928"
+    },
+    "improvedtubeIconOnYoutube": {
+        "message": "\u092f\u0942\u091f\u094d\u092f\u0942\u092c \u092a\u0930 \u092c\u0947\u0939\u0924\u0930 \u0906\u0907\u0915\u0928"
+    },
+    "improvedtubeLanguage": {
+        "message": "ImprovedTube \u092d\u093e\u0937\u093e"
+    },
+    "improvedtubeVersion": {
+        "message": "ImprovedTube \u0938\u0902\u0938\u094d\u0915\u0930\u0923"
     },
     "increasePlaybackSpeed": {
-        "message": "प्लेबैक स्पीड बढ़ाएं"
+        "message": "\u092a\u094d\u0932\u0947\u092c\u0948\u0915 \u0938\u094d\u092a\u0940\u0921 \u092c\u0922\u093c\u093e\u090f\u0902"
     },
     "increaseVolume": {
-        "message": "ध्वनि बढ़ाएं"
+        "message": "\u0927\u094d\u0935\u0928\u093f \u092c\u0922\u093c\u093e\u090f\u0902"
     },
     "indigo": {
-        "message": "नील"
+        "message": "\u0928\u0940\u0932"
     },
     "items": {
-        "message": "आइटम"
+        "message": "\u0906\u0907\u091f\u092e"
     },
     "languages": {
-        "message": "बोली"
+        "message": "\u092c\u094b\u0932\u0940"
     },
     "legacyYoutube": {
-        "message": "विरासत यूट्यूब"
+        "message": "\u0935\u093f\u0930\u093e\u0938\u0924 \u092f\u0942\u091f\u094d\u092f\u0942\u092c"
     },
     "light": {
-        "message": "हलका"
+        "message": "\u0939\u0932\u0915\u093e"
     },
     "lightBlue": {
-        "message": "हल्का नीला"
+        "message": "\u0939\u0932\u094d\u0915\u093e \u0928\u0940\u0932\u093e"
     },
     "lightGreen": {
-        "message": "हल्का हरा"
+        "message": "\u0939\u0932\u094d\u0915\u093e \u0939\u0930\u093e"
     },
     "like": {
-        "message": "पसंद"
+        "message": "\u092a\u0938\u0902\u0926"
     },
     "likes": {
-        "message": "को यह पसंद है"
+        "message": "\u0915\u094b \u092f\u0939 \u092a\u0938\u0902\u0926 \u0939\u0948"
     },
     "lime": {
-        "message": "पीला हरा रंग"
+        "message": "\u092a\u0940\u0932\u093e \u0939\u0930\u093e \u0930\u0902\u0917"
     },
     "list": {
-        "message": "सूची"
+        "message": "\u0938\u0942\u091a\u0940"
     },
     "liveChat": {
-        "message": "सीधी बातचीत"
+        "message": "\u0938\u0940\u0927\u0940 \u092c\u093e\u0924\u091a\u0940\u0924"
     },
     "liveChatType": {
-        "message": "लाइव चैट प्रकार"
+        "message": "\u0932\u093e\u0907\u0935 \u091a\u0948\u091f \u092a\u094d\u0930\u0915\u093e\u0930"
     },
     "loudnessNormalization": {
-        "message": "जोर से सामान्य होना"
+        "message": "\u091c\u094b\u0930 \u0938\u0947 \u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0939\u094b\u0928\u093e"
     },
     "markWatchedVideos": {
-        "message": "चिह्नित वीडियो देखे गए"
+        "message": "\u091a\u093f\u0939\u094d\u0928\u093f\u0924 \u0935\u0940\u0921\u093f\u092f\u094b \u0926\u0947\u0916\u0947 \u0917\u090f"
     },
     "mixer": {
-        "message": "मिक्सर"
+        "message": "\u092e\u093f\u0915\u094d\u0938\u0930"
     },
     "myColors": {
-        "message": "मेरे रंग"
+        "message": "\u092e\u0947\u0930\u0947 \u0930\u0902\u0917"
     },
     "name": {
-        "message": "नाम"
+        "message": "\u0928\u093e\u092e"
     },
     "nativeMiniPlayer": {
-        "message": "मूल निवासी मिनी प्लेयर"
+        "message": "\u092e\u0942\u0932 \u0928\u093f\u0935\u093e\u0938\u0940 \u092e\u093f\u0928\u0940 \u092a\u094d\u0932\u0947\u092f\u0930"
     },
     "new": {
-        "message": "नया"
+        "message": "\u0928\u092f\u093e"
     },
     "nextVideo": {
-        "message": "अगला वीडियो"
+        "message": "\u0905\u0917\u0932\u093e \u0935\u0940\u0921\u093f\u092f\u094b"
     },
     "night": {
-        "message": "रात"
+        "message": "\u0930\u093e\u0924"
     },
     "noActiveFeatures": {
-        "message": "कोई सक्रिय सुविधाएँ नहीं"
-    },
-    "none": {
-        "message": "कोई नहीं"
+        "message": "\u0915\u094b\u0908 \u0938\u0915\u094d\u0930\u093f\u092f \u0938\u0941\u0935\u093f\u0927\u093e\u090f\u0901 \u0928\u0939\u0940\u0902"
     },
     "noOpenVideoTabs": {
-        "message": "कोई खुला वीडियो टैब नहीं"
+        "message": "\u0915\u094b\u0908 \u0916\u0941\u0932\u093e \u0935\u0940\u0921\u093f\u092f\u094b \u091f\u0948\u092c \u0928\u0939\u0940\u0902"
+    },
+    "none": {
+        "message": "\u0915\u094b\u0908 \u0928\u0939\u0940\u0902"
     },
     "normal": {
-        "message": "साधारण"
+        "message": "\u0938\u093e\u0927\u093e\u0930\u0923"
     },
     "old": {
-        "message": "पुराना"
+        "message": "\u092a\u0941\u0930\u093e\u0928\u093e"
     },
     "onAllVideos": {
-        "message": "सभी वीडियो पर"
-    },
-    "onlyActiveOnYoutube": {
-        "message": "केवल यूट्यूब पर सक्रिय है"
-    },
-    "onlyOnePlayerInstancePlaying": {
-        "message": "केवल एक प्लेयर का चल रहा है"
+        "message": "\u0938\u092d\u0940 \u0935\u0940\u0921\u093f\u092f\u094b \u092a\u0930"
     },
     "onSubscribedChannels": {
-        "message": "सदस्यता प्राप्त चैनलों पर"
+        "message": "\u0938\u0926\u0938\u094d\u092f\u0924\u093e \u092a\u094d\u0930\u093e\u092a\u094d\u0924 \u091a\u0948\u0928\u0932\u094b\u0902 \u092a\u0930"
+    },
+    "onlyActiveOnYoutube": {
+        "message": "\u0915\u0947\u0935\u0932 \u092f\u0942\u091f\u094d\u092f\u0942\u092c \u092a\u0930 \u0938\u0915\u094d\u0930\u093f\u092f \u0939\u0948"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "\u0915\u0947\u0935\u0932 \u090f\u0915 \u092a\u094d\u0932\u0947\u092f\u0930 \u0915\u093e \u091a\u0932 \u0930\u0939\u093e \u0939\u0948"
     },
     "orange": {
-        "message": "नारंगी रंग"
+        "message": "\u0928\u093e\u0930\u0902\u0917\u0940 \u0930\u0902\u0917"
     },
     "os": {
-        "message": "ओ एस"
+        "message": "\u0913 \u090f\u0938"
     },
     "other": {
-        "message": "अन्य"
+        "message": "\u0905\u0928\u094d\u092f"
     },
     "permissions": {
-        "message": "अनुमतियां"
+        "message": "\u0905\u0928\u0941\u092e\u0924\u093f\u092f\u093e\u0902"
     },
     "pictureInPicture": {
-        "message": "चित्र में चित्र"
+        "message": "\u091a\u093f\u0924\u094d\u0930 \u092e\u0947\u0902 \u091a\u093f\u0924\u094d\u0930"
     },
     "pink": {
-        "message": "गुलाबी"
+        "message": "\u0917\u0941\u0932\u093e\u092c\u0940"
     },
     "plain": {
-        "message": "सादा"
+        "message": "\u0938\u093e\u0926\u093e"
     },
     "platform": {
-        "message": "मंच"
-    },
-    "playbackSpeed": {
-        "message": "प्लेबैक स्पीड"
-    },
-    "player": {
-        "message": "प्लेयर"
-    },
-    "playerColor": {
-        "message": "प्लेयर रंग"
-    },
-    "playerSize": {
-        "message": "प्लेयर आकार"
-    },
-    "playlist": {
-        "message": "प्लेलिस्ट"
-    },
-    "playlists": {
-        "message": "प्लेलिस्ट"
+        "message": "\u092e\u0902\u091a"
     },
     "playPause": {
-        "message": "प्ले / ठहराव"
+        "message": "\u092a\u094d\u0932\u0947 / \u0920\u0939\u0930\u093e\u0935"
+    },
+    "playbackSpeed": {
+        "message": "\u092a\u094d\u0932\u0947\u092c\u0948\u0915 \u0938\u094d\u092a\u0940\u0921"
+    },
+    "player": {
+        "message": "\u092a\u094d\u0932\u0947\u092f\u0930"
+    },
+    "playerColor": {
+        "message": "\u092a\u094d\u0932\u0947\u092f\u0930 \u0930\u0902\u0917"
+    },
+    "playerSize": {
+        "message": "\u092a\u094d\u0932\u0947\u092f\u0930 \u0906\u0915\u093e\u0930"
+    },
+    "playlist": {
+        "message": "\u092a\u094d\u0932\u0947\u0932\u093f\u0938\u094d\u091f"
+    },
+    "playlists": {
+        "message": "\u092a\u094d\u0932\u0947\u0932\u093f\u0938\u094d\u091f"
     },
     "popupPlayer": {
-        "message": "पॉप अप प्लेयर"
+        "message": "\u092a\u0949\u092a \u0905\u092a \u092a\u094d\u0932\u0947\u092f\u0930"
     },
     "position": {
-        "message": "स्थान"
+        "message": "\u0938\u094d\u0925\u093e\u0928"
     },
     "pressAnyKeyOrScroll": {
-        "message": "किसी भी कुंजी को दबाएं या माउस व्हील का उपयोग करें।"
+        "message": "\u0915\u093f\u0938\u0940 \u092d\u0940 \u0915\u0941\u0902\u091c\u0940 \u0915\u094b \u0926\u092c\u093e\u090f\u0902 \u092f\u093e \u092e\u093e\u0909\u0938 \u0935\u094d\u0939\u0940\u0932 \u0915\u093e \u0909\u092a\u092f\u094b\u0917 \u0915\u0930\u0947\u0902\u0964"
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "किसी भी कुंजी को दबाएं या माउस व्हील का उपयोग करें।"
+        "message": "\u0915\u093f\u0938\u0940 \u092d\u0940 \u0915\u0941\u0902\u091c\u0940 \u0915\u094b \u0926\u092c\u093e\u090f\u0902 \u092f\u093e \u092e\u093e\u0909\u0938 \u0935\u094d\u0939\u0940\u0932 \u0915\u093e \u0909\u092a\u092f\u094b\u0917 \u0915\u0930\u0947\u0902\u0964"
     },
     "previousVideo": {
-        "message": "पिछला वीडियो"
+        "message": "\u092a\u093f\u091b\u0932\u093e \u0935\u0940\u0921\u093f\u092f\u094b"
     },
     "primaryColor": {
-        "message": "प्राथमिक रंग"
+        "message": "\u092a\u094d\u0930\u093e\u0925\u092e\u093f\u0915 \u0930\u0902\u0917"
     },
     "purple": {
-        "message": "बैंगनी"
+        "message": "\u092c\u0948\u0902\u0917\u0928\u0940"
     },
     "quality": {
-        "message": "गुणवत्ता"
+        "message": "\u0917\u0941\u0923\u0935\u0924\u094d\u0924\u093e"
     },
     "ram": {
         "message": "RAM"
     },
     "rateUs": {
-        "message": "हमें रेटिंग दें"
+        "message": "\u0939\u092e\u0947\u0902 \u0930\u0947\u091f\u093f\u0902\u0917 \u0926\u0947\u0902"
     },
     "red": {
-        "message": "लाल"
+        "message": "\u0932\u093e\u0932"
     },
     "redDislikeButton": {
-        "message": "नापसंद बटन लाल रंग दिखाएं"
+        "message": "\u0928\u093e\u092a\u0938\u0902\u0926 \u092c\u091f\u0928 \u0932\u093e\u0932 \u0930\u0902\u0917 \u0926\u093f\u0916\u093e\u090f\u0902"
     },
     "relatedVideos": {
-        "message": "संबंधित वीडियो"
+        "message": "\u0938\u0902\u092c\u0902\u0927\u093f\u0924 \u0935\u0940\u0921\u093f\u092f\u094b"
     },
     "removeRelatedSearchResults": {
-        "message": "संबंधित खोज परिणाम निकालें"
+        "message": "\u0938\u0902\u092c\u0902\u0927\u093f\u0924 \u0916\u094b\u091c \u092a\u0930\u093f\u0923\u093e\u092e \u0928\u093f\u0915\u093e\u0932\u0947\u0902"
     },
     "repeat": {
-        "message": "दोहराना"
+        "message": "\u0926\u094b\u0939\u0930\u093e\u0928\u093e"
     },
     "reset": {
-        "message": "रीसेट"
+        "message": "\u0930\u0940\u0938\u0947\u091f"
     },
     "resetAllSettings": {
-        "message": "सभी सेटिंग्स को रीसेट"
+        "message": "\u0938\u092d\u0940 \u0938\u0947\u091f\u093f\u0902\u0917\u094d\u0938 \u0915\u094b \u0930\u0940\u0938\u0947\u091f"
     },
     "resetAllShortcuts": {
-        "message": "सभी शॉर्टकट रीसेट करें"
+        "message": "\u0938\u092d\u0940 \u0936\u0949\u0930\u094d\u091f\u0915\u091f \u0930\u0940\u0938\u0947\u091f \u0915\u0930\u0947\u0902"
     },
     "reverse": {
-        "message": "उलटना"
+        "message": "\u0909\u0932\u091f\u0928\u093e"
     },
     "rotate": {
-        "message": "घुमाएँ"
+        "message": "\u0918\u0941\u092e\u093e\u090f\u0901"
     },
     "save": {
-        "message": "सहेजें"
+        "message": "\u0938\u0939\u0947\u091c\u0947\u0902"
     },
     "saveAs": {
-        "message": "के रूप रक्षित करें"
+        "message": "\u0915\u0947 \u0930\u0942\u092a \u0930\u0915\u094d\u0937\u093f\u0924 \u0915\u0930\u0947\u0902"
     },
     "schedule": {
-        "message": "अनुसूची"
+        "message": "\u0905\u0928\u0941\u0938\u0942\u091a\u0940"
     },
     "screen": {
-        "message": "स्क्रीन"
+        "message": "\u0938\u094d\u0915\u094d\u0930\u0940\u0928"
     },
     "screenshot": {
-        "message": "स्क्रीनशॉट"
+        "message": "\u0938\u094d\u0915\u094d\u0930\u0940\u0928\u0936\u0949\u091f"
     },
     "search": {
-        "message": "खोज"
+        "message": "\u0916\u094b\u091c"
     },
     "searchBarOnly": {
-        "message": "केवल बार खोजें"
+        "message": "\u0915\u0947\u0935\u0932 \u092c\u093e\u0930 \u0916\u094b\u091c\u0947\u0902"
     },
     "seekBackward10Seconds": {
-        "message": "पिछड़े 10 सेकंड की तलाश करें"
+        "message": "\u092a\u093f\u091b\u0921\u093c\u0947 10 \u0938\u0947\u0915\u0902\u0921 \u0915\u0940 \u0924\u0932\u093e\u0936 \u0915\u0930\u0947\u0902"
     },
     "seekForward10Seconds": {
-        "message": "पिछड़े 10 सेकंड की तलाश करें"
+        "message": "\u092a\u093f\u091b\u0921\u093c\u0947 10 \u0938\u0947\u0915\u0902\u0921 \u0915\u0940 \u0924\u0932\u093e\u0936 \u0915\u0930\u0947\u0902"
     },
     "settings": {
-        "message": "समायोजन"
+        "message": "\u0938\u092e\u093e\u092f\u094b\u091c\u0928"
     },
     "settingsSuccessfullyImported": {
-        "message": "सेटिंग्स सफलतापूर्वक आयात की गईं"
+        "message": "\u0938\u0947\u091f\u093f\u0902\u0917\u094d\u0938 \u0938\u092b\u0932\u0924\u093e\u092a\u0942\u0930\u094d\u0935\u0915 \u0906\u092f\u093e\u0924 \u0915\u0940 \u0917\u0908\u0902"
     },
     "shortcuts": {
-        "message": "शॉर्टकट"
+        "message": "\u0936\u0949\u0930\u094d\u091f\u0915\u091f"
     },
     "showCardsOnMouseHover": {
-        "message": "माउस होवर पर कार्ड दिखाएं"
+        "message": "\u092e\u093e\u0909\u0938 \u0939\u094b\u0935\u0930 \u092a\u0930 \u0915\u093e\u0930\u094d\u0921 \u0926\u093f\u0916\u093e\u090f\u0902"
     },
     "showChannelVideosCount": {
-        "message": "चैनल वीडियो काउंट दिखाएं"
+        "message": "\u091a\u0948\u0928\u0932 \u0935\u0940\u0921\u093f\u092f\u094b \u0915\u093e\u0909\u0902\u091f \u0926\u093f\u0916\u093e\u090f\u0902"
     },
     "shuffle": {
-        "message": "मिश्रण"
+        "message": "\u092e\u093f\u0936\u094d\u0930\u0923"
     },
     "sidebar": {
-        "message": "साइडबार"
+        "message": "\u0938\u093e\u0907\u0921\u092c\u093e\u0930"
     },
     "spacebar": {
-        "message": "स्पेस बार"
+        "message": "\u0938\u094d\u092a\u0947\u0938 \u092c\u093e\u0930"
     },
     "squaredUserImages": {
-        "message": "चुकता उपयोगकर्ता चित्र"
+        "message": "\u091a\u0941\u0915\u0924\u093e \u0909\u092a\u092f\u094b\u0917\u0915\u0930\u094d\u0924\u093e \u091a\u093f\u0924\u094d\u0930"
     },
     "static": {
-        "message": "स्थिर"
+        "message": "\u0938\u094d\u0925\u093f\u0930"
     },
     "statsForNerds": {
-        "message": "डेवलपर के लिए आँकड़े दिखाएँ"
+        "message": "\u0921\u0947\u0935\u0932\u092a\u0930 \u0915\u0947 \u0932\u093f\u090f \u0906\u0901\u0915\u0921\u093c\u0947 \u0926\u093f\u0916\u093e\u090f\u0901"
     },
     "step": {
-        "message": "चरण"
+        "message": "\u091a\u0930\u0923"
     },
     "stop": {
-        "message": "रुकें"
+        "message": "\u0930\u0941\u0915\u0947\u0902"
     },
     "style": {
-        "message": "अंदाज"
+        "message": "\u0905\u0902\u0926\u093e\u091c"
     },
     "styles": {
-        "message": "शैलियाँ"
+        "message": "\u0936\u0948\u0932\u093f\u092f\u093e\u0901"
     },
     "subscriptions": {
-        "message": "सदस्यता"
+        "message": "\u0938\u0926\u0938\u094d\u092f\u0924\u093e"
     },
     "subtitles": {
-        "message": "उपशीर्षक"
+        "message": "\u0909\u092a\u0936\u0940\u0930\u094d\u0937\u0915"
     },
     "sunset": {
-        "message": "सूर्यास्त"
+        "message": "\u0938\u0942\u0930\u094d\u092f\u093e\u0938\u094d\u0924"
     },
     "sunsetToSunrise": {
-        "message": "सूर्योदय से सूर्यास्त"
+        "message": "\u0938\u0942\u0930\u094d\u092f\u094b\u0926\u092f \u0938\u0947 \u0938\u0942\u0930\u094d\u092f\u093e\u0938\u094d\u0924"
     },
     "systemPeferenceDark": {
-        "message": "सिस्टम प्राथमिकताएं: अंधेरा"
+        "message": "\u0938\u093f\u0938\u094d\u091f\u092e \u092a\u094d\u0930\u093e\u0925\u092e\u093f\u0915\u0924\u093e\u090f\u0902: \u0905\u0902\u0927\u0947\u0930\u093e"
     },
     "systemPeferenceLight": {
-        "message": "सिस्टम वरीयताएँ: प्रकाश"
+        "message": "\u0938\u093f\u0938\u094d\u091f\u092e \u0935\u0930\u0940\u092f\u0924\u093e\u090f\u0901: \u092a\u094d\u0930\u0915\u093e\u0936"
     },
     "teal": {
-        "message": "टील रंग"
+        "message": "\u091f\u0940\u0932 \u0930\u0902\u0917"
     },
     "textColor": {
-        "message": "लिखावट का रंग"
+        "message": "\u0932\u093f\u0916\u093e\u0935\u091f \u0915\u093e \u0930\u0902\u0917"
     },
     "themes": {
-        "message": "विषय-वस्तु"
+        "message": "\u0935\u093f\u0937\u092f-\u0935\u0938\u094d\u0924\u0941"
     },
     "thisWillRemoveAllCookies": {
-        "message": "यह सभी कुकीज़ को हटा देगा।"
+        "message": "\u092f\u0939 \u0938\u092d\u0940 \u0915\u0941\u0915\u0940\u091c\u093c \u0915\u094b \u0939\u091f\u093e \u0926\u0947\u0917\u093e\u0964"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "यह सभी यूट्यूब कुकीज़ को हटा देगा।"
+        "message": "\u092f\u0939 \u0938\u092d\u0940 \u092f\u0942\u091f\u094d\u092f\u0942\u092c \u0915\u0941\u0915\u0940\u091c\u093c \u0915\u094b \u0939\u091f\u093e \u0926\u0947\u0917\u093e\u0964"
     },
     "thisWillResetAllSettings": {
-        "message": "यह सभी सेटिंग्स को रीसेट कर देगा।"
+        "message": "\u092f\u0939 \u0938\u092d\u0940 \u0938\u0947\u091f\u093f\u0902\u0917\u094d\u0938 \u0915\u094b \u0930\u0940\u0938\u0947\u091f \u0915\u0930 \u0926\u0947\u0917\u093e\u0964"
     },
     "thisWillResetAllShortcuts": {
-        "message": "यह सभी शॉर्टकट रीसेट कर देगा।"
+        "message": "\u092f\u0939 \u0938\u092d\u0940 \u0936\u0949\u0930\u094d\u091f\u0915\u091f \u0930\u0940\u0938\u0947\u091f \u0915\u0930 \u0926\u0947\u0917\u093e\u0964"
     },
     "thumbnails": {
-        "message": "थंबनेल"
+        "message": "\u0925\u0902\u092c\u0928\u0947\u0932"
     },
     "timeFrom": {
-        "message": "से समय"
+        "message": "\u0938\u0947 \u0938\u092e\u092f"
     },
     "timeTo": {
-        "message": "समय पर"
+        "message": "\u0938\u092e\u092f \u092a\u0930"
     },
     "todayAt": {
-        "message": "आज इस समय"
+        "message": "\u0906\u091c \u0907\u0938 \u0938\u092e\u092f"
     },
     "toggleCards": {
         "message": "Toggle cards"
     },
     "topChat": {
-        "message": "शीर्ष चैट"
+        "message": "\u0936\u0940\u0930\u094d\u0937 \u091a\u0948\u091f"
     },
     "trailerAutoplay": {
-        "message": "ट्रेलर ऑटोप्ले"
+        "message": "\u091f\u094d\u0930\u0947\u0932\u0930 \u0911\u091f\u094b\u092a\u094d\u0932\u0947"
     },
     "translations": {
-        "message": "अनुवाद"
+        "message": "\u0905\u0928\u0941\u0935\u093e\u0926"
     },
     "transparentBackground": {
-        "message": "पारदर्शी पृष्ठभूमि"
+        "message": "\u092a\u093e\u0930\u0926\u0930\u094d\u0936\u0940 \u092a\u0943\u0937\u094d\u0920\u092d\u0942\u092e\u093f"
     },
     "trending": {
-        "message": "रुझान"
+        "message": "\u0930\u0941\u091d\u093e\u0928"
     },
     "tryToReloadThePage": {
-        "message": "पृष्ठ को पुनः लोड करने का प्रयास करें"
+        "message": "\u092a\u0943\u0937\u094d\u0920 \u0915\u094b \u092a\u0941\u0928\u0903 \u0932\u094b\u0921 \u0915\u0930\u0928\u0947 \u0915\u093e \u092a\u094d\u0930\u092f\u093e\u0938 \u0915\u0930\u0947\u0902"
     },
     "type": {
-        "message": "टाइप"
+        "message": "\u091f\u093e\u0907\u092a"
     },
     "upNextAutoplay": {
-        "message": "अगले ऑटोप्ले पर"
+        "message": "\u0905\u0917\u0932\u0947 \u0911\u091f\u094b\u092a\u094d\u0932\u0947 \u092a\u0930"
     },
     "use24HourFormat": {
-        "message": "24-घंटे के प्रारूप का उपयोग करें"
+        "message": "24-\u0918\u0902\u091f\u0947 \u0915\u0947 \u092a\u094d\u0930\u093e\u0930\u0942\u092a \u0915\u093e \u0909\u092a\u092f\u094b\u0917 \u0915\u0930\u0947\u0902"
     },
     "version": {
-        "message": "संस्करण"
+        "message": "\u0938\u0902\u0938\u094d\u0915\u0930\u0923"
     },
     "video": {
-        "message": "वीडियो"
+        "message": "\u0935\u0940\u0921\u093f\u092f\u094b"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "श्रेणी का नाम प्राप्त करने के लिए वीडियो विवरण का विस्तार किया जाएगा।"
+        "message": "\u0936\u094d\u0930\u0947\u0923\u0940 \u0915\u093e \u0928\u093e\u092e \u092a\u094d\u0930\u093e\u092a\u094d\u0924 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0932\u093f\u090f \u0935\u0940\u0921\u093f\u092f\u094b \u0935\u093f\u0935\u0930\u0923 \u0915\u093e \u0935\u093f\u0938\u094d\u0924\u093e\u0930 \u0915\u093f\u092f\u093e \u091c\u093e\u090f\u0917\u093e\u0964"
     },
     "videoFormats": {
-        "message": "वीडियो प्रारूप"
+        "message": "\u0935\u0940\u0921\u093f\u092f\u094b \u092a\u094d\u0930\u093e\u0930\u0942\u092a"
     },
     "videos": {
-        "message": "वीडियो"
+        "message": "\u0935\u0940\u0921\u093f\u092f\u094b"
     },
     "volume": {
-        "message": "ध्वनि"
+        "message": "\u0927\u094d\u0935\u0928\u093f"
     },
     "watchLater": {
-        "message": "बाद में देखना"
+        "message": "\u092c\u093e\u0926 \u092e\u0947\u0902 \u0926\u0947\u0916\u0928\u093e"
     },
     "watchTime": {
-        "message": "समय देखें"
+        "message": "\u0938\u092e\u092f \u0926\u0947\u0916\u0947\u0902"
     },
     "whenTabIsChanged": {
-        "message": "जब टैब बदला जाता है"
+        "message": "\u091c\u092c \u091f\u0948\u092c \u092c\u0926\u0932\u093e \u091c\u093e\u0924\u093e \u0939\u0948"
     },
     "white": {
-        "message": "सफेद"
+        "message": "\u0938\u092b\u0947\u0926"
     },
     "yellow": {
-        "message": "पीला"
+        "message": "\u092a\u0940\u0932\u093e"
     },
     "youtubeHeaderLeft": {
-        "message": "यूट्यूब हैडर (बाएं)"
+        "message": "\u092f\u0942\u091f\u094d\u092f\u0942\u092c \u0939\u0948\u0921\u0930 (\u092c\u093e\u090f\u0902)"
     },
     "youtubeHeaderRight": {
-        "message": "यूट्यूब हैडर (दाएं)"
+        "message": "\u092f\u0942\u091f\u094d\u092f\u0942\u092c \u0939\u0948\u0921\u0930 (\u0926\u093e\u090f\u0902)"
     },
     "youtubeHomePage": {
-        "message": "यूट्यूब होम पेज"
+        "message": "\u092f\u0942\u091f\u094d\u092f\u0942\u092c \u0939\u094b\u092e \u092a\u0947\u091c"
     },
     "youtubeLanguage": {
-        "message": "यूट्यूब भाषा"
+        "message": "\u092f\u0942\u091f\u094d\u092f\u0942\u092c \u092d\u093e\u0937\u093e"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "यूट्यूब h.264 कोडेक के लिए वीडियो की गुणवत्ता 1080 पी तक सीमित है"
+        "message": "\u092f\u0942\u091f\u094d\u092f\u0942\u092c h.264 \u0915\u094b\u0921\u0947\u0915 \u0915\u0947 \u0932\u093f\u090f \u0935\u0940\u0921\u093f\u092f\u094b \u0915\u0940 \u0917\u0941\u0923\u0935\u0924\u094d\u0924\u093e 1080 \u092a\u0940 \u0924\u0915 \u0938\u0940\u092e\u093f\u0924 \u0939\u0948"
     }
 }

@@ -24,7 +24,7 @@
 # HEADER
 --------------------------------------------------------------*/
 
-var Menu = {
+var skeleton = {
     header: {
         type: 'header',
 
@@ -66,7 +66,7 @@ var Menu = {
                     var value = this.value.trim();
 
                     if (value.length > 0) {
-                        satus.search(value, Menu, function (results) {
+                        satus.search(value, skeleton, function (results) {
                             var parent = document.querySelector('.search-results .satus-scrollbar__content'),
                                 skeleton = {
                                     type: 'dialog',
@@ -75,6 +75,12 @@ var Menu = {
 
                             for (var key in results) {
                                 results[key].type = 'section';
+
+                                skeleton[key + '_label'] = {
+                                    type: 'text',
+                                    class: 'satus-section--label',
+                                    label: key
+                                };
 
                                 skeleton[key] = results[key];
                             }
@@ -199,7 +205,7 @@ window.addEventListener('keypress', function (event) {
 # ACTIVE FEATURES
 --------------------------------------------------------------*/
 
-Menu.header.section_end.button_vert.onClickRender.active_features = {
+skeleton.header.section_end.button_vert.onClickRender.active_features = {
     type: 'folder',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
     label: 'activeFeatures',
@@ -241,7 +247,7 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
             }
 
             for (var key in storage) {
-                search(key, Menu)
+                search(key, skeleton)
             }
 
             setTimeout(function () {
@@ -265,7 +271,7 @@ Menu.header.section_end.button_vert.onClickRender.active_features = {
 # SETTINGS
 --------------------------------------------------------------*/
 
-Menu.header.section_end.button_vert.onClickRender.settings = {
+skeleton.header.section_end.button_vert.onClickRender.settings = {
     type: 'folder',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>',
     label: 'settings',
@@ -329,7 +335,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
             translations_section: {
                 type: 'section',
                 onrender: function() {
-                    satus.search('language', Menu, function(result) {
+                    satus.search('language', skeleton, function(result) {
                         var languages = result.language.options;
 
                         for (var i = 0, l = languages.length; i < l; i++) {
@@ -501,7 +507,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
                             document.querySelector('.satus-header__title').innerText = satus.locale.getMessage('languages');
                             document.querySelector('#search').placeholder = satus.locale.getMessage('search');
 
-                            satus.render(document.querySelector('.satus-main__container'), Menu.main.section.settings.section.languages);
+                            satus.render(document.querySelector('.satus-main__container'), skeleton.main.section.settings.section.languages);
                         });
                     },
                     options: [{
@@ -1114,7 +1120,7 @@ Menu.header.section_end.button_vert.onClickRender.settings = {
 # MIXER
 --------------------------------------------------------------*/
 
-Menu.header.section_end.button_vert.onClickRender.mixer = {
+skeleton.header.section_end.button_vert.onClickRender.mixer = {
     type: 'folder',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>',
     label: 'mixer',
@@ -1234,7 +1240,7 @@ Menu.header.section_end.button_vert.onClickRender.mixer = {
 # MAIN
 --------------------------------------------------------------*/
 
-Menu.main = {
+skeleton.main = {
     type: 'main',
     appearanceId: 'home',
     on: {
@@ -1302,7 +1308,7 @@ Menu.main = {
 # GENERAL
 --------------------------------------------------------------*/
 
-Menu.main.section.general = {
+skeleton.main.section.general = {
     type: 'folder',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>',
     label: 'general',
@@ -1412,7 +1418,7 @@ Menu.main.section.general = {
 # APPEARANCE
 --------------------------------------------------------------*/
 
-Menu.main.section.appearance = {
+skeleton.main.section.appearance = {
     type: 'folder',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
     label: 'appearance',
@@ -1789,7 +1795,7 @@ Menu.main.section.appearance = {
 # THEMES
 --------------------------------------------------------------*/
 
-Menu.main.section.themes = {
+skeleton.main.section.themes = {
     type: 'folder',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>',
     label: 'themes',
@@ -2139,7 +2145,7 @@ Menu.main.section.themes = {
 # PLAYER
 --------------------------------------------------------------*/
 
-Menu.main.section.player = {
+skeleton.main.section.player = {
     type: 'folder',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>',
     label: 'player',
@@ -2432,7 +2438,7 @@ Menu.main.section.player = {
 # PLAYLIST
 --------------------------------------------------------------*/
 
-Menu.main.section.playlist = {
+skeleton.main.section.playlist = {
     type: 'folder',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',
     label: 'playlist',
@@ -2477,7 +2483,7 @@ Menu.main.section.playlist = {
 # CHANNEL
 --------------------------------------------------------------*/
 
-Menu.main.section.channel = {
+skeleton.main.section.channel = {
     type: 'folder',
     before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>',
     label: 'channel',
@@ -2518,7 +2524,7 @@ Menu.main.section.channel = {
 # SHORTCUTS
 --------------------------------------------------------------*/
 
-Menu.main.section.shortcuts = {
+skeleton.main.section.shortcuts = {
     type: 'folder',
     before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>',
     label: 'shortcuts',
@@ -2765,7 +2771,7 @@ Menu.main.section.shortcuts = {
 # BLACKLIST
 --------------------------------------------------------------*/
 
-Menu.main.section.blacklist = {
+skeleton.main.section.blacklist = {
     type: 'folder',
     before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>',
     label: 'blacklist',
@@ -2932,7 +2938,7 @@ Menu.main.section.blacklist = {
 # ANALYZER
 --------------------------------------------------------------*/
 
-Menu.main.section.analyzer = {
+skeleton.main.section.analyzer = {
     type: 'folder',
     before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/></svg>',
     label: 'analyzer',
@@ -3253,22 +3259,35 @@ function themeChange(event) {
     }
 }
 
+function updateAttributes() {
+    var whitelist = {
+            'improvedtube-home': true
+        },
+        items = satus.storage;
+
+    for (var key in items) {
+        var attribute = key.replace(/_/g, '-');
+
+        if (whitelist.hasOwnProperty(attribute)) {
+            document.documentElement.setAttribute('it-' + attribute, items[key]);
+        }
+    }
+}
+
 satus.storage.import(function (items) {
+    updateAttributes();
+
     satus.locale.import(satus.storage.get('language'), function () {
-        satus.modules.updateStorageKeys(Menu, function () {
+        satus.modules.updateStorageKeys(skeleton, function () {
             if (location.href.indexOf('action=import') !== -1) {
                 importData();
             } else if (location.href.indexOf('action=export') !== -1) {
                 exportData();
             } else {
-                satus.render(Menu, document.body);
+                satus.render(skeleton, document.body);
             }
         });
     });
-
-    for (var key in satus.storage) {
-        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
-    }
 
     if (satus.isset(satus.storage.get('red_popup_theme')) === false || satus.storage.get('red_popup_theme') === true) {
         document.documentElement.setAttribute('popup-theme', 'red');
