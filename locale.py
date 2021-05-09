@@ -1,14 +1,37 @@
-# TODO: reduce script length
+#---------------------------------------------------------------
+# >>> TABLE OF CONTENTS:
+#---------------------------------------------------------------
+# 1.0 Import modules
+# 2.0 Lower camel case
+# 3.0 Get list of files
+# 4.0 Add item
+# 5.0 Remove item
+# 6.0 Initialization
+#---------------------------------------------------------------
+
+#---------------------------------------------------------------
+# 1.0 IMPORT MODULES
+#---------------------------------------------------------------
 
 import json
 import os
 import pathlib
 import re
 
+
+#---------------------------------------------------------------
+# 2.0 LOWER CAMEL CASE
+#---------------------------------------------------------------
+
 def lowerCamelCase(string):
     string = re.sub(r"(-|_)+", " ", string).title().replace(" ", "")
     
     return string[0].lower() + string[1:]
+
+
+#---------------------------------------------------------------
+# 3.0 GET LIST OF FILES
+#---------------------------------------------------------------
 
 def getListOfFiles(dirName):
     allFiles = list()
@@ -27,6 +50,11 @@ def getListOfFiles(dirName):
 
     return allFiles
 
+
+#---------------------------------------------------------------
+# 4.0 ADD ITEM
+#---------------------------------------------------------------
+
 def addItem(allFiles):
     message = input("Enter your message: ")
     
@@ -39,8 +67,13 @@ def addItem(allFiles):
             }
             
             json_file.seek(0)
-            json.dump(data, json_file, indent=4)
+            json.dump(data, json_file, indent=4, sort_keys=True)
             json_file.truncate()
+
+
+#---------------------------------------------------------------
+# 5.0 REMOVE ITEM
+#---------------------------------------------------------------
 
 def removeItem(allFiles):
     key = input("Enter your key (lowerCamelCase): ")
@@ -53,12 +86,18 @@ def removeItem(allFiles):
                 del data[key]
             
             json_file.seek(0)
-            json.dump(data, json_file, indent=4)
+            json.dump(data, json_file, indent=4, sort_keys=True)
             json_file.truncate()
 
-allFiles = getListOfFiles("_locales/")
 
-operation = input("""--------------------------------
+#---------------------------------------------------------------
+# 6.0 INITIALIZATION
+#---------------------------------------------------------------
+
+allFiles = getListOfFiles("../_locales/")
+
+operation = input("""
+--------------------------------
 Add item: 1
 Remove item: 2
 --------------------------------

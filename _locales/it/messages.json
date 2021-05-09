@@ -1,4 +1,19 @@
 {
+    "ARROWDOWN": {
+        "message": "\u21e9"
+    },
+    "ARROWLEFT": {
+        "message": "\u21e6"
+    },
+    "ARROWRIGHT": {
+        "message": "\u21e8"
+    },
+    "ARROWUP": {
+        "message": "\u21e7"
+    },
+    "__MSG_description__": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+    },
     "about": {
         "message": "Al riguardo"
     },
@@ -11,23 +26,23 @@
     "activateCaptions": {
         "message": "Attiva didascalie"
     },
+    "activateFullscreen": {
+        "message": "Attiva schermo intero"
+    },
     "activated": {
         "message": "Attivato/a"
     },
     "activatedFeatures": {
-        "message": "Funzionalità attivate"
-    },
-    "activateFullscreen": {
-        "message": "Attiva schermo intero"
+        "message": "Funzionalit\u00e0 attivate"
     },
     "activeFeatures": {
         "message": "Funzioni disponibili"
     },
     "addScrollToTop": {
-        "message": "Aggiungi «Scorri in cima»"
+        "message": "Aggiungi \u00abScorri in cima\u00bb"
     },
     "ads": {
-        "message": "Pubblicità"
+        "message": "Pubblicit\u00e0"
     },
     "all": {
         "message": "Tutte"
@@ -37,9 +52,6 @@
     },
     "allow60fps": {
         "message": "Permetti 60 fps"
-    },
-    "forceSDR": {
-        "message": "Forza SDR"
     },
     "alwaysActive": {
         "message": "Sempre attivo"
@@ -55,18 +67,6 @@
     },
     "appearance": {
         "message": "Aspetto"
-    },
-    "ARROWDOWN": {
-        "message": "⇩"
-    },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
     },
     "audio": {
         "message": "Audio"
@@ -149,11 +149,11 @@
     "codecH264": {
         "message": "Codec H.264"
     },
-    "collapsed": {
-        "message": "Compressa/i"
-    },
     "collapseOfSubscriptionSections": {
         "message": "Comprimi sezioni di sottoscrizione"
+    },
+    "collapsed": {
+        "message": "Compressa/i"
     },
     "comments": {
         "message": "Commenti"
@@ -195,7 +195,7 @@
         "message": "Albeggio"
     },
     "decreasePlaybackSpeed": {
-        "message": "Riduci velocità di riproduzione"
+        "message": "Riduci velocit\u00e0 di riproduzione"
     },
     "decreaseVolume": {
         "message": "Diminuisci volume"
@@ -236,11 +236,11 @@
     "dislike": {
         "message": "Non mi piace"
     },
-    "donate": {
-        "message": "Donazione"
-    },
     "doNotChange": {
         "message": "Non cambiare"
+    },
+    "donate": {
+        "message": "Donazione"
     },
     "draggable": {
         "message": "Trascinabile"
@@ -282,13 +282,16 @@
         "message": "Font"
     },
     "footer": {
-        "message": "Piè di pagina"
+        "message": "Pi\u00e8 di pagina"
+    },
+    "forceSDR": {
+        "message": "Forza SDR"
     },
     "forcedPlaybackSpeed": {
-        "message": "Velocità di riproduzione forzata"
+        "message": "Velocit\u00e0 di riproduzione forzata"
     },
     "forcedTheaterMode": {
-        "message": "Modalità cinema forzata"
+        "message": "Modalit\u00e0 cinema forzata"
     },
     "forcedVolume": {
         "message": "Volume forzato"
@@ -315,10 +318,10 @@
         "message": "Verde"
     },
     "hdThumbnail": {
-        "message": "Miniatura in altà qualità"
+        "message": "Miniatura in alt\u00e0 qualit\u00e0"
     },
     "hdThumbnails": {
-        "message": "Miniature in alta qualità"
+        "message": "Miniature in alta qualit\u00e0"
     },
     "header": {
         "message": "Intestazione"
@@ -348,7 +351,7 @@
         "message": "Nascondi contenuti in primo piano"
     },
     "hideFooter": {
-        "message": "Nascondi piè di pagina"
+        "message": "Nascondi pi\u00e8 di pagina"
     },
     "hideGradientBottom": {
         "message": "Nascondi fondo gradiente"
@@ -360,7 +363,7 @@
         "message": "Nascondi pulsanti sulla destra"
     },
     "hideScrollForDetails": {
-        "message": "Nascondi «Scorri per dettagli»"
+        "message": "Nascondi \u00abScorri per dettagli\u00bb"
     },
     "hideViewsCount": {
         "message": "Nascondi contatore visualizzazioni"
@@ -378,7 +381,7 @@
         "message": "In sospensione sulla pagine del video"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Quanto tempo fa il video è stato caricato"
+        "message": "Quanto tempo fa il video \u00e8 stato caricato"
     },
     "icons": {
         "message": "Icone"
@@ -388,6 +391,9 @@
     },
     "importSettings": {
         "message": "Importa impostazioni"
+    },
+    "improveLogo": {
+        "message": "Migliora logo YouTube"
     },
     "improvedtubeIconInBrowser": {
         "message": "Icona nel browser"
@@ -401,11 +407,8 @@
     "improvedtubeVersion": {
         "message": "Versione"
     },
-    "improveLogo": {
-        "message": "Migliora logo YouTube"
-    },
     "increasePlaybackSpeed": {
-        "message": "Incrementa velocità di riproduzione"
+        "message": "Incrementa velocit\u00e0 di riproduzione"
     },
     "increaseVolume": {
         "message": "Aumenta volume"
@@ -450,7 +453,7 @@
         "message": "Tipologia chat dal vivo"
     },
     "loudnessNormalization": {
-        "message": "Normalizzazione rumorosità"
+        "message": "Normalizzazione rumorosit\u00e0"
     },
     "markWatchedVideos": {
         "message": "Contrassegna video visti"
@@ -479,11 +482,11 @@
     "noActiveFeatures": {
         "message": "Nessuna funzione attivata"
     },
-    "none": {
-        "message": "Alcuno/a"
-    },
     "noOpenVideoTabs": {
         "message": "Nessuna scheda video aperta"
+    },
+    "none": {
+        "message": "Alcuno/a"
     },
     "normal": {
         "message": "Standard"
@@ -494,14 +497,14 @@
     "onAllVideos": {
         "message": "Su tutti i video"
     },
+    "onSubscribedChannels": {
+        "message": "In canali sottoscritti"
+    },
     "onlyActiveOnYoutube": {
         "message": "Attivo solo su YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Istanza unica di riproduzione attiva"
-    },
-    "onSubscribedChannels": {
-        "message": "In canali sottoscritti"
     },
     "orange": {
         "message": "Arancione"
@@ -527,8 +530,11 @@
     "platform": {
         "message": "Piattaforma"
     },
+    "playPause": {
+        "message": "Avvio/Pausa"
+    },
     "playbackSpeed": {
-        "message": "Velocità di riproduzione"
+        "message": "Velocit\u00e0 di riproduzione"
     },
     "player": {
         "message": "Lettore"
@@ -544,9 +550,6 @@
     },
     "playlists": {
         "message": "Scalette"
-    },
-    "playPause": {
-        "message": "Avvio/Pausa"
     },
     "popupPlayer": {
         "message": "Lettore pop-up"
@@ -570,7 +573,7 @@
         "message": "Viola"
     },
     "quality": {
-        "message": "Qualità"
+        "message": "Qualit\u00e0"
     },
     "ram": {
         "message": "RAM"
@@ -705,16 +708,16 @@
         "message": "Temi"
     },
     "thisWillRemoveAllCookies": {
-        "message": "Questo rimuoverà tutti i cookie"
+        "message": "Questo rimuover\u00e0 tutti i cookie"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "Questo rimuoverà tutti i cookie di YouTube"
+        "message": "Questo rimuover\u00e0 tutti i cookie di YouTube"
     },
     "thisWillResetAllSettings": {
-        "message": "Questo reimposterà l'intera configurazione"
+        "message": "Questo reimposter\u00e0 l'intera configurazione"
     },
     "thisWillResetAllShortcuts": {
-        "message": "Questo reimposterà tutte le scorciatoie"
+        "message": "Questo reimposter\u00e0 tutte le scorciatoie"
     },
     "thumbnails": {
         "message": "Miniature"
@@ -765,7 +768,7 @@
         "message": "Video"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "La descrizione del video verrà espansa per ottenere il nome della categoria"
+        "message": "La descrizione del video verr\u00e0 espansa per ottenere il nome della categoria"
     },
     "videoFormats": {
         "message": "Formati video"
@@ -777,7 +780,7 @@
         "message": "Volume"
     },
     "watchLater": {
-        "message": "Guarda più tardi"
+        "message": "Guarda pi\u00f9 tardi"
     },
     "watchTime": {
         "message": "Tempo di visione"
@@ -804,6 +807,6 @@
         "message": "Lingua YouTube"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limita la qualità video a 1080p per il codec h.264"
+        "message": "YouTube limita la qualit\u00e0 video a 1080p per il codec h.264"
     }
 }

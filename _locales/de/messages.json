@@ -1,4 +1,19 @@
 {
+    "ARROWDOWN": {
+        "message": "\u21e9"
+    },
+    "ARROWLEFT": {
+        "message": "\u21e6"
+    },
+    "ARROWRIGHT": {
+        "message": "\u21e8"
+    },
+    "ARROWUP": {
+        "message": "\u21e7"
+    },
+    "__MSG_description__": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+    },
     "about": {
         "message": "Info"
     },
@@ -11,20 +26,20 @@
     "activateCaptions": {
         "message": "Untertitel aktivieren"
     },
+    "activateFullscreen": {
+        "message": "Vollbild aktivieren"
+    },
     "activated": {
         "message": "Aktiviert"
     },
     "activatedFeatures": {
         "message": "Aktivierte Features"
     },
-    "activateFullscreen": {
-        "message": "Vollbild aktivieren"
-    },
     "activeFeatures": {
         "message": "Aktive Funktionen"
     },
     "addScrollToTop": {
-        "message": "«Nach Oben»-Button"
+        "message": "\u00abNach Oben\u00bb-Button"
     },
     "ads": {
         "message": "Werbung"
@@ -37,9 +52,6 @@
     },
     "allow60fps": {
         "message": "60fps zulassen"
-    },
-    "forceSDR": {
-        "message": "Force SDR"
     },
     "alwaysActive": {
         "message": "Immer aktiv"
@@ -55,18 +67,6 @@
     },
     "appearance": {
         "message": "Aussehen"
-    },
-    "ARROWDOWN": {
-        "message": "⇩"
-    },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
     },
     "audio": {
         "message": "Audio"
@@ -87,7 +87,7 @@
         "message": "Autoplay"
     },
     "backupAndReset": {
-        "message": "Sichern oder zurücksetzen"
+        "message": "Sichern oder zur\u00fccksetzen"
     },
     "baseOnSystemColorScheme": {
         "message": "Basierend von Systemfarben"
@@ -141,7 +141,7 @@
         "message": "Kanal"
     },
     "channels": {
-        "message": "Kanäle"
+        "message": "Kan\u00e4le"
     },
     "clipboard": {
         "message": "Zwischenablage"
@@ -149,17 +149,17 @@
     "codecH264": {
         "message": "Codec h.264"
     },
-    "collapsed": {
-        "message": "Eingeklappt"
-    },
     "collapseOfSubscriptionSections": {
         "message": "Abos einklappen"
+    },
+    "collapsed": {
+        "message": "Eingeklappt"
     },
     "comments": {
         "message": "Kommentare"
     },
     "confirmationBeforeClosing": {
-        "message": "Bestätigung beim Schließen"
+        "message": "Best\u00e4tigung beim Schlie\u00dfen"
     },
     "cookies": {
         "message": "Cookies"
@@ -171,10 +171,10 @@
         "message": "Kapitel abschneiden"
     },
     "customCss": {
-        "message": "CSS hinzufügen"
+        "message": "CSS hinzuf\u00fcgen"
     },
     "customJs": {
-        "message": "JS hinzufügen"
+        "message": "JS hinzuf\u00fcgen"
     },
     "customMiniPlayer": {
         "message": "Benutzerdefinierter Mini-Player"
@@ -192,13 +192,13 @@
         "message": "Datum & Uhrzeit"
     },
     "dawn": {
-        "message": "Morgendämmerung"
+        "message": "Morgend\u00e4mmerung"
     },
     "decreasePlaybackSpeed": {
         "message": "Abspielgeschwindigkeit verringern"
     },
     "decreaseVolume": {
-        "message": "Lautstärke reduzieren"
+        "message": "Lautst\u00e4rke reduzieren"
     },
     "deepOrange": {
         "message": "Dunkel-Orange"
@@ -210,13 +210,13 @@
         "message": "Standard-Kanal Tab"
     },
     "deleteYoutubeCookies": {
-        "message": "YouTube-Cookies löschen"
+        "message": "YouTube-Cookies l\u00f6schen"
     },
     "description": {
         "message": "Beschreibung"
     },
     "desert": {
-        "message": "Wüste"
+        "message": "W\u00fcste"
     },
     "details": {
         "message": "Details"
@@ -225,7 +225,7 @@
         "message": "Entwickleroptionen"
     },
     "device": {
-        "message": "Gerät"
+        "message": "Ger\u00e4t"
     },
     "dim": {
         "message": "dimmen"
@@ -236,11 +236,11 @@
     "dislike": {
         "message": "'Mag ich nicht'"
     },
+    "doNotChange": {
+        "message": "Nicht \u00e4ndern"
+    },
     "donate": {
         "message": "Spenden"
-    },
-    "doNotChange": {
-        "message": "Nicht ändern"
     },
     "draggable": {
         "message": "Verschiebbar"
@@ -282,7 +282,10 @@
         "message": "Schriftart"
     },
     "footer": {
-        "message": "Fußzeile"
+        "message": "Fu\u00dfzeile"
+    },
+    "forceSDR": {
+        "message": "Force SDR"
     },
     "forcedPlaybackSpeed": {
         "message": "erzwungene Abspielgeschwindigkeit"
@@ -291,7 +294,7 @@
         "message": "Kinomodus erzwingen"
     },
     "forcedVolume": {
-        "message": "Fixe Lautstärke"
+        "message": "Fixe Lautst\u00e4rke"
     },
     "foundABug": {
         "message": "Fehler gefunden?"
@@ -312,7 +315,7 @@
         "message": "GPU"
     },
     "green": {
-        "message": "Grün"
+        "message": "Gr\u00fcn"
     },
     "hdThumbnail": {
         "message": "HD-Vorschaubild"
@@ -348,7 +351,7 @@
         "message": "'Empfohlene Inhalte' ausblenden"
     },
     "hideFooter": {
-        "message": "Fußzeile ausblenden"
+        "message": "Fu\u00dfzeile ausblenden"
     },
     "hideGradientBottom": {
         "message": "Farbverlauf ausblenden"
@@ -360,7 +363,7 @@
         "message": "Rechte Buttons ausblenden"
     },
     "hideScrollForDetails": {
-        "message": "«Für Details scrollen» ausblenden"
+        "message": "\u00abF\u00fcr Details scrollen\u00bb ausblenden"
     },
     "hideViewsCount": {
         "message": "Videoaufrufe ausblenden"
@@ -389,6 +392,9 @@
     "importSettings": {
         "message": "Einstellungen importieren"
     },
+    "improveLogo": {
+        "message": "Logo verbessern"
+    },
     "improvedtubeIconInBrowser": {
         "message": "ImprovedTube Icon im Browser"
     },
@@ -401,14 +407,11 @@
     "improvedtubeVersion": {
         "message": "ImprovedTube Version"
     },
-    "improveLogo": {
-        "message": "Logo verbessern"
-    },
     "increasePlaybackSpeed": {
-        "message": "Abspiel Geschwingkeit erhöhen"
+        "message": "Abspiel Geschwingkeit erh\u00f6hen"
     },
     "increaseVolume": {
-        "message": "Lautstärke erhöhen"
+        "message": "Lautst\u00e4rke erh\u00f6hen"
     },
     "indigo": {
         "message": "Indigo"
@@ -429,7 +432,7 @@
         "message": "Hellblau"
     },
     "lightGreen": {
-        "message": "Hellgrün"
+        "message": "Hellgr\u00fcn"
     },
     "like": {
         "message": "Like"
@@ -450,7 +453,7 @@
         "message": "Live-Chat Typ"
     },
     "loudnessNormalization": {
-        "message": "Lautstärke normalisieren"
+        "message": "Lautst\u00e4rke normalisieren"
     },
     "markWatchedVideos": {
         "message": "gesehene Videos markieren"
@@ -471,7 +474,7 @@
         "message": "Neu"
     },
     "nextVideo": {
-        "message": "Nächstes Video"
+        "message": "N\u00e4chstes Video"
     },
     "night": {
         "message": "Nacht"
@@ -479,11 +482,11 @@
     "noActiveFeatures": {
         "message": "Keine aktiven Features"
     },
+    "noOpenVideoTabs": {
+        "message": "Keine YouTube Videos ge\u00f6ffnet"
+    },
     "none": {
         "message": "Keine"
-    },
-    "noOpenVideoTabs": {
-        "message": "Keine YouTube Videos geöffnet"
     },
     "normal": {
         "message": "Normal"
@@ -494,14 +497,14 @@
     "onAllVideos": {
         "message": "in allen Videos"
     },
+    "onSubscribedChannels": {
+        "message": "nur in abonnierten Kan\u00e4len"
+    },
     "onlyActiveOnYoutube": {
-        "message": "nur auf YouTube rot färben"
+        "message": "nur auf YouTube rot f\u00e4rben"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Nur ein Video gleichzeitig"
-    },
-    "onSubscribedChannels": {
-        "message": "nur in abonnierten Kanälen"
     },
     "orange": {
         "message": "Orange"
@@ -527,6 +530,9 @@
     "platform": {
         "message": "Plattform"
     },
+    "playPause": {
+        "message": "Play / Pause"
+    },
     "playbackSpeed": {
         "message": "Abspiel-Geschwindigkeit"
     },
@@ -537,16 +543,13 @@
         "message": "Playerfarbe"
     },
     "playerSize": {
-        "message": "Playergröße"
+        "message": "Playergr\u00f6\u00dfe"
     },
     "playlist": {
         "message": "Playlist"
     },
     "playlists": {
         "message": "Playlists"
-    },
-    "playPause": {
-        "message": "Play / Pause"
     },
     "popupPlayer": {
         "message": "Player in eigenem Fenster"
@@ -555,22 +558,22 @@
         "message": "Position"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Eine Taste drücken oder scrollen!"
+        "message": "Eine Taste dr\u00fccken oder scrollen!"
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Eine Taste drücken oder scrollen!"
+        "message": "Eine Taste dr\u00fccken oder scrollen!"
     },
     "previousVideo": {
         "message": "Letztes Video"
     },
     "primaryColor": {
-        "message": "Primäre Farbe"
+        "message": "Prim\u00e4re Farbe"
     },
     "purple": {
         "message": "Lila"
     },
     "quality": {
-        "message": "Qualität"
+        "message": "Qualit\u00e4t"
     },
     "ram": {
         "message": "RAM"
@@ -594,16 +597,16 @@
         "message": "Repeat(Wiederholen)"
     },
     "reset": {
-        "message": "Zurücksetzen"
+        "message": "Zur\u00fccksetzen"
     },
     "resetAllSettings": {
-        "message": "Alle Einstellungen zurücksetzen"
+        "message": "Alle Einstellungen zur\u00fccksetzen"
     },
     "resetAllShortcuts": {
-        "message": "Alle Shortcuts zurücksetzen"
+        "message": "Alle Shortcuts zur\u00fccksetzen"
     },
     "reverse": {
-        "message": "Rückwärts"
+        "message": "R\u00fcckw\u00e4rts"
     },
     "rotate": {
         "message": "Drehen"
@@ -630,10 +633,10 @@
         "message": "Nur die Suchleiste"
     },
     "seekBackward10Seconds": {
-        "message": "10 Sekunden zurück"
+        "message": "10 Sekunden zur\u00fcck"
     },
     "seekForward10Seconds": {
-        "message": "10 Sekunden überspringen"
+        "message": "10 Sekunden \u00fcberspringen"
     },
     "settings": {
         "message": "Einstellungen"
@@ -666,7 +669,7 @@
         "message": "Statisch"
     },
     "statsForNerds": {
-        "message": "Statistiken für Nerds"
+        "message": "Statistiken f\u00fcr Nerds"
     },
     "step": {
         "message": "Schritt"
@@ -699,7 +702,7 @@
         "message": "System Einstellungen: hell"
     },
     "teal": {
-        "message": "Blaugrün"
+        "message": "Blaugr\u00fcn"
     },
     "textColor": {
         "message": "Textfarbe"
@@ -708,10 +711,10 @@
         "message": "Farbschemen"
     },
     "thisWillRemoveAllCookies": {
-        "message": "Alle Cookies werden gelöscht"
+        "message": "Alle Cookies werden gel\u00f6scht"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "Alle YouTube Cookies werden gelöscht"
+        "message": "Alle YouTube Cookies werden gel\u00f6scht"
     },
     "thisWillResetAllSettings": {
         "message": "Alle Einstellungen werden entfernt"
@@ -741,7 +744,7 @@
         "message": "Trailer autoplay (Kanal-Intro automatisch losspielen)"
     },
     "translations": {
-        "message": "Übersetzungen"
+        "message": "\u00dcbersetzungen"
     },
     "transparentBackground": {
         "message": "Transparenter Hintergrund"
@@ -756,7 +759,7 @@
         "message": "Typ"
     },
     "upNextAutoplay": {
-        "message": "Nächstes Video automatisch abspielen"
+        "message": "N\u00e4chstes Video automatisch abspielen"
     },
     "use24HourFormat": {
         "message": "24-Stunden Format"
@@ -777,10 +780,10 @@
         "message": "Videos"
     },
     "volume": {
-        "message": "Lautstärke"
+        "message": "Lautst\u00e4rke"
     },
     "watchLater": {
-        "message": "Später ansehen"
+        "message": "Sp\u00e4ter ansehen"
     },
     "watchTime": {
         "message": "Verbrauchte Zeit"
@@ -789,7 +792,7 @@
         "message": "Beim Tab-Wechsel"
     },
     "white": {
-        "message": "Weiß"
+        "message": "Wei\u00df"
     },
     "yellow": {
         "message": "Gelb"
@@ -807,6 +810,6 @@
         "message": "YouTube Sprache"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube begrenzt die Qualität auf 1080p für den h.264 Codec"
+        "message": "YouTube begrenzt die Qualit\u00e4t auf 1080p f\u00fcr den h.264 Codec"
     }
 }

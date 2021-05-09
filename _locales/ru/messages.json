@@ -1,669 +1,672 @@
 {
-    "about": {
-        "message": "Об ImprovedTube"
-    },
-    "accept": {
-        "message": "Принять"
-    },
-    "activate": {
-        "message": "Активировать"
-    },
-    "activateCaptions": {
-        "message": "Активировать субтитры"
-    },
-    "activated": {
-        "message": "Активировано"
-    },
-    "activatedFeatures": {
-        "message": "Активированные функции"
-    },
-    "activateFullscreen": {
-        "message": "Перейти в полноэкранный режим"
-    },
-    "activeFeatures": {
-        "message": "Активные функции"
-    },
-    "addScrollToTop": {
-        "message": "Добавить кнопку «наверх»"
-    },
-    "ads": {
-        "message": "Реклама"
-    },
-    "all": {
-        "message": "Все"
-    },
-    "allow": {
-        "message": "Разрешить"
-    },
-    "allow60fps": {
-        "message": "Разрешить 60fps"
-    },
-    "forceSDR": {
-        "message": "Force SDR"
-    },
-    "alwaysActive": {
-        "message": "Всегда активный"
-    },
-    "alwaysShowProgressBar": {
-        "message": "Всегда показывать прогресс-бар"
-    },
-    "amber": {
-        "message": "Янтарный"
-    },
-    "analyzer": {
-        "message": "Анализатор"
-    },
-    "appearance": {
-        "message": "Внешний вид"
-    },
     "ARROWDOWN": {
-        "message": "⇩"
+        "message": "\u21e9"
     },
     "ARROWLEFT": {
-        "message": "⇦"
+        "message": "\u21e6"
     },
     "ARROWRIGHT": {
-        "message": "⇨"
+        "message": "\u21e8"
     },
     "ARROWUP": {
-        "message": "⇧"
+        "message": "\u21e7"
+    },
+    "__MSG_description__": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+    },
+    "about": {
+        "message": "\u041e\u0431 ImprovedTube"
+    },
+    "accept": {
+        "message": "\u041f\u0440\u0438\u043d\u044f\u0442\u044c"
+    },
+    "activate": {
+        "message": "\u0410\u043a\u0442\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u0442\u044c"
+    },
+    "activateCaptions": {
+        "message": "\u0410\u043a\u0442\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0441\u0443\u0431\u0442\u0438\u0442\u0440\u044b"
+    },
+    "activateFullscreen": {
+        "message": "\u041f\u0435\u0440\u0435\u0439\u0442\u0438 \u0432 \u043f\u043e\u043b\u043d\u043e\u044d\u043a\u0440\u0430\u043d\u043d\u044b\u0439 \u0440\u0435\u0436\u0438\u043c"
+    },
+    "activated": {
+        "message": "\u0410\u043a\u0442\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d\u043e"
+    },
+    "activatedFeatures": {
+        "message": "\u0410\u043a\u0442\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u0438"
+    },
+    "activeFeatures": {
+        "message": "\u0410\u043a\u0442\u0438\u0432\u043d\u044b\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u0438"
+    },
+    "addScrollToTop": {
+        "message": "\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043a\u043d\u043e\u043f\u043a\u0443 \u00ab\u043d\u0430\u0432\u0435\u0440\u0445\u00bb"
+    },
+    "ads": {
+        "message": "\u0420\u0435\u043a\u043b\u0430\u043c\u0430"
+    },
+    "all": {
+        "message": "\u0412\u0441\u0435"
+    },
+    "allow": {
+        "message": "\u0420\u0430\u0437\u0440\u0435\u0448\u0438\u0442\u044c"
+    },
+    "allow60fps": {
+        "message": "\u0420\u0430\u0437\u0440\u0435\u0448\u0438\u0442\u044c 60fps"
+    },
+    "alwaysActive": {
+        "message": "\u0412\u0441\u0435\u0433\u0434\u0430 \u0430\u043a\u0442\u0438\u0432\u043d\u044b\u0439"
+    },
+    "alwaysShowProgressBar": {
+        "message": "\u0412\u0441\u0435\u0433\u0434\u0430 \u043f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0442\u044c \u043f\u0440\u043e\u0433\u0440\u0435\u0441\u0441-\u0431\u0430\u0440"
+    },
+    "amber": {
+        "message": "\u042f\u043d\u0442\u0430\u0440\u043d\u044b\u0439"
+    },
+    "analyzer": {
+        "message": "\u0410\u043d\u0430\u043b\u0438\u0437\u0430\u0442\u043e\u0440"
+    },
+    "appearance": {
+        "message": "\u0412\u043d\u0435\u0448\u043d\u0438\u0439 \u0432\u0438\u0434"
     },
     "audio": {
-        "message": "Аудио"
+        "message": "\u0410\u0443\u0434\u0438\u043e"
     },
     "audioFormats": {
-        "message": "Аудио форматы"
+        "message": "\u0410\u0443\u0434\u0438\u043e \u0444\u043e\u0440\u043c\u0430\u0442\u044b"
     },
     "auto": {
-        "message": "Авто"
+        "message": "\u0410\u0432\u0442\u043e"
     },
     "autoFullscreen": {
-        "message": "Автоматический переход в полноэкранный режим"
+        "message": "\u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0432 \u043f\u043e\u043b\u043d\u043e\u044d\u043a\u0440\u0430\u043d\u043d\u044b\u0439 \u0440\u0435\u0436\u0438\u043c"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Автопауза при переходе между вкладками"
+        "message": "\u0410\u0432\u0442\u043e\u043f\u0430\u0443\u0437\u0430 \u043f\u0440\u0438 \u043f\u0435\u0440\u0435\u0445\u043e\u0434\u0435 \u043c\u0435\u0436\u0434\u0443 \u0432\u043a\u043b\u0430\u0434\u043a\u0430\u043c\u0438"
     },
     "autoplay": {
-        "message": "Автовоспроизведение"
+        "message": "\u0410\u0432\u0442\u043e\u0432\u043e\u0441\u043f\u0440\u043e\u0438\u0437\u0432\u0435\u0434\u0435\u043d\u0438\u0435"
     },
     "backupAndReset": {
-        "message": "Резервное копирование и сброс"
+        "message": "\u0420\u0435\u0437\u0435\u0440\u0432\u043d\u043e\u0435 \u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0438 \u0441\u0431\u0440\u043e\u0441"
     },
     "baseOnSystemColorScheme": {
-        "message": "Зависит от системной цветовой схемы"
+        "message": "\u0417\u0430\u0432\u0438\u0441\u0438\u0442 \u043e\u0442 \u0441\u0438\u0441\u0442\u0435\u043c\u043d\u043e\u0439 \u0446\u0432\u0435\u0442\u043e\u0432\u043e\u0439 \u0441\u0445\u0435\u043c\u044b"
     },
     "belowPlayer": {
-        "message": "Ниже плеера"
+        "message": "\u041d\u0438\u0436\u0435 \u043f\u043b\u0435\u0435\u0440\u0430"
     },
     "black": {
-        "message": "Черный"
+        "message": "\u0427\u0435\u0440\u043d\u044b\u0439"
     },
     "blacklist": {
-        "message": "Черный список"
+        "message": "\u0427\u0435\u0440\u043d\u044b\u0439 \u0441\u043f\u0438\u0441\u043e\u043a"
     },
     "blockAll": {
-        "message": "Заблокировать всё"
+        "message": "\u0417\u0430\u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432\u0441\u0451"
     },
     "blue": {
-        "message": "Синий"
+        "message": "\u0421\u0438\u043d\u0438\u0439"
     },
     "blueGray": {
-        "message": "Серо-голубой"
+        "message": "\u0421\u0435\u0440\u043e-\u0433\u043e\u043b\u0443\u0431\u043e\u0439"
     },
     "bluelight": {
-        "message": "Синий свет"
+        "message": "\u0421\u0438\u043d\u0438\u0439 \u0441\u0432\u0435\u0442"
     },
     "brown": {
-        "message": "Коричневый"
+        "message": "\u041a\u043e\u0440\u0438\u0447\u043d\u0435\u0432\u044b\u0439"
     },
     "browser": {
-        "message": "Браузер"
+        "message": "\u0411\u0440\u0430\u0443\u0437\u0435\u0440"
     },
     "browserVersion": {
-        "message": "Версия браузера"
+        "message": "\u0412\u0435\u0440\u0441\u0438\u044f \u0431\u0440\u0430\u0443\u0437\u0435\u0440\u0430"
     },
     "bubbles": {
-        "message": "Пузыри"
+        "message": "\u041f\u0443\u0437\u044b\u0440\u0438"
     },
     "bug": {
-        "message": "Ошибка"
+        "message": "\u041e\u0448\u0438\u0431\u043a\u0430"
     },
     "buttons": {
-        "message": "Кнопки"
+        "message": "\u041a\u043d\u043e\u043f\u043a\u0438"
     },
     "cancel": {
-        "message": "Отмена"
+        "message": "\u041e\u0442\u043c\u0435\u043d\u0430"
     },
     "categories": {
-        "message": "Категории"
+        "message": "\u041a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438"
     },
     "channel": {
-        "message": "Канал"
+        "message": "\u041a\u0430\u043d\u0430\u043b"
     },
     "channels": {
-        "message": "Каналы"
+        "message": "\u041a\u0430\u043d\u0430\u043b\u044b"
     },
     "clipboard": {
-        "message": "Буфер обмена"
+        "message": "\u0411\u0443\u0444\u0435\u0440 \u043e\u0431\u043c\u0435\u043d\u0430"
     },
     "codecH264": {
-        "message": "Кодек h.264"
-    },
-    "collapsed": {
-        "message": "Свернуть"
+        "message": "\u041a\u043e\u0434\u0435\u043a h.264"
     },
     "collapseOfSubscriptionSections": {
-        "message": "Свернуть раздел подписок"
+        "message": "\u0421\u0432\u0435\u0440\u043d\u0443\u0442\u044c \u0440\u0430\u0437\u0434\u0435\u043b \u043f\u043e\u0434\u043f\u0438\u0441\u043e\u043a"
+    },
+    "collapsed": {
+        "message": "\u0421\u0432\u0435\u0440\u043d\u0443\u0442\u044c"
     },
     "comments": {
-        "message": "Комментарии"
+        "message": "\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0438"
     },
     "confirmationBeforeClosing": {
-        "message": "Подтверждение закрытия"
+        "message": "\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0438\u0435 \u0437\u0430\u043a\u0440\u044b\u0442\u0438\u044f"
     },
     "cookies": {
-        "message": "Куки"
+        "message": "\u041a\u0443\u043a\u0438"
     },
     "cores": {
-        "message": "Ядра"
+        "message": "\u042f\u0434\u0440\u0430"
     },
     "cropChapterTitles": {
-        "message": "Обрезать заголовки глав"
+        "message": "\u041e\u0431\u0440\u0435\u0437\u0430\u0442\u044c \u0437\u0430\u0433\u043e\u043b\u043e\u0432\u043a\u0438 \u0433\u043b\u0430\u0432"
     },
     "customCss": {
         "message": "Custom CSS"
     },
     "customJs": {
-        "message": "Сustom JS"
+        "message": "\u0421ustom JS"
     },
     "customMiniPlayer": {
-        "message": "Новый мини-плеер"
+        "message": "\u041d\u043e\u0432\u044b\u0439 \u043c\u0438\u043d\u0438-\u043f\u043b\u0435\u0435\u0440"
     },
     "cyan": {
-        "message": "Сине-зелёный"
+        "message": "\u0421\u0438\u043d\u0435-\u0437\u0435\u043b\u0451\u043d\u044b\u0439"
     },
     "dark": {
-        "message": "Темная"
+        "message": "\u0422\u0435\u043c\u043d\u0430\u044f"
     },
     "darkTheme": {
-        "message": "Ночная тема"
+        "message": "\u041d\u043e\u0447\u043d\u0430\u044f \u0442\u0435\u043c\u0430"
     },
     "dateAndTime": {
-        "message": "Дата и время"
+        "message": "\u0414\u0430\u0442\u0430 \u0438 \u0432\u0440\u0435\u043c\u044f"
     },
     "dawn": {
-        "message": "Рассвет"
+        "message": "\u0420\u0430\u0441\u0441\u0432\u0435\u0442"
     },
     "decreasePlaybackSpeed": {
-        "message": "Уменьшить скорость видео"
+        "message": "\u0423\u043c\u0435\u043d\u044c\u0448\u0438\u0442\u044c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0432\u0438\u0434\u0435\u043e"
     },
     "decreaseVolume5": {
-        "message": "Уменьшить громкость на 5%"
+        "message": "\u0423\u043c\u0435\u043d\u044c\u0448\u0438\u0442\u044c \u0433\u0440\u043e\u043c\u043a\u043e\u0441\u0442\u044c \u043d\u0430 5%"
     },
     "deepOrange": {
-        "message": "Темно-оранжевый"
+        "message": "\u0422\u0435\u043c\u043d\u043e-\u043e\u0440\u0430\u043d\u0436\u0435\u0432\u044b\u0439"
     },
     "deepPurple": {
-        "message": "Темно-фиолетовый"
+        "message": "\u0422\u0435\u043c\u043d\u043e-\u0444\u0438\u043e\u043b\u0435\u0442\u043e\u0432\u044b\u0439"
     },
     "defaultChannelTab": {
-        "message": "Вкладка канала по умолчанию"
+        "message": "\u0412\u043a\u043b\u0430\u0434\u043a\u0430 \u043a\u0430\u043d\u0430\u043b\u0430 \u043f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e"
     },
     "deleteYoutubeCookies": {
-        "message": "Удалить куки YouTube"
+        "message": "\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u043a\u0443\u043a\u0438 YouTube"
     },
     "description": {
-        "message": "Описание"
+        "message": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435"
     },
     "desert": {
-        "message": "Пустыня"
+        "message": "\u041f\u0443\u0441\u0442\u044b\u043d\u044f"
     },
     "details": {
-        "message": "Подробная информация"
+        "message": "\u041f\u043e\u0434\u0440\u043e\u0431\u043d\u0430\u044f \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f"
     },
     "developerOptions": {
-        "message": "Настройки разработчика"
+        "message": "\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a\u0430"
     },
     "device": {
-        "message": "Устройство"
+        "message": "\u0423\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u043e"
     },
     "dim": {
-        "message": "Тусклость"
+        "message": "\u0422\u0443\u0441\u043a\u043b\u043e\u0441\u0442\u044c"
     },
     "disabled": {
-        "message": "Выключено"
+        "message": "\u0412\u044b\u043a\u043b\u044e\u0447\u0435\u043d\u043e"
     },
     "dislike": {
-        "message": "Дизлайк"
-    },
-    "donate": {
-        "message": "Пожертвовать"
+        "message": "\u0414\u0438\u0437\u043b\u0430\u0439\u043a"
     },
     "doNotChange": {
-        "message": "Не менять"
+        "message": "\u041d\u0435 \u043c\u0435\u043d\u044f\u0442\u044c"
+    },
+    "donate": {
+        "message": "\u041f\u043e\u0436\u0435\u0440\u0442\u0432\u043e\u0432\u0430\u0442\u044c"
     },
     "draggable": {
-        "message": "Перетаскиваемый"
+        "message": "\u041f\u0435\u0440\u0435\u0442\u0430\u0441\u043a\u0438\u0432\u0430\u0435\u043c\u044b\u0439"
     },
     "email": {
         "message": "Email"
     },
     "empty": {
-        "message": "Пусто"
+        "message": "\u041f\u0443\u0441\u0442\u043e"
     },
     "enabled": {
-        "message": "Включено"
+        "message": "\u0412\u043a\u043b\u044e\u0447\u0435\u043d\u043e"
     },
     "enabledForced": {
-        "message": "Включено (принудительно)"
+        "message": "\u0412\u043a\u043b\u044e\u0447\u0435\u043d\u043e (\u043f\u0440\u0438\u043d\u0443\u0434\u0438\u0442\u0435\u043b\u044c\u043d\u043e)"
     },
     "expanded": {
-        "message": "Развернуть"
+        "message": "\u0420\u0430\u0437\u0432\u0435\u0440\u043d\u0443\u0442\u044c"
     },
     "exportSettings": {
-        "message": "Экспорт настроек"
+        "message": "\u042d\u043a\u0441\u043f\u043e\u0440\u0442 \u043d\u0430\u0441\u0442\u0440\u043e\u0435\u043a"
     },
     "extension": {
-        "message": "Расширение"
+        "message": "\u0420\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u0435"
     },
     "file": {
-        "message": "Файл"
+        "message": "\u0424\u0430\u0439\u043b"
     },
     "filters": {
-        "message": "Фильтры"
+        "message": "\u0424\u0438\u043b\u044c\u0442\u0440\u044b"
     },
     "fitToWindow": {
-        "message": "Подогнать под окно"
+        "message": "\u041f\u043e\u0434\u043e\u0433\u043d\u0430\u0442\u044c \u043f\u043e\u0434 \u043e\u043a\u043d\u043e"
     },
     "flash": {
         "message": "Flash"
     },
     "font": {
-        "message": "Шрифт"
+        "message": "\u0428\u0440\u0438\u0444\u0442"
     },
     "footer": {
-        "message": "Нижний колонтитул"
+        "message": "\u041d\u0438\u0436\u043d\u0438\u0439 \u043a\u043e\u043b\u043e\u043d\u0442\u0438\u0442\u0443\u043b"
+    },
+    "forceSDR": {
+        "message": "Force SDR"
     },
     "forcedPlaybackSpeed": {
-        "message": "Форсировать скорость воспроизведения"
+        "message": "\u0424\u043e\u0440\u0441\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0432\u043e\u0441\u043f\u0440\u043e\u0438\u0437\u0432\u0435\u0434\u0435\u043d\u0438\u044f"
     },
     "forcedTheaterMode": {
-        "message": "Принудительно переходить в режим кино"
+        "message": "\u041f\u0440\u0438\u043d\u0443\u0434\u0438\u0442\u0435\u043b\u044c\u043d\u043e \u043f\u0435\u0440\u0435\u0445\u043e\u0434\u0438\u0442\u044c \u0432 \u0440\u0435\u0436\u0438\u043c \u043a\u0438\u043d\u043e"
     },
     "forcedVolume": {
-        "message": "Принудительная громкость"
+        "message": "\u041f\u0440\u0438\u043d\u0443\u0434\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0433\u0440\u043e\u043c\u043a\u043e\u0441\u0442\u044c"
     },
     "foundABug": {
-        "message": "Нашли ошибку?"
+        "message": "\u041d\u0430\u0448\u043b\u0438 \u043e\u0448\u0438\u0431\u043a\u0443?"
     },
     "fullWindow": {
-        "message": "Растянуть на все окно"
+        "message": "\u0420\u0430\u0441\u0442\u044f\u043d\u0443\u0442\u044c \u043d\u0430 \u0432\u0441\u0435 \u043e\u043a\u043d\u043e"
     },
     "general": {
-        "message": "Общее"
+        "message": "\u041e\u0431\u0449\u0435\u0435"
     },
     "github": {
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Перейти в окно поиска"
+        "message": "\u041f\u0435\u0440\u0435\u0439\u0442\u0438 \u0432 \u043e\u043a\u043d\u043e \u043f\u043e\u0438\u0441\u043a\u0430"
     },
     "gpu": {
         "message": "GPU"
     },
     "green": {
-        "message": "Зеленый"
+        "message": "\u0417\u0435\u043b\u0435\u043d\u044b\u0439"
     },
     "hdThumbnail": {
-        "message": "Превью высокого качества"
+        "message": "\u041f\u0440\u0435\u0432\u044c\u044e \u0432\u044b\u0441\u043e\u043a\u043e\u0433\u043e \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u0430"
     },
     "hdThumbnails": {
-        "message": "Превью высокого качества"
+        "message": "\u041f\u0440\u0435\u0432\u044c\u044e \u0432\u044b\u0441\u043e\u043a\u043e\u0433\u043e \u043a\u0430\u0447\u0435\u0441\u0442\u0432\u0430"
     },
     "header": {
-        "message": "Верхняя панель"
+        "message": "\u0412\u0435\u0440\u0445\u043d\u044f\u044f \u043f\u0430\u043d\u0435\u043b\u044c"
     },
     "hidden": {
-        "message": "Скрыть"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c"
     },
     "hiddenOnVideoPage": {
-        "message": "Скрыть (только на странице с видео)"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c (\u0442\u043e\u043b\u044c\u043a\u043e \u043d\u0430 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435 \u0441 \u0432\u0438\u0434\u0435\u043e)"
     },
     "hideAnimatedThumbnails": {
-        "message": "Скрыть анимированные превью"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c \u0430\u043d\u0438\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0435 \u043f\u0440\u0435\u0432\u044c\u044e"
     },
     "hideAnnotations": {
-        "message": "Скрыть аннотации"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c \u0430\u043d\u043d\u043e\u0442\u0430\u0446\u0438\u0438"
     },
     "hideCards": {
-        "message": "Скрыть карточки"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0438"
     },
     "hideDetails": {
-        "message": "Скрыть подробную информацию"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c \u043f\u043e\u0434\u0440\u043e\u0431\u043d\u0443\u044e \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044e"
     },
     "hideEndscreen": {
-        "message": "Скрыть экран после видео"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c \u044d\u043a\u0440\u0430\u043d \u043f\u043e\u0441\u043b\u0435 \u0432\u0438\u0434\u0435\u043e"
     },
     "hideFeaturedContent": {
-        "message": "Скрыть рекомендации"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0430\u0446\u0438\u0438"
     },
     "hideFooter": {
-        "message": "Скрыть нижний колонтитул"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c \u043d\u0438\u0436\u043d\u0438\u0439 \u043a\u043e\u043b\u043e\u043d\u0442\u0438\u0442\u0443\u043b"
     },
     "hideGradientBottom": {
         "message": "Hide Gradient Bottom"
     },
     "hidePlaylist": {
-        "message": "Скрыть плейлист"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c \u043f\u043b\u0435\u0439\u043b\u0438\u0441\u0442"
     },
     "hideRightButtons": {
-        "message": "Скрыть кнопки (справа)"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c \u043a\u043d\u043e\u043f\u043a\u0438 (\u0441\u043f\u0440\u0430\u0432\u0430)"
     },
     "hideScrollForDetails": {
-        "message": "Скрыть «Прокрутите для подробной информации»"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c \u00ab\u041f\u0440\u043e\u043a\u0440\u0443\u0442\u0438\u0442\u0435 \u0434\u043b\u044f \u043f\u043e\u0434\u0440\u043e\u0431\u043d\u043e\u0439 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438\u00bb"
     },
     "hideViewsCount": {
-        "message": "Скрыть количество просмотров"
+        "message": "\u0421\u043a\u0440\u044b\u0442\u044c \u043a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u043e\u0432"
     },
     "history": {
-        "message": "История"
+        "message": "\u0418\u0441\u0442\u043e\u0440\u0438\u044f"
     },
     "home": {
-        "message": "Домашняя страница"
+        "message": "\u0414\u043e\u043c\u0430\u0448\u043d\u044f\u044f \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430"
     },
     "hover": {
-        "message": "Показывать при наведении"
+        "message": "\u041f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0442\u044c \u043f\u0440\u0438 \u043d\u0430\u0432\u0435\u0434\u0435\u043d\u0438\u0438"
     },
     "hoverOnVideoPage": {
-        "message": "Показывать при наведении (только на странице с видео)"
+        "message": "\u041f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0442\u044c \u043f\u0440\u0438 \u043d\u0430\u0432\u0435\u0434\u0435\u043d\u0438\u0438 (\u0442\u043e\u043b\u044c\u043a\u043e \u043d\u0430 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435 \u0441 \u0432\u0438\u0434\u0435\u043e)"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Показывать как давно было загружено видео"
+        "message": "\u041f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0442\u044c \u043a\u0430\u043a \u0434\u0430\u0432\u043d\u043e \u0431\u044b\u043b\u043e \u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043d\u043e \u0432\u0438\u0434\u0435\u043e"
     },
     "icons": {
-        "message": "Иконки"
+        "message": "\u0418\u043a\u043e\u043d\u043a\u0438"
     },
     "iconsOnly": {
-        "message": "Только иконки"
+        "message": "\u0422\u043e\u043b\u044c\u043a\u043e \u0438\u043a\u043e\u043d\u043a\u0438"
     },
     "importSettings": {
-        "message": "Импорт настроек"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "Значок ImprovedTube в браузере"
-    },
-    "improvedtubeIconOnYoutube": {
-        "message": "Значок ImprovedTube в YouTube"
-    },
-    "improvedtubeLanguage": {
-        "message": "Язык ImprovedTube"
-    },
-    "improvedtubeVersion": {
-        "message": "Версия ImprovedTube"
+        "message": "\u0418\u043c\u043f\u043e\u0440\u0442 \u043d\u0430\u0441\u0442\u0440\u043e\u0435\u043a"
     },
     "improveLogo": {
-        "message": "Улучшить логотип YouTube"
+        "message": "\u0423\u043b\u0443\u0447\u0448\u0438\u0442\u044c \u043b\u043e\u0433\u043e\u0442\u0438\u043f YouTube"
+    },
+    "improvedtubeIconInBrowser": {
+        "message": "\u0417\u043d\u0430\u0447\u043e\u043a ImprovedTube \u0432 \u0431\u0440\u0430\u0443\u0437\u0435\u0440\u0435"
+    },
+    "improvedtubeIconOnYoutube": {
+        "message": "\u0417\u043d\u0430\u0447\u043e\u043a ImprovedTube \u0432 YouTube"
+    },
+    "improvedtubeLanguage": {
+        "message": "\u042f\u0437\u044b\u043a ImprovedTube"
+    },
+    "improvedtubeVersion": {
+        "message": "\u0412\u0435\u0440\u0441\u0438\u044f ImprovedTube"
     },
     "increasePlaybackSpeed": {
-        "message": "Увеличить скорость видео"
+        "message": "\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0442\u044c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0432\u0438\u0434\u0435\u043e"
     },
     "increaseVolume5": {
-        "message": "Увеличить громкости на 5%"
+        "message": "\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0442\u044c \u0433\u0440\u043e\u043c\u043a\u043e\u0441\u0442\u0438 \u043d\u0430 5%"
     },
     "indigo": {
-        "message": "Индиго"
+        "message": "\u0418\u043d\u0434\u0438\u0433\u043e"
     },
     "items": {
         "message": "Items"
     },
     "languages": {
-        "message": "Языки"
+        "message": "\u042f\u0437\u044b\u043a\u0438"
     },
     "legacyYoutube": {
-        "message": "Старая версия YouTube"
+        "message": "\u0421\u0442\u0430\u0440\u0430\u044f \u0432\u0435\u0440\u0441\u0438\u044f YouTube"
     },
     "light": {
-        "message": "Светлая"
+        "message": "\u0421\u0432\u0435\u0442\u043b\u0430\u044f"
     },
     "lightBlue": {
-        "message": "Светло-синий"
+        "message": "\u0421\u0432\u0435\u0442\u043b\u043e-\u0441\u0438\u043d\u0438\u0439"
     },
     "lightGreen": {
-        "message": "Светло-зеленый"
+        "message": "\u0421\u0432\u0435\u0442\u043b\u043e-\u0437\u0435\u043b\u0435\u043d\u044b\u0439"
     },
     "like": {
-        "message": "Лайк"
+        "message": "\u041b\u0430\u0439\u043a"
     },
     "likes": {
-        "message": "Лайки"
+        "message": "\u041b\u0430\u0439\u043a\u0438"
     },
     "lime": {
-        "message": "Лайм"
+        "message": "\u041b\u0430\u0439\u043c"
     },
     "list": {
-        "message": "Список"
+        "message": "\u0421\u043f\u0438\u0441\u043e\u043a"
     },
     "liveChat": {
-        "message": "Live-чат"
+        "message": "Live-\u0447\u0430\u0442"
     },
     "liveChatType": {
-        "message": "Тип live-чата"
+        "message": "\u0422\u0438\u043f live-\u0447\u0430\u0442\u0430"
     },
     "loudnessNormalization": {
-        "message": "Нормализировать громкость"
+        "message": "\u041d\u043e\u0440\u043c\u0430\u043b\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0433\u0440\u043e\u043c\u043a\u043e\u0441\u0442\u044c"
     },
     "markWatchedVideos": {
-        "message": "Отмечать просмотренные видео"
+        "message": "\u041e\u0442\u043c\u0435\u0447\u0430\u0442\u044c \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u043d\u044b\u0435 \u0432\u0438\u0434\u0435\u043e"
     },
     "mixer": {
-        "message": "Миксер"
+        "message": "\u041c\u0438\u043a\u0441\u0435\u0440"
     },
     "myColors": {
-        "message": "Мои цвета"
+        "message": "\u041c\u043e\u0438 \u0446\u0432\u0435\u0442\u0430"
     },
     "name": {
-        "message": "Имя"
+        "message": "\u0418\u043c\u044f"
     },
     "nativeMiniPlayer": {
-        "message": "Мини-плеер от YouTube"
+        "message": "\u041c\u0438\u043d\u0438-\u043f\u043b\u0435\u0435\u0440 \u043e\u0442 YouTube"
     },
     "new": {
-        "message": "Новый"
+        "message": "\u041d\u043e\u0432\u044b\u0439"
     },
     "nextVideo": {
-        "message": "Следующее видео"
+        "message": "\u0421\u043b\u0435\u0434\u0443\u044e\u0449\u0435\u0435 \u0432\u0438\u0434\u0435\u043e"
     },
     "night": {
-        "message": "Ночь"
+        "message": "\u041d\u043e\u0447\u044c"
     },
     "noActiveFeatures": {
-        "message": "Нет активных функций"
-    },
-    "none": {
-        "message": "Пусто"
+        "message": "\u041d\u0435\u0442 \u0430\u043a\u0442\u0438\u0432\u043d\u044b\u0445 \u0444\u0443\u043d\u043a\u0446\u0438\u0439"
     },
     "noOpenVideoTabs": {
-        "message": "Нет открытых вкладок с видео"
+        "message": "\u041d\u0435\u0442 \u043e\u0442\u043a\u0440\u044b\u0442\u044b\u0445 \u0432\u043a\u043b\u0430\u0434\u043e\u043a \u0441 \u0432\u0438\u0434\u0435\u043e"
+    },
+    "none": {
+        "message": "\u041f\u0443\u0441\u0442\u043e"
     },
     "normal": {
-        "message": "Обычный"
+        "message": "\u041e\u0431\u044b\u0447\u043d\u044b\u0439"
     },
     "old": {
-        "message": "Старый"
+        "message": "\u0421\u0442\u0430\u0440\u044b\u0439"
     },
     "onAllVideos": {
-        "message": "Во всех видео"
-    },
-    "onlyActiveOnYoutube": {
-        "message": "Активен только в YouTube"
-    },
-    "onlyOnePlayerInstancePlaying": {
-        "message": "Только один экземпляр плеера играет"
+        "message": "\u0412\u043e \u0432\u0441\u0435\u0445 \u0432\u0438\u0434\u0435\u043e"
     },
     "onSubscribedChannels": {
-        "message": "Только на каналах в подписках"
+        "message": "\u0422\u043e\u043b\u044c\u043a\u043e \u043d\u0430 \u043a\u0430\u043d\u0430\u043b\u0430\u0445 \u0432 \u043f\u043e\u0434\u043f\u0438\u0441\u043a\u0430\u0445"
+    },
+    "onlyActiveOnYoutube": {
+        "message": "\u0410\u043a\u0442\u0438\u0432\u0435\u043d \u0442\u043e\u043b\u044c\u043a\u043e \u0432 YouTube"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "\u0422\u043e\u043b\u044c\u043a\u043e \u043e\u0434\u0438\u043d \u044d\u043a\u0437\u0435\u043c\u043f\u043b\u044f\u0440 \u043f\u043b\u0435\u0435\u0440\u0430 \u0438\u0433\u0440\u0430\u0435\u0442"
     },
     "orange": {
-        "message": "Оранжевый"
+        "message": "\u041e\u0440\u0430\u043d\u0436\u0435\u0432\u044b\u0439"
     },
     "os": {
-        "message": "ОС"
+        "message": "\u041e\u0421"
     },
     "other": {
-        "message": "Другое"
+        "message": "\u0414\u0440\u0443\u0433\u043e\u0435"
     },
     "permissions": {
-        "message": "Разрешения"
+        "message": "\u0420\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u0438\u044f"
     },
     "pictureInPicture": {
-        "message": "Картинка в картинке"
+        "message": "\u041a\u0430\u0440\u0442\u0438\u043d\u043a\u0430 \u0432 \u043a\u0430\u0440\u0442\u0438\u043d\u043a\u0435"
     },
     "pink": {
-        "message": "Розовый"
+        "message": "\u0420\u043e\u0437\u043e\u0432\u044b\u0439"
     },
     "plain": {
-        "message": "Равнина"
+        "message": "\u0420\u0430\u0432\u043d\u0438\u043d\u0430"
     },
     "platform": {
-        "message": "Платформа"
-    },
-    "playbackSpeed": {
-        "message": "Скорость воспроизведения"
-    },
-    "player": {
-        "message": "Плеер"
-    },
-    "playerColor": {
-        "message": "Цвет плеера"
-    },
-    "playerSize": {
-        "message": "Размер плеера"
-    },
-    "playlist": {
-        "message": "Плейлист"
-    },
-    "playlists": {
-        "message": "Плейлисты"
+        "message": "\u041f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0430"
     },
     "playPause": {
-        "message": "Воспроизведение / Пауза"
+        "message": "\u0412\u043e\u0441\u043f\u0440\u043e\u0438\u0437\u0432\u0435\u0434\u0435\u043d\u0438\u0435 / \u041f\u0430\u0443\u0437\u0430"
+    },
+    "playbackSpeed": {
+        "message": "\u0421\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0432\u043e\u0441\u043f\u0440\u043e\u0438\u0437\u0432\u0435\u0434\u0435\u043d\u0438\u044f"
+    },
+    "player": {
+        "message": "\u041f\u043b\u0435\u0435\u0440"
+    },
+    "playerColor": {
+        "message": "\u0426\u0432\u0435\u0442 \u043f\u043b\u0435\u0435\u0440\u0430"
+    },
+    "playerSize": {
+        "message": "\u0420\u0430\u0437\u043c\u0435\u0440 \u043f\u043b\u0435\u0435\u0440\u0430"
+    },
+    "playlist": {
+        "message": "\u041f\u043b\u0435\u0439\u043b\u0438\u0441\u0442"
+    },
+    "playlists": {
+        "message": "\u041f\u043b\u0435\u0439\u043b\u0438\u0441\u0442\u044b"
     },
     "popupPlayer": {
-        "message": "Плеер во всплывающем окне"
+        "message": "\u041f\u043b\u0435\u0435\u0440 \u0432\u043e \u0432\u0441\u043f\u043b\u044b\u0432\u0430\u044e\u0449\u0435\u043c \u043e\u043a\u043d\u0435"
     },
     "position": {
-        "message": "Позиция"
+        "message": "\u041f\u043e\u0437\u0438\u0446\u0438\u044f"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Нажмите любую клавишу или воспользуйтесь колесом мыши"
+        "message": "\u041d\u0430\u0436\u043c\u0438\u0442\u0435 \u043b\u044e\u0431\u0443\u044e \u043a\u043b\u0430\u0432\u0438\u0448\u0443 \u0438\u043b\u0438 \u0432\u043e\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0439\u0442\u0435\u0441\u044c \u043a\u043e\u043b\u0435\u0441\u043e\u043c \u043c\u044b\u0448\u0438"
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Нажмите любую клавишу или используйте колесо мыши"
+        "message": "\u041d\u0430\u0436\u043c\u0438\u0442\u0435 \u043b\u044e\u0431\u0443\u044e \u043a\u043b\u0430\u0432\u0438\u0448\u0443 \u0438\u043b\u0438 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0439\u0442\u0435 \u043a\u043e\u043b\u0435\u0441\u043e \u043c\u044b\u0448\u0438"
     },
     "previousVideo": {
-        "message": "Предыдущее видео"
+        "message": "\u041f\u0440\u0435\u0434\u044b\u0434\u0443\u0449\u0435\u0435 \u0432\u0438\u0434\u0435\u043e"
     },
     "primaryColor": {
-        "message": "Основной цвет"
+        "message": "\u041e\u0441\u043d\u043e\u0432\u043d\u043e\u0439 \u0446\u0432\u0435\u0442"
     },
     "purple": {
-        "message": "Фиолетовый"
+        "message": "\u0424\u0438\u043e\u043b\u0435\u0442\u043e\u0432\u044b\u0439"
     },
     "quality": {
-        "message": "Качество"
+        "message": "\u041a\u0430\u0447\u0435\u0441\u0442\u0432\u043e"
     },
     "ram": {
         "message": "RAM"
     },
     "rateUs": {
-        "message": "Оцените нас"
+        "message": "\u041e\u0446\u0435\u043d\u0438\u0442\u0435 \u043d\u0430\u0441"
     },
     "red": {
-        "message": "Красный"
+        "message": "\u041a\u0440\u0430\u0441\u043d\u044b\u0439"
     },
     "redDislikeButton": {
         "message": "Show dislike button red colour"
     },
     "relatedVideos": {
-        "message": "Похожие видео"
+        "message": "\u041f\u043e\u0445\u043e\u0436\u0438\u0435 \u0432\u0438\u0434\u0435\u043e"
     },
     "removeRelatedSearchResults": {
-        "message": "Удалить похожие результаты поиска"
+        "message": "\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u043f\u043e\u0445\u043e\u0436\u0438\u0435 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u044b \u043f\u043e\u0438\u0441\u043a\u0430"
     },
     "repeat": {
-        "message": "Повтор"
+        "message": "\u041f\u043e\u0432\u0442\u043e\u0440"
     },
     "reset": {
-        "message": "Сбросить"
+        "message": "\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c"
     },
     "resetAllSettings": {
-        "message": "Сбросить все настройки"
+        "message": "\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u0432\u0441\u0435 \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438"
     },
     "resetAllShortcuts": {
-        "message": "Сбросить все горячие клавиши"
+        "message": "\u0421\u0431\u0440\u043e\u0441\u0438\u0442\u044c \u0432\u0441\u0435 \u0433\u043e\u0440\u044f\u0447\u0438\u0435 \u043a\u043b\u0430\u0432\u0438\u0448\u0438"
     },
     "reverse": {
-        "message": "Обратный порядок"
+        "message": "\u041e\u0431\u0440\u0430\u0442\u043d\u044b\u0439 \u043f\u043e\u0440\u044f\u0434\u043e\u043a"
     },
     "rotate": {
-        "message": "Повернуть"
+        "message": "\u041f\u043e\u0432\u0435\u0440\u043d\u0443\u0442\u044c"
     },
     "save": {
-        "message": "Сохранить"
+        "message": "\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c"
     },
     "saveAs": {
-        "message": "Сохранить как"
+        "message": "\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c \u043a\u0430\u043a"
     },
     "schedule": {
-        "message": "Расписание"
+        "message": "\u0420\u0430\u0441\u043f\u0438\u0441\u0430\u043d\u0438\u0435"
     },
     "screen": {
-        "message": "Экран"
+        "message": "\u042d\u043a\u0440\u0430\u043d"
     },
     "screenshot": {
-        "message": "Скриншот"
+        "message": "\u0421\u043a\u0440\u0438\u043d\u0448\u043e\u0442"
     },
     "search": {
-        "message": "Поиск"
+        "message": "\u041f\u043e\u0438\u0441\u043a"
     },
     "searchBarOnly": {
-        "message": "Только поле поиска"
+        "message": "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u043e\u043b\u0435 \u043f\u043e\u0438\u0441\u043a\u0430"
     },
     "seekBackward10Seconds": {
-        "message": "Перемотать на 10 секунд назад"
+        "message": "\u041f\u0435\u0440\u0435\u043c\u043e\u0442\u0430\u0442\u044c \u043d\u0430 10 \u0441\u0435\u043a\u0443\u043d\u0434 \u043d\u0430\u0437\u0430\u0434"
     },
     "seekForward10Seconds": {
-        "message": "Перемотать на 10 секунд вперед"
+        "message": "\u041f\u0435\u0440\u0435\u043c\u043e\u0442\u0430\u0442\u044c \u043d\u0430 10 \u0441\u0435\u043a\u0443\u043d\u0434 \u0432\u043f\u0435\u0440\u0435\u0434"
     },
     "settings": {
-        "message": "Настройки"
+        "message": "\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438"
     },
     "settingsSuccessfullyImported": {
-        "message": "Настройки успешно импортированы"
+        "message": "\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u043c\u043f\u043e\u0440\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u044b"
     },
     "shortcuts": {
-        "message": "Горячие клавиши"
+        "message": "\u0413\u043e\u0440\u044f\u0447\u0438\u0435 \u043a\u043b\u0430\u0432\u0438\u0448\u0438"
     },
     "showCardsOnMouseHover": {
-        "message": "Показывать карточки при наведении мыши"
+        "message": "\u041f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0442\u044c \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0438 \u043f\u0440\u0438 \u043d\u0430\u0432\u0435\u0434\u0435\u043d\u0438\u0438 \u043c\u044b\u0448\u0438"
     },
     "showChannelVideosCount": {
-        "message": "Показывать количество видео на канале"
+        "message": "\u041f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0442\u044c \u043a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0432\u0438\u0434\u0435\u043e \u043d\u0430 \u043a\u0430\u043d\u0430\u043b\u0435"
     },
     "shuffle": {
-        "message": "Случайный порядок"
+        "message": "\u0421\u043b\u0443\u0447\u0430\u0439\u043d\u044b\u0439 \u043f\u043e\u0440\u044f\u0434\u043e\u043a"
     },
     "sidebar": {
-        "message": "Боковая панель"
+        "message": "\u0411\u043e\u043a\u043e\u0432\u0430\u044f \u043f\u0430\u043d\u0435\u043b\u044c"
     },
     "spacebar": {
-        "message": "Пробел"
+        "message": "\u041f\u0440\u043e\u0431\u0435\u043b"
     },
     "squaredUserImages": {
-        "message": "Квадратные аватарки пользователей"
+        "message": "\u041a\u0432\u0430\u0434\u0440\u0430\u0442\u043d\u044b\u0435 \u0430\u0432\u0430\u0442\u0430\u0440\u043a\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435\u0439"
     },
     "static": {
-        "message": "Статично"
+        "message": "\u0421\u0442\u0430\u0442\u0438\u0447\u043d\u043e"
     },
     "statsForNerds": {
         "message": "Show Stats for Nerds"
@@ -672,64 +675,64 @@
         "message": "Step"
     },
     "stop": {
-        "message": "Стоп"
+        "message": "\u0421\u0442\u043e\u043f"
     },
     "style": {
-        "message": "Стиль"
+        "message": "\u0421\u0442\u0438\u043b\u044c"
     },
     "styles": {
-        "message": "Стили"
+        "message": "\u0421\u0442\u0438\u043b\u0438"
     },
     "subscriptions": {
-        "message": "Подписки"
+        "message": "\u041f\u043e\u0434\u043f\u0438\u0441\u043a\u0438"
     },
     "subtitles": {
-        "message": "Субтитры"
+        "message": "\u0421\u0443\u0431\u0442\u0438\u0442\u0440\u044b"
     },
     "sunset": {
-        "message": "Закат"
+        "message": "\u0417\u0430\u043a\u0430\u0442"
     },
     "sunsetToSunrise": {
-        "message": "От заката до рассвета"
+        "message": "\u041e\u0442 \u0437\u0430\u043a\u0430\u0442\u0430 \u0434\u043e \u0440\u0430\u0441\u0441\u0432\u0435\u0442\u0430"
     },
     "systemPeferenceDark": {
-        "message": "Предпочитаемая системой: темная"
+        "message": "\u041f\u0440\u0435\u0434\u043f\u043e\u0447\u0438\u0442\u0430\u0435\u043c\u0430\u044f \u0441\u0438\u0441\u0442\u0435\u043c\u043e\u0439: \u0442\u0435\u043c\u043d\u0430\u044f"
     },
     "systemPeferenceLight": {
-        "message": "Предпочитаемая системой: светлая"
+        "message": "\u041f\u0440\u0435\u0434\u043f\u043e\u0447\u0438\u0442\u0430\u0435\u043c\u0430\u044f \u0441\u0438\u0441\u0442\u0435\u043c\u043e\u0439: \u0441\u0432\u0435\u0442\u043b\u0430\u044f"
     },
     "teal": {
-        "message": "Бирюзовый"
+        "message": "\u0411\u0438\u0440\u044e\u0437\u043e\u0432\u044b\u0439"
     },
     "textColor": {
-        "message": "Цвет текста"
+        "message": "\u0426\u0432\u0435\u0442 \u0442\u0435\u043a\u0441\u0442\u0430"
     },
     "themes": {
-        "message": "Темы"
+        "message": "\u0422\u0435\u043c\u044b"
     },
     "thisWillRemoveAllCookies": {
-        "message": "Это удалит все куки"
+        "message": "\u042d\u0442\u043e \u0443\u0434\u0430\u043b\u0438\u0442 \u0432\u0441\u0435 \u043a\u0443\u043a\u0438"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "Вы действительно хотите удалить все куки YouTube?"
+        "message": "\u0412\u044b \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0442\u0435\u043b\u044c\u043d\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043b\u0438\u0442\u044c \u0432\u0441\u0435 \u043a\u0443\u043a\u0438 YouTube?"
     },
     "thisWillResetAllSettings": {
-        "message": "Это сбросит все настройки"
+        "message": "\u042d\u0442\u043e \u0441\u0431\u0440\u043e\u0441\u0438\u0442 \u0432\u0441\u0435 \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438"
     },
     "thisWillResetAllShortcuts": {
-        "message": "Это сбросит все горячие клавиши"
+        "message": "\u042d\u0442\u043e \u0441\u0431\u0440\u043e\u0441\u0438\u0442 \u0432\u0441\u0435 \u0433\u043e\u0440\u044f\u0447\u0438\u0435 \u043a\u043b\u0430\u0432\u0438\u0448\u0438"
     },
     "thumbnails": {
-        "message": "Превью"
+        "message": "\u041f\u0440\u0435\u0432\u044c\u044e"
     },
     "timeFrom": {
-        "message": "Время от"
+        "message": "\u0412\u0440\u0435\u043c\u044f \u043e\u0442"
     },
     "timeTo": {
-        "message": "Время до"
+        "message": "\u0412\u0440\u0435\u043c\u044f \u0434\u043e"
     },
     "todayAt": {
-        "message": "Сегодня в"
+        "message": "\u0421\u0435\u0433\u043e\u0434\u043d\u044f \u0432"
     },
     "toggleCards": {
         "message": "Toggle cards"
@@ -738,75 +741,75 @@
         "message": "Top chat"
     },
     "trailerAutoplay": {
-        "message": "Автовоспроизведение трейлера"
+        "message": "\u0410\u0432\u0442\u043e\u0432\u043e\u0441\u043f\u0440\u043e\u0438\u0437\u0432\u0435\u0434\u0435\u043d\u0438\u0435 \u0442\u0440\u0435\u0439\u043b\u0435\u0440\u0430"
     },
     "translations": {
-        "message": "Переводы"
+        "message": "\u041f\u0435\u0440\u0435\u0432\u043e\u0434\u044b"
     },
     "transparentBackground": {
-        "message": "Прозрачный фон"
+        "message": "\u041f\u0440\u043e\u0437\u0440\u0430\u0447\u043d\u044b\u0439 \u0444\u043e\u043d"
     },
     "trending": {
-        "message": "Тренды"
+        "message": "\u0422\u0440\u0435\u043d\u0434\u044b"
     },
     "tryToReloadThePage": {
-        "message": "Попробуйте перезагрузить страницу"
+        "message": "\u041f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u043f\u0435\u0440\u0435\u0437\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044c \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0443"
     },
     "type": {
-        "message": "Тип"
+        "message": "\u0422\u0438\u043f"
     },
     "upNextAutoplay": {
-        "message": "Автовоспроизведение следующего видео"
+        "message": "\u0410\u0432\u0442\u043e\u0432\u043e\u0441\u043f\u0440\u043e\u0438\u0437\u0432\u0435\u0434\u0435\u043d\u0438\u0435 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0435\u0433\u043e \u0432\u0438\u0434\u0435\u043e"
     },
     "use24HourFormat": {
-        "message": "24-часовой формат"
+        "message": "24-\u0447\u0430\u0441\u043e\u0432\u043e\u0439 \u0444\u043e\u0440\u043c\u0430\u0442"
     },
     "version": {
-        "message": "Версия"
+        "message": "\u0412\u0435\u0440\u0441\u0438\u044f"
     },
     "video": {
-        "message": "Видео"
+        "message": "\u0412\u0438\u0434\u0435\u043e"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "Описание видео будет развернуто, чтобы получить название категории видео"
+        "message": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u0432\u0438\u0434\u0435\u043e \u0431\u0443\u0434\u0435\u0442 \u0440\u0430\u0437\u0432\u0435\u0440\u043d\u0443\u0442\u043e, \u0447\u0442\u043e\u0431\u044b \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 \u0432\u0438\u0434\u0435\u043e"
     },
     "videoFormats": {
-        "message": "Форматы видео"
+        "message": "\u0424\u043e\u0440\u043c\u0430\u0442\u044b \u0432\u0438\u0434\u0435\u043e"
     },
     "videos": {
-        "message": "Видео"
+        "message": "\u0412\u0438\u0434\u0435\u043e"
     },
     "volume": {
-        "message": "Громкость"
+        "message": "\u0413\u0440\u043e\u043c\u043a\u043e\u0441\u0442\u044c"
     },
     "watchLater": {
-        "message": "Посмотреть позже"
+        "message": "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u043f\u043e\u0437\u0436\u0435"
     },
     "watchTime": {
-        "message": "Время просмотра"
+        "message": "\u0412\u0440\u0435\u043c\u044f \u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0430"
     },
     "whenTabIsChanged": {
-        "message": "При переключении вкладок"
+        "message": "\u041f\u0440\u0438 \u043f\u0435\u0440\u0435\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0438 \u0432\u043a\u043b\u0430\u0434\u043e\u043a"
     },
     "white": {
-        "message": "Белый"
+        "message": "\u0411\u0435\u043b\u044b\u0439"
     },
     "yellow": {
-        "message": "Желтый"
+        "message": "\u0416\u0435\u043b\u0442\u044b\u0439"
     },
     "youtubeHeaderLeft": {
-        "message": "Верхняя панель (слева)"
+        "message": "\u0412\u0435\u0440\u0445\u043d\u044f\u044f \u043f\u0430\u043d\u0435\u043b\u044c (\u0441\u043b\u0435\u0432\u0430)"
     },
     "youtubeHeaderRight": {
-        "message": "Верхняя панель (справа)"
+        "message": "\u0412\u0435\u0440\u0445\u043d\u044f\u044f \u043f\u0430\u043d\u0435\u043b\u044c (\u0441\u043f\u0440\u0430\u0432\u0430)"
     },
     "youtubeHomePage": {
-        "message": "Домашняя страница YouTube"
+        "message": "\u0414\u043e\u043c\u0430\u0448\u043d\u044f\u044f \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430 YouTube"
     },
     "youtubeLanguage": {
-        "message": "Язык YouTube"
+        "message": "\u042f\u0437\u044b\u043a YouTube"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube ограничивает качетво видео до 1080p для кодека h.264"
+        "message": "YouTube \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u043a\u0430\u0447\u0435\u0442\u0432\u043e \u0432\u0438\u0434\u0435\u043e \u0434\u043e 1080p \u0434\u043b\u044f \u043a\u043e\u0434\u0435\u043a\u0430 h.264"
     }
 }

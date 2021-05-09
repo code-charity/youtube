@@ -1,165 +1,165 @@
 {
-    "about": {
-        "message": "關於"
-    },
-    "accept": {
-        "message": "接受"
-    },
-    "activate": {
-        "message": "啟用"
-    },
-    "activateCaptions": {
-        "message": "開啟字幕"
-    },
-    "activated": {
-        "message": "啟用"
-    },
-    "activatedFeatures": {
-        "message": "已啟用功能"
-    },
-    "activateFullscreen": {
-        "message": "開啟全螢幕"
-    },
-    "activeFeatures": {
-        "message": "已啟用功能"
-    },
-    "addScrollToTop": {
-        "message": "新增「回到頂部」按鈕"
-    },
-    "ads": {
-        "message": "廣告"
-    },
-    "all": {
-        "message": "所有"
-    },
-    "allow": {
-        "message": "允許"
-    },
-    "allow60fps": {
-        "message": "允許 60fps"
-    },
-    "forceSDR": {
-        "message": "強制使用標準動態範圍 (SDR)"
-    },
-    "alwaysActive": {
-        "message": "始終有效"
-    },
-    "alwaysShowProgressBar": {
-        "message": "一律顯示進度條"
-    },
-    "amber": {
-        "message": "琥珀色"
-    },
-    "analyzer": {
-        "message": "觀看紀錄"
-    },
-    "appearance": {
-        "message": "外貌"
-    },
     "ARROWDOWN": {
-        "message": "⇩"
+        "message": "\u21e9"
     },
     "ARROWLEFT": {
-        "message": "⇦"
+        "message": "\u21e6"
     },
     "ARROWRIGHT": {
-        "message": "⇨"
+        "message": "\u21e8"
     },
     "ARROWUP": {
-        "message": "⇧"
+        "message": "\u21e7"
+    },
+    "__MSG_description__": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+    },
+    "about": {
+        "message": "\u95dc\u65bc"
+    },
+    "accept": {
+        "message": "\u63a5\u53d7"
+    },
+    "activate": {
+        "message": "\u555f\u7528"
+    },
+    "activateCaptions": {
+        "message": "\u958b\u555f\u5b57\u5e55"
+    },
+    "activateFullscreen": {
+        "message": "\u958b\u555f\u5168\u87a2\u5e55"
+    },
+    "activated": {
+        "message": "\u555f\u7528"
+    },
+    "activatedFeatures": {
+        "message": "\u5df2\u555f\u7528\u529f\u80fd"
+    },
+    "activeFeatures": {
+        "message": "\u5df2\u555f\u7528\u529f\u80fd"
+    },
+    "addScrollToTop": {
+        "message": "\u65b0\u589e\u300c\u56de\u5230\u9802\u90e8\u300d\u6309\u9215"
+    },
+    "ads": {
+        "message": "\u5ee3\u544a"
+    },
+    "all": {
+        "message": "\u6240\u6709"
+    },
+    "allow": {
+        "message": "\u5141\u8a31"
+    },
+    "allow60fps": {
+        "message": "\u5141\u8a31 60fps"
+    },
+    "alwaysActive": {
+        "message": "\u59cb\u7d42\u6709\u6548"
+    },
+    "alwaysShowProgressBar": {
+        "message": "\u4e00\u5f8b\u986f\u793a\u9032\u5ea6\u689d"
+    },
+    "amber": {
+        "message": "\u7425\u73c0\u8272"
+    },
+    "analyzer": {
+        "message": "\u89c0\u770b\u7d00\u9304"
+    },
+    "appearance": {
+        "message": "\u5916\u8c8c"
     },
     "audio": {
-        "message": "音頻"
+        "message": "\u97f3\u983b"
     },
     "audioFormats": {
-        "message": "音頻格式"
+        "message": "\u97f3\u983b\u683c\u5f0f"
     },
     "auto": {
-        "message": "自動"
+        "message": "\u81ea\u52d5"
     },
     "autoFullscreen": {
-        "message": "自動全螢幕"
+        "message": "\u81ea\u52d5\u5168\u87a2\u5e55"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "切換分頁時自動暫停"
+        "message": "\u5207\u63db\u5206\u9801\u6642\u81ea\u52d5\u66ab\u505c"
     },
     "autoplay": {
-        "message": "自動播放"
+        "message": "\u81ea\u52d5\u64ad\u653e"
     },
     "backupAndReset": {
-        "message": "備份 & 重置"
+        "message": "\u5099\u4efd & \u91cd\u7f6e"
     },
     "baseOnSystemColorScheme": {
-        "message": "使用系統配色方案"
+        "message": "\u4f7f\u7528\u7cfb\u7d71\u914d\u8272\u65b9\u6848"
     },
     "belowPlayer": {
-        "message": "於播放器底下"
+        "message": "\u65bc\u64ad\u653e\u5668\u5e95\u4e0b"
     },
     "black": {
-        "message": "黑色"
+        "message": "\u9ed1\u8272"
     },
     "blacklist": {
-        "message": "黑名單"
+        "message": "\u9ed1\u540d\u55ae"
     },
     "blockAll": {
-        "message": "封鎖所有"
+        "message": "\u5c01\u9396\u6240\u6709"
     },
     "blue": {
-        "message": "藍色"
+        "message": "\u85cd\u8272"
     },
     "blueGray": {
-        "message": "藍灰色"
+        "message": "\u85cd\u7070\u8272"
     },
     "bluelight": {
-        "message": "藍光"
+        "message": "\u85cd\u5149"
     },
     "brown": {
-        "message": "棕色"
+        "message": "\u68d5\u8272"
     },
     "browser": {
-        "message": "瀏覽器"
+        "message": "\u700f\u89bd\u5668"
     },
     "browserVersion": {
-        "message": "瀏覽器版本"
+        "message": "\u700f\u89bd\u5668\u7248\u672c"
     },
     "bubbles": {
         "message": "Bubbles"
     },
     "bug": {
-        "message": "問題"
+        "message": "\u554f\u984c"
     },
     "buttons": {
-        "message": "按鈕"
+        "message": "\u6309\u9215"
     },
     "cancel": {
-        "message": "取消"
+        "message": "\u53d6\u6d88"
     },
     "categories": {
-        "message": "類別"
+        "message": "\u985e\u5225"
     },
     "channel": {
-        "message": "頻道"
+        "message": "\u983b\u9053"
     },
     "channels": {
-        "message": "頻道"
+        "message": "\u983b\u9053"
     },
     "clipboard": {
-        "message": "剪貼簿"
+        "message": "\u526a\u8cbc\u7c3f"
     },
     "codecH264": {
-        "message": "使用 H.264 解碼"
-    },
-    "collapsed": {
-        "message": "簡縮"
+        "message": "\u4f7f\u7528 H.264 \u89e3\u78bc"
     },
     "collapseOfSubscriptionSections": {
-        "message": "於訂閱區顯示縮放按鈕"
+        "message": "\u65bc\u8a02\u95b1\u5340\u986f\u793a\u7e2e\u653e\u6309\u9215"
+    },
+    "collapsed": {
+        "message": "\u7c21\u7e2e"
     },
     "comments": {
-        "message": "評論"
+        "message": "\u8a55\u8ad6"
     },
     "confirmationBeforeClosing": {
-        "message": "關閉前先確認"
+        "message": "\u95dc\u9589\u524d\u5148\u78ba\u8a8d"
     },
     "cookies": {
         "message": "Cookies"
@@ -168,657 +168,660 @@
         "message": "Cores"
     },
     "cropChapterTitles": {
-        "message": "截斷章節名稱"
+        "message": "\u622a\u65b7\u7ae0\u7bc0\u540d\u7a31"
     },
     "customCss": {
-        "message": "自訂 CSS"
+        "message": "\u81ea\u8a02 CSS"
     },
     "customJs": {
-        "message": "自訂 JS"
+        "message": "\u81ea\u8a02 JS"
     },
     "customMiniPlayer": {
-        "message": "自訂迷你播放器"
+        "message": "\u81ea\u8a02\u8ff7\u4f60\u64ad\u653e\u5668"
     },
     "cyan": {
-        "message": "青色"
+        "message": "\u9752\u8272"
     },
     "dark": {
-        "message": "暗黑"
+        "message": "\u6697\u9ed1"
     },
     "darkTheme": {
-        "message": "暗黑主題"
+        "message": "\u6697\u9ed1\u4e3b\u984c"
     },
     "dateAndTime": {
-        "message": "日期和時間"
+        "message": "\u65e5\u671f\u548c\u6642\u9593"
     },
     "dawn": {
-        "message": "黎明"
+        "message": "\u9ece\u660e"
     },
     "decreasePlaybackSpeed": {
-        "message": "降低播放速度"
+        "message": "\u964d\u4f4e\u64ad\u653e\u901f\u5ea6"
     },
     "decreaseVolume": {
-        "message": "減輕音量"
+        "message": "\u6e1b\u8f15\u97f3\u91cf"
     },
     "deepOrange": {
-        "message": "深橙色"
+        "message": "\u6df1\u6a59\u8272"
     },
     "deepPurple": {
-        "message": "深紫色"
+        "message": "\u6df1\u7d2b\u8272"
     },
     "defaultChannelTab": {
-        "message": "預設頻道標籤"
+        "message": "\u9810\u8a2d\u983b\u9053\u6a19\u7c64"
     },
     "deleteYoutubeCookies": {
-        "message": "刪除 YouTube cookies"
+        "message": "\u522a\u9664 YouTube cookies"
     },
     "description": {
-        "message": "影片描述"
+        "message": "\u5f71\u7247\u63cf\u8ff0"
     },
     "desert": {
-        "message": "沙漠"
+        "message": "\u6c99\u6f20"
     },
     "details": {
-        "message": "細節"
+        "message": "\u7d30\u7bc0"
     },
     "developerOptions": {
-        "message": "開發人員選項"
+        "message": "\u958b\u767c\u4eba\u54e1\u9078\u9805"
     },
     "device": {
-        "message": "裝置"
+        "message": "\u88dd\u7f6e"
     },
     "dim": {
-        "message": "光線暗度"
+        "message": "\u5149\u7dda\u6697\u5ea6"
     },
     "disabled": {
-        "message": "關閉"
+        "message": "\u95dc\u9589"
     },
     "dislike": {
-        "message": "不喜歡"
-    },
-    "donate": {
-        "message": "捐贈"
+        "message": "\u4e0d\u559c\u6b61"
     },
     "doNotChange": {
-        "message": "不要改變"
+        "message": "\u4e0d\u8981\u6539\u8b8a"
+    },
+    "donate": {
+        "message": "\u6350\u8d08"
     },
     "draggable": {
-        "message": "可拖動"
+        "message": "\u53ef\u62d6\u52d5"
     },
     "email": {
         "message": "Email"
     },
     "empty": {
-        "message": "空白"
+        "message": "\u7a7a\u767d"
     },
     "enabled": {
-        "message": "啟用"
+        "message": "\u555f\u7528"
     },
     "enabledForced": {
-        "message": "強制啟用"
+        "message": "\u5f37\u5236\u555f\u7528"
     },
     "expanded": {
-        "message": "擴展"
+        "message": "\u64f4\u5c55"
     },
     "exportSettings": {
-        "message": "導出設定"
+        "message": "\u5c0e\u51fa\u8a2d\u5b9a"
     },
     "extension": {
-        "message": "擴充元件"
+        "message": "\u64f4\u5145\u5143\u4ef6"
     },
     "file": {
-        "message": "檔案"
+        "message": "\u6a94\u6848"
     },
     "filters": {
-        "message": "濾鏡"
+        "message": "\u6ffe\u93e1"
     },
     "fitToWindow": {
-        "message": "依視窗大小縮放"
+        "message": "\u4f9d\u8996\u7a97\u5927\u5c0f\u7e2e\u653e"
     },
     "flash": {
         "message": "Flash"
     },
     "font": {
-        "message": "字體"
+        "message": "\u5b57\u9ad4"
     },
     "footer": {
-        "message": "頁腳"
+        "message": "\u9801\u8173"
+    },
+    "forceSDR": {
+        "message": "\u5f37\u5236\u4f7f\u7528\u6a19\u6e96\u52d5\u614b\u7bc4\u570d (SDR)"
     },
     "forcedPlaybackSpeed": {
-        "message": "強制播放速度"
+        "message": "\u5f37\u5236\u64ad\u653e\u901f\u5ea6"
     },
     "forcedTheaterMode": {
-        "message": "強制劇院模式"
+        "message": "\u5f37\u5236\u5287\u9662\u6a21\u5f0f"
     },
     "forcedVolume": {
-        "message": "強制播放音量"
+        "message": "\u5f37\u5236\u64ad\u653e\u97f3\u91cf"
     },
     "foundABug": {
-        "message": "遇到問題了嗎?"
+        "message": "\u9047\u5230\u554f\u984c\u4e86\u55ce?"
     },
     "fullWindow": {
-        "message": "全螢幕"
+        "message": "\u5168\u87a2\u5e55"
     },
     "general": {
-        "message": "一般"
+        "message": "\u4e00\u822c"
     },
     "github": {
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "轉到搜索框"
+        "message": "\u8f49\u5230\u641c\u7d22\u6846"
     },
     "gpu": {
         "message": "GPU"
     },
     "green": {
-        "message": "綠色"
+        "message": "\u7da0\u8272"
     },
     "hdThumbnail": {
-        "message": "HD 縮圖"
+        "message": "HD \u7e2e\u5716"
     },
     "hdThumbnails": {
-        "message": "HD 縮圖"
+        "message": "HD \u7e2e\u5716"
     },
     "header": {
-        "message": "標頭"
+        "message": "\u6a19\u982d"
     },
     "hidden": {
-        "message": "隱藏"
+        "message": "\u96b1\u85cf"
     },
     "hiddenOnVideoPage": {
-        "message": "於影片頁面自動隱藏"
+        "message": "\u65bc\u5f71\u7247\u9801\u9762\u81ea\u52d5\u96b1\u85cf"
     },
     "hideAnimatedThumbnails": {
-        "message": "隱藏動態的縮略圖"
+        "message": "\u96b1\u85cf\u52d5\u614b\u7684\u7e2e\u7565\u5716"
     },
     "hideAnnotations": {
-        "message": "隱藏註解"
+        "message": "\u96b1\u85cf\u8a3b\u89e3"
     },
     "hideCards": {
-        "message": "隱藏資訊卡"
+        "message": "\u96b1\u85cf\u8cc7\u8a0a\u5361"
     },
     "hideControls": {
-        "message": "隱藏播放器控制"
+        "message": "\u96b1\u85cf\u64ad\u653e\u5668\u63a7\u5236"
     },
     "hideDetails": {
-        "message": "隱藏細節"
+        "message": "\u96b1\u85cf\u7d30\u7bc0"
     },
     "hideEndscreen": {
-        "message": "隱藏結束畫面"
+        "message": "\u96b1\u85cf\u7d50\u675f\u756b\u9762"
     },
     "hideFeaturedContent": {
-        "message": "隱藏精選影片"
+        "message": "\u96b1\u85cf\u7cbe\u9078\u5f71\u7247"
     },
     "hideFooter": {
-        "message": "隱藏頁腳"
+        "message": "\u96b1\u85cf\u9801\u8173"
     },
     "hideGradientBottom": {
-        "message": "隱藏底部漸層圖層"
+        "message": "\u96b1\u85cf\u5e95\u90e8\u6f38\u5c64\u5716\u5c64"
     },
     "hidePlaylist": {
-        "message": "隱藏播放清單"
+        "message": "\u96b1\u85cf\u64ad\u653e\u6e05\u55ae"
     },
     "hideRightButtons": {
-        "message": "隱藏右側按鈕"
+        "message": "\u96b1\u85cf\u53f3\u5074\u6309\u9215"
     },
     "hideScrollForDetails": {
-        "message": "隱藏「向下捲動即可查看詳情」"
+        "message": "\u96b1\u85cf\u300c\u5411\u4e0b\u6372\u52d5\u5373\u53ef\u67e5\u770b\u8a73\u60c5\u300d"
     },
     "hideThumbnailOverlay": {
-        "message": "隱藏縮圖上的按鈕"
+        "message": "\u96b1\u85cf\u7e2e\u5716\u4e0a\u7684\u6309\u9215"
     },
     "hideViewsCount": {
-        "message": "隱藏觀看次數"
+        "message": "\u96b1\u85cf\u89c0\u770b\u6b21\u6578"
     },
     "history": {
-        "message": "觀看記錄"
+        "message": "\u89c0\u770b\u8a18\u9304"
     },
     "home": {
-        "message": "首頁"
+        "message": "\u9996\u9801"
     },
     "hover": {
-        "message": "滑鼠暫留時顯示"
+        "message": "\u6ed1\u9f20\u66ab\u7559\u6642\u986f\u793a"
     },
     "hoverOnVideoPage": {
-        "message": "於影片頁面滑鼠暫留時顯示"
+        "message": "\u65bc\u5f71\u7247\u9801\u9762\u6ed1\u9f20\u66ab\u7559\u6642\u986f\u793a"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "顯示影片上傳時間"
+        "message": "\u986f\u793a\u5f71\u7247\u4e0a\u50b3\u6642\u9593"
     },
     "icons": {
-        "message": "圖標"
+        "message": "\u5716\u6a19"
     },
     "iconsOnly": {
-        "message": "只有圖標"
+        "message": "\u53ea\u6709\u5716\u6a19"
     },
     "importSettings": {
-        "message": "導入設定"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "於瀏覽器中顯示 ImprovedTube 圖示"
-    },
-    "improvedtubeIconOnYoutube": {
-        "message": "於 YouTube 中顯示 ImprovedTube 圖示"
-    },
-    "improvedtubeLanguage": {
-        "message": "ImprovedTube 語言"
-    },
-    "improvedtubeVersion": {
-        "message": "ImprovedTube 版本"
+        "message": "\u5c0e\u5165\u8a2d\u5b9a"
     },
     "improveLogo": {
-        "message": "改進 YouTube 圖示"
+        "message": "\u6539\u9032 YouTube \u5716\u793a"
+    },
+    "improvedtubeIconInBrowser": {
+        "message": "\u65bc\u700f\u89bd\u5668\u4e2d\u986f\u793a ImprovedTube \u5716\u793a"
+    },
+    "improvedtubeIconOnYoutube": {
+        "message": "\u65bc YouTube \u4e2d\u986f\u793a ImprovedTube \u5716\u793a"
+    },
+    "improvedtubeLanguage": {
+        "message": "ImprovedTube \u8a9e\u8a00"
+    },
+    "improvedtubeVersion": {
+        "message": "ImprovedTube \u7248\u672c"
     },
     "increasePlaybackSpeed": {
-        "message": "加快播放速度"
+        "message": "\u52a0\u5feb\u64ad\u653e\u901f\u5ea6"
     },
     "increaseVolume": {
-        "message": "增加音量"
+        "message": "\u589e\u52a0\u97f3\u91cf"
     },
     "indigo": {
-        "message": "靛青"
+        "message": "\u975b\u9752"
     },
     "items": {
-        "message": "項目"
+        "message": "\u9805\u76ee"
     },
     "languages": {
-        "message": "語言"
+        "message": "\u8a9e\u8a00"
     },
     "legacyYoutube": {
-        "message": "舊版 YouTube"
+        "message": "\u820a\u7248 YouTube"
     },
     "light": {
         "message": "Light"
     },
     "lightBlue": {
-        "message": "淺藍色"
+        "message": "\u6dfa\u85cd\u8272"
     },
     "lightGreen": {
-        "message": "淺綠色"
+        "message": "\u6dfa\u7da0\u8272"
     },
     "like": {
-        "message": "喜歡"
+        "message": "\u559c\u6b61"
     },
     "likes": {
-        "message": "顯示按讚數量"
+        "message": "\u986f\u793a\u6309\u8b9a\u6578\u91cf"
     },
     "lime": {
-        "message": "萊姆色"
+        "message": "\u840a\u59c6\u8272"
     },
     "list": {
-        "message": "清單"
+        "message": "\u6e05\u55ae"
     },
     "liveChat": {
-        "message": "Live 聊天視窗"
+        "message": "Live \u804a\u5929\u8996\u7a97"
     },
     "liveChatType": {
-        "message": "Live 聊天視窗種類"
+        "message": "Live \u804a\u5929\u8996\u7a97\u7a2e\u985e"
     },
     "loudnessNormalization": {
-        "message": "音量標準化"
+        "message": "\u97f3\u91cf\u6a19\u6e96\u5316"
     },
     "markWatchedVideos": {
-        "message": "標記已觀看影片"
+        "message": "\u6a19\u8a18\u5df2\u89c0\u770b\u5f71\u7247"
     },
     "mixer": {
-        "message": "音量混合器"
+        "message": "\u97f3\u91cf\u6df7\u5408\u5668"
     },
     "myColors": {
-        "message": "自訂主色"
+        "message": "\u81ea\u8a02\u4e3b\u8272"
     },
     "name": {
-        "message": "名稱"
+        "message": "\u540d\u7a31"
     },
     "nativeMiniPlayer": {
-        "message": "內建迷你播放器"
+        "message": "\u5167\u5efa\u8ff7\u4f60\u64ad\u653e\u5668"
     },
     "new": {
-        "message": "新增"
+        "message": "\u65b0\u589e"
     },
     "nextVideo": {
-        "message": "下一個影片"
+        "message": "\u4e0b\u4e00\u500b\u5f71\u7247"
     },
     "night": {
-        "message": "夜晚"
+        "message": "\u591c\u665a"
     },
     "noActiveFeatures": {
-        "message": "無已啟用功能"
-    },
-    "none": {
-        "message": "無"
+        "message": "\u7121\u5df2\u555f\u7528\u529f\u80fd"
     },
     "noOpenVideoTabs": {
-        "message": "無已開啟之影片頁面"
+        "message": "\u7121\u5df2\u958b\u555f\u4e4b\u5f71\u7247\u9801\u9762"
+    },
+    "none": {
+        "message": "\u7121"
     },
     "normal": {
-        "message": "正常"
+        "message": "\u6b63\u5e38"
     },
     "old": {
-        "message": "舊版"
+        "message": "\u820a\u7248"
     },
     "onAllVideos": {
-        "message": "於所有影片中"
-    },
-    "onlyActiveOnYoutube": {
-        "message": "僅在 YouTube 上有效"
-    },
-    "onlyOnePlayerInstancePlaying": {
-        "message": "同時間僅限播放單一影片"
+        "message": "\u65bc\u6240\u6709\u5f71\u7247\u4e2d"
     },
     "onSubscribedChannels": {
-        "message": "於已訂閱的頻道中"
+        "message": "\u65bc\u5df2\u8a02\u95b1\u7684\u983b\u9053\u4e2d"
+    },
+    "onlyActiveOnYoutube": {
+        "message": "\u50c5\u5728 YouTube \u4e0a\u6709\u6548"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "\u540c\u6642\u9593\u50c5\u9650\u64ad\u653e\u55ae\u4e00\u5f71\u7247"
     },
     "openPopupPlayer": {
-        "message": "開啟影片或播放清單於新視窗中"
+        "message": "\u958b\u555f\u5f71\u7247\u6216\u64ad\u653e\u6e05\u55ae\u65bc\u65b0\u8996\u7a97\u4e2d"
     },
     "orange": {
-        "message": "橘色"
+        "message": "\u6a58\u8272"
     },
     "os": {
-        "message": "作業系統"
+        "message": "\u4f5c\u696d\u7cfb\u7d71"
     },
     "other": {
-        "message": "其他"
+        "message": "\u5176\u4ed6"
     },
     "permissions": {
-        "message": "權限"
+        "message": "\u6b0a\u9650"
     },
     "pictureInPicture": {
-        "message": "子母畫面"
+        "message": "\u5b50\u6bcd\u756b\u9762"
     },
     "pink": {
-        "message": "粉紅色"
+        "message": "\u7c89\u7d05\u8272"
     },
     "plain": {
-        "message": "樸素"
+        "message": "\u6a38\u7d20"
     },
     "platform": {
-        "message": "平台"
-    },
-    "playbackSpeed": {
-        "message": "播放速度"
-    },
-    "player": {
-        "message": "播放器"
-    },
-    "playerColor": {
-        "message": "影片進度條顏色"
-    },
-    "playerSize": {
-        "message": "播放器大小"
-    },
-    "playlist": {
-        "message": "播放列表"
-    },
-    "playlists": {
-        "message": "播放清單"
+        "message": "\u5e73\u53f0"
     },
     "playPause": {
-        "message": "播放/暫停"
+        "message": "\u64ad\u653e/\u66ab\u505c"
+    },
+    "playbackSpeed": {
+        "message": "\u64ad\u653e\u901f\u5ea6"
+    },
+    "player": {
+        "message": "\u64ad\u653e\u5668"
+    },
+    "playerColor": {
+        "message": "\u5f71\u7247\u9032\u5ea6\u689d\u984f\u8272"
+    },
+    "playerSize": {
+        "message": "\u64ad\u653e\u5668\u5927\u5c0f"
+    },
+    "playlist": {
+        "message": "\u64ad\u653e\u5217\u8868"
+    },
+    "playlists": {
+        "message": "\u64ad\u653e\u6e05\u55ae"
     },
     "popupPlayer": {
-        "message": "彈出播放器"
+        "message": "\u5f48\u51fa\u64ad\u653e\u5668"
     },
     "position": {
-        "message": "位置"
+        "message": "\u4f4d\u7f6e"
     },
     "pressAnyKeyOrScroll": {
-        "message": "按任意鍵或使用滑鼠滾輪。"
+        "message": "\u6309\u4efb\u610f\u9375\u6216\u4f7f\u7528\u6ed1\u9f20\u6efe\u8f2a\u3002"
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "按任意鍵或使用鼠標滾輪。"
+        "message": "\u6309\u4efb\u610f\u9375\u6216\u4f7f\u7528\u9f20\u6a19\u6efe\u8f2a\u3002"
     },
     "previousVideo": {
-        "message": "回到之前的影片"
+        "message": "\u56de\u5230\u4e4b\u524d\u7684\u5f71\u7247"
     },
     "primaryColor": {
-        "message": "主要顏色"
+        "message": "\u4e3b\u8981\u984f\u8272"
     },
     "purple": {
-        "message": "紫色"
+        "message": "\u7d2b\u8272"
     },
     "quality": {
-        "message": "品質"
+        "message": "\u54c1\u8cea"
     },
     "ram": {
         "message": "RAM"
     },
     "rateUs": {
-        "message": "評分"
+        "message": "\u8a55\u5206"
     },
     "red": {
-        "message": "紅色"
+        "message": "\u7d05\u8272"
     },
     "redDislikeButton": {
-        "message": "將「不喜歡」數量以紅色顯示"
+        "message": "\u5c07\u300c\u4e0d\u559c\u6b61\u300d\u6578\u91cf\u4ee5\u7d05\u8272\u986f\u793a"
     },
     "relatedVideos": {
-        "message": "推薦影片"
+        "message": "\u63a8\u85a6\u5f71\u7247"
     },
     "removeRelatedSearchResults": {
-        "message": "移除搜尋相關結果"
+        "message": "\u79fb\u9664\u641c\u5c0b\u76f8\u95dc\u7d50\u679c"
     },
     "repeat": {
-        "message": "重複播放"
+        "message": "\u91cd\u8907\u64ad\u653e"
     },
     "reset": {
-        "message": "重置"
+        "message": "\u91cd\u7f6e"
     },
     "resetAllSettings": {
-        "message": "重置所有設定"
+        "message": "\u91cd\u7f6e\u6240\u6709\u8a2d\u5b9a"
     },
     "resetAllShortcuts": {
-        "message": "重置所有快捷鍵"
+        "message": "\u91cd\u7f6e\u6240\u6709\u5feb\u6377\u9375"
     },
     "reverse": {
-        "message": "回播"
+        "message": "\u56de\u64ad"
     },
     "rotate": {
-        "message": "旋轉影片"
+        "message": "\u65cb\u8f49\u5f71\u7247"
     },
     "save": {
-        "message": "儲存"
+        "message": "\u5132\u5b58"
     },
     "saveAs": {
-        "message": "另存為"
+        "message": "\u53e6\u5b58\u70ba"
     },
     "schedule": {
-        "message": "排程"
+        "message": "\u6392\u7a0b"
     },
     "screen": {
-        "message": "螢幕"
+        "message": "\u87a2\u5e55"
     },
     "screenshot": {
-        "message": "截圖"
+        "message": "\u622a\u5716"
     },
     "search": {
-        "message": "搜尋"
+        "message": "\u641c\u5c0b"
     },
     "searchBarOnly": {
-        "message": "僅顯示搜尋列"
+        "message": "\u50c5\u986f\u793a\u641c\u5c0b\u5217"
     },
     "seekBackward10Seconds": {
-        "message": "倒退10秒"
+        "message": "\u5012\u900010\u79d2"
     },
     "seekForward10Seconds": {
-        "message": "前進10秒"
+        "message": "\u524d\u903210\u79d2"
     },
     "settings": {
-        "message": "設定"
+        "message": "\u8a2d\u5b9a"
     },
     "settingsSuccessfullyImported": {
-        "message": "設定成功導入"
+        "message": "\u8a2d\u5b9a\u6210\u529f\u5c0e\u5165"
     },
     "shortcuts": {
-        "message": "快捷鍵"
+        "message": "\u5feb\u6377\u9375"
     },
     "showCardsOnMouseHover": {
-        "message": "滑鼠暫留時顯示資訊卡"
+        "message": "\u6ed1\u9f20\u66ab\u7559\u6642\u986f\u793a\u8cc7\u8a0a\u5361"
     },
     "showChannelVideosCount": {
-        "message": "顯示頻道影片數量"
+        "message": "\u986f\u793a\u983b\u9053\u5f71\u7247\u6578\u91cf"
     },
     "shuffle": {
-        "message": "隨機播放"
+        "message": "\u96a8\u6a5f\u64ad\u653e"
     },
     "sidebar": {
-        "message": "側邊欄"
+        "message": "\u5074\u908a\u6b04"
     },
     "spacebar": {
-        "message": "空格鍵"
+        "message": "\u7a7a\u683c\u9375"
     },
     "squaredUserImages": {
-        "message": "方形用戶圖像"
+        "message": "\u65b9\u5f62\u7528\u6236\u5716\u50cf"
     },
     "static": {
-        "message": "靜止"
+        "message": "\u975c\u6b62"
     },
     "statsForNerds": {
-        "message": "顯示「統計資料」按鈕"
+        "message": "\u986f\u793a\u300c\u7d71\u8a08\u8cc7\u6599\u300d\u6309\u9215"
     },
     "step": {
         "message": "Step"
     },
     "stop": {
-        "message": "停止"
+        "message": "\u505c\u6b62"
     },
     "style": {
-        "message": "樣式"
+        "message": "\u6a23\u5f0f"
     },
     "styles": {
-        "message": "樣式"
+        "message": "\u6a23\u5f0f"
     },
     "subscriptions": {
-        "message": "訂閱內容"
+        "message": "\u8a02\u95b1\u5167\u5bb9"
     },
     "subtitles": {
-        "message": "允許字幕"
+        "message": "\u5141\u8a31\u5b57\u5e55"
     },
     "sunset": {
-        "message": "日落"
+        "message": "\u65e5\u843d"
     },
     "sunsetToSunrise": {
-        "message": "日出至入落"
+        "message": "\u65e5\u51fa\u81f3\u5165\u843d"
     },
     "systemPeferenceDark": {
-        "message": "系統預設: 暗黑模式"
+        "message": "\u7cfb\u7d71\u9810\u8a2d: \u6697\u9ed1\u6a21\u5f0f"
     },
     "systemPeferenceLight": {
-        "message": "系統預設: 白天模式"
+        "message": "\u7cfb\u7d71\u9810\u8a2d: \u767d\u5929\u6a21\u5f0f"
     },
     "teal": {
-        "message": "藍綠色"
+        "message": "\u85cd\u7da0\u8272"
     },
     "textColor": {
-        "message": "文字顏色"
+        "message": "\u6587\u5b57\u984f\u8272"
     },
     "themes": {
-        "message": "主題"
+        "message": "\u4e3b\u984c"
     },
     "thisWillRemoveAllCookies": {
-        "message": "這將刪除所有的 cookies。"
+        "message": "\u9019\u5c07\u522a\u9664\u6240\u6709\u7684 cookies\u3002"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "這將刪除所有 YouTube Cookies。"
+        "message": "\u9019\u5c07\u522a\u9664\u6240\u6709 YouTube Cookies\u3002"
     },
     "thisWillResetAllSettings": {
-        "message": "這將重置所有設定。"
+        "message": "\u9019\u5c07\u91cd\u7f6e\u6240\u6709\u8a2d\u5b9a\u3002"
     },
     "thisWillResetAllShortcuts": {
-        "message": "這將重置所有快捷鍵。"
+        "message": "\u9019\u5c07\u91cd\u7f6e\u6240\u6709\u5feb\u6377\u9375\u3002"
     },
     "thumbnails": {
-        "message": "縮略圖"
+        "message": "\u7e2e\u7565\u5716"
     },
     "timeFrom": {
-        "message": "開始時間"
+        "message": "\u958b\u59cb\u6642\u9593"
     },
     "timeTo": {
-        "message": "結束時間"
+        "message": "\u7d50\u675f\u6642\u9593"
     },
     "todayAt": {
-        "message": "自今日"
+        "message": "\u81ea\u4eca\u65e5"
     },
     "toggleCards": {
-        "message": "啟用結束畫面"
+        "message": "\u555f\u7528\u7d50\u675f\u756b\u9762"
     },
     "toggleControls": {
-        "message": "開關播放器控制"
+        "message": "\u958b\u95dc\u64ad\u653e\u5668\u63a7\u5236"
     },
     "topChat": {
         "message": "Top chat"
     },
     "trailerAutoplay": {
-        "message": "預告片自動播放"
+        "message": "\u9810\u544a\u7247\u81ea\u52d5\u64ad\u653e"
     },
     "translations": {
-        "message": "翻譯"
+        "message": "\u7ffb\u8b6f"
     },
     "transparentBackground": {
-        "message": "透明背景"
+        "message": "\u900f\u660e\u80cc\u666f"
     },
     "trending": {
-        "message": "發燒影片"
+        "message": "\u767c\u71d2\u5f71\u7247"
     },
     "tryToReloadThePage": {
-        "message": "嘗試重新整理頁面"
+        "message": "\u5617\u8a66\u91cd\u65b0\u6574\u7406\u9801\u9762"
     },
     "type": {
-        "message": "種類"
+        "message": "\u7a2e\u985e"
     },
     "upNextAutoplay": {
-        "message": "自動播放下一個影片"
+        "message": "\u81ea\u52d5\u64ad\u653e\u4e0b\u4e00\u500b\u5f71\u7247"
     },
     "use24HourFormat": {
-        "message": "使用24小時格式"
+        "message": "\u4f7f\u752824\u5c0f\u6642\u683c\u5f0f"
     },
     "version": {
-        "message": "版本"
+        "message": "\u7248\u672c"
     },
     "video": {
-        "message": "影片"
+        "message": "\u5f71\u7247"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "影片敘述將自動展開以顯示影片分類名稱"
+        "message": "\u5f71\u7247\u6558\u8ff0\u5c07\u81ea\u52d5\u5c55\u958b\u4ee5\u986f\u793a\u5f71\u7247\u5206\u985e\u540d\u7a31"
     },
     "videoFormats": {
-        "message": "影片格式"
+        "message": "\u5f71\u7247\u683c\u5f0f"
     },
     "videos": {
-        "message": "影片"
+        "message": "\u5f71\u7247"
     },
     "volume": {
-        "message": "音量"
+        "message": "\u97f3\u91cf"
     },
     "watchLater": {
-        "message": "稍後觀看"
+        "message": "\u7a0d\u5f8c\u89c0\u770b"
     },
     "watchTime": {
-        "message": "已觀看時間"
+        "message": "\u5df2\u89c0\u770b\u6642\u9593"
     },
     "whenTabIsChanged": {
-        "message": "當分頁改變時"
+        "message": "\u7576\u5206\u9801\u6539\u8b8a\u6642"
     },
     "white": {
-        "message": "白色"
+        "message": "\u767d\u8272"
     },
     "yellow": {
-        "message": "黃色"
+        "message": "\u9ec3\u8272"
     },
     "youtubeHeaderLeft": {
-        "message": "YouTube 標頭 (左)"
+        "message": "YouTube \u6a19\u982d (\u5de6)"
     },
     "youtubeHeaderRight": {
-        "message": "YouTube 標頭 (右)"
+        "message": "YouTube \u6a19\u982d (\u53f3)"
     },
     "youtubeHomePage": {
-        "message": "預設的 YouTube 主頁"
+        "message": "\u9810\u8a2d\u7684 YouTube \u4e3b\u9801"
     },
     "youtubeLanguage": {
-        "message": "YouTube 語言"
+        "message": "YouTube \u8a9e\u8a00"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "使用 H.264 編碼時，YouTube 會將畫質限制為 1080p 內。"
+        "message": "\u4f7f\u7528 H.264 \u7de8\u78bc\u6642\uff0cYouTube \u6703\u5c07\u756b\u8cea\u9650\u5236\u70ba 1080p \u5167\u3002"
     }
 }

@@ -275,17 +275,15 @@ body {
     display: flex;
     box-sizing: border-box;
     width: 100%;
-    min-height: 58px;
+    height: 58px;
     padding: 0 8px;
     color: var(--satus-theme-header-text);
     background-color: var(--satus-theme-header);
     box-shadow: 0 0 3px rgba(0, 0, 0, .1);
-    fill: var(--satus-theme-header-text);
 }
 
 .satus-header .satus-text--title {
     font-size: 15px;
-    font-weight: 400;
 }
 
 
@@ -318,18 +316,14 @@ body {
 .satus-main {
     position: relative;
     overflow: hidden;
-    width: 100%;
-    height: 100%;
     color: var(--satus-theme-main-text);
     background-color: var(--satus-theme-main);
-    fill: var(--satus-theme-main-text);
 }
 
 .satus-main__container {
     position: absolute;
     top: 0;
     left: 0;
-    overflow: auto;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
@@ -453,9 +447,9 @@ body {
 .satus-section {
     display: inline-flex;
     box-sizing: border-box;
-    background-color: var(--satus-theme-section);
     align-items: center;
     flex: 1;
+    flex-wrap: wrap;
 }
 
 

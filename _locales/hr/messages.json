@@ -1,4 +1,19 @@
 {
+    "ARROWDOWN": {
+        "message": "\u21e9"
+    },
+    "ARROWLEFT": {
+        "message": "\u21e6"
+    },
+    "ARROWRIGHT": {
+        "message": "\u21e8"
+    },
+    "ARROWUP": {
+        "message": "\u21e7"
+    },
+    "__MSG_description__": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+    },
     "about": {
         "message": "O"
     },
@@ -11,20 +26,20 @@
     "activateCaptions": {
         "message": "Aktiviraj naslove"
     },
+    "activateFullscreen": {
+        "message": "Aktiviraj puni zaslon"
+    },
     "activated": {
         "message": "Aktivirano"
     },
     "activatedFeatures": {
-        "message": "Aktivirane značajke"
-    },
-    "activateFullscreen": {
-        "message": "Aktiviraj puni zaslon"
+        "message": "Aktivirane zna\u010dajke"
     },
     "activeFeatures": {
-        "message": "Aktivne značajke"
+        "message": "Aktivne zna\u010dajke"
     },
     "addScrollToTop": {
-        "message": "Dodaj «Pomaknite se na vrh»"
+        "message": "Dodaj \u00abPomaknite se na vrh\u00bb"
     },
     "ads": {
         "message": "Oglasi"
@@ -38,14 +53,11 @@
     "allow60fps": {
         "message": "Dopusti 60fps"
     },
-    "forceSDR": {
-        "message": "Prisilno SDR"
-    },
     "alwaysActive": {
         "message": "Uvijek aktivan"
     },
     "alwaysShowProgressBar": {
-        "message": "Uvijek prikaži traku napretka"
+        "message": "Uvijek prika\u017ei traku napretka"
     },
     "amber": {
         "message": "Jantar"
@@ -55,18 +67,6 @@
     },
     "appearance": {
         "message": "Izgled"
-    },
-    "ARROWDOWN": {
-        "message": "⇩"
-    },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
     },
     "audio": {
         "message": "Audio"
@@ -114,7 +114,7 @@
         "message": "Svijetlo plava"
     },
     "brown": {
-        "message": "Smeđa"
+        "message": "Sme\u0111a"
     },
     "browser": {
         "message": "Preglednik"
@@ -123,16 +123,16 @@
         "message": "Verzija preglednika"
     },
     "bubbles": {
-        "message": "Mjehurići"
+        "message": "Mjehuri\u0107i"
     },
     "bug": {
-        "message": "Greška"
+        "message": "Gre\u0161ka"
     },
     "buttons": {
         "message": "Gumbi"
     },
     "cancel": {
-        "message": "Otkaži"
+        "message": "Otka\u017ei"
     },
     "categories": {
         "message": "Kategorije"
@@ -144,16 +144,16 @@
         "message": "Kanali"
     },
     "clipboard": {
-        "message": "Međuspremnik"
+        "message": "Me\u0111uspremnik"
     },
     "codecH264": {
         "message": "Kodek h.264"
     },
+    "collapseOfSubscriptionSections": {
+        "message": "Skupljanje pretplatni\u010dkih odjeljaka"
+    },
     "collapsed": {
         "message": "Skupljeno"
-    },
-    "collapseOfSubscriptionSections": {
-        "message": "Skupljanje pretplatničkih odjeljaka"
     },
     "comments": {
         "message": "Komentari"
@@ -162,25 +162,22 @@
         "message": "Potvrda prije zatvaranja"
     },
     "cookies": {
-        "message": "Kolačići"
+        "message": "Kola\u010di\u0107i"
     },
     "cores": {
         "message": "Jezgre"
     },
     "cropChapterTitles": {
-        "message": "Izreži naslove poglavlja"
+        "message": "Izre\u017ei naslove poglavlja"
     },
     "customCss": {
-        "message": "Prilagođeni CSS"
+        "message": "Prilago\u0111eni CSS"
     },
     "customJs": {
-        "message": "Prilagođeni JS"
+        "message": "Prilago\u0111eni JS"
     },
     "customMiniPlayer": {
-        "message": "Prilagođeni Mini-Player"
-    },
-    "openPopupPlayer": {
-        "message": "Otvorite videozapis / popis za reprodukciju u novom prozoru"
+        "message": "Prilago\u0111eni Mini-Player"
     },
     "cyan": {
         "message": "Cijan"
@@ -201,19 +198,19 @@
         "message": "Smanji brzinu reprodukcije"
     },
     "decreaseVolume": {
-        "message": "Smanji glasnoću"
+        "message": "Smanji glasno\u0107u"
     },
     "deepOrange": {
-        "message": "Duboko narančasta"
+        "message": "Duboko naran\u010dasta"
     },
     "deepPurple": {
-        "message": "Duboko ljubičasta"
+        "message": "Duboko ljubi\u010dasta"
     },
     "defaultChannelTab": {
         "message": "Zadana kartica kanala"
     },
     "deleteYoutubeCookies": {
-        "message": "Izbrišite YouTube kolačiće"
+        "message": "Izbri\u0161ite YouTube kola\u010di\u0107e"
     },
     "description": {
         "message": "Opis"
@@ -228,22 +225,22 @@
         "message": "Opcije za programere"
     },
     "device": {
-        "message": "Uređaj"
+        "message": "Ure\u0111aj"
     },
     "dim": {
-        "message": "Priguši"
+        "message": "Prigu\u0161i"
     },
     "disabled": {
-        "message": "Onemogućeno"
+        "message": "Onemogu\u0107eno"
     },
     "dislike": {
-        "message": "Ne sviđa mi se"
-    },
-    "donate": {
-        "message": "Doniraj"
+        "message": "Ne svi\u0111a mi se"
     },
     "doNotChange": {
         "message": "Nemoj mijenjati"
+    },
+    "donate": {
+        "message": "Doniraj"
     },
     "draggable": {
         "message": "Povuci"
@@ -255,19 +252,19 @@
         "message": "Prazno"
     },
     "enabled": {
-        "message": "Omogućeno"
+        "message": "Omogu\u0107eno"
     },
     "enabledForced": {
-        "message": "Omogućeno (prisilno)"
+        "message": "Omogu\u0107eno (prisilno)"
     },
     "expanded": {
-        "message": "Prošireno"
+        "message": "Pro\u0161ireno"
     },
     "exportSettings": {
         "message": "Izvoz postavki"
     },
     "extension": {
-        "message": "Proširenje"
+        "message": "Pro\u0161irenje"
     },
     "file": {
         "message": "Datoteka"
@@ -285,25 +282,28 @@
         "message": "Font"
     },
     "footer": {
-        "message": "Podnožje"
+        "message": "Podno\u017eje"
+    },
+    "forceSDR": {
+        "message": "Prisilno SDR"
     },
     "forcedPlaybackSpeed": {
         "message": "Prisiljena brzina reprodukcije"
     },
     "forcedTheaterMode": {
-        "message": "Prisiljen kazališni način"
+        "message": "Prisiljen kazali\u0161ni na\u010din"
     },
     "forcedVolume": {
-        "message": "Prisiljena glasnoća"
+        "message": "Prisiljena glasno\u0107a"
     },
     "foundABug": {
-        "message": "Pronašli ste grešku?"
+        "message": "Prona\u0161li ste gre\u0161ku?"
     },
     "fullWindow": {
         "message": "Puni prozor"
     },
     "general": {
-        "message": "Općenito"
+        "message": "Op\u0107enito"
     },
     "geoPreference": {
         "message": "Geografske preferencije"
@@ -312,7 +312,7 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Idite na okvir za pretraživanje"
+        "message": "Idite na okvir za pretra\u017eivanje"
     },
     "gpu": {
         "message": "GPU"
@@ -321,10 +321,10 @@
         "message": "Zelena"
     },
     "hdThumbnail": {
-        "message": "HD sličica"
+        "message": "HD sli\u010dica"
     },
     "hdThumbnails": {
-        "message": "HD sličice"
+        "message": "HD sli\u010dice"
     },
     "header": {
         "message": "Zaglavlje"
@@ -336,7 +336,7 @@
         "message": "Skriveno na stranici videozapisa"
     },
     "hideAnimatedThumbnails": {
-        "message": "Sakrij animirane sličice"
+        "message": "Sakrij animirane sli\u010dice"
     },
     "hideAnnotations": {
         "message": "Sakrij napomene"
@@ -351,13 +351,13 @@
         "message": "Sakrij detalje"
     },
     "hideEndscreen": {
-        "message": "Sakrij završni zaslon"
+        "message": "Sakrij zavr\u0161ni zaslon"
     },
     "hideFeaturedContent": {
-        "message": "Sakrij istaknuti sadržaj"
+        "message": "Sakrij istaknuti sadr\u017eaj"
     },
     "hideFooter": {
-        "message": "Sakrij podnožje"
+        "message": "Sakrij podno\u017eje"
     },
     "hideGradientBottom": {
         "message": "Sakrij sjenu oko trake playera"
@@ -369,10 +369,10 @@
         "message": "Sakrij desne gumbe"
     },
     "hideScrollForDetails": {
-        "message": "Sakrij «Pomakni za detalje»"
+        "message": "Sakrij \u00abPomakni za detalje\u00bb"
     },
     "hideThumbnailOverlay": {
-        "message": "Sakrij gumbe na sličicama"
+        "message": "Sakrij gumbe na sli\u010dicama"
     },
     "hideViewsCount": {
         "message": "Sakrij broj pregleda"
@@ -381,13 +381,13 @@
         "message": "Povijest"
     },
     "home": {
-        "message": "Početna"
+        "message": "Po\u010detna"
     },
     "hover": {
-        "message": "Pređite mišem preko"
+        "message": "Pre\u0111ite mi\u0161em preko"
     },
     "hoverOnVideoPage": {
-        "message": "Zadržite pokazivač miša na stranici videozapisa"
+        "message": "Zadr\u017eite pokaziva\u010d mi\u0161a na stranici videozapisa"
     },
     "howLongAgoTheVideoWasUploaded": {
         "message": "Prije koliko je vremena video prenesen"
@@ -401,6 +401,9 @@
     "importSettings": {
         "message": "Uvezi postavke"
     },
+    "improveLogo": {
+        "message": "Pobolj\u0161ajte logotip"
+    },
     "improvedtubeIconInBrowser": {
         "message": "Ikona ImprovedTube u pregledniku"
     },
@@ -413,14 +416,11 @@
     "improvedtubeVersion": {
         "message": "ImprovedTube verzija"
     },
-    "improveLogo": {
-        "message": "Poboljšajte logotip"
-    },
     "increasePlaybackSpeed": {
-        "message": "Povećajte brzinu reprodukcije"
+        "message": "Pove\u0107ajte brzinu reprodukcije"
     },
     "increaseVolume": {
-        "message": "Povećajte glasnoću"
+        "message": "Pove\u0107ajte glasno\u0107u"
     },
     "indigo": {
         "message": "Indigo"
@@ -432,7 +432,7 @@
         "message": "Jezici"
     },
     "legacyYoutube": {
-        "message": "Naslijeđeni YouTube"
+        "message": "Naslije\u0111eni YouTube"
     },
     "light": {
         "message": "Svjetlo"
@@ -444,10 +444,10 @@
         "message": "Svjetlo zelena"
     },
     "like": {
-        "message": "Sviđa mi se"
+        "message": "Svi\u0111a mi se"
     },
     "likes": {
-        "message": "Sviđaju mi se"
+        "message": "Svi\u0111aju mi se"
     },
     "lime": {
         "message": "Limeta"
@@ -456,16 +456,16 @@
         "message": "Lista"
     },
     "liveChat": {
-        "message": "Chat uživo"
+        "message": "Chat u\u017eivo"
     },
     "liveChatType": {
-        "message": "Vrsta chata uživo"
+        "message": "Vrsta chata u\u017eivo"
     },
     "loudnessNormalization": {
-        "message": "Normalizacija glasnoće"
+        "message": "Normalizacija glasno\u0107e"
     },
     "markWatchedVideos": {
-        "message": "Označi pogledane videozapise"
+        "message": "Ozna\u010di pogledane videozapise"
     },
     "mixer": {
         "message": "Mikser"
@@ -483,19 +483,19 @@
         "message": "Novo"
     },
     "nextVideo": {
-        "message": "Sljedeći video"
+        "message": "Sljede\u0107i video"
     },
     "night": {
-        "message": "Noć"
+        "message": "No\u0107"
     },
     "noActiveFeatures": {
-        "message": "Nema aktivnih značajki"
-    },
-    "none": {
-        "message": "Nijedna"
+        "message": "Nema aktivnih zna\u010dajki"
     },
     "noOpenVideoTabs": {
         "message": "Nema otvorenih video kartica"
+    },
+    "none": {
+        "message": "Nijedna"
     },
     "normal": {
         "message": "Normalno"
@@ -506,17 +506,20 @@
     "onAllVideos": {
         "message": "Na svim video zapisima"
     },
+    "onSubscribedChannels": {
+        "message": "Na pretpla\u0107enim kanalima"
+    },
     "onlyActiveOnYoutube": {
         "message": "Aktivno samo na YouTubeu"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Svira samo jedna instanca playera"
     },
-    "onSubscribedChannels": {
-        "message": "Na pretplaćenim kanalima"
+    "openPopupPlayer": {
+        "message": "Otvorite videozapis / popis za reprodukciju u novom prozoru"
     },
     "orange": {
-        "message": "Narančasto"
+        "message": "Naran\u010dasto"
     },
     "os": {
         "message": "OS"
@@ -525,19 +528,22 @@
         "message": "Ostalo"
     },
     "permissions": {
-        "message": "Dopuštenja"
+        "message": "Dopu\u0161tenja"
     },
     "pictureInPicture": {
         "message": "Slika u slici"
     },
     "pink": {
-        "message": "Ružičasto"
+        "message": "Ru\u017ei\u010dasto"
     },
     "plain": {
         "message": "Jednostavno"
     },
     "platform": {
         "message": "Platforma"
+    },
+    "playPause": {
+        "message": "Reprodukcija / pauza"
     },
     "playbackSpeed": {
         "message": "Brzina reprodukcije"
@@ -549,7 +555,7 @@
         "message": "Boja playera"
     },
     "playerSize": {
-        "message": "Veličina playera"
+        "message": "Veli\u010dina playera"
     },
     "playlist": {
         "message": "Popis za reprodukciju"
@@ -557,20 +563,17 @@
     "playlists": {
         "message": "Popisi za reprodukciju"
     },
-    "playPause": {
-        "message": "Reprodukcija / pauza"
-    },
     "popupPlayer": {
-        "message": "Player u skočnom prozoru"
+        "message": "Player u sko\u010dnom prozoru"
     },
     "position": {
-        "message": "Položaj"
+        "message": "Polo\u017eaj"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Pritisnite bilo koju tipku ili upotrijebite kotačić miša."
+        "message": "Pritisnite bilo koju tipku ili upotrijebite kota\u010di\u0107 mi\u0161a."
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Pritisnite bilo koju tipku ili upotrijebite kotačić miša"
+        "message": "Pritisnite bilo koju tipku ili upotrijebite kota\u010di\u0107 mi\u0161a"
     },
     "previousVideo": {
         "message": "Prethodni videozapis"
@@ -579,7 +582,7 @@
         "message": "Primarna boja"
     },
     "purple": {
-        "message": "Ljubičasta"
+        "message": "Ljubi\u010dasta"
     },
     "quality": {
         "message": "Kvaliteta"
@@ -594,13 +597,13 @@
         "message": "Crvena"
     },
     "redDislikeButton": {
-        "message": "Prikaži ne sviđa mi se botun u crvenoj boji"
+        "message": "Prika\u017ei ne svi\u0111a mi se botun u crvenoj boji"
     },
     "relatedVideos": {
-        "message": "Slični videozapisi"
+        "message": "Sli\u010dni videozapisi"
     },
     "removeRelatedSearchResults": {
-        "message": "Uklonite slične rezultate pretraživanja"
+        "message": "Uklonite sli\u010dne rezultate pretra\u017eivanja"
     },
     "repeat": {
         "message": "Ponovi"
@@ -612,7 +615,7 @@
         "message": "Resetirajte sve postavke"
     },
     "resetAllShortcuts": {
-        "message": "Resetirajte sve prečace"
+        "message": "Resetirajte sve pre\u010dace"
     },
     "reverse": {
         "message": "Preokreni"
@@ -621,10 +624,10 @@
         "message": "Rotiraj"
     },
     "save": {
-        "message": "Sačuvaj"
+        "message": "Sa\u010duvaj"
     },
     "saveAs": {
-        "message": "Sačuvaj kao"
+        "message": "Sa\u010duvaj kao"
     },
     "schedule": {
         "message": "Stavi na raspored"
@@ -636,49 +639,49 @@
         "message": "Snimka zaslona"
     },
     "search": {
-        "message": "Pretraži"
+        "message": "Pretra\u017ei"
     },
     "searchBarOnly": {
-        "message": "Samo traka za pretraživanje"
+        "message": "Samo traka za pretra\u017eivanje"
     },
     "seekBackward10Seconds": {
-        "message": "Traži unatrag 10 sekundi"
+        "message": "Tra\u017ei unatrag 10 sekundi"
     },
     "seekForward10Seconds": {
-        "message": "Traži 10 sekundi prema naprijed"
+        "message": "Tra\u017ei 10 sekundi prema naprijed"
     },
     "settings": {
         "message": "Postavke"
     },
     "settingsSuccessfullyImported": {
-        "message": "Postavke su uspješno uvezene"
+        "message": "Postavke su uspje\u0161no uvezene"
     },
     "shortcuts": {
-        "message": "Prečaci"
+        "message": "Pre\u010daci"
     },
     "showCardsOnMouseHover": {
-        "message": "Pokaži kartice prilikom prelaska miša"
+        "message": "Poka\u017ei kartice prilikom prelaska mi\u0161a"
     },
     "showChannelVideosCount": {
-        "message": "Prikaži broj videozapisa na kanalu"
+        "message": "Prika\u017ei broj videozapisa na kanalu"
     },
     "shuffle": {
-        "message": "Nasumično"
+        "message": "Nasumi\u010dno"
     },
     "sidebar": {
-        "message": "Bočna traka"
+        "message": "Bo\u010dna traka"
     },
     "spacebar": {
         "message": "Tipka razmaka"
     },
     "squaredUserImages": {
-        "message": "Korisničke slike u kvadratu"
+        "message": "Korisni\u010dke slike u kvadratu"
     },
     "static": {
-        "message": "Statički"
+        "message": "Stati\u010dki"
     },
     "statsForNerds": {
-        "message": "Prikaži statistiku za štrebere"
+        "message": "Prika\u017ei statistiku za \u0161trebere"
     },
     "step": {
         "message": "Korak"
@@ -720,19 +723,19 @@
         "message": "Teme"
     },
     "thisWillRemoveAllCookies": {
-        "message": "Ovo će ukloniti sve kolačiće."
+        "message": "Ovo \u0107e ukloniti sve kola\u010di\u0107e."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "Ovo će ukloniti sve YouTube kolačiće"
+        "message": "Ovo \u0107e ukloniti sve YouTube kola\u010di\u0107e"
     },
     "thisWillResetAllSettings": {
-        "message": "Ovo će resetirati sve postavke."
+        "message": "Ovo \u0107e resetirati sve postavke."
     },
     "thisWillResetAllShortcuts": {
-        "message": "Ovo će resetirati sve prečace"
+        "message": "Ovo \u0107e resetirati sve pre\u010dace"
     },
     "thumbnails": {
-        "message": "Sličice"
+        "message": "Sli\u010dice"
     },
     "timeFrom": {
         "message": "Vrijeme od"
@@ -744,13 +747,13 @@
         "message": "Danas u"
     },
     "toggleAutoplay": {
-        "message": "Uključi / isključi automatsku reprodukciju"
+        "message": "Uklju\u010di / isklju\u010di automatsku reprodukciju"
     },
     "toggleCards": {
-        "message": "Uključi / isključi kartice"
+        "message": "Uklju\u010di / isklju\u010di kartice"
     },
     "toggleControls": {
-        "message": "Uključi / isključi kontrole playera"
+        "message": "Uklju\u010di / isklju\u010di kontrole playera"
     },
     "topChat": {
         "message": "Top chat"
@@ -768,13 +771,13 @@
         "message": "U trendu"
     },
     "tryToReloadThePage": {
-        "message": "Pokušajte ponovo učitati stranicu"
+        "message": "Poku\u0161ajte ponovo u\u010ditati stranicu"
     },
     "type": {
         "message": "Tip"
     },
     "upNextAutoplay": {
-        "message": "Sljedeća automatska reprodukcija"
+        "message": "Sljede\u0107a automatska reprodukcija"
     },
     "use24HourFormat": {
         "message": "Koristite 24-satni format"
@@ -786,7 +789,7 @@
         "message": "Video"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "Opis videozapisa biti će proširen kako bi se dobio naziv kategorije"
+        "message": "Opis videozapisa biti \u0107e pro\u0161iren kako bi se dobio naziv kategorije"
     },
     "videoFormats": {
         "message": "Video formati"
@@ -795,7 +798,7 @@
         "message": "Videozapisi"
     },
     "volume": {
-        "message": "Glasnoća"
+        "message": "Glasno\u0107a"
     },
     "watchLater": {
         "message": "Gledaj kasnije"
@@ -810,7 +813,7 @@
         "message": "Bijela"
     },
     "yellow": {
-        "message": "Žuta"
+        "message": "\u017duta"
     },
     "youtubeHeaderLeft": {
         "message": "YouTube zaglavlje (lijevo)"
@@ -819,12 +822,12 @@
         "message": "YouTube zaglavlje (desno)"
     },
     "youtubeHomePage": {
-        "message": "YouTube početna stranica"
+        "message": "YouTube po\u010detna stranica"
     },
     "youtubeLanguage": {
         "message": "YouTube jezik"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube ograničava kvalitetu videozapisa na 1080p za h.264 kodek"
+        "message": "YouTube ograni\u010dava kvalitetu videozapisa na 1080p za h.264 kodek"
     }
 }

@@ -336,7 +336,7 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
 
 
-/*--------------------------------------------------------------
+/**--------------------------------------------------------------
 # GOOGLE ANALYTICS
 --------------------------------------------------------------*/
 
@@ -354,6 +354,8 @@ var _gaq = _gaq || [];
 
     document.body.appendChild(ga);
 })();
+
+//**
 
 
 /*--------------------------------------------------------------
