@@ -1098,8 +1098,10 @@ ImprovedTube.playerPlaybackSpeed = function(node) {
 
     if (ImprovedTube.isset(ImprovedTube.storage.player_playback_speed) && ImprovedTube.storage.player_forced_playback_speed === true) {
         try {
-            if (window.location.href.indexOf('music') === -1) {
-                document.querySelector('.html5-video-player').querySelector('video').playbackRate = option;
+            if (window.location.href.indexOf('music') === -1 && !document.querySelector('ytd-live-chat-frame')) {
+                document.querySelector('.html5-video-player video').playbackRate = option;
+            } else {
+                document.querySelector('.html5-video-player video').playbackRate = 1;
             }
         } catch (err) {}
     }
