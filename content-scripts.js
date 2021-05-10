@@ -146,6 +146,8 @@ chrome.storage.local.get(function(items) {
     // Initialization
     textContent += '};ImprovedTube.init();';
 
+    document.documentElement.dataset.systemColorScheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
     injectScript(textContent);
 });
 
