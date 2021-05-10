@@ -1057,7 +1057,7 @@ html[it-it-analyzer='false'] .satus-folder--analyzer {
     opacity: .8;
 }
 
-.satus-main__container[data-appearance='about'] .satus-text {
+.satus-main__container[data-appearance='about'] .satus-text:not(.satus-section--label) {
     display: flex;
     box-sizing: border-box;
     width: 100%;
