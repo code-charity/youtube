@@ -220,22 +220,42 @@ skeleton.header.section_end.button_vert.onClickRender.active_features = {
                 new_menu = {},
                 storage = satus.storage;
 
-            function search(string, object) {
-                let result = [];
+            function search(string, object, parent) {
+                var result = [],
+                    label = parent || '';
 
-                for (let i in object) {
+                for (var i in object) {
+                    if (object.type === 'folder') {
+                        label = object.label;
+                    }
+
                     if (object[i].type) {
-                        if (/(button|select|shortcut|slider|switch)/.test(object[i].type)) {
-                            if (i.indexOf(string) !== -1 || (object[i].tags && object[i].tags.indexOf(string) !== -1)) {
+                        if (object[i].type.match(/(button|select|shortcut|slider|switch)/)) {
+                            if (string === i || (object[i].tags && object[i].tags.indexOf(string) !== -1)) {
                                 if (object[i].type.indexOf('button') === -1 || !object[i].label) {
-                                    new_menu[i] = object[i];
+                                    if (!satus.isset(object[i].value) && satus.storage[string] !== false || satus.isset(object[i].value) && satus.storage[string] != object[i].value) {
+                                        if (!new_menu[label]) {
+                                            new_menu[label + '__label'] = {
+                                                type: 'text',
+                                                class: 'satus-section--label',
+                                                label: label
+                                            };
+
+                                            new_menu[label] = {
+                                                type: 'section'
+                                            };
+                                        }
+
+                                        new_menu[label][i] = object[i];
+                                    }
                                 }
                             }
+
                         } else {
-                            let response = search(string, object[i]);
+                            var response = search(string, object[i], label);
 
                             if (response.length > 0) {
-                                for (let j = 0, l = response.length; j < l; j++) {
+                                for (var j = 0, l = response.length; j < l; j++) {
                                     result.push(response[i]);
                                 }
                             }
@@ -252,7 +272,9 @@ skeleton.header.section_end.button_vert.onClickRender.active_features = {
 
             setTimeout(function () {
                 if (Object.keys(new_menu).length > 0) {
-                    satus.render(new_menu, component);
+                    satus.render(new_menu, component. parentNode);
+
+                    component.remove();
                 } else {
                     satus.render({
                         text: {
