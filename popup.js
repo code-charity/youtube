@@ -994,7 +994,12 @@ skeleton.header.section_end.button_vert.onClickRender.settings = {
                     var component = this,
                         manifest = chrome.runtime.getManifest(),
                         user = satus.modules.user(),
-                        object = {
+                        skeleton_about = {
+                            extension_section_label: {
+                                type: 'text',
+                                class: 'satus-section--label',
+                                label: 'extension'
+                            },
                             extension_section: {
                                 type: 'section',
                                 label: 'extension',
@@ -1013,6 +1018,11 @@ skeleton.header.section_end.button_vert.onClickRender.settings = {
                                     label: 'permissions',
                                     value: manifest.permissions.join(', ').replace('https://www.youtube.com/', 'YouTube')
                                 },
+                            },
+                            browser_section_label: {
+                                type: 'text',
+                                class: 'satus-section--label',
+                                label: 'browser'
                             },
                             browser_section: {
                                 type: 'section',
@@ -1040,18 +1050,23 @@ skeleton.header.section_end.button_vert.onClickRender.settings = {
                                 video_formats: {
                                     type: 'text',
                                     label: 'videoFormats',
-                                    value: user.browser.video
+                                    value: ''
                                 },
                                 audio_formats: {
                                     type: 'text',
                                     label: 'audioFormats',
-                                    value: user.browser.audio
+                                    value: ''
                                 },
                                 flash: {
                                     type: 'text',
                                     label: 'flash',
                                     value: !!user.browser.flash
                                 }
+                            },
+                            os_section_label: {
+                                type: 'text',
+                                class: 'satus-section--label',
+                                label: 'os'
                             },
                             os_section: {
                                 type: 'section',
@@ -1072,6 +1087,11 @@ skeleton.header.section_end.button_vert.onClickRender.settings = {
                                     label: 'type',
                                     value: user.os.type
                                 }
+                            },
+                            device_section_label: {
+                                type: 'text',
+                                class: 'satus-section--label',
+                                label: 'device'
                             },
                             device_section: {
                                 type: 'section',
@@ -1102,10 +1122,27 @@ skeleton.header.section_end.button_vert.onClickRender.settings = {
                                     value: user.device.ram
                                 }
                             }
-                        };
+                        },
+                        video_formats = [],
+                        audio_formats = [];
+
+                    for (var key in user.browser.video) {
+                        if (user.browser.video[key] !== false) {
+                            video_formats.push(key);
+                        }
+                    }
+
+                    for (var key in user.browser.audio) {
+                        if (user.browser.audio[key] !== false) {
+                            audio_formats.push(key);
+                        }
+                    }
+
+                    skeleton_about.browser_section.video_formats.value = video_formats.join(', ');
+                    skeleton_about.browser_section.audio_formats.value = audio_formats.join(', ');
 
                     setTimeout(function () {
-                        satus.render(object, component.parentNode);
+                        satus.render(skeleton_about, component.parentNode);
 
                         component.remove();
                     });
