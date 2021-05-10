@@ -5456,6 +5456,10 @@ html[it-mini-player-cursor='nw-resize']::after {
 4.4 SCREENSHOT
 ------------------------------------------------------------------------------*/
 
+.it-player-button {
+    min-width: 40px;
+}
+
 #it-screenshot-button {
     position: relative !important;
 }
