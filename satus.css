@@ -270,16 +270,14 @@ body {
 --------------------------------------------------------------*/
 
 .satus-header {
-    position: relative;
-    z-index: 1;
     display: flex;
-    box-sizing: border-box;
-    width: 100%;
     height: 58px;
     padding: 0 8px;
     color: var(--satus-theme-header-text);
     background-color: var(--satus-theme-header);
     box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+    z-index: 1;
+    position: relative;
 }
 
 .satus-header .satus-text--title {
@@ -324,7 +322,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    box-sizing: border-box;
     width: 100%;
     height: 100%;
     transition: 250ms;
@@ -431,6 +428,7 @@ body {
 
 .satus-scrollbar__thumb:hover::after {
     background-color: var(--satus-theme-scrollbar-focus);
+    width: 6px
 }
 
 .satus-scrollbar.active .satus-scrollbar__thumb,
@@ -445,8 +443,7 @@ body {
 --------------------------------------------------------------*/
 
 .satus-section {
-    display: inline-flex;
-    box-sizing: border-box;
+    display: flex;
     align-items: center;
     flex: 1;
     flex-wrap: wrap;
@@ -1066,6 +1063,10 @@ body {
     margin: 0;
     color: inherit;
     border: none;
+}
+
+.satus-text__label {
+    margin-right: 16px
 }
 
 
