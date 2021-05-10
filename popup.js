@@ -837,11 +837,11 @@ skeleton.header.section_end.button_vert.onClickRender.settings = {
                     label: 'importSettings',
 
                     onclick: function () {
-                        if (location.href.indexOf('/options.html') !== -1) {
+                        if (location.href.indexOf('/index.html?action=import') !== -1) {
                             importData();
                         } else {
                             chrome.tabs.create({
-                                url: 'options.html?action=import'
+                                url: 'index.html?action=import'
                             });
                         }
                     }
@@ -851,11 +851,11 @@ skeleton.header.section_end.button_vert.onClickRender.settings = {
                     label: 'exportSettings',
 
                     onclick: function () {
-                        if (location.href.indexOf('/options.html') !== -1) {
+                        if (location.href.indexOf('/index.html?action=export') !== -1) {
                             exportData();
                         } else {
                             chrome.tabs.create({
-                                url: 'options.html?action=export'
+                                url: 'index.html?action=export'
                             });
                         }
                     }
