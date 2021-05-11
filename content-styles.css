@@ -323,7 +323,7 @@ html[it-header-position=hover_on_video_page][it-page-type='video']:not([it-impro
 html[it-header-position=hover]:not([it-improvedtube-search=true]) #masthead-container,
 html[it-header-position=hover_on_video_page][it-page-type='video']:not([it-improvedtube-search=true]) #masthead-container {
     transition: transform 250ms;
-    transform: translateY(-75%);
+    transform: translateY(-100%);
 }
 
 html[it-header-position=hover] #masthead-container:hover,
