@@ -39,7 +39,7 @@
         "message": "Aktive Funktionen"
     },
     "addScrollToTop": {
-        "message": "«Nach Oben»-Button"
+        "message": "„Nach Oben“-Button"
     },
     "ads": {
         "message": "Werbung"
@@ -90,7 +90,7 @@
         "message": "Sichern oder zurücksetzen"
     },
     "baseOnSystemColorScheme": {
-        "message": "Basierend von Systemfarben"
+        "message": "Basierend auf Systemfarben"
     },
     "belowPlayer": {
         "message": "Unter dem Player"
@@ -120,7 +120,7 @@
         "message": "Browser"
     },
     "browserVersion": {
-        "message": "Browser Version"
+        "message": "Browser-Version"
     },
     "bubbles": {
         "message": "Blasen"
@@ -207,7 +207,7 @@
         "message": "Dunkel-Lila"
     },
     "defaultChannelTab": {
-        "message": "Standard-Kanal Tab"
+        "message": "Standard-Kanal-Tab"
     },
     "deleteYoutubeCookies": {
         "message": "YouTube-Cookies löschen"
@@ -285,7 +285,7 @@
         "message": "Fußzeile"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "SDR erzwingen"
     },
     "forcedPlaybackSpeed": {
         "message": "erzwungene Abspielgeschwindigkeit"
@@ -363,7 +363,7 @@
         "message": "Rechte Buttons ausblenden"
     },
     "hideScrollForDetails": {
-        "message": "«Für Details scrollen» ausblenden"
+        "message": "„Für Details scrollen“ ausblenden"
     },
     "hideViewsCount": {
         "message": "Videoaufrufe ausblenden"
@@ -375,10 +375,10 @@
         "message": "Standard"
     },
     "hover": {
-        "message": "Nur anzeigen wenn die Maus darauf zeigt"
+        "message": "Nur anzeigen bei Mausover"
     },
     "hoverOnVideoPage": {
-        "message": "auf Video-Seiten nur wenn die Maus..."
+        "message": "auf Video-Seiten bei Mausover"
     },
     "howLongAgoTheVideoWasUploaded": {
         "message": "Alter des Videos (seit Hochlade-Datum)"
@@ -408,7 +408,7 @@
         "message": "ImprovedTube Version"
     },
     "increasePlaybackSpeed": {
-        "message": "Abspiel Geschwingkeit erhöhen"
+        "message": "Abspielgeschwingkeit erhöhen"
     },
     "increaseVolume": {
         "message": "Lautstärke erhöhen"
@@ -534,7 +534,7 @@
         "message": "Play / Pause"
     },
     "playbackSpeed": {
-        "message": "Abspiel-Geschwindigkeit"
+        "message": "Abspielgeschwindigkeit"
     },
     "player": {
         "message": "Player"
@@ -588,13 +588,13 @@
         "message": "Zeige 'Mag ich nicht' Button rot"
     },
     "relatedVideos": {
-        "message": "Verwandte Videos"
+        "message": "Ähnliche Videos"
     },
     "removeRelatedSearchResults": {
-        "message": "Verwandte Suchergebnisse entfernen"
+        "message": "Ähnliche Suchergebnisse entfernen"
     },
     "repeat": {
-        "message": "Repeat(Wiederholen)"
+        "message": "Repeat (Wiederholen)"
     },
     "reset": {
         "message": "Zurücksetzen"
@@ -618,7 +618,7 @@
         "message": "Speichern als"
     },
     "schedule": {
-        "message": "Nachtschaltung planen"
+        "message": "Zeitplan"
     },
     "screen": {
         "message": "Bildschirm"
@@ -675,16 +675,16 @@
         "message": "Schritt"
     },
     "stop": {
-        "message": "Stop"
+        "message": "Stopp"
     },
     "style": {
-        "message": "Style"
+        "message": "Stil"
     },
     "styles": {
-        "message": "Styles"
+        "message": "Stile"
     },
     "subscriptions": {
-        "message": "Abonnements"
+        "message": "Abos"
     },
     "subtitles": {
         "message": "Untertitel"
@@ -720,7 +720,7 @@
         "message": "Alle Einstellungen werden entfernt"
     },
     "thisWillResetAllShortcuts": {
-        "message": "Alle Shortcuts werden entfernt"
+        "message": "Alle Shortcuts werden zurückgesetzt"
     },
     "thumbnails": {
         "message": "Vorschaubilder"
@@ -729,7 +729,7 @@
         "message": "Start"
     },
     "timeTo": {
-        "message": "Stop"
+        "message": "Ende"
     },
     "todayAt": {
         "message": "Heute um"
@@ -738,10 +738,10 @@
         "message": "Karten ausblenden"
     },
     "topChat": {
-        "message": "Top chat"
+        "message": "Top Chat"
     },
     "trailerAutoplay": {
-        "message": "Trailer autoplay (Kanal-Intro automatisch losspielen)"
+        "message": "Kanal-Intro automatisch abspielen"
     },
     "translations": {
         "message": "Übersetzungen"
@@ -750,10 +750,10 @@
         "message": "Transparenter Hintergrund"
     },
     "trending": {
-        "message": "Trending"
+        "message": "Trends"
     },
     "tryToReloadThePage": {
-        "message": "Versuche die Seite neu zu laden"
+        "message": "Versuche, die Seite neu zu laden"
     },
     "type": {
         "message": "Typ"
@@ -774,7 +774,7 @@
         "message": "Die Video-Beschreibung wird um den Kategorienamen erweitert"
     },
     "videoFormats": {
-        "message": "Video Formate"
+        "message": "Videoformate"
     },
     "videos": {
         "message": "Videos"
