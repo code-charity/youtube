@@ -3208,7 +3208,6 @@ ImprovedTube.timeupdate = function() {
         ImprovedTube.latestVideoDuration = this.duration;
 
         ImprovedTube.playerQuality();
-        ImprovedTube.playerPlaybackSpeed();
         ImprovedTube.playerVolume();
         ImprovedTube.playlistUpNextAutoplay();
     }
