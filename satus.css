@@ -1,27 +1,149 @@
 /*--------------------------------------------------------------
->>> SATUS
+>>> SATUS.CSS
 ----------------------------------------------------------------
-# Body
-# Components
-    # Button
-    # Color picker
-    # Dialog
-    # Folder
-    # Header
-    # List
-    # Main
-    # Section
-    # Select
-    # Slider
-    # Switch
-    # Table
-    # Text
-    # Text field
+1.0 Animations
+  1.1 Fade
+  1.2 List
+  1.3 Zoom
+2.0 Themes
+  2.1 Default
+3.0 Components
+    3.1  Button
+    3.2  Color picker
+    3.3  Dialog
+    3.4  Folder
+    3.5  Header
+    3.6  List
+    3.7  Main
+    3.8  Section
+    3.9  Select
+    3.10 Slider
+    3.11 Switch
+    3.12 Table
+    3.13 Text
+    3.14 Text field
 --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 ANIMATIONS
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.1 FADE
+--------------------------------------------------------------*/
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(10%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOutLeft {
+    from {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOutRight {
+    from {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(10%);
+        opacity: 0;
+    }
+}
 
 
 /*--------------------------------------------------------------
-# BODY
+1.2 LIST
+--------------------------------------------------------------*/
+
+@keyframes listIn {
+    from {
+        transform: translateY(-16px);
+        opacity: .5;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/*--------------------------------------------------------------
+1.3 ZOOM
+--------------------------------------------------------------*/
+
+@keyframes zoomIn {
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(.8);
+        opacity: 0;
+    }
+}
+
+
+/*--------------------------------------------------------------
+2.0 THEMES
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+2.1 DEFAULT
 --------------------------------------------------------------*/
 
 body {
@@ -42,12 +164,11 @@ body {
 
 
 /*--------------------------------------------------------------
-# COMPONENTS
+3.0 COMPONENTS
 --------------------------------------------------------------*/
 
-
 /*--------------------------------------------------------------
-# BUTTON
+3.1 BUTTON
 --------------------------------------------------------------*/
 
 .satus-button {
@@ -98,7 +219,7 @@ body {
 
 
 /*--------------------------------------------------------------
-# COLOR PICKER
+3.2 COLOR PICKER
 --------------------------------------------------------------*/
 
 .satus-color-picker {
@@ -160,7 +281,7 @@ body {
 
 
 /*--------------------------------------------------------------
-# DIALOG
+3.3 DIALOG
 --------------------------------------------------------------*/
 
 .satus-dialog {
@@ -215,49 +336,9 @@ body {
     animation: zoomOut 70ms linear forwards;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes zoomOut {
-    from {
-        transform: scale(1);
-        opacity: 1;
-    }
-    to {
-        transform: scale(.8);
-        opacity: 0;
-    }
-}
-
 
 /*--------------------------------------------------------------
-# FOLDER
+3.4 FOLDER
 --------------------------------------------------------------*/
 
 .satus-folder {
@@ -266,7 +347,7 @@ body {
 
 
 /*--------------------------------------------------------------
-# HEADER
+3.5 HEADER
 --------------------------------------------------------------*/
 
 .satus-header {
@@ -286,7 +367,7 @@ body {
 
 
 /*--------------------------------------------------------------
-# LIST
+3.6 LIST
 --------------------------------------------------------------*/
 
 .satus-list--compact,
@@ -298,7 +379,7 @@ body {
 
 
 /*--------------------------------------------------------------
-#  MAIN
+3.7  MAIN
 ----------------------------------------------------------------
 # General
 # Animations
@@ -350,50 +431,6 @@ body {
     animation: fadeOutRight 250ms;
 }
 
-@keyframes fadeInLeft {
-    from {
-        transform: translateX(-10%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0%);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        transform: translateX(10%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0%);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOutLeft {
-    from {
-        transform: translateX(0%);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(-10%);
-        opacity: 0;
-    }
-}
-
-@keyframes fadeOutRight {
-    from {
-        transform: translateX(0%);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(10%);
-        opacity: 0;
-    }
-}
-
 .satus-scrollbar {
     position: relative;
     overflow: hidden;
@@ -439,7 +476,7 @@ body {
 
 
 /*--------------------------------------------------------------
-# SECTION
+3.8 SECTION
 --------------------------------------------------------------*/
 
 .satus-section {
@@ -451,7 +488,7 @@ body {
 
 
 /*--------------------------------------------------------------
-# SELECT
+3.9 SELECT
 --------------------------------------------------------------*/
 
 .satus-select {
@@ -485,17 +522,6 @@ body {
     width: 100%;
     height: 48px;
     padding: 0 16px;
-}
-
-@keyframes listIn {
-    from {
-        transform: translateY(-16px);
-        opacity: .5;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 .satus-shortcut {
@@ -659,7 +685,7 @@ body {
 
 
 /*--------------------------------------------------------------
-# SLIDER
+3.10 SLIDER
 --------------------------------------------------------------*/
 
 .satus-slider {
@@ -808,7 +834,7 @@ body {
 
 
 /*--------------------------------------------------------------
-# SWITCH
+3.11 SWITCH
 --------------------------------------------------------------*/
 
 .satus-switch {
@@ -915,7 +941,7 @@ body {
 
 
 /*--------------------------------------------------------------
-# TABLE
+3.12 TABLE
 --------------------------------------------------------------*/
 
 .satus-table {
@@ -1056,7 +1082,7 @@ body {
 
 
 /*--------------------------------------------------------------
-# TEXT
+3.13 TEXT
 --------------------------------------------------------------*/
 
 .satus-text {
@@ -1071,7 +1097,7 @@ body {
 
 
 /*--------------------------------------------------------------
-# TEXT FIELD
+3.14 TEXT FIELD
 --------------------------------------------------------------*/
 
 .satus-text-field {
