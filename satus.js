@@ -1,42 +1,49 @@
 /*--------------------------------------------------------------
->>> SATUS
+>>> SATUS.JS
 ----------------------------------------------------------------
-# Core
-    # Events
-    # Render
-    # Camelize
-    # Animation duration
-# Modules
-    # Browser storage
-    # Localization
-    # Render
-    # Clone node styles
-    # Search
-    # Storage keys
-    # User
-# Components
-    # Button
-    # Colop picker
-    # Dialog
-    # Folder
-    # Header
-    # List
-    # Main
-    # Scroll bar
-    # Section
-    # Select
-    # Shortcut
-    # Slider
-    # Switch
-    # Text
-    # Text field
+1.0 Core
+    1.1 Events
+    1.2 Isset
+    1.3 Camelize
+    1.4 Animation duration
+2.0 Modules
+    2.1 Browser storage
+    2.2 Localization
+    2.3 Render
+    2.4 Clone node styles
+    2.5 Search
+    2.6 Storage keys
+    2.7 User
+3.0 Components
+    3.1 Button
+    3.2 Colop picker
+    3.3 Dialog
+    3.4 Folder
+    3.5 Header
+    3.6 List
+    3.7 Main
+    3.8 Scroll bar
+    3.9 Section
+    3.10 Select
+    3.11 Shortcut
+    3.12 Slider
+    3.13 Switch
+    3.14 Text
+    3.15 Text field
 --------------------------------------------------------------*/
 
-var satus = {};
+/*--------------------------------------------------------------
+1.0 CORE
+--------------------------------------------------------------*/
+
+var satus = {
+    components: {},
+    modules: {}
+};
 
 
 /*--------------------------------------------------------------
-# EVENTS
+1.1 EVENTS
 --------------------------------------------------------------*/
 
 satus.events = {};
@@ -51,21 +58,7 @@ satus.on = function (event, handler) {
 
 
 /*--------------------------------------------------------------
-# COMPONENTS
---------------------------------------------------------------*/
-
-satus.components = {};
-
-
-/*--------------------------------------------------------------
-# MODULES
---------------------------------------------------------------*/
-
-satus.modules = {};
-
-
-/*--------------------------------------------------------------
-# ISSET
+1.2 ISSET
 --------------------------------------------------------------*/
 
 satus.isset = function (variable) {
@@ -78,7 +71,7 @@ satus.isset = function (variable) {
 
 
 /*--------------------------------------------------------------
-# CAMELIZE
+1.3 CAMELIZE
 --------------------------------------------------------------*/
 
 satus.camelize = function (string) {
@@ -89,7 +82,7 @@ satus.camelize = function (string) {
 
 
 /*--------------------------------------------------------------
-# ANIMATION DURATION
+1.4 ANIMATION DURATION
 --------------------------------------------------------------*/
 
 satus.getAnimationDuration = function (element) {
@@ -98,11 +91,11 @@ satus.getAnimationDuration = function (element) {
 
 
 /*--------------------------------------------------------------
-# MODULES
+2.0 MODULES
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# BROWSER STORAGE
+2.1 BROWSER STORAGE
 --------------------------------------------------------------*/
 
 satus.storage = {};
@@ -187,7 +180,7 @@ satus.storage.clear = function () {
 
 
 /*---------------------------------------------------------------
-# LOCALIZATION
+2.2 LOCALIZATION
 ---------------------------------------------------------------*/
 
 satus.locale = {
@@ -261,7 +254,7 @@ satus.locale.import = function (language, callback) {
 
 
 /*--------------------------------------------------------------
-# RENDER
+2.3 RENDER
 --------------------------------------------------------------*/
 
 satus.render = function (element, container, callback) {
@@ -352,7 +345,7 @@ satus.render = function (element, container, callback) {
 
 
 /*--------------------------------------------------------------
-# CLONE NODE STYLES
+2.4 CLONE NODE STYLES
 --------------------------------------------------------------*/
 
 satus.cloneNodeStyles = function (origin, target) {
@@ -365,7 +358,7 @@ satus.cloneNodeStyles = function (origin, target) {
 
 
 /*--------------------------------------------------------------
-# SEARCH
+2.5 SEARCH
 --------------------------------------------------------------*/
 
 satus.search = function (query, object, callback, categories) {
@@ -421,7 +414,7 @@ satus.search = function (query, object, callback, categories) {
 
 
 /*--------------------------------------------------------------
-# STORAGE KEYS
+2.6 STORAGE KEYS
 --------------------------------------------------------------*/
 
 satus.modules.updateStorageKeys = function (object, callback) {
@@ -455,7 +448,7 @@ satus.modules.updateStorageKeys = function (object, callback) {
 
 
 /*--------------------------------------------------------------
-# USER
+2.7 USER
 --------------------------------------------------------------*/
 
 satus.modules.user = function () {
@@ -812,11 +805,11 @@ satus.on('render', function (component, data) {
 
 
 /*--------------------------------------------------------------
-# COMPONENTS
+3.0 COMPONENTS
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# BUTTON
+3.1 BUTTON
 --------------------------------------------------------------*/
 
 satus.components.button = function (element) {
@@ -845,7 +838,7 @@ satus.components.button = function (element) {
 
 
 /*--------------------------------------------------------------
-# COLOR PICKER
+3.2 COLOR PICKER
 --------------------------------------------------------------*/
 
 satus.components.colorPicker = function (element) {
@@ -927,7 +920,7 @@ satus.components.colorPicker = function (element) {
 
 
 /*--------------------------------------------------------------
-# DIALOG
+3.3 DIALOG
 --------------------------------------------------------------*/
 
 satus.components.dialog = function (element) {
@@ -1019,7 +1012,7 @@ satus.components.dialog = function (element) {
 
 
 /*--------------------------------------------------------------
-# FOLDER
+3.4 FOLDER
 --------------------------------------------------------------*/
 
 satus.components.folder = function (object) {
@@ -1055,7 +1048,7 @@ satus.components.folder = function (object) {
 
 
 /*--------------------------------------------------------------
-# HEADER
+3.5 HEADER
 --------------------------------------------------------------*/
 
 satus.components.header = function (object) {
@@ -1070,7 +1063,7 @@ satus.components.header = function (object) {
 
 
 /*--------------------------------------------------------------
-# LIST
+3.6 LIST
 --------------------------------------------------------------*/
 
 satus.components.list = function (object) {
@@ -1178,7 +1171,7 @@ satus.components.list = function (object) {
 
 
 /*--------------------------------------------------------------
-# MAIN
+3.7 MAIN
 --------------------------------------------------------------*/
 
 satus.components.main = function (object) {
@@ -1275,7 +1268,7 @@ satus.components.main = function (object) {
 
 
 /*--------------------------------------------------------------
-# SCROLL BAR
+3.8 SCROLL BAR
 --------------------------------------------------------------*/
 
 satus.components.scrollbar = function (parent, enabled) {
@@ -1385,7 +1378,7 @@ satus.components.scrollbar = function (parent, enabled) {
 
 
 /*--------------------------------------------------------------
-# SECTION
+3.9 SECTION
 --------------------------------------------------------------*/
 
 satus.components.section = function (element) {
@@ -1400,7 +1393,7 @@ satus.components.section = function (element) {
 
 
 /*--------------------------------------------------------------
-# SELECT
+3.10 SELECT
 --------------------------------------------------------------*/
 
 satus.components.select = function (element) {
@@ -1470,7 +1463,7 @@ satus.components.select = function (element) {
 
 
 /*---------------------------------------------------------------
-# SHORTCUT
+3.11 SHORTCUT
 ---------------------------------------------------------------*/
 
 satus.components.shortcut = function (element) {
@@ -1675,7 +1668,7 @@ satus.components.shortcut = function (element) {
 
 
 /*--------------------------------------------------------------
-# SLIDER
+3.12 SLIDER
 --------------------------------------------------------------*/
 
 satus.components.slider = function (element) {
@@ -1814,7 +1807,7 @@ satus.components.slider = function (element) {
 
 
 /*--------------------------------------------------------------
-# SWITCH
+3.13 SWITCH
 --------------------------------------------------------------*/
 
 satus.components.switch = function (element) {
@@ -1949,6 +1942,8 @@ satus.components.switch = function (element) {
 
     return component;
 };
+
+
 satus.components.table = function (item) {
     var component = document.createElement('div'),
         component_head = document.createElement('div'),
@@ -2166,7 +2161,7 @@ satus.components.table = function (item) {
 
 
 /*--------------------------------------------------------------
-# TEXT
+3.14 TEXT
 --------------------------------------------------------------*/
 
 satus.components.text = function (element) {
@@ -2195,7 +2190,7 @@ satus.components.text = function (element) {
 
 
 /*--------------------------------------------------------------
-# TEXT FIELD
+3.15 TEXT FIELD
 --------------------------------------------------------------*/
 
 satus.components.textField = function (element) {
