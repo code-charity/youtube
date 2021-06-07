@@ -1,4 +1,4 @@
-Copyrights reserved.  For simplicity & intellectual growth:  All accepted pull-requests are assumed to come under a viral/strict copyleft license (such as GNU agpl-3.0-7abcdef) for the world; and exceptionally royalty-free/copyight-free only to the original maintainers.
+Copyrights reserved.  For simplicity & intellectual growth:  All accepted pull-requests are assumed to come under a viral copyleft license, GNU agpl-3.0-7abcdef, for the world; but exceptionally royalty-free/copyight-free only to the original maintainers.
 ---
 FUTURE DRAFT (Talk to us? ☺) :
 Freedom: 
@@ -9,12 +9,13 @@ Proportionally to the time well spent. Please feel free to vote about our action
 3.1. Modified use by registered Charity organisations:   Please link to us prominently. Or ask?
 
 Restriction:
-3.2.  Commercial & modified use (both at once)  (or commercial & using pieces of the code):   
-Written permission/contract required. No such permission was granted. Exception: OS's, Open Source Initiativ, Debian, Fedora! (& Publishing as a whole is unrestrained >= copyleft)
-However commercial projects keep using our code without permission.  Some with excessive adware/spyware. 
+3.2.  Commercial & modified use (both at once)  (=commercial & using any piece of the code, that is not the full release package such as 'version 3.250'):   
+Written permission/contract required. No such permission was granted to anybody as of 2021. Exception: OS's, Open Source Initiativ, Debian, Fedora. 
+(Reason for specific restriction: Commercial projects keep using our code without permission.  Some with excessive adware/spyware. 
 Together they easily have more users than the original, since software is often not chosen well!
-Thus we rationally/responsibly have to care. (,despite the tendency for smart behavior, to be superior on a long-term, marketing / competition is not always fair. Billions of users dont seem to review their software choice.)
-(also no meaningful, modified & commercial re-publishing is expectable for this project)
+Thus we rationally/responsibly have to care. (,despite the tendency for smart behavior, to be superior on a long-term, marketing / competition is not always fair in the present as billions of users dont seem to review every software choice.
+- no meaningful, modified & commercial re-publishing is expectable for this project
+- Publishing as a whole is unrestrained anyway >= copyleft.)
 ---
 (No warranty / liablity)
 Thank you
