@@ -1328,6 +1328,19 @@ skeleton.main = {
         type: 'section',
         class: 'satus-section--info',
 
+        frame_by_frame: {
+            type: 'button',
+            innerHTML: 'Frame By Frame <span style="margin:0 0 0 4px;font-weight:400"> by ImprovedTube team<span>',
+            style: {
+                'margin': '0 0 8px',
+                'width': '100%',
+                'textAlign': 'center',
+                'background': '#4b4abf'
+            },
+            onclick: function () {
+                window.open('https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh', '_blank');
+            }
+        },
         email: {
             type: 'button',
             label: 'Email',
