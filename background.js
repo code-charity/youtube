@@ -1,26 +1,26 @@
 /*--------------------------------------------------------------
 >>> BACKGROUND
 ----------------------------------------------------------------
-# Global variables
-# Functions
-# Context menu items
-# Message listener
-# Storage change listener
-# Tab focus/blur
-# Uninstall URL
-# Google Analytics
-# Initialization
+1.0 Global variables
+2.0 Functions
+3.0 Context menu items
+4.0 Message listener
+5.0 Storage change listener
+6.0 Tab focus/blur
+7.0 Uninstall URL
+8.0 Google Analytics
+9.0 Initialization
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# GLOBAL VARIABLES
+1.0 GLOBAL VARIABLES
 --------------------------------------------------------------*/
 
 var locale_code = 'en',
     browser_icon = false;
 
 /*--------------------------------------------------------------
-# FUNCTIONS
+2.0 FUNCTIONS
 --------------------------------------------------------------*/
 
 function isset(variable) {
@@ -72,7 +72,7 @@ function browserActionIcon() {
 
 
 /*--------------------------------------------------------------
-# CONTEXT MENU ITEMS
+3.0 CONTEXT MENU ITEMS
 --------------------------------------------------------------*/
 
 chrome.contextMenus.removeAll();
@@ -107,7 +107,7 @@ chrome.contextMenus.onClicked.addListener(function(event) {
 
 
 /*--------------------------------------------------------------
-# MESSAGE LISTENER
+4.0 MESSAGE LISTENER
 --------------------------------------------------------------*/
 
 chrome.runtime.onMessage.addListener(function(request, sender) {
@@ -290,7 +290,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 
 
 /*--------------------------------------------------------------
-# STORAGE CHANGE LISTENER
+5.0 STORAGE CHANGE LISTENER
 --------------------------------------------------------------*/
 
 chrome.storage.onChanged.addListener(function(changes) {
@@ -307,21 +307,23 @@ chrome.storage.onChanged.addListener(function(changes) {
 
 
 /*--------------------------------------------------------------
-# TAB FOCUS/BLUR
+6.0 TAB FOCUS/BLUR
 --------------------------------------------------------------*/
 
 chrome.tabs.onActivated.addListener(function(activeInfo) {
-    chrome.tabs.query({}, function(tabs) {
-        chrome.tabs.sendMessage(activeInfo.tabId, {
-            action: 'focus'
-        });
+    chrome.tabs.sendMessage(activeInfo.tabId, {
+        action: 'focus'
+    });
 
-        for (var i = 0, l = tabs.length; i < l; i++) {
-            if (tabs[i].id !== activeInfo.tabId) {
-                if (tabs[i].hasOwnProperty('url')) {
-                    chrome.tabs.sendMessage(tabs[i].id, {
-                        action: 'blur'
-                    });
+    chrome.tabs.getAllInWindow(activeInfo.windowId, function(tabs) {
+        if (tabs) {
+            for (var i = 0, l = tabs.length; i < l; i++) {
+                if (tabs[i].id !== activeInfo.tabId) {
+                    if (tabs[i].hasOwnProperty('url')) {
+                        chrome.tabs.sendMessage(tabs[i].id, {
+                            action: 'blur'
+                        });
+                    }
                 }
             }
         }
@@ -330,14 +332,14 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 
 
 /*--------------------------------------------------------------
-# UNINSTALL URL
+7.0 UNINSTALL URL
 --------------------------------------------------------------*/
 
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
 
 
 /**--------------------------------------------------------------
-# GOOGLE ANALYTICS
+8.0 GOOGLE ANALYTICS
 --------------------------------------------------------------*/
 
 var _gaq = _gaq || [];
@@ -359,7 +361,7 @@ var _gaq = _gaq || [];
 
 
 /*--------------------------------------------------------------
-# INITIALIZATION
+9.0 INITIALIZATION
 --------------------------------------------------------------*/
 
 chrome.storage.local.get(function(items) {
@@ -372,9 +374,7 @@ chrome.storage.local.get(function(items) {
     }
 
     browserActionIcon();
-});
 
-chrome.storage.local.get(function(items) {
     var a = new Date().getTime();
 
     if (a - (items.ga || 0) >= 86400000) {
