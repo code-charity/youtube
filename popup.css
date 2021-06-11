@@ -1159,7 +1159,7 @@ html[it-improvedtube-home='list'] .satus-section--info {
 # OPTIONS
 --------------------------------------------------------------*/
 
-@media (min-width: 321px) {
+@media (min-width: 321px !important;) {
     html {
         display: flex;
         justify-content: center;
