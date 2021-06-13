@@ -2421,6 +2421,13 @@ ImprovedTube.shortcuts = function() {
                     like.click();
                 }
             },
+            shortcut_subscribe: function() {
+                var button = document.querySelector('#subscribe-button .ytd-subscribe-button-renderer');
+
+                if (button) {
+                    button.click();
+                }
+            },
             shortcut_dark_theme: function() {
                 if (document.documentElement.hasAttribute('dark')) {
                     document.documentElement.removeAttribute('dark');
