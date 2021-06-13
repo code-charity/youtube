@@ -1538,6 +1538,11 @@ skeleton.main.section.appearance = {
                 type: 'switch',
                 label: 'hideRightButtons',
                 tags: 'user'
+            },
+            header_hide_country_code: {
+                type: 'switch',
+                label: 'hideCountryCode',
+                tags: 'country,code'
             }
         }
     },

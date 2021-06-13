@@ -344,6 +344,9 @@
     "hideCards": {
         "message": "Ascunde cardurile"
     },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
     "hideDetails": {
         "message": "Ascunde detaliile"
     },

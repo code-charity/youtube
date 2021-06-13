@@ -56,6 +56,7 @@ function attributes(items) {
         'header-position': true,
         'header-improve-logo': true,
         'header-hide-right-buttons': true,
+        'header-hide-country-code': true,
         'player-hide-annotations': true,
         'player-hide-cards': true,
         'player-show-cards-on-mouse-hover': true,
