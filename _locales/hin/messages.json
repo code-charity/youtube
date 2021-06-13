@@ -11,9 +11,6 @@
     "ARROWUP": {
         "message": "⇧"
     },
-    "description_ext": {
-        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
-    },
     "about": {
         "message": "के बारे में"
     },
@@ -214,6 +211,9 @@
     },
     "description": {
         "message": "विवरण"
+    },
+    "description_ext": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
         "message": "रेगिस्तान"
@@ -682,6 +682,9 @@
     },
     "styles": {
         "message": "शैलियाँ"
+    },
+    "subscribe": {
+        "message": "Subscribe"
     },
     "subscriptions": {
         "message": "सदस्यता"

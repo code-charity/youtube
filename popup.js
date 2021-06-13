@@ -2831,6 +2831,10 @@ skeleton.main.section.shortcuts = {
             type: 'shortcut',
             label: 'dislike'
         },
+        shortcut_subscribe: {
+            type: 'shortcut',
+            label: 'subscribe'
+        },
         shortcut_dark_theme: {
             type: 'shortcut',
             label: 'darkTheme'
