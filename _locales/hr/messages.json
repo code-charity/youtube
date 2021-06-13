@@ -347,6 +347,9 @@
     "hideControls": {
         "message": "Sakrij kontrole playera"
     },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
     "hideDetails": {
         "message": "Sakrij detalje"
     },

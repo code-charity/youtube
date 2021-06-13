@@ -341,6 +341,9 @@
     "hideCards": {
         "message": "কার্ড লুকান"
     },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
     "hideDetails": {
         "message": "আড়াল বিস্তারিত"
     },

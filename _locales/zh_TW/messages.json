@@ -344,6 +344,9 @@
     "hideControls": {
         "message": "隱藏播放器控制"
     },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
     "hideDetails": {
         "message": "隱藏細節"
     },

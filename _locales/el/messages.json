@@ -341,6 +341,9 @@
     "hideCards": {
         "message": "Απόκρυψε τις κάρτες"
     },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
     "hideDetails": {
         "message": "Απόκρυψε τις λεπτομέρειες"
     },
