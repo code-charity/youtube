@@ -341,6 +341,9 @@
     "hideCards": {
         "message": "Nascondi tessere di fine video"
     },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
     "hideDetails": {
         "message": "Nascondi dettagli"
     },

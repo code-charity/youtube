@@ -347,6 +347,9 @@
     "hideControls": {
         "message": "隐藏播放控制器"
     },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
     "hideDetails": {
         "message": "隐藏详细信息"
     },

@@ -14,6 +14,7 @@
     2.1.1 Position
     2.1.2 Improve logo
     2.1.3 Hide right buttons
+    2.1.4 Hide country code
   2.2 Player
     2.2.1 Hide annotations
     2.2.2 Hide cards
@@ -374,6 +375,15 @@ html[it-header-improve-logo=true] g.ytd-topbar-logo-renderer polygon[fill*='#FFF
 html[it-header-hide-right-buttons=true] ytd-masthead#masthead #container #end {
     visibility: hidden;
     pointer-events: none;
+}
+
+
+/*------------------------------------------------------------------------------
+2.1.4 HIDE COUNTRY CODE
+------------------------------------------------------------------------------*/
+
+html[it-header-hide-country-code=true] #logo #country-code {
+    display: none;
 }
 
 

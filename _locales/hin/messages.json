@@ -341,6 +341,9 @@
     "hideCards": {
         "message": "पत्ते छिपाओ"
     },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
     "hideDetails": {
         "message": "जानकारी छिपाएँ"
     },

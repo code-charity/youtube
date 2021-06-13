@@ -341,6 +341,9 @@
     "hideCards": {
         "message": "Kartları gizle"
     },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
     "hideDetails": {
         "message": "Detayları gizle"
     },

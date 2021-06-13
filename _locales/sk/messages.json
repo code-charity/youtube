@@ -341,6 +341,9 @@
     "hideCards": {
         "message": "Skryť karty"
     },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
     "hideDetails": {
         "message": "Skryť detaily"
     },

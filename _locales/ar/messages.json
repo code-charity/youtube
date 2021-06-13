@@ -341,6 +341,9 @@
     "hideCards": {
         "message": "إخفاء البطاقات"
     },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
     "hideDetails": {
         "message": "إخفاء التفاصيل"
     },

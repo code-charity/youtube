@@ -347,6 +347,9 @@
     "hideControls": {
         "message": "Ukryj sterowanie odtwarzaczem"
     },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
     "hideDetails": {
         "message": "Ukryj szczegóły"
     },
