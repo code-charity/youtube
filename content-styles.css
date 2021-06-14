@@ -977,8 +977,8 @@ html[it-description=expanded] .yt-uix-expander-collapsed .yt-uix-expander-body {
 ------------------------------------------------------------------------------*/
 
 html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer,
-html[it-hide-views-count=true] #watch7-views-info>.watch-view-count {
-    display: none !important;
+html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer + #date > #dot {
+    display: none;
 }
 
 
