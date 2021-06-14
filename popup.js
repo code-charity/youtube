@@ -233,7 +233,7 @@ skeleton.header.section_end.button_vert.onClickRender.active_features = {
                         if (object[i].type.match(/(button|select|shortcut|slider|switch)/)) {
                             if (string === i || (object[i].tags && object[i].tags.indexOf(string) !== -1)) {
                                 if (object[i].type.indexOf('button') === -1 || !object[i].label) {
-                                    if (!satus.isset(object[i].value) && satus.storage[string] !== false || satus.isset(object[i].value) && satus.storage[string] != object[i].value) {
+                                    if (!satus.isset(object[i].value) && satus.storage[string] !== false && object[i].type !== 'select' || satus.isset(object[i].value) && satus.storage[string] != object[i].value && (object[i].type === 'select' ? object[i].options[0].value !== satus.storage[i] : true)) {
                                         if (!new_menu[label]) {
                                             new_menu[label + '__label'] = {
                                                 type: 'text',
