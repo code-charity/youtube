@@ -1093,11 +1093,17 @@ ImprovedTube.playerAutopauseWhenSwitchingTabs = function() {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerPlaybackSpeed = function(node) {
-    var option = Number(ImprovedTube.storage.player_playback_speed);
+    var option = Number(ImprovedTube.storage.player_playback_speed),
+        player = document.querySelector('.html5-video-player'),
+        is_live = false;
+
+    if (player && player.getVideoData && player.getVideoData().isLive) {
+        is_live = true;
+    }
 
     if (ImprovedTube.isset(ImprovedTube.storage.player_playback_speed) && ImprovedTube.storage.player_forced_playback_speed === true) {
         try {
-            if (window.location.href.indexOf('music') === -1 && !document.querySelector('ytd-live-chat-frame')) {
+            if (window.location.href.indexOf('music') === -1 && !is_live) {
                 document.querySelector('.html5-video-player video').playbackRate = option;
             } else {
                 document.querySelector('.html5-video-player video').playbackRate = 1;
