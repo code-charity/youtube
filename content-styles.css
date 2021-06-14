@@ -991,6 +991,8 @@ html[it-hide-views-count=true] #watch7-views-info>.watch-view-count {
 [it-likes=hidden] .video-extras-sparkbar-dislikes,
 [it-likes=hidden] #info #top-level-buttons ytd-toggle-button-renderer:nth-child(1),
 [it-likes=hidden] #info #top-level-buttons ytd-toggle-button-renderer:nth-child(2),
+[it-likes=hidden] #info #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1),
+[it-likes=hidden] #info #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(2),
 [it-likes=hidden] #sentiment.ytd-video-primary-info-renderer {
     visibility: hidden !important;
     pointer-events: none !important;
@@ -1001,6 +1003,8 @@ html[it-hide-views-count=true] #watch7-views-info>.watch-view-count {
 [it-likes=icons_only] .video-extras-sparkbar-dislikes,
 [it-likes=icons_only] #top-level-buttons ytd-toggle-button-renderer:nth-child(1) yt-formatted-string,
 [it-likes=icons_only] #top-level-buttons ytd-toggle-button-renderer:nth-child(2) yt-formatted-string,
+[it-likes=icons_only] #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1) yt-formatted-string,
+[it-likes=icons_only] #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(2) yt-formatted-string,
 [it-likes=icons_only] #sentiment.ytd-video-primary-info-renderer {
     visibility: hidden !important;
     pointer-events: none !important;
