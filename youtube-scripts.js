@@ -3437,7 +3437,7 @@ ImprovedTube.setCookie = function(name, value) {
     document.cookie = name + '=' + value + '; path=/; domain=.youtube.com; expires=' + date.toGMTString();
 };
 
-ImprovedTube.createPlayerButton = function(node, options) {
+ImprovedTube.createPlayerButton = function (node, options) {
     var controls = document.querySelector('.html5-video-player .ytp-left-controls');
 
     if (controls) {
@@ -3446,6 +3446,28 @@ ImprovedTube.createPlayerButton = function(node, options) {
         button.className = 'ytp-button it-player-button';
 
         button.dataset.title = options.title;
+
+        button.addEventListener('mouseover', function () {
+            var tooltip = document.createElement('div'),
+                rect = this.getBoundingClientRect();
+
+            tooltip.className = 'it-player-button--tooltip';
+
+            tooltip.style.left = rect.left + rect.width / 2 + 'px';
+            tooltip.style.top = rect.top - 8 + 'px';
+
+            tooltip.textContent = this.dataset.title;
+
+            function mouseleave() {
+                tooltip.remove();
+
+                this.removeEventListener('mouseleave', mouseleave);
+            }
+
+            this.addEventListener('mouseleave', mouseleave);
+
+            document.body.appendChild(tooltip);
+        });
 
         if (options.id) {
             if (node.querySelector('#' + options.id)) {
