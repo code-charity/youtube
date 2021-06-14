@@ -3126,7 +3126,6 @@ html[it-mini-player-cursor='nw-resize']::after {
 }
 
 .it-player-button--tooltip {
-    font-size: 16px;
     font-size: 13px;
     font-weight: 500;
     line-height: 15px;
