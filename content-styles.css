@@ -3121,11 +3121,23 @@ html[it-mini-player-cursor='nw-resize']::after {
 ------------------------------------------------------------------------------*/
 
 .it-player-button {
+    position: relative;
     min-width: 40px;
 }
 
-#it-screenshot-button {
-    position: relative !important;
+.it-player-button--tooltip {
+    font-size: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+    position: fixed;
+    padding: 5px 9px;
+    transform: translate(-50%, -100%);
+    pointer-events: none;
+    color: #eee;
+    border-radius: 2px;
+    background-color: rgba(28, 28, 28, .9);
+    text-shadow: 0 0 2px rgb(0, 0, 0, .5);
 }
 
 #it-screenshot-button svg {
