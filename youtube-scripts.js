@@ -2369,27 +2369,29 @@ ImprovedTube.shortcuts = function() {
                     ImprovedTube.screenshot();
                 }
             },
-            shortcut_increase_playback_speed: function() {
+            shortcut_increase_playback_speed: function () {
                 var video = document.querySelector('#movie_player video');
 
                 if (video && video.playbackRate) {
-                    if ( video.playbackRate < 1 && video.playbackRate > 1-ImprovedTube.storage.shortcut_playback_speed_step ) {  
-                    video.playbackRate =  1 } else {   // aligning at 1.0 independent of minimum
+                    if (video.playbackRate < 1 && video.playbackRate > 1 - ImprovedTube.storage.shortcut_playback_speed_step) {
+                        video.playbackRate = 1
+                    } else { // aligning at 1.0 independent of minimum
 
-                    video.playbackRate = Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
-		    }            
+                        video.playbackRate = Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
+                    }
                     showStatus(document.querySelector('#movie_player'), video.playbackRate);
                 }
             },
-            shortcut_decrease_playback_speed: function() {
+            shortcut_decrease_playback_speed: function () {
                 var video = document.querySelector('#movie_player video');
-		    
-                if (video && video.playbackRate) {
-		    if ( video.playbackRate < 0.15+ImprovedTube.storage.shortcut_playback_speed_step ) {  
-		    video.playbackRate =  (video.playbackRate*0.7).toFixed(3) } else {   // slow down near minimum
 
-                    video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
-		    }
+                if (video && video.playbackRate) {
+                    if (video.playbackRate < 0.15 + ImprovedTube.storage.shortcut_playback_speed_step) {
+                        video.playbackRate = (video.playbackRate * 0.7).toFixed(3)
+                    } else { // slow down near minimum
+
+                        video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
+                    }
                     showStatus(document.querySelector('#movie_player'), video.playbackRate);
                 }
             },
