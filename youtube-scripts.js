@@ -2417,14 +2417,14 @@ ImprovedTube.shortcuts = function() {
                 }
             },
             shortcut_like_shortcut: function() {
-                var like = (document.querySelectorAll('.like-button-renderer-like-button')[0] || document.querySelectorAll('#menu #top-level-buttons ytd-toggle-button-renderer')[0]);
+                var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer')[0]);
 
                 if (like) {
                     like.click();
                 }
             },
             shortcut_dislike_shortcut: function() {
-                var like = (document.querySelectorAll('.like-button-renderer-dislike-button')[0] || document.querySelectorAll('#menu #top-level-buttons ytd-toggle-button-renderer')[1]);
+                var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer')[1]);
 
                 if (like) {
                     like.click();
