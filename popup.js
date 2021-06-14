@@ -2756,6 +2756,10 @@ skeleton.main.section.shortcuts = {
             section: {
                 type: 'section',
 
+                shortcut_auto: {
+                    type: 'shortcut',
+                    label: 'auto'
+                },
                 shortcut_240p: {
                     type: 'shortcut',
                     label: '240p'
