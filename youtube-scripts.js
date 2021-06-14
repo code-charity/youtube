@@ -1,8 +1,7 @@
 /*------------------------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 --------------------------------------------------------------------------------
-1.0 Global variable
-
+0.0 Global variable
 1.0 General
   1.1 YouTube home page
   1.2 Collapse of subscription sections
@@ -2191,6 +2190,14 @@ ImprovedTube.shortcuts = function() {
         }
 
         var features = {
+            shortcut_auto: function() {
+                var player = document.querySelector('#movie_player');
+
+                if (player) {
+                    player.setPlaybackQualityRange('auto');
+                    player.setPlaybackQuality('auto');
+                }
+            },
             shortcut_240p: function() {
                 var player = document.querySelector('#movie_player');
 
