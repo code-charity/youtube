@@ -3245,10 +3245,13 @@ ImprovedTube.latestVideoDuration = 0;
 ImprovedTube.playerUpdate = function() {
     this.playerPlaybackSpeed();
     this.subtitles();
-    this.mini_player();
     this.playerQuality();
     this.playerVolume();
     this.playlistUpNextAutoplay();
+
+    if (location.href.indexOf('/embed/') === -1) {
+        this.mini_player();
+    }
 };
 
 
