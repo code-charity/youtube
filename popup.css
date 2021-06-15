@@ -1173,7 +1173,7 @@ body {
 # DARK
 --------------------------------------------------------------*/
 
-html[theme=dark] body {
+body[data-theme=dark] {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #2c2b2c;
     --satus-theme-dialog-text: #b5b5b5;
@@ -1194,7 +1194,7 @@ html[theme=dark] body {
 # NIGHT
 --------------------------------------------------------------*/
 
-html[theme=night] body {
+body[data-theme=night] {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #61a7f5;
     --satus-theme-dialog-text: #fafafa;
@@ -1215,7 +1215,7 @@ html[theme=night] body {
 # DAWN
 --------------------------------------------------------------*/
 
-html[theme=dawn] body {
+body[data-theme=dawn] {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #ffba99;
     --satus-theme-dialog-text: #fafafa;
@@ -1236,7 +1236,7 @@ html[theme=dawn] body {
 # SUNSET
 --------------------------------------------------------------*/
 
-html[theme=sunset] body {
+body[data-theme=sunset] {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #a96165;
     --satus-theme-dialog-text: #fafafa;
@@ -1257,7 +1257,7 @@ html[theme=sunset] body {
 # DESERT
 --------------------------------------------------------------*/
 
-html[theme=desert] body {
+body[data-theme=desert] {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #9dc2ee;
     --satus-theme-dialog-text: #fafafa;
@@ -1278,7 +1278,7 @@ html[theme=desert] body {
 # PLAIN
 --------------------------------------------------------------*/
 
-html[theme=plain] body {
+body[data-theme=plain] {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #abceb8;
     --satus-theme-dialog-text: #fafafa;
@@ -1299,7 +1299,7 @@ html[theme=plain] body {
 # BLACK
 --------------------------------------------------------------*/
 
-html[theme=black] body {
+body[data-theme=black] {
     --satus-theme-primary: #ff4158;
     --satus-theme-dialog: #222;
     --satus-theme-dialog-text: #fafafa;
