@@ -3315,7 +3315,9 @@ function importData() {
 --------------------------------------------------------------*/
 
 function themeChange(event) {
-    if (event.target.checked) {
+    var body = document.body;
+
+    if (event && event.target.checked) {
         let themes = document.querySelectorAll('.satus-switch > input:checked:not([data-storage-key="red_popup_theme"])');
 
         for (let i = 0, l = themes.length; i < l; i++) {
@@ -3326,21 +3328,21 @@ function themeChange(event) {
     }
 
     if (satus.storage.get('default_dark_theme') === true) {
-        document.documentElement.setAttribute('theme', 'dark');
+        body.dataset.theme = 'dark';
     } else if (satus.storage.get('night_theme') === true) {
-        document.documentElement.setAttribute('theme', 'night');
+        body.dataset.theme = 'night';
     } else if (satus.storage.get('dawn_theme') === true) {
-        document.documentElement.setAttribute('theme', 'dawn');
+        body.dataset.theme = 'dawn';
     } else if (satus.storage.get('sunset_theme') === true) {
-        document.documentElement.setAttribute('theme', 'sunset');
+        body.dataset.theme = 'sunset';
     } else if (satus.storage.get('desert_theme') === true) {
-        document.documentElement.setAttribute('theme', 'desert');
+        body.dataset.theme = 'desert';
     } else if (satus.storage.get('plain_theme') === true) {
-        document.documentElement.setAttribute('theme', 'plain');
+        body.dataset.theme = 'plain';
     } else if (satus.storage.get('black_theme') === true) {
-        document.documentElement.setAttribute('theme', 'black');
+        body.dataset.theme = 'black';
     } else {
-        document.documentElement.removeAttribute('theme');
+        delete body.dataset.theme;
     }
 }
 
@@ -3374,37 +3376,7 @@ satus.storage.import(function (items) {
         });
     });
 
-    if (satus.isset(satus.storage.get('red_popup_theme')) === false || satus.storage.get('red_popup_theme') === true) {
-        document.documentElement.setAttribute('popup-theme', 'red');
-    }
-
-    if (satus.storage.get('default_dark_theme') === true) {
-        document.documentElement.setAttribute('theme', 'dark');
-    }
-
-    if (satus.storage.get('night_theme') === true) {
-        document.documentElement.setAttribute('theme', 'night');
-    }
-
-    if (satus.storage.get('dawn_theme') === true) {
-        document.documentElement.setAttribute('theme', 'dawn');
-    }
-
-    if (satus.storage.get('sunset_theme') === true) {
-        document.documentElement.setAttribute('theme', 'sunset');
-    }
-
-    if (satus.storage.get('desert_theme') === true) {
-        document.documentElement.setAttribute('theme', 'desert');
-    }
-
-    if (satus.storage.get('plain_theme') === true) {
-        document.documentElement.setAttribute('theme', 'plain');
-    }
-
-    if (satus.storage.get('black_theme') === true) {
-        document.documentElement.setAttribute('theme', 'black');
-    }
+    themeChange();
 });
 
 chrome.storage.onChanged.addListener(function (changes) {
