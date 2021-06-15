@@ -181,7 +181,6 @@ body {
     border: none;
     outline: none;
     background-color: var(--satus-theme-button);
-    -webkit-tap-highlight-color: transparent;
     align-items: center;
     -webkit-appearance: none;
 }
@@ -352,17 +351,11 @@ body {
 
 .satus-header {
     display: flex;
-    height: 58px;
+    height: 57px;
     padding: 0 8px;
     color: var(--satus-theme-header-text);
     background-color: var(--satus-theme-header);
-    box-shadow: 0 0 3px rgba(0, 0, 0, .1);
-    z-index: 1;
-    position: relative;
-}
-
-.satus-header .satus-text--title {
-    font-size: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
 
@@ -482,7 +475,6 @@ body {
 .satus-section {
     display: flex;
     align-items: center;
-    flex: 1;
     flex-wrap: wrap;
 }
 
