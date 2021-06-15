@@ -204,6 +204,10 @@ satus.locale.import = function (language, callback) {
         var language = chrome.i18n.getUILanguage();
     }
 
+    if (language.indexOf('en-') === 0) {
+        language = 'en';
+    }
+
     xhr.onload = function () {
         try {
             var object = JSON.parse(this.responseText);
