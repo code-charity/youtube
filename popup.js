@@ -3373,6 +3373,12 @@ function updateAttributes() {
 satus.storage.import(function (items) {
     updateAttributes();
 
+    if (satus.storage.channel_default_tab === '/') {
+        satus.storage.channel_default_tab = '/home';
+
+        satus.storage.set('channel_default_tab', '/home');
+    }
+
     satus.locale.import(satus.storage.get('language'), function () {
         satus.modules.updateStorageKeys(skeleton, function () {
             if (location.href.indexOf('action=import') !== -1) {
