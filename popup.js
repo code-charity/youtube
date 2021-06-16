@@ -217,73 +217,82 @@ skeleton.header.section_end.button_vert.onClickRender.active_features = {
         type: 'section',
         onrender: function () {
             var component = this,
-                new_menu = {},
-                storage = satus.storage;
+                my_skeleton = {},
+                threads = 0;
 
-            function search(string, object, parent) {
-                var result = [],
-                    label = parent || '';
+            function parse(list, section) {
+                threads++;
 
-                for (var i in object) {
-                    if (object.type === 'folder') {
-                        label = object.label;
-                    }
+                if (list.type === 'folder') {
+                    section = list.label;
+                }
 
-                    if (object[i].type) {
-                        if (object[i].type.match(/(button|select|shortcut|slider|switch)/)) {
-                            if (string === i || (object[i].tags && object[i].tags.indexOf(string) !== -1)) {
-                                if (object[i].type.indexOf('button') === -1 || !object[i].label) {
-                                    if (!satus.isset(object[i].value) && satus.storage[string] !== false && object[i].type !== 'select' || satus.isset(object[i].value) && satus.storage[string] != object[i].value && (object[i].type === 'select' ? object[i].options[0].value !== satus.storage[i] : true)) {
-                                        if (!new_menu[label]) {
-                                            new_menu[label + '__label'] = {
-                                                type: 'text',
-                                                class: 'satus-section--label',
-                                                label: label
-                                            };
+                for (var key in list) {
+                    var item = list[key];
 
-                                            new_menu[label] = {
-                                                type: 'section'
-                                            };
+                    if (/(select|shortcut|slider|switch)/.test(item.type)) {
+                        var in_storage = satus.storage[item.storage_key],
+                            is_active = false;
+
+                        if (satus.isset(in_storage)) {
+                            if (item.type === 'select') {
+                                if (item.options && item.options[0]) {
+                                    if (satus.isset(item.options[0].value)) {
+                                        if (item.options[0].value != in_storage) {
+                                            is_active = true;
                                         }
-
-                                        new_menu[label][i] = object[i];
                                     }
                                 }
-                            }
-
-                        } else {
-                            var response = search(string, object[i], label);
-
-                            if (response.length > 0) {
-                                for (var j = 0, l = response.length; j < l; j++) {
-                                    result.push(response[i]);
+                            } else {
+                                if (satus.isset(item.value) && item.value != in_storage) {
+                                    is_active = true;
+                                } else if (!satus.isset(item.value) && in_storage !== false) {
+                                    is_active = true;
                                 }
                             }
                         }
+
+                        if (is_active) {
+                            if (section) {
+                                if (!my_skeleton[section]) {
+                                    my_skeleton[section + '__label'] = {
+                                        type: 'text',
+                                        class: 'satus-section--label',
+                                        label: section
+                                    };
+
+                                    my_skeleton[section] = {
+                                        type: 'section'
+                                    };
+                                }
+                            }
+
+                            my_skeleton[section][key] = item;
+                        }
+                    } else if (typeof item === 'object') {
+                        parse(item, section);
                     }
                 }
 
-                return result;
-            }
+                threads--;
 
-            for (var key in storage) {
-                search(key, skeleton)
-            }
+                if (threads === 0) {
+                    if (Object.keys(my_skeleton).length > 0) {
+                        satus.render(my_skeleton, component.parentNode);
 
-            setTimeout(function () {
-                if (Object.keys(new_menu).length > 0) {
-                    satus.render(new_menu, component. parentNode);
-
-                    component.remove();
-                } else {
-                    satus.render({
-                        text: {
-                            type: 'text',
-                            label: 'noActiveFeatures'
-                        }
-                    }, component);
+                        component.remove();
+                    } else {
+                        satus.render({
+                            text: {
+                                type: 'text',
+                                label: 'noActiveFeatures'
+                            }
+                        }, component);
+                    }
                 }
-            });
+            }
+
+            parse(skeleton);
         }
     }
 };
