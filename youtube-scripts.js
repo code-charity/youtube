@@ -2489,7 +2489,7 @@ ImprovedTube.shortcuts = function() {
                 var data = JSON.parse(self.storage[i]) || {};
 
                 if (
-                    (data.key === keys.key || !self.isset(data.key)) &&
+                    (data.keyCode === keys.keyCode || !self.isset(data.keyCode)) &&
                     (data.shiftKey === keys.shiftKey || !self.isset(data.shiftKey)) &&
                     (data.ctrlKey === keys.ctrlKey || !self.isset(data.ctrlKey)) &&
                     (data.altKey === keys.altKey || !self.isset(data.altKey)) &&
