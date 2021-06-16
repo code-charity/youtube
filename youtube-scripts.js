@@ -1953,7 +1953,7 @@ ImprovedTube.playlistReversed = false;
 
 ImprovedTube.playlistReverse = function() {
     if (this.storage.playlist_reverse === true) {
-        if (!document.querySelector('#it-reverse-playlist')) {
+        if (!document.querySelector('#it-reverse-playlist') && document.querySelector('ytd-watch-flexy ytd-playlist-panel-renderer #start-actions')) {
             var button = document.createElement('button');
 
             button.id = 'it-reverse-playlist';
@@ -1990,31 +1990,47 @@ ImprovedTube.playlistReverse = function() {
                 playlist_manager = document.querySelector('yt-playlist-manager');
 
             if (playlist_manager) {
-                var next_href = (document.querySelector('#playlist [selected] + * a') || document.querySelector('#playlist ytd-playlist-panel-video-renderer a')).href;
+                var prev_item = document.querySelector('#playlist [selected]').previousElementSibling || document.querySelector('#playlist ytd-playlist-panel-video-renderer:last-child'),
+                    next_item = document.querySelector('#playlist [selected] + *') || document.querySelector('#playlist ytd-playlist-panel-video-renderer'),
+                    prev_href = prev_item.querySelector('a').href,
+                    next_href = next_item.querySelector('a').href;
                 
                 if (prev_button) {
-                    var prev_href = (document.querySelector('#playlist [selected]').previousElementSibling || document.querySelector('#playlist ytd-playlist-panel-video-renderer:last-child')).querySelector('a').href;
-                    
                     prev_button.href = prev_href;
-                    prev_button.dataset.preview = (document.querySelector('#playlist [selected]').previousElementSibling || document.querySelector('#playlist ytd-playlist-panel-video-renderer:last-child')).querySelector('img').src;
-                    prev_button.dataset.tooltipText = (document.querySelector('#playlist [selected]').previousElementSibling || document.querySelector('#playlist ytd-playlist-panel-video-renderer:last-child')).querySelector('#video-title').innerText;
+                    prev_button.dataset.preview = prev_item.querySelector('img').src;
+                    prev_button.dataset.tooltipText = prev_item.querySelector('#video-title').innerText;
 
-                    playlist_manager.autoplayData.sets[0].previousButtonVideo.commandMetadata.webCommandMetadata.url = prev_href.replace(location.origin, '');
-                    playlist_manager.autoplayData.sets[0].previousButtonVideo.watchEndpoint.videoId = next_href.match(/(\?|\&)v=[^&]+/)[0].substr(3);
+                    if (playlist_manager.autoplayData.sets[0].previousButtonVideo) {
+                        playlist_manager.autoplayData.sets[0].previousButtonVideo.commandMetadata.webCommandMetadata.url = prev_href.replace(location.origin, '');
+                        playlist_manager.autoplayData.sets[0].previousButtonVideo.watchEndpoint.videoId = prev_href.match(/(\?|\&)v=[^&]+/)[0].substr(3);
+                    }
+
+                    if (playlist_manager.autoplayData.sets[1].previousButtonVideo) {
+                        playlist_manager.autoplayData.sets[1].previousButtonVideo.commandMetadata.webCommandMetadata.url = next_href.replace(location.origin, '');
+                        playlist_manager.autoplayData.sets[1].previousButtonVideo.watchEndpoint.videoId = next_href.match(/(\?|\&)v=[^&]+/)[0].substr(3);
+                    }
                 }
 
                 if (next_button) {
                     next_button.href = next_href;
-                    next_button.dataset.preview = (document.querySelector('#playlist [selected] + * img') || document.querySelector('#playlist ytd-playlist-panel-video-renderer img')).src;
-                    next_button.dataset.tooltipText = (document.querySelector('#playlist [selected] + * #video-title') || document.querySelector('#playlist ytd-playlist-panel-video-renderer #video-title')).innerText;
+                    next_button.dataset.preview = next_item.querySelector('img').src;
+                    next_button.dataset.tooltipText = next_item.querySelector('#video-title').innerText;
                 
+                    if (playlist_manager.autoplayData.sets[0].nextButtonVideo) {
+                        playlist_manager.autoplayData.sets[0].nextButtonVideo.commandMetadata.webCommandMetadata.url = next_href.replace(location.origin, '');
+                        playlist_manager.autoplayData.sets[0].nextButtonVideo.watchEndpoint.videoId = next_href.match(/(\?|\&)v=[^&]+/)[0].substr(3);
+                    }
 
-                    playlist_manager.autoplayData.sets[0].nextButtonVideo.commandMetadata.webCommandMetadata.url = next_href.replace(location.origin, '');
-                    playlist_manager.autoplayData.sets[0].nextButtonVideo.watchEndpoint.videoId = next_href.match(/(\?|\&)v=[^&]+/)[0].substr(3);
+                    if (playlist_manager.autoplayData.sets[1].nextButtonVideo) {
+                        playlist_manager.autoplayData.sets[1].nextButtonVideo.commandMetadata.webCommandMetadata.url = prev_href.replace(location.origin, '');
+                        playlist_manager.autoplayData.sets[1].nextButtonVideo.watchEndpoint.videoId = prev_href.match(/(\?|\&)v=[^&]+/)[0].substr(3);
+                    }
                 }
 
                 playlist_manager.autoplayData.sets[0].autoplayVideo.commandMetadata.webCommandMetadata.url = next_href.replace(location.origin, '');
                 playlist_manager.autoplayData.sets[0].autoplayVideo.watchEndpoint.videoId = next_href.match(/(\?|\&)v=[^&]+/)[0].substr(3);
+                playlist_manager.autoplayData.sets[1].autoplayVideo.commandMetadata.webCommandMetadata.url = next_href.replace(location.origin, '');
+                playlist_manager.autoplayData.sets[1].autoplayVideo.watchEndpoint.videoId = next_href.match(/(\?|\&)v=[^&]+/)[0].substr(3);
             }
         }
 
