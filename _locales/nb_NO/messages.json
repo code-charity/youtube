@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "Mørkelilla"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Forvalgt kanalfane"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "Slett YouTube-informasjonskapsler"
@@ -335,15 +341,6 @@
     "hiddenOnVideoPage": {
         "message": "Skjult på videosiden"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "Skjul animerte miniatyrbilder"
     },
@@ -374,14 +371,23 @@
     "hideGradientBottom": {
         "message": "Skjul bunn-fargeovergang"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "Skjul spilleliste"
     },
     "hideRightButtons": {
         "message": "Skjul høyre-knapper"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "Skjul «Bla for detaljer»"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "Skjul visningsteller"
@@ -469,6 +475,9 @@
     },
     "liveChatType": {
         "message": "Sanntidssludringstype"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "Lydstyrkenormalisering"

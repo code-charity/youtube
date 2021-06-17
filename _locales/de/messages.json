@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "Dunkel-Lila"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Standard-Kanal-Tab"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "YouTube-Cookies löschen"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "Auf Videoseiten ausblenden"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "Keine animierten Vorschaubilder"
     },
@@ -371,14 +368,23 @@
     "hideGradientBottom": {
         "message": "Farbverlauf ausblenden"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "Playlists ausblenden"
     },
     "hideRightButtons": {
         "message": "Rechte Buttons ausblenden"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "„Für Details scrollen“ ausblenden"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "Videoaufrufe ausblenden"
@@ -466,6 +472,9 @@
     },
     "liveChatType": {
         "message": "Live-Chat Typ"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "Lautstärke normalisieren"

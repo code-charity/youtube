@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "深紫色"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "預設頻道標籤"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "刪除 YouTube cookies"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "於影片頁面自動隱藏"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "隱藏動態的縮略圖"
     },
@@ -374,14 +371,23 @@
     "hideGradientBottom": {
         "message": "隱藏底部漸層圖層"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "隱藏播放清單"
     },
     "hideRightButtons": {
         "message": "隱藏右側按鈕"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "隱藏「向下捲動即可查看詳情」"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideThumbnailOverlay": {
         "message": "隱藏縮圖上的按鈕"
@@ -472,6 +478,9 @@
     },
     "liveChatType": {
         "message": "Live 聊天視窗種類"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "音量標準化"

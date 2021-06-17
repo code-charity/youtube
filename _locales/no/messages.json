@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "Mørkelilla"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Standard kanalfane"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "Slett YouTube-informasjonskapsler"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "Skjult på video siden"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "Skjul animerte miniatyrbilder"
     },
@@ -368,14 +365,23 @@
     "hideFooter": {
         "message": "Skjul bunntekst "
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "Skjul spilleliste"
     },
     "hideRightButtons": {
         "message": "Skjul høyre knapper"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "Skjul «Bla for detaljer»"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "Skjul visninger teller"
@@ -463,6 +469,9 @@
     },
     "liveChatType": {
         "message": "Live chat type"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "Høytthetsnormalisering"

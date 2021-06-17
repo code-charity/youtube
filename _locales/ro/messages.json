@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "Mov închis"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Tab-ul implicit al canalului"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "Șterge cookie-urile YouTube"
@@ -335,15 +341,6 @@
     "hiddenOnVideoPage": {
         "message": "Ascuns pe pagina video"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "Ascunde miniaturile animate"
     },
@@ -374,14 +371,23 @@
     "hideGradientBottom": {
         "message": "Ascunde Gradient Bottom"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "Ascunde playlistul"
     },
     "hideRightButtons": {
         "message": "Ascunde butoanele din dreapta"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "Ascunde «Derulează pentru detalii»"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "Ascunde numărul vizualizărilor"
@@ -469,6 +475,9 @@
     },
     "liveChatType": {
         "message": "Chat live scrie"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "Normalizează zgomotul"

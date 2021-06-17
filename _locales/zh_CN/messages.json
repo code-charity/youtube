@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "深紫色"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "默认频道页"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "清空 YouTube cookies"
@@ -335,15 +341,6 @@
     "hiddenOnVideoPage": {
         "message": "在视频播放页面时隐藏"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "隐藏动态缩略图"
     },
@@ -377,14 +374,23 @@
     "hideGradientBottom": {
         "message": "隐藏底部渐变层"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "隐藏播放列表"
     },
     "hideRightButtons": {
         "message": "隐藏右侧按钮"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "隐藏 «滚动至详细信息»"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideThumbnailOverlay": {
         "message": "隐藏缩略图上的按钮"
@@ -475,6 +481,9 @@
     },
     "liveChatType": {
         "message": "实时聊天窗类型"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "音量标准化"

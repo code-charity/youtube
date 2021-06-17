@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "Ungu tua"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Tab saluran standar"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "Hapus kuki youtube"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "Tersembunyi di halaman video"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "Sembunyikan animasi gambar kecil"
     },
@@ -371,14 +368,23 @@
     "hideGradientBottom": {
         "message": "Sembunyikan Gradient Bagian Bawah"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "Sembunyikan daftar putar"
     },
     "hideRightButtons": {
         "message": "Sembunyikan tombol kanan"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "Sembunyikan «gulir untuk detail»"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "Sembunyikan jumlah penayangan"
@@ -466,6 +472,9 @@
     },
     "liveChatType": {
         "message": "Jenis obrolan langsung"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "Normalkan suara"
