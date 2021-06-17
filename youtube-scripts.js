@@ -628,8 +628,6 @@ ImprovedTube.relatedVideos = function() {
 
 /*------------------------------------------------------------------------------
 2.3.1 HOW LONG AGO THE VIDEO WAS UPLOADED
---------------------------------------------------------------------------------
-TODO: TEST
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.howLongAgoTheVideoWasUploaded = function() {
@@ -662,7 +660,8 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function() {
         }
 
         var waiting_channel_link = setInterval(function() {
-            var youtube_version = document.documentElement.getAttribute('it-youtube-version') === 'new';
+            var youtube_version = document.documentElement.getAttribute('it-youtube-version') === 'new',
+                api_key = typeof ImprovedTube.storage.google_api_key === 'string' && ImprovedTube.storage.google_api_key.length > 0 ? ImprovedTube.storage.google_api_key : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
 
             if (document.querySelector(youtube_version ? '#meta-contents ytd-channel-name' : '.yt-user-info a')) {
                 clearInterval(waiting_channel_link);
@@ -693,7 +692,7 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function() {
                     }
                 });
 
-                xhr.open('GET', 'https://www.googleapis.com/youtube/v3/videos?id=' + ImprovedTube.getParam(location.href.slice(location.href.indexOf('?') + 1), 'v') + '&key=AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA&part=snippet', true);
+                xhr.open('GET', 'https://www.googleapis.com/youtube/v3/videos?id=' + ImprovedTube.getParam(location.href.slice(location.href.indexOf('?') + 1), 'v') + '&key=' + api_key + '&part=snippet', true);
                 xhr.send();
             }
         }, 500);
