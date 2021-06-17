@@ -335,6 +335,15 @@
     "hiddenOnVideoPage": {
         "message": "Ukryty na stronie z wideo"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
+    },
     "hideAnimatedThumbnails": {
         "message": "Ukryj animowane miniatury"
     },
@@ -349,6 +358,9 @@
     },
     "hideCountryCode": {
         "message": "Hide country code"
+    },
+    "hideDate": {
+        "message": "Hide date"
     },
     "hideDetails": {
         "message": "Ukryj szczegóły"

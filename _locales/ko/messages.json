@@ -332,6 +332,15 @@
     "hiddenOnVideoPage": {
         "message": "비디오 페이지 숨기기"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
+    },
     "hideAnimatedThumbnails": {
         "message": "썸네일 애니메이션 숨기기"
     },
@@ -343,6 +352,9 @@
     },
     "hideCountryCode": {
         "message": "Hide country code"
+    },
+    "hideDate": {
+        "message": "Hide date"
     },
     "hideDetails": {
         "message": "상세설명 숨기기"
