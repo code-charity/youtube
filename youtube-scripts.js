@@ -3395,6 +3395,13 @@ ImprovedTube.onmousedown = function(event) {
     }, true);
 };
 
+ImprovedTube.location = function() {
+    var value = this.storage.default_content_country;
+
+    if (this.isset(value) && value !== 'default') {
+        this.setCookie('s_gl', value);
+    }
+};
 
 ImprovedTube.getCookieValueByName = function(name) {
     var match = document.cookie.match(new RegExp('([; ]' + name + '|^' + name + ')([^\\s;]*)', 'g'));
@@ -3513,6 +3520,7 @@ ImprovedTube.reverse = function(parent) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.init = function() {
+    this.location();
     this.playerH264();
     this.player60fps();
     this.playerSDR();

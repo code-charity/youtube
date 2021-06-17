@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "Viola intenso"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Scheda predefinita"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "Cancella cookie YouTube"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "Nascosta nella pagina video"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "Nascondi miniature animate"
     },
@@ -371,14 +368,23 @@
     "hideGradientBottom": {
         "message": "Nascondi fondo gradiente"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "Nascondi scaletta"
     },
     "hideRightButtons": {
         "message": "Nascondi pulsanti sulla destra"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "Nascondi «Scorri per dettagli»"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "Nascondi contatore visualizzazioni"
@@ -466,6 +472,9 @@
     },
     "liveChatType": {
         "message": "Tipologia chat dal vivo"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "Normalizzazione rumorosità"

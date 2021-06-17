@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "Deep purple"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Default channel tab"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "Delete YouTube cookies"
@@ -335,15 +341,6 @@
     "hiddenOnVideoPage": {
         "message": "Hidden on video page"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "Hide animated thumbnails"
     },
@@ -377,14 +374,23 @@
     "hideGradientBottom": {
         "message": "Hide shadow around player-bar"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "Hide playlist"
     },
     "hideRightButtons": {
         "message": "Hide right buttons"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "Hide «Scroll for details»"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
@@ -475,6 +481,9 @@
     },
     "liveChatType": {
         "message": "Live chat type"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "Loudness normalization"

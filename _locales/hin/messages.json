@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "गहरा बैंगनी"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "डिफ़ॉल्ट चैनल टैब"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "यूट्यूब कुकीज़ हटाएं"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "वीडियो पेज पर छिपा हुआ"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "वीडियो पेज पर छिपा हुआ"
     },
@@ -371,14 +368,23 @@
     "hideGradientBottom": {
         "message": "ग्रेडिएंट बॉटम छुपाएं"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "प्लेलिस्ट छिपाएं"
     },
     "hideRightButtons": {
         "message": "दाएं बटन छुपाएं"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "छिपाएँ «विवरण के लिए स्क्रॉल»"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "व्यू काउंट छिपाएं"
@@ -466,6 +472,9 @@
     },
     "liveChatType": {
         "message": "लाइव चैट प्रकार"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "जोर से सामान्य होना"

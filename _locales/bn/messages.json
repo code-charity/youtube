@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "গভীর বেগুনি"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "ডিফল্ট চ্যানেল ট্যাব"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "ইউটিউব এর কুকি ডিলিট করুন"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "ভিডিও পৃষ্ঠায় লুকানো"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "অ্যানিমেটেড থাম্বনেলগুলি লুকান"
     },
@@ -371,14 +368,23 @@
     "hideGradientBottom": {
         "message": "গ্রেডিয়েন্ট নীচে লুকান"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "প্লেলিস্ট লুকান"
     },
     "hideRightButtons": {
         "message": "ডান বোতামগুলি লুকান"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "«বিশদ জন্য স্ক্রোলs» লুকান"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "দর্শন গণনা লুকান"
@@ -466,6 +472,9 @@
     },
     "liveChatType": {
         "message": "লাইভ চ্যাট টাইপ"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "আওয়াজের স্বাভাবিককরণ"

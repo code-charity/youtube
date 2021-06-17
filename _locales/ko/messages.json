@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "진한 보라"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "기본 채널 탭"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "유튜브 쿠키 삭제"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "비디오 페이지 숨기기"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "썸네일 애니메이션 숨기기"
     },
@@ -371,14 +368,23 @@
     "hideGradientBottom": {
         "message": "그라데이션 맨 아래로 숨기기"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "재생 목록 숨기기"
     },
     "hideRightButtons": {
         "message": "오른쪽 버튼 숨기기"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "«스크롤 하여 자세한 설명» 숨기기"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "조회수 숨기기"
@@ -466,6 +472,9 @@
     },
     "liveChatType": {
         "message": "실시간 채팅 유형"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "볼륨 자동조정"

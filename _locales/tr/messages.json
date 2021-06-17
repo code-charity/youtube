@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "Koyu mor"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Varsayılan kanal sekmesi"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "YouTube çerezleri sil"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "Video sayfasında gizli"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "Hareketli küçük resimleri gizle"
     },
@@ -371,14 +368,23 @@
     "hideGradientBottom": {
         "message": "Hide Gradient Bottom"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "Oynatma Listesi'ni gizle"
     },
     "hideRightButtons": {
         "message": "Sağ butonları gizle"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "«Ayrıntılar için kaydır» gizle"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "Görüntüleme sayısını gizle"
@@ -466,6 +472,9 @@
     },
     "liveChatType": {
         "message": "Canlı sohbet türü"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "Gürültü normalleştirme"

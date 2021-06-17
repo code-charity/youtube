@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "أرجواني داكن"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "علامة تبويب القناة الافتراضية"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "حذف ملفات تعريف الارتباط من اليوتيوب"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "مخفي على صفحة الفيديو"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "إخفاء الصور المصغرة المتحركة"
     },
@@ -371,14 +368,23 @@
     "hideGradientBottom": {
         "message": "إخفاء التدرج الأسود السفلي"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "إخفاء قائمة التشغيل"
     },
     "hideRightButtons": {
         "message": "إخفاء الأزرار اليسرى"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "«إخفاء «التمرير للحصول على التفاصيل"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "إخفاء عدد المشاهدات"
@@ -466,6 +472,9 @@
     },
     "liveChatType": {
         "message": "نوع المحادثة مباشرة"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "تطبيع الإزعاج"
