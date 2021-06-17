@@ -1041,7 +1041,8 @@ html[it-hide-more-button=true] #info #top-level-buttons-computed + yt-icon-butto
 2.4.5 SHOW DISLIKE RED COLOR
 ------------------------------------------------------------------------------*/
 
-[it-red-dislike-button=true] #top-level-buttons>ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active>a {
+[it-red-dislike-button=true] #top-level-buttons>ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active>a,
+[it-red-dislike-button=true] #top-level-buttons-computed>ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active>a {
     color: #fc0000 !important;
 }
 
