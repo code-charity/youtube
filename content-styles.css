@@ -3177,6 +3177,13 @@ html[it-mini-player-cursor='nw-resize']::after {
     text-shadow: 0 0 2px rgb(0, 0, 0, .5);
 }
 
+body.no-scroll .it-player-button--tooltip {
+    font-size: 20px;
+    line-height: 22px;
+    padding: 8px 9px;
+    transform: translate(-50%, -75%);
+}
+
 #it-screenshot-button svg {
     position: absolute !important;
     top: 7px !important;
