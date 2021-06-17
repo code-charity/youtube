@@ -332,6 +332,15 @@
     "hiddenOnVideoPage": {
         "message": "動画ページでは隠す"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
+    },
     "hideAnimatedThumbnails": {
         "message": "サムネイルのアニメーションを行わない"
     },
@@ -343,6 +352,9 @@
     },
     "hideCountryCode": {
         "message": "Hide country code"
+    },
+    "hideDate": {
+        "message": "Hide date"
     },
     "hideDetails": {
         "message": "詳細を隠す"

@@ -1725,25 +1725,14 @@ skeleton.main.section.appearance = {
                 label: 'hideDetails',
                 tags: 'hide,remove'
             },
-            description: {
-                type: 'select',
-                label: 'description',
-
-                options: [{
-                    label: 'normal',
-                    value: 'normal'
-                }, {
-                    label: 'expanded',
-                    value: 'expanded'
-                }, {
-                    label: 'hidden',
-                    value: 'hidden'
-                }],
-                tags: 'hide,remove'
-            },
             hide_views_count: {
                 type: 'switch',
                 label: 'hideViewsCount',
+                tags: 'hide,remove'
+            },
+            hide_date: {
+                type: 'switch',
+                label: 'hideDate',
                 tags: 'hide,remove'
             },
             likes: {
@@ -1756,6 +1745,37 @@ skeleton.main.section.appearance = {
                 }, {
                     label: 'iconsOnly',
                     value: 'icons_only'
+                }, {
+                    label: 'hidden',
+                    value: 'hidden'
+                }],
+                tags: 'hide,remove'
+            },
+            hide_share_button: {
+                type: 'switch',
+                label: 'hideShareButton',
+                tags: 'hide,remove'
+            },
+            hide_save_button: {
+                type: 'switch',
+                label: 'hideSaveButton',
+                tags: 'hide,remove'
+            },
+            hide_more_button: {
+                type: 'switch',
+                label: 'hideMoreButton',
+                tags: 'hide,remove'
+            },
+            description: {
+                type: 'select',
+                label: 'description',
+
+                options: [{
+                    label: 'normal',
+                    value: 'normal'
+                }, {
+                    label: 'expanded',
+                    value: 'expanded'
                 }, {
                     label: 'hidden',
                     value: 'hidden'
