@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "深い紫"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "デフォルトのチャンネルタブ"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "YouTube の Cookie を削除する"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "動画ページでは隠す"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "サムネイルのアニメーションを行わない"
     },
@@ -371,14 +368,23 @@
     "hideGradientBottom": {
         "message": "グラデーションの下部を隠す"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "再生リストを隠す"
     },
     "hideRightButtons": {
         "message": "右ボタンを隠す"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "「スクロールして詳細を表示」を隠す"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "視聴数を隠す"
@@ -466,6 +472,9 @@
     },
     "liveChatType": {
         "message": "ライブチャットの種類"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "音量のノーマリゼーション"

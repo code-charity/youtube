@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "Violet foncé"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Onglet par défaut d'une chaîne"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "Supprimer les cookies YouTube"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "Caché sur la page de la vidéo"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "Miniatures sans animation"
     },
@@ -371,14 +368,23 @@
     "hideGradientBottom": {
         "message": "Masquer le dégradé du bas"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "Cacher la liste de lecture"
     },
     "hideRightButtons": {
         "message": "Cacher les boutons à droite"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "Cacher « Faire défiler pour les détails »"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "Voir le compte des vues"
@@ -466,6 +472,9 @@
     },
     "liveChatType": {
         "message": "Type de chat en direct"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "Normalisation de l'intensité sonore"

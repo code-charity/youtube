@@ -203,8 +203,14 @@
     "deepPurple": {
         "message": "Темно-фиолетовый"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Вкладка канала по умолчанию"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
     },
     "deleteYoutubeCookies": {
         "message": "Удалить куки YouTube"
@@ -332,15 +338,6 @@
     "hiddenOnVideoPage": {
         "message": "Скрыть (только на странице с видео)"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
-    },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideAnimatedThumbnails": {
         "message": "Скрыть анимированные превью"
     },
@@ -371,14 +368,23 @@
     "hideGradientBottom": {
         "message": "Hide Gradient Bottom"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
     "hidePlaylist": {
         "message": "Скрыть плейлист"
     },
     "hideRightButtons": {
         "message": "Скрыть кнопки (справа)"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "Скрыть «Прокрутите для подробной информации»"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
     },
     "hideViewsCount": {
         "message": "Скрыть количество просмотров"
@@ -466,6 +472,9 @@
     },
     "liveChatType": {
         "message": "Тип live-чата"
+    },
+    "location": {
+        "message": "Location"
     },
     "loudnessNormalization": {
         "message": "Нормализировать громкость"
