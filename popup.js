@@ -357,24 +357,24 @@ skeleton.header.section_end.button_vert.onClickRender.settings = {
                 }
             },
 
-            /*translations_section_label: {
+            google_api_key_section_label: {
                 type: 'text',
                 class: 'satus-section--label',
-                label: 'translations'
+                label: 'Google API key'
             },
 
-            translations_section: {
+            google_api_key_section: {
                 type: 'section',
-                onrender: function() {
-                    satus.search('language', skeleton, function(result) {
-                        var languages = result.language.options;
-
-                        for (var i = 0, l = languages.length; i < l; i++) {
-
-                        }
-                    })
+                google_api_key: {
+                    type: 'text-field',
+                    onrender: function () {
+                        this.value = typeof satus.storage.get('google_api_key') === 'string' && satus.storage.get('google_api_key').length > 0 ? satus.storage.get('google_api_key') : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
+                    },
+                    oninput: function () {
+                        satus.storage.set('google_api_key', typeof satus.storage.get('google_api_key') === 'string' && satus.storage.get('google_api_key').length > 0 ? satus.storage.get('google_api_key') : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA');
+                    }
                 }
-            }*/
+            }
         },
     },
 
