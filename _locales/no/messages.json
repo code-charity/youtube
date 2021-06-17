@@ -332,6 +332,15 @@
     "hiddenOnVideoPage": {
         "message": "Skjult på video siden"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
+    },
     "hideAnimatedThumbnails": {
         "message": "Skjul animerte miniatyrbilder"
     },
@@ -343,6 +352,9 @@
     },
     "hideCountryCode": {
         "message": "Hide country code"
+    },
+    "hideDate": {
+        "message": "Hide date"
     },
     "hideDetails": {
         "message": "Skjul detaljer"

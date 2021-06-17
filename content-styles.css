@@ -34,8 +34,8 @@
     2.3.5 Thumbnails
   2.4 Details
     2.4.1 Hide details
-    2.4.2 Description
-    2.4.3 Hide views count
+    2.4.2 Hide views count
+    2.4.3 Description
     2.4.4 Likes
     2.4.5 Show dislike button red colour
   2.5 Comments
@@ -936,7 +936,6 @@ html[it-thumbnails-hide='true'] #dismissible>ytd-thumbnail
 2.4 DETAILS
 ------------------------------------------------------------------------------*/
 
-
 /*------------------------------------------------------------------------------
 2.4.1 HIDE DETAILS
 ------------------------------------------------------------------------------*/
@@ -951,33 +950,50 @@ html[it-hide-details=true] #primary-inner>#meta {
 
 
 /*------------------------------------------------------------------------------
-2.4.2 DESCRIPTION
-------------------------------------------------------------------------------*/
-
-html[it-description=hidden] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
-html[it-description=hidden] div#action-panel-details,
-html[it-description=expanded] #meta-contents ytd-expander[collapsed] paper-button,
-html[it-description=expanded] #action-panel-details button {
-    display: none !important;
-}
-
-html[it-description=expanded] #meta-contents ytd-expander[collapsed]>#content.ytd-expander,
-html[it-description=expanded] #watch-description-text {
-    max-height: unset !important;
-}
-
-html[it-description=expanded] .yt-uix-expander .yt-uix-expander-collapsed-body,
-html[it-description=expanded] .yt-uix-expander-collapsed .yt-uix-expander-body {
-    display: block !important;
-}
-
-
-/*------------------------------------------------------------------------------
-2.4.3 HIDE VIEWS COUNT
+2.4.2 HIDE VIEWS COUNT
 ------------------------------------------------------------------------------*/
 
 html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer,
 html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer + #date > #dot {
+    display: none;
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.2 HIDE DATE
+------------------------------------------------------------------------------*/
+
+html[it-hide-date=true] #count.ytd-video-primary-info-renderer + #date,
+html[it-hide-date=true] #count.ytd-video-primary-info-renderer + #date > #dot {
+    display: none;
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.2 HIDE SHARE BUTTON
+------------------------------------------------------------------------------*/
+
+html[it-hide-share-button=true] #info #top-level-buttons ytd-button-renderer:nth-child(3),
+html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-child(3) {
+    display: none;
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.2 HIDE SAVE BUTTON
+------------------------------------------------------------------------------*/
+
+html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer:nth-child(4),
+html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-child(4) {
+    display: none;
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.2 HIDE MORE BUTTON
+------------------------------------------------------------------------------*/
+
+html[it-hide-more-button=true] #info #top-level-buttons-computed + yt-icon-button {
     display: none;
 }
 
@@ -1027,6 +1043,28 @@ html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer + #date > 
 
 [it-red-dislike-button=true] #top-level-buttons>ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active>a {
     color: #fc0000 !important;
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.3 DESCRIPTION
+------------------------------------------------------------------------------*/
+
+html[it-description=hidden] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
+html[it-description=hidden] div#action-panel-details,
+html[it-description=expanded] #meta-contents ytd-expander[collapsed] paper-button,
+html[it-description=expanded] #action-panel-details button {
+    display: none !important;
+}
+
+html[it-description=expanded] #meta-contents ytd-expander[collapsed]>#content.ytd-expander,
+html[it-description=expanded] #watch-description-text {
+    max-height: unset !important;
+}
+
+html[it-description=expanded] .yt-uix-expander .yt-uix-expander-collapsed-body,
+html[it-description=expanded] .yt-uix-expander-collapsed .yt-uix-expander-body {
+    display: block !important;
 }
 
 

@@ -332,6 +332,15 @@
     "hiddenOnVideoPage": {
         "message": "Κρυμμένο στη σελίδα βίντεο"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
+    },
     "hideAnimatedThumbnails": {
         "message": "Απόκρυψε τα κινούμενα εικονίδια βίντεο"
     },
@@ -343,6 +352,9 @@
     },
     "hideCountryCode": {
         "message": "Hide country code"
+    },
+    "hideDate": {
+        "message": "Hide date"
     },
     "hideDetails": {
         "message": "Απόκρυψε τις λεπτομέρειες"
