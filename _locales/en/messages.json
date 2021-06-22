@@ -674,6 +674,12 @@
     "seekForward10Seconds": {
         "message": "Seek forward 10 seconds"
     },
+    "seekNextChapter": {
+        "message": "Seek Next Chapter"
+    },
+    "seekPreviousChapter": {
+        "message": "Seek Previous Chapter"
+    },
     "settings": {
         "message": "Settings"
     },
