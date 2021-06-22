@@ -674,6 +674,12 @@
     "seekForward10Seconds": {
         "message": "Przewiń 10 sekund do przodu"
     },
+    "seekNextChapter": {
+        "message": "Przewiń do następnego rozdziału"
+    },
+    "seekPreviousChapter": {
+        "message": "Przewiń do poprzedniego rozdziału"
+    },
     "settings": {
         "message": "Ustawienia"
     },
