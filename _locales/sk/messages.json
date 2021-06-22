@@ -662,6 +662,12 @@
     "seekForward10Seconds": {
         "message": "Pretočiť dopredu o 10 sekúnd"
     },
+    "seekNextChapter": {
+        "message": "seekNextChapter"
+    },
+    "seekPreviousChapter": {
+        "message": "seekPreviousChapter"
+    },
     "settings": {
         "message": "Nastavenia"
     },
