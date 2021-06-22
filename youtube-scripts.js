@@ -2352,26 +2352,20 @@ ImprovedTube.shortcuts = function() {
                 }
             },
             shortcut_seek_next_chapter: function() {
-                console.log("shortcut works");
                 const player = document.querySelector("#movie_player");
                 const chapterDiv = document.querySelector(".ytp-chapters-container");
                 const progressBarWidth = parseInt(document.querySelector(".ytp-chrome-bottom").style.width);
 
                 if (!player || !player.seekBy || !progressBarWidth ||
                      !chapterDiv || !chapterDiv.children) {
-                    console.log("seek next chapter returns");
                     return;
                 }
 
                 let curWidth = 0;
 
                 for(let child of chapterDiv.children) {
-                    console.log(`curChild ${child.toString()}, curWidth: ${curWidth}`);
-                    console.log(`1st if: ${curWidth - 10 / progressBarWidth <= player.getCurrentTime() / player.getDuration()}`);
-                    console.log(`2st if: ${(curWidth - 2 + parseInt(child.style.width)) / progressBarWidth >= player.getCurrentTime() / player.getDuration()}`);
                     if((curWidth - 2) / progressBarWidth <= player.getCurrentTime() / player.getDuration() &&
                          (curWidth - 2 + parseInt(child.style.width)) / progressBarWidth >= player.getCurrentTime() / player.getDuration() ) { //if child is current chapter
-                        console.log(`something passed test ${child}`);
                         player.seekTo(((parseInt(child.style.width) + curWidth) / progressBarWidth) * player.getDuration());
                         return;
                     }
@@ -2380,14 +2374,12 @@ ImprovedTube.shortcuts = function() {
                 }
             },
             shortcut_seek_previous_chapter: function() {
-                console.log("shortcut works");
                 const player = document.querySelector("#movie_player");
                 const chapterDiv = document.querySelector(".ytp-chapters-container");
                 const progressBarWidth = parseInt(document.querySelector(".ytp-chrome-bottom").style.width);
 
                 if (!player || !player.seekBy || !progressBarWidth ||
                      !chapterDiv || !chapterDiv.children) {
-                    console.log("seek next chapter returns");
                     return;
                 }
 
@@ -2400,13 +2392,8 @@ ImprovedTube.shortcuts = function() {
                     }
 
                     let child = chapterDiv.children[i];
-                    console.log(`curChild ${child.toString()}, curWidth: ${curWidth}`);
-                    console.log(`1st if: ${curWidth + 2 / progressBarWidth <= player.getCurrentTime() / player.getDuration()}`);
-                    console.log(`2st if: ${(curWidth - 2 + parseInt(child.style.width)) / progressBarWidth >= player.getCurrentTime() / player.getDuration()}`);
                     if((curWidth + 2) / progressBarWidth <= player.getCurrentTime() / player.getDuration() &&
                         (curWidth + 2 + parseInt(child.style.width)) / progressBarWidth >= player.getCurrentTime() / player.getDuration() ) { //if child is current chapter
-                        console.log(`something passed test ${child}`);
-                        // player.seekTo(((curWidth - parseInt(chapterDiv.children[i].style.width)) / progressBarWidth) * player.getDuration());
                         player.seekTo(((curWidth - 2) / progressBarWidth) * player.getDuration());
                         return;
                     }
