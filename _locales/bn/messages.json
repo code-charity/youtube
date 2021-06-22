@@ -662,6 +662,12 @@
     "seekForward10Seconds": {
         "message": "10 সেকেন্ড এগিয়ে যান"
     },
+    "seekNextChapter": {
+        "message": "seekNextChapter"
+    },
+    "seekPreviousChapter": {
+        "message": "seekPreviousChapter"
+    },
     "settings": {
         "message": "সেটিংস"
     },

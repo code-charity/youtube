@@ -662,6 +662,12 @@
     "seekForward10Seconds": {
         "message": "पिछड़े 10 सेकंड की तलाश करें"
     },
+    "seekNextChapter": {
+        "message": "seekNextChapter"
+    },
+    "seekPreviousChapter": {
+        "message": "seekPreviousChapter"
+    },
     "settings": {
         "message": "समायोजन"
     },

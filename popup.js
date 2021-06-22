@@ -3777,6 +3777,14 @@ skeleton.main.section.shortcuts = {
                 key: 'I'
             }
         },
+        shortcut_seek_next_chapter: {
+            type: 'shortcut',
+            label: 'seekNextChapter' 
+        },
+        shortcut_seek_previous_chapter: {
+            type: 'shortcut',
+            label: 'seekPreviousChapter' 
+        },
 
         shortcut_activate_fullscreen: {
             type: 'shortcut',
