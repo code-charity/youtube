@@ -335,29 +335,34 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 7.0 UNINSTALL URL
 --------------------------------------------------------------*/
 
-//chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
+chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
 
 
-/**--------------------------------------------------------------
+/*--------------------------------------------------------------
 8.0 GOOGLE ANALYTICS
 --------------------------------------------------------------*/
 
 var _gaq = _gaq || [];
 
-/*(function() {
-    var ga = document.createElement('script');
+chrome.storage.local.get(function(items) {
+    var ga = document.createElement('script'),
+        time = new Date().getTime();
 
     _gaq.push(['_setAccount', 'UA-88354155-1']);
     _gaq.push(['_setSessionCookieTimeout', 14400000]);
 
-    ga.type = 'text/javascript';
-    ga.async = true;
     ga.src = 'https://ssl.google-analytics.com/ga.js';
 
     document.body.appendChild(ga);
-})();*/
 
-//**
+    if (time - (items.ga || 0) >= 86400000) {
+        _gaq.push(['_trackPageview', '/improvedtube-' + chrome.runtime.getManifest().version + '/background', 'page-loaded']);
+
+        chrome.storage.local.set({
+            ga: time
+        });
+    }
+});
 
 
 /*--------------------------------------------------------------
@@ -374,14 +379,4 @@ chrome.storage.local.get(function(items) {
     }
 
     browserActionIcon();
-
-    var a = new Date().getTime();
-
-    if (a - (items.ga || 0) >= 86400000) {
-        _gaq.push(['_trackPageview', '/improvedtube-' + chrome.runtime.getManifest().version + '/background', 'page-loaded']);
-
-        chrome.storage.local.set({
-            ga: a
-        });
-    }
 });
