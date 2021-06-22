@@ -175,13 +175,13 @@ def firefox():
 		skip = False
 
 		for pos, line in enumerate(lines):
-			if (line.find('/**') != -1):
+			if (lines[pos].find('8.0 GOOGLE ANALYTICS') != -1):
 				skip = True
 
 			if (skip == False):
 				file.write(line)
 
-			if (line.find('//**') != -1):
+			if (line.find('/*--------------------------------------------------------------') != -1):
 				skip = False
 
 	with open('manifest.json', 'r+') as json_file:
