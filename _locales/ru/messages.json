@@ -662,6 +662,12 @@
     "seekForward10Seconds": {
         "message": "Перемотать на 10 секунд вперед"
     },
+    "seekNextChapter": {
+        "message": "seekNextChapter"
+    },
+    "seekPreviousChapter": {
+        "message": "seekPreviousChapter"
+    },
     "settings": {
         "message": "Настройки"
     },

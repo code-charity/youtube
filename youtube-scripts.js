@@ -2351,6 +2351,57 @@ ImprovedTube.shortcuts = function() {
                     player.seekBy(10);
                 }
             },
+            shortcut_seek_next_chapter: function() {
+                const player = document.querySelector("#movie_player");
+                const chapterDiv = document.querySelector(".ytp-chapters-container");
+                const progressBarWidth = parseInt(document.querySelector(".ytp-chrome-bottom").style.width);
+
+                if (!player || !player.seekBy || !progressBarWidth ||
+                     !chapterDiv || !chapterDiv.children) {
+                    return;
+                }
+
+                let curWidth = 0;
+
+                for(let child of chapterDiv.children) {
+                    if((curWidth - 2) / progressBarWidth <= player.getCurrentTime() / player.getDuration() &&
+                         (curWidth - 2 + parseInt(child.style.width)) / progressBarWidth >= player.getCurrentTime() / player.getDuration() ) { //if child is current chapter
+                        player.seekTo(((parseInt(child.style.width) + curWidth) / progressBarWidth) * player.getDuration());
+                        return;
+                    }
+
+                    curWidth += parseInt(child.style.width) + 2;
+                }
+            },
+            shortcut_seek_previous_chapter: function() {
+                const player = document.querySelector("#movie_player");
+                const chapterDiv = document.querySelector(".ytp-chapters-container");
+                const progressBarWidth = parseInt(document.querySelector(".ytp-chrome-bottom").style.width);
+
+                if (!player || !player.seekBy || !progressBarWidth ||
+                     !chapterDiv || !chapterDiv.children) {
+                    return;
+                }
+
+                let curWidth = 0;
+
+                for(let i in chapterDiv.children) {
+                    if(i === 0) {
+                        player.seekTo(0);
+                        return;
+                    }
+
+                    let child = chapterDiv.children[i];
+                    if((curWidth + 2) / progressBarWidth <= player.getCurrentTime() / player.getDuration() &&
+                        (curWidth + 2 + parseInt(child.style.width)) / progressBarWidth >= player.getCurrentTime() / player.getDuration() ) { //if child is current chapter
+                        player.seekTo(((curWidth - 2) / progressBarWidth) * player.getDuration());
+                        return;
+                    }
+
+                    curWidth += parseInt(child.style.width) + 2;
+                }
+            },
+            
             shortcut_increase_volume: function() {
                 var player = document.querySelector('.html5-video-player');
 
