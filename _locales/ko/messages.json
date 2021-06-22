@@ -659,6 +659,12 @@
     "seekForward10Seconds": {
         "message": "앞으로 10초"
     },
+    "seekNextChapter": {
+        "message": "seekNextChapter"
+    },
+    "seekPreviousChapter": {
+        "message": "seekPreviousChapter"
+    },
     "settings": {
         "message": "설정"
     },

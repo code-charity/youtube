@@ -665,6 +665,12 @@
     "seekForward10Seconds": {
         "message": "Avancer de 10 secondes"
     },
+    "seekNextChapter": {
+        "message": "seekNextChapter"
+    },
+    "seekPreviousChapter": {
+        "message": "seekPreviousChapter"
+    },
     "settings": {
         "message": "Réglages"
     },
