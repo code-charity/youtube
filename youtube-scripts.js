@@ -1259,8 +1259,8 @@ ImprovedTube.mini_player__mousedown = function(event) {
 
     var is_player = false;
 
-    for (var i = 0, l = event.path.length; i < l; i++) {
-        if ((event.path[i].classList && event.path[i].classList.contains('it-mini-player')) === true) {
+    for (var i = 0, l = event.composedPath().length; i < l; i++) {
+        if ((event.composedPath()[i].classList && composedPath()[i].classList.contains('it-mini-player')) === true) {
             is_player = true;
         }
     }
@@ -2555,8 +2555,8 @@ ImprovedTube.shortcuts = function() {
     window.addEventListener('mousemove', function(event) {
         hover = false;
 
-        for (var i = 0, l = event.path.length; i < l; i++) {
-            if (event.path[i].classList && event.path[i].classList.contains('html5-video-player')) {
+        for (var i = 0, l = event.composedPath().length; i < l; i++) {
+            if (event.composedPath()[i].classList && event.composedPath()[i].classList.contains('html5-video-player')) {
                 hover = true;
             }
         }
@@ -3379,14 +3379,14 @@ ImprovedTube.onkeydown = function() {
 
 ImprovedTube.onmousedown = function(event) {
     window.addEventListener('mousedown', function(event) {
-        for (var i = 0, l = event.path.length; i < l; i++) {
+        for (var i = 0, l = event.composedPath().length; i < l; i++) {
             if (
                 document.querySelector('.html5-video-player') &&
                 document.querySelector('.html5-video-player').classList.contains('ad-showing') === false &&
-                event.path[i].classList &&
+                event.composedPath()[i].classList &&
                 (
-                    event.path[i].classList.contains('html5-main-video') ||
-                    event.path[i].classList.contains('ytp-play-button')
+                    event.composedPath()[i].classList.contains('html5-main-video') ||
+                    event.composedPath()[i].classList.contains('ytp-play-button')
                 )
             ) {
                 ImprovedTube.allow_autoplay = true;
