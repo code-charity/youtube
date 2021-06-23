@@ -23,10 +23,6 @@ var locale_code = 'en',
 2.0 FUNCTIONS
 --------------------------------------------------------------*/
 
-function isset(variable) {
-    return !(typeof variable === 'undefined' || variable === null);
-}
-
 function getTranslations(path) {
     var xhr = new XMLHttpRequest();
 
@@ -111,7 +107,7 @@ chrome.contextMenus.onClicked.addListener(function(event) {
 --------------------------------------------------------------*/
 
 chrome.runtime.onMessage.addListener(function(request, sender) {
-    if (isset(request) && typeof request === 'object') {
+    if (typeof request === 'object') {
         if (request.enabled === true && browser_icon !== 'always') {
             chrome.browserAction.setIcon({
                 path: 'assets/icons/32.png',
@@ -264,7 +260,7 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
             });
         }
 
-        if (isset(request.export)) {
+        if (request.hasOwnProperty('export')) {
             chrome.storage.local.get(function(data) {
                 chrome.permissions.request({
                     permissions: ['downloads'],
@@ -294,11 +290,11 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
 --------------------------------------------------------------*/
 
 chrome.storage.onChanged.addListener(function(changes) {
-    if (isset(changes.improvedtube_language)) {
+    if (changes.hasOwnProperty('improvedtube_language')) {
         locale_code = changes.improvedtube_language.newValue;
     }
 
-    if (isset(changes.improvedtube_browser_icon)) {
+    if (changes.hasOwnProperty('improvedtube_browser_icon')) {
         browser_icon = changes.improvedtube_browser_icon.newValue;
     }
 
@@ -370,11 +366,11 @@ chrome.storage.local.get(function(items) {
 --------------------------------------------------------------*/
 
 chrome.storage.local.get(function(items) {
-    if (isset(items.improvedtube_language)) {
+    if (items.hasOwnProperty('improvedtube_language')) {
         locale_code = items.improvedtube_language;
     }
 
-    if (isset(items.improvedtube_browser_icon)) {
+    if (items.hasOwnProperty('improvedtube_browser_icon')) {
         browser_icon = items.improvedtube_browser_icon;
     }
 

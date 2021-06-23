@@ -42,9 +42,13 @@ function isset(variable) {
 }
 
 function camelize(string) {
-    return string.replace(/_[a-z]/g, function(match) {
-        return match[1].toUpperCase();
-    });
+    return string.split('-').map(function (element, index) {
+        if (index === 0) {
+            return element;
+        }
+
+        return element[0].toUpperCase() + element.slice(1);
+    }).join('');
 }
 
 function attributes(items) {

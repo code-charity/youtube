@@ -1257,10 +1257,11 @@ ImprovedTube.mini_player__mousedown = function(event) {
         return false;
     }
 
-    var is_player = false;
+    var is_player = false,
+        path = event.composedPath();
 
-    for (var i = 0, l = event.composedPath().length; i < l; i++) {
-        if ((event.composedPath()[i].classList && composedPath()[i].classList.contains('it-mini-player')) === true) {
+    for (var i = 0, l = path.length; i < l; i++) {
+        if ((path[i].classList && path[i].classList.contains('it-mini-player')) === true) {
             is_player = true;
         }
     }
@@ -2604,10 +2605,12 @@ ImprovedTube.shortcuts = function() {
     -------------------------------------------------------------------------*/
 
     window.addEventListener('mousemove', function(event) {
+        var path = event.composedPath();
+
         hover = false;
 
-        for (var i = 0, l = event.composedPath().length; i < l; i++) {
-            if (event.composedPath()[i].classList && event.composedPath()[i].classList.contains('html5-video-player')) {
+        for (var i = 0, l = path.length; i < l; i++) {
+            if (path[i].classList && path[i].classList.contains('html5-video-player')) {
                 hover = true;
             }
         }
@@ -3192,7 +3195,11 @@ ImprovedTube.youtubeLanguage = function() {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.pageUpdateListener = function() {
+    console.log('pageUpdateListener');
+
     window.addEventListener('yt-page-data-updated', function() {
+        console.log('yt-page-data-updated');
+
         ImprovedTube.played_before_blur = false;
 
         ImprovedTube.pageType();
@@ -3209,13 +3216,15 @@ ImprovedTube.pageUpdateListener = function() {
         ImprovedTube.blacklist();
 
         ImprovedTube.improvedtubeYoutubeIcon();
-   //     ImprovedTube.improvedtubeYoutubeSidebarButton();
-   //     ImprovedTube.improvedtubeYoutubePlayerButtons();
+        //ImprovedTube.improvedtubeYoutubeSidebarButton();
+        //ImprovedTube.improvedtubeYoutubePlayerButtons();
     });
 };
 
 ImprovedTube.videoPageUpdate = function() {
     if (this.page_type === 'video') {
+        console.log('videoPageUpdate');
+
         var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');
 
         if (video_id) {
@@ -3295,6 +3304,8 @@ ImprovedTube.ended = function() {};
 ImprovedTube.latestVideoDuration = 0;
 
 ImprovedTube.playerUpdate = function() {
+    console.log('playerUpdate');
+
     this.playerPlaybackSpeed();
     this.subtitles();
     this.playerQuality();
@@ -3313,6 +3324,8 @@ ImprovedTube.playerUpdate = function() {
 
 ImprovedTube.DOMContentLoaded = function() {
     window.addEventListener('DOMContentLoaded', function() {
+        console.log('DOMContentLoaded');
+
         ImprovedTube.youtubeHomePage();
         ImprovedTube.collapseOfSubscriptionSections();
         ImprovedTube.addScrollToTop();
@@ -3334,8 +3347,8 @@ ImprovedTube.DOMContentLoaded = function() {
         ImprovedTube.blacklist();
 
         ImprovedTube.improvedtubeYoutubeIcon();
-    //    ImprovedTube.improvedtubeYoutubeSidebarButton();
-    //    ImprovedTube.improvedtubeYoutubePlayerButtons();
+        //ImprovedTube.improvedtubeYoutubeSidebarButton();
+        //ImprovedTube.improvedtubeYoutubePlayerButtons();
 
         ImprovedTube.pageUpdateListener();
     });
@@ -3430,14 +3443,16 @@ ImprovedTube.onkeydown = function() {
 
 ImprovedTube.onmousedown = function(event) {
     window.addEventListener('mousedown', function(event) {
-        for (var i = 0, l = event.composedPath().length; i < l; i++) {
+        var path = event.composedPath();
+
+        for (var i = 0, l = path.length; i < l; i++) {
             if (
                 document.querySelector('.html5-video-player') &&
                 document.querySelector('.html5-video-player').classList.contains('ad-showing') === false &&
-                event.composedPath()[i].classList &&
+                path[i].classList &&
                 (
-                    event.composedPath()[i].classList.contains('html5-main-video') ||
-                    event.composedPath()[i].classList.contains('ytp-play-button')
+                    path[i].classList.contains('html5-main-video') ||
+                    path[i].classList.contains('ytp-play-button')
                 )
             ) {
                 ImprovedTube.allow_autoplay = true;
@@ -3571,6 +3586,8 @@ ImprovedTube.reverse = function(parent) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.init = function() {
+    console.log('init');
+
     this.location();
     this.playerH264();
     this.player60fps();
@@ -3583,6 +3600,8 @@ ImprovedTube.init = function() {
     this.onmousedown();
 
     window.addEventListener('load', function() {
+        console.log('load');
+
         ImprovedTube.hdThumbnails();
         ImprovedTube.hideThumbnailOverlay();
         ImprovedTube.channelDefaultTab();
