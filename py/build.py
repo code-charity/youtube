@@ -207,8 +207,6 @@ def firefox():
 	archive.close()
 	shutil.rmtree(temporary_path)
 
-	
-
 
 #---------------------------------------------------------------
 # 4.0 INITIALIZATION
