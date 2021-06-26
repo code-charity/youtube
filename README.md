@@ -46,22 +46,24 @@
 	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>
 </p>
 
-<h3 align="right"> 🙏 Credits &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
+<h3 align="right"> 🙏 Credits & Critiques &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
 <table align="right"><tr><td>
 Big thanks ❤️ to our <br> 
-<a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors, developers</a> , 
+<b><a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors, developers</a></b> , 
 <br><a href="https://github.com/code4charity/YouTube-Extension#--translators--">translators</a>, future wiki-authors,
 <br><a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>
-, future sponsors :bowtie: </td></tr></table>
+	, future sponsors :bowtie: <br><br><i> "Might be the best <br> YouTube Extension Ever" <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px"><br></a> "enhances YouTube in <br> meaningful ways" <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px"></a></i> 
+
+</td></tr></table>
 
 
 ## 🧩 ToDo
 ImprovedTube is the only project of it's kind. (Other open YouTube Extensions resigned.) Please spread the word 📣
-- [ ] **1. Documentation Wiki, screenshots, videos** <code> We need to help people learn more about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _We did no documentation before (let alone marketing. ImprovedTube can fly much higher through your word of mouth 🌱. More popularity will allow us to work on all wishes)._</code>
-- [ ] **2. Code:** [**Bugs🐞**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+) <code> *we aim to offer (small) bounties on issues. Please ask* </code>
+- [ ] **1. Documentation Wiki, screenshots, videos** <code> We need to help the people learn easier about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _We did no documentation before (let alone marketing. ImprovedTube can fly higher through your word of mouth🌱. Popularity will allow us to work on all wishes)._</code>
+- [ ] **2. Code:** [**Bugs🐞**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+)<code> *we aim to offer some bounties. Please ask*</code>
 - [ ]   [**Plans📚**](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen+label%3A%F0%9F%93%9APlan++-label%3A%22not+Goo.+Chrome%22+)<code> _specification added. Often unique/special. (often complex too.)_ </code>
-- [ ]   **+** [**all Feature Requests🌟🧚**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)  _, + [Q](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A%22Feature+Request%22+-label%3A📚Plan+-label%3A_)uestions&untagged_
-- [ ] **3.** [**Discussions**:octocat:](https://github.com/code4charity/YouTube-Extension/discussions?discussions_q=category%3A%22Organization%22++category%3A%22ToDo%22+category%3A%22Wishes+%26+Ideas%22++)<code>_, Brainstorming & preparing ImprovedTube's Future & Structure_</code>
+- [ ]   [**all Feature Requests🌟🧚**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)  _, **+** [Q](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen++-label%3Abug++-label%3A%22Feature+Request%22+-label%3A📚Plan+-label%3A_)uestions&untagged_
+- [ ] **3.** [**Discussions**:octocat:](https://github.com/code4charity/YouTube-Extension/discussions?discussions_q=category%3A%22Organization%22++category%3A%22ToDo%22+category%3A%22Wishes+%26+Ideas%22++)<code>_, Brainstormings, preparing Future & Structure_</code>
 > - [***Contributing without programming***](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)  
 > - [***How to start editing our CSS, JavaScript, json***](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> *(For code literates)* (*Newcomers are [w](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)elcome. We review all edits & love to collaborate)*  </code>
 - [ ] **Translations missing (Thai, Vietnamese, Malay, Punjabi, ...**  <code> _(quick drafts welcome)_  </code>
