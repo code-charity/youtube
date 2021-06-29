@@ -2544,7 +2544,12 @@ ImprovedTube.shortcuts = function() {
                 }
             },
             shortcut_toggle_cards: function() {
-                document.documentElement.toggleAttribute('it-player-hide-cards');
+                if(document.documentElement.getAttribute('it-player-hide-cards')) {
+                    document.documentElement.removeAttribute('it-player-hide-cards');
+                    return;
+                }
+
+                document.documentElement.setAttribute("it-player-hide-cards", true);
             },
             shortcut_popup_player: function() {
                 ImprovedTube.createPopUpWindow();
