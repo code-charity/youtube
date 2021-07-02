@@ -1648,7 +1648,7 @@ ImprovedTube.playerVolume = function(node) {
         node = document.querySelector('.html5-video-player');
     }
 
-    if (node && ImprovedTube.storage.player_forced_volume === true) {
+    if (node && ImprovedTube.storage.player_forced_volume === true && ImprovedTube.initialVideoUpdateDone == false ) {
         var volume = Number(ImprovedTube.storage.player_volume);
 
         if (!ImprovedTube.isset(volume)) {
