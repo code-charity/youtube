@@ -56,7 +56,7 @@ Big thanks ❤️ to our <br>
 
 
 ## 🧩 ToDo
-ImprovedTube is the only project of it's kind. (Other open YouTube Extensions resigned.) Please spread the word 📣
+ImprovedTube is the only project of it's kind. Other open YouTube Extensions resigned. Please spread the word 📣
 - [ ] **1. Documentation Wiki, screenshots, videos** <code> We need to help the people learn easier about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _We did no documentation before (let alone marketing. ImprovedTube can fly higher through your word of mouth🌱. Popularity will allow us to work on all wishes)._</code>
 - [ ] **2. Code:** [**Bugs🐞**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+)<code> *we aim to offer some bounties. Please ask*</code>
 - [ ]   [**Plans📚**](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen+label%3A%F0%9F%93%9APlan++-label%3A%22not+Goo.+Chrome%22+)<code> _specification added. Often unique/special. (often complex too.)_ </code>
