@@ -40,9 +40,10 @@
 	<b><code>/ImprovedTube/</code></b> is a lightweight browser extension with powerful features & a pretty UI.
 	<br>
 	<br>
-	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a> ·
-	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report bug</a> ·
-	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Wish features</a> ·
+	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">80+ Features</a> ·
+	<a href="https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip">Test latest version</a>
+	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report a bug</a> ·
+	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Wish a feature</a> ·
 	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>
 </p>
 
@@ -144,7 +145,7 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
 ## 🔧 Install from source
 
-1. Download & extract the [latest release](https://github.com/ImprovedTube/ImprovedTube/releases/latest)
+1. Download & extract the [latest version](https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip) (or  [release](https://github.com/ImprovedTube/ImprovedTube/releases/latest))
 
  -  **Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**
 
