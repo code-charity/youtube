@@ -2160,12 +2160,15 @@ ImprovedTube.channelDefaultTab = function() {
 7.0 SHORTCUTS
 --------------------------------------------------------------------------------
 TODO: CONNECT & TEST
+TODO: Use keyboard library
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcuts = function() {
     var self = this,
-        keys = {},
+        /** @type {Partial<Pick<KeyboardEvent, "keyCode" | "altKey" | "shiftKey" | "ctrlKey" | "metaKey">>} */
+        pressedKey = {},
         wheel = 0,
+        /** Is cursor under the video element */
         hover = false,
         status_timer;
 
@@ -2192,9 +2195,12 @@ ImprovedTube.shortcuts = function() {
         }, 500);
     }
 
-    function start(type = 'keys') {
+    /**
+     * @param {KeyboardEvent | WheelEvent} event 
+     */
+    function trigger(event) {
         if (document.activeElement && ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'].indexOf(document.activeElement.tagName) !== -1 || event.target.isContentEditable) {
-            return false;
+            return;
         }
 
         var features = {
@@ -2556,27 +2562,27 @@ ImprovedTube.shortcuts = function() {
             }
         };
 
-        for (var i in features) {
-            if (self.isset(self.storage[i])) {
-                var data = JSON.parse(self.storage[i]) || {};
+        for (var featureName in features) {
+            if (self.isset(self.storage[featureName])) {
+                var data = JSON.parse(self.storage[featureName]) || {};
 
                 if (
-                    (data.keyCode === keys.keyCode || !self.isset(data.keyCode)) &&
-                    (data.shiftKey === keys.shiftKey || !self.isset(data.shiftKey)) &&
-                    (data.ctrlKey === keys.ctrlKey || !self.isset(data.ctrlKey)) &&
-                    (data.altKey === keys.altKey || !self.isset(data.altKey)) &&
+                    (data.keyCode === pressedKey.keyCode || !self.isset(data.keyCode)) &&
+                    (data.shiftKey === pressedKey.shiftKey || !self.isset(data.shiftKey)) &&
+                    (data.ctrlKey === pressedKey.ctrlKey || !self.isset(data.ctrlKey)) &&
+                    (data.altKey === pressedKey.altKey || !self.isset(data.altKey)) &&
                     ((data.wheel > 0) === (wheel > 0) || !self.isset(data.wheel)) &&
-                    ((hover === true && (data.wheel > 0) === (wheel > 0) && Object.keys(keys).length === 0 && keys.constructor === Object) || (self.isset(data.key) || self.isset(data.altKey) || self.isset(data.ctrlKey)))
+                    ((hover === true && (data.wheel > 0) === (wheel > 0) && Object.keys(pressedKey).length === 0) || (self.isset(data.key) || self.isset(data.altKey) || self.isset(data.ctrlKey)))
                 ) {
-                    if (type === 'wheel' && self.isset(data.wheel) || type === 'keys') {
+                    if (event.type === 'wheel' && self.isset(data.wheel) || event.type === 'keydown') {
                         event.preventDefault();
                         event.stopPropagation();
                     }
 
-                    features[i]();
-
-                    if (type === 'wheel' && self.isset(data.wheel) || type === 'keys') {
-                        return false;
+                    features[featureName]();
+                    
+                    if (event.type === 'wheel' && self.isset(data.wheel) || event.type === 'keydown') {
+                        return;
                     }
                 }
             }
@@ -2589,19 +2595,14 @@ ImprovedTube.shortcuts = function() {
     -------------------------------------------------------------------------*/
 
     window.addEventListener('keydown', function(event) {
-        keys = {
-            key: event.key,
-            keyCode: event.keyCode,
-            shiftKey: event.shiftKey,
-            ctrlKey: event.ctrlKey,
-            altKey: event.altKey
-        };
+        // shortcut will be fired again and again until the key is released. To get rid of that: if (event.repeat) return;
+        pressedKey = event;
 
-        start();
+        trigger(event);
     }, true);
 
     window.addEventListener('keyup', function(event) {
-        keys = {};
+        pressedKey = {};
     }, true);
 
 
@@ -2614,8 +2615,9 @@ ImprovedTube.shortcuts = function() {
 
         hover = false;
 
-        for (var i = 0, l = path.length; i < l; i++) {
-            if (path[i].classList && path[i].classList.contains('html5-video-player')) {
+        // TODO: refactor with elem.target.closest(".html5-video-player")
+        for (let elem of path) {
+            if (elem.classList && elem.classList.contains('html5-video-player')) {
                 hover = true;
             }
         }
@@ -2627,7 +2629,7 @@ ImprovedTube.shortcuts = function() {
     window.addEventListener('wheel', function(event) {
         wheel = event.deltaY;
 
-        start('wheel');
+        trigger(event);
     }, {
         passive: false,
         capture: true
