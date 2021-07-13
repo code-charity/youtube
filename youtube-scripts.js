@@ -2164,6 +2164,10 @@ TODO: Use keyboard library
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcuts = function() {
+    const printError = (section, message) => {
+        console.error(`%c[Improve YouTube!] ${section}%c – ${message}`, "font-weight: bold; color: red;", "font-weight: unset; color: unset;");
+    }
+    
     var self = this,
         /** @type {Partial<Pick<KeyboardEvent, "keyCode" | "altKey" | "shiftKey" | "ctrlKey" | "metaKey">>} */
         pressedKey = {},
@@ -2202,6 +2206,27 @@ ImprovedTube.shortcuts = function() {
         if (document.activeElement && ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'].indexOf(document.activeElement.tagName) !== -1 || event.target.isContentEditable) {
             return;
         }
+
+        const buttonsSelectors = {
+            like: "#menu #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1) a",
+            dislike: "#menu #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(2) a",
+            subscribe: "#subscribe-button a"
+        };
+        const pressButton = (
+            /** @type {keyof typeof buttonsSelectors} */
+            button
+        ) => {
+            const elems = document.querySelectorAll(buttonsSelectors[button]);
+            const visibleButton = [].find.call(elems, elem => elem.offsetParent !== null);
+            // TODO throw natural error with `cause`
+            if (!visibleButton) {
+                const player = document.querySelector('#movie_player');
+                // if there is no player the most likely we are not in watch page?
+                if (!player) return;
+                printError("Shortcuts", `Can't find ${button} button in visible DOM`);
+            }
+            visibleButton.click();
+        };
 
         var features = {
             shortcut_auto: function() {
@@ -2482,25 +2507,14 @@ ImprovedTube.shortcuts = function() {
                 }
             },
             shortcut_like_shortcut: function() {
-                var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer')[0]);
-
-                if (like) {
-                    like.click();
-                }
+                pressButton("like")
             },
             shortcut_dislike_shortcut: function() {
-                var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer')[1]);
-
-                if (like) {
-                    like.click();
-                }
+                pressButton("dislike")
             },
             shortcut_subscribe: function() {
-                var button = document.querySelector('#subscribe-button .ytd-subscribe-button-renderer');
+                pressButton("subscribe")
 
-                if (button) {
-                    button.click();
-                }
             },
             shortcut_dark_theme: function() {
                 if (document.documentElement.hasAttribute('dark')) {
