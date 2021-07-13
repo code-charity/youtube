@@ -40,10 +40,10 @@
 	<b><code>/ImprovedTube/</code></b> is a lightweight browser extension with powerful features & a pretty UI.
 	<br>
 	<br>
-	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">80+ Features</a> ·
-	<a href="https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip">Test latest version</a>
-	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report a bug</a> ·
-	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Wish a feature</a> ·
+	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a> ·
+	<a href="https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip">Latest🧪version</a> ·
+	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report a🐞bug</a> ·
+	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Wish a🌟feature</a> ·
 	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>
 </p>
 
