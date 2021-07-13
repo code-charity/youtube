@@ -2224,6 +2224,7 @@ ImprovedTube.shortcuts = function() {
                 // if there is no player the most likely we are not in watch page?
                 if (!player) return;
                 printError("Shortcuts", `Can't find ${button} button in visible DOM`);
+                return;
             }
             visibleButton.click();
         };
