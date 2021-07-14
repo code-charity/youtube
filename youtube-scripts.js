@@ -1927,21 +1927,14 @@ TODO: CONNECT & TEST
 5.1 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.playlist_up_next_autoplay_f = function(event) {
+ImprovedTube.playlistUpNextAutoplay = function(event) {
     if (
         ImprovedTube.getParam(location.href, 'list') &&
-        ImprovedTube.storage.playlist_up_next_autoplay === false &&
-        this.currentTime >= this.duration - 2
+        ImprovedTube.storage.playlist_up_next_autoplay === false
     ) {
-        this.pause();
+        event.preventDefault();
+        event.stopPropagation();
     }
-};
-
-ImprovedTube.playlistUpNextAutoplay = function() {
-    var video = document.querySelector('video');
-
-    video.removeEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
-    video.addEventListener('timeupdate', ImprovedTube.playlist_up_next_autoplay_f, true);
 };
 
 
@@ -3262,7 +3255,6 @@ ImprovedTube.videoPageUpdate = function() {
         this.playerControls();
 
         if (/[?&]list=([^&]+).*$/.test(location.href)) {
-            this.playlistUpNextAutoplay();
             this.playlistRepeat();
             this.playlistShuffle();
             this.playlistReverse();
@@ -3285,7 +3277,6 @@ ImprovedTube.videoUpdated = function() {
         this.playerQuality();
         this.playerPlaybackSpeed();
         this.playerVolume();
-        this.playlistUpNextAutoplay();
     }
 };
 
@@ -3300,11 +3291,16 @@ ImprovedTube.timeupdate = function() {
         ImprovedTube.playerQuality();
         ImprovedTube.playerPlaybackSpeed();
         ImprovedTube.playerVolume();
-        ImprovedTube.playlistUpNextAutoplay();
     }
 };
 
-ImprovedTube.ended = function() {};
+ImprovedTube.ended = function(event) {
+    ImprovedTube.playlistUpNextAutoplay(event);
+};
+
+ImprovedTube.pause = function(event) {
+    ImprovedTube.playlistUpNextAutoplay(event);
+};
 
 ImprovedTube.latestVideoDuration = 0;
 
@@ -3315,7 +3311,6 @@ ImprovedTube.playerUpdate = function() {
     this.subtitles();
     this.playerQuality();
     this.playerVolume();
-    this.playlistUpNextAutoplay();
 
     if (location.href.indexOf('/embed/') === -1) {
         this.mini_player();
@@ -3410,6 +3405,9 @@ ImprovedTube.onplay = function() {
 
             this.removeEventListener('ended', ImprovedTube.ended, true);
             this.addEventListener('ended', ImprovedTube.ended, true);
+
+            this.removeEventListener('pause', ImprovedTube.pause, true);
+            this.addEventListener('pause', ImprovedTube.pause, true);
 
             ImprovedTube.autoplay(this);
             ImprovedTube.playerLoudnessNormalization();
