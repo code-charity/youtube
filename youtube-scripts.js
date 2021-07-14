@@ -240,8 +240,6 @@ ImprovedTube.confirmationBeforeClosing = function() {
 
 /*------------------------------------------------------------------------------
 1.5 MARK WATCHED VIDEOS
---------------------------------------------------------------------------------
-TODO: OPTIMIZE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.markWatchedVideos = function() {
@@ -305,9 +303,7 @@ ImprovedTube.markWatchedVideos = function() {
                                 }
                             }));
                         }
-                    } catch (err) {
-                        console.log(err);
-                    }
+                    } catch (err) {}
                 });
 
                 video_items[i].appendChild(button);
@@ -332,8 +328,6 @@ document.addEventListener('ImprovedTubeWatched', function(event) {
 
 /*------------------------------------------------------------------------------
 1.6 ONLY ONE PLAYER INSTANCE PLAYING
---------------------------------------------------------------------------------
-TODO: FIX
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.onlyOnePlayerInstancePlaying = function() {
@@ -429,8 +423,6 @@ ImprovedTube.forcedTheaterMode = function() {
 
 /*------------------------------------------------------------------------------
 2.1.2 HD THUMBNAIL
---------------------------------------------------------------------------------
-TODO: OPTIMIZED
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerHdThumbnail = function() {
@@ -523,8 +515,6 @@ ImprovedTube.alwaysShowProgressBar = function() {
 
 /*------------------------------------------------------------------------------
 2.2.1 LIVECHAT
---------------------------------------------------------------------------------
-TODO: TEST
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.livechat_wait = false;
@@ -569,8 +559,6 @@ ImprovedTube.livechat = function() {
 
 /*------------------------------------------------------------------------------
 2.2.2 RELATIVE VIDEOS
---------------------------------------------------------------------------------
-TODO: TEST
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.related_videos_wait = false;
@@ -746,8 +734,6 @@ ImprovedTube.channelVideosCount = function() {
 
 /*------------------------------------------------------------------------------
 2.4 COMMENTS
---------------------------------------------------------------------------------
-TODO TEST
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.comments_wait = false;
@@ -1036,8 +1022,6 @@ ImprovedTube.themes = function() {
 
 /*------------------------------------------------------------------------------
 4.0 PLAYER
---------------------------------------------------------------------------------
-TODO: CONNECT & TEST
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
@@ -1919,8 +1903,6 @@ ImprovedTube.playerControls = function() {
 
 /*------------------------------------------------------------------------------
 5.0 PLAYLIST
---------------------------------------------------------------------------------
-TODO: CONNECT & TEST
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
@@ -2104,8 +2086,6 @@ ImprovedTube.playlistShuffle = function() {
 
 /*------------------------------------------------------------------------------
 6.0 CHANNEL
---------------------------------------------------------------------------------
-TODO: CONNECT & TEST
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
@@ -2151,8 +2131,6 @@ ImprovedTube.channelDefaultTab = function() {
 
 /*------------------------------------------------------------------------------
 7.0 SHORTCUTS
---------------------------------------------------------------------------------
-TODO: CONNECT & TEST
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcuts = function() {
@@ -2630,8 +2608,6 @@ ImprovedTube.shortcuts = function() {
 
 /*------------------------------------------------------------------------------
 8.0 BLACKLIST
---------------------------------------------------------------------------------
-TODO: CONNECT & TEST
 ------------------------------------------------------------------------------*/
 
 document.addEventListener('ImprovedTubeBlacklist', function(event) {
@@ -2848,8 +2824,6 @@ ImprovedTube.blacklist = function() {
 
 /*------------------------------------------------------------------------------
 9.0 ANALYZER
---------------------------------------------------------------------------------
-TODO: CONNECT & TEST
 ------------------------------------------------------------------------------*/
 
 document.addEventListener('ImprovedTubeAnalyzer', function() {
@@ -3193,11 +3167,7 @@ ImprovedTube.youtubeLanguage = function() {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.pageUpdateListener = function() {
-    console.log('pageUpdateListener');
-
     window.addEventListener('yt-page-data-updated', function() {
-        console.log('yt-page-data-updated');
-
         ImprovedTube.played_before_blur = false;
 
         ImprovedTube.pageType();
@@ -3221,7 +3191,6 @@ ImprovedTube.pageUpdateListener = function() {
 
 ImprovedTube.videoPageUpdate = function() {
     if (this.page_type === 'video') {
-        console.log('videoPageUpdate');
 
         var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');
 
@@ -3305,8 +3274,6 @@ ImprovedTube.pause = function(event) {
 ImprovedTube.latestVideoDuration = 0;
 
 ImprovedTube.playerUpdate = function() {
-    console.log('playerUpdate');
-
     this.playerPlaybackSpeed();
     this.subtitles();
     this.playerQuality();
@@ -3324,8 +3291,6 @@ ImprovedTube.playerUpdate = function() {
 
 ImprovedTube.DOMContentLoaded = function() {
     window.addEventListener('DOMContentLoaded', function() {
-        console.log('DOMContentLoaded');
-
         ImprovedTube.youtubeHomePage();
         ImprovedTube.collapseOfSubscriptionSections();
         ImprovedTube.addScrollToTop();
@@ -3589,8 +3554,6 @@ ImprovedTube.reverse = function(parent) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.init = function() {
-    console.log('init');
-
     this.location();
     this.playerH264();
     this.player60fps();
@@ -3603,8 +3566,6 @@ ImprovedTube.init = function() {
     this.onmousedown();
 
     window.addEventListener('load', function() {
-        console.log('load');
-
         ImprovedTube.hdThumbnails();
         ImprovedTube.hideThumbnailOverlay();
         ImprovedTube.channelDefaultTab();
