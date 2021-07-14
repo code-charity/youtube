@@ -190,7 +190,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         injectScript('if (document.querySelector("video")) { document.querySelector("video").pause(); }');
     }
 
-    injectScript('ImprovedTube.onfocus();');
+    injectScript('ImprovedTube.pageOnFocus();');
 });
 
 
