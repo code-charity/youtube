@@ -136,7 +136,8 @@ var ImprovedTube = {
     playlistReversed: false,
     playlist_repeat_wait: false,
     playlist_shuffle_wait: false,
-    improvedtube_youtube_icon_wait: false
+    improvedtube_youtube_icon_wait: false,
+    status_timer: false
 };
 
 
@@ -2795,7 +2796,7 @@ ImprovedTube.shortcutIncreaseVolume = function () {
         player.setVolume(player.getVolume() + (Number(ImprovedTube.storage.shortcut_volume_step) || 5));
     }
 
-    showStatus(player, player.getVolume());
+    ImprovedTube.showStatus(player, player.getVolume());
 };
 
 
@@ -2810,7 +2811,7 @@ ImprovedTube.shortcutDecreaseVolume = function () {
         player.setVolume(player.getVolume() - (Number(ImprovedTube.storage.shortcut_volume_step) || 5));
     }
 
-    showStatus(player, player.getVolume());
+    ImprovedTube.showStatus(player, player.getVolume());
 };
 
 
@@ -2841,7 +2842,7 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function () {
 
             video.playbackRate = Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
         }
-        showStatus(document.querySelector('#movie_player'), video.playbackRate);
+        ImprovedTube.showStatus(document.querySelector('#movie_player'), video.playbackRate);
     }
 };
 
@@ -2860,7 +2861,7 @@ ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
 
             video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
         }
-        showStatus(document.querySelector('#movie_player'), video.playbackRate);
+        ImprovedTube.showStatus(document.querySelector('#movie_player'), video.playbackRate);
     }
 };
 
@@ -3035,44 +3036,46 @@ ImprovedTube.shortcutPopupPlayer = function () {
 # SHORTCUTS
 ------------------------------------------------------------------------------*/
 
+ImprovedTube.showStatus = function (player, volume) {
+    if (!player.querySelector('#it-status')) {
+        var element = document.createElement('div');
+
+        element.id = 'it-status';
+        element.innerHTML = volume;
+
+        document.querySelector('.html5-video-container').appendChild(element);
+    } else {
+        player.querySelector('#it-status').innerHTML = volume;
+    }
+
+    if (ImprovedTube.status_timer) {
+        clearTimeout(ImprovedTube.status_timer);
+    }
+
+    ImprovedTube.status_timer = setTimeout(function () {
+        if (player.querySelector('#it-status')) {
+            player.querySelector('#it-status').remove();
+        }
+    }, 500);
+};
+
 ImprovedTube.shortcuts = function () {
     var self = this,
         keys = {},
         wheel = 0,
-        hover = false,
-        status_timer;
-
-    function showStatus(player, volume) {
-        if (!player.querySelector('#it-status')) {
-            var element = document.createElement('div');
-
-            element.id = 'it-status';
-            element.innerHTML = volume;
-
-            document.querySelector('.html5-video-container').appendChild(element);
-        } else {
-            player.querySelector('#it-status').innerHTML = volume;
-        }
-
-        if (status_timer) {
-            clearTimeout(status_timer);
-        }
-
-        status_timer = setTimeout(function () {
-            if (player.querySelector('#it-status')) {
-                player.querySelector('#it-status').remove();
-            }
-        }, 500);
-    }
+        hover = false;
 
     function start(type = 'keys') {
         if (document.activeElement && ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'].indexOf(document.activeElement.tagName) !== -1 || event.target.isContentEditable) {
             return false;
         }
 
-        for (var i in features) {
-            if (self.isset(self.storage[i])) {
-                var data = JSON.parse(self.storage[i]) || {};
+        for (var key in self.storage) {
+            if (key.indexOf('shortcut_') === 0) {
+                var function_name = 'shortcut' + (key.replace('shortcut_', '').replace(/\_/g, '-')).split('-').map(function (element, index) {
+                    return element[0].toUpperCase() + element.slice(1);
+                }).join(''),
+                    data = JSON.parse(self.storage[key]) || {};
 
                 if (
                     (data.keyCode === keys.keyCode || !self.isset(data.keyCode)) &&
@@ -3087,7 +3090,7 @@ ImprovedTube.shortcuts = function () {
                         event.stopPropagation();
                     }
 
-                    features[i]();
+                    ImprovedTube[function_name]();
 
                     if (type === 'wheel' && self.isset(data.wheel) || type === 'keys') {
                         return false;
