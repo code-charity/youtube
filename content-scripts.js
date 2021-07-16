@@ -1,40 +1,13 @@
 /*------------------------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 --------------------------------------------------------------------------------
-1.0 Features
-2.0 Isset
-3.0 Initialization
-4.0 Change listener
+1.0 Isset
+2.0 Initialization
+3.0 Change listener
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-1.0 FEATURES
-------------------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------------------
-1.1 YOUTUBE HOME PAGE
-------------------------------------------------------------------------------*/
-
-function youtubeHomePage(option) {
-    if (location.pathname === '/') {
-        if (location.hostname === 'www.youtube.com') {
-            if (
-                option === '/feed/trending' ||
-                option === '/feed/subscriptions' ||
-                option === '/feed/history' ||
-                option === '/playlist?list=WL'  ||
-                option === '/playlist?list=LL'  ||
-                option === '/feed/library'
-            ) {
-                location.replace(option);
-            }
-        }
-    }
-}
-
-
-/*------------------------------------------------------------------------------
-2.0 ISSET
+1.0 ISSET
 ------------------------------------------------------------------------------*/
 
 function isset(variable) {
@@ -106,7 +79,7 @@ function attributes(items) {
 
 
 /*------------------------------------------------------------------------------
-3.0 INITIALIZATION
+2.0 INITIALIZATION
 ------------------------------------------------------------------------------*/
 
 function injectScript(string) {
@@ -131,41 +104,56 @@ function injectStyles(string, id) {
     document.documentElement.appendChild(style);
 }
 
-chrome.storage.local.get('youtube_home_page', function(items) {
-    youtubeHomePage(items.youtube_home_page);
-});
+chrome.storage.local.get('youtube_home_page', function (items) {
+    var option = items.youtube_home_page;
 
-chrome.storage.local.get(function(items) {
-    var textContent = 'var ImprovedTube={';
-
-    // <HTML> attributes
-    attributes(items);
-
-    // Isset
-    textContent += 'isset:' + isset + ',';
-
-    // Features
-    for (var key in ImprovedTube) {
-        textContent += key + ': ' + ImprovedTube[key] + ',';
+    if (location.pathname === '/') {
+        if (location.hostname === 'www.youtube.com') {
+            if (
+                option === '/feed/trending' ||
+                option === '/feed/subscriptions' ||
+                option === '/feed/history' ||
+                option === '/playlist?list=WL' ||
+                option === '/playlist?list=LL' ||
+                option === '/feed/library'
+            ) {
+                location.replace(option);
+            }
+        }
     }
 
-    // Storage
-    textContent += 'storage:' + JSON.stringify(items);
+    chrome.storage.local.get(function (items) {
+        var textContent = 'var ImprovedTube={';
 
-    // Initialization
-    textContent += '};ImprovedTube.init();';
+        // <HTML> attributes
+        attributes(items);
 
-    document.documentElement.dataset.systemColorScheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        // Isset
+        textContent += 'isset:' + isset + ',';
 
-    injectScript(textContent);
+        // Features
+        for (var key in ImprovedTube) {
+            textContent += key + ': ' + ImprovedTube[key] + ',';
+        }
+
+        // Storage
+        textContent += 'storage:' + JSON.stringify(items);
+
+        // Initialization
+        textContent += '};ImprovedTube.init();';
+
+        document.documentElement.dataset.systemColorScheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+        injectScript(textContent);
+    });
 });
 
 
 /*------------------------------------------------------------------------------
-4.0 CHANGE LISTENER
+3.0 CHANGE LISTENER
 ------------------------------------------------------------------------------*/
 
-chrome.storage.onChanged.addListener(function(changes) {
+chrome.storage.onChanged.addListener(function (changes) {
     for (var key in changes) {
         var value = changes[key].newValue,
             func = camelize(key);
@@ -181,7 +169,7 @@ chrome.storage.onChanged.addListener(function(changes) {
 });
 
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.action === 'focus') {
         injectScript('ImprovedTube.focus = true;');
     } else if (request.action === 'blur') {
