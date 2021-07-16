@@ -104,6 +104,9 @@ The variable "ImprovedTube" is used on the YouTube side.
 ------------------------------------------------------------------------------*/
 
 var ImprovedTube = {
+    buttons: `{
+        playlist: {}
+    }`,
     video_src: false,
     initialVideoUpdateDone: false,
     latestVideoDuration: 0,
@@ -134,8 +137,6 @@ var ImprovedTube = {
     mini_player__player_offset_y: 0,
     mini_player__resize_offset: 16,
     playlistReversed: false,
-    playlist_repeat_wait: false,
-    playlist_shuffle_wait: false,
     improvedtube_youtube_icon_wait: false,
     status_timer: false
 };
@@ -193,6 +194,44 @@ ImprovedTube.init = function () {
     this.playerOnPlay();
     this.onkeydown();
     this.onmousedown();
+
+    this.observer = new MutationObserver(function(mutationList) {
+        for (var i = 0, l = mutationList.length; i < l; i++) {
+            var mutation = mutationList[i];
+
+            if (mutation.type === 'childList') {
+                for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
+                    var node = mutation.addedNodes[j];
+
+                    if (
+                        node.nodeName === 'YTD-TOGGLE-BUTTON-RENDERER' &&
+                        node.parentComponent &&
+                        node.parentComponent.nodeName === 'YTD-MENU-RENDERER' &&
+                        node.parentComponent.parentComponent &&
+                        node.parentComponent.parentComponent.nodeName === 'YTD-PLAYLIST-PANEL-RENDERER'
+                    ) {
+                        var index = Array.prototype.indexOf.call(node.parentNode.children, node);
+
+                        if (index === 0) {
+                            ImprovedTube.buttons.playlist.repeat_button = node;
+
+                            ImprovedTube.playlistRepeat();
+                        } else if (index === 1) {
+                            ImprovedTube.buttons.playlist.shuffle_button = node;
+
+                            ImprovedTube.playlistShuffle();
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    this.observer.observe(document, {
+        attributes: false,
+        childList: true,
+        subtree: true
+    });
 };
 
 
@@ -306,12 +345,12 @@ ImprovedTube.playerOnTimeUpdate = function () {
     if (ImprovedTube.video_src !== this.src) {
         ImprovedTube.video_src = this.src;
 
-        this.playerAds();
+        ImprovedTube.playerAds();
 
         if (ImprovedTube.initialVideoUpdateDone !== true) {
-            this.playerQuality();
-            this.playerPlaybackSpeed();
-            this.playerVolume();
+            ImprovedTube.playerQuality();
+            ImprovedTube.playerPlaybackSpeed();
+            ImprovedTube.playerVolume();
         }
     } else if (ImprovedTube.latestVideoDuration !== this.duration) {
         ImprovedTube.latestVideoDuration = this.duration;
@@ -362,7 +401,6 @@ ImprovedTube.onmousedown = function (event) {
         }
     }, true);
 };
-
 
 ImprovedTube.getCookieValueByName = function (name) {
     var match = document.cookie.match(new RegExp('([; ]' + name + '|^' + name + ')([^\\s;]*)', 'g'));
@@ -2392,27 +2430,11 @@ ImprovedTube.playlistReverse = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playlistRepeat = function () {
-    if (this.isset(this.storage.playlist_repeat) && /\/watch\?/.test(location.href) && /list=/.test(location.href)) {
-        ImprovedTube.playlist_repeat_wait = setInterval(function () {
-            if (
-                document.querySelectorAll('#playlist-actions #top-level-buttons ytd-toggle-button-renderer')[0] ||
-                document.querySelector('.playlist-nav-controls .toggle-loop')
-            ) {
-                clearInterval(ImprovedTube.playlist_repeat_wait);
+    var button = ImprovedTube.buttons.playlist.repeat_button,
+        option = ImprovedTube.storage.playlist_repeat;
 
-                ImprovedTube.playlist_repeat_wait = false;
-
-                var option = ImprovedTube.storage.playlist_repeat,
-                    new_youtube_toggle = document.querySelectorAll('#playlist-actions #top-level-buttons ytd-toggle-button-renderer'),
-                    old_youtube_toggle = document.querySelector('.playlist-nav-controls .toggle-loop');
-
-                if (new_youtube_toggle[0] && (option === true && new_youtube_toggle[0].className.search('style-default-active') === -1 || option === 'disabled' && new_youtube_toggle[0].className.search('style-default-active') !== -1)) {
-                    new_youtube_toggle[0].click();
-                } else if (old_youtube_toggle && (option === true && old_youtube_toggle.className.search('yt-uix-button-toggled') === -1 || option === 'disabled' && old_youtube_toggle.className.search('yt-uix-button-toggled') !== -1)) {
-                    old_youtube_toggle.click();
-                }
-            }
-        }, 250);
+    if (button && (option === true && button.className.search('style-default-active') === -1 || option === 'disabled' && button.className.indexOf('style-default-active') !== -1)) {
+        button.click();
     }
 };
 
@@ -2422,27 +2444,11 @@ ImprovedTube.playlistRepeat = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playlistShuffle = function () {
-    if (this.isset(this.storage.playlist_shuffle) && /\/watch\?/.test(location.href) && /list=/.test(location.href)) {
-        ImprovedTube.playlist_shuffle_wait = setInterval(function () {
-            if (
-                document.querySelectorAll('#playlist-actions #top-level-buttons ytd-toggle-button-renderer')[1] ||
-                document.querySelector('.playlist-nav-controls .shuffle-playlist')
-            ) {
-                clearInterval(ImprovedTube.playlist_shuffle_wait);
+    var button = ImprovedTube.buttons.playlist.shuffle_button,
+        option = ImprovedTube.storage.playlist_shuffle;
 
-                ImprovedTube.playlist_shuffle_wait = false;
-
-                var option = ImprovedTube.storage.playlist_shuffle,
-                    new_youtube_toggle = document.querySelectorAll('#playlist-actions #top-level-buttons ytd-toggle-button-renderer'),
-                    old_youtube_toggle = document.querySelector('.playlist-nav-controls .shuffle-playlist');
-
-                if (new_youtube_toggle[1] && (option === true && new_youtube_toggle[1].className.search('style-default-active') === -1 || option === 'disabled' && new_youtube_toggle[1].className.search('style-default-active') !== -1)) {
-                    new_youtube_toggle[1].click();
-                } else if (old_youtube_toggle && (option === true && old_youtube_toggle.className.search('yt-uix-button-toggled') === -1 || option === 'disabled' && old_youtube_toggle.className.search('yt-uix-button-toggled') !== -1)) {
-                    old_youtube_toggle.click();
-                }
-            }
-        }, 250);
+    if (button && (option === true && button.className.search('style-default-active') === -1 || option === 'disabled' && button.className.indexOf('style-default-active') !== -1)) {
+        button.click();
     }
 };
 
