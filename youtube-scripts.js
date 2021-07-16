@@ -3072,7 +3072,7 @@ ImprovedTube.shortcuts = function () {
 
         for (var key in self.storage) {
             if (key.indexOf('shortcut_') === 0) {
-                var function_name = 'shortcut' + (key.replace('shortcut_', '').replace(/\_/g, '-')).split('-').map(function (element, index) {
+                var function_name = 'shortcut' + (key.replace(/_?shortcut_?/g, '').replace(/\_/g, '-')).split('-').map(function (element, index) {
                     return element[0].toUpperCase() + element.slice(1);
                 }).join(''),
                     data = JSON.parse(self.storage[key]) || {};

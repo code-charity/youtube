@@ -72,9 +72,9 @@
 1.1 YOUTUBE HOME PAGE
 ------------------------------------------------------------------------------*/
 
-html[it-page-type=home][it-youtube-home-page=search],
-html[it-page-type=home][it-youtube-home-page=search] app-drawer[opened],
-html[it-page-type=home][it-youtube-home-page=search] #appbar-guide-menu {
+html[data-page-type=home][it-youtube-home-page=search],
+html[data-page-type=home][it-youtube-home-page=search] app-drawer[opened],
+html[data-page-type=home][it-youtube-home-page=search] #appbar-guide-menu {
     visibility: hidden;
     overflow: hidden;
     width: 100vw;
@@ -82,8 +82,8 @@ html[it-page-type=home][it-youtube-home-page=search] #appbar-guide-menu {
     pointer-events: none;
 }
 
-html[it-page-type=home][it-youtube-home-page=search] ytd-masthead ytd-searchbox,
-html[it-page-type=home][it-youtube-home-page=search] #yt-masthead-content {
+html[data-page-type=home][it-youtube-home-page=search] ytd-masthead ytd-searchbox,
+html[data-page-type=home][it-youtube-home-page=search] #yt-masthead-content {
     position: fixed;
     z-index: 99999;
     top: 0;
@@ -95,18 +95,18 @@ html[it-page-type=home][it-youtube-home-page=search] #yt-masthead-content {
     margin: 0;
     padding: 0;
     pointer-events: all;
+    background: var(--yt-spec-general-background-a);
     justify-content: center;
     align-items: center;
-    background: var(--yt-spec-general-background-a);
 }
 
-html[it-page-type=home][it-youtube-home-page=search] ytd-searchbox>form {
+html[data-page-type=home][it-youtube-home-page=search] ytd-searchbox>form {
     width: 100%;
     max-width: 768px;
     padding: 16px 32px;
 }
 
-html[it-page-type=home][it-youtube-home-page=search] .gstl_50.sbdd_a {
+html[data-page-type=home][it-youtube-home-page=search] .gstl_50.sbdd_a {
     z-index: 99999;
     visibility: visible;
     pointer-events: all;
@@ -289,48 +289,48 @@ html[it-header-position=hidden] app-drawer#guide #guide-spacer,
 html[it-header-position=hidden] ytd-app>ytd-masthead,
 html[it-header-position=hover] app-drawer#guide #guide-spacer,
 html[it-header-position=static] app-drawer#guide #guide-spacer,
-html[it-header-position=hidden_on_video_page][it-page-type=video] #masthead-container,
-html[it-header-position=hidden_on_video_page][it-page-type=video] app-drawer#guide #guide-spacer,
-html[it-header-position=hover_on_video_page][it-page-type=video] app-drawer#guide #guide-spacer {
+html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container,
+html[it-header-position=hidden_on_video_page][data-page-type=video] app-drawer#guide #guide-spacer,
+html[it-header-position=hover_on_video_page][data-page-type=video] app-drawer#guide #guide-spacer {
     display: none;
 }
 
 html[it-header-position=hover] ytd-app>ytd-masthead,
-html[it-header-position=hover_on_video_page][it-page-type='video'] ytd-app>ytd-masthead,
+html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-app>ytd-masthead,
 html[it-header-position=hover] #masthead-container,
-html[it-header-position=hover_on_video_page][it-page-type='video'] #masthead-container {
+html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container {
     z-index: 2147483647;
 }
 
 html[it-header-position=hidden] ytd-page-manager#page-manager,
 html[it-header-position=hidden] app-header#header,
-html[it-header-position=hidden_on_video_page][it-page-type='video'] ytd-page-manager#page-manager,
-html[it-header-position=hidden_on_video_page][it-page-type='video'] app-header#header,
+html[it-header-position=hidden_on_video_page][data-page-type='video'] ytd-page-manager#page-manager,
+html[it-header-position=hidden_on_video_page][data-page-type='video'] app-header#header,
 html[it-header-position=hidden] #appbar-guide-menu,
-html[it-header-position=hidden_on_video_page][it-page-type='video'] #appbar-guide-menu,
+html[it-header-position=hidden_on_video_page][data-page-type='video'] #appbar-guide-menu,
 html[it-header-position=hover] ytd-page-manager#page-manager,
 html[it-header-position=hover] app-header#header,
-html[it-header-position=hover_on_video_page][it-page-type='video'] ytd-page-manager#page-manager,
-html[it-header-position=hover_on_video_page][it-page-type='video'] app-header#header,
+html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-page-manager#page-manager,
+html[it-header-position=hover_on_video_page][data-page-type='video'] app-header#header,
 html[it-header-position=hover] #appbar-guide-menu,
-html[it-header-position=hover_on_video_page][it-page-type='video'] #appbar-guide-menu,
+html[it-header-position=hover_on_video_page][data-page-type='video'] #appbar-guide-menu,
 html[it-header-position=static] ytd-page-manager#page-manager,
 html[it-header-position=static] #appbar-guide-menu {
     margin-top: 0;
 }
 
 html[it-header-position=hover] ytd-app>ytd-masthead,
-html[it-header-position=hover_on_video_page][it-page-type='video']:not([it-improvedtube-search=true]) ytd-app>ytd-masthead,
+html[it-header-position=hover_on_video_page][data-page-type='video']:not([it-improvedtube-search=true]) ytd-app>ytd-masthead,
 html[it-header-position=hover]:not([it-improvedtube-search=true]) #masthead-container,
-html[it-header-position=hover_on_video_page][it-page-type='video']:not([it-improvedtube-search=true]) #masthead-container {
+html[it-header-position=hover_on_video_page][data-page-type='video']:not([it-improvedtube-search=true]) #masthead-container {
     transition: transform 250ms;
     transform: translateY(-75%);
 }
 
 html[it-header-position=hover] #masthead-container:hover,
-html[it-header-position=hover_on_video_page][it-page-type='video'] #masthead-container:hover,
+html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:hover,
 html[it-header-position=hover][it-search-focus=true] #masthead-container,
-html[it-header-position=hover_on_video_page][it-page-type='video'][it-search-focus=true] #masthead-container {
+html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container {
     transform: translateY(0%);
 }
 
@@ -341,8 +341,8 @@ html[it-header-position=static] ytd-app:not([masthead-hidden_]) #masthead-contai
 
 html[it-header-position=hover] ytd-app[masthead-hidden_] ytd-masthead,
 html[it-header-position=hover] ytd-app[scrolling_] ytd-masthead,
-html[it-header-position=hover_on_video_page][it-page-type='video'] ytd-app[masthead-hidden_] ytd-masthead,
-html[it-header-position=hover_on_video_page][it-page-type='video'] ytd-app[scrolling_] ytd-masthead {
+html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-app[masthead-hidden_] ytd-masthead,
+html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-app[scrolling_] ytd-masthead {
     display: none;
 }
 
@@ -449,145 +449,145 @@ html[it-player-show-cards-on-mouse-hover=true] .html5-video-player:hover .ytp-ca
 
 /* ---- NORMAL --------------------------------------------------------------*/
 
-html[it-page-type=video]:not([it-header-position]) ytd-app,
-html[it-page-type=video][it-header-position=normal] ytd-app,
-html[it-page-type=video][it-header-position=static] ytd-app {
+html[data-page-type=video]:not([it-header-position]) ytd-app,
+html[data-page-type=video][it-header-position=normal] ytd-app,
+html[data-page-type=video][it-header-position=static] ytd-app {
     --it-header-size: 56px;
 }
 
-html[it-page-type=video]:not([it-header-position]) ytd-watch-flexy:not([theater]),
-html[it-page-type=video][it-header-position=normal] ytd-watch-flexy:not([theater]),
-html[it-page-type=video][it-header-position=static] ytd-watch-flexy:not([theater]) {
+html[data-page-type=video]:not([it-header-position]) ytd-watch-flexy:not([theater]),
+html[data-page-type=video][it-header-position=normal] ytd-watch-flexy:not([theater]),
+html[data-page-type=video][it-header-position=static] ytd-watch-flexy:not([theater]) {
     --it-header-size: 104px;
 }
 
-html[it-page-type=video]:not([it-header-position]) div#page,
-html[it-page-type=video][it-header-position=normal] div#page,
-html[it-page-type=video][it-header-position=static] div#page {
+html[data-page-type=video]:not([it-header-position]) div#page,
+html[data-page-type=video][it-header-position=normal] div#page,
+html[data-page-type=video][it-header-position=static] div#page {
     --it-header-size: 50px;
 }
 
-html[it-page-type=video]:not([it-header-position]) div#page:not(.watch-wide),
-html[it-page-type=video][it-header-position=normal] div#page:not(.watch-wide),
-html[it-page-type=video][it-header-position=static] div#page:not(.watch-wide) {
+html[data-page-type=video]:not([it-header-position]) div#page:not(.watch-wide),
+html[data-page-type=video][it-header-position=normal] div#page:not(.watch-wide),
+html[data-page-type=video][it-header-position=static] div#page:not(.watch-wide) {
     --it-header-size: 70px;
 }
 
 
 /* ---- HIDDEN ---------------------------------------------------------------*/
 
-html[it-page-type=video][it-header-position=hidden],
-html[it-page-type=video][it-header-position=hidden_on_video_page] {
-    --it-header-size: 0px;
+html[data-page-type=video][it-header-position=hidden],
+html[data-page-type=video][it-header-position=hidden_on_video_page] {
+    --it-header-size: 0;
 }
 
-html[it-page-type=video][it-header-position=hidden] ytd-watch-flexy:not([theater]),
-html[it-page-type=video][it-header-position=hidden_on_video_page] ytd-watch-flexy:not([theater]) {
+html[data-page-type=video][it-header-position=hidden] ytd-watch-flexy:not([theater]),
+html[data-page-type=video][it-header-position=hidden_on_video_page] ytd-watch-flexy:not([theater]) {
     --it-header-size: 48px;
 }
 
-html[it-page-type=video][it-header-position=hidden] div#page,
-html[it-page-type=video][it-header-position=hidden_on_video_page] div#page {
-    --it-header-size: 0px;
+html[data-page-type=video][it-header-position=hidden] div#page,
+html[data-page-type=video][it-header-position=hidden_on_video_page] div#page {
+    --it-header-size: 0;
 }
 
-html[it-page-type=video][it-header-position=hidden] div#page:not(.watch-wide),
-html[it-page-type=video][it-header-position=hidden_on_video_page] div#page:not(.watch-wide) {
+html[data-page-type=video][it-header-position=hidden] div#page:not(.watch-wide),
+html[data-page-type=video][it-header-position=hidden_on_video_page] div#page:not(.watch-wide) {
     --it-header-size: 20px;
 }
 
 
 /* ---- HOVER ----------------------------------------------------------------*/
 
-html[it-page-type=video][it-header-position=hover],
-html[it-page-type=video][it-header-position=hover_on_video_page] {
+html[data-page-type=video][it-header-position=hover],
+html[data-page-type=video][it-header-position=hover_on_video_page] {
     --it-header-size: 14px;
 }
 
-html[it-page-type=video][it-header-position=hover] ytd-watch-flexy:not([theater]),
-html[it-page-type=video][it-header-position=hover_on_video_page] ytd-watch-flexy:not([theater]) {
+html[data-page-type=video][it-header-position=hover] ytd-watch-flexy:not([theater]),
+html[data-page-type=video][it-header-position=hover_on_video_page] ytd-watch-flexy:not([theater]) {
     --it-header-size: 62px;
 }
 
-html[it-page-type=video][it-header-position=hover] div#page,
-html[it-page-type=video][it-header-position=hover_on_video_page] div#page {
+html[data-page-type=video][it-header-position=hover] div#page,
+html[data-page-type=video][it-header-position=hover_on_video_page] div#page {
     --it-header-size: 12px;
 }
 
-html[it-page-type=video][it-header-position=hover] div#page:not(.watch-wide),
-html[it-page-type=video][it-header-position=hover_on_video_page] div#page:not(.watch-wide) {
+html[data-page-type=video][it-header-position=hover] div#page:not(.watch-wide),
+html[data-page-type=video][it-header-position=hover_on_video_page] div#page:not(.watch-wide) {
     --it-header-size: 32px;
 }
 
-html[it-page-type=video][it-header-position=hover] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .player-theater-container,
-html[it-page-type=video][it-header-position=hover_on_video_page] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .player-theater-container {
+html[data-page-type=video][it-header-position=hover] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .player-theater-container,
+html[data-page-type=video][it-header-position=hover_on_video_page] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .player-theater-container {
     margin-top: 14px;
 }
 
-html[it-page-type=video][it-header-position=hover] div#page #movie_player:not(.it-mini-player):not(.ytp-fullscreen),
-html[it-page-type=video][it-header-position=hover_on_video_page] div#page #movie_player:not(.it-mini-player):not(.ytp-fullscreen) {
+html[data-page-type=video][it-header-position=hover] div#page #movie_player:not(.it-mini-player):not(.ytp-fullscreen),
+html[data-page-type=video][it-header-position=hover_on_video_page] div#page #movie_player:not(.it-mini-player):not(.ytp-fullscreen) {
     margin-top: 12px;
 }
 
-html[it-page-type=video][it-header-position=hover] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]),
-html[it-page-type=video][it-header-position=hover_on_video_page] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) {
+html[data-page-type=video][it-header-position=hover] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]),
+html[data-page-type=video][it-header-position=hover_on_video_page] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) {
     margin-top: 14px;
 }
 
 
 /* ---- FIXED PLAYER SIZE ----------------------------------------------------*/
 
-html[it-page-type=video][it-player-size='240p'] *,
-html[it-page-type=video][it-player-size='360p'] *,
-html[it-page-type=video][it-player-size='480p'] *,
-html[it-page-type=video][it-player-size='576p'] *,
-html[it-page-type=video][it-player-size='720p'] *,
-html[it-page-type=video][it-player-size='1080p'] *,
-html[it-page-type=video][it-player-size='1440p'] *,
-html[it-page-type=video][it-player-size='2160p'] * {
-    --it-header-size: 0px !important;
+html[data-page-type=video][it-player-size='240p'] *,
+html[data-page-type=video][it-player-size='360p'] *,
+html[data-page-type=video][it-player-size='480p'] *,
+html[data-page-type=video][it-player-size='576p'] *,
+html[data-page-type=video][it-player-size='720p'] *,
+html[data-page-type=video][it-player-size='1080p'] *,
+html[data-page-type=video][it-player-size='1440p'] *,
+html[data-page-type=video][it-player-size='2160p'] * {
+    --it-header-size: 0 !important;
 }
 
 
 /* ---- SIZES ----------------------------------------------------------------*/
 
-html[it-page-type=video][it-player-size='240p'] {
+html[data-page-type=video][it-player-size='240p'] {
     --it-player-size: 240px;
 }
 
-html[it-page-type=video][it-player-size='360p'] {
+html[data-page-type=video][it-player-size='360p'] {
     --it-player-size: 360px;
 }
 
-html[it-page-type=video][it-player-size='480p'] {
+html[data-page-type=video][it-player-size='480p'] {
     --it-player-size: 480px;
 }
 
-html[it-page-type=video][it-player-size='576p'] {
+html[data-page-type=video][it-player-size='576p'] {
     --it-player-size: 576px;
 }
 
-html[it-page-type=video][it-player-size='720p'] {
+html[data-page-type=video][it-player-size='720p'] {
     --it-player-size: 720px;
 }
 
-html[it-page-type=video][it-player-size='1080p'] {
+html[data-page-type=video][it-player-size='1080p'] {
     --it-player-size: 1080px;
 }
 
-html[it-page-type=video][it-player-size='1440p'] {
+html[data-page-type=video][it-player-size='1440p'] {
     --it-player-size: 1440px;
 }
 
-html[it-page-type=video][it-player-size='2160p'] {
+html[data-page-type=video][it-player-size='2160p'] {
     --it-player-size: 2160px;
 }
 
-html[it-page-type=video][it-player-size='full_window'] {
+html[data-page-type=video][it-player-size='full_window'] {
     --it-player-size: 100vh;
 }
 
-html[it-page-type=video][it-player-size='fit_to_window'] {
+html[data-page-type=video][it-player-size='fit_to_window'] {
     --it-player-size: 100vh;
 }
 
@@ -596,23 +596,23 @@ html[it-page-type=video][it-player-size='fit_to_window'] {
 # ELEMENTS
 ------------------------------------------------------------------------------*/
 
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #player-container-inner {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #player-container-inner {
     padding-top: calc(var(--it-player-size) - var(--it-header-size)) !important;
 }
 
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container,
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) #player-theater-container {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container,
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) #player-theater-container {
     width: auto !important;
     height: calc(var(--it-player-size) - var(--it-header-size)) !important;
-    max-height: none !important;
     min-height: auto !important;
+    max-height: none !important;
 }
 
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player {
     background: #000 !important;
 }
 
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-container {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-container {
     position: absolute !important;
     display: flex !important;
     width: 100% !important;
@@ -621,7 +621,7 @@ html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change'])
     align-items: center !important;
 }
 
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) video {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) video {
     position: relative !important;
     top: 0 !important;
     left: 0 !important;
@@ -633,45 +633,46 @@ html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change'])
 
 /*FIT TO WINDOW*/
 
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #player-theater-container {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #player-theater-container {
     background: transparent !important;
 }
 
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) {
     display: table !important;
     overflow: visible !important;
     width: auto !important;
     margin: auto !important;
 }
 
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) .ytp-chrome-bottom {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) .ytp-chrome-bottom {
     width: calc(100% - 24px) !important;
 }
 
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) .html5-video-container {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) .html5-video-container {
     position: relative !important;
     display: inline-block !important;
     width: auto !important;
 }
 
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) video {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) video {
     position: relative !important;
     width: auto !important;
     max-width: 100vw !important;
 }
 
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) .ytp-iv-video-content {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal'])[it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) .ytp-iv-video-content {
     pointer-events: none !important;
 }
 
-/*html[it-page-type="video"][it-header-position='hover'][it-player-size='full_window'] ytd-app:not([masthead-hidden_]) .html5-video-player,
-html[it-page-type="video"][it-header-position='hover'][it-player-size='full_window'] ytd-app:not([scrolling_]) .html5-video-player,
-html[it-page-type="video"][it-header-position='hover_on_video_page'][it-player-size='full_window'] ytd-app:not([masthead-hidden_]) .html5-video-player,
-html[it-page-type="video"][it-header-position='hover_on_video_page'][it-player-size='full_window'] ytd-app:not([scrolling_]) .html5-video-player {
+
+/*html[data-page-type="video"][it-header-position='hover'][it-player-size='full_window'] ytd-app:not([masthead-hidden_]) .html5-video-player,
+html[data-page-type="video"][it-header-position='hover'][it-player-size='full_window'] ytd-app:not([scrolling_]) .html5-video-player,
+html[data-page-type="video"][it-header-position='hover_on_video_page'][it-player-size='full_window'] ytd-app:not([masthead-hidden_]) .html5-video-player,
+html[data-page-type="video"][it-header-position='hover_on_video_page'][it-player-size='full_window'] ytd-app:not([scrolling_]) .html5-video-player {
     margin-top: 14px !important;
 }*/
 
-html[it-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) .ytp-tooltip.ytp-preview {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='normal']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) .ytp-tooltip.ytp-preview {
     top: auto !important;
     bottom: 80px !important;
 }
@@ -818,12 +819,12 @@ html[it-always-show-progress-bar=true] .html5-video-player:not(.it-mini-player).
     bottom: 0 !important;
 }
 
+
 /*-----------------------------------------------------------------------------
 2.2.10 Hide Gradient Bottom
 -----------------------------------------------------------------------------*/
 
-html[it-hide-gradient-bottom=true] .ytp-gradient-bottom
-{
+html[it-hide-gradient-bottom=true] .ytp-gradient-bottom {
     display: none;
 }
 
@@ -908,33 +909,37 @@ html[it-related-videos=collapsed].related-videos-collapsed #improvedtube-collaps
     box-shadow: inset 0 1px 0 #ddd;
 }
 
+
 /*-----------------------------------------------------------------------------
 2.3.4 Sidebar position
 -----------------------------------------------------------------------------*/
 
 html[it-sidebar-left='true'] #columns>#primary,
-html[it-sidebar-left='true'] #head>#upnext   /* also moving autoplay button to the outside as the glow bothers next to the video */
-{   
-    order:7;
+html[it-sidebar-left='true'] #head>#upnext
+/* also moving autoplay button to the outside as the glow bothers next to the video */
+
+{
+    order: 7;
 }
+
 
 /*-----------------------------------------------------------------------------
 2.3.5 Thumbnails
 -----------------------------------------------------------------------------*/
 
-html[it-thumbnails-right='true'] #dismissible>ytd-thumbnail
-{
-    order:7; 
+html[it-thumbnails-right='true'] #dismissible>ytd-thumbnail {
+    order: 7;
 }
 
-html[it-thumbnails-hide='true'] #dismissible>ytd-thumbnail
-{
-    display:none; 
+html[it-thumbnails-hide='true'] #dismissible>ytd-thumbnail {
+    display: none;
 }
+
 
 /*------------------------------------------------------------------------------
 2.4 DETAILS
 ------------------------------------------------------------------------------*/
+
 
 /*------------------------------------------------------------------------------
 2.4.1 HIDE DETAILS
@@ -954,7 +959,7 @@ html[it-hide-details=true] #primary-inner>#meta {
 ------------------------------------------------------------------------------*/
 
 html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer,
-html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer + #date > #dot {
+html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer+#date>#dot {
     display: none;
 }
 
@@ -963,8 +968,8 @@ html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer + #date > 
 2.4.2 HIDE DATE
 ------------------------------------------------------------------------------*/
 
-html[it-hide-date=true] #count.ytd-video-primary-info-renderer + #date,
-html[it-hide-date=true] #count.ytd-video-primary-info-renderer + #date > #dot {
+html[it-hide-date=true] #count.ytd-video-primary-info-renderer+#date,
+html[it-hide-date=true] #count.ytd-video-primary-info-renderer+#date>#dot {
     display: none;
 }
 
@@ -993,7 +998,7 @@ html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-rend
 2.4.2 HIDE MORE BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-more-button=true] #info #top-level-buttons-computed + yt-icon-button {
+html[it-hide-more-button=true] #info #top-level-buttons-computed+yt-icon-button {
     display: none;
 }
 
@@ -1189,6 +1194,7 @@ html[it-bluelight][it-youtube-version=old] body {
 3.3 THEMES
 ------------------------------------------------------------------------------*/
 
+
 /*BLACK*/
 
 [it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
@@ -1204,40 +1210,40 @@ html[it-bluelight][it-youtube-version=old] body {
     --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
     --yt-swatch-header-primary: #000;
     --yt-spec-brand-background-solid: #000 !important;
-    --yt-spec-brand-background-primary: rgba(0, 0, 0, 0.98) !important;
-    --yt-spec-brand-background-secondary: rgba(0, 0, 0, 0.95) !important;
+    --yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
+    --yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
     --yt-spec-general-background-a: #000 !important;
     --yt-spec-general-background-b: #000 !important;
     --yt-spec-general-background-c: #000 !important;
-    --yt-spec-error-background: #1F1F1F !important;
+    --yt-spec-error-background: #1f1f1f !important;
     --yt-spec-text-primary: #aaa !important;
     --yt-spec-text-primary-inverse: #003459 !important;
     --yt-spec-text-secondary: #aaa !important;
     --yt-spec-text-disabled: #aaa !important;
-    --yt-spec-call-to-action: #065FD4 !important;
+    --yt-spec-call-to-action: #065fd4 !important;
     --yt-spec-icon-active-other: #aaa !important;
     --yt-spec-icon-inactive: #aaa !important;
     --yt-spec-icon-disabled: #aaa !important;
-    --yt-spec-badge-chip-background: rgba(0, 0, 0, 0.05) !important;
-    --yt-spec-verified-badge-background: rgba(0, 0, 0, 0.15) !important;
-    --yt-spec-suggested-action: #F2F8FF !important;
-    --yt-spec-button-chip-background-hover: rgba(0, 0, 0, 0.10) !important;
-    --yt-spec-touch-response: #000000 !important;
+    --yt-spec-badge-chip-background: rgba(0, 0, 0, .05) !important;
+    --yt-spec-verified-badge-background: rgba(0, 0, 0, .15) !important;
+    --yt-spec-suggested-action: #f2f8ff !important;
+    --yt-spec-button-chip-background-hover: rgba(0, 0, 0, .10) !important;
+    --yt-spec-touch-response: #000 !important;
     --yt-spec-filled-button-text: #aaa !important;
     --yt-spec-call-to-action-inverse: #aaa !important;
     --yt-spec-brand-icon-active: #aaa !important;
     --yt-spec-brand-icon-inactive: #aaa !important;
     --yt-spec-brand-button-background: #242424 !important;
     --yt-spec-brand-link-text: #aaa !important;
-    --yt-spec-filled-button-focus-outline: rgba(0, 0, 0, 0.60) !important;
-    --yt-spec-call-to-action-button-focus-outline: rgba(0, 0, 0, 0.30) !important;
-    --yt-spec-brand-text-button-focus-outline: rgba(204, 0, 0, 0.30) !important;
+    --yt-spec-filled-button-focus-outline: rgba(0, 0, 0, .60) !important;
+    --yt-spec-call-to-action-button-focus-outline: rgba(0, 0, 0, .30) !important;
+    --yt-spec-brand-text-button-focus-outline: rgba(204, 0, 0, .30) !important;
     --yt-spec-inactive-text-button-focus-outline: #aaa !important;
     --yt-spec-brand-subscribe-button-background: #aaa !important;
     --yt-spec-wordmark-text: #aaa !important;
     --yt-spec-10-percent-layer: #242424 !important;
     --yt-spec-selected-nav-text: #aaa !important;
-    --yt-spec-themed-blue: #065FD4 !important;
+    --yt-spec-themed-blue: #065fd4 !important;
     --yt-spec-themed-green: #107516 !important;
 }
 
@@ -1406,6 +1412,7 @@ html[it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-sched
     --yt-blue-suggestive: transparent;
 }
 
+
 /*DAWN*/
 
 [it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
@@ -1421,24 +1428,24 @@ html[it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-sched
     --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
     --yt-swatch-header-primary: #734;
     --yt-spec-brand-background-solid: #d44d5c !important;
-    --yt-spec-brand-background-primary: rgba(0, 0, 0, 0.98) !important;
-    --yt-spec-brand-background-secondary: rgba(0, 0, 0, 0.95) !important;
+    --yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
+    --yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
     --yt-spec-general-background-a: #d44d5c !important;
     --yt-spec-general-background-b: #d44d5c !important;
     --yt-spec-general-background-c: #d44d5c !important;
-    --yt-spec-error-background: #1F1F1F !important;
+    --yt-spec-error-background: #1f1f1f !important;
     --yt-spec-text-primary: rgb(255, 255, 255) !important;
     --yt-spec-text-primary-inverse: #003459 !important;
     --yt-spec-text-secondary: rgb(255, 255, 255) !important;
     --yt-spec-text-disabled: rgb(255, 255, 255) !important;
-    --yt-spec-call-to-action: #065FD4 !important;
+    --yt-spec-call-to-action: #065fd4 !important;
     --yt-spec-icon-active-other: rgb(255, 255, 255) !important;
     --yt-spec-icon-inactive: rgb(255, 255, 255) !important;
     --yt-spec-icon-disabled: rgb(255, 255, 255) !important;
-    --yt-spec-badge-chip-background: rgba(0, 0, 0, 0.05) !important;
-    --yt-spec-verified-badge-background: rgba(0, 0, 0, 0.15) !important;
-    --yt-spec-suggested-action: #F2F8FF !important;
-    --yt-spec-button-chip-background-hover: rgba(0, 0, 0, 0.10) !important;
+    --yt-spec-badge-chip-background: rgba(0, 0, 0, .05) !important;
+    --yt-spec-verified-badge-background: rgba(0, 0, 0, .15) !important;
+    --yt-spec-suggested-action: #f2f8ff !important;
+    --yt-spec-button-chip-background-hover: rgba(0, 0, 0, .10) !important;
     --yt-spec-touch-response: #d44d5c !important;
     --yt-spec-filled-button-text: rgb(255, 255, 255) !important;
     --yt-spec-call-to-action-inverse: rgb(255, 255, 255) !important;
@@ -1446,15 +1453,15 @@ html[it-black-theme=true]:not([it-schedule=system_peference_dark]):not([it-sched
     --yt-spec-brand-icon-inactive: rgb(255, 255, 255) !important;
     --yt-spec-brand-button-background: rgba(136, 136, 136, 1) !important;
     --yt-spec-brand-link-text: rgb(255, 255, 255)!important;
-    --yt-spec-filled-button-focus-outline: rgba(0, 0, 0, 0.60) !important;
-    --yt-spec-call-to-action-button-focus-outline: rgba(0, 0, 0, 0.30) !important;
-    --yt-spec-brand-text-button-focus-outline: rgba(204, 0, 0, 0.30) !important;
+    --yt-spec-filled-button-focus-outline: rgba(0, 0, 0, .60) !important;
+    --yt-spec-call-to-action-button-focus-outline: rgba(0, 0, 0, .30) !important;
+    --yt-spec-brand-text-button-focus-outline: rgba(204, 0, 0, .30) !important;
     --yt-spec-inactive-text-button-focus-outline: #aaa !important;
     --yt-spec-brand-subscribe-button-background: rgb(255, 255, 255) !important;
     --yt-spec-wordmark-text: rgb(255, 255, 255) !important;
     --yt-spec-10-percent-layer: rgba(136, 136, 136, 1) !important;
     --yt-spec-selected-nav-text: rgb(255, 255, 255) !important;
-    --yt-spec-themed-blue: #065FD4 !important;
+    --yt-spec-themed-blue: #065fd4 !important;
     --yt-spec-themed-green: #107516 !important;
 }
 
@@ -1623,6 +1630,7 @@ html[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedu
     -webkit-filter: grayscale(1) brightness(4);
     filter: grayscale(1) brightness(4);
 }
+
 
 /*DEFAULT DARK*/
 
@@ -2153,6 +2161,7 @@ html[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedu
     }
 }
 
+
 /*DESERT*/
 
 [it-desert-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
@@ -2168,24 +2177,24 @@ html[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedu
     --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
     --yt-swatch-header-primary: #bee3db;
     --yt-spec-brand-background-solid: #faf9f9 !important;
-    --yt-spec-brand-background-primary: rgba(0, 0, 0, 0.98) !important;
-    --yt-spec-brand-background-secondary: rgba(0, 0, 0, 0.95) !important;
+    --yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
+    --yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
     --yt-spec-general-background-a: #faf9f9 !important;
     --yt-spec-general-background-b: #faf9f9 !important;
     --yt-spec-general-background-c: #faf9f9 !important;
-    --yt-spec-error-background: #1F1F1F !important;
+    --yt-spec-error-background: #1f1f1f !important;
     --yt-spec-text-primary: #555 !important;
     --yt-spec-text-primary-inverse: #003459 !important;
     --yt-spec-text-secondary: #555 !important;
     --yt-spec-text-disabled: #555 !important;
-    --yt-spec-call-to-action: #065FD4 !important;
+    --yt-spec-call-to-action: #065fd4 !important;
     --yt-spec-icon-active-other: #555 !important;
     --yt-spec-icon-inactive: #555 !important;
     --yt-spec-icon-disabled: #555 !important;
-    --yt-spec-badge-chip-background: rgba(0, 0, 0, 0.05) !important;
-    --yt-spec-verified-badge-background: rgba(0, 0, 0, 0.15) !important;
-    --yt-spec-suggested-action: #F2F8FF !important;
-    --yt-spec-button-chip-background-hover: rgba(0, 0, 0, 0.10) !important;
+    --yt-spec-badge-chip-background: rgba(0, 0, 0, .05) !important;
+    --yt-spec-verified-badge-background: rgba(0, 0, 0, .15) !important;
+    --yt-spec-suggested-action: #f2f8ff !important;
+    --yt-spec-button-chip-background-hover: rgba(0, 0, 0, .10) !important;
     --yt-spec-touch-response: #faf9f9 !important;
     --yt-spec-filled-button-text: #555 !important;
     --yt-spec-call-to-action-inverse: #555 !important;
@@ -2193,15 +2202,15 @@ html[it-dawn-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedu
     --yt-spec-brand-icon-inactive: #555 !important;
     --yt-spec-brand-button-background: rgba(136, 136, 136, 1) !important;
     --yt-spec-brand-link-text: #555!important;
-    --yt-spec-filled-button-focus-outline: rgba(0, 0, 0, 0.60) !important;
-    --yt-spec-call-to-action-button-focus-outline: rgba(0, 0, 0, 0.30) !important;
-    --yt-spec-brand-text-button-focus-outline: rgba(204, 0, 0, 0.30) !important;
+    --yt-spec-filled-button-focus-outline: rgba(0, 0, 0, .60) !important;
+    --yt-spec-call-to-action-button-focus-outline: rgba(0, 0, 0, .30) !important;
+    --yt-spec-brand-text-button-focus-outline: rgba(204, 0, 0, .30) !important;
     --yt-spec-inactive-text-button-focus-outline: #aaa !important;
     --yt-spec-brand-subscribe-button-background: #555 !important;
     --yt-spec-wordmark-text: #555 !important;
     --yt-spec-10-percent-layer: rgba(136, 136, 136, 1) !important;
     --yt-spec-selected-nav-text: #555 !important;
-    --yt-spec-themed-blue: #065FD4 !important;
+    --yt-spec-themed-blue: #065fd4 !important;
     --yt-spec-themed-green: #107516 !important;
 }
 
@@ -2364,6 +2373,7 @@ html[it-desert-theme=true]:not([it-schedule=system_peference_dark]):not([it-sche
     --yt-blue-suggestive: transparent;
 }
 
+
 /*NIGHT*/
 
 [it-night-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
@@ -2379,24 +2389,24 @@ html[it-desert-theme=true]:not([it-schedule=system_peference_dark]):not([it-sche
     --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
     --yt-swatch-header-primary: #007ea7;
     --yt-spec-brand-background-solid: #003459 !important;
-    --yt-spec-brand-background-primary: rgba(0, 0, 0, 0.98) !important;
-    --yt-spec-brand-background-secondary: rgba(0, 0, 0, 0.95) !important;
+    --yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
+    --yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
     --yt-spec-general-background-a: #003459 !important;
     --yt-spec-general-background-b: #003459 !important;
     --yt-spec-general-background-c: #003459 !important;
-    --yt-spec-error-background: #1F1F1F !important;
+    --yt-spec-error-background: #1f1f1f !important;
     --yt-spec-text-primary: #fff !important;
     --yt-spec-text-primary-inverse: #003459 !important;
     --yt-spec-text-secondary: #fff !important;
     --yt-spec-text-disabled: #fff !important;
-    --yt-spec-call-to-action: #065FD4 !important;
+    --yt-spec-call-to-action: #065fd4 !important;
     --yt-spec-icon-active-other: #fff !important;
     --yt-spec-icon-inactive: #fff !important;
     --yt-spec-icon-disabled: #fff !important;
-    --yt-spec-badge-chip-background: rgba(0, 0, 0, 0.05) !important;
-    --yt-spec-verified-badge-background: rgba(0, 0, 0, 0.15) !important;
-    --yt-spec-suggested-action: #F2F8FF !important;
-    --yt-spec-button-chip-background-hover: rgba(0, 0, 0, 0.10) !important;
+    --yt-spec-badge-chip-background: rgba(0, 0, 0, .05) !important;
+    --yt-spec-verified-badge-background: rgba(0, 0, 0, .15) !important;
+    --yt-spec-suggested-action: #f2f8ff !important;
+    --yt-spec-button-chip-background-hover: rgba(0, 0, 0, .10) !important;
     --yt-spec-touch-response: #003459 !important;
     --yt-spec-filled-button-text: #fff !important;
     --yt-spec-call-to-action-inverse: #fff !important;
@@ -2404,15 +2414,15 @@ html[it-desert-theme=true]:not([it-schedule=system_peference_dark]):not([it-sche
     --yt-spec-brand-icon-inactive: #fff !important;
     --yt-spec-brand-button-background: rgba(136, 136, 136, 1) !important;
     --yt-spec-brand-link-text: #fff!important;
-    --yt-spec-filled-button-focus-outline: rgba(0, 0, 0, 0.60) !important;
-    --yt-spec-call-to-action-button-focus-outline: rgba(0, 0, 0, 0.30) !important;
-    --yt-spec-brand-text-button-focus-outline: rgba(204, 0, 0, 0.30) !important;
+    --yt-spec-filled-button-focus-outline: rgba(0, 0, 0, .60) !important;
+    --yt-spec-call-to-action-button-focus-outline: rgba(0, 0, 0, .30) !important;
+    --yt-spec-brand-text-button-focus-outline: rgba(204, 0, 0, .30) !important;
     --yt-spec-inactive-text-button-focus-outline: #aaa !important;
     --yt-spec-brand-subscribe-button-background: #fff !important;
     --yt-spec-wordmark-text: #fff !important;
     --yt-spec-10-percent-layer: rgba(136, 136, 136, 1) !important;
     --yt-spec-selected-nav-text: #fff !important;
-    --yt-spec-themed-blue: #065FD4 !important;
+    --yt-spec-themed-blue: #065fd4 !important;
     --yt-spec-themed-green: #107516 !important;
 }
 
@@ -2581,6 +2591,7 @@ html[it-night-theme=true]:not([it-schedule=system_peference_dark]):not([it-sched
     --yt-blue-suggestive: transparent;
 }
 
+
 /*PLAIN*/
 
 [it-plain-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
@@ -2596,24 +2607,24 @@ html[it-night-theme=true]:not([it-schedule=system_peference_dark]):not([it-sched
     --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
     --yt-swatch-header-primary: #d6d1b1;
     --yt-spec-brand-background-solid: #c7efcf !important;
-    --yt-spec-brand-background-primary: rgba(0, 0, 0, 0.98) !important;
-    --yt-spec-brand-background-secondary: rgba(0, 0, 0, 0.95) !important;
+    --yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
+    --yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
     --yt-spec-general-background-a: #c7efcf !important;
     --yt-spec-general-background-b: #c7efcf !important;
     --yt-spec-general-background-c: #c7efcf !important;
-    --yt-spec-error-background: #1F1F1F !important;
+    --yt-spec-error-background: #1f1f1f !important;
     --yt-spec-text-primary: #666 !important;
     --yt-spec-text-primary-inverse: #003459 !important;
     --yt-spec-text-secondary: #666 !important;
     --yt-spec-text-disabled: #666 !important;
-    --yt-spec-call-to-action: #065FD4 !important;
+    --yt-spec-call-to-action: #065fd4 !important;
     --yt-spec-icon-active-other: #666 !important;
     --yt-spec-icon-inactive: #666 !important;
     --yt-spec-icon-disabled: #666 !important;
-    --yt-spec-badge-chip-background: rgba(0, 0, 0, 0.05) !important;
-    --yt-spec-verified-badge-background: rgba(0, 0, 0, 0.15) !important;
-    --yt-spec-suggested-action: #F2F8FF !important;
-    --yt-spec-button-chip-background-hover: rgba(0, 0, 0, 0.10) !important;
+    --yt-spec-badge-chip-background: rgba(0, 0, 0, .05) !important;
+    --yt-spec-verified-badge-background: rgba(0, 0, 0, .15) !important;
+    --yt-spec-suggested-action: #f2f8ff !important;
+    --yt-spec-button-chip-background-hover: rgba(0, 0, 0, .10) !important;
     --yt-spec-touch-response: #c7efcf !important;
     --yt-spec-filled-button-text: #666 !important;
     --yt-spec-call-to-action-inverse: #666 !important;
@@ -2621,15 +2632,15 @@ html[it-night-theme=true]:not([it-schedule=system_peference_dark]):not([it-sched
     --yt-spec-brand-icon-inactive: #666 !important;
     --yt-spec-brand-button-background: rgba(136, 136, 136, 1) !important;
     --yt-spec-brand-link-text: #666!important;
-    --yt-spec-filled-button-focus-outline: rgba(0, 0, 0, 0.60) !important;
-    --yt-spec-call-to-action-button-focus-outline: rgba(0, 0, 0, 0.30) !important;
-    --yt-spec-brand-text-button-focus-outline: rgba(204, 0, 0, 0.30) !important;
+    --yt-spec-filled-button-focus-outline: rgba(0, 0, 0, .60) !important;
+    --yt-spec-call-to-action-button-focus-outline: rgba(0, 0, 0, .30) !important;
+    --yt-spec-brand-text-button-focus-outline: rgba(204, 0, 0, .30) !important;
     --yt-spec-inactive-text-button-focus-outline: #aaa !important;
     --yt-spec-brand-subscribe-button-background: #666 !important;
     --yt-spec-wordmark-text: #666 !important;
     --yt-spec-10-percent-layer: rgba(136, 136, 136, 1) !important;
     --yt-spec-selected-nav-text: #666 !important;
-    --yt-spec-themed-blue: #065FD4 !important;
+    --yt-spec-themed-blue: #065fd4 !important;
     --yt-spec-themed-green: #107516 !important;
 }
 
@@ -2792,6 +2803,7 @@ html[it-plain-theme=true]:not([it-schedule=system_peference_dark]):not([it-sched
     --yt-blue-suggestive: transparent;
 }
 
+
 /*SUNSET*/
 
 [it-sunset-theme=true]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
@@ -2807,24 +2819,24 @@ html[it-plain-theme=true]:not([it-schedule=system_peference_dark]):not([it-sched
     --yt-swatch-icon-color: rgba(136, 136, 136, 1)!important;
     --yt-swatch-header-primary: #f56264;
     --yt-spec-brand-background-solid: #2f3364 !important;
-    --yt-spec-brand-background-primary: rgba(0, 0, 0, 0.98) !important;
-    --yt-spec-brand-background-secondary: rgba(0, 0, 0, 0.95) !important;
+    --yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
+    --yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
     --yt-spec-general-background-a: #2f3364 !important;
     --yt-spec-general-background-b: #2f3364 !important;
     --yt-spec-general-background-c: #2f3364 !important;
-    --yt-spec-error-background: #1F1F1F !important;
+    --yt-spec-error-background: #1f1f1f !important;
     --yt-spec-text-primary: #fff !important;
     --yt-spec-text-primary-inverse: #003459 !important;
     --yt-spec-text-secondary: #fff !important;
     --yt-spec-text-disabled: #fff !important;
-    --yt-spec-call-to-action: #065FD4 !important;
+    --yt-spec-call-to-action: #065fd4 !important;
     --yt-spec-icon-active-other: #fff !important;
     --yt-spec-icon-inactive: #fff !important;
     --yt-spec-icon-disabled: #fff !important;
-    --yt-spec-badge-chip-background: rgba(0, 0, 0, 0.05) !important;
-    --yt-spec-verified-badge-background: rgba(0, 0, 0, 0.15) !important;
-    --yt-spec-suggested-action: #F2F8FF !important;
-    --yt-spec-button-chip-background-hover: rgba(0, 0, 0, 0.10) !important;
+    --yt-spec-badge-chip-background: rgba(0, 0, 0, .05) !important;
+    --yt-spec-verified-badge-background: rgba(0, 0, 0, .15) !important;
+    --yt-spec-suggested-action: #f2f8ff !important;
+    --yt-spec-button-chip-background-hover: rgba(0, 0, 0, .10) !important;
     --yt-spec-touch-response: #2f3364 !important;
     --yt-spec-filled-button-text: #fff !important;
     --yt-spec-call-to-action-inverse: #fff !important;
@@ -2832,15 +2844,15 @@ html[it-plain-theme=true]:not([it-schedule=system_peference_dark]):not([it-sched
     --yt-spec-brand-icon-inactive: #fff !important;
     --yt-spec-brand-button-background: rgba(136, 136, 136, 1) !important;
     --yt-spec-brand-link-text: #fff!important;
-    --yt-spec-filled-button-focus-outline: rgba(0, 0, 0, 0.60) !important;
-    --yt-spec-call-to-action-button-focus-outline: rgba(0, 0, 0, 0.30) !important;
-    --yt-spec-brand-text-button-focus-outline: rgba(204, 0, 0, 0.30) !important;
+    --yt-spec-filled-button-focus-outline: rgba(0, 0, 0, .60) !important;
+    --yt-spec-call-to-action-button-focus-outline: rgba(0, 0, 0, .30) !important;
+    --yt-spec-brand-text-button-focus-outline: rgba(204, 0, 0, .30) !important;
     --yt-spec-inactive-text-button-focus-outline: #aaa !important;
     --yt-spec-brand-subscribe-button-background: #fff !important;
     --yt-spec-wordmark-text: #fff !important;
     --yt-spec-10-percent-layer: rgba(136, 136, 136, 1) !important;
     --yt-spec-selected-nav-text: #fff !important;
-    --yt-spec-themed-blue: #065FD4 !important;
+    --yt-spec-themed-blue: #065fd4 !important;
     --yt-spec-themed-green: #107516 !important;
 }
 
@@ -2990,7 +3002,7 @@ html[it-sunset-theme=true]:not([it-schedule=system_peference_dark]):not([it-sche
     --yt-main-app-background: #2f3364;
     --yt-main-app-background-tmp: #2f3364;
     --yt-guide-background: #2f3364;
-    --yt-dialog-background: #D62828;
+    --yt-dialog-background: #d62828;
     --yt-searchbox-background: #fa7965!important;
     --yt-channel-header-background: #2f3364;
     --yt-sidebar-background: #2f3364;
@@ -3041,22 +3053,22 @@ html[it-player-ads=block_all] #masthead-ad {
 .it-mini-player {
     position: fixed !important;
     z-index: 2147483648 !important;
-    left: 0!important;
     top: 0!important;
+    left: 0!important;
+    background: #000 !important;
     box-shadow: rgba(0, 0, 0, .4) 0 2px 8px !important;
     will-change: transform, width, height !important;
-    background: #000 !important;
 }
 
-html[it-page-type=video][it-header-position=hover_on_video_page][it-player-size=full_window] .html5-video-player.it-mini-player,
-html[it-page-type=video][it-header-position=hover][it-player-size=full_window] .html5-video-player.it-mini-player {
+html[data-page-type=video][it-header-position=hover_on_video_page][it-player-size=full_window] .html5-video-player.it-mini-player,
+html[data-page-type=video][it-header-position=hover][it-player-size=full_window] .html5-video-player.it-mini-player {
     margin-top: 0!important;
 }
 
 .it-mini-player .html5-video-container,
 .it-mini-player video {
-    left: 0 !important;
     top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
 }
@@ -3113,13 +3125,13 @@ html[it-mini-player-cursor='ne-resize']::after,
 html[it-mini-player-cursor='se-resize']::after,
 html[it-mini-player-cursor='sw-resize']::after,
 html[it-mini-player-cursor='nw-resize']::after {
-    content: '';
     position: fixed;
-    left: 0;
+    z-index: 2147483650;
     top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 2147483650;
+    content: '';
 }
 
 html[it-mini-player-cursor='n-resize']::after {
@@ -3304,18 +3316,17 @@ FIXED #535 FlaviuIusan
 ------------------------------------------------------------------------------*/
 
 html[it-channel-hide-featured-content=true] #secondary #contents.style-scope.ytd-browse-secondary-contents-renderer,
-html[it-channel-hide-featured-content=true] .branded-page-v2-secondary-col
-{
+html[it-channel-hide-featured-content=true] .branded-page-v2-secondary-col {
     display: none !important;
 }
 
 html[it-channel-hide-featured-content=true] #secondary.ytd-two-column-browse-results-renderer,
-html[it-channel-hide-featured-content=true] #secondary ytd-browse-secondary-contents-renderer
-{
-    padding: 0;
+html[it-channel-hide-featured-content=true] #secondary ytd-browse-secondary-contents-renderer {
     width: fit-content;
     height: fit-content;
+    padding: 0;
 }
+
 
 /*------------------------------------------------------------------------------
 7.0 SHORTCUTS
@@ -3497,119 +3508,71 @@ html[it-improvedtube-youtube-icon='draggable'] .it-btn {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*------------NEW---------------*/
 
-.improvedtube-sidebar-a
-{
+.improvedtube-sidebar-a {
     font-size: 1.4rem;
     line-height: var(--yt-guide-highlight-line-height, 1.8rem);
-
     position: relative;
-
     display: flex;
-
     box-sizing: border-box;
     width: 100%;
     height: 40px;
     padding: 0 24px;
-
     text-decoration: none;
-
     color: var(--yt-spec-text-primary);
-
     justify-content: flex-start;
     align-items: center;
 }
 
-.improvedtube-sidebar-a:hover
-{
+.improvedtube-sidebar-a:hover {
     background-color: var(--yt-spec-10-percent-layer);
 }
 
-.improvedtube-sidebar-a::before
-{
+.improvedtube-sidebar-a::before {
     width: 20px;
     height: 20px;
     margin: 2px 26px 2px 2px;
-
     content: '';
-
     border-radius: 50%;
     background: #f00;
 }
 
-.improvedtube-sidebar-a::after
-{
+.improvedtube-sidebar-a::after {
     position: absolute;
     left: 33px;
-
     display: block;
-
     content: '';
-
     opacity: .9;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     border-left: 8px solid rgb(255, 255, 255);
 }
 
-
-.improvedtube-player-button
-{
+.improvedtube-player-button {
     position: relative;
-
     width: 40px;
     height: 36px;
     margin: 0 8px;
     padding: 6px;
-
     cursor: pointer;
-
     border: none;
     outline: none;
     background: none;
-
     fill: var(--yt-spec-icon-inactive);
 }
 
-.improvedtube-player-button:last-of-type
-{
+.improvedtube-player-button:last-of-type {
     margin-right: 24px;
 }
 
-.improvedtube-player-button:hover::after
-{
+.improvedtube-player-button:hover::after {
     position: absolute;
     top: 150%;
     left: 50%;
-
     padding: 8px;
-
     content: attr(data-tooltip);
     transform: translateX(-50%);
-
     color: var(--paper-tooltip-text-color, white);
     border-radius: 2px;
     background-color: var(--paper-tooltip-background, #616161);
