@@ -478,7 +478,7 @@ html[data-page-type=video][it-header-position=static] div#page:not(.watch-wide) 
 
 html[data-page-type=video][it-header-position=hidden],
 html[data-page-type=video][it-header-position=hidden_on_video_page] {
-    --it-header-size: 0;
+    --it-header-size: 0px;
 }
 
 html[data-page-type=video][it-header-position=hidden] ytd-watch-flexy:not([theater]),
@@ -488,7 +488,7 @@ html[data-page-type=video][it-header-position=hidden_on_video_page] ytd-watch-fl
 
 html[data-page-type=video][it-header-position=hidden] div#page,
 html[data-page-type=video][it-header-position=hidden_on_video_page] div#page {
-    --it-header-size: 0;
+    --it-header-size: 0px;
 }
 
 html[data-page-type=video][it-header-position=hidden] div#page:not(.watch-wide),
@@ -545,7 +545,7 @@ html[data-page-type=video][it-player-size='720p'] *,
 html[data-page-type=video][it-player-size='1080p'] *,
 html[data-page-type=video][it-player-size='1440p'] *,
 html[data-page-type=video][it-player-size='2160p'] * {
-    --it-header-size: 0 !important;
+    --it-header-size: 0px !important;
 }
 
 
