@@ -318,13 +318,13 @@ ImprovedTube.playerOnPlay = function () {
             if (ImprovedTube.video_url !== location.href) {
                 ImprovedTube.video_url = location.href;
 
-                this.playerPlaybackSpeed();
-                this.subtitles();
-                this.playerQuality();
-                this.playerVolume();
+                ImprovedTube.playerPlaybackSpeed();
+                ImprovedTube.subtitles();
+                ImprovedTube.playerQuality();
+                ImprovedTube.playerVolume();
 
                 if (location.href.indexOf('/embed/') === -1) {
-                    this.mini_player();
+                    ImprovedTube.mini_player();
                 }
             }
 
