@@ -104,8 +104,9 @@ The variable "ImprovedTube" is used on the YouTube side.
 ------------------------------------------------------------------------------*/
 
 var ImprovedTube = {
-    buttons: `{
-        playlist: {}
+    elements: `{
+        playlist: {},
+        livechat: {}
     }`,
     video_src: false,
     initialVideoUpdateDone: false,
@@ -113,8 +114,6 @@ var ImprovedTube = {
     video_url: false,
     focus: false,
     played_before_blur: false,
-    livechat_wait: false,
-    livechat_url: false,
     related_videos_wait: false,
     comments_wait: false,
     allow_autoplay: false,
@@ -203,24 +202,39 @@ ImprovedTube.init = function () {
                 for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
                     var node = mutation.addedNodes[j];
 
-                    if (
-                        node.nodeName === 'YTD-TOGGLE-BUTTON-RENDERER' &&
-                        node.parentComponent &&
-                        node.parentComponent.nodeName === 'YTD-MENU-RENDERER' &&
-                        node.parentComponent.parentComponent &&
-                        node.parentComponent.parentComponent.nodeName === 'YTD-PLAYLIST-PANEL-RENDERER'
-                    ) {
-                        var index = Array.prototype.indexOf.call(node.parentNode.children, node);
+                    if (node.nodeName === 'YTD-TOGGLE-BUTTON-RENDERER') {
+                        if (
+                            node.parentComponent &&
+                            node.parentComponent.nodeName === 'YTD-MENU-RENDERER' &&
+                            node.parentComponent.parentComponent &&
+                            node.parentComponent.parentComponent.nodeName === 'YTD-PLAYLIST-PANEL-RENDERER'
+                        ) {
+                            var index = Array.prototype.indexOf.call(node.parentNode.children, node);
 
-                        if (index === 0) {
-                            ImprovedTube.buttons.playlist.repeat_button = node;
+                            if (index === 0) {
+                                ImprovedTube.elements.playlist.repeat_button = node;
 
-                            ImprovedTube.playlistRepeat();
-                        } else if (index === 1) {
-                            ImprovedTube.buttons.playlist.shuffle_button = node;
+                                ImprovedTube.playlistRepeat();
+                                
+                                ImprovedTube.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;
+                                
+                                ImprovedTube.playlistReverse();
+                            } else if (index === 1) {
+                                ImprovedTube.elements.playlist.shuffle_button = node;
 
-                            ImprovedTube.playlistShuffle();
+                                ImprovedTube.playlistShuffle();
+                                
+                                ImprovedTube.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;
+                                
+                                ImprovedTube.playlistReverse();
+                            }
                         }
+                    } else if (node.id === 'movie_player') {
+                        ImprovedTube.elements.player = node;
+                    } else if (node.id === 'chat') {
+                        ImprovedTube.elements.livechat.button = node.querySelector('ytd-toggle-button-renderer');
+                        
+                        ImprovedTube.livechat();
                     }
                 }
             }
@@ -272,8 +286,6 @@ ImprovedTube.videoPageUpdate = function () {
 
         this.forcedTheaterMode();
         this.playerHdThumbnail();
-        this.alwaysShowProgressBar();
-        this.livechat();
         this.relatedVideos();
         this.howLongAgoTheVideoWasUploaded();
         this.channelVideosCount();
@@ -359,6 +371,8 @@ ImprovedTube.playerOnTimeUpdate = function () {
         ImprovedTube.playerPlaybackSpeed();
         ImprovedTube.playerVolume();
     }
+
+    ImprovedTube.alwaysShowProgressBar();
 };
 
 
@@ -889,55 +903,49 @@ ImprovedTube.playerHdThumbnail = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.alwaysShowProgressBar = function () {
-    if (ImprovedTube.always_show_progress_bar_interval) {
-        clearInterval(ImprovedTube.always_show_progress_bar_interval);
-    }
-
     if (this.storage.always_show_progress_bar === true) {
-        ImprovedTube.always_show_progress_bar_interval = setInterval(function () {
-            var player = document.querySelector('.html5-video-player');
+        var player = ImprovedTube.elements.player;
 
-            if (player && player.classList.contains('ytp-autohide')) {
-                var played = player.getCurrentTime() * 100 / player.getDuration(),
-                    loaded = player.getVideoBytesLoaded() * 100,
-                    play_bars = player.querySelectorAll('.ytp-play-progress'),
-                    load_bars = player.querySelectorAll('.ytp-load-progress'),
-                    width = 0,
-                    progress_play = 0,
-                    progress_load = 0;
+        if (player && player.className.indexOf('ytp-autohide') !== -1) {
+            var played = player.getCurrentTime() * 100 / player.getDuration(),
+                loaded = player.getVideoBytesLoaded() * 100,
+                play_bars = player.querySelectorAll('.ytp-play-progress'),
+                load_bars = player.querySelectorAll('.ytp-load-progress'),
+                width = 0,
+                progress_play = 0,
+                progress_load = 0;
 
-                for (var i = 0, l = play_bars.length; i < l; i++) {
-                    width += play_bars[i].offsetWidth;
-                }
-
-                var width_percent = width / 100;
-
-                for (var i = 0, l = play_bars.length; i < l; i++) {
-                    var a = play_bars[i].offsetWidth / width_percent,
-                        b = 0,
-                        c = 0;
-
-                    if (played - progress_play >= a) {
-                        b = 100;
-                    } else if (played > progress_play && played < a + progress_play) {
-                        b = 100 * ((played - progress_play) * width_percent) / play_bars[i].offsetWidth;
-                    }
-
-                    play_bars[i].style.transform = 'scaleX(' + b / 100 + ')';
-
-                    if (loaded - progress_load >= a) {
-                        c = 100;
-                    } else if (loaded > progress_load && loaded < a + progress_load) {
-                        c = 100 * ((loaded - progress_load) * width_percent) / play_bars[i].offsetWidth;
-                    }
-
-                    load_bars[i].style.transform = 'scaleX(' + c / 100 + ')';
-
-                    progress_play += a;
-                    progress_load += a;
-                }
+            for (var i = 0, l = play_bars.length; i < l; i++) {
+                width += play_bars[i].offsetWidth;
             }
-        }, 100);
+
+            var width_percent = width / 100;
+
+            for (var i = 0, l = play_bars.length; i < l; i++) {
+                var a = play_bars[i].offsetWidth / width_percent,
+                    b = 0,
+                    c = 0;
+
+                if (played - progress_play >= a) {
+                    b = 100;
+                } else if (played > progress_play && played < a + progress_play) {
+                    b = 100 * ((played - progress_play) * width_percent) / play_bars[i].offsetWidth;
+                }
+
+                play_bars[i].style.transform = 'scaleX(' + b / 100 + ')';
+
+                if (loaded - progress_load >= a) {
+                    c = 100;
+                } else if (loaded > progress_load && loaded < a + progress_load) {
+                    c = 100 * ((loaded - progress_load) * width_percent) / play_bars[i].offsetWidth;
+                }
+
+                load_bars[i].style.transform = 'scaleX(' + c / 100 + ')';
+
+                progress_play += a;
+                progress_load += a;
+            }
+        }
     }
 };
 
@@ -951,38 +959,8 @@ ImprovedTube.alwaysShowProgressBar = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.livechat = function () {
-    if (
-        document.documentElement.getAttribute('data-page-type') === 'video' &&
-        this.storage.livechat === 'collapsed' &&
-        this.livechat_wait === false
-    ) {
-        this.livechat_wait = setInterval(function () {
-            var button = document.querySelector('#chat:not([collapsed]) #show-hide-button paper-button'),
-                expander = document.querySelector('#watch-sidebar-live-chat .yt-uix-expander');
-
-            if (document.documentElement.getAttribute('data-page-type') !== 'video' || button || expander) {
-                clearInterval(ImprovedTube.livechat_wait);
-
-                ImprovedTube.livechat_wait = false;
-            }
-
-            if (button) {
-                function click() {
-                    ImprovedTube.livechat_url = location.href;
-                }
-
-                button.addEventListener('mousedown', click);
-                button.addEventListener('touchdown', click);
-
-                setTimeout(function () {
-                    if (ImprovedTube.livechat_url !== location.href) {
-                        button.click();
-                    }
-                }, 500);
-            } else if (expander) {
-                expander.classList.add('yt-uix-expander-collapsed');
-            }
-        }, 250);
+    if (this.storage.livechat === 'collapsed') {
+        ImprovedTube.elements.livechat.button.click();
     }
 };
 
@@ -2333,37 +2311,6 @@ ImprovedTube.playlistUpNextAutoplay = function (event) {
 
 ImprovedTube.playlistReverse = function () {
     if (this.storage.playlist_reverse === true) {
-        if (!document.querySelector('#it-reverse-playlist') && document.querySelector('ytd-watch-flexy ytd-playlist-panel-renderer #start-actions')) {
-            var button = document.createElement('button');
-
-            button.id = 'it-reverse-playlist';
-            button.className = 'style-scope yt-icon-button';
-            button.innerHTML = '<svg width=24 height=24 viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"></svg>';
-
-            button.addEventListener('click', function (event) {
-                var playlist_manager = document.querySelector('yt-playlist-manager');
-
-                event.preventDefault();
-                event.stopPropagation();
-
-                this.classList.toggle('active');
-
-                ImprovedTube.playlistReversed = !ImprovedTube.playlistReversed;
-
-                setTimeout(updateNextButton, 500);
-
-                if (playlist_manager && playlist_manager.autoplayData) {
-                    ImprovedTube.playlistAutoplayData = Object.assign({}, playlist_manager.autoplayData);
-                }
-
-                ImprovedTube.reverse(document.querySelector('ytd-playlist-panel-renderer .playlist-items'));
-
-                return false;
-            }, true);
-
-            document.querySelector('ytd-watch-flexy ytd-playlist-panel-renderer #start-actions').appendChild(button);
-        }
-
         function updateNextButton() {
             var next_button = document.querySelector('.ytp-next-button'),
                 prev_button = document.querySelector('.ytp-prev-button'),
@@ -2414,6 +2361,37 @@ ImprovedTube.playlistReverse = function () {
             }
         }
 
+        if (!document.querySelector('#it-reverse-playlist') && ImprovedTube.elements.playlist.actions) {
+            var button = document.createElement('button');
+
+            button.id = 'it-reverse-playlist';
+            button.className = 'style-scope yt-icon-button';
+            button.innerHTML = '<svg width=24 height=24 viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"></svg>';
+
+            button.addEventListener('click', function (event) {
+                var playlist_manager = document.querySelector('yt-playlist-manager');
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                this.classList.toggle('active');
+
+                ImprovedTube.playlistReversed = !ImprovedTube.playlistReversed;
+
+                setTimeout(updateNextButton, 500);
+
+                if (playlist_manager && playlist_manager.autoplayData) {
+                    ImprovedTube.playlistAutoplayData = Object.assign({}, playlist_manager.autoplayData);
+                }
+
+                ImprovedTube.reverse(document.querySelector('ytd-playlist-panel-renderer .playlist-items'));
+
+                return false;
+            }, true);
+
+            ImprovedTube.elements.playlist.actions.appendChild(button);
+        }
+
         if (ImprovedTube.playlistReversed === true) {
             setTimeout(function () {
                 ImprovedTube.reverse(document.querySelector('ytd-playlist-panel-renderer .playlist-items'));
@@ -2430,7 +2408,7 @@ ImprovedTube.playlistReverse = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playlistRepeat = function () {
-    var button = ImprovedTube.buttons.playlist.repeat_button,
+    var button = ImprovedTube.elements.playlist.repeat_button,
         option = ImprovedTube.storage.playlist_repeat;
 
     if (button && (option === true && button.className.search('style-default-active') === -1 || option === 'disabled' && button.className.indexOf('style-default-active') !== -1)) {
@@ -2444,7 +2422,7 @@ ImprovedTube.playlistRepeat = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playlistShuffle = function () {
-    var button = ImprovedTube.buttons.playlist.shuffle_button,
+    var button = ImprovedTube.elements.playlist.shuffle_button,
         option = ImprovedTube.storage.playlist_shuffle;
 
     if (button && (option === true && button.className.search('style-default-active') === -1 || option === 'disabled' && button.className.indexOf('style-default-active') !== -1)) {
