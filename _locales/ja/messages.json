@@ -683,6 +683,12 @@
     "showChannelVideosCount": {
         "message": "チャンネルの動画数を表示する"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "シャッフル"
     },

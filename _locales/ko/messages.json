@@ -680,6 +680,12 @@
     "showChannelVideosCount": {
         "message": "채널의 비디오수 표시"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "셔플"
     },

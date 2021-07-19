@@ -683,6 +683,12 @@
     "showChannelVideosCount": {
         "message": "Aantal kanaalvideo's tonen"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "Willekeurig"
     },

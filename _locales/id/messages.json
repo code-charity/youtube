@@ -680,6 +680,12 @@
     "showChannelVideosCount": {
         "message": "Tampilkan jumlah video saluran"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "Putar secara acak"
     },

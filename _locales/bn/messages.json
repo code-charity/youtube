@@ -683,6 +683,12 @@
     "showChannelVideosCount": {
         "message": "চ্যানেল ভিডিও গণনা দেখান"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "অদলবদল"
     },

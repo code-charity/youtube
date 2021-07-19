@@ -695,6 +695,12 @@
     "showChannelVideosCount": {
         "message": "Prikaži broj videozapisa na kanalu"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "Nasumično"
     },
