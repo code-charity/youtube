@@ -864,8 +864,6 @@ html[it-hide-playlist=true] #placeholder-playlist {
 ------------------------------------------------------------------------------*/
 
 html[it-related-videos=hidden] div#related,
-html[it-related-videos=hidden] div#watch7-sidebar-contents,
-html[it-related-videos=collapsed].related-videos-collapsed #watch7-sidebar-modules,
 html[it-related-videos=collapsed].related-videos-collapsed #related>*:not(#improvedtube-collapsed-related-videos),
 html[it-related-videos=collapsed]:not(.related-videos-collapsed) #improvedtube-collapsed-related-videos .show-more-text,
 html[it-related-videos=collapsed].related-videos-collapsed #improvedtube-collapsed-related-videos .show-less-text {
@@ -883,30 +881,11 @@ html[it-related-videos=collapsed].related-videos-collapsed #improvedtube-collaps
     cursor: pointer;
     letter-spacing: .007px;
     text-transform: uppercase;
-    color: var(--yt-expand-color);
+    color: var(--yt-spec-text-secondary);
     border: none;
     border-bottom: 1px solid var(--yt-spec-10-percent-layer);
     outline: none;
     background: transparent;
-}
-
-#watch7-sidebar #improvedtube-collapsed-related-videos {
-    font-size: 12px;
-    font-weight: 500;
-    display: block;
-    width: 95%;
-    height: 100%;
-    margin: 0 auto 15px !important;
-    padding: 10px 0;
-    cursor: pointer;
-    text-align: center;
-    color: #333;
-    border: 1px solid #d3d3d3;
-    border-color: #c6c6c6;
-    outline: 0;
-    background-color: #f8f8f8;
-    background-image: linear-gradient(to top, #f0f0f0 0, #f8f8f8 100%);
-    box-shadow: inset 0 1px 0 #ddd;
 }
 
 
