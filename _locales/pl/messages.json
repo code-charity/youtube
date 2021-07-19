@@ -303,7 +303,7 @@
         "message": "Wymuś poziom głośności"
     },
     "foundABug": {
-        "message": "Znalazłeś buga?"
+        "message": "Znalazłeś błąd?"
     },
     "fullWindow": {
         "message": "Pełne okno"
@@ -354,10 +354,10 @@
         "message": "Ukryj sterowanie odtwarzaczem"
     },
     "hideCountryCode": {
-        "message": "Hide country code"
+        "message": "Ukryj kod kraju"
     },
     "hideDate": {
-        "message": "Hide date"
+        "message": "Ukryj datę"
     },
     "hideDetails": {
         "message": "Ukryj szczegóły"
@@ -375,7 +375,7 @@
         "message": "Ukryj cień dookoła paska odtwarzania"
     },
     "hideMoreButton": {
-        "message": "Hide \"More\" button"
+        "message": "Ukryj przycisk \"Więcej\""
     },
     "hidePlaylist": {
         "message": "Ukryj playliste"
@@ -384,13 +384,13 @@
         "message": "Ukryj przyciski po prawej"
     },
     "hideSaveButton": {
-        "message": "Hide \"Save\" button"
+        "message": "Ukryj przycisk \"Zapisz\""
     },
     "hideScrollForDetails": {
         "message": "Ukryj «Przewiń do szczegółów»"
     },
     "hideShareButton": {
-        "message": "Hide \"Share\" button"
+        "message": "Ukryj przycisk \"Udostępnij\""
     },
     "hideThumbnailOverlay": {
         "message": "Ukryj przyciski na miniaturach"
@@ -483,7 +483,7 @@
         "message": "Rodzaj czatu na żywo"
     },
     "location": {
-        "message": "Location"
+        "message": "Położenie"
     },
     "loudnessNormalization": {
         "message": "Normalizacja głośności"
@@ -582,10 +582,10 @@
         "message": "Rozmiar odtwarzacza"
     },
     "playlist": {
-        "message": "Playlista"
+        "message": "Lista odtwarzania"
     },
     "playlists": {
-        "message": "Playlisty"
+        "message": "Listy odtwarzania"
     },
     "popupPlayer": {
         "message": "Odtwarzacz popout"
@@ -696,7 +696,7 @@
         "message": "Pokaż ilość wideo na kanale"
     },
     "shuffle": {
-        "message": "Shuffle"
+        "message": "Losowo"
     },
     "sidebar": {
         "message": "Panel boczny"
@@ -801,7 +801,7 @@
         "message": "Przezroczyste tło"
     },
     "trending": {
-        "message": "Trending"
+        "message": "Na czasie"
     },
     "tryToReloadThePage": {
         "message": "Spróbuj przeładować stronę"
