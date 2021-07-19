@@ -107,7 +107,8 @@ var ImprovedTube = {
     elements: `{
         playlist: {},
         livechat: {},
-        related: {}
+        related: {},
+        comments: {}
     }`,
     video_src: false,
     initialVideoUpdateDone: false,
@@ -115,8 +116,6 @@ var ImprovedTube = {
     video_url: false,
     focus: false,
     played_before_blur: false,
-    related_videos_wait: false,
-    comments_wait: false,
     allow_autoplay: false,
     adInterval: false,
     AdSkipButton: false,
@@ -240,6 +239,10 @@ ImprovedTube.init = function () {
                         ImprovedTube.elements.related.container = node;
 
                         ImprovedTube.relatedVideos();
+                    } else if (node.nodeName === 'YTD-COMMENTS-HEADER-RENDERER') {
+                        ImprovedTube.elements.comments.container = node;
+
+                        ImprovedTube.comments();
                     }
                 }
             }
@@ -293,7 +296,6 @@ ImprovedTube.videoPageUpdate = function () {
         this.playerHdThumbnail();
         this.howLongAgoTheVideoWasUploaded();
         this.channelVideosCount();
-        this.comments();
 
         this.upNextAutoplay();
         this.playerAutofullscreen();
@@ -1123,45 +1125,22 @@ ImprovedTube.channelVideosCount = function () {
 
 ImprovedTube.comments = function () {
     if (this.storage.comments === 'collapsed') {
-        if (this.comments_wait === false) {
-            this.comments_wait = setInterval(function () {
-                if (
-                    document.getElementById('comment-section-renderer-items') ||
-                    document.querySelector('#comments #sections #contents')
-                ) {
-                    clearInterval(this.comments_wait);
+        var button = ImprovedTube.elements.comments.button || document.createElement('button'),
+            parent = ImprovedTube.elements.comments.container;
 
-                    this.comments_wait = false;
+        button.id = 'improvedtube-collapsed-comments';
+        button.className = 'yt-uix-button yt-uix-button-size-default yt-uix-button-default comment-section-renderer-paginator yt-uix-sessionlink';
+        button.innerHTML = '<span class=yt-uix-button-content><span class=show-more-text>Show more</span><span class=show-less-text>Show less</span></span>';
 
-                    if (!document.getElementById('improvedtube-collapsed-comments')) {
-                        var button = document.createElement('button'),
-                            parent = document.getElementById('comment-section-renderer') || document.querySelector('#comments #sections'),
-                            reference = document.getElementById('comment-section-renderer-items') || document.querySelector('#comments #sections #contents');
+        button.onclick = function () {
+            document.documentElement.classList.toggle('comments-collapsed');
+        };
 
-                        button.id = 'improvedtube-collapsed-comments';
-                        button.className = 'yt-uix-button yt-uix-button-size-default yt-uix-button-default comment-section-renderer-paginator yt-uix-sessionlink';
-                        button.innerHTML = '<span class=yt-uix-button-content><span class=show-more-text>Show more</span><span class=show-less-text>Show less</span></span>';
+        document.documentElement.classList.add('comments-collapsed');
 
-                        button.onclick = function () {
-                            document.documentElement.classList.toggle('comments-collapsed');
-                        };
+        parent.appendChild(button);
 
-                        document.documentElement.classList.toggle('comments-collapsed');
-                        parent.insertBefore(button, reference);
-                    }
-                }
-            }, 250);
-        }
-    } else {
-        clearInterval(this.comments_wait);
-
-        this.comments_wait = false;
-
-        setTimeout(function () {
-            if (document.getElementById('improvedtube-collapsed-comments')) {
-                document.getElementById('improvedtube-collapsed-comments').remove();
-            }
-        }, 260);
+        ImprovedTube.elements.comments.button = button;
     }
 };
 
