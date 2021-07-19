@@ -1058,7 +1058,6 @@ html[it-description=expanded] .yt-uix-expander-collapsed .yt-uix-expander-body {
 ------------------------------------------------------------------------------*/
 
 html[it-comments=hidden] ytd-comments#comments,
-html[it-comments=hidden] div#watch-discussion,
 html[it-comments=collapsed].comments-collapsed #comment-section-renderer-items+button,
 html[it-comments=collapsed]:not(.comments-collapsed) #improvedtube-collapsed-comments .show-more-text,
 html[it-comments=collapsed].comments-collapsed #improvedtube-collapsed-comments .show-less-text,
@@ -1072,7 +1071,7 @@ html[it-comments=collapsed].comments-collapsed #comments #sections #contents {
     height: 0 !important;
 }
 
-#sections #improvedtube-collapsed-comments {
+#improvedtube-collapsed-comments {
     font-family: inherit;
     font-size: 12px;
     font-weight: 500;
@@ -1083,7 +1082,7 @@ html[it-comments=collapsed].comments-collapsed #comments #sections #contents {
     cursor: pointer;
     letter-spacing: .007px;
     text-transform: uppercase;
-    color: var(--yt-expand-color);
+    color: var(--yt-spec-text-secondary);
     border: none;
     border-bottom: 1px solid var(--yt-spec-10-percent-layer);
     outline: none;
