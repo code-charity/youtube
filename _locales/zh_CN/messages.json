@@ -695,6 +695,12 @@
     "showChannelVideosCount": {
         "message": "显示频道内视频数"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "随机"
     },

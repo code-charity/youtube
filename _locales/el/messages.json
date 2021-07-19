@@ -683,6 +683,12 @@
     "showChannelVideosCount": {
         "message": "Δείξε τις συνολικές προβολές του καναλιού"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "Τυχαία αναπαραγωγή"
     },

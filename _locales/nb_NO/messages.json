@@ -686,6 +686,12 @@
     "showChannelVideosCount": {
         "message": "Vis antall kanaler"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "Tilfeldig rekkefølge"
     },
