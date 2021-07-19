@@ -19,7 +19,7 @@
     2.1.3 Always show progress bar
   2.2 Sidebar
     2.2.1 Livechat
-    2.2.2 Relative videos
+    2.2.2 Related videos
   2.3 Details
     2.3.1 How long ago the video was uploaded
     2.3.2 Show channel videos count
@@ -106,7 +106,8 @@ The variable "ImprovedTube" is used on the YouTube side.
 var ImprovedTube = {
     elements: `{
         playlist: {},
-        livechat: {}
+        livechat: {},
+        related: {}
     }`,
     video_src: false,
     initialVideoUpdateDone: false,
@@ -235,6 +236,10 @@ ImprovedTube.init = function () {
                         ImprovedTube.elements.livechat.button = node.querySelector('ytd-toggle-button-renderer');
                         
                         ImprovedTube.livechat();
+                    } else if (node.id === 'related' && node.className.indexOf('ytd-watch-flexy') !== -1) {
+                        ImprovedTube.elements.related.container = node;
+
+                        ImprovedTube.relatedVideos();
                     }
                 }
             }
@@ -286,7 +291,6 @@ ImprovedTube.videoPageUpdate = function () {
 
         this.forcedTheaterMode();
         this.playerHdThumbnail();
-        this.relatedVideos();
         this.howLongAgoTheVideoWasUploaded();
         this.channelVideosCount();
         this.comments();
@@ -966,52 +970,27 @@ ImprovedTube.livechat = function () {
 
 
 /*------------------------------------------------------------------------------
-2.2.2 RELATIVE VIDEOS
+2.2.2 RELATED VIDEOS
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.relatedVideos = function () {
     if (this.storage.related_videos === 'collapsed') {
-        if (!this.related_videos_wait) {
-            this.related_videos_wait = setInterval(function () {
-                if (
-                    document.querySelector('#related.ytd-watch-flexy') ||
-                    document.querySelector('#watch7-sidebar-contents')
-                ) {
-                    clearInterval(this.related_videos_wait);
+        var button = ImprovedTube.elements.related.button || document.createElement('button'),
+            parent = ImprovedTube.elements.related.container;
 
-                    this.related_videos_wait = false;
+        button.id = 'improvedtube-collapsed-related-videos';
+        button.className = 'yt-uix-button yt-uix-button-size-default yt-uix-button-default comment-section-renderer-paginator yt-uix-sessionlink';
+        button.innerHTML = '<span class=yt-uix-button-content><span class=show-more-text>Show more</span><span class=show-less-text>Show less</span></span>';
 
-                    if (!document.getElementById('improvedtube-collapsed-related-videos')) {
-                        var button = document.createElement('button'),
-                            parent = document.querySelector('#related.ytd-watch-flexy') || document.querySelector('#watch7-sidebar-contents'),
-                            reference = document.querySelector('#related > *') || document.querySelector('#watch7-sidebar-contents > *');
+        button.onclick = function () {
+            document.documentElement.classList.toggle('related-videos-collapsed');
+        };
 
-                        button.id = 'improvedtube-collapsed-related-videos';
-                        button.className = 'yt-uix-button yt-uix-button-size-default yt-uix-button-default comment-section-renderer-paginator yt-uix-sessionlink';
-                        button.innerHTML = '<span class=yt-uix-button-content><span class=show-more-text>Show more</span><span class=show-less-text>Show less</span></span>';
+        document.documentElement.classList.add('related-videos-collapsed');
 
-                        button.onclick = function () {
-                            document.documentElement.classList.toggle('related-videos-collapsed');
-                        };
+        parent.insertBefore(button, parent.children[0]);
 
-                        document.documentElement.classList.toggle('related-videos-collapsed');
-                        parent.insertBefore(button, reference);
-                    }
-                }
-            }, 250);
-        }
-    } else {
-        clearInterval(this.related_videos_wait);
-
-        this.related_videos_wait = false;
-
-        setTimeout(function () {
-            var button = document.getElementById('improvedtube-collapsed-related-videos');
-
-            if (button) {
-                button.remove();
-            }
-        }, 260);
+        ImprovedTube.elements.related.button = button;
     }
 };
 
