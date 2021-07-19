@@ -683,6 +683,12 @@
     "showChannelVideosCount": {
         "message": "Показывать количество видео на канале"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "Случайный порядок"
     },

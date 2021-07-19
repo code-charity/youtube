@@ -689,6 +689,12 @@
     "showChannelVideosCount": {
         "message": "Arată numărul de videoclipuri al canalului"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "Amestecă"
     },

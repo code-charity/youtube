@@ -692,6 +692,12 @@
     "showChannelVideosCount": {
         "message": "顯示頻道影片數量"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "隨機播放"
     },

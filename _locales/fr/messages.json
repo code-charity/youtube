@@ -686,6 +686,12 @@
     "showChannelVideosCount": {
         "message": "Afficher le nombre de vidéos de la chaîne"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "Aléatoire"
     },

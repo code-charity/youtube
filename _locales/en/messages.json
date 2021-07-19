@@ -695,6 +695,12 @@
     "showChannelVideosCount": {
         "message": "Show channel videos count"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
     "shuffle": {
         "message": "Shuffle"
     },
