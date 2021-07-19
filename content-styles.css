@@ -3333,7 +3333,7 @@ html[it-channel-hide-featured-content=true] #secondary ytd-browse-secondary-cont
 ------------------------------------------------------------------------------*/
 
 #it-status {
-    font-size: 5rem;
+    font-size: 40px;
     position: absolute;
     top: 2rem;
     right: 3rem;
