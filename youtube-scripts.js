@@ -117,8 +117,6 @@ var ImprovedTube = {
     focus: false,
     played_before_blur: false,
     allow_autoplay: false,
-    adInterval: false,
-    AdSkipButton: false,
     mini_player__mode: false,
     mini_player__move: false,
     mini_player__cursor: '""',
@@ -243,6 +241,8 @@ ImprovedTube.init = function () {
                         ImprovedTube.elements.comments.container = node;
 
                         ImprovedTube.comments();
+                    } else if (node.nodeName === 'DIV' && node.className.indexOf('ytp-ad-player-overlay') !== -1) {
+                        ImprovedTube.playerAds(node);
                     }
                 }
             }
@@ -268,6 +268,8 @@ ImprovedTube.pageType = function () {
         document.documentElement.dataset.pageType = 'video';
     } else if (/\/channel|user|c\//.test(location.href)) {
         document.documentElement.dataset.pageType = 'channel';
+    } else {
+        document.documentElement.dataset.pageType = 'other';
     }
 };
 
@@ -362,8 +364,6 @@ ImprovedTube.playerOnEnded = function (event) {
 ImprovedTube.playerOnTimeUpdate = function () {
     if (ImprovedTube.video_src !== this.src) {
         ImprovedTube.video_src = this.src;
-
-        ImprovedTube.playerAds();
 
         if (ImprovedTube.initialVideoUpdateDone !== true) {
             ImprovedTube.playerQuality();
@@ -1489,31 +1489,19 @@ ImprovedTube.upNextAutoplay = function () {
 4.6 ADS
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.playerAds = function () {
-    if (ImprovedTube.adInterval) {
-        clearInterval(ImprovedTube.adInterval);
-    }
+ImprovedTube.playerAds = function (parent) {
+    if (this.storage.player_ads === 'block_all') {
+        var button = parent.querySelector('.ytp-ad-skip-button.ytp-button');
 
-    if (ImprovedTube.storage.player_ads === 'block_all') {
-        ImprovedTube.adInterval = setInterval(function () {
-            var button = document.querySelector('.ytp-ad-skip-button.ytp-button');
+        if (button) {
+            button.click();
+        }
+    } else if (this.storage.player_ads === 'subscribed_channels') {
+        var button = parent.querySelector('.ytp-ad-skip-button.ytp-button');
 
-            if (button) {
-                button.click();
-
-                clearInterval(ImprovedTube.adInterval);
-            }
-        }, 50);
-    } else if (ImprovedTube.storage.player_ads === 'subscribed_channels') {
-        ImprovedTube.adInterval = setInterval(function () {
-            var button = document.querySelector('.ytp-ad-skip-button.ytp-button');
-
-            if (button && !document.querySelector('#meta paper-button[subscribed]')) {
-                button.click();
-
-                clearInterval(ImprovedTube.adInterval);
-            }
-        }, 50);
+        if (button && !parent.querySelector('#meta paper-button[subscribed]')) {
+            button.click();
+        }
     }
 };
 
