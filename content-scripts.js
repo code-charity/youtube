@@ -56,6 +56,7 @@ function attributes(items) {
         'hide-playlist': true,
         'related-videos': true,
         'comments': true,
+        'thumbnails-hide': true,
         'hide-footer': true,
         'night-theme': true,
         'dawn-theme': true,
