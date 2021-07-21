@@ -167,7 +167,6 @@ ImprovedTube.init = function () {
     });
 
     window.addEventListener('yt-page-data-updated', function () {
-        console.log('yt-page-data-updated');
         ImprovedTube.pageType();
         ImprovedTube.videoPageUpdate();
         ImprovedTube.played_before_blur = false;
@@ -335,7 +334,7 @@ ImprovedTube.playerOnPlay = function () {
             ImprovedTube.autoplay(this);
             ImprovedTube.playerLoudnessNormalization();
 
-            if (ImprovedTube.video_url !== location.href) {
+            if (ImprovedTube.elements.player && ImprovedTube.video_url !== location.href) {
                 ImprovedTube.video_url = location.href;
 
                 ImprovedTube.playerPlaybackSpeed();
@@ -368,14 +367,12 @@ ImprovedTube.playerOnTimeUpdate = function () {
         if (ImprovedTube.initialVideoUpdateDone !== true) {
             ImprovedTube.playerQuality();
             ImprovedTube.playerPlaybackSpeed();
-            ImprovedTube.playerVolume();
         }
     } else if (ImprovedTube.latestVideoDuration !== this.duration) {
         ImprovedTube.latestVideoDuration = this.duration;
 
         ImprovedTube.playerQuality();
         ImprovedTube.playerPlaybackSpeed();
-        ImprovedTube.playerVolume();
     }
 
     ImprovedTube.alwaysShowProgressBar();
@@ -1955,19 +1952,17 @@ ImprovedTube.player60fps = function () {
 4.12 FORCED VOLUME
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.playerVolume = function (node) {
-    if (!node) {
-        node = document.querySelector('.html5-video-player');
-    }
-
-    if (node && ImprovedTube.storage.player_forced_volume === true && ImprovedTube.initialVideoUpdateDone == false) {
-        var volume = Number(ImprovedTube.storage.player_volume);
+ImprovedTube.playerVolume = function () {
+    if (ImprovedTube.storage.player_forced_volume === true) {
+        var volume = ImprovedTube.storage.player_volume;
 
         if (!ImprovedTube.isset(volume)) {
-            volume = 1;
+            volume = 100;
+        } else {
+            volume = Number(volume);
         }
 
-        node.setVolume(volume);
+        ImprovedTube.elements.player.setVolume(volume);
     }
 };
 
