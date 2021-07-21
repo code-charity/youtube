@@ -228,6 +228,25 @@ ImprovedTube.init = function () {
                         }
                     } else if (node.id === 'movie_player') {
                         ImprovedTube.elements.player = node;
+
+                        ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
+
+                        new MutationObserver(function(mutationList) {
+                            for (var i = 0, l = mutationList.length; i < l; i++) {
+                                var mutation = mutationList[i];
+
+                                if (mutation.type === 'attributes') {
+                                    if (mutation.attributeName === 'style') {
+                                        ImprovedTube.playerHdThumbnail();
+                                    }
+                                }
+                            }
+                        }).observe(ImprovedTube.elements.player_thumbnail, {
+                            attributes: true,
+                            attributeFilter: ['style'],
+                            childList: false,
+                            subtree: false
+                        });
                     } else if (node.id === 'chat') {
                         ImprovedTube.elements.livechat.button = node.querySelector('ytd-toggle-button-renderer');
                         
@@ -294,7 +313,6 @@ ImprovedTube.videoPageUpdate = function () {
         ImprovedTube.initialVideoUpdateDone = true;
 
         this.forcedTheaterMode();
-        this.playerHdThumbnail();
         this.howLongAgoTheVideoWasUploaded();
         this.channelVideosCount();
 
@@ -875,26 +893,11 @@ ImprovedTube.forcedTheaterMode = function () {
 
 ImprovedTube.playerHdThumbnail = function () {
     if (this.storage.player_hd_thumbnail === true) {
-        if (this.player_hd_thumbnail_wait !== false) {
-            clearInterval(ImprovedTube.player_hd_thumbnail_wait);
+        var thumbnail = ImprovedTube.elements.player_thumbnail;
 
-            ImprovedTube.player_hd_thumbnail_wait = false;
+        if (thumbnail.style.backgroundImage.indexOf('/hqdefault.jpg') !== -1) {
+            thumbnail.style.backgroundImage = thumbnail.style.backgroundImage.replace('/hqdefault.jpg', '/maxresdefault.jpg');
         }
-
-        this.player_hd_thumbnail_wait = setInterval(function () {
-            var thumbnail = document.querySelector('.ytp-cued-thumbnail-overlay-image');
-
-            if (thumbnail && thumbnail.style.backgroundImage) {
-                var style = document.getElementById('it-hd-thumbnail') || document.createElement('style');
-
-                style.textContent = '.ytp-cued-thumbnail-overlay-image{background-image:' + thumbnail.style.backgroundImage.replace('/hqdefault.jpg', '/maxresdefault.jpg') + ' !important}';
-
-                if (!document.getElementById('it-hd-thumbnail')) {
-                    style.id = 'it-hd-thumbnail';
-                    thumbnail.parentNode.insertBefore(style, thumbnail);
-                }
-            }
-        }, 250);
     }
 };
 
