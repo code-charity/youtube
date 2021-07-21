@@ -366,13 +366,11 @@ ImprovedTube.playerOnTimeUpdate = function () {
 
         if (ImprovedTube.initialVideoUpdateDone !== true) {
             ImprovedTube.playerQuality();
-            ImprovedTube.playerPlaybackSpeed();
         }
     } else if (ImprovedTube.latestVideoDuration !== this.duration) {
         ImprovedTube.latestVideoDuration = this.duration;
 
         ImprovedTube.playerQuality();
-        ImprovedTube.playerPlaybackSpeed();
     }
 
     ImprovedTube.alwaysShowProgressBar();
@@ -1433,22 +1431,18 @@ ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerPlaybackSpeed = function (node) {
-    var option = Number(ImprovedTube.storage.player_playback_speed),
-        player = document.querySelector('.html5-video-player'),
-        is_live = false;
+    if (
+        ImprovedTube.storage.player_forced_playback_speed === true &&
+        ImprovedTube.isset(ImprovedTube.storage.player_playback_speed)
+    ) {
+        var player = ImprovedTube.elements.player,
+            video_data = player.getVideoData();
 
-    if (player && player.getVideoData && player.getVideoData().isLive) {
-        is_live = true;
-    }
-
-    if (ImprovedTube.isset(ImprovedTube.storage.player_playback_speed) && ImprovedTube.storage.player_forced_playback_speed === true) {
-        try {
-            if (window.location.href.indexOf('music') === -1 && !is_live) {
-                document.querySelector('.html5-video-player video').playbackRate = option;
-            } else {
-                document.querySelector('.html5-video-player video').playbackRate = 1;
-            }
-        } catch (err) {}
+        if (window.location.href.indexOf('music') === -1 && !video_data.isLive) {
+            player.setPlaybackRate(Number(ImprovedTube.storage.player_playback_speed));
+        } else {
+            player.setPlaybackRate(1);
+        }
     }
 };
 
