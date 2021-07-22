@@ -168,7 +168,6 @@ ImprovedTube.init = function () {
     window.addEventListener('yt-page-data-updated', function () {
         ImprovedTube.pageType();
         ImprovedTube.videoPageUpdate();
-        ImprovedTube.played_before_blur = false;
         ImprovedTube.youtubeHomePage();
         ImprovedTube.collapseOfSubscriptionSections();
         ImprovedTube.markWatchedVideos();
@@ -363,6 +362,7 @@ ImprovedTube.playerOnPlay = function () {
 
             if (ImprovedTube.elements.player && ImprovedTube.video_url !== location.href) {
                 ImprovedTube.video_url = location.href;
+                ImprovedTube.played_before_blur = false;
 
                 ImprovedTube.playerPlaybackSpeed();
                 ImprovedTube.subtitles();
@@ -806,14 +806,14 @@ document.addEventListener('ImprovedTubeWatched', function (event) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.onlyOnePlayerInstancePlaying = function () {
-    var video = document.querySelector('.html5-video-player video');
+    var player = ImprovedTube.elements.player;
 
-    if (this.storage.only_one_player_instance_playing === true && video) {
-        if (this.focus === true) {
-            document.dispatchEvent(new CustomEvent('ImprovedTubeOnlyOnePlayer'));
-
-            video.play();
+    if (this.storage.only_one_player_instance_playing === true && this.focus === true && player) {
+        if (ImprovedTube.played_before_blur === true) {
+            player.playVideo();
         }
+
+        document.dispatchEvent(new CustomEvent('ImprovedTubeOnlyOnePlayer'));
     }
 };
 
