@@ -111,6 +111,11 @@ var ImprovedTube = {
         related: {},
         comments: {}
     }`,
+    regex: `{
+        channel: new RegExp('\/(user|channel|c)\/'),
+        channel_home_page: new RegExp('\/(user|channel|c)\/.+(\/featured)?\/?$'),
+        channel_home_page_postfix: new RegExp('\/(featured)?\/?$')
+    }`,
     video_src: false,
     initialVideoUpdateDone: false,
     latestVideoDuration: 0,
@@ -154,7 +159,6 @@ ImprovedTube.init = function () {
         ImprovedTube.markWatchedVideos();
         ImprovedTube.hdThumbnails();
         ImprovedTube.hideThumbnailOverlay();
-        ImprovedTube.channelDefaultTab();
         ImprovedTube.myColors();
         ImprovedTube.bluelight();
         ImprovedTube.dim();
@@ -173,7 +177,6 @@ ImprovedTube.init = function () {
         ImprovedTube.markWatchedVideos();
         ImprovedTube.hdThumbnails();
         ImprovedTube.hideThumbnailOverlay();
-        ImprovedTube.channelDefaultTab();
         ImprovedTube.blacklist();
         //ImprovedTube.improvedtubeYoutubeSidebarButton();
         //ImprovedTube.improvedtubeYoutubePlayerButtons();
@@ -269,6 +272,8 @@ ImprovedTube.init = function () {
                         ImprovedTube.elements.video_title = node.querySelector('.title.ytd-video-primary-info-renderer');
 
                         ImprovedTube.improvedtubeYoutubeIcon();
+                    } else if (node.nodeName === 'A' && node.href) {
+                        ImprovedTube.channelDefaultTab(node);
                     }
                 }
             }
@@ -2386,38 +2391,37 @@ ImprovedTube.playlistShuffle = function () {
 6.1 DEFAULT CHANNEL TAB
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.channelDefaultTab = function () {
-    if (this.storage.channel_default_tab && this.storage.channel_default_tab !== '/') {
-        var value = this.storage.channel_default_tab,
-            node_list = document.querySelectorAll(
-                '*:not(#contenteditable-root) > a[href*="user"], ' +
-                '*:not(#contenteditable-root) > a[href*="channel"], ' +
-                '*:not(#contenteditable-root) > a[href*="/c/"]'
-            );
+ImprovedTube.channelDefaultTab = function (a) {
+    var option = this.storage.channel_default_tab;
 
-        for (var i = 0, l = node_list.length; i < l; i++) {
-            var node = node_list[i];
+    if (option && option !== '/') {
+        if (this.regex.channel_home_page.test(a.href)) {
+            if (!a.dataset.itOrigin) {
+                a.dataset.itOrigin = a.href.replace(this.regex.channel_home_page_postfix, '');
+            }
 
-            if (!node.getAttribute('it-origin') ||
-                node.hasAttribute('it-origin') &&
-                node.getAttribute('it-origin').replace(/\/(home|videos|playlists)+$/g, '') != node.href.replace(/\/(home|videos|playlists)+$/g, '')
+            a.href = a.dataset.itOrigin + option;
+
+            /*if (
+                a.data &&
+                a.data.browseEndpoint &&
+                a.data.browseEndpoint.canonicalBaseUrl
             ) {
-                node.setAttribute('it-origin', node.href);
+                a.data.browseEndpoint.canonicalBaseUrl = a.href.replace('https://www.youtube.com', '');
             }
 
-            node.href = node.getAttribute('it-origin') + value;
+            if (
+                a.data &&
+                a.data.commandMetadata &&
+                a.data.commandMetadata.webCommandMetadata &&
+                a.data.commandMetadata.webCommandMetadata.url
+            ) {
+                a.data.commandMetadata.webCommandMetadata.url = a.href.replace('https://www.youtube.com', '');
+            }*/
 
-            function click(event) {
+            a.addEventListener('click', function(event) {
                 event.stopPropagation();
-            }
-
-            node.addEventListener('click', click, true);
-        }
-    } else if (this.storage.channel_default_tab) {
-        var node_list = document.querySelectorAll('a[href*="user"], a[href*="channel"], a[href*="/c/"]');
-
-        for (var i = 0, l = node_list.length; i < l; i++) {
-            node_list[i].href = node_list[i].getAttribute('it-origin');
+            }, true);
         }
     }
 };

@@ -177,7 +177,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     } else if (request.action === 'blur') {
         injectScript('ImprovedTube.focus = false;');
     } else if (request.action === 'improvedtube-pause') {
-        console.log('pause');
         injectScript('if (ImprovedTube.elements.player) {ImprovedTube.played_before_blur = ImprovedTube.elements.player.getPlayerState() === 1; ImprovedTube.elements.player.pauseVideo();}');
     }
 
