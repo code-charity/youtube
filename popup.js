@@ -2473,6 +2473,11 @@ skeleton.main.section.general = {
             type: 'switch',
             label: 'addScrollToTop',
             tags: 'up'
+        },
+        limit_page_width: {
+            type: 'switch',
+            label: 'limitPageWidth',
+            value: true
         }
     },
 
