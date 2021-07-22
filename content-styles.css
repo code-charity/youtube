@@ -3058,41 +3058,12 @@ html[it-player-ads=block_all] #masthead-ad {
 
 .it-mini-player {
     position: fixed !important;
-    z-index: 2147483648 !important;
+    z-index: 2006 !important;
     top: 0!important;
     left: 0!important;
     background: #000 !important;
     box-shadow: rgba(0, 0, 0, .4) 0 2px 8px !important;
     will-change: transform, width, height !important;
-}
-
-html[data-page-type=video][it-header-position=hover_on_video_page][it-player-size=full_window] .html5-video-player.it-mini-player,
-html[data-page-type=video][it-header-position=hover][it-player-size=full_window] .html5-video-player.it-mini-player {
-    margin-top: 0!important;
-}
-
-.it-mini-player .html5-video-container,
-.it-mini-player video {
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-}
-
-.it-mini-player .ytp-chrome-bottom {
-    width: calc(100% - 24px) !important;
-}
-
-.it-mini-player .ytp-chapters-container {
-    display: flex;
-}
-
-.it-mini-player .ytp-chapter-hover-container {
-    flex-grow: 1;
-}
-
-html[it-mini-player=true] .ytp-contextmenu {
-    z-index: 2147483649 !important;
 }
 
 .it-mini-player .ytp-miniplayer-button,
