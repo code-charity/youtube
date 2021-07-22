@@ -28,6 +28,7 @@ function attributes(items) {
     var whitelist = {
         'youtube-home-page': true,
         'remove-related-search-results': true,
+        'limit-page-width': true,
         'squared-user-images': true,
         'hide-animated-thumbnails': true,
         'header-position': true,
