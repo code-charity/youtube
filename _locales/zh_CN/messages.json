@@ -204,13 +204,13 @@
         "message": "深紫色"
     },
     "default": {
-        "message": "Default"
+        "message": "默认"
     },
     "defaultChannelTab": {
         "message": "默认频道页"
     },
     "defaultContentCountry": {
-        "message": "Default content country"
+        "message": "默认内容国家"
     },
     "deleteYoutubeCookies": {
         "message": "清空 YouTube cookies"
@@ -282,7 +282,7 @@
         "message": "窗口自适应"
     },
     "flash": {
-        "message": "Flash"
+        "message": "闪光"
     },
     "font": {
         "message": "字体"
@@ -312,7 +312,7 @@
         "message": "一般设置"
     },
     "geoPreference": {
-        "message": "Geo Preference"
+        "message": "地理偏好"
     },
     "github": {
         "message": "GitHub"
@@ -354,10 +354,10 @@
         "message": "隐藏播放控制器"
     },
     "hideCountryCode": {
-        "message": "Hide country code"
+        "message": "隐藏国家代码"
     },
     "hideDate": {
-        "message": "Hide date"
+        "message": "隐藏日期"
     },
     "hideDetails": {
         "message": "隐藏详细信息"
@@ -384,13 +384,13 @@
         "message": "隐藏右侧按钮"
     },
     "hideSaveButton": {
-        "message": "Hide \"Save\" button"
+        "message": "隐藏 \保存\"按钮"
     },
     "hideScrollForDetails": {
         "message": "隐藏 «滚动至详细信息»"
     },
     "hideShareButton": {
-        "message": "Hide \"Share\" button"
+        "message": "隐藏\"共享\"按钮"
     },
     "hideThumbnailOverlay": {
         "message": "隐藏缩略图上的按钮"
@@ -483,7 +483,7 @@
         "message": "实时聊天窗类型"
     },
     "location": {
-        "message": "Location"
+        "message": "地点"
     },
     "loudnessNormalization": {
         "message": "音量标准化"
@@ -675,10 +675,10 @@
         "message": "快进10秒"
     },
     "seekNextChapter": {
-        "message": "seekNextChapter"
+        "message": "寻找下一章"
     },
     "seekPreviousChapter": {
-        "message": "seekPreviousChapter"
+        "message": "寻找上一章"
     },
     "settings": {
         "message": "ImprovedTube 设置"
@@ -696,10 +696,10 @@
         "message": "显示频道内视频数"
     },
     "showLess": {
-        "message": "Show less"
+        "message": "显示较少"
     },
     "showMore": {
-        "message": "Show more"
+        "message": "展示更多"
     },
     "shuffle": {
         "message": "随机"
