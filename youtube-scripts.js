@@ -14,9 +14,10 @@
   1.8 Hide thumbnail overlay
 2.0 Appearance
   2.1 Player
-    2.1.1 Forced theater mode
-    2.1.2 HD thumbnail
-    2.1.3 Always show progress bar
+    2.1.1 Player size
+    2.1.2 Forced theater mode
+    2.1.3 HD thumbnail
+    2.1.4 Always show progress bar
   2.2 Sidebar
     2.2.1 Livechat
     2.2.2 Related videos
@@ -182,6 +183,12 @@ ImprovedTube.init = function () {
         //ImprovedTube.improvedtubeYoutubePlayerButtons();
     });
 
+    window.addEventListener('resize', function() {
+        setTimeout(function() {
+            ImprovedTube.playerSize();
+        }, 100);
+    });
+
     this.defaultContentCountry();
     this.playerH264();
     this.player60fps();
@@ -202,6 +209,8 @@ ImprovedTube.init = function () {
                     if (node.nodeName === 'YTD-WATCH-FLEXY') {
                         ImprovedTube.elements.ytd_watch = node;
 
+                        ImprovedTube.elements.ytd_player = document.querySelector('ytd-player');
+
                         node.calculateCurrentPlayerSize_ = function() {
                             if (node.theater && ImprovedTube.elements.player) {
                                 return {
@@ -217,6 +226,25 @@ ImprovedTube.init = function () {
                         };
 
                         node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;
+
+                        new MutationObserver(function(mutationList) {
+                            for (var i = 0, l = mutationList.length; i < l; i++) {
+                                var mutation = mutationList[i];
+
+                                if (mutation.type === 'attributes') {
+                                    if (mutation.attributeName === 'theater') {
+                                        setTimeout(function() {
+                                            ImprovedTube.playerSize();
+                                        }, 100);
+                                    }
+                                }
+                            }
+                        }).observe(node, {
+                            attributes: true,
+                            attributeFilter: ['theater'],
+                            childList: false,
+                            subtree: false
+                        });
                     } else if (node.nodeName === 'YTD-TOGGLE-BUTTON-RENDERER') {
                         if (
                             node.parentComponent &&
@@ -244,6 +272,10 @@ ImprovedTube.init = function () {
                                 ImprovedTube.playlistReverse();
                             }
                         }
+                    } if (node.nodeName === 'YTD-PLAYER') {
+                        ImprovedTube.elements.ytd_player = node;
+
+                        ImprovedTube.playerSize();
                     } else if (node.id === 'movie_player') {
                         ImprovedTube.elements.player = node;
 
@@ -265,6 +297,8 @@ ImprovedTube.init = function () {
                             childList: false,
                             subtree: false
                         });
+                    } else if (node.nodeName === 'VIDEO') {
+                        ImprovedTube.elements.video = node;
                     } else if (node.id === 'chat') {
                         ImprovedTube.elements.livechat.button = node.querySelector('ytd-toggle-button-renderer');
                         
@@ -370,14 +404,17 @@ ImprovedTube.videoPageUpdate = function () {
 ImprovedTube.playerOnPlay = function () {
     HTMLMediaElement.prototype.play = (function (original) {
         return function () {
+            this.removeEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
+            this.addEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
+
             this.removeEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
             this.addEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
 
-            this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
-            this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
-
             this.removeEventListener('pause', ImprovedTube.playerOnPause, true);
             this.addEventListener('pause', ImprovedTube.playerOnPause, true);
+
+            this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
+            this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
 
             ImprovedTube.autoplay(this);
             ImprovedTube.playerLoudnessNormalization();
@@ -402,12 +439,10 @@ ImprovedTube.playerOnPlay = function () {
     })(HTMLMediaElement.prototype.play);
 };
 
-ImprovedTube.playerOnPause = function (event) {
-    ImprovedTube.playlistUpNextAutoplay(event);
-};
-
-ImprovedTube.playerOnEnded = function (event) {
-    ImprovedTube.playlistUpNextAutoplay(event);
+ImprovedTube.playerOnLoadedMetadata = function() {
+    setTimeout(function() {
+        ImprovedTube.playerSize();
+    }, 100);
 };
 
 ImprovedTube.playerOnTimeUpdate = function () {
@@ -424,6 +459,14 @@ ImprovedTube.playerOnTimeUpdate = function () {
     }
 
     ImprovedTube.alwaysShowProgressBar();
+};
+
+ImprovedTube.playerOnPause = function (event) {
+    ImprovedTube.playlistUpNextAutoplay(event);
+};
+
+ImprovedTube.playerOnEnded = function (event) {
+    ImprovedTube.playlistUpNextAutoplay(event);
 };
 
 
@@ -905,7 +948,54 @@ ImprovedTube.hideThumbnailOverlay = function () {
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-2.1.1 FORCED THEATER MODE
+2.1.1 PLAYER SIZE
+------------------------------------------------------------------------------*/
+
+ImprovedTube.playerSize = function () {
+    if (window.self === window.top && this.storage.player_size === 'fit_to_window' && this.elements.ytd_watch && this.elements.ytd_player) {
+        var video = ImprovedTube.elements.video,
+            aspect_ratio = video.videoWidth / video.videoHeight,
+            width,
+            height,
+            max_height = window.innerHeight - 56,
+            style = this.elements.player_size_style || document.createElement('style');
+        
+        if (this.elements.ytd_watch.theater === true) {
+            width = this.elements.ytd_player.offsetWidth;
+
+            style.textContent = '[data-page-type="video"][it-player-size="fit_to_window"] ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) video {';
+        } else {
+            width = document.querySelector('#player.ytd-watch-flexy').offsetWidth;
+            
+            style.textContent = '[data-page-type="video"][it-player-size="fit_to_window"] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) video {';
+        }
+
+        height = width / aspect_ratio;
+
+        if (height > max_height) {
+            width -= (height - max_height) * aspect_ratio;
+            height = max_height;
+        }
+
+        console.log(width, height);
+        
+        style.textContent += 'width:' + width + 'px !important;';
+        style.textContent += 'height:' + height + 'px !important;';
+        
+        style.textContent += '}';
+
+        this.elements.player_size_style = style;
+
+        document.body.appendChild(style);
+
+        setTimeout(function() {
+            window.dispatchEvent(new Event('resize'));
+        }, 50);
+    }
+};
+
+/*------------------------------------------------------------------------------
+2.1.2 FORCED THEATER MODE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.forcedTheaterMode = function () {
@@ -922,7 +1012,7 @@ ImprovedTube.forcedTheaterMode = function () {
 
 
 /*------------------------------------------------------------------------------
-2.1.2 HD THUMBNAIL
+2.1.3 HD THUMBNAIL
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerHdThumbnail = function () {
@@ -937,7 +1027,7 @@ ImprovedTube.playerHdThumbnail = function () {
 
 
 /*------------------------------------------------------------------------------
-2.1.3 ALWAYS SHOW PROGRESS BAR
+2.1.4 ALWAYS SHOW PROGRESS BAR
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.alwaysShowProgressBar = function () {
