@@ -200,18 +200,20 @@ ImprovedTube.init = function () {
                     var node = mutation.addedNodes[j];
 
                     if (node.nodeName === 'YTD-WATCH-FLEXY') {
+                        ImprovedTube.elements.ytd_watch = node;
+
                         node.calculateCurrentPlayerSize_ = function() {
-                            if (node.theater) {
-                                return {
-                                    width: NaN,
-                                    header: NaN
-                                };
-                            } else if (ImprovedTube.elements.player) {
+                            if (node.theater && ImprovedTube.elements.player) {
                                 return {
                                     width: ImprovedTube.elements.player.offsetWidth,
                                     height: Math.round(ImprovedTube.elements.player.offsetWidth / (16 / 9))
                                 };
                             }
+
+                            return {
+                                width: NaN,
+                                height: NaN
+                            };
                         };
 
                         node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;
@@ -341,7 +343,6 @@ ImprovedTube.videoPageUpdate = function () {
 
         ImprovedTube.initialVideoUpdateDone = true;
 
-        this.forcedTheaterMode();
         this.howLongAgoTheVideoWasUploaded();
         this.channelVideosCount();
 
@@ -385,6 +386,7 @@ ImprovedTube.playerOnPlay = function () {
                 ImprovedTube.video_url = location.href;
                 ImprovedTube.played_before_blur = false;
 
+                ImprovedTube.forcedTheaterMode();
                 ImprovedTube.playerPlaybackSpeed();
                 ImprovedTube.subtitles();
                 ImprovedTube.playerQuality();
@@ -907,11 +909,13 @@ ImprovedTube.hideThumbnailOverlay = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.forcedTheaterMode = function () {
-    if (window.self === window.top && (ImprovedTube.storage.forced_theater_mode === true || ImprovedTube.storage.player_size === 'fit_to_window')) {
-        var button = document.querySelector('button.ytp-size-button');
+    if (window.self === window.top && this.storage.forced_theater_mode === true) {
+        var button = this.elements.player.querySelector('button.ytp-size-button');
 
-        if (button && ImprovedTube.isset(document.getElementById('player-theater-container').firstChild) === false) {
-            button.click();
+        if (button && this.elements.ytd_watch.theater === false) {
+            setTimeout(function() {
+                button.click();
+            }, 200);
         }
     }
 };
