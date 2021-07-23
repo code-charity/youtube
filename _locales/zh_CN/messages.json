@@ -384,7 +384,7 @@
         "message": "隐藏右侧按钮"
     },
     "hideSaveButton": {
-        "message": "隐藏 \保存\"按钮"
+        "message": "隐藏 \"保存\"按钮"
     },
     "hideScrollForDetails": {
         "message": "隐藏 «滚动至详细信息»"
