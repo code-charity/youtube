@@ -1444,16 +1444,15 @@ ImprovedTube.autoplay = function (video) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
-    var video = document.querySelector('.html5-video-player video');
+    var player = ImprovedTube.elements.player;
 
-    if (this.storage.player_autopause_when_switching_tabs === true && video) {
+    if (this.storage.player_autopause_when_switching_tabs === true && player) {
+        if (this.focus === false) {
+            this.played_before_blur = player.getPlayerState() === 1;
 
-        if (this.focus === false && video.paused === false) {
-            video.pause();
-
-            this.played_before_blur = true;
+            player.pauseVideo();
         } else if (this.focus === true && this.played_before_blur === true) {
-            video.play();
+            player.playVideo();
         }
     }
 };
