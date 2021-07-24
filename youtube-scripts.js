@@ -183,11 +183,11 @@ ImprovedTube.init = function () {
         //ImprovedTube.improvedtubeYoutubePlayerButtons();
     });
 
-    window.addEventListener('resize', function() {
+    /*window.addEventListener('resize', function() {
         setTimeout(function() {
             ImprovedTube.playerSize();
         }, 100);
-    });
+    });*/
 
     this.defaultContentCountry();
     this.playerH264();
