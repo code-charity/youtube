@@ -212,7 +212,19 @@ ImprovedTube.init = function () {
                         ImprovedTube.elements.ytd_player = document.querySelector('ytd-player');
 
                         node.calculateCurrentPlayerSize_ = function() {
-                            if (node.theater && ImprovedTube.elements.player) {
+                            if (!node.theater && ImprovedTube.elements.player) {
+                                if (this.updateStyles) {
+                                    this.updateStyles({
+                                        '--ytd-watch-flexy-width-ratio': 1,
+                                        '--ytd-watch-flexy-height-ratio': 0.5625
+                                    });
+
+                                    this.updateStyles({
+                                        '--ytd-watch-width-ratio': 1,
+                                        '--ytd-watch-height-ratio': 0.5625
+                                    });
+                                }
+
                                 return {
                                     width: ImprovedTube.elements.player.offsetWidth,
                                     height: Math.round(ImprovedTube.elements.player.offsetWidth / (16 / 9))
