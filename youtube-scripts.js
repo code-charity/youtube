@@ -489,8 +489,8 @@ ImprovedTube.playerOnEnded = function (event) {
 ImprovedTube.onkeydown = function () {
     window.addEventListener('keydown', function () {
         if (
-            document.querySelector('.html5-video-player') &&
-            document.querySelector('.html5-video-player').classList.contains('ad-showing') === false
+            ImprovedTube.elements.player &&
+            ImprovedTube.elements.player.classList.indexOf('ad-showing') === -1
         ) {
             ImprovedTube.allow_autoplay = true;
         }
@@ -504,19 +504,16 @@ ImprovedTube.onkeydown = function () {
 
 ImprovedTube.onmousedown = function (event) {
     window.addEventListener('mousedown', function (event) {
-        var path = event.composedPath();
+        if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.indexOf('ad-showing') === -1) {
+            var path = event.composedPath();
 
-        for (var i = 0, l = path.length; i < l; i++) {
-            if (
-                document.querySelector('.html5-video-player') &&
-                document.querySelector('.html5-video-player').classList.contains('ad-showing') === false &&
-                path[i].classList &&
-                (
-                    path[i].classList.contains('html5-main-video') ||
-                    path[i].classList.contains('ytp-play-button')
-                )
-            ) {
-                ImprovedTube.allow_autoplay = true;
+            for (var i = 0, l = path.length; i < l; i++) {
+                if (
+                    path[i].className.indexOf('html5-main-video') !== -1 ||
+                    path[i].className.indexOf('ytp-play-button') !== -1
+                ) {
+                    ImprovedTube.allow_autoplay = true;
+                }
             }
         }
     }, true);
