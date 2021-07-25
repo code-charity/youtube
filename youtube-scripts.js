@@ -153,7 +153,6 @@ The first function called on the YouTube side.
 
 ImprovedTube.init = function () {
     window.addEventListener('DOMContentLoaded', function () {
-        ImprovedTube.youtubeHomePage();
         ImprovedTube.collapseOfSubscriptionSections();
         ImprovedTube.addScrollToTop();
         ImprovedTube.confirmationBeforeClosing();
@@ -173,7 +172,6 @@ ImprovedTube.init = function () {
     window.addEventListener('yt-page-data-updated', function () {
         ImprovedTube.pageType();
         ImprovedTube.videoPageUpdate();
-        ImprovedTube.youtubeHomePage();
         ImprovedTube.collapseOfSubscriptionSections();
         ImprovedTube.markWatchedVideos();
         ImprovedTube.hdThumbnails();
@@ -328,17 +326,41 @@ ImprovedTube.init = function () {
                     } else if (node.nodeName === 'DIV' && node.className.indexOf('ytp-ad-player-overlay') !== -1) {
                         ImprovedTube.playerAds(node);
                     } else if (node.nodeName === 'YTD-MASTHEAD') {
+                        var logo = node.querySelector('a#logo');
+
                         ImprovedTube.elements.masthead = {
                             start: node.querySelector('#start'),
                             end: node.querySelector('#end')
                         };
 
                         ImprovedTube.improvedtubeYoutubeIcon();
+
+                        if (logo) {
+                            var observer = new MutationObserver(function(mutationList) {
+                                for (var i = 0, l = mutationList.length; i < l; i++) {
+                                    var mutation = mutationList[i];
+
+                                    if (mutation.type === 'attributes') {
+                                        if (mutation.attributeName === 'href') {
+                                            ImprovedTube.youtubeHomePage(logo);
+                                        }
+                                    }
+                                }
+                            });
+
+                            observer.observe(logo, {
+                                attributes: true,
+                                attributeFilter: ['href'],
+                                childList: false,
+                                subtree: false
+                            });
+                        }
                     } else if (node.nodeName === 'YTD-VIDEO-PRIMARY-INFO-RENDERER') {
                         ImprovedTube.elements.video_title = node.querySelector('.title.ytd-video-primary-info-renderer');
 
                         ImprovedTube.improvedtubeYoutubeIcon();
                     } else if (node.nodeName === 'A' && node.href) {
+                        ImprovedTube.youtubeHomePage(node);
                         ImprovedTube.channelDefaultTab(node);
                     }
                 }
@@ -644,7 +666,7 @@ ImprovedTube.reverse = function (parent) {
 1.1 YOUTUBE HOME PAGE
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.youtubeHomePage = function () {
+ImprovedTube.youtubeHomePage = function (node) {
     var option = this.storage.youtube_home_page;
 
     if (
@@ -655,20 +677,15 @@ ImprovedTube.youtubeHomePage = function () {
         option === '/playlist?list=LL' ||
         option === '/feed/library'
     ) {
-        var node_list = document.querySelectorAll(`
-                a[href="/"]:not([role=tablist]),
-                a[href="https://www.youtube.com/"]:not([role=tablist]),
-                a[it-origin="/"]:not([role=tablist])
-            `);
-
-        for (var i = 0, l = node_list.length; i < l; i++) {
-            var node = node_list[i];
-
-            if (node.hasAttribute('it-origin') === false) {
-                node.setAttribute('it-origin', '/');
-            }
-
+        if (
+            (
+                node.href === '/' ||
+                node.href === 'https://www.youtube.com/'
+            ) &&
+            node.getAttribute('role') !== 'tablist'
+        ) {
             node.href = option;
+
             node.addEventListener('click', function () {
                 if (
                     this.data &&
@@ -676,15 +693,9 @@ ImprovedTube.youtubeHomePage = function () {
                     this.data.commandMetadata.webCommandMetadata &&
                     this.data.commandMetadata.webCommandMetadata.url
                 ) {
-                    this.data.commandMetadata.webCommandMetadata.url = option;
+                    this.data.commandMetadata.webCommandMetadata.url = ImprovedTube.storage.youtube_home_page;
                 }
             }, true);
-        }
-    } else {
-        var node_list = document.querySelectorAll('a[it-origin="/"]:not([role=tablist])');
-
-        for (var i = 0, l = node_list.length; i < l; i++) {
-            node_list[i].href = '/';
         }
     }
 };
