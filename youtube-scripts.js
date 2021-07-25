@@ -511,8 +511,11 @@ ImprovedTube.onmousedown = function (event) {
 
             for (var i = 0, l = path.length; i < l; i++) {
                 if (
-                    path[i].className.indexOf('html5-main-video') !== -1 ||
-                    path[i].className.indexOf('ytp-play-button') !== -1
+                    path[i].className &&
+                    (
+                        path[i].className.indexOf('html5-main-video') !== -1 ||
+                        path[i].className.indexOf('ytp-play-button') !== -1
+                    )
                 ) {
                     ImprovedTube.allow_autoplay = true;
                 }
