@@ -212,7 +212,7 @@ ImprovedTube.init = function () {
                         ImprovedTube.elements.ytd_player = document.querySelector('ytd-player');
 
                         node.calculateCurrentPlayerSize_ = function() {
-                            if (!node.theater && ImprovedTube.elements.player) {
+                            if (!this.theater && ImprovedTube.elements.player) {
                                 if (this.updateStyles) {
                                     this.updateStyles({
                                         '--ytd-watch-flexy-width-ratio': 1,
