@@ -291,6 +291,8 @@ ImprovedTube.init = function () {
                     } else if (node.id === 'movie_player') {
                         ImprovedTube.elements.player = node;
 
+                        ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
+
                         ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
 
                         new MutationObserver(function(mutationList) {
@@ -490,7 +492,7 @@ ImprovedTube.onkeydown = function () {
     window.addEventListener('keydown', function () {
         if (
             ImprovedTube.elements.player &&
-            ImprovedTube.elements.player.classList.indexOf('ad-showing') === -1
+            ImprovedTube.elements.player.className.indexOf('ad-showing') === -1
         ) {
             ImprovedTube.allow_autoplay = true;
         }
@@ -504,7 +506,7 @@ ImprovedTube.onkeydown = function () {
 
 ImprovedTube.onmousedown = function (event) {
     window.addEventListener('mousedown', function (event) {
-        if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.indexOf('ad-showing') === -1) {
+        if (ImprovedTube.elements.player && ImprovedTube.elements.player.className.indexOf('ad-showing') === -1) {
             var path = event.composedPath();
 
             for (var i = 0, l = path.length; i < l; i++) {
@@ -571,7 +573,7 @@ ImprovedTube.setCookie = function (name, value) {
 };
 
 ImprovedTube.createPlayerButton = function (node, options) {
-    var controls = document.querySelector('.html5-video-player .ytp-left-controls');
+    var controls = ImprovedTube.elements.player_left_controls;
 
     if (controls) {
         var button = document.createElement('button');
