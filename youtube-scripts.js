@@ -153,7 +153,6 @@ The first function called on the YouTube side.
 
 ImprovedTube.init = function () {
     window.addEventListener('DOMContentLoaded', function () {
-        ImprovedTube.collapseOfSubscriptionSections();
         ImprovedTube.addScrollToTop();
         ImprovedTube.confirmationBeforeClosing();
         ImprovedTube.markWatchedVideos();
@@ -172,7 +171,6 @@ ImprovedTube.init = function () {
     window.addEventListener('yt-page-data-updated', function () {
         ImprovedTube.pageType();
         ImprovedTube.videoPageUpdate();
-        ImprovedTube.collapseOfSubscriptionSections();
         ImprovedTube.markWatchedVideos();
         ImprovedTube.hdThumbnails();
         ImprovedTube.hideThumbnailOverlay();
@@ -336,7 +334,7 @@ ImprovedTube.init = function () {
                         ImprovedTube.improvedtubeYoutubeIcon();
 
                         if (logo) {
-                            var observer = new MutationObserver(function(mutationList) {
+                            new MutationObserver(function(mutationList) {
                                 for (var i = 0, l = mutationList.length; i < l; i++) {
                                     var mutation = mutationList[i];
 
@@ -346,9 +344,7 @@ ImprovedTube.init = function () {
                                         }
                                     }
                                 }
-                            });
-
-                            observer.observe(logo, {
+                            }).observe(logo, {
                                 attributes: true,
                                 attributeFilter: ['href'],
                                 childList: false,
@@ -362,6 +358,8 @@ ImprovedTube.init = function () {
                     } else if (node.nodeName === 'A' && node.href) {
                         ImprovedTube.youtubeHomePage(node);
                         ImprovedTube.channelDefaultTab(node);
+                    } else if (node.nodeName === 'YTD-ITEM-SECTION-RENDERER') {
+                        ImprovedTube.collapseOfSubscriptionSections(node);
                     }
                 }
             }
@@ -705,48 +703,32 @@ ImprovedTube.youtubeHomePage = function (node) {
 1.2 COLLAPSE OF SUBSCRIPTION SECTION
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.collapseOfSubscriptionSections = function () {
-    if (/\/feed\/subscriptions/.test(location.href)) {
-        if (this.storage.collapse_of_subscription_sections === true) {
-            var sections = document.querySelectorAll('ytd-page-manager ytd-section-list-renderer ytd-item-section-renderer');
+ImprovedTube.collapseOfSubscriptionSections = function (node) {
+    if (this.storage.collapse_of_subscription_sections === true) {
+        if (location.href.indexOf('/feed/subscriptions') !== -1) {
+            if (!node.querySelector('.it-section-collapse')) {
+                var section_title = node.querySelector('h2'),
+                    button = document.createElement('div');
 
-            for (var i = 0, l = sections.length; i < l; i++) {
-                if (!sections[i].querySelector('.it-section-collapse')) {
-                    var section_title = sections[i].querySelector('h2'),
-                        button = document.createElement('div');
+                button.className = 'it-section-collapse';
+                button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M7.4 15.4l4.6-4.6 4.6 4.6L18 14l-6-6-6 6z"/></svg>';
+                button.section = node;
+                
+                button.addEventListener('click', function () {
+                    var section = this.section,
+                        content = section.querySelector('.grid-subheader + #contents, .shelf-title-table + .multirow-shelf');
 
-                    button.className = 'it-section-collapse';
-                    button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M7.4 15.4l4.6-4.6 4.6 4.6L18 14l-6-6-6 6z"/></svg>';
-                    button.section = sections[i];
-                    button.addEventListener('click', function () {
-                        var section = this.section,
-                            content = section.querySelector('.grid-subheader + #contents, .shelf-title-table + .multirow-shelf');
+                    if (section.classList.contains('it-section-collapsed') === false) {
+                        content.style.height = content.offsetHeight + 'px';
+                        content.style.transition = 'height 150ms';
+                    }
 
-                        if (section.classList.contains('it-section-collapsed') === false) {
-                            content.style.height = content.offsetHeight + 'px';
-                            content.style.transition = 'height 150ms';
-                        }
-
-                        setTimeout(function () {
-                            section.classList.toggle('it-section-collapsed');
-                        });
+                    setTimeout(function () {
+                        section.classList.toggle('it-section-collapsed');
                     });
+                });
 
-                    section_title.parentNode.insertBefore(button, section_title.nextSibling);
-                }
-            }
-        } else {
-            var sections = document.querySelectorAll('ytd-page-manager ytd-section-list-renderer ytd-item-section-renderer'),
-                buttons = document.querySelectorAll('.it-section-collapse');
-
-            for (var i = 0, l = sections.length; i < l; i++) {
-                sections[i].classList.remove('it-section-collapsed');
-                sections[i].style.height = '';
-                sections[i].style.transition = '';
-            }
-
-            for (var i = 0, l = buttons.length; i < l; i++) {
-                buttons[i].remove();
+                section_title.parentNode.insertBefore(button, section_title.nextSibling);
             }
         }
     }
