@@ -115,7 +115,8 @@ var ImprovedTube = {
     regex: `{
         channel: new RegExp('\/(user|channel|c)\/'),
         channel_home_page: new RegExp('\/(user|channel|c)\/.+(\/featured)?\/?$'),
-        channel_home_page_postfix: new RegExp('\/(featured)?\/?$')
+        channel_home_page_postfix: new RegExp('\/(featured)?\/?$'),
+        thumbnail_quality: new RegExp('(hqdefault\.jpg|hq720.jpg)+')
     }`,
     video_src: false,
     initialVideoUpdateDone: false,
@@ -155,7 +156,6 @@ ImprovedTube.init = function () {
     window.addEventListener('DOMContentLoaded', function () {
         ImprovedTube.addScrollToTop();
         ImprovedTube.confirmationBeforeClosing();
-        ImprovedTube.hdThumbnails();
         ImprovedTube.hideThumbnailOverlay();
         ImprovedTube.myColors();
         ImprovedTube.bluelight();
@@ -170,7 +170,6 @@ ImprovedTube.init = function () {
     window.addEventListener('yt-page-data-updated', function () {
         ImprovedTube.pageType();
         ImprovedTube.videoPageUpdate();
-        ImprovedTube.hdThumbnails();
         ImprovedTube.hideThumbnailOverlay();
         ImprovedTube.blacklist();
         //ImprovedTube.improvedtubeYoutubeSidebarButton();
@@ -359,6 +358,31 @@ ImprovedTube.init = function () {
                         ImprovedTube.youtubeHomePage(node);
                         ImprovedTube.channelDefaultTab(node);
                         ImprovedTube.markWatchedVideos(node);
+                    } else if (node.nodeName === 'IMG') {
+                        if (node.src) {
+                            ImprovedTube.hdThumbnails(node);
+                        } else {
+                            var observer = new MutationObserver(function(mutationList) {
+                                for (var i = 0, l = mutationList.length; i < l; i++) {
+                                    var mutation = mutationList[i];
+
+                                    if (mutation.type === 'attributes') {
+                                        if (mutation.attributeName === 'src') {
+                                            ImprovedTube.hdThumbnails(mutation.target);
+                                        }
+                                    }
+                                }
+
+                                observer.disconnect();
+                            });
+
+                            observer.observe(node, {
+                                attributes: true,
+                                attributeFilter: ['src'],
+                                childList: false,
+                                subtree: false
+                            });
+                        }
                     }
                 }
             }
@@ -904,30 +928,18 @@ document.addEventListener('ImprovedTubeOnlyOnePlayer', function (event) {
 1.7 HD THUMBNAILS
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.hdThumbnails = function () {
+ImprovedTube.hdThumbnails = function (node) {
     if (this.storage.hd_thumbnails === true) {
-        var images = document.querySelectorAll('img');
+        if (this.regex.thumbnail_quality.test(node.src)) {
+            node.dataset.defaultSrc = node.src;
 
-        for (var i = 0, l = images.length; i < l; i++) {
-            if (/(hqdefault\.jpg|hq720.jpg)+/.test(images[i].src) && !images[i].dataset.defaultSrc) {
-                images[i].dataset.defaultSrc = images[i].src;
+            node.onload = function () {
+                if (this.naturalHeight <= 90) {
+                    this.src = this.dataset.defaultSrc;
+                }
+            };
 
-                images[i].onload = function () {
-                    if (this.naturalHeight <= 90) {
-                        this.src = this.dataset.defaultSrc;
-                    }
-                };
-
-                images[i].src = images[i].src.replace(/(hqdefault\.jpg|hq720.jpg)+/, 'maxresdefault.jpg');
-            }
-        }
-    } else {
-        var images = document.querySelectorAll('img');
-
-        for (var i = 0, l = images.length; i < l; i++) {
-            if (images[i].dataset.defaultSrc) {
-                images[i].src = images[i].dataset.defaultSrc;
-            }
+            node.src = node.src.replace(this.regex.thumbnail_quality, 'maxresdefault.jpg');
         }
     }
 };
