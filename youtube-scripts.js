@@ -155,7 +155,6 @@ ImprovedTube.init = function () {
     window.addEventListener('DOMContentLoaded', function () {
         ImprovedTube.addScrollToTop();
         ImprovedTube.confirmationBeforeClosing();
-        ImprovedTube.markWatchedVideos();
         ImprovedTube.hdThumbnails();
         ImprovedTube.hideThumbnailOverlay();
         ImprovedTube.myColors();
@@ -171,7 +170,6 @@ ImprovedTube.init = function () {
     window.addEventListener('yt-page-data-updated', function () {
         ImprovedTube.pageType();
         ImprovedTube.videoPageUpdate();
-        ImprovedTube.markWatchedVideos();
         ImprovedTube.hdThumbnails();
         ImprovedTube.hideThumbnailOverlay();
         ImprovedTube.blacklist();
@@ -355,11 +353,12 @@ ImprovedTube.init = function () {
                         ImprovedTube.elements.video_title = node.querySelector('.title.ytd-video-primary-info-renderer');
 
                         ImprovedTube.improvedtubeYoutubeIcon();
+                    } else if (node.nodeName === 'YTD-ITEM-SECTION-RENDERER') {
+                        ImprovedTube.collapseOfSubscriptionSections(node);
                     } else if (node.nodeName === 'A' && node.href) {
                         ImprovedTube.youtubeHomePage(node);
                         ImprovedTube.channelDefaultTab(node);
-                    } else if (node.nodeName === 'YTD-ITEM-SECTION-RENDERER') {
-                        ImprovedTube.collapseOfSubscriptionSections(node);
+                        ImprovedTube.markWatchedVideos(node);
                     }
                 }
             }
@@ -756,7 +755,7 @@ ImprovedTube.addScrollToTop = function () {
 
         svg.appendChild(path);
         button.appendChild(svg);
-        document.documentElement.appendChild(button);
+        document.body.appendChild(button);
 
         window.addEventListener('scroll', function () {
             if (window.scrollY > window.innerHeight / 2) {
@@ -786,72 +785,78 @@ ImprovedTube.confirmationBeforeClosing = function () {
 1.5 MARK WATCHED VIDEOS
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.markWatchedVideos = function () {
-    if (ImprovedTube.storage.mark_watched_videos === true) {
-        var video_items = document.querySelectorAll('a#thumbnail.ytd-thumbnail, div.yt-lockup-thumbnail a, a.thumb-link');
+ImprovedTube.markWatchedVideos = function (node) {
+    if (this.storage.mark_watched_videos === true) {
+        if (
+            node.id === 'thumbnail' && node.className.indexOf('ytd-thumbnail') !== -1 ||
+            node.className.indexOf('thumb-link') !== -1
+        ) {
+            var button = document.createElement('div'),
+                svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+                path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
-        for (var i = 0, l = video_items.length; i < l; i++) {
-            if (!video_items[i].querySelector('.it-mark-watched')) {
-                var button = document.createElement('div');
+            button.className = 'it-mark-watched' + (this.storage.watched && this.storage.watched[this.getParam(new URL(node.href || 'https://www.youtube.com/').search.substr(1), 'v')] ? ' watched' : '');
 
-                button.className = 'it-mark-watched' + (this.storage.watched && this.storage.watched[this.getParam(new URL(video_items[i].href || 'https://www.youtube.com/').search.substr(1), 'v')] ? ' watched' : '');
-                button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12a11.8 11.8 0 0022 0c-1.7-4.4-6-7.5-11-7.5zM12 17a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z"/></svg>';
+            button.addEventListener('click', function (event) {
+                var watched = !this.classList.contains('watched');
 
-                button.addEventListener('click', function (event) {
-                    var watched = !this.classList.contains('watched');
+                event.preventDefault();
+                event.stopPropagation();
 
-                    event.preventDefault();
-                    event.stopPropagation();
+                this.classList.toggle('watched');
 
-                    this.classList.toggle('watched');
+                try {
+                    var video_id = ImprovedTube.getParam(new URL(this.parentNode.href).search.substr(1), 'v'),
+                        item = this.parentNode;
 
-                    try {
-                        var video_id = ImprovedTube.getParam(new URL(this.parentNode.href).search.substr(1), 'v'),
-                            item = this.parentNode;
+                    while (
+                        item.nodeName &&
+                        item.nodeName !== 'YTD-RICH-ITEM-RENDERER' &&
+                        item.nodeName !== 'YTD-COMPACT-VIDEO-RENDERER' &&
+                        item.nodeName !== 'YTD-GRID-VIDEO-RENDERER' &&
+                        item.classList &&
+                        !item.classList.contains('yt-shelf-grid-item') &&
+                        !item.classList.contains('video-list-item')
+                    ) {
+                        item = item.parentNode;
+                    }
 
-                        while (
-                            item.nodeName &&
-                            item.nodeName !== 'YTD-RICH-ITEM-RENDERER' &&
-                            item.nodeName !== 'YTD-COMPACT-VIDEO-RENDERER' &&
-                            item.nodeName !== 'YTD-GRID-VIDEO-RENDERER' &&
-                            item.classList &&
-                            !item.classList.contains('yt-shelf-grid-item') &&
-                            !item.classList.contains('video-list-item')
-                        ) {
-                            item = item.parentNode;
-                        }
+                    if (!ImprovedTube.storage.watched) {
+                        ImprovedTube.storage.watched = {};
+                    }
 
-                        if (!ImprovedTube.storage.watched || typeof ImprovedTube.storage.watched !== 'object') {
-                            ImprovedTube.storage.watched = {};
-                        }
+                    if (watched === true) {
+                        ImprovedTube.storage.watched[video_id] = {
+                            title: item.querySelector('#video-title').innerText
+                        };
 
-                        if (watched === true) {
-                            ImprovedTube.storage.watched[video_id] = {
+                        document.dispatchEvent(new CustomEvent('ImprovedTubeWatched', {
+                            detail: {
+                                action: 'set',
+                                id: video_id,
                                 title: item.querySelector('#video-title').innerText
-                            };
+                            }
+                        }));
+                    } else if (ImprovedTube.storage.watched[video_id]) {
+                        delete ImprovedTube.storage.watched[video_id];
 
-                            document.dispatchEvent(new CustomEvent('ImprovedTubeWatched', {
-                                detail: {
-                                    action: 'set',
-                                    id: video_id,
-                                    title: item.querySelector('#video-title').innerText
-                                }
-                            }));
-                        } else if (ImprovedTube.storage.watched[video_id]) {
-                            delete ImprovedTube.storage.watched[video_id];
+                        document.dispatchEvent(new CustomEvent('ImprovedTubeWatched', {
+                            detail: {
+                                action: 'remove',
+                                id: video_id
+                            }
+                        }));
+                    }
+                } catch (err) {}
+            });
+            
+            svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+            path.setAttributeNS(null, 'd', 'M12 4.5C7 4.5 2.7 7.6 1 12a11.8 11.8 0 0022 0c-1.7-4.4-6-7.5-11-7.5zM12 17a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z');
 
-                            document.dispatchEvent(new CustomEvent('ImprovedTubeWatched', {
-                                detail: {
-                                    action: 'remove',
-                                    id: video_id
-                                }
-                            }));
-                        }
-                    } catch (err) {}
-                });
+            svg.appendChild(path);
+            button.appendChild(svg);
 
-                video_items[i].appendChild(button);
-            }
+            node.appendChild(button);
         }
     }
 };
