@@ -383,6 +383,9 @@
     "hideShareButton": {
         "message": "Hide \"Share\" button"
     },
+    "hideSkipOverlay": {
+        "message": "Hide Skip Overlay"
+    },
     "hideViewsCount": {
         "message": "Skjul visninger teller"
     },
