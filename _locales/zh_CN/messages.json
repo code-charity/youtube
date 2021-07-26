@@ -375,7 +375,7 @@
         "message": "隐藏底部渐变层"
     },
     "hideMoreButton": {
-        "message": "Hide \"More\" button"
+        "message": "隐藏 \"更多\" 按钮"
     },
     "hidePlaylist": {
         "message": "隐藏播放列表"
@@ -391,6 +391,9 @@
     },
     "hideShareButton": {
         "message": "隐藏\"共享\"按钮"
+    },
+    "hideSkipOverlay": {
+        "message": "隐藏跳过叠加"
     },
     "hideThumbnailOverlay": {
         "message": "隐藏缩略图上的按钮"

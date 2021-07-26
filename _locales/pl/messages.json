@@ -392,6 +392,9 @@
     "hideShareButton": {
         "message": "Ukryj przycisk \"Udostępnij\""
     },
+    "hideSkipOverlay": {
+        "message": "Hide Skip Overlay"
+    },
     "hideThumbnailOverlay": {
         "message": "Ukryj przyciski na miniaturach"
     },
