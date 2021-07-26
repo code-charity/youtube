@@ -44,7 +44,8 @@
     2.4.7 Hide more button
     2.4.8 Description
     2.4.9 How long ago the video was uploaded
-    2.4.10 Show dislike button red colour
+    2.4.10 Show channel videos count
+    2.4.11 Show dislike button red colour
   2.5 Comments
   2.6 Footer
 3.0 Themes
@@ -1120,7 +1121,18 @@ html[it-description=expanded] .yt-uix-expander-collapsed .yt-uix-expander-body {
 
 
 /*------------------------------------------------------------------------------
-2.4.10 SHOW DISLIKE RED COLOR
+2.4.10 SHOW CHANNEL VIDEOS COUNT
+------------------------------------------------------------------------------*/
+
+.it-channel-videos-count {
+    margin-right: 4px;
+    float: left;
+    color: var(--yt-spec-text-secondary);
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.11 SHOW DISLIKE RED COLOR
 ------------------------------------------------------------------------------*/
 
 [it-red-dislike-button=true] #top-level-buttons>ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active>a,
