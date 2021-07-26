@@ -10,6 +10,7 @@
   1.6 Limit page width
   1.7 Squared user images
   1.8 Hide animated thumbnails
+  1.9 Hide buttons on thumbnails
 2.0 Appearance
   2.1 Header
     2.1.1 Position
@@ -293,6 +294,16 @@ html[it-hide-animated-thumbnails=true] .mouseover-play,
 html[it-hide-animated-thumbnails=true] .mouseover-img {
     visibility: hidden !important;
 }
+
+
+/*------------------------------------------------------------------------------
+1.9 HIDE BUTTONS ON THUMBNAILS
+------------------------------------------------------------------------------*/
+
+html[it-hide-thumbnail-overlay=true] #hover-overlays {
+    display: none
+}
+
 
 
 /*-------------------------------------------------------------------------------

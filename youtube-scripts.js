@@ -11,7 +11,6 @@
   1.5 Mark watched videos
   1.6 Only one player instance playing
   1.7 HD thumbnails
-  1.8 Hide thumbnail overlay
 2.0 Appearance
   2.1 Player
     2.1.1 Player size
@@ -156,7 +155,6 @@ ImprovedTube.init = function () {
     window.addEventListener('DOMContentLoaded', function () {
         ImprovedTube.addScrollToTop();
         ImprovedTube.confirmationBeforeClosing();
-        ImprovedTube.hideThumbnailOverlay();
         ImprovedTube.myColors();
         ImprovedTube.bluelight();
         ImprovedTube.dim();
@@ -170,7 +168,6 @@ ImprovedTube.init = function () {
     window.addEventListener('yt-page-data-updated', function () {
         ImprovedTube.pageType();
         ImprovedTube.videoPageUpdate();
-        ImprovedTube.hideThumbnailOverlay();
         ImprovedTube.blacklist();
         //ImprovedTube.improvedtubeYoutubeSidebarButton();
         //ImprovedTube.improvedtubeYoutubePlayerButtons();
@@ -940,20 +937,6 @@ ImprovedTube.hdThumbnails = function (node) {
             };
 
             node.src = node.src.replace(this.regex.thumbnail_quality, 'maxresdefault.jpg');
-        }
-    }
-};
-
-/*------------------------------------------------------------------------------
-1.8 HIDE THUMBNAIL OVERLAY
-------------------------------------------------------------------------------*/
-
-ImprovedTube.hideThumbnailOverlay = function () {
-    if (this.storage.hide_thumbnail_overlay === true) {
-        var overlays = document.querySelectorAll('#hover-overlays');
-
-        for (var i = 0, l = overlays.length; i < l; i++) {
-            overlays[i].style.display = "none";
         }
     }
 };
