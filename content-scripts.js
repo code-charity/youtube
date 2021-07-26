@@ -60,6 +60,7 @@ function attributes(items) {
         'comments': true,
         'thumbnails-hide': true,
         'hide-footer': true,
+        'bluelight': true,
         'night-theme': true,
         'dawn-theme': true,
         'sunset-theme': true,

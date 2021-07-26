@@ -156,7 +156,6 @@ ImprovedTube.init = function () {
         ImprovedTube.addScrollToTop();
         ImprovedTube.confirmationBeforeClosing();
         ImprovedTube.myColors();
-        ImprovedTube.bluelight();
         ImprovedTube.dim();
         ImprovedTube.font();
         ImprovedTube.themes();
@@ -179,6 +178,7 @@ ImprovedTube.init = function () {
         }, 100);
     });*/
 
+    this.bluelight();
     this.defaultContentCountry();
     this.playerH264();
     this.player60fps();
@@ -1196,8 +1196,6 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
             ImprovedTube.elements.how_long_ago_the_video_was_uploaded = element;
 
             document.querySelector('#info #info-text').appendChild(element);
-            
-            console.log(response);
         });
 
         xhr.open('GET', 'https://www.googleapis.com/youtube/v3/videos?id=' + this.getParam(location.href.slice(location.href.indexOf('?') + 1), 'v') + '&key=' + api_key + '&part=snippet', true);
@@ -1234,7 +1232,6 @@ ImprovedTube.channelVideosCount = function () {
             parent.appendChild(element);
 
             ImprovedTube.elements.channel_videos_count = element;
-        console.log(element);
         });
 
         xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?id=' + this.elements.yt_channel_link.href.replace('/channel/', '') + '&key=AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA&part=statistics', true);
@@ -1352,22 +1349,58 @@ ImprovedTube.bluelight = function () {
         times.from = 0;
     }
 
-    if (
-        this.isset(value) && value !== 0 && value !== '0' &&
-        (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to)
-    ) {
-        if (!document.querySelector('#it-bluelight')) {
-            var container = document.createElement('div');
+    if (this.storage.schedule === 'sunset_to_sunrise' || current_time < times.from && current_time >= times.to) {
+        return false;
+    }
 
-            container.id = 'it-bluelight';
-            container.innerHTML = '<svg version=1.1 viewBox="0 0 1 1"><filter id=it-bluelight-filter><feColorMatrix type=matrix values="1 0 0 0 0 0 1 0 0 0 0 0 ' + (1 - parseFloat(value) / 100) + ' 0 0 0 0 0 1 0"></feColorMatrix></filter></svg>';
+    if (this.isset(value) === false || typeof value !== 'number') {
+        value = 0;
+    }
 
-            document.documentElement.appendChild(container);
+    if (value !== 0) {
+        var div = this.elements.bluelight || document.createElement('div');
+
+        if (!this.elements.feColorMatrix) {
+            var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+                filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter'),
+                feColorMatrix = document.createElementNS('http://www.w3.org/2000/svg', 'feColorMatrix'),
+                matrix = feColorMatrix.values.baseVal;
+
+            div.id = 'it-bluelight';
+
+            svg.setAttributeNS(null, 'viewBox', '0 0 1 1');
+            svg.setAttributeNS(null, 'version', '1.1');
+            filter.setAttributeNS(null, 'id', 'it-bluelight-filter');
+            feColorMatrix.setAttributeNS(null, 'type', 'matrix');
+
+            for (var i = 0; i < 20; i++) {
+                var number = svg.createSVGNumber();
+
+                number.value = 0;
+
+                matrix.appendItem(number);
+            }
+
+            matrix[0].value = 1;
+            matrix[6].value = 1;
+            matrix[12].value = 1 - parseFloat(value) / 100;
+            matrix[18].value = 1;
+
+            filter.appendChild(feColorMatrix);
+            svg.appendChild(filter);
+            div.appendChild(svg);
+            document.documentElement.appendChild(div);
+
+            console.log(feColorMatrix.values.baseVal);
+
+            this.elements.feColorMatrix = feColorMatrix;
         } else {
-            document.querySelector('#it-bluelight-filter feColorMatrix').setAttribute('values', '1 0 0 0 0 0 1 0 0 0 0 0 ' + (1 - parseFloat(value) / 100) + ' 0 0 0 0 0 1 0');
+            this.elements.feColorMatrix.values.baseVal[12].value = 1 - parseFloat(value) / 100;
         }
-    } else if (document.querySelector('#it-bluelight')) {
-        document.querySelector('#it-bluelight').remove();
+
+        this.elements.bluelight = div;
+    } else if (this.elements.bluelight) {
+        this.elements.bluelight.remove();
     }
 };
 
