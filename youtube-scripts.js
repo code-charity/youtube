@@ -1353,15 +1353,20 @@ ImprovedTube.bluelight = function () {
         return false;
     }
 
-    if (this.isset(value) === false || typeof value !== 'number') {
+    if (this.isset(value) === false) {
         value = 0;
     }
 
-    if (value !== 0) {
-        var div = this.elements.bluelight || document.createElement('div');
+    if (typeof value !== 'number') {
+        value = Number(value);
+    }
 
-        if (!this.elements.feColorMatrix) {
-            var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+    console.log(value);
+
+    if (value !== 0) {
+        if (!this.elements.bluelight || !this.elements.feColorMatrix) {
+            var div = this.elements.bluelight || document.createElement('div'),
+                svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
                 filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter'),
                 feColorMatrix = document.createElementNS('http://www.w3.org/2000/svg', 'feColorMatrix'),
                 matrix = feColorMatrix.values.baseVal;
@@ -1391,16 +1396,16 @@ ImprovedTube.bluelight = function () {
             div.appendChild(svg);
             document.documentElement.appendChild(div);
 
-            console.log(feColorMatrix.values.baseVal);
-
             this.elements.feColorMatrix = feColorMatrix;
+            this.elements.bluelight = div;
         } else {
             this.elements.feColorMatrix.values.baseVal[12].value = 1 - parseFloat(value) / 100;
         }
-
-        this.elements.bluelight = div;
     } else if (this.elements.bluelight) {
         this.elements.bluelight.remove();
+
+        delete this.elements.bluelight;
+        delete this.elements.feColorMatrix;
     }
 };
 
