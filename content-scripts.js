@@ -1,18 +1,38 @@
 /*------------------------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 --------------------------------------------------------------------------------
-1.0 Isset
-2.0 Initialization
-3.0 Change listener
+1.0 Empty
+2.0 Isset
+3.0 Camelize
+4.0 Attributes
+5.0 Injection
+6.0 Storage
+7.0 Messages
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-1.0 ISSET
+1.0 EMPTY
+------------------------------------------------------------------------------*/
+
+function empty(element) {
+    for (var i = element.childNodes.length - 1; i > -1; i--) {
+        element.childNodes[i].remove();
+    }
+}
+
+
+/*------------------------------------------------------------------------------
+2.0 ISSET
 ------------------------------------------------------------------------------*/
 
 function isset(variable) {
     return !(typeof variable === 'undefined' || variable === null);
 }
+
+
+/*------------------------------------------------------------------------------
+3.0 CAMELIZE
+------------------------------------------------------------------------------*/
 
 function camelize(string) {
     return string.split('-').map(function (element, index) {
@@ -23,6 +43,11 @@ function camelize(string) {
         return element[0].toUpperCase() + element.slice(1);
     }).join('');
 }
+
+
+/*------------------------------------------------------------------------------
+4.0 ATTRIBUTES
+------------------------------------------------------------------------------*/
 
 function attributes(items) {
     var whitelist = {
@@ -81,15 +106,9 @@ function attributes(items) {
     }
 }
 
-function empty(element) {
-    for (var i = element.childNodes.length - 1; i > -1; i--) {
-        element.childNodes[i].remove();
-    }
-}
-
 
 /*------------------------------------------------------------------------------
-2.0 INITIALIZATION
+5.0 INJECTION
 ------------------------------------------------------------------------------*/
 
 function injectScript(string) {
@@ -113,6 +132,11 @@ function injectStyles(string, id) {
 
     document.documentElement.appendChild(style);
 }
+
+
+/*------------------------------------------------------------------------------
+6.0 STORAGE
+------------------------------------------------------------------------------*/
 
 chrome.storage.local.get('youtube_home_page', function (items) {
     var option = items.youtube_home_page;
@@ -161,11 +185,6 @@ chrome.storage.local.get('youtube_home_page', function (items) {
     });
 });
 
-
-/*------------------------------------------------------------------------------
-3.0 CHANGE LISTENER
-------------------------------------------------------------------------------*/
-
 chrome.storage.onChanged.addListener(function (changes) {
     for (var key in changes) {
         var value = changes[key].newValue,
@@ -181,6 +200,10 @@ chrome.storage.onChanged.addListener(function (changes) {
     }
 });
 
+
+/*------------------------------------------------------------------------------
+7.0 MESSAGES
+------------------------------------------------------------------------------*/
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.action === 'focus') {
