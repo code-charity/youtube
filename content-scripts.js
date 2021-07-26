@@ -81,8 +81,8 @@ function attributes(items) {
 }
 
 function empty(element) {
-    for (var i = element.children.length - 1; i > -1; i--) {
-        element.children[i].remove();
+    for (var i = element.childNodes.length - 1; i > -1; i--) {
+        element.childNodes[i].remove();
     }
 }
 
