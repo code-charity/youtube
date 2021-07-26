@@ -2728,6 +2728,11 @@ skeleton.main.section.appearance = {
             hide_gradient_bottom: {
                 type: 'switch',
                 label: 'hideGradientBottom'
+            },
+            player_hide_skip_overlay: {
+                type: 'switch',
+                label: 'hideSkipOverlay',
+                value: false
             }
         }
     },
