@@ -18,6 +18,7 @@
     2.1.2 Forced theater mode
     2.1.3 HD thumbnail
     2.1.4 Always show progress bar
+    2.1.5 Hide Skip Overlay
   2.2 Sidebar
     2.2.1 Livechat
     2.2.2 Related videos
