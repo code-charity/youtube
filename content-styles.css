@@ -37,9 +37,13 @@
   2.4 Details
     2.4.1 Hide details
     2.4.2 Hide views count
-    2.4.3 Description
+    2.4.3 Hide date
     2.4.4 Likes
-    2.4.5 Show dislike button red colour
+    2.4.5 Hide share button
+    2.4.6 Hide save button
+    2.4.7 Hide more button
+    2.4.8 Description
+    2.4.9 Show dislike button red colour
   2.5 Comments
   2.6 Footer
 3.0 Themes
@@ -64,11 +68,9 @@
 9.0 Blacklist
 ------------------------------------------------------------------------------*/
 
-
 /*------------------------------------------------------------------------------
 1.0 GENERAL
 ------------------------------------------------------------------------------*/
-
 
 /*------------------------------------------------------------------------------
 1.1 YOUTUBE HOME PAGE
@@ -305,16 +307,13 @@ html[it-hide-thumbnail-overlay=true] #hover-overlays {
 }
 
 
-
 /*-------------------------------------------------------------------------------
 2.0 APPEARANCE
 -------------------------------------------------------------------------------*/
 
-
 /*-------------------------------------------------------------------------------
 2.1 HEADER
 -------------------------------------------------------------------------------*/
-
 
 /*-------------------------------------------------------------------------------
 2.1.1 POSITION
@@ -430,7 +429,6 @@ html[it-header-hide-country-code=true] #logo #country-code {
 2.2 PLAYER
 ------------------------------------------------------------------------------*/
 
-
 /*------------------------------------------------------------------------------
 2.2.1 HIDE ANNOTATIONS
 ------------------------------------------------------------------------------*/
@@ -477,16 +475,17 @@ html[it-player-show-cards-on-mouse-hover=true] .html5-video-player:hover .ytp-ca
 2.2.4 PLAYER SIZE
 ------------------------------------------------------------------------------*/
 
-
 /*------------------------------------------------------------------------------
 # VARIABLES
 ------------------------------------------------------------------------------*/
 
+/*------------------------------------------------------------------------------
+# HEADER
+------------------------------------------------------------------------------*/
 
-/* ---- HEADER --------------------------------------------------------------*/
-
-
-/* ---- NORMAL --------------------------------------------------------------*/
+/*------------------------------------------------------------------------------
+# NORMAL
+------------------------------------------------------------------------------*/
 
 html[data-page-type=video]:not([it-header-position]) ytd-app,
 html[data-page-type=video][it-header-position=normal] ytd-app,
@@ -513,7 +512,9 @@ html[data-page-type=video][it-header-position=static] div#page:not(.watch-wide) 
 }
 
 
-/* ---- HIDDEN ---------------------------------------------------------------*/
+/*------------------------------------------------------------------------------
+# HIDDEN
+------------------------------------------------------------------------------*/
 
 html[data-page-type=video][it-header-position=hidden],
 html[data-page-type=video][it-header-position=hidden_on_video_page] {
@@ -536,7 +537,9 @@ html[data-page-type=video][it-header-position=hidden_on_video_page] div#page:not
 }
 
 
-/* ---- HOVER ----------------------------------------------------------------*/
+/*------------------------------------------------------------------------------
+# HOVER
+------------------------------------------------------------------------------*/
 
 html[data-page-type=video][it-header-position=hover],
 html[data-page-type=video][it-header-position=hover_on_video_page] {
@@ -574,7 +577,9 @@ html[data-page-type=video][it-header-position=hover_on_video_page] ytd-app:not([
 }
 
 
-/* ---- FIXED PLAYER SIZE ----------------------------------------------------*/
+/*------------------------------------------------------------------------------
+# FIXED PLAYER SIZE
+------------------------------------------------------------------------------*/
 
 html[data-page-type=video][it-player-size='240p'] *,
 html[data-page-type=video][it-player-size='360p'] *,
@@ -588,7 +593,9 @@ html[data-page-type=video][it-player-size='2160p'] * {
 }
 
 
-/* ---- SIZES ----------------------------------------------------------------*/
+/*------------------------------------------------------------------------------
+# FULL WINDOW
+------------------------------------------------------------------------------*/
 
 html[data-page-type=video][it-player-size='240p'] {
     --it-player-size: 240px;
@@ -670,9 +677,13 @@ html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change'
 }
 
 
-/*FIT TO WINDOW*/
+/*------------------------------------------------------------------------------
+# FIT TO WINDOW
+------------------------------------------------------------------------------*/
 
-/*THEATER:  ON*/
+/*------------------------------------------------------------------------------
+# THEATER: ON
+------------------------------------------------------------------------------*/
 
 [data-page-type='video'][it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) #player-theater-container {
     height: auto !important;
@@ -708,7 +719,9 @@ html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change'
 }
 
 
-/*THEATER:  OFF*/
+/*------------------------------------------------------------------------------
+# THEATER: OFF
+------------------------------------------------------------------------------*/
 
 [data-page-type='video'][it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container-inner {
     padding-top: 0 !important;
@@ -886,7 +899,6 @@ html[it-hide-gradient-bottom=true] .ytp-gradient-bottom {
 2.3 SIDEBAR
 ------------------------------------------------------------------------------*/
 
-
 /*------------------------------------------------------------------------------
 2.3.1 LIVECHAT
 ------------------------------------------------------------------------------*/
@@ -972,7 +984,6 @@ html[it-thumbnails-hide='true'] #dismissible>ytd-thumbnail {
 2.4 DETAILS
 ------------------------------------------------------------------------------*/
 
-
 /*------------------------------------------------------------------------------
 2.4.1 HIDE DETAILS
 ------------------------------------------------------------------------------*/
@@ -997,7 +1008,7 @@ html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer+#date>#dot
 
 
 /*------------------------------------------------------------------------------
-2.4.2 HIDE DATE
+2.4.3 HIDE DATE
 ------------------------------------------------------------------------------*/
 
 html[it-hide-date=true] #count.ytd-video-primary-info-renderer+#date,
@@ -1007,36 +1018,7 @@ html[it-hide-date=true] #count.ytd-video-primary-info-renderer+#date>#dot {
 
 
 /*------------------------------------------------------------------------------
-2.4.2 HIDE SHARE BUTTON
-------------------------------------------------------------------------------*/
-
-html[it-hide-share-button=true] #info #top-level-buttons ytd-button-renderer:nth-child(3),
-html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-child(3) {
-    display: none;
-}
-
-
-/*------------------------------------------------------------------------------
-2.4.2 HIDE SAVE BUTTON
-------------------------------------------------------------------------------*/
-
-html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer:nth-child(4),
-html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-child(4) {
-    display: none;
-}
-
-
-/*------------------------------------------------------------------------------
-2.4.2 HIDE MORE BUTTON
-------------------------------------------------------------------------------*/
-
-html[it-hide-more-button=true] #info #top-level-buttons-computed+yt-icon-button {
-    display: none;
-}
-
-
-/*------------------------------------------------------------------------------
-2.4.4 Likes
+2.4.4 LIKES
 ------------------------------------------------------------------------------*/
 
 [it-likes=hidden] #watch8-sentiment-actions>.like-button-renderer,
@@ -1075,17 +1057,36 @@ html[it-hide-more-button=true] #info #top-level-buttons-computed+yt-icon-button 
 
 
 /*------------------------------------------------------------------------------
-2.4.5 SHOW DISLIKE RED COLOR
+2.4.5 HIDE SHARE BUTTON
 ------------------------------------------------------------------------------*/
 
-[it-red-dislike-button=true] #top-level-buttons>ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active>a,
-[it-red-dislike-button=true] #top-level-buttons-computed>ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active>a {
-    color: #fc0000 !important;
+html[it-hide-share-button=true] #info #top-level-buttons ytd-button-renderer:nth-child(3),
+html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-child(3) {
+    display: none;
 }
 
 
 /*------------------------------------------------------------------------------
-2.4.3 DESCRIPTION
+2.4.6 HIDE SAVE BUTTON
+------------------------------------------------------------------------------*/
+
+html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer:nth-child(4),
+html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-child(4) {
+    display: none;
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.7 HIDE MORE BUTTON
+------------------------------------------------------------------------------*/
+
+html[it-hide-more-button=true] #info #top-level-buttons-computed+yt-icon-button {
+    display: none;
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.8 DESCRIPTION
 ------------------------------------------------------------------------------*/
 
 html[it-description=hidden] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
@@ -1103,6 +1104,16 @@ html[it-description=expanded] #watch-description-text {
 html[it-description=expanded] .yt-uix-expander .yt-uix-expander-collapsed-body,
 html[it-description=expanded] .yt-uix-expander-collapsed .yt-uix-expander-body {
     display: block !important;
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.9 SHOW DISLIKE RED COLOR
+------------------------------------------------------------------------------*/
+
+[it-red-dislike-button=true] #top-level-buttons>ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active>a,
+[it-red-dislike-button=true] #top-level-buttons-computed>ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active>a {
+    color: #fc0000 !important;
 }
 
 
@@ -1155,7 +1166,6 @@ html[it-hide-footer=true] app-drawer#guide #footer {
 /*------------------------------------------------------------------------------
 3.0 THEMES
 ------------------------------------------------------------------------------*/
-
 
 /*------------------------------------------------------------------------------
 3.1 BLUELIGHT
@@ -1224,7 +1234,6 @@ html[it-bluelight][it-youtube-version=old] body {
 /*------------------------------------------------------------------------------
 3.3 THEMES
 ------------------------------------------------------------------------------*/
-
 
 /*BLACK*/
 
@@ -3050,7 +3059,6 @@ html[it-sunset-theme=true]:not([it-schedule=system_peference_dark]):not([it-sche
 4.0 PLAYER
 ------------------------------------------------------------------------------*/
 
-
 /*------------------------------------------------------------------------------
 4.1 CROP CHAPTER TITLES
 ------------------------------------------------------------------------------*/
@@ -3075,7 +3083,6 @@ html[it-player-ads=block_all] #masthead-ad {
 /*------------------------------------------------------------------------------
 4.3 MINIPLAYER
 ------------------------------------------------------------------------------*/
-
 
 /*-----------------------------------------------------------------------------
 # POSITION & SIZE
@@ -3287,7 +3294,6 @@ body.no-scroll .it-player-button--tooltip {
 5.0 PLAYLIST
 ------------------------------------------------------------------------------*/
 
-
 /*------------------------------------------------------------------------------
 5.1 REVERSE
 ------------------------------------------------------------------------------*/
@@ -3310,11 +3316,8 @@ body.no-scroll .it-player-button--tooltip {
 6.0 CHANNEL
 ------------------------------------------------------------------------------*/
 
-
 /*------------------------------------------------------------------------------
 6.1 FEATURED CONTENT
---------------------------------------------------------------------------------
-FIXED #535 FlaviuIusan
 ------------------------------------------------------------------------------*/
 
 html[it-channel-hide-featured-content=true] #secondary #contents.style-scope.ytd-browse-secondary-contents-renderer,
@@ -3347,7 +3350,6 @@ html[it-channel-hide-featured-content=true] #secondary ytd-browse-secondary-cont
 /*------------------------------------------------------------------------------
 8.0 SETTINGS
 ------------------------------------------------------------------------------*/
-
 
 /*------------------------------------------------------------------------------
 8.1 IMPROVEDTUBE ICON ON YOUTUBE
