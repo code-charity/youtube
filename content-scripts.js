@@ -31,6 +31,7 @@ function attributes(items) {
         'limit-page-width': true,
         'squared-user-images': true,
         'hide-animated-thumbnails': true,
+        'hide-thumbnail-overlay': true,
         'header-position': true,
         'header-improve-logo': true,
         'header-hide-right-buttons': true,
