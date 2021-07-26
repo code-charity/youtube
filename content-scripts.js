@@ -80,6 +80,12 @@ function attributes(items) {
     }
 }
 
+function empty(element) {
+    for (var i = element.children.length - 1; i > -1; i--) {
+        element.children[i].remove();
+    }
+}
+
 
 /*------------------------------------------------------------------------------
 2.0 INITIALIZATION
@@ -133,6 +139,9 @@ chrome.storage.local.get('youtube_home_page', function (items) {
 
         // Isset
         textContent += 'isset:' + isset + ',';
+
+        // Empty
+        textContent += 'empty:' + empty + ',';
 
         // Features
         for (var key in ImprovedTube) {
