@@ -877,7 +877,7 @@ html[it-hide-gradient-bottom=true] .ytp-gradient-bottom {
 
 html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui
 {
-    display: none !important;
+    visibility: hidden;
 }
 
 

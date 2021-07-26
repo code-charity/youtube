@@ -172,6 +172,7 @@ ImprovedTube.init = function () {
         ImprovedTube.videoPageUpdate();
         ImprovedTube.hideThumbnailOverlay();
         ImprovedTube.blacklist();
+        ImprovedTube.hideSkipOverlay();
         //ImprovedTube.improvedtubeYoutubeSidebarButton();
         //ImprovedTube.improvedtubeYoutubePlayerButtons();
     });
@@ -1094,6 +1095,18 @@ ImprovedTube.alwaysShowProgressBar = function () {
                 progress_load += a;
             }
         }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+2.1.5 HIDE SKIP OVERLAY
+------------------------------------------------------------------------------*/
+
+ImprovedTube.hideSkipOverlay = function () {
+    if (this.storage.player_hide_skip_overlay === true) {
+        var overlays = document.querySelectorAll('.ytp-doubletap-ui');
+            overlays[0].style.visibility = "hidden";
     }
 };
 
