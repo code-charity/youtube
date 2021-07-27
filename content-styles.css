@@ -28,6 +28,7 @@
     2.2.8 Hide "Scroll for details"
     2.2.9 Always show progress bar
     2.2.10 Hide Gradient Bottom
+    2.2.11 Skip overlay
   2.3 Sidebar
     2.3.1 Livechat
     2.3.2 Hide playlist
@@ -894,6 +895,15 @@ html[it-always-show-progress-bar=true] .html5-video-player:not(.it-mini-player).
 
 html[it-hide-gradient-bottom=true] .ytp-gradient-bottom {
     display: none;
+}
+
+/*------------------------------------------------------------------------------
+2.2.11 Skip overlay
+------------------------------------------------------------------------------*/
+
+html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui
+{
+    visibility: hidden;
 }
 
 
