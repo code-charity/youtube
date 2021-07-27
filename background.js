@@ -326,6 +326,38 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
     });
 });
 
+chrome.windows.onFocusChanged.addListener(function(windowId) {
+    chrome.windows.getAll(function(windows) {
+        for (var i = 0, l = windows.length; i < l; i++) {
+            if (windows[i].focused === true) {
+                chrome.tabs.getAllInWindow(windows[i].id, function(tabs) {
+                    if (tabs) {
+                        for (var i = 0, l = tabs.length; i < l; i++) {
+                            if (tabs[i].active && tabs[i].hasOwnProperty('url')) {
+                                chrome.tabs.sendMessage(tabs[i].id, {
+                                    action: 'focus'
+                                });
+                            }
+                        }
+                    }
+                });
+            } else {
+                chrome.tabs.getAllInWindow(windows[i].id, function(tabs) {
+                    if (tabs) {
+                        for (var i = 0, l = tabs.length; i < l; i++) {
+                            if (tabs[i].hasOwnProperty('url')) {
+                                chrome.tabs.sendMessage(tabs[i].id, {
+                                    action: 'blur'
+                                });
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    });
+});
+
 
 /*--------------------------------------------------------------
 7.0 UNINSTALL URL
