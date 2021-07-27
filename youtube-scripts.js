@@ -3139,48 +3139,6 @@ ImprovedTube.showStatus = function (player, volume) {
     }, 500);
 };
 
-ImprovedTube.shortcuts = function () {
-    var self = this,
-        keys = {},
-        wheel = 0,
-        hover = false;
-
-    function start(type = 'keys') {
-        if (document.activeElement && ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'].indexOf(document.activeElement.tagName) !== -1 || event.target.isContentEditable) {
-            return false;
-        }
-
-        for (var key in self.storage) {
-            if (key.indexOf('shortcut_') === 0) {
-                var function_name = 'shortcut' + (key.replace(/_?shortcut_?/g, '').replace(/\_/g, '-')).split('-').map(function (element, index) {
-                    return element[0].toUpperCase() + element.slice(1);
-                }).join(''),
-                    data = JSON.parse(self.storage[key]) || {};
-
-                if (
-                    (data.keyCode === keys.keyCode || !self.isset(data.keyCode)) &&
-                    (data.shiftKey === keys.shiftKey || !self.isset(data.shiftKey)) &&
-                    (data.ctrlKey === keys.ctrlKey || !self.isset(data.ctrlKey)) &&
-                    (data.altKey === keys.altKey || !self.isset(data.altKey)) &&
-                    ((data.wheel > 0) === (wheel > 0) || !self.isset(data.wheel)) &&
-                    ((hover === true && (data.wheel > 0) === (wheel > 0) && Object.keys(keys).length === 0 && keys.constructor === Object) || (self.isset(data.key) || self.isset(data.altKey) || self.isset(data.ctrlKey)))
-                ) {
-                    if (type === 'wheel' && self.isset(data.wheel) || type === 'keys') {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-
-                    ImprovedTube[function_name]();
-
-                    if (type === 'wheel' && self.isset(data.wheel) || type === 'keys') {
-                        return false;
-                    }
-                }
-            }
-        }
-    }
-};
-
 ImprovedTube.shortcuts = function() {
     var keyboard = {
             alt: false,
@@ -3195,7 +3153,40 @@ ImprovedTube.shortcuts = function() {
         storage = {};
 
     function handler() {
-        console.log(keyboard, mouse);
+        var prevent = false;
+
+        for (var key in storage) {
+            var shortcut = storage[key],
+                same_keys = true;
+
+            if (
+                keyboard.alt === shortcut.alt &&
+                keyboard.ctrl === shortcut.ctrl &&
+                keyboard.shift === shortcut.shift &&
+                mouse.wheel === shortcut.wheel
+            ) {
+                for (var code in keyboard.keys) {
+                    if (!shortcut.keys[code]) {
+                        same_keys = false;
+                    }
+                }
+                for (var code in shortcut.keys) {
+                    if (!keyboard.keys[code]) {
+                        same_keys = false;
+                    }
+                }
+
+                if (mouse.wheel === 0 || mouse.player === true) {
+                    if (same_keys === true) {
+                        ImprovedTube[key]();
+
+                        prevent = true;
+                    }
+                }
+            }
+        }
+
+        return prevent;
     }
 
     window.addEventListener('keydown', function(event) {
@@ -3325,8 +3316,6 @@ ImprovedTube.shortcuts = function() {
             }
         }
     }
-
-    console.log(storage);
 };
 
 
