@@ -3282,9 +3282,45 @@ ImprovedTube.shortcuts = function() {
         if (name.indexOf('shortcut_') === 0) {
             if (this.isset(this.storage[name])) {
                 try {
-                    storage['shortcut' + (name.replace(/_?shortcut_?/g, '').replace(/\_/g, '-')).split('-').map(function (element, index) {
+                    var key = 'shortcut' + (name.replace(/_?shortcut_?/g, '').replace(/\_/g, '-')).split('-').map(function (element, index) {
                         return element[0].toUpperCase() + element.slice(1);
-                    }).join('')] = JSON.parse(this.storage[name]);
+                    }).join(''),
+                        old_value = JSON.parse(this.storage[name]),
+                        new_value = {
+                            keys: {}
+                        };
+
+                    if (old_value.altKey) {
+                        new_value.alt = true;
+                    } else {
+                        new_value.alt = false;
+                    }
+
+                    if (old_value.ctrlKey) {
+                        new_value.ctrl = true;
+                    } else {
+                        new_value.ctrl = false;
+                    }
+
+                    if (old_value.shiftKey) {
+                        new_value.shift = true;
+                    } else {
+                        new_value.shift = false;
+                    }
+
+                    if (['Alt', 'Control', 'Shift'].indexOf(old_value.key) === -1) {
+                        new_value.keys[old_value.keyCode] = true;
+                    }
+
+                    if (old_value.wheel > 0) {
+                        new_value.wheel = 1;
+                    } else if (old_value.wheel < 0) {
+                        new_value.wheel = -1;
+                    } else {
+                        new_value.wheel = 0;
+                    }
+
+                    storage[key] = new_value;
                 } catch (err) {}
             }
         }
