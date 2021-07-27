@@ -70,6 +70,7 @@ function attributes(items) {
         'player-hide-endscreen': true,
         'hide-scroll-for-details': true,
         'always-show-progress-bar': true,
+        'player-hide-skip-overlay': true,
         'hide-details': true,
         'hide-views-count': true,
         'hide-date': true,
