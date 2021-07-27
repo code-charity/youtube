@@ -17,6 +17,7 @@
     2.1.2 Forced theater mode
     2.1.3 HD thumbnail
     2.1.4 Always show progress bar
+    2.1.5 Hide Skip Overlay
   2.2 Sidebar
     2.2.1 Livechat
     2.2.2 Related videos
@@ -168,6 +169,7 @@ ImprovedTube.init = function () {
         ImprovedTube.pageType();
         ImprovedTube.videoPageUpdate();
         ImprovedTube.blacklist();
+        ImprovedTube.hideSkipOverlay();
         //ImprovedTube.improvedtubeYoutubeSidebarButton();
         //ImprovedTube.improvedtubeYoutubePlayerButtons();
     });
@@ -1084,6 +1086,18 @@ ImprovedTube.alwaysShowProgressBar = function () {
                 progress_load += a;
             }
         }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+2.1.5 HIDE SKIP OVERLAY
+------------------------------------------------------------------------------*/
+
+ImprovedTube.hideSkipOverlay = function () {
+    if (this.storage.player_hide_skip_overlay === true) {
+        var overlays = document.querySelectorAll('.ytp-doubletap-ui');
+            overlays[0].style.visibility = "hidden";
     }
 };
 
