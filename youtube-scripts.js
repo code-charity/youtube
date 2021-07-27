@@ -3179,56 +3179,6 @@ ImprovedTube.shortcuts = function () {
             }
         }
     }
-
-
-    /*-------------------------------------------------------------------------
-    1.0 Keyboard
-    -------------------------------------------------------------------------*/
-
-    window.addEventListener('keydown', function (event) {
-        keys = {
-            key: event.key,
-            keyCode: event.keyCode,
-            shiftKey: event.shiftKey,
-            ctrlKey: event.ctrlKey,
-            altKey: event.altKey
-        };
-
-        start();
-    }, true);
-
-    window.addEventListener('keyup', function (event) {
-        keys = {};
-    }, true);
-
-
-    /*-------------------------------------------------------------------------
-    2.0 Mouse
-    -------------------------------------------------------------------------*/
-
-    window.addEventListener('mousemove', function (event) {
-        var path = event.composedPath();
-
-        hover = false;
-
-        for (var i = 0, l = path.length; i < l; i++) {
-            if (path[i].classList && path[i].classList.contains('html5-video-player')) {
-                hover = true;
-            }
-        }
-    }, {
-        passive: false,
-        capture: true
-    });
-
-    window.addEventListener('wheel', function (event) {
-        wheel = event.deltaY;
-
-        start('wheel');
-    }, {
-        passive: false,
-        capture: true
-    });
 };
 
 ImprovedTube.shortcuts = function() {
@@ -3241,13 +3191,18 @@ ImprovedTube.shortcuts = function() {
         mouse = {
             player: false,
             wheel: 0
-        };
+        },
+        storage = {};
 
     function handler() {
         console.log(keyboard, mouse);
     }
 
     window.addEventListener('keydown', function(event) {
+        if (document.activeElement && ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'].indexOf(document.activeElement.tagName) !== -1 || event.target.isContentEditable) {
+            return false;
+        }
+
         if (event.code === 'AltLeft' || event.code === 'AltRight') {
             keyboard.alt = true;
         } else if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
@@ -3266,6 +3221,10 @@ ImprovedTube.shortcuts = function() {
     }, true);
 
     window.addEventListener('keyup', function(event) {
+        if (document.activeElement && ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'].indexOf(document.activeElement.tagName) !== -1 || event.target.isContentEditable) {
+            return false;
+        }
+
         if (event.code === 'AltLeft' || event.code === 'AltRight') {
             keyboard.alt = false;
         } else if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
@@ -3318,6 +3277,20 @@ ImprovedTube.shortcuts = function() {
         mouse.player = false;
         mouse.wheel = 0;
     });
+
+    for (var name in this.storage) {
+        if (name.indexOf('shortcut_') === 0) {
+            if (this.isset(this.storage[name])) {
+                try {
+                    storage['shortcut' + (name.replace(/_?shortcut_?/g, '').replace(/\_/g, '-')).split('-').map(function (element, index) {
+                        return element[0].toUpperCase() + element.slice(1);
+                    }).join('')] = JSON.parse(this.storage[name]);
+                } catch (err) {}
+            }
+        }
+    }
+
+    console.log(storage);
 };
 
 
