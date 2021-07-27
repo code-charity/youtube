@@ -303,6 +303,8 @@ ImprovedTube.init = function () {
                             childList: false,
                             subtree: false
                         });
+
+                        document.dispatchEvent(new CustomEvent('improvedtube-player-loaded'));
                     } else if (node.nodeName === 'VIDEO') {
                         ImprovedTube.elements.video = node;
                     } else if (node.id === 'chat') {
@@ -3226,6 +3228,95 @@ ImprovedTube.shortcuts = function () {
     }, {
         passive: false,
         capture: true
+    });
+};
+
+ImprovedTube.shortcuts = function() {
+    var keyboard = {
+            alt: false,
+            ctrl: false,
+            shift: false,
+            keys: {}
+        },
+        mouse = {
+            player: false,
+            wheel: 0
+        };
+
+    function handler() {
+        console.log(keyboard, mouse);
+    }
+
+    window.addEventListener('keydown', function(event) {
+        if (event.code === 'AltLeft' || event.code === 'AltRight') {
+            keyboard.alt = true;
+        } else if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
+            keyboard.ctrl = true;
+        } else if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+            keyboard.shift = true;
+        } else {
+            keyboard.keys[event.keyCode] = true;
+        }
+
+        mouse.wheel = 0;
+
+        if (handler() === true) {
+            event.preventDefault();
+        }
+    }, true);
+
+    window.addEventListener('keyup', function(event) {
+        if (event.code === 'AltLeft' || event.code === 'AltRight') {
+            keyboard.alt = false;
+        } else if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
+            keyboard.ctrl = false;
+        } else if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+            keyboard.shift = false;
+        } else {
+            delete keyboard.keys[event.keyCode];
+        }
+
+        mouse.wheel = 0;
+    }, true);
+
+    window.addEventListener('wheel', function(event) {
+        if (event.deltaY > 0) {
+            mouse.wheel = 1;
+        } else {
+            mouse.wheel = -1;
+        }
+
+        if (handler() === true) {
+            event.preventDefault();
+        }
+    }, {
+        passive: false,
+        capture: true
+    });
+
+    document.addEventListener('improvedtube-player-loaded', function () {
+        ImprovedTube.elements.player.parentNode.addEventListener('mouseover', function() {
+            mouse.player = true;
+            mouse.wheel = 0;
+        }, true);
+
+        ImprovedTube.elements.player.parentNode.addEventListener('mouseout', function() {
+            mouse.player = false;
+            mouse.wheel = 0;
+        }, true);
+    });
+
+    document.addEventListener('improvedtube-blur', function () {
+        keyboard.alt = false;
+        keyboard.ctrl = false;
+        keyboard.shift = false;
+
+        for (var key in keyboard.keys) {
+            delete keyboard.keys[key];
+        }
+
+        mouse.player = false;
+        mouse.wheel = 0;
     });
 };
 
