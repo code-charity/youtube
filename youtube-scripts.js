@@ -2749,25 +2749,35 @@ ImprovedTube.shortcutSeekForward = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutSeekNextChapter = function () {
-    const player = document.querySelector("#movie_player");
-    const chapterDiv = document.querySelector(".ytp-chapters-container");
-    const progressBarWidth = parseInt(document.querySelector(".ytp-chrome-bottom").style.width);
+    var player = this.elements.player;
+    
+    if (player) {
+        var duration = player.getDuration(),
+            current_time = player.getCurrentTime(),
+            chapters_container = player.querySelector('.ytp-chapters-container'),
+            progress_bar_width = player.querySelector('.ytp-chrome-bottom').offsetWidth,
+            current_width = 0;
 
-    if (!player || !player.seekBy || !progressBarWidth ||
-        !chapterDiv || !chapterDiv.children) {
-        return;
-    }
-
-    let curWidth = 0;
-
-    for (let child of chapterDiv.children) {
-        if ((curWidth - 2) / progressBarWidth <= player.getCurrentTime() / player.getDuration() &&
-            (curWidth - 2 + parseInt(child.style.width)) / progressBarWidth >= player.getCurrentTime() / player.getDuration()) { //if child is current chapter
-            player.seekTo(((parseInt(child.style.width) + curWidth) / progressBarWidth) * player.getDuration());
+        if (!player || !player.seekBy || !progress_bar_width || !chapters_container || !chapters_container.children) {
             return;
         }
 
-        curWidth += parseInt(child.style.width) + 2;
+        var chapters = chapters_container.children;
+
+        for (var i = 0, l = chapters.length; i < l; i++) {
+            var width = chapters[i].offsetWidth;
+
+            if (
+                (current_width - 2) / progress_bar_width <= current_time / duration &&
+                (current_width - 2 + width) / progress_bar_width >= current_time / duration
+            ) {
+                player.seekTo(((width + current_width) / progress_bar_width) * duration);
+
+                return;
+            }
+
+            current_width += width + 2;
+        }
     }
 };
 
