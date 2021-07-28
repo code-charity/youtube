@@ -3262,7 +3262,7 @@ ImprovedTube.shortcuts = function() {
                         new_value.shift = false;
                     }
 
-                    if (['Alt', 'Control', 'Shift'].indexOf(old_value.key) === -1) {
+                    if (old_value.key && ['Alt', 'Control', 'Shift'].indexOf(old_value.key) === -1) {
                         new_value.keys[old_value.keyCode] = true;
                     }
 
