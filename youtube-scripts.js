@@ -2680,10 +2680,8 @@ ImprovedTube.shortcutPlayPause = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutStop = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player) {
-        player.stopVideo();
+    if (this.elements.player) {
+        this.elements.player.stopVideo();
     }
 };
 
