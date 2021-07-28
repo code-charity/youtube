@@ -100,8 +100,8 @@ ImprovedTube is the only project of it's kind. Other open YouTube Extensions res
 Chinese, Taiwanese, Japanese, Korean) 	
 </td></tr></table>
 
-## 🐣 Projects 
-### Extensions (new)
+## New Projects 🎁🐣
+### Extensions
 * <b>Home/Daily: History Manager</b><a href="https://github.com/victor-savinov/history-manager"><img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px"></a>, 
 Start Page <a href="https://github.com/victor-savinov/start-page"><img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px"></a>,[ToDo](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/victor-savinov/to-do) 
 * **Research:** 
