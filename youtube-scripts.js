@@ -201,33 +201,38 @@ ImprovedTube.init = function () {
 
                         ImprovedTube.elements.ytd_player = document.querySelector('ytd-player');
 
-                        node.calculateCurrentPlayerSize_ = function() {
-                            if (!this.theater && ImprovedTube.elements.player) {
-                                if (this.updateStyles) {
-                                    this.updateStyles({
-                                        '--ytd-watch-flexy-width-ratio': 1,
-                                        '--ytd-watch-flexy-height-ratio': 0.5625
-                                    });
+                        if (
+                            ImprovedTube.storage.player_size &&
+                            ImprovedTube.storage.player_size !== 'do_not_change'
+                        ) {
+                            node.calculateCurrentPlayerSize_ = function() {
+                                if (!this.theater && ImprovedTube.elements.player) {
+                                    if (this.updateStyles) {
+                                        this.updateStyles({
+                                            '--ytd-watch-flexy-width-ratio': 1,
+                                            '--ytd-watch-flexy-height-ratio': 0.5625
+                                        });
 
-                                    this.updateStyles({
-                                        '--ytd-watch-width-ratio': 1,
-                                        '--ytd-watch-height-ratio': 0.5625
-                                    });
+                                        this.updateStyles({
+                                            '--ytd-watch-width-ratio': 1,
+                                            '--ytd-watch-height-ratio': 0.5625
+                                        });
+                                    }
+
+                                    return {
+                                        width: ImprovedTube.elements.player.offsetWidth,
+                                        height: Math.round(ImprovedTube.elements.player.offsetWidth / (16 / 9))
+                                    };
                                 }
 
                                 return {
-                                    width: ImprovedTube.elements.player.offsetWidth,
-                                    height: Math.round(ImprovedTube.elements.player.offsetWidth / (16 / 9))
+                                    width: NaN,
+                                    height: NaN
                                 };
-                            }
-
-                            return {
-                                width: NaN,
-                                height: NaN
                             };
-                        };
 
-                        node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;
+                            node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;
+                        }
 
                         new MutationObserver(function(mutationList) {
                             for (var i = 0, l = mutationList.length; i < l; i++) {
