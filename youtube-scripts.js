@@ -2716,10 +2716,8 @@ ImprovedTube.shortcutNextVideo = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutPrevVideo = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player && player.previousVideo) {
-        player.previousVideo();
+    if (this.elements.player) {
+        this.elements.player.previousVideo();
     }
 };
 
