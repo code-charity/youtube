@@ -2864,16 +2864,17 @@ ImprovedTube.shortcutScreenshot = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutIncreasePlaybackSpeed = function () {
-    var video = document.querySelector('#movie_player video');
+    var video = this.elements.video,
+        value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
 
-    if (video && video.playbackRate) {
-        if (video.playbackRate < 1 && video.playbackRate > 1 - ImprovedTube.storage.shortcut_playback_speed_step) {
+    if (video) {
+        if (video.playbackRate < 1 && video.playbackRate > 1 - value) {
             video.playbackRate = 1
-        } else { // aligning at 1.0 independent of minimum
-
-            video.playbackRate = Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
+        } else {
+            video.playbackRate = Math.max(video.playbackRate + value, .1);
         }
-        ImprovedTube.showStatus(document.querySelector('#movie_player'), video.playbackRate);
+
+        ImprovedTube.showStatus(this.elements.player, video.playbackRate);
     }
 };
 
