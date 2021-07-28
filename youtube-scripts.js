@@ -2586,98 +2586,49 @@ ImprovedTube.channelDefaultTab = function (a) {
 # QUALITY
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.shortcutAuto = function () {
-    var player = document.querySelector('#movie_player');
+ImprovedTube.shortcutQuality = function (key) {
+    if (this.elements.player) {
+        var value = key.replace('shortcut', '').toLowerCase();
 
-    if (player) {
-        player.setPlaybackQualityRange('auto');
-        player.setPlaybackQuality('auto');
+        if (value === '240p') {
+            value = 'small';
+        }
+
+        if (value === '360p') {
+            value = 'medium';
+        }
+
+        if (value === '480p') {
+            value = 'large';
+        }
+
+        if (value === '720p') {
+            value = 'hd720';
+        }
+
+        if (value === '1080p') {
+            value = 'hd1080';
+        }
+
+        if (value === '1440p') {
+            value = 'hd1440';
+        }
+
+        if (value === '2160p') {
+            value = 'hd2160';
+        }
+
+        if (value === '2880p') {
+            value = 'hd2880';
+        }
+
+        if (value === '4320p') {
+            value = 'highres';
+        }
+
+        this.elements.player.setPlaybackQualityRange(value);
+        this.elements.player.setPlaybackQuality(value);
     }
-};
-
-ImprovedTube.shortcut_240p = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player) {
-        player.setPlaybackQualityRange('small');
-        player.setPlaybackQuality('small');
-    }
-};
-
-ImprovedTube.shortcut_360p = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player) {
-        player.setPlaybackQualityRange('medium');
-        player.setPlaybackQuality('medium');
-    }
-};
-
-ImprovedTube.shortcut_480p = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player) {
-        player.setPlaybackQualityRange('large');
-        player.setPlaybackQuality('large');
-    }
-};
-
-ImprovedTube.shortcut_720p = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player) {
-        player.setPlaybackQualityRange('hd720');
-        player.setPlaybackQuality('hd720');
-    }
-};
-
-ImprovedTube.shortcut_1080p = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player) {
-        player.setPlaybackQualityRange('hd1080');
-        player.setPlaybackQuality('hd1080');
-    }
-};
-
-ImprovedTube.shortcut_1440p = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player) {
-        player.setPlaybackQualityRange('hd1440');
-        player.setPlaybackQuality('hd1440');
-    }
-};
-
-ImprovedTube.shortcut_2160p = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player) {
-        player.setPlaybackQualityRange('hd2160');
-        player.setPlaybackQuality('hd2160');
-    }
-};
-
-ImprovedTube.shortcut_2880p = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player) {
-        player.setPlaybackQualityRange('hd2880');
-        player.setPlaybackQuality('hd2880');
-    }
-};
-
-ImprovedTube.shortcut_4320p = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player) {
-        player.setPlaybackQualityRange('highres');
-        player.setPlaybackQuality('highres');
-    }
-};
-
-ImprovedTube.shortcutQuality = function () {
-
 };
 
 
@@ -3184,7 +3135,22 @@ ImprovedTube.shortcuts = function() {
 
                 if (mouse.wheel === 0 || mouse.player === true) {
                     if (same_keys === true) {
-                        ImprovedTube[key]();
+                        if ([
+                            'shortcutAuto',
+                            'shortcut240p',
+                            'shortcut360p',
+                            'shortcut480p',
+                            'shortcut720p',
+                            'shortcut1080p',
+                            'shortcut1440p',
+                            'shortcut2160p',
+                            'shortcut2880p',
+                            'shortcut4320p'
+                            ].indexOf(key) !== -1) {
+                            ImprovedTube['shortcutQuality'](key);
+                        } else {
+                            ImprovedTube[key]();
+                        }
 
                         prevent = true;
                     }
@@ -3322,6 +3288,8 @@ ImprovedTube.shortcuts = function() {
             }
         }
     }
+
+    console.log(storage);
 };
 
 
