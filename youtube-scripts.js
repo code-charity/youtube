@@ -2855,11 +2855,7 @@ ImprovedTube.shortcutDecreaseVolume = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutScreenshot = function () {
-    var player = document.querySelector('.html5-video-player');
-
-    if (player && player.setVolume && player.getVolume) {
-        ImprovedTube.screenshot();
-    }
+    this.screenshot();
 };
 
 
