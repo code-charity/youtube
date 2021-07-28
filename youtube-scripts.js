@@ -3030,7 +3030,7 @@ ImprovedTube.shortcutCustomMiniPlayer = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutStatsForNerds = function () {
-    var player = document.querySelector('.html5-video-player');
+    var player = this.elements.player;
 
     if (player.isVideoInfoVisible()) {
         player.hideVideoInfo();
