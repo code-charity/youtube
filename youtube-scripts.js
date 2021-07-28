@@ -2830,7 +2830,7 @@ ImprovedTube.shortcutIncreaseVolume = function () {
     if (player) {
         player.setVolume(player.getVolume() + (Number(ImprovedTube.storage.shortcut_volume_step) || 5));
 
-        ImprovedTube.showStatus(player, player.getVolume());
+        ImprovedTube.showStatus(player.getVolume());
     }
 };
 
@@ -2845,7 +2845,7 @@ ImprovedTube.shortcutDecreaseVolume = function () {
     if (player) {
         player.setVolume(player.getVolume() - (Number(ImprovedTube.storage.shortcut_volume_step) || 5));
 
-        ImprovedTube.showStatus(player, player.getVolume());
+        ImprovedTube.showStatus(player.getVolume());
     }
 };
 
@@ -2874,7 +2874,7 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function () {
             video.playbackRate = Math.max(video.playbackRate + value, .1);
         }
 
-        ImprovedTube.showStatus(this.elements.player, video.playbackRate);
+        ImprovedTube.showStatus(video.playbackRate);
     }
 };
 
@@ -2894,7 +2894,7 @@ ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
             video.playbackRate = Math.max(video.playbackRate - value, .1);
         }
 
-        ImprovedTube.showStatus(this.elements.player, video.playbackRate);
+        ImprovedTube.showStatus(video.playbackRate);
     }
 };
 
@@ -3067,27 +3067,24 @@ ImprovedTube.shortcutPopupPlayer = function () {
 # SHORTCUTS
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.showStatus = function (player, volume) {
-    if (!player.querySelector('#it-status')) {
-        var element = document.createElement('div');
+ImprovedTube.showStatus = function (value) {
+    if (!this.elements.status) {
+        this.elements.status = document.createElement('div');
 
-        element.id = 'it-status';
-        element.innerHTML = volume;
-
-        document.querySelector('.html5-video-container').appendChild(element);
-    } else {
-        player.querySelector('#it-status').innerHTML = volume;
+        this.elements.status.id = 'it-status';
     }
+
+    this.elements.status.textContent = value;
 
     if (ImprovedTube.status_timer) {
         clearTimeout(ImprovedTube.status_timer);
     }
 
     ImprovedTube.status_timer = setTimeout(function () {
-        if (player.querySelector('#it-status')) {
-            player.querySelector('#it-status').remove();
-        }
+        ImprovedTube.elements.status.remove();
     }, 500);
+
+    this.elements.player.appendChild(this.elements.status);
 };
 
 ImprovedTube.shortcuts = function() {

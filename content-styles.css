@@ -3378,6 +3378,7 @@ html[it-channel-hide-featured-content=true] #secondary ytd-browse-secondary-cont
     right: 3rem;
     color: #0ff;
     text-shadow: 1px 1px 2px #000;
+    z-index: 3000;
 }
 
 
