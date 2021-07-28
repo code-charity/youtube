@@ -2665,13 +2665,11 @@ ImprovedTube.shortcutToggleControls = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutPlayPause = function () {
-    var video = document.querySelector('#movie_player video');
-
-    if (video) {
-        if (video.paused) {
-            video.play();
+    if (this.elements.player) {
+        if (this.elements.video.paused) {
+            this.elements.player.playVideo();
         } else {
-            video.pause();
+            this.elements.player.pauseVideo();
         }
     }
 };
