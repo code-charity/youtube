@@ -2738,10 +2738,8 @@ ImprovedTube.shortcutSeekBackward = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutSeekForward = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player && player.seekBy) {
-        player.seekBy(10);
+    if (this.elements.player) {
+        this.elements.player.seekBy(10);
     }
 };
 
