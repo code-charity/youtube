@@ -2906,7 +2906,7 @@ ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
 ImprovedTube.shortcutGoToSearchBox = function () {
     var search = document.querySelector('#search');
 
-    if (search && search.focus) {
+    if (search) {
         search.focus();
     }
 };
@@ -2917,10 +2917,8 @@ ImprovedTube.shortcutGoToSearchBox = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutActivateFullscreen = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player && player.toggleFullscreen) {
-        player.toggleFullscreen();
+    if (this.elements.player) {
+        this.elements.player.toggleFullscreen();
     }
 };
 
