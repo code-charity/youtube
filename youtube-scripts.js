@@ -2705,10 +2705,8 @@ ImprovedTube.shortcutToggleAutoplay = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutNextVideo = function () {
-    var player = document.querySelector('#movie_player');
-
-    if (player && player.nextVideo) {
-        player.nextVideo();
+    if (this.elements.player) {
+        this.elements.player.nextVideo();
     }
 };
 
