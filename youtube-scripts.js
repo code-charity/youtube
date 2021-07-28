@@ -2826,7 +2826,7 @@ ImprovedTube.shortcutSeekPreviousChapter = function () {
 
 ImprovedTube.shortcutIncreaseVolume = function () {
     var player = this.elements.player;
-    
+
     if (player) {
         player.setVolume(player.getVolume() + (Number(ImprovedTube.storage.shortcut_volume_step) || 5));
 
@@ -2840,13 +2840,13 @@ ImprovedTube.shortcutIncreaseVolume = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutDecreaseVolume = function () {
-    var player = document.querySelector('.html5-video-player');
-
-    if (player && player.setVolume && player.getVolume) {
+    var player = this.elements.player;
+    
+    if (player) {
         player.setVolume(player.getVolume() - (Number(ImprovedTube.storage.shortcut_volume_step) || 5));
-    }
 
-    ImprovedTube.showStatus(player, player.getVolume());
+        ImprovedTube.showStatus(player, player.getVolume());
+    }
 };
 
 
