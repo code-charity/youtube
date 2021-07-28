@@ -3050,7 +3050,7 @@ ImprovedTube.shortcutToggleCards = function () {
         return;
     }
 
-    document.documentElement.setAttribute("it-player-hide-cards", true);
+    document.documentElement.setAttribute('it-player-hide-cards', true);
 };
 
 
@@ -3059,7 +3059,7 @@ ImprovedTube.shortcutToggleCards = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutPopupPlayer = function () {
-    ImprovedTube.createPopUpWindow();
+    this.createPopUpWindow();
 };
 
 
