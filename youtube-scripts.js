@@ -740,9 +740,10 @@ ImprovedTube.youtubeHomePage = function (node) {
 ImprovedTube.collapseOfSubscriptionSections = function (node) {
     if (this.storage.collapse_of_subscription_sections === true) {
         if (location.href.indexOf('/feed/subscriptions') !== -1) {
-            if (!node.querySelector('.it-section-collapse')) {
-                var section_title = node.querySelector('h2'),
-                    button = document.createElement('div');
+            var section_title = node.querySelector('h2');
+
+            if (!node.querySelector('.it-section-collapse') && section_title) {
+                var button = document.createElement('div');
 
                 button.className = 'it-section-collapse';
                 button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M7.4 15.4l4.6-4.6 4.6 4.6L18 14l-6-6-6 6z"/></svg>';
