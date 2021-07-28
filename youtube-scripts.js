@@ -2648,15 +2648,13 @@ ImprovedTube.shortcutPictureInPicture = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutToggleControls = function () {
-    var player = document.querySelector('.html5-video-player');
+    if (this.elements.player) {
+        this.storage.player_hide_controls = !this.storage.player_hide_controls;
 
-    if (player && player.hideControls && player.showControls) {
-        ImprovedTube.storage.player_hide_controls = !ImprovedTube.storage.player_hide_controls;
-
-        if (ImprovedTube.storage.player_hide_controls === true) {
-            player.hideControls();
+        if (this.storage.player_hide_controls) {
+            this.elements.player.hideControls();
         } else {
-            player.showControls();
+            this.elements.player.showControls();
         }
     }
 };
