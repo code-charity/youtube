@@ -2637,10 +2637,8 @@ ImprovedTube.shortcutQuality = function (key) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutPictureInPicture = function () {
-    var video = document.querySelector('#movie_player video');
-
-    if (video) {
-        video.requestPictureInPicture();
+    if (this.elements.video) {
+        this.elements.video.requestPictureInPicture();
     }
 };
 
