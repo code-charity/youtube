@@ -1503,22 +1503,21 @@ ImprovedTube.dim = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.font = function () {
-    if (this.storage.font) {
-        if (this.storage.font !== 'Default') {
-            if (!document.querySelector('.it-font-family')) {
-                var link = document.createElement('link');
+    if (this.storage.font === true && this.storage.font !== 'Default') {
+        var link = this.elements.myFont || document.createElement('link');
 
-                link.rel = 'stylesheet';
+        link.rel = 'stylesheet';
+        link.href = '//fonts.googleapis.com/css2?family=' + this.storage.font;
 
-                document.documentElement.appendChild(link);
-            } else {
-                var link = document.querySelector('.it-font-family');
-            }
+        this.elements.myFont = link;
 
-            link.href = '//fonts.googleapis.com/css2?family=' + this.storage.font;
+        document.documentElement.style.fontFamily = this.storage.font.replace(/\+/g, ' ');
+        
+        document.documentElement.appendChild(link);
+    } else if (this.elements.myFont) {
+        this.elements.myFont.remove();
 
-            document.documentElement.style.fontFamily = this.storage.font.replace(/\+/g, ' ');
-        }
+        document.documentElement.style.fontFamily = '';
     }
 };
 
