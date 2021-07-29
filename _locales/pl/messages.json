@@ -212,6 +212,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "deleteWatchedVideos": {
+        "message": "Usuń obejrzane wideo"
+    },
     "deleteYoutubeCookies": {
         "message": "Usuń ciasteczka YouTube"
     },
@@ -764,6 +767,9 @@
     "themes": {
         "message": "Motywy"
     },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "To usunie wszystkie obejrzane wideo."
+    },
     "thisWillRemoveAllCookies": {
         "message": "To usunie wszystkie ciasteczka."
     },
@@ -799,6 +805,9 @@
     },
     "topChat": {
         "message": "Czat na górze"
+    },
+    "trackWatchedVideos": {
+        "message": "Śledź obejrzane wideo"
     },
     "trailerAutoplay": {
         "message": "Autoodtwarzanie zwiastunów"
