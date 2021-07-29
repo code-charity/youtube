@@ -105,6 +105,7 @@ The variable "ImprovedTube" is used on the YouTube side.
 
 var ImprovedTube = {
     elements: `{
+        buttons: {},
         masthead: {},
         playlist: {},
         livechat: {},
@@ -631,8 +632,8 @@ ImprovedTube.setCookie = function (name, value) {
     document.cookie = name + '=' + value + '; path=/; domain=.youtube.com; expires=' + date.toGMTString();
 };
 
-ImprovedTube.createPlayerButton = function (node, options) {
-    var controls = ImprovedTube.elements.player_left_controls;
+ImprovedTube.createPlayerButton = function (options) {
+    var controls = this.elements.player_left_controls;
 
     if (controls) {
         var button = document.createElement('button');
@@ -664,11 +665,13 @@ ImprovedTube.createPlayerButton = function (node, options) {
         });
 
         if (options.id) {
-            if (node.querySelector('#' + options.id)) {
-                node.querySelector('#' + options.id).remove();
+            if (this.elements.buttons[options.id]) {
+                this.elements.buttons[options.id].remove();
             }
 
             button.id = options.id;
+
+            this.elements.buttons[options.id] = button;
         }
 
         if (options.child) {
@@ -2223,10 +2226,6 @@ ImprovedTube.screenshot = function () {
 
 ImprovedTube.playerScreenshotButton = function () {
     if (this.storage.player_screenshot_button === true) {
-        if (!node) {
-            var node = document.querySelector('.html5-video-player');
-        }
-
         var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
             path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -2235,15 +2234,15 @@ ImprovedTube.playerScreenshotButton = function () {
 
         svg.appendChild(path);
 
-        this.createPlayerButton(node, {
+        this.createPlayerButton({
             id: 'it-screenshot-button',
             child: svg,
             opacity: 1,
-            onclick: ImprovedTube.screenshot,
+            onclick: this.screenshot,
             title: 'Screenshot'
         });
-    } else if (document.querySelector('.it-screenshot-button')) {
-        document.querySelector('.it-screenshot-button').remove();
+    } else if (this.elements.buttons['it-screenshot-styles']) {
+        this.elements.buttons['it-screenshot-styles'].remove();
     }
 };
 
@@ -2254,10 +2253,6 @@ ImprovedTube.playerScreenshotButton = function () {
 
 ImprovedTube.playerRepeatButton = function (node) {
     if (this.storage.player_repeat_button === true) {
-        if (!node) {
-            var node = document.querySelector('.html5-video-player');
-        }
-
         var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
             path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -2266,15 +2261,19 @@ ImprovedTube.playerRepeatButton = function (node) {
 
         svg.appendChild(path);
 
-        this.createPlayerButton(node, {
+        this.createPlayerButton({
             id: 'it-repeat-button',
             child: svg,
             onclick: function () {
-                if (node.querySelector('video').hasAttribute('loop')) {
-                    node.querySelector('video').removeAttribute('loop');
+                var video = ImprovedTube.elements.video;
+
+                if (video.hasAttribute('loop')) {
+                    video.removeAttribute('loop');
+
                     this.style.opacity = '.5';
-                } else if (!/ad-showing/.test(player.className)) {
-                    node.querySelector('video').setAttribute('loop', '');
+                } else if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
+                    video.setAttribute('loop', '');
+
                     this.style.opacity = '1';
                 }
             },
@@ -2283,12 +2282,13 @@ ImprovedTube.playerRepeatButton = function (node) {
 
         if (this.storage.player_always_repeat === true) {
             setTimeout(function () {
-                node.querySelector('video').setAttribute('loop', '');
-                node.querySelector('#it-repeat-button').style.opacity = '1';
+                ImprovedTube.elements.video.setAttribute('loop', '');
+
+                ImprovedTube.elements.buttons['it-repeat-styles'].style.opacity = '1';
             }, 100);
         }
-    } else if (document.querySelector('.it-repeat-button')) {
-        document.querySelector('.it-repeat-button').remove();
+    } else if (this.elements.buttons['it-repeat-styles']) {
+        this.elements.buttons['it-repeat-styles'].remove();
     }
 };
 
@@ -2299,10 +2299,6 @@ ImprovedTube.playerRepeatButton = function (node) {
 
 ImprovedTube.playerRotateButton = function () {
     if (this.storage.player_rotate_button === true) {
-        if (!node) {
-            var node = document.querySelector('.html5-video-player');
-        }
-
         var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
             path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -2311,47 +2307,47 @@ ImprovedTube.playerRotateButton = function () {
 
         svg.appendChild(path);
 
-        this.createPlayerButton(node, {
+        this.createPlayerButton({
             id: 'it-rotate-button',
             child: svg,
             opacity: 1,
             onclick: function () {
-                var video = node.querySelector('video'),
-                    player = node,
-                    transform = '',
-                    rotate = (document.querySelector('.it-rotate-styles') && document.querySelector('.it-rotate-styles').textContent.match(/rotate\([0-9.]+deg\)/g) || [''])[0];
-                rotate = Number((rotate.match(/[0-9.]+/g) || [])[0]) || 0;
+                var player = ImprovedTube.elements.player,
+                    video = ImprovedTube.elements.video,
+                    rotate = Number(document.body.dataset.itRotate) || 0,
+                    transform = '';
 
-                var nextRotate = (rotate < 270 && rotate % 90 == 0) ? rotate + 90 : 0;
+                rotate += 90;
 
-                transform += 'rotate(' + nextRotate + 'deg)';
-
-                if (nextRotate == 90 || nextRotate == 270) {
-                    var isVerticalVideo = video.videoHeight > video.videoWidth;
-
-                    var playerLongSide = isVerticalVideo ? player.clientWidth : player.clientHeight;
-                    var playerShortSide = isVerticalVideo ? player.clientHeight : player.clientWidth;
-
-                    var videoScaleForPlayerSize = playerLongSide / playerShortSide;
-
-                    transform += ' scale(' + videoScaleForPlayerSize + ')';
-                }
-                //video.style.transform = transform;
-                if (!document.querySelector('.it-rotate-styles')) {
-                    var styles = document.createElement('style');
-
-                    styles.className = 'it-rotate-styles';
-
-                    document.body.appendChild(styles);
+                if (rotate === 360) {
+                    rotate = 0;
                 }
 
-                document.querySelector('.it-rotate-styles').textContent = '.html5-video-player:not(it-mini-player) video {transform:' + transform + '}';
+                document.body.dataset.itRotate = rotate;
+
+                transform += 'rotate(' + rotate + 'deg)';
+
+                if (rotate == 90 || rotate == 270) {
+                    var is_vertical_video = video.videoHeight > video.videoWidth;
+
+                    transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth); + ')';
+                }
+
+                if (!ImprovedTube.elements.buttons['it-rotate-styles']) {
+                    var style = document.createElement('style');
+
+                    ImprovedTube.elements.buttons['it-rotate-styles'] = style;
+
+                    document.body.appendChild(style);
+                }
+
+                ImprovedTube.elements.buttons['it-rotate-styles'].textContent = 'video{transform:' + transform + '}';
             },
             title: 'Rotate'
         });
-    } else if (document.querySelector('.it-rotate-button')) {
-        document.querySelector('.it-rotate-button').remove();
-        document.querySelector('.it-rotate-styles').remove();
+    } else if (this.elements.buttons['it-rotate-button']) {
+        this.elements.buttons['it-rotate-button'].remove();
+        this.elements.buttons['it-rotate-styles'].remove();
     }
 };
 
@@ -2362,10 +2358,6 @@ ImprovedTube.playerRotateButton = function () {
 
 ImprovedTube.playerPopupButton = function () {
     if (this.storage.player_popup_button === true) {
-        if (!node) {
-            var node = document.querySelector('.html5-video-player');
-        }
-
         var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
             path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -2374,19 +2366,21 @@ ImprovedTube.playerPopupButton = function () {
 
         svg.appendChild(path);
 
-        this.createPlayerButton(node, {
+        this.createPlayerButton({
             id: 'it-popup-player-button',
             child: svg,
             opacity: 1,
             onclick: function () {
-                node.pauseVideo();
+                var player = ImprovedTube.elements.player;
 
-                window.open('//www.youtube.com/embed/' + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8) + '?start=' + parseInt(node.getCurrentTime()) + '&autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=' + node.offsetWidth + ',height=' + node.offsetHeight);
+                player.pauseVideo();
+
+                window.open('//www.youtube.com/embed/' + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8) + '?start=' + parseInt(player.getCurrentTime()) + '&autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=' + player.offsetWidth + ',height=' + player.offsetHeight);
             },
             title: 'Popup'
         });
-    } else if (document.querySelector('.it-popup-player-button')) {
-        document.querySelector('.it-popup-player-button').remove();
+    } else if (this.elements.buttons['it-popup-player-button']) {
+        this.elements.buttons['it-popup-player-button'].remove();
     }
 };
 
