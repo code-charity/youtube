@@ -2519,12 +2519,12 @@ ImprovedTube.playlistReverse = function () {
         }
 
         if (!document.querySelector('#it-reverse-playlist') && ImprovedTube.elements.playlist.actions) {
-            var button = document.createElement('button');
+            var button = document.createElement('button'),
+                svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+                path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
             button.id = 'it-reverse-playlist';
             button.className = 'style-scope yt-icon-button';
-            button.innerHTML = '<svg width=24 height=24 viewBox="0 0 24 24"><path d="M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z"></svg>';
-
             button.addEventListener('click', function (event) {
                 var playlist_manager = document.querySelector('yt-playlist-manager');
 
@@ -2545,6 +2545,15 @@ ImprovedTube.playlistReverse = function () {
 
                 return false;
             }, true);
+
+            svg.setAttributeNS(null, 'width', '24');
+            svg.setAttributeNS(null, 'height', '24');
+            svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+            path.setAttributeNS(null, 'd', 'M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z');
+
+            svg.appendChild(path);
+
+            button.appendChild(svg);
 
             ImprovedTube.elements.playlist.actions.appendChild(button);
         }
