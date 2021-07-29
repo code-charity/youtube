@@ -3633,10 +3633,12 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
             option === 'draggable' && document.body
         )
     ) {
-        var button = document.createElement('div');
+        var button = document.createElement('div'),
+            scrim = document.createElement('div'),
+            icon = document.createElement('div'),
+            iframe = document.createElement('iframe');
 
         button.className = 'it-btn';
-        button.innerHTML = '<div class=it-btn__scrim></div><div class=it-btn__icon><iframe class=it-btn__iframe src=//www.youtube.com/improvedtube></iframe></div>';
         button.addEventListener('click', function () {
             event.preventDefault();
             event.stopPropagation();
@@ -3659,6 +3661,12 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 
             return false;
         }, true);
+
+        scrim.className = 'it-btn__scrim';
+        icon.className = 'it-btn__icon';
+        iframe.className = 'it-btn__iframe';
+
+        iframe.src = '//www.youtube.com/improvedtube';
 
         if (option === 'draggable') {
             var position = localStorage.getItem('IT_ICON');
