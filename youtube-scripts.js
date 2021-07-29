@@ -1129,23 +1129,36 @@ ImprovedTube.livechat = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.relatedVideos = function () {
-    if (this.storage.related_videos === 'collapsed') {
-        var button = ImprovedTube.elements.related.button || document.createElement('button'),
-            parent = ImprovedTube.elements.related.container;
+    if (this.storage.related_videos === 'collapsed' && !this.elements.related.button) {
+        var button = document.createElement('button'),
+            content = document.createElement('span'),
+            show_more = document.createElement('span'),
+            show_less = document.createElement('span'),
+            parent = this.elements.related.container;
 
         button.id = 'improvedtube-collapsed-related-videos';
         button.className = 'yt-uix-button yt-uix-button-size-default yt-uix-button-default comment-section-renderer-paginator yt-uix-sessionlink';
-        button.innerHTML = '<span class=yt-uix-button-content><span class=show-more-text>Show more</span><span class=show-less-text>Show less</span></span>';
-
         button.onclick = function () {
             document.documentElement.classList.toggle('related-videos-collapsed');
         };
 
-        document.documentElement.classList.add('related-videos-collapsed');
+        content.className = 'yt-uix-button-content';
+
+        show_more.className = 'show-more-text';
+        show_more.textContent = 'Show more';
+
+        show_less.className = 'show-less-text';
+        show_less.textContent = 'Show less';
+
+        content.appendChild(show_more);
+        content.appendChild(show_less);
+        button.appendChild(content);
+
+        this.elements.related.button = button;
 
         parent.insertBefore(button, parent.children[0]);
 
-        ImprovedTube.elements.related.button = button;
+        document.documentElement.classList.add('related-videos-collapsed');
     }
 };
 
