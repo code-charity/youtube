@@ -748,10 +748,11 @@ ImprovedTube.collapseOfSubscriptionSections = function (node) {
             var section_title = node.querySelector('h2');
 
             if (!node.querySelector('.it-section-collapse') && section_title) {
-                var button = document.createElement('div');
+                var button = document.createElement('div'),
+                    svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+                    path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
                 button.className = 'it-section-collapse';
-                button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M7.4 15.4l4.6-4.6 4.6 4.6L18 14l-6-6-6 6z"/></svg>';
                 button.section = node;
                 
                 button.addEventListener('click', function () {
@@ -767,6 +768,13 @@ ImprovedTube.collapseOfSubscriptionSections = function (node) {
                         section.classList.toggle('it-section-collapsed');
                     });
                 });
+
+                svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+                path.setAttributeNS(null, 'd', 'M7.4 15.4l4.6-4.6 4.6 4.6L18 14l-6-6-6 6z');
+
+                svg.appendChild(path);
+
+                button.appendChild(svg);
 
                 section_title.parentNode.insertBefore(button, section_title.nextSibling);
             }
