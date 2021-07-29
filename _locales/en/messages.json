@@ -212,6 +212,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
+    },
     "deleteYoutubeCookies": {
         "message": "Delete YouTube cookies"
     },
@@ -764,6 +767,9 @@
     "themes": {
         "message": "Themes"
     },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
+    },
     "thisWillRemoveAllCookies": {
         "message": "This will remove all cookies."
     },
@@ -799,6 +805,9 @@
     },
     "topChat": {
         "message": "Top chat"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "Trailer autoplay"

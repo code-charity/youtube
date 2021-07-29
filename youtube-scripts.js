@@ -433,14 +433,16 @@ ImprovedTube.videoPageUpdate = function () {
     if (document.documentElement.dataset.pageType === 'video') {
         var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');
 
-        if (video_id) {
-            document.dispatchEvent(new CustomEvent('ImprovedTubeWatched', {
-                detail: {
-                    action: 'set',
-                    id: video_id,
-                    title: document.title
-                }
-            }));
+        if (this.storage.track_watched_videos === true) {
+            if (video_id) {
+                document.dispatchEvent(new CustomEvent('ImprovedTubeWatched', {
+                    detail: {
+                        action: 'set',
+                        id: video_id,
+                        title: document.title
+                    }
+                }));
+            }
         }
 
         this.initialVideoUpdateDone = true;
