@@ -2458,7 +2458,70 @@ skeleton.main.section.general = {
         },
         mark_watched_videos: {
             type: 'switch',
-            label: 'markWatchedVideos'
+            label: 'markWatchedVideos',
+            onclick: function () {
+                if (document.querySelector('.satus-switch > input[data-storage-key="mark_watched_videos"]:checked') && document.querySelector('.satus-switch > input[data-storage-key="track_watched_videos"]:not(:checked)')) {
+                document.querySelector('.satus-switch > input[data-storage-key="track_watched_videos"]').click();
+                }
+            }
+        },
+        track_watched_videos: {
+            type: 'switch',
+            label: 'trackWatchedVideos'
+        },
+        delete_watched_videos: {
+            type: 'button',
+            label: 'deleteWatchedVideos',
+            onrender: function () {
+                this.firstChild.innerText += ' (' + (satus.storage.watched ? Object.keys(satus.storage.watched).length : 0) + ')';
+                    },
+            onclick: function () {
+                var component = this;
+                satus.render({
+                    type: 'dialog',
+                    class: 'satus-dialog--confirm',
+
+                    message: {
+                        type: 'text',
+                        label: 'thisWillRemoveAllWatchedVideos',
+                        style: {
+                            'width': '100%',
+                            'opacity': '.8'
+                        }
+                    },
+                    section: {
+                        type: 'section',
+                        class: 'controls',
+                        style: {
+                            'justify-content': 'flex-end',
+                            'display': 'flex'
+                        },
+
+                        cancel: {
+                            type: 'button',
+                            label: 'cancel',
+                            onclick: function () {
+                                var scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                scrim[scrim.length - 1].click();
+                            }
+                        },
+                        accept: {
+                            type: 'button',
+                            label: 'accept',
+                            onclick: function () {
+                                var scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                satus.storage.watched = {};
+                                satus.storage.set('watched', satus.storage.watched);
+                                component.firstChild.innerText = component.firstChild.innerText.replace(/\d+/,0);
+
+                                scrim[scrim.length - 1].click();
+                            }
+                        }
+                    }
+                });
+            }
         },
         only_one_player_instance_playing: {
             type: 'switch',
