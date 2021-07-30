@@ -3517,7 +3517,7 @@ html[it-improvedtube-youtube-icon='draggable'] .it-btn {
 9.0 BLACKLIST
 ------------------------------------------------------------------------------*/
 
-.improvedtube-add-to-blacklist {
+.it-add-to-blacklist {
     font-size: 32px;
     line-height: 26px;
     position: absolute;
@@ -3529,21 +3529,26 @@ html[it-improvedtube-youtube-icon='draggable'] .it-btn {
     width: 32px;
     height: 32px;
     cursor: pointer;
+    padding: 0;
     transition: transform .15s;
     transform: scale(1);
     text-align: center;
-    opacity: .7;
     color: #fff;
     border-radius: 2px;
-    background: #000;
+    background: rgba(0,0,0,.7);
+    border: none;
 }
 
-*:hover>.improvedtube-add-to-blacklist {
+*:hover>.it-add-to-blacklist {
     visibility: visible;
 }
 
-.improvedtube-add-to-blacklist:hover {
+.it-add-to-blacklist:hover {
     transform: scale(1.25);
+}
+
+.it-blacklisted-video {
+    opacity: .1;
 }
 
 
