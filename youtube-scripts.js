@@ -117,7 +117,8 @@ var ImprovedTube = {
         channel_home_page: new RegExp('\/(user|channel|c)\/.+(\/featured)?\/?$'),
         channel_home_page_postfix: new RegExp('\/(featured)?\/?$'),
         thumbnail_quality: new RegExp('(hqdefault\.jpg|hq720.jpg)+'),
-        video_id: new RegExp('[?&]v=([^&]+)')
+        video_id: new RegExp('[?&]v=([^&]+)'),
+        channel_link: new RegExp('https:\/\/www.youtube.com\/(channel|user|c)\/')
     }`,
     video_src: false,
     initialVideoUpdateDone: false,
@@ -370,6 +371,10 @@ ImprovedTube.init = function () {
                         if (node.className.indexOf('ytd-thumbnail') !== -1) {
                             ImprovedTube.blacklist('video', node);
                         }
+
+                        if (node.href.match(ImprovedTube.regex.channel)) {
+                            ImprovedTube.blacklist('channel', node);
+                        }
                     } else if (node.nodeName === 'IMG') {
                         if (node.src) {
                             ImprovedTube.hdThumbnails(node);
@@ -400,6 +405,8 @@ ImprovedTube.init = function () {
                         ImprovedTube.elements.yt_channel_link = node.querySelector('ytd-channel-name a');
                         ImprovedTube.howLongAgoTheVideoWasUploaded();
                         ImprovedTube.channelVideosCount();
+                    } else if (node.nodeName === 'YTD-SUBSCRIBE-BUTTON-RENDERER' && node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
+                        ImprovedTube.blacklist('channel', node);
                     }
                 }
             }
@@ -3351,203 +3358,6 @@ document.addEventListener('ImprovedTubeBlacklist', function (event) {
     }
 });
 
-ImprovedTube.blacklist = function () {
-    if (ImprovedTube.storage.blacklist_activate !== true) {
-        return false;
-    }
-
-    if (typeof ImprovedTube.storage.blacklist === 'boolean' || !ImprovedTube.storage.blacklist) {
-        ImprovedTube.storage.blacklist = {};
-    }
-
-    // channel button
-    if (!ImprovedTube.isset(ImprovedTube.storage.blacklist.channels) ||
-        (ImprovedTube.storage.blacklist.channels &&
-            Object.keys(ImprovedTube.storage.blacklist.channels).indexOf(location.href.replace(/https:\/\/www.youtube.com\/(channel|user|c)\//g, '').replace(/\/(.)+/g, '')) === -1)
-    ) {
-        let channel_items = document.querySelectorAll('#inner-header-container #subscribe-button, .primary-header-upper-section .yt-uix-subscription-button');
-
-        for (let i = 0, l = channel_items.length; i < l; i++) {
-            if (!channel_items[i].parentNode.querySelector('.improvedtube-add-to-blacklist')) {
-                let button = document.createElement('div');
-
-                button.addEventListener('click', function (event) {
-                    let video_id;
-
-                    event.preventDefault();
-                    event.stopPropagation();
-
-                    try {
-                        video_id = location.href.replace(/https:\/\/www.youtube.com\/(channel|user|c)\//g, '').replace(/\/(.)+/g, '');
-
-                        document.dispatchEvent(new CustomEvent('ImprovedTubeBlacklist', {
-                            detail: {
-                                type: 'channel',
-                                id: video_id,
-                                title: document.querySelector('#channel-container yt-formatted-string.ytd-channel-name, a.branded-page-header-title-link').innerText,
-                                preview: document.querySelector('#channel-container #avatar #img, .channel-header-profile-image').src
-                            }
-                        }));
-
-                        if (!ImprovedTube.storage.blacklist || typeof ImprovedTube.storage.blacklist !== 'object') {
-                            ImprovedTube.storage.blacklist = {};
-                        }
-
-                        if (!ImprovedTube.storage.blacklist.channels) {
-                            ImprovedTube.storage.blacklist.channels = {};
-                        }
-
-                        ImprovedTube.storage.blacklist.channels[video_id] = {
-                            title: document.querySelector('yt-formatted-string.ytd-channel-name, a.branded-page-header-title-link').innerText,
-                            preview: document.querySelector('#channel-container #avatar #img, .channel-header-profile-image').src
-                        };
-
-                        ImprovedTube.blacklist();
-
-                        location.reload();
-                    } catch (err) {}
-                }, true);
-
-                button.className = 'improvedtube-add-to-blacklist';
-                button.innerText = 'Add to blacklist';
-                button.style.position = 'static';
-                button.style.transform = 'unset';
-                button.style.opacity = '1';
-                button.style.visibility = 'visible';
-                button.style.pointerEvents = 'all';
-                button.style.width = 'auto';
-                button.style.fontSize = '16px';
-                button.style.lineHeight = '28px';
-                button.style.height = 'auto';
-                button.style.padding = '6px 12px';
-                button.style.borderRadius = '2px';
-                button.style.boxSizing = 'border-box';
-                button.style.background = '#bb1a1a';
-
-                channel_items[i].parentNode.insertBefore(button, channel_items[i]);
-            }
-        }
-    }
-
-    // video button
-    let video_items = document.querySelectorAll('a#thumbnail.ytd-thumbnail, div.yt-lockup-thumbnail a, a.thumb-link');
-
-    for (let i = 0, l = video_items.length; i < l; i++) {
-        if (!video_items[i].querySelector('.improvedtube-add-to-blacklist')) {
-            let button = document.createElement('div');
-
-            button.addEventListener('click', function (event) {
-                let video_id;
-
-                event.preventDefault();
-                event.stopPropagation();
-
-                try {
-                    video_id = ImprovedTube.getParam(new URL(this.parentNode.href).search.substr(1), 'v');
-
-                    let item = this.parentNode;
-
-                    while (
-                        item.nodeName &&
-                        item.nodeName !== 'YTD-RICH-ITEM-RENDERER' &&
-                        item.nodeName !== 'YTD-COMPACT-VIDEO-RENDERER' &&
-                        item.nodeName !== 'YTD-GRID-VIDEO-RENDERER' &&
-                        item.classList &&
-                        !item.classList.contains('yt-shelf-grid-item') &&
-                        !item.classList.contains('video-list-item')
-                    ) {
-                        item = item.parentNode;
-                    }
-
-                    document.dispatchEvent(new CustomEvent('ImprovedTubeBlacklist', {
-                        detail: {
-                            type: 'video',
-                            id: video_id,
-                            title: item.querySelector('#video-title').innerText
-                        }
-                    }));
-
-                    if (!ImprovedTube.storage.blacklist || typeof ImprovedTube.storage.blacklist !== 'object') {
-                        ImprovedTube.storage.blacklist = {};
-                    }
-
-                    if (!ImprovedTube.storage.blacklist.videos) {
-                        ImprovedTube.storage.blacklist.videos = {};
-                    }
-
-                    ImprovedTube.storage.blacklist.videos[video_id] = {
-                        title: item.querySelector('#video-title').innerText
-                    };
-
-                    ImprovedTube.blacklist();
-                } catch (err) {}
-            }, true);
-            button.className = 'improvedtube-add-to-blacklist';
-            button.innerText = 'x';
-
-            video_items[i].appendChild(button);
-        }
-    }
-
-    // remove channels
-    if (ImprovedTube.storage.blacklist && ImprovedTube.storage.blacklist.channels) {
-        let videos = document.querySelectorAll('a#thumbnail, div.yt-lockup-thumbnail a, a.thumb-link');
-
-        for (let i = 0, l = videos.length; i < l; i++) {
-            let item = videos[i];
-
-            while (
-                item.nodeName &&
-                item.nodeName !== 'YTD-VIDEO-RENDERER' &&
-                item.nodeName !== 'YTD-RICH-ITEM-RENDERER' &&
-                item.nodeName !== 'YTD-COMPACT-VIDEO-RENDERER' &&
-                item.nodeName !== 'YTD-GRID-VIDEO-RENDERER' &&
-                item.classList &&
-                !item.classList.contains('yt-shelf-grid-item') &&
-                !item.classList.contains('video-list-item')
-            ) {
-                item = item.parentNode;
-            }
-
-            if (item.querySelector('.ytd-channel-name a, a.spf-link[href*="/user/"], a.spf-link[href*="/channel/"]')) {
-                let channel_href = item.querySelector('.ytd-channel-name a, a.spf-link[href*="/user/"], a.spf-link[href*="/channel/"]').href;
-
-                for (var key in ImprovedTube.storage.blacklist.channels) {
-                    if (item.style && channel_href.indexOf(key) !== -1) {
-                        item.style.opacity = '.1';
-                    }
-                }
-            }
-        }
-    }
-
-    // remove videos
-    if (ImprovedTube.storage.blacklist && ImprovedTube.storage.blacklist.videos) {
-        let videos = document.querySelectorAll('a#thumbnail, div.yt-lockup-thumbnail a, a.thumb-link');
-
-        for (let i = 0, l = videos.length; i < l; i++) {
-            if (videos[i].href && videos[i].href != '' && ImprovedTube.getParam(new URL(videos[i].href).search.substr(1), 'v') in ImprovedTube.storage.blacklist.videos) {
-                let item = videos[i];
-
-                while (
-                    item.nodeName &&
-                    item.nodeName !== 'YTD-VIDEO-RENDERER' &&
-                    item.nodeName !== 'YTD-RICH-ITEM-RENDERER' &&
-                    item.nodeName !== 'YTD-COMPACT-VIDEO-RENDERER' &&
-                    item.nodeName !== 'YTD-GRID-VIDEO-RENDERER' &&
-                    item.classList &&
-                    !item.classList.contains('yt-shelf-grid-item') &&
-                    !item.classList.contains('video-list-item')
-                ) {
-                    item = item.parentNode;
-                }
-
-                item.style.opacity = '.1';
-            }
-        }
-    }
-};
-
 ImprovedTube.blacklist = function(type, node) {
     if (this.storage.blacklist_activate !== true) {
         return;
@@ -3558,6 +3368,14 @@ ImprovedTube.blacklist = function(type, node) {
             channels: {},
             videos: {}
         };
+    }
+
+    if (!this.storage.blacklist.channels || typeof this.storage.blacklist.channels !== 'object') {
+        this.storage.blacklist.channels = {};
+    }
+
+    if (!this.storage.blacklist.videos || typeof this.storage.blacklist.videos !== 'object') {
+        this.storage.blacklist.videos = {};
     }
 
     if (type === 'video') {
@@ -3616,7 +3434,62 @@ ImprovedTube.blacklist = function(type, node) {
             node.parentNode.__dataHost.className += ' it-blacklisted-video';
         }
     } else if (type === 'channel') {
+        if (node.nodeName === 'A') {
+            try {
+                var id = node.href.replace(this.regex.channel_link, '');
 
+                if (this.storage.blacklist.channels[id]) {
+                    node.parentNode.__dataHost.__dataHost.className += ' it-blacklisted-video';
+                }
+            } catch (err) {}
+        } else {
+            var button = document.createElement('button'),
+                id = location.href.replace(this.regex.channel_link, '');
+
+            button.className = 'it-add-channel-to-blacklist';
+
+            if (this.storage.blacklist.channels[id]) {
+                button.innerText = 'Remove from blacklist';
+                button.added = true;
+            } else {
+                button.innerText = 'Add to blacklist';
+                button.added = false;
+            }
+            
+            button.addEventListener('click', function (event) {
+                var data = this.parentNode.__dataHost.__data.data,
+                    id = location.href.replace(ImprovedTube.regex.channel_link, '');
+
+                this.added = !this.added;
+
+                console.log(data);
+
+                document.dispatchEvent(new CustomEvent('ImprovedTubeBlacklist', {
+                    detail: {
+                        type: 'channel',
+                        id: id,
+                        title: data.title,
+                        prevent: data.avatar.thumbnails[0].url
+                    }
+                }));
+
+                ImprovedTube.storage.blacklist.channels[id] = {
+                    title: data.title,
+                    prevent: data.avatar.thumbnails[0].url
+                };
+
+                if (this.added) {
+                    button.innerText = 'Remove from blacklist';
+                } else {
+                    button.innerText = 'Add to blacklist';
+                }
+
+                event.preventDefault();
+                event.stopPropagation();
+            }, true);
+
+            node.parentNode.parentNode.appendChild(button);
+        }
     }
 };
 

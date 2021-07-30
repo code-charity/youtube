@@ -3539,6 +3539,25 @@ html[it-improvedtube-youtube-icon='draggable'] .it-btn {
     border: none;
 }
 
+.it-add-channel-to-blacklist {
+    background-color: var(--yt-spec-badge-chip-background);
+    color: var(--yt-spec-text-secondary);
+    border-radius: 2px;
+    padding: var(--yt-button-padding);
+    margin: auto var(--ytd-subscribe-button-margin, 4px);
+    white-space: nowrap;
+    font-size: var(--ytd-tab-system_-_font-size);
+    font-weight: var(--ytd-tab-system_-_font-weight);
+    font-family: inherit;
+    letter-spacing: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
 *:hover>.it-add-to-blacklist {
     visibility: visible;
 }
