@@ -2460,9 +2460,11 @@ skeleton.main.section.general = {
             type: 'switch',
             label: 'markWatchedVideos',
             onclick: function () {
-                if (document.querySelector('.satus-switch > input[data-storage-key="mark_watched_videos"]:checked') && document.querySelector('.satus-switch > input[data-storage-key="track_watched_videos"]:not(:checked)')) {
-                document.querySelector('.satus-switch > input[data-storage-key="track_watched_videos"]').click();
-                }
+                setTimeout(function () {
+                    if (satus.storage.mark_watched_videos && !satus.storage.track_watched_videos) {
+                        document.querySelector('.satus-switch > input[data-storage-key="track_watched_videos"]').click();
+                    }
+                }, 50);
             }
         },
         track_watched_videos: {
@@ -2474,7 +2476,7 @@ skeleton.main.section.general = {
             label: 'deleteWatchedVideos',
             onrender: function () {
                 this.firstChild.innerText += ' (' + (satus.storage.watched ? Object.keys(satus.storage.watched).length : 0) + ')';
-                    },
+            },
             onclick: function () {
                 var component = this;
                 satus.render({
