@@ -3335,8 +3335,6 @@ ImprovedTube.shortcuts = function() {
             }
         }
     }
-
-    console.log(storage);
 };
 
 
@@ -3461,8 +3459,6 @@ ImprovedTube.blacklist = function(type, node) {
                     id = location.href.replace(ImprovedTube.regex.channel_link, '');
 
                 this.added = !this.added;
-
-                console.log(data);
 
                 document.dispatchEvent(new CustomEvent('ImprovedTubeBlacklist', {
                     detail: {
