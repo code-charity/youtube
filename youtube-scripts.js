@@ -126,6 +126,7 @@ var ImprovedTube = {
     video_url: false,
     focus: false,
     played_before_blur: false,
+    played_time: 0,
     allow_autoplay: false,
     mini_player__mode: false,
     mini_player__move: false,
@@ -542,14 +543,34 @@ ImprovedTube.playerOnTimeUpdate = function () {
     }
 
     ImprovedTube.alwaysShowProgressBar();
+
+    ImprovedTube.played_time += .25;
 };
 
 ImprovedTube.playerOnPause = function (event) {
     ImprovedTube.playlistUpNextAutoplay(event);
+
+    document.dispatchEvent(new CustomEvent('improvedtube-analyzer', {
+        detail: {
+            name: ImprovedTube.elements.yt_channel_name.__data.tooltipText,
+            time: ImprovedTube.played_time
+        }
+    }));
+
+    ImprovedTube.played_time = 0;
 };
 
 ImprovedTube.playerOnEnded = function (event) {
     ImprovedTube.playlistUpNextAutoplay(event);
+
+    document.dispatchEvent(new CustomEvent('improvedtube-analyzer', {
+        detail: {
+            name: ImprovedTube.elements.yt_channel_name.__data.tooltipText,
+            time: ImprovedTube.played_time
+        }
+    }));
+
+    ImprovedTube.played_time = 0;
 };
 
 
@@ -3494,14 +3515,14 @@ ImprovedTube.blacklist = function(type, node) {
 9.0 ANALYZER
 ------------------------------------------------------------------------------*/
 
-document.addEventListener('ImprovedTubeAnalyzer', function () {
-    if (items.analyzer_activation === true) {
-        if (document.querySelector('ytd-channel-name a') && chrome && chrome.runtime) {
-            chrome.runtime.sendMessage({
-                name: 'improvedtube-analyzer',
-                value: document.querySelector('ytd-channel-name a').innerText
-            });
-        }
+document.addEventListener('improvedtube-analyzer', function (event) {
+    if (ImprovedTube.storage.analyzer_activation === true) {
+            console.log(event.detail.name, event.detail.time);
+        chrome.runtime.sendMessage({
+            name: 'improvedtube-analyzer',
+            value: event.detail.name,
+            time: event.detail.time
+        });
     }
 });
 

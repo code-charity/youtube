@@ -160,6 +160,8 @@ chrome.storage.local.get('youtube_home_page', function (items) {
     chrome.storage.local.get(function (items) {
         var textContent = 'var ImprovedTube={';
 
+        ImprovedTube.storage = items;
+
         // <HTML> attributes
         attributes(items);
 
@@ -171,7 +173,9 @@ chrome.storage.local.get('youtube_home_page', function (items) {
 
         // Features
         for (var key in ImprovedTube) {
-            textContent += key + ': ' + ImprovedTube[key] + ',';
+            if (key !== 'storage') {
+                textContent += key + ': ' + ImprovedTube[key] + ',';
+            }
         }
 
         // Storage
