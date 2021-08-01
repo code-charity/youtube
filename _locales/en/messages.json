@@ -396,7 +396,7 @@
         "message": "Hide \"Share\" button"
     },
     "hideSkipOverlay": {
-        "message": "Hide Skip Overlay"
+        "message": "Hide 5 seconds skip animation"
     },
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
