@@ -3566,140 +3566,6 @@ ImprovedTube.improvedtube_youtube_icon_resize = function () {
 };
 
 ImprovedTube.improvedtubeYoutubeIcon = function () {
-    if (window.self !== window.top) {
-        return false;
-    }
-
-    var option = ImprovedTube.storage.improvedtube_youtube_icon;
-
-    if (
-        this.isset(option) && option !== 'disabled' &&
-        (
-            option === 'header_left' && this.elements.masthead.start ||
-            option === 'header_right' && this.elements.masthead.end ||
-            option === 'below_player' && this.elements.video_title ||
-            option === 'draggable' && document.body
-        )
-    ) {
-        var button = document.createElement('div'),
-            scrim = document.createElement('div'),
-            icon = document.createElement('div'),
-            iframe = document.createElement('iframe');
-
-        button.className = 'it-button';
-        button.addEventListener('click', function () {
-            event.preventDefault();
-            event.stopPropagation();
-
-            button.classList.remove('it-button--dragging');
-
-            window.removeEventListener('mousemove', move);
-
-            localStorage.setItem('IT_ICON', JSON.stringify({
-                x: button.offsetLeft,
-                y: button.offsetTop
-            }));
-
-            setTimeout(function () {
-                button.style.pointerEvents = '';
-            });
-
-            this.classList.toggle('it-button--active');
-            ImprovedTube.improvedtube_youtube_icon_resize();
-
-            return false;
-        }, true);
-
-        scrim.className = 'it-button__scrim';
-        icon.className = 'it-button__icon';
-        iframe.className = 'it-button__iframe';
-
-        iframe.src = '//www.youtube.com/improvedtube';
-
-        if (option === 'draggable') {
-            var position = localStorage.getItem('IT_ICON');
-
-            if (ImprovedTube.isset(position)) {
-                position = JSON.parse(position);
-
-                button.style.left = position.x + 'px';
-                button.style.top = position.y + 'px';
-            }
-
-            function move(event) {
-                button.classList.add('it-button--dragging');
-
-                if (event.clientX < window.innerWidth / 2) {
-                    if (event.clientX - Number(button.dataset.x) >= 16) {
-                        button.style.left = event.clientX - Number(button.dataset.x) + 'px';
-                    } else {
-                        button.style.left = '16px';
-                    }
-                } else {
-                    if (event.clientX + (48 + window.innerWidth - document.body.offsetWidth) - Number(button.dataset.x) <= window.innerWidth) {
-                        button.style.left = event.clientX - Number(button.dataset.x) + 'px';
-                    } else {
-                        button.style.left = 'calc(100vw - ' + (48 + window.innerWidth - document.body.offsetWidth) + 'px)';
-                    }
-                }
-
-                if (event.clientY < window.innerHeight / 2) {
-                    if (event.clientY - Number(button.dataset.y) >= 12) {
-                        button.style.top = event.clientY - Number(button.dataset.y) + 'px';
-                    } else {
-                        button.style.top = '12px';
-                    }
-                } else {
-                    if (event.clientY + 44 - Number(button.dataset.y) <= window.innerHeight) {
-                        button.style.top = event.clientY - Number(button.dataset.y) + 'px';
-                    } else {
-                        button.style.top = 'calc(100vh - 44px)';
-                    }
-                }
-
-                ImprovedTube.improvedtube_youtube_icon_resize();
-            }
-
-            button.addEventListener('mousedown', function (event) {
-                this.dataset.x = event.layerX;
-                this.dataset.y = event.layerY;
-
-                window.addEventListener('mousemove', move);
-            });
-
-            window.addEventListener('mouseup', function () {
-                button.classList.remove('it-button--dragging');
-
-                window.removeEventListener('mousemove', move);
-
-                localStorage.setItem('IT_ICON', JSON.stringify({
-                    x: button.offsetLeft,
-                    y: button.offsetTop
-                }));
-
-                setTimeout(function () {
-                    button.style.pointerEvents = '';
-                });
-            });
-        }
-
-        if (option === 'header_left') {
-            ImprovedTube.elements.masthead.start.insertBefore(button, ImprovedTube.elements.masthead.start.children[0]);
-        } else if (option === 'header_right') {
-            ImprovedTube.elements.masthead.end.appendChild(button);
-        } else if (option === 'below_player') {
-            ImprovedTube.elements.video_title.appendChild(button);
-        } else if (option === 'draggable') {
-            document.body.appendChild(button);
-        }
-
-        ImprovedTube.elements.improvedtube_button = button;
-
-        ImprovedTube.improvedtube_youtube_icon_resize();
-    }
-};
-
-ImprovedTube.improvedtubeYoutubeIcon = function () {
     var data = localStorage.getItem('improvedtube-button-position'),
         x = 0,
         y = 0,
@@ -3758,7 +3624,34 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 
         button.addEventListener('click', function() {
             if (this.classList.contains('it-button--dragging') === false) {
-                
+                var rect = this.getBoundingClientRect(),
+                    left = rect.x,
+                    top = rect.y,
+                    scrim = document.createElement('div'),
+                    iframe = document.createElement('iframe');
+
+                scrim.className = 'it-button__scrim';
+                scrim.addEventListener('click', function() {
+                    scrim.remove();
+                    iframe.remove();
+                });
+
+                iframe.className = 'it-button__iframe';
+                iframe.src = '//www.youtube.com/improvedtube';
+
+                if (document.body.offsetWidth - left < 308) {
+                    left = document.body.offsetWidth - 308;
+                }
+
+                if (window.innerHeight - top < Math.min(500, window.innerHeight) + 8) {
+                    top = window.innerHeight - Math.min(500, window.innerHeight) - 8;
+                }
+
+                iframe.style.left = left + 'px';
+                iframe.style.top = top + 'px';
+
+                document.body.appendChild(scrim);
+                document.body.appendChild(iframe);
             }
         });
 
