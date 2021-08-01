@@ -192,15 +192,15 @@ chrome.storage.local.get('youtube_home_page', function (items) {
 
 chrome.storage.onChanged.addListener(function (changes) {
     for (var key in changes) {
-        var value = changes[key].newValue,
-            func = camelize(key);
+        var name = camelize(key.replace(/_/g, '-')),
+            value = changes[key].newValue;
 
-        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), value);
+        document.documentElement.setAttribute('it-' + name, value);
 
         injectScript('ImprovedTube.storage[\'' + key + '\']=' + (typeof value === 'boolean' ? value : '\'' + value + '\'') + ';');
 
-        if (typeof ImprovedTube[func] === 'function') {
-            injectScript('ImprovedTube.' + func + '();');
+        if (typeof ImprovedTube[name] === 'function') {
+            injectScript('ImprovedTube.' + name + '();');
         }
     }
 });
