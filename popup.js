@@ -2647,21 +2647,6 @@ skeleton.main.section.appearance = {
         section: {
             type: 'section',
 
-            player_hide_annotations: {
-                type: 'switch',
-                label: 'hideAnnotations',
-                tags: 'hide,remove,elements'
-            },
-            player_hide_cards: {
-                type: 'switch',
-                label: 'hideCards',
-                tags: 'hide,remove,elements'
-            },
-            player_show_cards_on_mouse_hover: {
-                type: 'switch',
-                label: 'showCardsOnMouseHover',
-                tags: 'hide,remove,elements'
-            },
             player_size: {
                 type: 'select',
                 label: 'playerSize',
@@ -2704,6 +2689,19 @@ skeleton.main.section.appearance = {
                 type: 'switch',
                 label: 'forcedTheaterMode',
                 tags: 'wide'
+            },
+            hide_gradient_bottom: {
+                type: 'switch',
+                label: 'hideGradientBottom'
+            }, 
+            player_hide_skip_overlay: {
+                type: 'switch',
+                label: 'hideSkipOverlay',
+                value: false
+            },
+            always_show_progress_bar: {
+                type: 'switch',
+                label: 'alwaysShowProgressBar'
             },
             player_color: {
                 label: 'playerColor',
@@ -2772,6 +2770,21 @@ skeleton.main.section.appearance = {
                 type: 'switch',
                 label: 'transparentBackground'
             },
+           player_hide_annotations: {
+                type: 'switch',
+                label: 'hideAnnotations',
+                tags: 'hide,remove,elements'
+            },
+            player_hide_cards: {
+                type: 'switch',
+                label: 'hideCards',
+                tags: 'hide,remove,elements'
+            },
+            player_show_cards_on_mouse_hover: {
+                type: 'switch',
+                label: 'showCardsOnMouseHover',
+                tags: 'hide,remove,elements'
+            },
             player_hide_endscreen: {
                 type: 'switch',
                 label: 'hideEndscreen'
@@ -2785,19 +2798,6 @@ skeleton.main.section.appearance = {
                 type: 'switch',
                 label: 'hideScrollForDetails',
                 tags: 'remove,hide'
-            },
-            always_show_progress_bar: {
-                type: 'switch',
-                label: 'alwaysShowProgressBar'
-            },
-            hide_gradient_bottom: {
-                type: 'switch',
-                label: 'hideGradientBottom'
-            },
-            player_hide_skip_overlay: {
-                type: 'switch',
-                label: 'hideSkipOverlay',
-                value: false
             }
         }
     },
