@@ -90,11 +90,10 @@
 9.0 Analyzer
 10.0 Settings
    10.1 ImprovedTube icon
-   10.2 ImprovedTube button (sidebar)
-   10.3 ImprovedTube player buttons
-   10.4 Delete YouTube cookies
-   10.5 YouTube language
-   10.6 Default content country
+   10.2 ImprovedTube player buttons
+   10.3 Delete YouTube cookies
+   10.4 YouTube language
+   10.5 Default content country
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
@@ -408,6 +407,12 @@ ImprovedTube.init = function () {
                         ImprovedTube.channelVideosCount();
                     } else if (node.nodeName === 'YTD-SUBSCRIBE-BUTTON-RENDERER' && node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
                         ImprovedTube.blacklist('channel', node);
+                    } else if (node.nodeName === 'YTD-GUIDE-SECTION-RENDERER') {
+                        if (ImprovedTube.elements.hasOwnProperty('sidebar_section') === false) {
+                            ImprovedTube.elements.sidebar_section = node;
+
+                            ImprovedTube.improvedtubeYoutubeIcon();
+                        }
                     }
                 }
             }
@@ -3531,36 +3536,6 @@ document.addEventListener('improvedtube-analyzer', function (event) {
 10.1 IMPROVEDTUBE ICON
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.improvedtube_youtube_icon_resize = function () {
-    var iframe = document.querySelector('.it-button__iframe'),
-        icon = document.querySelector('.it-button__icon');
-
-    if (iframe && icon) {
-        var x = icon.getBoundingClientRect().x,
-            y = icon.getBoundingClientRect().y;
-
-        if (x < window.innerWidth / 2) {
-            iframe.style.right = 'auto';
-            iframe.style.left = '0px';
-        } else {
-            iframe.style.right = '0px';
-            iframe.style.left = 'auto';
-        }
-
-        if (y < window.innerHeight / 2) {
-            iframe.style.top = '50px';
-            iframe.style.bottom = 'auto';
-
-            iframe.style.height = Math.min(500, window.innerHeight - Math.max(0, iframe.getBoundingClientRect().top) - 16) + 'px';
-        } else {
-            iframe.style.top = 'auto';
-            iframe.style.bottom = '50px';
-
-            iframe.style.height = Math.min(500, window.innerHeight - Math.max(0, window.innerHeight - iframe.getBoundingClientRect().y - iframe.getBoundingClientRect().height) - 16) + 'px';
-        }
-    }
-};
-
 ImprovedTube.improvedtubeYoutubeIcon = function () {
     var data = localStorage.getItem('improvedtube-button-position'),
         x = 0,
@@ -3576,6 +3551,8 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
     }
 
     if (!button) {
+        var label = document.createElement('span');
+
         button = document.createElement('button');
 
         button.className = 'it-button';
@@ -3651,6 +3628,10 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
             }
         });
 
+        label.textContent = 'ImprovedTube';
+
+        button.appendChild(label);
+
         this.elements.improvedtube_button = button;
     }
 
@@ -3670,6 +3651,10 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
         if (this.elements.video_title) {
             this.elements.video_title.appendChild(button);
         }
+    } else if (option === 'sidebar') {
+        if (this.elements.sidebar_section) {
+            this.elements.sidebar_section.appendChild(button);
+        }
     } else if (option === 'draggable') {
         if (document.body) {
             button.style.left = x + 'px';
@@ -3686,43 +3671,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 
 
 /*------------------------------------------------------------------------------
-10.2 IMPROVEDTUBE BUTTON (SIDEBAR)
-------------------------------------------------------------------------------*/
-/*
-ImprovedTube.improvedtube_youtube_sidebar_button_wait = false;
-
-ImprovedTube.improvedtubeYoutubeSidebarButton = function() {
-    if (window.self !== window.top) {
-        return false;
-    }
-
-    if (
-        ImprovedTube.storage.improvedtube_youtube_sidebar_button_wait === false &&
-        document.querySelector('.improvedtube-sidebar-a')
-    ) {
-        document.querySelector('.improvedtube-sidebar-a').remove();
-    }
-
-    if (this.improvedtube_youtube_sidebar_button_wait === false) {
-        this.improvedtube_youtube_sidebar_button_wait = setInterval(function() {
-            var second_section = document.querySelector('#guide ytd-guide-collapsible-section-entry-renderer');
-
-            if (second_section && !document.querySelector('.improvedtube-sidebar-a')) {
-                var a = document.createElement('a');
-
-                a.className = 'improvedtube-sidebar-a';
-                a.href = 'https://www.youtube.com/improvedtube';
-                a.innerText = 'ImprovedTube';
-
-                second_section.parentNode.insertBefore(a, second_section);
-            }
-        }, 250);
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-10.3 IMPROVEDTUBE PLAYER BUTTONS
+10.2 IMPROVEDTUBE PLAYER BUTTONS
 ------------------------------------------------------------------------------*/
 /*
 ImprovedTube.improvedtube_youtube_player_buttons_wait = false;
@@ -3765,7 +3714,7 @@ ImprovedTube.improvedtubeYoutubePlayerButtons = function() {
 
 
 /*-----------------------------------------------------------------------------
-10.4 DELETE YOUTUBE COOKIES
+10.3 DELETE YOUTUBE COOKIES
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.deleteYoutubeCookies = function () {
@@ -3786,7 +3735,7 @@ ImprovedTube.deleteYoutubeCookies = function () {
 
 
 /*-----------------------------------------------------------------------------
-10.5 YOUTUBE LANGUAGE
+10.4 YOUTUBE LANGUAGE
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.youtubeLanguage = function () {
@@ -3806,7 +3755,7 @@ ImprovedTube.youtubeLanguage = function () {
 
 
 /*-----------------------------------------------------------------------------
-10.6 DEFAULT CONTENT COUNTRY
+10.5 DEFAULT CONTENT COUNTRY
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.defaultContentCountry = function () {
