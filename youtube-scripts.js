@@ -2639,23 +2639,6 @@ ImprovedTube.channelDefaultTab = function (a) {
 
             a.href = a.dataset.itOrigin + option;
 
-            /*if (
-                a.data &&
-                a.data.browseEndpoint &&
-                a.data.browseEndpoint.canonicalBaseUrl
-            ) {
-                a.data.browseEndpoint.canonicalBaseUrl = a.href.replace('https://www.youtube.com', '');
-            }
-
-            if (
-                a.data &&
-                a.data.commandMetadata &&
-                a.data.commandMetadata.webCommandMetadata &&
-                a.data.commandMetadata.webCommandMetadata.url
-            ) {
-                a.data.commandMetadata.webCommandMetadata.url = a.href.replace('https://www.youtube.com', '');
-            }*/
-
             a.addEventListener('click', function(event) {
                 event.stopPropagation();
             }, true);
@@ -3517,7 +3500,6 @@ ImprovedTube.blacklist = function(type, node) {
 
 document.addEventListener('improvedtube-analyzer', function (event) {
     if (ImprovedTube.storage.analyzer_activation === true) {
-            console.log(event.detail.name, event.detail.time);
         chrome.runtime.sendMessage({
             name: 'improvedtube-analyzer',
             value: event.detail.name,
