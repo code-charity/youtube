@@ -3119,12 +3119,7 @@ ImprovedTube.shortcutStatsForNerds = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutToggleCards = function () {
-    if (document.documentElement.getAttribute('it-player-hide-cards')) {
-        document.documentElement.removeAttribute('it-player-hide-cards');
-        return;
-    }
-
-    document.documentElement.setAttribute('it-player-hide-cards', true);
+    document.documentElement.toggleAttribute('it-player-hide-cards');
 };
 
 
