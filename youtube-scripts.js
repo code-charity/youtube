@@ -2945,11 +2945,7 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function () {
         value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
 
     if (video) {
-        if (video.playbackRate < 1 && video.playbackRate > 1 - value) {
-            video.playbackRate = 1
-        } else {
-            video.playbackRate = Math.max(Number((video.playbackRate + value).toFixed(2)), .1);
-        }
+        video.playbackRate = video.playbackRate + value;
 
         ImprovedTube.showStatus(video.playbackRate);
     }
@@ -2964,12 +2960,8 @@ ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
     var video = this.elements.video,
         value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
 
-    if (video) { 
-        if (video.playbackRate < .15 + value) {
-            video.playbackRate = (video.playbackRate * 0.7).toFixed(3)
-        } else {
-            video.playbackRate = Math.max(Number((video.playbackRate - value).toFixed(2)), .1);
-        }  
+    if (video) {
+        video.playbackRate = Math.max(video.playbackRate - value, .05);
 
         ImprovedTube.showStatus(video.playbackRate);
     }
@@ -3149,6 +3141,10 @@ ImprovedTube.showStatus = function (value) {
         this.elements.status = document.createElement('div');
 
         this.elements.status.id = 'it-status';
+    }
+
+    if (typeof value === 'number') {
+        value = value.toFixed(2);
     }
 
     this.elements.status.textContent = value;
