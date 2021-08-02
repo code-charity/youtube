@@ -405,8 +405,12 @@ ImprovedTube.init = function () {
                         ImprovedTube.elements.yt_channel_link = node.querySelector('ytd-channel-name a');
                         ImprovedTube.howLongAgoTheVideoWasUploaded();
                         ImprovedTube.channelVideosCount();
-                    } else if (node.nodeName === 'YTD-SUBSCRIBE-BUTTON-RENDERER' && node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
-                        ImprovedTube.blacklist('channel', node);
+                    } else if (node.nodeName === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
+                        if (node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
+                            ImprovedTube.blacklist('channel', node);
+                        }
+
+                        ImprovedTube.elements.subscribe_button = node;
                     } else if (node.nodeName === 'YTD-GUIDE-SECTION-RENDERER') {
                         if (ImprovedTube.elements.hasOwnProperty('sidebar_section') === false) {
                             ImprovedTube.elements.sidebar_section = node;
@@ -3041,10 +3045,8 @@ ImprovedTube.shortcutDislike = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutSubscribe = function () {
-    var button = document.querySelector('#subscribe-button .ytd-subscribe-button-renderer');
-
-    if (button) {
-        button.click();
+    if (this.elements.subscribe_button) {
+        this.elements.subscribe_button.click();
     }
 };
 
