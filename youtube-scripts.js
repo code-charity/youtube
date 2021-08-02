@@ -2911,12 +2911,13 @@ ImprovedTube.shortcutSeekPreviousChapter = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutIncreaseVolume = function () {
-    var player = this.elements.player;
+    var player = this.elements.player,
+        value = Number(this.storage.shortcut_volume_step) || 5;
 
     if (player) {
-        player.setVolume(player.getVolume() + (Number(ImprovedTube.storage.shortcut_volume_step) || 5));
+        player.setVolume(player.getVolume() + value);
 
-        ImprovedTube.showStatus(player.getVolume());
+        this.showStatus(player.getVolume());
     }
 };
 
@@ -2926,12 +2927,13 @@ ImprovedTube.shortcutIncreaseVolume = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutDecreaseVolume = function () {
-    var player = this.elements.player;
+    var player = this.elements.player,
+        value = Number(this.storage.shortcut_volume_step) || 5;
     
     if (player) {
-        player.setVolume(player.getVolume() - (Number(ImprovedTube.storage.shortcut_volume_step) || 5));
+        player.setVolume(player.getVolume() - value);
 
-        ImprovedTube.showStatus(player.getVolume());
+        this.showStatus(player.getVolume());
     }
 };
 
