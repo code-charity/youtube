@@ -3670,49 +3670,6 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 };
 
 
-/*------------------------------------------------------------------------------
-10.2 IMPROVEDTUBE PLAYER BUTTONS
-------------------------------------------------------------------------------*/
-/*
-ImprovedTube.improvedtube_youtube_player_buttons_wait = false;
-
-ImprovedTube.improvedtubeYoutubePlayerButtons = function() {
-    if (window.self !== window.top) {
-        return false;
-    }
-
-    if (this.improvedtube_youtube_player_buttons_wait === false) {
-        this.improvedtube_youtube_player_buttons_wait = setInterval(function() {
-            var second_section = document.querySelector('#info #menu-container.ytd-video-primary-info-renderer');
-
-            if (second_section && !document.querySelector('.improvedtube-player-button')) {
-                var screenshot_button = document.createElement('button'),
-                    pip_button = document.createElement('button');
-
-                screenshot_button.className = 'improvedtube-player-button';
-                screenshot_button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"></svg>';
-                screenshot_button.dataset.tooltip = 'Screenshot';
-                screenshot_button.onclick = ImprovedTube.screenshot;
-
-                pip_button.className = 'improvedtube-player-button';
-                pip_button.innerHTML = '<svg viewBox="0 0 24 24"><path d="M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z"></svg>';
-                pip_button.dataset.tooltip = 'Picture in picture';
-                pip_button.onclick = function() {
-                    var video = document.querySelector('#movie_player video');
-
-                    if (video) {
-                        video.requestPictureInPicture();
-                    }
-                };
-
-                second_section.parentNode.insertBefore(screenshot_button, second_section);
-                second_section.parentNode.insertBefore(pip_button, second_section);
-            }
-        }, 250);
-    }
-};
-
-
 /*-----------------------------------------------------------------------------
 10.3 DELETE YOUTUBE COOKIES
 -----------------------------------------------------------------------------*/
