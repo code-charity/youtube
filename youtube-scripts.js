@@ -3008,8 +3008,8 @@ ImprovedTube.shortcutActivateFullscreen = function () {
 ImprovedTube.shortcutActivateCaptions = function () {
     var player = this.elements.player;
 
-    if (player && player.querySelector('.ytp-subtitles-button')) {
-        player.querySelector('.ytp-subtitles-button').click();
+    if (player && player.toggleSubtitlesOn) {
+        player.toggleSubtitlesOn();
     }
 };
 
