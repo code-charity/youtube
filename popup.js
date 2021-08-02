@@ -497,6 +497,9 @@ skeleton.header.section_end.button_vert.onClickRender.settings = {
                         label: 'youtubeHeaderRight',
                         value: 'header_right'
                     }, {
+                        label: 'sidebar',
+                        value: 'sidebar'
+                    }, {
                         label: 'draggable',
                         value: 'draggable'
                     }, {
