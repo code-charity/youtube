@@ -84,6 +84,8 @@ function attributes(items) {
         'hide-playlist': true,
         'related-videos': true,
         'comments': true,
+        'sidebar-left':true,
+        'thumbnails-right': true,
         'thumbnails-hide': true,
         'hide-footer': true,
         'bluelight': true,
