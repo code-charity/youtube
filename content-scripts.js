@@ -1,37 +1,15 @@
 /*------------------------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 --------------------------------------------------------------------------------
-1.0 Empty
-2.0 Isset
-3.0 Camelize
-4.0 Attributes
-5.0 Injection
-6.0 Storage
-7.0 Messages
+1.0 Camelize
+2.0 Attributes
+3.0 Injection
+4.0 Storage
+5.0 Messages
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-1.0 EMPTY
-------------------------------------------------------------------------------*/
-
-function empty(element) {
-    for (var i = element.childNodes.length - 1; i > -1; i--) {
-        element.childNodes[i].remove();
-    }
-}
-
-
-/*------------------------------------------------------------------------------
-2.0 ISSET
-------------------------------------------------------------------------------*/
-
-function isset(variable) {
-    return !(typeof variable === 'undefined' || variable === null);
-}
-
-
-/*------------------------------------------------------------------------------
-3.0 CAMELIZE
+1.0 CAMELIZE
 ------------------------------------------------------------------------------*/
 
 function camelize(string) {
@@ -46,7 +24,7 @@ function camelize(string) {
 
 
 /*------------------------------------------------------------------------------
-4.0 ATTRIBUTES
+2.0 ATTRIBUTES
 ------------------------------------------------------------------------------*/
 
 function attributes(items) {
@@ -111,7 +89,7 @@ function attributes(items) {
 
 
 /*------------------------------------------------------------------------------
-5.0 INJECTION
+3.0 INJECTION
 ------------------------------------------------------------------------------*/
 
 function injectScript(string) {
@@ -138,59 +116,8 @@ function injectStyles(string, id) {
 
 
 /*------------------------------------------------------------------------------
-6.0 STORAGE
+4.0 STORAGE LISTENER
 ------------------------------------------------------------------------------*/
-
-chrome.storage.local.get('youtube_home_page', function (items) {
-    var option = items.youtube_home_page;
-
-    if (location.pathname === '/') {
-        if (location.hostname === 'www.youtube.com') {
-            if (
-                option === '/feed/trending' ||
-                option === '/feed/subscriptions' ||
-                option === '/feed/history' ||
-                option === '/playlist?list=WL' ||
-                option === '/playlist?list=LL' ||
-                option === '/feed/library'
-            ) {
-                location.replace(option);
-            }
-        }
-    }
-
-    chrome.storage.local.get(function (items) {
-        var textContent = 'var ImprovedTube={';
-
-        ImprovedTube.storage = items;
-
-        // <HTML> attributes
-        attributes(items);
-
-        // Isset
-        textContent += 'isset:' + isset + ',';
-
-        // Empty
-        textContent += 'empty:' + empty + ',';
-
-        // Features
-        for (var key in ImprovedTube) {
-            if (key !== 'storage') {
-                textContent += key + ': ' + ImprovedTube[key] + ',';
-            }
-        }
-
-        // Storage
-        textContent += 'storage:' + JSON.stringify(items);
-
-        // Initialization
-        textContent += '};ImprovedTube.init();';
-
-        document.documentElement.dataset.systemColorScheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
-        injectScript(textContent);
-    });
-});
 
 chrome.storage.onChanged.addListener(function (changes) {
     for (var key in changes) {
@@ -209,21 +136,80 @@ chrome.storage.onChanged.addListener(function (changes) {
 
 
 /*------------------------------------------------------------------------------
-7.0 MESSAGES
+5.0 MESSAGE LISTENER
 ------------------------------------------------------------------------------*/
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.action === 'focus') {
         injectScript('ImprovedTube.focus = true;');
     } else if (request.action === 'blur') {
-        injectScript('ImprovedTube.focus = false;document.dispatchEvent(new CustomEvent("improvedtube-blur"));');
+        injectScript(`
+            ImprovedTube.focus = false;
+            document.dispatchEvent(new CustomEvent('improvedtube-blur'));
+        `);
     } else if (request.action === 'improvedtube-pause') {
-        injectScript('if (ImprovedTube.elements.player) {ImprovedTube.played_before_blur = ImprovedTube.elements.player.getPlayerState() === 1; ImprovedTube.elements.player.pauseVideo();}');
+        injectScript(`
+            if (ImprovedTube.elements.player) {
+                ImprovedTube.played_before_blur = ImprovedTube.elements.player.getPlayerState() === 1;
+                ImprovedTube.elements.player.pauseVideo();
+            }
+        `);
     }
 
     injectScript('ImprovedTube.pageOnFocus();');
 });
 
+
+/*------------------------------------------------------------------------------
+6.0 INITIALIZATION
+------------------------------------------------------------------------------*/
+
+chrome.storage.local.get('youtube_home_page', function (items) {
+    var option = items.youtube_home_page;
+
+    if (location.pathname === '/') {
+        if (location.hostname === 'www.youtube.com') {
+            if (
+                option === '/feed/trending' ||
+                option === '/feed/subscriptions' ||
+                option === '/feed/history' ||
+                option === '/playlist?list=WL' ||
+                option === '/playlist?list=LL' ||
+                option === '/feed/library'
+            ) {
+                location.replace(option);
+
+                return;
+            }
+        }
+    }
+
+    chrome.storage.local.get(function (items) {
+        var textContent = 'var ImprovedTube={';
+
+        ImprovedTube.storage = items;
+
+        for (var key in ImprovedTube) {
+            var value = ImprovedTube[key];
+
+            if (typeof value === 'object') {
+                value = JSON.stringify(value);
+            }
+
+            textContent += key + ': ' + value + ',';
+        }
+
+        textContent += '};ImprovedTube.init();';
+
+        injectScript(textContent);
+
+        attributes(items);
+
+        if (window.matchMedia) {
+            document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+    });
+});
 
 chrome.runtime.sendMessage({
     enabled: true
