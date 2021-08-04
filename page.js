@@ -1,13 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.documentElement.innerHTML = `
-        <!doctype html>
-        <html>
-            <head>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width,initial-scale=1">
-                <title>ImprovedTube</title>
-            </head>
-            <body></body>
-        </html>
-        `;
+    for (var i = document.head.childNodes.length - 1; i > -1; i--) {
+        document.head.childNodes[i].remove();
+    }
+
+    for (var i = document.body.childNodes.length - 1; i > -1; i--) {
+        document.body.childNodes[i].remove();
+    }
 });
