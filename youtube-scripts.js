@@ -736,6 +736,16 @@ ImprovedTube.reverse = function (parent) {
     }
 };
 
+ImprovedTube.empty = function (element) {
+    for (var i = element.childNodes.length - 1; i > -1; i--) {
+        element.childNodes[i].remove();
+    }
+};
+
+ImprovedTube.isset = function (variable) {
+    return !(typeof variable === 'undefined' || variable === null);
+};
+
 
 /*------------------------------------------------------------------------------
 1.0 GENERAL
