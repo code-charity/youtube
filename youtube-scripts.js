@@ -743,7 +743,7 @@ ImprovedTube.empty = function (element) {
 };
 
 ImprovedTube.isset = function (variable) {
-    return !(typeof variable === 'undefined' || variable === null);
+    return !(typeof variable === 'undefined' || variable === null || variable === 'null');
 };
 
 
