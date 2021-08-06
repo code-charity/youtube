@@ -746,6 +746,10 @@ ImprovedTube.isset = function (variable) {
     return !(typeof variable === 'undefined' || variable === null || variable === 'null');
 };
 
+ImprovedTube.stopPropagation = function (event) {
+    event.stopPropagation();
+};
+
 
 /*------------------------------------------------------------------------------
 1.0 GENERAL
