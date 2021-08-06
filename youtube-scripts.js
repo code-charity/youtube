@@ -346,7 +346,11 @@ ImprovedTube.init = function () {
 
                                     if (mutation.type === 'attributes') {
                                         if (mutation.attributeName === 'href') {
-                                            ImprovedTube.youtubeHomePage(logo);
+                                            if (logo.id === 'logo') {
+                                                this.disconnect();
+
+                                                ImprovedTube.youtubeHomePage(logo);
+                                            }
                                         }
                                     }
                                 }
@@ -364,7 +368,10 @@ ImprovedTube.init = function () {
                     } else if (node.nodeName === 'YTD-ITEM-SECTION-RENDERER') {
                         ImprovedTube.collapseOfSubscriptionSections(node);
                     } else if (node.nodeName === 'A' && node.href) {
-                        ImprovedTube.youtubeHomePage(node);
+                        if (node.id === 'logo') {
+                            ImprovedTube.youtubeHomePage(node);
+                        }
+
                         ImprovedTube.channelDefaultTab(node);
                         ImprovedTube.markWatchedVideos(node);
                         //a#thumbnail.ytd-thumbnail, div.yt-lockup-thumbnail a, a.thumb-link
@@ -760,36 +767,19 @@ ImprovedTube.stopPropagation = function (event) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.youtubeHomePage = function (node) {
-    var option = this.storage.youtube_home_page;
+    console.log(node);
+    if (this.isset(node) === false) {
+        node = document.querySelector('a#logo');
+    }
 
-    if (
-        option === '/feed/trending' ||
-        option === '/feed/subscriptions' ||
-        option === '/feed/history' ||
-        option === '/playlist?list=WL' ||
-        option === '/playlist?list=LL' ||
-        option === '/feed/library'
-    ) {
-        if (
-            (
-                node.href === '/' ||
-                node.href === 'https://www.youtube.com/'
-            ) &&
-            node.getAttribute('role') !== 'tablist'
-        ) {
-            node.href = option;
+    if (this.isset(this.storage.youtube_home_page)) {
+        node.href = this.storage.youtube_home_page;
 
-            node.addEventListener('click', function () {
-                if (
-                    this.data &&
-                    this.data.commandMetadata &&
-                    this.data.commandMetadata.webCommandMetadata &&
-                    this.data.commandMetadata.webCommandMetadata.url
-                ) {
-                    this.data.commandMetadata.webCommandMetadata.url = ImprovedTube.storage.youtube_home_page;
-                }
-            }, true);
-        }
+        node.addEventListener('click', this.stopPropagation, true);
+    } else {
+        node.href = '/';
+
+        node.removeEventListener('click', this.stopPropagation);
     }
 };
 
