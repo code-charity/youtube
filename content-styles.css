@@ -124,30 +124,36 @@ html[data-page-type=home][it-youtube-home-page=search] .gstl_50.sbdd_a {
 1.2 COLLAPSE OF SUBSCRIPTION SECTION
 ------------------------------------------------------------------------------*/
 
-ytd-item-section-renderer .grid-subheader+#contents {
+ytd-item-section-renderer .grid-subheader + #contents {
     overflow: hidden;
 }
 
-ytd-item-section-renderer.it-section-collapsed .grid-subheader+#contents {
+ytd-item-section-renderer.it-section-collapsed .grid-subheader + #contents {
     height: 0 !important;
 }
 
-ytd-item-section-renderer .it-section-collapse {
+ytd-item-section-renderer .it-button-section-collapse {
+    margin: none;
+    padding: none;
     cursor: pointer;
+    color: inherit;
+    border: none;
+    background: transparent;
 }
 
-ytd-item-section-renderer .it-section-collapse svg {
+ytd-item-section-renderer .it-button-section-collapse svg {
     width: 24px;
     height: 24px;
     transition: transform 150ms;
+    pointer-events: none;
     fill: var(--yt-spec-icon-inactive);
 }
 
-ytd-item-section-renderer .it-section-collapse:hover svg {
+ytd-item-section-renderer .it-button-section-collapse:hover svg {
     fill: var(--yt-spec-icon-active-other);
 }
 
-ytd-item-section-renderer.it-section-collapsed .it-section-collapse svg {
+ytd-item-section-renderer.it-section-collapsed .it-button-section-collapse svg {
     transform: rotate(180deg);
 }
 

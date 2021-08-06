@@ -109,7 +109,8 @@ var ImprovedTube = {
         playlist: {},
         livechat: {},
         related: {},
-        comments: {}
+        comments: {},
+        collapse_of_subscription_sections: []
     }`,
     regex: `{
         channel: new RegExp('\/(user|channel|c)\/'),
@@ -767,7 +768,6 @@ ImprovedTube.stopPropagation = function (event) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.youtubeHomePage = function (node) {
-    console.log(node);
     if (this.isset(node) === false) {
         node = document.querySelector('a#logo');
     }
@@ -789,25 +789,37 @@ ImprovedTube.youtubeHomePage = function (node) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.collapseOfSubscriptionSections = function (node) {
-    if (this.storage.collapse_of_subscription_sections === true) {
-        if (location.href.indexOf('/feed/subscriptions') !== -1) {
-            var section_title = node.querySelector('h2');
+    if (this.isset(node) === false) {
+        var sections = document.querySelectorAll('ytd-item-section-renderer');
 
-            if (!node.querySelector('.it-section-collapse') && section_title) {
-                var button = document.createElement('div'),
+        for (var i = 0, l = sections.length; i < l; i++) {
+            this.collapseOfSubscriptionSections(sections[i]);
+        }
+
+        return;
+    }
+
+    console.log(node, this.storage.collapse_of_subscription_sections);
+
+    if (this.storage.collapse_of_subscription_sections === true) {
+        if (location.href.indexOf('feed/subscriptions') !== -1) {
+            var h2 = node.querySelector('h2');
+
+            if (!node.querySelector('.it-section-collapse') && h2) {
+                var button = document.createElement('button'),
                     svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
                     path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
-                button.className = 'it-section-collapse';
+                button.className = 'it-button-section-collapse';
                 button.section = node;
+                button.content = node.querySelector('.grid-subheader + #contents');
                 
                 button.addEventListener('click', function () {
-                    var section = this.section,
-                        content = section.querySelector('.grid-subheader + #contents, .shelf-title-table + .multirow-shelf');
+                    var section = this.section;
 
-                    if (section.classList.contains('it-section-collapsed') === false) {
-                        content.style.height = content.offsetHeight + 'px';
-                        content.style.transition = 'height 150ms';
+                    if (section.className.indexOf('it-section-collapsed') === -1) {
+                        this.content.style.height = this.content.offsetHeight + 'px';
+                        this.content.style.transition = 'height 150ms';
                     }
 
                     setTimeout(function () {
@@ -822,8 +834,27 @@ ImprovedTube.collapseOfSubscriptionSections = function (node) {
 
                 button.appendChild(svg);
 
-                section_title.parentNode.insertBefore(button, section_title.nextSibling);
+                h2.parentNode.insertBefore(button, h2.nextSibling);
+
+                this.elements.collapse_of_subscription_sections.push(button);
             }
+        }
+    } else {
+        var elements = this.elements.collapse_of_subscription_sections;
+
+        for (var i = 0, l = elements.length; i < l; i++) {
+            var element = elements[i];
+
+            if (element.section) {
+                element.section.classList.remove('it-section-collapsed');
+            }
+
+            if (element.content) {
+                element.content.style.height = '';
+                element.content.style.transition = '';
+            }
+
+            element.remove();
         }
     }
 };
