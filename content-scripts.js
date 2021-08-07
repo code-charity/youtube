@@ -40,6 +40,7 @@ function attributes(items) {
         'header-improve-logo': true,
         'header-hide-right-buttons': true,
         'header-hide-country-code': true,
+        'hide-voice-search-button': true,
         'player-hide-annotations': true,
         'player-hide-cards': true,
         'player-show-cards-on-mouse-hover': true,
