@@ -470,6 +470,9 @@
     "lime": {
         "message": "Lime"
     },
+    "limitPageWidth": {
+        "message": "Limit page width"
+    },
     "list": {
         "message": "Listă"
     },

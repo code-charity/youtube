@@ -479,6 +479,9 @@
     "lime": {
         "message": "Limonkowy"
     },
+    "limitPageWidth": {
+        "message": "Limit page width"
+    },
     "list": {
         "message": "Lista"
     },
@@ -767,11 +770,11 @@
     "themes": {
         "message": "Motywy"
     },
-    "thisWillRemoveAllWatchedVideos": {
-        "message": "To usunie wszystkie obejrzane wideo."
-    },
     "thisWillRemoveAllCookies": {
         "message": "To usunie wszystkie ciasteczka."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "To usunie wszystkie obejrzane wideo."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "To usunie wszystkie ciasteczka YouTube."

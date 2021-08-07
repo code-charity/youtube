@@ -473,6 +473,9 @@
     "lime": {
         "message": "萊姆色"
     },
+    "limitPageWidth": {
+        "message": "Limit page width"
+    },
     "list": {
         "message": "清單"
     },
