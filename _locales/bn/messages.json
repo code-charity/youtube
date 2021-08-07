@@ -392,6 +392,9 @@
     "hideViewsCount": {
         "message": "দর্শন গণনা লুকান"
     },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
     "history": {
         "message": "ইতিহাস"
     },

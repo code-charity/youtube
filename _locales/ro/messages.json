@@ -395,6 +395,9 @@
     "hideViewsCount": {
         "message": "Ascunde numărul vizualizărilor"
     },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
     "history": {
         "message": "Istoric"
     },

@@ -392,6 +392,9 @@
     "hideViewsCount": {
         "message": "Скрыть количество просмотров"
     },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
     "history": {
         "message": "История"
     },

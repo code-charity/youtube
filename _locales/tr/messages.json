@@ -392,6 +392,9 @@
     "hideViewsCount": {
         "message": "Görüntüleme sayısını gizle"
     },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
     "history": {
         "message": "Geçmiş"
     },

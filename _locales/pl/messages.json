@@ -404,6 +404,9 @@
     "hideViewsCount": {
         "message": "Ukryj ilość wyświetleń"
     },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
     "history": {
         "message": "Historia"
     },
