@@ -2639,6 +2639,10 @@ skeleton.main.section.appearance = {
                 type: 'switch',
                 label: 'hideCountryCode',
                 tags: 'country,code'
+            },
+            hide_voice_search_button: {
+                type: 'switch',
+                label: 'hideVoiceSearchButton'
             }
         }
     },

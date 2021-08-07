@@ -17,6 +17,7 @@
     2.1.2 Improve logo
     2.1.3 Hide right buttons
     2.1.4 Hide country code
+    2.1.5 Hide voice search button
   2.2 Player
     2.2.1 Hide annotations
     2.2.2 Hide cards
@@ -432,6 +433,15 @@ html[it-header-hide-right-buttons=true] ytd-masthead#masthead #container #end {
 
 html[it-header-hide-country-code=true] #logo #country-code {
     display: none;
+}
+
+
+/*------------------------------------------------------------------------------
+2.1.5 HIDE VOICE SEARCH BUTTON
+------------------------------------------------------------------------------*/
+
+html[it-hide-voice-search-button=true] #voice-search-button {
+    display: none !important;
 }
 
 
