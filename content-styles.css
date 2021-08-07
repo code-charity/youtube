@@ -247,6 +247,7 @@ html[it-remove-related-search-results=true] li>div.search-refinements {
     width: 20px;
     height: 20px;
     fill: var(--yt-spec-icon-inactive, #aaa);
+    pointer-events: none;
 }
 
 *:hover>.it-mark-watched {
