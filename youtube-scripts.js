@@ -110,7 +110,8 @@ var ImprovedTube = {
         livechat: {},
         related: {},
         comments: {},
-        collapse_of_subscription_sections: []
+        collapse_of_subscription_sections: [],
+        mark_watched_videos: []
     }`,
     regex: `{
         channel: new RegExp('\/(user|channel|c)\/'),
@@ -375,7 +376,7 @@ ImprovedTube.init = function () {
 
                         ImprovedTube.channelDefaultTab(node);
                         ImprovedTube.markWatchedVideos(node);
-                        //a#thumbnail.ytd-thumbnail, div.yt-lockup-thumbnail a, a.thumb-link
+
                         if (node.className.indexOf('ytd-thumbnail') !== -1) {
                             ImprovedTube.blacklist('video', node);
                         }
@@ -799,8 +800,6 @@ ImprovedTube.collapseOfSubscriptionSections = function (node) {
         return;
     }
 
-    console.log(node, this.storage.collapse_of_subscription_sections);
-
     if (this.storage.collapse_of_subscription_sections === true) {
         if (location.href.indexOf('feed/subscriptions') !== -1) {
             var h2 = node.querySelector('h2');
@@ -912,6 +911,16 @@ ImprovedTube.confirmationBeforeClosing = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.markWatchedVideos = function (node) {
+    if (this.isset(node) === false) {
+        var thumbnails = document.querySelectorAll('#thumbnail.ytd-thumbnail,.thumb-link');
+
+        for (var i = 0, l = thumbnails.length; i < l; i++) {
+            this.markWatchedVideos(thumbnails[i]);
+        }
+
+        return;
+    }
+
     if (this.storage.mark_watched_videos === true) {
         if (
             node.id === 'thumbnail' && node.className.indexOf('ytd-thumbnail') !== -1 ||
@@ -983,6 +992,14 @@ ImprovedTube.markWatchedVideos = function (node) {
             button.appendChild(svg);
 
             node.appendChild(button);
+
+            this.elements.mark_watched_videos.push(button);
+        }
+    } else {
+        var buttons = this.elements.mark_watched_videos;
+
+        for (var i = 0, l = buttons.length; i < l; i++) {
+            buttons[i].remove();
         }
     }
 };
