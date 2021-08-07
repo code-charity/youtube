@@ -395,6 +395,9 @@
     "hideViewsCount": {
         "message": "Skjul visningsteller"
     },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
     "history": {
         "message": "Historie"
     },
