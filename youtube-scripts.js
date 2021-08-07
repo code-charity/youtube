@@ -875,6 +875,14 @@ ImprovedTube.addScrollToTop = function () {
             window.scrollTo(0, 0);
         });
 
+        button.scroll = function () {
+            if (window.scrollY > window.innerHeight / 2) {
+                document.documentElement.setAttribute('it-show-scroll-to-top', true);
+            } else {
+                document.documentElement.setAttribute('it-show-scroll-to-top', false);
+            }
+        };
+
         svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
         path.setAttributeNS(null, 'd', 'M13 19V7.8l4.9 5c.4.3 1 .3 1.4 0 .4-.5.4-1.1 0-1.5l-6.6-6.6a1 1 0 0 0-1.4 0l-6.6 6.6a1 1 0 1 0 1.4 1.4L11 7.8V19c0 .6.5 1 1 1s1-.5 1-1z');
 
@@ -882,13 +890,13 @@ ImprovedTube.addScrollToTop = function () {
         button.appendChild(svg);
         document.body.appendChild(button);
 
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > window.innerHeight / 2) {
-                document.documentElement.setAttribute('it-show-scroll-to-top', true);
-            } else {
-                document.documentElement.setAttribute('it-show-scroll-to-top', false);
-            }
-        });
+        window.addEventListener('scroll', button.scroll);
+
+        this.elements.scroll_to_top = button;
+    } else if (this.elements.scroll_to_top) {
+        window.removeEventListener('scroll', this.elements.scroll_to_top.scroll);
+        
+        this.elements.scroll_to_top.remove();
     }
 };
 
