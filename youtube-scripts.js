@@ -895,7 +895,7 @@ ImprovedTube.addScrollToTop = function () {
         this.elements.scroll_to_top = button;
     } else if (this.elements.scroll_to_top) {
         window.removeEventListener('scroll', this.elements.scroll_to_top.scroll);
-        
+
         this.elements.scroll_to_top.remove();
     }
 };
@@ -1056,9 +1056,21 @@ document.addEventListener('ImprovedTubeOnlyOnePlayer', function (event) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.hdThumbnails = function (node) {
+    if (this.isset(node) === false) {
+        var thumbnails = document.querySelectorAll('img');
+
+        for (var i = 0, l = thumbnails.length; i < l; i++) {
+            this.hdThumbnails(thumbnails[i]);
+        }
+
+        return;
+    }
+
     if (this.storage.hd_thumbnails === true) {
         if (this.regex.thumbnail_quality.test(node.src)) {
-            node.dataset.defaultSrc = node.src;
+            if (node.dataset.hasOwnProperty('defaultSrc') === false) {
+                node.dataset.defaultSrc = node.src;
+            }
 
             node.onload = function () {
                 if (this.naturalHeight <= 90) {
@@ -1068,6 +1080,10 @@ ImprovedTube.hdThumbnails = function (node) {
 
             node.src = node.src.replace(this.regex.thumbnail_quality, 'maxresdefault.jpg');
         }
+    } else if (node.dataset.defaultSrc) {
+        node.src = node.dataset.defaultSrc;
+
+        delete node.dataset.defaultSrc;
     }
 };
 
