@@ -479,6 +479,9 @@
     "lime": {
         "message": "Lime"
     },
+    "limitPageWidth": {
+        "message": "Limit page width"
+    },
     "list": {
         "message": "List"
     },
@@ -767,11 +770,11 @@
     "themes": {
         "message": "Themes"
     },
-    "thisWillRemoveAllWatchedVideos": {
-        "message": "This will remove all watched videos."
-    },
     "thisWillRemoveAllCookies": {
         "message": "This will remove all cookies."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "This will remove all YouTube cookies"

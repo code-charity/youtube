@@ -467,6 +467,9 @@
     "lime": {
         "message": "Лайм"
     },
+    "limitPageWidth": {
+        "message": "Limit page width"
+    },
     "list": {
         "message": "Список"
     },

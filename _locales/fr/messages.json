@@ -467,6 +467,9 @@
     "lime": {
         "message": "Citron vert"
     },
+    "limitPageWidth": {
+        "message": "Limit page width"
+    },
     "list": {
         "message": "Liste"
     },
