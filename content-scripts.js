@@ -6,6 +6,7 @@
 3.0 Injection
 4.0 Storage
 5.0 Messages
+6.0 Initialization
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
@@ -121,10 +122,11 @@ function injectStyles(string, id) {
 
 chrome.storage.onChanged.addListener(function (changes) {
     for (var key in changes) {
-        var name = camelize(key.replace(/_/g, '-')),
+        var attribute = key.replace(/_/g, '-'),
+            name = camelize(attribute),
             value = changes[key].newValue;
 
-        document.documentElement.setAttribute('it-' + name, value);
+        document.documentElement.setAttribute('it-' + attribute, value);
 
         injectScript('ImprovedTube.storage[\'' + key + '\']=' + (typeof value === 'boolean' ? value : '\'' + value + '\'') + ';');
 
