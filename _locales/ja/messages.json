@@ -392,6 +392,9 @@
     "hideViewsCount": {
         "message": "視聴数を隠す"
     },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
     "history": {
         "message": "履歴"
     },

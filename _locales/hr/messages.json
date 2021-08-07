@@ -401,6 +401,9 @@
     "hideViewsCount": {
         "message": "Sakrij broj pregleda"
     },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
     "history": {
         "message": "Povijest"
     },

@@ -392,6 +392,9 @@
     "hideViewsCount": {
         "message": "Verberg views teller"
     },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
     "history": {
         "message": "Geschiedenis"
     },

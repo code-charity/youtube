@@ -392,6 +392,9 @@
     "hideViewsCount": {
         "message": "Videoaufrufe ausblenden"
     },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
     "history": {
         "message": "Verlauf"
     },

@@ -398,6 +398,9 @@
     "hideViewsCount": {
         "message": "隱藏觀看次數"
     },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
     "history": {
         "message": "觀看記錄"
     },
