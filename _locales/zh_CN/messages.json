@@ -476,6 +476,9 @@
     "lime": {
         "message": "石灰色"
     },
+    "limitPageWidth": {
+        "message": "Limit page width"
+    },
     "list": {
         "message": "列表"
     },

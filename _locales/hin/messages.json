@@ -467,6 +467,9 @@
     "lime": {
         "message": "पीला हरा रंग"
     },
+    "limitPageWidth": {
+        "message": "Limit page width"
+    },
     "list": {
         "message": "सूची"
     },

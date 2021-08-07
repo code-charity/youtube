@@ -476,6 +476,9 @@
     "lime": {
         "message": "Limeta"
     },
+    "limitPageWidth": {
+        "message": "Limit page width"
+    },
     "list": {
         "message": "Lista"
     },
