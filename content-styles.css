@@ -1135,6 +1135,11 @@ html[it-description=expanded] .yt-uix-expander-collapsed .yt-uix-expander-body {
     display: block !important;
 }
 
+html[it-description=expanded] ytd-video-secondary-info-renderer #less,
+html[it-description=expanded] ytd-video-secondary-info-renderer #more {
+    display: none !important;
+}
+
 
 /*------------------------------------------------------------------------------
 2.4.9 HOW LONG AGO THE VIDEO WAS UPLOADED
