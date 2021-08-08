@@ -1390,36 +1390,43 @@ ImprovedTube.channelVideosCount = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.comments = function () {
-    if (this.storage.comments === 'collapsed' || this.elements.comments.button) {
-        var button = document.createElement('button'),
-            content = document.createElement('span'),
-            show_more = document.createElement('span'),
-            show_less = document.createElement('span'),
-            parent = this.elements.comments.container;
+    if (this.storage.comments === 'collapsed') {
+        if (!this.elements.comments.button) {
+            var button = document.createElement('button'),
+                content = document.createElement('span'),
+                show_more = document.createElement('span'),
+                show_less = document.createElement('span');
 
-        button.id = 'improvedtube-collapsed-comments';
-        button.className = 'yt-uix-button yt-uix-button-size-default yt-uix-button-default comment-section-renderer-paginator yt-uix-sessionlink';
-        button.onclick = function () {
-            document.documentElement.classList.toggle('comments-collapsed');
-        };
+            button.id = 'improvedtube-collapsed-comments';
+            button.className = 'yt-uix-button yt-uix-button-size-default yt-uix-button-default comment-section-renderer-paginator yt-uix-sessionlink';
+            button.onclick = function () {
+                document.documentElement.classList.toggle('comments-collapsed');
+            };
 
-        content.className = 'yt-uix-button-content';
+            content.className = 'yt-uix-button-content';
 
-        show_more.className = 'show-more-text';
-        show_more.textContent = 'Show more';
+            show_more.className = 'show-more-text';
+            show_more.textContent = 'Show more';
 
-        show_less.className = 'show-less-text';
-        show_less.textContent = 'Show less';
+            show_less.className = 'show-less-text';
+            show_less.textContent = 'Show less';
 
-        content.appendChild(show_more);
-        content.appendChild(show_less);
-        button.appendChild(content);
+            content.appendChild(show_more);
+            content.appendChild(show_less);
+            button.appendChild(content);
 
-        document.documentElement.classList.add('comments-collapsed');
+            document.documentElement.classList.add('comments-collapsed');
 
-        parent.appendChild(button);
+            this.elements.comments.container.appendChild(button);
 
-        this.elements.comments.button = button;
+            this.elements.comments.button = button;
+        }
+    } else if (this.elements.comments.button) {
+        this.elements.comments.button.remove();
+
+        delete this.elements.comments.button;
+
+        document.documentElement.classList.remove('comments-collapsed');
     }
 };
 
