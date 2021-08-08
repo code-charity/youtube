@@ -1209,7 +1209,7 @@ html[it-comments=collapsed].comments-collapsed #comments #sections #contents {
 2.6 FOOTER
 ------------------------------------------------------------------------------*/
 
-html[it-hide-footer=true] app-drawer#guide #footer {
+html[it-hide-footer=true] ytd-guide-renderer #footer {
     display: none !important;
 }
 
