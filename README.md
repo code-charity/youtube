@@ -1,10 +1,10 @@
 <h1 align="center">«Improve YouTube!»</h1>
-❔ 'Nearest-Neighbours'=Meaningful promotion? Examples: Social-Fixer, Youtube Enhancer, ... [1016](https://github.com/code4charity/YouTube-Extension/issues/1016).<br>
+
+>❔ 'Nearest-Neighbours' = Meaningful promotion? Examples: Social-Fixer, ...  [1016](https://github.com/code4charity/YouTube-Extension/issues/1015).<br>
 ❔ ImprovedTube controls in, under or around the video player or cursor  [842](https://github.com/code4charity/YouTube-Extension/issues/842).<br>
 📟 Friefox, Edge, Opera, Whale added (please try&rate)  
-📟 You might enjoy our global [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Color engine  in the making <br>
-📟 We are focused on bugs & UX. Wishes for new features might have to wait but please keep them up! 
-
+📟 You might enjoy our global [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making. <br>
+📟 We are focused on bugs & UX (and unpaid). Wishes for new features might have to wait but please keep them up! 
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 		<img  alt="YouTube extension" src="https://github.com/victor-savinov/previews/raw/master/improvedtube/screenshot-github.png">
