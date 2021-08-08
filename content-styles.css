@@ -1040,8 +1040,8 @@ html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer+#date>#dot
 2.4.3 HIDE DATE
 ------------------------------------------------------------------------------*/
 
-html[it-hide-date=true] #count.ytd-video-primary-info-renderer+#date,
-html[it-hide-date=true] #count.ytd-video-primary-info-renderer+#date>#dot {
+html[it-hide-date=true] #count + #info-strings > yt-formatted-string,
+html[it-hide-date=true] #count + #info-strings > #dot {
     display: none;
 }
 
