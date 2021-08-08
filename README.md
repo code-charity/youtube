@@ -1,7 +1,8 @@
 <h1 align="center">«Improve YouTube!»</h1>
-
-:grey_question: ImprovedTube controls in, under or around the video player or cursor ([842](https://github.com/code4charity/YouTube-Extension/issues/842)).<br>
-📟 Chrome, Firefox, Edge, Opera done! (please try/rate) + You might enjoy [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak any view on any site.<br>
+❔ 'Nearest-Neighbours'=Meaningful promotion? Examples: Social-Fixer, Youtube Enhancer, ... [1016](https://github.com/code4charity/YouTube-Extension/issues/1016).<br>
+❔ ImprovedTube controls in, under or around the video player or cursor  [842](https://github.com/code4charity/YouTube-Extension/issues/842).<br>
+📟 Friefox, Edge, Opera, Whale added (please try&rate)  
+📟 You might enjoy our global [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Color engine  in the making <br>
 📟 We are focused on bugs & UX. Wishes for new features might have to wait but please keep them up! 
 
 <p align="center">
