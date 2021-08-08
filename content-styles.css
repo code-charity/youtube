@@ -1030,8 +1030,8 @@ html[it-hide-details=true] #primary-inner>#meta {
 2.4.2 HIDE VIEWS COUNT
 ------------------------------------------------------------------------------*/
 
-html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer,
-html[it-hide-views-count=true] #count.ytd-video-primary-info-renderer+#date>#dot {
+html[it-hide-views-count=true] #count,
+html[it-hide-views-count=true] #count + #info-strings > #dot {
     display: none;
 }
 
