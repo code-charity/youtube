@@ -258,6 +258,8 @@ html[it-remove-related-search-results=true] li>div.search-refinements {
     transition: width 200ms;
     font-weight: 500;
     justify-content: center;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 
 .it-mark-watched:hover::after {
@@ -3587,6 +3589,8 @@ ytd-guide-section-renderer .it-button::after {
     transition: width 200ms;
     font-weight: 500;
     justify-content: center;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
 }
 
 .it-add-to-blacklist:hover::after {
