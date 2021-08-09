@@ -933,7 +933,7 @@ ImprovedTube.markWatchedVideos = function (node) {
             node.id === 'thumbnail' && node.className.indexOf('ytd-thumbnail') !== -1 ||
             node.className.indexOf('thumb-link') !== -1
         ) {
-            var button = document.createElement('div'),
+            var button = document.createElement('button'),
                 svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
                 path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
