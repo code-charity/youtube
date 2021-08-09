@@ -111,7 +111,8 @@ var ImprovedTube = {
         related: {},
         comments: {},
         collapse_of_subscription_sections: [],
-        mark_watched_videos: []
+        mark_watched_videos: [],
+        blacklist_buttons: []
     }`,
     regex: `{
         channel: new RegExp('\/(user|channel|c)\/'),
@@ -164,7 +165,6 @@ ImprovedTube.init = function () {
         ImprovedTube.dim();
         ImprovedTube.font();
         ImprovedTube.themes();
-        ImprovedTube.blacklist();
         //ImprovedTube.improvedtubeYoutubeSidebarButton();
         //ImprovedTube.improvedtubeYoutubePlayerButtons();
     });
@@ -172,7 +172,6 @@ ImprovedTube.init = function () {
     window.addEventListener('yt-page-data-updated', function () {
         ImprovedTube.pageType();
         ImprovedTube.videoPageUpdate();
-        ImprovedTube.blacklist();
         //ImprovedTube.improvedtubeYoutubeSidebarButton();
         //ImprovedTube.improvedtubeYoutubePlayerButtons();
     });
@@ -3422,7 +3421,27 @@ document.addEventListener('ImprovedTubeBlacklist', function (event) {
 
 ImprovedTube.blacklist = function(type, node) {
     if (this.storage.blacklist_activate !== true) {
+        for (var i = 0, l = this.elements.blacklist_buttons.length; i < l; i++) {
+            this.elements.blacklist_buttons[i].remove();
+        }
+
         return;
+    } else if (this.isset(node) === false) {
+        var a = document.querySelectorAll('a.ytd-thumbnail'),
+            a2 = document.querySelectorAll('a[href*="/channel/"],a[href*="/user/"],a[href*="/c/"]'),
+            subscribe_buttons = document.querySelectorAll('ytd-subscribe-button-renderer.ytd-c4-tabbed-header-renderer');
+
+        for (var i = 0, l = a.length; i < l; i++) {
+            this.blacklist('video', a[i]);
+        }
+
+        for (var i = 0, l = subscribe_buttons.length; i < l; i++) {
+            this.blacklist('channel', subscribe_buttons[i]);
+        }
+
+        for (var i = 0, l = a2.length; i < l; i++) {
+            this.blacklist('channel', a2[i]);
+        }
     }
 
     if (!this.storage.blacklist || typeof this.storage.blacklist !== 'object') {
@@ -3442,10 +3461,11 @@ ImprovedTube.blacklist = function(type, node) {
 
     if (type === 'video') {
         var button = document.createElement('button'),
+            svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+            path = document.createElementNS('http://www.w3.org/2000/svg', 'path'),
             id = node.href.match(ImprovedTube.regex.video_id);
 
         button.className = 'it-add-to-blacklist';
-        button.textContent = 'x';
         button.addEventListener('click', function(event) {
             if (this.parentNode.href) {
                 var data = this.parentNode.parentNode.__data,
@@ -3490,7 +3510,15 @@ ImprovedTube.blacklist = function(type, node) {
             }
         }, true);
 
+        svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+        path.setAttributeNS(null, 'd', 'M12 2a10 10 0 100 20 10 10 0 000-20zm0 18A8 8 0 015.69 7.1L16.9 18.31A7.9 7.9 0 0112 20zm6.31-3.1L7.1 5.69A8 8 0 0118.31 16.9z');
+
+        svg.appendChild(path);
+        button.appendChild(svg);
+
         node.appendChild(button);
+
+        this.elements.blacklist_buttons.push(button);
 
         if (id && id[1] && ImprovedTube.storage.blacklist.videos[id[1]]) {
             node.parentNode.__dataHost.className += ' it-blacklisted-video';
@@ -3547,6 +3575,8 @@ ImprovedTube.blacklist = function(type, node) {
                 event.preventDefault();
                 event.stopPropagation();
             }, true);
+
+            this.elements.blacklist_buttons.push(button);
 
             node.parentNode.parentNode.appendChild(button);
         }
