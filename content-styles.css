@@ -3531,25 +3531,31 @@ ytd-guide-section-renderer .it-button::after {
 ------------------------------------------------------------------------------*/
 
 .it-add-to-blacklist {
-    font-size: 32px;
-    line-height: 26px;
     position: absolute;
-    z-index: 999;
     top: 4px;
     left: 4px;
+    z-index: 999;
     visibility: hidden;
-    overflow: hidden;
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     cursor: pointer;
-    padding: 0;
-    transition: transform .15s;
-    transform: scale(1);
     text-align: center;
-    color: #fff;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
     border-radius: 2px;
-    background: rgba(0,0,0,.7);
+    background: rgba(0, 0, 0, 0.8);
     border: none;
+    outline: none;
+}
+
+.it-add-to-blacklist svg {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    fill: var(--yt-spec-icon-active-other, #fff);
+    pointer-events: none;
 }
 
 .it-add-channel-to-blacklist {
@@ -3573,10 +3579,6 @@ ytd-guide-section-renderer .it-button::after {
 
 *:hover>.it-add-to-blacklist {
     visibility: visible;
-}
-
-.it-add-to-blacklist:hover {
-    transform: scale(1.25);
 }
 
 .it-blacklisted-video {
