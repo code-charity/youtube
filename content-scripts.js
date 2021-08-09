@@ -127,6 +127,10 @@ chrome.storage.onChanged.addListener(function (changes) {
             name = camelize(attribute),
             value = changes[key].newValue;
 
+        if (name === 'blacklistActivate') {
+            name = 'blacklist';
+        }
+
         document.documentElement.setAttribute('it-' + attribute, value);
 
         injectScript('ImprovedTube.storage[\'' + key + '\']=' + (typeof value === 'boolean' ? value : '\'' + value + '\'') + ';');
