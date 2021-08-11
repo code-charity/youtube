@@ -1705,9 +1705,9 @@ ImprovedTube.autoplay = function (video) {
 
     if (
         (
-            (/\/watch\?/.test(location.href) && !/list=/.test(location.href) && ImprovedTube.storage.player_autoplay === false) ||
-            (/\/watch\?/.test(location.href) && /list=/.test(location.href) && ImprovedTube.storage.playlist_autoplay === false) ||
-            (/\/(channel|user|c)\//.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
+            (location.href.indexOf('/watch/') !== -1 && location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) ||
+            (location.href.indexOf('/watch/') !== -1 && location.href.indexOf('list=') !== -1 && ImprovedTube.storage.playlist_autoplay === false) ||
+            (ImprovedTube.regex.channel.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
         ) === true &&
         ImprovedTube.allow_autoplay === false &&
         video.parentNode.parentNode.classList.contains('ad-showing') === false
