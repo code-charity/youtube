@@ -191,6 +191,7 @@ ImprovedTube.init = function () {
     this.playerOnPlay();
     this.onkeydown();
     this.onmousedown();
+    this.youtubeLanguage(false);
 
     this.observer = new MutationObserver(function(mutationList) {
         for (var i = 0, l = mutationList.length; i < l; i++) {
@@ -3772,19 +3773,30 @@ ImprovedTube.deleteYoutubeCookies = function () {
 10.4 YOUTUBE LANGUAGE
 -----------------------------------------------------------------------------*/
 
-ImprovedTube.youtubeLanguage = function () {
-    var pref = ImprovedTube.getCookieValueByName('PREF'),
-        hl = ImprovedTube.getParam(pref, 'hl');
+ImprovedTube.youtubeLanguage = function (reload) {
+    var value = this.storage.youtube_language;
 
-    if (hl) {
-        ImprovedTube.setCookie('PREF', pref.replace('hl=' + hl, 'hl=' + ImprovedTube.storage.youtube_language));
-    } else {
-        ImprovedTube.setCookie('PREF', pref + '&hl=' + ImprovedTube.storage.youtube_language);
+    if (this.isset(value)) {
+        var pref = this.getCookieValueByName('PREF');
+
+        if (value !== 'default') {
+            var hl = this.getParam(pref, 'hl');
+
+            if (hl) {
+                this.setCookie('PREF', pref.replace('hl=' + hl, 'hl=' + value));
+            } else {
+                this.setCookie('PREF', pref + '&hl=' + value);
+            }
+        } else if (reload !== false) {
+            this.setCookie('PREF', pref.replace(/hl\=[^&]+/, ''));
+        }
+
+        if (reload !== false) {
+            setTimeout(function() {
+                location.reload();
+            }, 100);
+        }
     }
-
-    setTimeout(function () {
-        location.reload();
-    }, 100);
 };
 
 
