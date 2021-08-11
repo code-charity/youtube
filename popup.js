@@ -619,6 +619,10 @@ skeleton.header.section_end.button_vert.onClickRender.settings = {
                     label: 'youtubeLanguage',
                     type: 'select',
                     options: [{
+                        value: 'default',
+                        label: 'default'
+                    },
+                    {
                         value: "en",
                         label: "English"
                     }, {
