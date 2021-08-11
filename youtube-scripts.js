@@ -183,7 +183,6 @@ ImprovedTube.init = function () {
     });*/
 
     this.bluelight();
-    this.defaultContentCountry();
     this.playerH264();
     this.player60fps();
     this.playerSDR();
@@ -191,6 +190,7 @@ ImprovedTube.init = function () {
     this.playerOnPlay();
     this.onkeydown();
     this.onmousedown();
+    this.defaultContentCountry(false);
     this.youtubeLanguage(false);
 
     this.observer = new MutationObserver(function(mutationList) {
@@ -3804,10 +3804,20 @@ ImprovedTube.youtubeLanguage = function (reload) {
 10.5 DEFAULT CONTENT COUNTRY
 -----------------------------------------------------------------------------*/
 
-ImprovedTube.defaultContentCountry = function () {
+ImprovedTube.defaultContentCountry = function (reload) {
     var value = this.storage.default_content_country;
 
-    if (this.isset(value) && value !== 'default') {
-        this.setCookie('s_gl', value);
+    if (this.isset(value)) {
+        if (value !== 'default') {
+            this.setCookie('s_gl', value);
+        } else if (reload !== false) {
+            document.cookie = 's_gl=; domain=.youtube.com; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        }
+
+        if (reload !== false) {
+            setTimeout(function() {
+                location.reload();
+            }, 100);
+        }
     }
 };
