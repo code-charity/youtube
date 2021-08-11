@@ -447,6 +447,8 @@ ImprovedTube.init = function () {
 ImprovedTube.pageType = function () {
     if (location.pathname === '/') {
         document.documentElement.dataset.pageType = 'home';
+    } else if (/\/subscriptions\?/.test(location.href)) {
+        document.documentElement.dataset.pageType = 'subscriptions';
     } else if (/\/watch\?/.test(location.href)) {
         document.documentElement.dataset.pageType = 'video';
     } else if (/\/channel|user|c\//.test(location.href)) {
