@@ -1765,7 +1765,11 @@ ImprovedTube.playerPlaybackSpeed = function (change) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.subtitles = function () {
+    var player = this.elements.player;
 
+    if (player && player.toggleSubtitlesOn) {
+        player.toggleSubtitlesOn();
+    }
 };
 
 
