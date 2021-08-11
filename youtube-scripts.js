@@ -1741,15 +1741,13 @@ ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerPlaybackSpeed = function (node) {
-    if (
-        ImprovedTube.storage.player_forced_playback_speed === true &&
-        ImprovedTube.isset(ImprovedTube.storage.player_playback_speed)
-    ) {
-        var player = ImprovedTube.elements.player,
-            video_data = player.getVideoData();
+    var value = this.storage.player_playback_speed;
 
-        if (window.location.href.indexOf('music') === -1 && !video_data.isLive) {
-            player.setPlaybackRate(Number(ImprovedTube.storage.player_playback_speed));
+    if (this.storage.player_forced_playback_speed === true && this.isset(value)) {
+        var player = this.elements.player;
+
+        if (location.href.indexOf('music') === -1 && player.getVideoData().isLive === false) {
+            player.setPlaybackRate(Number(value));
         } else {
             player.setPlaybackRate(1);
         }
