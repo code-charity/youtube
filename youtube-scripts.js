@@ -30,6 +30,7 @@
   3.3 Dim
   3.4 Font
   3.5 Themes
+  3.6 Schedule
 4.0 Player
   4.1 Autoplay
   4.2 Autopause when switching tabs
@@ -1697,6 +1698,29 @@ ImprovedTube.themes = function () {
     } else {
         document.documentElement.removeAttribute('it-theme');
     }
+};
+
+
+/*------------------------------------------------------------------------------
+3.6 SCHEDULE
+------------------------------------------------------------------------------*/
+
+ImprovedTube.schedule = function () {
+    var current = new Date().getHours(),
+        from = Number((this.storage.schedule_time_from || '00:00').substr(0, 2)),
+        to = Number((this.storage.schedule_time_to || '00:00').substr(0, 2));
+
+    if (to < from && current > from && current < 24) {
+        times.to += 24;
+    } else if (to < from && current < to) {
+        from = 0;
+    }
+
+    if (this.storage.schedule !== 'sunset_to_sunrise' || current >= from && current < to) {
+        return true;
+    }
+
+    return false;
 };
 
 
