@@ -529,7 +529,7 @@ ImprovedTube.playerOnPlay = function () {
                 ImprovedTube.played_before_blur = false;
 
                 ImprovedTube.forcedTheaterMode();
-                ImprovedTube.playerPlaybackSpeed();
+                ImprovedTube.playerPlaybackSpeed(false);
                 ImprovedTube.subtitles();
                 ImprovedTube.playerQuality();
                 ImprovedTube.playerVolume();
@@ -1740,17 +1740,22 @@ ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
 4.3 FORCED PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.playerPlaybackSpeed = function (node) {
-    var value = this.storage.player_playback_speed;
+ImprovedTube.playerPlaybackSpeed = function (change) {
+    var player = this.elements.player,
+        value = this.storage.player_playback_speed;
 
-    if (this.storage.player_forced_playback_speed === true && this.isset(value)) {
-        var player = this.elements.player;
+    if (this.isset(value) === false) {
+        value = 1;
+    }
 
+    if (this.storage.player_forced_playback_speed === true) {
         if (location.href.indexOf('music') === -1 && player.getVideoData().isLive === false) {
             player.setPlaybackRate(Number(value));
         } else {
             player.setPlaybackRate(1);
         }
+    } else if (change !== false) {
+        player.setPlaybackRate(1);
     }
 };
 
