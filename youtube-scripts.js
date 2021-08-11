@@ -1502,20 +1502,9 @@ ImprovedTube.myColors = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.bluelight = function () {
-    var value = this.storage.bluelight,
-        times = {
-            from: Number((this.storage.schedule_time_from || '00:00').substr(0, 2)),
-            to: Number((this.storage.schedule_time_to || '00:00').substr(0, 2))
-        },
-        current_time = new Date().getHours();
-
-    if (times.to < times.from && current_time > times.from && current_time < 24) {
-        times.to += 24;
-    } else if (times.to < times.from && current_time < times.to) {
-        times.from = 0;
-    }
-
-    if (this.storage.schedule === 'sunset_to_sunrise' || current_time < times.from && current_time >= times.to) {
+    var value = this.storage.bluelight;
+    
+    if (this.schedule() === false) {
         return false;
     }
 
@@ -1579,20 +1568,7 @@ ImprovedTube.bluelight = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.dim = function () {
-    var value = this.storage.dim,
-        times = {
-            from: Number((this.storage.schedule_time_from || '00:00').substr(0, 2)),
-            to: Number((this.storage.schedule_time_to || '00:00').substr(0, 2))
-        },
-        current_time = new Date().getHours();
-
-    if (times.to < times.from && current_time > times.from && current_time < 24) {
-        times.to += 24;
-    } else if (times.to < times.from && current_time < times.to) {
-        times.from = 0;
-    }
-
-    if (this.storage.schedule === 'sunset_to_sunrise' || current_time < times.from && current_time >= times.to) {
+    if (this.schedule() === false) {
         return false;
     }
 
@@ -1654,20 +1630,8 @@ ImprovedTube.font = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.themes = function () {
-    var times = {
-            from: Number((this.storage.schedule_time_from || '00:00').substr(0, 2)),
-            to: Number((this.storage.schedule_time_to || '00:00').substr(0, 2))
-        },
-        current_time = new Date().getHours();
-
-    if (times.to < times.from && current_time > times.from && current_time < 24) {
-        times.to += 24;
-    } else if (times.to < times.from && current_time < times.to) {
-        times.from = 0;
-    }
-
     if (
-        (this.storage.schedule !== 'sunset_to_sunrise' || current_time >= times.from && current_time < times.to) &&
+        this.schedule() === true &&
         (
             this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false ||
             this.isset(ImprovedTube.storage.night_theme) && ImprovedTube.storage.night_theme !== false ||
