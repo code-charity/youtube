@@ -3538,6 +3538,14 @@ skeleton.main.section.player = {
                     max: 100,
                     step: 1
                 },
+                subtitles_window_opacity: {
+                    type: 'slider',
+                    label: 'windowOpacity',
+                    value: 0,
+                    min: 0,
+                    max: 100,
+                    step: 1
+                },
                 subtitles_character_edge_style: {
                     type: 'select',
                     label: 'characterEdgeStyle',
