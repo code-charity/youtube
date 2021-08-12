@@ -54,7 +54,7 @@
         "message": "항상 활성화"
     },
     "alwaysShowProgressBar": {
-        "message": "재생 진행 상태 항상 표시"
+        "message": "재생 진행상태(Progress Bar) 항상 표시"
     },
     "amber": {
         "message": "호박색"
@@ -219,7 +219,7 @@
         "message": "설명"
     },
     "description_ext": {
-        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+        "message": "유튜브를 깔끌하고 스마트하게 만들어줍니다! 유튜브 비디오 내 컬러, 광고제거, 볼륨, 배속, 채널 툴, 스타일, HD, 광고성 블록, 태그, 키워드, 재생목록"
     },
     "desert": {
         "message": "사막"
@@ -231,7 +231,7 @@
         "message": "개발자 옵션"
     },
     "device": {
-        "message": "기기"
+        "message": "디바이스"
     },
     "dim": {
         "message": "어둡게"
@@ -261,7 +261,7 @@
         "message": "활성화"
     },
     "enabledForced": {
-        "message": "활성화 (강제)"
+        "message": "강제로 활성화"
     },
     "expanded": {
         "message": "확장"
@@ -348,10 +348,10 @@
         "message": "카드 숨기기"
     },
     "hideCountryCode": {
-        "message": "Hide country code"
+        "message": "국가코드 숨기기"
     },
     "hideDate": {
-        "message": "Hide date"
+        "message": "날짜 숨기기"
     },
     "hideDetails": {
         "message": "상세설명 숨기기"
@@ -369,7 +369,7 @@
         "message": "그라데이션 맨 아래로 숨기기"
     },
     "hideMoreButton": {
-        "message": "Hide \"More\" button"
+        "message": "\"더보기\" 버튼 숨기기"
     },
     "hidePlaylist": {
         "message": "재생 목록 숨기기"
@@ -378,22 +378,22 @@
         "message": "오른쪽 버튼 숨기기"
     },
     "hideSaveButton": {
-        "message": "Hide \"Save\" button"
+        "message": "\"저장\" 버튼 숨기기"
     },
     "hideScrollForDetails": {
         "message": "«스크롤 하여 자세한 설명» 숨기기"
     },
     "hideShareButton": {
-        "message": "Hide \"Share\" button"
+        "message": "\"공유\" 버튼 숨기기"
     },
     "hideSkipOverlay": {
-        "message": "Hide Skip Overlay"
+        "message": "\"오버레이 건너뛰기\" 숨기기"
     },
     "hideViewsCount": {
         "message": "조회수 숨기기"
     },
     "hideVoiceSearchButton": {
-        "message": "Hide voice search button"
+        "message": "\"음성으로 찾기\" 버튼 숨기기"
     },
     "history": {
         "message": "히스토리"
@@ -483,7 +483,7 @@
         "message": "실시간 채팅 유형"
     },
     "location": {
-        "message": "Location"
+        "message": "지역"
     },
     "loudnessNormalization": {
         "message": "볼륨 자동조정"
@@ -669,10 +669,10 @@
         "message": "앞으로 10초"
     },
     "seekNextChapter": {
-        "message": "seekNextChapter"
+        "message": "다음 챕터 보기"
     },
     "seekPreviousChapter": {
-        "message": "seekPreviousChapter"
+        "message": "이전 챕터 보기"
     },
     "settings": {
         "message": "설정"
