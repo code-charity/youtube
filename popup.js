@@ -3538,6 +3538,26 @@ skeleton.main.section.player = {
                     max: 100,
                     step: 1
                 },
+                subtitles_character_edge_style: {
+                    type: 'select',
+                    label: 'characterEdgeStyle',
+                    options: [{
+                        label: 'none',
+                        value: 0
+                    }, {
+                        label: 'dropShadow',
+                        value: 4
+                    }, {
+                        label: 'raised',
+                        value: 1
+                    }, {
+                        label: 'depressed',
+                        value: 2
+                    }, {
+                        label: 'outline',
+                        value: 3
+                    }]
+                },
                 subtitles_font_opacity: {
                     type: 'slider',
                     label: 'fontOpacity',
