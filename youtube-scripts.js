@@ -534,6 +534,7 @@ ImprovedTube.playerOnPlay = function () {
                 ImprovedTube.subtitlesFontColor();
                 ImprovedTube.subtitlesFontSize();
                 ImprovedTube.subtitlesBackgroundColor();
+                ImprovedTube.subtitlesWindowOpacity();
                 ImprovedTube.subtitlesCharacterEdgeStyle();
                 ImprovedTube.subtitlesFontOpacity();
                 ImprovedTube.subtitlesBackgroundOpacity();
@@ -1899,6 +1900,27 @@ ImprovedTube.subtitlesBackgroundOpacity = function () {
             var settings = player.getSubtitlesUserSettings();
 
             settings.backgroundOpacity = option / 100;
+
+            player.updateSubtitlesUserSettings(settings);
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.4.4.7 SUBTITLES WINDOW OPACITY
+------------------------------------------------------------------------------*/
+
+ImprovedTube.subtitlesWindowOpacity = function () {
+    var option = this.storage.subtitles_window_opacity;
+
+    if (this.isset(option)) {
+        var player = this.elements.player;
+
+        if (player && player.getSubtitlesUserSettings) {
+            var settings = player.getSubtitlesUserSettings();
+
+            settings.windowOpacity = Number(option) / 100;
 
             player.updateSubtitlesUserSettings(settings);
         }
