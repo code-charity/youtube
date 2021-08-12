@@ -3420,6 +3420,32 @@ skeleton.main.section.player = {
                     type: 'switch',
                     label: 'subtitles'
                 },
+                subtitles_font_family: {
+                    type: 'select',
+                    label: 'fontFamily',
+                    options: [{
+                        label: 'Monospaced Serif',
+                        value: 1
+                    }, {
+                        label: 'Proportional Serif',
+                        value: 2
+                    }, {
+                        label: 'Monospaced Sans-Serif',
+                        value: 3
+                    }, {
+                        label: 'Proportional Sans-Serif',
+                        value: 4
+                    }, {
+                        label: 'Casual',
+                        value: 5
+                    }, {
+                        label: 'Cursive',
+                        value: 6
+                    }, {
+                        label: 'Small Capitals',
+                        value: 7
+                    }]
+                },
                 subtitles_font_size: {
                     type: 'select',
                     label: 'fontSize',
