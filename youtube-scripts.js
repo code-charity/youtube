@@ -1905,6 +1905,27 @@ ImprovedTube.subtitlesBackgroundOpacity = function () {
 
 
 /*------------------------------------------------------------------------------
+4.4.4.9 SUBTITLES FONT OPACITY
+------------------------------------------------------------------------------*/
+
+ImprovedTube.subtitlesFontOpacity = function () {
+    var option = this.storage.subtitles_font_opacity;
+
+    if (this.isset(option)) {
+        var player = this.elements.player;
+
+        if (player && player.getSubtitlesUserSettings) {
+            var settings = player.getSubtitlesUserSettings();
+
+            settings.textOpacity = option / 100;
+
+            player.updateSubtitlesUserSettings(settings);
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
 4.4.5 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
 

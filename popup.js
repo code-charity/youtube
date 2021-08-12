@@ -3537,6 +3537,14 @@ skeleton.main.section.player = {
                     min: 0,
                     max: 100,
                     step: 1
+                },
+                subtitles_font_opacity: {
+                    type: 'slider',
+                    label: 'fontOpacity',
+                    value: 100,
+                    min: 0,
+                    max: 100,
+                    step: 1
                 }
             }
         },
