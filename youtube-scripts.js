@@ -2,99 +2,101 @@
 >>> TABLE OF CONTENTS:
 --------------------------------------------------------------------------------
 1.0 Global variable
-
-1.0 General
-  1.1 YouTube home page
-  1.2 Collapse of subscription sections
-  1.3 Add "Scroll to top"
-  1.4 Confirmation before closing
-  1.5 Mark watched videos
-  1.6 Only one player instance playing
-  1.7 HD thumbnails
-2.0 Appearance
-  2.1 Player
-    2.1.1 Player size
-    2.1.2 Forced theater mode
-    2.1.3 HD thumbnail
-    2.1.4 Always show progress bar
-  2.2 Sidebar
-    2.2.1 Livechat
-    2.2.2 Related videos
-  2.3 Details
-    2.3.1 How long ago the video was uploaded
-    2.3.2 Show channel videos count
-  2.5 Comments
-3.0 Themes
-  3.1 My colors
-  3.2 Bluelight
-  3.3 Dim
-  3.4 Font
-  3.5 Themes
-  3.6 Schedule
-4.0 Player
-  4.1 Autoplay
-  4.2 Autopause when switching tabs
-  4.3 Forced playback speed
-  4.4 Subtitles
-  4.5 Up next autoplay
-  4.6 Ads
-  4.7 Custom mini-player
-  4.8 Auto fullscreen
-  4.9 Quality
-  4.10 Codec h.264
-  4.11 Allow 60fps
-  4.12 Forced volume
-  4.13 Loudness normalization
-  4.14 Screenshot
-  4.15 Repeat
-  4.16 Rotate
-  4.17 Popup player
-  4.18 Force SDR
-  4.19 Hide controls
-5.0 Playlist
-  5.1 Up next autoplay
-  5.2 Reverse
-  5.3 Repeat
-  5.4 Shuffle
-6.0 Channel
-  6.1 Default channel tab
-7.0 Shortcuts
-    # Quality
-    # Picture in Picture
-    # Toggle control
-    # Play / pause
-    # Stop
-    # Toggle autoplay
-    # Next videos
-    # Previous video
-    # Seek backward
-    # Seek forward
-    # Seek next chapter
-    # Seek previous chapter
-    # Increase volume
-    # Decrease volume
-    # Screenshot
-    # Increase playback speed
-    # Decrease playback speed
-    # Go to search box
-    # Activate fullscreen
-    # Activate captions
-    # Like
-    # Dislike
-    # Subscribe
-    # Dark theme
-    # Custom mini player
-    # Stats for nerds
-    # Toggle cards
-    # Popup player
-8.0 Blacklist
-9.0 Analyzer
-10.0 Settings
-   10.1 ImprovedTube icon
-   10.2 ImprovedTube player buttons
-   10.3 Delete YouTube cookies
-   10.4 YouTube language
-   10.5 Default content country
+2.0 Initialization
+3.0 
+4.0 Features
+    4.1.0 General
+      4.1.1 YouTube home page
+      4.1.2 Collapse of subscription sections
+      4.1.3 Add "Scroll to top"
+      4.1.4 Confirmation before closing
+      4.1.5 Mark watched videos
+      4.1.6 Only one player instance playing
+      4.1.7 HD thumbnails
+    4.2.0 Appearance
+      4.2.1 Player
+        4.2.1.1 Player size
+        4.2.1.2 Forced theater mode
+        4.2.1.3 HD thumbnail
+        4.2.1.4 Always show progress bar
+      4.2.2 Sidebar
+        4.2.2.1 Livechat
+        4.2.2.2 Related videos
+      4.2.3 Details
+        4.2.3.1 How long ago the video was uploaded
+        4.2.3.2 Show channel videos count
+      4.2.5 Comments
+    4.3.0 Themes
+      4.3.1 My colors
+      4.3.2 Bluelight
+      4.3.3 Dim
+      4.3.4 Font
+      4.3.5 Themes
+      4.3.6 Schedule
+    4.4.0 Player
+      4.4.1 Autoplay
+      4.4.2 Autopause when switching tabs
+      4.4.3 Forced playback speed
+      4.4.4 Subtitles
+      4.4.5 Up next autoplay
+      4.4.6 Ads
+      4.4.7 Custom mini-player
+      4.4.8 Auto fullscreen
+      4.4.9 Quality
+      4.4.10 Codec h.264
+      4.4.11 Allow 60fps
+      4.4.12 Forced volume
+      4.4.13 Loudness normalization
+      4.4.14 Screenshot
+      4.4.15 Repeat
+      4.4.16 Rotate
+      4.4.17 Popup player
+      4.4.18 Force SDR
+      4.4.19 Hide controls
+    4.5.0 Playlist
+      4.5.1 Up next autoplay
+      4.5.2 Reverse
+      4.5.3 Repeat
+      4.5.4 Shuffle
+    4.6.0 Channel
+      4.6.1 Default channel tab
+    4.7.0 Shortcuts
+        4.7.1 Quality
+        4.7.2 Picture in Picture
+        4.7.3 Toggle control
+        4.7.4 Play / pause
+        4.7.5 Stop
+        4.7.6 Toggle autoplay
+        4.7.7 Next videos
+        4.7.8 Previous video
+        4.7.9 Seek backward
+        4.7.10 Seek forward
+        4.7.11 Seek next chapter
+        4.7.12 Seek previous chapter
+        4.7.13 Increase volume
+        4.7.14 Decrease volume
+        4.7.15 Screenshot
+        4.7.16 Increase playback speed
+        4.7.17 Decrease playback speed
+        4.7.18 Go to search box
+        4.7.19 Activate fullscreen
+        4.7.20 Activate captions
+        4.7.21 Like
+        4.7.22 Dislike
+        4.7.23 Subscribe
+        4.7.24 Dark theme
+        4.7.25 Custom mini player
+        4.7.26 Stats for nerds
+        4.7.27 Toggle cards
+        4.7.28 Popup player
+    4.8.0 Blacklist
+    4.9.0 Analyzer
+    4.10.0 Settings
+       4.10.1 ImprovedTube icon
+       4.10.2 ImprovedTube player buttons
+       4.10.3 Delete YouTube cookies
+       4.10.4 YouTube language
+       4.10.5 Default content country
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
@@ -442,7 +444,9 @@ ImprovedTube.init = function () {
 
 
 /*------------------------------------------------------------------------------
-0.0 PAGE
+3.0
+--------------------------------------------------------------------------------
+
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.pageType = function () {
@@ -500,11 +504,6 @@ ImprovedTube.videoPageUpdate = function () {
         }
     }
 };
-
-
-/*------------------------------------------------------------------------------
-0.0 PLAYER
-------------------------------------------------------------------------------*/
 
 ImprovedTube.playerOnPlay = function () {
     HTMLMediaElement.prototype.play = (function (original) {
@@ -594,11 +593,6 @@ ImprovedTube.playerOnEnded = function (event) {
     ImprovedTube.played_time = 0;
 };
 
-
-/*------------------------------------------------------------------------------
-0.0 ONKEYDOWN
-------------------------------------------------------------------------------*/
-
 ImprovedTube.onkeydown = function () {
     window.addEventListener('keydown', function () {
         if (
@@ -609,11 +603,6 @@ ImprovedTube.onkeydown = function () {
         }
     }, true);
 };
-
-
-/*------------------------------------------------------------------------------
-0.0 ONMOUSEDOWN
-------------------------------------------------------------------------------*/
 
 ImprovedTube.onmousedown = function (event) {
     window.addEventListener('mousedown', function (event) {
@@ -762,13 +751,43 @@ ImprovedTube.stopPropagation = function (event) {
     event.stopPropagation();
 };
 
+ImprovedTube.showStatus = function (value) {
+    if (!this.elements.status) {
+        this.elements.status = document.createElement('div');
+
+        this.elements.status.id = 'it-status';
+    }
+
+    if (typeof value === 'number') {
+        value = value.toFixed(2);
+    }
+
+    this.elements.status.textContent = value;
+
+    if (ImprovedTube.status_timer) {
+        clearTimeout(ImprovedTube.status_timer);
+    }
+
+    ImprovedTube.status_timer = setTimeout(function () {
+        ImprovedTube.elements.status.remove();
+    }, 500);
+
+    this.elements.player.appendChild(this.elements.status);
+};
+
 
 /*------------------------------------------------------------------------------
-1.0 GENERAL
+4.0 FEATURES
+--------------------------------------------------------------------------------
+
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-1.1 YOUTUBE HOME PAGE
+4.1.0 GENERAL
+------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------
+4.1.1 YOUTUBE HOME PAGE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.youtubeHomePage = function (node) {
@@ -789,7 +808,7 @@ ImprovedTube.youtubeHomePage = function (node) {
 
 
 /*------------------------------------------------------------------------------
-1.2 COLLAPSE OF SUBSCRIPTION SECTION
+4.1.2 COLLAPSE OF SUBSCRIPTION SECTION
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.collapseOfSubscriptionSections = function (node) {
@@ -863,7 +882,7 @@ ImprovedTube.collapseOfSubscriptionSections = function (node) {
 
 
 /*------------------------------------------------------------------------------
-1.3 ADD "SCROLL TO TOP"
+4.1.3 ADD "SCROLL TO TOP"
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.addScrollToTop = function () {
@@ -905,7 +924,7 @@ ImprovedTube.addScrollToTop = function () {
 
 
 /*------------------------------------------------------------------------------
-1.4 CONFIRMATION BEFORE CLOSING
+4.1.4 CONFIRMATION BEFORE CLOSING
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.confirmationBeforeClosing = function () {
@@ -918,7 +937,7 @@ ImprovedTube.confirmationBeforeClosing = function () {
 
 
 /*------------------------------------------------------------------------------
-1.5 MARK WATCHED VIDEOS
+4.1.5 MARK WATCHED VIDEOS
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.markWatchedVideos = function (node) {
@@ -1030,7 +1049,7 @@ document.addEventListener('ImprovedTubeWatched', function (event) {
 
 
 /*------------------------------------------------------------------------------
-1.6 ONLY ONE PLAYER INSTANCE PLAYING
+4.1.6 ONLY ONE PLAYER INSTANCE PLAYING
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.onlyOnePlayerInstancePlaying = function () {
@@ -1055,7 +1074,7 @@ document.addEventListener('ImprovedTubeOnlyOnePlayer', function (event) {
 
 
 /*------------------------------------------------------------------------------
-1.7 HD THUMBNAILS
+4.1.7 HD THUMBNAILS
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.hdThumbnails = function (node) {
@@ -1092,15 +1111,15 @@ ImprovedTube.hdThumbnails = function (node) {
 
 
 /*------------------------------------------------------------------------------
-2.0 APPEARANCE
+4.2.0 APPEARANCE
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-2.1 PLAYER
+4.2.1 PLAYER
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-2.1.1 PLAYER SIZE
+4.2.1.1 PLAYER SIZE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerSize = function () {
@@ -1146,7 +1165,7 @@ ImprovedTube.playerSize = function () {
 
 
 /*------------------------------------------------------------------------------
-2.1.2 FORCED THEATER MODE
+4.2.1.2 FORCED THEATER MODE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.forcedTheaterMode = function () {
@@ -1163,7 +1182,7 @@ ImprovedTube.forcedTheaterMode = function () {
 
 
 /*------------------------------------------------------------------------------
-2.1.3 HD THUMBNAIL
+4.2.1.3 HD THUMBNAIL
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerHdThumbnail = function () {
@@ -1178,7 +1197,7 @@ ImprovedTube.playerHdThumbnail = function () {
 
 
 /*------------------------------------------------------------------------------
-2.1.4 ALWAYS SHOW PROGRESS BAR
+4.2.1.4 ALWAYS SHOW PROGRESS BAR
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.alwaysShowProgressBar = function () {
@@ -1230,11 +1249,11 @@ ImprovedTube.alwaysShowProgressBar = function () {
 
 
 /*------------------------------------------------------------------------------
-2.2 SIDEBAR
+4.2.2 SIDEBAR
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-2.2.1 LIVECHAT
+4.2.2.1 LIVECHAT
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.livechat = function () {
@@ -1245,7 +1264,7 @@ ImprovedTube.livechat = function () {
 
 
 /*------------------------------------------------------------------------------
-2.2.2 RELATED VIDEOS
+4.2.2.2 RELATED VIDEOS
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.relatedVideos = function () {
@@ -1284,11 +1303,11 @@ ImprovedTube.relatedVideos = function () {
 
 
 /*------------------------------------------------------------------------------
-2.3 DETAILS
+4.2.3 DETAILS
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-2.3.1 HOW LONG AGO THE VIDEO WAS UPLOADED
+4.2.3.1 HOW LONG AGO THE VIDEO WAS UPLOADED
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
@@ -1353,7 +1372,7 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
 
 
 /*------------------------------------------------------------------------------
-2.3.2 SHOW CHANNEL VIDEOS COUNT
+4.2.3.2 SHOW CHANNEL VIDEOS COUNT
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.channelVideosCount = function () {
@@ -1389,7 +1408,7 @@ ImprovedTube.channelVideosCount = function () {
 
 
 /*------------------------------------------------------------------------------
-2.4 COMMENTS
+4.2.4 COMMENTS
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.comments = function () {
@@ -1435,11 +1454,11 @@ ImprovedTube.comments = function () {
 
 
 /*------------------------------------------------------------------------------
-3.0 THEMES
+4.3.0 THEMES
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-3.1 MY COLORS
+4.3.1 MY COLORS
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.myColors = function () {
@@ -1498,7 +1517,7 @@ ImprovedTube.myColors = function () {
 
 
 /*------------------------------------------------------------------------------
-3.2 BLUELIGHT
+4.3.2 BLUELIGHT
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.bluelight = function () {
@@ -1564,7 +1583,7 @@ ImprovedTube.bluelight = function () {
 
 
 /*------------------------------------------------------------------------------
-3.3 DIM
+4.3.3 DIM
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.dim = function () {
@@ -1604,7 +1623,7 @@ ImprovedTube.dim = function () {
 
 
 /*------------------------------------------------------------------------------
-3.4 FONT
+4.3.4 FONT
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.font = function () {
@@ -1628,7 +1647,7 @@ ImprovedTube.font = function () {
 
 
 /*------------------------------------------------------------------------------
-3.5 THEMES
+4.3.5 THEMES
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.themes = function () {
@@ -1668,7 +1687,7 @@ ImprovedTube.themes = function () {
 
 
 /*------------------------------------------------------------------------------
-3.6 SCHEDULE
+4.3.6 SCHEDULE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.schedule = function () {
@@ -1691,11 +1710,11 @@ ImprovedTube.schedule = function () {
 
 
 /*------------------------------------------------------------------------------
-4.0 PLAYER
+4.4.0 PLAYER
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-4.1 AUTOPLAY
+4.4.1 AUTOPLAY
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.autoplay = function (video) {
@@ -1720,7 +1739,7 @@ ImprovedTube.autoplay = function (video) {
 
 
 /*------------------------------------------------------------------------------
-4.2 AUTOPAUSE WHEN SWITCHING TABS
+4.4.2 AUTOPAUSE WHEN SWITCHING TABS
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
@@ -1739,7 +1758,7 @@ ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
 
 
 /*------------------------------------------------------------------------------
-4.3 FORCED PLAYBACK SPEED
+4.4.3 FORCED PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerPlaybackSpeed = function (change) {
@@ -1763,7 +1782,7 @@ ImprovedTube.playerPlaybackSpeed = function (change) {
 
 
 /*------------------------------------------------------------------------------
-4.4 SUBTITLES
+4.4.4 SUBTITLES
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.subtitles = function () {
@@ -1776,7 +1795,7 @@ ImprovedTube.subtitles = function () {
 
 
 /*------------------------------------------------------------------------------
-4.5 UP NEXT AUTOPLAY
+4.4.5 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.upNextAutoplay = function () {
@@ -1796,7 +1815,7 @@ ImprovedTube.upNextAutoplay = function () {
 
 
 /*------------------------------------------------------------------------------
-4.6 ADS
+4.4.6 ADS
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerAds = function (parent) {
@@ -1817,7 +1836,7 @@ ImprovedTube.playerAds = function (parent) {
 
 
 /*------------------------------------------------------------------------------
-4.7 CUSTOM MINI-PLAYER
+4.4.7 CUSTOM MINI-PLAYER
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.mini_player__setSize = function (width, height) {
@@ -2147,7 +2166,7 @@ ImprovedTube.miniPlayer = function () {
 
 
 /*------------------------------------------------------------------------------
-4.8 AUTO FULLSCREEN
+4.4.8 AUTO FULLSCREEN
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerAutofullscreen = function () {
@@ -2162,7 +2181,7 @@ ImprovedTube.playerAutofullscreen = function () {
 
 
 /*------------------------------------------------------------------------------
-4.9 QUALITY
+4.4.9 QUALITY
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerQuality = function () {
@@ -2184,7 +2203,7 @@ ImprovedTube.playerQuality = function () {
 
 
 /*------------------------------------------------------------------------------
-4.10 CODEC H.264
+4.4.10 CODEC H.264
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerH264 = function () {
@@ -2221,7 +2240,7 @@ ImprovedTube.playerH264 = function () {
 
 
 /*------------------------------------------------------------------------------
-4.11 ALLOW 60FPS
+4.4.11 ALLOW 60FPS
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.player60fps = function () {
@@ -2260,7 +2279,7 @@ ImprovedTube.player60fps = function () {
 
 
 /*------------------------------------------------------------------------------
-4.12 FORCED VOLUME
+4.4.12 FORCED VOLUME
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerVolume = function () {
@@ -2279,7 +2298,7 @@ ImprovedTube.playerVolume = function () {
 
 
 /*------------------------------------------------------------------------------
-4.13 LOUDNESS NORMALIZATION
+4.4.13 LOUDNESS NORMALIZATION
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.onvolumechange = function (event) {
@@ -2319,7 +2338,7 @@ ImprovedTube.playerLoudnessNormalization = function () {
 
 
 /*------------------------------------------------------------------------------
-4.14 SCREENSHOT
+4.4.14 SCREENSHOT
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.screenshot = function () {
@@ -2384,7 +2403,7 @@ ImprovedTube.playerScreenshotButton = function () {
 
 
 /*------------------------------------------------------------------------------
-4.15 REPEAT
+4.4.15 REPEAT
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerRepeatButton = function (node) {
@@ -2430,7 +2449,7 @@ ImprovedTube.playerRepeatButton = function (node) {
 
 
 /*------------------------------------------------------------------------------
-4.16 ROTATE
+4.4.16 ROTATE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerRotateButton = function () {
@@ -2489,7 +2508,7 @@ ImprovedTube.playerRotateButton = function () {
 
 
 /*------------------------------------------------------------------------------
-4.17 POPUP PLAYER
+4.4.17 POPUP PLAYER
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerPopupButton = function () {
@@ -2522,7 +2541,7 @@ ImprovedTube.playerPopupButton = function () {
 
 
 /*------------------------------------------------------------------------------
-4.18 Force SDR
+4.4.18 Force SDR
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerSDR = function () {
@@ -2537,7 +2556,7 @@ ImprovedTube.playerSDR = function () {
 
 
 /*------------------------------------------------------------------------------
-4.19 Hide controls
+4.4.19 Hide controls
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerControls = function () {
@@ -2550,11 +2569,11 @@ ImprovedTube.playerControls = function () {
 
 
 /*------------------------------------------------------------------------------
-5.0 PLAYLIST
+4.5.0 PLAYLIST
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-5.1 UP NEXT AUTOPLAY
+4.5.1 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playlistUpNextAutoplay = function (event) {
@@ -2569,7 +2588,7 @@ ImprovedTube.playlistUpNextAutoplay = function (event) {
 
 
 /*------------------------------------------------------------------------------
-5.2 REVERSE
+4.5.2 REVERSE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playlistReverse = function () {
@@ -2676,7 +2695,7 @@ ImprovedTube.playlistReverse = function () {
 
 
 /*------------------------------------------------------------------------------
-5.3 REPEAT
+4.5.3 REPEAT
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playlistRepeat = function () {
@@ -2690,7 +2709,7 @@ ImprovedTube.playlistRepeat = function () {
 
 
 /*------------------------------------------------------------------------------
-5.4 SHUFFLE
+4.5.4 SHUFFLE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playlistShuffle = function () {
@@ -2704,11 +2723,11 @@ ImprovedTube.playlistShuffle = function () {
 
 
 /*------------------------------------------------------------------------------
-6.0 CHANNEL
+4.6.0 CHANNEL
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-6.1 DEFAULT CHANNEL TAB
+4.6.1 DEFAULT CHANNEL TAB
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.channelDefaultTab = function (a) {
@@ -2731,486 +2750,8 @@ ImprovedTube.channelDefaultTab = function (a) {
 
 
 /*------------------------------------------------------------------------------
-7.0 SHORTCUTS
+4.7.0 SHORTCUTS
 ------------------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------------------
-# QUALITY
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutQuality = function (key) {
-    if (this.elements.player) {
-        var value = key.replace('shortcut', '').toLowerCase();
-
-        if (value === '240p') {
-            value = 'small';
-        }
-
-        if (value === '360p') {
-            value = 'medium';
-        }
-
-        if (value === '480p') {
-            value = 'large';
-        }
-
-        if (value === '720p') {
-            value = 'hd720';
-        }
-
-        if (value === '1080p') {
-            value = 'hd1080';
-        }
-
-        if (value === '1440p') {
-            value = 'hd1440';
-        }
-
-        if (value === '2160p') {
-            value = 'hd2160';
-        }
-
-        if (value === '2880p') {
-            value = 'hd2880';
-        }
-
-        if (value === '4320p') {
-            value = 'highres';
-        }
-
-        this.elements.player.setPlaybackQualityRange(value);
-        this.elements.player.setPlaybackQuality(value);
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# PICTURE IN PICTURE
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutPictureInPicture = function () {
-    if (this.elements.video) {
-        this.elements.video.requestPictureInPicture();
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# TOGGLE CONTROLS
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutToggleControls = function () {
-    if (this.elements.player) {
-        this.storage.player_hide_controls = !this.storage.player_hide_controls;
-
-        if (this.storage.player_hide_controls) {
-            this.elements.player.hideControls();
-        } else {
-            this.elements.player.showControls();
-        }
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# PLAY / PAUSE
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutPlayPause = function () {
-    if (this.elements.player) {
-        if (this.elements.video.paused) {
-            this.elements.player.playVideo();
-        } else {
-            this.elements.player.pauseVideo();
-        }
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# STOP
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutStop = function () {
-    if (this.elements.player) {
-        this.elements.player.stopVideo();
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# TOGGLE AUTOPLAY
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutToggleAutoplay = function () {
-    var toggle = document.querySelector('.ytp-autonav-toggle-button'),
-        attribute = toggle.getAttribute('aria-checked') === 'true';
-
-    if (toggle) {
-        toggle.click();
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# NEXT VIDEO
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutNextVideo = function () {
-    if (this.elements.player) {
-        this.elements.player.nextVideo();
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# PREVIOUS VIDEO
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutPrevVideo = function () {
-    if (this.elements.player) {
-        this.elements.player.previousVideo();
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# SEEK BACKWARD
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutSeekBackward = function () {
-    if (this.elements.player) {
-        this.elements.player.seekBy(-10);
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# SEEK FORWARD
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutSeekForward = function () {
-    if (this.elements.player) {
-        this.elements.player.seekBy(10);
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# SEEK NEXT CHAPTER
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutSeekNextChapter = function () {
-    var player = this.elements.player;
-    
-    if (player) {
-        var duration = player.getDuration(),
-            current_time = player.getCurrentTime(),
-            chapters_container = player.querySelector('.ytp-chapters-container'),
-            progress_bar_width = player.querySelector('.ytp-chrome-bottom').offsetWidth,
-            current_width = 0;
-
-        if (!player || !player.seekBy || !progress_bar_width || !chapters_container || !chapters_container.children) {
-            return;
-        }
-
-        var chapters = chapters_container.children;
-
-        for (var i = 0, l = chapters.length; i < l; i++) {
-            var width = chapters[i].offsetWidth;
-
-            if (
-                (current_width - 2) / progress_bar_width <= current_time / duration &&
-                (current_width - 2 + width) / progress_bar_width >= current_time / duration
-            ) {
-                player.seekTo(((width + current_width) / progress_bar_width) * duration);
-
-                return;
-            }
-
-            current_width += width + 2;
-        }
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# SEEK PREVIOUS CHAPTER
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutSeekPreviousChapter = function () {
-    var player = this.elements.player;
-    
-    if (player) {
-        var duration = player.getDuration(),
-            current_time = player.getCurrentTime(),
-            chapters_container = player.querySelector('.ytp-chapters-container'),
-            progress_bar_width = player.querySelector('.ytp-chrome-bottom').offsetWidth,
-            current_width = 0;
-
-        if (!player || !player.seekBy || !progress_bar_width || !chapters_container || !chapters_container.children) {
-            return;
-        }
-
-        var chapters = chapters_container.children;
-
-        for (var i = 0, l = chapters.length; i < l; i++) {
-            var width = chapters[i].offsetWidth;
-
-            if (
-                (current_width + 2) / progress_bar_width <= current_time / duration &&
-                (current_width + 2 + width) / progress_bar_width >= current_time / duration
-            ) {
-                player.seekTo(((current_width - 2) / progress_bar_width) * duration);
-
-                return;
-            }
-
-            current_width += width + 2;
-        }
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# INCREASE VOLUME
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutIncreaseVolume = function () {
-    var player = this.elements.player,
-        value = Number(this.storage.shortcut_volume_step) || 5;
-
-    if (player) {
-        player.setVolume(player.getVolume() + value);
-
-        this.showStatus(player.getVolume());
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# DECREASE VOLUME
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutDecreaseVolume = function () {
-    var player = this.elements.player,
-        value = Number(this.storage.shortcut_volume_step) || 5;
-    
-    if (player) {
-        player.setVolume(player.getVolume() - value);
-
-        this.showStatus(player.getVolume());
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# SCREENSHOT
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutScreenshot = function () {
-    this.screenshot();
-};
-
-
-/*------------------------------------------------------------------------------
-# INCREASE PLAYBACK SPEED
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutIncreasePlaybackSpeed = function () {
-    var video = this.elements.video,
-        value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
-
-    if (video) {
-        video.playbackRate = video.playbackRate + value;
-
-        ImprovedTube.showStatus(video.playbackRate);
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# DECREASE PLAYBACK SPEED
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
-    var video = this.elements.video,
-        value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
-
-    if (video) {
-        video.playbackRate = Math.max(video.playbackRate - value, .05);
-
-        ImprovedTube.showStatus(video.playbackRate);
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# GO TO SEARCH BOX
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutGoToSearchBox = function () {
-    var search = document.querySelector('#search');
-
-    if (search) {
-        search.focus();
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# ACTIVATE FULLSCREEN
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutActivateFullscreen = function () {
-    if (this.elements.player) {
-        this.elements.player.toggleFullscreen();
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# ACTIVATE CAPTIONS
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutActivateCaptions = function () {
-    var player = this.elements.player;
-
-    if (player && player.toggleSubtitlesOn) {
-        player.toggleSubtitlesOn();
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# LIKE
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutLike = function () {
-    var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer')[0]);
-
-    if (like) {
-        like.click();
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# DISLIKE
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutDislike = function () {
-    var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer')[1]);
-
-    if (like) {
-        like.click();
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# SUBSCRIBE
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutSubscribe = function () {
-    if (this.elements.subscribe_button) {
-        this.elements.subscribe_button.click();
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# DARK THEME
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutDarkTheme = function () {
-    if (document.documentElement.hasAttribute('dark')) {
-        document.documentElement.removeAttribute('dark');
-        document.documentElement.removeAttribute('it-theme');
-    } else {
-        document.documentElement.setAttribute('dark', '');
-        document.documentElement.setAttribute('it-theme', 'true');
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# CUSTOM MINI PLAYER
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutCustomMiniPlayer = function () {
-    this.storage.mini_player = !this.storage.mini_player;
-
-    this.miniPlayer();
-};
-
-
-/*------------------------------------------------------------------------------
-# STATS FOR NERDS
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutStatsForNerds = function () {
-    var player = this.elements.player;
-
-    if (player.isVideoInfoVisible()) {
-        player.hideVideoInfo();
-    } else {
-        player.showVideoInfo();
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# TOGGLE CARDS
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutToggleCards = function () {
-    document.documentElement.toggleAttribute('it-player-hide-cards');
-};
-
-
-/*------------------------------------------------------------------------------
-# POPUP PLAYER
-------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutPopupPlayer = function () {
-    var player = this.elements.player;
-
-    if (document.documentElement.dataset.pageType === 'video' && player) {
-        player.pauseVideo();
-
-        window.open('//www.youtube.com/embed/' + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8) + '?start=' + parseInt(player.getCurrentTime()) + '&autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=' + player.offsetWidth + ',height=' + player.offsetHeight);
-    }
-};
-
-
-/*------------------------------------------------------------------------------
-# SHORTCUTS
-------------------------------------------------------------------------------*/
-
-ImprovedTube.showStatus = function (value) {
-    if (!this.elements.status) {
-        this.elements.status = document.createElement('div');
-
-        this.elements.status.id = 'it-status';
-    }
-
-    if (typeof value === 'number') {
-        value = value.toFixed(2);
-    }
-
-    this.elements.status.textContent = value;
-
-    if (ImprovedTube.status_timer) {
-        clearTimeout(ImprovedTube.status_timer);
-    }
-
-    ImprovedTube.status_timer = setTimeout(function () {
-        ImprovedTube.elements.status.remove();
-    }, 500);
-
-    this.elements.player.appendChild(this.elements.status);
-};
 
 ImprovedTube.shortcuts = function() {
     var keyboard = {
@@ -3408,7 +2949,457 @@ ImprovedTube.shortcuts = function() {
 
 
 /*------------------------------------------------------------------------------
-8.0 BLACKLIST
+4.7.1 QUALITY
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutQuality = function (key) {
+    if (this.elements.player) {
+        var value = key.replace('shortcut', '').toLowerCase();
+
+        if (value === '240p') {
+            value = 'small';
+        }
+
+        if (value === '360p') {
+            value = 'medium';
+        }
+
+        if (value === '480p') {
+            value = 'large';
+        }
+
+        if (value === '720p') {
+            value = 'hd720';
+        }
+
+        if (value === '1080p') {
+            value = 'hd1080';
+        }
+
+        if (value === '1440p') {
+            value = 'hd1440';
+        }
+
+        if (value === '2160p') {
+            value = 'hd2160';
+        }
+
+        if (value === '2880p') {
+            value = 'hd2880';
+        }
+
+        if (value === '4320p') {
+            value = 'highres';
+        }
+
+        this.elements.player.setPlaybackQualityRange(value);
+        this.elements.player.setPlaybackQuality(value);
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.2 PICTURE IN PICTURE
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutPictureInPicture = function () {
+    if (this.elements.video) {
+        this.elements.video.requestPictureInPicture();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.3 TOGGLE CONTROLS
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutToggleControls = function () {
+    if (this.elements.player) {
+        this.storage.player_hide_controls = !this.storage.player_hide_controls;
+
+        if (this.storage.player_hide_controls) {
+            this.elements.player.hideControls();
+        } else {
+            this.elements.player.showControls();
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.4 PLAY / PAUSE
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutPlayPause = function () {
+    if (this.elements.player) {
+        if (this.elements.video.paused) {
+            this.elements.player.playVideo();
+        } else {
+            this.elements.player.pauseVideo();
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.5 STOP
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutStop = function () {
+    if (this.elements.player) {
+        this.elements.player.stopVideo();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.6 TOGGLE AUTOPLAY
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutToggleAutoplay = function () {
+    var toggle = document.querySelector('.ytp-autonav-toggle-button'),
+        attribute = toggle.getAttribute('aria-checked') === 'true';
+
+    if (toggle) {
+        toggle.click();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.7 NEXT VIDEO
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutNextVideo = function () {
+    if (this.elements.player) {
+        this.elements.player.nextVideo();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.8 PREVIOUS VIDEO
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutPrevVideo = function () {
+    if (this.elements.player) {
+        this.elements.player.previousVideo();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.9 SEEK BACKWARD
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutSeekBackward = function () {
+    if (this.elements.player) {
+        this.elements.player.seekBy(-10);
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.10 SEEK FORWARD
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutSeekForward = function () {
+    if (this.elements.player) {
+        this.elements.player.seekBy(10);
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.11 SEEK NEXT CHAPTER
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutSeekNextChapter = function () {
+    var player = this.elements.player;
+    
+    if (player) {
+        var duration = player.getDuration(),
+            current_time = player.getCurrentTime(),
+            chapters_container = player.querySelector('.ytp-chapters-container'),
+            progress_bar_width = player.querySelector('.ytp-chrome-bottom').offsetWidth,
+            current_width = 0;
+
+        if (!player || !player.seekBy || !progress_bar_width || !chapters_container || !chapters_container.children) {
+            return;
+        }
+
+        var chapters = chapters_container.children;
+
+        for (var i = 0, l = chapters.length; i < l; i++) {
+            var width = chapters[i].offsetWidth;
+
+            if (
+                (current_width - 2) / progress_bar_width <= current_time / duration &&
+                (current_width - 2 + width) / progress_bar_width >= current_time / duration
+            ) {
+                player.seekTo(((width + current_width) / progress_bar_width) * duration);
+
+                return;
+            }
+
+            current_width += width + 2;
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.12 SEEK PREVIOUS CHAPTER
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutSeekPreviousChapter = function () {
+    var player = this.elements.player;
+    
+    if (player) {
+        var duration = player.getDuration(),
+            current_time = player.getCurrentTime(),
+            chapters_container = player.querySelector('.ytp-chapters-container'),
+            progress_bar_width = player.querySelector('.ytp-chrome-bottom').offsetWidth,
+            current_width = 0;
+
+        if (!player || !player.seekBy || !progress_bar_width || !chapters_container || !chapters_container.children) {
+            return;
+        }
+
+        var chapters = chapters_container.children;
+
+        for (var i = 0, l = chapters.length; i < l; i++) {
+            var width = chapters[i].offsetWidth;
+
+            if (
+                (current_width + 2) / progress_bar_width <= current_time / duration &&
+                (current_width + 2 + width) / progress_bar_width >= current_time / duration
+            ) {
+                player.seekTo(((current_width - 2) / progress_bar_width) * duration);
+
+                return;
+            }
+
+            current_width += width + 2;
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.13 INCREASE VOLUME
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutIncreaseVolume = function () {
+    var player = this.elements.player,
+        value = Number(this.storage.shortcut_volume_step) || 5;
+
+    if (player) {
+        player.setVolume(player.getVolume() + value);
+
+        this.showStatus(player.getVolume());
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.14 DECREASE VOLUME
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutDecreaseVolume = function () {
+    var player = this.elements.player,
+        value = Number(this.storage.shortcut_volume_step) || 5;
+    
+    if (player) {
+        player.setVolume(player.getVolume() - value);
+
+        this.showStatus(player.getVolume());
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.15 SCREENSHOT
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutScreenshot = function () {
+    this.screenshot();
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.16 INCREASE PLAYBACK SPEED
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutIncreasePlaybackSpeed = function () {
+    var video = this.elements.video,
+        value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
+
+    if (video) {
+        video.playbackRate = video.playbackRate + value;
+
+        ImprovedTube.showStatus(video.playbackRate);
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.17 DECREASE PLAYBACK SPEED
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
+    var video = this.elements.video,
+        value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
+
+    if (video) {
+        video.playbackRate = Math.max(video.playbackRate - value, .05);
+
+        ImprovedTube.showStatus(video.playbackRate);
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.18 GO TO SEARCH BOX
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutGoToSearchBox = function () {
+    var search = document.querySelector('#search');
+
+    if (search) {
+        search.focus();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.19 ACTIVATE FULLSCREEN
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutActivateFullscreen = function () {
+    if (this.elements.player) {
+        this.elements.player.toggleFullscreen();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.20 ACTIVATE CAPTIONS
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutActivateCaptions = function () {
+    var player = this.elements.player;
+
+    if (player && player.toggleSubtitlesOn) {
+        player.toggleSubtitlesOn();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.21 LIKE
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutLike = function () {
+    var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer')[0]);
+
+    if (like) {
+        like.click();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.22 DISLIKE
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutDislike = function () {
+    var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer')[1]);
+
+    if (like) {
+        like.click();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.23 SUBSCRIBE
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutSubscribe = function () {
+    if (this.elements.subscribe_button) {
+        this.elements.subscribe_button.click();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.24 DARK THEME
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutDarkTheme = function () {
+    if (document.documentElement.hasAttribute('dark')) {
+        document.documentElement.removeAttribute('dark');
+        document.documentElement.removeAttribute('it-theme');
+    } else {
+        document.documentElement.setAttribute('dark', '');
+        document.documentElement.setAttribute('it-theme', 'true');
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.25 CUSTOM MINI PLAYER
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutCustomMiniPlayer = function () {
+    this.storage.mini_player = !this.storage.mini_player;
+
+    this.miniPlayer();
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.26 STATS FOR NERDS
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutStatsForNerds = function () {
+    var player = this.elements.player;
+
+    if (player.isVideoInfoVisible()) {
+        player.hideVideoInfo();
+    } else {
+        player.showVideoInfo();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.27 TOGGLE CARDS
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutToggleCards = function () {
+    document.documentElement.toggleAttribute('it-player-hide-cards');
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.28 POPUP PLAYER
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutPopupPlayer = function () {
+    var player = this.elements.player;
+
+    if (document.documentElement.dataset.pageType === 'video' && player) {
+        player.pauseVideo();
+
+        window.open('//www.youtube.com/embed/' + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8) + '?start=' + parseInt(player.getCurrentTime()) + '&autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=' + player.offsetWidth + ',height=' + player.offsetHeight);
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.8.0 BLACKLIST
 ------------------------------------------------------------------------------*/
 
 document.addEventListener('ImprovedTubeBlacklist', function (event) {
@@ -3591,7 +3582,7 @@ ImprovedTube.blacklist = function(type, node) {
 
 
 /*------------------------------------------------------------------------------
-9.0 ANALYZER
+4.9.0 ANALYZER
 ------------------------------------------------------------------------------*/
 
 document.addEventListener('improvedtube-analyzer', function (event) {
@@ -3606,11 +3597,11 @@ document.addEventListener('improvedtube-analyzer', function (event) {
 
 
 /*------------------------------------------------------------------------------
-10.0 SETTINGS
+4.10.0 SETTINGS
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-10.1 IMPROVEDTUBE ICON
+4.10.1 IMPROVEDTUBE ICON
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.improvedtubeYoutubeIcon = function () {
@@ -3748,7 +3739,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 
 
 /*-----------------------------------------------------------------------------
-10.3 DELETE YOUTUBE COOKIES
+4.10.3 DELETE YOUTUBE COOKIES
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.deleteYoutubeCookies = function () {
@@ -3769,7 +3760,7 @@ ImprovedTube.deleteYoutubeCookies = function () {
 
 
 /*-----------------------------------------------------------------------------
-10.4 YOUTUBE LANGUAGE
+4.10.4 YOUTUBE LANGUAGE
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.youtubeLanguage = function (reload) {
@@ -3800,7 +3791,7 @@ ImprovedTube.youtubeLanguage = function (reload) {
 
 
 /*-----------------------------------------------------------------------------
-10.5 DEFAULT CONTENT COUNTRY
+4.10.5 DEFAULT CONTENT COUNTRY
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.defaultContentCountry = function (reload) {
