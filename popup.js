@@ -3500,6 +3500,35 @@ skeleton.main.section.player = {
                         label: '400%',
                         value: 4
                     }]
+                },
+                subtitles_background_color: {
+                    type: 'select',
+                    label: 'backgroundColor',
+                    options: [{
+                        label: 'white',
+                        value: '#fff'
+                    }, {
+                        label: 'yellow',
+                        value: '#ff0'
+                    }, {
+                        label: 'green',
+                        value: '#0f0'
+                    }, {
+                        label: 'cyan',
+                        value: '#0ff'
+                    }, {
+                        label: 'blue',
+                        value: '#00f'
+                    }, {
+                        label: 'magenta',
+                        value: '#f0f'
+                    }, {
+                        label: 'red',
+                        value: '#f00'
+                    }, {
+                        label: 'black',
+                        value: '#000'
+                    }]
                 }
             }
         },
