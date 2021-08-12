@@ -530,6 +530,7 @@ ImprovedTube.playerOnPlay = function () {
                 ImprovedTube.forcedTheaterMode();
                 ImprovedTube.playerPlaybackSpeed(false);
                 ImprovedTube.subtitles();
+                ImprovedTube.subtitlesFontFamily();
                 ImprovedTube.subtitlesFontSize();
                 ImprovedTube.playerQuality();
                 ImprovedTube.playerVolume();
@@ -1796,7 +1797,28 @@ ImprovedTube.subtitles = function () {
 
 
 /*------------------------------------------------------------------------------
-4.4.4.1 SUBTITLES FONT SIZE
+4.4.4.1 SUBTITLES FONT FAMILY
+------------------------------------------------------------------------------*/
+
+ImprovedTube.subtitlesFontFamily = function () {
+    var option = this.storage.subtitles_font_family;
+
+    if (this.isset(option)) {
+        var player = this.elements.player;
+
+        if (player && player.getSubtitlesUserSettings) {
+            var settings = player.getSubtitlesUserSettings();
+
+            settings.fontFamily = Number(option);
+
+            player.updateSubtitlesUserSettings(settings);
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.4.4.2 SUBTITLES FONT SIZE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.subtitlesFontSize = function () {
@@ -1808,7 +1830,7 @@ ImprovedTube.subtitlesFontSize = function () {
         if (player && player.getSubtitlesUserSettings) {
             var settings = player.getSubtitlesUserSettings();
 
-            settings.fontSizeIncrement = option;
+            settings.fontSizeIncrement = Number(option);
 
             player.updateSubtitlesUserSettings(settings);
         }
