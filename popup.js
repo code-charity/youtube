@@ -3419,6 +3419,32 @@ skeleton.main.section.player = {
                 player_subtitles: {
                     type: 'switch',
                     label: 'subtitles'
+                },
+                subtitles_font_size: {
+                    type: 'select',
+                    label: 'fontSize',
+                    options: [{
+                        label: '50%',
+                        value: -2
+                    }, {
+                        label: '75%',
+                        value: -1
+                    }, {
+                        label: '100%',
+                        value: 1
+                    }, {
+                        label: '150%',
+                        value: 1
+                    }, {
+                        label: '200%',
+                        value: 2
+                    }, {
+                        label: '300%',
+                        value: 3
+                    }, {
+                        label: '400%',
+                        value: 4
+                    }]
                 }
             }
         },
