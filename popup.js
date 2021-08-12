@@ -3529,6 +3529,14 @@ skeleton.main.section.player = {
                         label: 'black',
                         value: '#000'
                     }]
+                },
+                subtitles_background_opacity: {
+                    type: 'slider',
+                    label: 'backgroundOpacity',
+                    value: 75,
+                    min: 0,
+                    max: 100,
+                    step: 1
                 }
             }
         },
