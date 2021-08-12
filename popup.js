@@ -3409,10 +3409,18 @@ skeleton.main.section.player = {
             max: 8,
             step: .05
         },
-        player_subtitles: {
-            type: 'switch',
+        subtitles: {
+            type: 'folder',
             label: 'subtitles',
-            value: true
+
+            section: {
+                type: 'section',
+
+                player_subtitles: {
+                    type: 'switch',
+                    label: 'subtitles'
+                }
+            }
         },
         player_crop_chapter_titles: {
             type: 'switch',
