@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "स्वत: प्ले"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "बैकअप पुनर्स्थापित करना"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "चैनल"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "क्लिपबोर्ड"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "यूट्यूब कुकीज़ हटाएं"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "विवरण"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "खींचने योग्य"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "ईमेल"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "फ़ॉन्ट"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "पाद लेख"
@@ -548,6 +575,9 @@
     "other": {
         "message": "अन्य"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "अनुमतियां"
     },
@@ -607,6 +637,9 @@
     },
     "quality": {
         "message": "गुणवत्ता"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "RAM"
@@ -841,6 +874,12 @@
     },
     "white": {
         "message": "सफेद"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "पीला"

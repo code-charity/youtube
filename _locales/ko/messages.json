@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "자동재생"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "백업 & 리셋"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "채널"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "클립보드"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "유튜브 쿠키 삭제"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "설명"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "드래그 가능"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "이메일"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "글꼴"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "하단"
@@ -548,6 +575,9 @@
     "other": {
         "message": "기타"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "권한"
     },
@@ -607,6 +637,9 @@
     },
     "quality": {
         "message": "퀄리티"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "램"
@@ -838,6 +871,12 @@
     },
     "white": {
         "message": "하양"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "노랑"
