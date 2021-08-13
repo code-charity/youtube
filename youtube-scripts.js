@@ -19,6 +19,7 @@
         4.2.1.2 Forced theater mode
         4.2.1.3 HD thumbnail
         4.2.1.4 Always show progress bar
+        4.2.1.5 Video Remaining duration
       4.2.2 Sidebar
         4.2.2.1 Livechat
         4.2.2.2 Related videos
@@ -573,6 +574,7 @@ ImprovedTube.playerOnTimeUpdate = function () {
     }
 
     ImprovedTube.alwaysShowProgressBar();
+    ImprovedTube.playerRemainingDuration();
 
     ImprovedTube.played_time += .25;
 };
@@ -1253,6 +1255,39 @@ ImprovedTube.alwaysShowProgressBar = function () {
                 progress_play += a;
                 progress_load += a;
             }
+        }
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.2.1.4 ALWAYS SHOW PROGRESS BAR
+------------------------------------------------------------------------------*/
+
+ImprovedTube.formatSecond = function(rTime){
+    var time = new Date(null);
+    time.setSeconds(rTime);
+    if (rTime/3600 < 1){
+        return time.toISOString().substr(14, 5);
+    }
+    else{
+        return time.toISOString().substr(11, 8);
+    }
+}
+
+ImprovedTube.playerRemainingDuration = function () {
+    if (this.storage.player_remaining_duration === true) {
+        var player = ImprovedTube.elements.player;
+        var rTime = ImprovedTube.formatSecond((player.getDuration() - player.getCurrentTime()).toFixed(0));
+        var element = document.querySelector('.ytp-time-remaining-duration');
+        if(!element){
+            var label = document.createElement('span');
+            label.textContent = ' (-' + rTime + ')';
+            label.className = 'ytp-time-remaining-duration';
+            document.querySelector('.ytp-time-display').appendChild(label);
+        }
+        else{
+            element.textContent = ' (-' + rTime + ')';
         }
     }
 };
