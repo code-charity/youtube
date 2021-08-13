@@ -419,6 +419,9 @@
     "hideSkipOverlay": {
         "message": "\"오버레이 건너뛰기\" 숨기기"
     },
+    "showRemainingDuration":{
+        "message": "Show video remaining duration"
+    },
     "hideViewsCount": {
         "message": "조회수 숨기기"
     },
