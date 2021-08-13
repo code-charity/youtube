@@ -1816,9 +1816,11 @@ ImprovedTube.subtitlesFontFamily = function () {
         if (player && player.getSubtitlesUserSettings) {
             var settings = player.getSubtitlesUserSettings();
 
-            settings.fontFamily = Number(option);
+            if (settings) {
+                settings.fontFamily = Number(option);
 
-            player.updateSubtitlesUserSettings(settings);
+                player.updateSubtitlesUserSettings(settings);
+            }
         }
     }
 };
@@ -1837,9 +1839,11 @@ ImprovedTube.subtitlesFontColor = function () {
         if (player && player.getSubtitlesUserSettings) {
             var settings = player.getSubtitlesUserSettings();
 
-            settings.color = option;
+            if (settings) {
+                settings.color = option;
 
-            player.updateSubtitlesUserSettings(settings);
+                player.updateSubtitlesUserSettings(settings);
+            }
         }
     }
 };
@@ -1858,9 +1862,11 @@ ImprovedTube.subtitlesFontSize = function () {
         if (player && player.getSubtitlesUserSettings) {
             var settings = player.getSubtitlesUserSettings();
 
-            settings.fontSizeIncrement = Number(option);
+            if (settings) {
+                settings.fontSizeIncrement = Number(option);
 
-            player.updateSubtitlesUserSettings(settings);
+                player.updateSubtitlesUserSettings(settings);
+            }
         }
     }
 };
@@ -1879,9 +1885,11 @@ ImprovedTube.subtitlesBackgroundColor = function () {
         if (player && player.getSubtitlesUserSettings) {
             var settings = player.getSubtitlesUserSettings();
 
-            settings.background = option;
+            if (settings) {
+                settings.background = option;
 
-            player.updateSubtitlesUserSettings(settings);
+                player.updateSubtitlesUserSettings(settings);
+            }
         }
     }
 };
@@ -1900,9 +1908,11 @@ ImprovedTube.subtitlesBackgroundOpacity = function () {
         if (player && player.getSubtitlesUserSettings) {
             var settings = player.getSubtitlesUserSettings();
 
-            settings.backgroundOpacity = option / 100;
+            if (settings) {
+                settings.backgroundOpacity = option / 100;
 
-            player.updateSubtitlesUserSettings(settings);
+                player.updateSubtitlesUserSettings(settings);
+            }
         }
     }
 };
@@ -1921,9 +1931,11 @@ ImprovedTube.subtitlesWindowColor = function () {
         if (player && player.getSubtitlesUserSettings) {
             var settings = player.getSubtitlesUserSettings();
 
-            settings.windowColor = option;
+            if (settings) {
+                settings.windowColor = option;
 
-            player.updateSubtitlesUserSettings(settings);
+                player.updateSubtitlesUserSettings(settings);
+            }
         }
     }
 };
@@ -1942,9 +1954,11 @@ ImprovedTube.subtitlesWindowOpacity = function () {
         if (player && player.getSubtitlesUserSettings) {
             var settings = player.getSubtitlesUserSettings();
 
-            settings.windowOpacity = Number(option) / 100;
+            if (settings) {
+                settings.windowOpacity = Number(option) / 100;
 
-            player.updateSubtitlesUserSettings(settings);
+                player.updateSubtitlesUserSettings(settings);
+            }
         }
     }
 };
@@ -1963,9 +1977,11 @@ ImprovedTube.subtitlesCharacterEdgeStyle = function () {
         if (player && player.getSubtitlesUserSettings) {
             var settings = player.getSubtitlesUserSettings();
 
-            settings.charEdgeStyle = Number(option);
+            if (settings) {
+                settings.charEdgeStyle = Number(option);
 
-            player.updateSubtitlesUserSettings(settings);
+                player.updateSubtitlesUserSettings(settings);
+            }
         }
     }
 };
@@ -1984,9 +2000,11 @@ ImprovedTube.subtitlesFontOpacity = function () {
         if (player && player.getSubtitlesUserSettings) {
             var settings = player.getSubtitlesUserSettings();
 
-            settings.textOpacity = option / 100;
+            if (settings) {
+                settings.textOpacity = option / 100;
 
-            player.updateSubtitlesUserSettings(settings);
+                player.updateSubtitlesUserSettings(settings);
+            }
         }
     }
 };
