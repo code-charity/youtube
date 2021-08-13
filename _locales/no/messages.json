@@ -473,6 +473,9 @@
     "items": {
         "message": "Elementer"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "Språk"
     },

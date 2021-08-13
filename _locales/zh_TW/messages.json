@@ -482,6 +482,9 @@
     "items": {
         "message": "項目"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "語言"
     },

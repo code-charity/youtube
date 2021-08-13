@@ -488,6 +488,9 @@
     "items": {
         "message": "Items"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "Languages"
     },

@@ -476,6 +476,9 @@
     "items": {
         "message": "आइटम"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "बोली"
     },

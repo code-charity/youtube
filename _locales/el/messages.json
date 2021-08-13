@@ -476,6 +476,9 @@
     "items": {
         "message": "Αντικείμενα"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "Γλώσσες"
     },

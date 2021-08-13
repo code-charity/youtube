@@ -476,6 +476,9 @@
     "items": {
         "message": "アイテム"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "言語"
     },
