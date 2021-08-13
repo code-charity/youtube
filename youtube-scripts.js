@@ -531,6 +531,7 @@ ImprovedTube.playerOnPlay = function () {
                 ImprovedTube.forcedTheaterMode();
                 ImprovedTube.playerPlaybackSpeed(false);
                 ImprovedTube.subtitles();
+                ImprovedTube.subtitlesLanguage();
                 ImprovedTube.subtitlesFontFamily();
                 ImprovedTube.subtitlesFontColor();
                 ImprovedTube.subtitlesFontSize();
@@ -1811,6 +1812,33 @@ ImprovedTube.subtitles = function () {
 
     if (player && player.toggleSubtitlesOn) {
         player.toggleSubtitlesOn();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.4.4.1 SUBTITLES LANGUAGE
+------------------------------------------------------------------------------*/
+
+ImprovedTube.subtitlesLanguage = function () {
+    var option = this.storage.subtitles_language,
+        player = this.elements.player;
+
+    if (this.isset(option) && option !== 'default' && player && player.getOption) {
+        var tracklist = ImprovedTube.elements.player.getOption('captions', 'tracklist', {
+            includeAsr: true
+        });
+
+        if (tracklist && tracklist[0]) {
+            tracklist = tracklist[0];
+
+            tracklist.translationLanguage = {
+                languageCode: option,
+                languageName: option
+            };
+
+            ImprovedTube.elements.player.setOption('captions', 'track', tracklist);
+        }
     }
 };
 
