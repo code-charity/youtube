@@ -2710,6 +2710,11 @@ skeleton.main.section.appearance = {
                 label: 'hideSkipOverlay',
                 value: false
             },
+            player_remaining_duration: {
+                type: 'switch',
+                label: 'showRemainingDuration',
+                value: false
+            },
             always_show_progress_bar: {
                 type: 'switch',
                 label: 'alwaysShowProgressBar'
