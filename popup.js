@@ -3538,6 +3538,35 @@ skeleton.main.section.player = {
                     max: 100,
                     step: 1
                 },
+                subtitles_window_color: {
+                    type: 'select',
+                    label: 'windowColor',
+                    options: [{
+                        label: 'white',
+                        value: '#fff'
+                    }, {
+                        label: 'yellow',
+                        value: '#ff0'
+                    }, {
+                        label: 'green',
+                        value: '#0f0'
+                    }, {
+                        label: 'cyan',
+                        value: '#0ff'
+                    }, {
+                        label: 'blue',
+                        value: '#00f'
+                    }, {
+                        label: 'magenta',
+                        value: '#f0f'
+                    }, {
+                        label: 'red',
+                        value: '#f00'
+                    }, {
+                        label: 'black',
+                        value: '#000'
+                    }]
+                },
                 subtitles_window_opacity: {
                     type: 'slider',
                     label: 'windowOpacity',
