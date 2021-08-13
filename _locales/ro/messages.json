@@ -320,6 +320,9 @@
     "forceSDR": {
         "message": "Forțează SDR"
     },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
+    },
     "forcedPlaybackSpeed": {
         "message": "Viteză de playback forțată"
     },

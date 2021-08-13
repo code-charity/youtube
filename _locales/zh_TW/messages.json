@@ -320,6 +320,9 @@
     "forceSDR": {
         "message": "強制使用標準動態範圍 (SDR)"
     },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
+    },
     "forcedPlaybackSpeed": {
         "message": "強制播放速度"
     },
