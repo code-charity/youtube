@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "Αυτόματη αναπαραγωγή"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "Αντίγραφα ασφαλείας & reset"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "Κανάλια"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "Clipboard"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "Κατάργησε τα cookies του YouTube"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "Περιγραφή"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "Μετακινήσιμο με σύρση"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "Email"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "Γραμματοσειρά"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "Υποσέλιδο"
@@ -548,6 +575,9 @@
     "other": {
         "message": "Άλλο"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "Άδεια"
     },
@@ -607,6 +637,9 @@
     },
     "quality": {
         "message": "Ποιότητα"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "RAM"
@@ -841,6 +874,12 @@
     },
     "white": {
         "message": "Λευκό"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "Κίτρινο"

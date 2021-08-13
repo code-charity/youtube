@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "Putar secara otomatis"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "Cadangkan & setel ulang"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "Saluran"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "Clipboard"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "Hapus kuki youtube"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "Deskripsi"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "Dapat diseret"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "Surel"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "Font"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "Catatan kaki"
@@ -548,6 +575,9 @@
     "other": {
         "message": "Lainnya"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "Perizinan"
     },
@@ -607,6 +637,9 @@
     },
     "quality": {
         "message": "Kualitas video"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "RAM"
@@ -838,6 +871,12 @@
     },
     "white": {
         "message": "Putih"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "Kuning"

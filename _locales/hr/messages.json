@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "Auto Play"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "Sigurnosna kopija i resetiranje"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "Kanali"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "Međuspremnik"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "Izbrišite YouTube kolačiće"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "Opis"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "Povuci"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "E-mail"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "Font"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "Podnožje"
@@ -560,6 +587,9 @@
     "other": {
         "message": "Ostalo"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "Dopuštenja"
     },
@@ -619,6 +649,9 @@
     },
     "quality": {
         "message": "Kvaliteta"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "Radna memorija"
@@ -859,6 +892,12 @@
     },
     "white": {
         "message": "Bijela"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "Žuta"

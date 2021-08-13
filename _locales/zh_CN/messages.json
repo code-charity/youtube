@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "自动播放"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "备份与恢复"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "频道"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "粘贴板"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "清空 YouTube cookies"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "视频描述"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "可拖动"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "Email"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "字体"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "底部栏"
@@ -560,6 +587,9 @@
     "other": {
         "message": "其他"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "许可"
     },
@@ -619,6 +649,9 @@
     },
     "quality": {
         "message": "画质"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "RAM"
@@ -859,6 +892,12 @@
     },
     "white": {
         "message": "白色"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "黄色"

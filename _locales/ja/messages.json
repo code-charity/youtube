@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "自動再生"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "バックアップとリセット"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "チャンネル"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "クリップボード"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "YouTube の Cookie を削除する"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "説明"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "ドラッグ可能にする"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "Email"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "フォント"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "フッター"
@@ -548,6 +575,9 @@
     "other": {
         "message": "その他"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "権限"
     },
@@ -607,6 +637,9 @@
     },
     "quality": {
         "message": "画質"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "RAM"
@@ -841,6 +874,12 @@
     },
     "white": {
         "message": "白"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "黄"

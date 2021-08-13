@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "Autoodtwarzanie"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "Kopia zapasowa i reset"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "Kanały"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "Schowek"
@@ -218,6 +227,9 @@
     "deleteYoutubeCookies": {
         "message": "Usuń ciasteczka YouTube"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "Opis"
     },
@@ -254,6 +266,9 @@
     "draggable": {
         "message": "Przeciągalne"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "Email"
     },
@@ -289,6 +304,18 @@
     },
     "font": {
         "message": "Czcionka"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "Stopka"
@@ -563,6 +590,9 @@
     "other": {
         "message": "Inne"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "Uprawnienia"
     },
@@ -622,6 +652,9 @@
     },
     "quality": {
         "message": "Jakość"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "RAM"
@@ -868,6 +901,12 @@
     },
     "white": {
         "message": "Biały"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "Żółty"

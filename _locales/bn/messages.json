@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "স্বয়ংক্রিয় চালু"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "ব্যাকআপ এবং পুনরায় সেট করুন"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "চ্যানেলগুলি"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "ক্লিপবোর্ড"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "ইউটিউব এর কুকি ডিলিট করুন"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "বর্ণনা"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "টেনে আনে"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "ইমেল"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "হরফ"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "পাদচরণ"
@@ -548,6 +575,9 @@
     "other": {
         "message": "অন্যান্য"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "অনুমতি"
     },
@@ -607,6 +637,9 @@
     },
     "quality": {
         "message": "গুণ"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "র্যাম"
@@ -841,6 +874,12 @@
     },
     "white": {
         "message": "সাদা"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "হলুদ"

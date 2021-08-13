@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "Autoplay"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "Sikkerhetskopiering og tilbakestilling"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "Kanaler"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "Utklippstavle"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "Slett YouTube-informasjonskapsler"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "Beskrivelse"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "Flyttbare"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "E-post"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "Font"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "Bunntekst"
@@ -545,6 +572,9 @@
     "other": {
         "message": "Andre"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "rettigheter"
     },
@@ -604,6 +634,9 @@
     },
     "quality": {
         "message": "Quality"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "RAM"
@@ -832,6 +865,12 @@
     },
     "white": {
         "message": "Hvit"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "Gul"

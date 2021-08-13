@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "Otomatik oynat"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "Yedek & sıfırla"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "Kanallar"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "Pano"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "YouTube çerezleri sil"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "Açıklama"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "Sürüklenebilir"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "Eposta"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "Yazı Tipi"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "Footer"
@@ -548,6 +575,9 @@
     "other": {
         "message": "Diğer"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "İzinler"
     },
@@ -607,6 +637,9 @@
     },
     "quality": {
         "message": "Kalite"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "RAM"
@@ -841,6 +874,12 @@
     },
     "white": {
         "message": "Beyaz"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "Sarı"

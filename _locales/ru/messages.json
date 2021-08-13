@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "Автовоспроизведение"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "Резервное копирование и сброс"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "Каналы"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "Буфер обмена"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "Удалить куки YouTube"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "Описание"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "Перетаскиваемый"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "Email"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "Шрифт"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "Нижний колонтитул"
@@ -548,6 +575,9 @@
     "other": {
         "message": "Другое"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "Разрешения"
     },
@@ -607,6 +637,9 @@
     },
     "quality": {
         "message": "Качество"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "RAM"
@@ -841,6 +874,12 @@
     },
     "white": {
         "message": "Белый"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "Желтый"
