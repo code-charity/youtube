@@ -485,6 +485,9 @@
     "items": {
         "message": "Predmeti"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "Jezici"
     },

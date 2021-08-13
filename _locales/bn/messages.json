@@ -476,6 +476,9 @@
     "items": {
         "message": "আইটেম"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "Languages"
     },

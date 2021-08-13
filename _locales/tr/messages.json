@@ -476,6 +476,9 @@
     "items": {
         "message": "Öğeler"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "Diller"
     },

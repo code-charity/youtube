@@ -485,6 +485,9 @@
     "items": {
         "message": "项目"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "语言"
     },

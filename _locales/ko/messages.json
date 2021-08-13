@@ -476,6 +476,9 @@
     "items": {
         "message": "요소"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "언어"
     },

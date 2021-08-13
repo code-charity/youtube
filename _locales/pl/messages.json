@@ -488,6 +488,9 @@
     "items": {
         "message": "Przedmioty"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "Języki"
     },
