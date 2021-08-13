@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "تشغيل تلقائي"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "إعادة تعيين والنسخ الاحتياطي"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "القنوات"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "الحافظة"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "حذف ملفات تعريف الارتباط من اليوتيوب"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "الوصف"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "قابل للسحب"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "البريد الإلكتروني"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "الخط"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "الحزء السفلي"
@@ -548,6 +575,9 @@
     "other": {
         "message": "آخر"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "الأذونات"
     },
@@ -607,6 +637,9 @@
     },
     "quality": {
         "message": "الجودة"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "الذاكرة العشوائية"
@@ -841,6 +874,12 @@
     },
     "white": {
         "message": "أبيض"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "أصفر"

@@ -83,6 +83,12 @@
     "autoplay": {
         "message": "Pornește automat"
     },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "Salvează & resetează"
     },
@@ -139,6 +145,9 @@
     },
     "channels": {
         "message": "Canale"
+    },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
     },
     "clipboard": {
         "message": "Clipboard"
@@ -215,6 +224,9 @@
     "deleteYoutubeCookies": {
         "message": "Șterge cookie-urile YouTube"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
         "message": "Descriere"
     },
@@ -251,6 +263,9 @@
     "draggable": {
         "message": "Poate fi tras"
     },
+    "dropShadow": {
+        "message": "Drop shadow"
+    },
     "email": {
         "message": "Email"
     },
@@ -286,6 +301,18 @@
     },
     "font": {
         "message": "Font"
+    },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
     },
     "footer": {
         "message": "Subsol"
@@ -554,6 +581,9 @@
     "other": {
         "message": "Altele"
     },
+    "outline": {
+        "message": "Outline"
+    },
     "permissions": {
         "message": "Permisiuni"
     },
@@ -613,6 +643,9 @@
     },
     "quality": {
         "message": "Calitate"
+    },
+    "raised": {
+        "message": "Raised"
     },
     "ram": {
         "message": "RAM"
@@ -847,6 +880,12 @@
     },
     "white": {
         "message": "Alb"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "Galben"
