@@ -3366,6 +3366,10 @@ skeleton.main.section.player = {
             label: 'autoplay',
             value: true
         },
+        forced_play_video_from_the_beginning: {
+            type: 'switch',
+            label: 'forcedPlayVideoFromTheBeginning'
+        },
         player_autofullscreen: {
             type: 'switch',
             label: 'autoFullscreen'
