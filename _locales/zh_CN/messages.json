@@ -425,6 +425,9 @@
     "hideSkipOverlay": {
         "message": "隐藏跳过叠加"
     },
+    "showRemainingDuration":{
+        "message": "Show video remaining duration"
+    },
     "hideThumbnailOverlay": {
         "message": "隐藏缩略图上的按钮"
     },
