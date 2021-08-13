@@ -476,6 +476,9 @@
     "items": {
         "message": "Item"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "Bahasa"
     },

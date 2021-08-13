@@ -476,6 +476,9 @@
     "items": {
         "message": "العناصر"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "اللغات"
     },
