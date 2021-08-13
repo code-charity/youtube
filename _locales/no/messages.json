@@ -416,6 +416,9 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
+    "showRemainingDuration":{
+        "message": "Show video remaining duration"
+    },
     "hideViewsCount": {
         "message": "Skjul visninger teller"
     },
