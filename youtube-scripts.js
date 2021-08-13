@@ -527,6 +527,7 @@ ImprovedTube.playerOnPlay = function () {
                 ImprovedTube.video_url = location.href;
                 ImprovedTube.played_before_blur = false;
 
+                ImprovedTube.forcedPlayVideoFromTheBeginning();
                 ImprovedTube.forcedTheaterMode();
                 ImprovedTube.playerPlaybackSpeed(false);
                 ImprovedTube.subtitles();
@@ -1743,6 +1744,17 @@ ImprovedTube.autoplay = function (video) {
         setTimeout(function () {
             video.parentNode.parentNode.pauseVideo();
         });
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.4.2 FORCED PLAY VIDEO FROM THE BEGINNING
+------------------------------------------------------------------------------*/
+
+ImprovedTube.forcedPlayVideoFromTheBeginning = function() {
+    if (this.storage.forced_play_video_from_the_beginning === true) {
+        this.elements.player.seekTo(0);
     }
 };
 
