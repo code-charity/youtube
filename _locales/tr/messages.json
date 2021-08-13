@@ -320,6 +320,9 @@
     "forceSDR": {
         "message": "SDR Zorla"
     },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
+    },
     "forcedPlaybackSpeed": {
         "message": "Oynatma hızını uygulamaya zorla"
     },
