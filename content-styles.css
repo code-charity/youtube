@@ -943,7 +943,7 @@ html[it-hide-gradient-bottom=true] .ytp-gradient-bottom {
 2.2.11 Skip overlay
 ------------------------------------------------------------------------------*/
 
-html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui
+html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui, .ytp-doubletap-ui-legacy
 {
     visibility: hidden;
 }
