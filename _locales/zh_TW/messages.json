@@ -422,6 +422,9 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
+    "showRemainingDuration":{
+        "message": "Show video remaining duration"
+    },
     "hideThumbnailOverlay": {
         "message": "隱藏縮圖上的按鈕"
     },
