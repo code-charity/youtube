@@ -323,6 +323,9 @@
     "forceSDR": {
         "message": "Force SDR"
     },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
+    },
     "forcedPlaybackSpeed": {
         "message": "Forced playback speed"
     },

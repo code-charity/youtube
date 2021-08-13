@@ -320,6 +320,9 @@
     "forceSDR": {
         "message": "Forza SDR"
     },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
+    },
     "forcedPlaybackSpeed": {
         "message": "Velocità di riproduzione forzata"
     },
