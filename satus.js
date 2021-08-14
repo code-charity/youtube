@@ -384,7 +384,7 @@ satus.search = function (query, object, callback, categories) {
             }
 
             if (
-                ['switch', 'select', 'slider'].indexOf(item.type) !== -1 &&
+                ['switch', 'select', 'slider', 'shortcut'].indexOf(item.type) !== -1 &&
                 (
                     key.indexOf(query) !== -1 ||
                     key_locale.indexOf(query) !== -1
