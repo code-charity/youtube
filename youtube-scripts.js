@@ -298,8 +298,8 @@ ImprovedTube.init = function () {
                         ImprovedTube.dim();
 
                         ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
-
                         ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
+                        ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
 
                         new MutationObserver(function(mutationList) {
                             for (var i = 0, l = mutationList.length; i < l; i++) {
