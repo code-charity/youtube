@@ -1940,9 +1940,10 @@ ImprovedTube.subtitlesFontSize = function () {
     var option = this.storage.subtitles_font_size;
 
     if (this.isset(option)) {
-        var player = this.elements.player;
+        var player = this.elements.player,
+            button = this.elements.player_subtitles_button;
 
-        if (player && player.getSubtitlesUserSettings) {
+        if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true) {
             var settings = player.getSubtitlesUserSettings();
 
             if (settings) {
