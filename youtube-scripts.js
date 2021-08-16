@@ -1967,7 +1967,7 @@ ImprovedTube.subtitlesBackgroundColor = function () {
         var player = this.elements.player,
             button = this.elements.player_subtitles_button;
 
-        if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true) {
+        if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
             var settings = player.getSubtitlesUserSettings();
 
             if (settings) {
@@ -1988,9 +1988,10 @@ ImprovedTube.subtitlesBackgroundOpacity = function () {
     var option = this.storage.subtitles_background_opacity;
 
     if (this.isset(option)) {
-        var player = this.elements.player;
+        var player = this.elements.player,
+            button = this.elements.player_subtitles_button;
 
-        if (player && player.getSubtitlesUserSettings) {
+        if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
             var settings = player.getSubtitlesUserSettings();
 
             if (settings) {
