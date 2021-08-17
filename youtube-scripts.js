@@ -1860,12 +1860,12 @@ ImprovedTube.subtitles = function () {
 ImprovedTube.subtitlesLanguage = function () {
     var option = this.storage.subtitles_language;
 
-    if this.isset(option) && option !== 'default') {
+    if (this.isset(option) && option !== 'default') {
         var player = this.elements.player,
             button = this.elements.player_subtitles_button;
                 
         if ((player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
-            var tracklist = ImprovedTube.elements.player.getOption('captions', 'tracklist', {
+            var tracklist = this.elements.player.getOption('captions', 'tracklist', {
                 includeAsr: true
             });
 
@@ -1877,7 +1877,7 @@ ImprovedTube.subtitlesLanguage = function () {
                     languageName: option
                 };
 
-                ImprovedTube.elements.player.setOption('captions', 'track', tracklist);
+                this.elements.player.setOption('captions', 'track', tracklist);
             }
         }
     }
