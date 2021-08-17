@@ -203,9 +203,10 @@ ImprovedTube.init = function () {
 
             if (mutation.type === 'childList') {
                 for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
-                    var node = mutation.addedNodes[j];
+                    var node = mutation.addedNodes[j],
+                        name = node.nodeName;
 
-                    if (node.nodeName === 'YTD-WATCH-FLEXY') {
+                    if (name === 'YTD-WATCH-FLEXY') {
                         ImprovedTube.elements.ytd_watch = node;
 
                         ImprovedTube.elements.ytd_player = node.querySelector('ytd-player');
@@ -261,81 +262,7 @@ ImprovedTube.init = function () {
                             childList: false,
                             subtree: false
                         });
-                    } else if (node.nodeName === 'YTD-TOGGLE-BUTTON-RENDERER') {
-                        if (
-                            node.parentComponent &&
-                            node.parentComponent.nodeName === 'YTD-MENU-RENDERER' &&
-                            node.parentComponent.parentComponent &&
-                            node.parentComponent.parentComponent.nodeName === 'YTD-PLAYLIST-PANEL-RENDERER'
-                        ) {
-                            var index = Array.prototype.indexOf.call(node.parentNode.children, node);
-
-                            if (index === 0) {
-                                ImprovedTube.elements.playlist.repeat_button = node;
-
-                                ImprovedTube.playlistRepeat();
-                                
-                                ImprovedTube.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;
-                                
-                                ImprovedTube.playlistReverse();
-                            } else if (index === 1) {
-                                ImprovedTube.elements.playlist.shuffle_button = node;
-
-                                ImprovedTube.playlistShuffle();
-                                
-                                ImprovedTube.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;
-                                
-                                ImprovedTube.playlistReverse();
-                            }
-                        }
-                    } if (node.nodeName === 'YTD-PLAYER') {
-                        ImprovedTube.elements.ytd_player = node;
-
-                        ImprovedTube.playerSize();
-                    } else if (node.id === 'movie_player') {
-                        ImprovedTube.elements.player = node;
-
-                        ImprovedTube.dim();
-
-                        ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
-                        ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
-                        ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
-
-                        new MutationObserver(function(mutationList) {
-                            for (var i = 0, l = mutationList.length; i < l; i++) {
-                                var mutation = mutationList[i];
-
-                                if (mutation.type === 'attributes') {
-                                    if (mutation.attributeName === 'style') {
-                                        ImprovedTube.playerHdThumbnail();
-                                    }
-                                }
-                            }
-                        }).observe(ImprovedTube.elements.player_thumbnail, {
-                            attributes: true,
-                            attributeFilter: ['style'],
-                            childList: false,
-                            subtree: false
-                        });
-
-                        document.dispatchEvent(new CustomEvent('improvedtube-player-loaded'));
-                    } else if (node.nodeName === 'VIDEO') {
-                        ImprovedTube.elements.video = node;
-                    } else if (node.id === 'chat') {
-                        ImprovedTube.elements.livechat.button = node.querySelector('ytd-toggle-button-renderer');
-                        
-                        ImprovedTube.livechat();
-                    } else if (node.id === 'related' && node.className.indexOf('ytd-watch-flexy') !== -1) {
-                        ImprovedTube.elements.related.container = node;
-
-                        ImprovedTube.relatedVideos();
-                    } else if (node.nodeName === 'YTD-COMMENTS-HEADER-RENDERER') {
-                        ImprovedTube.elements.comments.container = node;
-
-                        ImprovedTube.comments();
-                    } else if (node.nodeName === 'DIV' && node.className.indexOf('ytp-ad-player-overlay') !== -1) {
-                        ImprovedTube.playerAds(node);
-                    } else if (node.nodeName === 'YTD-MASTHEAD') {
+                    } else if (name === 'YTD-MASTHEAD') {
                         var logo = node.querySelector('a#logo');
 
                         ImprovedTube.elements.masthead = {
@@ -367,13 +294,87 @@ ImprovedTube.init = function () {
                                 subtree: false
                             });
                         }
-                    } else if (node.nodeName === 'YTD-VIDEO-PRIMARY-INFO-RENDERER') {
+                    } else if (name === 'YTD-TOGGLE-BUTTON-RENDERER') {
+                        if (
+                            node.parentComponent &&
+                            node.parentComponent.nodeName === 'YTD-MENU-RENDERER' &&
+                            node.parentComponent.parentComponent &&
+                            node.parentComponent.parentComponent.nodeName === 'YTD-PLAYLIST-PANEL-RENDERER'
+                        ) {
+                            var index = Array.prototype.indexOf.call(node.parentNode.children, node);
+
+                            if (index === 0) {
+                                ImprovedTube.elements.playlist.repeat_button = node;
+
+                                ImprovedTube.playlistRepeat();
+                                
+                                ImprovedTube.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;
+                                
+                                ImprovedTube.playlistReverse();
+                            } else if (index === 1) {
+                                ImprovedTube.elements.playlist.shuffle_button = node;
+
+                                ImprovedTube.playlistShuffle();
+                                
+                                ImprovedTube.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;
+                                
+                                ImprovedTube.playlistReverse();
+                            }
+                        }
+                    } else if (name === 'YTD-PLAYER') {
+                        ImprovedTube.elements.ytd_player = node;
+
+                        ImprovedTube.playerSize();
+                    } else if (node.id === 'movie_player') {
+                        ImprovedTube.elements.player = node;
+
+                        ImprovedTube.dim();
+
+                        ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
+                        ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
+                        ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
+
+                        new MutationObserver(function(mutationList) {
+                            for (var i = 0, l = mutationList.length; i < l; i++) {
+                                var mutation = mutationList[i];
+
+                                if (mutation.type === 'attributes') {
+                                    if (mutation.attributeName === 'style') {
+                                        ImprovedTube.playerHdThumbnail();
+                                    }
+                                }
+                            }
+                        }).observe(ImprovedTube.elements.player_thumbnail, {
+                            attributes: true,
+                            attributeFilter: ['style'],
+                            childList: false,
+                            subtree: false
+                        });
+
+                        document.dispatchEvent(new CustomEvent('improvedtube-player-loaded'));
+                    } else if (name === 'VIDEO') {
+                        ImprovedTube.elements.video = node;
+                    } else if (node.id === 'chat') {
+                        ImprovedTube.elements.livechat.button = node.querySelector('ytd-toggle-button-renderer');
+                        
+                        ImprovedTube.livechat();
+                    } else if (node.id === 'related' && node.className.indexOf('ytd-watch-flexy') !== -1) {
+                        ImprovedTube.elements.related.container = node;
+
+                        ImprovedTube.relatedVideos();
+                    } else if (name === 'YTD-COMMENTS-HEADER-RENDERER') {
+                        ImprovedTube.elements.comments.container = node;
+
+                        ImprovedTube.comments();
+                    } else if (name === 'DIV' && node.className.indexOf('ytp-ad-player-overlay') !== -1) {
+                        ImprovedTube.playerAds(node);
+                    } else if (name === 'YTD-VIDEO-PRIMARY-INFO-RENDERER') {
                         ImprovedTube.elements.video_title = node.querySelector('.title.ytd-video-primary-info-renderer');
 
                         ImprovedTube.improvedtubeYoutubeIcon();
-                    } else if (node.nodeName === 'YTD-ITEM-SECTION-RENDERER') {
+                    } else if (name === 'YTD-ITEM-SECTION-RENDERER') {
                         ImprovedTube.collapseOfSubscriptionSections(node);
-                    } else if (node.nodeName === 'A' && node.href) {
+                    } else if (name === 'A' && node.href) {
                         if (node.id === 'logo') {
                             ImprovedTube.youtubeHomePage(node);
                         }
@@ -388,7 +389,7 @@ ImprovedTube.init = function () {
                         if (node.href.match(ImprovedTube.regex.channel)) {
                             ImprovedTube.blacklist('channel', node);
                         }
-                    } else if (node.nodeName === 'IMG') {
+                    } else if (name === 'IMG') {
                         if (node.src) {
                             ImprovedTube.hdThumbnails(node);
                         } else {
@@ -413,18 +414,18 @@ ImprovedTube.init = function () {
                                 subtree: false
                             });
                         }
-                    } else if (node.nodeName === 'YTD-VIDEO-SECONDARY-INFO-RENDERER') {
+                    } else if (name === 'YTD-VIDEO-SECONDARY-INFO-RENDERER') {
                         ImprovedTube.elements.yt_channel_name = node.querySelector('ytd-channel-name');
                         ImprovedTube.elements.yt_channel_link = node.querySelector('ytd-channel-name a');
                         ImprovedTube.howLongAgoTheVideoWasUploaded();
                         ImprovedTube.channelVideosCount();
-                    } else if (node.nodeName === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
+                    } else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
                         if (node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
                             ImprovedTube.blacklist('channel', node);
                         }
 
                         ImprovedTube.elements.subscribe_button = node;
-                    } else if (node.nodeName === 'YTD-GUIDE-SECTION-RENDERER') {
+                    } else if (name === 'YTD-GUIDE-SECTION-RENDERER') {
                         if (ImprovedTube.elements.hasOwnProperty('sidebar_section') === false) {
                             ImprovedTube.elements.sidebar_section = node;
 
