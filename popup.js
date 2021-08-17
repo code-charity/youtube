@@ -94,8 +94,10 @@ var skeleton = {
                                     while (parent.children[0]) {
                                         parent.children[0].remove();
                                     }
+                                    
+                                    delete skeleton.type;
 
-                                    satus.render(results, parent);
+                                    satus.render(skeleton, parent);
                                 } else {
                                     satus.render(skeleton);
 
