@@ -1864,7 +1864,7 @@ ImprovedTube.subtitlesLanguage = function () {
         var player = this.elements.player,
             button = this.elements.player_subtitles_button;
                 
-        if ((player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
+        if (player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
             var tracklist = this.elements.player.getOption('captions', 'tracklist', {
                 includeAsr: true
             });
