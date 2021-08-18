@@ -602,6 +602,9 @@
     "outline": {
         "message": "Outline"
     },
+    "overlay": {
+        "message": "Overlay"
+    },
     "permissions": {
         "message": "Uprawnienia"
     },
@@ -715,6 +718,9 @@
     },
     "screenshot": {
         "message": "Zrzut ekranu"
+    },
+    "scrollBar": {
+        "message": "Scroll Bar"
     },
     "search": {
         "message": "Wyszukaj"
