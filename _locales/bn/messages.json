@@ -587,6 +587,9 @@
     "outline": {
         "message": "Outline"
     },
+    "overlay": {
+        "message": "Overlay"
+    },
     "permissions": {
         "message": "অনুমতি"
     },
@@ -700,6 +703,9 @@
     },
     "screenshot": {
         "message": "স্ক্রিনশট"
+    },
+    "scrollBar": {
+        "message": "Scroll Bar"
     },
     "search": {
         "message": "অনুসন্ধান করুন"

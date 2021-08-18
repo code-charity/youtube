@@ -593,6 +593,9 @@
     "outline": {
         "message": "Outline"
     },
+    "overlay": {
+        "message": "Overlay"
+    },
     "permissions": {
         "message": "Permisiuni"
     },
@@ -706,6 +709,9 @@
     },
     "screenshot": {
         "message": "Captură de ecran"
+    },
+    "scrollBar": {
+        "message": "Scroll Bar"
     },
     "search": {
         "message": "Caută"

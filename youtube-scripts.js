@@ -19,7 +19,7 @@
         4.2.1.2 Forced theater mode
         4.2.1.3 HD thumbnail
         4.2.1.4 Always show progress bar
-        4.2.1.5 Video Remaining duration
+        4.2.1.5 Video remaining duration
       4.2.2 Sidebar
         4.2.2.1 Livechat
         4.2.2.2 Related videos
@@ -1263,7 +1263,7 @@ ImprovedTube.alwaysShowProgressBar = function () {
 
 
 /*------------------------------------------------------------------------------
-4.2.1.4 ALWAYS SHOW PROGRESS BAR
+4.2.1.5 VIDEO REMAINING DURATION
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.formatSecond = function(rTime){
