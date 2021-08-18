@@ -343,6 +343,24 @@ html[it-hide-thumbnail-overlay=true] #hover-overlays {
 }
 
 
+/*------------------------------------------------------------------------------
+1.10 Scroll Bar
+------------------------------------------------------------------------------*/
+
+html[it-scroll-bar=overlay] body,
+html[it-scroll-bar=hidden] body{
+    overflow-y: overlay;
+}
+
+html[it-scroll-bar=appear] body{
+    overflow-y: hidden;
+}
+
+html[it-scroll-bar=hidden] ::-webkit-scrollbar{
+    display: none;
+}
+
+
 /*-------------------------------------------------------------------------------
 2.0 APPEARANCE
 -------------------------------------------------------------------------------*/
@@ -939,8 +957,9 @@ html[it-hide-gradient-bottom=true] .ytp-gradient-bottom {
     display: none;
 }
 
+
 /*------------------------------------------------------------------------------
-2.2.11 Skip overlay
+2.2.11 Skip Overlay
 ------------------------------------------------------------------------------*/
 
 html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui, .ytp-doubletap-ui-legacy
