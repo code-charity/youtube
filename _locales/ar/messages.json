@@ -587,6 +587,9 @@
     "outline": {
         "message": "Outline"
     },
+    "overlay": {
+        "message": "Overlay"
+    },
     "permissions": {
         "message": "الأذونات"
     },
@@ -700,6 +703,9 @@
     },
     "screenshot": {
         "message": "لقطة شاشة"
+    },
+    "scrollBar": {
+        "message": "Scroll Bar"
     },
     "search": {
         "message": "بحث"

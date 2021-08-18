@@ -596,6 +596,9 @@
     "outline": {
         "message": "Outline"
     },
+    "overlay": {
+        "message": "Overlay"
+    },
     "permissions": {
         "message": "權限"
     },
@@ -709,6 +712,9 @@
     },
     "screenshot": {
         "message": "截圖"
+    },
+    "scrollBar": {
+        "message": "Scroll Bar"
     },
     "search": {
         "message": "搜尋"
