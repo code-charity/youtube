@@ -107,6 +107,9 @@
     "blockAll": {
         "message": "সবাইকে ব্লক"
     },
+    "blockMusic": {
+        "message": "Block music"
+    },
     "blue": {
         "message": "নীল"
     },
