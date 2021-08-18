@@ -84,10 +84,10 @@
         "message": "স্বয়ংক্রিয় চালু"
     },
     "backgroundColor": {
-        "message": "Background color"
+        "message": "পটভূমির রং"
     },
     "backgroundOpacity": {
-        "message": "Background opacity"
+        "message": "পটভূমি অস্বচ্ছতা"
     },
     "backupAndReset": {
         "message": "ব্যাকআপ এবং পুনরায় সেট করুন"
@@ -147,7 +147,7 @@
         "message": "চ্যানেলগুলি"
     },
     "characterEdgeStyle": {
-        "message": "Character edge style"
+        "message": "ক্যারেক্টার এজ স্টাইল"
     },
     "clipboard": {
         "message": "ক্লিপবোর্ড"
@@ -219,19 +219,19 @@
         "message": "ডিফল্ট চ্যানেল ট্যাব"
     },
     "defaultContentCountry": {
-        "message": "Default content country"
+        "message": "ডিফল্ট বিষয়বস্তুর দেশ"
     },
     "deleteYoutubeCookies": {
         "message": "ইউটিউব এর কুকি ডিলিট করুন"
     },
     "depressed": {
-        "message": "Depressed"
+        "message": "বিষণ্ণ"
     },
     "description": {
         "message": "বর্ণনা"
     },
     "description_ext": {
-        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+        "message": "ইউটিউব পরিপাটি+স্মার্ট করুন! ইউটিউব ভিডিও কালার অ্যাড স্কিপ ভলিউম স্পিড চ্যানেল টুল স্টাইল এইচডি বিজ্ঞাপন অ্যাডব্লক অ্যাডব্লকার ট্যাগ কীওয়ার্ড প্লেলিস্ট"
     },
     "desert": {
         "message": "মরুভূমি"
@@ -264,7 +264,7 @@
         "message": "টেনে আনে"
     },
     "dropShadow": {
-        "message": "Drop shadow"
+        "message": "ছায়া ফেলে দিন"
     },
     "email": {
         "message": "ইমেল"
@@ -303,16 +303,16 @@
         "message": "হরফ"
     },
     "fontColor": {
-        "message": "Font color"
+        "message": "অক্ষরের রং"
     },
     "fontFamily": {
-        "message": "Font family"
+        "message": "হরফ সংগ্রহ"
     },
     "fontOpacity": {
-        "message": "Font opacity"
+        "message": "হরফের অস্বচ্ছতা"
     },
     "fontSize": {
-        "message": "Font size"
+        "message": "অক্ষরের আকার"
     },
     "footer": {
         "message": "পাদচরণ"
@@ -321,7 +321,7 @@
         "message": "Force SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Forced play video from the beginning"
+        "message": "জোর করে শুরু থেকে ভিডিও চালান"
     },
     "forcedPlaybackSpeed": {
         "message": "জোর করে প্লেব্যাক গতি"
@@ -378,10 +378,10 @@
         "message": "কার্ড লুকান"
     },
     "hideCountryCode": {
-        "message": "Hide country code"
+        "message": "কান্ট্রি কোড লুকান"
     },
     "hideDate": {
-        "message": "Hide date"
+        "message": "তারিখ লুকান"
     },
     "hideDetails": {
         "message": "আড়াল বিস্তারিত"
@@ -399,7 +399,7 @@
         "message": "গ্রেডিয়েন্ট নীচে লুকান"
     },
     "hideMoreButton": {
-        "message": "Hide \"More\" button"
+        "message": "আরও লুকান বোতাম
     },
     "hidePlaylist": {
         "message": "প্লেলিস্ট লুকান"
@@ -408,25 +408,25 @@
         "message": "ডান বোতামগুলি লুকান"
     },
     "hideSaveButton": {
-        "message": "Hide \"Save\" button"
+        "message": "সংরক্ষণ ভোতার লোকাল"
     },
     "hideScrollForDetails": {
         "message": "«বিশদ জন্য স্ক্রোলs» লুকান"
     },
     "hideShareButton": {
-        "message": "Hide \"Share\" button"
+        "message": "শেয়ার বাটন লোকাল"
     },
     "hideSkipOverlay": {
-        "message": "Hide Skip Overlay"
+        "message": "স্কিপ ওভারলে লুকান"
     },
     "showRemainingDuration":{
-        "message": "Show video remaining duration"
+        "message": "ভিডিও অবশিষ্ট সময় দেখান"
     },
     "hideViewsCount": {
         "message": "দর্শন গণনা লুকান"
     },
     "hideVoiceSearchButton": {
-        "message": "Hide voice search button"
+        "message": "বক্তৃতা সার্চ বাটন লুকান"
     },
     "history": {
         "message": "ইতিহাস"
@@ -480,10 +480,10 @@
         "message": "আইটেম"
     },
     "language": {
-        "message": "Language"
+        "message": "ভাষা"
     },
     "languages": {
-        "message": "Languages"
+        "message": "ভাষা"
     },
     "legacyYoutube": {
         "message": "উত্তরাধিকার ইউটিউব"
@@ -507,7 +507,7 @@
         "message": "চুন"
     },
     "limitPageWidth": {
-        "message": "Limit page width"
+        "message": "পৃষ্ঠার প্রস্থ সীমিত করুন"
     },
     "list": {
         "message": "তালিকা"
@@ -519,7 +519,7 @@
         "message": "লাইভ চ্যাট টাইপ"
     },
     "location": {
-        "message": "Location"
+        "message": "অবস্থান"
     },
     "loudnessNormalization": {
         "message": "আওয়াজের স্বাভাবিককরণ"
@@ -585,7 +585,7 @@
         "message": "অন্যান্য"
     },
     "outline": {
-        "message": "Outline"
+        "message": "রূপরেখা"
     },
     "overlay": {
         "message": "Overlay"
@@ -651,7 +651,7 @@
         "message": "গুণ"
     },
     "raised": {
-        "message": "Raised"
+        "message": "উত্থাপিত"
     },
     "ram": {
         "message": "র্যাম"
@@ -720,10 +720,10 @@
         "message": "10 সেকেন্ড এগিয়ে যান"
     },
     "seekNextChapter": {
-        "message": "seekNextChapter"
+        "message": "পরবর্তী অধ্যায় সন্ধান করুন"
     },
     "seekPreviousChapter": {
-        "message": "seekPreviousChapter"
+        "message": "পূর্ববর্তী অধ্যায় সন্ধান করুন"
     },
     "settings": {
         "message": "সেটিংস"
@@ -831,7 +831,7 @@
         "message": "আজ এ"
     },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "কার্ড প্রতিস্থাপন করুন"
     },
     "topChat": {
         "message": "শীর্ষ চ্যাট"
@@ -891,10 +891,10 @@
         "message": "সাদা"
     },
     "windowColor": {
-        "message": "Window color"
+        "message": "উইন্ডো রঙ"
     },
     "windowOpacity": {
-        "message": "Window opacity"
+        "message": "উইন্ডোর অস্বচ্ছতা"
     },
     "yellow": {
         "message": "হলুদ"
