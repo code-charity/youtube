@@ -431,6 +431,10 @@ ImprovedTube.init = function () {
 
                             ImprovedTube.improvedtubeYoutubeIcon();
                         }
+                    } else if (name === 'META'){
+                        if (node.getAttribute('itemprop') === 'genre'){
+                            ImprovedTube.genre = node.content;
+                        }
                     }
                 }
             }
@@ -2126,19 +2130,20 @@ ImprovedTube.upNextAutoplay = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerAds = function (parent) {
-    if (this.storage.player_ads === 'block_all') {
-        var button = parent.querySelector('.ytp-ad-skip-button.ytp-button');
-
-        if (button) {
+    var button = parent.querySelector('.ytp-ad-skip-button.ytp-button');
+    if (button){
+        if (this.storage.player_ads === 'block_all') {
             button.click();
+        } else if (this.storage.player_ads === 'subscribed_channels') {
+            if (!parent.querySelector('#meta paper-button[subscribed]')) {
+                button.click();
+            }
+        } else if (this.storage.player_ads === 'block_music') {
+            if (ImprovedTube.elements.genre === 'music') {
+                button.click();
+            }
         }
-    } else if (this.storage.player_ads === 'subscribed_channels') {
-        var button = parent.querySelector('.ytp-ad-skip-button.ytp-button');
-
-        if (button && !parent.querySelector('#meta paper-button[subscribed]')) {
-            button.click();
-        }
-    }
+    }   
 };
 
 
