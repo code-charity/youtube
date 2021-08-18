@@ -602,6 +602,9 @@
     "outline": {
         "message": "Outline"
     },
+    "overlay": {
+        "message": "Overlay"
+    },
     "permissions": {
         "message": "Permissions"
     },
@@ -715,6 +718,9 @@
     },
     "screenshot": {
         "message": "Screenshot"
+    },
+    "scrollBar": {
+        "message": "Scroll Bar"
     },
     "search": {
         "message": "Search"

@@ -77,6 +77,7 @@ function attributes(items) {
         'black-theme': true,
         'player-crop-chapter-titles': true,
         'player-ads': true,
+        'scroll-bar': true,
         'improvedtube-youtube-icon': true
     };
 

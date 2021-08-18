@@ -2552,6 +2552,21 @@ skeleton.main.section.general = {
             type: 'switch',
             label: 'limitPageWidth',
             value: true
+        },
+        scroll_bar: {
+            type: 'select',
+            label: 'scrollBar',
+            tags: 'remove,hide',
+            options: [{
+                label: 'normal',
+                value: 'normal'
+            }, {
+                label: 'hidden',
+                value: 'hidden'
+            }, {
+                label: 'overlay',
+                value: 'overlay'
+            }],
         }
     },
 
@@ -2710,7 +2725,8 @@ skeleton.main.section.appearance = {
             player_hide_skip_overlay: {
                 type: 'switch',
                 label: 'hideSkipOverlay',
-                value: false
+                value: false,
+                tags: 'remove,hide'
             },
             player_remaining_duration: {
                 type: 'switch',
