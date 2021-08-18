@@ -107,6 +107,9 @@
     "blockAll": {
         "message": "Blochează tot"
     },
+    "blockMusic": {
+        "message": "Block music"
+    },
     "blue": {
         "message": "Albastru"
     },

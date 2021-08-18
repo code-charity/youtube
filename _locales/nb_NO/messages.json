@@ -107,6 +107,9 @@
     "blockAll": {
         "message": "Blokker alle"
     },
+    "blockMusic": {
+        "message": "Block music"
+    },
     "blue": {
         "message": "Blå"
     },

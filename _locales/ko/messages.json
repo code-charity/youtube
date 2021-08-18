@@ -107,6 +107,9 @@
     "blockAll": {
         "message": "모두 차단"
     },
+    "blockMusic": {
+        "message": "Block music"
+    },
     "blue": {
         "message": "파랑"
     },
