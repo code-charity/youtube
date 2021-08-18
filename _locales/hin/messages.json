@@ -84,10 +84,10 @@
         "message": "स्वत: प्ले"
     },
     "backgroundColor": {
-        "message": "Background color"
+        "message": "पीछे का रंग"
     },
     "backgroundOpacity": {
-        "message": "Background opacity"
+        "message": "पृष्ठभूमि अस्पष्टता"
     },
     "backupAndReset": {
         "message": "बैकअप पुनर्स्थापित करना"
@@ -147,13 +147,13 @@
         "message": "चैनल"
     },
     "characterEdgeStyle": {
-        "message": "Character edge style"
+        "message": "कैरेक्टर एज स्टाइल"
     },
     "clipboard": {
         "message": "क्लिपबोर्ड"
     },
     "codecH264": {
-        "message": "कोडक ज 64२६४ 64"
+        "message": "कोडक H264
     },
     "collapseOfSubscriptionSections": {
         "message": "सदस्यता वर्गों का पतन"
@@ -213,25 +213,25 @@
         "message": "गहरा बैंगनी"
     },
     "default": {
-        "message": "Default"
+        "message": "डिफ़ॉल्ट"
     },
     "defaultChannelTab": {
         "message": "डिफ़ॉल्ट चैनल टैब"
     },
     "defaultContentCountry": {
-        "message": "Default content country"
+        "message": "डिफॉल्ट विषय देश"
     },
     "deleteYoutubeCookies": {
         "message": "यूट्यूब कुकीज़ हटाएं"
     },
     "depressed": {
-        "message": "Depressed"
+        "message": "उदास"
     },
     "description": {
         "message": "विवरण"
     },
     "description_ext": {
-        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+        "message": "YouTube को व्यवस्थित एवं स्मार्ट बनाएं! यूट्यूब वीडियो कलर एड स्किप वॉल्यूम स्पीड चैनल टूल स्टाइल एचडी विज्ञापन एडब्लॉकर टैग कीवर्ड प्लेलिस्ट"
     },
     "desert": {
         "message": "रेगिस्तान"
@@ -264,7 +264,7 @@
         "message": "खींचने योग्य"
     },
     "dropShadow": {
-        "message": "Drop shadow"
+        "message": "परछाई डालना"
     },
     "email": {
         "message": "ईमेल"
@@ -300,19 +300,19 @@
         "message": "चमक"
     },
     "font": {
-        "message": "फ़ॉन्ट"
+        "message": "लिपि"
     },
     "fontColor": {
-        "message": "Font color"
+        "message": "लिपि का रंग"
     },
     "fontFamily": {
-        "message": "Font family"
+        "message": "लिपीओ का काि  संग्रह"
     },
     "fontOpacity": {
-        "message": "Font opacity"
+        "message": "लिपि की अस्पष्टता"
     },
     "fontSize": {
-        "message": "Font size"
+        "message": "लिपीओ का आकार"
     },
     "footer": {
         "message": "पाद लेख"
@@ -321,7 +321,7 @@
         "message": "Force SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Forced play video from the beginning"
+        "message": "जबरदस्ती वीडियो शुरू से प्ले करें"
     },
     "forcedPlaybackSpeed": {
         "message": "जबरन पार्श्व गति"
@@ -399,7 +399,7 @@
         "message": "ग्रेडिएंट बॉटम छुपाएं"
     },
     "hideMoreButton": {
-        "message": "Hide \"More\" button"
+        "message": "अधिक बटन छुपाएं"
     },
     "hidePlaylist": {
         "message": "प्लेलिस्ट छिपाएं"
@@ -408,25 +408,25 @@
         "message": "दाएं बटन छुपाएं"
     },
     "hideSaveButton": {
-        "message": "Hide \"Save\" button"
+        "message": "सहेजें बटन छुपाएं"
     },
     "hideScrollForDetails": {
         "message": "छिपाएँ «विवरण के लिए स्क्रॉल»"
     },
     "hideShareButton": {
-        "message": "Hide \"Share\" button"
+        "message": "शेयर बटन छुपाएं"
     },
     "hideSkipOverlay": {
-        "message": "Hide Skip Overlay"
+        "message": "स्किप ओवरले छुपाएं"
     },
     "showRemainingDuration":{
-        "message": "Show video remaining duration"
+        "message": "वीडियो की बची हुई अवधि दिखाएं"
     },
     "hideViewsCount": {
         "message": "व्यू काउंट छिपाएं"
     },
     "hideVoiceSearchButton": {
-        "message": "Hide voice search button"
+        "message": "ध्वनि खोज बटन छुपाएं"
     },
     "history": {
         "message": "इतिहास"
@@ -507,7 +507,7 @@
         "message": "पीला हरा रंग"
     },
     "limitPageWidth": {
-        "message": "Limit page width"
+        "message": "पृष्ठ की चौड़ाई सीमित करें"
     },
     "list": {
         "message": "सूची"
@@ -519,7 +519,7 @@
         "message": "लाइव चैट प्रकार"
     },
     "location": {
-        "message": "Location"
+        "message": "स्थान"
     },
     "loudnessNormalization": {
         "message": "जोर से सामान्य होना"
@@ -714,10 +714,10 @@
         "message": "पिछड़े 10 सेकंड की तलाश करें"
     },
     "seekNextChapter": {
-        "message": "seekNextChapter"
+        "message": "अगले अध्याय पर चलें"
     },
     "seekPreviousChapter": {
-        "message": "seekPreviousChapter"
+        "message": "पिछले अध्याय पर चलें"
     },
     "settings": {
         "message": "समायोजन"
@@ -735,10 +735,10 @@
         "message": "चैनल वीडियो काउंट दिखाएं"
     },
     "showLess": {
-        "message": "Show less"
+        "message": "कम दिखाएं"
     },
     "showMore": {
-        "message": "Show more"
+        "message": "और दिखाएं"
     },
     "shuffle": {
         "message": "मिश्रण"
@@ -885,10 +885,10 @@
         "message": "सफेद"
     },
     "windowColor": {
-        "message": "Window color"
+        "message": "विंडो का रंग"
     },
     "windowOpacity": {
-        "message": "Window opacity"
+        "message": "विंडो की अस्पष्टता"
     },
     "yellow": {
         "message": "पीला"
