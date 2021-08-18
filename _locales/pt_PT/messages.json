@@ -587,6 +587,9 @@
     "outline": {
         "message": "Outline"
     },
+    "overlay": {
+        "message": "Overlay"
+    },
     "permissions": {
         "message": "Permissões"
     },
@@ -700,6 +703,9 @@
     },
     "screenshot": {
         "message": "Foto do ecrân"
+    },
+    "scrollBar": {
+        "message": "Scroll Bar"
     },
     "search": {
         "message": "Pesquisa"

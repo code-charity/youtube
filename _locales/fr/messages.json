@@ -590,6 +590,9 @@
     "outline": {
         "message": "Outline"
     },
+    "overlay": {
+        "message": "Overlay"
+    },
     "permissions": {
         "message": "Permissions"
     },
@@ -703,6 +706,9 @@
     },
     "screenshot": {
         "message": "Capture d'écran"
+    },
+    "scrollBar": {
+        "message": "Scroll Bar"
     },
     "search": {
         "message": "Rechercher"

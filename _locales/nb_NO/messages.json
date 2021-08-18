@@ -590,6 +590,9 @@
     "outline": {
         "message": "Outline"
     },
+    "overlay": {
+        "message": "Overlay"
+    },
     "permissions": {
         "message": "rettigheter"
     },
@@ -703,6 +706,9 @@
     },
     "screenshot": {
         "message": "Skjeravbildning"
+    },
+    "scrollBar": {
+        "message": "Scroll Bar"
     },
     "search": {
         "message": "Søk"
