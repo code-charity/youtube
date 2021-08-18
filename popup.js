@@ -3408,6 +3408,9 @@ skeleton.main.section.player = {
                 label: 'onSubscribedChannels',
                 value: 'subscribed_channels'
             }, {
+                label: 'blockMusic',
+                value: 'block_music'
+            }, {
                 label: 'blockAll',
                 value: 'block_all'
             }]

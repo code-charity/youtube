@@ -107,6 +107,9 @@
     "blockAll": {
         "message": "Αποκλείστε όλα"
     },
+    "blockMusic": {
+        "message": "Block music"
+    },
     "blue": {
         "message": "Μπλε"
     },
