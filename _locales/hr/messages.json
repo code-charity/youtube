@@ -107,6 +107,9 @@
     "blockAll": {
         "message": "Blokiraj sve"
     },
+    "blockMusic": {
+        "message": "Block music"
+    },
     "blue": {
         "message": "Plava"
     },

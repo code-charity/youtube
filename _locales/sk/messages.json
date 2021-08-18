@@ -107,6 +107,9 @@
     "blockAll": {
         "message": "Zablokovať všetko"
     },
+    "blockMusic": {
+        "message": "Block music"
+    },
     "blue": {
         "message": "Modrá"
     },

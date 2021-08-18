@@ -107,6 +107,9 @@
     "blockAll": {
         "message": "सभी को अवरोधित करें"
     },
+    "blockMusic": {
+        "message": "Block music"
+    },
     "blue": {
         "message": "नीला"
     },
