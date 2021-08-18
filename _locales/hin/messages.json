@@ -153,7 +153,7 @@
         "message": "क्लिपबोर्ड"
     },
     "codecH264": {
-        "message": "कोडक H264
+        "message": "कोडक H264"
     },
     "collapseOfSubscriptionSections": {
         "message": "सदस्यता वर्गों का पतन"
@@ -378,10 +378,10 @@
         "message": "पत्ते छिपाओ"
     },
     "hideCountryCode": {
-        "message": "Hide country code"
+        "message": "देश कोड छुपाएं"
     },
     "hideDate": {
-        "message": "Hide date"
+        "message": "तारीख छुपाएं"
     },
     "hideDetails": {
         "message": "जानकारी छिपाएँ"
