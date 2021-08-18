@@ -130,6 +130,8 @@ chrome.storage.onChanged.addListener(function (changes) {
 
         if (name === 'blacklistActivate') {
             name = 'blacklist';
+        } else if (name === 'playerForcedPlaybackSpeed') {
+            name = 'playerPlaybackSpeed';
         }
 
         document.documentElement.setAttribute('it-' + attribute, value);
