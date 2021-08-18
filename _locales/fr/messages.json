@@ -104,6 +104,9 @@
     "blacklist": {
         "message": "Liste noire"
     },
+    "blockMusic": {
+        "message": "Block music"
+    },
     "blockAll": {
         "message": "Tout bloquer"
     },

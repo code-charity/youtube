@@ -107,6 +107,9 @@
     "blockAll": {
         "message": "Tümünü engelle"
     },
+    "blockMusic": {
+        "message": "Block music"
+    },
     "blue": {
         "message": "Mavi"
     },
