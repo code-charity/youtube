@@ -7,7 +7,7 @@
 📟 We are focused on bugs & UX. Wishes for new features might have to wait but please keep them up! 
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-		<img  alt="YouTube extension" src="https://github.com/victor-savinov/previews/raw/master/improvedtube/screenshot-github.png">
+		<img alt="YouTube extension" src="https://github.com/victor-savinov/previews/raw/master/improvedtube/screenshot-github.png">
 	</a>
 	<br>
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
