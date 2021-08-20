@@ -48,7 +48,7 @@
 	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>
 </p>
 
-<h3 align="right"> 🙏 Credits<i>  & Critiques </i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
+<h3 align="right"> 🙏 Credits<i>  & Critiques </i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
 <table align="right"><tr><td>
 Big thanks ❤️ to our <br> 
 <b><a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors, developers</a>, 
