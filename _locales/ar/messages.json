@@ -380,6 +380,12 @@
     "hideCards": {
         "message": "إخفاء البطاقات"
     },
+    "hideControls": {
+        "message": "Hide player controls bar"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -671,6 +677,9 @@
     "relatedVideos": {
         "message": "فيديوهات ذات علاقة"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "إزالة عمليات بحث مرتبطة بـ"
     },
@@ -877,6 +886,9 @@
     },
     "videos": {
         "message": "الفيديوهات"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "الصوت"

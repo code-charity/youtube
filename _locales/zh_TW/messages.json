@@ -381,7 +381,10 @@
         "message": "隱藏資訊卡"
     },
     "hideControls": {
-        "message": "隱藏播放器控制"
+        "message": "隱藏播放器控制欄"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
     },
     "hideCountryCode": {
         "message": "Hide country code"
@@ -680,6 +683,9 @@
     "relatedVideos": {
         "message": "推薦影片"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "移除搜尋相關結果"
     },
@@ -889,6 +895,9 @@
     },
     "videos": {
         "message": "影片"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "音量"

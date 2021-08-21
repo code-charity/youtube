@@ -380,6 +380,12 @@
     "hideCards": {
         "message": "पत्ते छिपाओ"
     },
+    "hideControls": {
+        "message": "Hide player controls bar"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
+    },
     "hideCountryCode": {
         "message": "देश कोड छुपाएं"
     },
@@ -671,6 +677,9 @@
     "relatedVideos": {
         "message": "संबंधित वीडियो"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "संबंधित खोज परिणाम निकालें"
     },
@@ -877,6 +886,9 @@
     },
     "videos": {
         "message": "वीडियो"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "ध्वनि"
