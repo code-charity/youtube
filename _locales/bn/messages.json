@@ -380,6 +380,12 @@
     "hideCards": {
         "message": "কার্ড লুকান"
     },
+    "hideControls": {
+        "message": "Hide player controls bar"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
+    },
     "hideCountryCode": {
         "message": "কান্ট্রি কোড লুকান"
     },
@@ -671,6 +677,9 @@
     "relatedVideos": {
         "message": "সংশ্লিষ্ট ভিডিও"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "সম্পর্কিত অনুসন্ধান ফলাফল সরান"
     },
@@ -877,6 +886,9 @@
     },
     "videos": {
         "message": "ভিডিও"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "শব্দ"

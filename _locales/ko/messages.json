@@ -380,6 +380,12 @@
     "hideCards": {
         "message": "카드 숨기기"
     },
+    "hideControls": {
+        "message": "Hide player controls bar"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
+    },
     "hideCountryCode": {
         "message": "국가코드 숨기기"
     },
@@ -668,6 +674,9 @@
     "relatedVideos": {
         "message": "관련 영상"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "관련 검색결과 제거"
     },
@@ -874,6 +883,9 @@
     },
     "videos": {
         "message": "비디오"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "음량"
