@@ -380,6 +380,12 @@
     "hideCards": {
         "message": "Kartları gizle"
     },
+    "hideControls": {
+        "message": "Hide player controls bar"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -671,6 +677,9 @@
     "relatedVideos": {
         "message": "İlgili videolar"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "İlgili arama sonuçlarını kaldır"
     },
@@ -877,6 +886,9 @@
     },
     "videos": {
         "message": "Videolar"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "Ses"

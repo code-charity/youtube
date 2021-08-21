@@ -4300,8 +4300,60 @@ skeleton.main.section.player = {
         },
         player_hide_controls: {
             type: 'switch',
-            label: 'hideControls',
-            value: false
+            label: 'hideControls'
+        },
+        player_hide_controls_options: {
+            type: 'folder',
+            label: 'hideControlsOptions',
+
+            section: {
+                type: 'section',
+
+                player_play_button: {
+                    type: 'switch',
+                    label: 'playPause'
+                },
+                player_previous_button: {
+                    type: 'switch',
+                    label: 'previousVideo'
+                },
+                player_next_button: {
+                    type: 'switch',
+                    label: 'nextVideo'
+                },
+                player_volume_button: {
+                    type: 'switch',
+                    label: 'volume'
+                },
+                player_autoplay_button: {
+                    type: 'switch',
+                    label: 'autoplay'
+                },
+                player_settings_button: {
+                    type: 'switch',
+                    label: 'settings'
+                },
+                player_subtitles_button: {
+                    type: 'switch',
+                    label: 'subtitles'
+                },
+                player_miniplayer_button: {
+                    type: 'switch',
+                    label: 'nativeMiniPlayer'
+                },
+                player_view_button: {
+                    type: 'switch',
+                    label: 'viewMode'
+                },
+                player_screen_button: {
+                    type: 'switch',
+                    label: 'screen'
+                },
+                player_remote_button: {
+                    type: 'switch',
+                    label: 'remote'
+                }
+            }
         }
     }
 };

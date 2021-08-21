@@ -383,6 +383,12 @@
     "hideCards": {
         "message": "Ascunde cardurile"
     },
+    "hideControls": {
+        "message": "Hide player controls bar"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -677,6 +683,9 @@
     "relatedVideos": {
         "message": "Videoclipuri asemănătoare"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "Elimină rezultatele asemănătoare a căutării"
     },
@@ -883,6 +892,9 @@
     },
     "videos": {
         "message": "Videoclipuri"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "Volum"

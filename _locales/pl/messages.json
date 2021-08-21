@@ -387,7 +387,10 @@
         "message": "Ukryj karty"
     },
     "hideControls": {
-        "message": "Ukryj sterowanie odtwarzaczem"
+        "message": "Ukryj pasek sterowania odtwarzaczem"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
     },
     "hideCountryCode": {
         "message": "Ukryj kod kraju"
@@ -686,6 +689,9 @@
     "relatedVideos": {
         "message": "Wideo powiązane"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "Usuń powiązane wyniki wyszukiwania"
     },
@@ -904,6 +910,9 @@
     },
     "videos": {
         "message": "Wideo"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "Głośność"
