@@ -1297,7 +1297,6 @@ ImprovedTube.playerRemainingDuration = function () {
         }
     }
     else if (element){
-        console.log("test");
         element.remove();
     }
 };
