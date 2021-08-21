@@ -380,6 +380,12 @@
     "hideCards": {
         "message": "Skjul kort"
     },
+    "hideControls": {
+        "message": "Hide player controls bar"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -668,6 +674,9 @@
     "relatedVideos": {
         "message": "Relaterte videoer"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "Fjern relaterte søkeresultater"
     },
@@ -868,6 +877,9 @@
     },
     "videos": {
         "message": "Videoer"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "Volume"

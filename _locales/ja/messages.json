@@ -380,6 +380,12 @@
     "hideCards": {
         "message": "カードを隠す"
     },
+    "hideControls": {
+        "message": "Hide player controls bar"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -671,6 +677,9 @@
     "relatedVideos": {
         "message": "関連動画"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "関連動画を検索結果から削除する"
     },
@@ -877,6 +886,9 @@
     },
     "videos": {
         "message": "動画"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "音量"

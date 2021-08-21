@@ -380,6 +380,12 @@
     "hideCards": {
         "message": "Nascondi tessere di fine video"
     },
+    "hideControls": {
+        "message": "Hide player controls bar"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -671,6 +677,9 @@
     "relatedVideos": {
         "message": "Video correlati"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "Rimuovi risultati di ricerca correlati"
     },
@@ -874,6 +883,9 @@
     },
     "videos": {
         "message": "Video"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "Volume"

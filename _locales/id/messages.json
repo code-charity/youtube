@@ -380,6 +380,12 @@
     "hideCards": {
         "message": "Sembunyikan kartu"
     },
+    "hideControls": {
+        "message": "Hide player controls bar"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -668,6 +674,9 @@
     "relatedVideos": {
         "message": "Video terkait"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "Hapus hasil pencarian terkait"
     },
@@ -874,6 +883,9 @@
     },
     "videos": {
         "message": "Video"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "Suara"
