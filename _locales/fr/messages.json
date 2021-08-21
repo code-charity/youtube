@@ -380,6 +380,12 @@
     "hideCards": {
         "message": "Cacher les cartes"
     },
+    "hideControls": {
+        "message": "Hide player controls bar"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -674,6 +680,9 @@
     "relatedVideos": {
         "message": "Vidéos associés"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "Supprimer les résultats de recherche associés"
     },
@@ -883,6 +892,9 @@
     },
     "videos": {
         "message": "Videos"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "Volume"

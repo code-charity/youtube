@@ -62,6 +62,7 @@
   4.5 Repeat
   4.6 Rotate
   4.7 Popup player
+  4.8 Hide controls options
 5.0 Playlist
   5.1 Reverse
 6.0 Channel
@@ -3389,6 +3390,53 @@ body.no-scroll .it-player-button--tooltip {
     width: 34px !important;
 }
 
+
+/*------------------------------------------------------------------------------
+4.8 hide controls options
+------------------------------------------------------------------------------*/
+html[it-player-play-button=true] .ytp-prev-button {
+    display: none !important;
+}
+
+html[it-player-previous-button=true] .ytp-play-button {
+    display: none !important;
+}
+
+html[it-player-next-button=true] .ytp-next-button {
+    display: none !important;
+}
+
+html[it-player-volume-button=true] .ytp-volume-button {
+    display: none !important;
+}
+
+html[it-player-autoplay-button=true] .ytp-autonav-toggle-button-container {
+    display: none !important;
+}
+
+html[it-player-settings-button=true] .ytp-settings-button {
+    display: none !important;
+}
+
+html[it-player-subtitles-button=true] .ytp-subtitles-button {
+    display: none !important;
+}
+
+html[it-player-miniplayer-button=true] .ytp-miniplayer-button {
+    display: none !important;
+}
+
+html[it-player-view-button=true] .ytp-size-button {
+    display: none !important;
+}
+
+html[it-player-screen-button=true] .ytp-fullscreen-button {
+    display: none !important;
+}
+
+html[it-player-remote-button=true] .ytp-remote-button {
+    display: none !important;
+}
 
 /*------------------------------------------------------------------------------
 5.0 PLAYLIST

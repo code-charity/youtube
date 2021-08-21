@@ -380,6 +380,12 @@
     "hideCards": {
         "message": "Skryť karty"
     },
+    "hideControls": {
+        "message": "Hide player controls bar"
+    },
+    "hideControlsOptions": {
+        "message": "Hide player controls options"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -671,6 +677,9 @@
     "relatedVideos": {
         "message": "Súvisiace videá"
     },
+    "remote": {
+        "message": "Play on TV"
+    },
     "removeRelatedSearchResults": {
         "message": "Odstránte príbuzné výsledky vyhľadávania"
     },
@@ -877,6 +886,9 @@
     },
     "videos": {
         "message": "Vedeá"
+    },
+    "viewMode": {
+        "message": "View Mode"
     },
     "volume": {
         "message": "Hlasitosť"
