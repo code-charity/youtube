@@ -3387,6 +3387,12 @@ ImprovedTube.shortcutToggleAutoplay = function () {
 
 ImprovedTube.shortcutNextVideo = function () {
     if (this.elements.player) {
+        if (document.querySelector('[aria-label="Loop playlist"]').ariaPressed === 'true'){
+            this.elements.player.setLoop(true);
+        }
+        else{
+            this.elements.player.setLoop(false)
+        }
         this.elements.player.nextVideo();
     }
 };
@@ -3398,6 +3404,12 @@ ImprovedTube.shortcutNextVideo = function () {
 
 ImprovedTube.shortcutPrevVideo = function () {
     if (this.elements.player) {
+        if (document.querySelector('[aria-label="Loop playlist"]').ariaPressed === 'true'){
+            this.elements.player.setLoop(true);
+        }
+        else{
+            this.elements.player.setLoop(false)
+        }
         this.elements.player.previousVideo();
     }
 };
