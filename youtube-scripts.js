@@ -1282,10 +1282,10 @@ ImprovedTube.formatSecond = function(rTime){
 }
 
 ImprovedTube.playerRemainingDuration = function () {
+    var element = document.querySelector('.ytp-time-remaining-duration');
     if (this.storage.player_remaining_duration === true) {
         var player = ImprovedTube.elements.player;
         var rTime = ImprovedTube.formatSecond((player.getDuration() - player.getCurrentTime()).toFixed(0));
-        var element = document.querySelector('.ytp-time-remaining-duration');
         if(!element){
             var label = document.createElement('span');
             label.textContent = ' (-' + rTime + ')';
@@ -1295,6 +1295,9 @@ ImprovedTube.playerRemainingDuration = function () {
         else{
             element.textContent = ' (-' + rTime + ')';
         }
+    }
+    else if (element){
+        element.remove();
     }
 };
 
