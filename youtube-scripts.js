@@ -805,16 +805,19 @@ ImprovedTube.showStatus = function (value) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.youtubeHomePage = function () {
-    var element = this.elements.masthead.logo;
+    var element = this.elements.masthead.logo,
+        option = this.storage.youtube_home_page;
 
-    if (this.isset(this.storage.youtube_home_page)) {
-        element.href = this.storage.youtube_home_page;
+    if (element) {
+        if (this.isset(option)) {
+            element.href = option;
 
-        element.addEventListener('click', this.stopPropagation, true);
-    } else {
-        element.href = '/';
+            element.addEventListener('click', this.stopPropagation, true);
+        } else {
+            element.href = '/';
 
-        element.removeEventListener('click', this.stopPropagation);
+            element.removeEventListener('click', this.stopPropagation);
+        }
     }
 };
 
