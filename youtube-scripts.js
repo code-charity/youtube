@@ -267,7 +267,8 @@ ImprovedTube.init = function () {
 
                         ImprovedTube.elements.masthead = {
                             start: node.querySelector('#start'),
-                            end: node.querySelector('#end')
+                            end: node.querySelector('#end'),
+                            logo
                         };
 
                         ImprovedTube.improvedtubeYoutubeIcon();
@@ -282,7 +283,7 @@ ImprovedTube.init = function () {
                                             if (logo.id === 'logo') {
                                                 this.disconnect();
 
-                                                ImprovedTube.youtubeHomePage(logo);
+                                                ImprovedTube.youtubeHomePage();
                                             }
                                         }
                                     }
@@ -392,7 +393,7 @@ ImprovedTube.init = function () {
                         }
                     } else if (name === 'A' && node.href) {
                         if (id === 'logo') {
-                            ImprovedTube.youtubeHomePage(node);
+                            ImprovedTube.youtubeHomePage();
                         }
 
                         ImprovedTube.channelDefaultTab(node);
@@ -803,19 +804,17 @@ ImprovedTube.showStatus = function (value) {
 4.1.1 YOUTUBE HOME PAGE
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.youtubeHomePage = function (node) {
-    if (this.isset(node) === false) {
-        node = document.querySelector('a#logo');
-    }
+ImprovedTube.youtubeHomePage = function () {
+    var element = this.elements.masthead.logo;
 
     if (this.isset(this.storage.youtube_home_page)) {
-        node.href = this.storage.youtube_home_page;
+        element.href = this.storage.youtube_home_page;
 
-        node.addEventListener('click', this.stopPropagation, true);
+        element.addEventListener('click', this.stopPropagation, true);
     } else {
-        node.href = '/';
+        element.href = '/';
 
-        node.removeEventListener('click', this.stopPropagation);
+        element.removeEventListener('click', this.stopPropagation);
     }
 };
 
