@@ -204,15 +204,15 @@ ImprovedTube.init = function () {
             if (mutation.type === 'childList') {
                 for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
                     var node = mutation.addedNodes[j],
-                        name = node.nodeName;
+                        name = node.nodeName,
+                        id = node.id;
 
                     if (name === 'YTD-WATCH-FLEXY') {
                         ImprovedTube.elements.ytd_watch = node;
-
                         ImprovedTube.elements.ytd_player = node.querySelector('ytd-player');
 
                         if (
-                            ImprovedTube.storage.player_size &&
+                            ImprovedTube.isset(ImprovedTube.storage.player_size) &&
                             ImprovedTube.storage.player_size !== 'do_not_change'
                         ) {
                             node.calculateCurrentPlayerSize_ = function() {
@@ -294,6 +294,44 @@ ImprovedTube.init = function () {
                                 subtree: false
                             });
                         }
+                    } else if (name === 'YTD-GUIDE-SECTION-RENDERER') {
+                        if (ImprovedTube.elements.hasOwnProperty('sidebar_section') === false) {
+                            ImprovedTube.elements.sidebar_section = node;
+
+                            ImprovedTube.improvedtubeYoutubeIcon();
+                        }
+                    } else if (name === 'YTD-ITEM-SECTION-RENDERER') {
+                        ImprovedTube.collapseOfSubscriptionSections(node);
+                    } else if (id === 'movie_player') {
+                        ImprovedTube.elements.ytd_player = document.querySelector('ytd-player');
+                        ImprovedTube.elements.player = node;
+                        ImprovedTube.elements.video = node.querySelector('video');
+                        ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
+                        ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
+                        ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
+
+                        ImprovedTube.playerSize();
+
+                        new MutationObserver(function(mutationList) {
+                            for (var i = 0, l = mutationList.length; i < l; i++) {
+                                var mutation = mutationList[i];
+
+                                if (mutation.type === 'attributes') {
+                                    if (mutation.attributeName === 'style') {
+                                        ImprovedTube.playerHdThumbnail();
+                                    }
+                                }
+                            }
+                        }).observe(ImprovedTube.elements.player_thumbnail, {
+                            attributes: true,
+                            attributeFilter: ['style'],
+                            childList: false,
+                            subtree: false
+                        });
+
+                        document.dispatchEvent(new CustomEvent('improvedtube-player-loaded'));
+                    } else if (name === 'DIV' && node.className.indexOf('ytp-ad-player-overlay') !== -1) {
+                        ImprovedTube.playerAds(node);
                     } else if (name === 'YTD-TOGGLE-BUTTON-RENDERER') {
                         if (
                             node.parentComponent &&
@@ -321,61 +359,39 @@ ImprovedTube.init = function () {
                                 ImprovedTube.playlistReverse();
                             }
                         }
-                    } else if (name === 'YTD-PLAYER') {
-                        ImprovedTube.elements.ytd_player = node;
-
-                        ImprovedTube.playerSize();
-                    } else if (node.id === 'movie_player') {
-                        ImprovedTube.elements.player = node;
-
-                        ImprovedTube.dim();
-
-                        ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
-                        ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
-                        ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
-
-                        new MutationObserver(function(mutationList) {
-                            for (var i = 0, l = mutationList.length; i < l; i++) {
-                                var mutation = mutationList[i];
-
-                                if (mutation.type === 'attributes') {
-                                    if (mutation.attributeName === 'style') {
-                                        ImprovedTube.playerHdThumbnail();
-                                    }
-                                }
-                            }
-                        }).observe(ImprovedTube.elements.player_thumbnail, {
-                            attributes: true,
-                            attributeFilter: ['style'],
-                            childList: false,
-                            subtree: false
-                        });
-
-                        document.dispatchEvent(new CustomEvent('improvedtube-player-loaded'));
-                    } else if (name === 'VIDEO') {
-                        ImprovedTube.elements.video = node;
-                    } else if (node.id === 'chat') {
+                    } else if (id === 'chat') {
                         ImprovedTube.elements.livechat.button = node.querySelector('ytd-toggle-button-renderer');
                         
                         ImprovedTube.livechat();
-                    } else if (node.id === 'related' && node.className.indexOf('ytd-watch-flexy') !== -1) {
+                    } else if (id === 'related' && node.className.indexOf('ytd-watch-flexy') !== -1) {
                         ImprovedTube.elements.related.container = node;
 
                         ImprovedTube.relatedVideos();
-                    } else if (name === 'YTD-COMMENTS-HEADER-RENDERER') {
-                        ImprovedTube.elements.comments.container = node;
-
-                        ImprovedTube.comments();
-                    } else if (name === 'DIV' && node.className.indexOf('ytp-ad-player-overlay') !== -1) {
-                        ImprovedTube.playerAds(node);
                     } else if (name === 'YTD-VIDEO-PRIMARY-INFO-RENDERER') {
                         ImprovedTube.elements.video_title = node.querySelector('.title.ytd-video-primary-info-renderer');
 
                         ImprovedTube.improvedtubeYoutubeIcon();
-                    } else if (name === 'YTD-ITEM-SECTION-RENDERER') {
-                        ImprovedTube.collapseOfSubscriptionSections(node);
+                    } else if (name === 'YTD-VIDEO-SECONDARY-INFO-RENDERER') {
+                        ImprovedTube.elements.yt_channel_name = node.querySelector('ytd-channel-name');
+                        ImprovedTube.elements.yt_channel_link = node.querySelector('ytd-channel-name a');
+                        ImprovedTube.howLongAgoTheVideoWasUploaded();
+                        ImprovedTube.channelVideosCount();
+                    } else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
+                        if (node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
+                            ImprovedTube.blacklist('channel', node);
+                        }
+
+                        ImprovedTube.elements.subscribe_button = node;
+                    } else if (name === 'YTD-COMMENTS-HEADER-RENDERER') {
+                        ImprovedTube.elements.comments.container = node;
+
+                        ImprovedTube.comments();
+                    } else if (name === 'META'){
+                        if (node.getAttribute('itemprop') === 'genre'){
+                            ImprovedTube.genre = node.content;
+                        }
                     } else if (name === 'A' && node.href) {
-                        if (node.id === 'logo') {
+                        if (id === 'logo') {
                             ImprovedTube.youtubeHomePage(node);
                         }
 
@@ -413,27 +429,6 @@ ImprovedTube.init = function () {
                                 childList: false,
                                 subtree: false
                             });
-                        }
-                    } else if (name === 'YTD-VIDEO-SECONDARY-INFO-RENDERER') {
-                        ImprovedTube.elements.yt_channel_name = node.querySelector('ytd-channel-name');
-                        ImprovedTube.elements.yt_channel_link = node.querySelector('ytd-channel-name a');
-                        ImprovedTube.howLongAgoTheVideoWasUploaded();
-                        ImprovedTube.channelVideosCount();
-                    } else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
-                        if (node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
-                            ImprovedTube.blacklist('channel', node);
-                        }
-
-                        ImprovedTube.elements.subscribe_button = node;
-                    } else if (name === 'YTD-GUIDE-SECTION-RENDERER') {
-                        if (ImprovedTube.elements.hasOwnProperty('sidebar_section') === false) {
-                            ImprovedTube.elements.sidebar_section = node;
-
-                            ImprovedTube.improvedtubeYoutubeIcon();
-                        }
-                    } else if (name === 'META'){
-                        if (node.getAttribute('itemprop') === 'genre'){
-                            ImprovedTube.genre = node.content;
                         }
                     }
                 }
