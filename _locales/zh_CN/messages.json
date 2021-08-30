@@ -431,9 +431,6 @@
     "hideSkipOverlay": {
         "message": "隐藏跳过叠加"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideThumbnailOverlay": {
         "message": "隐藏缩略图上的按钮"
     },
@@ -469,9 +466,6 @@
     },
     "improveLogo": {
         "message": "优化图标"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "ImprovedTube 扩展程序图标"
     },
     "improvedtubeIconOnYoutube": {
         "message": "在 YouTube 显示 ImprovedTube 图标"
@@ -766,6 +760,9 @@
     },
     "showMore": {
         "message": "展示更多"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "随机"

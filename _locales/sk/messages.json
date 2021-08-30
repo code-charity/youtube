@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "Skyť počet videní"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "Improve logo"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "ImprovedTube ikona v prehliadači"
     },
     "improvedtubeIconOnYoutube": {
         "message": "ImprovedTube ikona na YouTube"
@@ -757,6 +751,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Náhodne"

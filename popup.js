@@ -508,18 +508,6 @@ skeleton.header.section_end.button_vert.onClickRender.settings = {
                         label: 'belowPlayer',
                         value: 'below_player'
                     }]
-                },
-                improvedtube_browser_icon: {
-                    label: 'improvedtubeIconInBrowser',
-                    type: 'select',
-
-                    options: [{
-                        label: 'onlyActiveOnYoutube',
-                        value: 'youtube'
-                    }, {
-                        label: 'alwaysActive',
-                        value: 'always'
-                    }]
                 }
             }
         },

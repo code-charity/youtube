@@ -425,9 +425,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "Skjul visninger teller"
     },
@@ -460,9 +457,6 @@
     },
     "improveLogo": {
         "message": "Improve logo"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "ImprovedTube-ikonet i nettleseren"
     },
     "improvedtubeIconOnYoutube": {
         "message": "ImprovedTube-ikonet på YouTube"
@@ -754,6 +748,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Tilfeldig rekkefølge"

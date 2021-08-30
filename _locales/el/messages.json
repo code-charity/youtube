@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "Απόκρυψε τον αριθμό προβολών"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "Λογότυπο Improve"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "Εικονίδιο ImprovedTube στο Browser"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Εικονίδιο ImprovedTube στο YouTube"
@@ -757,6 +751,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Τυχαία αναπαραγωγή"

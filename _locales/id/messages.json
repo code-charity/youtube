@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "Sembunyikan jumlah penayangan"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "Tingkatkan kualitas logo"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "Ikon ImprovedTube di peramban"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Ikon ImprovedTube di YouTube"
@@ -754,6 +748,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Putar secara acak"

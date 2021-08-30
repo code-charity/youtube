@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "\"오버레이 건너뛰기\" 숨기기"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "조회수 숨기기"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "향상된 로고"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "향상된 브라우저 아이콘"
     },
     "improvedtubeIconOnYoutube": {
         "message": "향상된 유튜브 아이콘"
@@ -754,6 +748,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "셔플"

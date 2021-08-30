@@ -16,8 +16,7 @@
 1.0 GLOBAL VARIABLES
 --------------------------------------------------------------*/
 
-var locale_code = 'en',
-    browser_icon = false;
+var locale_code = 'en';
 
 /*--------------------------------------------------------------
 2.0 FUNCTIONS
@@ -52,18 +51,6 @@ function getTranslations(path) {
 
     xhr.open('GET', path, true);
     xhr.send();
-}
-
-function browserActionIcon() {
-    if (browser_icon === 'always') {
-        chrome.browserAction.setIcon({
-            path: 'assets/icons/32.png'
-        });
-    } else {
-        chrome.browserAction.setIcon({
-            path: 'assets/icons/32g.png'
-        });
-    }
 }
 
 
@@ -108,13 +95,6 @@ chrome.contextMenus.onClicked.addListener(function(event) {
 
 chrome.runtime.onMessage.addListener(function(request, sender) {
     if (typeof request === 'object') {
-        if (request.enabled === true && browser_icon !== 'always') {
-            chrome.browserAction.setIcon({
-                path: 'assets/icons/32.png',
-                tabId: sender.tab.id
-            });
-        }
-
         if (request.name === 'translation_request') {
             getTranslations(request.path);
         }
@@ -293,12 +273,6 @@ chrome.storage.onChanged.addListener(function(changes) {
     if (changes.hasOwnProperty('improvedtube_language')) {
         locale_code = changes.improvedtube_language.newValue;
     }
-
-    if (changes.hasOwnProperty('improvedtube_browser_icon')) {
-        browser_icon = changes.improvedtube_browser_icon.newValue;
-    }
-
-    browserActionIcon();
 });
 
 
@@ -401,10 +375,4 @@ chrome.storage.local.get(function(items) {
     if (items.hasOwnProperty('improvedtube_language')) {
         locale_code = items.improvedtube_language;
     }
-
-    if (items.hasOwnProperty('improvedtube_browser_icon')) {
-        browser_icon = items.improvedtube_browser_icon;
-    }
-
-    browserActionIcon();
 });
