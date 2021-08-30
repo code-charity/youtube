@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "Скрыть количество просмотров"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "Улучшить логотип YouTube"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "Значок ImprovedTube в браузере"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Значок ImprovedTube в YouTube"
@@ -757,6 +751,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Случайный порядок"

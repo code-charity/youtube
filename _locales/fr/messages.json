@@ -104,11 +104,11 @@
     "blacklist": {
         "message": "Liste noire"
     },
-    "blockMusic": {
-        "message": "Block music"
-    },
     "blockAll": {
         "message": "Tout bloquer"
+    },
+    "blockMusic": {
+        "message": "Block music"
     },
     "blue": {
         "message": "Bleu"
@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "Voir le compte des vues"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "Améliorer le logo"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "Afficher l'icône ImprovedTube dans le navigateur web"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Afficher l'icône ImprovedTube sur YouTube"
@@ -760,6 +754,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Aléatoire"

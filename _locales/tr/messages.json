@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "Görüntüleme sayısını gizle"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "Logoyu geliştir"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "Tarayıcıda ImprovedTube Simgesi"
     },
     "improvedtubeIconOnYoutube": {
         "message": "YouTube'da ImprovedTube Simgesi"
@@ -757,6 +751,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Karıştır"

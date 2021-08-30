@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "स्किप ओवरले छुपाएं"
     },
-    "showRemainingDuration":{
-        "message": "वीडियो की बची हुई अवधि दिखाएं"
-    },
     "hideViewsCount": {
         "message": "व्यू काउंट छिपाएं"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "लोगो सुधारो"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "ब्राउज़र में बेहतर आइकन"
     },
     "improvedtubeIconOnYoutube": {
         "message": "यूट्यूब पर बेहतर आइकन"
@@ -757,6 +751,9 @@
     },
     "showMore": {
         "message": "और दिखाएं"
+    },
+    "showRemainingDuration": {
+        "message": "वीडियो की बची हुई अवधि दिखाएं"
     },
     "shuffle": {
         "message": "मिश्रण"

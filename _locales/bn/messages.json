@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "স্কিপ ওভারলে লুকান"
     },
-    "showRemainingDuration":{
-        "message": "ভিডিও অবশিষ্ট সময় দেখান"
-    },
     "hideViewsCount": {
         "message": "দর্শন গণনা লুকান"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "লোগো উন্নত করুন"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "ব্রাউজারে উন্নত YouTube আইকন"
     },
     "improvedtubeIconOnYoutube": {
         "message": "ইউটিউবে উন্নত আইকন"
@@ -757,6 +751,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "ভিডিও অবশিষ্ট সময় দেখান"
     },
     "shuffle": {
         "message": "অদলবদল"

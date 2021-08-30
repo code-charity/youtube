@@ -3,13 +3,13 @@
     "name": "'Improve YouTube!' (Video & YouTube Tools)🎧",
     "short_name": "ImprovedTube",
     "description": "__MSG_description_ext__",
-    "version": "3.474",
+    "version": "3.475",
     "default_locale": "en",
     "icons": {
-        "128": "assets/icons/128.png",
-        "16": "assets/icons/16.png",
-        "32": "assets/icons/32.png",
-        "48": "assets/icons/48.png"
+        "128": "icons/128.png",
+        "16": "icons/16.png",
+        "32": "icons/32.png",
+        "48": "icons/48.png"
     },
     "background": {
         "persistent": false,
@@ -18,12 +18,6 @@
         ]
     },
     "browser_action": {
-        "default_icon": {
-            "128": "assets/icons/128g.png",
-            "16": "assets/icons/16g.png",
-            "32": "assets/icons/32g.png",
-            "48": "assets/icons/48g.png"
-        },
         "default_popup": "index.html"
     },
     "options_page": "options.html",

@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "Verberg views teller"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "YouTube-logo verbeteren"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "ImprovedTube-pictogram in browser"
     },
     "improvedtubeIconOnYoutube": {
         "message": "ImprovedTube icoon op YouTube"
@@ -757,6 +751,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Willekeurig"
