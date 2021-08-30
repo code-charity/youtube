@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "視聴数を隠す"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "ロゴを改良する"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "ImprovedTubeアイコンをブラウザに表示する"
     },
     "improvedtubeIconOnYoutube": {
         "message": "ImprovedTubeアイコンをYouTubeに表示する"
@@ -757,6 +751,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "シャッフル"

@@ -431,9 +431,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "Ascunde numărul vizualizărilor"
     },
@@ -466,9 +463,6 @@
     },
     "improveLogo": {
         "message": "Îmbunătățește sigla"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "Iconița ImprovedTube în browser"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Iconița ImprovedTube pe YouTube"
@@ -763,6 +757,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Amestecă"

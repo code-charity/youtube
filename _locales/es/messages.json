@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "Ocultar contador de visitas"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "Mejorar logo"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "Icono ImprovedTube en el navegador"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Icono ImprovedTube en YouTube"
@@ -757,6 +751,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Aleatorio"

@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideViewsCount": {
         "message": "إخفاء عدد المشاهدات"
     },
@@ -463,9 +460,6 @@
     },
     "improveLogo": {
         "message": "تحسين الشعار"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "في المتصفح ImprovedTube ايقونة"
     },
     "improvedtubeIconOnYoutube": {
         "message": "في اليوتيوب ImprovedTube ايقونة"
@@ -757,6 +751,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "عشوائي"

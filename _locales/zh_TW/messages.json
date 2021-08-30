@@ -428,9 +428,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideThumbnailOverlay": {
         "message": "隱藏縮圖上的按鈕"
     },
@@ -466,9 +463,6 @@
     },
     "improveLogo": {
         "message": "改進 YouTube 圖示"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "於瀏覽器中顯示 ImprovedTube 圖示"
     },
     "improvedtubeIconOnYoutube": {
         "message": "於 YouTube 中顯示 ImprovedTube 圖示"
@@ -763,6 +757,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "隨機播放"

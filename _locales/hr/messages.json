@@ -431,9 +431,6 @@
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
     },
-    "showRemainingDuration":{
-        "message": "Show video remaining duration"
-    },
     "hideThumbnailOverlay": {
         "message": "Sakrij gumbe na sličicama"
     },
@@ -469,9 +466,6 @@
     },
     "improveLogo": {
         "message": "Poboljšajte logotip"
-    },
-    "improvedtubeIconInBrowser": {
-        "message": "Ikona ImprovedTube u pregledniku"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Ikona ImprovedTube na YouTubeu"
@@ -766,6 +760,9 @@
     },
     "showMore": {
         "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Nasumično"
