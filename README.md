@@ -178,3 +178,4 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
 
+test changes by sales@ruidas.com
