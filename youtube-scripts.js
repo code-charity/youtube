@@ -3520,6 +3520,14 @@ ImprovedTube.shortcutIncreaseVolume = function () {
 
     if (player) {
         player.setVolume(player.getVolume() + value);
+        localStorage['yt-player-volume'] = JSON.stringify({
+            data: JSON.stringify({
+                volume: player.getVolume(),
+                muted: player.isMuted(),
+                expiration: Date.now(),
+                creation: Date.now()
+            })
+        })
 
         this.showStatus(player.getVolume());
     }
@@ -3536,6 +3544,14 @@ ImprovedTube.shortcutDecreaseVolume = function () {
     
     if (player) {
         player.setVolume(player.getVolume() - value);
+        localStorage['yt-player-volume'] = JSON.stringify({
+            data: JSON.stringify({
+                volume: player.getVolume(),
+                muted: player.isMuted(),
+                expiration: Date.now(),
+                creation: Date.now()
+            })
+        })
 
         this.showStatus(player.getVolume());
     }
