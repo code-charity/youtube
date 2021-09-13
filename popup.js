@@ -1,5236 +1,5441 @@
 /*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
+>>> POPUP:
 ----------------------------------------------------------------
-# Header
-    # Mixer
-    # Settings
-    # Active features
-# Main
-    # General
-    # Appearance
-    # Themes
-    # Player
-    # Playlist
-    # Channel
-    # Shortcuts
-    # Blacklist
-    # Analyzer
-# Export data
-# Import data
+# Skeleton
 # Initialization
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# HEADER
+# SKELETON
 --------------------------------------------------------------*/
 
 var skeleton = {
+    component: 'base',
+
     header: {
-        type: 'header',
+        component: 'header',
 
         section_start: {
-            type: 'section',
+            component: 'section',
             class: 'satus-section--align-start',
 
-            button_back: {
-                type: 'button',
-                class: 'satus-button--back',
-                before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M14 18l-6-6 6-6"/></svg>',
-                onclick: function () {
-                    if (document.querySelector('.satus-dialog__scrim')) {
-                        document.querySelector('.satus-dialog__scrim').click();
-                    } else {
-                        document.querySelector('.satus-main').back();
+            back: {
+                component: 'button',
+                attr: {
+                    'hidden': 'true'
+                },
+                on: {
+                    click: 'layers.back'
+                },
+                pluviam: true,
+
+                svg: {
+                    component: 'svg',
+                    attr: {
+                        'viewBox': '0 0 24 24',
+                        'stroke-width': '1.5'
+                    },
+
+                    path: {
+                        component: 'path',
+                        attr: {
+                            'd': 'M14 18l-6-6 6-6'
+                        }
                     }
                 }
             },
             title: {
-                type: 'text',
-                class: 'satus-text--title',
-                innerText: 'ImprovedTube',
-                dataset: {
-                    version: chrome && chrome.runtime && chrome.runtime.getManifest ? chrome.runtime.getManifest().version : ''
-                }
+                component: 'span',
+                text: 'ImprovedTube'
             }
         },
         section_end: {
-            type: 'section',
+            component: 'section',
             class: 'satus-section--align-end',
 
             search_field: {
-                type: 'text-field',
-                class: 'search-field',
-                placeholder: 'search',
-                autofocus: true,
-                oninput: function (event) {
-                    var value = this.value.trim();
-
-                    if (value.length > 0) {
-                        satus.search(value, skeleton, function (results) {
-                            var parent = document.querySelector('.search-results .satus-scrollbar__content'),
-                                skeleton = {
-                                    type: 'dialog',
-                                    class: 'search-results'
-                                };
-
-                            for (var key in results) {
-                                results[key].type = 'section';
-
-                                skeleton[key + '_label'] = {
-                                    type: 'text',
-                                    class: 'satus-section--label',
-                                    label: key
-                                };
-
-                                skeleton[key] = results[key];
-                            }
-
-                            if (Object.keys(results).length === 0) {
-                                if (parent) {
-                                    document.querySelector('.search-results').remove();
-                                }
-                            } else {
-                                if (parent) {
-                                    while (parent.children[0]) {
-                                        parent.children[0].remove();
-                                    }
-                                    
-                                    delete skeleton.type;
-
-                                    satus.render(skeleton, parent);
-                                } else {
-                                    satus.render(skeleton);
-
-                                    document.querySelector('.search-results .satus-dialog__scrim').addEventListener('click', function () {
-                                        document.body.dataset.search = false;
-                                    });
-                                }
-                            }
-                        }, true);
-                    } else {
-                        var results = document.querySelector('.search-results');
-
-                        if (results) {
-                            results.close();
-                        }
-                    }
+                component: 'input',
+                class: 'satus-input--search',
+                attr: {
+                    'type': 'text',
+                    'placeholder': 'search',
+                    'autofocus': true
                 },
-                onblur: function () {
-                    if (this.value.length === 0) {
-                        document.body.dataset.search = false;
-                    }
-                },
-                onkeydown: function (event) {
-                    var value = this.value,
-                        key = event.key;
-
-                    setTimeout(function () {
-                        if (value.length === 0 && key === 'Backspace') {
+                on: {
+                    blur: function () {
+                        if (this.value.length === 0) {
                             var results = document.querySelector('.search-results');
 
                             if (results) {
                                 results.close();
                             }
 
-                            document.body.dataset.search = false;
+                            this.base.classList.remove('search-mode');
                         }
-                    });
+                    },
+                    keydown: function (event) {
+                        var value = this.value,
+                            key = event.key;
+
+                        setTimeout(function () {
+                            if (value.length === 0 && key === 'Backspace') {
+                                var results = document.querySelector('.search-results');
+
+                                if (results) {
+                                    results.close();
+                                }
+
+                                this.base.classList.remove('search-mode');
+                            }
+                        });
+                    },
+                    input: function (event) {
+                        var value = this.value.trim();
+
+                        if (value.length > 0) {
+                            satus.search(value, skeleton, function (results) {
+                                var parent = document.querySelector('.search-results'),
+                                    skeleton = {
+                                        component: 'modal',
+                                        class: 'search-results'
+                                    };
+
+                                for (var key in results) {
+                                    results[key].component = 'section';
+                                    results[key].class = 'satus-section--card';
+
+                                    skeleton[key + '_label'] = {
+                                        component: 'span',
+                                        class: 'satus-section--label',
+                                        text: key
+                                    };
+
+                                    skeleton[key] = results[key];
+                                }
+
+                                if (Object.keys(results).length === 0) {
+                                    if (parent) {
+                                        document.querySelector('.search-results').remove();
+                                    }
+                                } else {
+                                    if (parent) {
+                                        var parent = document.querySelector('.search-results .satus-modal__surface');
+
+                                        while (parent.children[0]) {
+                                            parent.children[0].remove();
+                                        }
+
+                                        delete skeleton.component;
+
+                                        satus.render(skeleton, parent);
+                                    } else {
+                                        satus.render(skeleton);
+
+                                        document.querySelector('.search-results .satus-modal__scrim').addEventListener('click', function () {
+                                            var results = document.querySelector('.search-results');
+
+                                            if (results) {
+                                                results.close();
+                                            }
+
+                                            document.querySelector('.search-results').base.classList.remove('search-mode');
+                                        });
+                                    }
+                                }
+                            }, true);
+                        } else {
+                            var results = document.querySelector('.search-results');
+
+                            if (results) {
+                                results.close();
+                            }
+                        }
+                    }
                 }
             },
             search_close: {
-                type: 'button',
+                component: 'button',
                 class: 'satus-button--close-search',
-                before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>',
-                onclick: function () {
-                    var results = document.querySelector('.search-results');
+                on: {
+                    click: function () {
+                        var results = document.querySelector('.search-results');
 
-                    if (results) {
-                        results.close();
+                        if (results) {
+                            results.close();
+                        }
+
+                        this.base.classList.remove('search-mode');
                     }
+                },
 
-                    document.body.dataset.search = false;
+                svg: {
+                    component: 'svg',
+                    attr: {
+                        'viewBox': '0 0 24 24',
+                        'stroke-width': 1.75
+                    },
+
+                    path: {
+                        component: 'path',
+                        attr: {
+                            'd': 'M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'
+                        }
+                    }
                 }
             },
-            button_search: {
-                type: 'button',
-                class: 'search-button',
-                icon: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25" viewBox="0 0 24 24"><circle cx="11" cy="10.5" r="6" fill="none"/><path d="M20 20l-4-4"/></svg>',
-                onclick: function () {
-                    var search_field = document.querySelector('.search-field');
+            search: {
+                component: 'button',
+                on: {
+                    click: function () {
+                        this.base.classList.toggle('search-mode');
 
-                    search_field.value = '';
+                        this.base.skeleton.header.section_end.search_field.rendered.focus();
+                    }
+                },
+                pluviam: true,
 
-                    document.body.dataset.search = true;
+                svg: {
+                    component: 'svg',
+                    attr: {
+                        'viewBox': '0 0 24 24',
+                        'stroke-width': 1.25
+                    },
 
-                    setTimeout(function () {
-                        search_field.focus();
-                    });
+                    circle: {
+                        component: 'circle',
+                        attr: {
+                            'cx': 11,
+                            'cy': 10.5,
+                            'r': 6
+                        }
+                    },
+                    path: {
+                        component: 'path',
+                        attr: {
+                            'd': 'M20 20l-4-4'
+                        }
+                    }
                 }
             },
-            button_vert: {
-                type: 'button',
-                class: 'vert-button',
-                icon: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5.25" r="0.45"/><circle cx="12" cy="12" r="0.45"/><circle cx="12" cy="18.75" r="0.45"/></svg>',
-                onClickRender: {
-                    type: 'dialog',
-                    class: 'satus-dialog--vertical-menu'
-                }
-            }
-        }
-    }
-};
+            menu: {
+                component: 'button',
+                on: {
+                    click: {
+                        component: 'modal',
+                        class: 'satus-modal--vertical',
 
-window.addEventListener('keypress', function (event) {
-    if (
-        document.activeElement && ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'].indexOf(document.activeElement.tagName) !== -1 ||
-        event.target.isContentEditable ||
-        document.querySelector('.satus-dialog')
-    ) {
-        return false;
-    }
+                        active_features: {
+                            component: 'button',
+                            on: {
+                                click: function () {
+                                    var component = this;
 
-    if (event.key === 'f' && document.body.dataset.search === 'false') {
-        var search_field = document.querySelector('.search-field');
+                                    satus.search('', skeleton, function (results) {
+                                        var new_skeleton = {
+                                            component: 'section',
+                                            class: 'satus-section--card'
+                                        };
 
-        search_field.value = '';
+                                        for (var key in results) {
+                                            var result = results[key],
+                                                value = satus.storage.get(key);
 
-        document.body.dataset.search = true;
-
-        setTimeout(function () {
-            search_field.focus();
-        });
-    }
-});
-
-
-/*--------------------------------------------------------------
-# ACTIVE FEATURES
---------------------------------------------------------------*/
-
-skeleton.header.section_end.button_vert.onClickRender.active_features = {
-    type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>',
-    label: 'activeFeatures',
-    onclick: function () {
-        document.querySelector('.satus-dialog__scrim').click();
-    },
-
-    section: {
-        type: 'section',
-        onrender: function () {
-            var component = this,
-                my_skeleton = {},
-                threads = 0;
-
-            function parse(list, section) {
-                threads++;
-
-                if (list.type === 'folder') {
-                    section = list.label;
-                }
-
-                for (var key in list) {
-                    var item = list[key];
-
-                    if (/(select|shortcut|slider|switch)/.test(item.type)) {
-                        var in_storage = satus.storage[item.storage_key],
-                            is_active = false;
-
-                        if (satus.isset(in_storage)) {
-                            if (item.type === 'select') {
-                                if (item.options && item.options[0]) {
-                                    if (satus.isset(item.options[0].value)) {
-                                        if (item.options[0].value != in_storage) {
-                                            is_active = true;
+                                            if (satus.isset(value) && value !== result.value) {
+                                                new_skeleton[key] = result;
+                                            }
                                         }
-                                    }
-                                }
-                            } else {
-                                if (satus.isset(item.value) && item.value != in_storage) {
-                                    is_active = true;
-                                } else if (!satus.isset(item.value) && in_storage !== false) {
-                                    is_active = true;
-                                }
-                            }
-                        }
 
-                        if (is_active) {
-                            if (section) {
-                                if (!my_skeleton[section]) {
-                                    my_skeleton[section + '__label'] = {
-                                        type: 'text',
-                                        class: 'satus-section--label',
-                                        label: section
-                                    };
+                                        skeleton.layers.rendered.path.push(new_skeleton);
+                                        skeleton.layers.rendered.open();
 
-                                    my_skeleton[section] = {
-                                        type: 'section'
-                                    };
-                                }
-                            }
-
-                            my_skeleton[section][key] = item;
-                        }
-                    } else if (typeof item === 'object') {
-                        parse(item, section);
-                    }
-                }
-
-                threads--;
-
-                if (threads === 0) {
-                    if (Object.keys(my_skeleton).length > 0) {
-                        satus.render(my_skeleton, component.parentNode);
-
-                        component.remove();
-                    } else {
-                        satus.render({
-                            text: {
-                                type: 'text',
-                                label: 'noActiveFeatures'
-                            }
-                        }, component);
-                    }
-                }
-            }
-
-            parse(skeleton);
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# SETTINGS
---------------------------------------------------------------*/
-
-skeleton.header.section_end.button_vert.onClickRender.settings = {
-    type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>',
-    label: 'settings',
-    parent: '.satus-main__container',
-    onclick: function () {
-        document.querySelector('.satus-dialog__scrim').click();
-    },
-
-    section: {
-        type: 'section',
-
-        developer_options: {
-            type: 'folder',
-            before: '<svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>',
-            label: 'developerOptions',
-
-            custom_js_section_label: {
-                type: 'text',
-                class: 'satus-section--label',
-                label: 'customJs'
-            },
-
-            custom_js_section: {
-                type: 'section',
-                custom_js: {
-                    type: 'text-field',
-                    onrender: function () {
-                        this.value = satus.storage.get('custom_js') || '';
-                    },
-                    oninput: function () {
-                        satus.storage.set('custom_js', this.value);
-                    }
-                }
-            },
-
-            custom_css_section_label: {
-                type: 'text',
-                class: 'satus-section--label',
-                label: 'customCss'
-            },
-
-            custom_css_section: {
-                type: 'section',
-                custom_css: {
-                    type: 'text-field',
-                    onrender: function () {
-                        this.value = satus.storage.get('custom_css') || '';
-                    },
-                    oninput: function () {
-                        satus.storage.set('custom_css', this.value);
-                    }
-                }
-            },
-
-            google_api_key_section_label: {
-                type: 'text',
-                class: 'satus-section--label',
-                label: 'Google API key'
-            },
-
-            google_api_key_section: {
-                type: 'section',
-                google_api_key: {
-                    type: 'text-field',
-                    onrender: function () {
-                        this.value = typeof satus.storage.get('google_api_key') === 'string' && satus.storage.get('google_api_key').length > 0 ? satus.storage.get('google_api_key') : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
-                    },
-                    oninput: function () {
-                        satus.storage.set('google_api_key', typeof satus.storage.get('google_api_key') === 'string' && satus.storage.get('google_api_key').length > 0 ? satus.storage.get('google_api_key') : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA');
-                    }
-                }
-            }
-        },
-    },
-
-    section0: {
-        type: 'section',
-
-        appearance: {
-            type: 'folder',
-            before: '<svg viewBox="0 0 24 24"><path d="M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z" /></svg>',
-            label: 'appearance',
-
-            general: {
-                type: 'section',
-                label: 'general',
-
-                header: {
-                    type: 'folder',
-                    label: 'header',
-
-                    section: {
-                        type: 'section',
-
-                        title_version: {
-                            type: 'switch',
-                            label: 'version'
-                        }
-                    }
-                },
-                home: {
-                    type: 'folder',
-                    label: 'home',
-
-                    section: {
-                        type: 'section',
-
-                        improvedtube_home: {
-                            type: 'select',
-                            label: 'style',
-                            options: [{
-                                label: 'bubbles',
-                                value: 'bubbles'
-                            }, {
-                                label: 'list',
-                                value: 'list'
-                            }]
-                        }
-                    },
-
-                    categories: {
-                        type: 'section',
-                        label: 'categories',
-
-                        it_general: {
-                            type: 'switch',
-                            label: 'general',
-                            value: true
-                        },
-                        it_appearance: {
-                            type: 'switch',
-                            label: 'appearance',
-                            value: true
-                        },
-                        it_themes: {
-                            type: 'switch',
-                            label: 'themes',
-                            value: true
-                        },
-                        it_player: {
-                            type: 'switch',
-                            label: 'player',
-                            value: true
-                        },
-                        it_playlist: {
-                            type: 'switch',
-                            label: 'playlist',
-                            value: true
-                        },
-                        it_channel: {
-                            type: 'switch',
-                            label: 'channel',
-                            value: true
-                        },
-                        it_shortcuts: {
-                            type: 'switch',
-                            label: 'shortcuts',
-                            value: true
-                        },
-                        it_mixer: {
-                            type: 'switch',
-                            label: 'mixer',
-                            value: true
-                        },
-                        it_analyzer: {
-                            type: 'switch',
-                            label: 'analyzer',
-                            value: true
-                        },
-                        it_blacklist: {
-                            type: 'switch',
-                            label: 'blacklist',
-                            value: true
-                        }
-                    }
-                }
-            },
-            icons: {
-                type: 'section',
-                label: 'icons',
-
-                improvedtube_youtube_icon: {
-                    label: 'improvedtubeIconOnYoutube',
-                    type: 'select',
-                    options: [{
-                        label: 'disabled',
-                        value: 'disabled'
-                    }, {
-                        label: 'youtubeHeaderLeft',
-                        value: 'header_left'
-                    }, {
-                        label: 'youtubeHeaderRight',
-                        value: 'header_right'
-                    }, {
-                        label: 'sidebar',
-                        value: 'sidebar'
-                    }, {
-                        label: 'draggable',
-                        value: 'draggable'
-                    }, {
-                        label: 'belowPlayer',
-                        value: 'below_player'
-                    }]
-                }
-            }
-        },
-        languages: {
-            type: 'folder',
-            before: '<svg viewBox="0 0 24 24"><path d="M12.9 15l-2.6-2.4c1.8-2 3-4.2 3.8-6.6H17V4h-7V2H8v2H1v2h11.2c-.7 2-1.8 3.8-3.2 5.3-1-1-1.7-2.1-2.3-3.3h-2c.7 1.6 1.7 3.2 3 4.6l-5.1 5L4 19l5-5 3.1 3.1.8-2zm5.6-5h-2L12 22h2l1.1-3H20l1.1 3h2l-4.5-12zm-2.6 7l1.6-4.3 1.6 4.3H16z" /></svg>',
-            label: 'languages',
-
-            section: {
-                type: 'section',
-
-                language: {
-                    label: 'improvedtubeLanguage',
-                    type: 'select',
-                    onchange: function (name, value) {
-                        satus.memory.set('locale', {});
-
-                        satus.locale(function () {
-                            document.querySelector('.satus-main__container').innerHTML = '';
-
-                            document.querySelector('.satus-header__title').innerText = satus.locale.getMessage('languages');
-                            document.querySelector('#search').placeholder = satus.locale.getMessage('search');
-
-                            satus.render(document.querySelector('.satus-main__container'), skeleton.main.section.settings.section.languages);
-                        });
-                    },
-                    options: [{
-                        value: 'en',
-                        label: 'English'
-                    }, {
-                        value: 'ko',
-                        label: '한국어'
-                    }, {
-                        value: 'es',
-                        label: 'Español (España)'
-                    }, {
-                        value: 'ru',
-                        label: 'Русский'
-                    }, {
-                        value: 'de',
-                        label: 'Deutsch'
-                    }, {
-                        value: 'zh_TW',
-                        label: '中文 (繁體)'
-                    }, {
-                        value: 'pt_PT',
-                        label: 'Português'
-                    }, {
-                        value: 'pt_BR',
-                        label: 'Português (Brasil)'
-                    }, {
-                        value: 'zh_CN',
-                        label: '中文 (简体)'
-                    }, {
-                        value: 'fr',
-                        label: 'Français'
-                    }, {
-                        value: 'ja',
-                        label: '日本語'
-                    }, {
-                        value: 'tr',
-                        label: 'Türkçe'
-                    }, {
-                        value: 'tr',
-                        label: 'Italiano'
-                    }, {
-                        value: 'nl',
-                        label: 'Nederlands'
-                    }, {
-                        value: 'ar',
-                        label: 'العربية'
-                    }, {
-                        value: 'id',
-                        label: 'Bahasa Indonesia'
-                    }, {
-                        value: 'nb',
-                        label: 'Norsk'
-                    }, {
-                        value: 'nb_NO',
-                        label: 'Norsk (Bokmål)'
-                    }, {
-                        value: 'el',
-                        label: 'Ελληνικά'
-                    }, {
-                        value: 'bn',
-                        label: 'বাংলা'
-                    }, {
-                        value: 'hin',
-                        label: 'हिन्दी'
-                    }, {
-                        value: 'sk',
-                        label: 'Slovenčina'
-                    }, {
-                        value: 'pl',
-                        label: 'Polski'
-                    }]
-                },
-                youtube_language: {
-                    label: 'youtubeLanguage',
-                    type: 'select',
-                    options: [{
-                        value: 'default',
-                        label: 'default'
-                    },
-                    {
-                        value: "en",
-                        label: "English"
-                    }, {
-                        value: "es",
-                        label: "Español (España)"
-                    }, {
-                        value: "es-419",
-                        label: "Español (Latinoamérica)"
-                    }, {
-                        value: "es-US",
-                        label: "Español (US)"
-                    }, {
-                        value: "ru",
-                        label: "Русский"
-                    }, {
-                        value: "de",
-                        label: "Deutsch"
-                    }, {
-                        value: "pt-PT",
-                        label: "Português"
-                    }, {
-                        value: "pt",
-                        label: "Português (Brasil)"
-                    }, {
-                        value: "fr",
-                        label: "Français"
-                    }, {
-                        value: "pl",
-                        label: "Polski"
-                    }, {
-                        value: "ja",
-                        label: "日本語"
-                    }, {
-                        value: "af",
-                        label: "Afrikaans"
-                    }, {
-                        value: "az",
-                        label: "Azərbaycan"
-                    }, {
-                        value: "id",
-                        label: "Bahasa Indonesia"
-                    }, {
-                        value: "ms",
-                        label: "Bahasa Malaysia"
-                    }, {
-                        value: "bs",
-                        label: "Bosanski"
-                    }, {
-                        value: "ca",
-                        label: "Català"
-                    }, {
-                        value: "cs",
-                        label: "Čeština"
-                    }, {
-                        value: "da",
-                        label: "Dansk"
-                    }, {
-                        value: "et",
-                        label: "Eesti"
-                    }, {
-                        value: "eu",
-                        label: "Euskara"
-                    }, {
-                        value: "fil",
-                        label: "Filipino"
-                    }, {
-                        value: "fr-CA",
-                        label: "Français (Canada)"
-                    }, {
-                        value: "gl",
-                        label: "Galego"
-                    }, {
-                        value: "hr",
-                        label: "Hrvatski"
-                    }, {
-                        value: "zu",
-                        label: "IsiZulu"
-                    }, {
-                        value: "is",
-                        label: "Íslenska"
-                    }, {
-                        value: "it",
-                        label: "Italiano"
-                    }, {
-                        value: "sw",
-                        label: "Kiswahili"
-                    }, {
-                        value: "lv",
-                        label: "Latviešu valoda"
-                    }, {
-                        value: "lt",
-                        label: "Lietuvių"
-                    }, {
-                        value: "hu",
-                        label: "Magyar"
-                    }, {
-                        value: "nl",
-                        label: "Nederlands"
-                    }, {
-                        value: "no",
-                        label: "Norsk"
-                    }, {
-                        value: "uz",
-                        label: "O‘zbek"
-                    }, {
-                        value: "ro",
-                        label: "Română"
-                    }, {
-                        value: "sq",
-                        label: "Shqip"
-                    }, {
-                        value: "sk",
-                        label: "Slovenčina"
-                    }, {
-                        value: "sl",
-                        label: "Slovenščina"
-                    }, {
-                        value: "sr-Latn",
-                        label: "Srpski"
-                    }, {
-                        value: "fi",
-                        label: "Suomi"
-                    }, {
-                        value: "sv",
-                        label: "Svenska"
-                    }, {
-                        value: "vi",
-                        label: "Tiếng Việt"
-                    }, {
-                        value: "tr",
-                        label: "Türkçe"
-                    }, {
-                        value: "be",
-                        label: "Беларуская"
-                    }, {
-                        value: "bg",
-                        label: "Български"
-                    }, {
-                        value: "ky",
-                        label: "Кыргызча"
-                    }, {
-                        value: "kk",
-                        label: "Қазақ Тілі"
-                    }, {
-                        value: "mk",
-                        label: "Македонски"
-                    }, {
-                        value: "mn",
-                        label: "Монгол"
-                    }, {
-                        value: "sr",
-                        label: "Српски"
-                    }, {
-                        value: "uk",
-                        label: "Українська"
-                    }, {
-                        value: "el",
-                        label: "Ελληνικά"
-                    }, {
-                        value: "hy",
-                        label: "Հայերեն"
-                    }, {
-                        value: "iw",
-                        label: "עברית"
-                    }, {
-                        value: "ur",
-                        label: "اردو"
-                    }, {
-                        value: "ar",
-                        label: "العربية"
-                    }, {
-                        value: "fa",
-                        label: "فارسی"
-                    }, {
-                        value: "ne",
-                        label: "नेपाली"
-                    }, {
-                        value: "mr",
-                        label: "मराठी"
-                    }, {
-                        value: "hi",
-                        label: "हिन्दी"
-                    }, {
-                        value: "bn",
-                        label: "বাংলা"
-                    }, {
-                        value: "pa",
-                        label: "ਪੰਜਾਬੀ"
-                    }, {
-                        value: "gu",
-                        label: "ગુજરાતી"
-                    }, {
-                        value: "ta",
-                        label: "தமிழ்"
-                    }, {
-                        value: "te",
-                        label: "తెలుగు"
-                    }, {
-                        value: "kn",
-                        label: "ಕನ್ನಡ"
-                    }, {
-                        value: "ml",
-                        label: "മലയാളം"
-                    }, {
-                        value: "si",
-                        label: "සිංහල"
-                    }, {
-                        value: "th",
-                        label: "ภาษาไทย"
-                    }, {
-                        value: "lo",
-                        label: "ລາວ"
-                    }, {
-                        value: "my",
-                        label: "ဗမာ"
-                    }, {
-                        value: "ka",
-                        label: "ქართული"
-                    }, {
-                        value: "am",
-                        label: "አማርኛ"
-                    }, {
-                        value: "km",
-                        label: "ខ្មែរ"
-                    }, {
-                        value: "zh-CN",
-                        label: "中文 (简体)"
-                    }, {
-                        value: "zh-TW",
-                        label: "中文 (繁體)"
-                    }, {
-                        value: "zh-HK",
-                        label: "中文 (香港)"
-                    }, {
-                        value: "ko",
-                        label: "한국어"
-                    }]
-                }
-            }
-        },
-        backup_and_reset: {
-            type: 'folder',
-            label: 'backupAndReset',
-            before: '<svg viewBox="0 0 24 24"><path d="M13.3 3A9 9 0 0 0 4 12H2.2c-.5 0-.7.5-.3.8l2.7 2.8c.2.2.6.2.8 0L8 12.8c.4-.3.1-.8-.3-.8H6a7 7 0 1 1 2.7 5.5 1 1 0 0 0-1.3.1 1 1 0 0 0 0 1.5A9 9 0 0 0 22 11.7C22 7 18 3.1 13.4 3zm-.6 5c-.4 0-.7.3-.7.8v3.6c0 .4.2.7.5.9l3.1 1.8c.4.2.8.1 1-.2.2-.4.1-.8-.2-1l-3-1.8V8.7c0-.4-.2-.7-.7-.7z" /></svg>',
-
-            section: {
-                type: 'section',
-                import_settings: {
-                    type: 'button',
-                    label: 'importSettings',
-
-                    onclick: function () {
-                        if (location.href.indexOf('/index.html?action=import') !== -1) {
-                            importData();
-                        } else {
-                            chrome.tabs.create({
-                                url: 'index.html?action=import'
-                            });
-                        }
-                    }
-                },
-                export_settings: {
-                    type: 'button',
-                    label: 'exportSettings',
-
-                    onclick: function () {
-                        if (location.href.indexOf('/index.html?action=export') !== -1) {
-                            exportData();
-                        } else {
-                            chrome.tabs.create({
-                                url: 'index.html?action=export'
-                            });
-                        }
-                    }
-                },
-                reset_all_settings: {
-                    type: 'button',
-                    label: 'resetAllSettings',
-
-                    onclick: function () {
-                        satus.render({
-                            type: 'dialog',
-                            class: 'satus-dialog--confirm',
-
-                            message: {
-                                type: 'text',
-                                label: 'thisWillResetAllSettings'
-                            },
-                            section: {
-                                type: 'section',
-                                class: 'controls',
-                                style: {
-                                    'justify-content': 'flex-end',
-                                    'display': 'flex'
-                                },
-
-                                cancel: {
-                                    type: 'button',
-                                    label: 'cancel',
-                                    onclick: function () {
-                                        var scrim = document.querySelectorAll('.satus-dialog__scrim');
-
-                                        scrim[scrim.length - 1].click();
-                                    }
-                                },
-                                accept: {
-                                    type: 'button',
-                                    label: 'accept',
-                                    onclick: function () {
-                                        var scrim = document.querySelectorAll('.satus-dialog__scrim');
-
-                                        satus.storage.clear();
-
-                                        location.reload();
-
-                                        scrim[scrim.length - 1].click();
-                                    }
-                                }
-                            }
-                        });
-                    }
-                },
-                delete_youtube_cookies: {
-                    type: 'button',
-                    label: 'deleteYoutubeCookies',
-
-                    onclick: function () {
-                        satus.render({
-                            type: 'dialog',
-                            class: 'satus-dialog--confirm',
-
-                            message: {
-                                type: 'text',
-                                label: 'thisWillRemoveAllYouTubeCookies',
-                                style: {
-                                    'width': '100%',
-                                    'opacity': '.8'
+                                        document.querySelector('.satus-modal__scrim').click();
+                                    });
                                 }
                             },
-                            section: {
-                                type: 'section',
-                                class: 'controls',
-                                style: {
-                                    'justify-content': 'flex-end',
-                                    'display': 'flex'
+
+                            svg: {
+                                component: 'svg',
+                                attr: {
+                                    'viewBox': '0 0 24 24',
+                                    'stroke-width': 1.75
                                 },
 
-                                cancel: {
-                                    type: 'button',
-                                    label: 'cancel',
-                                    onclick: function () {
-                                        var scrim = document.querySelectorAll('.satus-dialog__scrim');
-
-                                        scrim[scrim.length - 1].click();
+                                path1: {
+                                    component: 'path',
+                                    attr: {
+                                        'd': 'M22 11.08V12a10 10 0 11-5.93-9.14'
                                     }
                                 },
-                                accept: {
-                                    type: 'button',
-                                    label: 'accept',
-                                    onclick: function () {
-                                        var scrim = document.querySelectorAll('.satus-dialog__scrim');
+                                path2: {
+                                    component: 'path',
+                                    attr: {
+                                        'd': 'M22 4L12 14.01l-3-3'
+                                    }
+                                }
+                            },
+                            label: {
+                                component: 'span',
+                                text: 'activeFeatures'
+                            }
+                        },
+                        settings: {
+                            component: 'button',
+                            on: {
+                                click: function () {
+                                    skeleton.layers.rendered.path.push({
+                                        section_1: {
+                                            component: 'section',
+                                            class: 'satus-section--card',
 
-                                        chrome.tabs.query({}, function (tabs) {
-                                            for (var i = 0, l = tabs.length; i < l; i++) {
-                                                if (tabs[i].hasOwnProperty('url')) {
-                                                    chrome.tabs.sendMessage(tabs[i].id, {
-                                                        name: 'delete_youtube_cookies'
-                                                    });
+                                            developer_options: {
+                                                component: 'button',
+                                                on: {
+                                                    click: {
+                                                        custom_js_section_label: {
+                                                            component: 'span',
+                                                            class: 'satus-section--label',
+                                                            text: 'customJs'
+                                                        },
+                                                        custom_js_section: {
+                                                            component: 'section',
+                                                            class: 'satus-section--card',
+                                                            custom_js: {
+                                                                component: 'input',
+                                                                attr: {
+                                                                    type: 'text'
+                                                                },
+                                                                on: {
+                                                                    render: function () {
+                                                                        this.value = satus.storage.get('custom_js') || '';
+                                                                    },
+                                                                    input: function () {
+                                                                        satus.storage.set('custom_js', this.value);
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        custom_css_section_label: {
+                                                            component: 'span',
+                                                            class: 'satus-section--label',
+                                                            text: 'customCss'
+                                                        },
+                                                        custom_css_section: {
+                                                            component: 'section',
+                                                            class: 'satus-section--card',
+                                                            custom_css: {
+                                                                component: 'input',
+                                                                attr: {
+                                                                    type: 'text'
+                                                                },
+                                                                on: {
+                                                                    render: function () {
+                                                                        this.value = satus.storage.get('custom_css') || '';
+                                                                    },
+                                                                    input: function () {
+                                                                        satus.storage.set('custom_css', this.value);
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        google_api_key_section_label: {
+                                                            component: 'span',
+                                                            class: 'satus-section--label',
+                                                            text: 'googleApiKey'
+                                                        },
+                                                        google_api_key_section: {
+                                                            component: 'section',
+                                                            class: 'satus-section--card',
+                                                            google_api_key: {
+                                                                component: 'input',
+                                                                attr: {
+                                                                    type: 'text'
+                                                                },
+                                                                on: {
+                                                                    render: function () {
+                                                                        this.value = typeof satus.storage.get('google-api-key') === 'string' && satus.storage.get('google-api-key').length > 0 ? satus.storage.get('google-api-key') : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
+                                                                    },
+                                                                    input: function () {
+                                                                        satus.storage.set('google-api-key', typeof satus.storage.get('google-api-key') === 'string' && satus.storage.get('google-api-key').length > 0 ? satus.storage.get('google-api-key') : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA');
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+
+                                                svg: {
+                                                    component: 'svg',
+                                                    attr: {
+                                                        viewBox: '0 0 24 24',
+                                                        fill: 'currentColor'
+                                                    },
+
+                                                    path: {
+                                                        component: 'path',
+                                                        attr: {
+                                                            d: 'M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'
+                                                        }
+                                                    }
+                                                },
+                                                label: {
+                                                    component: 'span',
+                                                    text: 'developerOptions'
+                                                }
+                                            },
+                                        },
+
+                                        section_2: {
+                                            component: 'section',
+                                            class: 'satus-section--card',
+
+                                            appearance: {
+                                                component: 'button',
+                                                on: {
+                                                    click: {
+                                                        section_label_1: {
+                                                            component: 'span',
+                                                            class: 'satus-section--label',
+                                                            text: 'general'
+                                                        },
+                                                        section_1: {
+                                                            component: 'section',
+                                                            class: 'satus-section--card',
+                                                            header: {
+                                                                component: 'button',
+                                                                text: 'header',
+                                                                on: {
+                                                                    click: {
+                                                                        section: {
+                                                                            component: 'section',
+                                                                            class: 'satus-section--card',
+
+                                                                            title_version: {
+                                                                                component: 'switch',
+                                                                                text: 'version'
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            home: {
+                                                                component: 'button',
+                                                                text: 'home',
+                                                                on: {
+                                                                    click: {
+                                                                        section_1: {
+                                                                            component: 'section',
+                                                                            class: 'satus-section--card',
+
+                                                                            improvedtube_home: {
+                                                                                component: 'select',
+                                                                                text: 'style',
+                                                                                options: [{
+                                                                                    text: 'bubbles',
+                                                                                    value: 'bubbles'
+                                                                                }, {
+                                                                                    text: 'list',
+                                                                                    value: 'list'
+                                                                                }]
+                                                                            }
+                                                                        },
+                                                                        section_label_2: {
+                                                                            component: 'span',
+                                                                            class: 'satus-section--label',
+                                                                            text: 'categories'
+                                                                        },
+                                                                        section_2: {
+                                                                            component: 'section',
+                                                                            class: 'satus-section--card',
+
+                                                                            it_general: {
+                                                                                component: 'switch',
+                                                                                text: 'general',
+                                                                                value: true
+                                                                            },
+                                                                            it_appearance: {
+                                                                                component: 'switch',
+                                                                                text: 'appearance',
+                                                                                value: true
+                                                                            },
+                                                                            it_themes: {
+                                                                                component: 'switch',
+                                                                                text: 'themes',
+                                                                                value: true
+                                                                            },
+                                                                            it_player: {
+                                                                                component: 'switch',
+                                                                                text: 'player',
+                                                                                value: true
+                                                                            },
+                                                                            it_playlist: {
+                                                                                component: 'switch',
+                                                                                text: 'playlist',
+                                                                                value: true
+                                                                            },
+                                                                            it_channel: {
+                                                                                component: 'switch',
+                                                                                text: 'channel',
+                                                                                value: true
+                                                                            },
+                                                                            it_shortcuts: {
+                                                                                component: 'switch',
+                                                                                text: 'shortcuts',
+                                                                                value: true
+                                                                            },
+                                                                            it_mixer: {
+                                                                                component: 'switch',
+                                                                                text: 'mixer',
+                                                                                value: true
+                                                                            },
+                                                                            it_analyzer: {
+                                                                                component: 'switch',
+                                                                                text: 'analyzer',
+                                                                                value: true
+                                                                            },
+                                                                            it_blacklist: {
+                                                                                component: 'switch',
+                                                                                text: 'blacklist',
+                                                                                value: true
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        section_label_2: {
+                                                            component: 'span',
+                                                            class: 'satus-section--label',
+                                                            text: 'icons'
+                                                        },
+                                                        section_2: {
+                                                            component: 'section',
+                                                            class: 'satus-section--card',
+
+                                                            improvedtube_youtube_icon: {
+                                                                text: 'improvedtubeIconOnYoutube',
+                                                                component: 'select',
+                                                                options: [{
+                                                                    text: 'disabled',
+                                                                    value: 'disabled'
+                                                                }, {
+                                                                    text: 'youtubeHeaderLeft',
+                                                                    value: 'header_left'
+                                                                }, {
+                                                                    text: 'youtubeHeaderRight',
+                                                                    value: 'header_right'
+                                                                }, {
+                                                                    text: 'sidebar',
+                                                                    value: 'sidebar'
+                                                                }, {
+                                                                    text: 'draggable',
+                                                                    value: 'draggable'
+                                                                }, {
+                                                                    text: 'belowPlayer',
+                                                                    value: 'below_player'
+                                                                }]
+                                                            },
+                                                            improvedtube_browser_icon: {
+                                                                text: 'improvedtubeIconInBrowser',
+                                                                component: 'select',
+
+                                                                options: [{
+                                                                    text: 'onlyActiveOnYoutube',
+                                                                    value: 'youtube'
+                                                                }, {
+                                                                    text: 'alwaysActive',
+                                                                    value: 'always'
+                                                                }]
+                                                            }
+                                                        }
+                                                    }
+                                                },
+
+                                                svg: {
+                                                    component: 'svg',
+                                                    attr: {
+                                                        viewBox: '0 0 24 24',
+                                                        fill: 'currentColor'
+                                                    },
+
+                                                    path: {
+                                                        component: 'path',
+                                                        attr: {
+                                                            d: 'M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z'
+                                                        }
+                                                    }
+                                                },
+                                                label: {
+                                                    component: 'span',
+                                                    text: 'appearance'
+                                                }
+                                            },
+                                            languages: {
+                                                component: 'button',
+
+                                                on: {
+                                                    click: {
+                                                        section: {
+                                                            component: 'section',
+                                                            class: 'satus-section--card',
+
+                                                            language: {
+                                                                text: 'improvedtubeLanguage',
+                                                                component: 'select',
+                                                                on: {
+                                                                    change: function (name, value) {
+                                                                        satus.memory.set('locale', {});
+
+                                                                        satus.locale(function () {
+                                                                            document.querySelector('.satus-main__container').innerHTML = '';
+
+                                                                            document.querySelector('.satus-header__title').innerText = satus.locale.getMessage('languages');
+                                                                            document.querySelector('#search').placeholder = satus.locale.getMessage('search');
+
+                                                                            satus.render(document.querySelector('.satus-main__container'), skeleton.main.section.settings.section.languages);
+                                                                        });
+                                                                    }
+                                                                },
+                                                                options: [{
+                                                                    value: 'en',
+                                                                    text: 'English'
+                                                                }, {
+                                                                    value: 'ko',
+                                                                    text: '한국어'
+                                                                }, {
+                                                                    value: 'es',
+                                                                    text: 'Español (España)'
+                                                                }, {
+                                                                    value: 'ru',
+                                                                    text: 'Русский'
+                                                                }, {
+                                                                    value: 'de',
+                                                                    text: 'Deutsch'
+                                                                }, {
+                                                                    value: 'zh_TW',
+                                                                    text: '中文 (繁體)'
+                                                                }, {
+                                                                    value: 'pt_PT',
+                                                                    text: 'Português'
+                                                                }, {
+                                                                    value: 'pt_BR',
+                                                                    text: 'Português (Brasil)'
+                                                                }, {
+                                                                    value: 'zh_CN',
+                                                                    text: '中文 (简体)'
+                                                                }, {
+                                                                    value: 'fr',
+                                                                    text: 'Français'
+                                                                }, {
+                                                                    value: 'ja',
+                                                                    text: '日本語'
+                                                                }, {
+                                                                    value: 'tr',
+                                                                    text: 'Türkçe'
+                                                                }, {
+                                                                    value: 'tr',
+                                                                    text: 'Italiano'
+                                                                }, {
+                                                                    value: 'nl',
+                                                                    text: 'Nederlands'
+                                                                }, {
+                                                                    value: 'ar',
+                                                                    text: 'العربية'
+                                                                }, {
+                                                                    value: 'id',
+                                                                    text: 'Bahasa Indonesia'
+                                                                }, {
+                                                                    value: 'nb',
+                                                                    text: 'Norsk'
+                                                                }, {
+                                                                    value: 'nb_NO',
+                                                                    text: 'Norsk (Bokmål)'
+                                                                }, {
+                                                                    value: 'el',
+                                                                    text: 'Ελληνικά'
+                                                                }, {
+                                                                    value: 'bn',
+                                                                    text: 'বাংলা'
+                                                                }, {
+                                                                    value: 'hin',
+                                                                    text: 'हिन्दी'
+                                                                }, {
+                                                                    value: 'sk',
+                                                                    text: 'Slovenčina'
+                                                                }, {
+                                                                    value: 'pl',
+                                                                    text: 'Polski'
+                                                                }]
+                                                            },
+                                                            youtube_language: {
+                                                                text: 'youtubeLanguage',
+                                                                component: 'select',
+                                                                options: [{
+                                                                        value: 'default',
+                                                                        text: 'default'
+                                                                    },
+                                                                    {
+                                                                        value: "en",
+                                                                        text: "English"
+                                                                    }, {
+                                                                        value: "es",
+                                                                        text: "Español (España)"
+                                                                    }, {
+                                                                        value: "es-419",
+                                                                        text: "Español (Latinoamérica)"
+                                                                    }, {
+                                                                        value: "es-US",
+                                                                        text: "Español (US)"
+                                                                    }, {
+                                                                        value: "ru",
+                                                                        text: "Русский"
+                                                                    }, {
+                                                                        value: "de",
+                                                                        text: "Deutsch"
+                                                                    }, {
+                                                                        value: "pt-PT",
+                                                                        text: "Português"
+                                                                    }, {
+                                                                        value: "pt",
+                                                                        text: "Português (Brasil)"
+                                                                    }, {
+                                                                        value: "fr",
+                                                                        text: "Français"
+                                                                    }, {
+                                                                        value: "pl",
+                                                                        text: "Polski"
+                                                                    }, {
+                                                                        value: "ja",
+                                                                        text: "日本語"
+                                                                    }, {
+                                                                        value: "af",
+                                                                        text: "Afrikaans"
+                                                                    }, {
+                                                                        value: "az",
+                                                                        text: "Azərbaycan"
+                                                                    }, {
+                                                                        value: "id",
+                                                                        text: "Bahasa Indonesia"
+                                                                    }, {
+                                                                        value: "ms",
+                                                                        text: "Bahasa Malaysia"
+                                                                    }, {
+                                                                        value: "bs",
+                                                                        text: "Bosanski"
+                                                                    }, {
+                                                                        value: "ca",
+                                                                        text: "Català"
+                                                                    }, {
+                                                                        value: "cs",
+                                                                        text: "Čeština"
+                                                                    }, {
+                                                                        value: "da",
+                                                                        text: "Dansk"
+                                                                    }, {
+                                                                        value: "et",
+                                                                        text: "Eesti"
+                                                                    }, {
+                                                                        value: "eu",
+                                                                        text: "Euskara"
+                                                                    }, {
+                                                                        value: "fil",
+                                                                        text: "Filipino"
+                                                                    }, {
+                                                                        value: "fr-CA",
+                                                                        text: "Français (Canada)"
+                                                                    }, {
+                                                                        value: "gl",
+                                                                        text: "Galego"
+                                                                    }, {
+                                                                        value: "hr",
+                                                                        text: "Hrvatski"
+                                                                    }, {
+                                                                        value: "zu",
+                                                                        text: "IsiZulu"
+                                                                    }, {
+                                                                        value: "is",
+                                                                        text: "Íslenska"
+                                                                    }, {
+                                                                        value: "it",
+                                                                        text: "Italiano"
+                                                                    }, {
+                                                                        value: "sw",
+                                                                        text: "Kiswahili"
+                                                                    }, {
+                                                                        value: "lv",
+                                                                        text: "Latviešu valoda"
+                                                                    }, {
+                                                                        value: "lt",
+                                                                        text: "Lietuvių"
+                                                                    }, {
+                                                                        value: "hu",
+                                                                        text: "Magyar"
+                                                                    }, {
+                                                                        value: "nl",
+                                                                        text: "Nederlands"
+                                                                    }, {
+                                                                        value: "no",
+                                                                        text: "Norsk"
+                                                                    }, {
+                                                                        value: "uz",
+                                                                        text: "O‘zbek"
+                                                                    }, {
+                                                                        value: "ro",
+                                                                        text: "Română"
+                                                                    }, {
+                                                                        value: "sq",
+                                                                        text: "Shqip"
+                                                                    }, {
+                                                                        value: "sk",
+                                                                        text: "Slovenčina"
+                                                                    }, {
+                                                                        value: "sl",
+                                                                        text: "Slovenščina"
+                                                                    }, {
+                                                                        value: "sr-Latn",
+                                                                        text: "Srpski"
+                                                                    }, {
+                                                                        value: "fi",
+                                                                        text: "Suomi"
+                                                                    }, {
+                                                                        value: "sv",
+                                                                        text: "Svenska"
+                                                                    }, {
+                                                                        value: "vi",
+                                                                        text: "Tiếng Việt"
+                                                                    }, {
+                                                                        value: "tr",
+                                                                        text: "Türkçe"
+                                                                    }, {
+                                                                        value: "be",
+                                                                        text: "Беларуская"
+                                                                    }, {
+                                                                        value: "bg",
+                                                                        text: "Български"
+                                                                    }, {
+                                                                        value: "ky",
+                                                                        text: "Кыргызча"
+                                                                    }, {
+                                                                        value: "kk",
+                                                                        text: "Қазақ Тілі"
+                                                                    }, {
+                                                                        value: "mk",
+                                                                        text: "Македонски"
+                                                                    }, {
+                                                                        value: "mn",
+                                                                        text: "Монгол"
+                                                                    }, {
+                                                                        value: "sr",
+                                                                        text: "Српски"
+                                                                    }, {
+                                                                        value: "uk",
+                                                                        text: "Українська"
+                                                                    }, {
+                                                                        value: "el",
+                                                                        text: "Ελληνικά"
+                                                                    }, {
+                                                                        value: "hy",
+                                                                        text: "Հայերեն"
+                                                                    }, {
+                                                                        value: "iw",
+                                                                        text: "עברית"
+                                                                    }, {
+                                                                        value: "ur",
+                                                                        text: "اردو"
+                                                                    }, {
+                                                                        value: "ar",
+                                                                        text: "العربية"
+                                                                    }, {
+                                                                        value: "fa",
+                                                                        text: "فارسی"
+                                                                    }, {
+                                                                        value: "ne",
+                                                                        text: "नेपाली"
+                                                                    }, {
+                                                                        value: "mr",
+                                                                        text: "मराठी"
+                                                                    }, {
+                                                                        value: "hi",
+                                                                        text: "हिन्दी"
+                                                                    }, {
+                                                                        value: "bn",
+                                                                        text: "বাংলা"
+                                                                    }, {
+                                                                        value: "pa",
+                                                                        text: "ਪੰਜਾਬੀ"
+                                                                    }, {
+                                                                        value: "gu",
+                                                                        text: "ગુજરાતી"
+                                                                    }, {
+                                                                        value: "ta",
+                                                                        text: "தமிழ்"
+                                                                    }, {
+                                                                        value: "te",
+                                                                        text: "తెలుగు"
+                                                                    }, {
+                                                                        value: "kn",
+                                                                        text: "ಕನ್ನಡ"
+                                                                    }, {
+                                                                        value: "ml",
+                                                                        text: "മലയാളം"
+                                                                    }, {
+                                                                        value: "si",
+                                                                        text: "සිංහල"
+                                                                    }, {
+                                                                        value: "th",
+                                                                        text: "ภาษาไทย"
+                                                                    }, {
+                                                                        value: "lo",
+                                                                        text: "ລາວ"
+                                                                    }, {
+                                                                        value: "my",
+                                                                        text: "ဗမာ"
+                                                                    }, {
+                                                                        value: "ka",
+                                                                        text: "ქართული"
+                                                                    }, {
+                                                                        value: "am",
+                                                                        text: "አማርኛ"
+                                                                    }, {
+                                                                        value: "km",
+                                                                        text: "ខ្មែរ"
+                                                                    }, {
+                                                                        value: "zh-CN",
+                                                                        text: "中文 (简体)"
+                                                                    }, {
+                                                                        value: "zh-TW",
+                                                                        text: "中文 (繁體)"
+                                                                    }, {
+                                                                        value: "zh-HK",
+                                                                        text: "中文 (香港)"
+                                                                    }, {
+                                                                        value: "ko",
+                                                                        text: "한국어"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                },
+
+                                                svg: {
+                                                    component: 'svg',
+                                                    attr: {
+                                                        viewBox: '0 0 24 24',
+                                                        fill: 'currentColor'
+                                                    },
+
+                                                    path: {
+                                                        component: 'path',
+                                                        attr: {
+                                                            d: 'M12.9 15l-2.6-2.4c1.8-2 3-4.2 3.8-6.6H17V4h-7V2H8v2H1v2h11.2c-.7 2-1.8 3.8-3.2 5.3-1-1-1.7-2.1-2.3-3.3h-2c.7 1.6 1.7 3.2 3 4.6l-5.1 5L4 19l5-5 3.1 3.1.8-2zm5.6-5h-2L12 22h2l1.1-3H20l1.1 3h2l-4.5-12zm-2.6 7l1.6-4.3 1.6 4.3H16z'
+                                                        }
+                                                    }
+                                                },
+                                                label: {
+                                                    component: 'span',
+                                                    text: 'languages'
+                                                }
+                                            },
+                                            backup_and_reset: {
+                                                component: 'button',
+
+                                                on: {
+                                                    click: {
+                                                        section: {
+                                                            component: 'section',
+                                                            class: 'satus-section--card',
+
+                                                            import_settings: {
+                                                                component: 'button',
+                                                                text: 'importSettings',
+                                                                on: {
+                                                                    click: function () {
+                                                                        if (location.href.indexOf('/popup.html?action=import') !== -1) {
+                                                                            importData();
+                                                                        } else {
+                                                                            chrome.tabs.create({
+                                                                                url: 'popup.html?action=import'
+                                                                            });
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            export_settings: {
+                                                                component: 'button',
+                                                                text: 'exportSettings',
+
+                                                                on: {
+                                                                    click: function () {
+                                                                        if (location.href.indexOf('/index.html?action=export') !== -1) {
+                                                                            exportData();
+                                                                        } else {
+                                                                            chrome.tabs.create({
+                                                                                url: 'index.html?action=export'
+                                                                            });
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            reset_all_settings: {
+                                                                component: 'button',
+                                                                text: 'resetAllSettings',
+                                                                on: {
+                                                                    click: function () {
+                                                                        satus.render({
+                                                                            component: 'modal',
+                                                                            class: 'satus-modal--confirm',
+
+                                                                            message: {
+                                                                                component: 'span',
+                                                                                text: 'thisWillResetAllSettings'
+                                                                            },
+                                                                            section: {
+                                                                                component: 'section',
+                                                                                class: 'controls',
+
+                                                                                cancel: {
+                                                                                    component: 'button',
+                                                                                    text: 'cancel',
+                                                                                    onclick: function () {
+                                                                                        var scrim = document.querySelectorAll('.satus-modal__scrim');
+
+                                                                                        scrim[scrim.length - 1].click();
+                                                                                    }
+                                                                                },
+                                                                                accept: {
+                                                                                    component: 'button',
+                                                                                    text: 'accept',
+                                                                                    onclick: function () {
+                                                                                        var scrim = document.querySelectorAll('.satus-modal__scrim');
+
+                                                                                        satus.storage.clear();
+
+                                                                                        location.reload();
+
+                                                                                        scrim[scrim.length - 1].click();
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        });
+                                                                    }
+                                                                }
+                                                            },
+                                                            delete_youtube_cookies: {
+                                                                component: 'button',
+                                                                text: 'deleteYoutubeCookies',
+
+                                                                on: {
+                                                                    click: function () {
+                                                                        satus.render({
+                                                                            component: 'modal',
+                                                                            class: 'satus-modal--confirm',
+
+                                                                            message: {
+                                                                                component: 'span',
+                                                                                text: 'thisWillRemoveAllYouTubeCookies',
+                                                                                style: {
+                                                                                    'width': '100%',
+                                                                                    'opacity': '.8'
+                                                                                }
+                                                                            },
+                                                                            section: {
+                                                                                component: 'section',
+                                                                                class: 'controls',
+                                                                                style: {
+                                                                                    'justify-content': 'flex-end',
+                                                                                    'display': 'flex'
+                                                                                },
+
+                                                                                cancel: {
+                                                                                    component: 'button',
+                                                                                    text: 'cancel',
+                                                                                    on: {
+                                                                                        click: function () {
+                                                                                            var scrim = document.querySelectorAll('.satus-modal__scrim');
+
+                                                                                            scrim[scrim.length - 1].click();
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                accept: {
+                                                                                    component: 'button',
+                                                                                    text: 'accept',
+                                                                                    on: {
+                                                                                        click: function () {
+                                                                                            var scrim = document.querySelectorAll('.satus-modal__scrim');
+
+                                                                                            chrome.tabs.query({}, function (tabs) {
+                                                                                                for (var i = 0, l = tabs.length; i < l; i++) {
+                                                                                                    if (tabs[i].hasOwnProperty('url')) {
+                                                                                                        chrome.tabs.sendMessage(tabs[i].id, {
+                                                                                                            name: 'delete_youtube_cookies'
+                                                                                                        });
+                                                                                                    }
+                                                                                                }
+                                                                                            });
+
+                                                                                            scrim[scrim.length - 1].click();
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        });
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+
+                                                svg: {
+                                                    component: 'svg',
+                                                    attr: {
+                                                        viewBox: '0 0 24 24',
+                                                        fill: 'currentColor'
+                                                    },
+
+                                                    path: {
+                                                        component: 'path',
+                                                        attr: {
+                                                            d: 'M13.3 3A9 9 0 0 0 4 12H2.2c-.5 0-.7.5-.3.8l2.7 2.8c.2.2.6.2.8 0L8 12.8c.4-.3.1-.8-.3-.8H6a7 7 0 1 1 2.7 5.5 1 1 0 0 0-1.3.1 1 1 0 0 0 0 1.5A9 9 0 0 0 22 11.7C22 7 18 3.1 13.4 3zm-.6 5c-.4 0-.7.3-.7.8v3.6c0 .4.2.7.5.9l3.1 1.8c.4.2.8.1 1-.2.2-.4.1-.8-.2-1l-3-1.8V8.7c0-.4-.2-.7-.7-.7z'
+                                                        }
+                                                    }
+                                                },
+                                                label: {
+                                                    component: 'span',
+                                                    text: 'backupAndReset'
+                                                }
+                                            },
+                                            date_and_time: {
+                                                component: 'button',
+
+                                                on: {
+                                                    click: {
+                                                        section: {
+                                                            component: 'section',
+                                                            class: 'satus-section--card',
+
+                                                            use_24_hour_format: {
+                                                                component: 'switch',
+                                                                text: 'use24HourFormat',
+                                                                value: true
+                                                            }
+                                                        }
+                                                    }
+                                                },
+
+                                                svg: {
+                                                    component: 'svg',
+                                                    attr: {
+                                                        viewBox: '0 0 24 24',
+                                                        fill: 'currentColor'
+                                                    },
+
+                                                    path: {
+                                                        component: 'path',
+                                                        attr: {
+                                                            d: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z'
+                                                        }
+                                                    }
+                                                },
+                                                label: {
+                                                    component: 'span',
+                                                    text: 'dateAndTime'
+                                                }
+                                            },
+                                            location: {
+                                                component: 'button',
+
+                                                on: {
+                                                    click: {
+                                                        section: {
+                                                            component: 'section',
+                                                            class: 'satus-section--card',
+
+                                                            default_content_country: {
+                                                                component: 'select',
+                                                                text: 'defaultContentCountry',
+
+                                                                options: [{
+                                                                        text: "default",
+                                                                        value: "default"
+                                                                    },
+                                                                    {
+                                                                        text: "Afghanistan",
+                                                                        value: "AF"
+                                                                    },
+                                                                    {
+                                                                        text: "Albania",
+                                                                        value: "AL"
+                                                                    },
+                                                                    {
+                                                                        text: "Algeria",
+                                                                        value: "DZ"
+                                                                    },
+                                                                    {
+                                                                        text: "American Samoa",
+                                                                        value: "AS"
+                                                                    },
+                                                                    {
+                                                                        text: "Andorra",
+                                                                        value: "AD"
+                                                                    },
+                                                                    {
+                                                                        text: "Angola",
+                                                                        value: "AO"
+                                                                    },
+                                                                    {
+                                                                        text: "Anguilla",
+                                                                        value: "AI"
+                                                                    },
+                                                                    {
+                                                                        text: "Antarctica",
+                                                                        value: "AQ"
+                                                                    },
+                                                                    {
+                                                                        text: "Antigua and Barbuda",
+                                                                        value: "AG"
+                                                                    },
+                                                                    {
+                                                                        text: "Argentina",
+                                                                        value: "AR"
+                                                                    },
+                                                                    {
+                                                                        text: "Armenia",
+                                                                        value: "AM"
+                                                                    },
+                                                                    {
+                                                                        text: "Aruba",
+                                                                        value: "AW"
+                                                                    },
+                                                                    {
+                                                                        text: "Australia",
+                                                                        value: "AU"
+                                                                    },
+                                                                    {
+                                                                        text: "Austria",
+                                                                        value: "AT"
+                                                                    },
+                                                                    {
+                                                                        text: "Azerbaijan",
+                                                                        value: "AZ"
+                                                                    },
+                                                                    {
+                                                                        text: "Bahrain",
+                                                                        value: "BH"
+                                                                    },
+                                                                    {
+                                                                        text: "Bailiwick of Guernsey",
+                                                                        value: "GG"
+                                                                    },
+                                                                    {
+                                                                        text: "Bangladesh",
+                                                                        value: "BD"
+                                                                    },
+                                                                    {
+                                                                        text: "Barbados",
+                                                                        value: "BB"
+                                                                    },
+                                                                    {
+                                                                        text: "Belarus",
+                                                                        value: "BY"
+                                                                    },
+                                                                    {
+                                                                        text: "Belgium",
+                                                                        value: "BE"
+                                                                    },
+                                                                    {
+                                                                        text: "Belize",
+                                                                        value: "BZ"
+                                                                    },
+                                                                    {
+                                                                        text: "Benin",
+                                                                        value: "BJ"
+                                                                    },
+                                                                    {
+                                                                        text: "Bermuda",
+                                                                        value: "BM"
+                                                                    },
+                                                                    {
+                                                                        text: "Bhutan",
+                                                                        value: "BT"
+                                                                    },
+                                                                    {
+                                                                        text: "Bolivia",
+                                                                        value: "BO"
+                                                                    },
+                                                                    {
+                                                                        text: "Bonaire",
+                                                                        value: "BQ"
+                                                                    },
+                                                                    {
+                                                                        text: "Bosnia and Herzegovina",
+                                                                        value: "BA"
+                                                                    },
+                                                                    {
+                                                                        text: "Botswana",
+                                                                        value: "BW"
+                                                                    },
+                                                                    {
+                                                                        text: "Bouvet Island",
+                                                                        value: "BV"
+                                                                    },
+                                                                    {
+                                                                        text: "Brazil",
+                                                                        value: "BR"
+                                                                    },
+                                                                    {
+                                                                        text: "British Indian Ocean Territory",
+                                                                        value: "IO"
+                                                                    },
+                                                                    {
+                                                                        text: "British Virgin Islands",
+                                                                        value: "VG"
+                                                                    },
+                                                                    {
+                                                                        text: "Brunei",
+                                                                        value: "BN"
+                                                                    },
+                                                                    {
+                                                                        text: "Bulgaria",
+                                                                        value: "BG"
+                                                                    },
+                                                                    {
+                                                                        text: "Burkina Faso",
+                                                                        value: "BF"
+                                                                    },
+                                                                    {
+                                                                        text: "Burundi",
+                                                                        value: "BI"
+                                                                    },
+                                                                    {
+                                                                        text: "Cambodia",
+                                                                        value: "KH"
+                                                                    },
+                                                                    {
+                                                                        text: "Cameroon",
+                                                                        value: "CM"
+                                                                    },
+                                                                    {
+                                                                        text: "Canada",
+                                                                        value: "CA"
+                                                                    },
+                                                                    {
+                                                                        text: "Cape Verde",
+                                                                        value: "CV"
+                                                                    },
+                                                                    {
+                                                                        text: "Cayman Islands",
+                                                                        value: "KY"
+                                                                    },
+                                                                    {
+                                                                        text: "Central African Republic",
+                                                                        value: "CF"
+                                                                    },
+                                                                    {
+                                                                        text: "Chad",
+                                                                        value: "TD"
+                                                                    },
+                                                                    {
+                                                                        text: "Chile",
+                                                                        value: "CL"
+                                                                    },
+                                                                    {
+                                                                        text: "China",
+                                                                        value: "CN"
+                                                                    },
+                                                                    {
+                                                                        text: "Christmas Island",
+                                                                        value: "CX"
+                                                                    },
+                                                                    {
+                                                                        text: "Cocos (Keeling) Islands",
+                                                                        value: "CC"
+                                                                    },
+                                                                    {
+                                                                        text: "Collectivity of Saint Martin",
+                                                                        value: "MF"
+                                                                    },
+                                                                    {
+                                                                        text: "Colombia",
+                                                                        value: "CO"
+                                                                    },
+                                                                    {
+                                                                        text: "Comoros",
+                                                                        value: "KM"
+                                                                    },
+                                                                    {
+                                                                        text: "Cook Islands",
+                                                                        value: "CK"
+                                                                    },
+                                                                    {
+                                                                        text: "Costa Rica",
+                                                                        value: "CR"
+                                                                    },
+                                                                    {
+                                                                        text: "Croatia",
+                                                                        value: "HR"
+                                                                    },
+                                                                    {
+                                                                        text: "Cuba",
+                                                                        value: "CU"
+                                                                    },
+                                                                    {
+                                                                        text: "Curaçao",
+                                                                        value: "CW"
+                                                                    },
+                                                                    {
+                                                                        text: "Cyprus",
+                                                                        value: "CY"
+                                                                    },
+                                                                    {
+                                                                        text: "Czech Republic",
+                                                                        value: "CZ"
+                                                                    },
+                                                                    {
+                                                                        text: "Democratic Republic of the Congo",
+                                                                        value: "CD"
+                                                                    },
+                                                                    {
+                                                                        text: "Denmark",
+                                                                        value: "DK"
+                                                                    },
+                                                                    {
+                                                                        text: "Djibouti",
+                                                                        value: "DJ"
+                                                                    },
+                                                                    {
+                                                                        text: "Dominica",
+                                                                        value: "DM"
+                                                                    },
+                                                                    {
+                                                                        text: "Dominican Republic",
+                                                                        value: "DO"
+                                                                    },
+                                                                    {
+                                                                        text: "East Timor",
+                                                                        value: "TL"
+                                                                    },
+                                                                    {
+                                                                        text: "Ecuador",
+                                                                        value: "EC"
+                                                                    },
+                                                                    {
+                                                                        text: "Egypt",
+                                                                        value: "EG"
+                                                                    },
+                                                                    {
+                                                                        text: "El Salvador",
+                                                                        value: "SV"
+                                                                    },
+                                                                    {
+                                                                        text: "Equatorial Guinea",
+                                                                        value: "GQ"
+                                                                    },
+                                                                    {
+                                                                        text: "Eritrea",
+                                                                        value: "ER"
+                                                                    },
+                                                                    {
+                                                                        text: "Estonia",
+                                                                        value: "EE"
+                                                                    },
+                                                                    {
+                                                                        text: "Eswatini",
+                                                                        value: "SZ"
+                                                                    },
+                                                                    {
+                                                                        text: "Ethiopia",
+                                                                        value: "ET"
+                                                                    },
+                                                                    {
+                                                                        text: "Falkland Islands",
+                                                                        value: "FK"
+                                                                    },
+                                                                    {
+                                                                        text: "Faroe Islands",
+                                                                        value: "FO"
+                                                                    },
+                                                                    {
+                                                                        text: "Federated States of Micronesia",
+                                                                        value: "FM"
+                                                                    },
+                                                                    {
+                                                                        text: "Fiji",
+                                                                        value: "FJ"
+                                                                    },
+                                                                    {
+                                                                        text: "Finland",
+                                                                        value: "FI"
+                                                                    },
+                                                                    {
+                                                                        text: "France",
+                                                                        value: "FR"
+                                                                    },
+                                                                    {
+                                                                        text: "French Guiana",
+                                                                        value: "GF"
+                                                                    },
+                                                                    {
+                                                                        text: "French Polynesia",
+                                                                        value: "PF"
+                                                                    },
+                                                                    {
+                                                                        text: "French Southern and Antarctic Lands",
+                                                                        value: "TF"
+                                                                    },
+                                                                    {
+                                                                        text: "Gabon",
+                                                                        value: "GA"
+                                                                    },
+                                                                    {
+                                                                        text: "Georgia (country)",
+                                                                        value: "GE"
+                                                                    },
+                                                                    {
+                                                                        text: "Germany",
+                                                                        value: "DE"
+                                                                    },
+                                                                    {
+                                                                        text: "Ghana",
+                                                                        value: "GH"
+                                                                    },
+                                                                    {
+                                                                        text: "Gibraltar",
+                                                                        value: "GI"
+                                                                    },
+                                                                    {
+                                                                        text: "Greece",
+                                                                        value: "GR"
+                                                                    },
+                                                                    {
+                                                                        text: "Greenland",
+                                                                        value: "GL"
+                                                                    },
+                                                                    {
+                                                                        text: "Grenada",
+                                                                        value: "GD"
+                                                                    },
+                                                                    {
+                                                                        text: "Guadeloupe",
+                                                                        value: "GP"
+                                                                    },
+                                                                    {
+                                                                        text: "Guam",
+                                                                        value: "GU"
+                                                                    },
+                                                                    {
+                                                                        text: "Guatemala",
+                                                                        value: "GT"
+                                                                    },
+                                                                    {
+                                                                        text: "Guinea",
+                                                                        value: "GN"
+                                                                    },
+                                                                    {
+                                                                        text: "Guinea-Bissau",
+                                                                        value: "GW"
+                                                                    },
+                                                                    {
+                                                                        text: "Guyana",
+                                                                        value: "GY"
+                                                                    },
+                                                                    {
+                                                                        text: "Haiti",
+                                                                        value: "HT"
+                                                                    },
+                                                                    {
+                                                                        text: "Heard Island and McDonald Islands",
+                                                                        value: "HM"
+                                                                    },
+                                                                    {
+                                                                        text: "Holy See",
+                                                                        value: "VA"
+                                                                    },
+                                                                    {
+                                                                        text: "Honduras",
+                                                                        value: "HN"
+                                                                    },
+                                                                    {
+                                                                        text: "Hong Kong",
+                                                                        value: "HK"
+                                                                    },
+                                                                    {
+                                                                        text: "Hungary",
+                                                                        value: "HU"
+                                                                    },
+                                                                    {
+                                                                        text: "Iceland",
+                                                                        value: "IS"
+                                                                    },
+                                                                    {
+                                                                        text: "India",
+                                                                        value: "IN"
+                                                                    },
+                                                                    {
+                                                                        text: "Indonesia",
+                                                                        value: "ID"
+                                                                    },
+                                                                    {
+                                                                        text: "Iran",
+                                                                        value: "IR"
+                                                                    },
+                                                                    {
+                                                                        text: "Iraq",
+                                                                        value: "IQ"
+                                                                    },
+                                                                    {
+                                                                        text: "Isle of Man",
+                                                                        value: "IM"
+                                                                    },
+                                                                    {
+                                                                        text: "Israel",
+                                                                        value: "IL"
+                                                                    },
+                                                                    {
+                                                                        text: "Italy",
+                                                                        value: "IT"
+                                                                    },
+                                                                    {
+                                                                        text: "Ivory Coast",
+                                                                        value: "CI"
+                                                                    },
+                                                                    {
+                                                                        text: "Jamaica",
+                                                                        value: "JM"
+                                                                    },
+                                                                    {
+                                                                        text: "Japan",
+                                                                        value: "JP"
+                                                                    },
+                                                                    {
+                                                                        text: "Jersey",
+                                                                        value: "JE"
+                                                                    },
+                                                                    {
+                                                                        text: "Jordan",
+                                                                        value: "JO"
+                                                                    },
+                                                                    {
+                                                                        text: "Kazakhstan",
+                                                                        value: "KZ"
+                                                                    },
+                                                                    {
+                                                                        text: "Kenya",
+                                                                        value: "KE"
+                                                                    },
+                                                                    {
+                                                                        text: "Kiribati",
+                                                                        value: "KI"
+                                                                    },
+                                                                    {
+                                                                        text: "Kuwait",
+                                                                        value: "KW"
+                                                                    },
+                                                                    {
+                                                                        text: "Kyrgyzstan",
+                                                                        value: "KG"
+                                                                    },
+                                                                    {
+                                                                        text: "Laos",
+                                                                        value: "LA"
+                                                                    },
+                                                                    {
+                                                                        text: "Latvia",
+                                                                        value: "LV"
+                                                                    },
+                                                                    {
+                                                                        text: "Lebanon",
+                                                                        value: "LB"
+                                                                    },
+                                                                    {
+                                                                        text: "Lesotho",
+                                                                        value: "LS"
+                                                                    },
+                                                                    {
+                                                                        text: "Liberia",
+                                                                        value: "LR"
+                                                                    },
+                                                                    {
+                                                                        text: "Libya",
+                                                                        value: "LY"
+                                                                    },
+                                                                    {
+                                                                        text: "Liechtenstein",
+                                                                        value: "LI"
+                                                                    },
+                                                                    {
+                                                                        text: "Lithuania",
+                                                                        value: "LT"
+                                                                    },
+                                                                    {
+                                                                        text: "Luxembourg",
+                                                                        value: "LU"
+                                                                    },
+                                                                    {
+                                                                        text: "Macau",
+                                                                        value: "MO"
+                                                                    },
+                                                                    {
+                                                                        text: "Madagascar",
+                                                                        value: "MG"
+                                                                    },
+                                                                    {
+                                                                        text: "Malawi",
+                                                                        value: "MW"
+                                                                    },
+                                                                    {
+                                                                        text: "Malaysia",
+                                                                        value: "MY"
+                                                                    },
+                                                                    {
+                                                                        text: "Maldives",
+                                                                        value: "MV"
+                                                                    },
+                                                                    {
+                                                                        text: "Mali",
+                                                                        value: "ML"
+                                                                    },
+                                                                    {
+                                                                        text: "Malta",
+                                                                        value: "MT"
+                                                                    },
+                                                                    {
+                                                                        text: "Marshall Islands",
+                                                                        value: "MH"
+                                                                    },
+                                                                    {
+                                                                        text: "Martinique",
+                                                                        value: "MQ"
+                                                                    },
+                                                                    {
+                                                                        text: "Mauritania",
+                                                                        value: "MR"
+                                                                    },
+                                                                    {
+                                                                        text: "Mauritius",
+                                                                        value: "MU"
+                                                                    },
+                                                                    {
+                                                                        text: "Mayotte",
+                                                                        value: "YT"
+                                                                    },
+                                                                    {
+                                                                        text: "Mexico",
+                                                                        value: "MX"
+                                                                    },
+                                                                    {
+                                                                        text: "Moldova",
+                                                                        value: "MD"
+                                                                    },
+                                                                    {
+                                                                        text: "Monaco",
+                                                                        value: "MC"
+                                                                    },
+                                                                    {
+                                                                        text: "Mongolia",
+                                                                        value: "MN"
+                                                                    },
+                                                                    {
+                                                                        text: "Montenegro",
+                                                                        value: "ME"
+                                                                    },
+                                                                    {
+                                                                        text: "Montserrat",
+                                                                        value: "MS"
+                                                                    },
+                                                                    {
+                                                                        text: "Morocco",
+                                                                        value: "MA"
+                                                                    },
+                                                                    {
+                                                                        text: "Mozambique",
+                                                                        value: "MZ"
+                                                                    },
+                                                                    {
+                                                                        text: "Myanmar",
+                                                                        value: "MM"
+                                                                    },
+                                                                    {
+                                                                        text: "Namibia",
+                                                                        value: "NA"
+                                                                    },
+                                                                    {
+                                                                        text: "Nauru",
+                                                                        value: "NR"
+                                                                    },
+                                                                    {
+                                                                        text: "Nepal",
+                                                                        value: "NP"
+                                                                    },
+                                                                    {
+                                                                        text: "Netherlands",
+                                                                        value: "NL"
+                                                                    },
+                                                                    {
+                                                                        text: "New Caledonia",
+                                                                        value: "NC"
+                                                                    },
+                                                                    {
+                                                                        text: "New Zealand",
+                                                                        value: "NZ"
+                                                                    },
+                                                                    {
+                                                                        text: "Nicaragua",
+                                                                        value: "NI"
+                                                                    },
+                                                                    {
+                                                                        text: "Niger",
+                                                                        value: "NE"
+                                                                    },
+                                                                    {
+                                                                        text: "Nigeria",
+                                                                        value: "NG"
+                                                                    },
+                                                                    {
+                                                                        text: "Niue",
+                                                                        value: "NU"
+                                                                    },
+                                                                    {
+                                                                        text: "Norfolk Island",
+                                                                        value: "NF"
+                                                                    },
+                                                                    {
+                                                                        text: "North Korea",
+                                                                        value: "KP"
+                                                                    },
+                                                                    {
+                                                                        text: "North Macedonia",
+                                                                        value: "MK"
+                                                                    },
+                                                                    {
+                                                                        text: "Northern Mariana Islands",
+                                                                        value: "MP"
+                                                                    },
+                                                                    {
+                                                                        text: "Norway",
+                                                                        value: "NO"
+                                                                    },
+                                                                    {
+                                                                        text: "Oman",
+                                                                        value: "OM"
+                                                                    },
+                                                                    {
+                                                                        text: "Pakistan",
+                                                                        value: "PK"
+                                                                    },
+                                                                    {
+                                                                        text: "Palau",
+                                                                        value: "PW"
+                                                                    },
+                                                                    {
+                                                                        text: "Panama",
+                                                                        value: "PA"
+                                                                    },
+                                                                    {
+                                                                        text: "Papua New Guinea",
+                                                                        value: "PG"
+                                                                    },
+                                                                    {
+                                                                        text: "Paraguay",
+                                                                        value: "PY"
+                                                                    },
+                                                                    {
+                                                                        text: "Peru",
+                                                                        value: "PE"
+                                                                    },
+                                                                    {
+                                                                        text: "Philippines",
+                                                                        value: "PH"
+                                                                    },
+                                                                    {
+                                                                        text: "Pitcairn Islands",
+                                                                        value: "PN"
+                                                                    },
+                                                                    {
+                                                                        text: "Poland",
+                                                                        value: "PL"
+                                                                    },
+                                                                    {
+                                                                        text: "Portugal",
+                                                                        value: "PT"
+                                                                    },
+                                                                    {
+                                                                        text: "Puerto Rico",
+                                                                        value: "PR"
+                                                                    },
+                                                                    {
+                                                                        text: "Qatar",
+                                                                        value: "QA"
+                                                                    },
+                                                                    {
+                                                                        text: "Republic of Ireland",
+                                                                        value: "IE"
+                                                                    },
+                                                                    {
+                                                                        text: "Republic of the Congo",
+                                                                        value: "CG"
+                                                                    },
+                                                                    {
+                                                                        text: "Romania",
+                                                                        value: "RO"
+                                                                    },
+                                                                    {
+                                                                        text: "Russia",
+                                                                        value: "RU"
+                                                                    },
+                                                                    {
+                                                                        text: "Rwanda",
+                                                                        value: "RW"
+                                                                    },
+                                                                    {
+                                                                        text: "Réunion",
+                                                                        value: "RE"
+                                                                    },
+                                                                    {
+                                                                        text: "Saint Barthélemy",
+                                                                        value: "BL"
+                                                                    },
+                                                                    {
+                                                                        text: "Saint Helena",
+                                                                        value: "SH"
+                                                                    },
+                                                                    {
+                                                                        text: "Saint Kitts and Nevis",
+                                                                        value: "KN"
+                                                                    },
+                                                                    {
+                                                                        text: "Saint Lucia",
+                                                                        value: "LC"
+                                                                    },
+                                                                    {
+                                                                        text: "Saint Pierre and Miquelon",
+                                                                        value: "PM"
+                                                                    },
+                                                                    {
+                                                                        text: "Saint Vincent and the Grenadines",
+                                                                        value: "VC"
+                                                                    },
+                                                                    {
+                                                                        text: "Samoa",
+                                                                        value: "WS"
+                                                                    },
+                                                                    {
+                                                                        text: "San Marino",
+                                                                        value: "SM"
+                                                                    },
+                                                                    {
+                                                                        text: "Saudi Arabia",
+                                                                        value: "SA"
+                                                                    },
+                                                                    {
+                                                                        text: "Senegal",
+                                                                        value: "SN"
+                                                                    },
+                                                                    {
+                                                                        text: "Serbia",
+                                                                        value: "RS"
+                                                                    },
+                                                                    {
+                                                                        text: "Seychelles",
+                                                                        value: "SC"
+                                                                    },
+                                                                    {
+                                                                        text: "Sierra Leone",
+                                                                        value: "SL"
+                                                                    },
+                                                                    {
+                                                                        text: "Singapore",
+                                                                        value: "SG"
+                                                                    },
+                                                                    {
+                                                                        text: "Sint Maarten",
+                                                                        value: "SX"
+                                                                    },
+                                                                    {
+                                                                        text: "Slovakia",
+                                                                        value: "SK"
+                                                                    },
+                                                                    {
+                                                                        text: "Slovenia",
+                                                                        value: "SI"
+                                                                    },
+                                                                    {
+                                                                        text: "Solomon Islands",
+                                                                        value: "SB"
+                                                                    },
+                                                                    {
+                                                                        text: "Somalia",
+                                                                        value: "SO"
+                                                                    },
+                                                                    {
+                                                                        text: "South Africa",
+                                                                        value: "ZA"
+                                                                    },
+                                                                    {
+                                                                        text: "South Georgia and the South Sandwich Islands",
+                                                                        value: "GS"
+                                                                    },
+                                                                    {
+                                                                        text: "South Korea",
+                                                                        value: "KR"
+                                                                    },
+                                                                    {
+                                                                        text: "South Sudan",
+                                                                        value: "SS"
+                                                                    },
+                                                                    {
+                                                                        text: "Spain",
+                                                                        value: "ES"
+                                                                    },
+                                                                    {
+                                                                        text: "Sri Lanka",
+                                                                        value: "LK"
+                                                                    },
+                                                                    {
+                                                                        text: "State of Palestine",
+                                                                        value: "PS"
+                                                                    },
+                                                                    {
+                                                                        text: "Sudan",
+                                                                        value: "SD"
+                                                                    },
+                                                                    {
+                                                                        text: "Suriname",
+                                                                        value: "SR"
+                                                                    },
+                                                                    {
+                                                                        text: "Svalbard",
+                                                                        value: "SJ"
+                                                                    },
+                                                                    {
+                                                                        text: "Sweden",
+                                                                        value: "SE"
+                                                                    },
+                                                                    {
+                                                                        text: "Switzerland",
+                                                                        value: "CH"
+                                                                    },
+                                                                    {
+                                                                        text: "Syria",
+                                                                        value: "SY"
+                                                                    },
+                                                                    {
+                                                                        text: "São Tomé and Príncipe",
+                                                                        value: "ST"
+                                                                    },
+                                                                    {
+                                                                        text: "Taiwan",
+                                                                        value: "TW"
+                                                                    },
+                                                                    {
+                                                                        text: "Tajikistan",
+                                                                        value: "TJ"
+                                                                    },
+                                                                    {
+                                                                        text: "Tanzania",
+                                                                        value: "TZ"
+                                                                    },
+                                                                    {
+                                                                        text: "Thailand",
+                                                                        value: "TH"
+                                                                    },
+                                                                    {
+                                                                        text: "The Bahamas",
+                                                                        value: "BS"
+                                                                    },
+                                                                    {
+                                                                        text: "The Gambia",
+                                                                        value: "GM"
+                                                                    },
+                                                                    {
+                                                                        text: "Togo",
+                                                                        value: "TG"
+                                                                    },
+                                                                    {
+                                                                        text: "Tokelau",
+                                                                        value: "TK"
+                                                                    },
+                                                                    {
+                                                                        text: "Tonga",
+                                                                        value: "TO"
+                                                                    },
+                                                                    {
+                                                                        text: "Trinidad and Tobago",
+                                                                        value: "TT"
+                                                                    },
+                                                                    {
+                                                                        text: "Tunisia",
+                                                                        value: "TN"
+                                                                    },
+                                                                    {
+                                                                        text: "Turkey",
+                                                                        value: "TR"
+                                                                    },
+                                                                    {
+                                                                        text: "Turkmenistan",
+                                                                        value: "TM"
+                                                                    },
+                                                                    {
+                                                                        text: "Turks and Caicos Islands",
+                                                                        value: "TC"
+                                                                    },
+                                                                    {
+                                                                        text: "Tuvalu",
+                                                                        value: "TV"
+                                                                    },
+                                                                    {
+                                                                        text: "Uganda",
+                                                                        value: "UG"
+                                                                    },
+                                                                    {
+                                                                        text: "Ukraine",
+                                                                        value: "UA"
+                                                                    },
+                                                                    {
+                                                                        text: "United Arab Emirates",
+                                                                        value: "AE"
+                                                                    },
+                                                                    {
+                                                                        text: "United Kingdom",
+                                                                        value: "GB"
+                                                                    },
+                                                                    {
+                                                                        text: "United States Virgin Islands",
+                                                                        value: "VI"
+                                                                    },
+                                                                    {
+                                                                        text: "United States",
+                                                                        value: "UM"
+                                                                    },
+                                                                    {
+                                                                        text: "United States",
+                                                                        value: "US"
+                                                                    },
+                                                                    {
+                                                                        text: "Uruguay",
+                                                                        value: "UY"
+                                                                    },
+                                                                    {
+                                                                        text: "Uzbekistan",
+                                                                        value: "UZ"
+                                                                    },
+                                                                    {
+                                                                        text: "Vanuatu",
+                                                                        value: "VU"
+                                                                    },
+                                                                    {
+                                                                        text: "Venezuela",
+                                                                        value: "VE"
+                                                                    },
+                                                                    {
+                                                                        text: "Vietnam",
+                                                                        value: "VN"
+                                                                    },
+                                                                    {
+                                                                        text: "Wallis and Futuna",
+                                                                        value: "WF"
+                                                                    },
+                                                                    {
+                                                                        text: "Western Sahara",
+                                                                        value: "EH"
+                                                                    },
+                                                                    {
+                                                                        text: "Yemen",
+                                                                        value: "YE"
+                                                                    },
+                                                                    {
+                                                                        text: "Zambia",
+                                                                        value: "ZM"
+                                                                    },
+                                                                    {
+                                                                        text: "Zimbabwe",
+                                                                        value: "ZW"
+                                                                    },
+                                                                    {
+                                                                        text: "Åland Islands",
+                                                                        value: "AX"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                },
+
+                                                svg: {
+                                                    component: 'svg',
+                                                    attr: {
+                                                        viewBox: '0 0 24 24',
+                                                        fill: 'currentColor'
+                                                    },
+
+                                                    circle: {
+                                                        component: 'circle',
+                                                        attr: {
+                                                            cx: 12,
+                                                            cy: 9,
+                                                            r: 2.5
+                                                        }
+                                                    },
+                                                    path: {
+                                                        component: 'path',
+                                                        attr: {
+                                                            d: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z'
+                                                        }
+                                                    }
+                                                },
+                                                label: {
+                                                    component: 'span',
+                                                    text: 'location'
+                                                }
+                                            },
+                                            about: {
+                                                component: 'button',
+
+                                                on: {
+                                                    click: {
+                                                        component: 'span',
+
+                                                        on: {
+                                                            render: function () {
+                                                                var component = this,
+                                                                    manifest = chrome.runtime.getManifest(),
+                                                                    user = satus.user(),
+                                                                    skeleton_about = {
+                                                                        extension_section_label: {
+                                                                            component: 'span',
+                                                                            class: 'satus-section--label',
+                                                                            text: 'extension'
+                                                                        },
+                                                                        extension_section: {
+                                                                            component: 'section',
+                                                                            class: 'satus-section--card',
+
+                                                                            list: {
+                                                                                component: 'list',
+                                                                                items: [
+                                                                                    ['version', manifest.version],
+                                                                                    ['permissions', manifest.permissions.join(', ').replace('https://www.youtube.com/', 'YouTube')]
+                                                                                ]
+                                                                            }
+                                                                        },
+                                                                        browser_section_label: {
+                                                                            component: 'span',
+                                                                            class: 'satus-section--label',
+                                                                            text: 'browser'
+                                                                        },
+                                                                        browser_section: {
+                                                                            component: 'section',
+                                                                            class: 'satus-section--card',
+
+                                                                            list: {
+                                                                                component: 'list',
+                                                                                items: [
+                                                                                    ['name', user.browser.name],
+                                                                                    ['version', user.browser.version],
+                                                                                    ['platform', user.browser.platform],
+                                                                                    ['videoFormats', {
+                                                                                        component: 'span',
+                                                                                        on: {
+                                                                                            render: function () {
+                                                                                                var formats = [];
+
+                                                                                                for (var key in user.browser.video) {
+                                                                                                    if (user.browser.video[key] !== false) {
+                                                                                                        formats.push(key);
+                                                                                                    }
+                                                                                                }
+
+                                                                                                this.textContent = formats.join(', ');
+                                                                                            }
+                                                                                        }
+                                                                                    }],
+                                                                                    ['audioFormats', {
+                                                                                        component: 'span',
+                                                                                        on: {
+                                                                                            render: function () {
+                                                                                                var formats = [];
+
+                                                                                                for (var key in user.browser.audio) {
+                                                                                                    if (user.browser.audio[key] !== false) {
+                                                                                                        formats.push(key);
+                                                                                                    }
+                                                                                                }
+
+                                                                                                this.textContent = formats.join(', ');
+                                                                                            }
+                                                                                        }
+                                                                                    }],
+                                                                                    ['flash', !!user.browser.flash ? 'true' : 'false']
+                                                                                ]
+                                                                            }
+                                                                        },
+                                                                        os_section_label: {
+                                                                            component: 'span',
+                                                                            class: 'satus-section--label',
+                                                                            text: 'os'
+                                                                        },
+                                                                        os_section: {
+                                                                            component: 'section',
+                                                                            class: 'satus-section--card',
+
+                                                                            list: {
+                                                                                component: 'list',
+                                                                                items: [
+                                                                                    ['name', user.os.name],
+                                                                                    ['type', user.os.type]
+                                                                                ]
+                                                                            }
+                                                                        },
+                                                                        device_section_label: {
+                                                                            component: 'span',
+                                                                            class: 'satus-section--label',
+                                                                            text: 'device'
+                                                                        },
+                                                                        device_section: {
+                                                                            component: 'section',
+                                                                            class: 'satus-section--card',
+
+                                                                            list: {
+                                                                                component: 'list',
+                                                                                items: [
+                                                                                    ['screen', user.device.screen],
+                                                                                    ['cores', user.device.cores],
+                                                                                    ['gpu', user.device.gpu],
+                                                                                    ['ram', user.device.ram]
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    };
+
+                                                                setTimeout(function () {
+                                                                    satus.render(skeleton_about, component.parentNode);
+
+                                                                    component.remove();
+                                                                });
+                                                            }
+                                                        }
+                                                    }
+                                                },
+
+                                                svg: {
+                                                    component: 'svg',
+                                                    attr: {
+                                                        viewBox: '0 0 24 24',
+                                                        fill: 'currentColor'
+                                                    },
+
+                                                    path: {
+                                                        component: 'path',
+                                                        attr: {
+                                                            d: 'M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z'
+                                                        }
+                                                    }
+                                                },
+                                                label: {
+                                                    component: 'span',
+                                                    text: 'about'
                                                 }
                                             }
-                                        });
+                                        }
+                                    });
 
-                                        scrim[scrim.length - 1].click();
+                                    skeleton.layers.rendered.open();
+
+                                    document.querySelector('.satus-modal__scrim').click();
+                                }
+                            },
+
+                            svg: {
+                                component: 'svg',
+                                attr: {
+                                    'viewBox': '0 0 24 24',
+                                    'stroke-width': 1.75
+                                },
+
+                                circle: {
+                                    component: 'circle',
+                                    attr: {
+                                        'cx': 12,
+                                        'cy': 12,
+                                        'r': 3
+                                    }
+                                },
+                                path: {
+                                    component: 'path',
+                                    attr: {
+                                        'd': 'M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z'
                                     }
                                 }
-                            }
-                        });
-                    }
-                }
-            }
-        },
-        date_and_time: {
-            type: 'folder',
-            label: 'dateAndTime',
-            before: '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z" /></svg>',
-
-            section: {
-                type: 'section',
-
-                use_24_hour_format: {
-                    type: 'switch',
-                    label: 'use24HourFormat',
-                    value: true
-                }
-            }
-        },
-        location: {
-            type: 'folder',
-            before: '<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z"/><circle cx="12" cy="9" r="2.5"/></svg>',
-            label: 'location',
-
-            section: {
-                type: 'section',
-
-                default_content_country: {
-                    label: 'defaultContentCountry',
-                    type: 'select',
-                    options: [{
-                        "label": "default",
-                        "value": "default"
-                    },
-                    {
-                        "label": "Afghanistan",
-                        "value": "AF"
-                    },
-                    {
-                        "label": "Albania",
-                        "value": "AL"
-                    },
-                    {
-                        "label": "Algeria",
-                        "value": "DZ"
-                    },
-                    {
-                        "label": "American Samoa",
-                        "value": "AS"
-                    },
-                    {
-                        "label": "Andorra",
-                        "value": "AD"
-                    },
-                    {
-                        "label": "Angola",
-                        "value": "AO"
-                    },
-                    {
-                        "label": "Anguilla",
-                        "value": "AI"
-                    },
-                    {
-                        "label": "Antarctica",
-                        "value": "AQ"
-                    },
-                    {
-                        "label": "Antigua and Barbuda",
-                        "value": "AG"
-                    },
-                    {
-                        "label": "Argentina",
-                        "value": "AR"
-                    },
-                    {
-                        "label": "Armenia",
-                        "value": "AM"
-                    },
-                    {
-                        "label": "Aruba",
-                        "value": "AW"
-                    },
-                    {
-                        "label": "Australia",
-                        "value": "AU"
-                    },
-                    {
-                        "label": "Austria",
-                        "value": "AT"
-                    },
-                    {
-                        "label": "Azerbaijan",
-                        "value": "AZ"
-                    },
-                    {
-                        "label": "Bahrain",
-                        "value": "BH"
-                    },
-                    {
-                        "label": "Bailiwick of Guernsey",
-                        "value": "GG"
-                    },
-                    {
-                        "label": "Bangladesh",
-                        "value": "BD"
-                    },
-                    {
-                        "label": "Barbados",
-                        "value": "BB"
-                    },
-                    {
-                        "label": "Belarus",
-                        "value": "BY"
-                    },
-                    {
-                        "label": "Belgium",
-                        "value": "BE"
-                    },
-                    {
-                        "label": "Belize",
-                        "value": "BZ"
-                    },
-                    {
-                        "label": "Benin",
-                        "value": "BJ"
-                    },
-                    {
-                        "label": "Bermuda",
-                        "value": "BM"
-                    },
-                    {
-                        "label": "Bhutan",
-                        "value": "BT"
-                    },
-                    {
-                        "label": "Bolivia",
-                        "value": "BO"
-                    },
-                    {
-                        "label": "Bonaire",
-                        "value": "BQ"
-                    },
-                    {
-                        "label": "Bosnia and Herzegovina",
-                        "value": "BA"
-                    },
-                    {
-                        "label": "Botswana",
-                        "value": "BW"
-                    },
-                    {
-                        "label": "Bouvet Island",
-                        "value": "BV"
-                    },
-                    {
-                        "label": "Brazil",
-                        "value": "BR"
-                    },
-                    {
-                        "label": "British Indian Ocean Territory",
-                        "value": "IO"
-                    },
-                    {
-                        "label": "British Virgin Islands",
-                        "value": "VG"
-                    },
-                    {
-                        "label": "Brunei",
-                        "value": "BN"
-                    },
-                    {
-                        "label": "Bulgaria",
-                        "value": "BG"
-                    },
-                    {
-                        "label": "Burkina Faso",
-                        "value": "BF"
-                    },
-                    {
-                        "label": "Burundi",
-                        "value": "BI"
-                    },
-                    {
-                        "label": "Cambodia",
-                        "value": "KH"
-                    },
-                    {
-                        "label": "Cameroon",
-                        "value": "CM"
-                    },
-                    {
-                        "label": "Canada",
-                        "value": "CA"
-                    },
-                    {
-                        "label": "Cape Verde",
-                        "value": "CV"
-                    },
-                    {
-                        "label": "Cayman Islands",
-                        "value": "KY"
-                    },
-                    {
-                        "label": "Central African Republic",
-                        "value": "CF"
-                    },
-                    {
-                        "label": "Chad",
-                        "value": "TD"
-                    },
-                    {
-                        "label": "Chile",
-                        "value": "CL"
-                    },
-                    {
-                        "label": "China",
-                        "value": "CN"
-                    },
-                    {
-                        "label": "Christmas Island",
-                        "value": "CX"
-                    },
-                    {
-                        "label": "Cocos (Keeling) Islands",
-                        "value": "CC"
-                    },
-                    {
-                        "label": "Collectivity of Saint Martin",
-                        "value": "MF"
-                    },
-                    {
-                        "label": "Colombia",
-                        "value": "CO"
-                    },
-                    {
-                        "label": "Comoros",
-                        "value": "KM"
-                    },
-                    {
-                        "label": "Cook Islands",
-                        "value": "CK"
-                    },
-                    {
-                        "label": "Costa Rica",
-                        "value": "CR"
-                    },
-                    {
-                        "label": "Croatia",
-                        "value": "HR"
-                    },
-                    {
-                        "label": "Cuba",
-                        "value": "CU"
-                    },
-                    {
-                        "label": "Curaçao",
-                        "value": "CW"
-                    },
-                    {
-                        "label": "Cyprus",
-                        "value": "CY"
-                    },
-                    {
-                        "label": "Czech Republic",
-                        "value": "CZ"
-                    },
-                    {
-                        "label": "Democratic Republic of the Congo",
-                        "value": "CD"
-                    },
-                    {
-                        "label": "Denmark",
-                        "value": "DK"
-                    },
-                    {
-                        "label": "Djibouti",
-                        "value": "DJ"
-                    },
-                    {
-                        "label": "Dominica",
-                        "value": "DM"
-                    },
-                    {
-                        "label": "Dominican Republic",
-                        "value": "DO"
-                    },
-                    {
-                        "label": "East Timor",
-                        "value": "TL"
-                    },
-                    {
-                        "label": "Ecuador",
-                        "value": "EC"
-                    },
-                    {
-                        "label": "Egypt",
-                        "value": "EG"
-                    },
-                    {
-                        "label": "El Salvador",
-                        "value": "SV"
-                    },
-                    {
-                        "label": "Equatorial Guinea",
-                        "value": "GQ"
-                    },
-                    {
-                        "label": "Eritrea",
-                        "value": "ER"
-                    },
-                    {
-                        "label": "Estonia",
-                        "value": "EE"
-                    },
-                    {
-                        "label": "Eswatini",
-                        "value": "SZ"
-                    },
-                    {
-                        "label": "Ethiopia",
-                        "value": "ET"
-                    },
-                    {
-                        "label": "Falkland Islands",
-                        "value": "FK"
-                    },
-                    {
-                        "label": "Faroe Islands",
-                        "value": "FO"
-                    },
-                    {
-                        "label": "Federated States of Micronesia",
-                        "value": "FM"
-                    },
-                    {
-                        "label": "Fiji",
-                        "value": "FJ"
-                    },
-                    {
-                        "label": "Finland",
-                        "value": "FI"
-                    },
-                    {
-                        "label": "France",
-                        "value": "FR"
-                    },
-                    {
-                        "label": "French Guiana",
-                        "value": "GF"
-                    },
-                    {
-                        "label": "French Polynesia",
-                        "value": "PF"
-                    },
-                    {
-                        "label": "French Southern and Antarctic Lands",
-                        "value": "TF"
-                    },
-                    {
-                        "label": "Gabon",
-                        "value": "GA"
-                    },
-                    {
-                        "label": "Georgia (country)",
-                        "value": "GE"
-                    },
-                    {
-                        "label": "Germany",
-                        "value": "DE"
-                    },
-                    {
-                        "label": "Ghana",
-                        "value": "GH"
-                    },
-                    {
-                        "label": "Gibraltar",
-                        "value": "GI"
-                    },
-                    {
-                        "label": "Greece",
-                        "value": "GR"
-                    },
-                    {
-                        "label": "Greenland",
-                        "value": "GL"
-                    },
-                    {
-                        "label": "Grenada",
-                        "value": "GD"
-                    },
-                    {
-                        "label": "Guadeloupe",
-                        "value": "GP"
-                    },
-                    {
-                        "label": "Guam",
-                        "value": "GU"
-                    },
-                    {
-                        "label": "Guatemala",
-                        "value": "GT"
-                    },
-                    {
-                        "label": "Guinea",
-                        "value": "GN"
-                    },
-                    {
-                        "label": "Guinea-Bissau",
-                        "value": "GW"
-                    },
-                    {
-                        "label": "Guyana",
-                        "value": "GY"
-                    },
-                    {
-                        "label": "Haiti",
-                        "value": "HT"
-                    },
-                    {
-                        "label": "Heard Island and McDonald Islands",
-                        "value": "HM"
-                    },
-                    {
-                        "label": "Holy See",
-                        "value": "VA"
-                    },
-                    {
-                        "label": "Honduras",
-                        "value": "HN"
-                    },
-                    {
-                        "label": "Hong Kong",
-                        "value": "HK"
-                    },
-                    {
-                        "label": "Hungary",
-                        "value": "HU"
-                    },
-                    {
-                        "label": "Iceland",
-                        "value": "IS"
-                    },
-                    {
-                        "label": "India",
-                        "value": "IN"
-                    },
-                    {
-                        "label": "Indonesia",
-                        "value": "ID"
-                    },
-                    {
-                        "label": "Iran",
-                        "value": "IR"
-                    },
-                    {
-                        "label": "Iraq",
-                        "value": "IQ"
-                    },
-                    {
-                        "label": "Isle of Man",
-                        "value": "IM"
-                    },
-                    {
-                        "label": "Israel",
-                        "value": "IL"
-                    },
-                    {
-                        "label": "Italy",
-                        "value": "IT"
-                    },
-                    {
-                        "label": "Ivory Coast",
-                        "value": "CI"
-                    },
-                    {
-                        "label": "Jamaica",
-                        "value": "JM"
-                    },
-                    {
-                        "label": "Japan",
-                        "value": "JP"
-                    },
-                    {
-                        "label": "Jersey",
-                        "value": "JE"
-                    },
-                    {
-                        "label": "Jordan",
-                        "value": "JO"
-                    },
-                    {
-                        "label": "Kazakhstan",
-                        "value": "KZ"
-                    },
-                    {
-                        "label": "Kenya",
-                        "value": "KE"
-                    },
-                    {
-                        "label": "Kiribati",
-                        "value": "KI"
-                    },
-                    {
-                        "label": "Kuwait",
-                        "value": "KW"
-                    },
-                    {
-                        "label": "Kyrgyzstan",
-                        "value": "KG"
-                    },
-                    {
-                        "label": "Laos",
-                        "value": "LA"
-                    },
-                    {
-                        "label": "Latvia",
-                        "value": "LV"
-                    },
-                    {
-                        "label": "Lebanon",
-                        "value": "LB"
-                    },
-                    {
-                        "label": "Lesotho",
-                        "value": "LS"
-                    },
-                    {
-                        "label": "Liberia",
-                        "value": "LR"
-                    },
-                    {
-                        "label": "Libya",
-                        "value": "LY"
-                    },
-                    {
-                        "label": "Liechtenstein",
-                        "value": "LI"
-                    },
-                    {
-                        "label": "Lithuania",
-                        "value": "LT"
-                    },
-                    {
-                        "label": "Luxembourg",
-                        "value": "LU"
-                    },
-                    {
-                        "label": "Macau",
-                        "value": "MO"
-                    },
-                    {
-                        "label": "Madagascar",
-                        "value": "MG"
-                    },
-                    {
-                        "label": "Malawi",
-                        "value": "MW"
-                    },
-                    {
-                        "label": "Malaysia",
-                        "value": "MY"
-                    },
-                    {
-                        "label": "Maldives",
-                        "value": "MV"
-                    },
-                    {
-                        "label": "Mali",
-                        "value": "ML"
-                    },
-                    {
-                        "label": "Malta",
-                        "value": "MT"
-                    },
-                    {
-                        "label": "Marshall Islands",
-                        "value": "MH"
-                    },
-                    {
-                        "label": "Martinique",
-                        "value": "MQ"
-                    },
-                    {
-                        "label": "Mauritania",
-                        "value": "MR"
-                    },
-                    {
-                        "label": "Mauritius",
-                        "value": "MU"
-                    },
-                    {
-                        "label": "Mayotte",
-                        "value": "YT"
-                    },
-                    {
-                        "label": "Mexico",
-                        "value": "MX"
-                    },
-                    {
-                        "label": "Moldova",
-                        "value": "MD"
-                    },
-                    {
-                        "label": "Monaco",
-                        "value": "MC"
-                    },
-                    {
-                        "label": "Mongolia",
-                        "value": "MN"
-                    },
-                    {
-                        "label": "Montenegro",
-                        "value": "ME"
-                    },
-                    {
-                        "label": "Montserrat",
-                        "value": "MS"
-                    },
-                    {
-                        "label": "Morocco",
-                        "value": "MA"
-                    },
-                    {
-                        "label": "Mozambique",
-                        "value": "MZ"
-                    },
-                    {
-                        "label": "Myanmar",
-                        "value": "MM"
-                    },
-                    {
-                        "label": "Namibia",
-                        "value": "NA"
-                    },
-                    {
-                        "label": "Nauru",
-                        "value": "NR"
-                    },
-                    {
-                        "label": "Nepal",
-                        "value": "NP"
-                    },
-                    {
-                        "label": "Netherlands",
-                        "value": "NL"
-                    },
-                    {
-                        "label": "New Caledonia",
-                        "value": "NC"
-                    },
-                    {
-                        "label": "New Zealand",
-                        "value": "NZ"
-                    },
-                    {
-                        "label": "Nicaragua",
-                        "value": "NI"
-                    },
-                    {
-                        "label": "Niger",
-                        "value": "NE"
-                    },
-                    {
-                        "label": "Nigeria",
-                        "value": "NG"
-                    },
-                    {
-                        "label": "Niue",
-                        "value": "NU"
-                    },
-                    {
-                        "label": "Norfolk Island",
-                        "value": "NF"
-                    },
-                    {
-                        "label": "North Korea",
-                        "value": "KP"
-                    },
-                    {
-                        "label": "North Macedonia",
-                        "value": "MK"
-                    },
-                    {
-                        "label": "Northern Mariana Islands",
-                        "value": "MP"
-                    },
-                    {
-                        "label": "Norway",
-                        "value": "NO"
-                    },
-                    {
-                        "label": "Oman",
-                        "value": "OM"
-                    },
-                    {
-                        "label": "Pakistan",
-                        "value": "PK"
-                    },
-                    {
-                        "label": "Palau",
-                        "value": "PW"
-                    },
-                    {
-                        "label": "Panama",
-                        "value": "PA"
-                    },
-                    {
-                        "label": "Papua New Guinea",
-                        "value": "PG"
-                    },
-                    {
-                        "label": "Paraguay",
-                        "value": "PY"
-                    },
-                    {
-                        "label": "Peru",
-                        "value": "PE"
-                    },
-                    {
-                        "label": "Philippines",
-                        "value": "PH"
-                    },
-                    {
-                        "label": "Pitcairn Islands",
-                        "value": "PN"
-                    },
-                    {
-                        "label": "Poland",
-                        "value": "PL"
-                    },
-                    {
-                        "label": "Portugal",
-                        "value": "PT"
-                    },
-                    {
-                        "label": "Puerto Rico",
-                        "value": "PR"
-                    },
-                    {
-                        "label": "Qatar",
-                        "value": "QA"
-                    },
-                    {
-                        "label": "Republic of Ireland",
-                        "value": "IE"
-                    },
-                    {
-                        "label": "Republic of the Congo",
-                        "value": "CG"
-                    },
-                    {
-                        "label": "Romania",
-                        "value": "RO"
-                    },
-                    {
-                        "label": "Russia",
-                        "value": "RU"
-                    },
-                    {
-                        "label": "Rwanda",
-                        "value": "RW"
-                    },
-                    {
-                        "label": "Réunion",
-                        "value": "RE"
-                    },
-                    {
-                        "label": "Saint Barthélemy",
-                        "value": "BL"
-                    },
-                    {
-                        "label": "Saint Helena",
-                        "value": "SH"
-                    },
-                    {
-                        "label": "Saint Kitts and Nevis",
-                        "value": "KN"
-                    },
-                    {
-                        "label": "Saint Lucia",
-                        "value": "LC"
-                    },
-                    {
-                        "label": "Saint Pierre and Miquelon",
-                        "value": "PM"
-                    },
-                    {
-                        "label": "Saint Vincent and the Grenadines",
-                        "value": "VC"
-                    },
-                    {
-                        "label": "Samoa",
-                        "value": "WS"
-                    },
-                    {
-                        "label": "San Marino",
-                        "value": "SM"
-                    },
-                    {
-                        "label": "Saudi Arabia",
-                        "value": "SA"
-                    },
-                    {
-                        "label": "Senegal",
-                        "value": "SN"
-                    },
-                    {
-                        "label": "Serbia",
-                        "value": "RS"
-                    },
-                    {
-                        "label": "Seychelles",
-                        "value": "SC"
-                    },
-                    {
-                        "label": "Sierra Leone",
-                        "value": "SL"
-                    },
-                    {
-                        "label": "Singapore",
-                        "value": "SG"
-                    },
-                    {
-                        "label": "Sint Maarten",
-                        "value": "SX"
-                    },
-                    {
-                        "label": "Slovakia",
-                        "value": "SK"
-                    },
-                    {
-                        "label": "Slovenia",
-                        "value": "SI"
-                    },
-                    {
-                        "label": "Solomon Islands",
-                        "value": "SB"
-                    },
-                    {
-                        "label": "Somalia",
-                        "value": "SO"
-                    },
-                    {
-                        "label": "South Africa",
-                        "value": "ZA"
-                    },
-                    {
-                        "label": "South Georgia and the South Sandwich Islands",
-                        "value": "GS"
-                    },
-                    {
-                        "label": "South Korea",
-                        "value": "KR"
-                    },
-                    {
-                        "label": "South Sudan",
-                        "value": "SS"
-                    },
-                    {
-                        "label": "Spain",
-                        "value": "ES"
-                    },
-                    {
-                        "label": "Sri Lanka",
-                        "value": "LK"
-                    },
-                    {
-                        "label": "State of Palestine",
-                        "value": "PS"
-                    },
-                    {
-                        "label": "Sudan",
-                        "value": "SD"
-                    },
-                    {
-                        "label": "Suriname",
-                        "value": "SR"
-                    },
-                    {
-                        "label": "Svalbard",
-                        "value": "SJ"
-                    },
-                    {
-                        "label": "Sweden",
-                        "value": "SE"
-                    },
-                    {
-                        "label": "Switzerland",
-                        "value": "CH"
-                    },
-                    {
-                        "label": "Syria",
-                        "value": "SY"
-                    },
-                    {
-                        "label": "São Tomé and Príncipe",
-                        "value": "ST"
-                    },
-                    {
-                        "label": "Taiwan",
-                        "value": "TW"
-                    },
-                    {
-                        "label": "Tajikistan",
-                        "value": "TJ"
-                    },
-                    {
-                        "label": "Tanzania",
-                        "value": "TZ"
-                    },
-                    {
-                        "label": "Thailand",
-                        "value": "TH"
-                    },
-                    {
-                        "label": "The Bahamas",
-                        "value": "BS"
-                    },
-                    {
-                        "label": "The Gambia",
-                        "value": "GM"
-                    },
-                    {
-                        "label": "Togo",
-                        "value": "TG"
-                    },
-                    {
-                        "label": "Tokelau",
-                        "value": "TK"
-                    },
-                    {
-                        "label": "Tonga",
-                        "value": "TO"
-                    },
-                    {
-                        "label": "Trinidad and Tobago",
-                        "value": "TT"
-                    },
-                    {
-                        "label": "Tunisia",
-                        "value": "TN"
-                    },
-                    {
-                        "label": "Turkey",
-                        "value": "TR"
-                    },
-                    {
-                        "label": "Turkmenistan",
-                        "value": "TM"
-                    },
-                    {
-                        "label": "Turks and Caicos Islands",
-                        "value": "TC"
-                    },
-                    {
-                        "label": "Tuvalu",
-                        "value": "TV"
-                    },
-                    {
-                        "label": "Uganda",
-                        "value": "UG"
-                    },
-                    {
-                        "label": "Ukraine",
-                        "value": "UA"
-                    },
-                    {
-                        "label": "United Arab Emirates",
-                        "value": "AE"
-                    },
-                    {
-                        "label": "United Kingdom",
-                        "value": "GB"
-                    },
-                    {
-                        "label": "United States Virgin Islands",
-                        "value": "VI"
-                    },
-                    {
-                        "label": "United States",
-                        "value": "UM"
-                    },
-                    {
-                        "label": "United States",
-                        "value": "US"
-                    },
-                    {
-                        "label": "Uruguay",
-                        "value": "UY"
-                    },
-                    {
-                        "label": "Uzbekistan",
-                        "value": "UZ"
-                    },
-                    {
-                        "label": "Vanuatu",
-                        "value": "VU"
-                    },
-                    {
-                        "label": "Venezuela",
-                        "value": "VE"
-                    },
-                    {
-                        "label": "Vietnam",
-                        "value": "VN"
-                    },
-                    {
-                        "label": "Wallis and Futuna",
-                        "value": "WF"
-                    },
-                    {
-                        "label": "Western Sahara",
-                        "value": "EH"
-                    },
-                    {
-                        "label": "Yemen",
-                        "value": "YE"
-                    },
-                    {
-                        "label": "Zambia",
-                        "value": "ZM"
-                    },
-                    {
-                        "label": "Zimbabwe",
-                        "value": "ZW"
-                    },
-                    {
-                        "label": "Åland Islands",
-                        "value": "AX"
-                    }]
-                }
-            }
-        },
-        about: {
-            type: 'folder',
-            before: '<svg viewBox="0 0 24 24"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" /></svg>',
-            label: 'about',
-            appearanceId: 'about',
-
-            section: {
-                type: 'section',
-
-                onrender: function () {
-                    var component = this,
-                        manifest = chrome.runtime.getManifest(),
-                        user = satus.modules.user(),
-                        skeleton_about = {
-                            extension_section_label: {
-                                type: 'text',
-                                class: 'satus-section--label',
-                                label: 'extension'
                             },
-                            extension_section: {
-                                type: 'section',
-                                label: 'extension',
-                                style: {
-                                    'flex-direction': 'column',
-                                    'flex': '0'
-                                },
-
-                                version: {
-                                    type: 'text',
-                                    label: 'version',
-                                    value: manifest.version
-                                },
-                                permissions: {
-                                    type: 'text',
-                                    label: 'permissions',
-                                    value: manifest.permissions.join(', ').replace('https://www.youtube.com/', 'YouTube')
-                                },
-                            },
-                            browser_section_label: {
-                                type: 'text',
-                                class: 'satus-section--label',
-                                label: 'browser'
-                            },
-                            browser_section: {
-                                type: 'section',
-                                label: 'browser',
-                                style: {
-                                    'flex-direction': 'column',
-                                    'flex': '0'
-                                },
-
-                                name: {
-                                    type: 'text',
-                                    label: 'name',
-                                    value: user.browser.name
-                                },
-                                version: {
-                                    type: 'text',
-                                    label: 'version',
-                                    value: user.browser.version
-                                },
-                                platform: {
-                                    type: 'text',
-                                    label: 'platform',
-                                    value: user.browser.platform
-                                },
-                                video_formats: {
-                                    type: 'text',
-                                    label: 'videoFormats',
-                                    value: ''
-                                },
-                                audio_formats: {
-                                    type: 'text',
-                                    label: 'audioFormats',
-                                    value: ''
-                                },
-                                flash: {
-                                    type: 'text',
-                                    label: 'flash',
-                                    value: !!user.browser.flash
-                                }
-                            },
-                            os_section_label: {
-                                type: 'text',
-                                class: 'satus-section--label',
-                                label: 'os'
-                            },
-                            os_section: {
-                                type: 'section',
-                                label: 'os',
-                                style: {
-                                    'flex-direction': 'column',
-                                    'flex': '0'
-                                },
-
-                                os_name: {
-                                    type: 'text',
-                                    label: 'name',
-                                    value: user.os.name
-                                },
-
-                                os_type: {
-                                    type: 'text',
-                                    label: 'type',
-                                    value: user.os.type
-                                }
-                            },
-                            device_section_label: {
-                                type: 'text',
-                                class: 'satus-section--label',
-                                label: 'device'
-                            },
-                            device_section: {
-                                type: 'section',
-                                label: 'device',
-                                style: {
-                                    'flex-direction': 'column',
-                                    'flex': '0'
-                                },
-
-                                screen: {
-                                    type: 'text',
-                                    label: 'screen',
-                                    value: user.device.screen
-                                },
-                                cores: {
-                                    type: 'text',
-                                    label: 'cores',
-                                    value: user.device.cores
-                                },
-                                gpu: {
-                                    type: 'text',
-                                    label: 'gpu',
-                                    value: user.device.gpu
-                                },
-                                ram: {
-                                    type: 'text',
-                                    label: 'ram',
-                                    value: user.device.ram
-                                }
+                            label: {
+                                component: 'span',
+                                text: 'settings'
                             }
                         },
-                        video_formats = [],
-                        audio_formats = [];
+                        mixer: {
+                            component: 'button',
 
-                    for (var key in user.browser.video) {
-                        if (user.browser.video[key] !== false) {
-                            video_formats.push(key);
-                        }
-                    }
+                            on: {
+                                click: {
+                                    component: 'section',
 
-                    for (var key in user.browser.audio) {
-                        if (user.browser.audio[key] !== false) {
-                            audio_formats.push(key);
-                        }
-                    }
-
-                    skeleton_about.browser_section.video_formats.value = video_formats.join(', ');
-                    skeleton_about.browser_section.audio_formats.value = audio_formats.join(', ');
-
-                    setTimeout(function () {
-                        satus.render(skeleton_about, component.parentNode);
-
-                        component.remove();
-                    });
-                }
-            }
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# MIXER
---------------------------------------------------------------*/
-
-skeleton.header.section_end.button_vert.onClickRender.mixer = {
-    type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>',
-    label: 'mixer',
-    class: 'satus-folder--mixer',
-    appearanceId: 'mixer',
-    onopen: function () {
-        var self = this;
-
-        if (chrome && chrome.tabs) {
-            chrome.tabs.query({}, function (tabs) {
-                var mixer = {};
-
-                for (var i = 0, l = tabs.length; i < l; i++) {
-                    if (tabs[i].hasOwnProperty('url')) {
-                        var tab = tabs[i];
-
-                        if (/(\?|\&)v=/.test(tab.url)) {
-                            mixer[i] = {
-                                type: 'section',
-                                class: 'satus-section--mixer',
-                                style: {
-                                    'background': 'url(https://img.youtube.com/vi/' + tab.url.match(/(\?|\&)v=[^&]+/)[0].substr(3) + '/0.jpg) center center / cover no-repeat #000',
-                                },
-
-                                section: {
-                                    type: 'section',
-                                    dataset: {
-                                        'noConnectionLabel': satus.locale.getMessage('tryToReloadThePage') || 'tryToReloadThePage'
-                                    },
-
-                                    mixer_volume: {
-                                        type: 'slider',
-                                        label: 'volume',
-                                        dataset: {
-                                            id: tab.id,
-                                            element: 'audio'
-                                        },
-                                        max: 100,
-                                        onrender: function () {
+                                    on: {
+                                        render: function () {
                                             var self = this;
 
-                                            chrome.tabs.sendMessage(Number(this.dataset.id), {
-                                                name: 'request_volume'
-                                            }, function (response) {
-                                                if (response) {
-                                                    document.querySelector('div[data-element="audio"][data-id="' + Number(self.dataset.id) + '"]').change(response.value);
-                                                } else {
-                                                    self.parentNode.parentNode.classList.add('noconnection');
-                                                }
-                                            });
-                                        },
-                                        onchange: function (value) {
-                                            chrome.tabs.sendMessage(Number(this.dataset.id), {
-                                                name: 'change_volume',
-                                                volume: value
-                                            });
-                                        }
-                                    },
-                                    mixer_playback_speed: {
-                                        type: 'slider',
-                                        label: 'playbackSpeed',
-                                        dataset: {
-                                            id: tab.id,
-                                            element: 'playback_speed'
-                                        },
-                                        min: .1,
-                                        max: 8,
-                                        step: .05,
-                                        onrender: function () {
-                                            var self = this;
+                                            if (chrome && chrome.tabs) {
+                                                chrome.tabs.query({}, function (tabs) {
+                                                    var mixer = {};
 
-                                            chrome.tabs.sendMessage(Number(this.dataset.id), {
-                                                name: 'request_playback_speed'
-                                            }, function (response) {
-                                                if (response) {
-                                                    document.querySelector('div[data-element="playback_speed"][data-id="' + Number(self.dataset.id) + '"]').change(Number(response.value));
-                                                } else {
-                                                    self.parentNode.parentNode.classList.add('noconnection');
-                                                }
-                                            });
-                                        },
-                                        onchange: function (value) {
-                                            chrome.tabs.sendMessage(Number(this.dataset.id), {
-                                                name: 'change_playback_speed',
-                                                playback_speed: value
-                                            });
+                                                    for (var i = 0, l = tabs.length; i < l; i++) {
+                                                        if (tabs[i].hasOwnProperty('url')) {
+                                                            var tab = tabs[i];
+
+                                                            if (/(\?|\&)v=/.test(tab.url)) {
+                                                                mixer[i] = {
+                                                                    component: 'section',
+                                                                    class: 'satus-section--mixer',
+                                                                    style: {
+                                                                        'background': 'url(https://img.youtube.com/vi/' + tab.url.match(/(\?|\&)v=[^&]+/)[0].substr(3) + '/0.jpg) center center / cover no-repeat #000',
+                                                                    },
+
+                                                                    title: {
+                                                                        component: 'h1',
+                                                                        text: tab.title
+                                                                    },
+                                                                    section: {
+                                                                        component: 'section',
+                                                                        data: {
+                                                                            'noConnectionLabel': satus.locale.get('tryToReloadThePage') || 'tryToReloadThePage'
+                                                                        },
+
+                                                                        mixer_volume: {
+                                                                            component: 'slider',
+                                                                            text: 'volume',
+                                                                            data: {
+                                                                                id: tab.id
+                                                                            },
+                                                                            max: 100,
+                                                                            on: {
+                                                                                render: function () {
+                                                                                    var self = this;
+
+                                                                                    chrome.tabs.sendMessage(Number(this.dataset.id), {
+                                                                                        action: 'request-volume'
+                                                                                    }, function (response) {
+                                                                                        if (response) {
+                                                                                            self.value = response * 100;
+                                                                                        } else {
+                                                                                            self.parentNode.parentNode.classList.add('noconnection');
+                                                                                        }
+                                                                                    });
+                                                                                },
+                                                                                change: function () {
+                                                                                    chrome.tabs.sendMessage(Number(this.dataset.id), {
+                                                                                        action: 'set-volume',
+                                                                                        value: this.value
+                                                                                    });
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        mixer_playback_speed: {
+                                                                            component: 'slider',
+                                                                            text: 'playbackSpeed',
+                                                                            data: {
+                                                                                id: tab.id
+                                                                            },
+                                                                            min: .1,
+                                                                            max: 8,
+                                                                            step: .05,
+                                                                            on: {
+                                                                                render: function () {
+                                                                                    var self = this;
+
+                                                                                    chrome.tabs.sendMessage(Number(this.dataset.id), {
+                                                                                        action: 'request-playback-speed'
+                                                                                    }, function (response) {
+                                                                                        if (response) {
+                                                                                            self.value = response;
+                                                                                        } else {
+                                                                                            self.parentNode.parentNode.classList.add('noconnection');
+                                                                                        }
+                                                                                    });
+                                                                                },
+                                                                                change: function () {
+                                                                                    chrome.tabs.sendMessage(Number(this.dataset.id), {
+                                                                                        action: 'set-playback-speed',
+                                                                                        value: this.value
+                                                                                    });
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                };
+                                                            }
+                                                        }
+                                                    }
+
+                                                    if (Object.entries(mixer).length === 0) {
+                                                        mixer.section = {
+                                                            component: 'section',
+
+                                                            message: {
+                                                                component: 'span',
+                                                                class: 'satus-section--message',
+                                                                text: 'noOpenVideoTabs'
+                                                            }
+                                                        };
+                                                    }
+
+                                                    skeleton.layers.rendered.path.push(mixer);
+
+                                                    skeleton.layers.rendered.open();
+
+                                                    document.querySelector('.satus-modal__scrim').click();
+                                                });
+                                            }
                                         }
                                     }
                                 }
-                            };
+                            },
+
+                            svg: {
+                                component: 'svg',
+                                attr: {
+                                    'viewBox': '0 0 24 24',
+                                    'stroke-width': '1.75'
+                                },
+
+                                path: {
+                                    component: 'path',
+                                    attr: {
+                                        'd': 'M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07'
+                                    }
+                                }
+                            },
+                            label: {
+                                component: 'span',
+                                text: 'mixer'
+                            }
                         }
                     }
-                }
+                },
+                pluviam: true,
 
-                if (Object.entries(mixer).length === 0) {
-                    mixer.section = {
-                        type: 'section',
+                svg: {
+                    component: 'svg',
+                    attr: {
+                        'viewBox': '0 0 24 24',
+                        'stroke-width': 2
+                    },
 
-                        message: {
-                            type: 'text',
-                            class: 'satus-section--message',
-                            label: 'noOpenVideoTabs'
-                        }
-                    };
-                }
-
-                document.querySelector('.satus-dialog__scrim').click();
-
-                satus.render(mixer, self);
-            });
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# MAIN
---------------------------------------------------------------*/
-
-skeleton.main = {
-    type: 'main',
-    appearanceId: 'home',
-    on: {
-        change: function (container) {
-            var item = this.history[this.history.length - 1],
-                id = item.appearanceId;
-
-            if (!satus.isset(document.body.dataset.search)) {
-                document.body.dataset.search = true;
-            } else {
-                document.body.dataset.search = false;
-            }
-
-            document.body.dataset.appearance = id;
-            container.dataset.appearance = id;
-
-            document.querySelector('.satus-text--title').innerText = satus.locale.getMessage(item.label) || 'ImprovedTube';
-        }
-    },
-
-    section: {
-        type: 'section'
-    },
-
-    info: {
-        type: 'section',
-        class: 'satus-section--info',
-
-        frame_by_frame: {
-            type: 'button',
-            innerHTML: 'Frame By Frame <span style="margin:0 0 0 4px;font-weight:400"> by ImprovedTube team<span>',
-            style: {
-                'margin': '0 0 8px',
-                'width': '100%',
-                'textAlign': 'center',
-                'background': '#4b4abf'
-            },
-            onclick: function () {
-                window.open('https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh', '_blank');
-            }
-        },
-        email: {
-            type: 'button',
-            label: 'Email',
-            title: 'bugs@improvedtube.com',
-            onclick: function () {
-                window.open('mailto:bugs@improvedtube.com', '_blank');
-            }
-        },
-        github: {
-            type: 'button',
-            label: 'GitHub',
-            title: '/ImprovedTube/ImprovedTube',
-            onclick: function () {
-                window.open('https://github.com/ImprovedTube/ImprovedTube/', '_blank');
-            }
-        },
-        website: {
-            type: 'button',
-            label: 'Website',
-            title: 'improvedtube.com',
-            onclick: function () {
-                window.open('http://www.improvedtube.com/', '_blank');
-            }
-        },
-        firefox: {
-            type: 'button',
-            label: 'Firefox',
-            onclick: function () {
-                window.open('https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/', '_blank');
-            }
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# GENERAL
---------------------------------------------------------------*/
-
-skeleton.main.section.general = {
-    type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>',
-    label: 'general',
-    class: 'satus-folder--general',
-    appearanceId: 'general',
-
-    section: {
-        type: 'section',
-
-        /*legacy_youtube: {
-            type: 'switch',
-            label: 'legacyYoutube',
-            tags: 'old'
-        },*/
-        youtube_home_page: {
-            type: 'select',
-            label: 'youtubeHomePage',
-            options: [{
-                label: 'home',
-                value: '/'
-            }, {
-                label: 'trending',
-                value: '/feed/trending'
-            }, {
-                label: 'subscriptions',
-                value: '/feed/subscriptions'
-            }, {
-                label: 'history',
-                value: '/feed/history'
-            }, {
-                label: 'watchLater',
-                value: '/playlist?list=WL'
-            }, {
-                label: 'search',
-                value: 'search'
-            }, {
-                label: '👍 liked',
-                value: '/playlist?list=LL'
-            }, {
-                label: 'library',
-                value: '/feed/library'
-            }],
-            tags: 'trending,subscriptions,history,watch,search'
-        },
-        collapse_of_subscription_sections: {
-            type: 'switch',
-            label: 'collapseOfSubscriptionSections'
-        },
-        remove_related_search_results: {
-            type: 'switch',
-            label: 'removeRelatedSearchResults'
-        },
-        mark_watched_videos: {
-            type: 'switch',
-            label: 'markWatchedVideos',
-            onclick: function () {
-                setTimeout(function () {
-                    if (satus.storage.mark_watched_videos && !satus.storage.track_watched_videos) {
-                        document.querySelector('.satus-switch > input[data-storage-key="track_watched_videos"]').click();
-                    }
-                }, 50);
-            }
-        },
-        track_watched_videos: {
-            type: 'switch',
-            label: 'trackWatchedVideos'
-        },
-        delete_watched_videos: {
-            type: 'button',
-            label: 'deleteWatchedVideos',
-            onrender: function () {
-                this.firstChild.innerText += ' (' + (satus.storage.watched ? Object.keys(satus.storage.watched).length : 0) + ')';
-            },
-            onclick: function () {
-                var component = this;
-                satus.render({
-                    type: 'dialog',
-                    class: 'satus-dialog--confirm',
-
-                    message: {
-                        type: 'text',
-                        label: 'thisWillRemoveAllWatchedVideos',
-                        style: {
-                            'width': '100%',
-                            'opacity': '.8'
+                    circle1: {
+                        component: 'circle',
+                        attr: {
+                            'cx': 12,
+                            'cy': 5.25,
+                            'r': 0.45
                         }
                     },
-                    section: {
-                        type: 'section',
-                        class: 'controls',
-                        style: {
-                            'justify-content': 'flex-end',
-                            'display': 'flex'
-                        },
-
-                        cancel: {
-                            type: 'button',
-                            label: 'cancel',
-                            onclick: function () {
-                                var scrim = document.querySelectorAll('.satus-dialog__scrim');
-
-                                scrim[scrim.length - 1].click();
-                            }
-                        },
-                        accept: {
-                            type: 'button',
-                            label: 'accept',
-                            onclick: function () {
-                                var scrim = document.querySelectorAll('.satus-dialog__scrim');
-
-                                satus.storage.watched = {};
-                                satus.storage.set('watched', satus.storage.watched);
-                                component.firstChild.innerText = component.firstChild.innerText.replace(/\d+/,0);
-
-                                scrim[scrim.length - 1].click();
-                            }
+                    circle2: {
+                        component: 'circle',
+                        attr: {
+                            'cx': 12,
+                            'cy': 12,
+                            'r': 0.45
+                        }
+                    },
+                    circle3: {
+                        component: 'circle',
+                        attr: {
+                            'cx': 12,
+                            'cy': 18.75,
+                            'r': 0.45
                         }
                     }
-                });
+                }
+            }
+        }
+    },
+    layers: {
+        component: 'layers',
+        on: {
+            open: function () {
+                var skeleton = this.path[this.path.length - 1];
+
+                this.base.skeleton.header.section_start.back.rendered.hidden = this.path.length <= 1;
+                this.base.skeleton.header.section_start.title.rendered.innerText = skeleton.title || 'ImprovedTube';
             }
         },
-        only_one_player_instance_playing: {
-            type: 'switch',
-            label: 'onlyOnePlayerInstancePlaying'
-        },
-        confirmation_before_closing: {
-            type: 'switch',
-            label: 'confirmationBeforeClosing',
-            tags: 'random prevent close exit'
-        },
-        add_scroll_to_top: {
-            type: 'switch',
-            label: 'addScrollToTop',
-            tags: 'up'
-        },
-        limit_page_width: {
-            type: 'switch',
-            label: 'limitPageWidth',
-            value: true
-        },
-        scroll_bar: {
-            type: 'select',
-            label: 'scrollBar',
-            tags: 'remove,hide',
-            options: [{
-                label: 'normal',
-                value: 'normal'
-            }, {
-                label: 'hidden',
-                value: 'hidden'
-            }, {
-                label: 'overlay',
-                value: 'overlay'
-            }],
-        }
-    },
-
-    section_label__thumbnails: {
-        type: 'text',
-        class: 'satus-section--label',
-        label: 'thumbnails'
-    },
-
-    thumbnails_section: {
-        type: 'section',
-
-        squared_user_images: {
-            type: 'switch',
-            label: 'squaredUserImages',
-            tags: 'avatar'
-        },
-        hd_thumbnails: {
-            type: 'switch',
-            label: 'hdThumbnails',
-            tags: 'preview quality'
-        },
-        hide_animated_thumbnails: {
-            type: 'switch',
-            label: 'hideAnimatedThumbnails',
-            tags: 'preview'
-        },
-        hide_thumbnail_overlay: {
-            type: 'switch',
-            label: 'hideThumbnailOverlay',
-            tags: 'preview'
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# APPEARANCE
---------------------------------------------------------------*/
-
-skeleton.main.section.appearance = {
-    type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>',
-    label: 'appearance',
-    class: 'satus-folder--appearance',
-    appearanceId: 'appearance',
-
-    header: {
-        type: 'folder',
-        label: 'header',
-        class: 'satus-folder--header',
 
         section: {
-            type: 'section',
-
-            header_position: {
-                type: 'select',
-                label: 'position',
-                options: [{
-                    label: 'normal',
-                    value: 'normal'
-                }, {
-                    label: 'hidden',
-                    value: 'hidden'
-                }, {
-                    label: 'hover',
-                    value: 'hover'
-                }, {
-                    label: 'hiddenOnVideoPage',
-                    value: 'hidden_on_video_page'
-                }, {
-                    label: 'hoverOnVideoPage',
-                    value: 'hover_on_video_page'
-                }, {
-                    label: 'static',
-                    value: 'static'
-                }],
-                tags: 'hide,hover,static,top'
-            },
-            header_improve_logo: {
-                type: 'switch',
-                label: 'improveLogo',
-                tags: 'youtube'
-            },
-            header_hide_right_buttons: {
-                type: 'switch',
-                label: 'hideRightButtons',
-                tags: 'user'
-            },
-            header_hide_country_code: {
-                type: 'switch',
-                label: 'hideCountryCode',
-                tags: 'country,code'
-            },
-            hide_voice_search_button: {
-                type: 'switch',
-                label: 'hideVoiceSearchButton'
-            }
-        }
-    },
-    player: {
-        type: 'folder',
-        label: 'player',
-        class: 'satus-folder--player',
-
-        section: {
-            type: 'section',
-
-            player_size: {
-                type: 'select',
-                label: 'playerSize',
-                options: [{
-                    label: 'doNotChange',
-                    value: 'do_not_change'
-                }, {
-                    label: 'fullWindow',
-                    value: 'full_window'
-                }, {
-                    label: 'fitToWindow',
-                    value: 'fit_to_window'
-                }, {
-                    label: '240p',
-                    value: '240p'
-                }, {
-                    label: '360p',
-                    value: '360p'
-                }, {
-                    label: '480p',
-                    value: '480p'
-                }, {
-                    label: '576p',
-                    value: '576p'
-                }, {
-                    label: '720p',
-                    value: '720p'
-                }, {
-                    label: '1080p',
-                    value: '1080p'
-                }, {
-                    label: '1440p',
-                    value: '1440p'
-                }, {
-                    label: '2160p',
-                    value: '2160p'
-                }]
-            },
-            forced_theater_mode: {
-                type: 'switch',
-                label: 'forcedTheaterMode',
-                tags: 'wide'
-            },
-            hide_gradient_bottom: {
-                type: 'switch',
-                label: 'hideGradientBottom'
-            }, 
-            player_hide_skip_overlay: {
-                type: 'switch',
-                label: 'hideSkipOverlay',
-                value: false,
-                tags: 'remove,hide'
-            },
-            player_remaining_duration: {
-                type: 'switch',
-                label: 'showRemainingDuration',
-                value: false
-            },
-            always_show_progress_bar: {
-                type: 'switch',
-                label: 'alwaysShowProgressBar'
-            },
-            player_color: {
-                label: 'playerColor',
-                type: 'select',
-                options: [{
-                    label: 'red',
-                    value: 'red'
-                }, {
-                    label: 'pink',
-                    value: 'pink'
-                }, {
-                    label: 'purple',
-                    value: 'purple'
-                }, {
-                    label: 'deepPurple',
-                    value: 'deep_purple'
-                }, {
-                    label: 'indigo',
-                    value: 'indigo'
-                }, {
-                    label: 'blue',
-                    value: 'blue'
-                }, {
-                    label: 'lightBlue',
-                    value: 'light_blue'
-                }, {
-                    label: 'cyan',
-                    value: 'cyan'
-                }, {
-                    label: 'teal',
-                    value: 'teal'
-                }, {
-                    label: 'green',
-                    value: 'green'
-                }, {
-                    label: 'lightGreen',
-                    value: 'light_green'
-                }, {
-                    label: 'lime',
-                    value: 'lime'
-                }, {
-                    label: 'yellow',
-                    value: 'yellow'
-                }, {
-                    label: 'amber',
-                    value: 'amber'
-                }, {
-                    label: 'orange',
-                    value: 'orange'
-                }, {
-                    label: 'deepOrange',
-                    value: 'deep_orange'
-                }, {
-                    label: 'brown',
-                    value: 'brown'
-                }, {
-                    label: 'blueGray',
-                    value: 'blue_gray'
-                }, {
-                    label: 'white',
-                    value: 'white'
-                }],
-                tags: 'style'
-            },
-            player_transparent_background: {
-                type: 'switch',
-                label: 'transparentBackground'
-            },
-           player_hide_annotations: {
-                type: 'switch',
-                label: 'hideAnnotations',
-                tags: 'hide,remove,elements'
-            },
-            player_hide_cards: {
-                type: 'switch',
-                label: 'hideCards',
-                tags: 'hide,remove,elements'
-            },
-            player_show_cards_on_mouse_hover: {
-                type: 'switch',
-                label: 'showCardsOnMouseHover',
-                tags: 'hide,remove,elements'
-            },
-            player_hide_endscreen: {
-                type: 'switch',
-                label: 'hideEndscreen'
-            },
-            player_hd_thumbnail: {
-                type: 'switch',
-                label: 'hdThumbnail',
-                tags: 'preview'
-            },
-            hide_scroll_for_details: {
-                type: 'switch',
-                label: 'hideScrollForDetails',
-                tags: 'remove,hide'
-            }
-        }
-    },
-    details: {
-        type: 'folder',
-        label: 'details',
-        class: 'satus-folder--details',
-
-        section: {
-            type: 'section',
-
-            hide_details: {
-                type: 'switch',
-                label: 'hideDetails',
-                tags: 'hide,remove'
-            },
-            hide_views_count: {
-                type: 'switch',
-                label: 'hideViewsCount',
-                tags: 'hide,remove'
-            },
-            hide_date: {
-                type: 'switch',
-                label: 'hideDate',
-                tags: 'hide,remove'
-            },
-            likes: {
-                type: 'select',
-                label: 'likes',
-
-                options: [{
-                    label: 'normal',
-                    value: 'normal'
-                }, {
-                    label: 'iconsOnly',
-                    value: 'icons_only'
-                }, {
-                    label: 'hidden',
-                    value: 'hidden'
-                }],
-                tags: 'hide,remove'
-            },
-            hide_share_button: {
-                type: 'switch',
-                label: 'hideShareButton',
-                tags: 'hide,remove'
-            },
-            hide_save_button: {
-                type: 'switch',
-                label: 'hideSaveButton',
-                tags: 'hide,remove'
-            },
-            hide_more_button: {
-                type: 'switch',
-                label: 'hideMoreButton',
-                tags: 'hide,remove'
-            },
-            description: {
-                type: 'select',
-                label: 'description',
-
-                options: [{
-                    label: 'normal',
-                    value: 'normal'
-                }, {
-                    label: 'expanded',
-                    value: 'expanded'
-                }, {
-                    label: 'hidden',
-                    value: 'hidden'
-                }],
-                tags: 'hide,remove'
-            },
-            how_long_ago_the_video_was_uploaded: {
-                type: 'switch',
-                label: 'howLongAgoTheVideoWasUploaded'
-            },
-            channel_videos_count: {
-                type: 'switch',
-                label: 'showChannelVideosCount'
-            },
-            red_dislike_button: {
-                type: 'switch',
-                label: 'redDislikeButton'
-            }
-        }
-    },
-    sidebar: {
-        type: 'folder',
-        label: 'sidebar',
-        class: 'satus-folder--sidebar',
-
-        section: {
-            type: 'section',
-
-
-            related_videos: {
-                type: 'select',
-                label: 'relatedVideos',
-                options: [{
-                    label: 'normal',
-                    value: 'normal'
-                }, {
-                    label: 'collapsed',
-                    value: 'collapsed'
-                }, {
-                    label: 'hidden',
-                    value: 'hidden'
-                }],
-                tags: 'right'
-            },
-
-            livechat: {
-                type: 'select',
-                label: 'liveChat',
-
-                options: [{
-                    label: 'normal',
-                    value: 'normal'
-                }, {
-                    label: 'collapsed',
-                    value: 'collapsed'
-                }, {
-                    label: 'hidden',
-                    value: 'hidden'
-                }]
-            },
-            hide_playlist: {
-                type: 'switch',
-                label: 'hidePlaylist'
-            },
-            sidebar_left: {
-                type: 'switch',
-                label: 'Sidebar to the Left'
-            },
-            thumbnails_right: {
-                type: 'switch',
-                label: 'Thumbnails to the Right'
-            },
-            thumbnails_hide: {
-                type: 'switch',
-                label: 'Hide Thumbnails'
-            }
-        }
-    },
-    comments: {
-        type: 'folder',
-        label: 'comments',
-        class: 'satus-folder--comments',
-
-        section: {
-            type: 'section',
-
-            comments: {
-                type: 'select',
-                label: 'comments',
-
-                options: [{
-                    label: 'normal',
-                    value: 'normal'
-                }, {
-                    label: 'collapsed',
-                    value: 'collapsed'
-                }, {
-                    label: 'hidden',
-                    value: 'hidden'
-                }]
-            }
-        }
-    },
-    footer: {
-        type: 'folder',
-        label: 'footer',
-        class: 'satus-folder--footer',
-
-        section: {
-            type: 'section',
-
-            hide_footer: {
-                type: 'switch',
-                label: 'hideFooter',
-                tags: 'bottom'
-            }
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# THEMES
---------------------------------------------------------------*/
-
-skeleton.main.section.themes = {
-    type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>',
-    label: 'themes',
-    class: 'satus-folder--themes',
-    appearanceId: 'themes',
-
-    section: {
-        type: 'section',
-
-        my_colors: {
-            type: 'folder',
-            label: 'myColors',
-
-            section: {
-                type: 'section',
-
-                theme_my_colors: {
-                    type: 'switch',
-                    label: 'activate'
-                }
-            },
-
-            section2: {
-                type: 'section',
-
-                theme_primary_color: {
-                    type: 'color-picker',
-                    label: 'primaryColor',
-                    value: 'rgba(200,200,200)'
-                },
-                theme_text_color: {
-                    type: 'color-picker',
-                    label: 'textColor',
-                    value: 'rgba(25,25,25)'
-                }
-            }
-        },
-        filters: {
-            type: 'folder',
-            label: 'filters',
-
-            section: {
-                type: 'section',
-
-                bluelight: {
-                    type: 'slider',
-                    label: 'bluelight',
-                    step: 1,
-                    max: 90,
-                    value: 0
-                },
-                dim: {
-                    type: 'slider',
-                    label: 'dim',
-                    step: 1,
-                    max: 90,
-                    value: 0
-                }
-            }
-        },
-        schedule: {
-            type: 'folder',
-            label: 'schedule',
-
-            section: {
-                type: 'section',
-
-                schedule: {
-                    type: 'select',
-                    label: 'schedule',
-
-                    options: [{
-                        label: 'disabled',
-                        value: 'disabled'
-                    }, {
-                        label: 'sunsetToSunrise',
-                        value: 'sunset_to_sunrise'
-                    }, {
-                        label: 'systemPeferenceDark',
-                        value: 'system_peference_dark'
-                    }, {
-                        label: 'systemPeferenceLight',
-                        value: 'system_peference_light'
-                    }]
-                },
-                schedule_time_from: {
-                    type: 'select',
-                    label: 'timeFrom',
-                    options: [{
-                        label: '00:00',
-                        value: '00:00'
-                    }, {
-                        label: '01:00',
-                        value: '01:00'
-                    }, {
-                        label: '02:00',
-                        value: '02:00'
-                    }, {
-                        label: '03:00',
-                        value: '03:00'
-                    }, {
-                        label: '04:00',
-                        value: '04:00'
-                    }, {
-                        label: '05:00',
-                        value: '05:00'
-                    }, {
-                        label: '06:00',
-                        value: '06:00'
-                    }, {
-                        label: '07:00',
-                        value: '07:00'
-                    }, {
-                        label: '08:00',
-                        value: '08:00'
-                    }, {
-                        label: '09:00',
-                        value: '09:00'
-                    }, {
-                        label: '10:00',
-                        value: '10:00'
-                    }, {
-                        label: '11:00',
-                        value: '11:00'
-                    }, {
-                        label: '12:00',
-                        value: '12:00'
-                    }, {
-                        label: '13:00',
-                        value: '13:00'
-                    }, {
-                        label: '14:00',
-                        value: '14:00'
-                    }, {
-                        label: '15:00',
-                        value: '15:00'
-                    }, {
-                        label: '16:00',
-                        value: '16:00'
-                    }, {
-                        label: '17:00',
-                        value: '17:00'
-                    }, {
-                        label: '18:00',
-                        value: '18:00'
-                    }, {
-                        label: '19:00',
-                        value: '19:00'
-                    }, {
-                        label: '20:00',
-                        value: '20:00'
-                    }, {
-                        label: '21:00',
-                        value: '21:00'
-                    }, {
-                        label: '22:00',
-                        value: '22:00'
-                    }, {
-                        label: '23:00',
-                        value: '23:00'
-                    }]
-                },
-                schedule_time_to: {
-                    type: 'select',
-                    label: 'timeTo',
-                    options: [{
-                        label: '00:00',
-                        value: '00:00'
-                    }, {
-                        label: '01:00',
-                        value: '01:00'
-                    }, {
-                        label: '02:00',
-                        value: '02:00'
-                    }, {
-                        label: '03:00',
-                        value: '03:00'
-                    }, {
-                        label: '04:00',
-                        value: '04:00'
-                    }, {
-                        label: '05:00',
-                        value: '05:00'
-                    }, {
-                        label: '06:00',
-                        value: '06:00'
-                    }, {
-                        label: '07:00',
-                        value: '07:00'
-                    }, {
-                        label: '08:00',
-                        value: '08:00'
-                    }, {
-                        label: '09:00',
-                        value: '09:00'
-                    }, {
-                        label: '10:00',
-                        value: '10:00'
-                    }, {
-                        label: '11:00',
-                        value: '11:00'
-                    }, {
-                        label: '12:00',
-                        value: '12:00'
-                    }, {
-                        label: '13:00',
-                        value: '13:00'
-                    }, {
-                        label: '14:00',
-                        value: '14:00'
-                    }, {
-                        label: '15:00',
-                        value: '15:00'
-                    }, {
-                        label: '16:00',
-                        value: '16:00'
-                    }, {
-                        label: '17:00',
-                        value: '17:00'
-                    }, {
-                        label: '18:00',
-                        value: '18:00'
-                    }, {
-                        label: '19:00',
-                        value: '19:00'
-                    }, {
-                        label: '20:00',
-                        value: '20:00'
-                    }, {
-                        label: '21:00',
-                        value: '21:00'
-                    }, {
-                        label: '22:00',
-                        value: '22:00'
-                    }, {
-                        label: '23:00',
-                        value: '23:00'
-                    }]
-                }
-            }
-        },
-        font: {
-            type: 'select',
-            label: 'font',
-            options: [{
-                label: 'Youtube standard (Roboto)',
-                value: 'Default'
-            }, {
-                label: 'Open Sans',
-                value: 'Open+Sans'
-            }, {
-                label: 'Lato',
-                value: 'Lato'
-            }, {
-                label: 'Montserrat',
-                value: 'Montserrat'
-            }, {
-                label: 'Source Sans Pro',
-                value: 'Source+Sans+Pro'
-            }, {
-                label: 'Roboto Condensed',
-                value: 'Roboto+Condensed'
-            }, {
-                label: 'Oswald',
-                value: 'Oswald'
-            }, {
-                label: 'Comfortaa',
-                value: 'Comfortaa'
-            }, {
-                label: 'Roboto Mono',
-                value: 'Roboto+Mono'
-            }, {
-                label: 'Raleway',
-                value: 'Raleway'
-            }, {
-                label: 'Poppins',
-                value: 'Poppins'
-            }, {
-                label: 'Noto Sans',
-                value: 'Noto+Sans'
-            }, {
-                label: 'Roboto Slab',
-                value: 'Roboto+Slab'
-            }, {
-                label: 'Marriweather',
-                value: 'Marriweather'
-            }, {
-                label: 'PT Sans',
-                value: 'PT+Sans'
-            }]
-        }
-    },
-
-    default_dark_theme: {
-        type: 'switch',
-        label: 'dark',
-        class: 'satus-switch--dark',
-
-        onchange: themeChange
-    },
-    night_theme: {
-        type: 'switch',
-        label: 'night',
-        class: 'satus-switch--night',
-
-        onchange: themeChange
-    },
-    dawn_theme: {
-        type: 'switch',
-        label: 'dawn',
-        class: 'satus-switch--dawn',
-
-        onchange: themeChange
-    },
-    sunset_theme: {
-        type: 'switch',
-        label: 'sunset',
-        class: 'satus-switch--sunset',
-
-        onchange: themeChange
-    },
-    desert_theme: {
-        type: 'switch',
-        label: 'desert',
-        class: 'satus-switch--desert',
-
-        onchange: themeChange
-    },
-    plain_theme: {
-        type: 'switch',
-        label: 'plain',
-        class: 'satus-switch--plain',
-
-        onchange: themeChange
-    },
-    black_theme: {
-        type: 'switch',
-        label: 'black',
-        class: 'satus-switch--black',
-
-        onchange: themeChange
-    }
-};
-
-
-/*--------------------------------------------------------------
-# PLAYER
---------------------------------------------------------------*/
-
-skeleton.main.section.player = {
-    type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>',
-    label: 'player',
-    class: 'satus-folder--player',
-    appearanceId: 'player',
-
-    general: {
-        type: 'section',
-
-        player_autoplay: {
-            type: 'switch',
-            label: 'autoplay',
-            value: true
-        },
-        forced_play_video_from_the_beginning: {
-            type: 'switch',
-            label: 'forcedPlayVideoFromTheBeginning'
-        },
-        player_autofullscreen: {
-            type: 'switch',
-            label: 'autoFullscreen'
-        },
-        player_ads: {
-            label: 'ads',
-            type: 'select',
-            options: [{
-                label: 'onAllVideos',
-                value: 'all_videos',
-                default: 'true'
-            }, {
-                label: 'onSubscribedChannels',
-                value: 'subscribed_channels'
-            }, {
-                label: 'blockMusic',
-                value: 'block_music'
-            }, {
-                label: 'blockAll',
-                value: 'block_all'
-            }]
-        },
-        player_autopause_when_switching_tabs: {
-            type: 'switch',
-            label: 'autopauseWhenSwitchingTabs'
-        },
-        player_forced_playback_speed: {
-            type: 'switch',
-            label: 'forcedPlaybackSpeed',
-            id: 'forced-playback-speed',
-            onrender: function () {
-                this.dataset.value = satus.storage.player_forced_playback_speed;
-            },
-            onchange: function () {
-                this.dataset.value = satus.storage.player_forced_playback_speed;
-            }
-        },
-        player_playback_speed: {
-            type: 'slider',
-            label: 'playbackSpeed',
-            textarea: true,
-            value: 1,
-            min: .1,
-            max: 8,
-            step: .05
-        },
-        subtitles: {
-            type: 'folder',
-            label: 'subtitles',
-
-            section: {
-                type: 'section',
-
-                player_subtitles: {
-                    type: 'switch',
-                    label: 'subtitles'
-                },
-                subtitles_language: {
-                    type: 'select',
-                    label: 'language',
-                    options: [
-                        {
-                            value: 'default',
-                            label: 'default'
-                        },
-                        {
-                            value: 'af',
-                            label: 'Afrikaans'
-                        },
-                        {
-                            value: 'am',
-                            label: 'Amharic'
-                        },
-                        {
-                            value: 'ar',
-                            label: 'Arabic'
-                        },
-                        {
-                            value: 'az',
-                            label: 'Azerbaijani'
-                        },
-                        {
-                            value: 'be',
-                            label: 'Belarusian'
-                        },
-                        {
-                            value: 'bg',
-                            label: 'Bulgarian'
-                        },
-                        {
-                            value: 'bn',
-                            label: 'Bangla'
-                        },
-                        {
-                            value: 'bs',
-                            label: 'Bosnian'
-                        },
-                        {
-                            value: 'ca',
-                            label: 'Catalan'
-                        },
-                        {
-                            value: 'ceb',
-                            label: 'Cebuano'
-                        },
-                        {
-                            value: 'co',
-                            label: 'Corsican'
-                        },
-                        {
-                            value: 'cs',
-                            label: 'Czech'
-                        },
-                        {
-                            value: 'cy',
-                            label: 'Welsh'
-                        },
-                        {
-                            value: 'da',
-                            label: 'Danish'
-                        },
-                        {
-                            value: 'de',
-                            label: 'German'
-                        },
-                        {
-                            value: 'el',
-                            label: 'Greek'
-                        },
-                        {
-                            value: 'en',
-                            label: 'English'
-                        },
-                        {
-                            value: 'eo',
-                            label: 'Esperanto'
-                        },
-                        {
-                            value: 'es',
-                            label: 'Spanish'
-                        },
-                        {
-                            value: 'et',
-                            label: 'Estonian'
-                        },
-                        {
-                            value: 'eu',
-                            label: 'Basque'
-                        },
-                        {
-                            value: 'fa',
-                            label: 'Persian'
-                        },
-                        {
-                            value: 'fi',
-                            label: 'Finnish'
-                        },
-                        {
-                            value: 'fil',
-                            label: 'Filipino'
-                        },
-                        {
-                            value: 'fr',
-                            label: 'French'
-                        },
-                        {
-                            value: 'fy',
-                            label: 'Western Frisian'
-                        },
-                        {
-                            value: 'ga',
-                            label: 'Irish'
-                        },
-                        {
-                            value: 'gd',
-                            label: 'Scottish Gaelic'
-                        },
-                        {
-                            value: 'gl',
-                            label: 'Galician'
-                        },
-                        {
-                            value: 'gu',
-                            label: 'Gujarati'
-                        },
-                        {
-                            value: 'ha',
-                            label: 'Hausa'
-                        },
-                        {
-                            value: 'haw',
-                            label: 'Hawaiian'
-                        },
-                        {
-                            value: 'hi',
-                            label: 'Hindi'
-                        },
-                        {
-                            value: 'hmn',
-                            label: 'Hmong'
-                        },
-                        {
-                            value: 'hr',
-                            label: 'Croatian'
-                        },
-                        {
-                            value: 'ht',
-                            label: 'Haitian Creole'
-                        },
-                        {
-                            value: 'hu',
-                            label: 'Hungarian'
-                        },
-                        {
-                            value: 'hy',
-                            label: 'Armenian'
-                        },
-                        {
-                            value: 'id',
-                            label: 'Indonesian'
-                        },
-                        {
-                            value: 'ig',
-                            label: 'Igbo'
-                        },
-                        {
-                            value: 'is',
-                            label: 'Icelandic'
-                        },
-                        {
-                            value: 'it',
-                            label: 'Italian'
-                        },
-                        {
-                            value: 'iw',
-                            label: 'Hebrew'
-                        },
-                        {
-                            value: 'ja',
-                            label: 'Japanese'
-                        },
-                        {
-                            value: 'jv',
-                            label: 'Javanese'
-                        },
-                        {
-                            value: 'ka',
-                            label: 'Georgian'
-                        },
-                        {
-                            value: 'kk',
-                            label: 'Kazakh'
-                        },
-                        {
-                            value: 'km',
-                            label: 'Khmer'
-                        },
-                        {
-                            value: 'kn',
-                            label: 'Kannada'
-                        },
-                        {
-                            value: 'ko',
-                            label: 'Korean'
-                        },
-                        {
-                            value: 'ku',
-                            label: 'Kurdish'
-                        },
-                        {
-                            value: 'ky',
-                            label: 'Kyrgyz'
-                        },
-                        {
-                            value: 'la',
-                            label: 'Latin'
-                        },
-                        {
-                            value: 'lb',
-                            label: 'Luxembourgish'
-                        },
-                        {
-                            value: 'lo',
-                            label: 'Lao'
-                        },
-                        {
-                            value: 'lt',
-                            label: 'Lithuanian'
-                        },
-                        {
-                            value: 'lv',
-                            label: 'Latvian'
-                        },
-                        {
-                            value: 'mg',
-                            label: 'Malagasy'
-                        },
-                        {
-                            value: 'mi',
-                            label: 'Maori'
-                        },
-                        {
-                            value: 'mk',
-                            label: 'Macedonian'
-                        },
-                        {
-                            value: 'ml',
-                            label: 'Malayalam'
-                        },
-                        {
-                            value: 'mn',
-                            label: 'Mongolian'
-                        },
-                        {
-                            value: 'mr',
-                            label: 'Marathi'
-                        },
-                        {
-                            value: 'ms',
-                            label: 'Malay'
-                        },
-                        {
-                            value: 'mt',
-                            label: 'Maltese'
-                        },
-                        {
-                            value: 'my',
-                            label: 'Burmese'
-                        },
-                        {
-                            value: 'ne',
-                            label: 'Nepali'
-                        },
-                        {
-                            value: 'nl',
-                            label: 'Dutch'
-                        },
-                        {
-                            value: 'no',
-                            label: 'Norwegian'
-                        },
-                        {
-                            value: 'ny',
-                            label: 'Nyanja'
-                        },
-                        {
-                            value: 'or',
-                            label: 'Odia'
-                        },
-                        {
-                            value: 'pa',
-                            label: 'Punjabi'
-                        },
-                        {
-                            value: 'pl',
-                            label: 'Polish'
-                        },
-                        {
-                            value: 'ps',
-                            label: 'Pashto'
-                        },
-                        {
-                            value: 'pt',
-                            label: 'Portuguese'
-                        },
-                        {
-                            value: 'ro',
-                            label: 'Romanian'
-                        },
-                        {
-                            value: 'ru',
-                            label: 'Russian'
-                        },
-                        {
-                            value: 'rw',
-                            label: 'Kinyarwanda'
-                        },
-                        {
-                            value: 'sd',
-                            label: 'Sindhi'
-                        },
-                        {
-                            value: 'si',
-                            label: 'Sinhala'
-                        },
-                        {
-                            value: 'sk',
-                            label: 'Slovak'
-                        },
-                        {
-                            value: 'sl',
-                            label: 'Slovenian'
-                        },
-                        {
-                            value: 'sm',
-                            label: 'Samoan'
-                        },
-                        {
-                            value: 'sn',
-                            label: 'Shona'
-                        },
-                        {
-                            value: 'so',
-                            label: 'Somali'
-                        },
-                        {
-                            value: 'sq',
-                            label: 'Albanian'
-                        },
-                        {
-                            value: 'sr',
-                            label: 'Serbian'
-                        },
-                        {
-                            value: 'st',
-                            label: 'Southern Sotho'
-                        },
-                        {
-                            value: 'su',
-                            label: 'Sundanese'
-                        },
-                        {
-                            value: 'sv',
-                            label: 'Swedish'
-                        },
-                        {
-                            value: 'sw',
-                            label: 'Swahili'
-                        },
-                        {
-                            value: 'ta',
-                            label: 'Tamil'
-                        },
-                        {
-                            value: 'te',
-                            label: 'Telugu'
-                        },
-                        {
-                            value: 'tg',
-                            label: 'Tajik'
-                        },
-                        {
-                            value: 'th',
-                            label: 'Thai'
-                        },
-                        {
-                            value: 'tk',
-                            label: 'Turkmen'
-                        },
-                        {
-                            value: 'tr',
-                            label: 'Turkish'
-                        },
-                        {
-                            value: 'tt',
-                            label: 'Tatar'
-                        },
-                        {
-                            value: 'ug',
-                            label: 'Uyghur'
-                        },
-                        {
-                            value: 'uk',
-                            label: 'Ukrainian'
-                        },
-                        {
-                            value: 'ur',
-                            label: 'Urdu'
-                        },
-                        {
-                            value: 'uz',
-                            label: 'Uzbek'
-                        },
-                        {
-                            value: 'vi',
-                            label: 'Vietnamese'
-                        },
-                        {
-                            value: 'xh',
-                            label: 'Xhosa'
-                        },
-                        {
-                            value: 'yi',
-                            label: 'Yiddish'
-                        },
-                        {
-                            value: 'yo',
-                            label: 'Yoruba'
-                        },
-                        {
-                            value: 'zh-Hans',
-                            label: 'Chinese (Simplified)'
-                        },
-                        {
-                            value: 'zh-Hant',
-                            label: 'Chinese (Traditional)'
-                        },
-                        {
-                            value: 'zu',
-                            label: 'Zulu'
-                        }
-                     ]
-                },
-                subtitles_font_family: {
-                    type: 'select',
-                    label: 'fontFamily',
-                    options: [{
-                        label: 'Monospaced Serif',
-                        value: 1
-                    }, {
-                        label: 'Proportional Serif',
-                        value: 2
-                    }, {
-                        label: 'Monospaced Sans-Serif',
-                        value: 3
-                    }, {
-                        label: 'Proportional Sans-Serif',
-                        value: 4
-                    }, {
-                        label: 'Casual',
-                        value: 5
-                    }, {
-                        label: 'Cursive',
-                        value: 6
-                    }, {
-                        label: 'Small Capitals',
-                        value: 7
-                    }]
-                },
-                subtitles_font_color: {
-                    type: 'select',
-                    label: 'fontColor',
-                    options: [{
-                        label: 'white',
-                        value: '#fff'
-                    }, {
-                        label: 'yellow',
-                        value: '#ff0'
-                    }, {
-                        label: 'green',
-                        value: '#0f0'
-                    }, {
-                        label: 'cyan',
-                        value: '#0ff'
-                    }, {
-                        label: 'blue',
-                        value: '#00f'
-                    }, {
-                        label: 'magenta',
-                        value: '#f0f'
-                    }, {
-                        label: 'red',
-                        value: '#f00'
-                    }, {
-                        label: 'black',
-                        value: '#000'
-                    }]
-                },
-                subtitles_font_size: {
-                    type: 'select',
-                    label: 'fontSize',
-                    options: [{
-                        label: '50%',
-                        value: -2
-                    }, {
-                        label: '75%',
-                        value: -1
-                    }, {
-                        label: '100%',
-                        value: 1
-                    }, {
-                        label: '150%',
-                        value: 1
-                    }, {
-                        label: '200%',
-                        value: 2
-                    }, {
-                        label: '300%',
-                        value: 3
-                    }, {
-                        label: '400%',
-                        value: 4
-                    }]
-                },
-                subtitles_background_color: {
-                    type: 'select',
-                    label: 'backgroundColor',
-                    options: [{
-                        label: 'white',
-                        value: '#fff'
-                    }, {
-                        label: 'yellow',
-                        value: '#ff0'
-                    }, {
-                        label: 'green',
-                        value: '#0f0'
-                    }, {
-                        label: 'cyan',
-                        value: '#0ff'
-                    }, {
-                        label: 'blue',
-                        value: '#00f'
-                    }, {
-                        label: 'magenta',
-                        value: '#f0f'
-                    }, {
-                        label: 'red',
-                        value: '#f00'
-                    }, {
-                        label: 'black',
-                        value: '#000'
-                    }]
-                },
-                subtitles_background_opacity: {
-                    type: 'slider',
-                    label: 'backgroundOpacity',
-                    value: 75,
-                    min: 0,
-                    max: 100,
-                    step: 1
-                },
-                subtitles_window_color: {
-                    type: 'select',
-                    label: 'windowColor',
-                    options: [{
-                        label: 'white',
-                        value: '#fff'
-                    }, {
-                        label: 'yellow',
-                        value: '#ff0'
-                    }, {
-                        label: 'green',
-                        value: '#0f0'
-                    }, {
-                        label: 'cyan',
-                        value: '#0ff'
-                    }, {
-                        label: 'blue',
-                        value: '#00f'
-                    }, {
-                        label: 'magenta',
-                        value: '#f0f'
-                    }, {
-                        label: 'red',
-                        value: '#f00'
-                    }, {
-                        label: 'black',
-                        value: '#000'
-                    }]
-                },
-                subtitles_window_opacity: {
-                    type: 'slider',
-                    label: 'windowOpacity',
-                    value: 0,
-                    min: 0,
-                    max: 100,
-                    step: 1
-                },
-                subtitles_character_edge_style: {
-                    type: 'select',
-                    label: 'characterEdgeStyle',
-                    options: [{
-                        label: 'none',
-                        value: 0
-                    }, {
-                        label: 'dropShadow',
-                        value: 4
-                    }, {
-                        label: 'raised',
-                        value: 1
-                    }, {
-                        label: 'depressed',
-                        value: 2
-                    }, {
-                        label: 'outline',
-                        value: 3
-                    }]
-                },
-                subtitles_font_opacity: {
-                    type: 'slider',
-                    label: 'fontOpacity',
-                    value: 100,
-                    min: 0,
-                    max: 100,
-                    step: 1
-                }
-            }
-        },
-        player_crop_chapter_titles: {
-            type: 'switch',
-            label: 'cropChapterTitles',
-            value: true
-        },
-        up_next_autoplay: {
-            type: 'switch',
-            label: 'upNextAutoplay',
-            value: true
-        },
-        mini_player: {
-            type: 'switch',
-            label: 'customMiniPlayer'
-        }
-    },
-
-    section_label__videos: {
-        type: 'text',
-        class: 'satus-section--label',
-        label: 'videos'
-    },
-
-    video: {
-        type: 'section',
-
-        player_quality: {
-            type: 'select',
-            label: 'quality',
-            options: [{
-                label: 'auto',
-                value: 'auto'
-            }, {
-                label: '144p',
-                value: 'tiny'
-            }, {
-                label: '240p',
-                value: 'small'
-            }, {
-                label: '360p',
-                value: 'medium'
-            }, {
-                label: '480p',
-                value: 'large'
-            }, {
-                label: '720p',
-                value: 'hd720'
-            }, {
-                label: '1080p',
-                value: 'hd1080'
-            }, {
-                label: '1440p',
-                value: 'hd1440'
-            }, {
-                label: '2160p',
-                value: 'hd2160'
-            }, {
-                label: '2880p',
-                value: 'hd2880'
-            }, {
-                label: '4320p',
-                value: 'highres'
-            }]
-        },
-        player_h264: {
-            type: 'switch',
-            label: 'codecH264',
-
-            onclick: function () {
-                console.log(this.dataset.value);
-                if (this.querySelector('input').checked === true) {
-                    satus.render({
-                        type: 'dialog',
-                        class: 'satus-dialog--confirm',
-
-                        message: {
-                            type: 'text',
-                            label: 'youtubeLimitsVideoQualityTo1080pForH264Codec',
-                            style: {
-                                'width': '100%',
-                                'opacity': '.8'
-                            }
-                        },
-                        section: {
-                            type: 'section',
-                            class: 'controls',
-                            style: {
-                                'justify-content': 'flex-end'
-                            },
-
-                            cancel: {
-                                type: 'button',
-                                label: 'cancel',
-                                onclick: function () {
-                                    let scrim = document.querySelectorAll('.satus-dialog__scrim');
-
-                                    scrim[scrim.length - 1].click();
-                                }
-                            },
-                            ok: {
-                                type: 'button',
-                                label: 'OK',
-                                onclick: function () {
-                                    let scrim = document.querySelectorAll('.satus-dialog__scrim');
-
-                                    scrim[scrim.length - 1].click();
-                                }
-                            }
-                        }
-                    });
-                }
-            }
-        },
-        player_60fps: {
-            type: 'switch',
-            label: 'allow60fps',
-            value: true
-        },
-        player_SDR: {
-            type: 'switch',
-            label: 'forceSDR',
-            value: false
-        },
-    },
-
-    section_label__audio: {
-        type: 'text',
-        class: 'satus-section--label',
-        label: 'audio'
-    },
-
-    audio: {
-        type: 'section',
-        label: 'audio',
-
-        player_forced_volume: {
-            type: 'switch',
-            label: 'forcedVolume',
-            id: 'forced-volume',
-            onrender: function () {
-                this.dataset.value = satus.storage.player_forced_volume;
-            },
-            onchange: function () {
-                this.dataset.value = satus.storage.player_forced_volume;
-            }
-        },
-        player_volume: {
-            type: 'slider',
-            label: 'volume',
-            step: 1,
-            max: 100,
-            value: 100
-        },
-        player_loudness_normalization: {
-            type: 'switch',
-            label: 'loudnessNormalization',
-            value: true
-        }
-    },
-
-    section_label__buttons: {
-        type: 'text',
-        class: 'satus-section--label',
-        label: 'buttons'
-    },
-
-    buttons: {
-        type: 'section',
-
-        player_screenshot: {
-            type: 'folder',
-            label: 'screenshot',
-
-            section: {
-                type: 'section',
-
-                player_screenshot_button: {
-                    type: 'switch',
-                    label: 'activate'
-                },
-                player_screenshot_save_as: {
-                    type: 'select',
-                    label: 'saveAs',
-                    options: [{
-                        label: 'file',
-                        value: 'file'
-                    }, {
-                        label: 'clipboard',
-                        value: 'clipboard'
-                    }]
-                }
-            }
-        },
-        player_repeat: {
-            type: 'folder',
-            label: 'repeat',
-
-            section: {
-                type: 'section',
-
-                player_repeat_button: {
-                    type: 'switch',
-                    label: 'activate'
-                },
-                player_always_repeat: {
-                    type: 'switch',
-                    label: 'alwaysActive'
-                }
-            }
-        },
-        player_rotate_button: {
-            type: 'switch',
-            label: 'rotate'
-        },
-        player_popup_button: {
-            type: 'switch',
-            label: 'popupPlayer'
-        },
-        player_hide_controls: {
-            type: 'switch',
-            label: 'hideControls'
-        },
-        player_hide_controls_options: {
-            type: 'folder',
-            label: 'hideControlsOptions',
-
-            section: {
-                type: 'section',
-
-                player_play_button: {
-                    type: 'switch',
-                    label: 'playPause'
-                },
-                player_previous_button: {
-                    type: 'switch',
-                    label: 'previousVideo'
-                },
-                player_next_button: {
-                    type: 'switch',
-                    label: 'nextVideo'
-                },
-                player_volume_button: {
-                    type: 'switch',
-                    label: 'volume'
-                },
-                player_autoplay_button: {
-                    type: 'switch',
-                    label: 'autoplay'
-                },
-                player_settings_button: {
-                    type: 'switch',
-                    label: 'settings'
-                },
-                player_subtitles_button: {
-                    type: 'switch',
-                    label: 'subtitles'
-                },
-                player_miniplayer_button: {
-                    type: 'switch',
-                    label: 'nativeMiniPlayer'
-                },
-                player_view_button: {
-                    type: 'switch',
-                    label: 'viewMode'
-                },
-                player_screen_button: {
-                    type: 'switch',
-                    label: 'screen'
-                },
-                player_remote_button: {
-                    type: 'switch',
-                    label: 'remote'
-                }
-            }
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# PLAYLIST
---------------------------------------------------------------*/
-
-skeleton.main.section.playlist = {
-    type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',
-    label: 'playlist',
-    class: 'satus-folder--playlist',
-    appearanceId: 'playlist',
-
-    section: {
-        type: 'section',
-
-        playlist_autoplay: {
-            type: 'switch',
-            label: 'autoplay',
-            value: true
-        },
-        playlist_up_next_autoplay: {
-            type: 'switch',
-            label: 'upNextAutoplay',
-            value: true
-        },
-        playlist_reverse: {
-            type: 'switch',
-            label: 'reverse'
-        }
-    },
-
-    section2: {
-        type: 'section',
-
-        playlist_repeat: {
-            type: 'switch',
-            label: 'repeat'
-        },
-        playlist_shuffle: {
-            type: 'switch',
-            label: 'shuffle'
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# CHANNEL
---------------------------------------------------------------*/
-
-skeleton.main.section.channel = {
-    type: 'folder',
-    before: '<svg stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><path d="M17 2l-5 5-5-5"/></svg>',
-    label: 'channel',
-    class: 'satus-folder--channel',
-    appearanceId: 'channel',
-
-    section: {
-        type: 'section',
-
-        channel_default_tab: {
-            type: 'select',
-            label: 'defaultChannelTab',
-            options: [{
-                label: 'home',
-                value: '/home'
-            }, {
-                label: 'videos',
-                value: '/videos'
-            }, {
-                label: 'playlists',
-                value: '/playlists'
-            }]
-        },
-        channel_trailer_autoplay: {
-            type: 'switch',
-            label: 'trailerAutoplay',
-            value: true
-        },
-        channel_hide_featured_content: {
-            type: 'switch',
-            label: 'hideFeaturedContent'
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# SHORTCUTS
---------------------------------------------------------------*/
-
-skeleton.main.section.shortcuts = {
-    type: 'folder',
-    before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>',
-    label: 'shortcuts',
-    class: 'satus-folder--shortcut',
-    appearanceId: 'shortcuts',
-
-    player_section_label: {
-        type: 'text',
-        class: 'satus-section--label',
-        label: 'player'
-    },
-
-    player_section: {
-        type: 'section',
-
-        shortcut_picture_in_picture: {
-            type: 'shortcut',
-            label: 'pictureInPicture'
-        },
-        shortcut_volume: {
-            type: 'folder',
-            label: 'volume',
-
-            section_step: {
-                type: 'section',
-
-                shortcut_volume_step: {
-                    type: 'slider',
-                    label: 'step',
-                    min: 1,
-                    max: 10,
-                    step: 1,
-                    value: 5
-                }
-            },
-
-            section: {
-                type: 'section',
-
-                shortcut_increase_volume: {
-                    type: 'shortcut',
-                    label: 'increaseVolume'
-                },
-                shortcut_decrease_volume: {
-                    type: 'shortcut',
-                    label: 'decreaseVolume'
-                }
-            }
-        },
-        shortcut_screenshot: {
-            type: 'shortcut',
-            label: 'screenshot'
-        },
-        shortcut_playback_speed: {
-            type: 'folder',
-            label: 'playbackSpeed',
-
-            section_step: {
-                type: 'section',
-
-                shortcut_playback_speed_step: {
-                    type: 'slider',
-                    label: 'step',
-                    min: .05,
-                    max: .5,
-                    step: .05,
-                    value: .05
-                }
-            },
-
-            section: {
-                type: 'section',
-
-                shortcut_increase_playback_speed: {
-                    type: 'shortcut',
-                    label: 'increasePlaybackSpeed'
-                },
-                shortcut_decrease_playback_speed: {
-                    type: 'shortcut',
-                    label: 'decreasePlaybackSpeed'
-                }
-            }
-        },
-        shortcut_toggle_controls: {
-            type: 'shortcut',
-            label: 'toggleControls'
-        },
-        shortcut_next_video: {
-            type: 'shortcut',
-            label: 'nextVideo',
-            value: {
-                key: 'N',
-                shiftKey: true
-            }
-        },
-        shortcut_prev_video: {
-            type: 'shortcut',
-            label: 'previousVideo',
-            value: {
-                key: 'P',
-                shiftKey: true
-            }
-        },
-        shortcut_play_pause: {
-            type: 'shortcut',
-            label: 'playPause',
-            value: {
-                key: ' '
-            }
-        },
-        shortcut_stop: {
-            type: 'shortcut',
-            label: 'stop'
-        },
-        shortcut_toggle_autoplay: {
-            type: 'shortcut',
-            label: 'toggleAutoplay'
-        },
-        shortcut_seek_backward: {
-            type: 'shortcut',
-            label: 'seekBackward10Seconds',
-            value: {
-                key: 'J'
-            }
-        },
-        shortcut_seek_forward: {
-            type: 'shortcut',
-            label: 'seekForward10Seconds',
-            value: {
-                key: 'I'
-            }
-        },
-        shortcut_seek_next_chapter: {
-            type: 'shortcut',
-            label: 'seekNextChapter' 
-        },
-        shortcut_seek_previous_chapter: {
-            type: 'shortcut',
-            label: 'seekPreviousChapter' 
-        },
-
-        shortcut_activate_fullscreen: {
-            type: 'shortcut',
-            label: 'activateFullscreen',
-            value: {
-                key: 'F'
-            }
-        },
-        shortcut_activate_captions: {
-            type: 'shortcut',
-            label: 'activateCaptions',
-            value: {
-                key: 'C'
-            }
-        },
-        shortcut_quality: {
-            type: 'folder',
-            label: 'quality',
-
-            section: {
-                type: 'section',
-
-                shortcut_auto: {
-                    type: 'shortcut',
-                    label: 'auto'
-                },
-                shortcut_240p: {
-                    type: 'shortcut',
-                    label: '240p'
-                },
-                shortcut_360p: {
-                    type: 'shortcut',
-                    label: '360p'
-                },
-                shortcut_480p: {
-                    type: 'shortcut',
-                    label: '480p'
-                },
-                shortcut_720p: {
-                    type: 'shortcut',
-                    label: '720p'
-                },
-                shortcut_1080p: {
-                    type: 'shortcut',
-                    label: '1080p'
-                },
-                shortcut_1440p: {
-                    type: 'shortcut',
-                    label: '1440p'
-                },
-                shortcut_2160p: {
-                    type: 'shortcut',
-                    label: '2160p'
-                },
-                shortcut_2880p: {
-                    type: 'shortcut',
-                    label: '2880p'
-                },
-                shortcut_4320p: {
-                    type: 'shortcut',
-                    label: '4320p'
-                }
-            }
-        },
-        shortcut_custom_mini_player: {
-            type: 'shortcut',
-            label: 'customMiniPlayer'
-        },
-        shortcut_stats_for_nerds: {
-            type: 'shortcut',
-            label: 'statsForNerds'
-        },
-        shortcut_toggle_cards: {
-            type: 'shortcut',
-            label: 'toggleCards'
-        },
-        shortcut_popup_player: {
-            type: 'shortcut',
-            label: 'openPopupPlayer'
-        }
-    },
-
-    appearance_section_label: {
-        type: 'text',
-        class: 'satus-section--label',
-        label: 'YouTube'
-    },
-
-    appearance_section: {
-        type: 'section',
-
-        shortcut_go_to_search_box: {
-            type: 'shortcut',
-            label: 'goToSearchBox',
-            value: {
-                key: '/'
-            }
-        },
-        shortcut_like_shortcut: {
-            type: 'shortcut',
-            label: 'like'
-        },
-        shortcut_dislike_shortcut: {
-            type: 'shortcut',
-            label: 'dislike'
-        },
-        shortcut_subscribe: {
-            type: 'shortcut',
-            label: 'subscribe'
-        },
-        shortcut_dark_theme: {
-            type: 'shortcut',
-            label: 'darkTheme'
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# BLACKLIST
---------------------------------------------------------------*/
-
-skeleton.main.section.blacklist = {
-    type: 'folder',
-    before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>',
-    label: 'blacklist',
-    class: 'satus-folder--blacklist',
-    appearanceId: 'blacklist',
-
-    section_activate: {
-        type: 'section',
-
-        blacklist_activate: {
-            type: 'switch',
-            label: 'activate'
-        }
-    },
-
-    section: {
-        type: 'section',
-
-        channels: {
-            type: 'folder',
-            label: 'channels',
-            onopen: function () {
-                var self = this;
-
-                if (satus.storage.blacklist && satus.storage.blacklist.channels) {
-                    var list = {};
-
-                    for (var item in satus.storage.blacklist.channels) {
-                        if (satus.storage.blacklist.channels[item] !== false) {
-                            var title = satus.storage.blacklist.channels[item].title || '';
-
-                            list[item] = {
-                                type: 'section',
-                                label: title.length > 20 ? title.substr(0, 20) + '...' : title,
-                                class: 'satus-section--blacklist',
-                                style: {
-                                    'background-image': 'url(' + satus.storage.blacklist.channels[item].preview + ')',
-                                    'background-color': '#000'
-                                },
-
-                                section: {
-                                    type: 'section',
-
-                                    delete: {
-                                        type: 'button',
-                                        icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
-                                        onclick: function () {
-                                            delete satus.storage.blacklist.channels[item];
-
-                                            satus.storage.set('blacklist', satus.storage.blacklist);
-
-                                            this.classList.add('removing');
-
-                                            setTimeout(function () {
-                                                self.remove();
-                                            }, 250);
+            component: 'section',
+            class: 'satus-section--home',
+
+            general: {
+                component: 'button',
+                class: 'satus-button--general',
+                on: {
+                    click: {
+                        component: 'section',
+                        class: 'satus-section--card',
+
+                        youtube_home_page: {
+                            component: 'select',
+                            text: 'youtubeHomePage',
+                            options: [{
+                                text: 'home',
+                                value: '/'
+                            }, {
+                                text: 'trending',
+                                value: '/feed/trending'
+                            }, {
+                                text: 'subscriptions',
+                                value: '/feed/subscriptions'
+                            }, {
+                                text: 'history',
+                                value: '/feed/history'
+                            }, {
+                                text: 'watchLater',
+                                value: '/playlist?list=WL'
+                            }, {
+                                text: 'search',
+                                value: 'search'
+                            }, {
+                                text: '👍 liked',
+                                value: '/playlist?list=LL'
+                            }, {
+                                text: 'library',
+                                value: '/feed/library'
+                            }],
+                            tags: 'trending,subscriptions,history,watch,search'
+                        },
+                        collapse_of_subscription_sections: {
+                            component: 'switch',
+                            text: 'collapseOfSubscriptionSections'
+                        },
+                        remove_related_search_results: {
+                            component: 'switch',
+                            text: 'removeRelatedSearchResults'
+                        },
+                        mark_watched_videos: {
+                            component: 'switch',
+                            text: 'markWatchedVideos',
+                            on: {
+                                click: function () {
+                                    setTimeout(function () {
+                                        if (satus.storage.mark_watched_videos && !satus.storage.track_watched_videos) {
+                                            document.querySelector('.satus-switch > input[data-storage-key="track_watched_videos"]').click();
                                         }
-                                    }
+                                    }, 50);
                                 }
-                            };
-                        }
-                    }
-
-                    if (Object.keys(list).length === 0) {
-                        list.section = {
-                            type: 'section',
-                            class: 'satus-section--message',
-
-                            error: {
-                                type: 'text',
-                                label: 'empty'
                             }
-                        };
-                    }
-
-                    satus.render(list, this);
-                } else {
-                    satus.render({
-                        type: 'section',
-                        class: 'satus-section--message',
-
-                        error: {
-                            type: 'text',
-                            label: 'empty'
-                        }
-                    }, this);
-                }
-            }
-        },
-        videos: {
-            type: 'folder',
-            label: 'videos',
-            onopen: function () {
-                var self = this;
-
-                if (satus.storage.blacklist && satus.storage.blacklist.videos) {
-                    let list = {};
-
-                    for (let item in satus.storage.blacklist.videos) {
-                        if (satus.storage.blacklist.videos[item] !== false) {
-                            let title = satus.storage.blacklist.videos[item].title || '';
-
-                            list[item] = {
-                                type: 'section',
-                                label: title.length > 20 ? title.substr(0, 20) + '...' : title,
-                                class: 'satus-section--blacklist',
-                                style: {
-                                    'background-image': 'url(https://img.youtube.com/vi/' + item + '/0.jpg)'
+                        },
+                        track_watched_videos: {
+                            component: 'switch',
+                            text: 'trackWatchedVideos'
+                        },
+                        delete_watched_videos: {
+                            component: 'button',
+                            text: 'deleteWatchedVideos',
+                            on: {
+                                render: function () {
+                                    this.firstChild.innerText += ' (' + (satus.storage.watched ? Object.keys(satus.storage.watched).length : 0) + ')';
                                 },
-
-                                section: {
-                                    type: 'section',
-
-                                    delete: {
-                                        type: 'button',
-                                        icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
-                                        onclick: function () {
-                                            delete satus.storage.blacklist.videos[item];
-
-                                            satus.storage.set('blacklist', satus.storage.blacklist);
-                                            this.parentNode.parentNode.classList.add('removing');
-
-                                            setTimeout(function () {
-                                                self.parentNode.parentNode.remove();
-                                            }, 250);
-                                        }
-                                    }
-                                }
-                            };
-                        }
-                    }
-
-                    if (Object.keys(list).length === 0) {
-                        list.section = {
-                            type: 'section',
-                            class: 'satus-section--message',
-
-                            error: {
-                                type: 'text',
-                                label: 'empty'
-                            }
-                        };
-                    }
-
-                    satus.render(list, this);
-                } else {
-                    satus.render({
-                        type: 'section',
-                        class: 'satus-section--message',
-
-                        error: {
-                            type: 'text',
-                            label: 'empty'
-                        }
-                    }, this);
-                }
-            }
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# ANALYZER
---------------------------------------------------------------*/
-
-skeleton.main.section.analyzer = {
-    type: 'folder',
-    before: '<svg stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z"/></svg>',
-    label: 'analyzer',
-    class: 'satus-folder--analyzer',
-    appearanceId: 'analyzer',
-
-    activ_section: {
-        type: 'section',
-
-        analyzer_activation: {
-            type: 'switch',
-            label: 'activate'
-        }
-    },
-
-    section: {
-        type: 'section',
-        style: {
-            'flex-direction': 'column',
-            'align-items': 'flex-start'
-        },
-        onrender: function () {
-            var data = satus.storage.get('analyzer') || {},
-                all_data = {},
-                all_data_sort = [],
-                all_time_value = 0,
-                current_date = new Date().toDateString(),
-                container = document.createElement('div'),
-                top_text_container = document.createElement('div'),
-                today_at = document.createElement('div'),
-                watch_time = document.createElement('div'),
-                all_time = document.createElement('div'),
-                chart = document.createElement('div'),
-                bottom_text_container = document.createElement('div');
-
-            container.className = 'analyzer-container';
-            top_text_container.className = 'analyzer-top-text';
-            watch_time.className = 'analyzer-watch-time';
-            today_at.className = 'analyzer-today-at';
-            all_time.className = 'analyzer-all-time';
-            chart.className = 'analyzer-chart';
-            bottom_text_container.className = 'analyzer-bottom';
-
-            let currentDateData = data[current_date];
-            if (currentDateData) {
-                for (let i in currentDateData) {
-                    if (currentDateData[i]) {
-                        for (let j in currentDateData[i]) {
-                            if (!all_data[j]) {
-                                all_data[j] = 0;
-                            }
-
-                            all_data[j] += currentDateData[i][j];
-                        }
-                    }
-                }
-            }
-
-            for (let i in all_data) {
-                all_data_sort.push([i, all_data[i]]);
-                all_time_value += all_data[i];
-            }
-
-            all_data_sort.sort(function (a, b) {
-                return b[1] - a[1];
-            });
-
-            var now_minutes = new Date().getMinutes();
-
-            watch_time.innerText = satus.locale.getMessage('watchTime') || 'watchTime';
-            today_at.innerText = satus.locale.getMessage('todayAt') + ' ' + (new Date().getHours() + ':' + (now_minutes < 10 ? '0' + now_minutes : now_minutes)) || 'todayAt';
-            all_time.innerText = Math.floor(all_time_value / 60) + 'h ' + (all_time_value - Math.floor(all_time_value / 60) * 60) + 'm';
-
-            let h = 0;
-
-            for (let i = 0; i < 4; i++) {
-                let column = document.createElement('div');
-
-                column.className = 'analyzer-column';
-
-                for (let j = 0; j < 6; j++) {
-                    let hours = h + ':00';
-
-                    h++;
-
-                    let data_column = document.createElement('div');
-
-                    data_column.className = 'analyzer-data-column';
-
-                    if (currentDateData && currentDateData[hours]) {
-                        for (let k in currentDateData[hours]) {
-                            let block = document.createElement('div');
-
-                            block.className = 'analyzer-data';
-
-                            let height = data[current_date][hours][k] * 100 / 60;
-
-                            block.title = k;
-                            block.style.height = height + '%';
-
-                            if (k === all_data_sort[0][0]) {
-                                block.className += ' first';
-                            } else if (k === all_data_sort[1][0]) {
-                                block.className += ' second';
-                            } else if (k === all_data_sort[2][0]) {
-                                block.className += ' third';
-                            }
-
-                            data_column.appendChild(block);
-                        }
-                    }
-
-                    column.appendChild(data_column);
-                }
-
-                chart.appendChild(column);
-            }
-
-
-            for (let i = 0; i < 3; i++) {
-                if (all_data_sort[i]) {
-                    let cont = document.createElement('div'),
-                        label = document.createElement('div'),
-                        value = document.createElement('div');
-
-                    label.className = 'label';
-
-                    label.innerText = all_data_sort[i][0];
-                    value.innerText = Math.floor(all_data_sort[i][1] / 60) + 'h ' + (all_data_sort[i][1] - Math.floor(all_data_sort[i][1] / 60) * 60) + 'm';
-
-                    cont.appendChild(label);
-                    cont.appendChild(value);
-                    bottom_text_container.appendChild(cont);
-                }
-            }
-
-            container.appendChild(all_time);
-            container.appendChild(chart);
-            this.appendChild(top_text_container);
-            top_text_container.appendChild(watch_time);
-            top_text_container.appendChild(today_at);
-            container.appendChild(bottom_text_container);
-            this.appendChild(container);
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# EXPORT DATA
---------------------------------------------------------------*/
-
-function exportData() {
-    var data = {};
-
-    for (var key in satus.storage) {
-        if (
-            typeof satus.storage[key] !== 'function' &&
-            key !== 'blacklist' &&
-            key !== 'watched'
-        ) {
-            data[key] = satus.storage[key];
-        }
-    }
-
-    var blob = new Blob([JSON.stringify(data)], {
-        type: 'application/json;charset=utf-8'
-    });
-
-    satus.render({
-        type: 'dialog',
-
-        export: {
-            type: 'button',
-            label: 'export',
-            onclick: function () {
-                chrome.permissions.request({
-                    permissions: ['downloads']
-                }, function (granted) {
-                    if (granted) {
-                        chrome.downloads.download({
-                            url: URL.createObjectURL(blob),
-                            filename: 'improvedtube.json',
-                            saveAs: true
-                        }, function () {
-                            setTimeout(function () {
-                                if (location.href.indexOf('action=export') !== -1) {
-                                    window.close();
-                                } else {
-                                    document.querySelector('.satus-dialog__scrim').click();
+                                click: function () {
+                                    var component = this;
 
                                     satus.render({
-                                        type: 'dialog',
+                                        component: 'dialog',
+                                        class: 'satus-dialog--confirm',
 
                                         message: {
-                                            type: 'text',
-                                            label: 'dataExportedSuccessfully'
+                                            component: 'text',
+                                            text: 'thisWillRemoveAllWatchedVideos',
+                                            style: {
+                                                'width': '100%',
+                                                'opacity': '.8'
+                                            }
                                         },
                                         section: {
-                                            type: 'section',
+                                            component: 'section',
                                             class: 'controls',
+                                            style: {
+                                                'justify-content': 'flex-end',
+                                                'display': 'flex'
+                                            },
 
-                                            ok: {
-                                                type: 'button',
-                                                label: 'ok',
+                                            cancel: {
+                                                component: 'button',
+                                                text: 'cancel',
                                                 onclick: function () {
-                                                    document.querySelector('.satus-dialog__scrim').click();
+                                                    var scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                                    scrim[scrim.length - 1].click();
+                                                }
+                                            },
+                                            accept: {
+                                                component: 'button',
+                                                text: 'accept',
+                                                onclick: function () {
+                                                    var scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                                    satus.storage.watched = {};
+                                                    satus.storage.set('watched', satus.storage.watched);
+                                                    component.firstChild.innerText = component.firstChild.innerText.replace(/\d+/, 0);
+
+                                                    scrim[scrim.length - 1].click();
                                                 }
                                             }
                                         }
                                     });
                                 }
-                            }, 100);
-                        });
-                    }
-                });
-            }
-        }
-    });
-}
-
-
-/*--------------------------------------------------------------
-# IMPORT DATA
---------------------------------------------------------------*/
-
-function importData() {
-    satus.render({
-        type: 'dialog',
-
-        select_file: {
-            type: 'button',
-            label: 'selectFile',
-            onclick: function () {
-                var input = document.createElement('input');
-
-                input.type = 'file';
-
-                input.addEventListener('change', function () {
-                    var file_reader = new FileReader();
-
-                    file_reader.onload = function () {
-                        var data = JSON.parse(this.result);
-
-                        for (var key in data) {
-                            satus.storage.set(key, data[key]);
+                            }
+                        },
+                        only_one_player_instance_playing: {
+                            component: 'switch',
+                            text: 'onlyOnePlayerInstancePlaying'
+                        },
+                        confirmation_before_closing: {
+                            component: 'switch',
+                            text: 'confirmationBeforeClosing',
+                            tags: 'random prevent close exit'
+                        },
+                        add_scroll_to_top: {
+                            component: 'switch',
+                            text: 'addScrollToTop',
+                            tags: 'up'
+                        },
+                        limit_page_width: {
+                            component: 'switch',
+                            text: 'limitPageWidth',
+                            value: true
+                        },
+                        squared_user_images: {
+                            component: 'switch',
+                            text: 'squaredUserImages',
+                            tags: 'avatar'
+                        },
+                        hd_thumbnails: {
+                            component: 'switch',
+                            text: 'hdThumbnails',
+                            tags: 'preview quality'
+                        },
+                        hide_animated_thumbnails: {
+                            component: 'switch',
+                            text: 'hideAnimatedThumbnails',
+                            tags: 'preview'
+                        },
+                        hide_thumbnail_overlay: {
+                            component: 'switch',
+                            text: 'hideThumbnailOverlay',
+                            tags: 'preview'
                         }
+                    }
+                },
 
-                        if (location.href.indexOf('action=import') !== -1) {
-                            window.close();
-                        } else {
-                            document.querySelector('.satus-dialog__scrim').click();
+                icon: {
+                    component: 'span',
 
-                            satus.render({
-                                type: 'dialog',
+                    svg: {
+                        component: 'svg',
+                        attr: {
+                            viewBox: '0 0 24 24',
+                            fill: 'transparent',
+                            stroke: 'currentColor',
+                            'stroke-linecap': 'round',
+                            'stroke-width': 1.75
+                        },
 
-                                message: {
-                                    type: 'text',
-                                    label: 'dataImportedSuccessfully'
-                                },
-                                section: {
-                                    type: 'section',
-                                    class: 'controls',
+                        path: {
+                            component: 'path',
+                            attr: {
+                                d: 'M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7'
+                            }
+                        }
+                    }
+                },
+                label: {
+                    component: 'span',
+                    text: 'general'
+                }
+            },
+            appearance: {
+                component: 'button',
+                class: 'satus-button--appearance',
+                on: {
+                    click: {
+                        component: 'section',
+                        class: 'satus-section--appearance',
 
-                                    ok: {
-                                        type: 'button',
-                                        label: 'ok',
-                                        onclick: function () {
-                                            document.querySelector('.satus-dialog__scrim').click();
+                        header: {
+                            component: 'button',
+                            text: 'header',
+                            class: 'satus-button--header',
+                            on: {
+                                click: {
+                                    component: 'section',
+                                    class: 'satus-section--card',
+
+                                    header_position: {
+                                        component: 'select',
+                                        text: 'position',
+                                        options: [{
+                                            text: 'normal',
+                                            value: 'normal'
+                                        }, {
+                                            text: 'hidden',
+                                            value: 'hidden'
+                                        }, {
+                                            text: 'hover',
+                                            value: 'hover'
+                                        }, {
+                                            text: 'hiddenOnVideoPage',
+                                            value: 'hidden_on_video_page'
+                                        }, {
+                                            text: 'hoverOnVideoPage',
+                                            value: 'hover_on_video_page'
+                                        }, {
+                                            text: 'static',
+                                            value: 'static'
+                                        }],
+                                        tags: 'hide,hover,static,top'
+                                    },
+                                    header_improve_logo: {
+                                        component: 'switch',
+                                        text: 'improveLogo',
+                                        tags: 'youtube'
+                                    },
+                                    header_hide_right_buttons: {
+                                        component: 'switch',
+                                        text: 'hideRightButtons',
+                                        tags: 'user'
+                                    },
+                                    header_hide_country_code: {
+                                        component: 'switch',
+                                        text: 'hideCountryCode',
+                                        tags: 'country,code'
+                                    },
+                                    hide_voice_search_button: {
+                                        component: 'switch',
+                                        text: 'hideVoiceSearchButton'
+                                    }
+                                }
+                            }
+                        },
+                        player: {
+                            component: 'button',
+                            text: 'player',
+                            class: 'satus-button--player',
+                            on: {
+                                click: {
+                                    component: 'section',
+                                    class: 'satus-section--card',
+
+                                    player_size: {
+                                        component: 'select',
+                                        text: 'playerSize',
+                                        options: [{
+                                            text: 'doNotChange',
+                                            value: 'do_not_change'
+                                        }, {
+                                            text: 'fullWindow',
+                                            value: 'full_window'
+                                        }, {
+                                            text: 'fitToWindow',
+                                            value: 'fit_to_window'
+                                        }, {
+                                            text: '240p',
+                                            value: '240p'
+                                        }, {
+                                            text: '360p',
+                                            value: '360p'
+                                        }, {
+                                            text: '480p',
+                                            value: '480p'
+                                        }, {
+                                            text: '576p',
+                                            value: '576p'
+                                        }, {
+                                            text: '720p',
+                                            value: '720p'
+                                        }, {
+                                            text: '1080p',
+                                            value: '1080p'
+                                        }, {
+                                            text: '1440p',
+                                            value: '1440p'
+                                        }, {
+                                            text: '2160p',
+                                            value: '2160p'
+                                        }]
+                                    },
+                                    forced_theater_mode: {
+                                        component: 'switch',
+                                        text: 'forcedTheaterMode',
+                                        tags: 'wide'
+                                    },
+                                    hide_gradient_bottom: {
+                                        component: 'switch',
+                                        text: 'hideGradientBottom'
+                                    },
+                                    player_hide_skip_overlay: {
+                                        component: 'switch',
+                                        text: 'hideSkipOverlay',
+                                        value: false,
+                                        tags: 'remove,hide'
+                                    },
+                                    player_remaining_duration: {
+                                        component: 'switch',
+                                        text: 'showRemainingDuration',
+                                        value: false
+                                    },
+                                    always_show_progress_bar: {
+                                        component: 'switch',
+                                        text: 'alwaysShowProgressBar'
+                                    },
+                                    player_color: {
+                                        component: 'select',
+                                        text: 'playerColor',
+                                        options: [{
+                                            text: 'red',
+                                            value: 'red'
+                                        }, {
+                                            text: 'pink',
+                                            value: 'pink'
+                                        }, {
+                                            text: 'purple',
+                                            value: 'purple'
+                                        }, {
+                                            text: 'deepPurple',
+                                            value: 'deep_purple'
+                                        }, {
+                                            text: 'indigo',
+                                            value: 'indigo'
+                                        }, {
+                                            text: 'blue',
+                                            value: 'blue'
+                                        }, {
+                                            text: 'lightBlue',
+                                            value: 'light_blue'
+                                        }, {
+                                            text: 'cyan',
+                                            value: 'cyan'
+                                        }, {
+                                            text: 'teal',
+                                            value: 'teal'
+                                        }, {
+                                            text: 'green',
+                                            value: 'green'
+                                        }, {
+                                            text: 'lightGreen',
+                                            value: 'light_green'
+                                        }, {
+                                            text: 'lime',
+                                            value: 'lime'
+                                        }, {
+                                            text: 'yellow',
+                                            value: 'yellow'
+                                        }, {
+                                            text: 'amber',
+                                            value: 'amber'
+                                        }, {
+                                            text: 'orange',
+                                            value: 'orange'
+                                        }, {
+                                            text: 'deepOrange',
+                                            value: 'deep_orange'
+                                        }, {
+                                            text: 'brown',
+                                            value: 'brown'
+                                        }, {
+                                            text: 'blueGray',
+                                            value: 'blue_gray'
+                                        }, {
+                                            text: 'white',
+                                            value: 'white'
+                                        }],
+                                        tags: 'style'
+                                    },
+                                    player_transparent_background: {
+                                        component: 'switch',
+                                        text: 'transparentBackground'
+                                    },
+                                    player_hide_annotations: {
+                                        component: 'switch',
+                                        text: 'hideAnnotations',
+                                        tags: 'hide,remove,elements'
+                                    },
+                                    player_hide_cards: {
+                                        component: 'switch',
+                                        text: 'hideCards',
+                                        tags: 'hide,remove,elements'
+                                    },
+                                    player_show_cards_on_mouse_hover: {
+                                        component: 'switch',
+                                        text: 'showCardsOnMouseHover',
+                                        tags: 'hide,remove,elements'
+                                    },
+                                    player_hide_endscreen: {
+                                        component: 'switch',
+                                        text: 'hideEndscreen'
+                                    },
+                                    player_hd_thumbnail: {
+                                        component: 'switch',
+                                        text: 'hdThumbnail',
+                                        tags: 'preview'
+                                    },
+                                    hide_scroll_for_details: {
+                                        component: 'switch',
+                                        text: 'hideScrollForDetails',
+                                        tags: 'remove,hide'
+                                    }
+                                }
+                            }
+                        },
+                        details: {
+                            component: 'button',
+                            text: 'details',
+                            class: 'satus-button--details',
+                            on: {
+                                click: {
+                                    component: 'section',
+                                    class: 'satus-section--card',
+
+                                    hide_details: {
+                                        component: 'switch',
+                                        text: 'hideDetails',
+                                        tags: 'hide,remove'
+                                    },
+                                    hide_views_count: {
+                                        component: 'switch',
+                                        text: 'hideViewsCount',
+                                        tags: 'hide,remove'
+                                    },
+                                    hide_date: {
+                                        component: 'switch',
+                                        text: 'hideDate',
+                                        tags: 'hide,remove'
+                                    },
+                                    likes: {
+                                        component: 'select',
+                                        text: 'likes',
+
+                                        options: [{
+                                            text: 'normal',
+                                            value: 'normal'
+                                        }, {
+                                            text: 'iconsOnly',
+                                            value: 'icons_only'
+                                        }, {
+                                            text: 'hidden',
+                                            value: 'hidden'
+                                        }],
+                                        tags: 'hide,remove'
+                                    },
+                                    hide_share_button: {
+                                        component: 'switch',
+                                        text: 'hideShareButton',
+                                        tags: 'hide,remove'
+                                    },
+                                    hide_save_button: {
+                                        component: 'switch',
+                                        text: 'hideSaveButton',
+                                        tags: 'hide,remove'
+                                    },
+                                    hide_more_button: {
+                                        component: 'switch',
+                                        text: 'hideMoreButton',
+                                        tags: 'hide,remove'
+                                    },
+                                    description: {
+                                        component: 'select',
+                                        text: 'description',
+
+                                        options: [{
+                                            text: 'normal',
+                                            value: 'normal'
+                                        }, {
+                                            text: 'expanded',
+                                            value: 'expanded'
+                                        }, {
+                                            text: 'hidden',
+                                            value: 'hidden'
+                                        }],
+                                        tags: 'hide,remove'
+                                    },
+                                    how_long_ago_the_video_was_uploaded: {
+                                        component: 'switch',
+                                        text: 'howLongAgoTheVideoWasUploaded'
+                                    },
+                                    channel_videos_count: {
+                                        component: 'switch',
+                                        text: 'showChannelVideosCount'
+                                    },
+                                    red_dislike_button: {
+                                        component: 'switch',
+                                        text: 'redDislikeButton'
+                                    }
+                                }
+                            }
+                        },
+                        sidebar: {
+                            component: 'button',
+                            text: 'sidebar',
+                            class: 'satus-button--sidebar',
+                            on: {
+                                click: {
+                                    component: 'section',
+                                    class: 'satus-section--card',
+
+                                    related_videos: {
+                                        component: 'select',
+                                        text: 'relatedVideos',
+                                        options: [{
+                                            text: 'normal',
+                                            value: 'normal'
+                                        }, {
+                                            text: 'collapsed',
+                                            value: 'collapsed'
+                                        }, {
+                                            text: 'hidden',
+                                            value: 'hidden'
+                                        }],
+                                        tags: 'right'
+                                    },
+                                    livechat: {
+                                        component: 'select',
+                                        text: 'liveChat',
+
+                                        options: [{
+                                            text: 'normal',
+                                            value: 'normal'
+                                        }, {
+                                            text: 'collapsed',
+                                            value: 'collapsed'
+                                        }, {
+                                            text: 'hidden',
+                                            value: 'hidden'
+                                        }]
+                                    },
+                                    hide_playlist: {
+                                        component: 'switch',
+                                        text: 'hidePlaylist'
+                                    },
+                                    sidebar_left: {
+                                        component: 'switch',
+                                        text: 'Sidebar to the Left'
+                                    },
+                                    thumbnails_right: {
+                                        component: 'switch',
+                                        text: 'Thumbnails to the Right'
+                                    },
+                                    thumbnails_hide: {
+                                        component: 'switch',
+                                        text: 'Hide Thumbnails'
+                                    }
+                                }
+                            }
+                        },
+                        comments: {
+                            component: 'button',
+                            text: 'comments',
+                            class: 'satus-button--comments',
+                            on: {
+                                click: {
+                                    component: 'section',
+                                    class: 'satus-section--card',
+
+                                    comments: {
+                                        component: 'select',
+                                        text: 'comments',
+
+                                        options: [{
+                                            text: 'normal',
+                                            value: 'normal'
+                                        }, {
+                                            text: 'collapsed',
+                                            value: 'collapsed'
+                                        }, {
+                                            text: 'hidden',
+                                            value: 'hidden'
+                                        }]
+                                    }
+                                }
+                            }
+                        },
+                        footer: {
+                            component: 'button',
+                            text: 'footer',
+                            class: 'satus-button--footer',
+                            on: {
+                                click: {
+                                    component: 'section',
+                                    class: 'satus-section--card',
+
+                                    hide_footer: {
+                                        component: 'switch',
+                                        text: 'hideFooter',
+                                        tags: 'bottom'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+
+                icon: {
+                    component: 'span',
+
+                    svg: {
+                        component: 'svg',
+                        attr: {
+                            viewBox: '0 0 24 24',
+                            fill: 'transparent',
+                            stroke: 'currentColor',
+                            'stroke-linecap': 'round',
+                            'stroke-width': 1.75
+                        },
+
+                        path: {
+                            component: 'path',
+                            attr: {
+                                d: 'M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z'
+                            }
+                        }
+                    }
+                },
+                label: {
+                    component: 'span',
+                    text: 'appearance'
+                }
+            },
+            themes: {
+                component: 'button',
+                class: 'satus-button--themes',
+                on: {
+                    click: {
+                        section: {
+                            component: 'section',
+                            class: 'satus-section--card',
+
+                            my_colors: {
+                                component: 'button',
+                                text: 'myColors',
+                                on: {
+                                    click: {
+                                        section: {
+                                            component: 'section',
+                                            class: 'satus-section--card',
+
+                                            theme_my_colors: {
+                                                component: 'switch',
+                                                text: 'activate'
+                                            }
+                                        },
+
+                                        section2: {
+                                            component: 'section',
+                                            class: 'satus-section--card',
+
+                                            theme_primary_color: {
+                                                component: 'color-picker',
+                                                text: 'primaryColor',
+                                                value: 'rgba(200,200,200)'
+                                            },
+                                            theme_text_color: {
+                                                component: 'color-picker',
+                                                text: 'textColor',
+                                                value: 'rgba(25,25,25)'
+                                            }
                                         }
                                     }
                                 }
-                            });
+                            },
+                            filters: {
+                                component: 'button',
+                                text: 'filters',
+                                on: {
+                                    click: {
+                                        component: 'section',
+                                        class: 'satus-section--card',
+
+                                        bluelight: {
+                                            component: 'slider',
+                                            text: 'bluelight',
+                                            step: 1,
+                                            max: 90,
+                                            value: 0
+                                        },
+                                        dim: {
+                                            component: 'slider',
+                                            text: 'dim',
+                                            step: 1,
+                                            max: 90,
+                                            value: 0
+                                        }
+                                    }
+                                }
+                            },
+                            schedule: {
+                                component: 'button',
+                                text: 'schedule',
+                                on: {
+                                    click: {
+                                        component: 'section',
+                                        class: 'satus-section--card',
+
+                                        schedule: {
+                                            component: 'select',
+                                            text: 'schedule',
+
+                                            options: [{
+                                                text: 'disabled',
+                                                value: 'disabled'
+                                            }, {
+                                                text: 'sunsetToSunrise',
+                                                value: 'sunset_to_sunrise'
+                                            }, {
+                                                text: 'systemPeferenceDark',
+                                                value: 'system_peference_dark'
+                                            }, {
+                                                text: 'systemPeferenceLight',
+                                                value: 'system_peference_light'
+                                            }]
+                                        },
+                                        schedule_time_from: {
+                                            component: 'select',
+                                            text: 'timeFrom',
+                                            options: [{
+                                                text: '00:00',
+                                                value: '00:00'
+                                            }, {
+                                                text: '01:00',
+                                                value: '01:00'
+                                            }, {
+                                                text: '02:00',
+                                                value: '02:00'
+                                            }, {
+                                                text: '03:00',
+                                                value: '03:00'
+                                            }, {
+                                                text: '04:00',
+                                                value: '04:00'
+                                            }, {
+                                                text: '05:00',
+                                                value: '05:00'
+                                            }, {
+                                                text: '06:00',
+                                                value: '06:00'
+                                            }, {
+                                                text: '07:00',
+                                                value: '07:00'
+                                            }, {
+                                                text: '08:00',
+                                                value: '08:00'
+                                            }, {
+                                                text: '09:00',
+                                                value: '09:00'
+                                            }, {
+                                                text: '10:00',
+                                                value: '10:00'
+                                            }, {
+                                                text: '11:00',
+                                                value: '11:00'
+                                            }, {
+                                                text: '12:00',
+                                                value: '12:00'
+                                            }, {
+                                                text: '13:00',
+                                                value: '13:00'
+                                            }, {
+                                                text: '14:00',
+                                                value: '14:00'
+                                            }, {
+                                                text: '15:00',
+                                                value: '15:00'
+                                            }, {
+                                                text: '16:00',
+                                                value: '16:00'
+                                            }, {
+                                                text: '17:00',
+                                                value: '17:00'
+                                            }, {
+                                                text: '18:00',
+                                                value: '18:00'
+                                            }, {
+                                                text: '19:00',
+                                                value: '19:00'
+                                            }, {
+                                                text: '20:00',
+                                                value: '20:00'
+                                            }, {
+                                                text: '21:00',
+                                                value: '21:00'
+                                            }, {
+                                                text: '22:00',
+                                                value: '22:00'
+                                            }, {
+                                                text: '23:00',
+                                                value: '23:00'
+                                            }]
+                                        },
+                                        schedule_time_to: {
+                                            component: 'select',
+                                            text: 'timeTo',
+                                            options: [{
+                                                text: '00:00',
+                                                value: '00:00'
+                                            }, {
+                                                text: '01:00',
+                                                value: '01:00'
+                                            }, {
+                                                text: '02:00',
+                                                value: '02:00'
+                                            }, {
+                                                text: '03:00',
+                                                value: '03:00'
+                                            }, {
+                                                text: '04:00',
+                                                value: '04:00'
+                                            }, {
+                                                text: '05:00',
+                                                value: '05:00'
+                                            }, {
+                                                text: '06:00',
+                                                value: '06:00'
+                                            }, {
+                                                text: '07:00',
+                                                value: '07:00'
+                                            }, {
+                                                text: '08:00',
+                                                value: '08:00'
+                                            }, {
+                                                text: '09:00',
+                                                value: '09:00'
+                                            }, {
+                                                text: '10:00',
+                                                value: '10:00'
+                                            }, {
+                                                text: '11:00',
+                                                value: '11:00'
+                                            }, {
+                                                text: '12:00',
+                                                value: '12:00'
+                                            }, {
+                                                text: '13:00',
+                                                value: '13:00'
+                                            }, {
+                                                text: '14:00',
+                                                value: '14:00'
+                                            }, {
+                                                text: '15:00',
+                                                value: '15:00'
+                                            }, {
+                                                text: '16:00',
+                                                value: '16:00'
+                                            }, {
+                                                text: '17:00',
+                                                value: '17:00'
+                                            }, {
+                                                text: '18:00',
+                                                value: '18:00'
+                                            }, {
+                                                text: '19:00',
+                                                value: '19:00'
+                                            }, {
+                                                text: '20:00',
+                                                value: '20:00'
+                                            }, {
+                                                text: '21:00',
+                                                value: '21:00'
+                                            }, {
+                                                text: '22:00',
+                                                value: '22:00'
+                                            }, {
+                                                text: '23:00',
+                                                value: '23:00'
+                                            }]
+                                        }
+                                    }
+                                }
+                            },
+                            font: {
+                                component: 'select',
+                                text: 'font',
+                                options: [{
+                                    text: 'Youtube standard (Roboto)',
+                                    value: 'Default'
+                                }, {
+                                    text: 'Open Sans',
+                                    value: 'Open+Sans'
+                                }, {
+                                    text: 'Lato',
+                                    value: 'Lato'
+                                }, {
+                                    text: 'Montserrat',
+                                    value: 'Montserrat'
+                                }, {
+                                    text: 'Source Sans Pro',
+                                    value: 'Source+Sans+Pro'
+                                }, {
+                                    text: 'Roboto Condensed',
+                                    value: 'Roboto+Condensed'
+                                }, {
+                                    text: 'Oswald',
+                                    value: 'Oswald'
+                                }, {
+                                    text: 'Comfortaa',
+                                    value: 'Comfortaa'
+                                }, {
+                                    text: 'Roboto Mono',
+                                    value: 'Roboto+Mono'
+                                }, {
+                                    text: 'Raleway',
+                                    value: 'Raleway'
+                                }, {
+                                    text: 'Poppins',
+                                    value: 'Poppins'
+                                }, {
+                                    text: 'Noto Sans',
+                                    value: 'Noto+Sans'
+                                }, {
+                                    text: 'Roboto Slab',
+                                    value: 'Roboto+Slab'
+                                }, {
+                                    text: 'Marriweather',
+                                    value: 'Marriweather'
+                                }, {
+                                    text: 'PT Sans',
+                                    value: 'PT+Sans'
+                                }]
+                            }
+                        },
+                        section_2: {
+                            component: 'section',
+                            class: 'satus-section--card satus-section--themes',
+
+                            default_dark_theme: {
+                                component: 'switch',
+                                text: 'dark',
+                                class: 'satus-switch--dark'
+                            },
+                            night_theme: {
+                                component: 'switch',
+                                text: 'night',
+                                class: 'satus-switch--night'
+                            },
+                            dawn_theme: {
+                                component: 'switch',
+                                text: 'dawn',
+                                class: 'satus-switch--dawn'
+                            },
+                            sunset_theme: {
+                                component: 'switch',
+                                text: 'sunset',
+                                class: 'satus-switch--sunset'
+                            },
+                            desert_theme: {
+                                component: 'switch',
+                                text: 'desert',
+                                class: 'satus-switch--desert'
+                            },
+                            plain_theme: {
+                                component: 'switch',
+                                text: 'plain',
+                                class: 'satus-switch--plain'
+                            },
+                            black_theme: {
+                                component: 'switch',
+                                text: 'black',
+                                class: 'satus-switch--black'
+                            }
                         }
-                    };
+                    }
+                },
 
-                    file_reader.readAsText(this.files[0]);
-                });
+                icon: {
+                    component: 'span',
 
-                input.click();
+                    svg: {
+                        component: 'svg',
+                        attr: {
+                            viewBox: '0 0 24 24',
+                            fill: 'transparent',
+                            stroke: 'currentColor',
+                            'stroke-linecap': 'round',
+                            'stroke-width': 1.75
+                        },
+
+                        path: {
+                            component: 'path',
+                            attr: {
+                                d: 'M12 2.69l5.66 5.66a8 8 0 11-11.31 0z'
+                            }
+                        }
+                    }
+                },
+                label: {
+                    component: 'span',
+                    text: 'themes'
+                }
+            },
+            player: {
+                component: 'button',
+                class: 'satus-button--player',
+                on: {
+                    click: {
+                        component: 'section',
+                        class: 'satus-section--card',
+
+                        player_autoplay: {
+                            component: 'switch',
+                            text: 'autoplay',
+                            value: true
+                        },
+                        forced_play_video_from_the_beginning: {
+                            component: 'switch',
+                            text: 'forcedPlayVideoFromTheBeginning'
+                        },
+                        player_autofullscreen: {
+                            component: 'switch',
+                            text: 'autoFullscreen'
+                        },
+                        player_ads: {
+                            text: 'ads',
+                            component: 'select',
+                            options: [{
+                                text: 'onAllVideos',
+                                value: 'all_videos',
+                                default: 'true'
+                            }, {
+                                text: 'onSubscribedChannels',
+                                value: 'subscribed_channels'
+                            }, {
+                                text: 'blockMusic',
+                                value: 'block_music'
+                            }, {
+                                text: 'blockAll',
+                                value: 'block_all'
+                            }]
+                        },
+                        player_autopause_when_switching_tabs: {
+                            component: 'switch',
+                            text: 'autopauseWhenSwitchingTabs'
+                        },
+                        player_forced_playback_speed: {
+                            component: 'switch',
+                            text: 'forcedPlaybackSpeed',
+                            id: 'forced-playback-speed',
+                            onrender: function () {
+                                this.dataset.value = satus.storage.player_forced_playback_speed;
+                            },
+                            onchange: function () {
+                                this.dataset.value = satus.storage.player_forced_playback_speed;
+                            }
+                        },
+                        player_playback_speed: {
+                            component: 'slider',
+                            text: 'playbackSpeed',
+                            textarea: true,
+                            value: 1,
+                            min: .1,
+                            max: 8,
+                            step: .05
+                        },
+                        subtitles: {
+                            component: 'button',
+                            text: 'subtitles',
+                            on: {
+                                click: {
+                                    component: 'section',
+                                    class: 'satus-section--card',
+
+                                    player_subtitles: {
+                                        component: 'switch',
+                                        text: 'subtitles'
+                                    },
+                                    subtitles_language: {
+                                        component: 'select',
+                                        text: 'language',
+                                        options: [{
+                                                value: 'default',
+                                                text: 'default'
+                                            },
+                                            {
+                                                value: 'af',
+                                                text: 'Afrikaans'
+                                            },
+                                            {
+                                                value: 'am',
+                                                text: 'Amharic'
+                                            },
+                                            {
+                                                value: 'ar',
+                                                text: 'Arabic'
+                                            },
+                                            {
+                                                value: 'az',
+                                                text: 'Azerbaijani'
+                                            },
+                                            {
+                                                value: 'be',
+                                                text: 'Belarusian'
+                                            },
+                                            {
+                                                value: 'bg',
+                                                text: 'Bulgarian'
+                                            },
+                                            {
+                                                value: 'bn',
+                                                text: 'Bangla'
+                                            },
+                                            {
+                                                value: 'bs',
+                                                text: 'Bosnian'
+                                            },
+                                            {
+                                                value: 'ca',
+                                                text: 'Catalan'
+                                            },
+                                            {
+                                                value: 'ceb',
+                                                text: 'Cebuano'
+                                            },
+                                            {
+                                                value: 'co',
+                                                text: 'Corsican'
+                                            },
+                                            {
+                                                value: 'cs',
+                                                text: 'Czech'
+                                            },
+                                            {
+                                                value: 'cy',
+                                                text: 'Welsh'
+                                            },
+                                            {
+                                                value: 'da',
+                                                text: 'Danish'
+                                            },
+                                            {
+                                                value: 'de',
+                                                text: 'German'
+                                            },
+                                            {
+                                                value: 'el',
+                                                text: 'Greek'
+                                            },
+                                            {
+                                                value: 'en',
+                                                text: 'English'
+                                            },
+                                            {
+                                                value: 'eo',
+                                                text: 'Esperanto'
+                                            },
+                                            {
+                                                value: 'es',
+                                                text: 'Spanish'
+                                            },
+                                            {
+                                                value: 'et',
+                                                text: 'Estonian'
+                                            },
+                                            {
+                                                value: 'eu',
+                                                text: 'Basque'
+                                            },
+                                            {
+                                                value: 'fa',
+                                                text: 'Persian'
+                                            },
+                                            {
+                                                value: 'fi',
+                                                text: 'Finnish'
+                                            },
+                                            {
+                                                value: 'fil',
+                                                text: 'Filipino'
+                                            },
+                                            {
+                                                value: 'fr',
+                                                text: 'French'
+                                            },
+                                            {
+                                                value: 'fy',
+                                                text: 'Western Frisian'
+                                            },
+                                            {
+                                                value: 'ga',
+                                                text: 'Irish'
+                                            },
+                                            {
+                                                value: 'gd',
+                                                text: 'Scottish Gaelic'
+                                            },
+                                            {
+                                                value: 'gl',
+                                                text: 'Galician'
+                                            },
+                                            {
+                                                value: 'gu',
+                                                text: 'Gujarati'
+                                            },
+                                            {
+                                                value: 'ha',
+                                                text: 'Hausa'
+                                            },
+                                            {
+                                                value: 'haw',
+                                                text: 'Hawaiian'
+                                            },
+                                            {
+                                                value: 'hi',
+                                                text: 'Hindi'
+                                            },
+                                            {
+                                                value: 'hmn',
+                                                text: 'Hmong'
+                                            },
+                                            {
+                                                value: 'hr',
+                                                text: 'Croatian'
+                                            },
+                                            {
+                                                value: 'ht',
+                                                text: 'Haitian Creole'
+                                            },
+                                            {
+                                                value: 'hu',
+                                                text: 'Hungarian'
+                                            },
+                                            {
+                                                value: 'hy',
+                                                text: 'Armenian'
+                                            },
+                                            {
+                                                value: 'id',
+                                                text: 'Indonesian'
+                                            },
+                                            {
+                                                value: 'ig',
+                                                text: 'Igbo'
+                                            },
+                                            {
+                                                value: 'is',
+                                                text: 'Icelandic'
+                                            },
+                                            {
+                                                value: 'it',
+                                                text: 'Italian'
+                                            },
+                                            {
+                                                value: 'iw',
+                                                text: 'Hebrew'
+                                            },
+                                            {
+                                                value: 'ja',
+                                                text: 'Japanese'
+                                            },
+                                            {
+                                                value: 'jv',
+                                                text: 'Javanese'
+                                            },
+                                            {
+                                                value: 'ka',
+                                                text: 'Georgian'
+                                            },
+                                            {
+                                                value: 'kk',
+                                                text: 'Kazakh'
+                                            },
+                                            {
+                                                value: 'km',
+                                                text: 'Khmer'
+                                            },
+                                            {
+                                                value: 'kn',
+                                                text: 'Kannada'
+                                            },
+                                            {
+                                                value: 'ko',
+                                                text: 'Korean'
+                                            },
+                                            {
+                                                value: 'ku',
+                                                text: 'Kurdish'
+                                            },
+                                            {
+                                                value: 'ky',
+                                                text: 'Kyrgyz'
+                                            },
+                                            {
+                                                value: 'la',
+                                                text: 'Latin'
+                                            },
+                                            {
+                                                value: 'lb',
+                                                text: 'Luxembourgish'
+                                            },
+                                            {
+                                                value: 'lo',
+                                                text: 'Lao'
+                                            },
+                                            {
+                                                value: 'lt',
+                                                text: 'Lithuanian'
+                                            },
+                                            {
+                                                value: 'lv',
+                                                text: 'Latvian'
+                                            },
+                                            {
+                                                value: 'mg',
+                                                text: 'Malagasy'
+                                            },
+                                            {
+                                                value: 'mi',
+                                                text: 'Maori'
+                                            },
+                                            {
+                                                value: 'mk',
+                                                text: 'Macedonian'
+                                            },
+                                            {
+                                                value: 'ml',
+                                                text: 'Malayalam'
+                                            },
+                                            {
+                                                value: 'mn',
+                                                text: 'Mongolian'
+                                            },
+                                            {
+                                                value: 'mr',
+                                                text: 'Marathi'
+                                            },
+                                            {
+                                                value: 'ms',
+                                                text: 'Malay'
+                                            },
+                                            {
+                                                value: 'mt',
+                                                text: 'Maltese'
+                                            },
+                                            {
+                                                value: 'my',
+                                                text: 'Burmese'
+                                            },
+                                            {
+                                                value: 'ne',
+                                                text: 'Nepali'
+                                            },
+                                            {
+                                                value: 'nl',
+                                                text: 'Dutch'
+                                            },
+                                            {
+                                                value: 'no',
+                                                text: 'Norwegian'
+                                            },
+                                            {
+                                                value: 'ny',
+                                                text: 'Nyanja'
+                                            },
+                                            {
+                                                value: 'or',
+                                                text: 'Odia'
+                                            },
+                                            {
+                                                value: 'pa',
+                                                text: 'Punjabi'
+                                            },
+                                            {
+                                                value: 'pl',
+                                                text: 'Polish'
+                                            },
+                                            {
+                                                value: 'ps',
+                                                text: 'Pashto'
+                                            },
+                                            {
+                                                value: 'pt',
+                                                text: 'Portuguese'
+                                            },
+                                            {
+                                                value: 'ro',
+                                                text: 'Romanian'
+                                            },
+                                            {
+                                                value: 'ru',
+                                                text: 'Russian'
+                                            },
+                                            {
+                                                value: 'rw',
+                                                text: 'Kinyarwanda'
+                                            },
+                                            {
+                                                value: 'sd',
+                                                text: 'Sindhi'
+                                            },
+                                            {
+                                                value: 'si',
+                                                text: 'Sinhala'
+                                            },
+                                            {
+                                                value: 'sk',
+                                                text: 'Slovak'
+                                            },
+                                            {
+                                                value: 'sl',
+                                                text: 'Slovenian'
+                                            },
+                                            {
+                                                value: 'sm',
+                                                text: 'Samoan'
+                                            },
+                                            {
+                                                value: 'sn',
+                                                text: 'Shona'
+                                            },
+                                            {
+                                                value: 'so',
+                                                text: 'Somali'
+                                            },
+                                            {
+                                                value: 'sq',
+                                                text: 'Albanian'
+                                            },
+                                            {
+                                                value: 'sr',
+                                                text: 'Serbian'
+                                            },
+                                            {
+                                                value: 'st',
+                                                text: 'Southern Sotho'
+                                            },
+                                            {
+                                                value: 'su',
+                                                text: 'Sundanese'
+                                            },
+                                            {
+                                                value: 'sv',
+                                                text: 'Swedish'
+                                            },
+                                            {
+                                                value: 'sw',
+                                                text: 'Swahili'
+                                            },
+                                            {
+                                                value: 'ta',
+                                                text: 'Tamil'
+                                            },
+                                            {
+                                                value: 'te',
+                                                text: 'Telugu'
+                                            },
+                                            {
+                                                value: 'tg',
+                                                text: 'Tajik'
+                                            },
+                                            {
+                                                value: 'th',
+                                                text: 'Thai'
+                                            },
+                                            {
+                                                value: 'tk',
+                                                text: 'Turkmen'
+                                            },
+                                            {
+                                                value: 'tr',
+                                                text: 'Turkish'
+                                            },
+                                            {
+                                                value: 'tt',
+                                                text: 'Tatar'
+                                            },
+                                            {
+                                                value: 'ug',
+                                                text: 'Uyghur'
+                                            },
+                                            {
+                                                value: 'uk',
+                                                text: 'Ukrainian'
+                                            },
+                                            {
+                                                value: 'ur',
+                                                text: 'Urdu'
+                                            },
+                                            {
+                                                value: 'uz',
+                                                text: 'Uzbek'
+                                            },
+                                            {
+                                                value: 'vi',
+                                                text: 'Vietnamese'
+                                            },
+                                            {
+                                                value: 'xh',
+                                                text: 'Xhosa'
+                                            },
+                                            {
+                                                value: 'yi',
+                                                text: 'Yiddish'
+                                            },
+                                            {
+                                                value: 'yo',
+                                                text: 'Yoruba'
+                                            },
+                                            {
+                                                value: 'zh-Hans',
+                                                text: 'Chinese (Simplified)'
+                                            },
+                                            {
+                                                value: 'zh-Hant',
+                                                text: 'Chinese (Traditional)'
+                                            },
+                                            {
+                                                value: 'zu',
+                                                text: 'Zulu'
+                                            }
+                                        ]
+                                    },
+                                    subtitles_font_family: {
+                                        component: 'select',
+                                        text: 'fontFamily',
+                                        options: [{
+                                            text: 'Monospaced Serif',
+                                            value: 1
+                                        }, {
+                                            text: 'Proportional Serif',
+                                            value: 2
+                                        }, {
+                                            text: 'Monospaced Sans-Serif',
+                                            value: 3
+                                        }, {
+                                            text: 'Proportional Sans-Serif',
+                                            value: 4
+                                        }, {
+                                            text: 'Casual',
+                                            value: 5
+                                        }, {
+                                            text: 'Cursive',
+                                            value: 6
+                                        }, {
+                                            text: 'Small Capitals',
+                                            value: 7
+                                        }]
+                                    },
+                                    subtitles_font_color: {
+                                        component: 'select',
+                                        text: 'fontColor',
+                                        options: [{
+                                            text: 'white',
+                                            value: '#fff'
+                                        }, {
+                                            text: 'yellow',
+                                            value: '#ff0'
+                                        }, {
+                                            text: 'green',
+                                            value: '#0f0'
+                                        }, {
+                                            text: 'cyan',
+                                            value: '#0ff'
+                                        }, {
+                                            text: 'blue',
+                                            value: '#00f'
+                                        }, {
+                                            text: 'magenta',
+                                            value: '#f0f'
+                                        }, {
+                                            text: 'red',
+                                            value: '#f00'
+                                        }, {
+                                            text: 'black',
+                                            value: '#000'
+                                        }]
+                                    },
+                                    subtitles_font_size: {
+                                        component: 'select',
+                                        text: 'fontSize',
+                                        options: [{
+                                            text: '50%',
+                                            value: -2
+                                        }, {
+                                            text: '75%',
+                                            value: -1
+                                        }, {
+                                            text: '100%',
+                                            value: 1
+                                        }, {
+                                            text: '150%',
+                                            value: 1
+                                        }, {
+                                            text: '200%',
+                                            value: 2
+                                        }, {
+                                            text: '300%',
+                                            value: 3
+                                        }, {
+                                            text: '400%',
+                                            value: 4
+                                        }]
+                                    },
+                                    subtitles_background_color: {
+                                        component: 'select',
+                                        text: 'backgroundColor',
+                                        options: [{
+                                            text: 'white',
+                                            value: '#fff'
+                                        }, {
+                                            text: 'yellow',
+                                            value: '#ff0'
+                                        }, {
+                                            text: 'green',
+                                            value: '#0f0'
+                                        }, {
+                                            text: 'cyan',
+                                            value: '#0ff'
+                                        }, {
+                                            text: 'blue',
+                                            value: '#00f'
+                                        }, {
+                                            text: 'magenta',
+                                            value: '#f0f'
+                                        }, {
+                                            text: 'red',
+                                            value: '#f00'
+                                        }, {
+                                            text: 'black',
+                                            value: '#000'
+                                        }]
+                                    },
+                                    subtitles_background_opacity: {
+                                        component: 'slider',
+                                        text: 'backgroundOpacity',
+                                        value: 75,
+                                        min: 0,
+                                        max: 100,
+                                        step: 1
+                                    },
+                                    subtitles_window_color: {
+                                        component: 'select',
+                                        text: 'windowColor',
+                                        options: [{
+                                            text: 'white',
+                                            value: '#fff'
+                                        }, {
+                                            text: 'yellow',
+                                            value: '#ff0'
+                                        }, {
+                                            text: 'green',
+                                            value: '#0f0'
+                                        }, {
+                                            text: 'cyan',
+                                            value: '#0ff'
+                                        }, {
+                                            text: 'blue',
+                                            value: '#00f'
+                                        }, {
+                                            text: 'magenta',
+                                            value: '#f0f'
+                                        }, {
+                                            text: 'red',
+                                            value: '#f00'
+                                        }, {
+                                            text: 'black',
+                                            value: '#000'
+                                        }]
+                                    },
+                                    subtitles_window_opacity: {
+                                        component: 'slider',
+                                        text: 'windowOpacity',
+                                        value: 0,
+                                        min: 0,
+                                        max: 100,
+                                        step: 1
+                                    },
+                                    subtitles_character_edge_style: {
+                                        component: 'select',
+                                        text: 'characterEdgeStyle',
+                                        options: [{
+                                            text: 'none',
+                                            value: 0
+                                        }, {
+                                            text: 'dropShadow',
+                                            value: 4
+                                        }, {
+                                            text: 'raised',
+                                            value: 1
+                                        }, {
+                                            text: 'depressed',
+                                            value: 2
+                                        }, {
+                                            text: 'outline',
+                                            value: 3
+                                        }]
+                                    },
+                                    subtitles_font_opacity: {
+                                        component: 'slider',
+                                        text: 'fontOpacity',
+                                        value: 100,
+                                        min: 0,
+                                        max: 100,
+                                        step: 1
+                                    }
+                                }
+                            }
+                        },
+                        player_crop_chapter_titles: {
+                            component: 'switch',
+                            text: 'cropChapterTitles',
+                            value: true
+                        },
+                        up_next_autoplay: {
+                            component: 'switch',
+                            text: 'upNextAutoplay',
+                            value: true
+                        },
+                        mini_player: {
+                            component: 'switch',
+                            text: 'customMiniPlayer'
+                        },
+                        player_quality: {
+                            component: 'select',
+                            text: 'quality',
+                            options: [{
+                                text: 'auto',
+                                value: 'auto'
+                            }, {
+                                text: '144p',
+                                value: 'tiny'
+                            }, {
+                                text: '240p',
+                                value: 'small'
+                            }, {
+                                text: '360p',
+                                value: 'medium'
+                            }, {
+                                text: '480p',
+                                value: 'large'
+                            }, {
+                                text: '720p',
+                                value: 'hd720'
+                            }, {
+                                text: '1080p',
+                                value: 'hd1080'
+                            }, {
+                                text: '1440p',
+                                value: 'hd1440'
+                            }, {
+                                text: '2160p',
+                                value: 'hd2160'
+                            }, {
+                                text: '2880p',
+                                value: 'hd2880'
+                            }, {
+                                text: '4320p',
+                                value: 'highres'
+                            }]
+                        },
+                        player_h264: {
+                            component: 'switch',
+                            text: 'codecH264',
+
+                            onclick: function () {
+                                console.log(this.dataset.value);
+                                if (this.querySelector('input').checked === true) {
+                                    satus.render({
+                                        component: 'dialog',
+                                        class: 'satus-dialog--confirm',
+
+                                        message: {
+                                            component: 'text',
+                                            text: 'youtubeLimitsVideoQualityTo1080pForH264Codec',
+                                            style: {
+                                                'width': '100%',
+                                                'opacity': '.8'
+                                            }
+                                        },
+                                        section: {
+                                            component: 'section',
+                                            class: 'controls',
+                                            style: {
+                                                'justify-content': 'flex-end'
+                                            },
+
+                                            cancel: {
+                                                component: 'button',
+                                                text: 'cancel',
+                                                onclick: function () {
+                                                    let scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                                    scrim[scrim.length - 1].click();
+                                                }
+                                            },
+                                            ok: {
+                                                component: 'button',
+                                                text: 'OK',
+                                                onclick: function () {
+                                                    let scrim = document.querySelectorAll('.satus-dialog__scrim');
+
+                                                    scrim[scrim.length - 1].click();
+                                                }
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        },
+                        player_60fps: {
+                            component: 'switch',
+                            text: 'allow60fps',
+                            value: true
+                        },
+                        player_SDR: {
+                            component: 'switch',
+                            text: 'forceSDR',
+                            value: false
+                        },
+                        player_forced_volume: {
+                            component: 'switch',
+                            text: 'forcedVolume',
+                            id: 'forced-volume',
+                            onrender: function () {
+                                this.dataset.value = satus.storage.player_forced_volume;
+                            },
+                            onchange: function () {
+                                this.dataset.value = satus.storage.player_forced_volume;
+                            }
+                        },
+                        player_volume: {
+                            component: 'slider',
+                            text: 'volume',
+                            step: 1,
+                            max: 100,
+                            value: 100
+                        },
+                        player_loudness_normalization: {
+                            component: 'switch',
+                            text: 'loudnessNormalization',
+                            value: true
+                        },
+                        player_screenshot: {
+                            component: 'button',
+                            text: 'screenshot',
+                            on: {
+                                click: {
+                                    component: 'section',
+                                    class: 'satus-section--card',
+
+                                    player_screenshot_button: {
+                                        component: 'switch',
+                                        text: 'activate'
+                                    },
+                                    player_screenshot_save_as: {
+                                        component: 'select',
+                                        text: 'saveAs',
+                                        options: [{
+                                            text: 'file',
+                                            value: 'file'
+                                        }, {
+                                            text: 'clipboard',
+                                            value: 'clipboard'
+                                        }]
+                                    }
+                                }
+                            }
+                        },
+                        player_repeat: {
+                            component: 'button',
+                            text: 'repeat',
+                            on: {
+                                click: {
+                                    component: 'section',
+                                    class: 'satus-section--card',
+
+                                    player_repeat_button: {
+                                        component: 'switch',
+                                        text: 'activate'
+                                    },
+                                    player_always_repeat: {
+                                        component: 'switch',
+                                        text: 'alwaysActive'
+                                    }
+                                }
+                            }
+                        },
+                        player_rotate_button: {
+                            component: 'switch',
+                            text: 'rotate'
+                        },
+                        player_popup_button: {
+                            component: 'switch',
+                            text: 'popupPlayer'
+                        },
+                        player_hide_controls: {
+                            component: 'switch',
+                            text: 'hideControls'
+                        },
+                        player_hide_controls_options: {
+                            component: 'button',
+                            text: 'hideControlsOptions',
+                            on: {
+                                click: {
+                                    component: 'section',
+                                    class: 'satus-section--card',
+
+                                    player_play_button: {
+                                        component: 'switch',
+                                        text: 'playPause'
+                                    },
+                                    player_previous_button: {
+                                        component: 'switch',
+                                        text: 'previousVideo'
+                                    },
+                                    player_next_button: {
+                                        component: 'switch',
+                                        text: 'nextVideo'
+                                    },
+                                    player_volume_button: {
+                                        component: 'switch',
+                                        text: 'volume'
+                                    },
+                                    player_autoplay_button: {
+                                        component: 'switch',
+                                        text: 'autoplay'
+                                    },
+                                    player_settings_button: {
+                                        component: 'switch',
+                                        text: 'settings'
+                                    },
+                                    player_subtitles_button: {
+                                        component: 'switch',
+                                        text: 'subtitles'
+                                    },
+                                    player_miniplayer_button: {
+                                        component: 'switch',
+                                        text: 'nativeMiniPlayer'
+                                    },
+                                    player_view_button: {
+                                        component: 'switch',
+                                        text: 'viewMode'
+                                    },
+                                    player_screen_button: {
+                                        component: 'switch',
+                                        text: 'screen'
+                                    },
+                                    player_remote_button: {
+                                        component: 'switch',
+                                        text: 'remote'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+
+                icon: {
+                    component: 'span',
+
+                    svg: {
+                        component: 'svg',
+                        attr: {
+                            viewBox: '0 0 24 24',
+                            fill: 'transparent',
+                            stroke: 'currentColor',
+                            'stroke-linecap': 'round',
+                            'stroke-width': 1.75
+                        },
+
+                        path: {
+                            component: 'path',
+                            attr: {
+                                d: 'M5 3l14 9-14 9V3z'
+                            }
+                        }
+                    }
+                },
+                label: {
+                    component: 'span',
+                    text: 'player'
+                }
+            },
+            playlist: {
+                component: 'button',
+                class: 'satus-button--playlist',
+                on: {
+                    click: {
+                        component: 'section',
+                        class: 'satus-section--card',
+
+                        playlist_autoplay: {
+                            component: 'switch',
+                            text: 'autoplay',
+                            value: true
+                        },
+                        playlist_up_next_autoplay: {
+                            component: 'switch',
+                            text: 'upNextAutoplay',
+                            value: true
+                        },
+                        playlist_reverse: {
+                            component: 'switch',
+                            text: 'reverse'
+                        },
+                        playlist_repeat: {
+                            component: 'switch',
+                            text: 'repeat'
+                        },
+                        playlist_shuffle: {
+                            component: 'switch',
+                            text: 'shuffle'
+                        }
+                    }
+                },
+
+                icon: {
+                    component: 'span',
+
+                    svg: {
+                        component: 'svg',
+                        attr: {
+                            viewBox: '0 0 24 24',
+                            fill: 'transparent',
+                            stroke: 'currentColor',
+                            'stroke-linecap': 'round',
+                            'stroke-width': 1.75
+                        },
+
+                        path: {
+                            component: 'path',
+                            attr: {
+                                d: 'M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01'
+                            }
+                        }
+                    }
+                },
+                label: {
+                    component: 'span',
+                    text: 'playlist'
+                }
+            },
+            channel: {
+                component: 'button',
+                class: 'satus-button--channel',
+                on: {
+                    click: {
+                        component: 'section',
+                        class: 'satus-section--card',
+
+                        channel_default_tab: {
+                            component: 'select',
+                            text: 'defaultChannelTab',
+                            options: [{
+                                text: 'home',
+                                value: '/home'
+                            }, {
+                                text: 'videos',
+                                value: '/videos'
+                            }, {
+                                text: 'playlists',
+                                value: '/playlists'
+                            }]
+                        },
+                        channel_trailer_autoplay: {
+                            component: 'switch',
+                            text: 'trailerAutoplay',
+                            value: true
+                        },
+                        channel_hide_featured_content: {
+                            component: 'switch',
+                            text: 'hideFeaturedContent'
+                        }
+                    }
+                },
+
+                icon: {
+                    component: 'span',
+
+                    svg: {
+                        component: 'svg',
+                        attr: {
+                            viewBox: '0 0 24 24',
+                            fill: 'transparent',
+                            stroke: 'currentColor',
+                            'stroke-linecap': 'round',
+                            'stroke-width': 1.75
+                        },
+
+                        rect: {
+                            component: 'rect',
+                            attr: {
+                                width: 20,
+                                height: 15,
+                                x: 2,
+                                y: 7,
+                                rx: 2,
+                                ry: 2
+                            }
+                        },
+                        path: {
+                            component: 'path',
+                            attr: {
+                                d: 'M17 2l-5 5-5-5'
+                            }
+                        }
+                    }
+                },
+                label: {
+                    component: 'span',
+                    text: 'channel'
+                }
+            },
+            shortcuts: {
+                component: 'button',
+                class: 'satus-button--shortcuts',
+                on: {
+                    click: {
+                        section: {
+                            component: 'section',
+                            class: 'satus-section--card',
+
+                            picture_in_picture: {
+                                component: 'shortcut',
+                                text: 'pictureInPicture',
+                                storage: 'shortcut_picture_in_picture'
+                            },
+                            volume: {
+                                component: 'button',
+                                text: 'volume',
+                                on: {
+                                    click: {
+                                        section_1: {
+                                            component: 'section',
+                                            class: 'satus-section--card',
+
+                                            volume_step: {
+                                                component: 'slider',
+                                                text: 'step',
+                                                min: 1,
+                                                max: 10,
+                                                step: 1,
+                                                value: 5,
+                                                storage: 'shortcut_volume_step'
+                                            }
+                                        },
+
+                                        section_2: {
+                                            component: 'section',
+                                            class: 'satus-section--card',
+
+                                            increase_volume: {
+                                                component: 'shortcut',
+                                                text: 'increaseVolume',
+                                                storage: 'shortcut_increase_volume',
+                                                value: {
+                                                    keys: {
+                                                        38: {
+                                                            key: 'ArrowUp'
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            decrease_volume: {
+                                                component: 'shortcut',
+                                                text: 'decreaseVolume',
+                                                storage: 'shortcut_decrease_volume',
+                                                value: {
+                                                    keys: {
+                                                        40: {
+                                                            key: 'ArrowDown'
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            shortcut_screenshot: {
+                                component: 'shortcut',
+                                text: 'screenshot'
+                            },
+                            playback_speed: {
+                                component: 'button',
+                                text: 'playbackSpeed',
+                                on: {
+                                    click: {
+                                        section_step: {
+                                            component: 'section',
+                                            class: 'satus-section--card',
+
+                                            playback_speed_step: {
+                                                component: 'slider',
+                                                text: 'step',
+                                                min: .05,
+                                                max: .5,
+                                                step: .05,
+                                                value: .05,
+                                                storage: 'shortcut_playback_speed_step'
+                                            }
+                                        },
+
+                                        section: {
+                                            component: 'section',
+                                            class: 'satus-section--card',
+
+                                            increase_playback_speed: {
+                                                component: 'shortcut',
+                                                text: 'increasePlaybackSpeed',
+                                                storage: 'shortcut_increase_playback_speed',
+                                                value: {
+                                                    keys: {
+                                                        188: {
+                                                            key: '<'
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            decrease_playback_speed: {
+                                                component: 'shortcut',
+                                                text: 'decreasePlaybackSpeed',
+                                                storage: 'shortcut_decrease_playback_speed',
+                                                value: {
+                                                    keys: {
+                                                        190: {
+                                                            key: '>'
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            shortcut_toggle_controls: {
+                                component: 'shortcut',
+                                text: 'toggleControls'
+                            },
+                            shortcut_next_video: {
+                                component: 'shortcut',
+                                text: 'nextVideo',
+                                value: {
+                                    shift: true,
+                                    keys: {
+                                        78: {
+                                            key: 'n'
+                                        }
+                                    }
+                                }
+                            },
+                            shortcut_prev_video: {
+                                component: 'shortcut',
+                                text: 'previousVideo',
+                                value: {
+                                    shift: true,
+                                    keys: {
+                                        80: {
+                                            key: 'p'
+                                        }
+                                    }
+                                }
+                            },
+                            shortcut_play_pause: {
+                                component: 'shortcut',
+                                text: 'playPause',
+                                value: {
+                                    keys: {
+                                        32: {
+                                            code: 'space'
+                                        }
+                                    }
+                                }
+                            },
+                            shortcut_stop: {
+                                component: 'shortcut',
+                                text: 'stop'
+                            },
+                            shortcut_toggle_autoplay: {
+                                component: 'shortcut',
+                                text: 'toggleAutoplay'
+                            },
+                            shortcut_seek_backward: {
+                                component: 'shortcut',
+                                text: 'seekBackward10Seconds',
+                                value: {
+                                    keys: {
+                                        74: {
+                                            key: 'j'
+                                        }
+                                    }
+                                }
+                            },
+                            shortcut_seek_forward: {
+                                component: 'shortcut',
+                                text: 'seekForward10Seconds',
+                                value: {
+                                    keys: {
+                                        76: {
+                                            key: 'l'
+                                        }
+                                    }
+                                }
+                            },
+                            shortcut_seek_next_chapter: {
+                                component: 'shortcut',
+                                text: 'seekNextChapter'
+                            },
+                            shortcut_seek_previous_chapter: {
+                                component: 'shortcut',
+                                text: 'seekPreviousChapter'
+                            },
+                            shortcut_activate_fullscreen: {
+                                component: 'shortcut',
+                                text: 'activateFullscreen',
+                                value: {
+                                    keys: {
+                                        70: {
+                                            key: 'f'
+                                        }
+                                    }
+                                }
+                            },
+                            shortcut_activate_captions: {
+                                component: 'shortcut',
+                                text: 'activateCaptions',
+                                value: {
+                                    keys: {
+                                        67: {
+                                            key: 'c'
+                                        }
+                                    }
+                                }
+                            },
+                            shortcut_quality: {
+                                component: 'button',
+                                text: 'quality',
+                                on: {
+                                    click: {
+                                        component: 'section',
+                                        class: 'satus-section--card',
+
+                                        shortcut_auto: {
+                                            component: 'shortcut',
+                                            text: 'auto'
+                                        },
+                                        shortcut_240p: {
+                                            component: 'shortcut',
+                                            text: '240p'
+                                        },
+                                        shortcut_360p: {
+                                            component: 'shortcut',
+                                            text: '360p'
+                                        },
+                                        shortcut_480p: {
+                                            component: 'shortcut',
+                                            text: '480p'
+                                        },
+                                        shortcut_720p: {
+                                            component: 'shortcut',
+                                            text: '720p'
+                                        },
+                                        shortcut_1080p: {
+                                            component: 'shortcut',
+                                            text: '1080p'
+                                        },
+                                        shortcut_1440p: {
+                                            component: 'shortcut',
+                                            text: '1440p'
+                                        },
+                                        shortcut_2160p: {
+                                            component: 'shortcut',
+                                            text: '2160p'
+                                        },
+                                        shortcut_2880p: {
+                                            component: 'shortcut',
+                                            text: '2880p'
+                                        },
+                                        shortcut_4320p: {
+                                            component: 'shortcut',
+                                            text: '4320p'
+                                        }
+                                    }
+                                }
+                            },
+                            shortcut_custom_mini_player: {
+                                component: 'shortcut',
+                                text: 'customMiniPlayer',
+                                value: {
+                                    keys: {
+                                        73: {
+                                            key: 'i'
+                                        }
+                                    }
+                                }
+                            },
+                            shortcut_stats_for_nerds: {
+                                component: 'shortcut',
+                                text: 'statsForNerds'
+                            },
+                            shortcut_toggle_cards: {
+                                component: 'shortcut',
+                                text: 'toggleCards'
+                            },
+                            shortcut_popup_player: {
+                                component: 'shortcut',
+                                text: 'openPopupPlayer'
+                            },
+                            shortcut_go_to_search_box: {
+                                component: 'shortcut',
+                                text: 'goToSearchBox',
+                                value: {
+                                    keys: {
+                                        191: {
+                                            key: '/'
+                                        }
+                                    }
+                                }
+                            },
+                            shortcut_like_shortcut: {
+                                component: 'shortcut',
+                                text: 'like'
+                            },
+                            shortcut_dislike_shortcut: {
+                                component: 'shortcut',
+                                text: 'dislike'
+                            },
+                            shortcut_subscribe: {
+                                component: 'shortcut',
+                                text: 'subscribe'
+                            },
+                            shortcut_dark_theme: {
+                                component: 'shortcut',
+                                text: 'darkTheme'
+                            }
+                        }
+                    }
+                },
+
+                icon: {
+                    component: 'span',
+
+                    svg: {
+                        component: 'svg',
+                        attr: {
+                            viewBox: '0 0 24 24',
+                            fill: 'transparent',
+                            stroke: 'currentColor',
+                            'stroke-linecap': 'round',
+                            'stroke-width': 1.75
+                        },
+
+                        path: {
+                            component: 'path',
+                            attr: {
+                                d: 'M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z'
+                            }
+                        }
+                    }
+                },
+                label: {
+                    component: 'span',
+                    text: 'shortcuts'
+                }
+            },
+            blacklist: {
+                component: 'button',
+                class: 'satus-button--blacklist',
+                on: {
+                    click: {
+                        section: {
+                            component: 'section',
+                            class: 'satus-section--card',
+
+                            blacklist_activate: {
+                                component: 'switch',
+                                text: 'activate'
+                            }
+                        },
+
+                        section2: {
+                            component: 'section',
+                            class: 'satus-section--card',
+
+                            channels: {
+                                component: 'button',
+                                text: 'channels',
+                                on: {
+                                    open: function () {
+                                        var self = this;
+
+                                        if (satus.storage.blacklist && satus.storage.blacklist.channels) {
+                                            var list = {};
+
+                                            for (var item in satus.storage.blacklist.channels) {
+                                                if (satus.storage.blacklist.channels[item] !== false) {
+                                                    var title = satus.storage.blacklist.channels[item].title || '';
+
+                                                    list[item] = {
+                                                        type: 'section',
+                                                        label: title.length > 20 ? title.substr(0, 20) + '...' : title,
+                                                        class: 'satus-section--blacklist',
+                                                        style: {
+                                                            'background-image': 'url(' + satus.storage.blacklist.channels[item].preview + ')',
+                                                            'background-color': '#000'
+                                                        },
+
+                                                        section: {
+                                                            type: 'section',
+
+                                                            delete: {
+                                                                type: 'button',
+                                                                icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
+                                                                onclick: function () {
+                                                                    delete satus.storage.blacklist.channels[item];
+
+                                                                    satus.storage.set('blacklist', satus.storage.blacklist);
+
+                                                                    this.classList.add('removing');
+
+                                                                    setTimeout(function () {
+                                                                        self.remove();
+                                                                    }, 250);
+                                                                }
+                                                            }
+                                                        }
+                                                    };
+                                                }
+                                            }
+
+                                            if (Object.keys(list).length === 0) {
+                                                list.section = {
+                                                    type: 'section',
+                                                    class: 'satus-section--message',
+
+                                                    error: {
+                                                        type: 'text',
+                                                        label: 'empty'
+                                                    }
+                                                };
+                                            }
+
+                                            satus.render(list, this);
+                                        } else {
+                                            satus.render({
+                                                component: 'section',
+                                                class: 'satus-section--card satus-section--message',
+
+                                                error: {
+                                                    component: 'text',
+                                                    label: 'empty'
+                                                }
+                                            }, this);
+                                        }
+                                    }
+                                }
+                            },
+                            videos: {
+                                component: 'button',
+                                text: 'videos',
+                                on: {
+                                    open: function () {
+                                        var self = this;
+
+                                        if (satus.storage.blacklist && satus.storage.blacklist.videos) {
+                                            let list = {};
+
+                                            for (let item in satus.storage.blacklist.videos) {
+                                                if (satus.storage.blacklist.videos[item] !== false) {
+                                                    let title = satus.storage.blacklist.videos[item].title || '';
+
+                                                    list[item] = {
+                                                        type: 'section',
+                                                        label: title.length > 20 ? title.substr(0, 20) + '...' : title,
+                                                        class: 'satus-section--blacklist',
+                                                        style: {
+                                                            'background-image': 'url(https://img.youtube.com/vi/' + item + '/0.jpg)'
+                                                        },
+
+                                                        section: {
+                                                            type: 'section',
+
+                                                            delete: {
+                                                                type: 'button',
+                                                                icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
+                                                                onclick: function () {
+                                                                    delete satus.storage.blacklist.videos[item];
+
+                                                                    satus.storage.set('blacklist', satus.storage.blacklist);
+                                                                    this.parentNode.parentNode.classList.add('removing');
+
+                                                                    setTimeout(function () {
+                                                                        self.parentNode.parentNode.remove();
+                                                                    }, 250);
+                                                                }
+                                                            }
+                                                        }
+                                                    };
+                                                }
+                                            }
+
+                                            if (Object.keys(list).length === 0) {
+                                                list.section = {
+                                                    type: 'section',
+                                                    class: 'satus-section--message',
+
+                                                    error: {
+                                                        type: 'text',
+                                                        label: 'empty'
+                                                    }
+                                                };
+                                            }
+
+                                            satus.render(list, this);
+                                        } else {
+                                            satus.render({
+                                                component: 'section',
+                                                class: 'satus-section--card satus-section--message',
+
+                                                error: {
+                                                    component: 'text',
+                                                    label: 'empty'
+                                                }
+                                            }, this);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+
+                icon: {
+                    component: 'span',
+
+                    svg: {
+                        component: 'svg',
+                        attr: {
+                            viewBox: '0 0 24 24',
+                            fill: 'transparent',
+                            stroke: 'currentColor',
+                            'stroke-linecap': 'round',
+                            'stroke-width': 1.75
+                        },
+
+                        circle: {
+                            component: 'circle',
+                            attr: {
+                                cx: 12,
+                                cy: 12,
+                                r: 10
+                            }
+                        },
+                        path: {
+                            component: 'path',
+                            attr: {
+                                d: 'M4.93 4.93l14.14 14.14'
+                            }
+                        }
+                    }
+                },
+                label: {
+                    component: 'span',
+                    text: 'blacklist'
+                }
+            },
+            analyzer: {
+                component: 'button',
+                class: 'satus-button--analyzer',
+                on: {
+                    click: {
+                        section: {
+                            component: 'section',
+                            class: 'satus-section--card',
+
+                            analyzer_activation: {
+                                component: 'switch',
+                                text: 'activate'
+                            }
+                        },
+                        section_2: {
+                            component: 'section',
+                            class: 'satus-section--card',
+                            style: {
+                                'flex-direction': 'column',
+                                'align-items': 'flex-start'
+                            },
+                            on: {
+                                render: function () {
+                                    var data = /*satus.storage.get('analyzer') ||*/ {},
+                                        all_data = {},
+                                        all_data_sort = [],
+                                        all_time_value = 0,
+                                        current_date = new Date().toDateString(),
+                                        container = document.createElement('div'),
+                                        top_text_container = document.createElement('div'),
+                                        today_at = document.createElement('div'),
+                                        watch_time = document.createElement('div'),
+                                        all_time = document.createElement('div'),
+                                        chart = document.createElement('div'),
+                                        bottom_text_container = document.createElement('div');
+
+                                    container.className = 'analyzer-container';
+                                    top_text_container.className = 'analyzer-top-text';
+                                    watch_time.className = 'analyzer-watch-time';
+                                    today_at.className = 'analyzer-today-at';
+                                    all_time.className = 'analyzer-all-time';
+                                    chart.className = 'analyzer-chart';
+                                    bottom_text_container.className = 'analyzer-bottom';
+
+                                    let currentDateData = data[current_date];
+                                    if (currentDateData) {
+                                        for (let i in currentDateData) {
+                                            if (currentDateData[i]) {
+                                                for (let j in currentDateData[i]) {
+                                                    if (!all_data[j]) {
+                                                        all_data[j] = 0;
+                                                    }
+
+                                                    all_data[j] += currentDateData[i][j];
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    for (let i in all_data) {
+                                        all_data_sort.push([i, all_data[i]]);
+                                        all_time_value += all_data[i];
+                                    }
+
+                                    all_data_sort.sort(function (a, b) {
+                                        return b[1] - a[1];
+                                    });
+
+                                    var now_minutes = new Date().getMinutes();
+
+                                    watch_time.innerText = /*satus.locale.getMessage('watchTime') ||*/ 'watchTime';
+                                    today_at.innerText = /*satus.locale.getMessage('todayAt') + ' ' + (new Date().getHours() + ':' + (now_minutes < 10 ? '0' + now_minutes : now_minutes)) ||*/ 'todayAt';
+                                    all_time.innerText = Math.floor(all_time_value / 60) + 'h ' + (all_time_value - Math.floor(all_time_value / 60) * 60) + 'm';
+
+                                    let h = 0;
+
+                                    for (let i = 0; i < 4; i++) {
+                                        let column = document.createElement('div');
+
+                                        column.className = 'analyzer-column';
+
+                                        for (let j = 0; j < 6; j++) {
+                                            let hours = h + ':00';
+
+                                            h++;
+
+                                            let data_column = document.createElement('div');
+
+                                            data_column.className = 'analyzer-data-column';
+
+                                            if (currentDateData && currentDateData[hours]) {
+                                                for (let k in currentDateData[hours]) {
+                                                    let block = document.createElement('div');
+
+                                                    block.className = 'analyzer-data';
+
+                                                    let height = data[current_date][hours][k] * 100 / 60;
+
+                                                    block.title = k;
+                                                    block.style.height = height + '%';
+
+                                                    if (k === all_data_sort[0][0]) {
+                                                        block.className += ' first';
+                                                    } else if (k === all_data_sort[1][0]) {
+                                                        block.className += ' second';
+                                                    } else if (k === all_data_sort[2][0]) {
+                                                        block.className += ' third';
+                                                    }
+
+                                                    data_column.appendChild(block);
+                                                }
+                                            }
+
+                                            column.appendChild(data_column);
+                                        }
+
+                                        chart.appendChild(column);
+                                    }
+
+
+                                    for (let i = 0; i < 3; i++) {
+                                        if (all_data_sort[i]) {
+                                            let cont = document.createElement('div'),
+                                                label = document.createElement('div'),
+                                                value = document.createElement('div');
+
+                                            label.className = 'label';
+
+                                            label.innerText = all_data_sort[i][0];
+                                            value.innerText = Math.floor(all_data_sort[i][1] / 60) + 'h ' + (all_data_sort[i][1] - Math.floor(all_data_sort[i][1] / 60) * 60) + 'm';
+
+                                            cont.appendChild(label);
+                                            cont.appendChild(value);
+                                            bottom_text_container.appendChild(cont);
+                                        }
+                                    }
+
+                                    container.appendChild(all_time);
+                                    container.appendChild(chart);
+                                    this.appendChild(top_text_container);
+                                    top_text_container.appendChild(watch_time);
+                                    top_text_container.appendChild(today_at);
+                                    container.appendChild(bottom_text_container);
+                                    this.appendChild(container);
+                                }
+                            }
+                        }
+                    }
+                },
+
+                icon: {
+                    component: 'span',
+
+                    svg: {
+                        component: 'svg',
+                        attr: {
+                            viewBox: '0 0 24 24',
+                            fill: 'transparent',
+                            stroke: 'currentColor',
+                            'stroke-linecap': 'round',
+                            'stroke-width': 1.75
+                        },
+
+                        path: {
+                            component: 'path',
+                            attr: {
+                                d: 'M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z'
+                            }
+                        }
+                    }
+                },
+                label: {
+                    component: 'span',
+                    text: 'analyzer'
+                }
             }
         }
-    });
-}
+    }
+};
 
 
 /*--------------------------------------------------------------
 # INITIALIZATION
 --------------------------------------------------------------*/
 
-function themeChange(event) {
-    var body = document.body;
-
-    if (event && event.target.checked) {
-        let themes = document.querySelectorAll('.satus-switch > input:checked:not([data-storage-key="red_popup_theme"])');
-
-        for (let i = 0, l = themes.length; i < l; i++) {
-            if (themes[i] !== event.target) {
-                themes[i].click();
-            }
-        }
-    }
-
-    if (satus.storage.get('default_dark_theme') === true) {
-        body.dataset.theme = 'dark';
-    } else if (satus.storage.get('night_theme') === true) {
-        body.dataset.theme = 'night';
-    } else if (satus.storage.get('dawn_theme') === true) {
-        body.dataset.theme = 'dawn';
-    } else if (satus.storage.get('sunset_theme') === true) {
-        body.dataset.theme = 'sunset';
-    } else if (satus.storage.get('desert_theme') === true) {
-        body.dataset.theme = 'desert';
-    } else if (satus.storage.get('plain_theme') === true) {
-        body.dataset.theme = 'plain';
-    } else if (satus.storage.get('black_theme') === true) {
-        body.dataset.theme = 'black';
-    } else {
-        delete body.dataset.theme;
-    }
-}
-
-function updateAttributes() {
-    var whitelist = {
-            'improvedtube-home': true
-        },
-        items = satus.storage;
-
-    for (var key in items) {
-        var attribute = key.replace(/_/g, '-');
-
-        if (whitelist.hasOwnProperty(attribute)) {
-            document.documentElement.setAttribute('it-' + attribute, items[key]);
-        }
-    }
-}
-
 satus.storage.import(function (items) {
-    updateAttributes();
+    satus.fetch('_locales/' + (items.language || 'en') + '/messages.json', function (object) {
+        for (var key in object) {
+            satus.locale.strings[key] = object[key].message;
+        }
 
-    if (satus.storage.channel_default_tab === '/') {
-        satus.storage.channel_default_tab = '/home';
-
-        satus.storage.set('channel_default_tab', '/home');
-    }
-
-    satus.locale.import(satus.storage.get('language'), function () {
-        satus.modules.updateStorageKeys(skeleton, function () {
-            if (location.href.indexOf('action=import') !== -1) {
-                importData();
-            } else if (location.href.indexOf('action=export') !== -1) {
-                exportData();
-            } else {
-                satus.render(skeleton, document.body);
-            }
-        });
+        satus.render(skeleton);
     });
-
-    themeChange();
-});
-
-chrome.storage.onChanged.addListener(function (changes) {
-    for (var key in changes) {
-        document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), changes[key].newValue);
-    }
 });
