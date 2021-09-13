@@ -164,7 +164,31 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                 ImprovedTube.elements.player.pauseVideo();
             }
         `);
-    }
+    } else if (request.action === 'request-volume') {
+        var element = document.querySelector('video');
+
+        if (element) {
+            sendResponse(element.volume);
+        }
+    } else if (request.action === 'set-volume') {
+        var element = document.querySelector('video');
+
+        if (element) {
+            element.volume = request.value / 100;
+        }
+    } else if (request.action === 'request-playback-speed') {
+        var element = document.querySelector('video');
+
+        if (element) {
+            sendResponse(element.playbackRate);
+        }
+    }else if (request.action === 'set-playback-speed') {
+        var element = document.querySelector('video');
+
+        if (element) {
+            element.playbackRate = request.value;
+        }
+    } 
 
     injectScript('ImprovedTube.pageOnFocus();');
 });
