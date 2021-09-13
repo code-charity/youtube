@@ -3,7 +3,7 @@
     "name": "'Improve YouTube!' (Video & YouTube Tools)🎧",
     "short_name": "ImprovedTube",
     "description": "__MSG_description_ext__",
-    "version": "3.475",
+    "version": "3.500",
     "default_locale": "en",
     "icons": {
         "128": "icons/128.png",
