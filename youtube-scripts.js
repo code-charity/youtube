@@ -3045,7 +3045,7 @@ ImprovedTube.playlistShuffle = function () {
 ImprovedTube.channelDefaultTab = function (a) {
     var option = this.storage.channel_default_tab;
 
-    if (option && option !== '/') {
+    if (option && option !== '/' && a.parentNode.id !== 'contenteditable-root') {
         if (this.regex.channel_home_page.test(a.href)) {
             if (!a.dataset.itOrigin) {
                 a.dataset.itOrigin = a.href.replace(this.regex.channel_home_page_postfix, '');
