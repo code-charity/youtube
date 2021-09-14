@@ -188,7 +188,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         if (element) {
             element.playbackRate = request.value;
         }
-    } 
+    } else if (request.action == 'improvedtube-mycolors'){        
+        injectScript(`ImprovedTube.myColors()`);
+    }
 
     injectScript('ImprovedTube.pageOnFocus();');
 });

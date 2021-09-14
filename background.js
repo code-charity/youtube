@@ -273,6 +273,15 @@ chrome.storage.onChanged.addListener(function(changes) {
     if (changes.hasOwnProperty('improvedtube_language')) {
         locale_code = changes.improvedtube_language.newValue;
     }
+    if (changes.hasOwnProperty('theme_primary_color') 
+    ||  changes.hasOwnProperty('theme_text_color'))
+    {
+        chrome.tabs.query({},(q)=>{
+            q.forEach(tab=>{
+                chrome.tabs.sendMessage(tab.id,{action:'improvedtube-mycolors'})
+            });
+        })
+    }
 });
 
 

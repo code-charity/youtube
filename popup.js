@@ -3231,7 +3231,18 @@ var skeleton = {
 
                                             theme_my_colors: {
                                                 component: 'switch',
-                                                text: 'activate'
+                                                text: 'activate',
+                                                on:{
+                                                    render : function(){
+                                                        if (satus.storage.data.theme_my_colors)
+                                                            this.dataset.value = true;                                                        
+                                                    },
+                                                    click : function(){                                                        
+                                                            chrome.tabs.query({active:true, currentWindow:true},(q)=>{
+                                                                chrome.tabs.sendMessage(q[0].id,{action:"improvedtube-mycolors"})
+                                                            });                                                        
+                                                    }
+                                                }
                                             }
                                         },
 

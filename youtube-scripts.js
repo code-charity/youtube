@@ -1512,7 +1512,9 @@ ImprovedTube.comments = function () {
 4.3.1 MY COLORS
 ------------------------------------------------------------------------------*/
 
+
 ImprovedTube.myColors = function () {
+    
     if (this.storage.theme_my_colors === true) {
         var style = this.elements.my_colors || document.createElement('style');
 
