@@ -25,7 +25,8 @@ import re
 #---------------------------------------------------------------
 
 def lowerCamelCase(string):
-    string = re.sub(r"(-|_)+", " ", string).title().replace(" ", "")
+    string = re.sub(r"(-|_)+", " ", string).title()
+    string = re.sub(r"[^a-zA-Z0-9]", "", string)
     
     return string[0].lower() + string[1:]
 
