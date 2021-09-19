@@ -216,7 +216,7 @@
         "message": "गहरा बैंगनी"
     },
     "default": {
-        "message": "डिफ़ॉल्ट"
+        "message": "Default"
     },
     "defaultChannelTab": {
         "message": "डिफ़ॉल्ट चैनल टैब"
@@ -261,7 +261,7 @@
         "message": "मत बदलो"
     },
     "donate": {
-        "message": "दान"
+        "message": "Donate"
     },
     "draggable": {
         "message": "खींचने योग्य"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "सर्च बॉक्स पर जाएं"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "जी पी यू"
@@ -658,6 +661,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "हमें रेटिंग दें"

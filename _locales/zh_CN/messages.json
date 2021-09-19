@@ -216,7 +216,7 @@
         "message": "深紫色"
     },
     "default": {
-        "message": "默认"
+        "message": "Default"
     },
     "defaultChannelTab": {
         "message": "默认频道页"
@@ -261,7 +261,7 @@
         "message": "不做改变"
     },
     "donate": {
-        "message": "支持"
+        "message": "Donate"
     },
     "draggable": {
         "message": "可拖动"
@@ -352,6 +352,9 @@
     },
     "goToSearchBox": {
         "message": "转到搜索框"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -667,6 +670,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "给我们评价"

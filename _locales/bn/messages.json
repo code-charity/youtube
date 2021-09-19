@@ -261,7 +261,7 @@
         "message": "পরিবর্তন করবেন না"
     },
     "donate": {
-        "message": "দান করুন"
+        "message": "Donate"
     },
     "draggable": {
         "message": "টেনে আনে"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "অনুসন্ধান বাক্সে যান"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "জিপিইউ"
@@ -658,6 +661,9 @@
     },
     "ram": {
         "message": "র্যাম"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "মতামত দিন"

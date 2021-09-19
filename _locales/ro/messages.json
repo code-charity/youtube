@@ -261,7 +261,7 @@
         "message": "Nu schimba"
     },
     "donate": {
-        "message": "Donează"
+        "message": "Donate"
     },
     "draggable": {
         "message": "Poate fi tras"
@@ -352,6 +352,9 @@
     },
     "goToSearchBox": {
         "message": "Du-te la casuța de căutare"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -664,6 +667,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Dă-ne o notă"

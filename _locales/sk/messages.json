@@ -261,7 +261,7 @@
         "message": "Nemeniť"
     },
     "donate": {
-        "message": "Prispieť"
+        "message": "Donate"
     },
     "draggable": {
         "message": "Posuvné"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "Prejdite do vyhľadávanieho poľa"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -658,6 +661,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Ohodnoťte nás"

@@ -261,7 +261,7 @@
         "message": "Niet aanpassen"
     },
     "donate": {
-        "message": "Doneer"
+        "message": "Donate"
     },
     "draggable": {
         "message": "Sleepbaar"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "Ga naar de zoekbalk"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -658,6 +661,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Geef ons een beoordeling"

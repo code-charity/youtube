@@ -261,7 +261,7 @@
         "message": "Değiştirme"
     },
     "donate": {
-        "message": "Bağış"
+        "message": "Donate"
     },
     "draggable": {
         "message": "Sürüklenebilir"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "Arama kutusuna git"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -658,6 +661,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Bizi oyla"
