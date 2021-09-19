@@ -261,7 +261,7 @@
         "message": "不要改變"
     },
     "donate": {
-        "message": "捐贈"
+        "message": "Donate"
     },
     "draggable": {
         "message": "可拖動"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "轉到搜索框"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -664,6 +667,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "評分"

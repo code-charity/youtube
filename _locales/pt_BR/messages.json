@@ -261,7 +261,7 @@
         "message": "Não alterar"
     },
     "donate": {
-        "message": "Doar"
+        "message": "Donate"
     },
     "draggable": {
         "message": "Arrastável"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "Selecionar barra de pesquisa"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -658,6 +661,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Avalie-nos!"

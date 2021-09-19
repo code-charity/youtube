@@ -261,7 +261,7 @@
         "message": "Ikke endre"
     },
     "donate": {
-        "message": "Doner"
+        "message": "Donate"
     },
     "draggable": {
         "message": "Flyttbare"
@@ -352,6 +352,9 @@
     },
     "goToSearchBox": {
         "message": "Gå til søkefeltet"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -661,6 +664,9 @@
     },
     "ram": {
         "message": "Minne"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Rangere oss"

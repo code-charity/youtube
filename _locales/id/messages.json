@@ -261,7 +261,7 @@
         "message": "Jangan ubah"
     },
     "donate": {
-        "message": "Donasi"
+        "message": "Donate"
     },
     "draggable": {
         "message": "Dapat diseret"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "Ke kotak pencarian"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -658,6 +661,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Nilai Kami"

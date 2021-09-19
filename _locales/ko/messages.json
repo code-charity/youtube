@@ -261,7 +261,7 @@
         "message": "바꾸지 않음"
     },
     "donate": {
-        "message": "후원하기"
+        "message": "Donate"
     },
     "draggable": {
         "message": "드래그 가능"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "검색창으로 이동"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "그래픽 처리 장치"
@@ -658,6 +661,9 @@
     },
     "ram": {
         "message": "램"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "평가하기"

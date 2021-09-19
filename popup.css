@@ -10,17 +10,129 @@
 # DOCUMENT
 --------------------------------------------------------------*/
 
-html {
-    --satus-theme-primary: #ff4158;
+body {
+    font-family: sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    margin: 0;
+}
+
+.satus-base {
+    --satus-primary: #ff4158;
     --satus-header-background: #fff;
     --satus-header-text: #777;
-    --satus-main-background: #f7f7f6;
-    --satus-main-text: #777;
+    --satus-layers-background: #f7f7f6;
+    --satus-layers-text: #777;
+    --satus-section-card-background: #fff;
     --satus-modal-background: #fff;
     --satus-modal-text: #777;
+    --satus-hover: rgba(0, 0, 0, .04);
     --it-category-background: linear-gradient(135deg, #ff4158, #ff001f);
     --it-category-shadow: rgba(222, 0, 27, .7);
     --it-appearance-shadow-color: #dfdfdf;
+}
+
+.satus-base[theme=dark] {
+    --satus-primary: #ff4158;
+    --satus-header-background: #1c2027;
+    --satus-header-text: #b5b5b5;
+    --satus-layers-background: #121316;
+    --satus-layers-text: #bfbfbf;
+    --satus-section-card-background: #191b1f;
+    --satus-modal-background: #191b1f;
+    --satus-modal-text: #b5b5b5;
+    --satus-hover: rgba(255, 255, 255, .07);
+    --it-category-background: linear-gradient(135deg, #ff4158, #ff001f);
+    --it-category-shadow: rgba(222, 0, 27, .7);
+    --it-appearance-shadow-color: #393e46;
+}
+
+.satus-base[theme=night] {
+    --satus-primary: #9ebdfa;
+    --satus-header-background: #24478f;
+    --satus-header-text: #fafafa;
+    --satus-layers-background: #142952;
+    --satus-layers-text: #fafafa;
+    --satus-section-card-background: #1f3d7a;
+    --satus-modal-background: #24478f;
+    --satus-modal-text: #fafafa;
+    --satus-hover: rgba(255, 255, 255, .07);
+    --it-category-background: linear-gradient(135deg, #2e5cb8, #234790);
+    --it-category-shadow: rgb(41, 82, 163, .7);
+    --it-appearance-shadow-color: #558bf6;
+}
+
+.satus-base[theme=dawn] {
+    --satus-primary: #e2367e;
+    --satus-header-background: #e98f63;
+    --satus-header-text: #fafafa;
+    --satus-layers-background: #e23681;
+    --satus-layers-text: #eee;
+    --satus-section-card-background: rgb(255, 255, 255, .2);
+    --satus-modal-background: #ed8e5e;
+    --satus-modal-text: #fafafa;
+    --satus-hover: rgba(255, 255, 255, .07);
+    --it-category-background: linear-gradient(135deg, #e98f63, #e27036);
+    --it-category-shadow: rgb(226, 112, 54, .7);
+    --it-appearance-shadow-color: #e86e30;
+}
+
+.satus-base[theme=sunset] {
+    --satus-primary: #cc666e;
+    --satus-header-background: #af5a5e;
+    --satus-header-text: #fafafa;
+    --satus-layers-background: #2f3364;
+    --satus-layers-text: #eee;
+    --satus-section-card-background: rgb(138, 92, 96, .5);
+    --satus-modal-background: #a96165;
+    --satus-modal-text: #fafafa;
+    --satus-hover: rgba(255, 255, 255, .07);
+    --it-category-background: linear-gradient(135deg, #e98f63, #e27036);
+    --it-category-shadow: rgb(226, 112, 54, .7);
+    --it-appearance-shadow-color: #e86e30;
+}
+
+.satus-base[theme=desert] {
+    --satus-primary: #f83;
+    --satus-header-background: #8cb7f2;
+    --satus-header-text: #fafafa;
+    --satus-layers-background: #e6bf4c;
+    --satus-layers-text: #4d4d4d;
+    --satus-section-card-background: #f5e0a3;
+    --satus-modal-background: #8cb7f2;
+    --satus-modal-text: #fafafa;
+    --satus-hover: rgba(255, 255, 255, .07);
+    --it-category-background: linear-gradient(135deg, #f83, #d15700);
+    --it-category-shadow: rgb(230, 96, 0, .7);
+    --it-appearance-shadow-color: #5e9aed;
+}
+
+.satus-base[theme=plain] {
+    --satus-primary: #badec9;
+    --satus-header-background: #9fc6af;
+    --satus-header-text: #404040;
+    --satus-layers-background: #dea975;
+    --satus-layers-text: #404040;
+    --satus-section-card-background: #e2b88d;
+    --satus-modal-background: #abceb8;
+    --satus-modal-text: #404040;
+    --satus-hover: rgba(255, 255, 255, .07);
+    --it-category-background: linear-gradient(135deg, #abceb8, #609f7a);
+    --it-category-shadow: #70a987b3;
+    --it-appearance-shadow-color: #d7995b;
+}
+
+.satus-base[theme=black] {
+    --satus-primary: #ff4158;
+    --satus-header-background: #222;
+    --satus-header-text: #fafafa;
+    --satus-layers-background: #111;
+    --satus-layers-text: #eee;
+    --satus-section-card-background: #222;
+    --satus-modal-background: #222;
+    --satus-modal-text: #fafafa;
+    --satus-hover: rgba(255, 255, 255, .04);
+    --it-appearance-shadow-color: #222;
 }
 
 
@@ -155,9 +267,9 @@ html {
 
 .satus-modal--vertical .satus-button {
     display: flex;
+    height: 36px;
     padding: 0 16px;
     align-items: center;
-    height: 36px;
 }
 
 .satus-modal--vertical .satus-button svg {
@@ -166,7 +278,14 @@ html {
     margin: 0 14px 0 0;
     opacity: .75;
     fill: none;
-    stroke: var(--satus-theme-primary);
+    stroke: var(--satus-primary);
+    flex: 0 0 20px;
+}
+
+.satus-modal--vertical .satus-button .satus-span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 
@@ -175,9 +294,9 @@ html {
 --------------------------------------------------------------*/
 
 .satus-section--home {
+    position: relative;
     overflow: hidden;
     width: 100%;
-    position: relative;
 }
 
 .satus-section--home .satus-button {
@@ -216,10 +335,12 @@ html {
 }
 
 .satus-section--home .satus-button> :nth-child(2) {
-    overflow: hidden;
+overflow: hidden;
     margin: 8px 0 0;
     white-space: nowrap;
     text-overflow: ellipsis;
+    width: calc(100% - 32px);
+    text-align: center;
 }
 
 .satus-button--general svg {
@@ -228,8 +349,8 @@ html {
 
 .satus-button--appearance svg {
     position: relative;
-    left: 1px;
     top: 1px;
+    left: 1px;
 }
 
 .satus-button--themes svg {
@@ -238,8 +359,8 @@ html {
 
 .satus-button--player svg {
     position: relative;
-    left: 2px;
     top: 1px;
+    left: 2px;
 }
 
 .satus-button--playlist svg {
@@ -382,31 +503,43 @@ html {
 # THEMES
 --------------------------------------------------------------*/
 
-.satus-section--themes .satus-switch {
-    font-weight: 600;
-    width: calc(100% - 16px);
-    max-width: 900px;
+.satus-label--default-theme,
+.satus-label--dark-theme,
+.satus-label--night-theme,
+.satus-label--dawn-theme,
+.satus-label--sunset-theme,
+.satus-label--desert-theme,
+.satus-label--plain-theme,
+.satus-label--black-theme {
+    display: flex;
     height: 80px;
-    margin: 8px auto;
+    margin: 8px;
+    cursor: pointer;
     color: #fff;
     border-radius: 8px;
     text-shadow: 0 1px 3px rgba(0, 0, 0, .7);
+    justify-content: space-between;
+    align-items: center;
 }
 
-.satus-switch--dark {
+.satus-label--default-theme {
+    background: #f0f0f0;
+}
+
+.satus-label--dark-theme {
     position: relative;
     overflow: hidden;
     background: linear-gradient(#0d1216, #353d46) !important;
 }
 
-.satus-switch--dark::before {
+.satus-label--dark-theme::before {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     content: '';
-    animation-name: satus-switch--dark;
+    animation-name: satus-label--dark-theme;
     animation-duration: 4s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
@@ -418,7 +551,7 @@ html {
     filter: blur(8px);
 }
 
-@keyframes satus-switch--dark {
+@keyframes satus-label--dark-theme {
     0% {
         background-position: -10px 40px, 200px 0, -30px -20px, 130px 30px;
     }
@@ -430,10 +563,10 @@ html {
     }
 }
 
-.satus-switch--night {
+.satus-label--night-theme {
     position: relative;
     overflow: hidden;
-    animation-name: satus-switch--night;
+    animation-name: satus-label--night-theme;
     animation-duration: .75s;
     animation-iteration-count: infinite;
     background-image: radial-gradient(rgba(255, 255, 255, .5) 50%, transparent 50%), radial-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%), radial-gradient(rgba(255, 255, 255, .8) 50%, transparent 50%), radial-gradient(rgba(255, 255, 255, .6) 50%, transparent 50%), radial-gradient(rgba(255, 255, 255, .4) 50%, transparent 50%), radial-gradient(rgba(255, 255, 255, .5) 50%, transparent 50%), linear-gradient(#3a48b4, #61a7f5) !important;
@@ -442,7 +575,7 @@ html {
     background-size: 3px 3px, 3px 3px, 3px 3px, 3px 3px, 3px 3px, 3px 3px, auto !important;
 }
 
-@keyframes satus-switch--night {
+@keyframes satus-label--night-theme {
     0% {
         background-image: radial-gradient(rgba(255, 255, 255, .5) 50%, transparent 50%), radial-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%), radial-gradient(rgba(255, 255, 255, .8) 50%, transparent 50%), radial-gradient(rgba(255, 255, 255, .6) 50%, transparent 50%), radial-gradient(rgba(255, 255, 255, .4) 50%, transparent 50%), radial-gradient(rgba(255, 255, 255, .5) 50%, transparent 50%), linear-gradient(#3a48b4, #61a7f5);
     }
@@ -460,20 +593,20 @@ html {
     }
 }
 
-.satus-switch--dawn {
+.satus-label--dawn-theme {
     position: relative;
     overflow: hidden;
     background: linear-gradient(#ed74a9, #ffba99) !important;
 }
 
-.satus-switch--dawn::before {
+.satus-slabel-dawn-theme::before {
     position: absolute;
     right: 1rem;
     bottom: -5rem;
     width: 10rem;
     height: 10rem;
     content: '';
-    animation-name: satus-switch--dawn;
+    animation-name: satus-label--dawn-theme;
     animation-duration: .75s;
     animation-iteration-count: infinite;
     pointer-events: none;
@@ -481,7 +614,7 @@ html {
     background: radial-gradient(rgba(255, 255, 231, .85) 20%, rgba(255, 255, 231, .25) 20%, rgba(255, 255, 231, .25) 35%, rgba(255, 255, 231, .15) 35%, rgba(255, 255, 231, .15) 55%, rgba(255, 255, 231, .05) 55%, rgba(255, 255, 231, .05) 75%, transparent 75%) !important;
 }
 
-@keyframes satus-switch--dawn {
+@keyframes satus-label--dawn-theme {
     0% {
         background: radial-gradient(rgba(255, 255, 231, .85) 20%, rgba(255, 255, 231, .25) 20%, rgba(255, 255, 231, .25) 35%, rgba(255, 255, 231, .15) 35%, rgba(255, 255, 231, .15) 55%, rgba(255, 255, 231, .05) 55%, rgba(255, 255, 231, .05) 75%, transparent 75%);
     }
@@ -493,13 +626,13 @@ html {
     }
 }
 
-.satus-switch--sunset {
+.satus-label--sunset-theme {
     position: relative;
     overflow: hidden;
     background: linear-gradient(#2f3364, #a96165) !important;
 }
 
-.satus-switch--sunset::before {
+.satus-label--sunset-theme::before {
     position: absolute;
     top: -1rem;
     left: 50%;
@@ -513,7 +646,7 @@ html {
     background: linear-gradient(#fa7965, #f56264, transparent) !important;
 }
 
-.satus-switch--desert {
+.satus-label--desert-theme {
     position: relative;
     overflow: hidden;
     background-image: radial-gradient(#ffe498 50%, transparent 50%), linear-gradient(#9dc2ee, #f5fdff) !important;
@@ -522,14 +655,14 @@ html {
     background-size: 240%, 100% !important;
 }
 
-.satus-switch--desert::before {
+.satus-label--desert-theme::before {
     position: absolute;
     top: -100%;
     left: 40%;
     width: 10rem;
     height: 10rem;
     content: '';
-    animation-name: satus-switch--desert;
+    animation-name: satus-label--desert-theme;
     animation-duration: .75s;
     animation-delay: .5s;
     animation-iteration-count: infinite;
@@ -538,7 +671,7 @@ html {
     background: radial-gradient(#fefefe 20%, rgba(255, 255, 231, .25) 20%, rgba(255, 255, 231, .25) 35%, rgba(255, 255, 231, .15) 35%, rgba(255, 255, 231, .15) 55%, rgba(255, 255, 231, .05) 55%, rgba(255, 255, 231, .05) 75%, transparent 75%) !important;
 }
 
-@keyframes satus-switch--desert {
+@keyframes satus-label--desert-theme {
     0% {
         background: radial-gradient(#fefefe 20%, rgba(255, 255, 231, .25) 20%, rgba(255, 255, 231, .25) 35%, rgba(255, 255, 231, .15) 35%, rgba(255, 255, 231, .15) 55%, rgba(255, 255, 231, .05) 55%, rgba(255, 255, 231, .05) 75%, transparent 75%);
     }
@@ -550,7 +683,7 @@ html {
     }
 }
 
-.satus-switch--plain {
+.satus-label--plain-theme {
     position: relative;
     overflow: hidden;
     background-image: radial-gradient(#dea975 50%, transparent 50%), radial-gradient(#e8b887 50%, transparent 50%), radial-gradient(#f1cc9f 50%, transparent 50%), radial-gradient(#f3ddb8 50%, transparent 50%), linear-gradient(#abceb8, #e7ede1) !important;
@@ -559,14 +692,14 @@ html {
     background-size: 240%, 240%, 240%, 240%, 100% !important;
 }
 
-.satus-switch--plain::before {
+.satus-label--plain-theme::before {
     position: absolute;
     top: -70%;
     left: 10%;
     width: 7rem;
     height: 7rem;
     content: '';
-    animation-name: satus-switch--plain;
+    animation-name: satus-label--plain-theme;
     animation-duration: .75s;
     animation-delay: .2s;
     animation-iteration-count: infinite;
@@ -575,8 +708,86 @@ html {
     background: radial-gradient(#fff 20%, rgba(255, 255, 231, .25) 20%, rgba(255, 255, 231, .25) 35%, rgba(255, 255, 231, .15) 35%, rgba(255, 255, 231, .15) 55%, rgba(255, 255, 231, .05) 55%, rgba(255, 255, 231, .05) 75%, transparent 75%) !important;
 }
 
-.satus-switch--black {
+.satus-label--black-theme {
     background: #000 !important;
+}
+
+
+/*--------------------------------------------------------------
+# BLACKLIST
+--------------------------------------------------------------*/
+
+.satus-section.satus-section--blacklist {
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+    width: calc(100% - 32px);
+    height: 116px;
+    margin: 8px 16px 0;
+    transition: opacity .25s;
+    opacity: 1;
+    border-radius: 10px;
+    background-color: #000;
+    background-position: center;
+    background-size: cover;
+    flex: unset;
+    align-items: flex-start;
+}
+
+.satus-section.satus-section--blacklist.removing {
+    opacity: 0;
+}
+
+.satus-section.satus-section--blacklist::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    content: '';
+    background: rgba(0, 0, 0, .5);
+}
+
+.satus-section.satus-section--blacklist>.label {
+    font-size: 16px;
+    font-weight: 700;
+    position: absolute;
+    z-index: 1;
+    bottom: 28px;
+    text-transform: uppercase;
+    opacity: 1;
+    color: #fff;
+}
+
+.satus-section.satus-section--blacklist::after {
+    position: absolute;
+    z-index: 1;
+    bottom: 16px;
+    left: 16px;
+    content: attr(data-label);
+    color: rgba(255, 255, 255, .5);
+}
+
+.satus-section.satus-section--blacklist>.satus-section {
+    position: absolute;
+    z-index: 999;
+    bottom: 0;
+    visibility: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    transition: .15s;
+    opacity: 0;
+    border: none;
+    border-radius: 0;
+    background: rgba(255, 255, 255, .95);
+    justify-content: center;
+}
+
+.satus-section.satus-section--blacklist:hover>.satus-section {
+    visibility: visible;
+    opacity: 1;
 }
 
 
@@ -588,6 +799,7 @@ html {
     font-size: 13px;
     display: flex;
     box-sizing: border-box;
+    width: 100%;
     height: auto;
     margin: 16px 0 0;
     padding: 0 16px;
@@ -605,11 +817,10 @@ html {
 
 .analyzer-container {
     box-sizing: border-box;
+    width: 100%;
     height: auto;
     margin: 8px 0 16px;
     padding: 16px;
-    background: var(--background-0) !important;
-    /* var --background-0 is not specified anywhere */
     box-shadow: 0 0 2px rgba(0, 0, 0, .2);
 }
 
@@ -704,6 +915,7 @@ html {
     color: #ff9800;
 }
 
+
 /*--------------------------------------------------------------
 # MIXER
 --------------------------------------------------------------*/
@@ -732,14 +944,14 @@ html {
 }
 
 .satus-section--mixer .satus-h1 {
-        color: #fff;
-    position: absolute;
     font-size: 14px;
-    text-shadow: 0 0 1px rgb(0,0,0,.4);
+    position: absolute;
     bottom: 0;
     left: 0;
-    transition: 200ms;
     margin: 16px;
+    transition: 200ms;
+    color: #fff;
+    text-shadow: 0 0 1px rgb(0, 0, 0, .4);
 }
 
 .satus-section--mixer:hover .satus-h1 {
