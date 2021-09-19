@@ -261,7 +261,7 @@
         "message": "Να μην αλλάξει"
     },
     "donate": {
-        "message": "Συνεισφέρετε οικονομικά"
+        "message": "Donate"
     },
     "draggable": {
         "message": "Μετακινήσιμο με σύρση"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "Πήγαινε στο πεδίο αναζήτησης"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -658,6 +661,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Αξιολόγησέ μας"

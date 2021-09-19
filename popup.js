@@ -11,13 +11,16 @@
 
 var skeleton = {
     component: 'base',
+    attr: {
+        'theme': 'default'
+    },
 
     header: {
         component: 'header',
 
         section_start: {
             component: 'section',
-            class: 'satus-section--align-start',
+            variant: 'align-start',
 
             back: {
                 component: 'button',
@@ -51,7 +54,7 @@ var skeleton = {
         },
         section_end: {
             component: 'section',
-            class: 'satus-section--align-end',
+            variant: 'align-end',
 
             search_field: {
                 component: 'input',
@@ -90,7 +93,8 @@ var skeleton = {
                         });
                     },
                     input: function (event) {
-                        var value = this.value.trim();
+                        var self = this,
+                            value = this.value.trim();
 
                         if (value.length > 0) {
                             satus.search(value, skeleton, function (results) {
@@ -129,7 +133,7 @@ var skeleton = {
 
                                         satus.render(skeleton, parent);
                                     } else {
-                                        satus.render(skeleton);
+                                        satus.render(skeleton, self.base);
 
                                         document.querySelector('.search-results .satus-modal__scrim').addEventListener('click', function () {
                                             var results = document.querySelector('.search-results');
@@ -227,29 +231,27 @@ var skeleton = {
                         active_features: {
                             component: 'button',
                             on: {
-                                click: function () {
-                                    var component = this;
+                                click: {
+                                    component: 'section',
+                                    class: 'satus-section--card',
+                                    on: {
+                                        render: function () {
+                                            var component = this;
 
-                                    satus.search('', skeleton, function (results) {
-                                        var new_skeleton = {
-                                            component: 'section',
-                                            class: 'satus-section--card'
-                                        };
+                                            satus.search('', skeleton, function (results) {
+                                                for (var key in results) {
+                                                    var result = results[key],
+                                                        value = satus.storage.get(key);
 
-                                        for (var key in results) {
-                                            var result = results[key],
-                                                value = satus.storage.get(key);
+                                                    if (satus.isset(value) && value !== result.value) {
+                                                        satus.render(result, component);
+                                                    }
+                                                }
+                                            });
 
-                                            if (satus.isset(value) && value !== result.value) {
-                                                new_skeleton[key] = result;
-                                            }
+                                            document.querySelector('.satus-modal__scrim').click();
                                         }
-
-                                        skeleton.layers.rendered.path.push(new_skeleton);
-                                        skeleton.layers.rendered.open();
-
-                                        document.querySelector('.satus-modal__scrim').click();
-                                    });
+                                    }
                                 }
                             },
 
@@ -281,2068 +283,2067 @@ var skeleton = {
                         settings: {
                             component: 'button',
                             on: {
-                                click: function () {
-                                    skeleton.layers.rendered.path.push({
-                                        section_1: {
-                                            component: 'section',
-                                            class: 'satus-section--card',
-
-                                            developer_options: {
-                                                component: 'button',
-                                                on: {
-                                                    click: {
-                                                        custom_js_section_label: {
-                                                            component: 'span',
-                                                            class: 'satus-section--label',
-                                                            text: 'customJs'
-                                                        },
-                                                        custom_js_section: {
-                                                            component: 'section',
-                                                            class: 'satus-section--card',
-                                                            custom_js: {
-                                                                component: 'input',
-                                                                attr: {
-                                                                    type: 'text'
-                                                                },
-                                                                on: {
-                                                                    render: function () {
-                                                                        this.value = satus.storage.get('custom_js') || '';
-                                                                    },
-                                                                    input: function () {
-                                                                        satus.storage.set('custom_js', this.value);
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        custom_css_section_label: {
-                                                            component: 'span',
-                                                            class: 'satus-section--label',
-                                                            text: 'customCss'
-                                                        },
-                                                        custom_css_section: {
-                                                            component: 'section',
-                                                            class: 'satus-section--card',
-                                                            custom_css: {
-                                                                component: 'input',
-                                                                attr: {
-                                                                    type: 'text'
-                                                                },
-                                                                on: {
-                                                                    render: function () {
-                                                                        this.value = satus.storage.get('custom_css') || '';
-                                                                    },
-                                                                    input: function () {
-                                                                        satus.storage.set('custom_css', this.value);
-                                                                    }
-                                                                }
-                                                            }
-                                                        },
-                                                        google_api_key_section_label: {
-                                                            component: 'span',
-                                                            class: 'satus-section--label',
-                                                            text: 'googleApiKey'
-                                                        },
-                                                        google_api_key_section: {
-                                                            component: 'section',
-                                                            class: 'satus-section--card',
-                                                            google_api_key: {
-                                                                component: 'input',
-                                                                attr: {
-                                                                    type: 'text'
-                                                                },
-                                                                on: {
-                                                                    render: function () {
-                                                                        this.value = typeof satus.storage.get('google-api-key') === 'string' && satus.storage.get('google-api-key').length > 0 ? satus.storage.get('google-api-key') : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
-                                                                    },
-                                                                    input: function () {
-                                                                        satus.storage.set('google-api-key', typeof satus.storage.get('google-api-key') === 'string' && satus.storage.get('google-api-key').length > 0 ? satus.storage.get('google-api-key') : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA');
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-
-                                                svg: {
-                                                    component: 'svg',
-                                                    attr: {
-                                                        viewBox: '0 0 24 24',
-                                                        fill: 'currentColor'
-                                                    },
-
-                                                    path: {
-                                                        component: 'path',
-                                                        attr: {
-                                                            d: 'M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'
-                                                        }
-                                                    }
-                                                },
-                                                label: {
-                                                    component: 'span',
-                                                    text: 'developerOptions'
-                                                }
-                                            },
+                                click: {
+                                    section_1: {
+                                        component: 'section',
+                                        class: 'satus-section--card',
+                                        on: {
+                                            render: function () {
+                                                document.querySelector('.satus-modal__scrim').click();
+                                            }
                                         },
 
-                                        section_2: {
-                                            component: 'section',
-                                            class: 'satus-section--card',
+                                        developer_options: {
+                                            component: 'button',
+                                            on: {
+                                                click: {
+                                                    custom_js_section_label: {
+                                                        component: 'span',
+                                                        class: 'satus-section--label',
+                                                        text: 'customJs'
+                                                    },
+                                                    custom_js_section: {
+                                                        component: 'section',
+                                                        class: 'satus-section--card',
+                                                        custom_js: {
+                                                            component: 'input',
+                                                            attr: {
+                                                                type: 'text'
+                                                            },
+                                                            on: {
+                                                                render: function () {
+                                                                    this.value = satus.storage.get('custom_js') || '';
+                                                                },
+                                                                input: function () {
+                                                                    satus.storage.set('custom_js', this.value);
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    custom_css_section_label: {
+                                                        component: 'span',
+                                                        class: 'satus-section--label',
+                                                        text: 'customCss'
+                                                    },
+                                                    custom_css_section: {
+                                                        component: 'section',
+                                                        class: 'satus-section--card',
+                                                        custom_css: {
+                                                            component: 'input',
+                                                            attr: {
+                                                                type: 'text'
+                                                            },
+                                                            on: {
+                                                                render: function () {
+                                                                    this.value = satus.storage.get('custom_css') || '';
+                                                                },
+                                                                input: function () {
+                                                                    satus.storage.set('custom_css', this.value);
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    google_api_key_section_label: {
+                                                        component: 'span',
+                                                        class: 'satus-section--label',
+                                                        text: 'googleApiKey'
+                                                    },
+                                                    google_api_key_section: {
+                                                        component: 'section',
+                                                        class: 'satus-section--card',
+                                                        google_api_key: {
+                                                            component: 'input',
+                                                            attr: {
+                                                                type: 'text'
+                                                            },
+                                                            on: {
+                                                                render: function () {
+                                                                    this.value = typeof satus.storage.get('google-api-key') === 'string' && satus.storage.get('google-api-key').length > 0 ? satus.storage.get('google-api-key') : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
+                                                                },
+                                                                input: function () {
+                                                                    satus.storage.set('google-api-key', typeof satus.storage.get('google-api-key') === 'string' && satus.storage.get('google-api-key').length > 0 ? satus.storage.get('google-api-key') : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA');
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
 
-                                            appearance: {
-                                                component: 'button',
-                                                on: {
-                                                    click: {
-                                                        section_label_1: {
-                                                            component: 'span',
-                                                            class: 'satus-section--label',
-                                                            text: 'general'
+                                            svg: {
+                                                component: 'svg',
+                                                attr: {
+                                                    viewBox: '0 0 24 24',
+                                                    fill: 'currentColor'
+                                                },
+
+                                                path: {
+                                                    component: 'path',
+                                                    attr: {
+                                                        d: 'M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'
+                                                    }
+                                                }
+                                            },
+                                            label: {
+                                                component: 'span',
+                                                text: 'developerOptions'
+                                            }
+                                        },
+                                    },
+
+                                    section_2: {
+                                        component: 'section',
+                                        class: 'satus-section--card',
+
+                                        appearance: {
+                                            component: 'button',
+                                            on: {
+                                                click: {
+                                                    section_label_1: {
+                                                        component: 'span',
+                                                        class: 'satus-section--label',
+                                                        text: 'general'
+                                                    },
+                                                    section_1: {
+                                                        component: 'section',
+                                                        class: 'satus-section--card',
+                                                        header: {
+                                                            component: 'button',
+                                                            text: 'header',
+                                                            on: {
+                                                                click: {
+                                                                    section: {
+                                                                        component: 'section',
+                                                                        class: 'satus-section--card',
+
+                                                                        title_version: {
+                                                                            component: 'switch',
+                                                                            text: 'version'
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
                                                         },
-                                                        section_1: {
-                                                            component: 'section',
-                                                            class: 'satus-section--card',
-                                                            header: {
-                                                                component: 'button',
-                                                                text: 'header',
-                                                                on: {
-                                                                    click: {
+                                                        home: {
+                                                            component: 'button',
+                                                            text: 'home',
+                                                            on: {
+                                                                click: {
+                                                                    section_1: {
+                                                                        component: 'section',
+                                                                        class: 'satus-section--card',
+
+                                                                        improvedtube_home: {
+                                                                            component: 'select',
+                                                                            text: 'style',
+                                                                            options: [{
+                                                                                text: 'bubbles',
+                                                                                value: 'bubbles'
+                                                                            }, {
+                                                                                text: 'list',
+                                                                                value: 'list'
+                                                                            }]
+                                                                        }
+                                                                    },
+                                                                    section_label_2: {
+                                                                        component: 'span',
+                                                                        class: 'satus-section--label',
+                                                                        text: 'categories'
+                                                                    },
+                                                                    section_2: {
+                                                                        component: 'section',
+                                                                        class: 'satus-section--card',
+
+                                                                        it_general: {
+                                                                            component: 'switch',
+                                                                            text: 'general',
+                                                                            value: true
+                                                                        },
+                                                                        it_appearance: {
+                                                                            component: 'switch',
+                                                                            text: 'appearance',
+                                                                            value: true
+                                                                        },
+                                                                        it_themes: {
+                                                                            component: 'switch',
+                                                                            text: 'themes',
+                                                                            value: true
+                                                                        },
+                                                                        it_player: {
+                                                                            component: 'switch',
+                                                                            text: 'player',
+                                                                            value: true
+                                                                        },
+                                                                        it_playlist: {
+                                                                            component: 'switch',
+                                                                            text: 'playlist',
+                                                                            value: true
+                                                                        },
+                                                                        it_channel: {
+                                                                            component: 'switch',
+                                                                            text: 'channel',
+                                                                            value: true
+                                                                        },
+                                                                        it_shortcuts: {
+                                                                            component: 'switch',
+                                                                            text: 'shortcuts',
+                                                                            value: true
+                                                                        },
+                                                                        it_mixer: {
+                                                                            component: 'switch',
+                                                                            text: 'mixer',
+                                                                            value: true
+                                                                        },
+                                                                        it_analyzer: {
+                                                                            component: 'switch',
+                                                                            text: 'analyzer',
+                                                                            value: true
+                                                                        },
+                                                                        it_blacklist: {
+                                                                            component: 'switch',
+                                                                            text: 'blacklist',
+                                                                            value: true
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    section_label_2: {
+                                                        component: 'span',
+                                                        class: 'satus-section--label',
+                                                        text: 'icons'
+                                                    },
+                                                    section_2: {
+                                                        component: 'section',
+                                                        class: 'satus-section--card',
+
+                                                        improvedtube_youtube_icon: {
+                                                            text: 'improvedtubeIconOnYoutube',
+                                                            component: 'select',
+                                                            options: [{
+                                                                text: 'disabled',
+                                                                value: 'disabled'
+                                                            }, {
+                                                                text: 'youtubeHeaderLeft',
+                                                                value: 'header_left'
+                                                            }, {
+                                                                text: 'youtubeHeaderRight',
+                                                                value: 'header_right'
+                                                            }, {
+                                                                text: 'sidebar',
+                                                                value: 'sidebar'
+                                                            }, {
+                                                                text: 'draggable',
+                                                                value: 'draggable'
+                                                            }, {
+                                                                text: 'belowPlayer',
+                                                                value: 'below_player'
+                                                            }]
+                                                        },
+                                                        improvedtube_browser_icon: {
+                                                            text: 'improvedtubeIconInBrowser',
+                                                            component: 'select',
+
+                                                            options: [{
+                                                                text: 'onlyActiveOnYoutube',
+                                                                value: 'youtube'
+                                                            }, {
+                                                                text: 'alwaysActive',
+                                                                value: 'always'
+                                                            }]
+                                                        }
+                                                    }
+                                                }
+                                            },
+
+                                            svg: {
+                                                component: 'svg',
+                                                attr: {
+                                                    viewBox: '0 0 24 24',
+                                                    fill: 'currentColor'
+                                                },
+
+                                                path: {
+                                                    component: 'path',
+                                                    attr: {
+                                                        d: 'M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z'
+                                                    }
+                                                }
+                                            },
+                                            label: {
+                                                component: 'span',
+                                                text: 'appearance'
+                                            }
+                                        },
+                                        languages: {
+                                            component: 'button',
+
+                                            on: {
+                                                click: {
+                                                    section: {
+                                                        component: 'section',
+                                                        class: 'satus-section--card',
+
+                                                        language: {
+                                                            text: 'improvedtubeLanguage',
+                                                            component: 'select',
+                                                            on: {
+                                                                change: function (name, value) {
+                                                                    satus.memory.set('locale', {});
+
+                                                                    satus.locale(function () {
+                                                                        document.querySelector('.satus-main__container').innerHTML = '';
+
+                                                                        document.querySelector('.satus-header__title').innerText = satus.locale.getMessage('languages');
+                                                                        document.querySelector('#search').placeholder = satus.locale.getMessage('search');
+
+                                                                        satus.render(document.querySelector('.satus-main__container'), skeleton.main.section.settings.section.languages);
+                                                                    });
+                                                                }
+                                                            },
+                                                            options: [{
+                                                                value: 'en',
+                                                                text: 'English'
+                                                            }, {
+                                                                value: 'ko',
+                                                                text: '한국어'
+                                                            }, {
+                                                                value: 'es',
+                                                                text: 'Español (España)'
+                                                            }, {
+                                                                value: 'ru',
+                                                                text: 'Русский'
+                                                            }, {
+                                                                value: 'de',
+                                                                text: 'Deutsch'
+                                                            }, {
+                                                                value: 'zh_TW',
+                                                                text: '中文 (繁體)'
+                                                            }, {
+                                                                value: 'pt_PT',
+                                                                text: 'Português'
+                                                            }, {
+                                                                value: 'pt_BR',
+                                                                text: 'Português (Brasil)'
+                                                            }, {
+                                                                value: 'zh_CN',
+                                                                text: '中文 (简体)'
+                                                            }, {
+                                                                value: 'fr',
+                                                                text: 'Français'
+                                                            }, {
+                                                                value: 'ja',
+                                                                text: '日本語'
+                                                            }, {
+                                                                value: 'tr',
+                                                                text: 'Türkçe'
+                                                            }, {
+                                                                value: 'tr',
+                                                                text: 'Italiano'
+                                                            }, {
+                                                                value: 'nl',
+                                                                text: 'Nederlands'
+                                                            }, {
+                                                                value: 'ar',
+                                                                text: 'العربية'
+                                                            }, {
+                                                                value: 'id',
+                                                                text: 'Bahasa Indonesia'
+                                                            }, {
+                                                                value: 'nb',
+                                                                text: 'Norsk'
+                                                            }, {
+                                                                value: 'nb_NO',
+                                                                text: 'Norsk (Bokmål)'
+                                                            }, {
+                                                                value: 'el',
+                                                                text: 'Ελληνικά'
+                                                            }, {
+                                                                value: 'bn',
+                                                                text: 'বাংলা'
+                                                            }, {
+                                                                value: 'hin',
+                                                                text: 'हिन्दी'
+                                                            }, {
+                                                                value: 'sk',
+                                                                text: 'Slovenčina'
+                                                            }, {
+                                                                value: 'pl',
+                                                                text: 'Polski'
+                                                            }]
+                                                        },
+                                                        youtube_language: {
+                                                            text: 'youtubeLanguage',
+                                                            component: 'select',
+                                                            options: [{
+                                                                    value: 'default',
+                                                                    text: 'default'
+                                                                },
+                                                                {
+                                                                    value: "en",
+                                                                    text: "English"
+                                                                }, {
+                                                                    value: "es",
+                                                                    text: "Español (España)"
+                                                                }, {
+                                                                    value: "es-419",
+                                                                    text: "Español (Latinoamérica)"
+                                                                }, {
+                                                                    value: "es-US",
+                                                                    text: "Español (US)"
+                                                                }, {
+                                                                    value: "ru",
+                                                                    text: "Русский"
+                                                                }, {
+                                                                    value: "de",
+                                                                    text: "Deutsch"
+                                                                }, {
+                                                                    value: "pt-PT",
+                                                                    text: "Português"
+                                                                }, {
+                                                                    value: "pt",
+                                                                    text: "Português (Brasil)"
+                                                                }, {
+                                                                    value: "fr",
+                                                                    text: "Français"
+                                                                }, {
+                                                                    value: "pl",
+                                                                    text: "Polski"
+                                                                }, {
+                                                                    value: "ja",
+                                                                    text: "日本語"
+                                                                }, {
+                                                                    value: "af",
+                                                                    text: "Afrikaans"
+                                                                }, {
+                                                                    value: "az",
+                                                                    text: "Azərbaycan"
+                                                                }, {
+                                                                    value: "id",
+                                                                    text: "Bahasa Indonesia"
+                                                                }, {
+                                                                    value: "ms",
+                                                                    text: "Bahasa Malaysia"
+                                                                }, {
+                                                                    value: "bs",
+                                                                    text: "Bosanski"
+                                                                }, {
+                                                                    value: "ca",
+                                                                    text: "Català"
+                                                                }, {
+                                                                    value: "cs",
+                                                                    text: "Čeština"
+                                                                }, {
+                                                                    value: "da",
+                                                                    text: "Dansk"
+                                                                }, {
+                                                                    value: "et",
+                                                                    text: "Eesti"
+                                                                }, {
+                                                                    value: "eu",
+                                                                    text: "Euskara"
+                                                                }, {
+                                                                    value: "fil",
+                                                                    text: "Filipino"
+                                                                }, {
+                                                                    value: "fr-CA",
+                                                                    text: "Français (Canada)"
+                                                                }, {
+                                                                    value: "gl",
+                                                                    text: "Galego"
+                                                                }, {
+                                                                    value: "hr",
+                                                                    text: "Hrvatski"
+                                                                }, {
+                                                                    value: "zu",
+                                                                    text: "IsiZulu"
+                                                                }, {
+                                                                    value: "is",
+                                                                    text: "Íslenska"
+                                                                }, {
+                                                                    value: "it",
+                                                                    text: "Italiano"
+                                                                }, {
+                                                                    value: "sw",
+                                                                    text: "Kiswahili"
+                                                                }, {
+                                                                    value: "lv",
+                                                                    text: "Latviešu valoda"
+                                                                }, {
+                                                                    value: "lt",
+                                                                    text: "Lietuvių"
+                                                                }, {
+                                                                    value: "hu",
+                                                                    text: "Magyar"
+                                                                }, {
+                                                                    value: "nl",
+                                                                    text: "Nederlands"
+                                                                }, {
+                                                                    value: "no",
+                                                                    text: "Norsk"
+                                                                }, {
+                                                                    value: "uz",
+                                                                    text: "O‘zbek"
+                                                                }, {
+                                                                    value: "ro",
+                                                                    text: "Română"
+                                                                }, {
+                                                                    value: "sq",
+                                                                    text: "Shqip"
+                                                                }, {
+                                                                    value: "sk",
+                                                                    text: "Slovenčina"
+                                                                }, {
+                                                                    value: "sl",
+                                                                    text: "Slovenščina"
+                                                                }, {
+                                                                    value: "sr-Latn",
+                                                                    text: "Srpski"
+                                                                }, {
+                                                                    value: "fi",
+                                                                    text: "Suomi"
+                                                                }, {
+                                                                    value: "sv",
+                                                                    text: "Svenska"
+                                                                }, {
+                                                                    value: "vi",
+                                                                    text: "Tiếng Việt"
+                                                                }, {
+                                                                    value: "tr",
+                                                                    text: "Türkçe"
+                                                                }, {
+                                                                    value: "be",
+                                                                    text: "Беларуская"
+                                                                }, {
+                                                                    value: "bg",
+                                                                    text: "Български"
+                                                                }, {
+                                                                    value: "ky",
+                                                                    text: "Кыргызча"
+                                                                }, {
+                                                                    value: "kk",
+                                                                    text: "Қазақ Тілі"
+                                                                }, {
+                                                                    value: "mk",
+                                                                    text: "Македонски"
+                                                                }, {
+                                                                    value: "mn",
+                                                                    text: "Монгол"
+                                                                }, {
+                                                                    value: "sr",
+                                                                    text: "Српски"
+                                                                }, {
+                                                                    value: "uk",
+                                                                    text: "Українська"
+                                                                }, {
+                                                                    value: "el",
+                                                                    text: "Ελληνικά"
+                                                                }, {
+                                                                    value: "hy",
+                                                                    text: "Հայերեն"
+                                                                }, {
+                                                                    value: "iw",
+                                                                    text: "עברית"
+                                                                }, {
+                                                                    value: "ur",
+                                                                    text: "اردو"
+                                                                }, {
+                                                                    value: "ar",
+                                                                    text: "العربية"
+                                                                }, {
+                                                                    value: "fa",
+                                                                    text: "فارسی"
+                                                                }, {
+                                                                    value: "ne",
+                                                                    text: "नेपाली"
+                                                                }, {
+                                                                    value: "mr",
+                                                                    text: "मराठी"
+                                                                }, {
+                                                                    value: "hi",
+                                                                    text: "हिन्दी"
+                                                                }, {
+                                                                    value: "bn",
+                                                                    text: "বাংলা"
+                                                                }, {
+                                                                    value: "pa",
+                                                                    text: "ਪੰਜਾਬੀ"
+                                                                }, {
+                                                                    value: "gu",
+                                                                    text: "ગુજરાતી"
+                                                                }, {
+                                                                    value: "ta",
+                                                                    text: "தமிழ்"
+                                                                }, {
+                                                                    value: "te",
+                                                                    text: "తెలుగు"
+                                                                }, {
+                                                                    value: "kn",
+                                                                    text: "ಕನ್ನಡ"
+                                                                }, {
+                                                                    value: "ml",
+                                                                    text: "മലയാളം"
+                                                                }, {
+                                                                    value: "si",
+                                                                    text: "සිංහල"
+                                                                }, {
+                                                                    value: "th",
+                                                                    text: "ภาษาไทย"
+                                                                }, {
+                                                                    value: "lo",
+                                                                    text: "ລາວ"
+                                                                }, {
+                                                                    value: "my",
+                                                                    text: "ဗမာ"
+                                                                }, {
+                                                                    value: "ka",
+                                                                    text: "ქართული"
+                                                                }, {
+                                                                    value: "am",
+                                                                    text: "አማርኛ"
+                                                                }, {
+                                                                    value: "km",
+                                                                    text: "ខ្មែរ"
+                                                                }, {
+                                                                    value: "zh-CN",
+                                                                    text: "中文 (简体)"
+                                                                }, {
+                                                                    value: "zh-TW",
+                                                                    text: "中文 (繁體)"
+                                                                }, {
+                                                                    value: "zh-HK",
+                                                                    text: "中文 (香港)"
+                                                                }, {
+                                                                    value: "ko",
+                                                                    text: "한국어"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            },
+
+                                            svg: {
+                                                component: 'svg',
+                                                attr: {
+                                                    viewBox: '0 0 24 24',
+                                                    fill: 'currentColor'
+                                                },
+
+                                                path: {
+                                                    component: 'path',
+                                                    attr: {
+                                                        d: 'M12.9 15l-2.6-2.4c1.8-2 3-4.2 3.8-6.6H17V4h-7V2H8v2H1v2h11.2c-.7 2-1.8 3.8-3.2 5.3-1-1-1.7-2.1-2.3-3.3h-2c.7 1.6 1.7 3.2 3 4.6l-5.1 5L4 19l5-5 3.1 3.1.8-2zm5.6-5h-2L12 22h2l1.1-3H20l1.1 3h2l-4.5-12zm-2.6 7l1.6-4.3 1.6 4.3H16z'
+                                                    }
+                                                }
+                                            },
+                                            label: {
+                                                component: 'span',
+                                                text: 'languages'
+                                            }
+                                        },
+                                        backup_and_reset: {
+                                            component: 'button',
+
+                                            on: {
+                                                click: {
+                                                    section: {
+                                                        component: 'section',
+                                                        class: 'satus-section--card',
+
+                                                        import_settings: {
+                                                            component: 'button',
+                                                            text: 'importSettings',
+                                                            on: {
+                                                                click: function () {
+                                                                    if (location.href.indexOf('/popup.html?action=import') !== -1) {
+                                                                        importData();
+                                                                    } else {
+                                                                        chrome.tabs.create({
+                                                                            url: 'popup.html?action=import'
+                                                                        });
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        export_settings: {
+                                                            component: 'button',
+                                                            text: 'exportSettings',
+
+                                                            on: {
+                                                                click: function () {
+                                                                    if (location.href.indexOf('/index.html?action=export') !== -1) {
+                                                                        exportData();
+                                                                    } else {
+                                                                        chrome.tabs.create({
+                                                                            url: 'index.html?action=export'
+                                                                        });
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        reset_all_settings: {
+                                                            component: 'button',
+                                                            text: 'resetAllSettings',
+                                                            on: {
+                                                                click: function () {
+                                                                    satus.render({
+                                                                        component: 'modal',
+                                                                        class: 'satus-modal--confirm',
+
+                                                                        message: {
+                                                                            component: 'span',
+                                                                            text: 'thisWillResetAllSettings'
+                                                                        },
                                                                         section: {
                                                                             component: 'section',
-                                                                            class: 'satus-section--card',
+                                                                            class: 'controls',
 
-                                                                            title_version: {
-                                                                                component: 'switch',
-                                                                                text: 'version'
+                                                                            cancel: {
+                                                                                component: 'button',
+                                                                                text: 'cancel',
+                                                                                onclick: function () {
+                                                                                    var scrim = document.querySelectorAll('.satus-modal__scrim');
+
+                                                                                    scrim[scrim.length - 1].click();
+                                                                                }
+                                                                            },
+                                                                            accept: {
+                                                                                component: 'button',
+                                                                                text: 'accept',
+                                                                                onclick: function () {
+                                                                                    var scrim = document.querySelectorAll('.satus-modal__scrim');
+
+                                                                                    satus.storage.clear();
+
+                                                                                    location.reload();
+
+                                                                                    scrim[scrim.length - 1].click();
+                                                                                }
                                                                             }
                                                                         }
-                                                                    }
+                                                                    });
                                                                 }
-                                                            },
-                                                            home: {
-                                                                component: 'button',
-                                                                text: 'home',
-                                                                on: {
-                                                                    click: {
-                                                                        section_1: {
-                                                                            component: 'section',
-                                                                            class: 'satus-section--card',
+                                                            }
+                                                        },
+                                                        delete_youtube_cookies: {
+                                                            component: 'button',
+                                                            text: 'deleteYoutubeCookies',
 
-                                                                            improvedtube_home: {
-                                                                                component: 'select',
-                                                                                text: 'style',
-                                                                                options: [{
-                                                                                    text: 'bubbles',
-                                                                                    value: 'bubbles'
-                                                                                }, {
-                                                                                    text: 'list',
-                                                                                    value: 'list'
-                                                                                }]
-                                                                            }
-                                                                        },
-                                                                        section_label_2: {
+                                                            on: {
+                                                                click: function () {
+                                                                    satus.render({
+                                                                        component: 'modal',
+                                                                        class: 'satus-modal--confirm',
+
+                                                                        message: {
                                                                             component: 'span',
-                                                                            class: 'satus-section--label',
-                                                                            text: 'categories'
+                                                                            text: 'thisWillRemoveAllYouTubeCookies',
+                                                                            style: {
+                                                                                'width': '100%',
+                                                                                'opacity': '.8'
+                                                                            }
                                                                         },
-                                                                        section_2: {
+                                                                        section: {
                                                                             component: 'section',
-                                                                            class: 'satus-section--card',
+                                                                            class: 'controls',
+                                                                            style: {
+                                                                                'justify-content': 'flex-end',
+                                                                                'display': 'flex'
+                                                                            },
 
-                                                                            it_general: {
-                                                                                component: 'switch',
-                                                                                text: 'general',
-                                                                                value: true
+                                                                            cancel: {
+                                                                                component: 'button',
+                                                                                text: 'cancel',
+                                                                                on: {
+                                                                                    click: function () {
+                                                                                        var scrim = document.querySelectorAll('.satus-modal__scrim');
+
+                                                                                        scrim[scrim.length - 1].click();
+                                                                                    }
+                                                                                }
                                                                             },
-                                                                            it_appearance: {
-                                                                                component: 'switch',
-                                                                                text: 'appearance',
-                                                                                value: true
-                                                                            },
-                                                                            it_themes: {
-                                                                                component: 'switch',
-                                                                                text: 'themes',
-                                                                                value: true
-                                                                            },
-                                                                            it_player: {
-                                                                                component: 'switch',
-                                                                                text: 'player',
-                                                                                value: true
-                                                                            },
-                                                                            it_playlist: {
-                                                                                component: 'switch',
-                                                                                text: 'playlist',
-                                                                                value: true
-                                                                            },
-                                                                            it_channel: {
-                                                                                component: 'switch',
-                                                                                text: 'channel',
-                                                                                value: true
-                                                                            },
-                                                                            it_shortcuts: {
-                                                                                component: 'switch',
-                                                                                text: 'shortcuts',
-                                                                                value: true
-                                                                            },
-                                                                            it_mixer: {
-                                                                                component: 'switch',
-                                                                                text: 'mixer',
-                                                                                value: true
-                                                                            },
-                                                                            it_analyzer: {
-                                                                                component: 'switch',
-                                                                                text: 'analyzer',
-                                                                                value: true
-                                                                            },
-                                                                            it_blacklist: {
-                                                                                component: 'switch',
-                                                                                text: 'blacklist',
-                                                                                value: true
+                                                                            accept: {
+                                                                                component: 'button',
+                                                                                text: 'accept',
+                                                                                on: {
+                                                                                    click: function () {
+                                                                                        var scrim = document.querySelectorAll('.satus-modal__scrim');
+
+                                                                                        chrome.tabs.query({}, function (tabs) {
+                                                                                            for (var i = 0, l = tabs.length; i < l; i++) {
+                                                                                                if (tabs[i].hasOwnProperty('url')) {
+                                                                                                    chrome.tabs.sendMessage(tabs[i].id, {
+                                                                                                        name: 'delete_youtube_cookies'
+                                                                                                    });
+                                                                                                }
+                                                                                            }
+                                                                                        });
+
+                                                                                        scrim[scrim.length - 1].click();
+                                                                                    }
+                                                                                }
                                                                             }
                                                                         }
-                                                                    }
+                                                                    });
                                                                 }
                                                             }
-                                                        },
-                                                        section_label_2: {
-                                                            component: 'span',
-                                                            class: 'satus-section--label',
-                                                            text: 'icons'
-                                                        },
-                                                        section_2: {
-                                                            component: 'section',
-                                                            class: 'satus-section--card',
-
-                                                            improvedtube_youtube_icon: {
-                                                                text: 'improvedtubeIconOnYoutube',
-                                                                component: 'select',
-                                                                options: [{
-                                                                    text: 'disabled',
-                                                                    value: 'disabled'
-                                                                }, {
-                                                                    text: 'youtubeHeaderLeft',
-                                                                    value: 'header_left'
-                                                                }, {
-                                                                    text: 'youtubeHeaderRight',
-                                                                    value: 'header_right'
-                                                                }, {
-                                                                    text: 'sidebar',
-                                                                    value: 'sidebar'
-                                                                }, {
-                                                                    text: 'draggable',
-                                                                    value: 'draggable'
-                                                                }, {
-                                                                    text: 'belowPlayer',
-                                                                    value: 'below_player'
-                                                                }]
-                                                            },
-                                                            improvedtube_browser_icon: {
-                                                                text: 'improvedtubeIconInBrowser',
-                                                                component: 'select',
-
-                                                                options: [{
-                                                                    text: 'onlyActiveOnYoutube',
-                                                                    value: 'youtube'
-                                                                }, {
-                                                                    text: 'alwaysActive',
-                                                                    value: 'always'
-                                                                }]
-                                                            }
                                                         }
                                                     }
-                                                },
-
-                                                svg: {
-                                                    component: 'svg',
-                                                    attr: {
-                                                        viewBox: '0 0 24 24',
-                                                        fill: 'currentColor'
-                                                    },
-
-                                                    path: {
-                                                        component: 'path',
-                                                        attr: {
-                                                            d: 'M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z'
-                                                        }
-                                                    }
-                                                },
-                                                label: {
-                                                    component: 'span',
-                                                    text: 'appearance'
                                                 }
                                             },
-                                            languages: {
-                                                component: 'button',
 
-                                                on: {
-                                                    click: {
-                                                        section: {
-                                                            component: 'section',
-                                                            class: 'satus-section--card',
+                                            svg: {
+                                                component: 'svg',
+                                                attr: {
+                                                    viewBox: '0 0 24 24',
+                                                    fill: 'currentColor'
+                                                },
 
-                                                            language: {
-                                                                text: 'improvedtubeLanguage',
-                                                                component: 'select',
-                                                                on: {
-                                                                    change: function (name, value) {
-                                                                        satus.memory.set('locale', {});
+                                                path: {
+                                                    component: 'path',
+                                                    attr: {
+                                                        d: 'M13.3 3A9 9 0 0 0 4 12H2.2c-.5 0-.7.5-.3.8l2.7 2.8c.2.2.6.2.8 0L8 12.8c.4-.3.1-.8-.3-.8H6a7 7 0 1 1 2.7 5.5 1 1 0 0 0-1.3.1 1 1 0 0 0 0 1.5A9 9 0 0 0 22 11.7C22 7 18 3.1 13.4 3zm-.6 5c-.4 0-.7.3-.7.8v3.6c0 .4.2.7.5.9l3.1 1.8c.4.2.8.1 1-.2.2-.4.1-.8-.2-1l-3-1.8V8.7c0-.4-.2-.7-.7-.7z'
+                                                    }
+                                                }
+                                            },
+                                            label: {
+                                                component: 'span',
+                                                text: 'backupAndReset'
+                                            }
+                                        },
+                                        date_and_time: {
+                                            component: 'button',
 
-                                                                        satus.locale(function () {
-                                                                            document.querySelector('.satus-main__container').innerHTML = '';
+                                            on: {
+                                                click: {
+                                                    section: {
+                                                        component: 'section',
+                                                        class: 'satus-section--card',
 
-                                                                            document.querySelector('.satus-header__title').innerText = satus.locale.getMessage('languages');
-                                                                            document.querySelector('#search').placeholder = satus.locale.getMessage('search');
+                                                        use_24_hour_format: {
+                                                            component: 'switch',
+                                                            text: 'use24HourFormat',
+                                                            value: true
+                                                        }
+                                                    }
+                                                }
+                                            },
 
-                                                                            satus.render(document.querySelector('.satus-main__container'), skeleton.main.section.settings.section.languages);
-                                                                        });
-                                                                    }
+                                            svg: {
+                                                component: 'svg',
+                                                attr: {
+                                                    viewBox: '0 0 24 24',
+                                                    fill: 'currentColor'
+                                                },
+
+                                                path: {
+                                                    component: 'path',
+                                                    attr: {
+                                                        d: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z'
+                                                    }
+                                                }
+                                            },
+                                            label: {
+                                                component: 'span',
+                                                text: 'dateAndTime'
+                                            }
+                                        },
+                                        location: {
+                                            component: 'button',
+
+                                            on: {
+                                                click: {
+                                                    section: {
+                                                        component: 'section',
+                                                        class: 'satus-section--card',
+
+                                                        default_content_country: {
+                                                            component: 'select',
+                                                            text: 'defaultContentCountry',
+
+                                                            options: [{
+                                                                    text: "default",
+                                                                    value: "default"
                                                                 },
-                                                                options: [{
-                                                                    value: 'en',
-                                                                    text: 'English'
-                                                                }, {
-                                                                    value: 'ko',
-                                                                    text: '한국어'
-                                                                }, {
-                                                                    value: 'es',
-                                                                    text: 'Español (España)'
-                                                                }, {
-                                                                    value: 'ru',
-                                                                    text: 'Русский'
-                                                                }, {
-                                                                    value: 'de',
-                                                                    text: 'Deutsch'
-                                                                }, {
-                                                                    value: 'zh_TW',
-                                                                    text: '中文 (繁體)'
-                                                                }, {
-                                                                    value: 'pt_PT',
-                                                                    text: 'Português'
-                                                                }, {
-                                                                    value: 'pt_BR',
-                                                                    text: 'Português (Brasil)'
-                                                                }, {
-                                                                    value: 'zh_CN',
-                                                                    text: '中文 (简体)'
-                                                                }, {
-                                                                    value: 'fr',
-                                                                    text: 'Français'
-                                                                }, {
-                                                                    value: 'ja',
-                                                                    text: '日本語'
-                                                                }, {
-                                                                    value: 'tr',
-                                                                    text: 'Türkçe'
-                                                                }, {
-                                                                    value: 'tr',
-                                                                    text: 'Italiano'
-                                                                }, {
-                                                                    value: 'nl',
-                                                                    text: 'Nederlands'
-                                                                }, {
-                                                                    value: 'ar',
-                                                                    text: 'العربية'
-                                                                }, {
-                                                                    value: 'id',
-                                                                    text: 'Bahasa Indonesia'
-                                                                }, {
-                                                                    value: 'nb',
-                                                                    text: 'Norsk'
-                                                                }, {
-                                                                    value: 'nb_NO',
-                                                                    text: 'Norsk (Bokmål)'
-                                                                }, {
-                                                                    value: 'el',
-                                                                    text: 'Ελληνικά'
-                                                                }, {
-                                                                    value: 'bn',
-                                                                    text: 'বাংলা'
-                                                                }, {
-                                                                    value: 'hin',
-                                                                    text: 'हिन्दी'
-                                                                }, {
-                                                                    value: 'sk',
-                                                                    text: 'Slovenčina'
-                                                                }, {
-                                                                    value: 'pl',
-                                                                    text: 'Polski'
-                                                                }]
-                                                            },
-                                                            youtube_language: {
-                                                                text: 'youtubeLanguage',
-                                                                component: 'select',
-                                                                options: [{
-                                                                        value: 'default',
-                                                                        text: 'default'
-                                                                    },
-                                                                    {
-                                                                        value: "en",
-                                                                        text: "English"
-                                                                    }, {
-                                                                        value: "es",
-                                                                        text: "Español (España)"
-                                                                    }, {
-                                                                        value: "es-419",
-                                                                        text: "Español (Latinoamérica)"
-                                                                    }, {
-                                                                        value: "es-US",
-                                                                        text: "Español (US)"
-                                                                    }, {
-                                                                        value: "ru",
-                                                                        text: "Русский"
-                                                                    }, {
-                                                                        value: "de",
-                                                                        text: "Deutsch"
-                                                                    }, {
-                                                                        value: "pt-PT",
-                                                                        text: "Português"
-                                                                    }, {
-                                                                        value: "pt",
-                                                                        text: "Português (Brasil)"
-                                                                    }, {
-                                                                        value: "fr",
-                                                                        text: "Français"
-                                                                    }, {
-                                                                        value: "pl",
-                                                                        text: "Polski"
-                                                                    }, {
-                                                                        value: "ja",
-                                                                        text: "日本語"
-                                                                    }, {
-                                                                        value: "af",
-                                                                        text: "Afrikaans"
-                                                                    }, {
-                                                                        value: "az",
-                                                                        text: "Azərbaycan"
-                                                                    }, {
-                                                                        value: "id",
-                                                                        text: "Bahasa Indonesia"
-                                                                    }, {
-                                                                        value: "ms",
-                                                                        text: "Bahasa Malaysia"
-                                                                    }, {
-                                                                        value: "bs",
-                                                                        text: "Bosanski"
-                                                                    }, {
-                                                                        value: "ca",
-                                                                        text: "Català"
-                                                                    }, {
-                                                                        value: "cs",
-                                                                        text: "Čeština"
-                                                                    }, {
-                                                                        value: "da",
-                                                                        text: "Dansk"
-                                                                    }, {
-                                                                        value: "et",
-                                                                        text: "Eesti"
-                                                                    }, {
-                                                                        value: "eu",
-                                                                        text: "Euskara"
-                                                                    }, {
-                                                                        value: "fil",
-                                                                        text: "Filipino"
-                                                                    }, {
-                                                                        value: "fr-CA",
-                                                                        text: "Français (Canada)"
-                                                                    }, {
-                                                                        value: "gl",
-                                                                        text: "Galego"
-                                                                    }, {
-                                                                        value: "hr",
-                                                                        text: "Hrvatski"
-                                                                    }, {
-                                                                        value: "zu",
-                                                                        text: "IsiZulu"
-                                                                    }, {
-                                                                        value: "is",
-                                                                        text: "Íslenska"
-                                                                    }, {
-                                                                        value: "it",
-                                                                        text: "Italiano"
-                                                                    }, {
-                                                                        value: "sw",
-                                                                        text: "Kiswahili"
-                                                                    }, {
-                                                                        value: "lv",
-                                                                        text: "Latviešu valoda"
-                                                                    }, {
-                                                                        value: "lt",
-                                                                        text: "Lietuvių"
-                                                                    }, {
-                                                                        value: "hu",
-                                                                        text: "Magyar"
-                                                                    }, {
-                                                                        value: "nl",
-                                                                        text: "Nederlands"
-                                                                    }, {
-                                                                        value: "no",
-                                                                        text: "Norsk"
-                                                                    }, {
-                                                                        value: "uz",
-                                                                        text: "O‘zbek"
-                                                                    }, {
-                                                                        value: "ro",
-                                                                        text: "Română"
-                                                                    }, {
-                                                                        value: "sq",
-                                                                        text: "Shqip"
-                                                                    }, {
-                                                                        value: "sk",
-                                                                        text: "Slovenčina"
-                                                                    }, {
-                                                                        value: "sl",
-                                                                        text: "Slovenščina"
-                                                                    }, {
-                                                                        value: "sr-Latn",
-                                                                        text: "Srpski"
-                                                                    }, {
-                                                                        value: "fi",
-                                                                        text: "Suomi"
-                                                                    }, {
-                                                                        value: "sv",
-                                                                        text: "Svenska"
-                                                                    }, {
-                                                                        value: "vi",
-                                                                        text: "Tiếng Việt"
-                                                                    }, {
-                                                                        value: "tr",
-                                                                        text: "Türkçe"
-                                                                    }, {
-                                                                        value: "be",
-                                                                        text: "Беларуская"
-                                                                    }, {
-                                                                        value: "bg",
-                                                                        text: "Български"
-                                                                    }, {
-                                                                        value: "ky",
-                                                                        text: "Кыргызча"
-                                                                    }, {
-                                                                        value: "kk",
-                                                                        text: "Қазақ Тілі"
-                                                                    }, {
-                                                                        value: "mk",
-                                                                        text: "Македонски"
-                                                                    }, {
-                                                                        value: "mn",
-                                                                        text: "Монгол"
-                                                                    }, {
-                                                                        value: "sr",
-                                                                        text: "Српски"
-                                                                    }, {
-                                                                        value: "uk",
-                                                                        text: "Українська"
-                                                                    }, {
-                                                                        value: "el",
-                                                                        text: "Ελληνικά"
-                                                                    }, {
-                                                                        value: "hy",
-                                                                        text: "Հայերեն"
-                                                                    }, {
-                                                                        value: "iw",
-                                                                        text: "עברית"
-                                                                    }, {
-                                                                        value: "ur",
-                                                                        text: "اردو"
-                                                                    }, {
-                                                                        value: "ar",
-                                                                        text: "العربية"
-                                                                    }, {
-                                                                        value: "fa",
-                                                                        text: "فارسی"
-                                                                    }, {
-                                                                        value: "ne",
-                                                                        text: "नेपाली"
-                                                                    }, {
-                                                                        value: "mr",
-                                                                        text: "मराठी"
-                                                                    }, {
-                                                                        value: "hi",
-                                                                        text: "हिन्दी"
-                                                                    }, {
-                                                                        value: "bn",
-                                                                        text: "বাংলা"
-                                                                    }, {
-                                                                        value: "pa",
-                                                                        text: "ਪੰਜਾਬੀ"
-                                                                    }, {
-                                                                        value: "gu",
-                                                                        text: "ગુજરાતી"
-                                                                    }, {
-                                                                        value: "ta",
-                                                                        text: "தமிழ்"
-                                                                    }, {
-                                                                        value: "te",
-                                                                        text: "తెలుగు"
-                                                                    }, {
-                                                                        value: "kn",
-                                                                        text: "ಕನ್ನಡ"
-                                                                    }, {
-                                                                        value: "ml",
-                                                                        text: "മലയാളം"
-                                                                    }, {
-                                                                        value: "si",
-                                                                        text: "සිංහල"
-                                                                    }, {
-                                                                        value: "th",
-                                                                        text: "ภาษาไทย"
-                                                                    }, {
-                                                                        value: "lo",
-                                                                        text: "ລາວ"
-                                                                    }, {
-                                                                        value: "my",
-                                                                        text: "ဗမာ"
-                                                                    }, {
-                                                                        value: "ka",
-                                                                        text: "ქართული"
-                                                                    }, {
-                                                                        value: "am",
-                                                                        text: "አማርኛ"
-                                                                    }, {
-                                                                        value: "km",
-                                                                        text: "ខ្មែរ"
-                                                                    }, {
-                                                                        value: "zh-CN",
-                                                                        text: "中文 (简体)"
-                                                                    }, {
-                                                                        value: "zh-TW",
-                                                                        text: "中文 (繁體)"
-                                                                    }, {
-                                                                        value: "zh-HK",
-                                                                        text: "中文 (香港)"
-                                                                    }, {
-                                                                        value: "ko",
-                                                                        text: "한국어"
-                                                                    }
-                                                                ]
-                                                            }
+                                                                {
+                                                                    text: "Afghanistan",
+                                                                    value: "AF"
+                                                                },
+                                                                {
+                                                                    text: "Albania",
+                                                                    value: "AL"
+                                                                },
+                                                                {
+                                                                    text: "Algeria",
+                                                                    value: "DZ"
+                                                                },
+                                                                {
+                                                                    text: "American Samoa",
+                                                                    value: "AS"
+                                                                },
+                                                                {
+                                                                    text: "Andorra",
+                                                                    value: "AD"
+                                                                },
+                                                                {
+                                                                    text: "Angola",
+                                                                    value: "AO"
+                                                                },
+                                                                {
+                                                                    text: "Anguilla",
+                                                                    value: "AI"
+                                                                },
+                                                                {
+                                                                    text: "Antarctica",
+                                                                    value: "AQ"
+                                                                },
+                                                                {
+                                                                    text: "Antigua and Barbuda",
+                                                                    value: "AG"
+                                                                },
+                                                                {
+                                                                    text: "Argentina",
+                                                                    value: "AR"
+                                                                },
+                                                                {
+                                                                    text: "Armenia",
+                                                                    value: "AM"
+                                                                },
+                                                                {
+                                                                    text: "Aruba",
+                                                                    value: "AW"
+                                                                },
+                                                                {
+                                                                    text: "Australia",
+                                                                    value: "AU"
+                                                                },
+                                                                {
+                                                                    text: "Austria",
+                                                                    value: "AT"
+                                                                },
+                                                                {
+                                                                    text: "Azerbaijan",
+                                                                    value: "AZ"
+                                                                },
+                                                                {
+                                                                    text: "Bahrain",
+                                                                    value: "BH"
+                                                                },
+                                                                {
+                                                                    text: "Bailiwick of Guernsey",
+                                                                    value: "GG"
+                                                                },
+                                                                {
+                                                                    text: "Bangladesh",
+                                                                    value: "BD"
+                                                                },
+                                                                {
+                                                                    text: "Barbados",
+                                                                    value: "BB"
+                                                                },
+                                                                {
+                                                                    text: "Belarus",
+                                                                    value: "BY"
+                                                                },
+                                                                {
+                                                                    text: "Belgium",
+                                                                    value: "BE"
+                                                                },
+                                                                {
+                                                                    text: "Belize",
+                                                                    value: "BZ"
+                                                                },
+                                                                {
+                                                                    text: "Benin",
+                                                                    value: "BJ"
+                                                                },
+                                                                {
+                                                                    text: "Bermuda",
+                                                                    value: "BM"
+                                                                },
+                                                                {
+                                                                    text: "Bhutan",
+                                                                    value: "BT"
+                                                                },
+                                                                {
+                                                                    text: "Bolivia",
+                                                                    value: "BO"
+                                                                },
+                                                                {
+                                                                    text: "Bonaire",
+                                                                    value: "BQ"
+                                                                },
+                                                                {
+                                                                    text: "Bosnia and Herzegovina",
+                                                                    value: "BA"
+                                                                },
+                                                                {
+                                                                    text: "Botswana",
+                                                                    value: "BW"
+                                                                },
+                                                                {
+                                                                    text: "Bouvet Island",
+                                                                    value: "BV"
+                                                                },
+                                                                {
+                                                                    text: "Brazil",
+                                                                    value: "BR"
+                                                                },
+                                                                {
+                                                                    text: "British Indian Ocean Territory",
+                                                                    value: "IO"
+                                                                },
+                                                                {
+                                                                    text: "British Virgin Islands",
+                                                                    value: "VG"
+                                                                },
+                                                                {
+                                                                    text: "Brunei",
+                                                                    value: "BN"
+                                                                },
+                                                                {
+                                                                    text: "Bulgaria",
+                                                                    value: "BG"
+                                                                },
+                                                                {
+                                                                    text: "Burkina Faso",
+                                                                    value: "BF"
+                                                                },
+                                                                {
+                                                                    text: "Burundi",
+                                                                    value: "BI"
+                                                                },
+                                                                {
+                                                                    text: "Cambodia",
+                                                                    value: "KH"
+                                                                },
+                                                                {
+                                                                    text: "Cameroon",
+                                                                    value: "CM"
+                                                                },
+                                                                {
+                                                                    text: "Canada",
+                                                                    value: "CA"
+                                                                },
+                                                                {
+                                                                    text: "Cape Verde",
+                                                                    value: "CV"
+                                                                },
+                                                                {
+                                                                    text: "Cayman Islands",
+                                                                    value: "KY"
+                                                                },
+                                                                {
+                                                                    text: "Central African Republic",
+                                                                    value: "CF"
+                                                                },
+                                                                {
+                                                                    text: "Chad",
+                                                                    value: "TD"
+                                                                },
+                                                                {
+                                                                    text: "Chile",
+                                                                    value: "CL"
+                                                                },
+                                                                {
+                                                                    text: "China",
+                                                                    value: "CN"
+                                                                },
+                                                                {
+                                                                    text: "Christmas Island",
+                                                                    value: "CX"
+                                                                },
+                                                                {
+                                                                    text: "Cocos (Keeling) Islands",
+                                                                    value: "CC"
+                                                                },
+                                                                {
+                                                                    text: "Collectivity of Saint Martin",
+                                                                    value: "MF"
+                                                                },
+                                                                {
+                                                                    text: "Colombia",
+                                                                    value: "CO"
+                                                                },
+                                                                {
+                                                                    text: "Comoros",
+                                                                    value: "KM"
+                                                                },
+                                                                {
+                                                                    text: "Cook Islands",
+                                                                    value: "CK"
+                                                                },
+                                                                {
+                                                                    text: "Costa Rica",
+                                                                    value: "CR"
+                                                                },
+                                                                {
+                                                                    text: "Croatia",
+                                                                    value: "HR"
+                                                                },
+                                                                {
+                                                                    text: "Cuba",
+                                                                    value: "CU"
+                                                                },
+                                                                {
+                                                                    text: "Curaçao",
+                                                                    value: "CW"
+                                                                },
+                                                                {
+                                                                    text: "Cyprus",
+                                                                    value: "CY"
+                                                                },
+                                                                {
+                                                                    text: "Czech Republic",
+                                                                    value: "CZ"
+                                                                },
+                                                                {
+                                                                    text: "Democratic Republic of the Congo",
+                                                                    value: "CD"
+                                                                },
+                                                                {
+                                                                    text: "Denmark",
+                                                                    value: "DK"
+                                                                },
+                                                                {
+                                                                    text: "Djibouti",
+                                                                    value: "DJ"
+                                                                },
+                                                                {
+                                                                    text: "Dominica",
+                                                                    value: "DM"
+                                                                },
+                                                                {
+                                                                    text: "Dominican Republic",
+                                                                    value: "DO"
+                                                                },
+                                                                {
+                                                                    text: "East Timor",
+                                                                    value: "TL"
+                                                                },
+                                                                {
+                                                                    text: "Ecuador",
+                                                                    value: "EC"
+                                                                },
+                                                                {
+                                                                    text: "Egypt",
+                                                                    value: "EG"
+                                                                },
+                                                                {
+                                                                    text: "El Salvador",
+                                                                    value: "SV"
+                                                                },
+                                                                {
+                                                                    text: "Equatorial Guinea",
+                                                                    value: "GQ"
+                                                                },
+                                                                {
+                                                                    text: "Eritrea",
+                                                                    value: "ER"
+                                                                },
+                                                                {
+                                                                    text: "Estonia",
+                                                                    value: "EE"
+                                                                },
+                                                                {
+                                                                    text: "Eswatini",
+                                                                    value: "SZ"
+                                                                },
+                                                                {
+                                                                    text: "Ethiopia",
+                                                                    value: "ET"
+                                                                },
+                                                                {
+                                                                    text: "Falkland Islands",
+                                                                    value: "FK"
+                                                                },
+                                                                {
+                                                                    text: "Faroe Islands",
+                                                                    value: "FO"
+                                                                },
+                                                                {
+                                                                    text: "Federated States of Micronesia",
+                                                                    value: "FM"
+                                                                },
+                                                                {
+                                                                    text: "Fiji",
+                                                                    value: "FJ"
+                                                                },
+                                                                {
+                                                                    text: "Finland",
+                                                                    value: "FI"
+                                                                },
+                                                                {
+                                                                    text: "France",
+                                                                    value: "FR"
+                                                                },
+                                                                {
+                                                                    text: "French Guiana",
+                                                                    value: "GF"
+                                                                },
+                                                                {
+                                                                    text: "French Polynesia",
+                                                                    value: "PF"
+                                                                },
+                                                                {
+                                                                    text: "French Southern and Antarctic Lands",
+                                                                    value: "TF"
+                                                                },
+                                                                {
+                                                                    text: "Gabon",
+                                                                    value: "GA"
+                                                                },
+                                                                {
+                                                                    text: "Georgia (country)",
+                                                                    value: "GE"
+                                                                },
+                                                                {
+                                                                    text: "Germany",
+                                                                    value: "DE"
+                                                                },
+                                                                {
+                                                                    text: "Ghana",
+                                                                    value: "GH"
+                                                                },
+                                                                {
+                                                                    text: "Gibraltar",
+                                                                    value: "GI"
+                                                                },
+                                                                {
+                                                                    text: "Greece",
+                                                                    value: "GR"
+                                                                },
+                                                                {
+                                                                    text: "Greenland",
+                                                                    value: "GL"
+                                                                },
+                                                                {
+                                                                    text: "Grenada",
+                                                                    value: "GD"
+                                                                },
+                                                                {
+                                                                    text: "Guadeloupe",
+                                                                    value: "GP"
+                                                                },
+                                                                {
+                                                                    text: "Guam",
+                                                                    value: "GU"
+                                                                },
+                                                                {
+                                                                    text: "Guatemala",
+                                                                    value: "GT"
+                                                                },
+                                                                {
+                                                                    text: "Guinea",
+                                                                    value: "GN"
+                                                                },
+                                                                {
+                                                                    text: "Guinea-Bissau",
+                                                                    value: "GW"
+                                                                },
+                                                                {
+                                                                    text: "Guyana",
+                                                                    value: "GY"
+                                                                },
+                                                                {
+                                                                    text: "Haiti",
+                                                                    value: "HT"
+                                                                },
+                                                                {
+                                                                    text: "Heard Island and McDonald Islands",
+                                                                    value: "HM"
+                                                                },
+                                                                {
+                                                                    text: "Holy See",
+                                                                    value: "VA"
+                                                                },
+                                                                {
+                                                                    text: "Honduras",
+                                                                    value: "HN"
+                                                                },
+                                                                {
+                                                                    text: "Hong Kong",
+                                                                    value: "HK"
+                                                                },
+                                                                {
+                                                                    text: "Hungary",
+                                                                    value: "HU"
+                                                                },
+                                                                {
+                                                                    text: "Iceland",
+                                                                    value: "IS"
+                                                                },
+                                                                {
+                                                                    text: "India",
+                                                                    value: "IN"
+                                                                },
+                                                                {
+                                                                    text: "Indonesia",
+                                                                    value: "ID"
+                                                                },
+                                                                {
+                                                                    text: "Iran",
+                                                                    value: "IR"
+                                                                },
+                                                                {
+                                                                    text: "Iraq",
+                                                                    value: "IQ"
+                                                                },
+                                                                {
+                                                                    text: "Isle of Man",
+                                                                    value: "IM"
+                                                                },
+                                                                {
+                                                                    text: "Israel",
+                                                                    value: "IL"
+                                                                },
+                                                                {
+                                                                    text: "Italy",
+                                                                    value: "IT"
+                                                                },
+                                                                {
+                                                                    text: "Ivory Coast",
+                                                                    value: "CI"
+                                                                },
+                                                                {
+                                                                    text: "Jamaica",
+                                                                    value: "JM"
+                                                                },
+                                                                {
+                                                                    text: "Japan",
+                                                                    value: "JP"
+                                                                },
+                                                                {
+                                                                    text: "Jersey",
+                                                                    value: "JE"
+                                                                },
+                                                                {
+                                                                    text: "Jordan",
+                                                                    value: "JO"
+                                                                },
+                                                                {
+                                                                    text: "Kazakhstan",
+                                                                    value: "KZ"
+                                                                },
+                                                                {
+                                                                    text: "Kenya",
+                                                                    value: "KE"
+                                                                },
+                                                                {
+                                                                    text: "Kiribati",
+                                                                    value: "KI"
+                                                                },
+                                                                {
+                                                                    text: "Kuwait",
+                                                                    value: "KW"
+                                                                },
+                                                                {
+                                                                    text: "Kyrgyzstan",
+                                                                    value: "KG"
+                                                                },
+                                                                {
+                                                                    text: "Laos",
+                                                                    value: "LA"
+                                                                },
+                                                                {
+                                                                    text: "Latvia",
+                                                                    value: "LV"
+                                                                },
+                                                                {
+                                                                    text: "Lebanon",
+                                                                    value: "LB"
+                                                                },
+                                                                {
+                                                                    text: "Lesotho",
+                                                                    value: "LS"
+                                                                },
+                                                                {
+                                                                    text: "Liberia",
+                                                                    value: "LR"
+                                                                },
+                                                                {
+                                                                    text: "Libya",
+                                                                    value: "LY"
+                                                                },
+                                                                {
+                                                                    text: "Liechtenstein",
+                                                                    value: "LI"
+                                                                },
+                                                                {
+                                                                    text: "Lithuania",
+                                                                    value: "LT"
+                                                                },
+                                                                {
+                                                                    text: "Luxembourg",
+                                                                    value: "LU"
+                                                                },
+                                                                {
+                                                                    text: "Macau",
+                                                                    value: "MO"
+                                                                },
+                                                                {
+                                                                    text: "Madagascar",
+                                                                    value: "MG"
+                                                                },
+                                                                {
+                                                                    text: "Malawi",
+                                                                    value: "MW"
+                                                                },
+                                                                {
+                                                                    text: "Malaysia",
+                                                                    value: "MY"
+                                                                },
+                                                                {
+                                                                    text: "Maldives",
+                                                                    value: "MV"
+                                                                },
+                                                                {
+                                                                    text: "Mali",
+                                                                    value: "ML"
+                                                                },
+                                                                {
+                                                                    text: "Malta",
+                                                                    value: "MT"
+                                                                },
+                                                                {
+                                                                    text: "Marshall Islands",
+                                                                    value: "MH"
+                                                                },
+                                                                {
+                                                                    text: "Martinique",
+                                                                    value: "MQ"
+                                                                },
+                                                                {
+                                                                    text: "Mauritania",
+                                                                    value: "MR"
+                                                                },
+                                                                {
+                                                                    text: "Mauritius",
+                                                                    value: "MU"
+                                                                },
+                                                                {
+                                                                    text: "Mayotte",
+                                                                    value: "YT"
+                                                                },
+                                                                {
+                                                                    text: "Mexico",
+                                                                    value: "MX"
+                                                                },
+                                                                {
+                                                                    text: "Moldova",
+                                                                    value: "MD"
+                                                                },
+                                                                {
+                                                                    text: "Monaco",
+                                                                    value: "MC"
+                                                                },
+                                                                {
+                                                                    text: "Mongolia",
+                                                                    value: "MN"
+                                                                },
+                                                                {
+                                                                    text: "Montenegro",
+                                                                    value: "ME"
+                                                                },
+                                                                {
+                                                                    text: "Montserrat",
+                                                                    value: "MS"
+                                                                },
+                                                                {
+                                                                    text: "Morocco",
+                                                                    value: "MA"
+                                                                },
+                                                                {
+                                                                    text: "Mozambique",
+                                                                    value: "MZ"
+                                                                },
+                                                                {
+                                                                    text: "Myanmar",
+                                                                    value: "MM"
+                                                                },
+                                                                {
+                                                                    text: "Namibia",
+                                                                    value: "NA"
+                                                                },
+                                                                {
+                                                                    text: "Nauru",
+                                                                    value: "NR"
+                                                                },
+                                                                {
+                                                                    text: "Nepal",
+                                                                    value: "NP"
+                                                                },
+                                                                {
+                                                                    text: "Netherlands",
+                                                                    value: "NL"
+                                                                },
+                                                                {
+                                                                    text: "New Caledonia",
+                                                                    value: "NC"
+                                                                },
+                                                                {
+                                                                    text: "New Zealand",
+                                                                    value: "NZ"
+                                                                },
+                                                                {
+                                                                    text: "Nicaragua",
+                                                                    value: "NI"
+                                                                },
+                                                                {
+                                                                    text: "Niger",
+                                                                    value: "NE"
+                                                                },
+                                                                {
+                                                                    text: "Nigeria",
+                                                                    value: "NG"
+                                                                },
+                                                                {
+                                                                    text: "Niue",
+                                                                    value: "NU"
+                                                                },
+                                                                {
+                                                                    text: "Norfolk Island",
+                                                                    value: "NF"
+                                                                },
+                                                                {
+                                                                    text: "North Korea",
+                                                                    value: "KP"
+                                                                },
+                                                                {
+                                                                    text: "North Macedonia",
+                                                                    value: "MK"
+                                                                },
+                                                                {
+                                                                    text: "Northern Mariana Islands",
+                                                                    value: "MP"
+                                                                },
+                                                                {
+                                                                    text: "Norway",
+                                                                    value: "NO"
+                                                                },
+                                                                {
+                                                                    text: "Oman",
+                                                                    value: "OM"
+                                                                },
+                                                                {
+                                                                    text: "Pakistan",
+                                                                    value: "PK"
+                                                                },
+                                                                {
+                                                                    text: "Palau",
+                                                                    value: "PW"
+                                                                },
+                                                                {
+                                                                    text: "Panama",
+                                                                    value: "PA"
+                                                                },
+                                                                {
+                                                                    text: "Papua New Guinea",
+                                                                    value: "PG"
+                                                                },
+                                                                {
+                                                                    text: "Paraguay",
+                                                                    value: "PY"
+                                                                },
+                                                                {
+                                                                    text: "Peru",
+                                                                    value: "PE"
+                                                                },
+                                                                {
+                                                                    text: "Philippines",
+                                                                    value: "PH"
+                                                                },
+                                                                {
+                                                                    text: "Pitcairn Islands",
+                                                                    value: "PN"
+                                                                },
+                                                                {
+                                                                    text: "Poland",
+                                                                    value: "PL"
+                                                                },
+                                                                {
+                                                                    text: "Portugal",
+                                                                    value: "PT"
+                                                                },
+                                                                {
+                                                                    text: "Puerto Rico",
+                                                                    value: "PR"
+                                                                },
+                                                                {
+                                                                    text: "Qatar",
+                                                                    value: "QA"
+                                                                },
+                                                                {
+                                                                    text: "Republic of Ireland",
+                                                                    value: "IE"
+                                                                },
+                                                                {
+                                                                    text: "Republic of the Congo",
+                                                                    value: "CG"
+                                                                },
+                                                                {
+                                                                    text: "Romania",
+                                                                    value: "RO"
+                                                                },
+                                                                {
+                                                                    text: "Russia",
+                                                                    value: "RU"
+                                                                },
+                                                                {
+                                                                    text: "Rwanda",
+                                                                    value: "RW"
+                                                                },
+                                                                {
+                                                                    text: "Réunion",
+                                                                    value: "RE"
+                                                                },
+                                                                {
+                                                                    text: "Saint Barthélemy",
+                                                                    value: "BL"
+                                                                },
+                                                                {
+                                                                    text: "Saint Helena",
+                                                                    value: "SH"
+                                                                },
+                                                                {
+                                                                    text: "Saint Kitts and Nevis",
+                                                                    value: "KN"
+                                                                },
+                                                                {
+                                                                    text: "Saint Lucia",
+                                                                    value: "LC"
+                                                                },
+                                                                {
+                                                                    text: "Saint Pierre and Miquelon",
+                                                                    value: "PM"
+                                                                },
+                                                                {
+                                                                    text: "Saint Vincent and the Grenadines",
+                                                                    value: "VC"
+                                                                },
+                                                                {
+                                                                    text: "Samoa",
+                                                                    value: "WS"
+                                                                },
+                                                                {
+                                                                    text: "San Marino",
+                                                                    value: "SM"
+                                                                },
+                                                                {
+                                                                    text: "Saudi Arabia",
+                                                                    value: "SA"
+                                                                },
+                                                                {
+                                                                    text: "Senegal",
+                                                                    value: "SN"
+                                                                },
+                                                                {
+                                                                    text: "Serbia",
+                                                                    value: "RS"
+                                                                },
+                                                                {
+                                                                    text: "Seychelles",
+                                                                    value: "SC"
+                                                                },
+                                                                {
+                                                                    text: "Sierra Leone",
+                                                                    value: "SL"
+                                                                },
+                                                                {
+                                                                    text: "Singapore",
+                                                                    value: "SG"
+                                                                },
+                                                                {
+                                                                    text: "Sint Maarten",
+                                                                    value: "SX"
+                                                                },
+                                                                {
+                                                                    text: "Slovakia",
+                                                                    value: "SK"
+                                                                },
+                                                                {
+                                                                    text: "Slovenia",
+                                                                    value: "SI"
+                                                                },
+                                                                {
+                                                                    text: "Solomon Islands",
+                                                                    value: "SB"
+                                                                },
+                                                                {
+                                                                    text: "Somalia",
+                                                                    value: "SO"
+                                                                },
+                                                                {
+                                                                    text: "South Africa",
+                                                                    value: "ZA"
+                                                                },
+                                                                {
+                                                                    text: "South Georgia and the South Sandwich Islands",
+                                                                    value: "GS"
+                                                                },
+                                                                {
+                                                                    text: "South Korea",
+                                                                    value: "KR"
+                                                                },
+                                                                {
+                                                                    text: "South Sudan",
+                                                                    value: "SS"
+                                                                },
+                                                                {
+                                                                    text: "Spain",
+                                                                    value: "ES"
+                                                                },
+                                                                {
+                                                                    text: "Sri Lanka",
+                                                                    value: "LK"
+                                                                },
+                                                                {
+                                                                    text: "State of Palestine",
+                                                                    value: "PS"
+                                                                },
+                                                                {
+                                                                    text: "Sudan",
+                                                                    value: "SD"
+                                                                },
+                                                                {
+                                                                    text: "Suriname",
+                                                                    value: "SR"
+                                                                },
+                                                                {
+                                                                    text: "Svalbard",
+                                                                    value: "SJ"
+                                                                },
+                                                                {
+                                                                    text: "Sweden",
+                                                                    value: "SE"
+                                                                },
+                                                                {
+                                                                    text: "Switzerland",
+                                                                    value: "CH"
+                                                                },
+                                                                {
+                                                                    text: "Syria",
+                                                                    value: "SY"
+                                                                },
+                                                                {
+                                                                    text: "São Tomé and Príncipe",
+                                                                    value: "ST"
+                                                                },
+                                                                {
+                                                                    text: "Taiwan",
+                                                                    value: "TW"
+                                                                },
+                                                                {
+                                                                    text: "Tajikistan",
+                                                                    value: "TJ"
+                                                                },
+                                                                {
+                                                                    text: "Tanzania",
+                                                                    value: "TZ"
+                                                                },
+                                                                {
+                                                                    text: "Thailand",
+                                                                    value: "TH"
+                                                                },
+                                                                {
+                                                                    text: "The Bahamas",
+                                                                    value: "BS"
+                                                                },
+                                                                {
+                                                                    text: "The Gambia",
+                                                                    value: "GM"
+                                                                },
+                                                                {
+                                                                    text: "Togo",
+                                                                    value: "TG"
+                                                                },
+                                                                {
+                                                                    text: "Tokelau",
+                                                                    value: "TK"
+                                                                },
+                                                                {
+                                                                    text: "Tonga",
+                                                                    value: "TO"
+                                                                },
+                                                                {
+                                                                    text: "Trinidad and Tobago",
+                                                                    value: "TT"
+                                                                },
+                                                                {
+                                                                    text: "Tunisia",
+                                                                    value: "TN"
+                                                                },
+                                                                {
+                                                                    text: "Turkey",
+                                                                    value: "TR"
+                                                                },
+                                                                {
+                                                                    text: "Turkmenistan",
+                                                                    value: "TM"
+                                                                },
+                                                                {
+                                                                    text: "Turks and Caicos Islands",
+                                                                    value: "TC"
+                                                                },
+                                                                {
+                                                                    text: "Tuvalu",
+                                                                    value: "TV"
+                                                                },
+                                                                {
+                                                                    text: "Uganda",
+                                                                    value: "UG"
+                                                                },
+                                                                {
+                                                                    text: "Ukraine",
+                                                                    value: "UA"
+                                                                },
+                                                                {
+                                                                    text: "United Arab Emirates",
+                                                                    value: "AE"
+                                                                },
+                                                                {
+                                                                    text: "United Kingdom",
+                                                                    value: "GB"
+                                                                },
+                                                                {
+                                                                    text: "United States Virgin Islands",
+                                                                    value: "VI"
+                                                                },
+                                                                {
+                                                                    text: "United States",
+                                                                    value: "UM"
+                                                                },
+                                                                {
+                                                                    text: "United States",
+                                                                    value: "US"
+                                                                },
+                                                                {
+                                                                    text: "Uruguay",
+                                                                    value: "UY"
+                                                                },
+                                                                {
+                                                                    text: "Uzbekistan",
+                                                                    value: "UZ"
+                                                                },
+                                                                {
+                                                                    text: "Vanuatu",
+                                                                    value: "VU"
+                                                                },
+                                                                {
+                                                                    text: "Venezuela",
+                                                                    value: "VE"
+                                                                },
+                                                                {
+                                                                    text: "Vietnam",
+                                                                    value: "VN"
+                                                                },
+                                                                {
+                                                                    text: "Wallis and Futuna",
+                                                                    value: "WF"
+                                                                },
+                                                                {
+                                                                    text: "Western Sahara",
+                                                                    value: "EH"
+                                                                },
+                                                                {
+                                                                    text: "Yemen",
+                                                                    value: "YE"
+                                                                },
+                                                                {
+                                                                    text: "Zambia",
+                                                                    value: "ZM"
+                                                                },
+                                                                {
+                                                                    text: "Zimbabwe",
+                                                                    value: "ZW"
+                                                                },
+                                                                {
+                                                                    text: "Åland Islands",
+                                                                    value: "AX"
+                                                                }
+                                                            ]
                                                         }
                                                     }
-                                                },
-
-                                                svg: {
-                                                    component: 'svg',
-                                                    attr: {
-                                                        viewBox: '0 0 24 24',
-                                                        fill: 'currentColor'
-                                                    },
-
-                                                    path: {
-                                                        component: 'path',
-                                                        attr: {
-                                                            d: 'M12.9 15l-2.6-2.4c1.8-2 3-4.2 3.8-6.6H17V4h-7V2H8v2H1v2h11.2c-.7 2-1.8 3.8-3.2 5.3-1-1-1.7-2.1-2.3-3.3h-2c.7 1.6 1.7 3.2 3 4.6l-5.1 5L4 19l5-5 3.1 3.1.8-2zm5.6-5h-2L12 22h2l1.1-3H20l1.1 3h2l-4.5-12zm-2.6 7l1.6-4.3 1.6 4.3H16z'
-                                                        }
-                                                    }
-                                                },
-                                                label: {
-                                                    component: 'span',
-                                                    text: 'languages'
                                                 }
                                             },
-                                            backup_and_reset: {
-                                                component: 'button',
 
-                                                on: {
-                                                    click: {
-                                                        section: {
-                                                            component: 'section',
-                                                            class: 'satus-section--card',
+                                            svg: {
+                                                component: 'svg',
+                                                attr: {
+                                                    viewBox: '0 0 24 24',
+                                                    fill: 'currentColor'
+                                                },
 
-                                                            import_settings: {
-                                                                component: 'button',
-                                                                text: 'importSettings',
-                                                                on: {
-                                                                    click: function () {
-                                                                        if (location.href.indexOf('/popup.html?action=import') !== -1) {
-                                                                            importData();
-                                                                        } else {
-                                                                            chrome.tabs.create({
-                                                                                url: 'popup.html?action=import'
-                                                                            });
+                                                circle: {
+                                                    component: 'circle',
+                                                    attr: {
+                                                        cx: 12,
+                                                        cy: 9,
+                                                        r: 2.5
+                                                    }
+                                                },
+                                                path: {
+                                                    component: 'path',
+                                                    attr: {
+                                                        d: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z'
+                                                    }
+                                                }
+                                            },
+                                            label: {
+                                                component: 'span',
+                                                text: 'location'
+                                            }
+                                        },
+                                        about: {
+                                            component: 'button',
+
+                                            on: {
+                                                click: {
+                                                    component: 'span',
+
+                                                    on: {
+                                                        render: function () {
+                                                            var component = this,
+                                                                manifest = chrome.runtime.getManifest(),
+                                                                user = satus.user(),
+                                                                skeleton_about = {
+                                                                    extension_section_label: {
+                                                                        component: 'span',
+                                                                        class: 'satus-section--label',
+                                                                        text: 'extension'
+                                                                    },
+                                                                    extension_section: {
+                                                                        component: 'section',
+                                                                        class: 'satus-section--card',
+
+                                                                        list: {
+                                                                            component: 'list',
+                                                                            items: [
+                                                                                ['version', manifest.version],
+                                                                                ['permissions', manifest.permissions.join(', ').replace('https://www.youtube.com/', 'YouTube')]
+                                                                            ]
                                                                         }
-                                                                    }
-                                                                }
-                                                            },
-                                                            export_settings: {
-                                                                component: 'button',
-                                                                text: 'exportSettings',
+                                                                    },
+                                                                    browser_section_label: {
+                                                                        component: 'span',
+                                                                        class: 'satus-section--label',
+                                                                        text: 'browser'
+                                                                    },
+                                                                    browser_section: {
+                                                                        component: 'section',
+                                                                        class: 'satus-section--card',
 
-                                                                on: {
-                                                                    click: function () {
-                                                                        if (location.href.indexOf('/index.html?action=export') !== -1) {
-                                                                            exportData();
-                                                                        } else {
-                                                                            chrome.tabs.create({
-                                                                                url: 'index.html?action=export'
-                                                                            });
-                                                                        }
-                                                                    }
-                                                                }
-                                                            },
-                                                            reset_all_settings: {
-                                                                component: 'button',
-                                                                text: 'resetAllSettings',
-                                                                on: {
-                                                                    click: function () {
-                                                                        satus.render({
-                                                                            component: 'modal',
-                                                                            class: 'satus-modal--confirm',
-
-                                                                            message: {
-                                                                                component: 'span',
-                                                                                text: 'thisWillResetAllSettings'
-                                                                            },
-                                                                            section: {
-                                                                                component: 'section',
-                                                                                class: 'controls',
-
-                                                                                cancel: {
-                                                                                    component: 'button',
-                                                                                    text: 'cancel',
-                                                                                    onclick: function () {
-                                                                                        var scrim = document.querySelectorAll('.satus-modal__scrim');
-
-                                                                                        scrim[scrim.length - 1].click();
-                                                                                    }
-                                                                                },
-                                                                                accept: {
-                                                                                    component: 'button',
-                                                                                    text: 'accept',
-                                                                                    onclick: function () {
-                                                                                        var scrim = document.querySelectorAll('.satus-modal__scrim');
-
-                                                                                        satus.storage.clear();
-
-                                                                                        location.reload();
-
-                                                                                        scrim[scrim.length - 1].click();
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                }
-                                                            },
-                                                            delete_youtube_cookies: {
-                                                                component: 'button',
-                                                                text: 'deleteYoutubeCookies',
-
-                                                                on: {
-                                                                    click: function () {
-                                                                        satus.render({
-                                                                            component: 'modal',
-                                                                            class: 'satus-modal--confirm',
-
-                                                                            message: {
-                                                                                component: 'span',
-                                                                                text: 'thisWillRemoveAllYouTubeCookies',
-                                                                                style: {
-                                                                                    'width': '100%',
-                                                                                    'opacity': '.8'
-                                                                                }
-                                                                            },
-                                                                            section: {
-                                                                                component: 'section',
-                                                                                class: 'controls',
-                                                                                style: {
-                                                                                    'justify-content': 'flex-end',
-                                                                                    'display': 'flex'
-                                                                                },
-
-                                                                                cancel: {
-                                                                                    component: 'button',
-                                                                                    text: 'cancel',
+                                                                        list: {
+                                                                            component: 'list',
+                                                                            items: [
+                                                                                ['name', user.browser.name],
+                                                                                ['version', user.browser.version],
+                                                                                ['platform', user.browser.platform],
+                                                                                ['videoFormats', {
+                                                                                    component: 'span',
                                                                                     on: {
-                                                                                        click: function () {
-                                                                                            var scrim = document.querySelectorAll('.satus-modal__scrim');
+                                                                                        render: function () {
+                                                                                            var formats = [];
 
-                                                                                            scrim[scrim.length - 1].click();
+                                                                                            for (var key in user.browser.video) {
+                                                                                                if (user.browser.video[key] !== false) {
+                                                                                                    formats.push(key);
+                                                                                                }
+                                                                                            }
+
+                                                                                            this.textContent = formats.join(', ');
                                                                                         }
                                                                                     }
-                                                                                },
-                                                                                accept: {
-                                                                                    component: 'button',
-                                                                                    text: 'accept',
+                                                                                }],
+                                                                                ['audioFormats', {
+                                                                                    component: 'span',
                                                                                     on: {
-                                                                                        click: function () {
-                                                                                            var scrim = document.querySelectorAll('.satus-modal__scrim');
+                                                                                        render: function () {
+                                                                                            var formats = [];
 
-                                                                                            chrome.tabs.query({}, function (tabs) {
-                                                                                                for (var i = 0, l = tabs.length; i < l; i++) {
-                                                                                                    if (tabs[i].hasOwnProperty('url')) {
-                                                                                                        chrome.tabs.sendMessage(tabs[i].id, {
-                                                                                                            name: 'delete_youtube_cookies'
-                                                                                                        });
-                                                                                                    }
+                                                                                            for (var key in user.browser.audio) {
+                                                                                                if (user.browser.audio[key] !== false) {
+                                                                                                    formats.push(key);
                                                                                                 }
-                                                                                            });
+                                                                                            }
 
-                                                                                            scrim[scrim.length - 1].click();
+                                                                                            this.textContent = formats.join(', ');
                                                                                         }
                                                                                     }
-                                                                                }
-                                                                            }
-                                                                        });
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                },
-
-                                                svg: {
-                                                    component: 'svg',
-                                                    attr: {
-                                                        viewBox: '0 0 24 24',
-                                                        fill: 'currentColor'
-                                                    },
-
-                                                    path: {
-                                                        component: 'path',
-                                                        attr: {
-                                                            d: 'M13.3 3A9 9 0 0 0 4 12H2.2c-.5 0-.7.5-.3.8l2.7 2.8c.2.2.6.2.8 0L8 12.8c.4-.3.1-.8-.3-.8H6a7 7 0 1 1 2.7 5.5 1 1 0 0 0-1.3.1 1 1 0 0 0 0 1.5A9 9 0 0 0 22 11.7C22 7 18 3.1 13.4 3zm-.6 5c-.4 0-.7.3-.7.8v3.6c0 .4.2.7.5.9l3.1 1.8c.4.2.8.1 1-.2.2-.4.1-.8-.2-1l-3-1.8V8.7c0-.4-.2-.7-.7-.7z'
-                                                        }
-                                                    }
-                                                },
-                                                label: {
-                                                    component: 'span',
-                                                    text: 'backupAndReset'
-                                                }
-                                            },
-                                            date_and_time: {
-                                                component: 'button',
-
-                                                on: {
-                                                    click: {
-                                                        section: {
-                                                            component: 'section',
-                                                            class: 'satus-section--card',
-
-                                                            use_24_hour_format: {
-                                                                component: 'switch',
-                                                                text: 'use24HourFormat',
-                                                                value: true
-                                                            }
-                                                        }
-                                                    }
-                                                },
-
-                                                svg: {
-                                                    component: 'svg',
-                                                    attr: {
-                                                        viewBox: '0 0 24 24',
-                                                        fill: 'currentColor'
-                                                    },
-
-                                                    path: {
-                                                        component: 'path',
-                                                        attr: {
-                                                            d: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z'
-                                                        }
-                                                    }
-                                                },
-                                                label: {
-                                                    component: 'span',
-                                                    text: 'dateAndTime'
-                                                }
-                                            },
-                                            location: {
-                                                component: 'button',
-
-                                                on: {
-                                                    click: {
-                                                        section: {
-                                                            component: 'section',
-                                                            class: 'satus-section--card',
-
-                                                            default_content_country: {
-                                                                component: 'select',
-                                                                text: 'defaultContentCountry',
-
-                                                                options: [{
-                                                                        text: "default",
-                                                                        value: "default"
-                                                                    },
-                                                                    {
-                                                                        text: "Afghanistan",
-                                                                        value: "AF"
-                                                                    },
-                                                                    {
-                                                                        text: "Albania",
-                                                                        value: "AL"
-                                                                    },
-                                                                    {
-                                                                        text: "Algeria",
-                                                                        value: "DZ"
-                                                                    },
-                                                                    {
-                                                                        text: "American Samoa",
-                                                                        value: "AS"
-                                                                    },
-                                                                    {
-                                                                        text: "Andorra",
-                                                                        value: "AD"
-                                                                    },
-                                                                    {
-                                                                        text: "Angola",
-                                                                        value: "AO"
-                                                                    },
-                                                                    {
-                                                                        text: "Anguilla",
-                                                                        value: "AI"
-                                                                    },
-                                                                    {
-                                                                        text: "Antarctica",
-                                                                        value: "AQ"
-                                                                    },
-                                                                    {
-                                                                        text: "Antigua and Barbuda",
-                                                                        value: "AG"
-                                                                    },
-                                                                    {
-                                                                        text: "Argentina",
-                                                                        value: "AR"
-                                                                    },
-                                                                    {
-                                                                        text: "Armenia",
-                                                                        value: "AM"
-                                                                    },
-                                                                    {
-                                                                        text: "Aruba",
-                                                                        value: "AW"
-                                                                    },
-                                                                    {
-                                                                        text: "Australia",
-                                                                        value: "AU"
-                                                                    },
-                                                                    {
-                                                                        text: "Austria",
-                                                                        value: "AT"
-                                                                    },
-                                                                    {
-                                                                        text: "Azerbaijan",
-                                                                        value: "AZ"
-                                                                    },
-                                                                    {
-                                                                        text: "Bahrain",
-                                                                        value: "BH"
-                                                                    },
-                                                                    {
-                                                                        text: "Bailiwick of Guernsey",
-                                                                        value: "GG"
-                                                                    },
-                                                                    {
-                                                                        text: "Bangladesh",
-                                                                        value: "BD"
-                                                                    },
-                                                                    {
-                                                                        text: "Barbados",
-                                                                        value: "BB"
-                                                                    },
-                                                                    {
-                                                                        text: "Belarus",
-                                                                        value: "BY"
-                                                                    },
-                                                                    {
-                                                                        text: "Belgium",
-                                                                        value: "BE"
-                                                                    },
-                                                                    {
-                                                                        text: "Belize",
-                                                                        value: "BZ"
-                                                                    },
-                                                                    {
-                                                                        text: "Benin",
-                                                                        value: "BJ"
-                                                                    },
-                                                                    {
-                                                                        text: "Bermuda",
-                                                                        value: "BM"
-                                                                    },
-                                                                    {
-                                                                        text: "Bhutan",
-                                                                        value: "BT"
-                                                                    },
-                                                                    {
-                                                                        text: "Bolivia",
-                                                                        value: "BO"
-                                                                    },
-                                                                    {
-                                                                        text: "Bonaire",
-                                                                        value: "BQ"
-                                                                    },
-                                                                    {
-                                                                        text: "Bosnia and Herzegovina",
-                                                                        value: "BA"
-                                                                    },
-                                                                    {
-                                                                        text: "Botswana",
-                                                                        value: "BW"
-                                                                    },
-                                                                    {
-                                                                        text: "Bouvet Island",
-                                                                        value: "BV"
-                                                                    },
-                                                                    {
-                                                                        text: "Brazil",
-                                                                        value: "BR"
-                                                                    },
-                                                                    {
-                                                                        text: "British Indian Ocean Territory",
-                                                                        value: "IO"
-                                                                    },
-                                                                    {
-                                                                        text: "British Virgin Islands",
-                                                                        value: "VG"
-                                                                    },
-                                                                    {
-                                                                        text: "Brunei",
-                                                                        value: "BN"
-                                                                    },
-                                                                    {
-                                                                        text: "Bulgaria",
-                                                                        value: "BG"
-                                                                    },
-                                                                    {
-                                                                        text: "Burkina Faso",
-                                                                        value: "BF"
-                                                                    },
-                                                                    {
-                                                                        text: "Burundi",
-                                                                        value: "BI"
-                                                                    },
-                                                                    {
-                                                                        text: "Cambodia",
-                                                                        value: "KH"
-                                                                    },
-                                                                    {
-                                                                        text: "Cameroon",
-                                                                        value: "CM"
-                                                                    },
-                                                                    {
-                                                                        text: "Canada",
-                                                                        value: "CA"
-                                                                    },
-                                                                    {
-                                                                        text: "Cape Verde",
-                                                                        value: "CV"
-                                                                    },
-                                                                    {
-                                                                        text: "Cayman Islands",
-                                                                        value: "KY"
-                                                                    },
-                                                                    {
-                                                                        text: "Central African Republic",
-                                                                        value: "CF"
-                                                                    },
-                                                                    {
-                                                                        text: "Chad",
-                                                                        value: "TD"
-                                                                    },
-                                                                    {
-                                                                        text: "Chile",
-                                                                        value: "CL"
-                                                                    },
-                                                                    {
-                                                                        text: "China",
-                                                                        value: "CN"
-                                                                    },
-                                                                    {
-                                                                        text: "Christmas Island",
-                                                                        value: "CX"
-                                                                    },
-                                                                    {
-                                                                        text: "Cocos (Keeling) Islands",
-                                                                        value: "CC"
-                                                                    },
-                                                                    {
-                                                                        text: "Collectivity of Saint Martin",
-                                                                        value: "MF"
-                                                                    },
-                                                                    {
-                                                                        text: "Colombia",
-                                                                        value: "CO"
-                                                                    },
-                                                                    {
-                                                                        text: "Comoros",
-                                                                        value: "KM"
-                                                                    },
-                                                                    {
-                                                                        text: "Cook Islands",
-                                                                        value: "CK"
-                                                                    },
-                                                                    {
-                                                                        text: "Costa Rica",
-                                                                        value: "CR"
-                                                                    },
-                                                                    {
-                                                                        text: "Croatia",
-                                                                        value: "HR"
-                                                                    },
-                                                                    {
-                                                                        text: "Cuba",
-                                                                        value: "CU"
-                                                                    },
-                                                                    {
-                                                                        text: "Curaçao",
-                                                                        value: "CW"
-                                                                    },
-                                                                    {
-                                                                        text: "Cyprus",
-                                                                        value: "CY"
-                                                                    },
-                                                                    {
-                                                                        text: "Czech Republic",
-                                                                        value: "CZ"
-                                                                    },
-                                                                    {
-                                                                        text: "Democratic Republic of the Congo",
-                                                                        value: "CD"
-                                                                    },
-                                                                    {
-                                                                        text: "Denmark",
-                                                                        value: "DK"
-                                                                    },
-                                                                    {
-                                                                        text: "Djibouti",
-                                                                        value: "DJ"
-                                                                    },
-                                                                    {
-                                                                        text: "Dominica",
-                                                                        value: "DM"
-                                                                    },
-                                                                    {
-                                                                        text: "Dominican Republic",
-                                                                        value: "DO"
-                                                                    },
-                                                                    {
-                                                                        text: "East Timor",
-                                                                        value: "TL"
-                                                                    },
-                                                                    {
-                                                                        text: "Ecuador",
-                                                                        value: "EC"
-                                                                    },
-                                                                    {
-                                                                        text: "Egypt",
-                                                                        value: "EG"
-                                                                    },
-                                                                    {
-                                                                        text: "El Salvador",
-                                                                        value: "SV"
-                                                                    },
-                                                                    {
-                                                                        text: "Equatorial Guinea",
-                                                                        value: "GQ"
-                                                                    },
-                                                                    {
-                                                                        text: "Eritrea",
-                                                                        value: "ER"
-                                                                    },
-                                                                    {
-                                                                        text: "Estonia",
-                                                                        value: "EE"
-                                                                    },
-                                                                    {
-                                                                        text: "Eswatini",
-                                                                        value: "SZ"
-                                                                    },
-                                                                    {
-                                                                        text: "Ethiopia",
-                                                                        value: "ET"
-                                                                    },
-                                                                    {
-                                                                        text: "Falkland Islands",
-                                                                        value: "FK"
-                                                                    },
-                                                                    {
-                                                                        text: "Faroe Islands",
-                                                                        value: "FO"
-                                                                    },
-                                                                    {
-                                                                        text: "Federated States of Micronesia",
-                                                                        value: "FM"
-                                                                    },
-                                                                    {
-                                                                        text: "Fiji",
-                                                                        value: "FJ"
-                                                                    },
-                                                                    {
-                                                                        text: "Finland",
-                                                                        value: "FI"
-                                                                    },
-                                                                    {
-                                                                        text: "France",
-                                                                        value: "FR"
-                                                                    },
-                                                                    {
-                                                                        text: "French Guiana",
-                                                                        value: "GF"
-                                                                    },
-                                                                    {
-                                                                        text: "French Polynesia",
-                                                                        value: "PF"
-                                                                    },
-                                                                    {
-                                                                        text: "French Southern and Antarctic Lands",
-                                                                        value: "TF"
-                                                                    },
-                                                                    {
-                                                                        text: "Gabon",
-                                                                        value: "GA"
-                                                                    },
-                                                                    {
-                                                                        text: "Georgia (country)",
-                                                                        value: "GE"
-                                                                    },
-                                                                    {
-                                                                        text: "Germany",
-                                                                        value: "DE"
-                                                                    },
-                                                                    {
-                                                                        text: "Ghana",
-                                                                        value: "GH"
-                                                                    },
-                                                                    {
-                                                                        text: "Gibraltar",
-                                                                        value: "GI"
-                                                                    },
-                                                                    {
-                                                                        text: "Greece",
-                                                                        value: "GR"
-                                                                    },
-                                                                    {
-                                                                        text: "Greenland",
-                                                                        value: "GL"
-                                                                    },
-                                                                    {
-                                                                        text: "Grenada",
-                                                                        value: "GD"
-                                                                    },
-                                                                    {
-                                                                        text: "Guadeloupe",
-                                                                        value: "GP"
-                                                                    },
-                                                                    {
-                                                                        text: "Guam",
-                                                                        value: "GU"
-                                                                    },
-                                                                    {
-                                                                        text: "Guatemala",
-                                                                        value: "GT"
-                                                                    },
-                                                                    {
-                                                                        text: "Guinea",
-                                                                        value: "GN"
-                                                                    },
-                                                                    {
-                                                                        text: "Guinea-Bissau",
-                                                                        value: "GW"
-                                                                    },
-                                                                    {
-                                                                        text: "Guyana",
-                                                                        value: "GY"
-                                                                    },
-                                                                    {
-                                                                        text: "Haiti",
-                                                                        value: "HT"
-                                                                    },
-                                                                    {
-                                                                        text: "Heard Island and McDonald Islands",
-                                                                        value: "HM"
-                                                                    },
-                                                                    {
-                                                                        text: "Holy See",
-                                                                        value: "VA"
-                                                                    },
-                                                                    {
-                                                                        text: "Honduras",
-                                                                        value: "HN"
-                                                                    },
-                                                                    {
-                                                                        text: "Hong Kong",
-                                                                        value: "HK"
-                                                                    },
-                                                                    {
-                                                                        text: "Hungary",
-                                                                        value: "HU"
-                                                                    },
-                                                                    {
-                                                                        text: "Iceland",
-                                                                        value: "IS"
-                                                                    },
-                                                                    {
-                                                                        text: "India",
-                                                                        value: "IN"
-                                                                    },
-                                                                    {
-                                                                        text: "Indonesia",
-                                                                        value: "ID"
-                                                                    },
-                                                                    {
-                                                                        text: "Iran",
-                                                                        value: "IR"
-                                                                    },
-                                                                    {
-                                                                        text: "Iraq",
-                                                                        value: "IQ"
-                                                                    },
-                                                                    {
-                                                                        text: "Isle of Man",
-                                                                        value: "IM"
-                                                                    },
-                                                                    {
-                                                                        text: "Israel",
-                                                                        value: "IL"
-                                                                    },
-                                                                    {
-                                                                        text: "Italy",
-                                                                        value: "IT"
-                                                                    },
-                                                                    {
-                                                                        text: "Ivory Coast",
-                                                                        value: "CI"
-                                                                    },
-                                                                    {
-                                                                        text: "Jamaica",
-                                                                        value: "JM"
-                                                                    },
-                                                                    {
-                                                                        text: "Japan",
-                                                                        value: "JP"
-                                                                    },
-                                                                    {
-                                                                        text: "Jersey",
-                                                                        value: "JE"
-                                                                    },
-                                                                    {
-                                                                        text: "Jordan",
-                                                                        value: "JO"
-                                                                    },
-                                                                    {
-                                                                        text: "Kazakhstan",
-                                                                        value: "KZ"
-                                                                    },
-                                                                    {
-                                                                        text: "Kenya",
-                                                                        value: "KE"
-                                                                    },
-                                                                    {
-                                                                        text: "Kiribati",
-                                                                        value: "KI"
-                                                                    },
-                                                                    {
-                                                                        text: "Kuwait",
-                                                                        value: "KW"
-                                                                    },
-                                                                    {
-                                                                        text: "Kyrgyzstan",
-                                                                        value: "KG"
-                                                                    },
-                                                                    {
-                                                                        text: "Laos",
-                                                                        value: "LA"
-                                                                    },
-                                                                    {
-                                                                        text: "Latvia",
-                                                                        value: "LV"
-                                                                    },
-                                                                    {
-                                                                        text: "Lebanon",
-                                                                        value: "LB"
-                                                                    },
-                                                                    {
-                                                                        text: "Lesotho",
-                                                                        value: "LS"
-                                                                    },
-                                                                    {
-                                                                        text: "Liberia",
-                                                                        value: "LR"
-                                                                    },
-                                                                    {
-                                                                        text: "Libya",
-                                                                        value: "LY"
-                                                                    },
-                                                                    {
-                                                                        text: "Liechtenstein",
-                                                                        value: "LI"
-                                                                    },
-                                                                    {
-                                                                        text: "Lithuania",
-                                                                        value: "LT"
-                                                                    },
-                                                                    {
-                                                                        text: "Luxembourg",
-                                                                        value: "LU"
-                                                                    },
-                                                                    {
-                                                                        text: "Macau",
-                                                                        value: "MO"
-                                                                    },
-                                                                    {
-                                                                        text: "Madagascar",
-                                                                        value: "MG"
-                                                                    },
-                                                                    {
-                                                                        text: "Malawi",
-                                                                        value: "MW"
-                                                                    },
-                                                                    {
-                                                                        text: "Malaysia",
-                                                                        value: "MY"
-                                                                    },
-                                                                    {
-                                                                        text: "Maldives",
-                                                                        value: "MV"
-                                                                    },
-                                                                    {
-                                                                        text: "Mali",
-                                                                        value: "ML"
-                                                                    },
-                                                                    {
-                                                                        text: "Malta",
-                                                                        value: "MT"
-                                                                    },
-                                                                    {
-                                                                        text: "Marshall Islands",
-                                                                        value: "MH"
-                                                                    },
-                                                                    {
-                                                                        text: "Martinique",
-                                                                        value: "MQ"
-                                                                    },
-                                                                    {
-                                                                        text: "Mauritania",
-                                                                        value: "MR"
-                                                                    },
-                                                                    {
-                                                                        text: "Mauritius",
-                                                                        value: "MU"
-                                                                    },
-                                                                    {
-                                                                        text: "Mayotte",
-                                                                        value: "YT"
-                                                                    },
-                                                                    {
-                                                                        text: "Mexico",
-                                                                        value: "MX"
-                                                                    },
-                                                                    {
-                                                                        text: "Moldova",
-                                                                        value: "MD"
-                                                                    },
-                                                                    {
-                                                                        text: "Monaco",
-                                                                        value: "MC"
-                                                                    },
-                                                                    {
-                                                                        text: "Mongolia",
-                                                                        value: "MN"
-                                                                    },
-                                                                    {
-                                                                        text: "Montenegro",
-                                                                        value: "ME"
-                                                                    },
-                                                                    {
-                                                                        text: "Montserrat",
-                                                                        value: "MS"
-                                                                    },
-                                                                    {
-                                                                        text: "Morocco",
-                                                                        value: "MA"
-                                                                    },
-                                                                    {
-                                                                        text: "Mozambique",
-                                                                        value: "MZ"
-                                                                    },
-                                                                    {
-                                                                        text: "Myanmar",
-                                                                        value: "MM"
-                                                                    },
-                                                                    {
-                                                                        text: "Namibia",
-                                                                        value: "NA"
-                                                                    },
-                                                                    {
-                                                                        text: "Nauru",
-                                                                        value: "NR"
-                                                                    },
-                                                                    {
-                                                                        text: "Nepal",
-                                                                        value: "NP"
-                                                                    },
-                                                                    {
-                                                                        text: "Netherlands",
-                                                                        value: "NL"
-                                                                    },
-                                                                    {
-                                                                        text: "New Caledonia",
-                                                                        value: "NC"
-                                                                    },
-                                                                    {
-                                                                        text: "New Zealand",
-                                                                        value: "NZ"
-                                                                    },
-                                                                    {
-                                                                        text: "Nicaragua",
-                                                                        value: "NI"
-                                                                    },
-                                                                    {
-                                                                        text: "Niger",
-                                                                        value: "NE"
-                                                                    },
-                                                                    {
-                                                                        text: "Nigeria",
-                                                                        value: "NG"
-                                                                    },
-                                                                    {
-                                                                        text: "Niue",
-                                                                        value: "NU"
-                                                                    },
-                                                                    {
-                                                                        text: "Norfolk Island",
-                                                                        value: "NF"
-                                                                    },
-                                                                    {
-                                                                        text: "North Korea",
-                                                                        value: "KP"
-                                                                    },
-                                                                    {
-                                                                        text: "North Macedonia",
-                                                                        value: "MK"
-                                                                    },
-                                                                    {
-                                                                        text: "Northern Mariana Islands",
-                                                                        value: "MP"
-                                                                    },
-                                                                    {
-                                                                        text: "Norway",
-                                                                        value: "NO"
-                                                                    },
-                                                                    {
-                                                                        text: "Oman",
-                                                                        value: "OM"
-                                                                    },
-                                                                    {
-                                                                        text: "Pakistan",
-                                                                        value: "PK"
-                                                                    },
-                                                                    {
-                                                                        text: "Palau",
-                                                                        value: "PW"
-                                                                    },
-                                                                    {
-                                                                        text: "Panama",
-                                                                        value: "PA"
-                                                                    },
-                                                                    {
-                                                                        text: "Papua New Guinea",
-                                                                        value: "PG"
-                                                                    },
-                                                                    {
-                                                                        text: "Paraguay",
-                                                                        value: "PY"
-                                                                    },
-                                                                    {
-                                                                        text: "Peru",
-                                                                        value: "PE"
-                                                                    },
-                                                                    {
-                                                                        text: "Philippines",
-                                                                        value: "PH"
-                                                                    },
-                                                                    {
-                                                                        text: "Pitcairn Islands",
-                                                                        value: "PN"
-                                                                    },
-                                                                    {
-                                                                        text: "Poland",
-                                                                        value: "PL"
-                                                                    },
-                                                                    {
-                                                                        text: "Portugal",
-                                                                        value: "PT"
-                                                                    },
-                                                                    {
-                                                                        text: "Puerto Rico",
-                                                                        value: "PR"
-                                                                    },
-                                                                    {
-                                                                        text: "Qatar",
-                                                                        value: "QA"
-                                                                    },
-                                                                    {
-                                                                        text: "Republic of Ireland",
-                                                                        value: "IE"
-                                                                    },
-                                                                    {
-                                                                        text: "Republic of the Congo",
-                                                                        value: "CG"
-                                                                    },
-                                                                    {
-                                                                        text: "Romania",
-                                                                        value: "RO"
-                                                                    },
-                                                                    {
-                                                                        text: "Russia",
-                                                                        value: "RU"
-                                                                    },
-                                                                    {
-                                                                        text: "Rwanda",
-                                                                        value: "RW"
-                                                                    },
-                                                                    {
-                                                                        text: "Réunion",
-                                                                        value: "RE"
-                                                                    },
-                                                                    {
-                                                                        text: "Saint Barthélemy",
-                                                                        value: "BL"
-                                                                    },
-                                                                    {
-                                                                        text: "Saint Helena",
-                                                                        value: "SH"
-                                                                    },
-                                                                    {
-                                                                        text: "Saint Kitts and Nevis",
-                                                                        value: "KN"
-                                                                    },
-                                                                    {
-                                                                        text: "Saint Lucia",
-                                                                        value: "LC"
-                                                                    },
-                                                                    {
-                                                                        text: "Saint Pierre and Miquelon",
-                                                                        value: "PM"
-                                                                    },
-                                                                    {
-                                                                        text: "Saint Vincent and the Grenadines",
-                                                                        value: "VC"
-                                                                    },
-                                                                    {
-                                                                        text: "Samoa",
-                                                                        value: "WS"
-                                                                    },
-                                                                    {
-                                                                        text: "San Marino",
-                                                                        value: "SM"
-                                                                    },
-                                                                    {
-                                                                        text: "Saudi Arabia",
-                                                                        value: "SA"
-                                                                    },
-                                                                    {
-                                                                        text: "Senegal",
-                                                                        value: "SN"
-                                                                    },
-                                                                    {
-                                                                        text: "Serbia",
-                                                                        value: "RS"
-                                                                    },
-                                                                    {
-                                                                        text: "Seychelles",
-                                                                        value: "SC"
-                                                                    },
-                                                                    {
-                                                                        text: "Sierra Leone",
-                                                                        value: "SL"
-                                                                    },
-                                                                    {
-                                                                        text: "Singapore",
-                                                                        value: "SG"
-                                                                    },
-                                                                    {
-                                                                        text: "Sint Maarten",
-                                                                        value: "SX"
-                                                                    },
-                                                                    {
-                                                                        text: "Slovakia",
-                                                                        value: "SK"
-                                                                    },
-                                                                    {
-                                                                        text: "Slovenia",
-                                                                        value: "SI"
-                                                                    },
-                                                                    {
-                                                                        text: "Solomon Islands",
-                                                                        value: "SB"
-                                                                    },
-                                                                    {
-                                                                        text: "Somalia",
-                                                                        value: "SO"
-                                                                    },
-                                                                    {
-                                                                        text: "South Africa",
-                                                                        value: "ZA"
-                                                                    },
-                                                                    {
-                                                                        text: "South Georgia and the South Sandwich Islands",
-                                                                        value: "GS"
-                                                                    },
-                                                                    {
-                                                                        text: "South Korea",
-                                                                        value: "KR"
-                                                                    },
-                                                                    {
-                                                                        text: "South Sudan",
-                                                                        value: "SS"
-                                                                    },
-                                                                    {
-                                                                        text: "Spain",
-                                                                        value: "ES"
-                                                                    },
-                                                                    {
-                                                                        text: "Sri Lanka",
-                                                                        value: "LK"
-                                                                    },
-                                                                    {
-                                                                        text: "State of Palestine",
-                                                                        value: "PS"
-                                                                    },
-                                                                    {
-                                                                        text: "Sudan",
-                                                                        value: "SD"
-                                                                    },
-                                                                    {
-                                                                        text: "Suriname",
-                                                                        value: "SR"
-                                                                    },
-                                                                    {
-                                                                        text: "Svalbard",
-                                                                        value: "SJ"
-                                                                    },
-                                                                    {
-                                                                        text: "Sweden",
-                                                                        value: "SE"
-                                                                    },
-                                                                    {
-                                                                        text: "Switzerland",
-                                                                        value: "CH"
-                                                                    },
-                                                                    {
-                                                                        text: "Syria",
-                                                                        value: "SY"
-                                                                    },
-                                                                    {
-                                                                        text: "São Tomé and Príncipe",
-                                                                        value: "ST"
-                                                                    },
-                                                                    {
-                                                                        text: "Taiwan",
-                                                                        value: "TW"
-                                                                    },
-                                                                    {
-                                                                        text: "Tajikistan",
-                                                                        value: "TJ"
-                                                                    },
-                                                                    {
-                                                                        text: "Tanzania",
-                                                                        value: "TZ"
-                                                                    },
-                                                                    {
-                                                                        text: "Thailand",
-                                                                        value: "TH"
-                                                                    },
-                                                                    {
-                                                                        text: "The Bahamas",
-                                                                        value: "BS"
-                                                                    },
-                                                                    {
-                                                                        text: "The Gambia",
-                                                                        value: "GM"
-                                                                    },
-                                                                    {
-                                                                        text: "Togo",
-                                                                        value: "TG"
-                                                                    },
-                                                                    {
-                                                                        text: "Tokelau",
-                                                                        value: "TK"
-                                                                    },
-                                                                    {
-                                                                        text: "Tonga",
-                                                                        value: "TO"
-                                                                    },
-                                                                    {
-                                                                        text: "Trinidad and Tobago",
-                                                                        value: "TT"
-                                                                    },
-                                                                    {
-                                                                        text: "Tunisia",
-                                                                        value: "TN"
-                                                                    },
-                                                                    {
-                                                                        text: "Turkey",
-                                                                        value: "TR"
-                                                                    },
-                                                                    {
-                                                                        text: "Turkmenistan",
-                                                                        value: "TM"
-                                                                    },
-                                                                    {
-                                                                        text: "Turks and Caicos Islands",
-                                                                        value: "TC"
-                                                                    },
-                                                                    {
-                                                                        text: "Tuvalu",
-                                                                        value: "TV"
-                                                                    },
-                                                                    {
-                                                                        text: "Uganda",
-                                                                        value: "UG"
-                                                                    },
-                                                                    {
-                                                                        text: "Ukraine",
-                                                                        value: "UA"
-                                                                    },
-                                                                    {
-                                                                        text: "United Arab Emirates",
-                                                                        value: "AE"
-                                                                    },
-                                                                    {
-                                                                        text: "United Kingdom",
-                                                                        value: "GB"
-                                                                    },
-                                                                    {
-                                                                        text: "United States Virgin Islands",
-                                                                        value: "VI"
-                                                                    },
-                                                                    {
-                                                                        text: "United States",
-                                                                        value: "UM"
-                                                                    },
-                                                                    {
-                                                                        text: "United States",
-                                                                        value: "US"
-                                                                    },
-                                                                    {
-                                                                        text: "Uruguay",
-                                                                        value: "UY"
-                                                                    },
-                                                                    {
-                                                                        text: "Uzbekistan",
-                                                                        value: "UZ"
-                                                                    },
-                                                                    {
-                                                                        text: "Vanuatu",
-                                                                        value: "VU"
-                                                                    },
-                                                                    {
-                                                                        text: "Venezuela",
-                                                                        value: "VE"
-                                                                    },
-                                                                    {
-                                                                        text: "Vietnam",
-                                                                        value: "VN"
-                                                                    },
-                                                                    {
-                                                                        text: "Wallis and Futuna",
-                                                                        value: "WF"
-                                                                    },
-                                                                    {
-                                                                        text: "Western Sahara",
-                                                                        value: "EH"
-                                                                    },
-                                                                    {
-                                                                        text: "Yemen",
-                                                                        value: "YE"
-                                                                    },
-                                                                    {
-                                                                        text: "Zambia",
-                                                                        value: "ZM"
-                                                                    },
-                                                                    {
-                                                                        text: "Zimbabwe",
-                                                                        value: "ZW"
-                                                                    },
-                                                                    {
-                                                                        text: "Åland Islands",
-                                                                        value: "AX"
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    }
-                                                },
-
-                                                svg: {
-                                                    component: 'svg',
-                                                    attr: {
-                                                        viewBox: '0 0 24 24',
-                                                        fill: 'currentColor'
-                                                    },
-
-                                                    circle: {
-                                                        component: 'circle',
-                                                        attr: {
-                                                            cx: 12,
-                                                            cy: 9,
-                                                            r: 2.5
-                                                        }
-                                                    },
-                                                    path: {
-                                                        component: 'path',
-                                                        attr: {
-                                                            d: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z'
-                                                        }
-                                                    }
-                                                },
-                                                label: {
-                                                    component: 'span',
-                                                    text: 'location'
-                                                }
-                                            },
-                                            about: {
-                                                component: 'button',
-
-                                                on: {
-                                                    click: {
-                                                        component: 'span',
-
-                                                        on: {
-                                                            render: function () {
-                                                                var component = this,
-                                                                    manifest = chrome.runtime.getManifest(),
-                                                                    user = satus.user(),
-                                                                    skeleton_about = {
-                                                                        extension_section_label: {
-                                                                            component: 'span',
-                                                                            class: 'satus-section--label',
-                                                                            text: 'extension'
-                                                                        },
-                                                                        extension_section: {
-                                                                            component: 'section',
-                                                                            class: 'satus-section--card',
-
-                                                                            list: {
-                                                                                component: 'list',
-                                                                                items: [
-                                                                                    ['version', manifest.version],
-                                                                                    ['permissions', manifest.permissions.join(', ').replace('https://www.youtube.com/', 'YouTube')]
-                                                                                ]
-                                                                            }
-                                                                        },
-                                                                        browser_section_label: {
-                                                                            component: 'span',
-                                                                            class: 'satus-section--label',
-                                                                            text: 'browser'
-                                                                        },
-                                                                        browser_section: {
-                                                                            component: 'section',
-                                                                            class: 'satus-section--card',
-
-                                                                            list: {
-                                                                                component: 'list',
-                                                                                items: [
-                                                                                    ['name', user.browser.name],
-                                                                                    ['version', user.browser.version],
-                                                                                    ['platform', user.browser.platform],
-                                                                                    ['videoFormats', {
-                                                                                        component: 'span',
-                                                                                        on: {
-                                                                                            render: function () {
-                                                                                                var formats = [];
-
-                                                                                                for (var key in user.browser.video) {
-                                                                                                    if (user.browser.video[key] !== false) {
-                                                                                                        formats.push(key);
-                                                                                                    }
-                                                                                                }
-
-                                                                                                this.textContent = formats.join(', ');
-                                                                                            }
-                                                                                        }
-                                                                                    }],
-                                                                                    ['audioFormats', {
-                                                                                        component: 'span',
-                                                                                        on: {
-                                                                                            render: function () {
-                                                                                                var formats = [];
-
-                                                                                                for (var key in user.browser.audio) {
-                                                                                                    if (user.browser.audio[key] !== false) {
-                                                                                                        formats.push(key);
-                                                                                                    }
-                                                                                                }
-
-                                                                                                this.textContent = formats.join(', ');
-                                                                                            }
-                                                                                        }
-                                                                                    }],
-                                                                                    ['flash', !!user.browser.flash ? 'true' : 'false']
-                                                                                ]
-                                                                            }
-                                                                        },
-                                                                        os_section_label: {
-                                                                            component: 'span',
-                                                                            class: 'satus-section--label',
-                                                                            text: 'os'
-                                                                        },
-                                                                        os_section: {
-                                                                            component: 'section',
-                                                                            class: 'satus-section--card',
-
-                                                                            list: {
-                                                                                component: 'list',
-                                                                                items: [
-                                                                                    ['name', user.os.name],
-                                                                                    ['type', user.os.type]
-                                                                                ]
-                                                                            }
-                                                                        },
-                                                                        device_section_label: {
-                                                                            component: 'span',
-                                                                            class: 'satus-section--label',
-                                                                            text: 'device'
-                                                                        },
-                                                                        device_section: {
-                                                                            component: 'section',
-                                                                            class: 'satus-section--card',
-
-                                                                            list: {
-                                                                                component: 'list',
-                                                                                items: [
-                                                                                    ['screen', user.device.screen],
-                                                                                    ['cores', user.device.cores],
-                                                                                    ['gpu', user.device.gpu],
-                                                                                    ['ram', user.device.ram]
-                                                                                ]
-                                                                            }
+                                                                                }],
+                                                                                ['flash', !!user.browser.flash ? 'true' : 'false']
+                                                                            ]
                                                                         }
-                                                                    };
+                                                                    },
+                                                                    os_section_label: {
+                                                                        component: 'span',
+                                                                        class: 'satus-section--label',
+                                                                        text: 'os'
+                                                                    },
+                                                                    os_section: {
+                                                                        component: 'section',
+                                                                        class: 'satus-section--card',
 
-                                                                setTimeout(function () {
-                                                                    satus.render(skeleton_about, component.parentNode);
+                                                                        list: {
+                                                                            component: 'list',
+                                                                            items: [
+                                                                                ['name', user.os.name],
+                                                                                ['type', user.os.type]
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    device_section_label: {
+                                                                        component: 'span',
+                                                                        class: 'satus-section--label',
+                                                                        text: 'device'
+                                                                    },
+                                                                    device_section: {
+                                                                        component: 'section',
+                                                                        class: 'satus-section--card',
 
-                                                                    component.remove();
-                                                                });
-                                                            }
+                                                                        list: {
+                                                                            component: 'list',
+                                                                            items: [
+                                                                                ['screen', user.device.screen],
+                                                                                ['cores', user.device.cores],
+                                                                                ['gpu', user.device.gpu],
+                                                                                ['ram', user.device.ram]
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                };
+
+                                                            setTimeout(function () {
+                                                                satus.render(skeleton_about, component.parentNode);
+
+                                                                component.remove();
+                                                            });
                                                         }
                                                     }
-                                                },
-
-                                                svg: {
-                                                    component: 'svg',
-                                                    attr: {
-                                                        viewBox: '0 0 24 24',
-                                                        fill: 'currentColor'
-                                                    },
-
-                                                    path: {
-                                                        component: 'path',
-                                                        attr: {
-                                                            d: 'M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z'
-                                                        }
-                                                    }
-                                                },
-                                                label: {
-                                                    component: 'span',
-                                                    text: 'about'
                                                 }
+                                            },
+
+                                            svg: {
+                                                component: 'svg',
+                                                attr: {
+                                                    viewBox: '0 0 24 24',
+                                                    fill: 'currentColor'
+                                                },
+
+                                                path: {
+                                                    component: 'path',
+                                                    attr: {
+                                                        d: 'M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z'
+                                                    }
+                                                }
+                                            },
+                                            label: {
+                                                component: 'span',
+                                                text: 'about'
                                             }
                                         }
-                                    });
-
-                                    skeleton.layers.rendered.open();
-
-                                    document.querySelector('.satus-modal__scrim').click();
+                                    }
                                 }
                             },
 
@@ -2565,7 +2566,7 @@ var skeleton = {
                 var skeleton = this.path[this.path.length - 1];
 
                 this.base.skeleton.header.section_start.back.rendered.hidden = this.path.length <= 1;
-                this.base.skeleton.header.section_start.title.rendered.innerText = skeleton.title || 'ImprovedTube';
+                this.base.skeleton.header.section_start.title.rendered.innerText = satus.locale.get(((skeleton.parent || {}).label || skeleton.parent || {}).text || 'ImprovedTube');
             }
         },
 
@@ -3218,7 +3219,7 @@ var skeleton = {
                     click: {
                         section: {
                             component: 'section',
-                            class: 'satus-section--card',
+                            variant: 'card',
 
                             my_colors: {
                                 component: 'button',
@@ -3514,42 +3515,120 @@ var skeleton = {
                         },
                         section_2: {
                             component: 'section',
-                            class: 'satus-section--card satus-section--themes',
+                            variant: 'card',
 
-                            default_dark_theme: {
-                                component: 'switch',
+                            default: {
+                                component: 'label',
+                                class: 'satus-label--default-theme',
+                                text: 'default',
+
+                                radio: {
+                                    component: 'input',
+                                    attr: {
+                                        type: 'radio',
+                                        name: 'theme',
+                                        value: 'default'
+                                    },
+                                    value: true
+                                }
+                            },
+                            dark: {
+                                component: 'label',
+                                class: 'satus-label--dark-theme',
                                 text: 'dark',
-                                class: 'satus-switch--dark'
+
+                                radio: {
+                                    component: 'input',
+                                    attr: {
+                                        type: 'radio',
+                                        name: 'theme',
+                                        value: 'dark'
+                                    }
+                                }
                             },
-                            night_theme: {
-                                component: 'switch',
+                            night: {
+                                component: 'label',
+                                class: 'satus-label--night-theme',
                                 text: 'night',
-                                class: 'satus-switch--night'
+
+                                radio: {
+                                    component: 'input',
+                                    attr: {
+                                        type: 'radio',
+                                        name: 'theme',
+                                        value: 'night'
+                                    }
+                                }
                             },
-                            dawn_theme: {
-                                component: 'switch',
+                            dawn: {
+                                component: 'label',
+                                class: 'satus-label--dawn-theme',
                                 text: 'dawn',
-                                class: 'satus-switch--dawn'
+
+                                radio: {
+                                    component: 'input',
+                                    attr: {
+                                        type: 'radio',
+                                        name: 'theme',
+                                        value: 'dawn'
+                                    }
+                                }
                             },
-                            sunset_theme: {
-                                component: 'switch',
+                            sunset: {
+                                component: 'label',
+                                class: 'satus-label--sunset-theme',
                                 text: 'sunset',
-                                class: 'satus-switch--sunset'
+
+                                radio: {
+                                    component: 'input',
+                                    attr: {
+                                        type: 'radio',
+                                        name: 'theme',
+                                        value: 'sunset'
+                                    }
+                                }
                             },
-                            desert_theme: {
-                                component: 'switch',
+                            desert: {
+                                component: 'label',
+                                class: 'satus-label--desert-theme',
                                 text: 'desert',
-                                class: 'satus-switch--desert'
+
+                                radio: {
+                                    component: 'input',
+                                    attr: {
+                                        type: 'radio',
+                                        name: 'theme',
+                                        value: 'desert'
+                                    }
+                                }
                             },
-                            plain_theme: {
-                                component: 'switch',
+                            plain: {
+                                component: 'label',
+                                class: 'satus-label--plain-theme',
                                 text: 'plain',
-                                class: 'satus-switch--plain'
+
+                                radio: {
+                                    component: 'input',
+                                    attr: {
+                                        type: 'radio',
+                                        name: 'theme',
+                                        value: 'plain'
+                                    }
+                                }
                             },
-                            black_theme: {
-                                component: 'switch',
+                            black: {
+                                component: 'label',
+                                class: 'satus-label--black-theme',
                                 text: 'black',
-                                class: 'satus-switch--black'
+
+                                radio: {
+                                    component: 'input',
+                                    attr: {
+                                        type: 'radio',
+                                        name: 'theme',
+                                        value: 'black'
+                                    }
+                                }
                             }
                         }
                     }
@@ -5067,71 +5146,77 @@ var skeleton = {
                                 component: 'button',
                                 text: 'channels',
                                 on: {
-                                    open: function () {
-                                        var self = this;
+                                    click: {
+                                        component: 'section',
+                                        on: {
+                                            render: function () {
+                                                var self = this,
+                                                    blacklist = satus.storage.get('blacklist');
 
-                                        if (satus.storage.blacklist && satus.storage.blacklist.channels) {
-                                            var list = {};
+                                                if (blacklist && blacklist.channels) {
+                                                    var list = {};
 
-                                            for (var item in satus.storage.blacklist.channels) {
-                                                if (satus.storage.blacklist.channels[item] !== false) {
-                                                    var title = satus.storage.blacklist.channels[item].title || '';
+                                                    for (var item in blacklist.channels) {
+                                                        if (blacklist.channels[item] !== false) {
+                                                            var title = blacklist.channels[item].title || '';
 
-                                                    list[item] = {
-                                                        type: 'section',
-                                                        label: title.length > 20 ? title.substr(0, 20) + '...' : title,
-                                                        class: 'satus-section--blacklist',
-                                                        style: {
-                                                            'background-image': 'url(' + satus.storage.blacklist.channels[item].preview + ')',
-                                                            'background-color': '#000'
-                                                        },
+                                                            list[item] = {
+                                                                type: 'section',
+                                                                text: title.length > 20 ? title.substr(0, 20) + '...' : title,
+                                                                class: 'satus-section--blacklist',
+                                                                style: {
+                                                                    'background-image': 'url(' + blacklist.channels[item].preview + ')',
+                                                                    'background-color': '#000'
+                                                                },
 
-                                                        section: {
-                                                            type: 'section',
+                                                                section: {
+                                                                    type: 'section',
 
-                                                            delete: {
-                                                                type: 'button',
-                                                                icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
-                                                                onclick: function () {
-                                                                    delete satus.storage.blacklist.channels[item];
+                                                                    delete: {
+                                                                        type: 'button',
+                                                                        icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
+                                                                        onclick: function () {
+                                                                            delete blacklist.channels[item];
 
-                                                                    satus.storage.set('blacklist', satus.storage.blacklist);
+                                                                            satus.storage.set('blacklist', blacklist);
 
-                                                                    this.classList.add('removing');
+                                                                            this.classList.add('removing');
 
-                                                                    setTimeout(function () {
-                                                                        self.remove();
-                                                                    }, 250);
+                                                                            setTimeout(function () {
+                                                                                self.remove();
+                                                                            }, 250);
+                                                                        }
+                                                                    }
                                                                 }
-                                                            }
+                                                            };
                                                         }
-                                                    };
-                                                }
-                                            }
-
-                                            if (Object.keys(list).length === 0) {
-                                                list.section = {
-                                                    type: 'section',
-                                                    class: 'satus-section--message',
-
-                                                    error: {
-                                                        type: 'text',
-                                                        label: 'empty'
                                                     }
-                                                };
-                                            }
 
-                                            satus.render(list, this);
-                                        } else {
-                                            satus.render({
-                                                component: 'section',
-                                                class: 'satus-section--card satus-section--message',
+                                                    if (Object.keys(list).length === 0) {
+                                                        list.section = {
+                                                            type: 'section',
+                                                            class: 'satus-section--message',
 
-                                                error: {
-                                                    component: 'text',
-                                                    label: 'empty'
+                                                            error: {
+                                                                type: 'text',
+                                                                text: 'empty'
+                                                            }
+                                                        };
+                                                    }
+
+                                                    satus.render(list, this);
+                                                } else {
+                                                    satus.render({
+                                                        component: 'section',
+                                                        class: 'satus-section--message',
+
+                                                        error: {
+                                                            component: 'text',
+                                                            text: 'empty'
+                                                        }
+                                                    }, this);
                                                 }
-                                            }, this);
+                                            }
                                         }
                                     }
                                 }
@@ -5140,69 +5225,75 @@ var skeleton = {
                                 component: 'button',
                                 text: 'videos',
                                 on: {
-                                    open: function () {
-                                        var self = this;
+                                    click: {
+                                        component: 'section',
+                                        on: {
+                                            render: function () {
+                                                var self = this,
+                                                    blacklist = satus.storage.get('blacklist');
 
-                                        if (satus.storage.blacklist && satus.storage.blacklist.videos) {
-                                            let list = {};
+                                                if (blacklist && blacklist.videos) {
+                                                    let list = {};
 
-                                            for (let item in satus.storage.blacklist.videos) {
-                                                if (satus.storage.blacklist.videos[item] !== false) {
-                                                    let title = satus.storage.blacklist.videos[item].title || '';
+                                                    for (let item in blacklist.videos) {
+                                                        if (blacklist.videos[item] !== false) {
+                                                            let title = blacklist.videos[item].title || '';
 
-                                                    list[item] = {
-                                                        type: 'section',
-                                                        label: title.length > 20 ? title.substr(0, 20) + '...' : title,
-                                                        class: 'satus-section--blacklist',
-                                                        style: {
-                                                            'background-image': 'url(https://img.youtube.com/vi/' + item + '/0.jpg)'
-                                                        },
+                                                            list[item] = {
+                                                                type: 'section',
+                                                                text: title.length > 20 ? title.substr(0, 20) + '...' : title,
+                                                                class: 'satus-section--blacklist',
+                                                                style: {
+                                                                    'background-image': 'url(https://img.youtube.com/vi/' + item + '/0.jpg)'
+                                                                },
 
-                                                        section: {
-                                                            type: 'section',
+                                                                section: {
+                                                                    type: 'section',
 
-                                                            delete: {
-                                                                type: 'button',
-                                                                icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
-                                                                onclick: function () {
-                                                                    delete satus.storage.blacklist.videos[item];
+                                                                    delete: {
+                                                                        type: 'button',
+                                                                        icon: '<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z"></svg>',
+                                                                        onclick: function () {
+                                                                            delete blacklist.videos[item];
 
-                                                                    satus.storage.set('blacklist', satus.storage.blacklist);
-                                                                    this.parentNode.parentNode.classList.add('removing');
+                                                                            satus.storage.set('blacklist', blacklist);
+                                                                            this.parentNode.parentNode.classList.add('removing');
 
-                                                                    setTimeout(function () {
-                                                                        self.parentNode.parentNode.remove();
-                                                                    }, 250);
+                                                                            setTimeout(function () {
+                                                                                self.parentNode.parentNode.remove();
+                                                                            }, 250);
+                                                                        }
+                                                                    }
                                                                 }
-                                                            }
+                                                            };
                                                         }
-                                                    };
-                                                }
-                                            }
-
-                                            if (Object.keys(list).length === 0) {
-                                                list.section = {
-                                                    type: 'section',
-                                                    class: 'satus-section--message',
-
-                                                    error: {
-                                                        type: 'text',
-                                                        label: 'empty'
                                                     }
-                                                };
-                                            }
 
-                                            satus.render(list, this);
-                                        } else {
-                                            satus.render({
-                                                component: 'section',
-                                                class: 'satus-section--card satus-section--message',
+                                                    if (Object.keys(list).length === 0) {
+                                                        list.section = {
+                                                            type: 'section',
+                                                            class: 'satus-section--message',
 
-                                                error: {
-                                                    component: 'text',
-                                                    label: 'empty'
+                                                            error: {
+                                                                type: 'text',
+                                                                text: 'empty'
+                                                            }
+                                                        };
+                                                    }
+
+                                                    satus.render(list, this);
+                                                } else {
+                                                    satus.render({
+                                                        component: 'section',
+                                                        class: 'satus-section--message',
+
+                                                        error: {
+                                                            component: 'text',
+                                                            text: 'empty'
+                                                        }
+                                                    }, this);
                                                 }
-                                            }, this);
+                                            }
                                         }
                                     }
                                 }
@@ -5217,9 +5308,9 @@ var skeleton = {
                     svg: {
                         component: 'svg',
                         attr: {
-                            viewBox: '0 0 24 24',
-                            fill: 'transparent',
-                            stroke: 'currentColor',
+                            'viewBox': '0 0 24 24',
+                            'fill': 'transparent',
+                            'stroke': 'currentColor',
                             'stroke-linecap': 'round',
                             'stroke-width': 1.75
                         },
@@ -5227,15 +5318,15 @@ var skeleton = {
                         circle: {
                             component: 'circle',
                             attr: {
-                                cx: 12,
-                                cy: 12,
-                                r: 10
+                                'cx': 12,
+                                'cy': 12,
+                                'r': 10
                             }
                         },
                         path: {
                             component: 'path',
                             attr: {
-                                d: 'M4.93 4.93l14.14 14.14'
+                                'd': 'M4.93 4.93l14.14 14.14'
                             }
                         }
                     }
@@ -5262,13 +5353,9 @@ var skeleton = {
                         section_2: {
                             component: 'section',
                             class: 'satus-section--card',
-                            style: {
-                                'flex-direction': 'column',
-                                'align-items': 'flex-start'
-                            },
                             on: {
                                 render: function () {
-                                    var data = /*satus.storage.get('analyzer') ||*/ {},
+                                    var data = satus.storage.get('analyzer') || {},
                                         all_data = {},
                                         all_data_sort = [],
                                         all_time_value = 0,
@@ -5315,8 +5402,8 @@ var skeleton = {
 
                                     var now_minutes = new Date().getMinutes();
 
-                                    watch_time.innerText = /*satus.locale.getMessage('watchTime') ||*/ 'watchTime';
-                                    today_at.innerText = /*satus.locale.getMessage('todayAt') + ' ' + (new Date().getHours() + ':' + (now_minutes < 10 ? '0' + now_minutes : now_minutes)) ||*/ 'todayAt';
+                                    watch_time.innerText = satus.locale.get('watchTime');
+                                    today_at.innerText = satus.locale.get('todayAt') + ' ' + (new Date().getHours() + ':' + (now_minutes < 10 ? '0' + now_minutes : now_minutes));
                                     all_time.innerText = Math.floor(all_time_value / 60) + 'h ' + (all_time_value - Math.floor(all_time_value / 60) * 60) + 'm';
 
                                     let h = 0;
@@ -5431,11 +5518,24 @@ var skeleton = {
 --------------------------------------------------------------*/
 
 satus.storage.import(function (items) {
-    satus.fetch('_locales/' + (items.language || 'en') + '/messages.json', function (object) {
-        for (var key in object) {
-            satus.locale.strings[key] = object[key].message;
+    var language = items.language || window.navigator.language || 'en';
+
+    skeleton.attr.theme = satus.storage.get('theme') || 'default';
+
+    satus.ajax('_locales/' + language + '/messages.json', function (response) {
+        try {
+            response = JSON.parse(response);
+
+            for (var key in response) {
+                satus.locale.strings[key] = response[key].message;
+            }
+        } catch (error) {
+            console.error(error);
         }
 
         satus.render(skeleton);
+    }, function (success) {
+        console.log('er');
+        satus.ajax('_locales/en/messages.json', success);
     });
 });

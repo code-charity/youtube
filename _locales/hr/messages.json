@@ -261,7 +261,7 @@
         "message": "Nemoj mijenjati"
     },
     "donate": {
-        "message": "Doniraj"
+        "message": "Donate"
     },
     "draggable": {
         "message": "Povuci"
@@ -352,6 +352,9 @@
     },
     "goToSearchBox": {
         "message": "Idite na okvir za pretraživanje"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -667,6 +670,9 @@
     },
     "ram": {
         "message": "Radna memorija"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Ocijenite nas"

@@ -261,7 +261,7 @@
         "message": "الإفتراضي"
     },
     "donate": {
-        "message": "تبرع"
+        "message": "Donate"
     },
     "draggable": {
         "message": "قابل للسحب"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "انتقل إلى مربع البحث"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "كرت الشاشة"
@@ -658,6 +661,9 @@
     },
     "ram": {
         "message": "الذاكرة العشوائية"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "قيمنا"

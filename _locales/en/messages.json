@@ -356,6 +356,9 @@
     "goToSearchBox": {
         "message": "Go to search box"
     },
+    "googleApiKey": {
+        "message": "Google API key"
+    },
     "gpu": {
         "message": "GPU"
     },
@@ -670,6 +673,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Rate us"

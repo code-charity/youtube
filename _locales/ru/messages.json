@@ -150,7 +150,7 @@
         "message": "Каналы"
     },
     "characterEdgeStyle": {
-        "message": "Character edge style"
+        "message": "Стиль контура символов"
     },
     "clipboard": {
         "message": "Буфер обмена"
@@ -216,7 +216,7 @@
         "message": "Темно-фиолетовый"
     },
     "default": {
-        "message": "Default"
+        "message": "По умолчанию"
     },
     "defaultChannelTab": {
         "message": "Вкладка канала по умолчанию"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "Перейти в окно поиска"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -522,7 +525,7 @@
         "message": "Тип live-чата"
     },
     "location": {
-        "message": "Location"
+        "message": "Место нахождения"
     },
     "loudnessNormalization": {
         "message": "Нормализировать громкость"
@@ -658,6 +661,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Оставить отзыв"
     },
     "rateUs": {
         "message": "Оцените нас"

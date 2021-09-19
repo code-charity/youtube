@@ -261,7 +261,7 @@
         "message": "変更しない"
     },
     "donate": {
-        "message": "寄付する"
+        "message": "Donate"
     },
     "draggable": {
         "message": "ドラッグ可能にする"
@@ -349,6 +349,9 @@
     },
     "goToSearchBox": {
         "message": "検索ボックスに行く"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -658,6 +661,9 @@
     },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "評価する"
