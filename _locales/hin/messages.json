@@ -216,7 +216,7 @@
         "message": "गहरा बैंगनी"
     },
     "default": {
-        "message": "Default"
+        "message": "डिफ़ॉल्ट"
     },
     "defaultChannelTab": {
         "message": "डिफ़ॉल्ट चैनल टैब"
@@ -261,7 +261,7 @@
         "message": "मत बदलो"
     },
     "donate": {
-        "message": "Donate"
+        "message": "दान"
     },
     "draggable": {
         "message": "खींचने योग्य"

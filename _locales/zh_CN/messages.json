@@ -216,7 +216,7 @@
         "message": "深紫色"
     },
     "default": {
-        "message": "Default"
+        "message": "默认"
     },
     "defaultChannelTab": {
         "message": "默认频道页"
@@ -261,7 +261,7 @@
         "message": "不做改变"
     },
     "donate": {
-        "message": "Donate"
+        "message": "支持"
     },
     "draggable": {
         "message": "可拖动"
