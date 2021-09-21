@@ -15,9 +15,7 @@ body {
     font-size: 14px;
     overflow: hidden;
     margin: 0;
-}
-
-.satus-base {
+    
     --satus-primary: #ff4158;
     --satus-header-background: #fff;
     --satus-header-text: #777;
@@ -32,7 +30,7 @@ body {
     --it-appearance-shadow-color: #dfdfdf;
 }
 
-.satus-base[theme=dark] {
+body[theme=dark] {
     --satus-primary: #ff4158;
     --satus-header-background: #1c2027;
     --satus-header-text: #b5b5b5;
@@ -47,7 +45,7 @@ body {
     --it-appearance-shadow-color: #393e46;
 }
 
-.satus-base[theme=night] {
+body[theme=night] {
     --satus-primary: #9ebdfa;
     --satus-header-background: #24478f;
     --satus-header-text: #fafafa;
@@ -62,7 +60,7 @@ body {
     --it-appearance-shadow-color: #558bf6;
 }
 
-.satus-base[theme=dawn] {
+body[theme=dawn] {
     --satus-primary: #e2367e;
     --satus-header-background: #e98f63;
     --satus-header-text: #fafafa;
@@ -77,7 +75,7 @@ body {
     --it-appearance-shadow-color: #e86e30;
 }
 
-.satus-base[theme=sunset] {
+body[theme=sunset] {
     --satus-primary: #cc666e;
     --satus-header-background: #af5a5e;
     --satus-header-text: #fafafa;
@@ -92,7 +90,7 @@ body {
     --it-appearance-shadow-color: #e86e30;
 }
 
-.satus-base[theme=desert] {
+body[theme=desert] {
     --satus-primary: #f83;
     --satus-header-background: #8cb7f2;
     --satus-header-text: #fafafa;
@@ -107,7 +105,7 @@ body {
     --it-appearance-shadow-color: #5e9aed;
 }
 
-.satus-base[theme=plain] {
+body[theme=plain] {
     --satus-primary: #badec9;
     --satus-header-background: #9fc6af;
     --satus-header-text: #404040;
@@ -122,7 +120,7 @@ body {
     --it-appearance-shadow-color: #d7995b;
 }
 
-.satus-base[theme=black] {
+body[theme=black] {
     --satus-primary: #ff4158;
     --satus-header-background: #222;
     --satus-header-text: #fafafa;
@@ -143,6 +141,12 @@ body {
 .satus-header {
     height: 56px;
     border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.satus-header .satus-section {
+    flex-wrap: nowrap;
+    flex: 1;
+    width: calc(100% - 96px);
 }
 
 .satus-header .satus-section--align-start>* {
@@ -174,15 +178,23 @@ body {
     fill: none;
 }
 
+.satus-header .satus-span--title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex: 1;
+}
+
 .satus-input--search[type=text] {
     position: absolute;
-    right: 112px;
+    right: 56px;
     display: none;
-    width: calc(100vw - 128px);
+    width: calc(100vw - 72px);
     height: 36px;
     padding-right: 36px;
-    background: #fff;
-    box-shadow: 0 0 1px 1px rgb(0 0 0 / 10%);
+    background: var(--satus-header-background);
+    box-shadow: 0 0 1px 1px var(--satus-hover);
+    z-index: 1;
 }
 
 .satus-input--search:focus {
@@ -195,12 +207,13 @@ body {
 
 .satus-header .satus-button--close-search {
     position: absolute;
-    right: 116px;
+    right: 60px;
     display: none;
     width: 28px;
     min-width: 28px;
     height: 28px;
     padding: 4px !important;
+    z-index: 1;
 }
 
 .search-mode .satus-button--close-search {
@@ -226,14 +239,23 @@ body {
     position: absolute;
     top: 0;
     left: 16px;
-    width: calc(100vw - 128px);
+    width: calc(100% - 72px);
+    min-width: unset;
     max-width: unset;
     padding: 0;
     transform-origin: top;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    background-color: var(--satus-main-background);
+    background-color: var(--satus-layers-background);
     box-shadow: 0 2px 4px 2px rgba(0, 0, 0, .2);
+}
+
+.search-results .satus-section {
+    margin: 0;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    width: 100%;
 }
 
 .search-results .satus-section>* {
@@ -339,7 +361,7 @@ overflow: hidden;
     margin: 8px 0 0;
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: calc(100% - 32px);
+    width: calc(100% - 16px);
     text-align: center;
 }
 

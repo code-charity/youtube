@@ -224,6 +224,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
+    },
     "deleteYoutubeCookies": {
         "message": "유튜브 쿠키 삭제"
     },
@@ -383,12 +386,6 @@
     "hideCards": {
         "message": "카드 숨기기"
     },
-    "hideControls": {
-        "message": "Hide player controls bar"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
         "message": "국가코드 숨기기"
     },
@@ -413,6 +410,15 @@
     "hideMoreButton": {
         "message": "\"더보기\" 버튼 숨기기"
     },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "재생 목록 숨기기"
     },
@@ -430,6 +436,12 @@
     },
     "hideSkipOverlay": {
         "message": "\"오버레이 건너뛰기\" 숨기기"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
         "message": "조회수 숨기기"
@@ -494,6 +506,9 @@
     "legacyYoutube": {
         "message": "레거시 유튜브"
     },
+    "library": {
+        "message": "Library"
+    },
     "light": {
         "message": "밝게"
     },
@@ -505,6 +520,9 @@
     },
     "like": {
         "message": "좋아요"
+    },
+    "liked": {
+        "message": "Liked"
     },
     "likes": {
         "message": "좋아요"
@@ -535,6 +553,12 @@
     },
     "mixer": {
         "message": "믹서"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "내 컬러"
@@ -842,11 +866,20 @@
     "todayAt": {
         "message": "오늘의"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "토글 카드"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "탑 챗"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "트레일러 자동재생"

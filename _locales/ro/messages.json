@@ -224,6 +224,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
+    },
     "deleteYoutubeCookies": {
         "message": "Șterge cookie-urile YouTube"
     },
@@ -386,12 +389,6 @@
     "hideCards": {
         "message": "Ascunde cardurile"
     },
-    "hideControls": {
-        "message": "Hide player controls bar"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -416,6 +413,15 @@
     "hideMoreButton": {
         "message": "Hide \"More\" button"
     },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "Ascunde playlistul"
     },
@@ -433,6 +439,12 @@
     },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
         "message": "Ascunde numărul vizualizărilor"
@@ -497,6 +509,9 @@
     "legacyYoutube": {
         "message": "YouTube vechi"
     },
+    "library": {
+        "message": "Library"
+    },
     "light": {
         "message": "Deschis"
     },
@@ -508,6 +523,9 @@
     },
     "like": {
         "message": "Îmi place"
+    },
+    "liked": {
+        "message": "Liked"
     },
     "likes": {
         "message": "Like-uri"
@@ -538,6 +556,12 @@
     },
     "mixer": {
         "message": "Mixer"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "Culorile mele"
@@ -851,11 +875,20 @@
     "todayAt": {
         "message": "Azi la"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "Comută cardurile"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "Top chat"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "Auto-redă trailerul"

@@ -224,6 +224,9 @@
     "defaultContentCountry": {
         "message": "默认内容国家"
     },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
+    },
     "deleteYoutubeCookies": {
         "message": "清空 YouTube cookies"
     },
@@ -386,12 +389,6 @@
     "hideCards": {
         "message": "隐藏信息卡片"
     },
-    "hideControls": {
-        "message": "隐藏播放器控制栏"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
         "message": "隐藏国家代码"
     },
@@ -416,6 +413,15 @@
     "hideMoreButton": {
         "message": "隐藏 \"更多\" 按钮"
     },
+    "hidePlayerControlsBar": {
+        "message": "隐藏播放器控制栏"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "隐藏播放列表"
     },
@@ -436,6 +442,9 @@
     },
     "hideThumbnailOverlay": {
         "message": "隐藏缩略图上的按钮"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
         "message": "隐藏观看量"
@@ -500,6 +509,9 @@
     "legacyYoutube": {
         "message": "旧版 YouTube"
     },
+    "library": {
+        "message": "Library"
+    },
     "light": {
         "message": "明亮"
     },
@@ -511,6 +523,9 @@
     },
     "like": {
         "message": "顶一下"
+    },
+    "liked": {
+        "message": "Liked"
     },
     "likes": {
         "message": "顶/踩总数"
@@ -541,6 +556,12 @@
     },
     "mixer": {
         "message": "混音器"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "自定义颜色"
@@ -854,11 +875,20 @@
     "todayAt": {
         "message": "截止今天"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "切换卡片"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "热门聊天"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "自动播放预告片"

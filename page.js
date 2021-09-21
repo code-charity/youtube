@@ -15,12 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.head.childNodes[i].remove();
     }
 
-    for (var i = document.body.childNodes.length - 1; i > -1; i--) {
-        document.body.childNodes[i].remove();
-    }
-
     document.head.appendChild(charset);
     document.head.appendChild(viewport);
     document.head.appendChild(title);
     document.head.appendChild(style);
+
+    document.documentElement.setAttribute('page', true);
+
+    for (var i = document.body.childNodes.length - 1; i > -1; i--) {
+        document.body.childNodes[i].remove();
+    }
 });

@@ -224,6 +224,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
+    },
     "deleteYoutubeCookies": {
         "message": "Izbrišite YouTube kolačiće"
     },
@@ -386,12 +389,6 @@
     "hideCards": {
         "message": "Sakrij kartice"
     },
-    "hideControls": {
-        "message": "Sakrij kontrole playera"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -416,6 +413,15 @@
     "hideMoreButton": {
         "message": "Hide \"More\" button"
     },
+    "hidePlayerControlsBar": {
+        "message": "Sakrij kontrole playera"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "Sakrij popis za reprodukciju"
     },
@@ -436,6 +442,9 @@
     },
     "hideThumbnailOverlay": {
         "message": "Sakrij gumbe na sličicama"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
         "message": "Sakrij broj pregleda"
@@ -500,6 +509,9 @@
     "legacyYoutube": {
         "message": "Naslijeđeni YouTube"
     },
+    "library": {
+        "message": "Library"
+    },
     "light": {
         "message": "Svjetlo"
     },
@@ -511,6 +523,9 @@
     },
     "like": {
         "message": "Sviđa mi se"
+    },
+    "liked": {
+        "message": "Liked"
     },
     "likes": {
         "message": "Sviđaju mi se"
@@ -541,6 +556,12 @@
     },
     "mixer": {
         "message": "Mikser"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "Moje boje"
@@ -865,6 +886,9 @@
     },
     "topChat": {
         "message": "Top chat"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "Automatska reprodukcija kratkog filma"

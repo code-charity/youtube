@@ -224,6 +224,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
+    },
     "deleteYoutubeCookies": {
         "message": "Slett YouTube-informasjonskapsler"
     },
@@ -383,12 +386,6 @@
     "hideCards": {
         "message": "Skjul kort"
     },
-    "hideControls": {
-        "message": "Hide player controls bar"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -410,6 +407,15 @@
     "hideMoreButton": {
         "message": "Hide \"More\" button"
     },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "Skjul spilleliste"
     },
@@ -427,6 +433,12 @@
     },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
         "message": "Skjul visninger teller"
@@ -491,6 +503,9 @@
     "legacyYoutube": {
         "message": "Legacy YouTube"
     },
+    "library": {
+        "message": "Library"
+    },
     "light": {
         "message": "Lys"
     },
@@ -502,6 +517,9 @@
     },
     "like": {
         "message": "Like"
+    },
+    "liked": {
+        "message": "Liked"
     },
     "likes": {
         "message": "Likes"
@@ -532,6 +550,12 @@
     },
     "mixer": {
         "message": "Mikser"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "Mine farger"
@@ -839,8 +863,17 @@
     "todayAt": {
         "message": "I dag kl"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "Hoved chat"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "Trailer autospilling"

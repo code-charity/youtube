@@ -224,6 +224,9 @@
     "defaultContentCountry": {
         "message": "ডিফল্ট বিষয়বস্তুর দেশ"
     },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
+    },
     "deleteYoutubeCookies": {
         "message": "ইউটিউব এর কুকি ডিলিট করুন"
     },
@@ -383,12 +386,6 @@
     "hideCards": {
         "message": "কার্ড লুকান"
     },
-    "hideControls": {
-        "message": "Hide player controls bar"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
         "message": "কান্ট্রি কোড লুকান"
     },
@@ -413,6 +410,15 @@
     "hideMoreButton": {
         "message": "আরও লুকান বোতাম"
     },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "প্লেলিস্ট লুকান"
     },
@@ -430,6 +436,12 @@
     },
     "hideSkipOverlay": {
         "message": "স্কিপ ওভারলে লুকান"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
         "message": "দর্শন গণনা লুকান"
@@ -494,6 +506,9 @@
     "legacyYoutube": {
         "message": "উত্তরাধিকার ইউটিউব"
     },
+    "library": {
+        "message": "Library"
+    },
     "light": {
         "message": "হালকাো"
     },
@@ -505,6 +520,9 @@
     },
     "like": {
         "message": "লাইক"
+    },
+    "liked": {
+        "message": "Liked"
     },
     "likes": {
         "message": "লাইক গুলি"
@@ -535,6 +553,12 @@
     },
     "mixer": {
         "message": "মিক্সার"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "আমার রং"
@@ -845,11 +869,20 @@
     "todayAt": {
         "message": "আজ এ"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "কার্ড প্রতিস্থাপন করুন"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "শীর্ষ চ্যাট"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "ট্রেলার অটোপ্লে"
