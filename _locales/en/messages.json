@@ -389,12 +389,6 @@
     "hideCards": {
         "message": "Hide cards"
     },
-    "hideControls": {
-        "message": "Hide player controls bar"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -419,6 +413,15 @@
     "hideMoreButton": {
         "message": "Hide \"More\" button"
     },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "Hide playlist"
     },
@@ -439,6 +442,9 @@
     },
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
         "message": "Hide views count"
@@ -503,6 +509,9 @@
     "legacyYoutube": {
         "message": "Legacy YouTube"
     },
+    "library": {
+        "message": "Library"
+    },
     "light": {
         "message": "Light"
     },
@@ -514,6 +523,9 @@
     },
     "like": {
         "message": "Like"
+    },
+    "liked": {
+        "message": "Liked"
     },
     "likes": {
         "message": "Likes"
@@ -544,6 +556,12 @@
     },
     "mixer": {
         "message": "Mixer"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "My colors"

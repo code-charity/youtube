@@ -224,6 +224,9 @@
     "defaultContentCountry": {
         "message": "डिफॉल्ट विषय देश"
     },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
+    },
     "deleteYoutubeCookies": {
         "message": "यूट्यूब कुकीज़ हटाएं"
     },
@@ -383,12 +386,6 @@
     "hideCards": {
         "message": "पत्ते छिपाओ"
     },
-    "hideControls": {
-        "message": "Hide player controls bar"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
         "message": "देश कोड छुपाएं"
     },
@@ -413,6 +410,15 @@
     "hideMoreButton": {
         "message": "अधिक बटन छुपाएं"
     },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "प्लेलिस्ट छिपाएं"
     },
@@ -430,6 +436,12 @@
     },
     "hideSkipOverlay": {
         "message": "स्किप ओवरले छुपाएं"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
         "message": "व्यू काउंट छिपाएं"
@@ -494,6 +506,9 @@
     "legacyYoutube": {
         "message": "विरासत यूट्यूब"
     },
+    "library": {
+        "message": "Library"
+    },
     "light": {
         "message": "हलका"
     },
@@ -505,6 +520,9 @@
     },
     "like": {
         "message": "पसंद"
+    },
+    "liked": {
+        "message": "Liked"
     },
     "likes": {
         "message": "को यह पसंद है"
@@ -535,6 +553,12 @@
     },
     "mixer": {
         "message": "मिक्सर"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "मेरे रंग"
@@ -845,11 +869,20 @@
     "todayAt": {
         "message": "आज इस समय"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "Toggle cards"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "शीर्ष चैट"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "ट्रेलर ऑटोप्ले"

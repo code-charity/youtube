@@ -224,6 +224,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
+    },
     "deleteYoutubeCookies": {
         "message": "Hapus kuki youtube"
     },
@@ -383,12 +386,6 @@
     "hideCards": {
         "message": "Sembunyikan kartu"
     },
-    "hideControls": {
-        "message": "Hide player controls bar"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -413,6 +410,15 @@
     "hideMoreButton": {
         "message": "Hide \"More\" button"
     },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "Sembunyikan daftar putar"
     },
@@ -430,6 +436,12 @@
     },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
         "message": "Sembunyikan jumlah penayangan"
@@ -494,6 +506,9 @@
     "legacyYoutube": {
         "message": "YouTube lama"
     },
+    "library": {
+        "message": "Library"
+    },
     "light": {
         "message": "Terang"
     },
@@ -505,6 +520,9 @@
     },
     "like": {
         "message": "Suka"
+    },
+    "liked": {
+        "message": "Liked"
     },
     "likes": {
         "message": "Suka"
@@ -535,6 +553,12 @@
     },
     "mixer": {
         "message": "Mixer"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "Warna saya"
@@ -842,11 +866,20 @@
     "todayAt": {
         "message": "Hari ini di"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "Alihkan kartu"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "Obrolan teratas"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "Putar otomatis cuplikan"

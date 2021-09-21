@@ -49,6 +49,7 @@ var skeleton = {
             },
             title: {
                 component: 'span',
+                variant: 'title',
                 text: 'ImprovedTube'
             }
         },
@@ -226,14 +227,14 @@ var skeleton = {
                 on: {
                     click: {
                         component: 'modal',
-                        class: 'satus-modal--vertical',
+                        variant: 'vertical',
 
                         active_features: {
                             component: 'button',
                             on: {
                                 click: {
                                     component: 'section',
-                                    class: 'satus-section--card',
+                                    variant: 'card',
                                     on: {
                                         render: function () {
                                             var component = this;
@@ -241,9 +242,16 @@ var skeleton = {
                                             satus.search('', skeleton, function (results) {
                                                 for (var key in results) {
                                                     var result = results[key],
+                                                        default_value = result.value || false,
                                                         value = satus.storage.get(key);
 
-                                                    if (satus.isset(value) && value !== result.value) {
+                                                    if (result.component === 'select') {
+                                                        if (satus.isset(result.value) === false) {
+                                                            default_value = result.options[0].value;
+                                                        }
+                                                    }
+
+                                                    if (satus.isset(value) && value !== default_value) {
                                                         satus.render(result, component);
                                                     }
                                                 }
@@ -286,7 +294,7 @@ var skeleton = {
                                 click: {
                                     section_1: {
                                         component: 'section',
-                                        class: 'satus-section--card',
+                                        variant: 'card',
                                         on: {
                                             render: function () {
                                                 document.querySelector('.satus-modal__scrim').click();
@@ -304,11 +312,11 @@ var skeleton = {
                                                     },
                                                     custom_js_section: {
                                                         component: 'section',
-                                                        class: 'satus-section--card',
+                                                        variant: 'card',
                                                         custom_js: {
                                                             component: 'input',
                                                             attr: {
-                                                                type: 'text'
+                                                                'type': 'text'
                                                             },
                                                             on: {
                                                                 render: function () {
@@ -327,11 +335,11 @@ var skeleton = {
                                                     },
                                                     custom_css_section: {
                                                         component: 'section',
-                                                        class: 'satus-section--card',
+                                                        variant: 'card',
                                                         custom_css: {
                                                             component: 'input',
                                                             attr: {
-                                                                type: 'text'
+                                                                'type': 'text'
                                                             },
                                                             on: {
                                                                 render: function () {
@@ -350,7 +358,7 @@ var skeleton = {
                                                     },
                                                     google_api_key_section: {
                                                         component: 'section',
-                                                        class: 'satus-section--card',
+                                                        variant: 'card',
                                                         google_api_key: {
                                                             component: 'input',
                                                             attr: {
@@ -358,10 +366,16 @@ var skeleton = {
                                                             },
                                                             on: {
                                                                 render: function () {
-                                                                    this.value = typeof satus.storage.get('google-api-key') === 'string' && satus.storage.get('google-api-key').length > 0 ? satus.storage.get('google-api-key') : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
+                                                                    this.value = satus.storage.get('google-api-key') || 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
                                                                 },
                                                                 input: function () {
-                                                                    satus.storage.set('google-api-key', typeof satus.storage.get('google-api-key') === 'string' && satus.storage.get('google-api-key').length > 0 ? satus.storage.get('google-api-key') : 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA');
+                                                                    var value = this.value;
+
+                                                                    if (value.length === 0) {
+                                                                        value = 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
+                                                                    }
+
+                                                                    satus.storage.set('google-api-key', value);
                                                                 }
                                                             }
                                                         }
@@ -372,14 +386,14 @@ var skeleton = {
                                             svg: {
                                                 component: 'svg',
                                                 attr: {
-                                                    viewBox: '0 0 24 24',
-                                                    fill: 'currentColor'
+                                                    'viewBox': '0 0 24 24',
+                                                    'fill': 'currentColor'
                                                 },
 
                                                 path: {
                                                     component: 'path',
                                                     attr: {
-                                                        d: 'M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'
+                                                        'd': 'M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'
                                                     }
                                                 }
                                             },
@@ -392,7 +406,7 @@ var skeleton = {
 
                                     section_2: {
                                         component: 'section',
-                                        class: 'satus-section--card',
+                                        variant: 'card',
 
                                         appearance: {
                                             component: 'button',
@@ -405,7 +419,7 @@ var skeleton = {
                                                     },
                                                     section_1: {
                                                         component: 'section',
-                                                        class: 'satus-section--card',
+                                                        variant: 'card',
                                                         header: {
                                                             component: 'button',
                                                             text: 'header',
@@ -413,7 +427,7 @@ var skeleton = {
                                                                 click: {
                                                                     section: {
                                                                         component: 'section',
-                                                                        class: 'satus-section--card',
+                                                                        variant: 'card',
 
                                                                         title_version: {
                                                                             component: 'switch',
@@ -430,7 +444,7 @@ var skeleton = {
                                                                 click: {
                                                                     section_1: {
                                                                         component: 'section',
-                                                                        class: 'satus-section--card',
+                                                                        variant: 'card',
 
                                                                         improvedtube_home: {
                                                                             component: 'select',
@@ -451,7 +465,7 @@ var skeleton = {
                                                                     },
                                                                     section_2: {
                                                                         component: 'section',
-                                                                        class: 'satus-section--card',
+                                                                        variant: 'card',
 
                                                                         it_general: {
                                                                             component: 'switch',
@@ -515,7 +529,7 @@ var skeleton = {
                                                     },
                                                     section_2: {
                                                         component: 'section',
-                                                        class: 'satus-section--card',
+                                                        variant: 'card',
 
                                                         improvedtube_youtube_icon: {
                                                             text: 'improvedtubeIconOnYoutube',
@@ -539,18 +553,6 @@ var skeleton = {
                                                                 text: 'belowPlayer',
                                                                 value: 'below_player'
                                                             }]
-                                                        },
-                                                        improvedtube_browser_icon: {
-                                                            text: 'improvedtubeIconInBrowser',
-                                                            component: 'select',
-
-                                                            options: [{
-                                                                text: 'onlyActiveOnYoutube',
-                                                                value: 'youtube'
-                                                            }, {
-                                                                text: 'alwaysActive',
-                                                                value: 'always'
-                                                            }]
                                                         }
                                                     }
                                                 }
@@ -559,14 +561,14 @@ var skeleton = {
                                             svg: {
                                                 component: 'svg',
                                                 attr: {
-                                                    viewBox: '0 0 24 24',
-                                                    fill: 'currentColor'
+                                                    'viewBox': '0 0 24 24',
+                                                    'fill': 'currentColor'
                                                 },
 
                                                 path: {
                                                     component: 'path',
                                                     attr: {
-                                                        d: 'M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z'
+                                                        'd': 'M7 16c.6 0 1 .5 1 1a2 2 0 0 1-2 2h-.5a4 4 0 0 0 .5-2c0-.6.5-1 1-1M18.7 3a1 1 0 0 0-.7.3l-9 9 2.8 2.7 9-9c.3-.4.3-1 0-1.4l-1.4-1.3a1 1 0 0 0-.7-.3zM7 14a3 3 0 0 0-3 3c0 1.3-1.2 2-2 2 1 1.2 2.5 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z'
                                                     }
                                                 }
                                             },
@@ -577,12 +579,11 @@ var skeleton = {
                                         },
                                         languages: {
                                             component: 'button',
-
                                             on: {
                                                 click: {
                                                     section: {
                                                         component: 'section',
-                                                        class: 'satus-section--card',
+                                                        variant: 'card',
 
                                                         language: {
                                                             text: 'improvedtubeLanguage',
@@ -926,14 +927,14 @@ var skeleton = {
                                             svg: {
                                                 component: 'svg',
                                                 attr: {
-                                                    viewBox: '0 0 24 24',
-                                                    fill: 'currentColor'
+                                                    'viewBox': '0 0 24 24',
+                                                    'fill': 'currentColor'
                                                 },
 
                                                 path: {
                                                     component: 'path',
                                                     attr: {
-                                                        d: 'M12.9 15l-2.6-2.4c1.8-2 3-4.2 3.8-6.6H17V4h-7V2H8v2H1v2h11.2c-.7 2-1.8 3.8-3.2 5.3-1-1-1.7-2.1-2.3-3.3h-2c.7 1.6 1.7 3.2 3 4.6l-5.1 5L4 19l5-5 3.1 3.1.8-2zm5.6-5h-2L12 22h2l1.1-3H20l1.1 3h2l-4.5-12zm-2.6 7l1.6-4.3 1.6 4.3H16z'
+                                                        'd': 'M12.9 15l-2.6-2.4c1.8-2 3-4.2 3.8-6.6H17V4h-7V2H8v2H1v2h11.2c-.7 2-1.8 3.8-3.2 5.3-1-1-1.7-2.1-2.3-3.3h-2c.7 1.6 1.7 3.2 3 4.6l-5.1 5L4 19l5-5 3.1 3.1.8-2zm5.6-5h-2L12 22h2l1.1-3H20l1.1 3h2l-4.5-12zm-2.6 7l1.6-4.3 1.6 4.3H16z'
                                                     }
                                                 }
                                             },
@@ -944,12 +945,11 @@ var skeleton = {
                                         },
                                         backup_and_reset: {
                                             component: 'button',
-
                                             on: {
                                                 click: {
                                                     section: {
                                                         component: 'section',
-                                                        class: 'satus-section--card',
+                                                        variant: 'card',
 
                                                         import_settings: {
                                                             component: 'button',
@@ -1096,14 +1096,14 @@ var skeleton = {
                                             svg: {
                                                 component: 'svg',
                                                 attr: {
-                                                    viewBox: '0 0 24 24',
-                                                    fill: 'currentColor'
+                                                    'viewBox': '0 0 24 24',
+                                                    'fill': 'currentColor'
                                                 },
 
                                                 path: {
                                                     component: 'path',
                                                     attr: {
-                                                        d: 'M13.3 3A9 9 0 0 0 4 12H2.2c-.5 0-.7.5-.3.8l2.7 2.8c.2.2.6.2.8 0L8 12.8c.4-.3.1-.8-.3-.8H6a7 7 0 1 1 2.7 5.5 1 1 0 0 0-1.3.1 1 1 0 0 0 0 1.5A9 9 0 0 0 22 11.7C22 7 18 3.1 13.4 3zm-.6 5c-.4 0-.7.3-.7.8v3.6c0 .4.2.7.5.9l3.1 1.8c.4.2.8.1 1-.2.2-.4.1-.8-.2-1l-3-1.8V8.7c0-.4-.2-.7-.7-.7z'
+                                                        'd': 'M13.3 3A9 9 0 0 0 4 12H2.2c-.5 0-.7.5-.3.8l2.7 2.8c.2.2.6.2.8 0L8 12.8c.4-.3.1-.8-.3-.8H6a7 7 0 1 1 2.7 5.5 1 1 0 0 0-1.3.1 1 1 0 0 0 0 1.5A9 9 0 0 0 22 11.7C22 7 18 3.1 13.4 3zm-.6 5c-.4 0-.7.3-.7.8v3.6c0 .4.2.7.5.9l3.1 1.8c.4.2.8.1 1-.2.2-.4.1-.8-.2-1l-3-1.8V8.7c0-.4-.2-.7-.7-.7z'
                                                     }
                                                 }
                                             },
@@ -1114,12 +1114,11 @@ var skeleton = {
                                         },
                                         date_and_time: {
                                             component: 'button',
-
                                             on: {
                                                 click: {
                                                     section: {
                                                         component: 'section',
-                                                        class: 'satus-section--card',
+                                                        variant: 'card',
 
                                                         use_24_hour_format: {
                                                             component: 'switch',
@@ -1133,14 +1132,14 @@ var skeleton = {
                                             svg: {
                                                 component: 'svg',
                                                 attr: {
-                                                    viewBox: '0 0 24 24',
-                                                    fill: 'currentColor'
+                                                    'viewBox': '0 0 24 24',
+                                                    'fill': 'currentColor'
                                                 },
 
                                                 path: {
                                                     component: 'path',
                                                     attr: {
-                                                        d: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z'
+                                                        'd': 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z'
                                                     }
                                                 }
                                             },
@@ -1151,12 +1150,11 @@ var skeleton = {
                                         },
                                         location: {
                                             component: 'button',
-
                                             on: {
                                                 click: {
                                                     section: {
                                                         component: 'section',
-                                                        class: 'satus-section--card',
+                                                        variant: 'card',
 
                                                         default_content_country: {
                                                             component: 'select',
@@ -2171,22 +2169,22 @@ var skeleton = {
                                             svg: {
                                                 component: 'svg',
                                                 attr: {
-                                                    viewBox: '0 0 24 24',
-                                                    fill: 'currentColor'
+                                                    'viewBox': '0 0 24 24',
+                                                    'fill': 'currentColor'
                                                 },
 
                                                 circle: {
                                                     component: 'circle',
                                                     attr: {
-                                                        cx: 12,
-                                                        cy: 9,
-                                                        r: 2.5
+                                                        'cx': '12',
+                                                        'cy': '9',
+                                                        'r': '2.5'
                                                     }
                                                 },
                                                 path: {
                                                     component: 'path',
                                                     attr: {
-                                                        d: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z'
+                                                        'd': 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z'
                                                     }
                                                 }
                                             },
@@ -2197,7 +2195,6 @@ var skeleton = {
                                         },
                                         about: {
                                             component: 'button',
-
                                             on: {
                                                 click: {
                                                     component: 'span',
@@ -2215,7 +2212,7 @@ var skeleton = {
                                                                     },
                                                                     extension_section: {
                                                                         component: 'section',
-                                                                        class: 'satus-section--card',
+                                                                        variant: 'card',
 
                                                                         list: {
                                                                             component: 'list',
@@ -2232,7 +2229,7 @@ var skeleton = {
                                                                     },
                                                                     browser_section: {
                                                                         component: 'section',
-                                                                        class: 'satus-section--card',
+                                                                        variant: 'card',
 
                                                                         list: {
                                                                             component: 'list',
@@ -2283,7 +2280,7 @@ var skeleton = {
                                                                     },
                                                                     os_section: {
                                                                         component: 'section',
-                                                                        class: 'satus-section--card',
+                                                                        variant: 'card',
 
                                                                         list: {
                                                                             component: 'list',
@@ -2300,7 +2297,7 @@ var skeleton = {
                                                                     },
                                                                     device_section: {
                                                                         component: 'section',
-                                                                        class: 'satus-section--card',
+                                                                        variant: 'card',
 
                                                                         list: {
                                                                             component: 'list',
@@ -2327,14 +2324,14 @@ var skeleton = {
                                             svg: {
                                                 component: 'svg',
                                                 attr: {
-                                                    viewBox: '0 0 24 24',
-                                                    fill: 'currentColor'
+                                                    'viewBox': '0 0 24 24',
+                                                    'fill': 'currentColor'
                                                 },
 
                                                 path: {
                                                     component: 'path',
                                                     attr: {
-                                                        d: 'M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z'
+                                                        'd': 'M11 7h2v2h-2zm0 4h2v6h-2zm1-9a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z'
                                                     }
                                                 }
                                             },
@@ -2376,7 +2373,6 @@ var skeleton = {
                         },
                         mixer: {
                             component: 'button',
-
                             on: {
                                 click: {
                                     component: 'section',
@@ -2563,24 +2559,35 @@ var skeleton = {
         component: 'layers',
         on: {
             open: function () {
-                var skeleton = this.path[this.path.length - 1];
+                var skeleton = this.path[this.path.length - 1],
+                    parent = skeleton.parent,
+                    section = this.base.skeleton.header.section_start,
+                    title = 'ImprovedTube';
 
-                this.base.skeleton.header.section_start.back.rendered.hidden = this.path.length <= 1;
-                this.base.skeleton.header.section_start.title.rendered.innerText = satus.locale.get(((skeleton.parent || {}).label || skeleton.parent || {}).text || 'ImprovedTube');
+                if (parent) {
+                    if (parent.label) {
+                        title = parent.label.text;
+                    } else if (parent.text) {
+                        title = parent.text;
+                    }
+                }
+
+                section.back.rendered.hidden = this.path.length <= 1;
+                section.title.rendered.innerText = satus.locale.get(title);
             }
         },
 
         section: {
             component: 'section',
-            class: 'satus-section--home',
+            variant: 'home',
 
             general: {
                 component: 'button',
-                class: 'satus-button--general',
+                variant: 'general',
                 on: {
                     click: {
                         component: 'section',
-                        class: 'satus-section--card',
+                        variant: 'card',
 
                         youtube_home_page: {
                             component: 'select',
@@ -2604,7 +2611,7 @@ var skeleton = {
                                 text: 'search',
                                 value: 'search'
                             }, {
-                                text: '👍 liked',
+                                text: 'liked',
                                 value: '/playlist?list=LL'
                             }, {
                                 text: 'library',
@@ -2625,11 +2632,9 @@ var skeleton = {
                             text: 'markWatchedVideos',
                             on: {
                                 click: function () {
-                                    setTimeout(function () {
-                                        if (satus.storage.mark_watched_videos && !satus.storage.track_watched_videos) {
-                                            document.querySelector('.satus-switch > input[data-storage-key="track_watched_videos"]').click();
-                                        }
-                                    }, 50);
+                                    if (satus.storage.get('mark_watched_videos') && !satus.storage.get('track_watched_videos')) {
+                                        this.nextSibling.click();
+                                    }
                                 }
                             }
                         },
@@ -2639,20 +2644,16 @@ var skeleton = {
                         },
                         delete_watched_videos: {
                             component: 'button',
-                            text: 'deleteWatchedVideos',
                             on: {
-                                render: function () {
-                                    this.firstChild.innerText += ' (' + (satus.storage.watched ? Object.keys(satus.storage.watched).length : 0) + ')';
-                                },
                                 click: function () {
                                     var component = this;
 
                                     satus.render({
-                                        component: 'dialog',
-                                        class: 'satus-dialog--confirm',
+                                        component: 'modal',
+                                        variant: 'confirm',
 
                                         message: {
-                                            component: 'text',
+                                            component: 'span',
                                             text: 'thisWillRemoveAllWatchedVideos',
                                             style: {
                                                 'width': '100%',
@@ -2661,7 +2662,7 @@ var skeleton = {
                                         },
                                         section: {
                                             component: 'section',
-                                            class: 'controls',
+                                            variant: 'controls',
                                             style: {
                                                 'justify-content': 'flex-end',
                                                 'display': 'flex'
@@ -2670,27 +2671,46 @@ var skeleton = {
                                             cancel: {
                                                 component: 'button',
                                                 text: 'cancel',
-                                                onclick: function () {
-                                                    var scrim = document.querySelectorAll('.satus-dialog__scrim');
-
-                                                    scrim[scrim.length - 1].click();
+                                                on: {
+                                                    click: function () {
+                                                        this.parentNode.parentNode.parentNode.close();
+                                                    }
                                                 }
                                             },
                                             accept: {
                                                 component: 'button',
                                                 text: 'accept',
-                                                onclick: function () {
-                                                    var scrim = document.querySelectorAll('.satus-dialog__scrim');
+                                                on: {
+                                                    click: function () {
+                                                        satus.storage.set('watched', {});
 
-                                                    satus.storage.watched = {};
-                                                    satus.storage.set('watched', satus.storage.watched);
-                                                    component.firstChild.innerText = component.firstChild.innerText.replace(/\d+/, 0);
+                                                        component.nextSibling.nextSibling.textContent = '0';
 
-                                                    scrim[scrim.length - 1].click();
+                                                        this.parentNode.parentNode.parentNode.close();
+                                                    }
                                                 }
                                             }
                                         }
                                     });
+                                }
+                            },
+
+                            label: {
+                                component: 'span',
+                                text: 'deleteWatchedVideos'
+                            },
+                            counter: {
+                                component: 'span',
+                                on: {
+                                    render: function () {
+                                        var watched = satus.storage.get('watched');
+
+                                        if (watched) {
+                                            this.textContent = Object.keys(watched).length;
+                                        } else {
+                                            this.textContent = '0';
+                                        }
+                                    }
                                 }
                             }
                         },
@@ -2742,17 +2762,17 @@ var skeleton = {
                     svg: {
                         component: 'svg',
                         attr: {
-                            viewBox: '0 0 24 24',
-                            fill: 'transparent',
-                            stroke: 'currentColor',
+                            'viewBox': '0 0 24 24',
+                            'fill': 'transparent',
+                            'stroke': 'currentColor',
                             'stroke-linecap': 'round',
-                            'stroke-width': 1.75
+                            'stroke-width': '1.75'
                         },
 
                         path: {
                             component: 'path',
                             attr: {
-                                d: 'M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7'
+                                'd': 'M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7'
                             }
                         }
                     }
@@ -2764,7 +2784,7 @@ var skeleton = {
             },
             appearance: {
                 component: 'button',
-                class: 'satus-button--appearance',
+                variant: 'appearance',
                 on: {
                     click: {
                         component: 'section',
@@ -2777,7 +2797,7 @@ var skeleton = {
                             on: {
                                 click: {
                                     component: 'section',
-                                    class: 'satus-section--card',
+                                    variant: 'card',
 
                                     header_position: {
                                         component: 'select',
@@ -2832,7 +2852,7 @@ var skeleton = {
                             on: {
                                 click: {
                                     component: 'section',
-                                    class: 'satus-section--card',
+                                    variant: 'card',
 
                                     player_size: {
                                         component: 'select',
@@ -3002,7 +3022,7 @@ var skeleton = {
                             on: {
                                 click: {
                                     component: 'section',
-                                    class: 'satus-section--card',
+                                    variant: 'card',
 
                                     hide_details: {
                                         component: 'switch',
@@ -3088,7 +3108,7 @@ var skeleton = {
                             on: {
                                 click: {
                                     component: 'section',
-                                    class: 'satus-section--card',
+                                    variant: 'card',
 
                                     related_videos: {
                                         component: 'select',
@@ -3126,15 +3146,15 @@ var skeleton = {
                                     },
                                     sidebar_left: {
                                         component: 'switch',
-                                        text: 'Sidebar to the Left'
+                                        text: 'moveSidebarLeft'
                                     },
                                     thumbnails_right: {
                                         component: 'switch',
-                                        text: 'Thumbnails to the Right'
+                                        text: 'moveThumbnailsRight'
                                     },
                                     thumbnails_hide: {
                                         component: 'switch',
-                                        text: 'Hide Thumbnails'
+                                        text: 'hideThumbnails'
                                     }
                                 }
                             }
@@ -3146,7 +3166,7 @@ var skeleton = {
                             on: {
                                 click: {
                                     component: 'section',
-                                    class: 'satus-section--card',
+                                    variant: 'card',
 
                                     comments: {
                                         component: 'select',
@@ -3173,7 +3193,7 @@ var skeleton = {
                             on: {
                                 click: {
                                     component: 'section',
-                                    class: 'satus-section--card',
+                                    variant: 'card',
 
                                     hide_footer: {
                                         component: 'switch',
@@ -3192,17 +3212,17 @@ var skeleton = {
                     svg: {
                         component: 'svg',
                         attr: {
-                            viewBox: '0 0 24 24',
-                            fill: 'transparent',
-                            stroke: 'currentColor',
+                            'viewBox': '0 0 24 24',
+                            'fill': 'transparent',
+                            'stroke': 'currentColor',
                             'stroke-linecap': 'round',
-                            'stroke-width': 1.75
+                            'stroke-width': '1.75'
                         },
 
                         path: {
                             component: 'path',
                             attr: {
-                                d: 'M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z'
+                                'd': 'M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z'
                             }
                         }
                     }
@@ -3228,7 +3248,7 @@ var skeleton = {
                                     click: {
                                         section: {
                                             component: 'section',
-                                            class: 'satus-section--card',
+                                            variant: 'card',
 
                                             theme_my_colors: {
                                                 component: 'switch',
@@ -3238,7 +3258,7 @@ var skeleton = {
 
                                         section2: {
                                             component: 'section',
-                                            class: 'satus-section--card',
+                                            variant: 'card',
 
                                             theme_primary_color: {
                                                 component: 'color-picker',
@@ -3260,7 +3280,7 @@ var skeleton = {
                                 on: {
                                     click: {
                                         component: 'section',
-                                        class: 'satus-section--card',
+                                        variant: 'card',
 
                                         bluelight: {
                                             component: 'slider',
@@ -3285,7 +3305,7 @@ var skeleton = {
                                 on: {
                                     click: {
                                         component: 'section',
-                                        class: 'satus-section--card',
+                                        variant: 'card',
 
                                         schedule: {
                                             component: 'select',
@@ -3666,7 +3686,7 @@ var skeleton = {
                 on: {
                     click: {
                         component: 'section',
-                        class: 'satus-section--card',
+                        variant: 'card',
 
                         player_autoplay: {
                             component: 'switch',
@@ -3729,7 +3749,7 @@ var skeleton = {
                             on: {
                                 click: {
                                     component: 'section',
-                                    class: 'satus-section--card',
+                                    variant: 'card',
 
                                     player_subtitles: {
                                         component: 'switch',
@@ -4506,7 +4526,7 @@ var skeleton = {
                             on: {
                                 click: {
                                     component: 'section',
-                                    class: 'satus-section--card',
+                                    variant: 'card',
 
                                     player_screenshot_button: {
                                         component: 'switch',
@@ -4532,7 +4552,7 @@ var skeleton = {
                             on: {
                                 click: {
                                     component: 'section',
-                                    class: 'satus-section--card',
+                                    variant: 'card',
 
                                     player_repeat_button: {
                                         component: 'switch',
@@ -4555,15 +4575,15 @@ var skeleton = {
                         },
                         player_hide_controls: {
                             component: 'switch',
-                            text: 'hideControls'
+                            text: 'hidePlayerControlsBar'
                         },
                         player_hide_controls_options: {
                             component: 'button',
-                            text: 'hideControlsOptions',
+                            text: 'hidePlayerControlsBarButtons',
                             on: {
                                 click: {
                                     component: 'section',
-                                    class: 'satus-section--card',
+                                    variant: 'card',
 
                                     player_play_button: {
                                         component: 'switch',
@@ -4621,17 +4641,17 @@ var skeleton = {
                     svg: {
                         component: 'svg',
                         attr: {
-                            viewBox: '0 0 24 24',
-                            fill: 'transparent',
-                            stroke: 'currentColor',
+                            'viewBox': '0 0 24 24',
+                            'fill': 'transparent',
+                            'stroke': 'currentColor',
                             'stroke-linecap': 'round',
-                            'stroke-width': 1.75
+                            'stroke-width': '1.75'
                         },
 
                         path: {
                             component: 'path',
                             attr: {
-                                d: 'M5 3l14 9-14 9V3z'
+                                'd': 'M5 3l14 9-14 9V3z'
                             }
                         }
                     }
@@ -4647,7 +4667,7 @@ var skeleton = {
                 on: {
                     click: {
                         component: 'section',
-                        class: 'satus-section--card',
+                        variant: 'card',
 
                         playlist_autoplay: {
                             component: 'switch',
@@ -4706,7 +4726,7 @@ var skeleton = {
                 on: {
                     click: {
                         component: 'section',
-                        class: 'satus-section--card',
+                        variant: 'card',
 
                         channel_default_tab: {
                             component: 'select',
@@ -4778,7 +4798,7 @@ var skeleton = {
                     click: {
                         section: {
                             component: 'section',
-                            class: 'satus-section--card',
+                            variant: 'card',
 
                             picture_in_picture: {
                                 component: 'shortcut',
@@ -4792,7 +4812,7 @@ var skeleton = {
                                     click: {
                                         section_1: {
                                             component: 'section',
-                                            class: 'satus-section--card',
+                                            variant: 'card',
 
                                             volume_step: {
                                                 component: 'slider',
@@ -4807,7 +4827,7 @@ var skeleton = {
 
                                         section_2: {
                                             component: 'section',
-                                            class: 'satus-section--card',
+                                            variant: 'card',
 
                                             increase_volume: {
                                                 component: 'shortcut',
@@ -4848,7 +4868,7 @@ var skeleton = {
                                     click: {
                                         section_step: {
                                             component: 'section',
-                                            class: 'satus-section--card',
+                                            variant: 'card',
 
                                             playback_speed_step: {
                                                 component: 'slider',
@@ -4863,7 +4883,7 @@ var skeleton = {
 
                                         section: {
                                             component: 'section',
-                                            class: 'satus-section--card',
+                                            variant: 'card',
 
                                             increase_playback_speed: {
                                                 component: 'shortcut',
@@ -4998,7 +5018,7 @@ var skeleton = {
                                 on: {
                                     click: {
                                         component: 'section',
-                                        class: 'satus-section--card',
+                                        variant: 'card',
 
                                         shortcut_auto: {
                                             component: 'shortcut',
@@ -5064,7 +5084,7 @@ var skeleton = {
                             },
                             shortcut_popup_player: {
                                 component: 'shortcut',
-                                text: 'openPopupPlayer'
+                                text: 'popupPlayer'
                             },
                             shortcut_go_to_search_box: {
                                 component: 'shortcut',
@@ -5103,17 +5123,17 @@ var skeleton = {
                     svg: {
                         component: 'svg',
                         attr: {
-                            viewBox: '0 0 24 24',
-                            fill: 'transparent',
-                            stroke: 'currentColor',
+                            'viewBox': '0 0 24 24',
+                            'fill': 'transparent',
+                            'stroke': 'currentColor',
                             'stroke-linecap': 'round',
-                            'stroke-width': 1.75
+                            'stroke-width': '1.75'
                         },
 
                         path: {
                             component: 'path',
                             attr: {
-                                d: 'M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z'
+                                'd': 'M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z'
                             }
                         }
                     }
@@ -5130,7 +5150,7 @@ var skeleton = {
                     click: {
                         section: {
                             component: 'section',
-                            class: 'satus-section--card',
+                            variant: 'card',
 
                             blacklist_activate: {
                                 component: 'switch',
@@ -5140,7 +5160,7 @@ var skeleton = {
 
                         section2: {
                             component: 'section',
-                            class: 'satus-section--card',
+                            variant: 'card',
 
                             channels: {
                                 component: 'button',
@@ -5343,7 +5363,7 @@ var skeleton = {
                     click: {
                         section: {
                             component: 'section',
-                            class: 'satus-section--card',
+                            variant: 'card',
 
                             analyzer_activation: {
                                 component: 'switch',
@@ -5352,7 +5372,7 @@ var skeleton = {
                         },
                         section_2: {
                             component: 'section',
-                            class: 'satus-section--card',
+                            variant: 'card',
                             on: {
                                 render: function () {
                                     var data = satus.storage.get('analyzer') || {},
@@ -5517,25 +5537,37 @@ var skeleton = {
 # INITIALIZATION
 --------------------------------------------------------------*/
 
+satus.storage.attributes = {
+    theme: true
+};
+
 satus.storage.import(function (items) {
     var language = items.language || window.navigator.language || 'en';
 
-    skeleton.attr.theme = satus.storage.get('theme') || 'default';
+    if (document.documentElement.hasAttribute('page')) {
+        chrome.runtime.sendMessage({
+            name: 'get-localization',
+            code: language
+        }, function (response) {
+            satus.locale.strings = response;
 
-    satus.ajax('_locales/' + language + '/messages.json', function (response) {
-        try {
-            response = JSON.parse(response);
+            satus.render(skeleton);
+        });
+    } else {
+        satus.ajax('_locales/' + language + '/messages.json', function (response) {
+            try {
+                response = JSON.parse(response);
 
-            for (var key in response) {
-                satus.locale.strings[key] = response[key].message;
+                for (var key in response) {
+                    satus.locale.strings[key] = response[key].message;
+                }
+            } catch (error) {
+                console.error(error);
             }
-        } catch (error) {
-            console.error(error);
-        }
 
-        satus.render(skeleton);
-    }, function (success) {
-        console.log('er');
-        satus.ajax('_locales/en/messages.json', success);
-    });
+            satus.render(skeleton);
+        }, function (success) {
+            satus.ajax('_locales/en/messages.json', success);
+        });
+    }
 });

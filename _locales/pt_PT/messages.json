@@ -224,6 +224,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
+    },
     "deleteYoutubeCookies": {
         "message": "Apagar os cookies do YouTube"
     },
@@ -383,12 +386,6 @@
     "hideCards": {
         "message": "Esconder cartas"
     },
-    "hideControls": {
-        "message": "Hide player controls bar"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -413,6 +410,15 @@
     "hideMoreButton": {
         "message": "Hide \"More\" button"
     },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "Esconder lista de reprodução"
     },
@@ -430,6 +436,12 @@
     },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
         "message": "Esconder número de vistos"
@@ -494,6 +506,9 @@
     "legacyYoutube": {
         "message": "YouTube antigo"
     },
+    "library": {
+        "message": "Library"
+    },
     "light": {
         "message": "Claro"
     },
@@ -505,6 +520,9 @@
     },
     "like": {
         "message": "Gostar"
+    },
+    "liked": {
+        "message": "Liked"
     },
     "likes": {
         "message": "Gostos"
@@ -535,6 +553,12 @@
     },
     "mixer": {
         "message": "Mistura"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "Minhas cores"
@@ -845,11 +869,20 @@
     "todayAt": {
         "message": "Hoje em"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "Toggle cards"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "Conversa principal"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "Trailer toca automaticamente"

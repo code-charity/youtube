@@ -59,14 +59,16 @@ def getListOfFiles(dirName):
 
 def addItem(allFiles):
     message = input("Enter your message: ")
+    camelized_message = lowerCamelCase(message)
     
     for keyFile in allFiles:
         with open(keyFile, "r+") as json_file:
             data = json.load(json_file)
             
-            data[lowerCamelCase(message)] = {
-                "message": message
-            }
+            if ((camelized_message in data) == False) :
+                data[camelized_message] = {
+                    "message": message
+                }
             
             json_file.seek(0)
             json.dump(data, json_file, ensure_ascii=False, indent=4, sort_keys=True)

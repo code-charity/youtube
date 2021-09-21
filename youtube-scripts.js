@@ -584,7 +584,7 @@ ImprovedTube.playerOnTimeUpdate = function () {
 ImprovedTube.playerOnPause = function (event) {
     ImprovedTube.playlistUpNextAutoplay(event);
 
-    document.dispatchEvent(new CustomEvent('improvedtube-analyzer', {
+    document.dispatchEvent(new CustomEvent('analyzer', {
         detail: {
             name: ImprovedTube.elements.yt_channel_name.__data.tooltipText,
             time: ImprovedTube.played_time
@@ -597,7 +597,7 @@ ImprovedTube.playerOnPause = function (event) {
 ImprovedTube.playerOnEnded = function (event) {
     ImprovedTube.playlistUpNextAutoplay(event);
 
-    document.dispatchEvent(new CustomEvent('improvedtube-analyzer', {
+    document.dispatchEvent(new CustomEvent('analyzer', {
         detail: {
             name: ImprovedTube.elements.yt_channel_name.__data.tooltipText,
             time: ImprovedTube.played_time
@@ -1051,13 +1051,25 @@ ImprovedTube.markWatchedVideos = function (node) {
 
 document.addEventListener('ImprovedTubeWatched', function (event) {
     if (chrome && chrome.runtime) {
-        chrome.runtime.sendMessage({
-            name: 'improvedtube-watched',
-            data: {
-                action: event.detail.action,
-                id: event.detail.id,
+        var action = event.detail.action,
+            id = event.detail.id;
+
+        if (!ImprovedTube.storage.watched || typeof ImprovedTube.storage.watched !== 'object') {
+            ImprovedTube.storage.watched = {};
+        }
+
+        if (action === 'set') {
+            ImprovedTube.storage.watched[id] = {
                 title: event.detail.title
-            }
+            };
+        }
+
+        if (action === 'remove') {
+            delete ImprovedTube.storage.watched[id];
+        }
+
+        chrome.storage.local.set({
+            watched: ImprovedTube.storage.watched
         });
     }
 });
@@ -1082,7 +1094,7 @@ ImprovedTube.onlyOnePlayerInstancePlaying = function () {
 document.addEventListener('ImprovedTubeOnlyOnePlayer', function (event) {
     if (chrome && chrome.runtime) {
         chrome.runtime.sendMessage({
-            name: 'improvedtube-only-one-player'
+            name: 'only-one-player'
         });
     }
 });
@@ -3744,14 +3756,37 @@ ImprovedTube.shortcutPopupPlayer = function () {
 
 document.addEventListener('ImprovedTubeBlacklist', function (event) {
     if (chrome && chrome.runtime) {
-        chrome.runtime.sendMessage({
-            name: 'improvedtube-blacklist',
-            data: {
-                type: event.detail.type,
-                id: event.detail.id,
-                title: event.detail.title,
-                preview: event.detail.preview
+        var type = event.detail.type,
+            id = event.detail.id,
+            title = event.detail.title;
+
+        if (!ImprovedTube.storage.blacklist || typeof ImprovedTube.storage.blacklist !== 'object') {
+            ImprovedTube.storage.blacklist = {};
+        }
+
+        if (type === 'channel') {
+            if (!ImprovedTube.storage.blacklist.channels) {
+                ImprovedTube.storage.blacklist.channels = {};
             }
+
+            ImprovedTube.storage.blacklist.channels[id] = {
+                title: title,
+                preview: event.detail.preview
+            };
+        }
+
+        if (type === 'video') {
+            if (!ImprovedTube.storage.blacklist.videos) {
+                ImprovedTube.storage.blacklist.videos = {};
+            }
+
+            ImprovedTube.storage.blacklist.videos[id] = {
+                title: title
+            };
+        }
+
+        chrome.storage.local.set({
+            blacklist: ImprovedTube.storage.blacklist
         });
     }
 });
@@ -3925,12 +3960,32 @@ ImprovedTube.blacklist = function(type, node) {
 4.9.0 ANALYZER
 ------------------------------------------------------------------------------*/
 
-document.addEventListener('improvedtube-analyzer', function (event) {
+document.addEventListener('analyzer', function (event) {
     if (ImprovedTube.storage.analyzer_activation === true) {
-        chrome.runtime.sendMessage({
-            name: 'improvedtube-analyzer',
-            value: event.detail.name,
-            time: event.detail.time
+        var data = event.detail.name,
+            date = new Date().toDateString(),
+            hours = new Date().getHours() + ':00';
+
+        if (!ImprovedTube.storage.analyzer) {
+            ImprovedTube.storage.analyzer = {};
+        }
+
+        if (!ImprovedTube.storage.analyzer[date]) {
+            ImprovedTube.storage.analyzer[date] = {};
+        }
+
+        if (!ImprovedTube.storage.analyzer[date][hours]) {
+            ImprovedTube.storage.analyzer[date][hours] = {};
+        }
+
+        if (!ImprovedTube.storage.analyzer[date][hours][data]) {
+            ImprovedTube.storage.analyzer[date][hours][data] = 0;
+        }
+
+        ImprovedTube.storage.analyzer[date][hours][data]++;
+
+        chrome.storage.local.set({
+            analyzer: ImprovedTube.storage.analyzer
         });
     }
 });
