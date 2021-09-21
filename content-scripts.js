@@ -134,6 +134,8 @@ chrome.storage.onChanged.addListener(function (changes) {
             name = 'playerPlaybackSpeed';
         }
 
+        ImprovedTube.storage[key] = value;
+
         document.documentElement.setAttribute('it-' + attribute, value);
 
         injectScript('ImprovedTube.storage[\'' + key + '\']=' + (typeof value === 'boolean' ? value : '\'' + value + '\'') + ';');

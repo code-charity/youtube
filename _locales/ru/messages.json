@@ -84,10 +84,10 @@
         "message": "Автовоспроизведение"
     },
     "backgroundColor": {
-        "message": "Background color"
+        "message": "Цвет фона"
     },
     "backgroundOpacity": {
-        "message": "Background opacity"
+        "message": "Прозрачность фона"
     },
     "backupAndReset": {
         "message": "Резервное копирование и сброс"
@@ -180,10 +180,10 @@
         "message": "Обрезать заголовки глав"
     },
     "customCss": {
-        "message": "Custom CSS"
+        "message": "Пользовательский CSS"
     },
     "customJs": {
-        "message": "Сustom JS"
+        "message": "Пользовательский JS"
     },
     "customMiniPlayer": {
         "message": "Новый мини-плеер"
@@ -206,6 +206,9 @@
     "decreasePlaybackSpeed": {
         "message": "Уменьшить скорость видео"
     },
+    "decreaseVolume": {
+        "message": "Уменьшить громкость"
+    },
     "decreaseVolume5": {
         "message": "Уменьшить громкость на 5%"
     },
@@ -222,7 +225,10 @@
         "message": "Вкладка канала по умолчанию"
     },
     "defaultContentCountry": {
-        "message": "Default content country"
+        "message": "Контент страны по умолчанию"
+    },
+    "deleteWatchedVideos": {
+        "message": "Удалить просмотренные видео"
     },
     "deleteYoutubeCookies": {
         "message": "Удалить куки YouTube"
@@ -306,16 +312,16 @@
         "message": "Шрифт"
     },
     "fontColor": {
-        "message": "Font color"
+        "message": "Цвет шрифта"
     },
     "fontFamily": {
-        "message": "Font family"
+        "message": "Семейство шрифтов"
     },
     "fontOpacity": {
-        "message": "Font opacity"
+        "message": "Прозрачность шрифта"
     },
     "fontSize": {
-        "message": "Font size"
+        "message": "Размер шрифта"
     },
     "footer": {
         "message": "Нижний колонтитул"
@@ -324,7 +330,7 @@
         "message": "Force SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Forced play video from the beginning"
+        "message": "Всегда проигрывать видео с начала"
     },
     "forcedPlaybackSpeed": {
         "message": "Форсировать скорость воспроизведения"
@@ -351,7 +357,7 @@
         "message": "Перейти в окно поиска"
     },
     "googleApiKey": {
-        "message": "Google API key"
+        "message": "Ключ Google API"
     },
     "gpu": {
         "message": "GPU"
@@ -383,17 +389,11 @@
     "hideCards": {
         "message": "Скрыть карточки"
     },
-    "hideControls": {
-        "message": "Hide player controls bar"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
-        "message": "Hide country code"
+        "message": "Скрыть код страны"
     },
     "hideDate": {
-        "message": "Hide date"
+        "message": "Скрыть дату"
     },
     "hideDetails": {
         "message": "Скрыть подробную информацию"
@@ -408,10 +408,19 @@
         "message": "Скрыть нижний колонтитул"
     },
     "hideGradientBottom": {
-        "message": "Hide Gradient Bottom"
+        "message": "Скрыть нижний градиент"
     },
     "hideMoreButton": {
-        "message": "Hide \"More\" button"
+        "message": "Скрыть кнопку \"...\""
+    },
+    "hidePlayerControlsBar": {
+        "message": "Скрыть панель управления плеером"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Скрыть кнопки панели управления плеером"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
     },
     "hidePlaylist": {
         "message": "Скрыть плейлист"
@@ -420,22 +429,28 @@
         "message": "Скрыть кнопки (справа)"
     },
     "hideSaveButton": {
-        "message": "Hide \"Save\" button"
+        "message": "Скрыть кнопку \"Сохранить\""
     },
     "hideScrollForDetails": {
         "message": "Скрыть «Прокрутите для подробной информации»"
     },
     "hideShareButton": {
-        "message": "Hide \"Share\" button"
+        "message": "Скрыть кнопку \"Поделиться\""
     },
     "hideSkipOverlay": {
-        "message": "Hide Skip Overlay"
+        "message": "Скрыть наложение \"5 секунд\""
+    },
+    "hideThumbnailOverlay": {
+        "message": "Скрыть наложение на превью"
+    },
+    "hideThumbnails": {
+        "message": "Скрыть превью"
     },
     "hideViewsCount": {
         "message": "Скрыть количество просмотров"
     },
     "hideVoiceSearchButton": {
-        "message": "Hide voice search button"
+        "message": "Скрыть кнопку голосового поиска"
     },
     "history": {
         "message": "История"
@@ -476,6 +491,9 @@
     "increasePlaybackSpeed": {
         "message": "Увеличить скорость видео"
     },
+    "increaseVolume": {
+        "message": "Увеличить громкость"
+    },
     "increaseVolume5": {
         "message": "Увеличить громкости на 5%"
     },
@@ -486,13 +504,16 @@
         "message": "Items"
     },
     "language": {
-        "message": "Language"
+        "message": "Язык"
     },
     "languages": {
         "message": "Языки"
     },
     "legacyYoutube": {
         "message": "Старая версия YouTube"
+    },
+    "library": {
+        "message": "Библиотека"
     },
     "light": {
         "message": "Светлая"
@@ -506,6 +527,9 @@
     "like": {
         "message": "Лайк"
     },
+    "liked": {
+        "message": "Понравившиеся"
+    },
     "likes": {
         "message": "Лайки"
     },
@@ -513,7 +537,7 @@
         "message": "Лайм"
     },
     "limitPageWidth": {
-        "message": "Limit page width"
+        "message": "Ограничить ширину страницы"
     },
     "list": {
         "message": "Список"
@@ -535,6 +559,12 @@
     },
     "mixer": {
         "message": "Миксер"
+    },
+    "moveSidebarLeft": {
+        "message": "Сместить боковую панель влево"
+    },
+    "moveThumbnailsRight": {
+        "message": "Сместить превью вправо"
     },
     "myColors": {
         "message": "Мои цвета"
@@ -672,13 +702,13 @@
         "message": "Красный"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "Сделать дизлайк красным"
     },
     "relatedVideos": {
         "message": "Похожие видео"
     },
     "remote": {
-        "message": "Play on TV"
+        "message": "Продолжить просмотр на ТВ"
     },
     "removeRelatedSearchResults": {
         "message": "Удалить похожие результаты поиска"
@@ -732,10 +762,10 @@
         "message": "Перемотать на 10 секунд вперед"
     },
     "seekNextChapter": {
-        "message": "seekNextChapter"
+        "message": "Следующая глава"
     },
     "seekPreviousChapter": {
-        "message": "seekPreviousChapter"
+        "message": "Предыдущая глава"
     },
     "settings": {
         "message": "Настройки"
@@ -759,7 +789,7 @@
         "message": "Show more"
     },
     "showRemainingDuration": {
-        "message": "Show video remaining duration"
+        "message": "Показать оставшуюся продолжительность видео"
     },
     "shuffle": {
         "message": "Случайный порядок"
@@ -777,10 +807,10 @@
         "message": "Статично"
     },
     "statsForNerds": {
-        "message": "Show Stats for Nerds"
+        "message": "Показать статистику для сисадминов"
     },
     "step": {
-        "message": "Step"
+        "message": "Шаг"
     },
     "stop": {
         "message": "Стоп"
@@ -845,11 +875,20 @@
     "todayAt": {
         "message": "Сегодня в"
     },
+    "toggleAutoplay": {
+        "message": "Переключить автовоспроизведение"
+    },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "Переключить карточки"
+    },
+    "toggleControls": {
+        "message": "Переключить панель управления"
     },
     "topChat": {
-        "message": "Top chat"
+        "message": "Top чат"
+    },
+    "trackWatchedVideos": {
+        "message": "Отслеживать просмотренные видео"
     },
     "trailerAutoplay": {
         "message": "Автовоспроизведение трейлера"
@@ -891,7 +930,7 @@
         "message": "Видео"
     },
     "viewMode": {
-        "message": "View Mode"
+        "message": "Режим просмотра"
     },
     "volume": {
         "message": "Громкость"
@@ -909,10 +948,10 @@
         "message": "Белый"
     },
     "windowColor": {
-        "message": "Window color"
+        "message": "Цвет окна"
     },
     "windowOpacity": {
-        "message": "Window opacity"
+        "message": "Прозрачность окна"
     },
     "yellow": {
         "message": "Желтый"

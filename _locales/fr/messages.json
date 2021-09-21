@@ -224,6 +224,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
+    },
     "deleteYoutubeCookies": {
         "message": "Supprimer les cookies YouTube"
     },
@@ -383,12 +386,6 @@
     "hideCards": {
         "message": "Cacher les cartes"
     },
-    "hideControls": {
-        "message": "Hide player controls bar"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -413,6 +410,15 @@
     "hideMoreButton": {
         "message": "Hide \"More\" button"
     },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "Cacher la liste de lecture"
     },
@@ -430,6 +436,12 @@
     },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
         "message": "Voir le compte des vues"
@@ -494,6 +506,9 @@
     "legacyYoutube": {
         "message": "Ancienne version de Youtube"
     },
+    "library": {
+        "message": "Library"
+    },
     "light": {
         "message": "Clair"
     },
@@ -505,6 +520,9 @@
     },
     "like": {
         "message": "J'aime"
+    },
+    "liked": {
+        "message": "Liked"
     },
     "likes": {
         "message": "J'aime"
@@ -535,6 +553,12 @@
     },
     "mixer": {
         "message": "Mélangeur de volume"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "Mes couleurs"
@@ -854,8 +878,14 @@
     "toggleCards": {
         "message": "Toggle cards"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "Top chat"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "Démarrage automatique des annonces"

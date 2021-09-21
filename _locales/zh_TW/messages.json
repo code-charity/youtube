@@ -224,6 +224,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
+    },
     "deleteYoutubeCookies": {
         "message": "刪除 YouTube cookies"
     },
@@ -383,12 +386,6 @@
     "hideCards": {
         "message": "隱藏資訊卡"
     },
-    "hideControls": {
-        "message": "隱藏播放器控制欄"
-    },
-    "hideControlsOptions": {
-        "message": "Hide player controls options"
-    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -413,6 +410,15 @@
     "hideMoreButton": {
         "message": "Hide \"More\" button"
     },
+    "hidePlayerControlsBar": {
+        "message": "隱藏播放器控制欄"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "隱藏播放清單"
     },
@@ -433,6 +439,9 @@
     },
     "hideThumbnailOverlay": {
         "message": "隱藏縮圖上的按鈕"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
         "message": "隱藏觀看次數"
@@ -497,6 +506,9 @@
     "legacyYoutube": {
         "message": "舊版 YouTube"
     },
+    "library": {
+        "message": "Library"
+    },
     "light": {
         "message": "Light"
     },
@@ -508,6 +520,9 @@
     },
     "like": {
         "message": "喜歡"
+    },
+    "liked": {
+        "message": "Liked"
     },
     "likes": {
         "message": "顯示按讚數量"
@@ -538,6 +553,12 @@
     },
     "mixer": {
         "message": "音量混合器"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "自訂主色"
@@ -851,6 +872,9 @@
     "todayAt": {
         "message": "自今日"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "啟用結束畫面"
     },
@@ -859,6 +883,9 @@
     },
     "topChat": {
         "message": "Top chat"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "預告片自動播放"
