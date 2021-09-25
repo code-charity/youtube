@@ -2735,7 +2735,7 @@ ImprovedTube.playerRepeatButton = function (node) {
         var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
             path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
-        svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+        svg.setAttributeNS(null, 'viewBox', '0 0 34 34');
         path.setAttributeNS(null, 'd', 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z');
 
         svg.appendChild(path);
@@ -2781,7 +2781,7 @@ ImprovedTube.playerRotateButton = function () {
         var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
             path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
-        svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+        svg.setAttributeNS(null, 'viewBox', '0 0 34 34');
         path.setAttributeNS(null, 'd', 'M15.55 5.55L11 1v3.07a8 8 0 0 0 0 15.86v-2.02a6 6 0 0 1 0-11.82V10l4.55-4.45zM19.93 11a7.9 7.9 0 0 0-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47h2.02zM13 17.9v2.02a7.92 7.92 0 0 0 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03zm3.89-2.42l1.42 1.41A7.9 7.9 0 0 0 19.93 13h-2.02a5.9 5.9 0 0 1-1.02 2.48z');
 
         svg.appendChild(path);
@@ -2840,7 +2840,7 @@ ImprovedTube.playerPopupButton = function () {
         var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
             path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
-        svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+        svg.setAttributeNS(null, 'viewBox', '0 0 34 34');
         path.setAttributeNS(null, 'd', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z');
 
         svg.appendChild(path);
