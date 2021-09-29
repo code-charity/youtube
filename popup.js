@@ -2644,54 +2644,53 @@ var skeleton = {
                         },
                         delete_watched_videos: {
                             component: 'button',
+                            style: {
+                                'justifyContent': 'space-between'
+                            },
                             on: {
-                                click: function () {
-                                    var component = this;
+                                click: {
+                                    component: 'modal',
+                                    variant: 'confirm',
 
-                                    satus.render({
-                                        component: 'modal',
-                                        variant: 'confirm',
+                                    message: {
+                                        component: 'span',
+                                        text: 'thisWillRemoveAllWatchedVideos',
+                                        style: {
+                                            'width': '100%',
+                                            'opacity': '.8'
+                                        }
+                                    },
+                                    section: {
+                                        component: 'section',
+                                        variant: 'actions',
 
-                                        message: {
-                                            component: 'span',
-                                            text: 'thisWillRemoveAllWatchedVideos',
-                                            style: {
-                                                'width': '100%',
-                                                'opacity': '.8'
+                                        cancel: {
+                                            component: 'button',
+                                            text: 'cancel',
+                                            on: {
+                                                click: function () {
+                                                    this.parentNode.parentNode.parentNode.close();
+                                                }
                                             }
                                         },
-                                        section: {
-                                            component: 'section',
-                                            variant: 'controls',
-                                            style: {
-                                                'justify-content': 'flex-end',
-                                                'display': 'flex'
-                                            },
+                                        accept: {
+                                            component: 'button',
+                                            text: 'accept',
+                                            on: {
+                                                click: function () {
+                                                    var modal = this.parentNode.parentNode.parentNode;
 
-                                            cancel: {
-                                                component: 'button',
-                                                text: 'cancel',
-                                                on: {
-                                                    click: function () {
-                                                        this.parentNode.parentNode.parentNode.close();
-                                                    }
-                                                }
-                                            },
-                                            accept: {
-                                                component: 'button',
-                                                text: 'accept',
-                                                on: {
-                                                    click: function () {
-                                                        satus.storage.set('watched', {});
+                                                    satus.storage.set('watched', {});
 
-                                                        component.nextSibling.nextSibling.textContent = '0';
+                                                    console.log(modal.skeleton);
 
-                                                        this.parentNode.parentNode.parentNode.close();
-                                                    }
+                                                    modal.skeleton.parent.counter.rendered.textContent = '0';
+
+                                                    modal.close();
                                                 }
                                             }
                                         }
-                                    });
+                                    }
                                 }
                             },
 
@@ -2701,6 +2700,9 @@ var skeleton = {
                             },
                             counter: {
                                 component: 'span',
+                                style: {
+                                    opacity: .75
+                                },
                                 on: {
                                     render: function () {
                                         var watched = satus.storage.get('watched');
