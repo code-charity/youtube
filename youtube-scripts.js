@@ -263,38 +263,14 @@ ImprovedTube.init = function () {
                             subtree: false
                         });
                     } else if (name === 'YTD-MASTHEAD') {
-                        var logo = node.querySelector('a#logo');
-
                         ImprovedTube.elements.masthead = {
                             start: node.querySelector('#start'),
                             end: node.querySelector('#end'),
-                            logo
+                            logo: node.querySelector('a#logo')
                         };
 
                         ImprovedTube.improvedtubeYoutubeIcon();
-
-                        if (logo) {
-                            new MutationObserver(function(mutationList) {
-                                for (var i = 0, l = mutationList.length; i < l; i++) {
-                                    var mutation = mutationList[i];
-
-                                    if (mutation.type === 'attributes') {
-                                        if (mutation.attributeName === 'href') {
-                                            if (logo.id === 'logo') {
-                                                this.disconnect();
-
-                                                ImprovedTube.youtubeHomePage();
-                                            }
-                                        }
-                                    }
-                                }
-                            }).observe(logo, {
-                                attributes: true,
-                                attributeFilter: ['href'],
-                                childList: false,
-                                subtree: false
-                            });
-                        }
+                        ImprovedTube.youtubeHomePage();
                     } else if (name === 'YTD-GUIDE-SECTION-RENDERER') {
                         if (ImprovedTube.elements.hasOwnProperty('sidebar_section') === false) {
                             ImprovedTube.elements.sidebar_section = node;
@@ -393,7 +369,7 @@ ImprovedTube.init = function () {
                         }
                     } else if (name === 'A' && node.href) {
                         if (id === 'logo') {
-                            ImprovedTube.youtubeHomePage();
+                            //ImprovedTube.youtubeHomePage();
                         }
 
                         ImprovedTube.channelDefaultTab(node);

@@ -236,11 +236,15 @@ html[it-remove-related-search-results=true] li>div.search-refinements {
     height: 28px;
     cursor: pointer;
     text-align: center;
-    color: #fff;
+    color: #888;
     border-radius: 2px;
     background: rgba(0, 0, 0, .8);
     font-family: inherit;
     border: none;
+}
+
+.it-mark-watched.watched {
+    color: #fff;
 }
 
 .it-mark-watched::after {
@@ -273,16 +277,12 @@ html[it-remove-related-search-results=true] li>div.search-refinements {
     left: 4px;
     width: 20px;
     height: 20px;
-    fill: var(--yt-spec-icon-inactive, #aaa);
+    fill: currentColor;
     pointer-events: none;
 }
 
 *:hover>.it-mark-watched {
     visibility: visible;
-}
-
-.it-mark-watched.watched svg {
-    fill: var(--yt-spec-icon-active-other, #fff);
 }
 
 
