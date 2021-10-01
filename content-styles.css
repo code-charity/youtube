@@ -3332,9 +3332,10 @@ body.no-scroll .it-player-button--tooltip {
 
 #it-repeat-button svg {
     position: absolute !important;
-    top: 6px !important;
-    left: 6px !important;
-    width: 24px !important;
+    width: 80%;
+    height: 80%;
+    top: 11px !important;
+    left: 11px !important;
     fill: #fff !important;
 }
 
@@ -3355,9 +3356,10 @@ body.no-scroll .it-player-button--tooltip {
 
 #it-rotate-button svg {
     position: absolute !important;
-    top: 7px !important;
-    left: 7px !important;
-    width: 22px !important;
+    width: 80%;
+    height: 80%;
+    top: 11px !important;
+    left: 11px !important;
     fill: #fff !important;
 }
 
@@ -3378,9 +3380,10 @@ body.no-scroll .it-player-button--tooltip {
 
 #it-popup-player-button svg {
     position: absolute !important;
-    top: 7px !important;
-    left: 7px !important;
-    width: 22px !important;
+    width: 80%;
+    height: 80%;
+    top: 11px !important;
+    left: 11px !important;
     fill: #fff !important;
 }
 
