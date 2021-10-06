@@ -28,6 +28,7 @@ body {
     --it-category-background: linear-gradient(135deg, #ff4158, #ff001f);
     --it-category-shadow: rgba(222, 0, 27, .7);
     --it-appearance-shadow-color: #dfdfdf;
+    --satus-switch-track: #ccc;
 }
 
 body[theme=dark] {
@@ -43,6 +44,7 @@ body[theme=dark] {
     --it-category-background: linear-gradient(135deg, #ff4158, #ff001f);
     --it-category-shadow: rgba(222, 0, 27, .7);
     --it-appearance-shadow-color: #393e46;
+    --satus-switch-track: #ccc;
 }
 
 body[theme=night] {
@@ -58,6 +60,7 @@ body[theme=night] {
     --it-category-background: linear-gradient(135deg, #2e5cb8, #234790);
     --it-category-shadow: rgb(41, 82, 163, .7);
     --it-appearance-shadow-color: #558bf6;
+    --satus-switch-track: #ccc;
 }
 
 body[theme=dawn] {
@@ -73,6 +76,7 @@ body[theme=dawn] {
     --it-category-background: linear-gradient(135deg, #e98f63, #e27036);
     --it-category-shadow: rgb(226, 112, 54, .7);
     --it-appearance-shadow-color: #e86e30;
+    --satus-switch-track: #ccc;
 }
 
 body[theme=sunset] {
@@ -88,6 +92,7 @@ body[theme=sunset] {
     --it-category-background: linear-gradient(135deg, #e98f63, #e27036);
     --it-category-shadow: rgb(226, 112, 54, .7);
     --it-appearance-shadow-color: #e86e30;
+    --satus-switch-track: #ccc;
 }
 
 body[theme=desert] {
@@ -103,6 +108,7 @@ body[theme=desert] {
     --it-category-background: linear-gradient(135deg, #f83, #d15700);
     --it-category-shadow: rgb(230, 96, 0, .7);
     --it-appearance-shadow-color: #5e9aed;
+    --satus-switch-track: #ccc;
 }
 
 body[theme=plain] {
@@ -118,6 +124,7 @@ body[theme=plain] {
     --it-category-background: linear-gradient(135deg, #abceb8, #609f7a);
     --it-category-shadow: #70a987b3;
     --it-appearance-shadow-color: #d7995b;
+    --satus-switch-track: #ccc;
 }
 
 body[theme=black] {
@@ -131,6 +138,7 @@ body[theme=black] {
     --satus-modal-text: #fafafa;
     --satus-hover: rgba(255, 255, 255, .04);
     --it-appearance-shadow-color: #222;
+    --satus-switch-track: #ccc;
 }
 
 
@@ -187,9 +195,9 @@ body[theme=black] {
 
 .satus-input--search[type=text] {
     position: absolute;
-    right: 56px;
+    right: 64px;
     display: none;
-    width: calc(100vw - 72px);
+    width: calc(100vw - 80px);
     height: 36px;
     padding-right: 36px;
     background: var(--satus-header-background);
@@ -207,7 +215,7 @@ body[theme=black] {
 
 .satus-header .satus-button--close-search {
     position: absolute;
-    right: 60px;
+    right: 68px;
     display: none;
     width: 28px;
     min-width: 28px;
@@ -226,9 +234,9 @@ body[theme=black] {
 }
 
 .search-results {
-    top: 48px;
+    top: 56px;
     overflow: hidden;
-    height: calc(100vh - 48px);
+    height: calc(100vh - 56px);
 }
 
 .search-results .satus-modal__scrim {
@@ -239,23 +247,16 @@ body[theme=black] {
     position: absolute;
     top: 0;
     left: 16px;
-    width: calc(100% - 72px);
+    width: calc(100% - 80px);
     min-width: unset;
     max-width: unset;
     padding: 0;
+    margin: 0;
     transform-origin: top;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     background-color: var(--satus-layers-background);
     box-shadow: 0 2px 4px 2px rgba(0, 0, 0, .2);
-}
-
-.search-results .satus-section {
-    margin: 0;
-    background: transparent;
-    border-radius: 0;
-    border: none;
-    width: 100%;
 }
 
 .search-results .satus-section>* {
