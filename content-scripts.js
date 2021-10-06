@@ -184,12 +184,14 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         if (element) {
             sendResponse(element.playbackRate);
         }
-    }else if (request.action === 'set-playback-speed') {
+    } else if (request.action === 'set-playback-speed') {
         var element = document.querySelector('video');
 
         if (element) {
             element.playbackRate = request.value;
         }
+    }  else if (request.action === 'delete-youtube-cookies') {
+        injectScript('ImprovedTube.deleteYoutubeCookies();');
     } 
 
     injectScript('ImprovedTube.pageOnFocus();');

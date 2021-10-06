@@ -11,6 +11,7 @@
 
 var skeleton = {
     component: 'base',
+    class: 'search-mode',
     attr: {
         'theme': 'default'
     },
@@ -49,8 +50,7 @@ var skeleton = {
             },
             title: {
                 component: 'span',
-                variant: 'title',
-                text: 'ImprovedTube'
+                variant: 'title'
             }
         },
         section_end: {
@@ -60,12 +60,16 @@ var skeleton = {
             search_field: {
                 component: 'input',
                 class: 'satus-input--search',
+                storage: false,
                 attr: {
                     'type': 'text',
                     'placeholder': 'search',
                     'autofocus': true
                 },
                 on: {
+                    render: function () {
+                        this.focus();
+                    },
                     blur: function () {
                         if (this.value.length === 0) {
                             var results = document.querySelector('.search-results');
@@ -99,31 +103,81 @@ var skeleton = {
 
                         if (value.length > 0) {
                             satus.search(value, skeleton, function (results) {
-                                var parent = document.querySelector('.search-results'),
+                                var search_results = document.querySelector('.search-results'),
                                     skeleton = {
                                         component: 'modal',
                                         class: 'search-results'
                                     };
 
                                 for (var key in results) {
-                                    results[key].component = 'section';
-                                    results[key].class = 'satus-section--card';
+                                    var result = results[key],
+                                        parent = result;
 
-                                    skeleton[key + '_label'] = {
-                                        component: 'span',
-                                        class: 'satus-section--label',
-                                        text: key
-                                    };
+                                    while (
+                                        parent.parent &&
+                                        !parent.parent.category
+                                    ) {
+                                        parent = parent.parent;
+                                    }
 
-                                    skeleton[key] = results[key];
+                                    var category = parent.parent.label.text;
+
+                                    parent = result;
+
+                                    while (
+                                        parent.parent &&
+                                        parent.parent.component !== 'button'
+                                    ) {
+                                        parent = parent.parent;
+                                    }
+
+                                    parent = parent.parent;
+
+                                    if (parent) {
+                                        if (parent.label) {
+                                            var subcategory = parent.label.text;
+                                        } else {
+                                            var subcategory = parent.text;
+                                        }
+
+                                        skeleton[category+subcategory + '_label'] = {
+                                            component: 'span',
+                                            class: 'satus-section--label',
+                                            text: satus.locale.get(category) + ' -> ' + satus.locale.get(subcategory)
+                                        };
+
+                                        if (!skeleton[category+subcategory]) {
+                                            skeleton[category+subcategory] = {
+                                                component: 'section',
+                                                variant: 'card'
+                                            };
+                                        }
+
+                                        skeleton[category+subcategory][key] = result;
+                                    } else {
+                                        skeleton[category + '_label'] = {
+                                            component: 'span',
+                                            class: 'satus-section--label',
+                                            text: category
+                                        };
+
+                                        if (!skeleton[category]) {
+                                            skeleton[category] = {
+                                                component: 'section',
+                                                variant: 'card'
+                                            };
+                                        }
+
+                                        skeleton[category][key] = result;
+                                    }
                                 }
 
                                 if (Object.keys(results).length === 0) {
-                                    if (parent) {
-                                        document.querySelector('.search-results').remove();
+                                    if (search_results) {
+                                        search_results.remove();
                                     }
                                 } else {
-                                    if (parent) {
+                                    if (search_results) {
                                         var parent = document.querySelector('.search-results .satus-modal__surface');
 
                                         while (parent.children[0]) {
@@ -143,7 +197,8 @@ var skeleton = {
                                                 results.close();
                                             }
 
-                                            document.querySelector('.search-results').base.classList.remove('search-mode');
+                                            document.querySelector('.satus-input--search').value = '';
+                                            document.querySelector('.search-mode').classList.remove('search-mode');
                                         });
                                     }
                                 }
@@ -203,15 +258,15 @@ var skeleton = {
                     component: 'svg',
                     attr: {
                         'viewBox': '0 0 24 24',
-                        'stroke-width': 1.25
+                        'stroke-width': '1.25'
                     },
 
                     circle: {
                         component: 'circle',
                         attr: {
-                            'cx': 11,
-                            'cy': 10.5,
-                            'r': 6
+                            'cx': '11',
+                            'cy': '10.5',
+                            'r': '6'
                         }
                     },
                     path: {
@@ -240,10 +295,13 @@ var skeleton = {
                                             var component = this;
 
                                             satus.search('', skeleton, function (results) {
+                                                var skeleton = {};
+
                                                 for (var key in results) {
                                                     var result = results[key],
                                                         default_value = result.value || false,
-                                                        value = satus.storage.get(key);
+                                                        value = satus.storage.get(key),
+                                                        parent = result;
 
                                                     if (result.component === 'select') {
                                                         if (satus.isset(result.value) === false) {
@@ -252,9 +310,73 @@ var skeleton = {
                                                     }
 
                                                     if (satus.isset(value) && value !== default_value) {
-                                                        satus.render(result, component);
+                                                        while (
+                                                            parent.parent &&
+                                                            !parent.parent.category
+                                                        ) {
+                                                            parent = parent.parent;
+                                                        }
+
+                                                        var category = parent.parent.label.text;
+
+                                                        parent = result;
+
+                                                        while (
+                                                            parent.parent &&
+                                                            parent.parent.component !== 'button'
+                                                        ) {
+                                                            parent = parent.parent;
+                                                        }
+
+                                                        parent = parent.parent;
+
+                                                        console.log(result, category, parent);
+
+                                                        if (parent) {
+                                                            if (parent.label) {
+                                                                var subcategory = parent.label.text;
+                                                            } else {
+                                                                var subcategory = parent.text;
+                                                            }
+
+                                                            skeleton[category+subcategory + '_label'] = {
+                                                                component: 'span',
+                                                                class: 'satus-section--label',
+                                                                text: satus.locale.get(category) + ' -> ' + satus.locale.get(subcategory)
+                                                            };
+
+                                                            if (!skeleton[category+subcategory]) {
+                                                                skeleton[category+subcategory] = {
+                                                                    component: 'section',
+                                                                    variant: 'card'
+                                                                };
+                                                            }
+
+                                                            skeleton[category+subcategory][key] = result;
+                                                        } else {
+                                                            skeleton[category + '_label'] = {
+                                                                component: 'span',
+                                                                class: 'satus-section--label',
+                                                                text: category
+                                                            };
+
+                                                            if (!skeleton[category]) {
+                                                                skeleton[category] = {
+                                                                    component: 'section',
+                                                                    variant: 'card'
+                                                                };
+                                                            }
+
+                                                            skeleton[category][key] = result;
+                                                        }
                                                     }
                                                 }
+
+                                                console.log(skeleton);
+
+                                                satus.render(skeleton, component.parentNode);
+
+                                                component.remove();
                                             });
 
                                             document.querySelector('.satus-modal__scrim').click();
@@ -290,6 +412,7 @@ var skeleton = {
                         },
                         settings: {
                             component: 'button',
+                            category: true,
                             on: {
                                 click: {
                                     section_1: {
@@ -403,7 +526,6 @@ var skeleton = {
                                             }
                                         },
                                     },
-
                                     section_2: {
                                         component: 'section',
                                         variant: 'card',
@@ -956,11 +1078,11 @@ var skeleton = {
                                                             text: 'importSettings',
                                                             on: {
                                                                 click: function () {
-                                                                    if (location.href.indexOf('/popup.html?action=import') !== -1) {
+                                                                    if (location.href.indexOf('/options.html?action=import') !== -1) {
                                                                         importData();
                                                                     } else {
                                                                         chrome.tabs.create({
-                                                                            url: 'popup.html?action=import'
+                                                                            url: 'options.html?action=import'
                                                                         });
                                                                     }
                                                                 }
@@ -969,14 +1091,13 @@ var skeleton = {
                                                         export_settings: {
                                                             component: 'button',
                                                             text: 'exportSettings',
-
                                                             on: {
                                                                 click: function () {
-                                                                    if (location.href.indexOf('/index.html?action=export') !== -1) {
+                                                                    if (location.href.indexOf('/options.html?action=export') !== -1) {
                                                                         exportData();
                                                                     } else {
                                                                         chrome.tabs.create({
-                                                                            url: 'index.html?action=export'
+                                                                            url: 'options.html?action=export'
                                                                         });
                                                                     }
                                                                 }
@@ -986,43 +1107,38 @@ var skeleton = {
                                                             component: 'button',
                                                             text: 'resetAllSettings',
                                                             on: {
-                                                                click: function () {
-                                                                    satus.render({
-                                                                        component: 'modal',
-                                                                        class: 'satus-modal--confirm',
+                                                                click: {
+                                                                    component: 'modal',
 
-                                                                        message: {
-                                                                            component: 'span',
-                                                                            text: 'thisWillResetAllSettings'
-                                                                        },
-                                                                        section: {
-                                                                            component: 'section',
-                                                                            class: 'controls',
+                                                                    message: {
+                                                                        component: 'span',
+                                                                        text: 'thisWillResetAllSettings'
+                                                                    },
+                                                                    section: {
+                                                                        component: 'section',
+                                                                        variant: 'actions',
 
-                                                                            cancel: {
-                                                                                component: 'button',
-                                                                                text: 'cancel',
-                                                                                onclick: function () {
-                                                                                    var scrim = document.querySelectorAll('.satus-modal__scrim');
-
-                                                                                    scrim[scrim.length - 1].click();
+                                                                        cancel: {
+                                                                            component: 'button',
+                                                                            text: 'cancel',
+                                                                            on: {
+                                                                                click: function () {
+                                                                                    this.parentNode.parentNode.parentNode.close();
                                                                                 }
-                                                                            },
-                                                                            accept: {
-                                                                                component: 'button',
-                                                                                text: 'accept',
-                                                                                onclick: function () {
-                                                                                    var scrim = document.querySelectorAll('.satus-modal__scrim');
-
+                                                                            }
+                                                                        },
+                                                                        accept: {
+                                                                            component: 'button',
+                                                                            text: 'accept',
+                                                                            on: {
+                                                                                click: function () {
                                                                                     satus.storage.clear();
 
-                                                                                    location.reload();
-
-                                                                                    scrim[scrim.length - 1].click();
+                                                                                    this.parentNode.parentNode.parentNode.close();
                                                                                 }
                                                                             }
                                                                         }
-                                                                    });
+                                                                    }
                                                                 }
                                                             }
                                                         },
@@ -1031,61 +1147,46 @@ var skeleton = {
                                                             text: 'deleteYoutubeCookies',
 
                                                             on: {
-                                                                click: function () {
-                                                                    satus.render({
-                                                                        component: 'modal',
-                                                                        class: 'satus-modal--confirm',
+                                                                click: {
+                                                                    component: 'modal',
 
-                                                                        message: {
-                                                                            component: 'span',
-                                                                            text: 'thisWillRemoveAllYouTubeCookies',
-                                                                            style: {
-                                                                                'width': '100%',
-                                                                                'opacity': '.8'
+                                                                    message: {
+                                                                        component: 'span',
+                                                                        text: 'thisWillRemoveAllYouTubeCookies'
+                                                                    },
+                                                                    section: {
+                                                                        component: 'section',
+                                                                        variant: 'actions',
+
+                                                                        cancel: {
+                                                                            component: 'button',
+                                                                            text: 'cancel',
+                                                                            on: {
+                                                                                click: function () {
+                                                                                    this.parentNode.parentNode.parentNode.close();
+                                                                                }
                                                                             }
                                                                         },
-                                                                        section: {
-                                                                            component: 'section',
-                                                                            class: 'controls',
-                                                                            style: {
-                                                                                'justify-content': 'flex-end',
-                                                                                'display': 'flex'
-                                                                            },
-
-                                                                            cancel: {
-                                                                                component: 'button',
-                                                                                text: 'cancel',
-                                                                                on: {
-                                                                                    click: function () {
-                                                                                        var scrim = document.querySelectorAll('.satus-modal__scrim');
-
-                                                                                        scrim[scrim.length - 1].click();
-                                                                                    }
-                                                                                }
-                                                                            },
-                                                                            accept: {
-                                                                                component: 'button',
-                                                                                text: 'accept',
-                                                                                on: {
-                                                                                    click: function () {
-                                                                                        var scrim = document.querySelectorAll('.satus-modal__scrim');
-
-                                                                                        chrome.tabs.query({}, function (tabs) {
-                                                                                            for (var i = 0, l = tabs.length; i < l; i++) {
-                                                                                                if (tabs[i].hasOwnProperty('url')) {
-                                                                                                    chrome.tabs.sendMessage(tabs[i].id, {
-                                                                                                        name: 'delete_youtube_cookies'
-                                                                                                    });
-                                                                                                }
+                                                                        accept: {
+                                                                            component: 'button',
+                                                                            text: 'accept',
+                                                                            on: {
+                                                                                click: function () {
+                                                                                    chrome.tabs.query({}, function (tabs) {
+                                                                                        for (var i = 0, l = tabs.length; i < l; i++) {
+                                                                                            if (tabs[i].hasOwnProperty('url')) {
+                                                                                                chrome.tabs.sendMessage(tabs[i].id, {
+                                                                                                    action: 'delete-youtube-cookies'
+                                                                                                });
                                                                                             }
-                                                                                        });
+                                                                                        }
+                                                                                    });
 
-                                                                                        scrim[scrim.length - 1].click();
-                                                                                    }
+                                                                                    this.parentNode.parentNode.parentNode.close();
                                                                                 }
                                                                             }
                                                                         }
-                                                                    });
+                                                                    }
                                                                 }
                                                             }
                                                         }
@@ -2348,15 +2449,15 @@ var skeleton = {
                                 component: 'svg',
                                 attr: {
                                     'viewBox': '0 0 24 24',
-                                    'stroke-width': 1.75
+                                    'stroke-width': '1.75'
                                 },
 
                                 circle: {
                                     component: 'circle',
                                     attr: {
-                                        'cx': 12,
-                                        'cy': 12,
-                                        'r': 3
+                                        'cx': '12',
+                                        'cy': '12',
+                                        'r': '3'
                                     }
                                 },
                                 path: {
@@ -2376,7 +2477,6 @@ var skeleton = {
                             on: {
                                 click: {
                                     component: 'section',
-
                                     on: {
                                         render: function () {
                                             var self = this;
@@ -2476,6 +2576,7 @@ var skeleton = {
                                                     if (Object.entries(mixer).length === 0) {
                                                         mixer.section = {
                                                             component: 'section',
+                                                            parent: self.skeleton,
 
                                                             message: {
                                                                 component: 'span',
@@ -2485,9 +2586,7 @@ var skeleton = {
                                                         };
                                                     }
 
-                                                    skeleton.layers.rendered.path.push(mixer);
-
-                                                    skeleton.layers.rendered.open();
+                                                    skeleton.layers.rendered.open(mixer);
 
                                                     document.querySelector('.satus-modal__scrim').click();
                                                 });
@@ -2524,31 +2623,31 @@ var skeleton = {
                     component: 'svg',
                     attr: {
                         'viewBox': '0 0 24 24',
-                        'stroke-width': 2
+                        'stroke-width': '2'
                     },
 
                     circle1: {
                         component: 'circle',
                         attr: {
-                            'cx': 12,
-                            'cy': 5.25,
-                            'r': 0.45
+                            'cx': '12',
+                            'cy': '5.25',
+                            'r': '0.45'
                         }
                     },
                     circle2: {
                         component: 'circle',
                         attr: {
-                            'cx': 12,
-                            'cy': 12,
-                            'r': 0.45
+                            'cx': '12',
+                            'cy': '12',
+                            'r': '0.45'
                         }
                     },
                     circle3: {
                         component: 'circle',
                         attr: {
-                            'cx': 12,
-                            'cy': 18.75,
-                            'r': 0.45
+                            'cx': '12',
+                            'cy': '18.75',
+                            'r': '0.45'
                         }
                     }
                 }
@@ -2584,6 +2683,7 @@ var skeleton = {
             general: {
                 component: 'button',
                 variant: 'general',
+                category: true,
                 on: {
                     click: {
                         component: 'section',
@@ -2632,8 +2732,10 @@ var skeleton = {
                             text: 'markWatchedVideos',
                             on: {
                                 click: function () {
-                                    if (satus.storage.get('mark_watched_videos') && !satus.storage.get('track_watched_videos')) {
-                                        this.nextSibling.click();
+                                    if (satus.storage.get('mark_watched_videos')) {
+                                        if (!satus.storage.get('track_watched_videos')) {
+                                            this.nextSibling.click();
+                                        }
                                     }
                                 }
                             }
@@ -2765,7 +2867,7 @@ var skeleton = {
                         component: 'svg',
                         attr: {
                             'viewBox': '0 0 24 24',
-                            'fill': 'transparent',
+                            'fill': 'none',
                             'stroke': 'currentColor',
                             'stroke-linecap': 'round',
                             'stroke-width': '1.75'
@@ -2787,6 +2889,7 @@ var skeleton = {
             appearance: {
                 component: 'button',
                 variant: 'appearance',
+                category: true,
                 on: {
                     click: {
                         component: 'section',
@@ -3237,6 +3340,7 @@ var skeleton = {
             themes: {
                 component: 'button',
                 class: 'satus-button--themes',
+                category: true,
                 on: {
                     click: {
                         section: {
@@ -3685,6 +3789,7 @@ var skeleton = {
             player: {
                 component: 'button',
                 class: 'satus-button--player',
+                category: true,
                 on: {
                     click: {
                         component: 'section',
@@ -4666,6 +4771,7 @@ var skeleton = {
             playlist: {
                 component: 'button',
                 class: 'satus-button--playlist',
+                category: true,
                 on: {
                     click: {
                         component: 'section',
@@ -4725,6 +4831,7 @@ var skeleton = {
             channel: {
                 component: 'button',
                 class: 'satus-button--channel',
+                category: true,
                 on: {
                     click: {
                         component: 'section',
@@ -4796,6 +4903,7 @@ var skeleton = {
             shortcuts: {
                 component: 'button',
                 class: 'satus-button--shortcuts',
+                category: true,
                 on: {
                     click: {
                         section: {
@@ -5148,6 +5256,7 @@ var skeleton = {
             blacklist: {
                 component: 'button',
                 class: 'satus-button--blacklist',
+                category: true,
                 on: {
                     click: {
                         section: {
@@ -5361,6 +5470,7 @@ var skeleton = {
             analyzer: {
                 component: 'button',
                 class: 'satus-button--analyzer',
+                category: true,
                 on: {
                     click: {
                         section: {
@@ -5539,12 +5649,18 @@ var skeleton = {
 # INITIALIZATION
 --------------------------------------------------------------*/
 
+satus.parents(skeleton);
+
 satus.storage.attributes = {
     theme: true
 };
 
 satus.storage.import(function (items) {
-    var language = items.language || window.navigator.language || 'en';
+    var language = items.language || window.navigator.language;
+
+    if (language.indexOf('en') === 0) {
+        language = 'en';
+    }
 
     if (document.documentElement.hasAttribute('page')) {
         chrome.runtime.sendMessage({
