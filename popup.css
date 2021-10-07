@@ -543,6 +543,7 @@ overflow: hidden;
     text-shadow: 0 1px 3px rgba(0, 0, 0, .7);
     justify-content: space-between;
     align-items: center;
+    width: auto;
 }
 
 .satus-label--default-theme {

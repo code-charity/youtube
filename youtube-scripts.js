@@ -1690,18 +1690,7 @@ ImprovedTube.font = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.themes = function () {
-    if (
-        this.schedule() === true &&
-        (
-            this.isset(ImprovedTube.storage.default_dark_theme) && ImprovedTube.storage.default_dark_theme !== false ||
-            this.isset(ImprovedTube.storage.night_theme) && ImprovedTube.storage.night_theme !== false ||
-            this.isset(ImprovedTube.storage.dawn_theme) && ImprovedTube.storage.dawn_theme !== false ||
-            this.isset(ImprovedTube.storage.sunset_theme) && ImprovedTube.storage.sunset_theme !== false ||
-            this.isset(ImprovedTube.storage.desert_theme) && ImprovedTube.storage.desert_theme !== false ||
-            this.isset(ImprovedTube.storage.plain_theme) && ImprovedTube.storage.plain_theme !== false ||
-            this.isset(ImprovedTube.storage.black_theme) && ImprovedTube.storage.black_theme !== false
-        )
-    ) {
+    if (this.schedule() === true && this.isset(this.storage.theme)) {
         var PREF_OLD = this.getParams(this.getCookieValueByName('PREF')),
             PREF = this.getParams(this.getCookieValueByName('PREF')),
             result = '';
@@ -1718,7 +1707,7 @@ ImprovedTube.themes = function () {
 
         this.setCookie('PREF', result.slice(0, -1));
 
-        document.documentElement.setAttribute('it-theme', 'true');
+        document.documentElement.setAttribute('it-theme', this.storage.theme);
     } else {
         document.documentElement.removeAttribute('it-theme');
     }
