@@ -15,7 +15,6 @@ body {
     font-size: 14px;
     overflow: hidden;
     margin: 0;
-    
     --satus-primary: #ff4158;
     --satus-header-background: #fff;
     --satus-header-text: #777;
@@ -152,9 +151,9 @@ body[theme=black] {
 }
 
 .satus-header .satus-section {
+    width: calc(100% - 96px);
     flex-wrap: nowrap;
     flex: 1;
-    width: calc(100% - 96px);
 }
 
 .satus-header .satus-section--align-start>* {
@@ -187,14 +186,15 @@ body[theme=black] {
 }
 
 .satus-header .satus-span--title {
-    text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
     flex: 1;
 }
 
 .satus-input--search[type=text] {
     position: absolute;
+    z-index: 1;
     right: 64px;
     display: none;
     width: calc(100vw - 80px);
@@ -202,7 +202,6 @@ body[theme=black] {
     padding-right: 36px;
     background: var(--satus-header-background);
     box-shadow: 0 0 1px 1px var(--satus-hover);
-    z-index: 1;
 }
 
 .satus-input--search:focus {
@@ -215,13 +214,13 @@ body[theme=black] {
 
 .satus-header .satus-button--close-search {
     position: absolute;
+    z-index: 1;
     right: 68px;
     display: none;
     width: 28px;
     min-width: 28px;
     height: 28px;
     padding: 4px !important;
-    z-index: 1;
 }
 
 .search-mode .satus-button--close-search {
@@ -250,8 +249,8 @@ body[theme=black] {
     width: calc(100% - 80px);
     min-width: unset;
     max-width: unset;
-    padding: 0;
     margin: 0;
+    padding: 0;
     transform-origin: top;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -306,9 +305,9 @@ body[theme=black] {
 }
 
 .satus-modal--vertical .satus-button .satus-span {
-    text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 
@@ -358,12 +357,12 @@ body[theme=black] {
 }
 
 .satus-section--home .satus-button> :nth-child(2) {
-overflow: hidden;
+    overflow: hidden;
+    width: calc(100% - 16px);
     margin: 8px 0 0;
+    text-align: center;
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: calc(100% - 16px);
-    text-align: center;
 }
 
 .satus-button--general svg {
@@ -535,6 +534,7 @@ overflow: hidden;
 .satus-label--plain-theme,
 .satus-label--black-theme {
     display: flex;
+    width: auto;
     height: 80px;
     margin: 8px;
     cursor: pointer;
@@ -543,7 +543,6 @@ overflow: hidden;
     text-shadow: 0 1px 3px rgba(0, 0, 0, .7);
     justify-content: space-between;
     align-items: center;
-    width: auto;
 }
 
 .satus-label--default-theme {
