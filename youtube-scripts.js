@@ -165,7 +165,6 @@ ImprovedTube.init = function () {
     window.addEventListener('DOMContentLoaded', function () {
         ImprovedTube.addScrollToTop();
         ImprovedTube.confirmationBeforeClosing();
-        ImprovedTube.myColors();
         ImprovedTube.dim();
         ImprovedTube.font();
         ImprovedTube.themes();
@@ -1501,8 +1500,22 @@ ImprovedTube.comments = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.myColors = function () {
-    if (this.storage.theme_my_colors === true) {
-        var style = this.elements.my_colors || document.createElement('style');
+    if (this.storage.theme === 'my-colors') {
+        var style = this.elements.my_colors || document.createElement('style'),
+            primary_color = this.storage.theme_primary_color,
+            text_color = this.storage.theme_text_color;
+
+        if (primary_color) {
+            primary_color = 'rgb(' + primary_color.join(',') + ')';
+        } else {
+            primary_color = 'rgb(200, 200, 200)';
+        }
+
+        if (text_color) {
+            text_color = 'rgb(' + text_color.join(',') + ')';
+        } else {
+            text_color = 'rgb(25, 25, 25)';
+        }
 
         style.className = 'it-theme-editor';
         style.textContent = 'html{' +
@@ -1518,32 +1531,32 @@ ImprovedTube.myColors = function () {
             '--yt-spec-call-to-action-button-focus-outline:rgba(0,0,0, 0.30) !important;' +
             '--yt-spec-brand-text-button-focus-outline:rgba(204, 0, 0, 0.30) !important;' +
             '--yt-spec-10-percent-layer:rgba(136,136,136,1) !important;' +
-            '--yt-swatch-primary:' + (this.storage.theme_primary_color || '') + '!important;' +
-            '--yt-swatch-primary-darker:' + (this.storage.theme_primary_color || '') + '!important;' +
-            '--yt-spec-brand-background-solid:' + (this.storage.theme_primary_color || '') + '!important;' +
-            '--yt-spec-general-background-a:' + (this.storage.theme_primary_color || '') + '!important;' +
-            '--yt-spec-general-background-b:' + (this.storage.theme_primary_color || '') + '!important;' +
-            '--yt-spec-general-background-c:' + (this.storage.theme_primary_color || '') + '!important;' +
-            '--yt-spec-touch-response:' + (this.storage.theme_primary_color || '') + '!important;' +
-            '--yt-swatch-text: ' + (this.storage.theme_text_color || '') + '!important;' +
-            '--yt-swatch-important-text: ' + (this.storage.theme_text_color || '') + '!important;' +
-            '--yt-swatch-input-text: ' + (this.storage.theme_text_color || '') + '!important;' +
-            '--yt-swatch-logo-override: ' + (this.storage.theme_text_color || '') + '!important;' +
-            '--yt-spec-text-primary:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-text-primary-inverse:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-text-secondary:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-text-disabled:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-icon-active-other:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-icon-inactive:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-icon-disabled:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-filled-button-text:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-call-to-action-inverse:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-brand-icon-active:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-brand-icon-inactive:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-brand-link-text:' + (this.storage.theme_text_color || '') + '!important;' +
-            '--yt-spec-brand-subscribe-button-background:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-wordmark-text:' + (this.storage.theme_text_color || '') + ' !important;' +
-            '--yt-spec-selected-nav-text:' + (this.storage.theme_text_color || '') + ' !important;' +
+            '--yt-swatch-primary:' + primary_color + '!important;' +
+            '--yt-swatch-primary-darker:' + primary_color + '!important;' +
+            '--yt-spec-brand-background-solid:' + primary_color + '!important;' +
+            '--yt-spec-general-background-a:' + primary_color + '!important;' +
+            '--yt-spec-general-background-b:' + primary_color + '!important;' +
+            '--yt-spec-general-background-c:' + primary_color + '!important;' +
+            '--yt-spec-touch-response:' + primary_color + '!important;' +
+            '--yt-swatch-text: ' + text_color + '!important;' +
+            '--yt-swatch-important-text: ' + text_color + '!important;' +
+            '--yt-swatch-input-text: ' + text_color + '!important;' +
+            '--yt-swatch-logo-override: ' + text_color + '!important;' +
+            '--yt-spec-text-primary:' + text_color + ' !important;' +
+            '--yt-spec-text-primary-inverse:' + text_color + ' !important;' +
+            '--yt-spec-text-secondary:' + text_color + ' !important;' +
+            '--yt-spec-text-disabled:' + text_color + ' !important;' +
+            '--yt-spec-icon-active-other:' + text_color + ' !important;' +
+            '--yt-spec-icon-inactive:' + text_color + ' !important;' +
+            '--yt-spec-icon-disabled:' + text_color + ' !important;' +
+            '--yt-spec-filled-button-text:' + text_color + ' !important;' +
+            '--yt-spec-call-to-action-inverse:' + text_color + ' !important;' +
+            '--yt-spec-brand-icon-active:' + text_color + ' !important;' +
+            '--yt-spec-brand-icon-inactive:' + text_color + ' !important;' +
+            '--yt-spec-brand-link-text:' + text_color + '!important;' +
+            '--yt-spec-brand-subscribe-button-background:' + text_color + ' !important;' +
+            '--yt-spec-wordmark-text:' + text_color + ' !important;' +
+            '--yt-spec-selected-nav-text:' + text_color + ' !important;' +
             '}';
 
         this.elements.my_colors = style;
@@ -1690,6 +1703,8 @@ ImprovedTube.font = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.themes = function () {
+    this.myColors();
+
     if (this.schedule() === true && this.isset(this.storage.theme)) {
         var PREF_OLD = this.getParams(this.getCookieValueByName('PREF')),
             PREF = this.getParams(this.getCookieValueByName('PREF')),

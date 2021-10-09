@@ -3358,7 +3358,22 @@ var skeleton = {
 
                                             theme_my_colors: {
                                                 component: 'switch',
-                                                text: 'activate'
+                                                text: 'activate',
+                                                storage: false,
+                                                on: {
+                                                    render: function () {
+                                                        this.dataset.value = satus.storage.get('theme') === 'my-colors';
+                                                    },
+                                                    click: function () {
+                                                        var value = 'default';
+
+                                                        if (this.dataset.value === 'true') {
+                                                            value = 'my-colors';
+                                                        }
+
+                                                        satus.storage.set('theme', value);
+                                                    }
+                                                }
                                             }
                                         },
 
@@ -3369,12 +3384,12 @@ var skeleton = {
                                             theme_primary_color: {
                                                 component: 'color-picker',
                                                 text: 'primaryColor',
-                                                value: 'rgba(200,200,200)'
+                                                value: [200, 200, 200]
                                             },
                                             theme_text_color: {
                                                 component: 'color-picker',
                                                 text: 'textColor',
-                                                value: 'rgba(25,25,25)'
+                                                value: [25, 25, 25]
                                             }
                                         }
                                     }
@@ -3649,13 +3664,10 @@ var skeleton = {
                                 text: 'default',
 
                                 radio: {
-                                    component: 'input',
-                                    attr: {
-                                        type: 'radio',
-                                        name: 'theme',
-                                        value: 'default'
-                                    },
-                                    value: true
+                                    component: 'radio',
+                                    group: 'theme',
+                                    value: 'default',
+                                    checked: true
                                 }
                             },
                             dark: {
@@ -3664,12 +3676,9 @@ var skeleton = {
                                 text: 'dark',
 
                                 radio: {
-                                    component: 'input',
-                                    attr: {
-                                        type: 'radio',
-                                        name: 'theme',
-                                        value: 'dark'
-                                    }
+                                    component: 'radio',
+                                    group: 'theme',
+                                    value: 'dark'
                                 }
                             },
                             night: {
@@ -3678,12 +3687,9 @@ var skeleton = {
                                 text: 'night',
 
                                 radio: {
-                                    component: 'input',
-                                    attr: {
-                                        type: 'radio',
-                                        name: 'theme',
-                                        value: 'night'
-                                    }
+                                    component: 'radio',
+                                    group: 'theme',
+                                    value: 'night'
                                 }
                             },
                             dawn: {
@@ -3692,12 +3698,9 @@ var skeleton = {
                                 text: 'dawn',
 
                                 radio: {
-                                    component: 'input',
-                                    attr: {
-                                        type: 'radio',
-                                        name: 'theme',
-                                        value: 'dawn'
-                                    }
+                                    component: 'radio',
+                                    group: 'theme',
+                                    value: 'dawn'
                                 }
                             },
                             sunset: {
@@ -3706,12 +3709,9 @@ var skeleton = {
                                 text: 'sunset',
 
                                 radio: {
-                                    component: 'input',
-                                    attr: {
-                                        type: 'radio',
-                                        name: 'theme',
-                                        value: 'sunset'
-                                    }
+                                    component: 'radio',
+                                    group: 'theme',
+                                    value: 'sunset'
                                 }
                             },
                             desert: {
@@ -3720,12 +3720,9 @@ var skeleton = {
                                 text: 'desert',
 
                                 radio: {
-                                    component: 'input',
-                                    attr: {
-                                        type: 'radio',
-                                        name: 'theme',
-                                        value: 'desert'
-                                    }
+                                    component: 'radio',
+                                    group: 'theme',
+                                    value: 'desert'
                                 }
                             },
                             plain: {
@@ -3734,12 +3731,9 @@ var skeleton = {
                                 text: 'plain',
 
                                 radio: {
-                                    component: 'input',
-                                    attr: {
-                                        type: 'radio',
-                                        name: 'theme',
-                                        value: 'plain'
-                                    }
+                                    component: 'radio',
+                                    group: 'theme',
+                                    value: 'plain'
                                 }
                             },
                             black: {
@@ -3748,12 +3742,9 @@ var skeleton = {
                                 text: 'black',
 
                                 radio: {
-                                    component: 'input',
-                                    attr: {
-                                        type: 'radio',
-                                        name: 'theme',
-                                        value: 'black'
-                                    }
+                                    component: 'radio',
+                                    group: 'theme',
+                                    value: 'black'
                                 }
                             }
                         }
@@ -3766,17 +3757,17 @@ var skeleton = {
                     svg: {
                         component: 'svg',
                         attr: {
-                            viewBox: '0 0 24 24',
-                            fill: 'transparent',
-                            stroke: 'currentColor',
+                            'viewBox': '0 0 24 24',
+                            'fill': 'transparent',
+                            'stroke': 'currentColor',
                             'stroke-linecap': 'round',
-                            'stroke-width': 1.75
+                            'stroke-width': '1.75'
                         },
 
                         path: {
                             component: 'path',
                             attr: {
-                                d: 'M12 2.69l5.66 5.66a8 8 0 11-11.31 0z'
+                                'd': 'M12 2.69l5.66 5.66a8 8 0 11-11.31 0z'
                             }
                         }
                     }
