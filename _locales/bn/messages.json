@@ -65,6 +65,9 @@
     "appearance": {
         "message": "উপস্থিতি"
     },
+    "areYouSureYouWantToExportTheData": {
+        "message": "Are you sure you want to export the data?"
+    },
     "audio": {
         "message": "শ্রুতি"
     },

@@ -65,6 +65,9 @@
     "appearance": {
         "message": "外観"
     },
+    "areYouSureYouWantToExportTheData": {
+        "message": "Are you sure you want to export the data?"
+    },
     "audio": {
         "message": "音声"
     },
