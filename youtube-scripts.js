@@ -1072,7 +1072,7 @@ document.addEventListener('ImprovedTubeOnlyOnePlayer', function (event) {
             name: 'only-one-player'
         });
     }
-});
+});fd
 
 
 /*------------------------------------------------------------------------------
@@ -1102,7 +1102,7 @@ ImprovedTube.hdThumbnails = function (node) {
                 }
             };
 
-            node.src = node.src.replace(this.regex.thumbnail_quality, 'maxresdefault.jpg');
+            node.src = node.src.replace(this.regex.thumbnail_quality, 'hqdefault.jpg');
         }
     } else if (node.dataset.defaultSrc) {
         node.src = node.dataset.defaultSrc;
