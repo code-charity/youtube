@@ -65,6 +65,9 @@
     "appearance": {
         "message": "Apparence"
     },
+    "areYouSureYouWantToExportTheData": {
+        "message": "Are you sure you want to export the data?"
+    },
     "audio": {
         "message": "Audio"
     },

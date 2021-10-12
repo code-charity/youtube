@@ -5675,6 +5675,124 @@ satus.storage.import(function (items) {
             }
 
             satus.render(skeleton);
+
+            if (location.href.indexOf('action=import') !== -1) {
+                    satus.render({
+                        component: 'modal',
+
+                        label: {
+                            component: 'span',
+                            text: 'areYouSureYouWantToImportTheData'
+                        },
+                        actions: {
+                            component: 'section',
+                            variant: 'actions',
+
+                            ok: {
+                                component: 'button',
+                                text: 'ok',
+                                on: {
+                                    click: function () {
+                                        var input = document.createElement('input');
+
+                                        input.type = 'file';
+
+                                        input.addEventListener('change', function () {
+                                            var file_reader = new FileReader();
+
+                                            file_reader.onload = function () {
+                                                var data = JSON.parse(this.result);
+
+                                                for (var key in data) {
+                                                    satus.storage.set(key, data[key]);
+                                                }
+
+                                                close();
+                                            };
+
+                                            file_reader.readAsText(this.files[0]);
+                                        });
+
+                                        input.click();
+
+                                        this.parentNode.parentNode.parentNode.close();
+                                    }
+                                }
+                            },
+                            cancel: {
+                                component: 'button',
+                                text: 'cancel',
+                                on: {
+                                    click: function () {
+                                        this.parentNode.parentNode.parentNode.close();
+                                    }
+                                }
+                            }
+                        }
+                    });
+                } else if (location.href.indexOf('action=export') !== -1) {
+                    var blob;
+
+                    try {
+                        blob = new Blob([JSON.stringify(satus.storage.data)], {
+                            type: 'application/json;charset=utf-8'
+                        });
+                    } catch (error) {
+                        return modalError(error);
+                    }
+
+                    satus.render({
+                        component: 'modal',
+
+                        label: {
+                            component: 'span',
+                            text: 'areYouSureYouWantToExportTheData'
+                        },
+                        actions: {
+                            component: 'section',
+                            variant: 'actions',
+
+                            ok: {
+                                component: 'button',
+                                text: 'ok',
+                                on: {
+                                    click: function () {
+                                        try {
+                                            chrome.permissions.request({
+                                                permissions: ['downloads']
+                                            }, function (granted) {
+                                                if (granted) {
+                                                    chrome.downloads.download({
+                                                        url: URL.createObjectURL(blob),
+                                                        filename: 'improvedtube.json',
+                                                        saveAs: true
+                                                    }, function () {
+                                                        setTimeout(function () {
+                                                            close();
+                                                        }, 1000);
+                                                    });
+                                                }
+                                            });
+                                        } catch (error) {
+                                            return modalError(error);
+                                        }
+
+                                        this.parentNode.parentNode.parentNode.close();
+                                    }
+                                }
+                            },
+                            cancel: {
+                                component: 'button',
+                                text: 'cancel',
+                                on: {
+                                    click: function () {
+                                        this.parentNode.parentNode.parentNode.close();
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
         }, function (success) {
             satus.ajax('_locales/en/messages.json', success);
         });
