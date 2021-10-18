@@ -122,7 +122,8 @@ var ImprovedTube = {
         channel: new RegExp('\/(user|channel|c)\/'),
         channel_home_page: new RegExp('\/(user|channel|c)\/.+(\/featured)?\/?$'),
         channel_home_page_postfix: new RegExp('\/(featured)?\/?$'),
-        thumbnail_quality: new RegExp('(hqdefault\.jpg|hq720.jpg)+'),
+        thumbnail_quality_low: new RegExp('(hqdefault\.jpg|hq720.jpg)+'),
+        thumbnail_quality_max: new RegExp('(maxresdefault\.jpg)+'),
         video_id: new RegExp('[?&]v=([^&]+)'),
         channel_link: new RegExp('https:\/\/www.youtube.com\/(channel|user|c)\/')
     }`,
@@ -1082,31 +1083,27 @@ document.addEventListener('ImprovedTubeOnlyOnePlayer', function (event) {
 ImprovedTube.hdThumbnails = function (node) {
     if (this.isset(node) === false) {
         var thumbnails = document.querySelectorAll('img');
-
         for (var i = 0, l = thumbnails.length; i < l; i++) {
             this.hdThumbnails(thumbnails[i]);
         }
-
         return;
     }
-
-    if (this.storage.hd_thumbnails === true) {
-        if (this.regex.thumbnail_quality.test(node.src)) {
-            if (node.dataset.hasOwnProperty('defaultSrc') === false) {
-                node.dataset.defaultSrc = node.src;
-            }
-
+    if (this.storage.hd_thumbnails === true ) {
+        if (! node.dataset.defaultSrc && this.regex.thumbnail_quality_low.test(node.src)) {
+            node.dataset.defaultSrc = node.src;
             node.onload = function () {
                 if (this.naturalHeight <= 90) {
                     this.src = this.dataset.defaultSrc;
                 }
             };
-
-            node.src = node.src.replace(this.regex.thumbnail_quality, 'maxresdefault.jpg');
+            node.src = node.src.replace(this.regex.thumbnail_quality_low, 'maxresdefault.jpg');
+            node.onerror = function () {
+                this.error = "";
+                this.src = this.src.replace(this.regex.thumbnail_quality_max, 'hqdefault.jpg');
+            }
         }
     } else if (node.dataset.defaultSrc) {
         node.src = node.dataset.defaultSrc;
-
         delete node.dataset.defaultSrc;
     }
 };
