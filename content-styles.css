@@ -2748,12 +2748,21 @@ html[it-mini-player-cursor='nw-resize']::after {
 
 
 /*------------------------------------------------------------------------------
-4.4 SCREENSHOT
+# 
 ------------------------------------------------------------------------------*/
 
 .it-player-button {
-    position: relative;
-    min-width: 40px;
+    position: relative !important;
+    min-width: 40px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.it-player-button > svg {
+    fill: #fff !important;
+    width: 56% !important;
+    height: auto !important;
 }
 
 .it-player-button--tooltip {
@@ -2775,92 +2784,6 @@ body.no-scroll .it-player-button--tooltip {
     line-height: 22px;
     padding: 8px 9px;
     transform: translate(-50%, -75%);
-}
-
-#it-screenshot-button svg {
-    position: absolute !important;
-    top: 7px !important;
-    left: 7px !important;
-    width: 22px !important;
-    fill: #fff !important;
-}
-
-.html5-video-player.ytp-big-mode #it-screenshot-button svg {
-    top: 10px !important;
-    left: 10px !important;
-    width: 34px !important;
-}
-
-
-/*------------------------------------------------------------------------------
-4.5 REPEAT
-------------------------------------------------------------------------------*/
-
-#it-repeat-button {
-    position: relative !important;
-}
-
-#it-repeat-button svg {
-    position: absolute !important;
-    width: 80%;
-    height: 80%;
-    top: 11px !important;
-    left: 11px !important;
-    fill: #fff !important;
-}
-
-.html5-video-player.ytp-big-mode #it-repeat-button svg {
-    top: 10px !important;
-    left: 10px !important;
-    width: 34px !important;
-}
-
-
-/*------------------------------------------------------------------------------
-4.6 ROTATE
-------------------------------------------------------------------------------*/
-
-#it-rotate-button {
-    position: relative !important;
-}
-
-#it-rotate-button svg {
-    position: absolute !important;
-    width: 80%;
-    height: 80%;
-    top: 11px !important;
-    left: 11px !important;
-    fill: #fff !important;
-}
-
-.html5-video-player.ytp-big-mode #it-rotate-button svg {
-    top: 10px !important;
-    left: 10px !important;
-    width: 34px !important;
-}
-
-
-/*------------------------------------------------------------------------------
-4.7 POPUP PLAYER
-------------------------------------------------------------------------------*/
-
-#it-popup-player-button {
-    position: relative !important;
-}
-
-#it-popup-player-button svg {
-    position: absolute !important;
-    width: 80%;
-    height: 80%;
-    top: 11px !important;
-    left: 11px !important;
-    fill: #fff !important;
-}
-
-.html5-video-player.ytp-big-mode #it-popup-player-button svg {
-    top: 10px !important;
-    left: 10px !important;
-    width: 34px !important;
 }
 
 
