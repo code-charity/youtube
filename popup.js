@@ -2972,6 +2972,9 @@ var skeleton = {
                                             text: 'fitToWindow',
                                             value: 'fit_to_window'
                                         }, {
+                                            text: '144p',
+                                            value: '144p'
+                                        }, {
                                             text: '240p',
                                             value: '240p'
                                         }, {
@@ -5131,6 +5134,10 @@ var skeleton = {
                                         shortcut_auto: {
                                             component: 'shortcut',
                                             text: 'auto'
+                                        },
+                                        shortcut_144p: {
+                                            component: 'shortcut',
+                                            text: '144p'
                                         },
                                         shortcut_240p: {
                                             component: 'shortcut',
