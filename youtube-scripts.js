@@ -3095,6 +3095,7 @@ ImprovedTube.shortcuts = function() {
                     if (same_keys === true) {
                         if ([
                             'shortcutAuto',
+                            'shortcut144p',
                             'shortcut240p',
                             'shortcut360p',
                             'shortcut480p',
@@ -3224,6 +3225,10 @@ ImprovedTube.shortcuts = function() {
 ImprovedTube.shortcutQuality = function (key) {
     if (this.elements.player) {
         var value = key.replace('shortcut', '').toLowerCase();
+
+        if (value === '144p') {
+            value = 'tiny';
+        }
 
         if (value === '240p') {
             value = 'small';
