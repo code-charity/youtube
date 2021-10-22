@@ -2486,7 +2486,6 @@ ImprovedTube.playerAutofullscreen = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerQuality = function () {
-    console.log(this.elements.player);
     var quality = this.storage.player_quality;
 
     if (this.elements.player.getAvailableQualityLevels && !this.elements.player.dataset.defaultQuality) {
@@ -2496,7 +2495,6 @@ ImprovedTube.playerQuality = function () {
             if (available_quality_levels.indexOf(quality) === -1) {
                 quality = available_quality_levels[0];
             }
-
             this.elements.player.setPlaybackQualityRange(quality);
             this.elements.player.setPlaybackQuality(quality);
             this.elements.player.dataset.defaultQuality = quality;
