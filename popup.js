@@ -2842,9 +2842,28 @@ var skeleton = {
                             text: 'squaredUserImages',
                             tags: 'avatar'
                         },
-                        hd_thumbnails: {
-                            component: 'switch',
-                            text: 'hdThumbnails',
+                        thumbnails_quality: {
+                            component: 'select',
+                            text: 'thumbnailsQuality',
+                            options: [{
+                                text: 'default',
+                                value: 'null'
+                            }, {
+                                text: 'low',
+                                value: 'default'
+                            }, {
+                                text: 'medium',
+                                value: 'mqdefault'
+                            }, {
+                                text: 'high',
+                                value: 'hqdefault'
+                            }, {
+                                text: 'sd',
+                                value: 'sddefault'
+                            }, {
+                                text: 'hd',
+                                value: 'maxresdefault'
+                            }],
                             tags: 'preview quality'
                         },
                         hide_animated_thumbnails: {
