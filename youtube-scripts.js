@@ -2484,16 +2484,16 @@ ImprovedTube.playerAutofullscreen = function () {
 ImprovedTube.playerQuality = function () {
     var quality = this.storage.player_quality;
 
-    if (this.elements.player.getAvailableQualityLevels) {
+    if (this.elements.player.getAvailableQualityLevels && !this.elements.player.dataset.defaultQuality) {
         var available_quality_levels = this.elements.player.getAvailableQualityLevels();
 
         if (quality && quality !== 'auto') {
             if (available_quality_levels.indexOf(quality) === -1) {
                 quality = available_quality_levels[0];
             }
-
             this.elements.player.setPlaybackQualityRange(quality);
             this.elements.player.setPlaybackQuality(quality);
+            this.elements.player.dataset.defaultQuality = quality;
         }
     }
 };
