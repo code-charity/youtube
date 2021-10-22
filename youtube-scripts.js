@@ -2486,9 +2486,10 @@ ImprovedTube.playerAutofullscreen = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerQuality = function () {
+    console.log(this.elements.player);
     var quality = this.storage.player_quality;
 
-    if (this.elements.player.getAvailableQualityLevels) {
+    if (this.elements.player.getAvailableQualityLevels && !this.elements.player.dataset.defaultQuality) {
         var available_quality_levels = this.elements.player.getAvailableQualityLevels();
 
         if (quality && quality !== 'auto') {
@@ -2498,6 +2499,7 @@ ImprovedTube.playerQuality = function () {
 
             this.elements.player.setPlaybackQualityRange(quality);
             this.elements.player.setPlaybackQuality(quality);
+            this.elements.player.dataset.defaultQuality = quality;
         }
     }
 };
