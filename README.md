@@ -1,6 +1,6 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
-> ❗ All [GitHub releases](https://github.com/code4charity/YouTube-Extension/releases) are alpha/beta versions
+❗ All [GitHub releases](https://github.com/code4charity/YouTube-Extension/releases) are alpha/beta versions
 
 ❔ Meaningful/Most similar recommendations? Example: Social-Fixer(, Youtube Enhancer, Simplify, ...)  [1016](https://github.com/code4charity/YouTube-Extension/issues/1016).<br>
 ❔ ImprovedTube controls in, under or around the video player or cursor  [842](https://github.com/code4charity/YouTube-Extension/issues/842).<br>
