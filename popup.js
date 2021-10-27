@@ -31,7 +31,6 @@ var skeleton = {
                 on: {
                     click: 'layers.back'
                 },
-                pluviam: true,
 
                 svg: {
                     component: 'svg',
@@ -50,7 +49,10 @@ var skeleton = {
             },
             title: {
                 component: 'span',
-                variant: 'title'
+                variant: 'title',
+                data: {
+                    version: chrome.runtime.getManifest().version
+                }
             }
         },
         section_end: {
@@ -120,7 +122,11 @@ var skeleton = {
                                         parent = parent.parent;
                                     }
 
-                                    var category = parent.parent.label.text;
+                                    var category = '';
+
+                                    if (parent.parent && parent.parent.label && parent.parent.label.text) {
+                                        category = parent.parent.label.text;
+                                    }
 
                                     parent = result;
 
@@ -252,7 +258,6 @@ var skeleton = {
                         this.base.skeleton.header.section_end.search_field.rendered.focus();
                     }
                 },
-                pluviam: true,
 
                 svg: {
                     component: 'svg',
@@ -2617,7 +2622,6 @@ var skeleton = {
                         }
                     }
                 },
-                pluviam: true,
 
                 svg: {
                     component: 'svg',
@@ -5038,6 +5042,11 @@ var skeleton = {
                                                         }
                                                     }
                                                 }
+                                            },
+                                            reset_playback_speed: {
+                                                component: 'shortcut',
+                                                text: 'reset',
+                                                storage: 'shortcut_reset_playback_speed'
                                             }
                                         }
                                     }
@@ -5669,24 +5678,160 @@ var skeleton = {
 };
 
 
+function exportData() {
+    if (location.href.indexOf('action=export') !== -1) {
+        var blob;
+
+        try {
+            blob = new Blob([JSON.stringify(satus.storage.data)], {
+                type: 'application/json;charset=utf-8'
+            });
+        } catch (error) {
+            return modalError(error);
+        }
+
+        satus.render({
+            component: 'modal',
+
+            label: {
+                component: 'span',
+                text: 'areYouSureYouWantToExportTheData'
+            },
+            actions: {
+                component: 'section',
+                variant: 'actions',
+
+                ok: {
+                    component: 'button',
+                    text: 'ok',
+                    on: {
+                        click: function () {
+                            try {
+                                chrome.permissions.request({
+                                    permissions: ['downloads']
+                                }, function (granted) {
+                                    if (granted) {
+                                        chrome.downloads.download({
+                                            url: URL.createObjectURL(blob),
+                                            filename: 'improvedtube.json',
+                                            saveAs: true
+                                        }, function () {
+                                            setTimeout(function () {
+                                                close();
+                                            }, 1000);
+                                        });
+                                    }
+                                });
+                            } catch (error) {
+                                return modalError(error);
+                            }
+
+                            this.parentNode.parentNode.parentNode.close();
+                        }
+                    }
+                },
+                cancel: {
+                    component: 'button',
+                    text: 'cancel',
+                    on: {
+                        click: function () {
+                            this.parentNode.parentNode.parentNode.close();
+                        }
+                    }
+                }
+            }
+        });
+    }
+}
+
+function importData() {
+    if (location.href.indexOf('action=import') !== -1) {
+        satus.render({
+            component: 'modal',
+
+            label: {
+                component: 'span',
+                text: 'areYouSureYouWantToImportTheData'
+            },
+            actions: {
+                component: 'section',
+                variant: 'actions',
+
+                ok: {
+                    component: 'button',
+                    text: 'ok',
+                    on: {
+                        click: function () {
+                            var input = document.createElement('input');
+
+                            input.type = 'file';
+
+                            input.addEventListener('change', function () {
+                                var file_reader = new FileReader();
+
+                                file_reader.onload = function () {
+                                    var data = JSON.parse(this.result);
+
+                                    for (var key in data) {
+                                        satus.storage.set(key, data[key]);
+                                    }
+
+                                    close();
+                                };
+
+                                file_reader.readAsText(this.files[0]);
+                            });
+
+                            input.click();
+
+                            this.parentNode.parentNode.parentNode.close();
+                        }
+                    }
+                },
+                cancel: {
+                    component: 'button',
+                    text: 'cancel',
+                    on: {
+                        click: function () {
+                            this.parentNode.parentNode.parentNode.close();
+                        }
+                    }
+                }
+            }
+        });
+    }
+}
+
+
 /*--------------------------------------------------------------
 # INITIALIZATION
 --------------------------------------------------------------*/
 
-satus.parents(skeleton, true);
+satus.parents(skeleton, false);
 
 satus.storage.attributes = {
-    theme: true
+    theme: true,
+    improvedtube_home: true,
+    title_version: true,
+    it_general: true,
+    it_appearance: true,
+    it_themes: true,
+    it_player: true,
+    it_playlist: true,
+    it_channel: true,
+    it_shortcuts: true,
+    it_blacklist: true,
+    it_analyzer: true
 };
 
 satus.storage.import(function (items) {
-    var language = items.language || window.navigator.language;
-
-    if (language.indexOf('en') === 0) {
-        language = 'en';
-    }
-
     if (document.documentElement.hasAttribute('page')) {
+        var language = items.language || window.navigator.language;
+
+        if (language.indexOf('en') === 0) {
+            language = 'en';
+        }
+
         chrome.runtime.sendMessage({
             name: 'get-localization',
             code: language
@@ -5696,138 +5841,11 @@ satus.storage.import(function (items) {
             satus.render(skeleton);
         });
     } else {
-        satus.ajax('_locales/' + language + '/messages.json', function (response) {
-            try {
-                response = JSON.parse(response);
-
-                for (var key in response) {
-                    satus.locale.strings[key] = response[key].message;
-                }
-            } catch (error) {
-                console.error(error);
-            }
-
+        satus.locale.import(items.language, '../_locales/', function () {
             satus.render(skeleton);
 
-            if (location.href.indexOf('action=import') !== -1) {
-                    satus.render({
-                        component: 'modal',
-
-                        label: {
-                            component: 'span',
-                            text: 'areYouSureYouWantToImportTheData'
-                        },
-                        actions: {
-                            component: 'section',
-                            variant: 'actions',
-
-                            ok: {
-                                component: 'button',
-                                text: 'ok',
-                                on: {
-                                    click: function () {
-                                        var input = document.createElement('input');
-
-                                        input.type = 'file';
-
-                                        input.addEventListener('change', function () {
-                                            var file_reader = new FileReader();
-
-                                            file_reader.onload = function () {
-                                                var data = JSON.parse(this.result);
-
-                                                for (var key in data) {
-                                                    satus.storage.set(key, data[key]);
-                                                }
-
-                                                close();
-                                            };
-
-                                            file_reader.readAsText(this.files[0]);
-                                        });
-
-                                        input.click();
-
-                                        this.parentNode.parentNode.parentNode.close();
-                                    }
-                                }
-                            },
-                            cancel: {
-                                component: 'button',
-                                text: 'cancel',
-                                on: {
-                                    click: function () {
-                                        this.parentNode.parentNode.parentNode.close();
-                                    }
-                                }
-                            }
-                        }
-                    });
-                } else if (location.href.indexOf('action=export') !== -1) {
-                    var blob;
-
-                    try {
-                        blob = new Blob([JSON.stringify(satus.storage.data)], {
-                            type: 'application/json;charset=utf-8'
-                        });
-                    } catch (error) {
-                        return modalError(error);
-                    }
-
-                    satus.render({
-                        component: 'modal',
-
-                        label: {
-                            component: 'span',
-                            text: 'areYouSureYouWantToExportTheData'
-                        },
-                        actions: {
-                            component: 'section',
-                            variant: 'actions',
-
-                            ok: {
-                                component: 'button',
-                                text: 'ok',
-                                on: {
-                                    click: function () {
-                                        try {
-                                            chrome.permissions.request({
-                                                permissions: ['downloads']
-                                            }, function (granted) {
-                                                if (granted) {
-                                                    chrome.downloads.download({
-                                                        url: URL.createObjectURL(blob),
-                                                        filename: 'improvedtube.json',
-                                                        saveAs: true
-                                                    }, function () {
-                                                        setTimeout(function () {
-                                                            close();
-                                                        }, 1000);
-                                                    });
-                                                }
-                                            });
-                                        } catch (error) {
-                                            return modalError(error);
-                                        }
-
-                                        this.parentNode.parentNode.parentNode.close();
-                                    }
-                                }
-                            },
-                            cancel: {
-                                component: 'button',
-                                text: 'cancel',
-                                on: {
-                                    click: function () {
-                                        this.parentNode.parentNode.parentNode.close();
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
-        }, function (success) {
-            satus.ajax('_locales/en/messages.json', success);
+            exportData();
+            importData();
         });
     }
 });

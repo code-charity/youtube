@@ -6,6 +6,7 @@
 # Localization
 # Context menu
 # Tab focus/blur
+# Migration
 # Initialization
     # Get items from storage
     # Storage change listener
@@ -185,6 +186,19 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
 
 
 /*--------------------------------------------------------------
+# MIGRATION
+--------------------------------------------------------------*/
+
+function migration(items) {
+    if (items.hd_thumbnails === true) {
+        items.thumbnails_quality = 'maxresdefault';
+    }
+
+    delete items.hd_thumbnails;
+}
+
+
+/*--------------------------------------------------------------
 # INITIALIZATION
 --------------------------------------------------------------*/
 
@@ -195,6 +209,7 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
 chrome.storage.local.get(function (items) {
     //googleAnalytics(items.ga);
     //uninstallURL();
+    migration(items);
 
     getLocalization(items.language, function (locale) {
         updateContextMenu(locale);
