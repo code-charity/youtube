@@ -3560,7 +3560,22 @@ ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
 
 
 /*------------------------------------------------------------------------------
-4.7.18 GO TO SEARCH BOX
+4.7.18 RESET PLAYBACK SPEED
+------------------------------------------------------------------------------*/
+
+ImprovedTube.shortcutResetPlaybackSpeed = function () {
+    var video = this.elements.video;
+
+    if (video) {
+        video.playbackRate = 1;
+
+        ImprovedTube.showStatus(video.playbackRate);
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.7.19 GO TO SEARCH BOX
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutGoToSearchBox = function () {
@@ -3573,7 +3588,7 @@ ImprovedTube.shortcutGoToSearchBox = function () {
 
 
 /*------------------------------------------------------------------------------
-4.7.19 ACTIVATE FULLSCREEN
+4.7.20 ACTIVATE FULLSCREEN
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutActivateFullscreen = function () {
@@ -3584,7 +3599,7 @@ ImprovedTube.shortcutActivateFullscreen = function () {
 
 
 /*------------------------------------------------------------------------------
-4.7.20 ACTIVATE CAPTIONS
+4.7.21 ACTIVATE CAPTIONS
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutActivateCaptions = function () {
@@ -3597,7 +3612,7 @@ ImprovedTube.shortcutActivateCaptions = function () {
 
 
 /*------------------------------------------------------------------------------
-4.7.21 LIKE
+4.7.22 LIKE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutLike = function () {
@@ -3610,7 +3625,7 @@ ImprovedTube.shortcutLike = function () {
 
 
 /*------------------------------------------------------------------------------
-4.7.22 DISLIKE
+4.7.23 DISLIKE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutDislike = function () {
@@ -3623,7 +3638,7 @@ ImprovedTube.shortcutDislike = function () {
 
 
 /*------------------------------------------------------------------------------
-4.7.23 SUBSCRIBE
+4.7.24 SUBSCRIBE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutSubscribe = function () {
@@ -3634,7 +3649,7 @@ ImprovedTube.shortcutSubscribe = function () {
 
 
 /*------------------------------------------------------------------------------
-4.7.24 DARK THEME
+4.7.25 DARK THEME
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutDarkTheme = function () {
@@ -3649,7 +3664,7 @@ ImprovedTube.shortcutDarkTheme = function () {
 
 
 /*------------------------------------------------------------------------------
-4.7.25 CUSTOM MINI PLAYER
+4.7.26 CUSTOM MINI PLAYER
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutCustomMiniPlayer = function () {
@@ -3660,7 +3675,7 @@ ImprovedTube.shortcutCustomMiniPlayer = function () {
 
 
 /*------------------------------------------------------------------------------
-4.7.26 STATS FOR NERDS
+4.7.27 STATS FOR NERDS
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutStatsForNerds = function () {
@@ -3675,7 +3690,7 @@ ImprovedTube.shortcutStatsForNerds = function () {
 
 
 /*------------------------------------------------------------------------------
-4.7.27 TOGGLE CARDS
+4.7.28 TOGGLE CARDS
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutToggleCards = function () {
@@ -3684,7 +3699,7 @@ ImprovedTube.shortcutToggleCards = function () {
 
 
 /*------------------------------------------------------------------------------
-4.7.28 POPUP PLAYER
+4.7.29 POPUP PLAYER
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutPopupPlayer = function () {
