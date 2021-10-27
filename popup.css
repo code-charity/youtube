@@ -28,18 +28,6 @@ body {
 
 body[theme=dark] {
     --satus-primary: #ff4158;
-    --satus-header-background: #1c2027;
-    --satus-header-text: #b5b5b5;
-    --satus-layers-background: #121316;
-    --satus-layers-text: #bfbfbf;
-    --satus-section-card-background: #191b1f;
-    --satus-modal-background: #191b1f;
-    --satus-modal-text: #b5b5b5;
-    --satus-hover: rgba(255, 255, 255, .07);
-    --it-category-background: linear-gradient(135deg, #ff4158, #ff001f);
-    --it-category-shadow: rgba(222, 0, 27, .7);
-    --it-appearance-shadow-color: #393e46;
-    --satus-switch-track: #ccc;
 }
 
 body[theme=night] {
@@ -124,16 +112,6 @@ body[theme=plain] {
 
 body[theme=black] {
     --satus-primary: #ff4158;
-    --satus-header-background: #222;
-    --satus-header-text: #fafafa;
-    --satus-layers-background: #111;
-    --satus-layers-text: #eee;
-    --satus-section-card-background: #222;
-    --satus-modal-background: #222;
-    --satus-modal-text: #fafafa;
-    --satus-hover: rgba(255, 255, 255, .04);
-    --it-appearance-shadow-color: #222;
-    --satus-switch-track: #ccc;
 }
 
 body {
@@ -193,6 +171,14 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
     flex: 1;
+}
+
+body[title_version='true'] .satus-span--title::after
+{
+    font: 700 10px sans-serif;
+    margin: 0 0 0 4px;
+    content: attr(data-version);
+    opacity: .6
 }
 
 .satus-input--search[type=text] {
@@ -326,13 +312,28 @@ body {
 # MAIN
 --------------------------------------------------------------*/
 
-.satus-section--home {
-    position: relative;
+body:not([improvedtube_home='list']) .satus-section--home {
+    position: absolute;
     overflow: hidden;
     width: 100%;
+    left: 0;
 }
 
-.satus-section--home .satus-button {
+body[improvedtube_home='list'] .satus-section--home {
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 900px;
+    margin: 8px auto;
+    padding: 8px 0;
+    color: var(--satus-section-card-text);
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 8px;
+    background: var(--satus-section-card-background);
+    justify-content: stretch;
+}
+
+body:not([improvedtube_home='list']) .satus-section--home .satus-button {
     display: flex;
     flex-direction: column;
     width: calc(100% / 3);
@@ -343,15 +344,26 @@ body {
     align-items: center;
 }
 
-body[page] .satus-section--home .satus-button {
+body[improvedtube_home='list'] .satus-section--home>.satus-button {
+    width: 100%;
+    padding: 0 16px;
+}
+
+body[improvedtube_home='list'] .satus-section--home>.satus-button>span>svg {
+    width: 20px;
+    margin: 2px 16px 0 0;
+    color: var(--satus-primary);
+}
+
+body:not([improvedtube_home='list'])[page] .satus-section--home .satus-button {
     width: 96px;
 }
 
-.satus-section--home .satus-button:hover {
+body:not([improvedtube_home='list']) .satus-section--home .satus-button:hover {
     background: transparent;
 }
 
-.satus-section--home .satus-button> :nth-child(1) {
+body:not([improvedtube_home='list']) .satus-section--home .satus-button> :nth-child(1) {
     display: block;
     overflow: visible;
     width: 28px;
@@ -365,13 +377,13 @@ body[page] .satus-section--home .satus-button {
     box-shadow: 0 2px 1px 1px rgb(222, 0, 27, .7), 0 3px 5px rgb(0, 0, 0, .35);
 }
 
-.satus-section--home .satus-button:hover> :nth-child(1) {
+body:not([improvedtube_home='list']) .satus-section--home .satus-button:hover> :nth-child(1) {
     transition: background 250ms 125ms, transform 250ms, box-shadow 275ms;
     transform: translateY(4px) scale(.975);
     box-shadow: 0 1px 1px 0 rgb(222, 0, 27, .7), 0 1px 2px rgba(0, 0, 0, .35);
 }
 
-.satus-section--home .satus-button> :nth-child(2) {
+body:not([improvedtube_home='list']) .satus-section--home .satus-button> :nth-child(2) {
     overflow: hidden;
     width: calc(100% - 16px);
     margin: 8px 0 0;
@@ -380,44 +392,56 @@ body[page] .satus-section--home .satus-button {
     text-overflow: ellipsis;
 }
 
-.satus-button--general svg {
+body:not([improvedtube_home='list']) .satus-button--general svg {
     position: relative;
 }
 
-.satus-button--appearance svg {
+body:not([improvedtube_home='list']) .satus-button--appearance svg {
     position: relative;
     top: 1px;
     left: 1px;
 }
 
-.satus-button--themes svg {
+body:not([improvedtube_home='list']) .satus-button--themes svg {
     position: relative;
 }
 
-.satus-button--player svg {
+body:not([improvedtube_home='list']) .satus-button--player svg {
     position: relative;
     top: 1px;
     left: 2px;
 }
 
-.satus-button--playlist svg {
+body:not([improvedtube_home='list']) .satus-button--playlist svg {
     position: relative;
     top: 1px;
 }
 
-.satus-button--shortcuts svg {
+body:not([improvedtube_home='list']) .satus-button--shortcuts svg {
     position: relative;
     top: 1px;
 }
 
-.satus-button--blacklist svg {
+body:not([improvedtube_home='list']) .satus-button--blacklist svg {
     position: relative;
     top: 1px;
 }
 
-.satus-button--analyzer svg {
+body:not([improvedtube_home='list']) .satus-button--analyzer svg {
     position: relative;
     top: 1px;
+}
+
+body[it_general='false'] .satus-button--general,
+body[it_appearance='false'] .satus-button--appearance,
+body[it_themes='false'] .satus-button--themes,
+body[it_player='false'] .satus-button--player,
+body[it_playlist='false'] .satus-button--playlist,
+body[it_channel='false'] .satus-button--channel,
+body[it_shortcuts='false'] .satus-button--shortcuts,
+body[it_blacklist='false'] .satus-button--blacklist,
+body[it_analyzer='false'] .satus-button--analyzer {
+    display: none;
 }
 
 
