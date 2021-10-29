@@ -4,7 +4,7 @@
 
 ❔ Meaningful/Most similar recommendations? Example: Social-Fixer(, Youtube Enhancer, Simplify, ...)  [1016](https://github.com/code4charity/YouTube-Extension/issues/1016).<br>
 ❔ ImprovedTube controls in, under or around the video player or cursor  [842](https://github.com/code4charity/YouTube-Extension/issues/842).<br>
-📟 Friefox, Edge, Opera, Whale added (please try&rate)  
+📟 Firefox, Edge, Opera, Whale added (please try&rate)  
 📟 You might enjoy our global [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making. <br>
 📟 We are focused on bugs & UX. Wishes for new features might have to wait but please keep them up! 
 <p align="center">
