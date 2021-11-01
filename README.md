@@ -1,7 +1,6 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
-❗ All [GitHub releases](https://github.com/code4charity/YouTube-Extension/releases) are alpha/beta versions
-
+🔔 [GitHub releases](https://github.com/code4charity/YouTube-Extension/releases) are alpha/beta versions <br>
 ❔ Meaningful/Most similar recommendations? Example: Social-Fixer(, Youtube Enhancer, Simplify, ...)  [1016](https://github.com/code4charity/YouTube-Extension/issues/1016).<br>
 ❔ ImprovedTube controls in, under or around the video player or cursor  [842](https://github.com/code4charity/YouTube-Extension/issues/842).<br>
 📟 Firefox, Edge, Opera, Whale added (please try&rate)  
@@ -9,7 +8,7 @@
 📟 We are focused on bugs & UX. Wishes for new features might have to wait but please keep them up! 
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-		<img alt="YouTube extension" src="https://github.com/victor-savinov/previews/raw/master/improvedtube/screenshot-github.png">
+		<img alt="YouTube extension" src="https://raw.githubusercontent.com/victor-savinov/graphics/master/previews/improvedtube/screenshot-github.png">
 	</a>
 	<br>
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
