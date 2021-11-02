@@ -57,7 +57,7 @@ Big thanks ❤️ to our <br>
 <br> future <a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>/sponsors :bowtie: <br><i> - 'Might be the best <br> YouTube Extension Ever' <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px">2021</a><br> - 'enhances YouTube in <br> meaningful ways' <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px">2021</a><br> - 'Strong add-on, that gives you<br> full control over Youtube.<br> Yet clear and easy' <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html"><img src="https://www.chip.de/favicon.ico"></a><br></i> 
 </td></tr></table>
 
-## 👪 Join us!
+### 👪 Join us!
 ImprovedTube is the only project of it's kind. Other open & free YouTube Extensions resigned. Please spread the word 📣
 ## 🧩 ToDo
 - [ ] **1. Documentation Wiki, screenshots, videos** <code> We need to help the people learn easier about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _We made no documentation (let alone marketing. ImprovedTube can fly higher through your word of mouth🌱. Popularity will allow us to work on all wishes)._</code>
