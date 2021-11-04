@@ -1164,10 +1164,15 @@ ImprovedTube.playerSize = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.forcedTheaterMode = function () {
+    var button = this.elements.player.querySelector('button.ytp-size-button');
     if (window.self === window.top && this.storage.forced_theater_mode === true) {
-        var button = this.elements.player.querySelector('button.ytp-size-button');
-
         if (button && this.elements.ytd_watch.theater === false) {
+            setTimeout(function() {
+                button.click();
+            }, 200);
+        }
+    } else if(window.self === window.top && this.storage.forced_theater_mode === false) {
+        if (button && this.elements.ytd_watch.theater === true) {
             setTimeout(function() {
                 button.click();
             }, 200);
