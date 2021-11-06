@@ -1,4 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+/*--------------------------------------------------------------
+>>> IMPROVEDTUBE UI (WEBSITE MODE)
+--------------------------------------------------------------*/
+
+document.addEventListener('DOMContentLoaded', function () {
     var charset = document.createElement('meta'),
         viewport = document.createElement('meta'),
         title = document.createElement('title'),

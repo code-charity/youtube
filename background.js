@@ -194,7 +194,87 @@ function migration(items) {
         items.thumbnails_quality = 'maxresdefault';
     }
 
-    delete items.hd_thumbnails;
+    for (var key in items) {
+        var item = items[key];
+
+        if (key.indexOf('shortcut') !== -1 && typeof item === 'string') {
+            try {
+                item = JSON.parse(item);
+
+                var value = {
+                    alt: item.altKey,
+                    ctrl: item.ctrlKey,
+                    shift: item.shiftKey
+                };
+
+                if (item.hasOwnProperty('key') && item.hasOwnProperty('keyCode')) {
+                    value.keys = {};
+
+                    value.keys[item.keyCode] = {
+                        key: item.key
+                    };
+                }
+
+                items[key] = value;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    }
+
+    if (items.theme_my_colors === true) {
+        items.theme = 'my-colors';
+    } else if (items.default_dark_theme === true) {
+        items.theme = 'dark';
+    } else if (items.night_theme === true) {
+        items.theme = 'night';
+    } else if (items.dawn_theme === true) {
+        items.theme = 'dawn';
+    } else if (items.sunset_theme === true) {
+        items.theme = 'sunset';
+    } else if (items.desert_theme === true) {
+        items.theme = 'desert';
+    } else if (items.plain_theme === true) {
+        items.theme = 'plain';
+    } else if (items.black_theme === true) {
+        items.theme = 'black';
+    }
+
+    if (typeof items.theme_primary_color === 'string') {
+        var match = items.theme_primary_color.match(/[0-9.]+/g);
+
+        if (match) {
+            for (var i = 0, l = match.length; i < l; i++) {
+                match[i] = parseFloat(match[i]);
+            }
+        }
+
+        items.theme_primary_color = match;
+    }
+
+    if (typeof items.theme_text_color === 'string') {
+        var match = items.theme_text_color.match(/[0-9.]+/g);
+
+        if (match) {
+            for (var i = 0, l = match.length; i < l; i++) {
+                match[i] = parseFloat(match[i]);
+            }
+        }
+
+        items.theme_text_color = match;
+    }
+
+    chrome.storage.local.set(items);
+
+    chrome.storage.local.remove('hd_thumbnails');
+    chrome.storage.local.remove('theme_my_colors');
+    chrome.storage.local.remove('default_dark_theme');
+    chrome.storage.local.remove('night_theme');
+    chrome.storage.local.remove('dawn_theme');
+    chrome.storage.local.remove('sunset_theme');
+    chrome.storage.local.remove('desert_theme');
+    chrome.storage.local.remove('plain_theme');
+    chrome.storage.local.remove('black_theme');
 }
 
 
@@ -209,11 +289,12 @@ function migration(items) {
 chrome.storage.local.get(function (items) {
     //googleAnalytics(items.ga);
     //uninstallURL();
-    migration(items);
 
     getLocalization(items.language, function (locale) {
         updateContextMenu(locale);
     });
+
+    migration(items);
 });
 
 
