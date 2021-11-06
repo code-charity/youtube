@@ -263,6 +263,9 @@ var skeleton = {
                     component: 'svg',
                     attr: {
                         'viewBox': '0 0 24 24',
+                        'stroke': 'currentcolor',
+                        'stroke-linecap': 'round',
+                        'stroke-linejoin': 'round',
                         'stroke-width': '1.25'
                     },
 
@@ -298,6 +301,8 @@ var skeleton = {
                                     on: {
                                         render: function () {
                                             var component = this;
+
+                                            this.skeleton.parent.parent.rendered.close();
 
                                             satus.search('', skeleton, function (results) {
                                                 var skeleton = {};
@@ -377,14 +382,22 @@ var skeleton = {
                                                     }
                                                 }
 
-                                                console.log(skeleton);
+                                                if (Object.keys(skeleton).length === 0) {
+                                                    skeleton = {
+                                                        component: 'section',
+                                                        variant: 'card',
+
+                                                        span: {
+                                                            component: 'span',
+                                                            text: 'noActiveFeatures'
+                                                        }
+                                                    };
+                                                }
 
                                                 satus.render(skeleton, component.parentNode);
 
                                                 component.remove();
                                             });
-
-                                            document.querySelector('.satus-modal__scrim').click();
                                         }
                                     }
                                 }
@@ -438,21 +451,17 @@ var skeleton = {
                                                         class: 'satus-section--label',
                                                         text: 'customJs'
                                                     },
-                                                    custom_js_section: {
-                                                        component: 'section',
-                                                        variant: 'card',
-                                                        custom_js: {
-                                                            component: 'input',
-                                                            attr: {
-                                                                'type': 'text'
+                                                    custom_js: {
+                                                        component: 'input',
+                                                        attr: {
+                                                            'type': 'text'
+                                                        },
+                                                        on: {
+                                                            render: function () {
+                                                                this.value = satus.storage.get('custom_js') || '';
                                                             },
-                                                            on: {
-                                                                render: function () {
-                                                                    this.value = satus.storage.get('custom_js') || '';
-                                                                },
-                                                                input: function () {
-                                                                    satus.storage.set('custom_js', this.value);
-                                                                }
+                                                            input: function () {
+                                                                satus.storage.set('custom_js', this.value);
                                                             }
                                                         }
                                                     },
@@ -461,21 +470,17 @@ var skeleton = {
                                                         class: 'satus-section--label',
                                                         text: 'customCss'
                                                     },
-                                                    custom_css_section: {
-                                                        component: 'section',
-                                                        variant: 'card',
-                                                        custom_css: {
-                                                            component: 'input',
-                                                            attr: {
-                                                                'type': 'text'
+                                                    custom_css: {
+                                                        component: 'input',
+                                                        attr: {
+                                                            'type': 'text'
+                                                        },
+                                                        on: {
+                                                            render: function () {
+                                                                this.value = satus.storage.get('custom_css') || '';
                                                             },
-                                                            on: {
-                                                                render: function () {
-                                                                    this.value = satus.storage.get('custom_css') || '';
-                                                                },
-                                                                input: function () {
-                                                                    satus.storage.set('custom_css', this.value);
-                                                                }
+                                                            input: function () {
+                                                                satus.storage.set('custom_css', this.value);
                                                             }
                                                         }
                                                     },
@@ -484,27 +489,23 @@ var skeleton = {
                                                         class: 'satus-section--label',
                                                         text: 'googleApiKey'
                                                     },
-                                                    google_api_key_section: {
-                                                        component: 'section',
-                                                        variant: 'card',
-                                                        google_api_key: {
-                                                            component: 'input',
-                                                            attr: {
-                                                                type: 'text'
+                                                    google_api_key: {
+                                                        component: 'input',
+                                                        attr: {
+                                                            type: 'text'
+                                                        },
+                                                        on: {
+                                                            render: function () {
+                                                                this.value = satus.storage.get('google-api-key') || 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
                                                             },
-                                                            on: {
-                                                                render: function () {
-                                                                    this.value = satus.storage.get('google-api-key') || 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
-                                                                },
-                                                                input: function () {
-                                                                    var value = this.value;
+                                                            input: function () {
+                                                                var value = this.value;
 
-                                                                    if (value.length === 0) {
-                                                                        value = 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
-                                                                    }
-
-                                                                    satus.storage.set('google-api-key', value);
+                                                                if (value.length === 0) {
+                                                                    value = 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
                                                                 }
+
+                                                                satus.storage.set('google-api-key', value);
                                                             }
                                                         }
                                                     }
@@ -1087,7 +1088,7 @@ var skeleton = {
                                                                         importData();
                                                                     } else {
                                                                         chrome.tabs.create({
-                                                                            url: 'options.html?action=import'
+                                                                            url: 'ui/options.html?action=import'
                                                                         });
                                                                     }
                                                                 }
@@ -1102,7 +1103,7 @@ var skeleton = {
                                                                         exportData();
                                                                     } else {
                                                                         chrome.tabs.create({
-                                                                            url: 'options.html?action=export'
+                                                                            url: 'ui/options.html?action=export'
                                                                         });
                                                                     }
                                                                 }
@@ -2484,7 +2485,9 @@ var skeleton = {
                                     component: 'section',
                                     on: {
                                         render: function () {
-                                            var self = this;
+                                            var component = this;
+
+                                            this.skeleton.parent.parent.rendered.close();
 
                                             if (chrome && chrome.tabs) {
                                                 chrome.tabs.query({}, function (tabs) {
@@ -2527,13 +2530,14 @@ var skeleton = {
                                                                                         action: 'request-volume'
                                                                                     }, function (response) {
                                                                                         if (response) {
-                                                                                            self.value = response * 100;
+                                                                                            self.value = response;
                                                                                         } else {
                                                                                             self.parentNode.parentNode.classList.add('noconnection');
                                                                                         }
                                                                                     });
                                                                                 },
                                                                                 change: function () {
+                                                                                    console.log(this.value);
                                                                                     chrome.tabs.sendMessage(Number(this.dataset.id), {
                                                                                         action: 'set-volume',
                                                                                         value: this.value
@@ -2579,21 +2583,19 @@ var skeleton = {
                                                     }
 
                                                     if (Object.entries(mixer).length === 0) {
-                                                        mixer.section = {
+                                                        mixer = {
                                                             component: 'section',
-                                                            parent: self.skeleton,
+                                                            variant: 'card',
+                                                            parent: component.skeleton,
 
                                                             message: {
                                                                 component: 'span',
-                                                                class: 'satus-section--message',
                                                                 text: 'noOpenVideoTabs'
                                                             }
                                                         };
                                                     }
 
-                                                    skeleton.layers.rendered.open(mixer);
-
-                                                    document.querySelector('.satus-modal__scrim').click();
+                                                    satus.render(mixer, component.parentNode);
                                                 });
                                             }
                                         }
@@ -5312,6 +5314,7 @@ var skeleton = {
                                 on: {
                                     click: {
                                         component: 'section',
+                                        variant: 'card',
                                         on: {
                                             render: function () {
                                                 var self = this,
@@ -5357,27 +5360,17 @@ var skeleton = {
                                                     }
 
                                                     if (Object.keys(list).length === 0) {
-                                                        list.section = {
-                                                            type: 'section',
-                                                            class: 'satus-section--message',
-
-                                                            error: {
-                                                                type: 'text',
-                                                                text: 'empty'
-                                                            }
+                                                        list.error = {
+                                                            type: 'span',
+                                                            text: 'empty'
                                                         };
                                                     }
 
                                                     satus.render(list, this);
                                                 } else {
                                                     satus.render({
-                                                        component: 'section',
-                                                        class: 'satus-section--message',
-
-                                                        error: {
-                                                            component: 'text',
-                                                            text: 'empty'
-                                                        }
+                                                        component: 'span',
+                                                        text: 'empty'
                                                     }, this);
                                                 }
                                             }
@@ -5391,6 +5384,7 @@ var skeleton = {
                                 on: {
                                     click: {
                                         component: 'section',
+                                        variant: 'card',
                                         on: {
                                             render: function () {
                                                 var self = this,
@@ -5435,26 +5429,16 @@ var skeleton = {
 
                                                     if (Object.keys(list).length === 0) {
                                                         list.section = {
-                                                            type: 'section',
-                                                            class: 'satus-section--message',
-
-                                                            error: {
-                                                                type: 'text',
-                                                                text: 'empty'
-                                                            }
+                                                            component: 'span',
+                                                            text: 'empty'
                                                         };
                                                     }
 
                                                     satus.render(list, this);
                                                 } else {
                                                     satus.render({
-                                                        component: 'section',
-                                                        class: 'satus-section--message',
-
-                                                        error: {
-                                                            component: 'text',
-                                                            text: 'empty'
-                                                        }
+                                                        component: 'span',
+                                                        text: 'empty'
                                                     }, this);
                                                 }
                                             }

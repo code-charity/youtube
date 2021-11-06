@@ -3,7 +3,7 @@
     "name": "'Improve YouTube!' (Video & YouTube Tools)🎧",
     "short_name": "ImprovedTube",
     "description": "__MSG_description_ext__",
-    "version": "3.712",
+    "version": "3.750",
     "default_locale": "en",
     "icons": {
         "128": "icons/128.png",
@@ -18,62 +18,66 @@
         ]
     },
     "browser_action": {
-        "default_popup": "popup.html"
+        "default_popup": "ui/popup.html"
     },
-    "options_page": "options.html",
-    "content_scripts": [{
-        "all_frames": true,
-        "css": [
-            "content-styles.css"
-        ],
-        "exclude_matches": [
-            "https://www.youtube.com/improvedtube",
-            "https://www.youtube.com/tv*",
-            "https://www.youtube.com/audiolibrary/*",
-            "http://studio.youtube.com/*"
-        ],
-        "js": [
-            "youtube-scripts.js",
-            "content-scripts.js"
-        ],
-        "matches": [
-            "https://www.youtube.com/*"
-        ],
-        "run_at": "document_start"
-    }, {
-        "all_frames": true,
-        "css": [
-            "satus.css",
-            "popup.css"
-        ],
-        "js": [
-            "satus.js",
-            "popup.js"
-        ],
-        "matches": [
-            "https://www.youtube.com/improvedtube"
-        ],
-        "run_at": "document_end"
-    }, {
-        "all_frames": true,
-        "js": [
-            "page.js"
-        ],
-        "matches": [
-            "https://www.youtube.com/improvedtube"
-        ],
-        "run_at": "document_start"
-    }],
-    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+    "options_page": "ui/options.html",
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "css": [
+                "content-styles.css"
+            ],
+            "exclude_matches": [
+                "https://www.youtube.com/improvedtube",
+                "https://www.youtube.com/tv*",
+                "https://www.youtube.com/audiolibrary/*",
+                "http://studio.youtube.com/*"
+            ],
+            "js": [
+                "youtube-scripts.js",
+                "content-scripts.js"
+            ],
+            "matches": [
+                "https://www.youtube.com/*"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "all_frames": true,
+            "css": [
+                "ui/satus/satus.css",
+                "ui/styles.css"
+            ],
+            "js": [
+                "ui/satus/satus.js",
+                "ui/script.js"
+            ],
+            "matches": [
+                "https://www.youtube.com/improvedtube"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "all_frames": true,
+            "js": [
+                "ui/page.js"
+            ],
+            "matches": [
+                "https://www.youtube.com/improvedtube"
+            ],
+            "run_at": "document_start"
+        }
+    ],
     "offline_enabled": true,
+    "optional_permissions": [
+        "downloads",
+        "https://*.youtube.com/*"
+    ],
     "permissions": [
         "https://www.youtube.com/",
         "contextMenus",
         "storage"
     ],
-    "optional_permissions": [
-        "downloads",
-        "https://*.youtube.com/*"
-    ],
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
     "update_url": "https://clients2.google.com/service/update2/crx"
 }

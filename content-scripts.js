@@ -64,7 +64,7 @@ function attributes(items) {
         'hide-playlist': true,
         'related-videos': true,
         'comments': true,
-        'sidebar-left':true,
+        'sidebar-left': true,
         'thumbnails-right': true,
         'thumbnails-hide': true,
         'hide-footer': true,
@@ -164,7 +164,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         var element = document.querySelector('video');
 
         if (element) {
-            sendResponse(element.volume);
+            sendResponse(element.volume * 100);
         }
     } else if (request.action === 'set-volume') {
         var element = document.querySelector('video');
@@ -184,9 +184,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         if (element) {
             element.playbackRate = request.value;
         }
-    }  else if (request.action === 'delete-youtube-cookies') {
+    } else if (request.action === 'delete-youtube-cookies') {
         injectScript('ImprovedTube.deleteYoutubeCookies();');
-    } 
+    }
 
     injectScript('ImprovedTube.pageOnFocus();');
 });

@@ -2852,7 +2852,7 @@ html[it-player-remote-button=true] .ytp-remote-button {
 }
 
 #it-reverse-playlist.active svg {
-    fill: var(--yt-spec-icon-active-other);
+    fill: #f00;
 }
 
 
