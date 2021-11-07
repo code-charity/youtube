@@ -11,6 +11,7 @@
     # Get items from storage
     # Storage change listener
     # Message listener
+    # Update listener
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -215,6 +216,10 @@ function migration(items) {
                     };
                 }
 
+                if (item.hasOwnProperty('wheel')) {
+                    value.wheel = item.wheel < 0 ? -1 : 1;
+                }
+
                 items[key] = value;
             } catch (error) {
                 console.log(error);
@@ -287,10 +292,16 @@ function migration(items) {
 --------------------------------------------------------------*/
 
 chrome.storage.local.get(function (items) {
+    var language = items.language || window.navigator.language;
+
+    if (language.indexOf('en') === 0) {
+        language = 'en';
+    }
+
     //googleAnalytics(items.ga);
     //uninstallURL();
 
-    getLocalization(items.language, function (locale) {
+    getLocalization(language, function (locale) {
         updateContextMenu(locale);
     });
 
@@ -378,4 +389,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             });
         });
     }
+});
+
+
+/*--------------------------------------------------------------
+# UPDATE LISTENER
+--------------------------------------------------------------*/
+
+chrome.runtime.onInstalled.addListener(function (details) {
+    chrome.storage.local.get(function (items) {
+        migration(items);
+    });
 });
