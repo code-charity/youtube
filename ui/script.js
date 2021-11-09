@@ -438,7 +438,7 @@ var skeleton = {
                                         variant: 'card',
                                         on: {
                                             render: function () {
-                                                document.querySelector('.satus-modal__scrim').click();
+                                                this.skeleton.parent.parent.parent.rendered.close();
                                             }
                                         },
 

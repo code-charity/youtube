@@ -1045,11 +1045,11 @@ html[it-sidebar-left='true'] #head>#upnext
 2.3.5 Thumbnails
 -----------------------------------------------------------------------------*/
 
-html[it-thumbnails-right='true'] #dismissible>ytd-thumbnail {
+html[it-thumbnails-right='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail {
     order: 7;
 }
 
-html[it-thumbnails-hide='true'] #dismissible>ytd-thumbnail {
+html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail {
     display: none;
 }
 
