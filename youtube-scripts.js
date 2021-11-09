@@ -1675,21 +1675,29 @@ ImprovedTube.dim = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.font = function () {
-    if (this.storage.font === true && this.storage.font !== 'Default') {
-        var link = this.elements.myFont || document.createElement('link');
+    var option = this.storage.font;
+
+    if (option && option !== 'Default') {
+        var link = this.elements.myFont || document.createElement('link'),
+            style = document.createElement('style');
 
         link.rel = 'stylesheet';
-        link.href = '//fonts.googleapis.com/css2?family=' + this.storage.font;
+        link.href = '//fonts.googleapis.com/css2?family=' + option;
+
+        style.textContent = '*{font-family:"' + option.replace(/\+/g, ' ') + '" !important}';
 
         this.elements.myFont = link;
+        this.elements.myFontStyle = style;
 
-        document.documentElement.style.fontFamily = this.storage.font.replace(/\+/g, ' ');
+        document.documentElement.style.fontFamily = option.replace(/\+/g, ' ');
 
         document.documentElement.appendChild(link);
+        document.documentElement.appendChild(style);
     } else if (this.elements.myFont) {
-        this.elements.myFont.remove();
-
         document.documentElement.style.fontFamily = '';
+
+        this.elements.myFont.remove();
+        this.elements.myFontStyle.remove();
     }
 };
 
