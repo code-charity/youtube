@@ -2499,9 +2499,10 @@ ImprovedTube.playerQuality = function () {
         var available_quality_levels = this.elements.player.getAvailableQualityLevels();
 
         if (quality && quality !== 'auto') {
-            if (available_quality_levels.includes(quality) === true) {
+            if (available_quality_levels.includes(quality) === false) {
                 quality = available_quality_levels[0];
             }
+
             this.elements.player.setPlaybackQualityRange(quality);
             this.elements.player.setPlaybackQuality(quality);
             this.elements.player.dataset.defaultQuality = quality;
