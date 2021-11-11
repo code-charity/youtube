@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 
 [hidden] {
-    display: none;
+	display: none;
 }
 /*--------------------------------------------------------------
 >>> THEMES:
@@ -23,8 +23,8 @@
 --------------------------------------------------------------*/
 
 body {
-    --satus-primary: #f6b465;
-    --satus-switch-background: rgba(0,0,0,.08);
+	--satus-primary: #f6b465;
+	--satus-switch-background: rgba(0,0,0,.08);
     --satus-header-background: #fff;
     --satus-header-text: #848471;
     --satus-layers-background: #f6f6f4;
@@ -301,7 +301,7 @@ body[theme=black] {
 
 .satus-menubar,
 .satus-menubar ul {
-    margin: 0;
+	margin: 0;
     padding: 0;
     list-style: none;
     background: var(--satus-menubar-background);
@@ -314,13 +314,13 @@ body[theme=black] {
 }
 
 .satus-menubar > li > ul {
-    display: none;
-    position: absolute;
+	display: none;
+	position: absolute;
 }
 
 .satus-menubar > li > ul:hover,
 .satus-menubar > li > *:focus + ul {
-    display: block;
+	display: block;
 }
 /*--------------------------------------------------------------
 >>> RADIO
@@ -369,19 +369,19 @@ body[theme=black] {
 --------------------------------------------------------------*/
 
 .satus-list {
-    list-style: none;
+	list-style: none;
     margin: 0;
 }
 
 .satus-list__item {
-    display: flex;
+	display: flex;
     align-items: center;
     justify-content: space-between;
     min-height: 48px;
 }
 
 .satus-list__item>*:last-child {
-    text-align: right;
+	text-align: right;
 }
 /*--------------------------------------------------------------
 >>> SECTION:
@@ -391,9 +391,9 @@ body[theme=black] {
 --------------------------------------------------------------*/
 
 .satus-section {
-    display: flex;
-    box-sizing: border-box;
-    flex-wrap: wrap;
+	display: flex;
+	box-sizing: border-box;
+	flex-wrap: wrap;
 }
 
 
@@ -402,22 +402,22 @@ body[theme=black] {
 --------------------------------------------------------------*/
 
 .satus-section--align-start {
-    align-items: center;
-    justify-content: flex-start;
+	align-items: center;
+	justify-content: flex-start;
 }
 
 .satus-section--align-end {
-    align-items: center;
-    justify-content: flex-end;
+	align-items: center;
+	justify-content: flex-end;
 }
 
 .satus-section--space-between {
-    align-items: center;
-    justify-content: space-between;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .satus-section--column {
-    flex-direction: column;
+	flex-direction: column;
 }
 
 
@@ -426,32 +426,32 @@ body[theme=black] {
 --------------------------------------------------------------*/
 
 .satus-section--card {
-    flex-direction: column;
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 900px;
-    margin: 8px auto;
-    padding: 8px 0;
-    color: var(--satus-section-card-text);
-    border: 1px solid rgba(0, 0, 0, .1);
-    border-radius: 8px;
-    background: var(--satus-section-card-background);
-    justify-content: stretch;
+	flex-direction: column;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 900px;
+	margin: 8px auto;
+	padding: 8px 0;
+	color: var(--satus-section-card-text);
+	border: 1px solid rgba(0, 0, 0, .1);
+	border-radius: 8px;
+	background: var(--satus-section-card-background);
+	justify-content: stretch;
 }
 
 .satus-section--card>*:not(.satus-button) {
-    box-sizing: border-box;
-    min-height: 48px;
-    padding: 0 16px;
-    text-align: left;
+	box-sizing: border-box;
+	min-height: 48px;
+	padding: 0 16px;
+	text-align: left;
 }
 
 .satus-section--card>.satus-switch,
 .satus-section--card>.satus-select,
 .satus-section--card>.satus-radio {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .satus-section--card>.satus-button:hover,
@@ -459,23 +459,23 @@ body[theme=black] {
 .satus-section--card>.satus-select:hover,
 .satus-section--card>.satus-slider:hover,
 .satus-section--card>.satus-radio:hover {
-    background-color: var(--satus-hover);
+	background-color: var(--satus-hover);
 }
 
 .satus-section--card>.satus-button {
-    width: 100%;
-    padding: 0 16px;
+	width: 100%;
+	padding: 0 16px;
 }
 
 .satus-section--card>.satus-button>svg {
-    width: 20px;
-    margin: 2px 16px 0 0;
-    color: var(--satus-primary);
+	width: 20px;
+	margin: 2px 16px 0 0;
+	color: var(--satus-primary);
 }
 
 .satus-section--card>.satus-span {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 /*--------------------------------------------------------------
 # SCROLLBAR
@@ -906,9 +906,10 @@ body[theme=black] {
 }
 
 .satus-shortcut__value {
-    text-transform: uppercase;
     font-size: 11px;
-    opacity: .5;
+    display: flex;
+    text-transform: uppercase;
+    align-items: center;
 }
 
 .satus-shortcut__actions {
@@ -918,13 +919,13 @@ body[theme=black] {
 
 .satus-shortcut__actions .satus-button {
     height: 32px;
-    background: rgba(0,0,0,.15);
     margin: 8px 4px 0;
     border-radius: 8px;
+    background: rgba(0, 0, 0, .15);
 }
 
 .satus-shortcut__actions .satus-button:hover {
-    background: rgba(0,0,0,.25);
+    background: rgba(0, 0, 0, .25);
 }
 
 .satus-shortcut__primary {
@@ -933,7 +934,7 @@ body[theme=black] {
     width: 100%;
     height: 68px;
     padding: 16px;
-    background: rgba(0,0,0,.16);
+    background: rgba(0, 0, 0, .16);
     align-items: center;
 }
 
@@ -948,6 +949,12 @@ body[theme=black] {
     box-shadow: 0 1px 3px rgba(0, 0, 0, .15), inset 0 -3px 0 rgba(0, 0, 0, .1);
     align-items: center;
     justify-content: center;
+}
+
+.satus-shortcut__value>.satus-shortcut__key {
+    font-size: 14px;
+    min-width: 24px;
+    height: 24px;
 }
 
 .satus-shortcut__plus {
@@ -989,10 +996,15 @@ body[theme=black] {
     box-shadow: 0 1px 3px rgba(0, 0, 0, .15), inset 0 -3px 0 rgba(0, 0, 0, .1);
 }
 
+.satus-shortcut__value>.satus-shortcut__mouse {
+    width: 22px;
+    height: 28px;
+}
+
 .satus-shortcut__mouse>div {
     position: absolute;
     top: 0;
-    left: 13px;
+    left: calc(50% - 1px);
     width: 2px;
     height: 11px;
     border-radius: 2px;
@@ -1001,18 +1013,22 @@ body[theme=black] {
 
 .satus-shortcut__mouse::before {
     position: absolute;
-    top: -4px;
-    left: 21px;
+    top: -16%;
+    right: 14%;
     width: 2px;
-    height: 18px;
+    height: 60%;
     content: '';
     background: #f96754;
 }
 
+.satus-shortcut__mouse.false::before {
+    top: -6%;
+}
+
 .satus-shortcut__mouse.false::after {
     position: absolute;
-    top: -12px;
-    left: 17px;
+    top: -20%;
+    right: calc(14% - 4px);
     width: 0;
     height: 0;
     content: '';
@@ -1023,14 +1039,36 @@ body[theme=black] {
 
 .satus-shortcut__mouse.true::after {
     position: absolute;
-    top: 14px;
-    left: 17px;
+    top: 40%;
+    right: calc(14% - 4px);
     width: 0;
     height: 0;
     content: '';
     border-top: 8px solid #f96754;
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
+}
+
+.satus-shortcut__mouse.click::before {
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: 10px;
+    height: 10px;
+    content: '';
+    border-radius: 50%;
+    background: #f96754;
+}
+
+.satus-shortcut__mouse.context::before {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    content: '';
+    border-radius: 50%;
+    background: #f96754;
 }
 
 .satus-section_shortcut {
@@ -1080,82 +1118,82 @@ body[theme=black] {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+	overflow: hidden;
     align-items: center;
     flex: 1;
 }
 
 .satus-text-field__input {
-    font: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-width: 0;
-    max-width: none;
-    height: 100%;
-    min-height: 0;
-    max-height: none;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    border: none;
-    appearance: none;
-    z-index: 9;
+	font: inherit;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-width: 0;
+	max-width: none;
+	height: 100%;
+	min-height: 0;
+	max-height: none;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	border: none;
+	appearance: none;
+	z-index: 9;
 }
 
 .satus-text-field__hidden-text {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0;
+	position: absolute;
+	pointer-events: none;
+	opacity: 0;
 }
 
 .satus-text-field__text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    height: 100%;
-    margin: 0;
-    align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	height: 100%;
+	margin: 0;
+	align-items: center;
 }
 
 .satus-text-field__cursor {
-    position: absolute;
-    top: 6px;
-    left: 0;
-    display: none;
-    width: 2px;
-    height: 25px;
-    animation: blink 1s step-end 8;
-    background: #fa0;
+	position: absolute;
+	top: 6px;
+	left: 0;
+	display: none;
+	width: 2px;
+	height: 25px;
+	animation: blink 1s step-end 8;
+	background: #fa0;
 }
 
 .satus-text-field__selection {
-    position: absolute;
-    top: 5px;
-    left: 0;
-    display: none;
-    width: 0;
-    height: 25px;
-    border: 1px solid rgba(255, 255, 255, .2);
-    border-radius: 3px;
-    background: rgba(255, 255, 255, .1);
+	position: absolute;
+	top: 5px;
+	left: 0;
+	display: none;
+	width: 0;
+	height: 25px;
+	border: 1px solid rgba(255, 255, 255, .2);
+	border-radius: 3px;
+	background: rgba(255, 255, 255, .1);
 }
 
 .satus-text-field__input:focus + * + * + * + .satus-text-field__cursor,
 .satus-text-field__selection:not([disabled]) {
-    display: block;
+	display: block;
 }
 
 @keyframes blink {
-    from,
-    to {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
+	from,
+	to {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
 }
 
 
@@ -1164,33 +1202,33 @@ body[theme=black] {
 --------------------------------------------------------------*/
 
 .satus-text-field__text>.group {
-    color: #47ff47;
-    background-color: rgb(71, 255, 71, .16);
+	color: #47ff47;
+	background-color: rgb(71, 255, 71, .16);
 }
 
 .satus-text-field__text>.character-class {
-    color: #ffc247;
-    background-color: rgb(255, 170, 0, .16);
+	color: #ffc247;
+	background-color: rgb(255, 170, 0, .16);
 }
 
 .satus-text-field__text>.quantifier {
-    color: #47c2ff;
-    background-color: rgb(71, 194, 255, .16);
+	color: #47c2ff;
+	background-color: rgb(71, 194, 255, .16);
 }
 
 .satus-text-field__text>.anchor {
-    color: #47c2ff;
-    background-color: rgb(71, 194, 255, .16);
+	color: #47c2ff;
+	background-color: rgb(71, 194, 255, .16);
 }
 
 .satus-text-field__text>.metasequence {
-    color: #47ff47;
-    background-color: rgb(71, 255, 71, .16);
+	color: #47ff47;
+	background-color: rgb(71, 255, 71, .16);
 }
 
 .satus-text-field__text>.text {
-    color: #c4c4d4;
-    background-color: rgb(196, 196, 212, .16);
+	color: #c4c4d4;
+	background-color: rgb(196, 196, 212, .16);
 }
 /*--------------------------------------------------------------
 >>> HEADER
@@ -1280,9 +1318,9 @@ body[theme=black] {
 --------------------------------------------------------------*/
 
 .satus-divider {
-    height: 1px;
-    margin: 16px 0 12px;
-    background: var(--satus-divider);
+	height: 1px;
+	margin: 16px 0 12px;
+	background: var(--satus-divider);
 }
 /*--------------------------------------------------------------
 # INPUT
@@ -1309,7 +1347,7 @@ body[theme=black] {
 /**/
 
 .satus-aside {
-    color: var(--satus-aside-text);
+	color: var(--satus-aside-text);
     background: var(--satus-aside-background);
     box-sizing: border-box;
 }
@@ -1318,61 +1356,61 @@ body[theme=black] {
 --------------------------------------------------------------*/
 
 .satus-select {
-    position: relative;
-    display: flex;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: space-between;
+	position: relative;
+	display: flex;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .satus-select__content {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .satus-select__content > svg {
-    width: 20px;
-    
+	width: 20px;
+	
     height: 18px;
-    margin: 0 14px 0 0;
+	margin: 0 14px 0 0;
     opacity: .75;
 }
 
 .satus-select__value {
-    margin-left: 16px;
-    text-align: right;
-    opacity: .75;
+	margin-left: 16px;
+	text-align: right;
+	opacity: .75;
 }
 
 .satus-select select {
-    font: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    padding: inherit;
-    cursor: pointer;
-    opacity: 0;
-    color: inherit;
-    border: none;
-    outline: none;
-    background: none;
-    appearance: none;
+	font: inherit;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	padding: inherit;
+	cursor: pointer;
+	opacity: 0;
+	color: inherit;
+	border: none;
+	outline: none;
+	background: none;
+	appearance: none;
 }
 
 .satus-select:hover {
-    cursor: pointer;
-    background-color: var(--satus-hover);
+	cursor: pointer;
+	background-color: var(--satus-hover);
 }
 /*--------------------------------------------------------------
 >>> CONTEXT MENU
 --------------------------------------------------------------*/
 
 .satus-modal--contextmenu .satus-modal__scrim {
-    background: none;
+	background: none;
     backdrop-filter: none;
     animation: none;
     visibility: visible;
@@ -1427,29 +1465,29 @@ body[theme=black] {
 --------------------------------------------------------------*/
 
 .satus-pluviam {
-    position: absolute;
-    transform: scale(0);
-    animation-name: pluviam;
-    animation-duration: 1000ms;
-    opacity: var(--satus-pluviam-opacity, .08);
-    border-radius: 50%;
-    background: var(--satus-pluviam-background, #000);
-    animation-fill-mode: forwards;
+	position: absolute;
+	transform: scale(0);
+	animation-name: pluviam;
+	animation-duration: 1000ms;
+	opacity: var(--satus-pluviam-opacity, .08);
+	border-radius: 50%;
+	background: var(--satus-pluviam-background, #000);
+	animation-fill-mode: forwards;
 }
 
 @keyframes pluviam {
-    0% {
-        transform: scale(0);
-        opacity: var(--satus-pluviam-opacity, .08);
-    }
-    70% {
-        transform: scale(.8);
-        opacity: var(--satus-pluviam-opacity, .08);
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0;
-    }
+	0% {
+		transform: scale(0);
+		opacity: var(--satus-pluviam-opacity, .08);
+	}
+	70% {
+		transform: scale(.8);
+		opacity: var(--satus-pluviam-opacity, .08);
+	}
+	100% {
+		transform: scale(1);
+		opacity: 0;
+	}
 }
 /*--------------------------------------------------------------
 >>> SORTABLE
