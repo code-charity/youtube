@@ -29,58 +29,10 @@ function camelize(string) {
 ------------------------------------------------------------------------------*/
 
 function attributes(items) {
-    var whitelist = {
-        'youtube-home-page': true,
-        'remove-related-search-results': true,
-        'limit-page-width': true,
-        'squared-user-images': true,
-        'hide-animated-thumbnails': true,
-        'hide-thumbnail-overlay': true,
-        'header-position': true,
-        'header-improve-logo': true,
-        'header-hide-right-buttons': true,
-        'header-hide-country-code': true,
-        'hide-voice-search-button': true,
-        'player-hide-annotations': true,
-        'player-hide-cards': true,
-        'player-show-cards-on-mouse-hover': true,
-        'player-size': true,
-        'player-color': true,
-        'player-transparent-background': true,
-        'player-hide-endscreen': true,
-        'hide-scroll-for-details': true,
-        'always-show-progress-bar': true,
-        'player-hide-skip-overlay': true,
-        'hide-details': true,
-        'hide-views-count': true,
-        'hide-date': true,
-        'hide-share-button': true,
-        'hide-save-button': true,
-        'hide-more-button': true,
-        'likes': true,
-        'red-dislike-button': true,
-        'description': true,
-        'livechat': true,
-        'hide-playlist': true,
-        'related-videos': true,
-        'comments': true,
-        'sidebar-left': true,
-        'thumbnails-right': true,
-        'thumbnails-hide': true,
-        'hide-footer': true,
-        'bluelight': true,
-        'player-crop-chapter-titles': true,
-        'player-ads': true,
-        'scroll-bar': true,
-        'improvedtube-youtube-icon': true
-    };
-
     for (var key in items) {
         var attribute = key.replace(/_/g, '-');
 
-        if (whitelist.hasOwnProperty(attribute)) {
-            document.documentElement.setAttribute('it-' + attribute, items[key]);
-        }
+        document.documentElement.setAttribute('it-' + attribute, items[key]);
     }
 }
 
