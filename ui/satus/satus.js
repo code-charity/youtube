@@ -298,6 +298,17 @@ satus.storage.set = function (name, value) {
 
 
 /*--------------------------------------------------------------
+# REMOVE
+--------------------------------------------------------------*/
+
+satus.storage.remove = function (name) {
+    delete this.data[name];
+
+    chrome.storage.local.remove(name);
+};
+
+
+/*--------------------------------------------------------------
 # IMPORT
 --------------------------------------------------------------*/
 
@@ -963,421 +974,421 @@ satus.components.colorPicker = function (skeleton) {
 --------------------------------------------------------------*/
 
 satus.components.tabs = function (skeleton) {
-    var component = document.createElement('div'),
-        content = document.createElement('div'),
-        selection = document.createElement('div');
+	var component = document.createElement('div'),
+		content = document.createElement('div'),
+		selection = document.createElement('div');
 
-    content.className = 'satus-tabs__content';
-    selection.className = 'satus-tabs__selection';
-    selection.style.width = 100 / skeleton.items.length + '%';
+	content.className = 'satus-tabs__content';
+	selection.className = 'satus-tabs__selection';
+	selection.style.width = 100 / skeleton.items.length + '%';
 
-    content.appendChild(selection);
+	content.appendChild(selection);
 
-    component.selection = selection;
+	component.selection = selection;
 
-    for (var i = 0, l = skeleton.items.length; i < l; i++) {
-        var item = skeleton.items[i],
-            button = document.createElement('button');
+	for (var i = 0, l = skeleton.items.length; i < l; i++) {
+		var item = skeleton.items[i],
+			button = document.createElement('button');
 
-        button.className = 'satus-tabs__button';
-        button.value = item;
-        button.style.width = 100 / l + '%';
+		button.className = 'satus-tabs__button';
+		button.value = item;
+		button.style.width = 100 / l + '%';
 
-        satus.text(button, item);
+		satus.text(button, item);
 
-        button.addEventListener('click', function () {
-            var component = this.parentNode.parentNode;
+		button.addEventListener('click', function () {
+			var component = this.parentNode.parentNode;
 
-            component.selection.style.left = 100 / (this.parentNode.children.length - 1) * (satus.indexOf(this) - 1) + '%';
+			component.selection.style.left = 100 / (this.parentNode.children.length - 1) * (satus.indexOf(this) - 1) + '%';
 
-            component.storageValue = this.value;
-            component.storageChange();
-        });
+			component.storageValue = this.value;
+			component.storageChange();
+		});
 
-        if (skeleton.value === item) {
-            selection.style.left = i * 50 + '%';
-        }
+		if (skeleton.value === item) {
+			selection.style.left = i * 50 + '%';
+		}
 
-        content.appendChild(button);
-    }
-    
-    component.appendChild(content);
+		content.appendChild(button);
+	}
+	
+	component.appendChild(content);
 
-    component.addEventListener('render', function () {
-        var index = satus.indexOf(this.storageValue, this.skeleton.items);
+	component.addEventListener('render', function () {
+		var index = satus.indexOf(this.storageValue, this.skeleton.items);
 
-        if (index === -1) {
-            index = 0;
-        }
+		if (index === -1) {
+			index = 0;
+		}
 
-        this.selection.style.left = 100 / this.skeleton.items.length * index + '%';
-    });
+		this.selection.style.left = 100 / this.skeleton.items.length * index + '%';
+	});
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> MENUBAR
 --------------------------------------------------------------*/
 
 satus.components.menubar = function (skeleton) {
-    var component = document.createElement('ul');
+	var component = document.createElement('ul');
 
-    if (skeleton.items) {
-        for (var i = 0, l = skeleton.items.length; i < l; i++) {
-            var item = skeleton.items[i],
-                li = document.createElement('li');
+	if (skeleton.items) {
+		for (var i = 0, l = skeleton.items.length; i < l; i++) {
+			var item = skeleton.items[i],
+				li = document.createElement('li');
 
-            if (Array.isArray(item) === true) {
-                var ul = document.createElement('ul');
+			if (Array.isArray(item) === true) {
+				var ul = document.createElement('ul');
 
-                satus.render(item[0], li);
+				satus.render(item[0], li);
 
-                for (var j = 1, k = item.length; j < k; j++) {
-                    var li2 = document.createElement('li');
+				for (var j = 1, k = item.length; j < k; j++) {
+					var li2 = document.createElement('li');
 
-                    satus.render(item[j], li2);
+					satus.render(item[j], li2);
 
-                    ul.appendChild(li2);
-                }
+					ul.appendChild(li2);
+				}
 
-                li.appendChild(ul);
-            } else {
-                satus.render(item, li);
-            }
+				li.appendChild(ul);
+			} else {
+				satus.render(item, li);
+			}
 
-            component.appendChild(li);
-        }
-    }
+			component.appendChild(li);
+		}
+	}
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> RADIO
 --------------------------------------------------------------*/
 
 satus.components.radio = function (skeleton) {
-    var component = document.createElement('label'),
-        content = document.createElement('span'),
-        radio = document.createElement('input');
+	var component = document.createElement('label'),
+		content = document.createElement('span'),
+		radio = document.createElement('input');
 
-    component.inner = content;
+	component.inner = content;
 
-    radio.type = 'radio';
+	radio.type = 'radio';
 
-    if (skeleton.group) {
-        component.storage = skeleton.group;
-        radio.name = skeleton.group;
-    }
+	if (skeleton.group) {
+		component.storage = skeleton.group;
+		radio.name = skeleton.group;
+	}
 
-    if (skeleton.value) {
-        radio.value = skeleton.value;
-    }
+	if (skeleton.value) {
+		radio.value = skeleton.value;
+	}
 
-    component.addEventListener('render', function () {
-        this.storageValue = satus.storage.get(this.storage);
+	component.addEventListener('render', function () {
+		this.storageValue = satus.storage.get(this.storage);
 
-        if (satus.isset(this.storageValue)) {
-            radio.checked = this.storageValue === skeleton.value;
-        } else if (skeleton.checked) {
-            radio.checked = true;
-        }
-    });
+		if (satus.isset(this.storageValue)) {
+			radio.checked = this.storageValue === skeleton.value;
+		} else if (skeleton.checked) {
+			radio.checked = true;
+		}
+	});
 
-    radio.addEventListener('change', function () {
-        component.storageValue = this.value;
-        component.storageChange();
-    });
+	radio.addEventListener('change', function () {
+		component.storageValue = this.value;
+		component.storageChange();
+	});
 
-    component.appendChild(content);
-    component.appendChild(radio);
+	component.appendChild(content);
+	component.appendChild(radio);
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> LIST
 --------------------------------------------------------------*/
 
 satus.components.list = function (skeleton) {
-    var ul = document.createElement('ul');
+	var ul = document.createElement('ul');
 
-    for (var i = 0, l = skeleton.items.length; i < l; i++) {
-        var li = document.createElement('li'),
-            item = skeleton.items[i];
+	for (var i = 0, l = skeleton.items.length; i < l; i++) {
+		var li = document.createElement('li'),
+			item = skeleton.items[i];
 
-        li.className = 'satus-list__item';
+		li.className = 'satus-list__item';
 
-        for (var j = 0, k = item.length; j < k; j++) {
-            var child = item[j];
+		for (var j = 0, k = item.length; j < k; j++) {
+			var child = item[j];
 
-            if (typeof child === 'string') {
-                var span = document.createElement('span');
+			if (typeof child === 'string') {
+				var span = document.createElement('span');
 
-                span.textContent = satus.locale.get(child);
+				span.textContent = satus.locale.get(child);
 
-                li.appendChild(span);
-            } else {
-                satus.render(child, li);
-            }
-        }
+				li.appendChild(span);
+			} else {
+				satus.render(child, li);
+			}
+		}
 
-        ul.appendChild(li);
-    }
+		ul.appendChild(li);
+	}
 
-    return ul;
+	return ul;
 };
 /*--------------------------------------------------------------
 >>> MODAL
 --------------------------------------------------------------*/
 
 satus.components.modal = function (skeleton) {
-    var component = document.createElement('div'),
-        scrim = document.createElement('div'),
-        surface = document.createElement('div');
+	var component = document.createElement('div'),
+		scrim = document.createElement('div'),
+		surface = document.createElement('div');
 
-    component.inner = surface;
+	component.inner = surface;
 
-    scrim.className = 'satus-modal__scrim';
-    surface.className = 'satus-modal__surface';
+	scrim.className = 'satus-modal__scrim';
+	surface.className = 'satus-modal__surface';
 
-    component.close = function () {
-        var component = this,
-            component_surface = this.children[1];
+	component.close = function () {
+		var component = this,
+			component_surface = this.children[1];
 
-        this.classList.add('satus-modal--closing');
+		this.classList.add('satus-modal--closing');
 
-        setTimeout(function () {
-            component.remove();
+		setTimeout(function () {
+			component.remove();
 
-            component.dispatchEvent(new CustomEvent('close'));
-        }, satus.getAnimationDuration(component_surface));
-    };
+			component.dispatchEvent(new CustomEvent('close'));
+		}, satus.getAnimationDuration(component_surface));
+	};
 
-    scrim.addEventListener('click', function () {
-        this.parentNode.close();
-    });
+	scrim.addEventListener('click', function () {
+		this.parentNode.close();
+	});
 
-    component.appendChild(scrim);
-    component.appendChild(surface);
+	component.appendChild(scrim);
+	component.appendChild(surface);
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> CHECKBOX
 --------------------------------------------------------------*/
 
 satus.components.checkbox = function (skeleton) {
-    var component = document.createElement('button'),
-        content = document.createElement('span');
+	var component = document.createElement('button'),
+		content = document.createElement('span');
 
-    component.inner = content;
+	component.inner = content;
 
-    content.className = 'satus-checkbox__content';
+	content.className = 'satus-checkbox__content';
 
-    component.appendChild(content);
+	component.appendChild(content);
 
-    component.addEventListener('click', function () {
-        if (this.dataset.value === 'true') {
-            this.storageValue = false;
-            this.dataset.value = 'false';
-        } else {
-            this.storageValue = true;
-            this.dataset.value = 'true';
-        }
+	component.addEventListener('click', function () {
+		if (this.dataset.value === 'true') {
+			this.storageValue = false;
+			this.dataset.value = 'false';
+		} else {
+			this.storageValue = true;
+			this.dataset.value = 'true';
+		}
 
-        this.storageChange();
-    });
+		this.storageChange();
+	});
 
-    component.addEventListener('render', function () {
-        this.dataset.value = this.storageValue;
-    });
+	component.addEventListener('render', function () {
+		this.dataset.value = this.storageValue;
+	});
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> SWITCH
 --------------------------------------------------------------*/
 
 satus.components.switch = function (skeleton) {
-    var component = document.createElement('button'),
-        component_content = document.createElement('span'),
-        component_thumb = document.createElement('i');
+	var component = document.createElement('button'),
+		component_content = document.createElement('span'),
+		component_thumb = document.createElement('i');
 
-    component.inner = component_content;
+	component.inner = component_content;
 
-    component_content.className = 'satus-switch__content';
+	component_content.className = 'satus-switch__content';
 
-    component.addEventListener('click', function () {
-        if (this.dataset.value === 'true') {
-            this.storageValue = false;
-            this.dataset.value = 'false';
-        } else {
-            this.storageValue = true;
-            this.dataset.value = 'true';
-        }
+	component.addEventListener('click', function () {
+		if (this.dataset.value === 'true') {
+			this.storageValue = false;
+			this.dataset.value = 'false';
+		} else {
+			this.storageValue = true;
+			this.dataset.value = 'true';
+		}
 
-        this.storageChange();
-    });
+		this.storageChange();
+	});
 
-    component.addEventListener('render', function () {
-        this.dataset.value = this.storageValue;
-    });
+	component.addEventListener('render', function () {
+		this.dataset.value = this.storageValue;
+	});
 
-    component.appendChild(component_content);
-    component.appendChild(component_thumb);
+	component.appendChild(component_content);
+	component.appendChild(component_thumb);
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> SLIDER
 --------------------------------------------------------------*/
 
 satus.components.slider = function (skeleton) {
-    var component = document.createElement('div'),
-        content = document.createElement('div'),
-        container = document.createElement('div'),
-        track = document.createElement('div'),
-        track_fill = document.createElement('div');
+	var component = document.createElement('div'),
+		content = document.createElement('div'),
+		container = document.createElement('div'),
+		track = document.createElement('div'),
+		track_fill = document.createElement('div');
 
-    container.className = 'satus-slider__container';
-    track.className = 'satus-slider__track';
-    track_fill.className = 'satus-slider__track-fill';
+	container.className = 'satus-slider__container';
+	track.className = 'satus-slider__track';
+	track_fill.className = 'satus-slider__track-fill';
 
-    component.min = skeleton.min || 0;
-    component.max = skeleton.max || 1;
-    component.step = (skeleton.step || 1);
-    component.percent = 100 / ((component.max - component.min) / component.step);
-    component.precision = String(component.step).replace(/[0-9]./, '').length;
+	component.min = skeleton.min || 0;
+	component.max = skeleton.max || 1;
+	component.step = (skeleton.step || 1);
+	component.percent = 100 / ((component.max - component.min) / component.step);
+	component.precision = String(component.step).replace(/[0-9]./, '').length;
 
-    component.container = container;
-    component.track = track_fill;
-    component.handles = [];
-    component.inner = content;
+	component.container = container;
+	component.track = track_fill;
+	component.handles = [];
+	component.inner = content;
 
-    component.toPercent = function (number) {
-        return number / this.step * this.percent + '%';
-    };
+	component.toPercent = function (number) {
+		return number / this.step * this.percent + '%';
+	};
 
-    component.createHandle = function (index) {
-        var handle = document.createElement('div');
+	component.createHandle = function (index) {
+		var handle = document.createElement('div');
 
-        handle.className = 'satus-slider__handle';
-        handle.handleIndex = index;
-        handle.tabIndex = 0;
+		handle.className = 'satus-slider__handle';
+		handle.handleIndex = index;
+		handle.tabIndex = 0;
 
-        this.handles.push(handle);
+		this.handles.push(handle);
 
-        this.container.appendChild(handle);
-    };
+		this.container.appendChild(handle);
+	};
 
-    component.update = function () {
-        if (this.values.length > 1) {
-            var min = Math.min.apply(null, this.values) - this.min,
-                max = Math.max.apply(null, this.values) - this.min;
+	component.update = function () {
+		if (this.values.length > 1) {
+			var min = Math.min.apply(null, this.values) - this.min,
+				max = Math.max.apply(null, this.values) - this.min;
 
-            this.track.style.left = this.toPercent(min);
-            this.track.style.width = this.toPercent(max - min);
+			this.track.style.left = this.toPercent(min);
+			this.track.style.width = this.toPercent(max - min);
 
-            for (var i = 0, l = this.handles.length; i < l; i++) {
-                var handle = this.handles[i],
-                    value = this.values[i];
+			for (var i = 0, l = this.handles.length; i < l; i++) {
+				var handle = this.handles[i],
+					value = this.values[i];
 
-                handle.style.left = this.toPercent(value - this.min);
-                handle.dataset.value = value;
-            }
-        } else {
-            var value = this.values[0];
+				handle.style.left = this.toPercent(value - this.min);
+				handle.dataset.value = value;
+			}
+		} else {
+			var value = this.values[0];
 
-            this.track.style.width = this.toPercent(value - this.min);
-            this.handles[0].style.left = this.toPercent(value - this.min);
-            this.handles[0].dataset.value = value;
-        }
-    };
+			this.track.style.width = this.toPercent(value - this.min);
+			this.handles[0].style.left = this.toPercent(value - this.min);
+			this.handles[0].dataset.value = value;
+		}
+	};
 
-    component.appendChild(content);
-    track.appendChild(track_fill);
-    container.appendChild(track);
-    component.appendChild(container);
+	component.appendChild(content);
+	track.appendChild(track_fill);
+	container.appendChild(track);
+	component.appendChild(container);
 
-    component.addEventListener('keydown', function (event) {
-        var code = event.keyCode;
+	component.addEventListener('keydown', function (event) {
+		var code = event.keyCode;
 
-        console.log(code);
-    });
+		console.log(code);
+	});
 
-    component.addEventListener('render', function () {
-        var value = this.storageValue;
+	component.addEventListener('render', function () {
+		var value = this.storageValue;
 
-        if (satus.isArray(value)) {
-            this.values = value;
-        } else if (satus.isNumber(value)) {
-            this.values = [value];
-        } else {
-            this.values = this.skeleton.values || [satus.isset(this.skeleton.value) ? this.skeleton.value : 1];
-        }
+		if (satus.isArray(value)) {
+			this.values = value;
+		} else if (satus.isNumber(value)) {
+			this.values = [value];
+		} else {
+			this.values = this.skeleton.values || [satus.isset(this.skeleton.value) ? this.skeleton.value : 1];
+		}
 
-        for (var i = 0, l = this.values.length; i < l; i++) {
-            this.createHandle(i);
-        }
+		for (var i = 0, l = this.values.length; i < l; i++) {
+			this.createHandle(i);
+		}
 
-        this.update();
-    });
+		this.update();
+	});
 
-    container.addEventListener('mousedown', function (event) {
-        if (event.button === 0) {
-            var component = this.parentNode,
-                rect = this.getBoundingClientRect(),
-                cursor_x = event.clientX - rect.left,
-                percent = cursor_x / rect.width * 100,
-                steps = percent / component.percent * component.step + component.min,
-                closest_value = component.values.indexOf(component.values.reduce(function(previous, current, index) {
-                    return Math.abs(current - steps) < Math.abs(previous - steps) ? current : previous;
-                })),
-                handle_index = component.handles[closest_value].handleIndex;
+	container.addEventListener('mousedown', function (event) {
+		if (event.button === 0) {
+			var component = this.parentNode,
+				rect = this.getBoundingClientRect(),
+				cursor_x = event.clientX - rect.left,
+				percent = cursor_x / rect.width * 100,
+				steps = percent / component.percent * component.step + component.min,
+				closest_value = component.values.indexOf(component.values.reduce(function(previous, current, index) {
+					return Math.abs(current - steps) < Math.abs(previous - steps) ? current : previous;
+				})),
+				handle_index = component.handles[closest_value].handleIndex;
 
-            setTimeout(function () {
-                component.handles[closest_value].focus();
-            });
+			setTimeout(function () {
+				component.handles[closest_value].focus();
+			});
 
-            function update(event) {
-                var cursor_x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width),
-                    percent = cursor_x / rect.width * 100,
-                    value = percent / component.percent * component.step + component.min;
+			function update(event) {
+				var cursor_x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width),
+					percent = cursor_x / rect.width * 100,
+					value = percent / component.percent * component.step + component.min;
 
-                value = (Math.round(value / component.step) * component.step);
+				value = (Math.round(value / component.step) * component.step);
 
-                value = Number(value.toFixed(component.precision));
+				value = Number(value.toFixed(component.precision));
 
-                if (component.values[handle_index] !== value) {
-                    component.values[handle_index] = value;
+				if (component.values[handle_index] !== value) {
+					component.values[handle_index] = value;
 
-                    component.storageValue = component.values.length === 1 ? component.values[0] : component.values;
-                    component.value = component.storageValue;
+					component.storageValue = component.values.length === 1 ? component.values[0] : component.values;
+					component.value = component.storageValue;
 
-                    component.storageChange();
-                }
+					component.storageChange();
+				}
 
-                component.update();
-            }
+				component.update();
+			}
 
-            function mousemove(event) {
-                update(event);
-            }
+			function mousemove(event) {
+				update(event);
+			}
 
-            function mouseup(event) {
-                window.removeEventListener('mousemove', mousemove);
-                window.removeEventListener('mouseup', mouseup);
-            };
+			function mouseup(event) {
+				window.removeEventListener('mousemove', mousemove);
+				window.removeEventListener('mouseup', mouseup);
+			};
 
-            window.addEventListener('mousemove', mousemove);
-            window.addEventListener('mouseup', mouseup);
+			window.addEventListener('mousemove', mousemove);
+			window.addEventListener('mouseup', mouseup);
 
-            update(event);
+			update(event);
 
-            return true;
-        }
-    });
+			return true;
+		}
+	});
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> SHORTCUT
@@ -1393,49 +1404,19 @@ satus.components.shortcut = function (skeleton) {
     component.className = 'satus-button';
     value.className = 'satus-shortcut__value';
 
-    component.update = function () {
-        var object = satus.storage.get(this.skeleton.storage) || this.skeleton.value || {},
-            array = [];
-
-        if (object.shift) {
-            array.push('Shift');
-        }
-
-        if (object.ctrl) {
-            array.push('Ctrl');
-        }
-
-        if (object.alt) {
-            array.push('Alt');
-        }
-
-        if (typeof object.keys === 'object') {
-            for (var key in object.keys) {
-                var char = object.keys[key].key || object.keys[key].code;
-
-                if (key === 32) {
-                    char = 'space';
-                }
-
-                array.push(char);
-            }
-        }
-
-        this.valueElement.textContent = array.join(' + ');
-    };
-
-    component.render = function () {
+    component.render = function (parent) {
         var self = this,
-            children = this.primary.children;
+            parent = parent || self.primary,
+            children = parent.children;
 
-        satus.empty(this.primary);
+        satus.empty(parent);
 
         function createElement(name) {
             var element = document.createElement('div');
 
             element.className = 'satus-shortcut__' + name;
 
-            self.primary.appendChild(element);
+            parent.appendChild(element);
 
             return element;
         }
@@ -1461,11 +1442,21 @@ satus.components.shortcut = function (skeleton) {
         }
 
         for (var code in this.data.keys) {
+            var key = this.data.keys[code].key,
+                arrows = ['ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'],
+                index = arrows.indexOf(key);
+
             if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
                 createElement('plus');
             }
 
-            createElement('key').textContent = this.data.keys[code].key.toUpperCase();
+            if (index !== -1) {
+                createElement('key').textContent = ['↑', '→', '↓', '←'][index];
+            } else if (key === ' ') {
+                createElement('key').textContent = '␣';
+            } else {
+                createElement('key').textContent = key.toUpperCase();
+            }
         }
 
         if (this.data.wheel) {
@@ -1479,6 +1470,32 @@ satus.components.shortcut = function (skeleton) {
             mouse.appendChild(div);
 
             mouse.className += ' ' + (this.data.wheel > 0);
+        }
+
+        if (this.data.click) {
+            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
+                createElement('plus');
+            }
+
+            var mouse = createElement('mouse'),
+                div = document.createElement('div');
+
+            mouse.appendChild(div);
+
+            mouse.className += ' click';
+        }
+
+        if (this.data.context) {
+            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
+                createElement('plus');
+            }
+
+            var mouse = createElement('mouse'),
+                div = document.createElement('div');
+
+            mouse.appendChild(div);
+
+            mouse.className += ' context';
         }
     };
 
@@ -1517,13 +1534,13 @@ satus.components.shortcut = function (skeleton) {
 
         if (
             (
-                component.data.wheel === 0 && 
-                    (
-                        Object.keys(component.data.keys).length === 0 &&
-                        component.data.alt === false &&
-                        component.data.ctrl === false &&
-                        component.data.shift === false
-                    )
+                component.data.wheel === 0 &&
+                (
+                    Object.keys(component.data.keys).length === 0 &&
+                    component.data.alt === false &&
+                    component.data.ctrl === false &&
+                    component.data.shift === false
+                )
             ) ||
             component.data.wheel < 0 && event.deltaY > 0 ||
             component.data.wheel > 0 && event.deltaY < 0) {
@@ -1551,7 +1568,7 @@ satus.components.shortcut = function (skeleton) {
             wheel: 0
         };
 
-        this.update();
+        this.render(this.valueElement);
     });
 
     component.addEventListener('click', function () {
@@ -1571,6 +1588,27 @@ satus.components.shortcut = function (skeleton) {
                     render: function () {
                         component.primary = this;
 
+                        if (component.skeleton.mouseButtons === true) {
+                            this.addEventListener('click', function () {
+                                component.data.context = false;
+                                component.data.click = true;
+
+                                component.render();
+                            });
+
+                            this.addEventListener('contextmenu', function (event) {
+                                event.preventDefault();
+                                event.stopPropagation();
+
+                                component.data.context = true;
+                                component.data.click = false;
+
+                                component.render();
+
+                                return false;
+                            });
+                        }
+
                         component.render();
                     }
                 }
@@ -1586,7 +1624,7 @@ satus.components.shortcut = function (skeleton) {
                         click: function () {
                             component.data = component.skeleton.value;
 
-                            component.update();
+                            component.render(component.valueElement);
 
                             satus.storage.set(skeleton.storage, false);
 
@@ -1604,7 +1642,7 @@ satus.components.shortcut = function (skeleton) {
                         click: function () {
                             component.data = satus.storage.get(component.storage) || component.skeleton.value;
 
-                            component.update();
+                            component.render(component.valueElement);
 
                             this.parentNode.parentNode.parentNode.close();
 
@@ -1619,10 +1657,10 @@ satus.components.shortcut = function (skeleton) {
                     on: {
                         click: function () {
                             component.storageValue = component.data;
-                            
+
                             component.storageChange();
 
-                            component.update();
+                            component.render(component.valueElement);
 
                             this.parentNode.parentNode.parentNode.close();
 
@@ -1656,372 +1694,372 @@ satus.components.base = function (skeleton) {
 --------------------------------------------------------------*/
 
 satus.components.textField = function (skeleton) {
-    var component = document.createElement('div'),
-        pre = document.createElement('pre'),
-        input = document.createElement('textarea'),
-        hidden_text = document.createElement('span'),
-        text = document.createElement('span'),
-        selection = document.createElement('div'),
-        cursor = document.createElement('div');
+	var component = document.createElement('div'),
+		pre = document.createElement('pre'),
+		input = document.createElement('textarea'),
+		hidden_text = document.createElement('span'),
+		text = document.createElement('span'),
+		selection = document.createElement('div'),
+		cursor = document.createElement('div');
 
-    input.className = 'satus-text-field__input';
-    pre.className = 'satus-text-field__pre';
-    hidden_text.className = 'satus-text-field__hidden-text';
-    text.className = 'satus-text-field__text';
-    selection.className = 'satus-text-field__selection';
-    cursor.className = 'satus-text-field__cursor';
+	input.className = 'satus-text-field__input';
+	pre.className = 'satus-text-field__pre';
+	hidden_text.className = 'satus-text-field__hidden-text';
+	text.className = 'satus-text-field__text';
+	selection.className = 'satus-text-field__selection';
+	cursor.className = 'satus-text-field__cursor';
 
-    component.inputElement = input;
-    component.textElement = text;
-    component.languages = {
-        regex: function (component) {
-            var regex_token = /\[\^?]?(?:[^\\\]]+|\\[\S\s]?)*]?|\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9][0-9]*|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)|\((?:\?[:=!]?)?|(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??|[^.?*+^${[()|\\]+|./g,
-                char_class_token = /[^\\-]+|-|\\(?:[0-3][0-7]{0,2}|[4-7][0-7]?|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)/g,
-                char_class_parts = /^(\[\^?)(]?(?:[^\\\]]+|\\[\S\s]?)*)(]?)$/,
-                quantifier = /^(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??$/,
-                matches = component.inputElement.value.match(regex_token);
+	component.inputElement = input;
+	component.textElement = text;
+	component.languages = {
+		regex: function (component) {
+		    var regex_token = /\[\^?]?(?:[^\\\]]+|\\[\S\s]?)*]?|\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9][0-9]*|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)|\((?:\?[:=!]?)?|(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??|[^.?*+^${[()|\\]+|./g,
+		        char_class_token = /[^\\-]+|-|\\(?:[0-3][0-7]{0,2}|[4-7][0-7]?|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)/g,
+		        char_class_parts = /^(\[\^?)(]?(?:[^\\\]]+|\\[\S\s]?)*)(]?)$/,
+		        quantifier = /^(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??$/,
+		        matches = component.inputElement.value.match(regex_token);
 
-            function create(type, string) {
-                var span = document.createElement('span');
+		    function create(type, string) {
+		        var span = document.createElement('span');
 
-                span.className = type;
-                span.textContent = string;
+		        span.className = type;
+		        span.textContent = string;
 
-                component.textElement.appendChild(span);
-            }
+		        component.textElement.appendChild(span);
+		    }
 
-            for (var i = 0, l = matches.length; i < l; i++) {
-                var match = matches[i];
+		    for (var i = 0, l = matches.length; i < l; i++) {
+		        var match = matches[i];
 
-                if (match[0] === '[') {
-                    create('character-class', match);
-                } else if (match[0] === '(') {
-                    create('group', match);
-                } else if (match[0] === ')') {
-                    create('group', match);
-                } else if (match[0] === '\\' || match === '^') {
-                    create('anchor', match);
-                } else if (quantifier.test(match)) {
-                    create('quantifier', match);
-                } else if (match === '|' || match === '.') {
-                    create('metasequence', match);
-                } else {
-                    create('text', match);
-                }
-            }
-        }
-    };
-    component._syntax = skeleton.syntax;
+		        if (match[0] === '[') {
+		            create('character-class', match);
+		        } else if (match[0] === '(') {
+		            create('group', match);
+		        } else if (match[0] === ')') {
+		            create('group', match);
+		        } else if (match[0] === '\\' || match === '^') {
+		            create('anchor', match);
+		        } else if (quantifier.test(match)) {
+		            create('quantifier', match);
+		        } else if (match === '|' || match === '.') {
+		            create('metasequence', match);
+		        } else {
+		            create('text', match);
+		        }
+		    }
+		}
+	};
+	component._syntax = skeleton.syntax;
 
-    Object.defineProperty(component, 'value', {
-        get: function () {
-            return this.inputElement.value;
-        },
-        set: function (value) {
-            var input = this.inputElement;
+	Object.defineProperty(component, 'value', {
+		get: function () {
+			return this.inputElement.value;
+		},
+		set: function (value) {
+			var input = this.inputElement;
 
-            input.value = value;
+			input.value = value;
 
-            input.updateValue();
-            input.updateCursor();
-        }
-    });
+			input.updateValue();
+			input.updateCursor();
+		}
+	});
 
-    Object.defineProperty(component, 'syntax', {
-        get: function () {
-            return this._syntax;
-        },
-        set: function (value) {
-            var input = this.inputElement;
+	Object.defineProperty(component, 'syntax', {
+		get: function () {
+			return this._syntax;
+		},
+		set: function (value) {
+			var input = this.inputElement;
 
-            this._syntax = value;
+			this._syntax = value;
 
-            input.updateValue();
-            input.updateCursor();
-        }
-    });
+			input.updateValue();
+			input.updateCursor();
+		}
+	});
 
-    input.rows = skeleton.rows || 1;
-    input.autocapitalize = 'none';
-    input.autocomplete = 'off';
-    input.autocorrect = 'off';
-    input.spellcheck = false;
-    input.autofocus = true;
-    input.textElement = text;
-    input.hiddenTextElement = hidden_text;
-    input.selectionElement = selection;
-    input.cursorElement = cursor;
+	input.rows = skeleton.rows || 1;
+	input.autocapitalize = 'none';
+	input.autocomplete = 'off';
+	input.autocorrect = 'off';
+	input.spellcheck = false;
+	input.autofocus = true;
+	input.textElement = text;
+	input.hiddenTextElement = hidden_text;
+	input.selectionElement = selection;
+	input.cursorElement = cursor;
 
-    input.updateValue = function () {
-        var component = this.parentNode.parentNode;
+	input.updateValue = function () {
+		var component = this.parentNode.parentNode;
 
-        for (var i = this.textElement.childNodes.length - 1; i > -1; i--) {
-            this.textElement.childNodes[i].remove();
-        }
+		for (var i = this.textElement.childNodes.length - 1; i > -1; i--) {
+	        this.textElement.childNodes[i].remove();
+	    }
 
-        if (this.value.length > 0) {
-            if (component.languages[component._syntax]) {
-                component.languages[component._syntax](component);
-            } else {
-                this.textElement.textContent = this.value;
-            }
-        }
-    };
+	    if (this.value.length > 0) {
+	    	if (component.languages[component._syntax]) {
+		    	component.languages[component._syntax](component);
+		    } else {
+		    	this.textElement.textContent = this.value;
+		    }
+	    }
+	};
 
-    input.updateCursor = function () {
-        var cursor = this.cursorElement,
-            selection = this.selectionElement,
-            hidden_text = this.hiddenTextElement,
-            start = this.selectionStart,
-            end = this.selectionEnd;
+	input.updateCursor = function () {
+		var cursor = this.cursorElement,
+			selection = this.selectionElement,
+			hidden_text = this.hiddenTextElement,
+			start = this.selectionStart,
+			end = this.selectionEnd;
 
-        cursor.style.animation = 'none';
+		cursor.style.animation = 'none';
 
-        if (start === end) {
-            selection.setAttribute('disabled', '');
-        } else {
-            selection.removeAttribute('disabled');
+		if (start === end) {
+			selection.setAttribute('disabled', '');
+		} else {
+			selection.removeAttribute('disabled');
 
-            hidden_text.textContent = this.value.substring(0, start);
+			hidden_text.textContent = this.value.substring(0, start);
 
-            selection.style.left = hidden_text.offsetWidth - this.scrollLeft + 'px';
+			selection.style.left = hidden_text.offsetWidth - this.scrollLeft + 'px';
 
-            hidden_text.textContent = this.value.substring(start, end);
+			hidden_text.textContent = this.value.substring(start, end);
 
-            selection.style.width = hidden_text.offsetWidth + 'px';
-        }
+			selection.style.width = hidden_text.offsetWidth + 'px';
+		}
 
-        if (this.selectionDirection === 'forward') {
-            hidden_text.textContent = this.value.substring(0, end);
-        } else {
-            hidden_text.textContent = this.value.substring(0, start);
-        }
+		if (this.selectionDirection === 'forward') {
+			hidden_text.textContent = this.value.substring(0, end);
+		} else {
+			hidden_text.textContent = this.value.substring(0, start);
+		}
 
-        cursor.style.left = hidden_text.offsetWidth - this.scrollLeft + 'px';
+		cursor.style.left = hidden_text.offsetWidth - this.scrollLeft + 'px';
 
-        cursor.style.animation = '';
+		cursor.style.animation = '';
 
-        hidden_text.textContent = '';
-    };
+		hidden_text.textContent = '';
+	};
 
-    input.addEventListener('keydown', function () {
-        var self = this;
+	input.addEventListener('keydown', function () {
+		var self = this;
 
-        setTimeout(function () {
-            var component = self.parentNode.parentNode;
+		setTimeout(function () {
+			var component = self.parentNode.parentNode;
 
-            component.storageValue = self.value;
-            component.storageChange();
+		    component.storageValue = self.value;
+		    component.storageChange();
 
-            self.updateValue();
-            self.updateCursor();
-        });
-    });
+			self.updateValue();
+			self.updateCursor();
+		});
+	});
 
-    input.addEventListener('scroll', function (event) {
-        this.textElement.style.left = -this.scrollLeft + 'px';
-    });
+	input.addEventListener('scroll', function (event) {
+		this.textElement.style.left = -this.scrollLeft + 'px';
+	});
 
-    document.addEventListener('selectionchange', function () {
-        input.updateCursor();
-    });
+	document.addEventListener('selectionchange', function () {
+		input.updateCursor();
+	});
 
-    selection.setAttribute('disabled', '');
+	selection.setAttribute('disabled', '');
 
-    pre.appendChild(input);
-    pre.appendChild(hidden_text);
-    pre.appendChild(text);
-    pre.appendChild(selection);
-    pre.appendChild(cursor);
-    component.appendChild(pre);
+	pre.appendChild(input);
+	pre.appendChild(hidden_text);
+	pre.appendChild(text);
+	pre.appendChild(selection);
+	pre.appendChild(cursor);
+	component.appendChild(pre);
 
-    component.addEventListener('render', function () {
-        input.value = this.storageValue;
+	component.addEventListener('render', function () {
+		input.value = this.storageValue;
 
-        this.inputElement.updateValue();
-        this.inputElement.updateCursor();
-    });
+		this.inputElement.updateValue();
+		this.inputElement.updateCursor();
+	});
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> ALERT
 --------------------------------------------------------------*/
 
 satus.components.alert = function (skeleton) {
-    var component = document.createElement('div');
+	var component = document.createElement('div');
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> LAYERS
 --------------------------------------------------------------*/
 
 satus.components.layers = function (skeleton) {
-    var component = document.createElement('div');
+	var component = document.createElement('div');
 
-    component.path = [skeleton];
+	component.path = [skeleton];
 
-    component.back = function () {
-        if (this.path.length > 1) {
-            this.path.pop();
+	component.back = function () {
+		if (this.path.length > 1) {
+			this.path.pop();
 
-            this.open();
-        }
-    };
+			this.open();
+		}
+	};
 
-    component.open = function (skeleton) {
-        var layer = document.createElement('div');
+	component.open = function (skeleton) {
+		var layer = document.createElement('div');
 
-        if (skeleton) {
-            this.path.push(skeleton);
-        } else {
-            skeleton = this.path[this.path.length - 1];
-        }
+		if (skeleton) {
+			this.path.push(skeleton);
+		} else {
+			skeleton = this.path[this.path.length - 1];
+		}
 
-        layer.className = 'satus-layer';
+		layer.className = 'satus-layer';
 
-        layer.skeleton = skeleton;
-        layer.base = this.base;
+		layer.skeleton = skeleton;
+		layer.base = this.base;
 
-        satus.render(skeleton, layer, skeleton.component === 'layers');
+		satus.render(skeleton, layer, skeleton.component === 'layers');
 
-        satus.empty(this);
+		satus.empty(this);
 
-        this.appendChild(layer);
+		this.appendChild(layer);
 
-        this.dispatchEvent(new Event('open'));
-    };
+		this.dispatchEvent(new Event('open'));
+	};
 
-    component.update = function () {
-        var layer = this.querySelector('.satus-layer');
+	component.update = function () {
+		var layer = this.querySelector('.satus-layer');
 
-        satus.empty(layer);
+		satus.empty(layer);
 
-        satus.render(layer.skeleton, layer);
-    };
+		satus.render(layer.skeleton, layer);
+	};
 
-    component.render_children = false;
+	component.render_children = false;
 
-    component.addEventListener('render', function () {
-        this.open();
-    });
+	component.addEventListener('render', function () {
+		this.open();
+	});
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> DIVIDER
 --------------------------------------------------------------*/
 
 satus.components.divider = function () {
-    var component = document.createElement('div');
+	var component = document.createElement('div');
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> INPUT
 --------------------------------------------------------------*/
 
 satus.components.input = function (skeleton) {
-    var component = document.createElement('input');
+	var component = document.createElement('input');
 
-    if (skeleton.attr) {
-        var key = skeleton.attr.name || skeleton.storage,
-            value;
+	if (skeleton.attr) {
+		var key = skeleton.attr.name || skeleton.storage,
+			value;
 
-        if (satus.isset(satus.storage.get(key))) {
-            value = satus.storage.get(key);
-        } else {
-            value = skeleton.value;
-        }
+		if (satus.isset(satus.storage.get(key))) {
+			value = satus.storage.get(key);
+		} else {
+			value = skeleton.value;
+		}
 
-        if (skeleton.attr.type === 'radio') {
-            component.checked = value === skeleton.attr.value || skeleton.value;
-        } else if (satus.isset(value)) {
-            component.value = value;
-        }
+		if (skeleton.attr.type === 'radio') {
+			component.checked = value === skeleton.attr.value || skeleton.value;
+		} else if (satus.isset(value)) {
+			component.value = value;
+		}
 
-        component.addEventListener('change', function () {
-            var key = this.skeleton.attr.name || this.skeleton.storage;
+		component.addEventListener('change', function () {
+			var key = this.skeleton.attr.name || this.skeleton.storage;
 
-            satus.storage.set(key, this.value);
-        });
-    } else {
-        var key = skeleton.name || skeleton.storage,
-            value;
+			satus.storage.set(key, this.value);
+		});
+	} else {
+		var key = skeleton.name || skeleton.storage,
+			value;
 
-        component.type = skeleton.type;
+		component.type = skeleton.type;
 
-        if (satus.isset(satus.storage.get(key))) {
-            value = satus.storage.get(key);
-        } else {
-            value = skeleton.value;
-        }
+		if (satus.isset(satus.storage.get(key))) {
+			value = satus.storage.get(key);
+		} else {
+			value = skeleton.value;
+		}
 
-        if (skeleton.type === 'radio') {
-            component.checked = value === skeleton.value || skeleton.value;
-        } else if (satus.isset(value)) {
-            component.value = value;
-        }
+		if (skeleton.type === 'radio') {
+			component.checked = value === skeleton.value || skeleton.value;
+		} else if (satus.isset(value)) {
+			component.value = value;
+		}
 
-        component.addEventListener('change', function () {
-            var key = this.skeleton.name || this.skeleton.storage;
+		component.addEventListener('change', function () {
+			var key = this.skeleton.name || this.skeleton.storage;
 
-            satus.storage.set(key, this.value);
-        });
-    }
+			satus.storage.set(key, this.value);
+		});
+	}
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> SELECT
 --------------------------------------------------------------*/
 
 satus.components.select = function (skeleton) {
-    var component = document.createElement('div'),
-        component_content = document.createElement('span'),
-        component_value = document.createElement('span'),
-        select = document.createElement('select');
+	var component = document.createElement('div'),
+		component_content = document.createElement('span'),
+		component_value = document.createElement('span'),
+		select = document.createElement('select');
 
-    component_content.className = 'satus-select__content';
-    component_value.className = 'satus-select__value';
+	component_content.className = 'satus-select__content';
+	component_value.className = 'satus-select__value';
 
-    for (var i = 0, l = skeleton.options.length; i < l; i++) {
-        var option = document.createElement('option');
+	for (var i = 0, l = skeleton.options.length; i < l; i++) {
+		var option = document.createElement('option');
 
-        option.value = skeleton.options[i].value;
+		option.value = skeleton.options[i].value;
 
-        satus.text(option, skeleton.options[i].text);
+		satus.text(option, skeleton.options[i].text);
 
-        select.appendChild(option);
-    }
+		select.appendChild(option);
+	}
 
-    component.selectElement = select;
-    select.valueElement = component_value;
+	component.selectElement = select;
+	select.valueElement = component_value;
 
-    select.addEventListener('change', function () {
-        satus.empty(this.valueElement);
+	select.addEventListener('change', function () {
+		satus.empty(this.valueElement);
 
-        satus.text(this.valueElement, this.options[this.selectedIndex].text);
+		satus.text(this.valueElement, this.options[this.selectedIndex].text);
 
-        this.parentNode.storageValue = this.value;
+		this.parentNode.storageValue = this.value;
 
-        this.parentNode.storageChange();
-    });
+		this.parentNode.storageChange();
+	});
 
-    component.appendChild(component_content);
-    component.appendChild(component_value);
-    component.appendChild(select);
+	component.appendChild(component_content);
+	component.appendChild(component_value);
+	component.appendChild(select);
 
-    component.addEventListener('render', function () {
-        select.value = this.storageValue || this.skeleton.options[0].value;
+	component.addEventListener('render', function () {
+		select.value = this.storageValue || this.skeleton.options[0].value;
 
-        satus.text(select.valueElement, select.options[select.selectedIndex].text);
-    });
+		satus.text(select.valueElement, select.options[select.selectedIndex].text);
+	});
 
-    component.inner = component_content;
+	component.inner = component_content;
 
-    return component;
+	return component;
 };
 /*--------------------------------------------------------------
 >>> COLOR:
@@ -2039,43 +2077,43 @@ satus.color = {};
 --------------------------------------------------------------*/
 
 satus.color.rgbToHsl = function (array) {
-    var r = array[0] / 255,
-        g = array[1] / 255,
-        b = array[2] / 255,
-        min = Math.min(r, g, b),
-        max = Math.max(r, g, b),
-        h = 0,
-        s = 0,
-        l = (min + max) / 2;
+	var r = array[0] / 255,
+		g = array[1] / 255,
+		b = array[2] / 255,
+		min = Math.min(r, g, b),
+		max = Math.max(r, g, b),
+		h = 0,
+		s = 0,
+		l = (min + max) / 2;
 
-    if (min === max) {
-        h = 0;
-        s = 0;
-    } else {
-        var delta = max - min;
+	if (min === max) {
+		h = 0;
+		s = 0;
+	} else {
+		var delta = max - min;
 
-        s = l <= 0.5 ? delta / (max + min) : delta / (2 - max - min);
+		s = l <= 0.5 ? delta / (max + min) : delta / (2 - max - min);
 
-        if (max === r) {
-            h = (g - b) / delta + (g < b ? 6 : 0);
-        } else if (max === g) {
-            h = (b - r) / delta + 2;
-        } else if (max === b) {
-            h = (r - g) / delta + 4;
-        }
+		if (max === r) {
+			h = (g - b) / delta + (g < b ? 6 : 0);
+		} else if (max === g) {
+			h = (b - r) / delta + 2;
+		} else if (max === b) {
+			h = (r - g) / delta + 4;
+		}
 
-        h /= 6;
-    }
+		h /= 6;
+	}
 
-    h *= 360;
-    s *= 100;
-    l *= 100;
+	h *= 360;
+	s *= 100;
+	l *= 100;
 
-    if (array.length === 3) {
-        return [h, s, l];
-    } else {
-        return [h, s, l, array[3]];
-    }
+	if (array.length === 3) {
+		return [h, s, l];
+	} else {
+		return [h, s, l, array[3]];
+	}
 };
 
 
@@ -2084,27 +2122,27 @@ satus.color.rgbToHsl = function (array) {
 --------------------------------------------------------------*/
 
 satus.color.hueToRgb = function (array) {
-    var t1 = array[0],
-        t2 = array[1],
-        hue = array[2];
+	var t1 = array[0],
+		t2 = array[1],
+		hue = array[2];
 
-    if (hue < 0) {
-        hue += 6;
-    }
+	if (hue < 0) {
+		hue += 6;
+	}
 
-    if (hue >= 6) {
-        hue -= 6;
-    }
+	if (hue >= 6) {
+		hue -= 6;
+	}
 
-    if (hue < 1) {
-        return (t2 - t1) * hue + t1;
-    } else if (hue < 3) {
-        return t2;
-    } else if (hue < 4) {
-        return (t2 - t1) * (4 - hue) + t1;
-    } else {
-        return t1;
-    }
+	if (hue < 1) {
+		return (t2 - t1) * hue + t1;
+	} else if (hue < 3) {
+		return t2;
+	} else if (hue < 4) {
+		return (t2 - t1) * (4 - hue) + t1;
+	} else {
+		return t1;
+	}
 };
 
 
@@ -2113,31 +2151,31 @@ satus.color.hueToRgb = function (array) {
 --------------------------------------------------------------*/
 
 satus.color.hslToRgb = function (array) {
-    var h = array[0] / 360,
-        s = array[1] / 100,
-        l = array[2] / 100,
-        r, g, b;
+	var h = array[0] / 360,
+		s = array[1] / 100,
+		l = array[2] / 100,
+		r, g, b;
 
-    if (s == 0) {
-        r = g = b = l;
-    } else {
-        var hue2rgb = function hue2rgb(p, q, t) {
-            if (t < 0) t += 1;
-            if (t > 1) t -= 1;
-            if (t < 1 / 6) return p + (q - p) * 6 * t;
-            if (t < 1 / 2) return q;
-            if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
-            return p;
-        }
+	if (s == 0) {
+		r = g = b = l;
+	} else {
+		var hue2rgb = function hue2rgb(p, q, t) {
+			if (t < 0) t += 1;
+			if (t > 1) t -= 1;
+			if (t < 1 / 6) return p + (q - p) * 6 * t;
+			if (t < 1 / 2) return q;
+			if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+			return p;
+		}
 
-        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-        var p = 2 * l - q;
-        r = hue2rgb(p, q, h + 1 / 3);
-        g = hue2rgb(p, q, h);
-        b = hue2rgb(p, q, h - 1 / 3);
-    }
+		var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+		var p = 2 * l - q;
+		r = hue2rgb(p, q, h + 1 / 3);
+		g = hue2rgb(p, q, h);
+		b = hue2rgb(p, q, h - 1 / 3);
+	}
 
-    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+	return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 };
 /*--------------------------------------------------------------
 >>> USER
@@ -2481,29 +2519,29 @@ satus.user = function () {
 
 satus.events.add('render', function (component, skeleton) {
     if (skeleton.contextMenu) {
-        component.addEventListener('contextmenu', function (event) {
-            var x = event.clientX,
-                y = event.clientY,
-                modal = satus.render({
-                    component: 'modal',
-                    variant: 'contextmenu',
-                    parent: skeleton
-                });
+    	component.addEventListener('contextmenu', function (event) {
+    		var x = event.clientX,
+    			y = event.clientY,
+    			modal = satus.render({
+    				component: 'modal',
+    				variant: 'contextmenu',
+    				parent: skeleton
+    			});
 
-            if (window.innerWidth - x < 200) {
-                x = window.innerWidth - 200;
-            }
+    		if (window.innerWidth - x < 200) {
+    			x = window.innerWidth - 200;
+    		}
 
-            modal.inner.style.left = x + 'px';
-            modal.inner.style.top = y + 'px';
+    		modal.inner.style.left = x + 'px';
+    		modal.inner.style.top = y + 'px';
 
-            satus.render(skeleton.contextMenu, modal.inner);
+    		satus.render(skeleton.contextMenu, modal.inner);
 
-            event.preventDefault();
-            event.stopPropagation();
+    		event.preventDefault();
+    		event.stopPropagation();
 
-            return false;
-        });
+    		return false;
+    	});
     }
 });
 /*--------------------------------------------------------------
@@ -2514,31 +2552,31 @@ satus.events.add('render', function (component, skeleton) {
 --------------------------------------------------------------*/
 
 satus.events.add('render', function (component, skeleton) {
-    if (skeleton.pluviam === true) {
-        function createPluviam(event) {
-            var pluviam = document.createElement('span'),
-                rect = this.getBoundingClientRect(),
-                x = event.clientX - rect.left,
-                y = event.clientY - rect.top,
-                diameter = Math.sqrt(Math.pow(rect.width * 2, 2) + Math.pow(rect.height * 2, 2));
+	if (skeleton.pluviam === true) {
+		function createPluviam(event) {
+			var pluviam = document.createElement('span'),
+				rect = this.getBoundingClientRect(),
+				x = event.clientX - rect.left,
+				y = event.clientY - rect.top,
+				diameter = Math.sqrt(Math.pow(rect.width * 2, 2) + Math.pow(rect.height * 2, 2));
 
-            pluviam.className = 'satus-pluviam';
+			pluviam.className = 'satus-pluviam';
 
-            pluviam.style.left = x - diameter / 2 + 'px';
-            pluviam.style.top = y - diameter / 2 + 'px';
-            pluviam.style.width = diameter + 'px';
-            pluviam.style.height = diameter + 'px';
+			pluviam.style.left = x - diameter / 2 + 'px';
+			pluviam.style.top = y - diameter / 2 + 'px';
+			pluviam.style.width = diameter + 'px';
+			pluviam.style.height = diameter + 'px';
 
-            this.appendChild(pluviam);
+			this.appendChild(pluviam);
 
-            setTimeout(function () {
-                pluviam.remove();
-            }, 1000);
-        }
+			setTimeout(function () {
+				pluviam.remove();
+			}, 1000);
+		}
 
-        component.addEventListener('mousedown', createPluviam);
-        component.addEventListener('mouseover', createPluviam);
-    }
+		component.addEventListener('mousedown', createPluviam);
+		component.addEventListener('mouseover', createPluviam);
+	}
 });
 /*--------------------------------------------------------------
 >>> SORTABLE
