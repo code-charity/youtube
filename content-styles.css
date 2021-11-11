@@ -1049,7 +1049,8 @@ html[it-thumbnails-right='true'] ytd-watch-next-secondary-results-renderer ytd-t
     order: 7;
 }
 
-html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail {
+html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail,
+html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
     display: none;
 }
 
