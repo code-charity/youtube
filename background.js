@@ -299,7 +299,7 @@ chrome.storage.local.get(function (items) {
     }
 
     //googleAnalytics(items.ga);
-    //uninstallURL();
+    uninstallURL();
 
     getLocalization(language, function (locale) {
         updateContextMenu(locale);
@@ -327,7 +327,19 @@ chrome.storage.onChanged.addListener(function (changes) {
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     var name = request.name;
 
-    if (name === 'get-localization') {
+    if (name === 'migration') {
+        chrome.storage.local.get(function (items) {
+            try {
+                migration(items);
+            } catch (error) {}
+
+            setTimeout(function () {
+                sendResponse();
+            }, 500);
+        });
+
+        return true;
+    } else if (name === 'get-localization') {
         getLocalization(request.code, function (locale) {
             sendResponse(locale);
         });
