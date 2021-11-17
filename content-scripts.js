@@ -168,30 +168,34 @@ chrome.storage.local.get('youtube_home_page', function (items) {
         }
     }
 
-    chrome.storage.local.get(function (items) {
-        var textContent = 'var ImprovedTube={';
+    chrome.runtime.sendMessage({
+        name: 'migration'
+    }, function () {
+        chrome.storage.local.get(function (items) {
+            var textContent = 'var ImprovedTube={';
 
-        ImprovedTube.storage = items;
+            ImprovedTube.storage = items;
 
-        for (var key in ImprovedTube) {
-            var value = ImprovedTube[key];
+            for (var key in ImprovedTube) {
+                var value = ImprovedTube[key];
 
-            if (typeof value === 'object') {
-                value = JSON.stringify(value);
+                if (typeof value === 'object') {
+                    value = JSON.stringify(value);
+                }
+
+                textContent += key + ': ' + value + ',';
             }
 
-            textContent += key + ': ' + value + ',';
-        }
+            textContent += '};ImprovedTube.init();';
 
-        textContent += '};ImprovedTube.init();';
+            injectScript(textContent);
 
-        injectScript(textContent);
+            attributes(items);
 
-        attributes(items);
-
-        if (window.matchMedia) {
-            document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
+            if (window.matchMedia) {
+                document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+        });
     });
 });
 
