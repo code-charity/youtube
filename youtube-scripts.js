@@ -2865,10 +2865,12 @@ ImprovedTube.playerSDR = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerControls = function () {
-    if (this.storage.player_hide_controls === true) {
-        this.elements.player.hideControls();
-    } else {
-        this.elements.player.showControls();
+    if (this.elements.player) {
+        if (this.storage.player_hide_controls === true) {
+            this.elements.player.hideControls();
+        } else {
+            this.elements.player.showControls();
+        }
     }
 };
 
