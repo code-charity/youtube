@@ -1120,6 +1120,14 @@ ImprovedTube.thumbnailsQuality = function (node) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerSize = function () {
+    if (window.self === window.top && (this.storage.forced_theater_mode === true || this.storage.player_size === 'fit_to_window')) {
+        var button = document.querySelector('button.ytp-size-button');
+
+        if (button && !document.getElementById('player-theater-container').firstChild) {
+            button.click();
+        }
+    }
+
     if (window.self === window.top && this.storage.player_size === 'fit_to_window' && this.elements.ytd_watch && this.elements.ytd_player) {
         var video = ImprovedTube.elements.video,
             aspect_ratio = video.videoWidth / video.videoHeight,
