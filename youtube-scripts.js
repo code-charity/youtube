@@ -559,12 +559,14 @@ ImprovedTube.playerOnTimeUpdate = function () {
 ImprovedTube.playerOnPause = function (event) {
     ImprovedTube.playlistUpNextAutoplay(event);
 
-    document.dispatchEvent(new CustomEvent('analyzer', {
-        detail: {
-            name: ImprovedTube.elements.yt_channel_name.__data.tooltipText,
-            time: ImprovedTube.played_time
-        }
-    }));
+    if (ImprovedTube.elements.yt_channel_name) {
+        document.dispatchEvent(new CustomEvent('analyzer', {
+            detail: {
+                name: ImprovedTube.elements.yt_channel_name.__data.tooltipText,
+                time: ImprovedTube.played_time
+            }
+        }));
+    }
 
     ImprovedTube.played_time = 0;
 };
