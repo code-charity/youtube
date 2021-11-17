@@ -5833,3 +5833,11 @@ satus.storage.import(function (items) {
         });
     }
 });
+
+chrome.runtime.sendMessage({
+    name: 'migration'
+}, function () {
+    satus.storage.import(function (items) {
+        
+    });
+});
