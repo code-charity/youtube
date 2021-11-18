@@ -514,6 +514,8 @@ ImprovedTube.initPlayer = function () {
         ImprovedTube.video_url = location.href;
         ImprovedTube.played_before_blur = false;
 
+        delete ImprovedTube.elements.player.dataset.defaultQuality;
+
         ImprovedTube.forcedPlayVideoFromTheBeginning();
         ImprovedTube.forcedTheaterMode();
         ImprovedTube.playerPlaybackSpeed(false);
@@ -2508,8 +2510,6 @@ ImprovedTube.playerQuality = function () {
 
     if (player && player.getAvailableQualityLevels && !player.dataset.defaultQuality) {
         var available_quality_levels = player.getAvailableQualityLevels();
-
-        console.log(quality);
 
         if (quality && quality !== 'auto') {
             if (available_quality_levels.includes(quality) === false) {
