@@ -2503,19 +2503,20 @@ ImprovedTube.playerAutofullscreen = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerQuality = function () {
-    var quality = this.storage.player_quality;
+    var player = this.elements.player,
+        quality = this.storage.player_quality;
 
-    if (this.elements.player.getAvailableQualityLevels && !this.elements.player.dataset.defaultQuality) {
-        var available_quality_levels = this.elements.player.getAvailableQualityLevels();
+    if (player && player.getAvailableQualityLevels && !player.dataset.defaultQuality) {
+        var available_quality_levels = player.getAvailableQualityLevels();
 
         if (quality && quality !== 'auto') {
             if (available_quality_levels.includes(quality) === false) {
                 quality = available_quality_levels[0];
             }
 
-            this.elements.player.setPlaybackQualityRange(quality);
-            this.elements.player.setPlaybackQuality(quality);
-            this.elements.player.dataset.defaultQuality = quality;
+            player.setPlaybackQualityRange(quality);
+            player.setPlaybackQuality(quality);
+            player.dataset.defaultQuality = quality;
         }
     }
 };
