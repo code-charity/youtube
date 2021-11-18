@@ -1129,7 +1129,7 @@ ImprovedTube.playerSize = function () {
     }
 
     if (window.self === window.top && this.storage.player_size === 'fit_to_window' && this.elements.ytd_watch && this.elements.ytd_player) {
-        var video = ImprovedTube.elements.video,
+        var video = this.elements.video,
             aspect_ratio = video.videoWidth / video.videoHeight,
             width,
             height,
@@ -1141,7 +1141,7 @@ ImprovedTube.playerSize = function () {
 
             style.textContent = '[data-page-type="video"][it-player-size="fit_to_window"] ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) video {';
         } else {
-            width = ImprovedTube.elements.ytd_watch.offsetWidth;
+            width = this.elements.ytd_watch.offsetWidth;
 
             style.textContent = '[data-page-type="video"][it-player-size="fit_to_window"] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) video {';
         }
@@ -3328,11 +3328,16 @@ ImprovedTube.shortcutToggleAutoplay = function () {
 
 ImprovedTube.shortcutNextVideo = function () {
     if (this.elements.player) {
-        if (document.querySelector('[aria-label="Loop playlist"]').ariaPressed === 'true') {
-            this.elements.player.setLoop(true);
-        } else {
-            this.elements.player.setLoop(false)
+        var playlist_loop_button = document.querySelector('[aria-label="Loop playlist"]');
+
+        if (playlist_loop_button) {
+            if (playlist_loop_button.ariaPressed === 'true') {
+                this.elements.player.setLoop(true);
+            } else {
+                this.elements.player.setLoop(false)
+            }
         }
+
         this.elements.player.nextVideo();
     }
 };
@@ -3344,11 +3349,16 @@ ImprovedTube.shortcutNextVideo = function () {
 
 ImprovedTube.shortcutPrevVideo = function () {
     if (this.elements.player) {
-        if (document.querySelector('[aria-label="Loop playlist"]').ariaPressed === 'true') {
-            this.elements.player.setLoop(true);
-        } else {
-            this.elements.player.setLoop(false)
+        var playlist_loop_button = document.querySelector('[aria-label="Loop playlist"]');
+
+        if (playlist_loop_button) {
+            if (playlist_loop_button.ariaPressed === 'true') {
+                this.elements.player.setLoop(true);
+            } else {
+                this.elements.player.setLoop(false)
+            }
         }
+
         this.elements.player.previousVideo();
     }
 };
