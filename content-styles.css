@@ -2675,6 +2675,15 @@ html[it-player-ads=block_all] #masthead-ad {
     display: none !important;
 }
 
+.it-mini-player .html5-video-container {
+    height: 100% !important;
+}
+
+.it-mini-player video {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 
 /*-----------------------------------------------------------------------------
 # DRAGGING
