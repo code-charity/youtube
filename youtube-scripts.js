@@ -286,6 +286,8 @@ ImprovedTube.init = function () {
                         ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
                         ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
 
+                        ImprovedTube.initPlayer();
+
                         ImprovedTube.playerSize();
 
                         new MutationObserver(function (mutationList) {
@@ -500,35 +502,39 @@ ImprovedTube.playerOnPlay = function () {
             ImprovedTube.autoplay(this);
             ImprovedTube.playerLoudnessNormalization();
 
-            if (ImprovedTube.elements.player && ImprovedTube.video_url !== location.href) {
-                ImprovedTube.video_url = location.href;
-                ImprovedTube.played_before_blur = false;
-
-                ImprovedTube.forcedPlayVideoFromTheBeginning();
-                ImprovedTube.forcedTheaterMode();
-                ImprovedTube.playerPlaybackSpeed(false);
-                ImprovedTube.subtitles();
-                ImprovedTube.subtitlesLanguage();
-                ImprovedTube.subtitlesFontFamily();
-                ImprovedTube.subtitlesFontColor();
-                ImprovedTube.subtitlesFontSize();
-                ImprovedTube.subtitlesBackgroundColor();
-                ImprovedTube.subtitlesWindowColor();
-                ImprovedTube.subtitlesWindowOpacity();
-                ImprovedTube.subtitlesCharacterEdgeStyle();
-                ImprovedTube.subtitlesFontOpacity();
-                ImprovedTube.subtitlesBackgroundOpacity();
-                ImprovedTube.playerQuality();
-                ImprovedTube.playerVolume();
-
-                if (location.href.indexOf('/embed/') === -1) {
-                    ImprovedTube.miniPlayer();
-                }
-            }
+            ImprovedTube.initPlayer();
 
             return original.apply(this, arguments);
         }
     })(HTMLMediaElement.prototype.play);
+};
+
+ImprovedTube.initPlayer = function () {
+    if (ImprovedTube.elements.player && ImprovedTube.video_url !== location.href) {
+        ImprovedTube.video_url = location.href;
+        ImprovedTube.played_before_blur = false;
+
+        ImprovedTube.forcedPlayVideoFromTheBeginning();
+        ImprovedTube.forcedTheaterMode();
+        ImprovedTube.playerPlaybackSpeed(false);
+        ImprovedTube.subtitles();
+        ImprovedTube.subtitlesLanguage();
+        ImprovedTube.subtitlesFontFamily();
+        ImprovedTube.subtitlesFontColor();
+        ImprovedTube.subtitlesFontSize();
+        ImprovedTube.subtitlesBackgroundColor();
+        ImprovedTube.subtitlesWindowColor();
+        ImprovedTube.subtitlesWindowOpacity();
+        ImprovedTube.subtitlesCharacterEdgeStyle();
+        ImprovedTube.subtitlesFontOpacity();
+        ImprovedTube.subtitlesBackgroundOpacity();
+        ImprovedTube.playerQuality();
+        ImprovedTube.playerVolume();
+
+        if (location.href.indexOf('/embed/') === -1) {
+            ImprovedTube.miniPlayer();
+        }
+    }
 };
 
 ImprovedTube.playerOnLoadedMetadata = function () {
