@@ -3066,10 +3066,10 @@ ImprovedTube.shortcuts = function () {
                 same_keys = true;
 
             if (
-                keyboard.alt === shortcut.alt &&
-                keyboard.ctrl === shortcut.ctrl &&
-                keyboard.shift === shortcut.shift &&
-                mouse.wheel === shortcut.wheel
+                (keyboard.alt === shortcut.alt || !ImprovedTube.isset(shortcut.alt)) &&
+                (keyboard.ctrl === shortcut.ctrl || !ImprovedTube.isset(shortcut.ctrl)) &&
+                (keyboard.shift === shortcut.shift || !ImprovedTube.isset(shortcut.shift)) &&
+                (mouse.wheel === shortcut.wheel || !ImprovedTube.isset(shortcut.wheel))
             ) {
                 for (var code in keyboard.keys) {
                     if (!shortcut.keys[code]) {
