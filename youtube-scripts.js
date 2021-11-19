@@ -3429,34 +3429,29 @@ ImprovedTube.shortcutSeekNextChapter = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutSeekPreviousChapter = function () {
-    var player = this.elements.player;
-
-    if (player) {
-        var duration = player.getDuration(),
-            current_time = player.getCurrentTime(),
+    if (this.elements.player) {
+        var player = this.elements.player,
             chapters_container = player.querySelector('.ytp-chapters-container'),
-            progress_bar_width = player.querySelector('.ytp-chrome-bottom').offsetWidth,
-            current_width = 0;
+            progress_bar = player.querySelector('.ytp-progress-bar');
 
-        if (!player || !player.seekBy || !progress_bar_width || !chapters_container || !chapters_container.children) {
-            return;
-        }
+        if (chapters_container && chapters_container.children && progress_bar) {
+            var chapters = chapters_container.children,
+                duration = player.getDuration(),
+                current_width = player.getCurrentTime() / (duration / 100) * (progress_bar.offsetWidth / 100);
 
-        var chapters = chapters_container.children;
+            for (var i = chapters.length - 1; i > 0; i--) {
+                if (current_width > chapters[i].offsetLeft) {
+                    var left = 0;
 
-        for (var i = 0, l = chapters.length; i < l; i++) {
-            var width = chapters[i].offsetWidth;
+                    if (i > 0) {
+                        left = chapters[i - 1].offsetLeft;
+                    }
 
-            if (
-                (current_width + 2) / progress_bar_width <= current_time / duration &&
-                (current_width + 2 + width) / progress_bar_width >= current_time / duration
-            ) {
-                player.seekTo(((current_width - 2) / progress_bar_width) * duration);
+                    player.seekTo(left / (progress_bar.offsetWidth / 100) * (duration / 100));
 
-                return;
+                    return false;
+                }
             }
-
-            current_width += width + 2;
         }
     }
 };
