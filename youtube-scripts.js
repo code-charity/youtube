@@ -1647,7 +1647,7 @@ ImprovedTube.bluelight = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.dim = function () {
-    var value = this.storage.bluelight;
+    var value = this.storage.dim;
 
     if (this.schedule() === false) {
         return false;
