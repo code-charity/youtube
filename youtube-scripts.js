@@ -1193,7 +1193,7 @@ ImprovedTube.playerSize = function () {
 
         setTimeout(function () {
             window.dispatchEvent(new Event('resize'));
-        }, 50);
+        }, 100);
     }
 };
 
@@ -1854,20 +1854,21 @@ ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
 
 ImprovedTube.playerPlaybackSpeed = function (change) {
     var player = this.elements.player,
-        value = this.storage.player_playback_speed;
+        video = player.querySelector('video'),
+        option = this.storage.player_playback_speed;
 
-    if (this.isset(value) === false) {
-        value = 1;
+    if (this.isset(option) === false) {
+        option = 1;
     }
 
     if (this.storage.player_forced_playback_speed === true) {
         if (location.href.indexOf('music') === -1 && player.getVideoData().isLive === false) {
-            player.setPlaybackRate(Number(value));
+            video.playbackRate = Number(option);
         } else {
-            player.setPlaybackRate(1);
+            video.playbackRate = 1;
         }
     } else if (change !== false) {
-        player.setPlaybackRate(1);
+        video.playbackRate = 1;
     }
 };
 
