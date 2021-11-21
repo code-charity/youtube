@@ -3120,7 +3120,7 @@ ImprovedTube.shortcuts = function () {
                                 'shortcut4320p'
                             ].includes(key) === true) {
                             ImprovedTube['shortcutQuality'](key);
-                        } else {
+                        } else if (typeof ImprovedTube[key] === 'function') {
                             ImprovedTube[key]();
                         }
 
