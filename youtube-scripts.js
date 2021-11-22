@@ -1529,7 +1529,11 @@ ImprovedTube.comments = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.myColors = function () {
-    if (this.storage.theme === 'my-colors') {
+    if (
+        this.storage.theme === 'my-colors' &&
+        Array.isArray(this.storage.theme_primary_color) &&
+        Array.isArray(this.storage.theme_text_color)
+    ) {
         var style = this.elements.my_colors || document.createElement('style'),
             primary_color = this.storage.theme_primary_color,
             text_color = this.storage.theme_text_color;
