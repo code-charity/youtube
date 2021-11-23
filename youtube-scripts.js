@@ -3097,14 +3097,16 @@ ImprovedTube.shortcuts = function () {
                 (keyboard.shift === shortcut.shift || !ImprovedTube.isset(shortcut.shift)) &&
                 (mouse.wheel === shortcut.wheel || !ImprovedTube.isset(shortcut.wheel))
             ) {
-                for (var code in keyboard.keys) {
-                    if (!shortcut.keys[code]) {
-                        same_keys = false;
+                if (keyboard.keys && shortcut.keys) {
+                    for (var code in keyboard.keys) {
+                        if (!shortcut.keys[code]) {
+                            same_keys = false;
+                        }
                     }
-                }
-                for (var code in shortcut.keys) {
-                    if (!keyboard.keys[code]) {
-                        same_keys = false;
+                    for (var code in shortcut.keys) {
+                        if (!keyboard.keys[code]) {
+                            same_keys = false;
+                        }
                     }
                 }
 
@@ -3156,6 +3158,9 @@ ImprovedTube.shortcuts = function () {
 
         if (handler() === true) {
             event.preventDefault();
+            event.stopPropagation();
+
+            return false;
         }
     }, true);
 
@@ -3186,6 +3191,9 @@ ImprovedTube.shortcuts = function () {
 
         if (handler() === true) {
             event.preventDefault();
+            event.stopPropagation();
+
+            return false;
         }
     }, {
         passive: false,
