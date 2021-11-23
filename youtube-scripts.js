@@ -1203,7 +1203,12 @@ ImprovedTube.playerSize = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.forcedTheaterMode = function () {
-    if (window.self === window.top && this.storage.forced_theater_mode === true) {
+    if (
+        window.self === window.top &&
+        this.storage.forced_theater_mode === true &&
+        this.elements.ytd_watch &&
+        this.elements.player
+    ) {
         var button = this.elements.player.querySelector('button.ytp-size-button');
 
         if (button && this.elements.ytd_watch.theater === false) {
