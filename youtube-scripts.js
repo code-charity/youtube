@@ -3092,6 +3092,7 @@ ImprovedTube.shortcuts = function () {
                 same_keys = true;
 
             if (
+                typeof shortcut === 'object' &&
                 (keyboard.alt === shortcut.alt || !ImprovedTube.isset(shortcut.alt)) &&
                 (keyboard.ctrl === shortcut.ctrl || !ImprovedTube.isset(shortcut.ctrl)) &&
                 (keyboard.shift === shortcut.shift || !ImprovedTube.isset(shortcut.shift)) &&
