@@ -1150,9 +1150,10 @@ ImprovedTube.thumbnailsQuality = function (node) {
 
 ImprovedTube.playerSize = function () {
     if (window.self === window.top && (this.storage.forced_theater_mode === true || this.storage.player_size === 'fit_to_window')) {
-        var button = document.querySelector('button.ytp-size-button');
+        var button = document.querySelector('button.ytp-size-button'),
+            container = document.getElementById('player-theater-container');
 
-        if (button && !document.getElementById('player-theater-container').firstChild) {
+        if (button && (container && !container.firstChild)) {
             button.click();
         }
     }
