@@ -1163,7 +1163,7 @@ ImprovedTube.playerSize = function () {
             aspect_ratio = video.videoWidth / video.videoHeight,
             width,
             height,
-            max_height = window.innerHeight - 56,
+            max_height = window.innerHeight,
             style = this.elements.player_size_style || document.createElement('style');
 
         if (this.elements.ytd_watch.theater === true) {
