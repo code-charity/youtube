@@ -2473,9 +2473,13 @@ ImprovedTube.miniPlayer = function () {
     if (this.storage.mini_player === true) {
         var data = localStorage.getItem('improedtube-mini-player');
 
-        if (this.isset(data)) {
-            data = JSON.parse(data);
-        } else {
+        try {
+            if (this.isset(data)) {
+                data = JSON.parse(data);
+            } else {
+                data = {};
+            }
+        } catch (error) {
             data = {};
         }
 
