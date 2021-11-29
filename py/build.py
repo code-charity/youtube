@@ -1,10 +1,11 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 #---------------------------------------------------------------
 # >>> TABLE OF CONTENTS:
 #---------------------------------------------------------------
 # 1.0 Import modules
 # 2.0 Chromium
-# 	2.1 Beta
-#	2.2 Stable
 # 3.0 Firefox
 # 4.0 Initialization
 #---------------------------------------------------------------
@@ -14,6 +15,7 @@
 #---------------------------------------------------------------
 
 import shutil
+import sys
 import json
 import os
 import pathlib
@@ -25,11 +27,7 @@ import zipfile
 # 2.0 CHROMIUM
 #---------------------------------------------------------------
 
-#---------------------------------------------------------------
-# 2.1 BETA
-#---------------------------------------------------------------
-
-def chromiumBeta():
+def chromium(browser):
 	temporary_path = '../cached'
 
 	if (os.path.isdir(temporary_path)):
@@ -63,61 +61,8 @@ def chromiumBeta():
 
 		version = data['version']
 
-		data['name'] = 'ImprovedTube (testing)';
-
-		json_file.seek(0)
-		json.dump(data, json_file, indent=4, sort_keys=True)
-		json_file.truncate()
-
-	archive = zipfile.ZipFile('../chromium-' + version + '.zip', 'w', zipfile.ZIP_DEFLATED)
-
-	for root, dirs, files in os.walk('.'):
-		for file in files:
-			archive.write(os.path.join(root, file),
-						  os.path.relpath(os.path.join(root, file),
-						  				  os.path.join('.', '.')))
-
-	archive.close()
-	shutil.rmtree(temporary_path)
-
-
-#---------------------------------------------------------------
-# 2.2 STABLE
-#---------------------------------------------------------------
-
-def chromiumStable():
-	temporary_path = '../cached'
-
-	if (os.path.isdir(temporary_path)):
-		shutil.rmtree(temporary_path, ignore_errors=True)
-
-	os.mkdir(temporary_path)
-	os.chdir(temporary_path)
-
-	for item in os.listdir('../'):
-		if (
-			item != '.git' and
-			item != '.github' and
-			item != 'cached' and
-			item != 'previews' and
-			item != 'py' and
-			item != 'wiki' and
-			item != 'LICENSE' and
-			item != 'README.md' and
-			item != 'SECURITY.md' and
-			item.find('.zip') == -1
-		):
-			s = os.path.join('../', item)
-			d = os.path.join(temporary_path, item)
-			if os.path.isdir(s):
-				shutil.copytree(s, d, True, None)
-			else:
-				shutil.copy2(s, d)
-
-	with open('manifest.json', 'r+') as json_file:
-		data = json.load(json_file)
-
-		version = data['version']
+		if (browser == 'beta'):
+			data['name'] = 'ImprovedTube (testing)';
 
 		json_file.seek(0)
 		json.dump(data, json_file, indent=4, sort_keys=True)
@@ -212,18 +157,10 @@ def firefox():
 # 4.0 INITIALIZATION
 #---------------------------------------------------------------
 
-operation = input("""
---------------------------------
-1 - Chromium (beta)
-2 - Chromium (stable)
-3 - Firefox
---------------------------------
-
-Enter number: """)
-
-if operation == "1":
-    chromiumBeta()
-elif operation == "2" :
-    chromiumStable()
-elif operation == "3" :
-    firefox()
+for arg in sys.argv:
+    if arg == '-chromium-stable':
+        chromium('stable')
+    elif arg == '-chromium-beta':
+        chromium('beta')
+    elif arg == '-firefox':
+        firefox()
