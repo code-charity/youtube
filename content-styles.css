@@ -2975,7 +2975,7 @@ ytd-guide-section-renderer .it-button::after {
 
 .it-button__scrim {
     position: fixed;
-    z-index: 5001;
+    z-index: 2147483648;
     top: 0;
     left: 0;
     width: 100%;
@@ -2985,7 +2985,7 @@ ytd-guide-section-renderer .it-button::after {
 
 .it-button__iframe {
     position: fixed;
-    z-index: 5002;
+    z-index: 2147483649;
     display: block;
     overflow: hidden;
     width: 300px;
