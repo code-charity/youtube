@@ -1221,6 +1221,8 @@ ImprovedTube.forcedTheaterMode = function () {
         var button = this.elements.player.querySelector('button.ytp-size-button');
 
         if (button && this.elements.ytd_watch.theater === false) {
+            document.cookie = 'wide=1;domain=.youtube.com';
+
             setTimeout(function () {
                 button.click();
             }, 200);
