@@ -1881,12 +1881,11 @@ ImprovedTube.playerPlaybackSpeed = function (change) {
 
     if (this.storage.player_forced_playback_speed === true) {
         if (location.href.indexOf('music') === -1 && player.getVideoData().isLive === false) {
+            player.setPlaybackRate(Number(option));
             video.playbackRate = Number(option);
         } else {
-            video.playbackRate = 1;
+            player.setPlaybackRate(1);
         }
-    } else if (change !== false) {
-        video.playbackRate = 1;
     }
 };
 
