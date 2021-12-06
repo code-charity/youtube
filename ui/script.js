@@ -5667,7 +5667,13 @@ function exportData() {
         var blob;
 
         try {
-            blob = new Blob([JSON.stringify(satus.storage.data)], {
+            var data = Object.assign({}, satus.storage.data);
+
+            delete data.analyzer;
+            delete data.blacklist;
+            delete data.watched;
+
+            blob = new Blob([JSON.stringify(data)], {
                 type: 'application/json;charset=utf-8'
             });
         } catch (error) {
