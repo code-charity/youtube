@@ -170,33 +170,33 @@ chrome.storage.local.get('youtube_home_page', function (items) {
 
     chrome.runtime.sendMessage({
         name: 'migration'
-    }, function () {
-        chrome.storage.local.get(function (items) {
-            var textContent = 'var ImprovedTube={';
-
-            ImprovedTube.storage = items;
-
-            for (var key in ImprovedTube) {
-                var value = ImprovedTube[key];
-
-                if (typeof value === 'object') {
-                    value = JSON.stringify(value);
-                }
-
-                textContent += key + ': ' + value + ',';
-            }
-
-            textContent += '};ImprovedTube.init();';
-
-            injectScript(textContent);
-
-            attributes(items);
-
-            if (window.matchMedia) {
-                document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-        });
     });
+});
+
+chrome.storage.local.get(function (items) {
+    var textContent = 'var ImprovedTube={';
+
+    ImprovedTube.storage = items;
+
+    for (var key in ImprovedTube) {
+        var value = ImprovedTube[key];
+
+        if (typeof value === 'object') {
+            value = JSON.stringify(value);
+        }
+
+        textContent += key + ': ' + value + ',';
+    }
+
+    textContent += '};ImprovedTube.init();';
+
+    injectScript(textContent);
+
+    attributes(items);
+
+    if (window.matchMedia) {
+        document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
 });
 
 chrome.runtime.sendMessage({
