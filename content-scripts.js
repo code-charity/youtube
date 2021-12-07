@@ -41,26 +41,12 @@ function attributes(items) {
 3.0 INJECTION
 ------------------------------------------------------------------------------*/
 
-function injectScript(string) {
+function injectYoutubeScript() {
     var script = document.createElement('script');
 
-    script.textContent = string;
+    script.src = chrome.runtime.getURL('youtube-scripts.js');
 
     document.documentElement.appendChild(script);
-
-    script.remove();
-}
-
-function injectStyles(string, id) {
-    var style = document.createElement('style');
-
-    style.textContent = string;
-
-    if (id) {
-        style.id = id;
-    }
-
-    document.documentElement.appendChild(style);
 }
 
 
@@ -70,7 +56,8 @@ function injectStyles(string, id) {
 
 chrome.storage.onChanged.addListener(function (changes) {
     for (var key in changes) {
-        var attribute = key.replace(/_/g, '-'),
+        var item = {},
+            attribute = key.replace(/_/g, '-'),
             name = camelize(attribute),
             value = changes[key].newValue;
 
@@ -80,15 +67,13 @@ chrome.storage.onChanged.addListener(function (changes) {
             name = 'playerPlaybackSpeed';
         }
 
-        ImprovedTube.storage[key] = value;
-
         document.documentElement.setAttribute('it-' + attribute, value);
 
-        injectScript('ImprovedTube.storage[\'' + key + '\']=' + (typeof value === 'boolean' ? value : '\'' + value + '\'') + ';');
+        item.key = key;
+        item.func = name;
+        item.value = value;
 
-        if (typeof ImprovedTube[name] === 'function') {
-            injectScript('ImprovedTube.' + name + '();');
-        }
+        document.documentElement.setAttribute('it-message', '{"storage-update": ' + JSON.stringify(item) + '}');
     }
 });
 
@@ -98,7 +83,7 @@ chrome.storage.onChanged.addListener(function (changes) {
 ------------------------------------------------------------------------------*/
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if (request.action === 'focus') {
+    /*if (request.action === 'focus') {
         injectScript('ImprovedTube.focus = true;');
     } else if (request.action === 'blur') {
         injectScript(`
@@ -140,13 +125,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         injectScript('ImprovedTube.deleteYoutubeCookies();');
     }
 
-    injectScript('ImprovedTube.pageOnFocus();');
+    injectScript('ImprovedTube.pageOnFocus();');*/
 });
 
 
 /*------------------------------------------------------------------------------
 6.0 INITIALIZATION
 ------------------------------------------------------------------------------*/
+
+injectYoutubeScript();
 
 chrome.storage.local.get('youtube_home_page', function (items) {
     var option = items.youtube_home_page;
@@ -174,23 +161,7 @@ chrome.storage.local.get('youtube_home_page', function (items) {
 });
 
 chrome.storage.local.get(function (items) {
-    var textContent = 'var ImprovedTube={';
-
-    ImprovedTube.storage = items;
-
-    for (var key in ImprovedTube) {
-        var value = ImprovedTube[key];
-
-        if (typeof value === 'object') {
-            value = JSON.stringify(value);
-        }
-
-        textContent += key + ': ' + value + ',';
-    }
-
-    textContent += '};ImprovedTube.init();';
-
-    injectScript(textContent);
+    document.documentElement.setAttribute('it-message', '{"storage": ' + JSON.stringify(items) + '}');
 
     attributes(items);
 

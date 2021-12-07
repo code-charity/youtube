@@ -1,9 +1,9 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "'Improve YouTube!' (Video & YouTube Tools)🎧",
     "short_name": "ImprovedTube",
     "description": "__MSG_description_ext__",
-    "version": "3.810",
+    "version": "3.820",
     "default_locale": "en",
     "icons": {
         "128": "icons/128.png",
@@ -12,12 +12,9 @@
         "48": "icons/48.png"
     },
     "background": {
-        "persistent": false,
-        "scripts": [
-            "background.js"
-        ]
+        "service_worker": "background.js"
     },
-    "browser_action": {
+    "action": {
         "default_popup": "ui/popup.html"
     },
     "options_page": "ui/options.html",
@@ -34,7 +31,6 @@
                 "http://studio.youtube.com/*"
             ],
             "js": [
-                "youtube-scripts.js",
                 "content-scripts.js"
             ],
             "matches": [
@@ -68,16 +64,16 @@
             "run_at": "document_start"
         }
     ],
+    "web_accessible_resources": [{
+        "resources": ["youtube-scripts.js"],
+        "matches": ["https://www.youtube.com/*"]
+    }],
     "offline_enabled": true,
     "optional_permissions": [
-        "downloads",
-        "https://*.youtube.com/*"
+        "downloads"
     ],
     "permissions": [
-        "https://www.youtube.com/",
         "contextMenus",
         "storage"
-    ],
-    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
-    "update_url": "https://clients2.google.com/service/update2/crx"
+    ]
 }

@@ -2,7 +2,6 @@
 >>> TABLE OF CONTENTS:
 --------------------------------------------------------------------------------
 1.0 Global variable
-2.0 Initialization
 3.0 
 4.0 Features
     4.1.0 General
@@ -98,6 +97,7 @@
        4.10.3 Delete YouTube cookies
        4.10.4 YouTube language
        4.10.5 Default content country
+4.0 Initialization
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
@@ -107,7 +107,8 @@ The variable "ImprovedTube" is used on the YouTube side.
 ------------------------------------------------------------------------------*/
 
 var ImprovedTube = {
-    elements: `{
+    storage: {},
+    elements: {
         buttons: {},
         masthead: {},
         playlist: {},
@@ -117,15 +118,15 @@ var ImprovedTube = {
         collapse_of_subscription_sections: [],
         mark_watched_videos: [],
         blacklist_buttons: []
-    }`,
-    regex: `{
+    },
+    regex: {
         channel: new RegExp('\/(user|channel|c)\/'),
         channel_home_page: new RegExp('\/(user|channel|c)\/.+(\/featured)?\/?$'),
         channel_home_page_postfix: new RegExp('\/(featured)?\/?$'),
         thumbnail_quality: new RegExp('(default\.jpg|mqdefault\.jpg|hqdefault\.jpg|hq720\.jpg|sddefault\.jpg|maxresdefault\.jpg)+'),
         video_id: new RegExp('[?&]v=([^&]+)'),
         channel_link: new RegExp('https:\/\/www.youtube.com\/(channel|user|c)\/')
-    }`,
+    },
     video_src: false,
     initialVideoUpdateDone: false,
     latestVideoDuration: 0,
@@ -136,7 +137,7 @@ var ImprovedTube = {
     allow_autoplay: false,
     mini_player__mode: false,
     mini_player__move: false,
-    mini_player__cursor: '""',
+    mini_player__cursor: '',
     mini_player__x: 0,
     mini_player__y: 0,
     mini_player__max_x: 0,
@@ -152,71 +153,6 @@ var ImprovedTube = {
     miniPlayer_resize_offset: 16,
     playlistReversed: false,
     status_timer: false
-};
-
-
-/*------------------------------------------------------------------------------
-2.0 INITIALIZATION
---------------------------------------------------------------------------------
-The first function called on the YouTube side.
-------------------------------------------------------------------------------*/
-
-ImprovedTube.init = function () {
-    window.addEventListener('DOMContentLoaded', function () {
-        ImprovedTube.addScrollToTop();
-        ImprovedTube.confirmationBeforeClosing();
-        ImprovedTube.dim();
-        ImprovedTube.font();
-        ImprovedTube.themes();
-        //ImprovedTube.improvedtubeYoutubeSidebarButton();
-        //ImprovedTube.improvedtubeYoutubePlayerButtons();
-    });
-
-    window.addEventListener('yt-page-data-updated', function () {
-        ImprovedTube.pageType();
-        ImprovedTube.videoPageUpdate();
-        //ImprovedTube.improvedtubeYoutubeSidebarButton();
-        //ImprovedTube.improvedtubeYoutubePlayerButtons();
-    });
-
-    /*window.addEventListener('resize', function() {
-        setTimeout(function() {
-            ImprovedTube.playerSize();
-        }, 100);
-    });*/
-
-    this.bluelight();
-    this.playerH264();
-    this.player60fps();
-    this.playerSDR();
-    this.shortcuts();
-    this.playerOnPlay();
-    this.onkeydown();
-    this.onmousedown();
-    this.defaultContentCountry(false);
-    this.youtubeLanguage(false);
-
-    if (document.body) {
-        this.childHandler(document.body);
-    }
-
-    this.observer = new MutationObserver(function (mutationList) {
-        for (var i = 0, l = mutationList.length; i < l; i++) {
-            var mutation = mutationList[i];
-
-            if (mutation.type === 'childList') {
-                for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
-                    ImprovedTube.childHandler(mutation.addedNodes[j]);
-                }
-            }
-        }
-    });
-
-    this.observer.observe(document, {
-        attributes: false,
-        childList: true,
-        subtree: true
-    });
 };
 
 
@@ -247,10 +183,6 @@ ImprovedTube.ytElementsHandler = function (node) {
     if (name === 'YTD-WATCH-FLEXY') {
         ImprovedTube.elements.ytd_watch = node;
         ImprovedTube.elements.ytd_player = node.querySelector('ytd-player');
-
-        if (ImprovedTube.elements.ytd_watch && ImprovedTube.elements.ytd_player) {
-            ImprovedTube.initPlayer();
-        }
 
         if (
             ImprovedTube.isset(ImprovedTube.storage.player_size) &&
@@ -327,10 +259,6 @@ ImprovedTube.ytElementsHandler = function (node) {
         ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
         ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
         ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
-
-        if (ImprovedTube.elements.ytd_watch && ImprovedTube.elements.ytd_player) {
-            ImprovedTube.initPlayer();
-        }
 
         ImprovedTube.playerSize();
 
@@ -528,8 +456,6 @@ ImprovedTube.playerOnPlay = function () {
 
             ImprovedTube.autoplay(this);
             ImprovedTube.playerLoudnessNormalization();
-
-            ImprovedTube.initPlayer();
 
             return original.apply(this, arguments);
         }
@@ -4215,3 +4141,121 @@ ImprovedTube.defaultContentCountry = function (reload) {
         }
     }
 };
+
+
+/*------------------------------------------------------------------------------
+2.0 INITIALIZATION
+--------------------------------------------------------------------------------
+The first function called on the YouTube side.
+------------------------------------------------------------------------------*/
+
+if (document.body) {
+    this.childHandler(document.body);
+}
+
+ImprovedTube.observer = new MutationObserver(function (mutationList) {
+    for (var i = 0, l = mutationList.length; i < l; i++) {
+        var mutation = mutationList[i];
+
+        if (mutation.type === 'childList') {
+            for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
+                ImprovedTube.childHandler(mutation.addedNodes[j]);
+            }
+        }
+    }
+});
+
+ImprovedTube.observer.observe(document, {
+    attributes: false,
+    childList: true,
+    subtree: true
+});
+
+ImprovedTube.init = function () {
+    var message = document.documentElement.getAttribute('it-message');
+
+    try {
+        ImprovedTube.storage = JSON.parse(message).storage || {};
+    } catch (error) {}
+
+    window.addEventListener('DOMContentLoaded', function () {
+        ImprovedTube.addScrollToTop();
+        ImprovedTube.confirmationBeforeClosing();
+        ImprovedTube.dim();
+        ImprovedTube.font();
+        ImprovedTube.themes();
+    });
+
+    window.addEventListener('yt-page-data-updated', function () {
+        ImprovedTube.pageType();
+    });
+
+    this.bluelight();
+    this.playerH264();
+    this.player60fps();
+    this.playerSDR();
+    this.shortcuts();
+    this.playerOnPlay();
+    this.onkeydown();
+    this.onmousedown();
+    this.defaultContentCountry(false);
+    this.youtubeLanguage(false);
+
+    if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
+        ImprovedTube.videoPageUpdate();
+        ImprovedTube.initPlayer();
+    }
+};
+
+/*document.addEventListener('improvedtube-storage', function (event) {
+    ImprovedTube.storage = event.detail;
+
+    ImprovedTube.init();
+
+    console.log(ImprovedTube.storage);
+});
+
+document.addEventListener('improvedtube-storage-update', function (event) {
+    for (var key in event.detail) {
+        ImprovedTube.storage[key] = event.detail[key];
+
+        ImprovedTube[key]();
+    }
+});*/
+
+ImprovedTube.init();
+
+document.addEventListener('yt-player-updated', function () {
+    if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
+        ImprovedTube.videoPageUpdate();
+        ImprovedTube.initPlayer();
+    }
+});
+
+new MutationObserver(function (mutationList) {
+    for (var i = 0, l = mutationList.length; i < l; i++) {
+        var mutation = mutationList[i];
+
+        if (mutation.type === 'attributes') {
+            if (mutation.attributeName === 'it-message') {
+                var message = document.documentElement.getAttribute('it-message');
+
+                try {
+                    message = JSON.parse(message);
+                } catch (error) {}
+
+                if (message && message.storage) {
+                    ImprovedTube.storage = message.storage;
+                } else if (message && message['storage-update']) {
+                    ImprovedTube.storage[message['storage-update'].key] = message['storage-update'].value;
+
+                    ImprovedTube[message['storage-update'].func]();
+                }
+            }
+        }
+    }
+}).observe(document.documentElement, {
+    attributes: true,
+    childList: false,
+    subtree: false
+});
