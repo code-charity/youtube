@@ -4150,7 +4150,7 @@ The first function called on the YouTube side.
 ------------------------------------------------------------------------------*/
 
 if (document.body) {
-    this.childHandler(document.body);
+    ImprovedTube.childHandler(document.body);
 }
 
 ImprovedTube.observer = new MutationObserver(function (mutationList) {
@@ -4207,22 +4207,6 @@ ImprovedTube.init = function () {
     }
 };
 
-/*document.addEventListener('improvedtube-storage', function (event) {
-    ImprovedTube.storage = event.detail;
-
-    ImprovedTube.init();
-
-    console.log(ImprovedTube.storage);
-});
-
-document.addEventListener('improvedtube-storage-update', function (event) {
-    for (var key in event.detail) {
-        ImprovedTube.storage[key] = event.detail[key];
-
-        ImprovedTube[key]();
-    }
-});*/
-
 ImprovedTube.init();
 
 document.addEventListener('yt-player-updated', function () {
@@ -4249,7 +4233,42 @@ new MutationObserver(function (mutationList) {
                 } else if (message && message['storage-update']) {
                     ImprovedTube.storage[message['storage-update'].key] = message['storage-update'].value;
 
-                    ImprovedTube[message['storage-update'].func]();
+                    ImprovedTube[message['storage-update'].camelizedKey]();
+                } else if (message && message.focus) {
+                    ImprovedTube.focus = true;
+                } else if (message && message.blur) {
+                    ImprovedTube.focus = false;
+
+                    document.dispatchEvent(new CustomEvent('improvedtube-blur'));
+                } else if (message && message.pause) {
+                    if (ImprovedTube.elements.player) {
+                        ImprovedTube.played_before_blur = ImprovedTube.elements.player.getPlayerState() === 1;
+                        ImprovedTube.elements.player.pauseVideo();
+                    }
+                } else if (message && message.getVolume) {
+                    if (ImprovedTube.elements.player) {
+                        document.documentElement.setAttribute('it-response', JSON.stringify({
+                            getVolume: ImprovedTube.elements.player.getVolume()
+                        }));
+                    }
+                } else if (message && message.setVolume) {
+                    if (ImprovedTube.elements.player) {
+                        ImprovedTube.elements.player.setPlaybackRate(message.setVolume);
+                    }
+                } else if (message && message.getPlaybackRate) {
+                    if (ImprovedTube.elements.player) {
+                        document.documentElement.setAttribute('it-response', JSON.stringify({
+                            getPlaybackRate: ImprovedTube.elements.player.getPlaybackRate()
+                        }));
+                    }
+                } else if (message && message.setPlaybackSpeed) {
+                    if (ImprovedTube.elements.player) {
+                        ImprovedTube.elements.player.setPlaybackRate(message.setPlaybackSpeed);
+                    }
+                } else if (message && message.deleteCookies) {
+                    ImprovedTube.deleteYoutubeCookies();
+                } else {
+                    ImprovedTube.pageOnFocus();
                 }
             }
         }
