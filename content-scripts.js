@@ -36,6 +36,10 @@ function attributes(items) {
     }
 }
 
+function sendMessage(object) {
+    document.documentElement.setAttribute('it-message', JSON.stringify(object));
+}
+
 
 /*------------------------------------------------------------------------------
 3.0 INJECTION
@@ -56,24 +60,25 @@ function injectYoutubeScript() {
 
 chrome.storage.onChanged.addListener(function (changes) {
     for (var key in changes) {
-        var item = {},
-            attribute = key.replace(/_/g, '-'),
-            name = camelize(attribute),
+        var attribute = key.replace(/_/g, '-'),
+            camelized_key = camelize(attribute),
             value = changes[key].newValue;
 
-        if (name === 'blacklistActivate') {
-            name = 'blacklist';
-        } else if (name === 'playerForcedPlaybackSpeed') {
-            name = 'playerPlaybackSpeed';
+        if (camelized_key === 'blacklistActivate') {
+            camelized_key = 'blacklist';
+        } else if (camelized_key === 'playerForcedPlaybackSpeed') {
+            camelized_key = 'playerPlaybackSpeed';
         }
 
         document.documentElement.setAttribute('it-' + attribute, value);
 
-        item.key = key;
-        item.func = name;
-        item.value = value;
-
-        document.documentElement.setAttribute('it-message', '{"storage-update": ' + JSON.stringify(item) + '}');
+        sendMessage({
+            'storage-update': {
+                key: key,
+                camelizedKey: camelized_key,
+                value: value
+            }
+        });
     }
 });
 
@@ -83,55 +88,109 @@ chrome.storage.onChanged.addListener(function (changes) {
 ------------------------------------------------------------------------------*/
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    /*if (request.action === 'focus') {
-        injectScript('ImprovedTube.focus = true;');
+    if (request.action === 'focus') {
+        sendMessage({
+            focus: true
+        });
     } else if (request.action === 'blur') {
-        injectScript(`
-            ImprovedTube.focus = false;
-            document.dispatchEvent(new CustomEvent('improvedtube-blur'));
-        `);
+        sendMessage({
+            blur: true
+        });
     } else if (request.action === 'improvedtube-pause') {
-        injectScript(`
-            if (ImprovedTube.elements.player) {
-                ImprovedTube.played_before_blur = ImprovedTube.elements.player.getPlayerState() === 1;
-                ImprovedTube.elements.player.pauseVideo();
-            }
-        `);
+        sendMessage({
+            pause: true
+        });
     } else if (request.action === 'request-volume') {
-        var element = document.querySelector('video');
+        new MutationObserver(function (mutationList) {
+            for (var i = 0, l = mutationList.length; i < l; i++) {
+                var mutation = mutationList[i];
 
-        if (element) {
-            sendResponse(element.volume * 100);
-        }
+                if (mutation.type === 'attributes') {
+                    if (mutation.attributeName === 'it-response') {
+                        var message = document.documentElement.getAttribute('it-response');
+
+                        try {
+                            message = JSON.parse(message);
+                        } catch (error) {}
+
+                        if (message && message.hasOwnProperty('getVolume')) {
+                            sendResponse(message.getVolume);
+
+                            this.disconnect();
+                        }
+                    }
+                }
+            }
+        }).observe(document.documentElement, {
+            attributes: true,
+            childList: false,
+            subtree: false
+        });
+
+        sendMessage({
+            getVolume: true
+        });
+
+        return true;
     } else if (request.action === 'set-volume') {
-        var element = document.querySelector('video');
-
-        if (element) {
-            element.volume = request.value / 100;
-        }
+        sendMessage({
+            setVolume: request.value / 100
+        });
     } else if (request.action === 'request-playback-speed') {
-        var element = document.querySelector('video');
+        new MutationObserver(function (mutationList) {
+            for (var i = 0, l = mutationList.length; i < l; i++) {
+                var mutation = mutationList[i];
 
-        if (element) {
-            sendResponse(element.playbackRate);
-        }
+                if (mutation.type === 'attributes') {
+                    if (mutation.attributeName === 'it-response') {
+                        var message = document.documentElement.getAttribute('it-response');
+
+                        try {
+                            message = JSON.parse(message);
+                        } catch (error) {}
+
+                        if (message && message.hasOwnProperty('getPlaybackRate')) {
+                            sendResponse(message.getPlaybackRate);
+
+                            this.disconnect();
+                        }
+                    }
+                }
+            }
+        }).observe(document.documentElement, {
+            attributes: true,
+            childList: false,
+            subtree: false
+        });
+
+        sendMessage({
+            getPlaybackRate: true
+        });
+
+        return true;
     } else if (request.action === 'set-playback-speed') {
-        var element = document.querySelector('video');
-
-        if (element) {
-            element.playbackRate = request.value;
-        }
+        sendMessage({
+            setPlaybackSpeed: request.value
+        });
     } else if (request.action === 'delete-youtube-cookies') {
-        injectScript('ImprovedTube.deleteYoutubeCookies();');
+        sendMessage({
+            deleteCookies: true
+        });
     }
 
-    injectScript('ImprovedTube.pageOnFocus();');*/
+    sendMessage({
+        pageOnFocus: true
+    });
 });
 
 
 /*------------------------------------------------------------------------------
 6.0 INITIALIZATION
 ------------------------------------------------------------------------------*/
+
+chrome.runtime.sendMessage({
+    name: 'migration'
+});
 
 injectYoutubeScript();
 
@@ -154,14 +213,12 @@ chrome.storage.local.get('youtube_home_page', function (items) {
             }
         }
     }
-
-    chrome.runtime.sendMessage({
-        name: 'migration'
-    });
 });
 
 chrome.storage.local.get(function (items) {
-    document.documentElement.setAttribute('it-message', '{"storage": ' + JSON.stringify(items) + '}');
+    sendMessage({
+        storage: items
+    });
 
     attributes(items);
 
