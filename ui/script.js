@@ -5826,7 +5826,7 @@ satus.storage.import(function (items) {
             name: 'get-localization',
             code: language
         }, function (response) {
-            satus.locale.strings = response;
+            satus.locale.strings = response || {};
 
             satus.render(skeleton);
         });

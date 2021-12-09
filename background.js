@@ -1,49 +1,15 @@
 /*--------------------------------------------------------------
 >>> BACKGROUND
 ----------------------------------------------------------------
-# Google Analytics
 # Uninstall URL
-# Localization
 # Context menu
 # Tab focus/blur
 # Migration
 # Initialization
     # Get items from storage
-    # Storage change listener
     # Message listener
     # Update listener
 --------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# GOOGLE ANALYTICS
---------------------------------------------------------------*/
-
-function googleAnalytics(previous_time) {
-    var version = chrome.runtime.getManifest().version,
-        script = document.createElement('script'),
-        current_time = new Date().getTime(),
-        _gaq = [];
-
-    _gaq.push(['_setAccount', 'UA-88354155-1']);
-    _gaq.push(['_setSessionCookieTimeout', 14400000]);
-
-    if (current_time - (previous_time || 0) >= 86400000) {
-        _gaq.push([
-            '_trackPageview',
-            '/improvedtube-' + version + '/background',
-            'page-loaded'
-        ]);
-
-        chrome.storage.local.set({
-            ga: current_time
-        });
-    }
-
-    script.src = 'https://ssl.google-analytics.com/ga.js';
-
-    document.body.appendChild(script);
-}
-
 
 /*--------------------------------------------------------------
 # UNINSTALL URL
@@ -51,42 +17,6 @@ function googleAnalytics(previous_time) {
 
 function uninstallURL() {
     chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
-}
-
-
-/*--------------------------------------------------------------
-# LOCALIZATION
---------------------------------------------------------------*/
-
-function getLocalization(code, callback) {
-    var xhr = new XMLHttpRequest();
-
-    if (!code) {
-        code = window.navigator.language;
-    }
-
-    xhr.onload = function () {
-        try {
-            var response = JSON.parse(this.response),
-                result = {};
-
-            for (var key in response) {
-                result[key] = response[key].message;
-            }
-
-            callback(result);
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    xhr.onerror = function () {
-        xhr.open('GET', '_locales/en/messages.json', true);
-        xhr.send();
-    };
-
-    xhr.open('GET', '_locales/' + code + '/messages.json', true);
-    xhr.send();
 }
 
 
@@ -129,7 +59,7 @@ function updateContextMenu(locale) {
 # TAB FOCUS/BLUR
 --------------------------------------------------------------*/
 
-chrome.tabs.onActivated.addListener(function (activeInfo) {
+/*chrome.tabs.onActivated.addListener(function (activeInfo) {
     chrome.tabs.sendMessage(activeInfo.tabId, {
         action: 'focus'
     });
@@ -183,7 +113,7 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
             }
         }
     });
-});
+});*/
 
 
 /*--------------------------------------------------------------
@@ -292,31 +222,8 @@ function migration(items) {
 --------------------------------------------------------------*/
 
 chrome.storage.local.get(function (items) {
-    var language = items.language || window.navigator.language;
-
-    if (language.indexOf('en') === 0) {
-        language = 'en';
-    }
-
-    //googleAnalytics(items.ga);
     uninstallURL();
-
-    getLocalization(language, function (locale) {
-        updateContextMenu(locale);
-    });
-
     migration(items);
-});
-
-
-/*--------------------------------------------------------------
-# STORAGE CHANGE LISTENER
---------------------------------------------------------------*/
-
-chrome.storage.onChanged.addListener(function (changes) {
-    if (changes.language) {
-        language = changes.language.newValue;
-    }
 });
 
 
@@ -336,12 +243,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             setTimeout(function () {
                 sendResponse();
             }, 500);
-        });
-
-        return true;
-    } else if (name === 'get-localization') {
-        getLocalization(request.code, function (locale) {
-            sendResponse(locale);
         });
 
         return true;
