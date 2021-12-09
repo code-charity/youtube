@@ -230,3 +230,29 @@ chrome.storage.local.get(function (items) {
 chrome.runtime.sendMessage({
     enabled: true
 });
+
+new MutationObserver(function (mutationList) {
+    for (var i = 0, l = mutationList.length; i < l; i++) {
+        var mutation = mutationList[i];
+
+        if (mutation.type === 'attributes') {
+            if (mutation.attributeName === 'it-message') {
+                var message = document.documentElement.getAttribute('it-message');
+
+                try {
+                    message = JSON.parse(message);
+                } catch (error) {}
+
+                if (message && message.requestOptionsUrl) {
+                    sendMessage({
+                        responseOptionsUrl: chrome.runtime.getURL('ui/options.html')
+                    });
+                }
+            }
+        }
+    }
+}).observe(document.documentElement, {
+    attributes: true,
+    childList: false,
+    subtree: false
+});

@@ -4008,7 +4008,10 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
                 });
 
                 iframe.className = 'it-button__iframe';
-                iframe.src = '//www.youtube.com/improvedtube';
+
+                document.documentElement.setAttribute('it-message', JSON.stringify({
+                    requestOptionsUrl: true
+                }));
 
                 if (document.body.offsetWidth - left < 308) {
                     left = document.body.offsetWidth - 308;
@@ -4267,6 +4270,12 @@ new MutationObserver(function (mutationList) {
                     }
                 } else if (message && message.deleteCookies) {
                     ImprovedTube.deleteYoutubeCookies();
+                } else if (message && message.responseOptionsUrl) {
+                    var iframe = document.querySelector('.it-button__iframe');
+
+                    if (iframe) {
+                        iframe.src = message.responseOptionsUrl;
+                    }
                 } else {
                     ImprovedTube.pageOnFocus();
                 }
