@@ -1,9 +1,9 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "'Improve YouTube!' (Video & YouTube Tools)🎧",
     "short_name": "ImprovedTube",
     "description": "__MSG_description_ext__",
-    "version": "3.841",
+    "version": "3.843",
     "default_locale": "en",
     "icons": {
         "128": "icons/128.png",
@@ -12,9 +12,11 @@
         "48": "icons/48.png"
     },
     "background": {
-        "service_worker": "background.js"
+        "scripts": [
+            "background.js"
+        ]
     },
-    "action": {
+    "browser_action": {
         "default_popup": "ui/popup.html"
     },
     "options_page": "ui/options.html",
@@ -64,10 +66,6 @@
             "run_at": "document_start"
         }
     ],
-    "web_accessible_resources": [{
-        "resources": ["ui/options.html", "youtube-scripts.js"],
-        "matches": ["https://www.youtube.com/*"]
-    }],
     "offline_enabled": true,
     "optional_permissions": [
         "downloads"
