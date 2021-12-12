@@ -1088,7 +1088,7 @@ var skeleton = {
                                                                         importData();
                                                                     } else {
                                                                         chrome.tabs.create({
-                                                                            url: 'ui/options.html?action=import'
+                                                                            url: 'options.html?action=import'
                                                                         });
                                                                     }
                                                                 }
@@ -1103,7 +1103,7 @@ var skeleton = {
                                                                         exportData();
                                                                     } else {
                                                                         chrome.tabs.create({
-                                                                            url: 'ui/options.html?action=export'
+                                                                            url: 'options.html?action=export'
                                                                         });
                                                                     }
                                                                 }
