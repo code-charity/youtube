@@ -30,9 +30,8 @@
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="33px" height="33px">
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="30px">
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="25px" height="25px">
-		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="15px">
-		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="11px" height="11px">
-	</a>
+		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="15px"></a>
+		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="12px" height="11px">	
 	<a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/">
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="opera" width="16px" height="14px">
 	</a> 
@@ -54,7 +53,7 @@
 Big thanks ❤️ to our <br> 
 <b><a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors, developers</a>, 
 <br><a href="https://github.com/code4charity/YouTube-Extension#--translators--">translators</a></b>/wiki-authors,
-<br> future <a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>/sponsors :bowtie: <br><i> - Recommended by Firefox </i><br><i> - 'Might be the best <br> YouTube Extension Ever' <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px">2021</a><br> - 'enhances YouTube in <br> meaningful ways' <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px">2021</a><br> - 'Strong add-on, that gives you<br> full control over Youtube.<br> Yet clear and easy' <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html"><img src="https://www.chip.de/favicon.ico"></a><br></i> 
+<br> future <a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>/sponsors :bowtie: <br><i> - Recommended by Firefox!🦊<br>(only 108 extensions)</i><br><i> - 'Might be the best YouTube<br>Extension Ever' <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px">(2021)</a><br> - 'enhances YouTube in <br> meaningful ways' <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px">2021</a><br> - 'Strong add-on, that gives you<br> full control over Youtube.<br> Yet clear and easy' <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html"><img src="https://www.chip.de/favicon.ico"></a><br></i> 
 </td></tr></table>
 
 **👪 Join us?** ImprovedTube is the only project of it's kind. Other open & free YouTube Extensions resigned. Please spread the word 📣
@@ -126,9 +125,9 @@ We like to help good meaningful causes. projects@improvedtube.com
 
 ##  [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  is an extension we built to refine and sweeten your YouTube experience. A one-stop-shop with many powerful features to enhance YouTube, yet liteweight. A larger player & tidy YouTube UI / hiding distractions were the first loved feature. And there was so much left to build and are many clever features to come still. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImprovedTube is designed with our own UI library: [Satus](https://github.com/victor-savinov/satus) (to manage your settings efficiently & create familiar apps/['cousins](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl) easily.) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please spread the word: ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned. No other project provides so much CSS to adjust a website[🦄](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)</font>.
-<p align="center"><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" />
+<p align="center">
       <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-        <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /> </a> </p>
+        <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" /></a> </p>
 	
 ## Some ImprovedTube features:
 - Video quality
