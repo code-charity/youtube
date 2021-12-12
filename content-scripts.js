@@ -188,11 +188,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 6.0 INITIALIZATION
 ------------------------------------------------------------------------------*/
 
+injectYoutubeScript();
+
 chrome.runtime.sendMessage({
     name: 'migration'
 });
-
-injectYoutubeScript();
 
 chrome.storage.local.get('youtube_home_page', function (items) {
     var option = items.youtube_home_page;
@@ -227,10 +227,6 @@ chrome.storage.local.get(function (items) {
     }
 });
 
-chrome.runtime.sendMessage({
-    enabled: true
-});
-
 new MutationObserver(function (mutationList) {
     for (var i = 0, l = mutationList.length; i < l; i++) {
         var mutation = mutationList[i];
@@ -255,4 +251,8 @@ new MutationObserver(function (mutationList) {
     attributes: true,
     childList: false,
     subtree: false
+});
+
+chrome.runtime.sendMessage({
+    enabled: true
 });
