@@ -2088,11 +2088,10 @@ ImprovedTube.upNextAutoplay = function () {
     var option = this.storage.up_next_autoplay;
 
     if (this.isset(option)) {
-        var toggle = document.querySelector('.ytp-autonav-toggle-button'),
-            attribute = toggle.getAttribute('aria-checked') === 'true';
+        var toggle = document.querySelector('.ytp-autonav-toggle-button');
 
         if (toggle) {
-            if (option !== attribute) {
+            if (option !== (toggle.getAttribute('aria-checked') === 'true')) {
                 toggle.click();
             }
         }
