@@ -336,8 +336,6 @@ ImprovedTube.ytElementsHandler = function (node) {
             childList: false,
             subtree: false
         });
-
-        document.dispatchEvent(new CustomEvent('improvedtube-player-loaded'));
     } else if (name === 'YTD-WATCH-FLEXY') {
         this.elements.ytd_watch = node;
 
@@ -4203,6 +4201,14 @@ ImprovedTube.init = function () {
     window.addEventListener('yt-page-data-updated', function () {
         ImprovedTube.pageType();
     });
+
+    var yt_player_updated = function () {
+        document.dispatchEvent(new CustomEvent('improvedtube-player-loaded'));
+
+        window.removeEventListener('yt-player-updated', yt_player_updated);
+    };
+
+    window.addEventListener('yt-player-updated', yt_player_updated);
 
     this.bluelight();
     this.playerH264();
