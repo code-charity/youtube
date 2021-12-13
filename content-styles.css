@@ -1255,6 +1255,9 @@ html[it-comments=collapsed].comments-collapsed #comments #sections #contents {
     background: transparent;
 }
 
+html[it-hide-author-avatars] #author-thumbnail { 
+    display: none; 
+}
 
 /*------------------------------------------------------------------------------
 2.6 FOOTER
