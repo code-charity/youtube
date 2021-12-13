@@ -3317,7 +3317,11 @@ var skeleton = {
                                         }]
                                     }
                                 }
-                            }
+                            },
+                        hide_author_avatars: {
+                                       component: 'switch',
+                                       text: 'Hide Avatars'
+                           }
                         },
                         footer: {
                             component: 'button',
