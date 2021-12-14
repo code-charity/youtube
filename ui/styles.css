@@ -358,8 +358,8 @@ body:not([improvedtube_home='list']) .satus-section--home .satus-button:hover {
 }
 
 body:not([improvedtube_home='list']) .satus-section--home .satus-button> :nth-child(1) {
-    width: 28px;
-    height: 28px;
+    width: 60px;
+    height: 60px;
     padding: 16px;
     transition: background 500ms 250ms, transform 500ms, box-shadow 525ms;
     color: rgba(255, 255, 255, .85);

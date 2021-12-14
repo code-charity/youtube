@@ -146,20 +146,20 @@ var skeleton = {
                                             var subcategory = parent.text;
                                         }
 
-                                        skeleton[category+subcategory + '_label'] = {
+                                        skeleton[category + subcategory + '_label'] = {
                                             component: 'span',
                                             class: 'satus-section--label',
                                             text: satus.locale.get(category) + ' -> ' + satus.locale.get(subcategory)
                                         };
 
-                                        if (!skeleton[category+subcategory]) {
-                                            skeleton[category+subcategory] = {
+                                        if (!skeleton[category + subcategory]) {
+                                            skeleton[category + subcategory] = {
                                                 component: 'section',
                                                 variant: 'card'
                                             };
                                         }
 
-                                        skeleton[category+subcategory][key] = result;
+                                        skeleton[category + subcategory][key] = result;
                                     } else {
                                         skeleton[category + '_label'] = {
                                             component: 'span',
@@ -349,20 +349,20 @@ var skeleton = {
                                                                 var subcategory = parent.text;
                                                             }
 
-                                                            skeleton[category+subcategory + '_label'] = {
+                                                            skeleton[category + subcategory + '_label'] = {
                                                                 component: 'span',
                                                                 class: 'satus-section--label',
                                                                 text: satus.locale.get(category) + ' -> ' + satus.locale.get(subcategory)
                                                             };
 
-                                                            if (!skeleton[category+subcategory]) {
-                                                                skeleton[category+subcategory] = {
+                                                            if (!skeleton[category + subcategory]) {
+                                                                skeleton[category + subcategory] = {
                                                                     component: 'section',
                                                                     variant: 'card'
                                                                 };
                                                             }
 
-                                                            skeleton[category+subcategory][key] = result;
+                                                            skeleton[category + subcategory][key] = result;
                                                         } else {
                                                             skeleton[category + '_label'] = {
                                                                 component: 'span',
@@ -3315,13 +3315,13 @@ var skeleton = {
                                             text: 'hidden',
                                             value: 'hidden'
                                         }]
+                                    },
+                                    hide_author_avatars: {
+                                        component: 'switch',
+                                        text: 'Hide Avatars'
                                     }
                                 }
-                            },
-                        hide_author_avatars: {
-                                       component: 'switch',
-                                       text: 'Hide Avatars'
-                           }
+                            }
                         },
                         footer: {
                             component: 'button',
@@ -4607,7 +4607,7 @@ var skeleton = {
                                                         component: 'button',
                                                         text: 'OK',
                                                         onclick: function () {
-                                                            
+
                                                             this.parentNode.parentNode.parentNode.click();
                                                         }
                                                     }
@@ -5848,6 +5848,6 @@ chrome.runtime.sendMessage({
     name: 'migration'
 }, function () {
     satus.storage.import(function (items) {
-        
+
     });
 });
