@@ -155,6 +155,8 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
 1. Download & extract the [latest🧪version](https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip) (or  [release](https://github.com/ImprovedTube/ImprovedTube/releases/latest))
 
+- **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
+
 -  _**Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**_
 
  2. _Go to your Browser's Extensions page (*chrome://extensions/*)_ 
@@ -177,7 +179,7 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
  6. _Select the "manifest.json" file from unzipped folder_
 
-- _**[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**_
+
  
  #### Web browser support 
 |[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="28px" />](https://brave.com)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="28px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://www.microsoft.com/edge)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](https://addons.opera.com/en/extensions/details/install-chrome-extensions/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://www.apple.com/safari/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
