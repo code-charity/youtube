@@ -154,20 +154,20 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 ## 🔧 Install from source
 
 1. Download & extract the [latest🧪version](https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip) (or  [release](https://github.com/ImprovedTube/ImprovedTube/releases/latest))
-<i>
- -  **Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**
 
-   2. Go to your Browser's Extensions page (*chrome://extensions/*) 
+ -  _Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**_
+
+ <i>2. Go to your Browser's Extensions page (*chrome://extensions/*) 
 
    3. Activate "Developer mode"
 
    4. Click the "Load unpacked" button <br>
 
       & Select the extracted folder
+</i>
+ -  _Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat_
 
- -  **Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat**
-
-   2. Go to Add-ons (*about:addons*) 
+<i>2. Go to Add-ons (*about:addons*) 
 
    3. Click on "Extensions" tab
 
@@ -176,8 +176,8 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
    5. Click on "Load Temporary Add-on…"
 
    6. Select the "manifest.json" file from unzipped folder
-
- - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)** </i>
+</i>
+ - _**[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**_
  
 
  #### Web browser support 
