@@ -155,31 +155,30 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
 1. Download & extract the [latest🧪version](https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip) (or  [release](https://github.com/ImprovedTube/ImprovedTube/releases/latest))
 
- -  _Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**_
+-  _**Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**_
 
- <i>2. Go to your Browser's Extensions page (*chrome://extensions/*) 
+ 2. _Go to your Browser's Extensions page (*chrome://extensions/*)_ 
 
-   3. Activate "Developer mode"
+ 3. _Activate "Developer mode"_
 
-   4. Click the "Load unpacked" button <br>
+ 4. _Click the "Load unpacked" button <br>_
 
-      & Select the extracted folder
-</i>
- -  _Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat_
+    _& Select the extracted folder_
 
-<i>2. Go to Add-ons (*about:addons*) 
+-  _**Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat**_
 
-   3. Click on "Extensions" tab
+ 2. _Go to Add-ons (*about:addons*)_ 
 
-   4. Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)
+ 3. _Click on "Extensions" tab_
 
-   5. Click on "Load Temporary Add-on…"
-
-   6. Select the "manifest.json" file from unzipped folder
-</i>
- - _**[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**_
+ 4. _Click on "Debug Add-ons" (*about:debugging#/runtime/this-firefox*)_
  
+ 5. _Click on "Load Temporary Add-on…"_
 
+ 6. _Select the "manifest.json" file from unzipped folder_
+
+- _**[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**_
+ 
  #### Web browser support 
 |[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="28px" />](https://brave.com)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="28px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://www.microsoft.com/edge)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](https://addons.opera.com/en/extensions/details/install-chrome-extensions/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://www.apple.com/safari/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
