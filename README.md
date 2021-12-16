@@ -28,10 +28,8 @@
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="33px" height="33px">
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="30px">
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="25px" height="25px">
-		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="15px"></a>
+		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="15px">
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="12px" height="11px">	
-	<a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/">
-		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="opera" width="16px" height="14px">
 	</a> 
 	<br>
 	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a> ·
@@ -157,7 +155,7 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
 - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
 
--  _**Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**_
+-  _**Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Edge / Vivaldi / ...**_
 
  2. _Go to your Browser's Extensions page (*chrome://extensions/*)_ 
 
