@@ -5819,29 +5819,18 @@ satus.storage.attributes = {
 };
 
 satus.storage.import(function (items) {
-    if (document.documentElement.hasAttribute('page')) {
-        var language = items.language || window.navigator.language;
+    var language = items.language || window.navigator.language;
 
-        if (language.indexOf('en') === 0) {
-            language = 'en';
-        }
-
-        chrome.runtime.sendMessage({
-            name: 'get-localization',
-            code: language
-        }, function (response) {
-            satus.locale.strings = response || {};
-
-            satus.render(skeleton);
-        });
-    } else {
-        satus.locale.import(items.language, '../_locales/', function () {
-            satus.render(skeleton);
-
-            exportData();
-            importData();
-        });
+    if (language.indexOf('en') === 0) {
+        language = 'en';
     }
+    
+    satus.locale.import(language, '../_locales/', function () {
+        satus.render(skeleton);
+
+        exportData();
+        importData();
+    });
 });
 
 chrome.runtime.sendMessage({
