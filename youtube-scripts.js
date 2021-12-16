@@ -1035,11 +1035,9 @@ ImprovedTube.onlyOnePlayerInstancePlaying = function () {
 };
 
 document.addEventListener('ImprovedTubeOnlyOnePlayer', function (event) {
-    if (chrome && chrome.runtime) {
-        chrome.runtime.sendMessage({
-            name: 'only-one-player'
-        });
-    }
+    document.documentElement.setAttribute('it-message', JSON.stringify({
+        onlyOnePlayer: true
+    }));
 });
 
 
@@ -4260,8 +4258,12 @@ new MutationObserver(function (mutationList) {
                     ImprovedTube[message['storage-update'].camelizedKey]();
                 } else if (message && message.focus) {
                     ImprovedTube.focus = true;
+
+                    ImprovedTube.pageOnFocus();
                 } else if (message && message.blur) {
                     ImprovedTube.focus = false;
+
+                    ImprovedTube.pageOnFocus();
 
                     document.dispatchEvent(new CustomEvent('improvedtube-blur'));
                 } else if (message && message.pause) {
@@ -4297,8 +4299,6 @@ new MutationObserver(function (mutationList) {
                     if (iframe) {
                         iframe.src = message.responseOptionsUrl;
                     }
-                } else {
-                    ImprovedTube.pageOnFocus();
                 }
             }
         }

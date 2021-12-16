@@ -96,7 +96,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         sendMessage({
             blur: true
         });
-    } else if (request.action === 'improvedtube-pause') {
+    } else if (request.action === 'pause') {
         sendMessage({
             pause: true
         });
@@ -177,10 +177,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             deleteCookies: true
         });
     }
-
-    sendMessage({
-        pageOnFocus: true
-    });
 });
 
 
@@ -242,6 +238,10 @@ new MutationObserver(function (mutationList) {
                 if (message && message.requestOptionsUrl) {
                     sendMessage({
                         responseOptionsUrl: chrome.runtime.getURL('ui/options.html')
+                    });
+                } else if (message && message.onlyOnePlayer) {
+                    chrome.runtime.sendMessage({
+                        name: 'only-one-player'
                     });
                 }
             }
