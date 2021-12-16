@@ -29,10 +29,7 @@
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="30px">
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="25px" height="25px">
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="15px"></a>
-		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="12px" height="11px">	
-	<a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/">
-		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="opera" width="16px" height="14px">
-	</a> 
+		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="12px" height="11px">	 
 	<br>
 	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a> ·
 	<a href="https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip">Latest🧪version</a> ·
