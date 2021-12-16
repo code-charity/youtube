@@ -3456,6 +3456,7 @@ ImprovedTube.shortcutIncreaseVolume = function () {
 
     if (player) {
         player.setVolume(player.getVolume() + value);
+
         localStorage['yt-player-volume'] = JSON.stringify({
             data: JSON.stringify({
                 volume: player.getVolume(),
@@ -3463,8 +3464,9 @@ ImprovedTube.shortcutIncreaseVolume = function () {
                 expiration: Date.now(),
                 creation: Date.now()
             })
-        })
-        sessionStorage['yt-player-volume'] = localStorage['yt-player-volume']
+        });
+
+        sessionStorage['yt-player-volume'] = localStorage['yt-player-volume'];
 
         this.showStatus(player.getVolume());
     }
@@ -3481,6 +3483,7 @@ ImprovedTube.shortcutDecreaseVolume = function () {
 
     if (player) {
         player.setVolume(player.getVolume() - value);
+
         localStorage['yt-player-volume'] = JSON.stringify({
             data: JSON.stringify({
                 volume: player.getVolume(),
@@ -3488,8 +3491,9 @@ ImprovedTube.shortcutDecreaseVolume = function () {
                 expiration: Date.now(),
                 creation: Date.now()
             })
-        })
-        sessionStorage['yt-player-volume'] = localStorage['yt-player-volume']
+        });
+
+        sessionStorage['yt-player-volume'] = localStorage['yt-player-volume'];
 
         this.showStatus(player.getVolume());
     }
