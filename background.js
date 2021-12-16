@@ -1,6 +1,7 @@
 /*--------------------------------------------------------------
 >>> BACKGROUND
 ----------------------------------------------------------------
+# Google Analytics
 # Uninstall URL
 # Context menu
 # Tab focus/blur
@@ -10,6 +11,37 @@
     # Message listener
     # Update listener
 --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# GOOGLE ANALYTICS
+--------------------------------------------------------------*/
+
+function googleAnalytics(previous_time) {
+    var version = chrome.runtime.getManifest().version,
+        script = document.createElement('script'),
+        current_time = new Date().getTime(),
+        _gaq = [];
+
+    _gaq.push(['_setAccount', 'UA-88354155-1']);
+    _gaq.push(['_setSessionCookieTimeout', 14400000]);
+
+    if (current_time - (previous_time || 0) >= 86400000) {
+        _gaq.push([
+            '_trackPageview',
+            '/improvedtube-' + version + '/background',
+            'page-loaded'
+        ]);
+
+        chrome.storage.local.set({
+            ga: current_time
+        });
+    }
+
+    script.src = 'https://ssl.google-analytics.com/ga.js';
+
+    document.body.appendChild(script);
+}
+
 
 /*--------------------------------------------------------------
 # UNINSTALL URL
@@ -59,7 +91,7 @@ function updateContextMenu(locale) {
 # TAB FOCUS/BLUR
 --------------------------------------------------------------*/
 
-/*chrome.tabs.onActivated.addListener(function (activeInfo) {
+chrome.tabs.onActivated.addListener(function (activeInfo) {
     chrome.tabs.sendMessage(activeInfo.tabId, {
         action: 'focus'
     });
@@ -113,7 +145,7 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
             }
         }
     });
-});*/
+});
 
 
 /*--------------------------------------------------------------
@@ -223,6 +255,7 @@ function migration(items) {
 
 chrome.storage.local.get(function (items) {
     uninstallURL();
+    //googleAnalytics(items.ga);
     migration(items);
 });
 
@@ -251,9 +284,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             for (var i = 0, l = tabs.length; i < l; i++) {
                 var tab = tabs[i];
 
-                if (tab.hasOwnProperty('url') && sender.tab.id !== tab.id) {
-                    chrome.tabs.sendMessage(tabs[i].id, {
-                        action: 'improvedtube-pause'
+                if (sender.tab.id !== tab.id) {
+                    chrome.tabs.sendMessage(tab.id, {
+                        action: 'pause'
                     });
                 }
             }
