@@ -155,7 +155,7 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
 - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
 
--  _**Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Vivaldi / ...**_
+-  _**Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Edge / Vivaldi / ...**_
 
  2. _Go to your Browser's Extensions page (*chrome://extensions/*)_ 
 
