@@ -1276,12 +1276,12 @@ html[it-hide-footer=true] ytd-guide-renderer #footer {
 3.1 BLUELIGHT
 ------------------------------------------------------------------------------*/
 
-html[it-bluelight] {
+html[it-bluelight]:not([it-bluelight='0']) {
     height: auto;
 }
 
-html[it-bluelight],
-html[it-bluelight] .html5-video-player.ytp-fullscreen {
+html[it-bluelight]:not([it-bluelight='0']),
+html[it-bluelight]:not([it-bluelight='0']) .html5-video-player.ytp-fullscreen {
     filter: url(#it-bluelight-filter);
 }
 
@@ -1293,14 +1293,6 @@ html[it-bluelight] .html5-video-player.ytp-fullscreen {
     width: 100%;
     height: 100vh;
     pointer-events: none;
-}
-
-html[it-bluelight][it-youtube-version=old] {
-    background-color: #f1f1f1;
-}
-
-html[it-bluelight][it-youtube-version=old] body {
-    min-height: 100vh;
 }
 
 
