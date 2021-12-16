@@ -42,10 +42,6 @@
 # DEFAULT
 --------------------------------------------------------------*/
 
-:root {
-    
-}
-
 body {
     --satus-contrast: 0, 0, 0;
 	--satus-primary: #f6b465;
@@ -103,6 +99,43 @@ body[theme=dark] {
     --satus-text-field--border: #525252;
     --satus-text-field--text: #ccc;
     --satus-switch-track: #111;
+    --satus-switch-track--active: var(--satus-primary);
+    --satus-switch-thumb: #ddd;
+    --satus-tooltip: rgba(var(--satus-contrast),.4);
+    --satus-sortable-ghost: rgba(var(--satus-contrast), .8);
+    --satus-sortable-background: rgba(var(--satus-contrast), .1);
+    --satus-sortable-text: #fff;
+    --satus-divider: rgba(var(--satus-contrast),.08);
+    --satus-tabs-background: #111;
+    --satus-tabs-foreground: #2e2e2e;
+    --satus-tabs-border: #2f2f2f;
+    --satus-checkbox--background: rgb(var(--satus-contrast), .08);
+    --satus-checkbox--border: #2f2f2f;
+    --satus-checkbox--mark: #fff;
+    --satus-alert-error-background: #501616;
+    --satus-alert-error-border: #6f1f1f;
+    --satus-alert-error-color: #cf7777;
+}
+
+body[theme=black] {
+    --satus-contrast: 255, 255, 255;
+    --satus-primary: #8f8f8f;
+    --satus-switch-background: rgba(var(--satus-contrast),.08);
+    --satus-header-background: #000;
+    --satus-header-border: rgba(var(--satus-contrast),.16);
+    --satus-header-text: #ccc;
+    --satus-layers-background: #000;
+    --satus-layers-text: #ccc;
+    --satus-section-card-background: #000;
+    --satus-section-card-border: rgba(var(--satus-contrast),.16);
+    --satus-modal-background: #000;
+    --satus-modal-border: rgba(var(--satus-contrast),.16);
+    --satus-modal-text: #ccc;
+    --satus-hover: rgba(var(--satus-contrast), .05);
+    --satus-text-field--background: #333333;
+    --satus-text-field--border: #525252;
+    --satus-text-field--text: #ccc;
+    --satus-switch-track: rgba(var(--satus-contrast),.16);
     --satus-switch-track--active: var(--satus-primary);
     --satus-switch-thumb: #ddd;
     --satus-tooltip: rgba(var(--satus-contrast),.4);
