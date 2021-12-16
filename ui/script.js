@@ -767,7 +767,7 @@ var skeleton = {
                                                                 value: 'tr',
                                                                 text: 'Türkçe'
                                                             }, {
-                                                                value: 'tr',
+                                                                value: 'it',
                                                                 text: 'Italiano'
                                                             }, {
                                                                 value: 'nl',
