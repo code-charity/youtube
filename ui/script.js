@@ -496,7 +496,7 @@ var skeleton = {
                                                         },
                                                         on: {
                                                             render: function () {
-                                                                this.value = satus.storage.get('google-api-key') || 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
+                                                                this.value = satus.storage.get('google_api_key') || 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
                                                             },
                                                             input: function () {
                                                                 var value = this.value;
@@ -505,7 +505,7 @@ var skeleton = {
                                                                     value = 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
                                                                 }
 
-                                                                satus.storage.set('google-api-key', value);
+                                                                satus.storage.set('google_api_key', value);
                                                             }
                                                         }
                                                     }
