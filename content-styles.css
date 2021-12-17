@@ -1203,8 +1203,8 @@ html[it-description=expanded] ytd-video-secondary-info-renderer #more {
 ------------------------------------------------------------------------------*/
 
 .it-channel-videos-count {
-    margin-right: 4px;
-    float: left;
+    display: inline-block;
+    margin-left: 4px;
     color: var(--yt-spec-text-secondary);
 }
 
