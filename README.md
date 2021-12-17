@@ -49,7 +49,7 @@
 <br><a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>/sponsors :bowtie: <br>(none yet!)
 </td></tr></table>
 
-**👪 Join us?** ImprovedTube is the only project of it's kind. In 9 years we saw other open & free YouTube Extensions start well but resigned later. Please spread the word 📣
+**👪 Join us?** ImprovedTube is the only project of it's kind. Over the years we saw other open & free YouTube Extensions start well but resign later. Please spread the word 📣
 ## 🧩 ToDo
 - [ ] **1. Documentation wiki, screenshots, videos** <code> We need to help the people learn easier about our [80+ features for YouTube](https://github.com/ImprovedTube/ImprovedTube/wiki/Features) _We made no documentation (let alone marketing. ImprovedTube can fly higher through your word of mouth🌱. Popularity will allow us to work on all wishes._ </code>
    - [ ] **Updating Translations**  <code> Few are up to date! _(drafts welcome.)_ </code>
