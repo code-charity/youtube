@@ -5821,11 +5821,7 @@ satus.storage.attributes = {
 satus.storage.import(function (items) {
     var language = items.language || window.navigator.language;
 
-    if (language.indexOf('en') === 0) {
-        language = 'en';
-    }
-    
-    satus.locale.import(language, '../_locales/', function () {
+    satus.locale.import(language, '_locales/', function () {
         satus.render(skeleton);
 
         exportData();
