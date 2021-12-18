@@ -17,11 +17,11 @@ body {
     --it-appearance-shadow-color: #dfdfdf;
 }
 
-body[theme=dark] {
+body[data-theme=dark] {
     --satus-primary: #ff4158;
 }
 
-body[theme=night] {
+body[data-theme=night] {
     --satus-primary: #9ebdfa;
     --satus-header-background: #24478f;
     --satus-header-text: #fafafa;
@@ -37,7 +37,7 @@ body[theme=night] {
     --satus-switch-track: #ccc;
 }
 
-body[theme=dawn] {
+body[data-theme=dawn] {
     --satus-primary: #e2367e;
     --satus-header-background: #e98f63;
     --satus-header-text: #fafafa;
@@ -53,7 +53,7 @@ body[theme=dawn] {
     --satus-switch-track: #ccc;
 }
 
-body[theme=sunset] {
+body[data-theme=sunset] {
     --satus-primary: #cc666e;
     --satus-header-background: #af5a5e;
     --satus-header-text: #fafafa;
@@ -69,7 +69,7 @@ body[theme=sunset] {
     --satus-switch-track: #ccc;
 }
 
-body[theme=desert] {
+body[data-theme=desert] {
     --satus-primary: #f83;
     --satus-header-background: #8cb7f2;
     --satus-header-text: #fafafa;
@@ -85,7 +85,7 @@ body[theme=desert] {
     --satus-switch-track: #ccc;
 }
 
-body[theme=plain] {
+body[data-theme=plain] {
     --satus-primary: #badec9;
     --satus-header-background: #9fc6af;
     --satus-header-text: #404040;
@@ -101,7 +101,7 @@ body[theme=plain] {
     --satus-switch-track: #ccc;
 }
 
-body[theme=black] {
+body[data-theme=black] {
     --satus-primary: #ff4158;
 }
 
