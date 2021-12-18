@@ -292,7 +292,7 @@ satus.storage.set = function (name, value, callback) {
     }
 
     if (satus.storage.attributes[name]) {
-        document.body.setAttribute(name, value);
+        document.body.setAttribute('data-' + name, value);
     }
 
     chrome.storage.local.set(items, callback);
@@ -324,7 +324,7 @@ satus.storage.import = function (keys, callback) {
     chrome.storage.local.get(keys, function (items) {
         for (var key in items) {
             if (satus.storage.attributes[key]) {
-                document.body.setAttribute(key, items[key]);
+                document.body.setAttribute('data-' + key, items[key]);
             }
 
             satus.storage.data[key] = items[key];
