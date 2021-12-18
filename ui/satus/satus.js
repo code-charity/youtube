@@ -196,6 +196,8 @@ satus.fetch = function (url, success, error) {
         } else {
             error();
         }
+    }).catch(function () {
+        error(success);
     });
 };
 
@@ -374,14 +376,14 @@ satus.locale.import = function (code, path, callback) {
         path = '_locales/';
     }
 
-    satus.fetch(path + language + '/messages.json', function (response) {
+    satus.fetch(chrome.runtime.getURL(path + language + '/messages.json'), function (response) {
         for (var key in response) {
             satus.locale.strings[key] = response[key].message;
         }
 
         callback();
     }, function (success) {
-        satus.fetch(path + 'en/messages.json', success);
+        satus.fetch(chrome.runtime.getURL(path + 'en/messages.json'), success);
     });
 };
 
