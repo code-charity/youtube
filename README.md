@@ -25,9 +25,8 @@
 	<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="12px" height="11px"> 
 </a><a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/">
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="opera" width="16px" height="14px">
-	</a></p>
-<h4 align="right"> <i> Critiques </i>   & Credits 🙏  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
-<table align="right"><tr><td>
+	</a></p><hr>
+<table align="right"><tr><td><h4 align="center"> <i> Critiques </i>&nbsp; & &nbsp; Credits </h4> </td></tr><tr><td>
 <i> Recommended by Firefox!🦊<br>(only 108 extensions)</i><br><i> - 'Might be the best YouTube<br>Extension Ever' <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px">(2021)</a><br> - 'enhances YouTube in <br> meaningful ways' <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px">2021</a><br> - 'Strong add-on, that gives you<br> full control over Youtube.<br> Yet clear and easy' <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html"><img src="https://www.chip.de/favicon.ico"></a><br></i> 
 <br> Big thanks ❤️ to our <br> 
 <b><a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors, developers</a>, 
@@ -44,9 +43,10 @@
 - [ ] **3.** [**Plans🧩**](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen+label%3A🧩Plan++-label%3A%22not+Goo.+Chrome%22+)<code> _specification added. Often unique/special(/complex)_ </code>
    - [ ] [**all other Feature Requests🌟🧚**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)  <code> _sometimes easy CSS_ </code>
    - [ ] [**Discussions**:octocat:](https://github.com/code4charity/YouTube-Extension/discussions?discussions_q=category%3A%22Organization%22++category%3A%22ToDo%22+category%3A%22Wishes+%26+Ideas%22++)<code>_, Brainstorming, preparing future structure_</code>  
-   - [ ] [New or unntagged issues](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3Atweak)
-<h3 align="right"> 🌎 Translators 💕 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
-<table align="right"><tr><td>
+   - [ ] [New or unntagged](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3Atweak)
+<hr> 
+<table align="right"><th><h3 align="center"> 🌎 Translators 💕</h3></th>
+<tr><td>
 🟡 <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json">Bahasa Indonesia</a> by <a href="https://github.com/Bagus23">Bagus23</a>, <a href="https://github.com/fdciabdul">Abdul Muttaqin</a><br>
 🟡 <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json">Deutsch</a> by <a href="https://github.com/Termuellinator">Termuellinator</a>, <a href="https://github.com/css-smueller">css-smueller</a><br>
 🟡 <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json">English</a> Proofreaders:<a href="https://github.com/????????">______</a> (you?) <br>
@@ -79,6 +79,7 @@ Chinese, Taiwanese, Japanese, Korean) 	<br> More languages: Malay, Punjabi, ...
 	<br>(🟡 = missing some updates) </i>
 </td></tr></table>	
 
+
 > - [***Contributing without programming***](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)  
 > - [***How to start editing our CSS, JavaScript, json***](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> *(For code literates)* (*Newcomers are [w](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)elcome. We review all edits & love to collaborate)*  </code>
 
@@ -108,10 +109,10 @@ Got great ideas? ideas@improvedtube.com
 
 Do you need to run an extension, site, app or repo with many users and a great feedback score?  
 We like to help good meaningful causes. projects@improvedtube.com  
-
-<hr> <hr>
-
-#### Long Introduction:	
+<br><br>
+<hr> 
+Old/verbose Introduction below
+<hr> 
 
 ##  [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  is an extension we built to refine and sweeten your YouTube experience. A one-stop-shop with many powerful features to enhance YouTube, yet liteweight. A larger player & tidy YouTube UI / hiding distractions were the first loved feature. And there was so much left to build and are many clever features to come still. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImprovedTube is designed with our own UI library: [Satus](https://github.com/victor-savinov/satus) (to manage your settings efficiently & create familiar apps/['cousins](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl) easily.) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please spread the word: ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned. No other project provides so much CSS to adjust a website[🦄](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)</font>.
