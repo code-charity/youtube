@@ -6,9 +6,7 @@
 &nbsp;<a href="https://github.com/code4charity/YouTube-Extension/issues/new"><code>Report a🐞bug</code></a>&nbsp; · &nbsp;<a href="https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip"><code>Latest🧪version</code></a></p>
 
 <p align="center"><a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-<img alt="YouTube extension" src="https://raw.githubusercontent.com/victor-savinov/graphics/master/previews/improvedtube/screenshot-github.png"></a></p>
-
-<p align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img alt="YouTube extension" src="https://raw.githubusercontent.com/victor-savinov/graphics/master/previews/improvedtube/screenshot-github.png"></a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 <img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Extension" width="168"></a>
 <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">
@@ -34,7 +32,7 @@
 <br> Big thanks ❤️ to our <br> 
 <b><a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors, developers</a>, 
 <br><a href="https://github.com/code4charity/YouTube-Extension#--translators--">translators</a></b>/wiki-authors,
-<br><a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>/sponsors :bowtie: <br>(none yet!)
+<br><a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>/sponsors:bowtie:<br>(none yet!)
 </td></tr></table>
 
 **👪 Join us?** ImprovedTube is the only project of it's kind. Over the years we saw other open & free YouTube Extensions start well but resign later. Please spread the word 📣
@@ -85,13 +83,14 @@ Chinese, Taiwanese, Japanese, Korean) 	<br> More languages: Malay, Punjabi, ...
 > - [***How to start editing our CSS, JavaScript, json***](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> *(For code literates)* (*Newcomers are [w](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)elcome. We review all edits & love to collaborate)*  </code>
 
 
-### 🔔 News:
+### Recently:
 ❔ ImprovedTube controls in, under or around the video player or cursor [842](https://github.com/code4charity/YouTube-Extension/issues/842).<br>
-🔔 [GitHub releases](https://github.com/code4charity/YouTube-Extension/releases) are alpha/beta versions<br>
 ❔ Meaningful/Most similar extensions? Social-Fixer(, Youtube Enhancer, Simplify, ... ?)  [1016](https://github.com/code4charity/YouTube-Extension/issues/1016).<br>
 📟 You might enjoy our global [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making. <br>
+📟 We are focused on bugs & UX. Wishes for new features might have to wait but please keep them up! 
+📟 Firefox, Edge, Opera, Whale added (please try&rate)  Firefox, Edge, Opera, Whale added (please try&rate) 
 
-📟 We are focused on bugs & UX. Wishes for new features might have to wait but please keep them up! # New Projects 🎁🐣
+## New Projects 🎁🐣
 ### Extensions
 * <b>Home/Daily: History Manager</b><a href="https://github.com/victor-savinov/history-manager"><img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px"></a>, 
 Start Page <a href="https://github.com/victor-savinov/start-page"><img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px"></a>,[ToDo](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/victor-savinov/to-do) 
