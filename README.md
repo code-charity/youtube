@@ -6,16 +6,16 @@
 &nbsp;<a href="https://github.com/code4charity/YouTube-Extension/issues/new"><code>Report a🐞bug</code></a>&nbsp; · &nbsp;<a href="https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip"><code>Latest🧪version</code></a></p>
 
 <p align="center"><a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-<img alt="YouTube extension" src="https://raw.githubusercontent.com/victor-savinov/graphics/master/previews/improvedtube/screenshot-github.png"></a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img alt="YouTube extension" src="https://raw.githubusercontent.com/victor-savinov/graphics/master/previews/improvedtube/screenshot-github.png"></a><br> &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Extension" width="168"></a>
-<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">
-<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox.png" alt="Firefox add-ons" width="142px"></a>
-<a href="https://microsoftedge.microsoft.com/addons/detail/knbckijjjbmkjiagojjneoplbjilfllc">
-<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge.png" alt="Edge Youtube Extension" width="139"></a>
-<a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/"> 
-<img width="130" src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera Extension"></a>
-<a href="https://developer.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa">
+<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Extension" width="168">
+</a><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">
+<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox.png" alt="Firefox add-ons" width="142px">
+</a><a href="https://microsoftedge.microsoft.com/addons/detail/knbckijjjbmkjiagojjneoplbjilfllc">
+<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge.png" alt="Edge Youtube Extension" width="139">
+</a><a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/"> 
+<img width="130" src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera Extension">
+</a><a href="https://developer.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa">
 <img src="https://whale.naver.com/_resource/img/32.png"></a>
 	<a href="https://github.com/code4charity/YouTube-Extension#-install-from-source">
 	<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="33px" height="33px">
