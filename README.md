@@ -8,13 +8,15 @@
 <p align="center"><a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 <img alt="YouTube extension" src="https://raw.githubusercontent.com/victor-savinov/graphics/master/previews/improvedtube/screenshot-github.png"></a><br> &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Extension" width="168">
-</a><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">
-<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox.png" alt="Firefox add-ons" width="142px">
+<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Extension" width="155">
+</a>
+<a href="edge://extensions/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge"  height="14px"> 
+</a><a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="opera" height="14px"></a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox.png" alt="Firefox add-ons" width="122px">
 </a><a href="https://microsoftedge.microsoft.com/addons/detail/knbckijjjbmkjiagojjneoplbjilfllc">
-<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge.png" alt="Edge Youtube Extension" width="139">
+<img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge.png" alt="Edge Youtube Extension" width="117">
 </a><a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/"> 
-<img width="130" src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera Extension">
+<img width="120" src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera Extension">
 </a><a href="https://developer.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa">
 <img src="https://whale.naver.com/_resource/img/32.png"></a>
 	<a href="https://github.com/code4charity/YouTube-Extension#-install-from-source">
@@ -22,10 +24,9 @@
 	<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="30px">
 	<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="25px" height="25px">
 	<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="15px">
-	<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="12px" height="11px"> 
-</a><a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/">
-		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="opera" width="16px" height="14px">
-	</a></p>
+</a>
+
+</p>
 <table align="right"><th><h4 align="right"> <i> Critiques </i>&nbsp; & &nbsp; Credits &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4> </th><tr><td>
 	<code><i><b><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">Recommended by Firefox</b>!🦊</a></code><br>(only 108 extensions)</i><br><i> - 'Might be the best YouTube<br>Extension Ever' <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px">(2021)</a><br> - 'enhances YouTube in <br> meaningful ways' <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px">2021</a><br> - 'Strong add-on, that gives you<br> full control over Youtube.<br> Yet clear and easy' <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html"><img src="https://www.chip.de/favicon.ico"></a><br></i> 
 <br> Big thanks ❤️ to our <br> 
