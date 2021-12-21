@@ -496,7 +496,7 @@ var skeleton = {
                                                         },
                                                         on: {
                                                             render: function () {
-                                                                this.value = satus.storage.get('google_api_key') || 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
+                                                                this.value = satus.storage.get('google-api-key') || 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
                                                             },
                                                             input: function () {
                                                                 var value = this.value;
@@ -505,7 +505,7 @@ var skeleton = {
                                                                     value = 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
                                                                 }
 
-                                                                satus.storage.set('google_api_key', value);
+                                                                satus.storage.set('google-api-key', value);
                                                             }
                                                         }
                                                     }
@@ -2491,23 +2491,44 @@ var skeleton = {
 
                                             if (chrome && chrome.tabs) {
                                                 chrome.tabs.query({}, function (tabs) {
-                                                    var mixer = {};
+                                                    var mixer = {
+                                                        component: 'section',
+                                                        variant: 'card',
+                                                        parent: component.skeleton,
+
+                                                        message: {
+                                                            component: 'span',
+                                                            text: 'noOpenVideoTabs'
+                                                        }
+                                                    };
 
                                                     for (var i = 0, l = tabs.length; i < l; i++) {
-                                                        if (tabs[i].hasOwnProperty('url')) {
-                                                            var tab = tabs[i];
+                                                        var tab = tabs[i];
 
-                                                            if (/(\?|\&)v=/.test(tab.url)) {
-                                                                mixer[i] = {
+                                                        chrome.tabs.sendMessage(tab.id, {
+                                                            action: 'mixer'
+                                                        }, function (response) {
+                                                            if (response) {
+                                                                if (mixer) {
+                                                                    var parent = mixer.rendered.parentNode;
+
+                                                                    mixer.rendered.remove();
+
+                                                                    mixer = parent;
+                                                                }
+
+                                                                console.log(response.volume);
+
+                                                                satus.render({
                                                                     component: 'section',
                                                                     class: 'satus-section--mixer',
                                                                     style: {
-                                                                        'background': 'url(https://img.youtube.com/vi/' + tab.url.match(/(\?|\&)v=[^&]+/)[0].substr(3) + '/0.jpg) center center / cover no-repeat #000',
+                                                                        'background': 'url(https://img.youtube.com/vi/' + response.url + '/0.jpg) center center / cover no-repeat #000',
                                                                     },
 
                                                                     title: {
                                                                         component: 'h1',
-                                                                        text: tab.title
+                                                                        text: response.title
                                                                     },
                                                                     section: {
                                                                         component: 'section',
@@ -2519,25 +2540,13 @@ var skeleton = {
                                                                             component: 'slider',
                                                                             text: 'volume',
                                                                             data: {
-                                                                                id: tab.id
+                                                                                id: response.tabId
                                                                             },
+                                                                            storage: false,
                                                                             max: 100,
+                                                                            value: response.volume,
                                                                             on: {
-                                                                                render: function () {
-                                                                                    var self = this;
-
-                                                                                    chrome.tabs.sendMessage(Number(this.dataset.id), {
-                                                                                        action: 'request-volume'
-                                                                                    }, function (response) {
-                                                                                        if (response) {
-                                                                                            self.value = response;
-                                                                                        } else {
-                                                                                            self.parentNode.parentNode.classList.add('noconnection');
-                                                                                        }
-                                                                                    });
-                                                                                },
                                                                                 change: function () {
-                                                                                    console.log(this.value);
                                                                                     chrome.tabs.sendMessage(Number(this.dataset.id), {
                                                                                         action: 'set-volume',
                                                                                         value: this.value
@@ -2549,25 +2558,14 @@ var skeleton = {
                                                                             component: 'slider',
                                                                             text: 'playbackSpeed',
                                                                             data: {
-                                                                                id: tab.id
+                                                                                id: response.tabId
                                                                             },
+                                                                            storage: false,
                                                                             min: .1,
                                                                             max: 8,
                                                                             step: .05,
+                                                                            value: response.playbackSpeed,
                                                                             on: {
-                                                                                render: function () {
-                                                                                    var self = this;
-
-                                                                                    chrome.tabs.sendMessage(Number(this.dataset.id), {
-                                                                                        action: 'request-playback-speed'
-                                                                                    }, function (response) {
-                                                                                        if (response) {
-                                                                                            self.value = response;
-                                                                                        } else {
-                                                                                            self.parentNode.parentNode.classList.add('noconnection');
-                                                                                        }
-                                                                                    });
-                                                                                },
                                                                                 change: function () {
                                                                                     chrome.tabs.sendMessage(Number(this.dataset.id), {
                                                                                         action: 'set-playback-speed',
@@ -2577,25 +2575,14 @@ var skeleton = {
                                                                             }
                                                                         }
                                                                     }
-                                                                };
+                                                                }, mixer);
                                                             }
-                                                        }
-                                                    }
-
-                                                    if (Object.entries(mixer).length === 0) {
-                                                        mixer = {
-                                                            component: 'section',
-                                                            variant: 'card',
-                                                            parent: component.skeleton,
-
-                                                            message: {
-                                                                component: 'span',
-                                                                text: 'noOpenVideoTabs'
-                                                            }
-                                                        };
+                                                        });
                                                     }
 
                                                     satus.render(mixer, component.parentNode);
+
+                                                    component.remove();
                                                 });
                                             }
                                         }
