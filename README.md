@@ -52,7 +52,7 @@
 
 <table align="right"><th><h3 align="center"> 🌎 Translators 💕</h3></th>
 <tr><td>
-🟡 <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json">Bahasa Indonesia</a> by <a href="https://github.com/Bagus23">Bagus23</a>, <a href="https://github.com/fdciabdul">Abdul Muttaqin</a><br>
+🟡 <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json">Bahasa Indonesia</a> by <a href="https://github.com/Bagus23">Bagus23</a>, <a href="https://github.com/fdciabdul">A.Muttaqin</a><br>
 🟡 <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json">Deutsch</a> by <a href="https://github.com/Termuellinator">Termuellinator</a>, <a href="https://github.com/css-smueller">css-smueller</a><br>
 🟡 <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json">English</a> Proofreaders:<a href="https://github.com/????????">______</a> (you?) <br>
 🟡 <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json">Español</a> by <a href="https://github.com/Kioraga">Kioraga</a>, <a href="https://github.com/Compvictor">Compvictor</a>, <a href="https://github.com/dimateos">dimateos</a><br>
