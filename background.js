@@ -274,7 +274,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             } catch (error) {}
 
             setTimeout(function () {
-                sendResponse();
+                sendResponse(sender.tab.id);
             }, 500);
         });
 
