@@ -27,7 +27,7 @@
 		<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="opera" width="16px" height="14px">
 	</a></p>
 <table align="right"><th><h4 align="right"> <i> Critiques </i>&nbsp; & &nbsp; Credits &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4> </th><tr><td>
-	<i><b><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">Recommended by Firefox</b>!🦊</a><br>(only 108 extensions)</i><br><i> - 'Might be the best YouTube<br>Extension Ever' <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px">(2021)</a><br> - 'enhances YouTube in <br> meaningful ways' <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px">2021</a><br> - 'Strong add-on, that gives you<br> full control over Youtube.<br> Yet clear and easy' <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html"><img src="https://www.chip.de/favicon.ico"></a><br></i> 
+	<code><i><b><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">Recommended by Firefox</b>!🦊</a></code><br>(only 108 extensions)</i><br><i> - 'Might be the best YouTube<br>Extension Ever' <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110"><img src="https://lifehacker.com/favicon.ico" height="15px">(2021)</a><br> - 'enhances YouTube in <br> meaningful ways' <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways"><img src="https://ghacks.net/favicon.ico" height="15px">2021</a><br> - 'Strong add-on, that gives you<br> full control over Youtube.<br> Yet clear and easy' <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html"><img src="https://www.chip.de/favicon.ico"></a><br></i> 
 <br> Big thanks ❤️ to our <br> 
 <b><a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors, developers</a>, 
 <br><a href="https://github.com/code4charity/YouTube-Extension#--translators-">translators</a></b>/wiki-authors,
@@ -81,7 +81,7 @@
 🟡 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json">한국어</a></code> by <code><a href="https://github.com/msc9533">msc9533</a></code>, <code><a href="https://github.com/LYHyoung">LYHyoung</a></code><br>
 <i> (= Russian, Greek, Arabian, Hindi, Bengali <br>
 Chinese, Taiwanese, Japanese, Korean)   <br> More languages: Malay, Punjabi, ...
-<br>(🟡 = missing some updates) </i>
+<br>(🟡 = just missing some updates) </i>
 
 </td></tr></table> 
 
