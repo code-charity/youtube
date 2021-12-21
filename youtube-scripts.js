@@ -106,6 +106,7 @@
 The variable "ImprovedTube" is used on the YouTube side.
 ------------------------------------------------------------------------------*/
 
+const default_api_key = "AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA";
 var ImprovedTube = {
     storage: {},
     elements: {
@@ -154,7 +155,6 @@ var ImprovedTube = {
     playlistReversed: false,
     status_timer: false
 };
-
 
 /*------------------------------------------------------------------------------
 3.0
@@ -1356,11 +1356,11 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
             return Math.floor(seconds) + ' seconds ago';
         }
 
-        var api_key = this.storage.google_api_key,
-            xhr = new XMLHttpRequest();
-
+        var xhr = new XMLHttpRequest();
+        
+        var api_key = this.storage.google_api_key;
         if (typeof api_key !== 'string' || api_key === 0) {
-            api_key = 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA';
+            api_key = default_api_key;
         }
 
         xhr.addEventListener('load', function () {
@@ -1382,7 +1382,9 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
             document.querySelector('#info #info-text').appendChild(element);
         });
 
-        xhr.open('GET', 'https://www.googleapis.com/youtube/v3/videos?id=' + this.getParam(location.href.slice(location.href.indexOf('?') + 1), 'v') + '&key=' + api_key + '&part=snippet', true);
+        let url = location.href;
+        let videoId = this.getParam(url.slice(url.indexOf('?') + 1), 'v');
+        xhr.open('GET', 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + videoId + '&key=' + api_key, true);
         xhr.send();
     }
 };
@@ -1395,6 +1397,11 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
 ImprovedTube.channelVideosCount = function () {
     if (this.storage.channel_videos_count === true && this.elements.yt_channel_link) {
         var xhr = new XMLHttpRequest();
+        
+        var api_key = this.storage.google_api_key;
+        if (typeof api_key !== "string" || api_key === 0) {
+            api_key = default_api_key;
+        }
 
         xhr.addEventListener('load', function () {
             var response = JSON.parse(this.responseText),
@@ -1404,9 +1411,9 @@ ImprovedTube.channelVideosCount = function () {
             ImprovedTube.empty(element);
 
             if (response.error) {
-                element.appendChild(document.createTextNode('Error: ' + response.error.code + ' •'));
+                element.appendChild(document.createTextNode('• Error: ' + response.error.code));
             } else {
-                element.appendChild(document.createTextNode(response.items[0].statistics.videoCount + ' •'));
+                element.appendChild(document.createTextNode('• ' + response.items[0].statistics.videoCount + ' videos'));
             }
 
             element.className = 'it-channel-videos-count';
@@ -1418,7 +1425,13 @@ ImprovedTube.channelVideosCount = function () {
             ImprovedTube.elements.channel_videos_count = element;
         });
 
-        xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?id=' + this.elements.yt_channel_link.href.replace('/channel/', '') + '&key=AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA&part=statistics', true);
+        let url = this.elements.yt_channel_link.href;
+        let searchStr = "/channel/";
+        let channelId = url.slice(url.indexOf(searchStr) + searchStr.length);
+        if (channelId.includes("/")) {
+            channelId = channelId.match(/.+?(?=\/)/)[0];
+        }
+        xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=' + channelId + '&key=' + api_key, true);
         xhr.send();
     }
 };
