@@ -9,6 +9,9 @@
 6.0 Initialization
 ------------------------------------------------------------------------------*/
 
+var tabId = null,
+    storage = {};
+
 /*------------------------------------------------------------------------------
 1.0 CAMELIZE
 ------------------------------------------------------------------------------*/
@@ -36,8 +39,38 @@ function attributes(items) {
     }
 }
 
-function sendMessage(object) {
+function sendMessage(object, callback, name) {
     document.documentElement.setAttribute('it-message', JSON.stringify(object));
+
+    if (typeof callback === 'function') {
+        new MutationObserver(function (mutationList) {
+            for (var i = 0, l = mutationList.length; i < l; i++) {
+                var mutation = mutationList[i];
+
+                if (mutation.type === 'attributes') {
+                    if (mutation.attributeName === 'it-response') {
+                        var message = document.documentElement.getAttribute('it-response');
+
+                        try {
+                            message = JSON.parse(message);
+                        } catch (error) {}
+
+                        if (object[name]) {
+                            message.tabId = tabId;
+
+                            callback(message);
+                        }
+
+                        this.disconnect();
+                    }
+                }
+            }
+        }).observe(document.documentElement, {
+            attributes: true,
+            childList: false,
+            subtree: false
+        });
+    }
 }
 
 
@@ -63,6 +96,8 @@ chrome.storage.onChanged.addListener(function (changes) {
         var attribute = key.replace(/_/g, '-'),
             camelized_key = camelize(attribute),
             value = changes[key].newValue;
+
+        storage[key] = value;
 
         if (camelized_key === 'blacklistActivate') {
             camelized_key = 'blacklist';
@@ -100,78 +135,20 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         sendMessage({
             pause: true
         });
-    } else if (request.action === 'request-volume') {
-        new MutationObserver(function (mutationList) {
-            for (var i = 0, l = mutationList.length; i < l; i++) {
-                var mutation = mutationList[i];
-
-                if (mutation.type === 'attributes') {
-                    if (mutation.attributeName === 'it-response') {
-                        var message = document.documentElement.getAttribute('it-response');
-
-                        try {
-                            message = JSON.parse(message);
-                        } catch (error) {}
-
-                        if (message && message.hasOwnProperty('getVolume')) {
-                            sendResponse(message.getVolume);
-
-                            this.disconnect();
-                        }
-                    }
-                }
-            }
-        }).observe(document.documentElement, {
-            attributes: true,
-            childList: false,
-            subtree: false
-        });
-
-        sendMessage({
-            getVolume: true
-        });
-
-        return true;
     } else if (request.action === 'set-volume') {
         sendMessage({
-            setVolume: request.value / 100
+            setVolume: request.value
         });
-    } else if (request.action === 'request-playback-speed') {
-        new MutationObserver(function (mutationList) {
-            for (var i = 0, l = mutationList.length; i < l; i++) {
-                var mutation = mutationList[i];
-
-                if (mutation.type === 'attributes') {
-                    if (mutation.attributeName === 'it-response') {
-                        var message = document.documentElement.getAttribute('it-response');
-
-                        try {
-                            message = JSON.parse(message);
-                        } catch (error) {}
-
-                        if (message && message.hasOwnProperty('getPlaybackRate')) {
-                            sendResponse(message.getPlaybackRate);
-
-                            this.disconnect();
-                        }
-                    }
-                }
-            }
-        }).observe(document.documentElement, {
-            attributes: true,
-            childList: false,
-            subtree: false
-        });
-
-        sendMessage({
-            getPlaybackRate: true
-        });
-
-        return true;
     } else if (request.action === 'set-playback-speed') {
         sendMessage({
             setPlaybackSpeed: request.value
         });
+    } else if (request.action === 'mixer') {
+        sendMessage({
+            mixer: true
+        }, sendResponse, 'mixer');
+
+        return true;
     } else if (request.action === 'delete-youtube-cookies') {
         sendMessage({
             deleteCookies: true
@@ -188,6 +165,8 @@ injectYoutubeScript();
 
 chrome.runtime.sendMessage({
     name: 'migration'
+}, function (response) {
+    tabId = response;
 });
 
 chrome.storage.local.get('youtube_home_page', function (items) {
@@ -212,6 +191,8 @@ chrome.storage.local.get('youtube_home_page', function (items) {
 });
 
 chrome.storage.local.get(function (items) {
+    storage = items;
+
     sendMessage({
         storage: items
     });
@@ -255,4 +236,96 @@ new MutationObserver(function (mutationList) {
 
 chrome.runtime.sendMessage({
     enabled: true
+});
+
+document.addEventListener('ImprovedTubeWatched', function (event) {
+    if (chrome && chrome.runtime) {
+        var action = event.detail.action,
+            id = event.detail.id;
+
+        if (!storage.watched || typeof storage.watched !== 'object') {
+            storage.watched = {};
+        }
+
+        if (action === 'set') {
+            storage.watched[id] = {
+                title: event.detail.title
+            };
+        }
+
+        if (action === 'remove') {
+            delete storage.watched[id];
+        }
+
+        chrome.storage.local.set({
+            watched: storage.watched
+        });
+    }
+});
+
+document.addEventListener('ImprovedTubeBlacklist', function (event) {
+    if (chrome && chrome.runtime) {
+        var type = event.detail.type,
+            id = event.detail.id,
+            title = event.detail.title;
+
+        if (!storage.blacklist || typeof storage.blacklist !== 'object') {
+            storage.blacklist = {};
+        }
+
+        if (type === 'channel') {
+            if (!storage.blacklist.channels) {
+                storage.blacklist.channels = {};
+            }
+
+            storage.blacklist.channels[id] = {
+                title: title,
+                preview: event.detail.preview
+            };
+        }
+
+        if (type === 'video') {
+            if (!storage.blacklist.videos) {
+                storage.blacklist.videos = {};
+            }
+
+            storage.blacklist.videos[id] = {
+                title: title
+            };
+        }
+
+        chrome.storage.local.set({
+            blacklist: storage.blacklist
+        });
+    }
+});
+
+document.addEventListener('analyzer', function (event) {
+    if (storage.analyzer_activation === true) {
+        var data = event.detail.name,
+            date = new Date().toDateString(),
+            hours = new Date().getHours() + ':00';
+
+        if (!storage.analyzer) {
+            storage.analyzer = {};
+        }
+
+        if (!storage.analyzer[date]) {
+            storage.analyzer[date] = {};
+        }
+
+        if (!storage.analyzer[date][hours]) {
+            storage.analyzer[date][hours] = {};
+        }
+
+        if (!storage.analyzer[date][hours][data]) {
+            storage.analyzer[date][hours][data] = 0;
+        }
+
+        storage.analyzer[date][hours][data]++;
+
+        chrome.storage.local.set({
+            analyzer: storage.analyzer
+        });
+    }
 });
