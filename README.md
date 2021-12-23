@@ -141,7 +141,7 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
 - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
 
--  **Chromium[ ](https://github.com/chromium/chromium) / _Brave[ ](https://github.com/brave/brave) / Edge / Vivaldi / ...**_
+-  **Chromium[ ](https://github.com/chromium/chromium) / _Brave[ ](https://github.com/brave/brave) / Edge / Vivaldi / ..._**
 
  2. _Go to your Browser's Extensions page (*chrome://extensions/*)_ 
 
@@ -151,7 +151,7 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
     _& Select the extracted folder_
 
--  **Firefox[ ](https://github.com/mozilla)/ _LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat**_
+-  **Firefox[ ](https://github.com/mozilla)/ _LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat_**
 
  2. _Go to Add-ons (*about:addons*)_ 
 
