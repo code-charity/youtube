@@ -96,15 +96,13 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
         action: 'focus'
     });
 
-    chrome.tabs.getAllInWindow(activeInfo.windowId, function (tabs) {
+    chrome.tabs.query({ windowId: activeInfo.windowId }, function (tabs) {
         if (tabs) {
             for (var i = 0, l = tabs.length; i < l; i++) {
                 if (tabs[i].id !== activeInfo.tabId) {
-                    if (tabs[i].hasOwnProperty('url')) {
-                        chrome.tabs.sendMessage(tabs[i].id, {
-                            action: 'blur'
-                        });
-                    }
+                    chrome.tabs.sendMessage(tabs[i].id, {
+                        action: 'blur'
+                    });
                 }
             }
         }
@@ -115,12 +113,12 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
     chrome.windows.getAll(function (windows) {
         for (var i = 0, l = windows.length; i < l; i++) {
             if (windows[i].focused === true) {
-                chrome.tabs.getAllInWindow(windows[i].id, function (tabs) {
+                chrome.tabs.query({ windowId: windows[i].id }, function (tabs) {
                     if (tabs) {
                         for (var j = 0, k = tabs.length; j < k; j++) {
                             var tab = tabs[j];
 
-                            if (tab.active && tab.hasOwnProperty('url')) {
+                            if (tab.active) {
                                 chrome.tabs.sendMessage(tab.id, {
                                     action: 'focus'
                                 });
@@ -129,16 +127,14 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
                     }
                 });
             } else {
-                chrome.tabs.getAllInWindow(windows[i].id, function (tabs) {
+                chrome.tabs.query({ windowId: windows[i].id }, function (tabs) {
                     if (tabs) {
                         for (var j = 0, k = tabs.length; j < k; j++) {
                             var tab = tabs[j];
 
-                            if (tab.hasOwnProperty('url')) {
-                                chrome.tabs.sendMessage(tab.id, {
-                                    action: 'blur'
-                                });
-                            }
+                            chrome.tabs.sendMessage(tab.id, {
+                                action: 'blur'
+                            });
                         }
                     }
                 });
@@ -274,7 +270,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             } catch (error) {}
 
             setTimeout(function () {
-                sendResponse(sender.tab.id);
+                if (sender.tab) {
+                    sendResponse(sender.tab.id);
+                }
             }, 500);
         });
 
