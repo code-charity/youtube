@@ -12,8 +12,7 @@
 </a>
 <a href="edge://extensions/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge"  height="14px"> 
 </a><a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="opera" height="14px"></a>
-<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox.png" alt="Firefox add-ons" width="122px">
-</a><a href="https://microsoftedge.microsoft.com/addons/detail/knbckijjjbmkjiagojjneoplbjilfllc">
+<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox.png" alt="Firefox add-ons" width="122px"></a><a href="https://microsoftedge.microsoft.com/addons/detail/knbckijjjbmkjiagojjneoplbjilfllc">
 <img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge.png" alt="Edge Youtube Extension" width="117">
 </a><a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/"> 
 <img width="120" src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera Extension">
@@ -106,8 +105,8 @@ Start Page <a href="https://github.com/victor-savinov/start-page"><img src="http
 ##  🌾 Our Work <img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="118px"> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
 ### 💡 Ideas   
 Got great ideas? ideas@improvedtube.com
-### 👨🏽‍💻 👩🏿‍💻 👩‍💻 Expertise / Advice <img width="180" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png">
-
+### 👨🏽‍💻 👩🏿‍💻 👩‍💻 Expertise / Advice <img width="320" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png"> 
+<img align="right" width="500" alt="Youtube recommendation" src="https://user-images.githubusercontent.com/25022245/147239817-be290d36-d7dc-4125-bccc-2f3f29c92229.png">
 Do you need to run an extension, site, app or repo with many users and a great feedback score?  
 We like to help good meaningful causes. projects@improvedtube.com  
 <br>
