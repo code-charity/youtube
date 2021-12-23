@@ -106,7 +106,8 @@ Start Page <a href="https://github.com/victor-savinov/start-page"><img src="http
 ### 💡 Ideas   
 Got great ideas? ideas@improvedtube.com
 ### 👨🏽‍💻 👩🏿‍💻 👩‍💻 Expertise / Advice <img width="320" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png"> 
-<img align="right" width="500" alt="Youtube recommendation" src="https://user-images.githubusercontent.com/25022245/147239817-be290d36-d7dc-4125-bccc-2f3f29c92229.png">
+<img align="right" width="527" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png">
+
 Do you need to run an extension, site, app or repo with many users and a great feedback score?  
 We like to help good meaningful causes. projects@improvedtube.com  
 <br>
