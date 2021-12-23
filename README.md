@@ -1,6 +1,6 @@
 <h1 align="center">«Improve YouTube!»</h1>
 <p align="center">
-<b><code>/ImprovedTube/</code></b> is a lightweight extension to improve your view & content discovery. Powerful features & a pretty UI.<br></p>
+<b><code>/ImprovedTube/</code></b> is a lightweight extension to improve your view & content discovery; Powerful features & a pretty UI.<br></p>
 <p align="center">
 <a href="https://github.com/code4charity/YouTube-Extension/wiki/Features"><code>✔️Features</code></a>&nbsp; · &nbsp;<a href="https://github.com/code4charity/YouTube-Extension/issues/new"><code>Wish a🌟feature</code></a>&nbsp; · &nbsp;<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><code>Donate<b>🎁</b></code></a>&nbsp; ·
 &nbsp;<a href="https://github.com/code4charity/YouTube-Extension/issues/new"><code>Report a<b>🐞</b>bug</code></a>&nbsp; · &nbsp;<a href="https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip"><code>Latest<b>🧪</b>version</code></a></p>
@@ -141,7 +141,7 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
 - **[Safari](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)**
 
--  _**Chromium[ ](https://github.com/chromium/chromium) / Brave[ ](https://github.com/brave/brave) / Edge / Vivaldi / ...**_
+-  **Chromium[ ](https://github.com/chromium/chromium) / _Brave[ ](https://github.com/brave/brave) / Edge / Vivaldi / ..._**
 
  2. _Go to your Browser's Extensions page (*chrome://extensions/*)_ 
 
@@ -151,7 +151,7 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
     _& Select the extracted folder_
 
--  _**Firefox[ ](https://github.com/mozilla)/ LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat**_
+-  **Firefox[ ](https://github.com/mozilla)/ _LibreWolf[ ](https://librewolf-community.gitlab.io/)/ Waterfox[ ](https://github.com/MrAlex94/Waterfox)/ GNUzilla / IceCat_**
 
  2. _Go to Add-ons (*about:addons*)_ 
 
