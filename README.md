@@ -36,7 +36,7 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 > - [***Contributing without programming***](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)  
 > - [***How to start editing our CSS, JavaScript, json***](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> *(For code literates)* (*Newcomers are [w](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)elcome. We review all edits & love to collaborate)*  </code>
 - [ ] [**All Feature Requests🌟🧚**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)  <code> _sometimes easy CSS_</code>    &nbsp;&nbsp;[_Rest of 'issues'_](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3Atweak)
-- [ ] [**Bugs🐞 / YouTube Updates**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+)<code> *we aim to offer some bounties. Please ask*.</code> 
+- [ ] [**Bugs🐞 / YouTube Updates**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+) <code>*we aim to offer some bounties. Please ask*.</code> 
 
 
 <table align="right"><th><h3 align="center"> 🌎 Translators 💕</h3></th>
