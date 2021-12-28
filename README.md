@@ -25,8 +25,8 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 
 **👪 Join us?** ImprovedTube is the only project of it's kind. Over the years we saw other open & free YouTube Extensions start well but resign later. Please spread the word 📣
 ## 🧩 ToDo
-- [ ] **1. Documentation wiki, screenshots, videos** <code><i>(We need to help the people learn easier about our [80+ features](https://github.com/ImprovedTube/ImprovedTube/wiki/Features). No  documentation exists. (/🛈tooltips. let alone marketing. ImprovedTube can fly higher through your word of mouth🌱 and enable us to work on all wishes.</i></code>
-   - [ ] **Updating Translations**  <code> Most languages miss some additions _(drafts welcome.)_ </code>
+- [ ] **1. Documentation wiki, screenshots, videos** <code><i>(We need to help the people learn easier about our [80+ features](https://github.com/ImprovedTube/ImprovedTube/wiki/Features). Drafts welcome. No documentation exists. (/🛈tooltips. let alone marketing. ImprovedTube can fly higher through your word of mouth🌱 and enable us to work on all wishes.</i></code>
+   - [ ] **Updating Translations**  <code> translations miss some additions.</code>
    - [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
 - [ ] **2.** [**Plans🧩**](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen+label%3A🧩Plan++-label%3A%22not+Goo.+Chrome%22+)<code> _specification added. Often unique/special(/complex)_ </code>
