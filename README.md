@@ -30,8 +30,7 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
    - [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
 - [ ] **2.** [**Plans🧩**](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen+label%3A🧩Plan++-label%3A%22not+Goo.+Chrome%22+)<code> _specification added. Often unique/special(/complex)_ </code>
-   - [ ] [**3. Discussions**:octocat:](https://github.com/code4charity/YouTube-Extension/discussions?discussions_q=category%3A%22Organization%22++category%3A%22ToDo%22+category%3A%22Wishes+%26+Ideas%22++)<code>_, Brainstorming, preparing future structure_</code>  
-      - [ ] [Unntagged issues (open questions)](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3Atweak)
+   - [ ] [**3. Discussions**:octocat:](https://github.com/code4charity/YouTube-Extension/discussions?discussions_q=category%3A%22Organization%22++category%3A%22ToDo%22+category%3A%22Wishes+%26+Ideas%22++)<code>_, Brainstorming, preparing future structure_</code>  - [ ] [_Rest of issues_](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3Atweak)
 - [ ] [**All Feature Requests🌟🧚**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)  <code> _sometimes easy CSS_ </code>
 - [ ] [**Bugs🐞 & YouTube Updates**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+)<code> *we aim to offer some bounties. Please ask*.</code>
 
