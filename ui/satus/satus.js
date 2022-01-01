@@ -789,1320 +789,6 @@ satus.render = function (skeleton, container, skip, property) {
     return component;
 };
 /*--------------------------------------------------------------
->>> COLOR PICKER
---------------------------------------------------------------*/
-
-satus.components.colorPicker = function (skeleton) {
-    var component = document.createElement('button'),
-        component_label = document.createElement('span'),
-        component_value = document.createElement('span');
-
-    component.inner = component_label;
-    component.valueElement = component_value;
-
-    component.className = 'satus-button';
-    component_value.className = 'satus-color-picker__value';
-
-    component.appendChild(component_label);
-    component.appendChild(component_value);
-
-    component.addEventListener('click', function () {
-        var rgb = this.rgb,
-            hsl = satus.color.rgbToHsl(rgb),
-            s = hsl[1] / 100,
-            l = hsl[2] / 100;
-
-        s *= l < .5 ? l : 1 - l;
-
-        var v = l + s;
-
-        s = 2 * s / (l + s);
-
-        satus.render({
-            component: 'modal',
-            variant: 'color-picker',
-            value: hsl,
-            parent: this,
-
-            palette: {
-                component: 'div',
-                class: 'satus-color-picker__palette',
-                style: {
-                    'backgroundColor': 'hsl(' + hsl[0] + 'deg, 100%, 50%)'
-                },
-                on: {
-                    mousedown: function () {
-                        var palette = this,
-                            rect = this.getBoundingClientRect(),
-                            cursor = this.children[0];
-
-                        function mousemove(event) {
-                            var hsl = palette.skeleton.parent.value,
-                                x = event.clientX - rect.left,
-                                y = event.clientY - rect.top,
-                                s;
-
-                            x = Math.min(Math.max(x, 0), rect.width) / (rect.width / 100);
-                            y = Math.min(Math.max(y, 0), rect.height) / (rect.height / 100);
-
-                            var v = 100 - y,
-                                l = (2 - x / 100) * v / 2;
-
-                            hsl[1] = x * v / (l < 50 ? l * 2 : 200 - l * 2);
-                            hsl[2] = l;
-
-                            cursor.style.left = x + '%';
-                            cursor.style.top = y + '%';
-
-                            palette.nextSibling.children[0].style.backgroundColor = 'hsl(' + hsl[0] + 'deg,' + hsl[1] + '%, ' + hsl[2] + '%)';
-
-                            event.preventDefault();
-                        }
-
-                        function mouseup() {
-                            window.removeEventListener('mousemove', mousemove);
-                            window.removeEventListener('mouseup', mouseup);
-                        }
-
-                        window.addEventListener('mousemove', mousemove);
-                        window.addEventListener('mouseup', mouseup);
-                    }
-                },
-
-                cursor: {
-                    component: 'div',
-                    class: 'satus-color-picker__cursor',
-                    style: {
-                        'left': s * 100 + '%',
-                        'top': 100 - v * 100 + '%'
-                    }
-                }
-            },
-            section: {
-                component: 'section',
-                variant: 'color',
-
-                color: {
-                    component: 'div',
-                    class: 'satus-color-picker__color',
-                    style: {
-                        'backgroundColor': 'rgb(' + this.rgb.join(',') + ')'
-                    }
-                },
-                hue: {
-                    component: 'slider',
-                    class: 'satus-color-picker__hue',
-                    storage: false,
-                    value: hsl[0],
-                    max: 360,
-                    on: {
-                        change: function () {
-                            var modal = this.skeleton.parent.parent,
-                                hsl = modal.value;
-
-                            hsl[0] = this.values[0];
-
-                            this.previousSibling.style.backgroundColor = 'hsl(' + hsl[0] + 'deg,' + hsl[1] + '%, ' + hsl[2] + '%)';
-                            this.parentNode.previousSibling.style.backgroundColor = 'hsl(' + hsl[0] + 'deg, 100%, 50%)';
-                        }
-                    }
-                }
-            },
-            actions: {
-                component: 'section',
-                variant: 'actions',
-
-                reset: {
-                    component: 'button',
-                    text: 'reset',
-                    on: {
-                        click: function () {
-                            var modal = this.skeleton.parent.parent,
-                                component = modal.parent;
-
-                            component.rgb = component.skeleton.value;
-
-                            component.storageValue = component.rgb;
-                            component.storageChange();
-
-                            component.valueElement.style.backgroundColor = 'rgb(' + component.rgb.join(',') + ')';
-
-                            modal.rendered.close();
-                        }
-                    }
-                },
-                cancel: {
-                    component: 'button',
-                    text: 'cancel',
-                    on: {
-                        click: function () {
-                            this.skeleton.parent.parent.rendered.close();
-                        }
-                    }
-                },
-                ok: {
-                    component: 'button',
-                    text: 'OK',
-                    on: {
-                        click: function () {
-                            var modal = this.skeleton.parent.parent,
-                                component = modal.parent;
-
-                            component.rgb = satus.color.hslToRgb(modal.value);
-
-                            component.storageValue = component.rgb;
-                            component.storageChange();
-
-                            component.valueElement.style.backgroundColor = 'rgb(' + component.rgb.join(',') + ')';
-
-                            modal.rendered.close();
-                        }
-                    }
-                }
-            }
-        });
-    });
-
-    component.addEventListener('render', function () {
-        component.rgb = this.storageValue || [0, 100, 50];
-
-        component_value.style.backgroundColor = 'rgb(' + component.rgb.join(',') + ')';
-    });
-
-    return component;
-};
-/*--------------------------------------------------------------
->>> TABS
---------------------------------------------------------------*/
-
-satus.components.tabs = function (skeleton) {
-	var component = document.createElement('div'),
-		content = document.createElement('div'),
-		selection = document.createElement('div');
-
-	content.className = 'satus-tabs__content';
-	selection.className = 'satus-tabs__selection';
-	selection.style.width = 100 / skeleton.items.length + '%';
-
-	content.appendChild(selection);
-
-	component.selection = selection;
-
-	for (var i = 0, l = skeleton.items.length; i < l; i++) {
-		var item = skeleton.items[i],
-			button = document.createElement('button');
-
-		button.className = 'satus-tabs__button';
-		button.value = item;
-		button.style.width = 100 / l + '%';
-
-		satus.text(button, item);
-
-		button.addEventListener('click', function () {
-			var component = this.parentNode.parentNode;
-
-			component.selection.style.left = 100 / (this.parentNode.children.length - 1) * (satus.indexOf(this) - 1) + '%';
-
-			component.storageValue = this.value;
-			component.storageChange();
-		});
-
-		if (skeleton.value === item) {
-			selection.style.left = i * 50 + '%';
-		}
-
-		content.appendChild(button);
-	}
-	
-	component.appendChild(content);
-
-	component.addEventListener('render', function () {
-		var index = satus.indexOf(this.storageValue, this.skeleton.items);
-
-		if (index === -1) {
-			index = 0;
-		}
-
-		this.selection.style.left = 100 / this.skeleton.items.length * index + '%';
-	});
-
-	return component;
-};
-/*--------------------------------------------------------------
->>> MENUBAR
---------------------------------------------------------------*/
-
-satus.components.menubar = function (skeleton) {
-	function createList(items) {
-		var ul = document.createElement('ul');
-
-		for (var key in items) {
-			var item = items[key],
-				li = document.createElement('li');
-
-			satus.render(item, li);
-
-			if (item.items) {
-				li.appendChild(createList(item.items));
-			}
-
-			ul.appendChild(li);
-		}
-
-		return ul;
-	}
-
-	return createList(skeleton.items);
-};
-/*--------------------------------------------------------------
->>> RADIO
---------------------------------------------------------------*/
-
-satus.components.radio = function (skeleton) {
-	var component = document.createElement('label'),
-		content = document.createElement('span'),
-		radio = document.createElement('input');
-
-	component.inner = content;
-
-	radio.type = 'radio';
-
-	if (skeleton.group) {
-		component.storage = skeleton.group;
-		radio.name = skeleton.group;
-	}
-
-	if (skeleton.value) {
-		radio.value = skeleton.value;
-	}
-
-	component.addEventListener('render', function () {
-		this.storageValue = satus.storage.get(this.storage);
-
-		if (satus.isset(this.storageValue)) {
-			radio.checked = this.storageValue === skeleton.value;
-		} else if (skeleton.checked) {
-			radio.checked = true;
-		}
-	});
-
-	radio.addEventListener('change', function () {
-		component.storageValue = this.value;
-		component.storageChange();
-	});
-
-	component.appendChild(content);
-	component.appendChild(radio);
-
-	return component;
-};
-/*--------------------------------------------------------------
->>> LIST
---------------------------------------------------------------*/
-
-satus.components.list = function (skeleton) {
-	var ul = document.createElement('ul');
-
-	for (var i = 0, l = skeleton.items.length; i < l; i++) {
-		var li = document.createElement('li'),
-			item = skeleton.items[i];
-
-		li.className = 'satus-list__item';
-
-		for (var j = 0, k = item.length; j < k; j++) {
-			var child = item[j];
-
-			if (typeof child === 'string') {
-				var span = document.createElement('span');
-
-				span.textContent = satus.locale.get(child);
-
-				li.appendChild(span);
-			} else {
-				satus.render(child, li);
-			}
-		}
-
-		ul.appendChild(li);
-	}
-
-	return ul;
-};
-/*--------------------------------------------------------------
->>> TEXTAREA
---------------------------------------------------------------*/
-
-satus.components.textarea = function (skeleton) {
-	var component = document.createElement('div'),
-		line_number = document.createElement('div'),
-		textarea = document.createElement('textarea');
-
-	line_number.className = 'satus-textarea__line-number';
-
-	component.line_number = line_number;
-	component.textarea = textarea;
-
-	line_number.update = function (count) {
-		if (count !== this.children.length) {
-			satus.empty(this);
-
-			for (var i = 1; i <= count; i++) {
-				var span = document.createElement('span');
-
-				span.textContent = i;
-
-				this.appendChild(span);
-			}
-		}
-	};
-
-	textarea.addEventListener('input', function () {
-		this.parentNode.line_number.update(this.value.split('\n').length);
-	});
-
-	textarea.addEventListener('selectionchange', function () {
-		this.parentNode.line_number.update(this.value.split('\n').length);
-	});
-
-	textarea.addEventListener('scroll', function () {
-		this.parentNode.line_number.style.transform = 'translateY(-' + this.scrollTop + 'px)';
-
-		this.parentNode.line_number.update(this.value.split('\n').length);
-	});
-
-	component.appendChild(line_number);
-	component.appendChild(textarea);
-
-	line_number.update(1);
-
-	return component;
-};
-/*--------------------------------------------------------------
->>> MODAL
---------------------------------------------------------------*/
-
-satus.components.modal = function (skeleton) {
-	var component = document.createElement('div'),
-		scrim = document.createElement('div'),
-		surface = document.createElement('div');
-
-	component.inner = surface;
-
-	scrim.className = 'satus-modal__scrim';
-	surface.className = 'satus-modal__surface';
-
-	component.close = function () {
-		var component = this,
-			component_surface = this.children[1];
-
-		this.classList.add('satus-modal--closing');
-
-		setTimeout(function () {
-			component.remove();
-
-			component.dispatchEvent(new CustomEvent('close'));
-		}, satus.getAnimationDuration(component_surface));
-	};
-
-	scrim.addEventListener('click', function () {
-		this.parentNode.close();
-	});
-
-	component.appendChild(scrim);
-	component.appendChild(surface);
-
-	return component;
-};
-/*--------------------------------------------------------------
->>> CHECKBOX
---------------------------------------------------------------*/
-
-satus.components.checkbox = function (skeleton) {
-	var component = document.createElement('button'),
-		content = document.createElement('span');
-
-	component.inner = content;
-
-	content.className = 'satus-checkbox__content';
-
-	component.appendChild(content);
-
-	component.addEventListener('click', function () {
-		if (this.dataset.value === 'true') {
-			this.storageValue = false;
-			this.dataset.value = 'false';
-		} else {
-			this.storageValue = true;
-			this.dataset.value = 'true';
-		}
-
-		this.storageChange();
-	});
-
-	component.addEventListener('render', function () {
-		this.dataset.value = this.storageValue;
-	});
-
-	return component;
-};
-/*--------------------------------------------------------------
->>> SWITCH
---------------------------------------------------------------*/
-
-satus.components.switch = function (skeleton) {
-	var component = document.createElement('button'),
-		component_content = document.createElement('span'),
-		component_thumb = document.createElement('i');
-
-	component.inner = component_content;
-
-	component_content.className = 'satus-switch__content';
-
-	component.addEventListener('click', function () {
-		if (this.dataset.value === 'true') {
-			this.storageValue = false;
-			this.dataset.value = 'false';
-		} else {
-			this.storageValue = true;
-			this.dataset.value = 'true';
-		}
-
-		this.storageChange();
-	});
-
-	component.addEventListener('render', function () {
-		this.dataset.value = this.storageValue;
-	});
-
-	component.appendChild(component_content);
-	component.appendChild(component_thumb);
-
-	return component;
-};
-/*--------------------------------------------------------------
->>> SLIDER
---------------------------------------------------------------*/
-
-satus.components.slider = function (skeleton) {
-	var component = document.createElement('div'),
-		content = document.createElement('div'),
-		container = document.createElement('div'),
-		track = document.createElement('div'),
-		track_fill = document.createElement('div');
-
-	container.className = 'satus-slider__container';
-	track.className = 'satus-slider__track';
-	track_fill.className = 'satus-slider__track-fill';
-
-	component.min = skeleton.min || 0;
-	component.max = skeleton.max || 1;
-	component.step = (skeleton.step || 1);
-	component.percent = 100 / ((component.max - component.min) / component.step);
-	component.precision = String(component.step).replace(/[0-9]./, '').length;
-
-	component.container = container;
-	component.track = track_fill;
-	component.handles = [];
-	component.inner = content;
-
-	component.toPercent = function (number) {
-		return number / this.step * this.percent + '%';
-	};
-
-	component.createHandle = function (index) {
-		var handle = document.createElement('div');
-
-		handle.className = 'satus-slider__handle';
-		handle.handleIndex = index;
-		handle.tabIndex = 0;
-
-		this.handles.push(handle);
-
-		this.container.appendChild(handle);
-	};
-
-	component.update = function () {
-		if (this.values.length > 1) {
-			var min = Math.min.apply(null, this.values) - this.min,
-				max = Math.max.apply(null, this.values) - this.min;
-
-			this.track.style.left = this.toPercent(min);
-			this.track.style.width = this.toPercent(max - min);
-
-			for (var i = 0, l = this.handles.length; i < l; i++) {
-				var handle = this.handles[i],
-					value = this.values[i];
-
-				handle.style.left = this.toPercent(value - this.min);
-				handle.dataset.value = value;
-			}
-		} else {
-			var value = this.values[0];
-
-			this.track.style.width = this.toPercent(value - this.min);
-			this.handles[0].style.left = this.toPercent(value - this.min);
-			this.handles[0].dataset.value = value;
-		}
-	};
-
-	component.appendChild(content);
-	track.appendChild(track_fill);
-	container.appendChild(track);
-	component.appendChild(container);
-
-	component.addEventListener('keydown', function (event) {
-		var code = event.keyCode;
-
-		console.log(code);
-	});
-
-	component.addEventListener('render', function () {
-		var value = this.storageValue;
-
-		if (satus.isArray(value)) {
-			this.values = value;
-		} else if (satus.isNumber(value)) {
-			this.values = [value];
-		} else {
-			this.values = this.skeleton.values || [satus.isset(this.skeleton.value) ? this.skeleton.value : 1];
-		}
-
-		for (var i = 0, l = this.values.length; i < l; i++) {
-			this.createHandle(i);
-		}
-
-		this.update();
-	});
-
-	container.addEventListener('mousedown', function (event) {
-		if (event.button === 0) {
-			var component = this.parentNode,
-				rect = this.getBoundingClientRect(),
-				cursor_x = event.clientX - rect.left,
-				percent = cursor_x / rect.width * 100,
-				steps = percent / component.percent * component.step + component.min,
-				closest_value = component.values.indexOf(component.values.reduce(function(previous, current, index) {
-					return Math.abs(current - steps) < Math.abs(previous - steps) ? current : previous;
-				})),
-				handle_index = component.handles[closest_value].handleIndex;
-
-			setTimeout(function () {
-				component.handles[closest_value].focus();
-			});
-
-			function update(event) {
-				var cursor_x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width),
-					percent = cursor_x / rect.width * 100,
-					value = percent / component.percent * component.step + component.min;
-
-				value = (Math.round(value / component.step) * component.step);
-
-				value = Number(value.toFixed(component.precision));
-
-				if (component.values[handle_index] !== value) {
-					component.values[handle_index] = value;
-
-					component.storageValue = component.values.length === 1 ? component.values[0] : component.values;
-					component.value = component.storageValue;
-
-					component.storageChange();
-				}
-
-				component.update();
-			}
-
-			function mousemove(event) {
-				update(event);
-			}
-
-			function mouseup(event) {
-				window.removeEventListener('mousemove', mousemove);
-				window.removeEventListener('mouseup', mouseup);
-			};
-
-			window.addEventListener('mousemove', mousemove);
-			window.addEventListener('mouseup', mouseup);
-
-			update(event);
-
-			return true;
-		}
-	});
-
-	return component;
-};
-/*--------------------------------------------------------------
->>> SHORTCUT
---------------------------------------------------------------*/
-
-satus.components.shortcut = function (skeleton) {
-    var component = document.createElement('button'),
-        content = document.createElement('span'),
-        value = document.createElement('div');
-
-    component.inner = content;
-
-    component.className = 'satus-button';
-    value.className = 'satus-shortcut__value';
-
-    component.render = function (parent) {
-        var self = this,
-            parent = parent || self.primary,
-            children = parent.children;
-
-        satus.empty(parent);
-
-        function createElement(name) {
-            var element = document.createElement('div');
-
-            element.className = 'satus-shortcut__' + name;
-
-            parent.appendChild(element);
-
-            return element;
-        }
-
-        if (this.data.alt) {
-            createElement('key').textContent = 'Alt';
-        }
-
-        if (this.data.ctrl) {
-            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
-                createElement('plus');
-            }
-
-            createElement('key').textContent = 'Ctrl';
-        }
-
-        if (this.data.shift) {
-            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
-                createElement('plus');
-            }
-
-            createElement('key').textContent = 'Shift';
-        }
-
-        for (var code in this.data.keys) {
-            var key = this.data.keys[code].key,
-                arrows = ['ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'],
-                index = arrows.indexOf(key);
-
-            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
-                createElement('plus');
-            }
-
-            if (index !== -1) {
-                createElement('key').textContent = ['↑', '→', '↓', '←'][index];
-            } else if (key === ' ') {
-                createElement('key').textContent = '␣';
-            } else if (key) {
-                createElement('key').textContent = key.toUpperCase();
-            }
-        }
-
-        if (this.data.wheel) {
-            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
-                createElement('plus');
-            }
-
-            var mouse = createElement('mouse'),
-                div = document.createElement('div');
-
-            mouse.appendChild(div);
-
-            mouse.className += ' ' + (this.data.wheel > 0);
-        }
-
-        if (this.data.click) {
-            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
-                createElement('plus');
-            }
-
-            var mouse = createElement('mouse'),
-                div = document.createElement('div');
-
-            mouse.appendChild(div);
-
-            mouse.className += ' click';
-        }
-
-        if (this.data.context) {
-            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
-                createElement('plus');
-            }
-
-            var mouse = createElement('mouse'),
-                div = document.createElement('div');
-
-            mouse.appendChild(div);
-
-            mouse.className += ' context';
-        }
-    };
-
-    component.valueElement = value;
-
-    component.appendChild(content);
-    component.appendChild(value);
-
-    component.keydown = function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        component.data = {
-            alt: event.altKey,
-            ctrl: event.ctrlKey,
-            shift: event.shiftKey,
-            keys: {}
-        };
-
-        if (['control', 'alt', 'altgraph', 'shift'].indexOf(event.key.toLowerCase()) === -1) {
-            component.data.keys[event.keyCode] = {
-                code: event.code,
-                key: event.key
-            };
-        }
-
-        component.data.wheel = 0;
-
-        component.render();
-
-        return false;
-    };
-
-    component.mousewheel = function (event) {
-        event.stopPropagation();
-
-        if (
-            (
-                component.data.wheel === 0 &&
-                (
-                    Object.keys(component.data.keys).length === 0 &&
-                    component.data.alt === false &&
-                    component.data.ctrl === false &&
-                    component.data.shift === false
-                )
-            ) ||
-            component.data.wheel < 0 && event.deltaY > 0 ||
-            component.data.wheel > 0 && event.deltaY < 0) {
-            component.data = {
-                alt: false,
-                ctrl: false,
-                shift: false,
-                keys: {}
-            };
-        }
-
-        component.data.wheel = event.deltaY < 0 ? -1 : 1;
-
-        component.render();
-
-        return false;
-    };
-
-    component.addEventListener('render', function () {
-        this.data = this.storageValue || {
-            alt: false,
-            ctrl: false,
-            shift: false,
-            keys: {},
-            wheel: 0
-        };
-
-        this.render(this.valueElement);
-    });
-
-    component.addEventListener('click', function () {
-        satus.render({
-            component: 'modal',
-            on: {
-                close: function () {
-                    window.removeEventListener('keydown', component.keydown);
-                    window.removeEventListener('mousewheel', component.mousewheel);
-                }
-            },
-
-            primary: {
-                component: 'div',
-                class: 'satus-shortcut__primary',
-                on: {
-                    render: function () {
-                        component.primary = this;
-
-                        if (component.skeleton.mouseButtons === true) {
-                            this.addEventListener('click', function () {
-                                component.data.context = false;
-                                component.data.click = true;
-
-                                component.render();
-                            });
-
-                            this.addEventListener('contextmenu', function (event) {
-                                event.preventDefault();
-                                event.stopPropagation();
-
-                                component.data.context = true;
-                                component.data.click = false;
-
-                                component.render();
-
-                                return false;
-                            });
-                        }
-
-                        component.render();
-                    }
-                }
-            },
-            actions: {
-                component: 'section',
-                variant: 'actions',
-
-                reset: {
-                    component: 'button',
-                    text: 'reset',
-                    on: {
-                        click: function () {
-                            component.data = component.skeleton.value || {};
-
-                            component.render(component.valueElement);
-
-                            satus.storage.set(skeleton.storage, false);
-
-                            this.parentNode.parentNode.parentNode.close();
-
-                            window.removeEventListener('keydown', component.keydown);
-                            window.removeEventListener('mousewheel', component.mousewheel);
-                        }
-                    }
-                },
-                cancel: {
-                    component: 'button',
-                    text: 'cancel',
-                    on: {
-                        click: function () {
-                            component.data = satus.storage.get(component.storage) || component.skeleton.value || {};
-
-                            component.render(component.valueElement);
-
-                            this.parentNode.parentNode.parentNode.close();
-
-                            window.removeEventListener('keydown', component.keydown);
-                            window.removeEventListener('mousewheel', component.mousewheel);
-                        }
-                    }
-                },
-                save: {
-                    component: 'button',
-                    text: 'save',
-                    on: {
-                        click: function () {
-                            component.storageValue = component.data;
-
-                            component.storageChange();
-
-                            component.render(component.valueElement);
-
-                            this.parentNode.parentNode.parentNode.close();
-
-                            window.removeEventListener('keydown', component.keydown);
-                            window.removeEventListener('mousewheel', component.mousewheel);
-                        }
-                    }
-                }
-            }
-        });
-
-        window.addEventListener('keydown', this.keydown);
-        window.addEventListener('mousewheel', this.mousewheel);
-    });
-
-    return component;
-};
-/*--------------------------------------------------------------
->>> BASE
---------------------------------------------------------------*/
-
-satus.components.base = function (skeleton) {
-    var component = document.createElement('div');
-
-    component.base = component;
-
-    return component;
-};
-/*--------------------------------------------------------------
->>> TEXT FIELD
---------------------------------------------------------------*/
-
-satus.components.textField = function (skeleton) {
-	var component = document.createElement('div'),
-		pre = document.createElement('pre'),
-		input = document.createElement('textarea'),
-		hidden_text = document.createElement('span'),
-		text = document.createElement('span'),
-		selection = document.createElement('div'),
-		cursor = document.createElement('div');
-
-	input.className = 'satus-text-field__input';
-	pre.className = 'satus-text-field__pre';
-	hidden_text.className = 'satus-text-field__hidden-text';
-	text.className = 'satus-text-field__text';
-	selection.className = 'satus-text-field__selection';
-	cursor.className = 'satus-text-field__cursor';
-
-	component.inputElement = input;
-	component.textElement = text;
-	component.languages = {
-		regex: function (component) {
-		    var regex_token = /\[\^?]?(?:[^\\\]]+|\\[\S\s]?)*]?|\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9][0-9]*|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)|\((?:\?[:=!]?)?|(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??|[^.?*+^${[()|\\]+|./g,
-		        char_class_token = /[^\\-]+|-|\\(?:[0-3][0-7]{0,2}|[4-7][0-7]?|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)/g,
-		        char_class_parts = /^(\[\^?)(]?(?:[^\\\]]+|\\[\S\s]?)*)(]?)$/,
-		        quantifier = /^(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??$/,
-		        matches = component.inputElement.value.match(regex_token);
-
-		    function create(type, string) {
-		        var span = document.createElement('span');
-
-		        span.className = type;
-		        span.textContent = string;
-
-		        component.textElement.appendChild(span);
-		    }
-
-		    for (var i = 0, l = matches.length; i < l; i++) {
-		        var match = matches[i];
-
-		        if (match[0] === '[') {
-		            create('character-class', match);
-		        } else if (match[0] === '(') {
-		            create('group', match);
-		        } else if (match[0] === ')') {
-		            create('group', match);
-		        } else if (match[0] === '\\' || match === '^') {
-		            create('anchor', match);
-		        } else if (quantifier.test(match)) {
-		            create('quantifier', match);
-		        } else if (match === '|' || match === '.') {
-		            create('metasequence', match);
-		        } else {
-		            create('text', match);
-		        }
-		    }
-		}
-	};
-	component._syntax = skeleton.syntax;
-
-	Object.defineProperty(component, 'value', {
-		get: function () {
-			return this.inputElement.value;
-		},
-		set: function (value) {
-			var input = this.inputElement;
-
-			input.value = value;
-
-			input.updateValue();
-			input.updateCursor();
-		}
-	});
-
-	Object.defineProperty(component, 'syntax', {
-		get: function () {
-			return this._syntax;
-		},
-		set: function (value) {
-			var input = this.inputElement;
-
-			this._syntax = value;
-
-			input.updateValue();
-			input.updateCursor();
-		}
-	});
-
-	input.rows = skeleton.rows || 1;
-	input.autocapitalize = 'none';
-	input.autocomplete = 'off';
-	input.autocorrect = 'off';
-	input.spellcheck = false;
-	input.autofocus = true;
-	input.textElement = text;
-	input.hiddenTextElement = hidden_text;
-	input.selectionElement = selection;
-	input.cursorElement = cursor;
-
-	input.updateValue = function () {
-		var component = this.parentNode.parentNode;
-
-		for (var i = this.textElement.childNodes.length - 1; i > -1; i--) {
-	        this.textElement.childNodes[i].remove();
-	    }
-
-	    if (this.value.length > 0) {
-	    	if (component.languages[component._syntax]) {
-		    	component.languages[component._syntax](component);
-		    } else {
-		    	this.textElement.textContent = this.value;
-		    }
-	    }
-	};
-
-	input.updateCursor = function () {
-		var cursor = this.cursorElement,
-			selection = this.selectionElement,
-			hidden_text = this.hiddenTextElement,
-			start = this.selectionStart,
-			end = this.selectionEnd;
-
-		cursor.style.animation = 'none';
-
-		if (start === end) {
-			selection.setAttribute('disabled', '');
-		} else {
-			selection.removeAttribute('disabled');
-
-			hidden_text.textContent = this.value.substring(0, start);
-
-			selection.style.left = hidden_text.offsetWidth - this.scrollLeft + 'px';
-
-			hidden_text.textContent = this.value.substring(start, end);
-
-			selection.style.width = hidden_text.offsetWidth + 'px';
-		}
-
-		if (this.selectionDirection === 'forward') {
-			hidden_text.textContent = this.value.substring(0, end);
-		} else {
-			hidden_text.textContent = this.value.substring(0, start);
-		}
-
-		cursor.style.left = hidden_text.offsetWidth - this.scrollLeft + 'px';
-
-		cursor.style.animation = '';
-
-		hidden_text.textContent = '';
-	};
-
-	input.addEventListener('keydown', function () {
-		var self = this;
-
-		setTimeout(function () {
-			var component = self.parentNode.parentNode;
-
-		    component.storageValue = self.value;
-		    component.storageChange();
-
-			self.updateValue();
-			self.updateCursor();
-		});
-	});
-
-	input.addEventListener('scroll', function (event) {
-		this.textElement.style.left = -this.scrollLeft + 'px';
-	});
-
-	document.addEventListener('selectionchange', function () {
-		input.updateCursor();
-	});
-
-	selection.setAttribute('disabled', '');
-
-	pre.appendChild(input);
-	pre.appendChild(hidden_text);
-	pre.appendChild(text);
-	pre.appendChild(selection);
-	pre.appendChild(cursor);
-	component.appendChild(pre);
-
-	component.addEventListener('render', function () {
-		input.value = this.storageValue;
-
-		this.inputElement.updateValue();
-		this.inputElement.updateCursor();
-	});
-
-	return component;
-};
-/*--------------------------------------------------------------
->>> ALERT
---------------------------------------------------------------*/
-
-satus.components.alert = function (skeleton) {
-	var component = document.createElement('div');
-
-	return component;
-};
-/*--------------------------------------------------------------
->>> LAYERS
---------------------------------------------------------------*/
-
-satus.components.layers = function (skeleton) {
-	var component = document.createElement('div');
-
-	component.path = [skeleton];
-
-	component.back = function () {
-		if (this.path.length > 1) {
-			this.path.pop();
-
-			this.open();
-		}
-	};
-
-	component.open = function (skeleton) {
-		var layer = document.createElement('div');
-
-		if (skeleton) {
-			this.path.push(skeleton);
-		} else {
-			skeleton = this.path[this.path.length - 1];
-		}
-
-		layer.className = 'satus-layer';
-
-		layer.skeleton = skeleton;
-		layer.base = this.base;
-
-		satus.render(skeleton, layer, skeleton.component === 'layers');
-
-		satus.empty(this);
-
-		this.appendChild(layer);
-
-		this.dispatchEvent(new Event('open'));
-	};
-
-	component.update = function () {
-		var layer = this.querySelector('.satus-layer');
-
-		satus.empty(layer);
-
-		satus.render(layer.skeleton, layer);
-	};
-
-	component.render_children = false;
-
-	component.addEventListener('render', function () {
-		this.open();
-	});
-
-	return component;
-};
-/*--------------------------------------------------------------
->>> DIVIDER
---------------------------------------------------------------*/
-
-satus.components.divider = function () {
-	var component = document.createElement('div');
-
-	return component;
-};
-/*--------------------------------------------------------------
->>> INPUT
---------------------------------------------------------------*/
-
-satus.components.input = function (skeleton) {
-	var component = document.createElement('input');
-
-	if (skeleton.attr) {
-		var key = skeleton.attr.name || skeleton.storage,
-			value;
-
-		if (satus.isset(satus.storage.get(key))) {
-			value = satus.storage.get(key);
-		} else {
-			value = skeleton.value;
-		}
-
-		if (skeleton.attr.type === 'radio') {
-			component.checked = value === skeleton.attr.value || skeleton.value;
-		} else if (satus.isset(value)) {
-			component.value = value;
-		}
-
-		component.addEventListener('change', function () {
-			var key = this.skeleton.attr.name || this.skeleton.storage;
-
-			satus.storage.set(key, this.value);
-		});
-	} else {
-		var key = skeleton.name || skeleton.storage,
-			value;
-
-		component.type = skeleton.type;
-
-		if (satus.isset(satus.storage.get(key))) {
-			value = satus.storage.get(key);
-		} else {
-			value = skeleton.value;
-		}
-
-		if (skeleton.type === 'radio') {
-			component.checked = value === skeleton.value || skeleton.value;
-		} else if (satus.isset(value)) {
-			component.value = value;
-		}
-
-		component.addEventListener('change', function () {
-			var key = this.skeleton.name || this.skeleton.storage;
-
-			satus.storage.set(key, this.value);
-		});
-	}
-
-	return component;
-};
-/*--------------------------------------------------------------
->>> SELECT
---------------------------------------------------------------*/
-
-satus.components.select = function (skeleton) {
-	var component = document.createElement('div'),
-		component_content = document.createElement('span'),
-		component_value = document.createElement('span'),
-		select = document.createElement('select');
-
-	component_content.className = 'satus-select__content';
-	component_value.className = 'satus-select__value';
-
-	for (var i = 0, l = skeleton.options.length; i < l; i++) {
-		var option = document.createElement('option');
-
-		option.value = skeleton.options[i].value;
-
-		satus.text(option, skeleton.options[i].text);
-
-		select.appendChild(option);
-	}
-
-	component.selectElement = select;
-	select.valueElement = component_value;
-
-	select.addEventListener('change', function () {
-		satus.empty(this.valueElement);
-
-		satus.text(this.valueElement, this.options[this.selectedIndex].text);
-
-		this.parentNode.storageValue = this.value;
-
-		this.parentNode.storageChange();
-	});
-
-	component.appendChild(component_content);
-	component.appendChild(component_value);
-	component.appendChild(select);
-
-	component.addEventListener('render', function () {
-		select.value = this.storageValue || this.skeleton.options[0].value;
-
-		satus.text(select.valueElement, select.options[select.selectedIndex].text);
-	});
-
-	component.inner = component_content;
-
-	return component;
-};
-/*--------------------------------------------------------------
 >>> COLOR:
 ----------------------------------------------------------------
 # RGB to HSL
@@ -2218,6 +904,134 @@ satus.color.hslToRgb = function (array) {
 
 	return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 };
+/*--------------------------------------------------------------
+>>> PLUVIAM
+--------------------------------------------------------------*/
+
+satus.events.add('render', function (component, skeleton) {
+	if (skeleton.pluviam === true) {
+		function createPluviam(event) {
+			var pluviam = document.createElement('span'),
+				rect = this.getBoundingClientRect(),
+				x = event.clientX - rect.left,
+				y = event.clientY - rect.top,
+				diameter = Math.sqrt(Math.pow(rect.width * 2, 2) + Math.pow(rect.height * 2, 2));
+
+			pluviam.className = 'satus-pluviam';
+
+			pluviam.style.left = x - diameter / 2 + 'px';
+			pluviam.style.top = y - diameter / 2 + 'px';
+			pluviam.style.width = diameter + 'px';
+			pluviam.style.height = diameter + 'px';
+
+			this.appendChild(pluviam);
+
+			setTimeout(function () {
+				pluviam.remove();
+			}, 1000);
+		}
+
+		component.addEventListener('mousedown', createPluviam);
+		component.addEventListener('mouseover', createPluviam);
+	}
+});
+/*--------------------------------------------------------------
+>>> EXTENSION STORAGE
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+>>> SORTABLE
+--------------------------------------------------------------*/
+
+satus.events.add('render', function (component, skeleton) {
+    if (skeleton.sortable === true) {
+        component.addEventListener('mousedown', function (event) {
+            if (event.button !== 0) {
+                return false;
+            }
+
+            var component = this,
+                rect = this.getBoundingClientRect(),
+                x = event.clientX,
+                y = event.clientY,
+                offset_x = event.clientX - rect.left,
+                offset_y = event.clientY - rect.top,
+                ghost = satus.clone(this),
+                children = this.parentNode.children,
+                appended = false;
+
+            ghost.classList.add('satus-sortable__ghost');
+
+            function mousemove(event) {
+                if (appended === false && (Math.abs(event.clientX - x) > 4 || Math.abs(event.clientY - y) > 4)) {
+                    appended = true;
+
+                    component.classList.add('satus-sortable__chosen');
+
+                    component.parentNode.appendChild(ghost);
+                }
+
+                ghost.style.transform = 'translate(' + (event.clientX - offset_x) + 'px, ' + (event.clientY - offset_y) + 'px)';
+            }
+
+            function mouseup(event) {
+                component.classList.remove('satus-sortable__chosen');
+                ghost.remove();
+
+                window.removeEventListener('mousemove', mousemove, true);
+                window.removeEventListener('mouseup', mouseup, true);
+
+                for (var i = 0, l = children.length; i < l; i++) {
+                    var child = children[i];
+
+                    if (child !== component) {
+                        child.removeEventListener('mouseover', siblingMouseOver);
+                    }
+                }
+
+                component.dispatchEvent(new CustomEvent('sort'));
+
+                event.stopPropagation();
+
+                return false;
+            }
+
+            window.addEventListener('mousemove', mousemove, {
+                passive: true,
+                capture: true
+            });
+
+            window.addEventListener('mouseup', mouseup, {
+                passive: true,
+                capture: true
+            });
+
+            function siblingMouseOver(event) {
+                var target = event.target,
+                    parent = target.parentNode,
+                    y = event.layerY / (target.offsetHeight / 100);
+
+                if (y < 50 && target.previousSibling !== component || y >= 50 && target.nextSibling === component) {
+                    parent.insertBefore(component, target);
+                } else {
+                    parent.insertBefore(component, target.nextSibling);
+                }
+            }
+
+            for (var i = 0, l = children.length; i < l; i++) {
+                var child = children[i];
+
+                if (child !== component) {
+                    child.addEventListener('mouseover', siblingMouseOver);
+                }
+            }
+
+            event.stopPropagation();
+            event.preventDefault();
+
+            return false;
+        });
+    }
+});
 /*--------------------------------------------------------------
 >>> USER
 --------------------------------------------------------------*/
@@ -2555,6 +1369,15 @@ satus.user = function () {
     return data;
 };
 /*--------------------------------------------------------------
+>>> UUID
+--------------------------------------------------------------*/
+
+satus.uuid = function () {
+	return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, function (match) {
+		return (match ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> match / 4).toString(16)
+	});
+};
+/*--------------------------------------------------------------
 >>> CONTEXT MENU
 --------------------------------------------------------------*/
 
@@ -2586,139 +1409,1316 @@ satus.events.add('render', function (component, skeleton) {
     }
 });
 /*--------------------------------------------------------------
->>> EXTENSION STORAGE
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
->>> UUID
+>>> BASE
 --------------------------------------------------------------*/
 
-satus.uuid = function () {
-	return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, function (match) {
-		return (match ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> match / 4).toString(16)
-	});
+satus.components.base = function (skeleton) {
+    var component = document.createElement('div');
+
+    component.base = component;
+
+    return component;
 };
 /*--------------------------------------------------------------
->>> PLUVIAM
+>>> RADIO
 --------------------------------------------------------------*/
 
-satus.events.add('render', function (component, skeleton) {
-	if (skeleton.pluviam === true) {
-		function createPluviam(event) {
-			var pluviam = document.createElement('span'),
-				rect = this.getBoundingClientRect(),
-				x = event.clientX - rect.left,
-				y = event.clientY - rect.top,
-				diameter = Math.sqrt(Math.pow(rect.width * 2, 2) + Math.pow(rect.height * 2, 2));
+satus.components.radio = function (skeleton) {
+	var component = document.createElement('label'),
+		content = document.createElement('span'),
+		radio = document.createElement('input');
 
-			pluviam.className = 'satus-pluviam';
+	component.inner = content;
 
-			pluviam.style.left = x - diameter / 2 + 'px';
-			pluviam.style.top = y - diameter / 2 + 'px';
-			pluviam.style.width = diameter + 'px';
-			pluviam.style.height = diameter + 'px';
+	radio.type = 'radio';
 
-			this.appendChild(pluviam);
+	if (skeleton.group) {
+		component.storage = skeleton.group;
+		radio.name = skeleton.group;
+	}
 
-			setTimeout(function () {
-				pluviam.remove();
-			}, 1000);
+	if (skeleton.value) {
+		radio.value = skeleton.value;
+	}
+
+	component.addEventListener('render', function () {
+		this.storageValue = satus.storage.get(this.storage);
+
+		if (satus.isset(this.storageValue)) {
+			radio.checked = this.storageValue === skeleton.value;
+		} else if (skeleton.checked) {
+			radio.checked = true;
+		}
+	});
+
+	radio.addEventListener('change', function () {
+		component.storageValue = this.value;
+		component.storageChange();
+	});
+
+	component.appendChild(content);
+	component.appendChild(radio);
+
+	return component;
+};
+/*--------------------------------------------------------------
+>>> CHECKBOX
+--------------------------------------------------------------*/
+
+satus.components.checkbox = function (skeleton) {
+	var component = document.createElement('button'),
+		content = document.createElement('span');
+
+	component.inner = content;
+
+	content.className = 'satus-checkbox__content';
+
+	component.appendChild(content);
+
+	component.addEventListener('click', function () {
+		if (this.dataset.value === 'true') {
+			this.storageValue = false;
+			this.dataset.value = 'false';
+		} else {
+			this.storageValue = true;
+			this.dataset.value = 'true';
 		}
 
-		component.addEventListener('mousedown', createPluviam);
-		component.addEventListener('mouseover', createPluviam);
-	}
-});
+		this.storageChange();
+	});
+
+	component.addEventListener('render', function () {
+		this.dataset.value = this.storageValue;
+	});
+
+	return component;
+};
 /*--------------------------------------------------------------
->>> SORTABLE
+>>> SELECT
 --------------------------------------------------------------*/
 
-satus.events.add('render', function (component, skeleton) {
-    if (skeleton.sortable === true) {
-        component.addEventListener('mousedown', function (event) {
-            if (event.button !== 0) {
-                return false;
+satus.components.select = function (skeleton) {
+	var component = document.createElement('div'),
+		component_content = document.createElement('span'),
+		component_value = document.createElement('span'),
+		select = document.createElement('select');
+
+	component_content.className = 'satus-select__content';
+	component_value.className = 'satus-select__value';
+
+	for (var i = 0, l = skeleton.options.length; i < l; i++) {
+		var option = document.createElement('option');
+
+		option.value = skeleton.options[i].value;
+
+		satus.text(option, skeleton.options[i].text);
+
+		select.appendChild(option);
+	}
+
+	component.selectElement = select;
+	select.valueElement = component_value;
+
+	select.addEventListener('change', function () {
+		satus.empty(this.valueElement);
+
+		satus.text(this.valueElement, this.options[this.selectedIndex].text);
+
+		this.parentNode.storageValue = this.value;
+
+		this.parentNode.storageChange();
+	});
+
+	component.appendChild(component_content);
+	component.appendChild(component_value);
+	component.appendChild(select);
+
+	component.addEventListener('render', function () {
+		select.value = this.storageValue || this.skeleton.options[0].value;
+
+		satus.text(select.valueElement, select.options[select.selectedIndex].text);
+	});
+
+	component.inner = component_content;
+
+	return component;
+};
+/*--------------------------------------------------------------
+>>> SHORTCUT
+--------------------------------------------------------------*/
+
+satus.components.shortcut = function (skeleton) {
+    var component = document.createElement('button'),
+        content = document.createElement('span'),
+        value = document.createElement('div');
+
+    component.inner = content;
+
+    component.className = 'satus-button';
+    value.className = 'satus-shortcut__value';
+
+    component.render = function (parent) {
+        var self = this,
+            parent = parent || self.primary,
+            children = parent.children;
+
+        satus.empty(parent);
+
+        function createElement(name) {
+            var element = document.createElement('div');
+
+            element.className = 'satus-shortcut__' + name;
+
+            parent.appendChild(element);
+
+            return element;
+        }
+
+        if (this.data.alt) {
+            createElement('key').textContent = 'Alt';
+        }
+
+        if (this.data.ctrl) {
+            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
+                createElement('plus');
             }
 
-            var component = this,
-                rect = this.getBoundingClientRect(),
-                x = event.clientX,
-                y = event.clientY,
-                offset_x = event.clientX - rect.left,
-                offset_y = event.clientY - rect.top,
-                ghost = satus.clone(this),
-                children = this.parentNode.children,
-                appended = false;
+            createElement('key').textContent = 'Ctrl';
+        }
 
-            ghost.classList.add('satus-sortable__ghost');
+        if (this.data.shift) {
+            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
+                createElement('plus');
+            }
 
-            function mousemove(event) {
-                if (appended === false && (Math.abs(event.clientX - x) > 4 || Math.abs(event.clientY - y) > 4)) {
-                    appended = true;
+            createElement('key').textContent = 'Shift';
+        }
 
-                    component.classList.add('satus-sortable__chosen');
+        for (var code in this.data.keys) {
+            var key = this.data.keys[code].key,
+                arrows = ['ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'],
+                index = arrows.indexOf(key);
 
-                    component.parentNode.appendChild(ghost);
+            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
+                createElement('plus');
+            }
+
+            if (index !== -1) {
+                createElement('key').textContent = ['↑', '→', '↓', '←'][index];
+            } else if (key === ' ') {
+                createElement('key').textContent = '␣';
+            } else if (key) {
+                createElement('key').textContent = key.toUpperCase();
+            }
+        }
+
+        if (this.data.wheel) {
+            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
+                createElement('plus');
+            }
+
+            var mouse = createElement('mouse'),
+                div = document.createElement('div');
+
+            mouse.appendChild(div);
+
+            mouse.className += ' ' + (this.data.wheel > 0);
+        }
+
+        if (this.data.click) {
+            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
+                createElement('plus');
+            }
+
+            var mouse = createElement('mouse'),
+                div = document.createElement('div');
+
+            mouse.appendChild(div);
+
+            mouse.className += ' click';
+        }
+
+        if (this.data.context) {
+            if (children.length && children[children.length - 1].className.indexOf('key') !== -1) {
+                createElement('plus');
+            }
+
+            var mouse = createElement('mouse'),
+                div = document.createElement('div');
+
+            mouse.appendChild(div);
+
+            mouse.className += ' context';
+        }
+    };
+
+    component.valueElement = value;
+
+    component.appendChild(content);
+    component.appendChild(value);
+
+    component.keydown = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        component.data = {
+            alt: event.altKey,
+            ctrl: event.ctrlKey,
+            shift: event.shiftKey,
+            keys: {}
+        };
+
+        if (['control', 'alt', 'altgraph', 'shift'].indexOf(event.key.toLowerCase()) === -1) {
+            component.data.keys[event.keyCode] = {
+                code: event.code,
+                key: event.key
+            };
+        }
+
+        component.data.wheel = 0;
+
+        component.render();
+
+        return false;
+    };
+
+    component.mousewheel = function (event) {
+        event.stopPropagation();
+
+        if (
+            (
+                component.data.wheel === 0 &&
+                (
+                    Object.keys(component.data.keys).length === 0 &&
+                    component.data.alt === false &&
+                    component.data.ctrl === false &&
+                    component.data.shift === false
+                )
+            ) ||
+            component.data.wheel < 0 && event.deltaY > 0 ||
+            component.data.wheel > 0 && event.deltaY < 0) {
+            component.data = {
+                alt: false,
+                ctrl: false,
+                shift: false,
+                keys: {}
+            };
+        }
+
+        component.data.wheel = event.deltaY < 0 ? -1 : 1;
+
+        component.render();
+
+        return false;
+    };
+
+    component.addEventListener('render', function () {
+        this.data = this.storageValue || {
+            alt: false,
+            ctrl: false,
+            shift: false,
+            keys: {},
+            wheel: 0
+        };
+
+        this.render(this.valueElement);
+    });
+
+    component.addEventListener('click', function () {
+        satus.render({
+            component: 'modal',
+            on: {
+                close: function () {
+                    window.removeEventListener('keydown', component.keydown);
+                    window.removeEventListener('wheel', component.mousewheel);
                 }
+            },
 
-                ghost.style.transform = 'translate(' + (event.clientX - offset_x) + 'px, ' + (event.clientY - offset_y) + 'px)';
-            }
+            primary: {
+                component: 'div',
+                class: 'satus-shortcut__primary',
+                on: {
+                    render: function () {
+                        component.primary = this;
 
-            function mouseup(event) {
-                component.classList.remove('satus-sortable__chosen');
-                ghost.remove();
+                        if (component.skeleton.mouseButtons === true) {
+                            this.addEventListener('click', function () {
+                                component.data.context = false;
+                                component.data.click = true;
 
-                window.removeEventListener('mousemove', mousemove, true);
-                window.removeEventListener('mouseup', mouseup, true);
+                                component.render();
+                            });
 
-                for (var i = 0, l = children.length; i < l; i++) {
-                    var child = children[i];
+                            this.addEventListener('contextmenu', function (event) {
+                                event.preventDefault();
+                                event.stopPropagation();
 
-                    if (child !== component) {
-                        child.removeEventListener('mouseover', siblingMouseOver);
+                                component.data.context = true;
+                                component.data.click = false;
+
+                                component.render();
+
+                                return false;
+                            });
+                        }
+
+                        component.render();
                     }
                 }
+            },
+            actions: {
+                component: 'section',
+                variant: 'actions',
 
-                component.dispatchEvent(new CustomEvent('sort'));
+                reset: {
+                    component: 'button',
+                    text: 'reset',
+                    on: {
+                        click: function () {
+                            component.data = component.skeleton.value || {};
 
-                event.stopPropagation();
+                            component.render(component.valueElement);
 
-                return false;
-            }
+                            satus.storage.set(skeleton.storage, false);
 
-            window.addEventListener('mousemove', mousemove, {
-                passive: true,
-                capture: true
-            });
+                            this.parentNode.parentNode.parentNode.close();
 
-            window.addEventListener('mouseup', mouseup, {
-                passive: true,
-                capture: true
-            });
+                            window.removeEventListener('keydown', component.keydown);
+                            window.removeEventListener('wheel', component.mousewheel);
+                        }
+                    }
+                },
+                cancel: {
+                    component: 'button',
+                    text: 'cancel',
+                    on: {
+                        click: function () {
+                            component.data = satus.storage.get(component.storage) || component.skeleton.value || {};
 
-            function siblingMouseOver(event) {
-                var target = event.target,
-                    parent = target.parentNode,
-                    y = event.layerY / (target.offsetHeight / 100);
+                            component.render(component.valueElement);
 
-                if (y < 50 && target.previousSibling !== component || y >= 50 && target.nextSibling === component) {
-                    parent.insertBefore(component, target);
-                } else {
-                    parent.insertBefore(component, target.nextSibling);
+                            this.parentNode.parentNode.parentNode.close();
+
+                            window.removeEventListener('keydown', component.keydown);
+                            window.removeEventListener('wheel', component.mousewheel);
+                        }
+                    }
+                },
+                save: {
+                    component: 'button',
+                    text: 'save',
+                    on: {
+                        click: function () {
+                            component.storageValue = component.data;
+
+                            component.storageChange();
+
+                            component.render(component.valueElement);
+
+                            this.parentNode.parentNode.parentNode.close();
+
+                            window.removeEventListener('keydown', component.keydown);
+                            window.removeEventListener('wheel', component.mousewheel);
+                        }
+                    }
                 }
             }
-
-            for (var i = 0, l = children.length; i < l; i++) {
-                var child = children[i];
-
-                if (child !== component) {
-                    child.addEventListener('mouseover', siblingMouseOver);
-                }
-            }
-
-            event.stopPropagation();
-            event.preventDefault();
-
-            return false;
         });
-    }
-});
+
+        window.addEventListener('keydown', this.keydown);
+        window.addEventListener('wheel', this.mousewheel);
+    });
+
+    return component;
+};
+/*--------------------------------------------------------------
+>>> SWITCH
+--------------------------------------------------------------*/
+
+satus.components.switch = function (skeleton) {
+	var component = document.createElement('button'),
+		component_content = document.createElement('span'),
+		component_thumb = document.createElement('i');
+
+	component.inner = component_content;
+
+	component_content.className = 'satus-switch__content';
+
+	component.addEventListener('click', function () {
+		if (this.dataset.value === 'true') {
+			this.storageValue = false;
+			this.dataset.value = 'false';
+		} else {
+			this.storageValue = true;
+			this.dataset.value = 'true';
+		}
+
+		this.storageChange();
+	});
+
+	component.addEventListener('render', function () {
+		this.dataset.value = this.storageValue;
+	});
+
+	component.appendChild(component_content);
+	component.appendChild(component_thumb);
+
+	return component;
+};
+/*--------------------------------------------------------------
+>>> LAYERS
+--------------------------------------------------------------*/
+
+satus.components.layers = function (skeleton) {
+	var component = document.createElement('div');
+
+	component.path = [skeleton];
+
+	component.back = function () {
+		if (this.path.length > 1) {
+			this.path.pop();
+
+			this.open();
+		}
+	};
+
+	component.open = function (skeleton) {
+		var layer = document.createElement('div');
+
+		if (skeleton) {
+			this.path.push(skeleton);
+		} else {
+			skeleton = this.path[this.path.length - 1];
+		}
+
+		layer.className = 'satus-layer';
+
+		layer.skeleton = skeleton;
+		layer.base = this.base;
+
+		satus.render(skeleton, layer, skeleton.component === 'layers');
+
+		satus.empty(this);
+
+		this.appendChild(layer);
+
+		this.dispatchEvent(new Event('open'));
+	};
+
+	component.update = function () {
+		var layer = this.querySelector('.satus-layer');
+
+		satus.empty(layer);
+
+		satus.render(layer.skeleton, layer);
+	};
+
+	component.render_children = false;
+
+	component.addEventListener('render', function () {
+		this.open();
+	});
+
+	return component;
+};
+/*--------------------------------------------------------------
+>>> INPUT
+--------------------------------------------------------------*/
+
+satus.components.input = function (skeleton) {
+	var component = document.createElement('input');
+
+	if (skeleton.attr) {
+		var key = skeleton.attr.name || skeleton.storage,
+			value;
+
+		if (satus.isset(satus.storage.get(key))) {
+			value = satus.storage.get(key);
+		} else {
+			value = skeleton.value;
+		}
+
+		if (skeleton.attr.type === 'radio') {
+			component.checked = value === skeleton.attr.value || skeleton.value;
+		} else if (satus.isset(value)) {
+			component.value = value;
+		}
+
+		component.addEventListener('change', function () {
+			var key = this.skeleton.attr.name || this.skeleton.storage;
+
+			satus.storage.set(key, this.value);
+		});
+	} else {
+		var key = skeleton.name || skeleton.storage,
+			value;
+
+		component.type = skeleton.type;
+
+		if (satus.isset(satus.storage.get(key))) {
+			value = satus.storage.get(key);
+		} else {
+			value = skeleton.value;
+		}
+
+		if (skeleton.type === 'radio') {
+			component.checked = value === skeleton.value || skeleton.value;
+		} else if (satus.isset(value)) {
+			component.value = value;
+		}
+
+		component.addEventListener('change', function () {
+			var key = this.skeleton.name || this.skeleton.storage;
+
+			satus.storage.set(key, this.value);
+		});
+	}
+
+	return component;
+};
+/*--------------------------------------------------------------
+>>> MENUBAR
+--------------------------------------------------------------*/
+
+satus.components.menubar = function (skeleton) {
+	function createList(items) {
+		var ul = document.createElement('ul');
+
+		for (var key in items) {
+			var item = items[key],
+				li = document.createElement('li');
+
+			satus.render(item, li);
+
+			if (item.items) {
+				li.appendChild(createList(item.items));
+			}
+
+			ul.appendChild(li);
+		}
+
+		return ul;
+	}
+
+	return createList(skeleton.items);
+};
+/*--------------------------------------------------------------
+>>> TEXTAREA
+--------------------------------------------------------------*/
+
+satus.components.textarea = function (skeleton) {
+	var component = document.createElement('div'),
+		line_number = document.createElement('div'),
+		textarea = document.createElement('textarea');
+
+	line_number.className = 'satus-textarea__line-number';
+
+	component.line_number = line_number;
+	component.textarea = textarea;
+
+	line_number.update = function (count) {
+		if (count !== this.children.length) {
+			satus.empty(this);
+
+			for (var i = 1; i <= count; i++) {
+				var span = document.createElement('span');
+
+				span.textContent = i;
+
+				this.appendChild(span);
+			}
+		}
+	};
+
+	textarea.addEventListener('input', function () {
+		this.parentNode.line_number.update(this.value.split('\n').length);
+	});
+
+	textarea.addEventListener('selectionchange', function () {
+		this.parentNode.line_number.update(this.value.split('\n').length);
+	});
+
+	textarea.addEventListener('scroll', function () {
+		this.parentNode.line_number.style.transform = 'translateY(-' + this.scrollTop + 'px)';
+
+		this.parentNode.line_number.update(this.value.split('\n').length);
+	});
+
+	component.appendChild(line_number);
+	component.appendChild(textarea);
+
+	line_number.update(1);
+
+	return component;
+};
+/*--------------------------------------------------------------
+>>> DIVIDER
+--------------------------------------------------------------*/
+
+satus.components.divider = function () {
+	var component = document.createElement('div');
+
+	return component;
+};
+/*--------------------------------------------------------------
+>>> TEXT FIELD
+--------------------------------------------------------------*/
+
+satus.components.textField = function (skeleton) {
+	var component = document.createElement('div'),
+		pre = document.createElement('pre'),
+		input = document.createElement('textarea'),
+		hidden_text = document.createElement('span'),
+		text = document.createElement('span'),
+		selection = document.createElement('div'),
+		cursor = document.createElement('div');
+
+	input.className = 'satus-text-field__input';
+	pre.className = 'satus-text-field__pre';
+	hidden_text.className = 'satus-text-field__hidden-text';
+	text.className = 'satus-text-field__text';
+	selection.className = 'satus-text-field__selection';
+	cursor.className = 'satus-text-field__cursor';
+
+	component.inputElement = input;
+	component.textElement = text;
+	component.languages = {
+		regex: function (component) {
+		    var regex_token = /\[\^?]?(?:[^\\\]]+|\\[\S\s]?)*]?|\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9][0-9]*|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)|\((?:\?[:=!]?)?|(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??|[^.?*+^${[()|\\]+|./g,
+		        char_class_token = /[^\\-]+|-|\\(?:[0-3][0-7]{0,2}|[4-7][0-7]?|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)/g,
+		        char_class_parts = /^(\[\^?)(]?(?:[^\\\]]+|\\[\S\s]?)*)(]?)$/,
+		        quantifier = /^(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??$/,
+		        matches = component.inputElement.value.match(regex_token);
+
+		    function create(type, string) {
+		        var span = document.createElement('span');
+
+		        span.className = type;
+		        span.textContent = string;
+
+		        component.textElement.appendChild(span);
+		    }
+
+		    for (var i = 0, l = matches.length; i < l; i++) {
+		        var match = matches[i];
+
+		        if (match[0] === '[') {
+		            create('character-class', match);
+		        } else if (match[0] === '(') {
+		            create('group', match);
+		        } else if (match[0] === ')') {
+		            create('group', match);
+		        } else if (match[0] === '\\' || match === '^') {
+		            create('anchor', match);
+		        } else if (quantifier.test(match)) {
+		            create('quantifier', match);
+		        } else if (match === '|' || match === '.') {
+		            create('metasequence', match);
+		        } else {
+		            create('text', match);
+		        }
+		    }
+		}
+	};
+	component._syntax = skeleton.syntax;
+
+	Object.defineProperty(component, 'value', {
+		get: function () {
+			return this.inputElement.value;
+		},
+		set: function (value) {
+			var input = this.inputElement;
+
+			input.value = value;
+
+			input.updateValue();
+			input.updateCursor();
+		}
+	});
+
+	Object.defineProperty(component, 'syntax', {
+		get: function () {
+			return this._syntax;
+		},
+		set: function (value) {
+			var input = this.inputElement;
+
+			this._syntax = value;
+
+			input.updateValue();
+			input.updateCursor();
+		}
+	});
+
+	input.rows = skeleton.rows || 1;
+	input.autocapitalize = 'none';
+	input.autocomplete = 'off';
+	input.autocorrect = 'off';
+	input.spellcheck = false;
+	input.autofocus = true;
+	input.textElement = text;
+	input.hiddenTextElement = hidden_text;
+	input.selectionElement = selection;
+	input.cursorElement = cursor;
+
+	input.updateValue = function () {
+		var component = this.parentNode.parentNode;
+
+		for (var i = this.textElement.childNodes.length - 1; i > -1; i--) {
+	        this.textElement.childNodes[i].remove();
+	    }
+
+	    if (this.value.length > 0) {
+	    	if (component.languages[component._syntax]) {
+		    	component.languages[component._syntax](component);
+		    } else {
+		    	this.textElement.textContent = this.value;
+		    }
+	    }
+	};
+
+	input.updateCursor = function () {
+		var cursor = this.cursorElement,
+			selection = this.selectionElement,
+			hidden_text = this.hiddenTextElement,
+			start = this.selectionStart,
+			end = this.selectionEnd;
+
+		cursor.style.animation = 'none';
+
+		if (start === end) {
+			selection.setAttribute('disabled', '');
+		} else {
+			selection.removeAttribute('disabled');
+
+			hidden_text.textContent = this.value.substring(0, start);
+
+			selection.style.left = hidden_text.offsetWidth - this.scrollLeft + 'px';
+
+			hidden_text.textContent = this.value.substring(start, end);
+
+			selection.style.width = hidden_text.offsetWidth + 'px';
+		}
+
+		if (this.selectionDirection === 'forward') {
+			hidden_text.textContent = this.value.substring(0, end);
+		} else {
+			hidden_text.textContent = this.value.substring(0, start);
+		}
+
+		cursor.style.left = hidden_text.offsetWidth - this.scrollLeft + 'px';
+
+		cursor.style.animation = '';
+
+		hidden_text.textContent = '';
+	};
+
+	input.addEventListener('keydown', function () {
+		var self = this;
+
+		setTimeout(function () {
+			var component = self.parentNode.parentNode;
+
+		    component.storageValue = self.value;
+		    component.storageChange();
+
+			self.updateValue();
+			self.updateCursor();
+		});
+	});
+
+	input.addEventListener('scroll', function (event) {
+		this.textElement.style.left = -this.scrollLeft + 'px';
+	});
+
+	document.addEventListener('selectionchange', function () {
+		input.updateCursor();
+	});
+
+	selection.setAttribute('disabled', '');
+
+	pre.appendChild(input);
+	pre.appendChild(hidden_text);
+	pre.appendChild(text);
+	pre.appendChild(selection);
+	pre.appendChild(cursor);
+	component.appendChild(pre);
+
+	component.addEventListener('render', function () {
+		input.value = this.storageValue;
+
+		this.inputElement.updateValue();
+		this.inputElement.updateCursor();
+	});
+
+	return component;
+};
+/*--------------------------------------------------------------
+>>> TABS
+--------------------------------------------------------------*/
+
+satus.components.tabs = function (skeleton) {
+	var component = document.createElement('div'),
+		content = document.createElement('div'),
+		selection = document.createElement('div');
+
+	content.className = 'satus-tabs__content';
+	selection.className = 'satus-tabs__selection';
+	selection.style.width = 100 / skeleton.items.length + '%';
+
+	content.appendChild(selection);
+
+	component.selection = selection;
+
+	for (var i = 0, l = skeleton.items.length; i < l; i++) {
+		var item = skeleton.items[i],
+			button = document.createElement('button');
+
+		button.className = 'satus-tabs__button';
+		button.value = item;
+		button.style.width = 100 / l + '%';
+
+		satus.text(button, item);
+
+		button.addEventListener('click', function () {
+			var component = this.parentNode.parentNode;
+
+			component.selection.style.left = 100 / (this.parentNode.children.length - 1) * (satus.indexOf(this) - 1) + '%';
+
+			component.storageValue = this.value;
+			component.storageChange();
+		});
+
+		if (skeleton.value === item) {
+			selection.style.left = i * 50 + '%';
+		}
+
+		content.appendChild(button);
+	}
+	
+	component.appendChild(content);
+
+	component.addEventListener('render', function () {
+		var index = satus.indexOf(this.storageValue, this.skeleton.items);
+
+		if (index === -1) {
+			index = 0;
+		}
+
+		this.selection.style.left = 100 / this.skeleton.items.length * index + '%';
+	});
+
+	return component;
+};
+/*--------------------------------------------------------------
+>>> ALERT
+--------------------------------------------------------------*/
+
+satus.components.alert = function (skeleton) {
+	var component = document.createElement('div');
+
+	return component;
+};
+/*--------------------------------------------------------------
+>>> SLIDER
+--------------------------------------------------------------*/
+
+satus.components.slider = function (skeleton) {
+	var component = document.createElement('div'),
+		content = document.createElement('div'),
+		container = document.createElement('div'),
+		track = document.createElement('div'),
+		track_fill = document.createElement('div');
+
+	container.className = 'satus-slider__container';
+	track.className = 'satus-slider__track';
+	track_fill.className = 'satus-slider__track-fill';
+
+	component.min = skeleton.min || 0;
+	component.max = skeleton.max || 1;
+	component.step = (skeleton.step || 1);
+	component.percent = 100 / ((component.max - component.min) / component.step);
+	component.precision = String(component.step).replace(/[0-9]./, '').length;
+
+	component.container = container;
+	component.track = track_fill;
+	component.handles = [];
+	component.inner = content;
+
+	component.toPercent = function (number) {
+		return number / this.step * this.percent + '%';
+	};
+
+	component.createHandle = function (index) {
+		var handle = document.createElement('div');
+
+		handle.className = 'satus-slider__handle';
+		handle.handleIndex = index;
+		handle.tabIndex = 0;
+
+		this.handles.push(handle);
+
+		this.container.appendChild(handle);
+	};
+
+	component.update = function () {
+		if (this.values.length > 1) {
+			var min = Math.min.apply(null, this.values) - this.min,
+				max = Math.max.apply(null, this.values) - this.min;
+
+			this.track.style.left = this.toPercent(min);
+			this.track.style.width = this.toPercent(max - min);
+
+			for (var i = 0, l = this.handles.length; i < l; i++) {
+				var handle = this.handles[i],
+					value = this.values[i];
+
+				handle.style.left = this.toPercent(value - this.min);
+				handle.dataset.value = value;
+			}
+		} else {
+			var value = this.values[0];
+
+			this.track.style.width = this.toPercent(value - this.min);
+			this.handles[0].style.left = this.toPercent(value - this.min);
+			this.handles[0].dataset.value = value;
+		}
+	};
+
+	component.appendChild(content);
+	track.appendChild(track_fill);
+	container.appendChild(track);
+	component.appendChild(container);
+
+	component.addEventListener('keydown', function (event) {
+		var code = event.keyCode;
+
+		console.log(code);
+	});
+
+	component.addEventListener('render', function () {
+		var value = this.storageValue;
+
+		if (satus.isArray(value)) {
+			this.values = value;
+		} else if (satus.isNumber(value)) {
+			this.values = [value];
+		} else {
+			this.values = this.skeleton.values || [satus.isset(this.skeleton.value) ? this.skeleton.value : 1];
+		}
+
+		for (var i = 0, l = this.values.length; i < l; i++) {
+			this.createHandle(i);
+		}
+
+		this.update();
+	});
+
+	container.addEventListener('mousedown', function (event) {
+		if (event.button === 0) {
+			var component = this.parentNode,
+				rect = this.getBoundingClientRect(),
+				cursor_x = event.clientX - rect.left,
+				percent = cursor_x / rect.width * 100,
+				steps = percent / component.percent * component.step + component.min,
+				closest_value = component.values.indexOf(component.values.reduce(function(previous, current, index) {
+					return Math.abs(current - steps) < Math.abs(previous - steps) ? current : previous;
+				})),
+				handle_index = component.handles[closest_value].handleIndex;
+
+			setTimeout(function () {
+				component.handles[closest_value].focus();
+			});
+
+			function update(event) {
+				var cursor_x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width),
+					percent = cursor_x / rect.width * 100,
+					value = percent / component.percent * component.step + component.min;
+
+				value = (Math.round(value / component.step) * component.step);
+
+				value = Number(value.toFixed(component.precision));
+
+				if (component.values[handle_index] !== value) {
+					component.values[handle_index] = value;
+
+					component.storageValue = component.values.length === 1 ? component.values[0] : component.values;
+					component.value = component.storageValue;
+
+					component.storageChange();
+				}
+
+				component.update();
+			}
+
+			function mousemove(event) {
+				update(event);
+			}
+
+			function mouseup(event) {
+				window.removeEventListener('mousemove', mousemove);
+				window.removeEventListener('mouseup', mouseup);
+			};
+
+			window.addEventListener('mousemove', mousemove);
+			window.addEventListener('mouseup', mouseup);
+
+			update(event);
+
+			return true;
+		}
+	});
+
+	return component;
+};
+/*--------------------------------------------------------------
+>>> COLOR PICKER
+--------------------------------------------------------------*/
+
+satus.components.colorPicker = function (skeleton) {
+    var component = document.createElement('button'),
+        component_label = document.createElement('span'),
+        component_value = document.createElement('span');
+
+    component.inner = component_label;
+    component.valueElement = component_value;
+
+    component.className = 'satus-button';
+    component_value.className = 'satus-color-picker__value';
+
+    component.appendChild(component_label);
+    component.appendChild(component_value);
+
+    component.addEventListener('click', function () {
+        var rgb = this.rgb,
+            hsl = satus.color.rgbToHsl(rgb),
+            s = hsl[1] / 100,
+            l = hsl[2] / 100;
+
+        s *= l < .5 ? l : 1 - l;
+
+        var v = l + s;
+
+        s = 2 * s / (l + s);
+
+        satus.render({
+            component: 'modal',
+            variant: 'color-picker',
+            value: hsl,
+            parent: this,
+
+            palette: {
+                component: 'div',
+                class: 'satus-color-picker__palette',
+                style: {
+                    'backgroundColor': 'hsl(' + hsl[0] + 'deg, 100%, 50%)'
+                },
+                on: {
+                    mousedown: function () {
+                        var palette = this,
+                            rect = this.getBoundingClientRect(),
+                            cursor = this.children[0];
+
+                        function mousemove(event) {
+                            var hsl = palette.skeleton.parent.value,
+                                x = event.clientX - rect.left,
+                                y = event.clientY - rect.top,
+                                s;
+
+                            x = Math.min(Math.max(x, 0), rect.width) / (rect.width / 100);
+                            y = Math.min(Math.max(y, 0), rect.height) / (rect.height / 100);
+
+                            var v = 100 - y,
+                                l = (2 - x / 100) * v / 2;
+
+                            hsl[1] = x * v / (l < 50 ? l * 2 : 200 - l * 2);
+                            hsl[2] = l;
+
+                            cursor.style.left = x + '%';
+                            cursor.style.top = y + '%';
+
+                            palette.nextSibling.children[0].style.backgroundColor = 'hsl(' + hsl[0] + 'deg,' + hsl[1] + '%, ' + hsl[2] + '%)';
+
+                            event.preventDefault();
+                        }
+
+                        function mouseup() {
+                            window.removeEventListener('mousemove', mousemove);
+                            window.removeEventListener('mouseup', mouseup);
+                        }
+
+                        window.addEventListener('mousemove', mousemove);
+                        window.addEventListener('mouseup', mouseup);
+                    }
+                },
+
+                cursor: {
+                    component: 'div',
+                    class: 'satus-color-picker__cursor',
+                    style: {
+                        'left': s * 100 + '%',
+                        'top': 100 - v * 100 + '%'
+                    }
+                }
+            },
+            section: {
+                component: 'section',
+                variant: 'color',
+
+                color: {
+                    component: 'div',
+                    class: 'satus-color-picker__color',
+                    style: {
+                        'backgroundColor': 'rgb(' + this.rgb.join(',') + ')'
+                    }
+                },
+                hue: {
+                    component: 'slider',
+                    class: 'satus-color-picker__hue',
+                    storage: false,
+                    value: hsl[0],
+                    max: 360,
+                    on: {
+                        change: function () {
+                            var modal = this.skeleton.parent.parent,
+                                hsl = modal.value;
+
+                            hsl[0] = this.values[0];
+
+                            this.previousSibling.style.backgroundColor = 'hsl(' + hsl[0] + 'deg,' + hsl[1] + '%, ' + hsl[2] + '%)';
+                            this.parentNode.previousSibling.style.backgroundColor = 'hsl(' + hsl[0] + 'deg, 100%, 50%)';
+                        }
+                    }
+                }
+            },
+            actions: {
+                component: 'section',
+                variant: 'actions',
+
+                reset: {
+                    component: 'button',
+                    text: 'reset',
+                    on: {
+                        click: function () {
+                            var modal = this.skeleton.parent.parent,
+                                component = modal.parent;
+
+                            component.rgb = component.skeleton.value;
+
+                            component.storageValue = component.rgb;
+                            component.storageChange();
+
+                            component.valueElement.style.backgroundColor = 'rgb(' + component.rgb.join(',') + ')';
+
+                            modal.rendered.close();
+                        }
+                    }
+                },
+                cancel: {
+                    component: 'button',
+                    text: 'cancel',
+                    on: {
+                        click: function () {
+                            this.skeleton.parent.parent.rendered.close();
+                        }
+                    }
+                },
+                ok: {
+                    component: 'button',
+                    text: 'OK',
+                    on: {
+                        click: function () {
+                            var modal = this.skeleton.parent.parent,
+                                component = modal.parent;
+
+                            component.rgb = satus.color.hslToRgb(modal.value);
+
+                            component.storageValue = component.rgb;
+                            component.storageChange();
+
+                            component.valueElement.style.backgroundColor = 'rgb(' + component.rgb.join(',') + ')';
+
+                            modal.rendered.close();
+                        }
+                    }
+                }
+            }
+        });
+    });
+
+    component.addEventListener('render', function () {
+        component.rgb = this.storageValue || [0, 100, 50];
+
+        component_value.style.backgroundColor = 'rgb(' + component.rgb.join(',') + ')';
+    });
+
+    return component;
+};
+/*--------------------------------------------------------------
+>>> LIST
+--------------------------------------------------------------*/
+
+satus.components.list = function (skeleton) {
+	var ul = document.createElement('ul');
+
+	for (var i = 0, l = skeleton.items.length; i < l; i++) {
+		var li = document.createElement('li'),
+			item = skeleton.items[i];
+
+		li.className = 'satus-list__item';
+
+		for (var j = 0, k = item.length; j < k; j++) {
+			var child = item[j];
+
+			if (typeof child === 'string') {
+				var span = document.createElement('span');
+
+				span.textContent = satus.locale.get(child);
+
+				li.appendChild(span);
+			} else {
+				satus.render(child, li);
+			}
+		}
+
+		ul.appendChild(li);
+	}
+
+	return ul;
+};
+/*--------------------------------------------------------------
+>>> MODAL
+--------------------------------------------------------------*/
+
+satus.components.modal = function (skeleton) {
+	var component = document.createElement('div'),
+		scrim = document.createElement('div'),
+		surface = document.createElement('div');
+
+	component.inner = surface;
+
+	scrim.className = 'satus-modal__scrim';
+	surface.className = 'satus-modal__surface';
+
+	component.close = function () {
+		var component = this,
+			component_surface = this.children[1];
+
+		this.classList.add('satus-modal--closing');
+
+		setTimeout(function () {
+			component.remove();
+
+			component.dispatchEvent(new CustomEvent('close'));
+		}, satus.getAnimationDuration(component_surface));
+	};
+
+	scrim.addEventListener('click', function () {
+		this.parentNode.close();
+	});
+
+	component.appendChild(scrim);
+	component.appendChild(surface);
+
+	return component;
+};

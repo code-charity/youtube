@@ -130,7 +130,7 @@ var ImprovedTube = {
     video_src: false,
     initialVideoUpdateDone: false,
     latestVideoDuration: 0,
-    video_url: false,
+    video_url: '',
     focus: false,
     played_before_blur: false,
     played_time: 0,
@@ -476,6 +476,7 @@ ImprovedTube.playerOnPlay = function () {
 
 ImprovedTube.initPlayer = function () {
     if (ImprovedTube.elements.player && ImprovedTube.video_url !== location.href) {
+
         ImprovedTube.video_url = location.href;
         ImprovedTube.played_before_blur = false;
 
@@ -1736,6 +1737,8 @@ ImprovedTube.autoplay = function (video) {
     if (ImprovedTube.video_url !== location.href) {
         ImprovedTube.allow_autoplay = false;
     }
+
+    console.log(ImprovedTube.video_url !== location.href);
 
     if (
         (
@@ -4160,6 +4163,15 @@ ImprovedTube.init = function () {
 ImprovedTube.init();
 
 document.addEventListener('yt-player-updated', function () {
+    ImprovedTube.pageType();
+
+    if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
+        ImprovedTube.videoPageUpdate();
+        ImprovedTube.initPlayer();
+    }
+});
+
+document.addEventListener('yt-navigate-finish', function () {
     ImprovedTube.pageType();
 
     if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
