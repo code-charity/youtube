@@ -53,7 +53,8 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nb_NO/messages.json">🟡Norsk Bokmål</a></code>:<code><a href="https://github.com/comradekingu">comradekingu</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pl/messages.json">🟢Polski</a></code>:<code><a href="https://github.com/FluidExtractor">FluidExtractor</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json">🟡Português</a></code>:<code><a href="https://github.com/DrNopt">DrNopt</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json">🟡Português (Brasil)</a></code>:<code><a href="https://github.com/dthiago">dthiago</a></code>,<code><a href="https://github.com/Mike-Correa">Mike-Correa</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json">🟢Português (Brasil)</a></code>:<code><a href="https://github.com/dthiago">dthiago</a></code>,<code><a href="https://github.com/Mike-Correa">Mike-Correa</a></code><br>
+<code><a href="https://github.com/DavidBrazSan">DavidBrazSa</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ro/messages.json">🟡Română</a></code>:<code><a href="https://github.com/hateofhades">hateofhades</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json">🟡Slovenčina</a></code>:<code><a href="https://github.com/bbc-s">bbc-s</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json">🟡Türkçe</a></code>:<code><a href="https://github.com/onurdumangoz">onurdumangoz</a></code>,<code><a href="https://github.com/daswareinfach">daswareinfach</a></code><br>
