@@ -95,14 +95,16 @@ Start Page <a href="https://github.com/victor-savinov/start-page"><img src="http
 ##  🌾 Our Work <img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="118px"> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
 ### 💡 Ideas   
 Got great ideas? ideas@improvedtube.com
-### 👨🏽‍💻 👩🏿‍💻 👩‍💻 Expertise / Advice <img width="320" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png"> 
-<img align="right" width="527" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png">
+### 👩‍💻 Expertise / Advice <img width="280" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png"> 
+<img align="center" width="527" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png">
 
 Do you need to run an extension, site, app or repo with many users and a great feedback score?  
-We like to help good meaningful causes. projects@improvedtube.com  
+We like to help good meaningful causes. projects@improvedtube.com
+<br>
 <br>
 <hr> 
 <hr> 
+<br>
 <b>Old/verbose Introduction:</b>
 
 ###  [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
@@ -159,4 +161,3 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 |[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="28px" />](https://brave.com)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="28px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://www.microsoft.com/edge)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](https://addons.opera.com/en/extensions/details/install-chrome-extensions/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://www.apple.com/safari/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
-
