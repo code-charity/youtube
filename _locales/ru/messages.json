@@ -622,6 +622,7 @@
     },
     "onSubscribedChannels": {
         "message": "Только на каналах изз подписок"
+    },
     "onlyActiveOnYoutube": {
         "message": "Активен только в YouTube"
     },
@@ -725,7 +726,7 @@
         "message": "Похожие видео"
     },
     "remote": {
-        "message: "Удаленное воспроизведение"
+        "message": "Удаленное воспроизведение"
     },
     "removeRelatedSearchResults": {
         "message": "Удалить похожие результаты поиска"

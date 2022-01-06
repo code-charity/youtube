@@ -2762,37 +2762,38 @@ html[it-mini-player-cursor='nw-resize']::after {
 
 .it-player-button {
     position: relative !important;
-    min-width: 40px !important;
     display: flex !important;
+    min-width: 40px !important;
+    padding: 0 !important;
     justify-content: center !important;
     align-items: center !important;
 }
 
-.it-player-button > svg {
-    fill: #fff !important;
+.it-player-button>svg {
     width: 56% !important;
     height: auto !important;
+    fill: #fff !important;
 }
 
 .it-player-button--tooltip {
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 15px;
-    position: fixed;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    line-height: 15px !important;
+    position: fixed !important;
     padding: 5px 9px;
-    transform: translate(-50%, -100%);
-    pointer-events: none;
-    color: #eee;
-    border-radius: 2px;
-    background-color: rgba(28, 28, 28, .9);
-    text-shadow: 0 0 2px rgb(0, 0, 0, .5);
+    transform: translate(-50%, -150%) !important;
+    pointer-events: none !important;
+    color: #eee !important;
+    border-radius: 2px !important;
+    background-color: rgba(28, 28, 28, .9) !important;
+    text-shadow: 0 0 2px rgb(0, 0, 0, .5) !important;
 }
 
 body.no-scroll .it-player-button--tooltip {
-    font-size: 20px;
-    line-height: 22px;
-    padding: 8px 9px;
-    transform: translate(-50%, -75%);
+    font-size: 20px !important;
+    line-height: 22px !important;
+    padding: 8px 9px !important;
+    transform: translate(-50%, -75%) !important;
 }
 
 
