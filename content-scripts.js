@@ -40,7 +40,7 @@ function attributes(items) {
 }
 
 function sendMessage(object, callback, name) {
-    document.documentElement.setAttribute('it-message', JSON.stringify(object));
+    document.documentElement.setAttribute('it-message', JSON.stringify(object) + ' ');
 
     if (typeof callback === 'function') {
         new MutationObserver(function (mutationList) {
@@ -190,18 +190,20 @@ chrome.storage.local.get('youtube_home_page', function (items) {
     }
 });
 
-chrome.storage.local.get(function (items) {
-    storage = items;
+document.addEventListener('it-init', function () {
+    chrome.storage.local.get(function (items) {
+        storage = Object.assign({}, items);
 
-    sendMessage({
-        storage: items
+        sendMessage({
+            storage
+        });
+
+        attributes(storage);
+
+        if (window.matchMedia) {
+            document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
     });
-
-    attributes(items);
-
-    if (window.matchMedia) {
-        document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
 });
 
 new MutationObserver(function (mutationList) {
