@@ -653,6 +653,9 @@
     "platform": {
         "message": "Πλατφόρμα"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "Play / Pause"
     },

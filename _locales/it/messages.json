@@ -653,6 +653,9 @@
     "platform": {
         "message": "Piattaforma"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "Avvio/Pausa"
     },

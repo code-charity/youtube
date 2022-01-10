@@ -653,6 +653,9 @@
     "platform": {
         "message": "Platform"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "Mulai / Jeda"
     },

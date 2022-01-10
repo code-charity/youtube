@@ -653,6 +653,9 @@
     "platform": {
         "message": "플랫폼"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "재생 / 일시정지"
     },
