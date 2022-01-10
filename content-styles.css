@@ -66,7 +66,8 @@
 5.0 Playlist
   5.1 Reverse
 6.0 Channel
-  6.1 Featured content
+  6.1 "Play all" button
+  6.2 Featured content
 7.0 Shortcuts
 8.0 Settings
   8.1 ImprovedTube icon on YouTube
@@ -2843,7 +2844,34 @@ html[it-player-remote-button=true] .ytp-remote-button
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-6.1 FEATURED CONTENT
+6.1 PLAY ALL BUTTON
+------------------------------------------------------------------------------*/
+
+.it-play-all-button {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+    height: 36px !important;
+    padding: 6px 36px !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+    color: var(--yt-button-color, var(--yt-spec-text-secondary)) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+}
+
+.it-play-all-button svg {
+    width: 24px !important;
+    height: 24px !important;
+    margin: 0 8px 0 0 !important;
+    fill: currentColor !important;
+}
+
+
+/*------------------------------------------------------------------------------
+6.2 FEATURED CONTENT
 ------------------------------------------------------------------------------*/
 
 html[it-channel-hide-featured-content=true] #secondary #contents.style-scope.ytd-browse-secondary-contents-renderer,

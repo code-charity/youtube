@@ -659,6 +659,9 @@
     "platform": {
         "message": "المنصة"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "تشغيل / ايقاف"
     },

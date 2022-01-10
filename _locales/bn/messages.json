@@ -653,6 +653,9 @@
     "platform": {
         "message": "প্ল্যাটফর্ম"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "খেলার / বিরতি"
     },

@@ -659,6 +659,9 @@
     "platform": {
         "message": "Plataforma"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "Reproduzir / Pausar"
     },
@@ -874,7 +877,7 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "Todos os Cookies Serão Removidos."
-      },
+    },
     "thisWillRemoveAllWatchedVideos": {
         "message": "Isto irá Remover Todos Assistiram a Vídeos."
     },

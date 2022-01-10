@@ -656,6 +656,9 @@
     "platform": {
         "message": "Platforme"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "Lire / Pause"
     },

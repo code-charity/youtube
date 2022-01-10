@@ -653,6 +653,9 @@
     "platform": {
         "message": "Platforma"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "Prehrať / Pozastavť"
     },
