@@ -653,6 +653,9 @@
     "platform": {
         "message": "プラットフォーム"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "再生/一時停止"
     },

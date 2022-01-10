@@ -659,6 +659,9 @@
     "platform": {
         "message": "Платформа"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "Играть / Пауза"
     },

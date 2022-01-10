@@ -659,6 +659,9 @@
     "platform": {
         "message": "平台"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "播放/暂停"
     },

@@ -659,6 +659,9 @@
     "platform": {
         "message": "Platformă"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "Redă / Pauză"
     },

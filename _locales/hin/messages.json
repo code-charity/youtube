@@ -653,6 +653,9 @@
     "platform": {
         "message": "मंच"
     },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
     "playPause": {
         "message": "प्ले / ठहराव"
     },

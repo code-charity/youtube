@@ -4873,6 +4873,10 @@ var skeleton = {
                             text: 'trailerAutoplay',
                             value: true
                         },
+                        channel_play_all_button: {
+                            component: 'switch',
+                            text: 'playAllButton'
+                        },
                         channel_hide_featured_content: {
                             component: 'switch',
                             text: 'hideFeaturedContent'
