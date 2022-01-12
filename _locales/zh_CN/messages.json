@@ -66,10 +66,10 @@
         "message": "外观"
     },
     "areYouSureYouWantToExportTheData": {
-        "message": "Are you sure you want to export the data?"
+        "message": "你确定想要导出数据吗?"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Are you sure you want to import the data?"
+        "message": "你确定想要导入数据吗?"
     },
     "audio": {
         "message": "音频"
@@ -90,10 +90,10 @@
         "message": "自动播放"
     },
     "backgroundColor": {
-        "message": "Background color"
+        "message": "背景颜色"
     },
     "backgroundOpacity": {
-        "message": "Background opacity"
+        "message": "背景透明度"
     },
     "backupAndReset": {
         "message": "备份与恢复"
@@ -156,7 +156,7 @@
         "message": "频道"
     },
     "characterEdgeStyle": {
-        "message": "Character edge style"
+        "message": "文字阴影风格"
     },
     "clipboard": {
         "message": "粘贴板"
@@ -315,16 +315,16 @@
         "message": "字体"
     },
     "fontColor": {
-        "message": "Font color"
+        "message": "字体颜色"
     },
     "fontFamily": {
-        "message": "Font family"
+        "message": "字体"
     },
     "fontOpacity": {
-        "message": "Font opacity"
+        "message": "字体透明度"
     },
     "fontSize": {
-        "message": "Font size"
+        "message": "字体大小"
     },
     "footer": {
         "message": "底部栏"
@@ -510,7 +510,7 @@
         "message": "项目"
     },
     "language": {
-        "message": "Language"
+        "message": "语言"
     },
     "languages": {
         "message": "语言"
@@ -852,7 +852,7 @@
         "message": "订阅内容"
     },
     "subtitles": {
-        "message": "副标题"
+        "message": "字幕"
     },
     "sunset": {
         "message": "晚霞"
@@ -981,10 +981,10 @@
         "message": "白色"
     },
     "windowColor": {
-        "message": "Window color"
+        "message": "窗口颜色"
     },
     "windowOpacity": {
-        "message": "Window opacity"
+        "message": "窗口透明度"
     },
     "yellow": {
         "message": "黄色"
