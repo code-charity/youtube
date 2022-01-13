@@ -92,7 +92,7 @@ Start Page <a href="https://github.com/victor-savinov/start-page"><img src="http
   
 **Development:**  [**Satus** (=Our UI library)](https://github.com/victor-savinov/satus), [_T E_](https://github.com/victor-savinov/theme-engine),  [_P_](https://github.com/victor-savinov/pluviam), _[Code Editor](https://github.com/victor-savinov/code-editor), [Viscum Player](https://github.com/victor-savinov/viscum-player)_,   <br>_**Open-Source & Git:** [Pull Requests bots](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot) [Regex Collector](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns),_
 
-##  🌾 Our Work <img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="118px"> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
+##  🌾 Our Work <a href="https://starchart.cc/ImprovedTube/YouTube.svg"><img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="118px"></a> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
 ### 💡 Ideas   
 Got great ideas? ideas@improvedtube.com
 ### 👩‍💻 Expertise / Advice <img width="280" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png"> 
