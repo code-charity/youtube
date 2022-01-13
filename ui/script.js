@@ -5651,6 +5651,17 @@ var skeleton = {
                     component: 'span',
                     text: 'analyzer'
                 }
+            },
+
+            email: {
+                component: 'a',
+                variant: 'email',
+                text: 'bugs@improvedtube.com',
+                on: {
+                    click: function () {
+                        window.open('mailto:bugs@improvedtube.com', '_blank');
+                    }
+                }
             }
         }
     }

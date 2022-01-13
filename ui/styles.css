@@ -112,6 +112,21 @@ body {
     margin: 0;
 }
 
+.satus-a--email {
+    position: fixed;
+    bottom: 8px;
+    left: 8px;
+    width: calc(100% - 16px);
+    text-align: center;
+    padding: 8px;
+    background: var(--satus-primary);
+    color: rgba(255,255,255,.85);
+    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: .125px;
+    cursor: pointer;
+}
+
 
 /*--------------------------------------------------------------
 # HEADER

@@ -383,7 +383,9 @@ satus.locale.import = function (code, path, callback) {
 
         callback();
     }, function (success) {
-        satus.fetch(chrome.runtime.getURL(path + 'en/messages.json'), success);
+        satus.fetch(chrome.runtime.getURL(path + 'en/messages.json'), success, function () {
+            success();
+        });
     });
 };
 
