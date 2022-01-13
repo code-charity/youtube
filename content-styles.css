@@ -1166,24 +1166,7 @@ html[it-hide-more-button=true] #info #top-level-buttons-computed+yt-icon-button 
 ------------------------------------------------------------------------------*/
 
 html[it-description=hidden] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
-html[it-description=hidden] div#action-panel-details,
-html[it-description=expanded] #meta-contents ytd-expander[collapsed] paper-button,
-html[it-description=expanded] #action-panel-details button {
-    display: none !important;
-}
-
-html[it-description=expanded] #meta-contents ytd-expander[collapsed]>#content.ytd-expander,
-html[it-description=expanded] #watch-description-text {
-    max-height: unset !important;
-}
-
-html[it-description=expanded] .yt-uix-expander .yt-uix-expander-collapsed-body,
-html[it-description=expanded] .yt-uix-expander-collapsed .yt-uix-expander-body {
-    display: block !important;
-}
-
-html[it-description=expanded] ytd-video-secondary-info-renderer #less,
-html[it-description=expanded] ytd-video-secondary-info-renderer #more {
+html[it-description=hidden] div#action-panel-details {
     display: none !important;
 }
 

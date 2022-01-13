@@ -25,6 +25,7 @@
       4.2.3 Details
         4.2.3.1 How long ago the video was uploaded
         4.2.3.2 Show channel videos count
+        4.2.3.3 Description
       4.2.5 Comments
     4.3.0 Themes
       4.3.1 My colors
@@ -276,10 +277,12 @@ ImprovedTube.ytElementsHandler = function (node) {
         this.elements.livechat.button = node.querySelector('ytd-toggle-button-renderer');
 
         this.livechat();
-    } else if (id === 'related' && node.className.indexOf('ytd-watch-flexy') !== -1) {
-        this.elements.related.container = node;
+    } else if (id === 'related') {
+        if (node.className.indexOf('ytd-watch-flexy') !== -1) {
+            this.elements.related.container = node;
 
-        this.relatedVideos();
+            this.relatedVideos();
+        }
     } else if (name === 'YTD-COMMENTS-HEADER-RENDERER') {
         this.elements.comments.container = node;
 
@@ -397,6 +400,12 @@ ImprovedTube.ytElementsHandler = function (node) {
             childList: false,
             subtree: false
         });
+    } else if (name === 'TP-YT-PAPER-BUTTON') {
+        if (id === 'more' && node.parentNode.parentNode.id === 'container') {
+            this.elements.moreButton = node;
+
+            this.description();
+        }
     }
 };
 
@@ -1403,6 +1412,18 @@ ImprovedTube.channelVideosCount = function () {
         xhr.send();
     }
 };
+
+
+/*------------------------------------------------------------------------------
+4.2.3.3 DESCRIPTION
+------------------------------------------------------------------------------*/
+
+ImprovedTube.description = function () {
+    if (this.storage.description === 'expanded') {
+        this.elements.moreButton.click();
+    }
+};
+
 
 
 /*------------------------------------------------------------------------------
