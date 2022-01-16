@@ -4110,7 +4110,7 @@ ImprovedTube.deleteYoutubeCookies = function () {
 4.10.4 YOUTUBE LANGUAGE
 -----------------------------------------------------------------------------*/
 
-ImprovedTube.youtubeLanguage = function (reload) {
+ImprovedTube.youtubeLanguage = function () {
     var value = this.storage.youtube_language;
 
     if (this.isset(value)) {
@@ -4124,14 +4124,6 @@ ImprovedTube.youtubeLanguage = function (reload) {
             } else {
                 this.setCookie('PREF', pref + '&hl=' + value);
             }
-        } else if (reload !== false) {
-            this.setCookie('PREF', pref.replace(/hl\=[^&]+/, ''));
-        }
-
-        if (reload !== false) {
-            setTimeout(function () {
-                location.reload();
-            }, 100);
         }
     }
 };
@@ -4141,20 +4133,12 @@ ImprovedTube.youtubeLanguage = function (reload) {
 4.10.5 DEFAULT CONTENT COUNTRY
 -----------------------------------------------------------------------------*/
 
-ImprovedTube.defaultContentCountry = function (reload) {
+ImprovedTube.defaultContentCountry = function () {
     var value = this.storage.default_content_country;
 
     if (this.isset(value)) {
         if (value !== 'default') {
             this.setCookie('s_gl', value);
-        } else if (reload !== false) {
-            document.cookie = 's_gl=; domain=.youtube.com; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-        }
-
-        if (reload !== false) {
-            setTimeout(function () {
-                location.reload();
-            }, 100);
         }
     }
 };
@@ -4223,8 +4207,8 @@ ImprovedTube.init = function () {
     this.playerOnPlay();
     this.onkeydown();
     this.onmousedown();
-    this.defaultContentCountry(false);
-    this.youtubeLanguage(false);
+    this.defaultContentCountry();
+    this.youtubeLanguage();
 
     if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
         ImprovedTube.videoPageUpdate();
