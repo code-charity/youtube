@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "Crop chapter titles"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "Custom CSS"
     },
@@ -556,6 +559,9 @@
     },
     "location": {
         "message": "Location"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "Loudness normalization"

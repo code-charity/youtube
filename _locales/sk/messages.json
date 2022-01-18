@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "Crop chapter titles"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "Vlastné CSS"
     },
@@ -553,6 +556,9 @@
     },
     "location": {
         "message": "Location"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "Vyrovnanie hlasitosti"

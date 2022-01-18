@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "Обрезать заголовки глав"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "Пользовательский CSS"
     },
@@ -559,6 +562,9 @@
     },
     "location": {
         "message": "Местонахождение"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "Нормализировать громкость"

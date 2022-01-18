@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "チャプターのタイトルをトリミングする"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "カスタム CSS"
     },
@@ -553,6 +556,9 @@
     },
     "location": {
         "message": "地域"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "音量のノーマリゼーション"

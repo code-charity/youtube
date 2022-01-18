@@ -701,7 +701,7 @@ body[data-theme=black] {
     box-sizing: border-box;
     width: 100%;
     margin: 0;
-    padding: 0 8px;
+    padding: 6px 8px;
     color: var(--satus-text-field--text, inherit);
     border: none;
     outline: none;
@@ -822,9 +822,7 @@ body[data-theme=black] {
 }
 
 .satus-textarea__line-number {
-    width: 32px;
-    padding: 0 16px 0 0;
-    word-break: break-all;
+    padding: 0 16px 0 8px;
     opacity: .5;
 }
 
@@ -1516,6 +1514,10 @@ body[data-theme=black] {
     letter-spacing: .5px;
     color: var(--satus-primary);
     border-radius: 4px;
+}
+
+.satus-modal__surface .satus-section--actions .satus-button:hover {
+    background: rgba(var(--satus-contrast), .075);
 }
 
 .satus-modal--closing .satus-modal__scrim {

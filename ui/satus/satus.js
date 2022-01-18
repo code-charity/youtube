@@ -941,6 +941,428 @@ satus.events.add('render', function (component, skeleton) {
 >>> EXTENSION STORAGE
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
+>>> INDEXEDDB:
+----------------------------------------------------------------
+# Global variable
+# Methods
+	# Open
+	# Get
+	# Get by key
+	# Set
+	# Clear
+	# Delete
+	# Search
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# GLOBAL VARIABLE
+--------------------------------------------------------------*/
+
+satus.indexeddb = {
+	request: null
+};
+
+
+/*--------------------------------------------------------------
+# METHODS
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# OPEN
+----------------------------------------------------------------
+satus.indexeddb.open('rootCellar', {
+	fruits: {
+		indexes: [
+			'id',
+			'name',
+			'amount',
+			...
+		],
+		keyOptions: {
+			keyPath: 'id',
+			autoIncrement: true
+		}
+	},
+	...
+}, function () { ... });
+--------------------------------------------------------------*/
+
+satus.indexeddb.open = function (name, objects, callback) {
+	var request = indexedDB.open(name);
+
+	request.onerror = function (event) {
+		callback();
+	};
+
+	request.onblocked = function(event) {
+		satus.indexeddb.open(callback);
+	};
+
+	request.onsuccess = function (event) {
+		satus.indexeddb.request = this.result;
+
+		callback();
+	};
+
+	request.onupgradeneeded = function (event) {
+		satus.indexeddb.request = this.result;
+
+		for (var key in objects) {
+			var object = objects[key];
+
+			if (!this.result.objectStoreNames.contains(key)) {
+				var object_store = this.result.createObjectStore(key, object.keyOptions);
+
+				for (var i = 0, l = object.indexes.length; i < l; i++) {
+					var name = object.indexes[i];
+
+					object_store.createIndex(name, name);
+				}
+			}
+		}
+
+		this.result.onversionchange = function (event) {
+			satus.indexeddb.close();
+
+			satus.indexeddb.open(callback);
+		};
+	};
+};
+
+
+/*--------------------------------------------------------------
+# GET
+----------------------------------------------------------------
+satus.indexeddb.get({
+	fruits: {
+		direction: 'next',
+		index: 'name',
+		offset: 0,
+		limit: 100
+	},
+	...
+}, function (result) { ... });
+--------------------------------------------------------------*/
+
+satus.indexeddb.get = function (items, callback) {
+	var queue = [],
+		results = {};
+
+	for (var key in items) {
+		var item = items[key];
+
+		queue.push({
+			name: key,
+			direction: item.direction,
+			index: item.index,
+			offset: item.offset
+		});
+	}
+
+	function handle() {
+		var item = queue[0],
+			transaction = satus.indexeddb.request.transaction(item.name, 'readonly'),
+			object_store = transaction.objectStore(item.name),
+			object_result = [],
+			offset = item.offset || 0,
+			limit = item.limit || 100;
+
+		if (item.index) {
+			object_store = object_store.index(item.index);
+		}
+
+		results[item.name] = object_result;
+
+		object_store.openCursor(null, item.direction).onsuccess = function(event) {
+			var cursor = event.target.result;
+
+			if (cursor) {
+				if (item.offset > 0) {
+					cursor.advance(item.offset);
+
+					item.offset = 0;
+				} else if (object_result.length < limit) {
+					object_result.push(cursor.value);
+
+					cursor.continue();
+				}
+			} else {
+				object_store.count().onsuccess = function(event) {
+					object_result.fullLength = event.target.result;
+
+					queue.shift();
+
+					if (queue.length === 0) {
+						callback(results);
+					} else {
+						handle();
+					}
+				};
+			}
+		};
+	}
+
+	handle();
+};
+
+
+/*--------------------------------------------------------------
+# GET BY KEY
+----------------------------------------------------------------
+satus.indexeddb.getByKey({
+	fruits: [1],
+	...
+}, function (result) { ... });
+--------------------------------------------------------------*/
+
+satus.indexeddb.getByKey = function (items, callback) {
+	var queue = [],
+		results = {};
+
+	for (var name in items) {
+		queue.push({
+			name: name,
+			keys: items[name]
+		});
+	}
+
+	function handle() {
+		var item = queue[0],
+			transaction = satus.indexeddb.request.transaction(item.name, 'readonly'),
+			object_store = transaction.objectStore(item.name),
+			object_result = [];
+
+		results[item.name] = object_result;
+
+		for (var i = 0, l = item.keys.length; i < l; i++) {
+			var key = item.keys[i];
+
+			object_store.get(key).onsuccess = function(event) {
+				var result = event.target.result;
+
+				if (result) {
+					object_result.push(result);
+				}
+
+				object_store.count().onsuccess = function(event) {
+					object_result.fullLength = event.target.result;
+
+					queue.shift();
+
+					if (queue.length === 0) {
+						callback(results);
+					} else {
+						handle();
+					}
+				};
+			};
+		}
+	}
+
+	handle();
+};
+
+
+/*--------------------------------------------------------------
+# SET
+----------------------------------------------------------------
+satus.indexeddb.set({
+	fruits: [
+		{ name: 'apple', amount: 500 },
+		...
+	],
+	...
+}, function () { ... });
+--------------------------------------------------------------*/
+
+satus.indexeddb.set = function (items, callback) {
+	var threads = 0;
+
+	for (var name in items) {
+		var item = items[name],
+			transaction = this.request.transaction(name, 'readwrite'),
+			object_store = transaction.objectStore(name);
+
+		for (var i = 0, l = item.length; i < l; i++) {
+			var request = object_store.put(item[i]);
+
+			threads++;
+
+			request.onsuccess = function () {
+				threads--;
+
+				if (callback && threads === 0) {
+					callback();
+				}
+			};
+
+			request.onerror = function () {
+				threads--;
+
+				if (callback && threads === 0) {
+					callback();
+				}
+			};
+		}
+	}
+};
+
+
+/*--------------------------------------------------------------
+# CLEAR
+----------------------------------------------------------------
+satus.indexeddb.clear(['fruits'], function (result) { ... });
+--------------------------------------------------------------*/
+
+satus.indexeddb.clear = function (items) {
+	if (typeof items === 'string') {
+		items = [items];
+	}
+
+	for (var i = 0, l = items.length; i < l; i++) {
+		var name = items[i],
+			transaction = satus.indexeddb.request.transaction(name, 'readwrite'),
+			object_store = transaction.objectStore(name);
+
+		object_store.clear();
+	}
+};
+
+
+/*--------------------------------------------------------------
+# DELETE
+----------------------------------------------------------------
+satus.indexeddb.delete({
+	fruits: {
+		name: [
+			'apple'
+		]
+	}
+});
+--------------------------------------------------------------*/
+
+satus.indexeddb.delete = function (stores, callback) {
+	var queue = [];
+
+	for (var name in stores) {
+		var store = stores[name];
+
+		for (var index in store) {
+			queue.push({
+				object_store_name: name,
+				index_name: index,
+				keys: store[index]
+			});
+		}
+	}
+
+	function handle() {
+		var item = queue[0],
+			transaction = satus.indexeddb.request.transaction(item.object_store_name, 'readwrite'),
+			object_store = transaction.objectStore(item.object_store_name),
+			object_result = [];
+
+		if (item.index_name) {
+			object_store = object_store.index(item.index_name);
+		}
+
+		object_store.openCursor(null, item.direction).onsuccess = function(event) {
+			var cursor = event.target.result;
+
+			if (cursor) {
+				cursor.delete();
+			}
+
+			queue.shift();
+
+			if (queue.length === 0) {
+				callback();
+			} else {
+				handle();
+			}
+		};
+	}
+
+	handle();
+};
+
+
+/*--------------------------------------------------------------
+# SEARCH
+----------------------------------------------------------------
+satus.indexeddb.search({
+	fruits: {
+		query: 'apple', // or function () { ... }
+		direction: 'next',
+		index: 'name',
+		offset: 0,
+		limit: 0
+	},
+	...
+}, function () { ... });
+--------------------------------------------------------------*/
+
+satus.indexeddb.search = function (items, callback) {
+	var queue = [],
+		results = {};
+
+	for (var key in items) {
+		var item = items[key];
+
+		queue.push({
+			name: key,
+			direction: item.direction,
+			index: item.index,
+			offset: item.offset
+		});
+	}
+
+	function handle() {
+		var item = queue[0],
+			transaction = satus.indexeddb.request.transaction(item.name, 'readonly'),
+			object_store = transaction.objectStore(item.name),
+			object_result = [],
+			offset = item.offset || 0,
+			limit = item.limit || 100;
+
+		if (item.index) {
+			object_store = object_store.index(item.index);
+		}
+
+		results[item.name] = object_result;
+
+		object_store.openCursor(null, item.direction).onsuccess = function(event) {
+			var cursor = event.target.result;
+
+			if (cursor) {
+				if (item.offset > 0) {
+					cursor.advance(item.offset);
+
+					item.offset = 0;
+				} else if (limit && object_result.length < limit) {
+					object_result.push(cursor.value);
+
+					cursor.continue();
+				}
+			} else {
+				object_store.count().onsuccess = function(event) {
+					object_result.fullLength = event.target.result;
+
+					queue.shift();
+
+					if (queue.length === 0) {
+						callback(results);
+					} else {
+						handle();
+					}
+				};
+			}
+		};
+	}
+
+	handle();
+};
+/*--------------------------------------------------------------
 >>> SORTABLE
 --------------------------------------------------------------*/
 
@@ -1391,7 +1813,7 @@ satus.events.add('render', function (component, skeleton) {
     			modal = satus.render({
     				component: 'modal',
     				variant: 'contextmenu',
-    				parent: skeleton
+    				parent: this.skeleton
     			});
 
     		if (window.innerWidth - x < 200) {
@@ -1401,7 +1823,7 @@ satus.events.add('render', function (component, skeleton) {
     		modal.inner.style.left = x + 'px';
     		modal.inner.style.top = y + 'px';
 
-    		satus.render(skeleton.contextMenu, modal.inner);
+    		satus.render(this.skeleton.contextMenu, modal.inner);
 
     		event.preventDefault();
     		event.stopPropagation();
@@ -1518,6 +1940,17 @@ satus.components.select = function (skeleton) {
 		select.appendChild(option);
 	}
 
+	Object.defineProperty(component, 'value', {
+		get() {
+			return this.selectElement.value;
+		},
+		set(value) {
+			this.selectElement.value = value;
+			
+			this.dataset.value = value;
+		}
+	});
+
 	component.selectElement = select;
 	select.valueElement = component_value;
 
@@ -1529,6 +1962,8 @@ satus.components.select = function (skeleton) {
 		this.parentNode.storageValue = this.value;
 
 		this.parentNode.storageChange();
+
+		this.parentNode.dataset.value = this.value;
 	});
 
 	component.appendChild(component_content);
@@ -1536,7 +1971,7 @@ satus.components.select = function (skeleton) {
 	component.appendChild(select);
 
 	component.addEventListener('render', function () {
-		select.value = this.storageValue || this.skeleton.options[0].value;
+		this.value = this.storageValue || this.skeleton.options[0].value;
 
 		satus.text(select.valueElement, select.options[select.selectedIndex].text);
 	});
@@ -2018,7 +2453,20 @@ satus.components.textarea = function (skeleton) {
 	component.line_number = line_number;
 	component.textarea = textarea;
 
-	line_number.update = function (count) {
+	Object.defineProperty(component, 'value', {
+		get() {
+			return this.textarea.value;
+		},
+		set(value) {
+			this.textarea.value = value;
+
+			this.line_number.update();
+		}
+	});
+
+	line_number.update = function () {
+		var count = this.parentNode.textarea.value.split('\n').length;
+
 		if (count !== this.children.length) {
 			satus.empty(this);
 
@@ -2033,17 +2481,17 @@ satus.components.textarea = function (skeleton) {
 	};
 
 	textarea.addEventListener('input', function () {
-		this.parentNode.line_number.update(this.value.split('\n').length);
+		this.parentNode.line_number.update();
 	});
 
 	textarea.addEventListener('selectionchange', function () {
-		this.parentNode.line_number.update(this.value.split('\n').length);
+		this.parentNode.line_number.update();
 	});
 
 	textarea.addEventListener('scroll', function () {
 		this.parentNode.line_number.style.transform = 'translateY(-' + this.scrollTop + 'px)';
 
-		this.parentNode.line_number.update(this.value.split('\n').length);
+		this.parentNode.line_number.update();
 	});
 
 	component.appendChild(line_number);

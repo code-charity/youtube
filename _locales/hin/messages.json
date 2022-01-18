@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "फसल अध्याय के शीर्षक"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "कस्टम सीएसएस"
     },
@@ -553,6 +556,9 @@
     },
     "location": {
         "message": "स्थान"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "जोर से सामान्य होना"

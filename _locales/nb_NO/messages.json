@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "Beskjær kapitteltitler"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "Tilpasset CSS"
     },
@@ -556,6 +559,9 @@
     },
     "location": {
         "message": "Location"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "Lydstyrkenormalisering"
