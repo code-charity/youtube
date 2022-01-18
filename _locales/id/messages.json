@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "Potong bagian judul "
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "Kostum CSS"
     },
@@ -553,6 +556,9 @@
     },
     "location": {
         "message": "Location"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "Normalkan suara"

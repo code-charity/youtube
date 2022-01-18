@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "Bölüm başlıklarını kırp"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "Özel CSS"
     },
@@ -553,6 +556,9 @@
     },
     "location": {
         "message": "Konum"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "Gürültü normalleştirme"

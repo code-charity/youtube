@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "اقتطاع عناوين الفصول"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "مخصص CSS"
     },
@@ -559,6 +562,9 @@
     },
     "location": {
         "message": "Location"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "تطبيع الإزعاج"

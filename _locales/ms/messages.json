@@ -1,4 +1,10 @@
 {
+    "custom": {
+        "message": "Custom"
+    },
+    "loop": {
+        "message": "Loop"
+    },
     "playAllButton": {
         "message": "\"Play all\" button"
     }

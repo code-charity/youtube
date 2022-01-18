@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "제목 자르기"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "사용자 지정 캐스캐이팅 스타일 시트(CSS)"
     },
@@ -553,6 +556,9 @@
     },
     "location": {
         "message": "지역"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "볼륨 자동조정"

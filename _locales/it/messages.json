@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "Ritaglia titoli dei capitoli"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "CSS personalizzato"
     },
@@ -553,6 +556,9 @@
     },
     "location": {
         "message": "Luogo"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "Normalizzazione rumorosità"
