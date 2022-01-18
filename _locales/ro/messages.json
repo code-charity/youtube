@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "Taie titlurile capitolelor"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "CSS Personalizat"
     },
@@ -556,6 +559,9 @@
     },
     "location": {
         "message": "Location"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "Normalizează zgomotul"

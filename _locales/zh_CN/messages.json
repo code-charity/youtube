@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "裁剪章节标题"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "自定义CSS"
     },
@@ -556,6 +559,9 @@
     },
     "location": {
         "message": "地点"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "音量标准化"

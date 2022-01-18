@@ -567,6 +567,26 @@ body[data-it_analyzer='false'] .satus-button--analyzer {
     background-color: var(--satus-modal-background);
 }
 
+.satus-section--custom-player-size {
+    flex-wrap: nowrap;
+    align-items: center;
+    display: none;
+}
+
+.satus-select--player-size[data-value='custom'] + .satus-section--custom-player-size {
+    display: flex;
+}
+
+.satus-section--custom-player-size > input {
+    width: auto;
+    text-align: center;
+}
+
+.satus-section--custom-player-size > span {
+    content: 'x';
+    margin: 0 8px;
+}
+
 
 /*--------------------------------------------------------------
 # THEMES

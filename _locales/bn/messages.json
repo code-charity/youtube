@@ -185,6 +185,9 @@
     "cropChapterTitles": {
         "message": "অধ্যায়ের শিরোনাম হ্রাস করুন"
     },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "কাস্টম CSS"
     },
@@ -553,6 +556,9 @@
     },
     "location": {
         "message": "অবস্থান"
+    },
+    "loop": {
+        "message": "Loop"
     },
     "loudnessNormalization": {
         "message": "আওয়াজের স্বাভাবিককরণ"
