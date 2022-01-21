@@ -26,17 +26,16 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 **👪 Join us?** ImprovedTube is the only project of it's kind. Over the years we saw other open & free YouTube Extensions start well but resign later. Please spread the word 📣
 ## 🧩 ToDo
 - [ ] **1. Documentation wiki, screenshots, videos** <code><i>(We need to help the people learn easier about our [80+ features](https://github.com/ImprovedTube/ImprovedTube/wiki/Features). Drafts welcome. No documentation exists. (/🛈tooltips. let alone marketing. ImprovedTube can fly higher through your word of mouth🌱 and enable us to work on all wishes.</i></code>
-   - [ ] **Updating Translations**  <code> translations miss some additions.</code>
+   - [ ] **Updating translations**  <code> some language files miss additions.</code>
    - [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
 - [ ] [**Plans🧩**](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen+label%3A🧩Plan++-label%3A%22not+Goo.+Chrome%22+)<code> _specification added. Often unique/special(/complex)_ </code>,
-- [ ] [**Plans||**](https://github.com/code4charity/YouTube-Extension/discussions?discussions_q=category%3AToDo+category%3A%22Wishes+%26+Ideas%22+) ;; [ ] [**Organization**:octocat:](https://github.com/code4charity/YouTube-Extension/discussions/categories/organization) <code>_future & structure_</code>  
+  - [ ] [**Plans||**](https://github.com/code4charity/YouTube-Extension/discussions?discussions_q=category%3AToDo+category%3A%22Wishes+%26+Ideas%22+) ; [ ] [**Organization**:octocat:](https://github.com/code4charity/YouTube-Extension/discussions/categories/organization) <code>_future & structure_</code>  
 
-
-> - [***Contributing without programming***](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)  
-> - [***How to start editing our CSS, JavaScript, json***](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> *(For code literates)* (*Newcomers are [w](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)elcome. We review all edits & love to collaborate)*  </code>
 - [ ] [**All Feature Requests🌟🧚**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)  <code> _sometimes easy CSS_</code>    &nbsp;&nbsp;[_Rest of 'issues'_](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3Atweak)
 - [ ] [**Bugs🐞 / YouTube Updates**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+) <code>*we aim to offer some bounties. Please ask*.</code> 
+> - [***Contributing without programming***](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)  
+> - [***How to start editing our CSS, JavaScript, json***](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> *(For code literates)* (*Newcomers are [w](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)elcome. We review all edits & love to collaborate)*  </code>
 
 
 <table align="right"><th><h3 align="center"> 🌎 Translators 💕</h3></th>
