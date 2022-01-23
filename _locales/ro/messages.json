@@ -57,7 +57,7 @@
         "message": "Arată mereu bara de progres"
     },
     "amber": {
-        "message": "Amber"
+        "message": "Chihlimbar"
     },
     "analyzer": {
         "message": "Analizator"
@@ -66,10 +66,10 @@
         "message": "Aparențe"
     },
     "areYouSureYouWantToExportTheData": {
-        "message": "Are you sure you want to export the data?"
+        "message": "Sigur doriți să exportați datele?"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Are you sure you want to import the data?"
+        "message": "Sigur doriți să importați datele?"
     },
     "audio": {
         "message": "Audio"
@@ -81,7 +81,7 @@
         "message": "Auto"
     },
     "autoFullscreen": {
-        "message": "Auto-fullscreen"
+        "message": "ecran complet automat"
     },
     "autopauseWhenSwitchingTabs": {
         "message": "Pauzează automat la schimbarea tab-ului"
@@ -90,10 +90,10 @@
         "message": "Pornește automat"
     },
     "backgroundColor": {
-        "message": "Background color"
+        "message": "Culoare de fundal"
     },
     "backgroundOpacity": {
-        "message": "Background opacity"
+        "message": "Opacitatea fundalului"
     },
     "backupAndReset": {
         "message": "Salvează & resetează"
@@ -114,7 +114,7 @@
         "message": "Blochează tot"
     },
     "blockMusic": {
-        "message": "Block music"
+        "message": "Interzice muzica"
     },
     "blue": {
         "message": "Albastru"
@@ -186,7 +186,7 @@
         "message": "Taie titlurile capitolelor"
     },
     "custom": {
-        "message": "Custom"
+        "message": "Personalizat"
     },
     "customCss": {
         "message": "CSS Personalizat"
@@ -423,10 +423,10 @@
         "message": "Hide \"More\" button"
     },
     "hidePlayerControlsBar": {
-        "message": "Hide player controls bar"
+        "message": "Ascundeți bara de control al jucătorului"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
+        "message": "Ascunde butoanele din bara de control al jucătorului"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
