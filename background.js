@@ -16,11 +16,12 @@
 # GOOGLE ANALYTICS
 --------------------------------------------------------------*/
 
+var _gaq = [];
+
 function googleAnalytics(previous_time) {
     var version = chrome.runtime.getManifest().version,
         script = document.createElement('script'),
-        current_time = new Date().getTime(),
-        _gaq = [];
+        current_time = new Date().getTime();
 
     _gaq.push(['_setAccount', 'UA-88354155-1']);
     _gaq.push(['_setSessionCookieTimeout', 14400000]);
@@ -96,7 +97,9 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
         action: 'focus'
     });
 
-    chrome.tabs.query({ windowId: activeInfo.windowId }, function (tabs) {
+    chrome.tabs.query({
+        windowId: activeInfo.windowId
+    }, function (tabs) {
         if (tabs) {
             for (var i = 0, l = tabs.length; i < l; i++) {
                 if (tabs[i].id !== activeInfo.tabId) {
@@ -113,7 +116,9 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
     chrome.windows.getAll(function (windows) {
         for (var i = 0, l = windows.length; i < l; i++) {
             if (windows[i].focused === true) {
-                chrome.tabs.query({ windowId: windows[i].id }, function (tabs) {
+                chrome.tabs.query({
+                    windowId: windows[i].id
+                }, function (tabs) {
                     if (tabs) {
                         for (var j = 0, k = tabs.length; j < k; j++) {
                             var tab = tabs[j];
@@ -127,7 +132,9 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
                     }
                 });
             } else {
-                chrome.tabs.query({ windowId: windows[i].id }, function (tabs) {
+                chrome.tabs.query({
+                    windowId: windows[i].id
+                }, function (tabs) {
                     if (tabs) {
                         for (var j = 0, k = tabs.length; j < k; j++) {
                             var tab = tabs[j];

@@ -243,9 +243,6 @@
         "message": "Depressed"
     },
     "description": {
-        "message": "Opis"
-    },
-    "description_ext": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
@@ -883,6 +880,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "Ovo će ukloniti sve kolačiće."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Ovo će ukloniti sve YouTube kolačiće"

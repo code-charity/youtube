@@ -243,9 +243,6 @@
         "message": "Depressed"
     },
     "description": {
-        "message": "설명"
-    },
-    "description_ext": {
         "message": "유튜브를 깔끌하고 스마트하게 만들어줍니다! 유튜브 비디오 내 컬러, 광고제거, 볼륨, 배속, 채널 툴, 스타일, HD, 광고성 블록, 태그, 키워드, 재생목록"
     },
     "desert": {
@@ -355,6 +352,9 @@
     },
     "general": {
         "message": "일반"
+    },
+    "geoPreference": {
+        "message": "Geo Preference"
     },
     "github": {
         "message": "깃허브(GitHub)"
@@ -629,6 +629,9 @@
     "onlyOnePlayerInstancePlaying": {
         "message": "하나의 플레이어만 재생"
     },
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
+    },
     "orange": {
         "message": "주황"
     },
@@ -721,6 +724,9 @@
     },
     "red": {
         "message": "빨강"
+    },
+    "redDislikeButton": {
+        "message": "Show dislike button red colour"
     },
     "relatedVideos": {
         "message": "관련 영상"
@@ -874,6 +880,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "모든 쿠키를 삭제합니다."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "모든 유튜브 쿠키를 삭제합니다."

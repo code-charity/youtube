@@ -243,9 +243,6 @@
         "message": "Depressed"
     },
     "description": {
-        "message": "Deskripsi"
-    },
-    "description_ext": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
@@ -355,6 +352,9 @@
     },
     "general": {
         "message": "Umum"
+    },
+    "geoPreference": {
+        "message": "Geo Preference"
     },
     "github": {
         "message": "GitHub"
@@ -629,6 +629,9 @@
     "onlyOnePlayerInstancePlaying": {
         "message": "Hanya mainkan satu pemutar"
     },
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
+    },
     "orange": {
         "message": "Oranye"
     },
@@ -721,6 +724,9 @@
     },
     "red": {
         "message": "Merah"
+    },
+    "redDislikeButton": {
+        "message": "Show dislike button red colour"
     },
     "relatedVideos": {
         "message": "Video terkait"
@@ -874,6 +880,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "Ini akan menghapus semua kuki."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Ini akan menghapus semua kuki YouTube"

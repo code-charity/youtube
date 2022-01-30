@@ -243,9 +243,6 @@
         "message": "Depressed"
     },
     "description": {
-        "message": "Descrição"
-    },
-    "description_ext": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
@@ -355,6 +352,9 @@
     },
     "general": {
         "message": "Geral"
+    },
+    "geoPreference": {
+        "message": "Geo Preference"
     },
     "github": {
         "message": "GitHub"
@@ -629,6 +629,9 @@
     "onlyOnePlayerInstancePlaying": {
         "message": "Apenas uma instância do leitor de video"
     },
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
+    },
     "orange": {
         "message": "Laranja"
     },
@@ -877,6 +880,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "Isto vai remover todos os cookies."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Isto vai remover todos os cookies do YouTube"

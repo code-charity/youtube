@@ -243,9 +243,6 @@
         "message": "Bunalımlı"
     },
     "description": {
-        "message": "Açıklama"
-    },
-    "description_ext": {
         "message": "YouTube'u düzenli+akıllı hale getirin! YouTube video renkli reklam hacmi atlama hızı kanal aracı stili HD reklamlar reklam engelleme reklam engelleyici etiketleri anahtar kelime oynatma listesi"
     },
     "desert": {
@@ -355,6 +352,9 @@
     },
     "general": {
         "message": "Genel"
+    },
+    "geoPreference": {
+        "message": "Geo Preference"
     },
     "github": {
         "message": "GitHub"
@@ -629,6 +629,9 @@
     "onlyOnePlayerInstancePlaying": {
         "message": "Sadece bir oynatıcı örneği"
     },
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
+    },
     "orange": {
         "message": "Turuncu"
     },
@@ -877,6 +880,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "Bu, tüm çerezleri kaldıracaktır."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Bu, tüm YouTube çerezlerini kaldıracaktır."
