@@ -243,9 +243,6 @@
         "message": "Depressed"
     },
     "description": {
-        "message": "Beskrivelse"
-    },
-    "description_ext": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
@@ -632,6 +629,9 @@
     "onlyOnePlayerInstancePlaying": {
         "message": "Kun én avspiller viser noe"
     },
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
+    },
     "orange": {
         "message": "Oransje"
     },
@@ -880,6 +880,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "Dette vil fjerne alle informasjonskapsler."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Dette vil fjerne alle YouTube-informasjonskapsler"

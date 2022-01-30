@@ -3,6 +3,8 @@
 >>> THEMES:
 ----------------------------------------------------------------
 # Default
+# Dark
+# Black
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -11,41 +13,60 @@
 
 body {
     --satus-contrast: 0, 0, 0;
-	--satus-primary: #f6b465;
-	--satus-switch-background: rgba(var(--satus-contrast),.08);
+    --satus-primary: #f6b465;
+    --satus-hover: rgba(var(--satus-contrast), .04);
+
+    --satus-alert-error-background: #fde6e6;
+    --satus-alert-error-border: #ecd7d7;
+    --satus-alert-error-color: #ad5f5f;
+
+    --satus-checkbox--background: rgb(90, 90, 73, .08);
+    --satus-checkbox--border: rgb(90, 90, 73, .16);
+    --satus-checkbox--mark: #fff;
+
+    --satus-divider: rgba(var(--satus-contrast),.1);
+
     --satus-header-background: #fff;
     --satus-header-border: rgba(var(--satus-contrast),.1);
-    --satus-header-text: #848471;
-    --satus-layers-background: #f6f6f4;
-    --satus-layers-text: #848471;
-    --satus-section-card-background: #fff;
-    --satus-section-card-border: rgba(var(--satus-contrast),.1);
+    --satus-header-text: #8f8f8f;
+
+    --satus-layers-background: #f6f5f4;
+    --satus-layers-text: #8f8f8f;
+
     --satus-modal-background: #f6f6f4;
     --satus-modal-border: rgba(var(--satus-contrast), .1);
-    --satus-modal-text: #848471;
-    --satus-hover: rgba(var(--satus-contrast), .04);
-    --satus-text-field--background: #e8e8e3;
-    --satus-text-field--border: #d6d6cd;
-    --satus-text-field--text: #848471;
+    --satus-modal-text: #8f8f8f;
+
+    --satus-section-card-background: #fff;
+    --satus-section-card-border: rgba(var(--satus-contrast),.1);
+
+    --satus-select-background: #f6f6f4;
+    --satus-select-text: #8f8f8f;
+
+    --satus-switch-background: rgba(var(--satus-contrast),.08);
     --satus-switch-track: #e0e0e0;
     --satus-switch-track--active: var(--satus-primary);
     --satus-switch-thumb: #fff;
-    --satus-tabs: #fff;
+
+    --satus-tabs-background: #e8e8e3;
+    --satus-tabs-foreground: #fff;
+    --satus-tabs-border: rgba(var(--satus-contrast), .1);
+
+    --satus-text-field--background: #e8e8e3;
+    --satus-text-field--border: #d6d6cd;
+    --satus-text-field--text: #8f8f8f;
+
+
     --satus-tooltip: rgba(var(--satus-contrast),.4);
     --satus-sortable-ghost: rgba(var(--satus-contrast), .80);
     --satus-sortable-background: rgba(var(--satus-contrast), .08);
     --satus-sortable-text: currentColor;
-    --satus-divider: rgba(var(--satus-contrast),.1);
-    --satus-tabs-background: #e8e8e3;
-    --satus-tabs-foreground: #fff;
-    --satus-tabs-border: rgba(var(--satus-contrast), .1);
-    --satus-checkbox--background: rgb(90, 90, 73, .08);
-    --satus-checkbox--border: rgb(90, 90, 73, .16);
-    --satus-checkbox--mark: #fff;
-    --satus-alert-error-background: #fde6e6;
-    --satus-alert-error-border: #ecd7d7;
-    --satus-alert-error-color: #ad5f5f;
 }
+
+
+/*--------------------------------------------------------------
+# DARK
+--------------------------------------------------------------*/
 
 body[data-theme=dark] {
     --satus-contrast: 255, 255, 255;
@@ -83,6 +104,11 @@ body[data-theme=dark] {
     --satus-alert-error-border: #6f1f1f;
     --satus-alert-error-color: #cf7777;
 }
+
+
+/*--------------------------------------------------------------
+# BLACK
+--------------------------------------------------------------*/
 
 body[data-theme=black] {
     --satus-contrast: 255, 255, 255;
@@ -344,25 +370,28 @@ body[data-theme=black] {
 .satus-select {
 	position: relative;
 	display: flex;
-	box-sizing: border-box;
+	cursor: pointer;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.satus-select__content {
+.satus-select:hover {
+	background-color: var(--satus-hover);
+}
+
+.satus-select>span:nth-child(2) {
 	display: flex;
 	align-items: center;
 }
 
-.satus-select__content > svg {
+.satus-select>span:nth-child(2)>svg {
 	width: 20px;
-	
-    height: 18px;
+	height: 18px;
 	margin: 0 14px 0 0;
-    opacity: .75;
+	opacity: .75;
 }
 
-.satus-select__value {
+.satus-select>span:nth-child(3) {
 	margin-left: 16px;
 	text-align: right;
 	opacity: .75;
@@ -376,19 +405,17 @@ body[data-theme=black] {
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	padding: 0;
 	padding: inherit;
-	cursor: pointer;
 	opacity: 0;
 	border: none;
 	outline: none;
-	background: none;
 	appearance: none;
+	z-index: 1;
 }
 
-.satus-select:hover {
-	cursor: pointer;
-	background-color: var(--satus-hover);
+.satus-select option {
+	color: var(--satus-select-text);
+	background: var(--satus-select-background);
 }
 /*--------------------------------------------------------------
 >>> SHORTCUT:
@@ -553,6 +580,19 @@ body[data-theme=black] {
     content: '';
     border-radius: 50%;
     background: #f96754;
+}
+
+.satus-shortcut__mouse.middle::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    content: '';
+    border-radius: 50%;
+    background: #f96754;
+    z-index: 1;
+    transform: translateX(-50%);
 }
 
 .satus-shortcut__mouse.context::before {
@@ -790,7 +830,7 @@ body[data-theme=black] {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, .3);
+    background: rgba(var(--satus-contrast), .3);
 }
 /*--------------------------------------------------------------
 >>> TEXTAREA
@@ -1543,10 +1583,8 @@ body[data-theme=black] {
 .satus-modal--vertical .satus-modal__surface>.satus-button,
 .satus-modal--vertical .satus-modal__surface>.satus-switch,
 .satus-modal--vertical .satus-modal__surface>.satus-select {
-    display: flex;
     height: 36px;
     padding: 0 16px;
-    align-items: center;
 }
 
 .satus-modal--vertical .satus-modal__surface>.satus-tabs {

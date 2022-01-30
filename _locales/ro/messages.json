@@ -243,9 +243,6 @@
         "message": "Depressed"
     },
     "description": {
-        "message": "Descriere"
-    },
-    "description_ext": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
@@ -883,6 +880,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "Asta va șterge toate cookie-urile."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Asta va șterge toate cooki-urile YouTube."

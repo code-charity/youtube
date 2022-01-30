@@ -243,9 +243,6 @@
         "message": "Depressed"
     },
     "description": {
-        "message": "Beskrivelse"
-    },
-    "description_ext": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
@@ -356,6 +353,9 @@
     "general": {
         "message": "Generell"
     },
+    "geoPreference": {
+        "message": "Geo Preference"
+    },
     "github": {
         "message": "GitHub"
     },
@@ -412,6 +412,9 @@
     },
     "hideFooter": {
         "message": "Skjul bunntekst "
+    },
+    "hideGradientBottom": {
+        "message": "Hide shadow around player-bar"
     },
     "hideMoreButton": {
         "message": "Hide \"More\" button"
@@ -626,6 +629,9 @@
     "onlyOnePlayerInstancePlaying": {
         "message": "Bare en spillerforekomst som spiller"
     },
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
+    },
     "orange": {
         "message": "Oransje"
     },
@@ -827,6 +833,9 @@
     "static": {
         "message": "Statisk"
     },
+    "statsForNerds": {
+        "message": "Show Stats for Nerds"
+    },
     "step": {
         "message": "Steg"
     },
@@ -872,6 +881,9 @@
     "thisWillRemoveAllCookies": {
         "message": "Dette vil fjerne alle informasjonskapsler."
     },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
+    },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Dette vil fjerne alle YouTube-informasjonskapsler"
     },
@@ -898,6 +910,9 @@
     },
     "toggleAutoplay": {
         "message": "Toggle autoplay"
+    },
+    "toggleCards": {
+        "message": "Toggle cards"
     },
     "toggleControls": {
         "message": "Toggle controls"

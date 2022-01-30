@@ -2,8 +2,8 @@
     "manifest_version": 2,
     "name": "'Improve YouTube!' (Video & YouTube Tools)🎧",
     "short_name": "ImprovedTube",
-    "description": "__MSG_description_ext__",
-    "version": "3.935",
+    "description": "__MSG_description__",
+    "version": "3.940",
     "default_locale": "en",
     "icons": {
         "128": "icons/128.png",
@@ -77,5 +77,6 @@
     "permissions": [
         "contextMenus",
         "storage"
-    ]
+    ],
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com/; object-src 'self'"
 }

@@ -246,9 +246,6 @@
         "message": "Депрессивный"
     },
     "description": {
-        "message": "Описание"
-    },
-    "description_ext": {
         "message": "Сделайте YouTube аккуратным + умным! Цвет видео YouTube пропуск рекламы громкость скорость канала стиль инструмента HD реклама adblock блокировщик рекламы теги список ключевых слов"
     },
     "desert": {
@@ -358,6 +355,9 @@
     },
     "general": {
         "message": "Общее"
+    },
+    "geoPreference": {
+        "message": "Geo Preference"
     },
     "github": {
         "message": "GitHub"
@@ -635,6 +635,9 @@
     "onlyOnePlayerInstancePlaying": {
         "message": "Только один плеер играет одновременно"
     },
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
+    },
     "orange": {
         "message": "Оранжевый"
     },
@@ -883,6 +886,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "Это удалит все куки"
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Вы действительно хотите удалить все куки YouTube?"
