@@ -243,9 +243,6 @@
         "message": "內凹"
     },
     "description": {
-        "message": "影片描述"
-    },
-    "description_ext": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
@@ -355,6 +352,9 @@
     },
     "general": {
         "message": "一般"
+    },
+    "geoPreference": {
+        "message": "Geo Preference"
     },
     "github": {
         "message": "GitHub"
@@ -880,6 +880,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "這將刪除所有的 cookies。"
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "這將刪除所有 YouTube Cookies。"

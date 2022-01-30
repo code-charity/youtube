@@ -243,9 +243,6 @@
         "message": "Depresso"
     },
     "description": {
-        "message": "Descrizione"
-    },
-    "description_ext": {
         "message": "Rendi YouTube ordinato & intelligente! YouTube colore video salta annuncio volume velocità canale utensile stile HD annunci blocca-annunci etichette tags keyword playlist"
     },
     "desert": {
@@ -355,6 +352,9 @@
     },
     "general": {
         "message": "Generale"
+    },
+    "geoPreference": {
+        "message": "Geo Preference"
     },
     "github": {
         "message": "GitHub"
@@ -629,6 +629,9 @@
     "onlyOnePlayerInstancePlaying": {
         "message": "Istanza unica di riproduzione attiva"
     },
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
+    },
     "orange": {
         "message": "Arancione"
     },
@@ -833,6 +836,9 @@
     "statsForNerds": {
         "message": "Visualizza statistiche per nerd"
     },
+    "step": {
+        "message": "Step"
+    },
     "stop": {
         "message": "Arresto"
     },
@@ -874,6 +880,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "Questo rimuoverà tutti i cookies"
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Questo rimuoverà tutti i cookies di YouTube"

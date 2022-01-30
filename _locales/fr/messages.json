@@ -243,9 +243,6 @@
         "message": "Depressed"
     },
     "description": {
-        "message": "Description"
-    },
-    "description_ext": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
@@ -355,6 +352,9 @@
     },
     "general": {
         "message": "Général"
+    },
+    "geoPreference": {
+        "message": "Geo Preference"
     },
     "github": {
         "message": "GitHub"
@@ -880,6 +880,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "Supprimer tous les cookies."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Supprimer tous les cookies Youtube."

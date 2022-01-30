@@ -243,9 +243,6 @@
         "message": "Depressed"
     },
     "description": {
-        "message": "Περιγραφή"
-    },
-    "description_ext": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
@@ -355,6 +352,9 @@
     },
     "general": {
         "message": "Γενικά"
+    },
+    "geoPreference": {
+        "message": "Geo Preference"
     },
     "github": {
         "message": "GitHub"
@@ -629,6 +629,9 @@
     "onlyOnePlayerInstancePlaying": {
         "message": "Μόνο ένα player λειτουργεί"
     },
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
+    },
     "orange": {
         "message": "Πορτοκαλί"
     },
@@ -877,6 +880,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "Αυτό αφαιρεί όλα τα cookies."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Αυτό αφαιρεί όλα τα cookies του YouTube."

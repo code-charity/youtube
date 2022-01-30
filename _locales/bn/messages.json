@@ -243,9 +243,6 @@
         "message": "বিষণ্ণ"
     },
     "description": {
-        "message": "বর্ণনা"
-    },
-    "description_ext": {
         "message": "ইউটিউব পরিপাটি+স্মার্ট করুন! ইউটিউব ভিডিও কালার অ্যাড স্কিপ ভলিউম স্পিড চ্যানেল টুল স্টাইল এইচডি বিজ্ঞাপন অ্যাডব্লক অ্যাডব্লকার ট্যাগ কীওয়ার্ড প্লেলিস্ট"
     },
     "desert": {
@@ -355,6 +352,9 @@
     },
     "general": {
         "message": "সাধারণ"
+    },
+    "geoPreference": {
+        "message": "Geo Preference"
     },
     "github": {
         "message": "গিটহাব"
@@ -629,6 +629,9 @@
     "onlyOnePlayerInstancePlaying": {
         "message": "কেবলমাত্র একজন খেলোয়াড় খেলছে"
     },
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
+    },
     "orange": {
         "message": "কমলা"
     },
@@ -877,6 +880,9 @@
     },
     "thisWillRemoveAllCookies": {
         "message": "এটি সমস্ত কুকি মুছে ফেলবে।"
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "এটি সমস্ত ইউটিউব কুকিজ অপসারণ করবে"
