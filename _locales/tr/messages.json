@@ -243,6 +243,9 @@
         "message": "Bunalımlı"
     },
     "description": {
+        "message": "Description"
+    },
+    "description_ext": {
         "message": "YouTube'u düzenli+akıllı hale getirin! YouTube video renkli reklam hacmi atlama hızı kanal aracı stili HD reklamlar reklam engelleme reklam engelleyici etiketleri anahtar kelime oynatma listesi"
     },
     "desert": {

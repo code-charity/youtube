@@ -243,6 +243,9 @@
         "message": "Depressed"
     },
     "description": {
+        "message": "Description"
+    },
+    "description_ext": {
         "message": "유튜브를 깔끌하고 스마트하게 만들어줍니다! 유튜브 비디오 내 컬러, 광고제거, 볼륨, 배속, 채널 툴, 스타일, HD, 광고성 블록, 태그, 키워드, 재생목록"
     },
     "desert": {

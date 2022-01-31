@@ -243,6 +243,9 @@
         "message": "Depresso"
     },
     "description": {
+        "message": "Description"
+    },
+    "description_ext": {
         "message": "Rendi YouTube ordinato & intelligente! YouTube colore video salta annuncio volume velocità canale utensile stile HD annunci blocca-annunci etichette tags keyword playlist"
     },
     "desert": {
