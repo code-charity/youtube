@@ -1365,8 +1365,6 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
 
             element.className = 'it-how-long-ago-the-video-was-uploaded';
 
-            console.log(date_element.textContent, string);
-
             element.textContent = '• ' + string;
 
             ImprovedTube.elements.how_long_ago_the_video_was_uploaded = element;
@@ -1421,8 +1419,6 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
                 element = ImprovedTube.elements.how_long_ago_the_video_was_uploaded || document.createElement('div');
 
             ImprovedTube.empty(element);
-
-            console.log(response);
 
             if (response.error) {
                 if (date_element) {
@@ -2663,7 +2659,26 @@ ImprovedTube.playerVolume = function () {
             volume = Number(volume);
         }
 
-        this.elements.player.setVolume(volume);
+        if (volume <= 100) {
+            if (!this.audioContext) {
+                this.audioContext.close();
+            }
+
+            this.elements.player.setVolume(volume);
+        } else {
+            if (!this.audioContext) {
+                this.audioContext = new AudioContext();
+
+                this.audioContextSource = this.audioContext.createMediaElementSource(document.querySelector('video'));
+                this.audioContextGain = this.audioContext.createGain();
+
+                this.audioContextGain.gain.value = 1;
+                this.audioContextSource.connect(this.audioContextGain);
+                this.audioContextGain.connect(this.audioContext.destination)
+            }
+
+            this.audioContextGain.gain.value = volume / 100;
+        }
     }
 };
 
