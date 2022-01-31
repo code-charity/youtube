@@ -246,6 +246,9 @@
         "message": "Депрессивный"
     },
     "description": {
+        "message": "Description"
+    },
+    "description_ext": {
         "message": "Сделайте YouTube аккуратным + умным! Цвет видео YouTube пропуск рекламы громкость скорость канала стиль инструмента HD реклама adblock блокировщик рекламы теги список ключевых слов"
     },
     "desert": {

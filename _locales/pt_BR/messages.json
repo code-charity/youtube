@@ -243,6 +243,9 @@
         "message": "Comprimido"
     },
     "description": {
+        "message": "Description"
+    },
+    "description_ext": {
         "message": "Torne o YouTube organizado e inteligente! Pular Anúncio, colorir YouTube, volume, velocidade, canal, ferramenta, estilo, HD, adblock, adblocker, tags, playlist ,palavras-chave"
     },
     "desert": {
