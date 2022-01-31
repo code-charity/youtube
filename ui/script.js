@@ -4499,6 +4499,10 @@ var skeleton = {
                                     red_dislike_button: {
                                         component: 'switch',
                                         text: 'redDislikeButton'
+                                    },
+                                    improvedtube_buttons: {
+                                        component: 'switch',
+                                        text: 'improvedtubeButtons'
                                     }
                                 }
                             }
@@ -5850,7 +5854,6 @@ var skeleton = {
                                 storage: 'player_h264',
                                 on: {
                                     click: function () {
-                                        console.log(this.dataset.value);
                                         if (this.dataset.value === 'true') {
                                             satus.render({
                                                 component: 'modal',
@@ -5886,6 +5889,35 @@ var skeleton = {
                                     }
                                 }
                             },
+                            player_codecs: {
+                                component: 'button',
+                                text: 'codecs',
+                                on: {
+                                    click: {
+                                        section: {
+                                            component: 'section',
+                                            variant: 'card',
+
+                                            block_h264: {
+                                                component: 'switch',
+                                                text: 'blockH264'
+                                            },
+                                            block_vp8: {
+                                                component: 'switch',
+                                                text: 'blockVp8'
+                                            },
+                                            block_vp9: {
+                                                component: 'switch',
+                                                text: 'blockVp9'
+                                            },
+                                            block_av1: {
+                                                component: 'switch',
+                                                text: 'blockAv1'
+                                            }
+                                        }
+                                    }
+                                }
+                            },
                             player_60fps: {
                                 component: 'switch',
                                 text: 'allow60fps',
@@ -5912,7 +5944,7 @@ var skeleton = {
                                 component: 'slider',
                                 text: 'volume',
                                 step: 1,
-                                max: 100,
+                                max: 400,
                                 value: 100
                             },
                             player_loudness_normalization: {
