@@ -1348,12 +1348,49 @@ ImprovedTube.relatedVideos = function () {
 
 ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
     if (this.storage.how_long_ago_the_video_was_uploaded === true && this.elements.yt_channel_name) {
+        var date_element = document.querySelector('#info #info-text #info-strings yt-formatted-string');
+
+        clearInterval(this.infoDateInterval);
+        
+        if (!date_element) {
+            this.infoDateInterval = setInterval(function () {
+                ImprovedTube.howLongAgoTheVideoWasUploaded();
+            }, 1000);
+
+            return false;
+        }
+
+        function append(string) {
+            var element = ImprovedTube.elements.how_long_ago_the_video_was_uploaded || document.createElement('div');
+
+            element.className = 'it-how-long-ago-the-video-was-uploaded';
+
+            console.log(date_element.textContent, string);
+
+            element.textContent = '• ' + string;
+
+            ImprovedTube.elements.how_long_ago_the_video_was_uploaded = element;
+            
+            document.querySelector('#info #info-text').appendChild(element);
+        }
+
+        if (date_element) {
+            var date = new Date(date_element.textContent);
+
+            if (isNaN(date.getTime()) !== true && new Date() - date.getTime() >= 86400000) {
+                append(timeSince(date));
+
+                return;
+            }
+        }
+
+
         var xhr = new XMLHttpRequest(),
             key = this.storage['google-api-key'] || ImprovedTube.defaultApiKey,
             id = this.getParam(location.href.slice(location.href.indexOf('?') + 1), 'v');
 
         function timeSince(date) {
-            var seconds = Math.floor((new Date() - new Date(date)) / 1000),
+            var seconds = Math.floor((new Date() - date) / 1000),
                 interval = Math.floor(seconds / 31536000);
 
             if (interval > 1) {
@@ -1385,17 +1422,17 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
 
             ImprovedTube.empty(element);
 
+            console.log(response);
+
             if (response.error) {
-                element.appendChild(document.createTextNode('• Error: ' + response.error.code));
+                if (date_element) {
+                    var date = new Date(date_element.textContent);
+                    
+                    append(timeSince(date));
+                }
             } else {
-                element.appendChild(document.createTextNode('• ' + timeSince(response.items[0].snippet.publishedAt)));
+                append(timeSince(new Date(response.items[0].snippet.publishedAt)));
             }
-
-            element.className = 'it-how-long-ago-the-video-was-uploaded';
-
-            ImprovedTube.elements.how_long_ago_the_video_was_uploaded = element;
-
-            document.querySelector('#info #info-text').appendChild(element);
         });
 
         xhr.open('GET', 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + id + '&key=' + key, true);
@@ -4358,6 +4395,7 @@ ImprovedTube.init = function () {
 document.addEventListener('yt-navigate-finish', function () {
     ImprovedTube.pageType();
 
+
     if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
         ImprovedTube.videoPageUpdate();
         ImprovedTube.initPlayer();
@@ -4367,6 +4405,10 @@ document.addEventListener('yt-navigate-finish', function () {
 });
 
 document.addEventListener('yt-page-data-updated', function (event) {
+    setTimeout(function () {
+        ImprovedTube.howLongAgoTheVideoWasUploaded();
+    }, 1000);
+
     if (/[?&]list=([^&]+).*$/.test(location.href)) {
         ImprovedTube.playlistRepeat();
         ImprovedTube.playlistShuffle();
