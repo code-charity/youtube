@@ -44,7 +44,7 @@
       4.4.7 Custom mini-player
       4.4.8 Auto fullscreen
       4.4.9 Quality
-      4.4.10 Codec h.264
+      4.4.10 Codecs
       4.4.11 Allow 60fps
       4.4.12 Forced volume
       4.4.13 Loudness normalization
@@ -2570,15 +2570,27 @@ ImprovedTube.playerQuality = function () {
 
 
 /*------------------------------------------------------------------------------
-4.4.10 CODEC H.264
+4.4.10 CODECS
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.playerH264 = function () {
-    if (this.storage.player_h264 === true) {
+ImprovedTube.codecs = function () {
+    if (
+        this.storage.player_h264 === true ||
+        this.storage.block_h264 === true ||
+        this.storage.block_vp8 === true ||
+        this.storage.block_vp9 === true ||
+        this.storage.block_av1 === true
+    ) {
         var canPlayType = HTMLMediaElement.prototype.canPlayType;
 
         function overwrite(self, callback, mime) {
-            if (/webm|vp8|vp9/.test(mime)) {
+            if (
+                ImprovedTube.storage.player_h264 === true && /webm|vp8|vp9/.test(mime) ||
+                ImprovedTube.storage.block_h264 === true && /avc/.test(mime) ||
+                ImprovedTube.storage.block_vp8 === true && /vp8/.test(mime) ||
+                ImprovedTube.storage.block_vp9 === true && /vp9||vp09/.test(mime) ||
+                ImprovedTube.storage.block_av1 === true && /av01/.test(mime)
+            ) {
                 return false;
             } else {
                 return callback.call(self, mime);
@@ -4393,7 +4405,7 @@ ImprovedTube.init = function () {
     window.addEventListener('yt-player-updated', yt_player_updated);
 
     this.bluelight();
-    this.playerH264();
+    this.codecs();
     this.player60fps();
     this.playerSDR();
     this.shortcuts();
