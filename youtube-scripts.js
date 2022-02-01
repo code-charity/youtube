@@ -44,7 +44,7 @@
       4.4.7 Custom mini-player
       4.4.8 Auto fullscreen
       4.4.9 Quality
-      4.4.10 Codecs
+      4.4.10 Avoid CPU rendering when possible
       4.4.11 Allow 60fps
       4.4.12 Forced volume
       4.4.13 Loudness normalization
@@ -2570,7 +2570,7 @@ ImprovedTube.playerQuality = function () {
 
 
 /*------------------------------------------------------------------------------
-4.4.10 CODECS
+4.4.10 AVOID CPU RENDERING WHEN POSSIBLE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.codecs = function () {
@@ -2614,6 +2614,44 @@ ImprovedTube.codecs = function () {
                 return status;
             }
         };
+    }
+};
+
+ImprovedTube.avoidCpuRenderingWhenPossible = function () {
+    var option = this.storage.avoid_cpu_rendering_when_possible;
+
+    if (option && option !== 'disabled') {
+        function overwrite(self, callback, mime) {
+            if (
+                option === 'av1' && /av01/.test(mime) ||
+                option === 'av1-vp9' && /av01||vp9||vp09/.test(mime) ||
+                option === 'av1-vp8-vp9' && /av01||vp8||vp9||vp09/.test(mime)
+            ) {
+                return '';
+            } else {
+                return callback.call(self, mime);
+            }
+        }
+
+        if (window.MediaSource) {
+            (function (original) {
+                window.MediaSource.isTypeSupported = function (mime) {
+                    var result = overwrite(this, original, mime);
+
+                    if (result === '') {
+                        return false;
+                    } else {
+                        return result;
+                    }
+                };
+            })(window.MediaSource.isTypeSupported);
+        }
+
+        (function (original) {
+            HTMLMediaElement.prototype.canPlayType = function (mime) {
+                return overwrite(this, original, mime);
+            };
+        })(HTMLMediaElement.prototype.canPlayType);
     }
 };
 
