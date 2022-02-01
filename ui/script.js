@@ -5918,6 +5918,17 @@ var skeleton = {
                                     }
                                 }
                             },
+                            avoid_cpu_rendering_when_possible: {
+                                component: 'select',
+                                text: 'avoidCpuRenderingWhenPossible',
+                                options: [
+                                    {text: 'disabled', value: 'disabled'},
+                                    {text: 'auto', value: 'auto'},
+                                    {text: 'avoidAv1', value: 'av1'},
+                                    {text: 'avoidAv1Vp9', value: 'av1-vp9'},
+                                    {text: 'avoidAv1Vp8Vp9', value: 'av1-vp8-vp9'}
+                                ]
+                            },
                             player_60fps: {
                                 component: 'switch',
                                 text: 'allow60fps',
