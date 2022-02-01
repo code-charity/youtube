@@ -18,19 +18,19 @@
         "message": "Принять"
     },
     "activate": {
-        "message": "Активировать"
+        "message": "Включить"
     },
     "activateCaptions": {
-        "message": "Активировать субтитры"
+        "message": "Включить субтитры"
     },
     "activateFullscreen": {
         "message": "Перейти в полноэкранный режим"
     },
     "activated": {
-        "message": "Активировано"
+        "message": "Включено"
     },
     "activatedFeatures": {
-        "message": "Активированные функции"
+        "message": "Включенные функции"
     },
     "activeFeatures": {
         "message": "Активные функции"
@@ -54,7 +54,7 @@
         "message": "Всегда активный"
     },
     "alwaysShowProgressBar": {
-        "message": "Всегда показывать прогресс-бар"
+        "message": "Всегда показывать полосу прогресса"
     },
     "amber": {
         "message": "Янтарный"
@@ -114,7 +114,7 @@
         "message": "На основе системной цветовой схемы"
     },
     "belowPlayer": {
-        "message": "Ниже плеера"
+        "message": "Снизу плеера"
     },
     "black": {
         "message": "Черный"
@@ -213,7 +213,7 @@
         "message": "Обрезать заголовки глав"
     },
     "custom": {
-        "message": "Custom"
+        "message": "Пользовательский"
     },
     "customCss": {
         "message": "Пользовательский CSS"
@@ -264,7 +264,7 @@
         "message": "Страна по умолчанию"
     },
     "deleteWatchedVideos": {
-        "message": "Удалить просмотренные видео"
+        "message": "Удалять просмотренные видео"
     },
     "deleteYoutubeCookies": {
         "message": "Удалить куки YouTube"
@@ -282,7 +282,7 @@
         "message": "Пустыня"
     },
     "details": {
-        "message": "Подробная информация"
+        "message": "Подробнее"
     },
     "developerOptions": {
         "message": "Настройки разработчика"
@@ -312,16 +312,16 @@
         "message": "Отбрасывемая тень"
     },
     "email": {
-        "message": "Email"
+        "message": "E-mail"
     },
     "empty": {
-        "message": "Пусто"
+        "message": "Пустой"
     },
     "enabled": {
-        "message": "Включено"
+        "message": "Включен"
     },
     "enabledForced": {
-        "message": "Включено (принудительно)"
+        "message": "Включен (принудительно)"
     },
     "expanded": {
         "message": "Развернутый"
@@ -339,7 +339,7 @@
         "message": "Фильтры"
     },
     "fitToWindow": {
-        "message": "Подогнать под окно"
+        "message": "Подогнать под размеры окна"
     },
     "flash": {
         "message": "Flash"
@@ -366,7 +366,7 @@
         "message": "Принудительное SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Всегда проигрывать видео с начала"
+        "message": "Всегда играть видео с начала"
     },
     "forcedPlaybackSpeed": {
         "message": "Принудительная скорость воспроизведения"
@@ -384,10 +384,10 @@
         "message": "Растянуть на все окно"
     },
     "general": {
-        "message": "Общее"
+        "message": "Общий"
     },
     "geoPreference": {
-        "message": "Geo Preference"
+        "message": "Предпочтения локации"
     },
     "github": {
         "message": "GitHub"
@@ -411,13 +411,13 @@
         "message": "HD-превью"
     },
     "header": {
-        "message": "Верхняя панель"
+        "message": "Заголовок"
     },
     "hidden": {
-        "message": "Скрывать"
+        "message": "Скрытый"
     },
     "hiddenOnVideoPage": {
-        "message": "Скрывать (только на странице с видео)"
+        "message": "Скрывать (только на странице видео)"
     },
     "hideAnimatedThumbnails": {
         "message": "Скрывать анимированные превью"
@@ -504,10 +504,10 @@
         "message": "Показывать при наведении"
     },
     "hoverOnVideoPage": {
-        "message": "Показывать при наведении (только на странице с видео)"
+        "message": "Показывать при наведении (только на странице видео)"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Показывать возраст видео"
+        "message": "Показывать дату видео"
     },
     "icons": {
         "message": "Иконки"
@@ -561,7 +561,7 @@
         "message": "Библиотека"
     },
     "light": {
-        "message": "Светлая"
+        "message": "Светлый"
     },
     "lightBlue": {
         "message": "Светло-синий"
@@ -597,7 +597,7 @@
         "message": "Местонахождение"
     },
     "loop": {
-        "message": "Loop"
+        "message": "Зациклить"
     },
     "loudnessNormalization": {
         "message": "Нормализировать громкость"
@@ -609,7 +609,7 @@
         "message": "Отмечать просмотренные видео"
     },
     "medium": {
-        "message": "Medium"
+        "message": "Средний"
     },
     "mixer": {
         "message": "Миксер"
@@ -651,7 +651,7 @@
         "message": "Обычный"
     },
     "ok": {
-        "message": "Ок"
+        "message": "Хорошо"
     },
     "old": {
         "message": "Старый"
@@ -660,7 +660,7 @@
         "message": "На всех видео"
     },
     "onSubscribedChannels": {
-        "message": "Только на каналах изз подписок"
+        "message": "Только на каналах в подписках"
     },
     "onlyActiveOnYoutube": {
         "message": "Активен только в YouTube"
@@ -669,7 +669,7 @@
         "message": "Только один плеер играет одновременно"
     },
     "openPopupPlayer": {
-        "message": "Open video/playlist in a new window"
+        "message": "Открыть видео/плейлист в новом окне"
     },
     "orange": {
         "message": "Оранжевый"
@@ -702,7 +702,7 @@
         "message": "Платформа"
     },
     "playAllButton": {
-        "message": "\"Play all\" button"
+        "message": "Кнопка \"Играть все\""
     },
     "playPause": {
         "message": "Играть / Пауза"
@@ -732,10 +732,10 @@
         "message": "Положение"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Нажмите любую клавишу или колесо мыши"
+        "message": "Нажмите любую кнопку или колесо мыши"
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Нажмите любую клавишу или используйте колесо мыши"
+        "message": "Нажмите любую кнопку или используйте колесо мыши"
     },
     "previousVideo": {
         "message": "Предыдущее видео"
@@ -774,7 +774,7 @@
         "message": "Удаленное воспроизведение"
     },
     "removeRelatedSearchResults": {
-        "message": "Удалить похожие результаты поиска"
+        "message": "Удалять связанные результаты поиска"
     },
     "repeat": {
         "message": "Повтор"
@@ -801,7 +801,7 @@
         "message": "Сохранить как"
     },
     "schedule": {
-        "message": "Расписание"
+        "message": "График"
     },
     "screen": {
         "message": "Экран"
@@ -855,10 +855,10 @@
         "message": "Показать больше"
     },
     "showRemainingDuration": {
-        "message": "Показать оставшуюся продолжительность видео"
+        "message": "Показать время до конца видео"
     },
     "shuffle": {
-        "message": "Случайный порядок"
+        "message": "Перемешать"
     },
     "sidebar": {
         "message": "Боковая панель"
@@ -921,7 +921,7 @@
         "message": "Это удалит все куки"
     },
     "thisWillRemoveAllWatchedVideos": {
-        "message": "This will remove all watched videos."
+        "message": "Это удалит все просмотренные видео"
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Вы действительно хотите удалить все куки YouTube?"
@@ -957,7 +957,7 @@
         "message": "Панель управления"
     },
     "topChat": {
-        "message": "Top чат"
+        "message": "Лучшее"
     },
     "trackWatchedVideos": {
         "message": "Отслеживать просмотренные видео"
