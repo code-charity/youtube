@@ -89,6 +89,18 @@
     "autoplay": {
         "message": "自動播放"
     },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
     "backgroundColor": {
         "message": "背景顏色"
     },
@@ -113,8 +125,20 @@
     "blockAll": {
         "message": "封鎖所有"
     },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
     "blockMusic": {
         "message": "禁止音樂"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "藍色"
@@ -163,6 +187,9 @@
     },
     "codecH264": {
         "message": "使用 H.264 解碼"
+    },
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "於訂閱區顯示縮放按鈕"
@@ -490,6 +517,9 @@
     },
     "improveLogo": {
         "message": "改進 YouTube 圖示"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "於 YouTube 中顯示 ImprovedTube 圖示"
