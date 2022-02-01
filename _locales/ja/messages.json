@@ -89,6 +89,18 @@
     "autoplay": {
         "message": "自動再生"
     },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
     "backgroundColor": {
         "message": "背景色"
     },
@@ -113,8 +125,20 @@
     "blockAll": {
         "message": "すべてブロックする"
     },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
     "blockMusic": {
         "message": "音楽をブロックする"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "青"
@@ -163,6 +187,9 @@
     },
     "codecH264": {
         "message": "H.264 コーデック"
+    },
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "サブスクリプション部分を畳む"
@@ -490,6 +517,9 @@
     },
     "improveLogo": {
         "message": "ロゴを改善する"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "ImprovedTube アイコンを YouTube に表示する"

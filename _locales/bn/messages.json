@@ -89,6 +89,18 @@
     "autoplay": {
         "message": "স্বয়ংক্রিয় চালু"
     },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
     "backgroundColor": {
         "message": "পটভূমির রং"
     },
@@ -113,8 +125,20 @@
     "blockAll": {
         "message": "সবাইকে ব্লক"
     },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
     "blockMusic": {
         "message": "Block music"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "নীল"
@@ -163,6 +187,9 @@
     },
     "codecH264": {
         "message": "কোডেক h.264"
+    },
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "সাবস্ক্রিপশন বিভাগ ভেঙে দেবো"
@@ -490,6 +517,9 @@
     },
     "improveLogo": {
         "message": "লোগো উন্নত করুন"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "ইউটিউবে উন্নত আইকন"

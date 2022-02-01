@@ -89,6 +89,18 @@
     "autoplay": {
         "message": "자동재생"
     },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
     "backgroundColor": {
         "message": "Background color"
     },
@@ -113,8 +125,20 @@
     "blockAll": {
         "message": "모두 차단"
     },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
     "blockMusic": {
         "message": "Block music"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "파랑"
@@ -163,6 +187,9 @@
     },
     "codecH264": {
         "message": "코덱 h.264"
+    },
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "구독섹션 축소"
@@ -490,6 +517,9 @@
     },
     "improveLogo": {
         "message": "향상된 로고"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "향상된 유튜브 아이콘"

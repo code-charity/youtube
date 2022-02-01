@@ -89,6 +89,18 @@
     "autoplay": {
         "message": "स्वत: प्ले"
     },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
     "backgroundColor": {
         "message": "पीछे का रंग"
     },
@@ -113,8 +125,20 @@
     "blockAll": {
         "message": "सभी को अवरोधित करें"
     },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
     "blockMusic": {
         "message": "Block music"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "नीला"
@@ -163,6 +187,9 @@
     },
     "codecH264": {
         "message": "कोडक H264"
+    },
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "सदस्यता वर्गों का पतन"
@@ -490,6 +517,9 @@
     },
     "improveLogo": {
         "message": "लोगो सुधारो"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "यूट्यूब पर बेहतर आइकन"
