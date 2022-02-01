@@ -90,16 +90,16 @@
         "message": "Автовоспроизведение"
     },
     "avoidAv1": {
-        "message": "Avoid AV1"
+        "message": "Избегать AV1"
     },
     "avoidAv1Vp8Vp9": {
-        "message": "Avoid AV1, VP8, VP9"
+        "message": "Избегать AV1, VP8, VP9"
     },
     "avoidAv1Vp9": {
-        "message": "Avoid AV1, VP9"
+        "message": "Избегать AV1, VP9"
     },
     "avoidCpuRenderingWhenPossible": {
-        "message": "Avoid CPU rendering when possible"
+        "message": "По возможности избегать ЦП рендеринга"
     },
     "backgroundColor": {
         "message": "Цвет фона"
