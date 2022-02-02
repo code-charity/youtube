@@ -4,6 +4,9 @@
 ----------------------------------------------------------------
 # Global variable
 # Functions
+# Crypt
+# Storage
+# Localization
 # Render
 --------------------------------------------------------------*/
 
@@ -29,20 +32,38 @@ var satus = {
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# APPEND
---------------------------------------------------------------*/
-
-satus.append = function (element, container) {
-    (container || document.body).appendChild(element);
-};
-
-
-/*--------------------------------------------------------------
 # ANIMATION DURATION
 --------------------------------------------------------------*/
 
 satus.getAnimationDuration = function (element) {
     return Number(window.getComputedStyle(element).getPropertyValue('animation-duration').replace(/[^0-9.]/g, '')) * 1000;
+};
+
+
+/*--------------------------------------------------------------
+# AJAX
+--------------------------------------------------------------*/
+
+satus.ajax = function (url, success, error) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.onload = function () {
+        success(this.response);
+    };
+    xhr.onerror = function () {
+        error(success);
+    };
+
+    xhr.open('GET', url, true);
+    xhr.send();
+};
+
+/*--------------------------------------------------------------
+# APPEND
+--------------------------------------------------------------*/
+
+satus.append = function (element, container) {
+    (container || document.body).appendChild(element);
 };
 
 
@@ -74,6 +95,70 @@ satus.elementIndex = function (element) {
 
 
 /*--------------------------------------------------------------
+# CAMELIZE
+--------------------------------------------------------------*/
+
+satus.camelize = function (string) {
+    var result = '';
+
+    for (var i = 0, l = string.length; i < l; i++) {
+        var character = string[i];
+
+        if (character === '-') {
+            i++;
+
+            result += string[i].toUpperCase();
+        } else {
+            result += character;
+        }
+    }
+
+    return result;
+};
+
+
+/*--------------------------------------------------------------
+# CLASS
+--------------------------------------------------------------*/
+
+satus.class = function (element, string) {
+    if (string) {
+        element.className += ' ' + string;
+    }
+};
+
+
+/*--------------------------------------------------------------
+# CLONE
+--------------------------------------------------------------*/
+
+satus.clone = function (item) {
+    var clone = item.cloneNode(true),
+        parent_css = window.getComputedStyle(item.parentNode),
+        css = window.getComputedStyle(item),
+        style = '';
+
+    for (var i = 0, l = css.length; i < l; i++) {
+        var property = css[i],
+            value = css.getPropertyValue(property);
+
+        if (property === 'background-color') {
+            value = parent_css.getPropertyValue('background-color');
+        }
+
+        if (['box-shadow', 'left', 'top', 'bottom', 'right', 'opacity'].indexOf(property) === -1) {
+            style += property + ':' + value + ';';
+        }
+    }
+
+
+    clone.setAttribute('style', style);
+
+    return clone;
+};
+
+
+/*--------------------------------------------------------------
 # DATA
 --------------------------------------------------------------*/
 
@@ -100,45 +185,11 @@ satus.properties = function (element, properties) {
 
 
 /*--------------------------------------------------------------
-# CAMELIZE
---------------------------------------------------------------*/
-
-satus.camelize = function (string) {
-    var result = '';
-
-    for (var i = 0, l = string.length; i < l; i++) {
-        var character = string[i];
-
-        if (character === '-') {
-            i++;
-
-            result += string[i].toUpperCase();
-        } else {
-            result += character;
-        }
-    }
-
-    return result;
-};
-
-
-/*--------------------------------------------------------------
 # SNAKELIZE
 --------------------------------------------------------------*/
 
 satus.snakelize = function (string) {
     return string.replace(/([A-Z])/g, '-$1').toLowerCase();
-};
-
-
-/*--------------------------------------------------------------
-# CLASS
---------------------------------------------------------------*/
-
-satus.class = function (element, string) {
-    if (string) {
-        element.className += ' ' + string;
-    }
 };
 
 
@@ -203,21 +254,284 @@ satus.fetch = function (url, success, error) {
 
 
 /*--------------------------------------------------------------
-# AJAX
+# ON
 --------------------------------------------------------------*/
 
-satus.ajax = function (url, success, error) {
-    var xhr = new XMLHttpRequest();
+satus.on = function (element, events) {
+    if (this.isset(events) && typeof events === 'object') {
+        for (var selector in events) {
+            var type = typeof events[selector];
 
-    xhr.onload = function () {
-        success(this.response);
-    };
-    xhr.onerror = function () {
-        error(success);
+            if (selector === 'selectionchange') {
+                element = document;
+            }
+
+            if (type === 'function') {
+                element.addEventListener(selector, events[selector]);
+            } else if (type === 'object') {
+                element.addEventListener(selector, function (event) {
+                    this.skeleton.on[event.type].parent = this.skeleton;
+
+                    if (this.skeleton.on[event.type].component !== 'modal' && this.base && this.base.layers) {
+                        this.base.layers.open(this.skeleton.on[event.type]);
+                    } else {
+                        satus.render(this.skeleton.on[event.type], this.base);
+                    }
+                });
+            } else if (type === 'string') {
+                element.addEventListener(selector, function () {
+                    var match = this.skeleton.on[event.type].match(/(["'`].+["'`]|[^.()]+)/g),
+                        target = this.base;
+
+                    for (var i = 0, l = match.length; i < l; i++) {
+                        var key = match[i];
+
+                        if (target.skeleton[key]) {
+                            target = target.skeleton[key];
+                        } else {
+                            if (typeof target[key] === 'function') {
+                                target[key]();
+                            } else {
+                                target = target[key];
+                            }
+                        }
+
+                        if (target.rendered) {
+                            target = target.rendered;
+                        }
+                    }
+                });
+            }
+        }
+    }
+};
+
+
+/*--------------------------------------------------------------
+# STYLE
+--------------------------------------------------------------*/
+
+satus.style = function (component, object) {
+    for (var key in object) {
+        component.style[key] = object[key];
+    }
+};
+
+
+/*--------------------------------------------------------------
+# SEARCH
+--------------------------------------------------------------*/
+
+satus.search = function (query, object, callback) {
+    var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker'],
+        threads = 0,
+        results = {};
+
+    query = query.toLowerCase();
+
+    function parse(items, parent) {
+        threads++;
+
+        for (var key in items) {
+            if (key !== 'rendered' && key !== 'base' && key !== 'parent') {
+                var item = items[key];
+
+                if (elements.indexOf(item.component) !== -1 && key.indexOf(query) !== -1) {
+                    results[key] = Object.assign({}, item);
+                }
+
+                if (typeof item === 'object') {
+                    parse(item, items);
+                }
+            }
+        }
+
+        threads--;
+
+        if (threads === 0) {
+            callback(results);
+        }
+    }
+
+    parse(object);
+};
+
+
+/*--------------------------------------------------------------
+# PARENTS
+--------------------------------------------------------------*/
+
+satus.parents = function (object, components_only) {
+    function parse(items, parent) {
+        for (var key in items) {
+            if (key !== 'rendered' && key !== 'base' && key !== 'parent') {
+                var item = items[key];
+
+                if (components_only !== true || item.component) {
+                    item.parent = items;
+                }
+
+                if (typeof item === 'object' && item.component !== 'shortcut') {
+                    parse(item, items);
+                }
+            }
+        }
+    }
+
+    parse(object);
+};
+
+
+/*--------------------------------------------------------------
+# TEXT
+--------------------------------------------------------------*/
+
+satus.text = function (component, value) {
+    if (typeof value === 'function') {
+        value = value();
+    }
+
+    if (value) {
+        component.appendChild(document.createTextNode(this.locale.get(value)));
+    }
+};
+
+
+/*--------------------------------------------------------------
+# IS
+--------------------------------------------------------------*/
+
+satus.isArray = function (array) {
+    if (Array.isArray(array)) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+satus.isNumber = function (number) {
+    if (typeof number === 'number' && isNaN(number) === false) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+
+/*--------------------------------------------------------------
+# INDEX OF
+--------------------------------------------------------------*/
+
+satus.indexOf = function (child, parent) {
+    var index = 0;
+
+    if (satus.isArray(parent)) {
+        index = parent.indexOf(child);
+    } else {
+        while ((child = child.previousElementSibling)) {
+            index++;
+        }
+    }
+
+    return index;
+};
+
+
+/*--------------------------------------------------------------
+# TO INDEX
+--------------------------------------------------------------*/
+
+satus.toIndex = function (index, child, parent) {
+    if (satus.isArray(parent)) {
+        parent.splice(index, 0, parent.splice(satus.indexOf(child, parent), 1)[0])
+    }
+};
+
+
+/*--------------------------------------------------------------
+# REMOVE
+--------------------------------------------------------------*/
+
+satus.remove = function (child, parent) {
+    if (satus.isArray(parent)) {
+        parent.splice(satus.indexOf(child, parent), 1);
+    }
+};
+
+
+/*--------------------------------------------------------------
+# CREATE ELEMENT
+--------------------------------------------------------------*/
+
+satus.createElement = function (tagName, className) {
+    var element = document.createElement(tagName);
+
+    if (className) {
+        element.className = 'satus-' + className;
+    }
+
+    element.add = function (tagName, className) {
+        var element = satus.createElement(tagName, className);
+
+        this.appendChild(element);
+
+        return element;
     };
 
-    xhr.open('GET', url, true);
-    xhr.send();
+    return element;
+};
+
+
+/*--------------------------------------------------------------
+# CRYPT
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# DECRYPTION
+--------------------------------------------------------------*/
+
+satus.decrypt = async function (text, password) {
+    var iv = text.slice(0, 24).match(/.{2}/g).map(byte => parseInt(byte, 16)),
+        algorithm = {
+            name: 'AES-GCM',
+            iv: new Uint8Array(iv)
+        };
+
+    try {
+        var data = new TextDecoder().decode(await crypto.subtle.decrypt(
+            algorithm,
+            await crypto.subtle.importKey(
+                'raw',
+                await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password)),
+                algorithm,
+                false, ['decrypt']
+            ),
+            new Uint8Array(atob(text.slice(24)).match(/[\s\S]/g).map(ch => ch.charCodeAt(0)))
+        ));
+    } catch (err) {
+        return false;
+    }
+
+    return data;
+};
+
+
+/*--------------------------------------------------------------
+# ENCRYPTION
+--------------------------------------------------------------*/
+
+satus.encrypt = async function (text, password) {
+    var iv = crypto.getRandomValues(new Uint8Array(12)),
+        algorithm = {
+            name: 'AES-GCM',
+            iv: iv
+        };
+
+    return Array.from(iv).map(b => ('00' + b.toString(16)).slice(-2)).join('') + btoa(Array.from(new Uint8Array(await crypto.subtle.encrypt(
+        algorithm,
+        await crypto.subtle.importKey('raw', await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password)), algorithm, false, ['encrypt']),
+        new TextEncoder().encode(text)
+    ))).map(byte => String.fromCharCode(byte)).join(''));
 };
 
 
@@ -387,291 +701,6 @@ satus.locale.import = function (code, path, callback) {
             success();
         });
     });
-};
-
-
-/*--------------------------------------------------------------
-# ON
---------------------------------------------------------------*/
-
-satus.on = function (element, events) {
-    if (this.isset(events) && typeof events === 'object') {
-        for (var selector in events) {
-            var type = typeof events[selector];
-
-            if (selector === 'selectionchange') {
-                element = document;
-            }
-
-            if (type === 'function') {
-                element.addEventListener(selector, events[selector]);
-            } else if (type === 'object') {
-                element.addEventListener(selector, function (event) {
-                    this.skeleton.on[event.type].parent = this.skeleton;
-
-                    if (this.skeleton.on[event.type].component !== 'modal' && this.base && this.base.layers) {
-                        this.base.layers.open(this.skeleton.on[event.type]);
-                    } else {
-                        satus.render(this.skeleton.on[event.type], this.base);
-                    }
-                });
-            } else if (type === 'string') {
-                element.addEventListener(selector, function () {
-                    var match = this.skeleton.on[event.type].match(/(["'`].+["'`]|[^.()]+)/g),
-                        target = this.base;
-
-                    for (var i = 0, l = match.length; i < l; i++) {
-                        var key = match[i];
-
-                        if (target.skeleton[key]) {
-                            target = target.skeleton[key];
-                        } else {
-                            if (typeof target[key] === 'function') {
-                                target[key]();
-                            } else {
-                                target = target[key];
-                            }
-                        }
-
-                        if (target.rendered) {
-                            target = target.rendered;
-                        }
-                    }
-                });
-            }
-        }
-    }
-};
-
-
-/*--------------------------------------------------------------
-# STYLE
---------------------------------------------------------------*/
-
-satus.style = function (component, object) {
-    for (var key in object) {
-        component.style[key] = object[key];
-    }
-};
-
-
-/*--------------------------------------------------------------
-# SEARCH
---------------------------------------------------------------*/
-
-satus.search = function (query, object, callback) {
-    var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker'],
-        threads = 0,
-        results = {};
-
-    query = query.toLowerCase();
-
-    function parse(items, parent) {
-        threads++;
-
-        for (var key in items) {
-            if (key !== 'rendered' && key !== 'base' && key !== 'parent') {
-                var item = items[key];
-
-                if (elements.indexOf(item.component) !== -1 && key.indexOf(query) !== -1) {
-                    results[key] = Object.assign({}, item);
-                }
-
-                if (typeof item === 'object') {
-                    parse(item, items);
-                }
-            }
-        }
-
-        threads--;
-
-        if (threads === 0) {
-            callback(results);
-        }
-    }
-
-    parse(object);
-};
-
-
-/*--------------------------------------------------------------
-# PARENTS
---------------------------------------------------------------*/
-
-satus.parents = function (object, components_only) {
-    function parse(items, parent) {
-        for (var key in items) {
-            if (key !== 'rendered' && key !== 'base' && key !== 'parent') {
-                var item = items[key];
-
-                if (components_only !== true || item.component) {
-                    item.parent = items;
-                }
-
-                if (typeof item === 'object' && item.component !== 'shortcut') {
-                    parse(item, items);
-                }
-            }
-        }
-    }
-
-    parse(object);
-};
-
-
-/*--------------------------------------------------------------
-# TEXT
---------------------------------------------------------------*/
-
-satus.text = function (component, value) {
-    if (typeof value === 'function') {
-        value = value();
-    }
-
-    if (value) {
-        component.appendChild(document.createTextNode(this.locale.get(value)));
-    }
-};
-
-
-/*--------------------------------------------------------------
-# DECRYPTION
---------------------------------------------------------------*/
-
-satus.decrypt = async function (text, password) {
-    var iv = text.slice(0, 24).match(/.{2}/g).map(byte => parseInt(byte, 16)),
-        algorithm = {
-            name: 'AES-GCM',
-            iv: new Uint8Array(iv)
-        };
-
-    try {
-        var data = new TextDecoder().decode(await crypto.subtle.decrypt(
-            algorithm,
-            await crypto.subtle.importKey(
-                'raw',
-                await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password)),
-                algorithm,
-                false, ['decrypt']
-            ),
-            new Uint8Array(atob(text.slice(24)).match(/[\s\S]/g).map(ch => ch.charCodeAt(0)))
-        ));
-    } catch (err) {
-        return false;
-    }
-
-    return data;
-};
-
-
-/*--------------------------------------------------------------
-# ENCRYPTION
---------------------------------------------------------------*/
-
-satus.encrypt = async function (text, password) {
-    var iv = crypto.getRandomValues(new Uint8Array(12)),
-        algorithm = {
-            name: 'AES-GCM',
-            iv: iv
-        };
-
-    return Array.from(iv).map(b => ('00' + b.toString(16)).slice(-2)).join('') + btoa(Array.from(new Uint8Array(await crypto.subtle.encrypt(
-        algorithm,
-        await crypto.subtle.importKey('raw', await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password)), algorithm, false, ['encrypt']),
-        new TextEncoder().encode(text)
-    ))).map(byte => String.fromCharCode(byte)).join(''));
-};
-
-
-/*--------------------------------------------------------------
-# IS
---------------------------------------------------------------*/
-
-satus.isArray = function (array) {
-    if (Array.isArray(array)) {
-        return true;
-    } else {
-        return false;
-    }
-};
-
-satus.isNumber = function (number) {
-    if (typeof number === 'number' && isNaN(number) === false) {
-        return true;
-    } else {
-        return false;
-    }
-};
-
-
-/*--------------------------------------------------------------
-# INDEX OF
---------------------------------------------------------------*/
-
-satus.indexOf = function (child, parent) {
-    var index = 0;
-
-    if (satus.isArray(parent)) {
-        index = parent.indexOf(child);
-    } else {
-        while ((child = child.previousElementSibling)) {
-            index++;
-        }
-    }
-
-    return index;
-};
-
-
-/*--------------------------------------------------------------
-# TO INDEX
---------------------------------------------------------------*/
-
-satus.toIndex = function (index, child, parent) {
-    if (satus.isArray(parent)) {
-        parent.splice(index, 0, parent.splice(satus.indexOf(child, parent), 1)[0])
-    }
-};
-
-
-/*--------------------------------------------------------------
-# CLONE
---------------------------------------------------------------*/
-
-satus.clone = function (item) {
-    var clone = item.cloneNode(true),
-        parent_css = window.getComputedStyle(item.parentNode),
-        css = window.getComputedStyle(item),
-        style = '';
-
-    for (var i = 0, l = css.length; i < l; i++) {
-        var property = css[i],
-            value = css.getPropertyValue(property);
-
-        if (property === 'background-color') {
-            value = parent_css.getPropertyValue('background-color');
-        }
-
-        if (['box-shadow', 'left', 'top', 'bottom', 'right', 'opacity'].indexOf(property) === -1) {
-            style += property + ':' + value + ';';
-        }
-    }
-
-
-    clone.setAttribute('style', style);
-
-    return clone;
-};
-
-
-/*--------------------------------------------------------------
-# REMOVE
---------------------------------------------------------------*/
-
-satus.remove = function (child, parent) {
-    if (satus.isArray(parent)) {
-        parent.splice(satus.indexOf(child, parent), 1);
-    }
 };
 
 
@@ -2826,149 +2855,118 @@ satus.components.alert = function (skeleton) {
 --------------------------------------------------------------*/
 
 satus.components.slider = function (skeleton) {
-	var component = document.createElement('div'),
-		content = document.createElement('div'),
-		container = document.createElement('div'),
-		track = document.createElement('div'),
-		track_fill = document.createElement('div');
-
-	container.className = 'satus-slider__container';
-	track.className = 'satus-slider__track';
-	track_fill.className = 'satus-slider__track-fill';
+	var component = satus.createElement('div'),
+		label = component.add('div', 'slider__label');
 
 	component.min = skeleton.min || 0;
 	component.max = skeleton.max || 1;
-	component.step = (skeleton.step || 1);
-	component.percent = 100 / ((component.max - component.min) / component.step);
+	component.step = skeleton.step || 1;
+	component.percentageStep = 100 / ((component.max - component.min) / component.step);
 	component.precision = String(component.step).replace(/[0-9]./, '').length;
+	component.inner = label.add('div', 'slider__inner');
+	component.track = component.add('div', 'slider__track');
+	component.track.tabIndex = 0;
+	component.slice = component.track.add('div', 'slider__slice');
 
-	component.container = container;
-	component.track = track_fill;
-	component.handles = [];
-	component.inner = content;
+	component.valueElement = satus.render({
+		component: 'input',
+		type: 'number',
+		properties: {
+			min: component.min,
+			max: component.max,
+			step: component.step
+		},
+		on: {
+			input: function () {
+				var component = this.parentNode.parentNode;
 
-	component.toPercent = function (number) {
-		return number / this.step * this.percent + '%';
-	};
+				component.value = Math.min(component.max, Math.max(this.value, component.min));
 
-	component.createHandle = function (index) {
-		var handle = document.createElement('div');
+				component.storageValue = component.value;
 
-		handle.className = 'satus-slider__handle';
-		handle.handleIndex = index;
-		handle.tabIndex = 0;
+				component.storageChange();
 
-		this.handles.push(handle);
+				component.update();
+			}
+		}
+	}, label);
 
-		this.container.appendChild(handle);
-	};
+	if (satus.isset(skeleton.value)) {
+		component.value = skeleton.value;
+	} else {
+		component.value = (component.max < component.min) ? component.min : component.min + (component.max - component.min) / 2;
+	}
 
 	component.update = function () {
-		if (this.values.length > 1) {
-			var min = Math.min.apply(null, this.values) - this.min,
-				max = Math.max.apply(null, this.values) - this.min;
+		this.dataset.value = this.value;
 
-			this.track.style.left = this.toPercent(min);
-			this.track.style.width = this.toPercent(max - min);
+		this.valueElement.value = this.value;
 
-			for (var i = 0, l = this.handles.length; i < l; i++) {
-				var handle = this.handles[i],
-					value = this.values[i];
-
-				handle.style.left = this.toPercent(value - this.min);
-				handle.dataset.value = value;
-			}
-		} else {
-			var value = this.values[0];
-
-			this.track.style.width = this.toPercent(value - this.min);
-			this.handles[0].style.left = this.toPercent(value - this.min);
-			this.handles[0].dataset.value = value;
-		}
+		this.slice.style.width = (this.value - this.min) / ((this.max - this.min) / 100) + '%';
 	};
 
-	component.appendChild(content);
-	track.appendChild(track_fill);
-	container.appendChild(track);
-	component.appendChild(container);
+	component.move = function (event) {
+		var track = this.track.getBoundingClientRect(),
+			x = Math.min(track.width, Math.max(event.clientX - track.left, 0));
 
-	component.addEventListener('keydown', function (event) {
-		var code = event.keyCode;
+		this.value = x / track.width * 100 / this.percentageStep * this.step + this.min;
+		this.value = Math.round(this.value / this.step) * this.step;
+		this.value = Number(this.value.toFixed(this.precision));
 
-		console.log(code);
-	});
+		this.storageValue = this.value;
 
-	component.addEventListener('render', function () {
-		var value = this.storageValue;
+		this.storageChange();
 
-		if (satus.isArray(value)) {
-			this.values = value;
-		} else if (satus.isNumber(value)) {
-			this.values = [value];
-		} else {
-			this.values = this.skeleton.values || [satus.isset(this.skeleton.value) ? this.skeleton.value : 1];
+		this.update();
+	};
+
+	component.track.addEventListener('keydown', function (event) {
+		if (event.keyCode === 37) {
+			this.value -= this.step;
+		} else if (event.keyCode === 39) {
+			this.value += this.step;
 		}
 
-		for (var i = 0, l = this.values.length; i < l; i++) {
-			this.createHandle(i);
-		}
+		this.value = Math.min(this.max, Math.max(this.value, this.min));
+
+		this.storageValue = this.value;
+
+		this.storageChange();
 
 		this.update();
 	});
 
-	container.addEventListener('mousedown', function (event) {
+	component.track.addEventListener('mousedown', function (event) {
 		if (event.button === 0) {
-			var component = this.parentNode,
-				rect = this.getBoundingClientRect(),
-				cursor_x = event.clientX - rect.left,
-				percent = cursor_x / rect.width * 100,
-				steps = percent / component.percent * component.step + component.min,
-				closest_value = component.values.indexOf(component.values.reduce(function(previous, current, index) {
-					return Math.abs(current - steps) < Math.abs(previous - steps) ? current : previous;
-				})),
-				handle_index = component.handles[closest_value].handleIndex;
+			var component = this.parentNode;
 
-			setTimeout(function () {
-				component.handles[closest_value].focus();
-			});
-
-			function update(event) {
-				var cursor_x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width),
-					percent = cursor_x / rect.width * 100,
-					value = percent / component.percent * component.step + component.min;
-
-				value = (Math.round(value / component.step) * component.step);
-
-				value = Number(value.toFixed(component.precision));
-
-				if (component.values[handle_index] !== value) {
-					component.values[handle_index] = value;
-
-					component.storageValue = component.values.length === 1 ? component.values[0] : component.values;
-					component.value = component.storageValue;
-
-					component.storageChange();
-				}
-
-				component.update();
-			}
+			component.move(event);
 
 			function mousemove(event) {
-				update(event);
+				event.preventDefault();
+				event.stopPropagation();
+
+				component.move(event);
+
+				return false;
 			}
 
-			function mouseup(event) {
+			function mouseup() {
 				window.removeEventListener('mousemove', mousemove);
 				window.removeEventListener('mouseup', mouseup);
-			};
+			}
 
 			window.addEventListener('mousemove', mousemove);
 			window.addEventListener('mouseup', mouseup);
-
-			update(event);
-
-			return true;
 		}
+	});
+
+	component.addEventListener('render', function () {
+		if (satus.isNumber(this.storageValue)) {
+			this.value = this.storageValue;
+		}
+
+		component.update();
 	});
 
 	return component;
