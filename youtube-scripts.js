@@ -203,10 +203,8 @@ ImprovedTube.ytElementsHandler = function (node) {
                 for (var i = 0, l = mutationList.length; i < l; i++) {
                     var mutation = mutationList[i];
 
-                    if (mutation.type === 'attributes') {
-                        if (mutation.attributeName === 'src') {
-                            ImprovedTube.thumbnailsQuality(mutation.target);
-                        }
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+                        ImprovedTube.thumbnailsQuality(mutation.target);
                     }
                 }
 
@@ -3406,41 +3404,23 @@ ImprovedTube.shortcutQuality = function (key) {
 
         if (value === '144p') {
             value = 'tiny';
-        }
-
-        if (value === '240p') {
+        } else if (value === '240p') {
             value = 'small';
-        }
-
-        if (value === '360p') {
+        } else if (value === '360p') {
             value = 'medium';
-        }
-
-        if (value === '480p') {
+        } else if (value === '480p') {
             value = 'large';
-        }
-
-        if (value === '720p') {
+        } else if (value === '720p') {
             value = 'hd720';
-        }
-
-        if (value === '1080p') {
+        } else if (value === '1080p') {
             value = 'hd1080';
-        }
-
-        if (value === '1440p') {
+        } else if (value === '1440p') {
             value = 'hd1440';
-        }
-
-        if (value === '2160p') {
+        } else if (value === '2160p') {
             value = 'hd2160';
-        }
-
-        if (value === '2880p') {
+        } else if (value === '2880p') {
             value = 'hd2880';
-        }
-
-        if (value === '4320p') {
+        } else if (value === '4320p') {
             value = 'highres';
         }
 
@@ -4350,17 +4330,14 @@ ImprovedTube.deleteYoutubeCookies = function () {
 ImprovedTube.youtubeLanguage = function () {
     var value = this.storage.youtube_language;
 
-    if (this.isset(value)) {
+    if (this.isset(value) && value !== 'default') {
         var pref = this.getCookieValueByName('PREF');
+        var hl = this.getParam(pref, 'hl');
 
-        if (value !== 'default') {
-            var hl = this.getParam(pref, 'hl');
-
-            if (hl) {
-                this.setCookie('PREF', pref.replace('hl=' + hl, 'hl=' + value));
-            } else {
-                this.setCookie('PREF', pref + '&hl=' + value);
-            }
+        if (hl) {
+            this.setCookie('PREF', pref.replace('hl=' + hl, 'hl=' + value));
+        } else {
+            this.setCookie('PREF', pref + '&hl=' + value);
         }
     }
 };
@@ -4496,19 +4473,19 @@ new MutationObserver(function (mutationList) {
     for (var i = 0, l = mutationList.length; i < l; i++) {
         var mutation = mutationList[i];
 
-        if (mutation.type === 'attributes') {
-            if (mutation.attributeName === 'it-message') {
-                var message = document.documentElement.getAttribute('it-message');
+        if (mutation.type === 'attributes' && mutation.attributeName === 'it-message') {
+            var message = document.documentElement.getAttribute('it-message');
 
-                try {
-                    message = JSON.parse(message);
-                } catch (error) {}
-
-                if (message && message.storage) {
+            try {
+                message = JSON.parse(message);
+            } catch (error) {}
+            
+            if (message){
+                if (message.storage) {
                     ImprovedTube.storage = message.storage;
 
                     ImprovedTube.init();
-                } else if (message && message['storage-update']) {
+                } else if (message['storage-update']) {
                     var storage_update = message['storage-update'];
 
                     ImprovedTube.storage[storage_update.key] = storage_update.value;
@@ -4516,39 +4493,33 @@ new MutationObserver(function (mutationList) {
                     if (ImprovedTube[storage_update.camelizedKey]) {
                         ImprovedTube[storage_update.camelizedKey]();
                     }
-                } else if (message && message.focus) {
+                } else if (message.focus) {
                     ImprovedTube.focus = true;
 
                     ImprovedTube.pageOnFocus();
-                } else if (message && message.blur) {
+                } else if (message.blur) {
                     ImprovedTube.focus = false;
 
                     ImprovedTube.pageOnFocus();
 
                     document.dispatchEvent(new CustomEvent('improvedtube-blur'));
-                } else if (message && message.pause) {
-                    if (ImprovedTube.elements.player) {
-                        ImprovedTube.played_before_blur = ImprovedTube.elements.player.getPlayerState() === 1;
-                        ImprovedTube.elements.player.pauseVideo();
-                    }
-                } else if (message && message.setVolume) {
-                    if (ImprovedTube.elements.player) {
-                        ImprovedTube.elements.player.setVolume(message.setVolume);
-                    }
-                } else if (message && message.setPlaybackSpeed) {
-                    if (ImprovedTube.elements.player) {
-                        ImprovedTube.elements.player.setPlaybackRate(message.setPlaybackSpeed);
-                    }
-                } else if (message && message.deleteCookies) {
-                    ImprovedTube.deleteYoutubeCookies();
-                } else if (message && message.responseOptionsUrl) {
+                } else if (message.deleteCookies) {
+                        ImprovedTube.deleteYoutubeCookies();
+                } else if (message.responseOptionsUrl) {
                     var iframe = document.querySelector('.it-button__iframe');
 
                     if (iframe) {
                         iframe.src = message.responseOptionsUrl;
                     }
-                } else if (message && message.mixer) {
-                    if (ImprovedTube.elements.player) {
+                } else if (ImprovedTube.elements.player){
+                    if (message.pause) {
+                        ImprovedTube.played_before_blur = ImprovedTube.elements.player.getPlayerState() === 1;
+                        ImprovedTube.elements.player.pauseVideo();
+                    } else if (message.setVolume) {
+                        ImprovedTube.elements.player.setVolume(message.setVolume);
+                    } else if (message.setPlaybackSpeed) {
+                        ImprovedTube.elements.player.setPlaybackRate(message.setPlaybackSpeed);
+                    } else if (message.mixer) {
                         document.documentElement.setAttribute('it-response', JSON.stringify({
                             mixer: true,
                             url: location.href.match(/(\?|\&)v=[^&]+/)[0].substr(3),
