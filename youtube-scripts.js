@@ -274,10 +274,19 @@ ImprovedTube.ytElementsHandler = function (node) {
         }
 
         ImprovedTube.elements.subscribe_button = node;
-    } else if (id === 'chat') {
+    } else if (name === 'YTD-LIVE-CHAT-FRAME') {
+        this.elements.livechat.chat = node;
         this.elements.livechat.button = node.querySelector('ytd-toggle-button-renderer');
 
-        this.livechat();
+        if (this.storage.livechat === 'collapsed' && this.elements.livechat.button) {
+            var interval = setInterval(function () {
+                if (ImprovedTube.elements.livechat.chat.hasAttribute('collapsed')) {
+                    clearInterval(interval);
+                } else {
+                    ImprovedTube.livechat();
+                }
+            }, 1000);
+        }
     } else if (id === 'related') {
         if (node.className.indexOf('ytd-watch-flexy') !== -1) {
             this.elements.related.container = node;
@@ -1294,7 +1303,7 @@ ImprovedTube.playerRemainingDuration = function () {
 
 ImprovedTube.livechat = function () {
     if (this.storage.livechat === 'collapsed') {
-        ImprovedTube.elements.livechat.button.click();
+        this.elements.livechat.button.click();
     }
 };
 
