@@ -23,7 +23,7 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 <br><a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>/sponsors:bowtie:<br>(none yet!)
 </td></tr></table>
 
-**👪 Join us?** ImprovedTube is the only project of it's kind. Over the years we saw other openly developeded YouTube Extensions start well but resign later. Please spread the word 📣
+**👪 Join us?** ImprovedTube is the only project of it's kind. (Over the years we saw other openly developeded YouTube Extensions [start well but resign later](https://github.com/YePpHa/YouTubeCenter). Please spread the word 📣
 ## 🧩 ToDo
 - [ ] **1. Documentation wiki, screenshots, videos** <code><i>(We need to help the people learn easier about our [80+ features](https://github.com/ImprovedTube/ImprovedTube/wiki/Features). Drafts welcome. No documentation exists. (/🛈tooltips. let alone marketing. ImprovedTube can fly higher through your word of mouth🌱 and enable us to work on all wishes.</i></code>
    - [ ] **Updating translations**  <code> some language files miss additions.</code>
