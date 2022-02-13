@@ -24,6 +24,7 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 </td></tr></table>
 
 **👪 Join us?** ImprovedTube is the only project of it's kind. (_Over the years we saw other openly developeded YouTube Extensions [start well but](https://github.com/YePpHa/YouTubeCenter) resign [later](https://github.com/ParticleCore/Iridium)._) Please spread the word 📣
+
 ## 🧩 ToDo
 - [ ] **1. Documentation wiki, screenshots, videos** <code><i>(We need to help the people learn easier about our [80+ features](https://github.com/ImprovedTube/ImprovedTube/wiki/Features). Drafts welcome. No documentation exists. (/🛈tooltips. let alone marketing. ImprovedTube can fly higher through your word of mouth🌱 and enable us to work on all wishes.</i></code>
    - [ ] **Updating translations**  <code> some language files miss additions.</code>
@@ -91,9 +92,11 @@ Start Page <a href="https://github.com/victor-savinov/start-page"><img src="http
   
 **Development:**  [**Satus** (=Our UI library)](https://github.com/victor-savinov/satus), [_T E_](https://github.com/victor-savinov/theme-engine),  [_P_](https://github.com/victor-savinov/pluviam), _[Code Editor](https://github.com/victor-savinov/code-editor), [Viscum Player](https://github.com/victor-savinov/viscum-player)_,   <br>_**Open-Source & Git:** [Pull Requests bots](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot) [Regex Collector](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns),_
 
+## 💡 Got other great wishes / ideas?  
+We work on more novel (new & unique) projects for you.
+https://github.com/code-for-charity/wish-factors   (/ideas@improvedtube.com)
+
 ##  🌾 Our Work <a href="https://starchart.cc/ImprovedTube/YouTube.svg"><img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="118px"></a> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
-### 💡 Ideas   
-Got great ideas? ideas@improvedtube.com
 ### 👩‍💻 Expertise / Advice <img width="280" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png"> 
 <img align="center" width="527" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png">
 
