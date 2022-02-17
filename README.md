@@ -94,7 +94,7 @@ Start Page <a href="https://github.com/victor-savinov/start-page"><img src="http
 
 ## 💡 Got other great wishes / ideas?  
 We will work on more novel (new & unique) projects for you.
-[github/WISH-factory](https://github.com/code-for-charity/wish-factory)   (/ideas@improvedtube.com)
+[github/../WISH-factory](https://github.com/code-for-charity/wish-factory)   (ideas@improvedtube.com)
 
 ##  🌾 Our Work <a href="https://starchart.cc/ImprovedTube/YouTube.svg"><img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="118px"></a> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
 ### 👩‍💻 Expertise / Advice <img width="280" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png"> 
