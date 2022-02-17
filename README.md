@@ -27,13 +27,13 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 
 ## 🧩 ToDo
 - [ ] **1. Documentation wiki, screenshots, videos** <code><i>(We need to help the people learn easier about our [80+ features](https://github.com/ImprovedTube/ImprovedTube/wiki/Features). Drafts welcome. No documentation exists. (/🛈tooltips. let alone marketing. ImprovedTube can fly higher through your word of mouth🌱 and enable us to work on all wishes.</i></code>
-   - [ ] **Updating translations**  <code> some language files miss additions.</code>
+   - [ ] Updating translations <code> some language files miss additions.</code>
    - [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
 - [ ] [**Plans🧩**](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen+label%3A🧩Plan++-label%3A%22not+Goo.+Chrome%22+)<code> _specification added. Often unique/special(/complex)_ </code>,
   - [ ] [**Plans||**](https://github.com/code4charity/YouTube-Extension/discussions?discussions_q=category%3AToDo+category%3A%22Wishes+%26+Ideas%22+) ; [ ] [**Organization**:octocat:](https://github.com/code4charity/YouTube-Extension/discussions/categories/organization) <code>_future & structure_</code>  
 
-- [ ] [**All Feature Requests🌟🧚**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)  <code> _sometimes easy CSS_</code>    &nbsp;&nbsp;[_Rest of 'issues'_](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3Atweak)
+- [ ] [**Feature Requests🌟🧚**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)  <code> _sometimes easy CSS_</code>    &nbsp;&nbsp;[_+Rest/Unsorted 'issues'_](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3Atweak)
 - [ ] [**Bugs🐞 / YouTube Updates**](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+) <code>*we aim to offer some bounties. Please ask*.</code> 
 > - [***Contributing without programming***](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)  
 > - [*How to start editing our CSS, JavaScript, json*](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code> (***outdated**) (For code literates)* (*Newcomers are [we](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)lcome. We review all edits & love to collaborate*)  </code>
@@ -41,37 +41,37 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 
 <table align="right"><th><h3 align="center"> 🌎 Translators 💕</h3></th>
 <tr><td>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json">🟡Bahasa Indonesia</a></code>:<code><a href="https://github.com/Bagus23">Bagus23</a></code>,<code><a href="https://github.com/fdciabdul">A.Muttaqin</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json">🟡Deutsch</a></code>:<code><a href="https://github.com/Termuellinator">Termuellinator</a></code>,<code><a href="https://github.com/css-smueller">css-smueller</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json">🟡English</a></code> Proofreaders:<code><a href="https://github.com/????????">______</a></code> (you?) <br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json">🟡Español</a></code>:<code><a href="https://github.com/Kioraga">Kioraga</a></code>,<code><a href="https://github.com/Compvictor">Compvictor</a></code>,<code><a href="https://github.com/dimateos">dimateos</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json">🟡Français</a></code>:<code><a href="https://github.com/leghort">leghort</a></code>,<code><a href="https://github.com/Eymiks">Eymiks</a></code>,<code><a href="https://github.com/Solvabl">Solvabl</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hr/messages.json">🟡Hrvatski</a></code>:<code><a href="https://github.com/mbeara">mbeara</a></code><br>
- <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json">🟢Italiano</a></code>:<code><a href="https://github.com/urfausto">urfausto</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json">🟡Nederlands</a></code>:<code><a href="https://github.com/aron-hoogeveen">aron-hoogeveen</a></code>,<code><a href="https://github.com/Vistaus">Vistaus</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/no/messages.json">🟡Norsk</a></code>:<code><a href="https://github.com/master3395">master3395</a></code>,<code><a href="https://github.com/comradekingu">comradekingu</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nb_NO/messages.json">🟡Norsk Bokmål</a></code>:<code><a href="https://github.com/comradekingu">comradekingu</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pl/messages.json">🟢Polski</a></code>:<code><a href="https://github.com/FluidExtractor">FluidExtractor</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json">🟡Português</a></code>:<code><a href="https://github.com/DrNopt">DrNopt</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json">🟢Português (Brasil)</a></code>:<code><a href="https://github.com/dthiago">dthiago</a></code>,<code><a href="https://github.com/Mike-Correa">Mike-Correa</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json">✓Bahasa Indonesia</a></code>:<code><a href="https://github.com/Bagus23">Bagus23</a></code>,<code><a href="https://github.com/fdciabdul">A.Muttaqin</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json">✔️Deutsch</a></code>:<code><a href="https://github.com/Termuellinator">Termuellinator</a></code>,<code><a href="https://github.com/css-smueller">css-smueller</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json">✓English</a></code> Proofreaders:<code><a href="https://github.com/????????">______</a></code> (you?) <br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json">✓Español</a></code>:<code><a href="https://github.com/Kioraga">Kioraga</a></code>,<code><a href="https://github.com/Compvictor">Compvictor</a></code>,<code><a href="https://github.com/dimateos">dimateos</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json">✓Français</a></code>:<code><a href="https://github.com/leghort">leghort</a></code>,<code><a href="https://github.com/Eymiks">Eymiks</a></code>,<code><a href="https://github.com/Solvabl">Solvabl</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hr/messages.json">✓Hrvatski</a></code>:<code><a href="https://github.com/mbeara">mbeara</a></code><br>
+ <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json">✔️Italiano</a></code>:<code><a href="https://github.com/urfausto">urfausto</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json">✓Nederlands</a></code>:<code><a href="https://github.com/aron-hoogeveen">aron-hoogeveen</a></code>,<code><a href="https://github.com/Vistaus">Vistaus</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/no/messages.json">✓Norsk</a></code>:<code><a href="https://github.com/master3395">master3395</a></code>,<code><a href="https://github.com/comradekingu">comradekingu</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nb_NO/messages.json">✓Norsk Bokmål</a></code>:<code><a href="https://github.com/comradekingu">comradekingu</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pl/messages.json">✔️Polski</a></code>:<code><a href="https://github.com/FluidExtractor">FluidExtractor</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json">✓Português</a></code>:<code><a href="https://github.com/DrNopt">DrNopt</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json">✔️Português (Brasil)</a></code>:<code><a href="https://github.com/dthiago">dthiago</a></code>,<code><a href="https://github.com/Mike-Correa">Mike-Correa</a></code><br>
 <code><a href="https://github.com/DavidBrazSan">DavidBrazSan</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ro/messages.json">🟡Română</a></code>:<code><a href="https://github.com/hateofhades">hateofhades</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json">🟡Slovenčina</a></code>:<code><a href="https://github.com/bbc-s">bbc-s</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json">🟡Türkçe</a></code>:<code><a href="https://github.com/onurdumangoz">onurdumangoz</a></code>,<code><a href="https://github.com/daswareinfach">daswareinfach</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/th/messages.json">🔴Thai</a></code>:<code><a href="https://github.com/????????">______</a></code> (you?)<br>
- <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vn/messages.json">🔴Vietnamese</a></code>:<code><a href="https://github.com/????????">______</a></code> (you?)<br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json">🟡Русский</a></code>:<code><a href="https://github.com/qweered">qweered</a></code>,<code><a href="https://github.com/alexesprit">alexesprit</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json">🟡ελληνικά</a></code>:<code><a href="https://github.com/molyvius">molyvius</a></code><br>
-<code><a href="https://github.com/code4charity/YouTube-Extension/blob/master/_locales/ar/messages.json">🟡العربية</a></code>:<code><a href="https://github.com/Raayib">Raayib</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hin/messages.json">🟡हिन्दी</a></code>:<code><a href="https://github.com/monishamandal02">monishamandal02</a></code>,<code><a href="https://github.com/BRAVO68WEB">BRAVO68WEB</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json">🟢বাংলা</a></code>:<code><a href="https://github.com/BRAVO68WEB">BRAVO68WEB</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json">🟢中文 (简体)</a></code>:<code><a href="https://github.com/niceRAM">niceRAM</a></code>,<code><a href="https://github.com/ausers">ausers</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json">🟢中文 (繁體)</a></code>:<code><a href="https://github.com/Still34">Still34</a></code>,<code><a href="https://github.com/water903">water903</a></code>,<code><a href="https://github.com/suitangi">suitangi</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json">🟢日本語</a></code>:<code><a href="https://github.com/utuhiro78">utuhiro78</a></code><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json">🟡한국어</a></code>:<code><a href="https://github.com/msc9533">msc9533</a></code>,<code><a href="https://github.com/LYHyoung">LYHyoung</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ro/messages.json">✓Română</a></code>:<code><a href="https://github.com/hateofhades">hateofhades</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json">✓Slovenčina</a></code>:<code><a href="https://github.com/bbc-s">bbc-s</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json">✓Türkçe</a></code>:<code><a href="https://github.com/onurdumangoz">onurdumangoz</a></code>,<code><a href="https://github.com/daswareinfach">daswareinfach</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/th/messages.json">😕Thai</a></code>:<code><a href="https://github.com/????????">______</a></code> (you?)<br>
+ <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vn/messages.json">😕Vietnamese</a></code>:<code><a href="https://github.com/????????">______</a></code> (you?)<br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json">✓Русский</a></code>:<code><a href="https://github.com/qweered">qweered</a></code>,<code><a href="https://github.com/alexesprit">alexesprit</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json">✓ελληνικά</a></code>:<code><a href="https://github.com/molyvius">molyvius</a></code><br>
+<code><a href="https://github.com/code4charity/YouTube-Extension/blob/master/_locales/ar/messages.json">✓العربية</a></code>:<code><a href="https://github.com/Raayib">Raayib</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hin/messages.json">✓हिन्दी</a></code>:<code><a href="https://github.com/monishamandal02">monishamandal02</a></code>,<code><a href="https://github.com/BRAVO68WEB">BRAVO68WEB</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json">✔️বাংলা</a></code>:<code><a href="https://github.com/BRAVO68WEB">BRAVO68WEB</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json">✔️中文 (简体)</a></code>:<code><a href="https://github.com/niceRAM">niceRAM</a></code>,<code><a href="https://github.com/ausers">ausers</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json">✔️中文 (繁體)</a></code>:<code><a href="https://github.com/Still34">Still34</a></code>,<code><a href="https://github.com/water903">water903</a></code>,<code><a href="https://github.com/suitangi">suitangi</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json">✔️日本語</a></code>:<code><a href="https://github.com/utuhiro78">utuhiro78</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json">✓한국어</a></code>:<code><a href="https://github.com/msc9533">msc9533</a></code>,<code><a href="https://github.com/LYHyoung">LYHyoung</a></code><br>
 <i> (= Russian, Greek, Arabian, Hindi, Bengali <br>
-Chinese, Taiwanese, Japanese, Korean)   <br> More languages: Malay, Punjabi, ...
-<br>(🟡 = just missing some additions/updates) </i>
+	Chinese, Taiwanese, Japanese, <b>Korean</b>)   <br> More languages: Malay, Punjabi, ...
+<br> ✓ =  missing some additions/updates </i>
 
 </td></tr></table> 
 
