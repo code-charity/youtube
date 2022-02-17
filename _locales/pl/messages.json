@@ -93,13 +93,13 @@
         "message": "Avoid AV1"
     },
     "avoidAv1Vp8Vp9": {
-        "message": "Avoid AV1, VP8, VP9"
+        "message": "Unikaj AV1, VP8, VP9"
     },
     "avoidAv1Vp9": {
-        "message": "Avoid AV1, VP9"
+        "message": "Unikaj AV1, VP9"
     },
     "avoidCpuRenderingWhenPossible": {
-        "message": "Avoid CPU rendering when possible"
+        "message": "Unikaj renderowania CPU gdy tylko możliwe"
     },
     "backgroundColor": {
         "message": "Kolor tła"
@@ -126,19 +126,19 @@
         "message": "Blokuj wszystkie"
     },
     "blockAv1": {
-        "message": "Block AV1"
+        "message": "Blokuj AV1"
     },
     "blockH264": {
-        "message": "Block H.264"
+        "message": "Blokuj H.264"
     },
     "blockMusic": {
         "message": "Blokuj muzykę"
     },
     "blockVp8": {
-        "message": "Block VP8"
+        "message": "Blokuj VP8"
     },
     "blockVp9": {
-        "message": "Block VP9"
+        "message": "Blokuj VP9"
     },
     "blue": {
         "message": "Niebieski"
@@ -273,7 +273,7 @@
         "message": "Description"
     },
     "description_ext": {
-        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+        "message": "Spraw, aby YouTube był uporządkowany i inteligentny! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
         "message": "Pustynia"
@@ -519,7 +519,7 @@
         "message": "Ulepsz logo"
     },
     "improvedtubeButtons": {
-        "message": "ImprovedTube buttons"
+        "message": "Przyciski ImprovedTube"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Ikona ImprovedTube na YouTube"
@@ -660,7 +660,7 @@
         "message": "Aktywny tylko na YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Odtwarzanie tylko jednej instancji odtwarzacza"
+        "message": "Odtwarzanie tylko w jednej instancji odtwarzacza"
     },
     "openPopupPlayer": {
         "message": "Otwórz wideo/playliste w nowym oknie"
@@ -696,7 +696,7 @@
         "message": "Platforma"
     },
     "playAllButton": {
-        "message": "\"Play all\" button"
+        "message": "Przycisk \"Odtwórz wszystko\""
     },
     "playPause": {
         "message": "Odtwarzanie / Pauza"
