@@ -71,7 +71,7 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json">✓한국어</a></code>:<code><a href="https://github.com/msc9533">msc9533</a></code>,<code><a href="https://github.com/LYHyoung">LYHyoung</a></code><br>
 <i> (= Russian, Greek, Arabian, Hindi, Bengali <br>
 	Chinese, Taiwanese, Japanese, <b>Korean</b>)   <br> More languages: Malay, Punjabi, ...
-<br> `✓` =  missing some additions/updates </i>
+<br> <code>✓</code> =  missing some additions/updates </i>
 
 </td></tr></table> 
 
