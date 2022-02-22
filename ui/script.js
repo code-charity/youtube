@@ -2447,6 +2447,17 @@ var skeleton = {
                                                 text: 'about'
                                             }
                                         }
+                                    },
+                                    email: {
+                                        component: 'button',
+                                        class: 'satus-button--email',
+                                        category: true,
+                                        text:'Bugs@improvedtube.com',
+                                        on: {
+                                            click: function () {
+                                                window.open('mailto:bugs@improvedtube.com', '_blank');
+                                            }
+                                        }
                                     }
                                 }
                             },
@@ -6995,17 +7006,6 @@ var skeleton = {
                 label: {
                     component: 'span',
                     text: 'analyzer'
-                }
-            },
-
-            email: {
-                component: 'a',
-                variant: 'email',
-                text: 'bugs@improvedtube.com',
-                on: {
-                    click: function () {
-                        window.open('mailto:bugs@improvedtube.com', '_blank');
-                    }
                 }
             }
         }
