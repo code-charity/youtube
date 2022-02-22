@@ -113,22 +113,15 @@ body {
     margin: 0;
 }
 
-.satus-a--email {
-    font-weight: 700;
-    position: fixed;
-    bottom: 8px;
-    left: 8px;
-    width: calc(100% - 16px);
+.satus-button--email{
     padding: 8px;
     cursor: pointer;
     text-align: center;
+    justify-content: center;
     letter-spacing: .125px;
-    color: rgba(255, 255, 255, .85);
-    border-radius: 4px;
-    background: var(--satus-primary);
+    height: auto;
+    color: var(--satus-primary);
 }
-
-
 /*--------------------------------------------------------------
 # HEADER
 --------------------------------------------------------------*/
@@ -437,6 +430,10 @@ body:not([data-improvedtube_home='list']) .satus-button--analyzer svg {
     top: 1px;
 }
 
+body:not([data-improvedtube_home='list']) .satus-button--email svg {
+    position: relative;
+    top: 1px;
+}
 body[data-it_general='false'] .satus-button--general,
 body[data-it_appearance='false'] .satus-button--appearance,
 body[data-it_themes='false'] .satus-button--themes,
@@ -445,7 +442,8 @@ body[data-it_playlist='false'] .satus-button--playlist,
 body[data-it_channel='false'] .satus-button--channel,
 body[data-it_shortcuts='false'] .satus-button--shortcuts,
 body[data-it_blacklist='false'] .satus-button--blacklist,
-body[data-it_analyzer='false'] .satus-button--analyzer {
+body[data-it_analyzer='false'] .satus-button--analyzer,
+body[data-it_analyzer='false'] .satus-button--email {
     display: none;
 }
 
