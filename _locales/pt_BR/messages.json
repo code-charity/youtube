@@ -519,7 +519,7 @@
         "message": "Logo do ImproveTube"
     },
     "improvedtubeButtons": {
-        "message": "Botões de ImprovedTube"
+        "message": "Botões do ImprovedTube"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Ícone do ImprovedTube"
@@ -720,7 +720,7 @@
         "message": "Playlists"
     },
     "popupPlayer": {
-        "message": "Player Externo"
+        "message": "Player externo"
     },
     "position": {
         "message": "Posição"
@@ -735,7 +735,7 @@
         "message": "Vídeo Anterior"
     },
     "primaryColor": {
-        "message": "Cor Primária"
+        "message": "Cor primária"
     },
     "purple": {
         "message": "Roxo"
@@ -840,7 +840,7 @@
         "message": "Mostrar cards ao passar o mouse"
     },
     "showChannelVideosCount": {
-        "message": "Número de Vídeos do Canal"
+        "message": "Número de vídeos do canal"
     },
     "showLess": {
         "message": "Mostre menos"
