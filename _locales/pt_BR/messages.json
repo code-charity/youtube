@@ -90,16 +90,16 @@
         "message": "Reprodução automática"
     },
     "avoidAv1": {
-        "message": "Avoid AV1"
+        "message": "Evitar AV1"
     },
     "avoidAv1Vp8Vp9": {
-        "message": "Avoid AV1, VP8, VP9"
+        "message": "Evitar AV1, VP8, VP9"
     },
     "avoidAv1Vp9": {
-        "message": "Avoid AV1, VP9"
+        "message": "Evitar AV1, VP9"
     },
     "avoidCpuRenderingWhenPossible": {
-        "message": "Avoid CPU rendering when possible"
+        "message": "Evite renderização da CPU quando possível"
     },
     "backgroundColor": {
         "message": "Cor de fundo"
@@ -126,19 +126,19 @@
         "message": "Bloquear tudo"
     },
     "blockAv1": {
-        "message": "Block AV1"
+        "message": "Bloquear AV1"
     },
     "blockH264": {
-        "message": "Block H.264"
+        "message": "Bloquear H.264"
     },
     "blockMusic": {
         "message": "Bloquear música"
     },
     "blockVp8": {
-        "message": "Block VP8"
+        "message": "Bloquear VP8"
     },
     "blockVp9": {
-        "message": "Block VP9"
+        "message": "Bloquear VP9"
     },
     "blue": {
         "message": "Azul"
@@ -213,7 +213,7 @@
         "message": "Recortar títulos do capítulos"
     },
     "custom": {
-        "message": "Custom"
+        "message": "Personalizar"
     },
     "customCss": {
         "message": "Personalizar CSS"
@@ -270,7 +270,7 @@
         "message": "Comprimido"
     },
     "description": {
-        "message": "Description"
+        "message": "Descrição"
     },
     "description_ext": {
         "message": "Torne o YouTube organizado e inteligente! Pular Anúncio, colorir YouTube, volume, velocidade, canal, ferramenta, estilo, HD, adblock, adblocker, tags, playlist ,palavras-chave"
@@ -516,10 +516,10 @@
         "message": "Importar configurações"
     },
     "improveLogo": {
-        "message": "Logo do Improve"
+        "message": "Logo do ImproveTube"
     },
     "improvedtubeButtons": {
-        "message": "ImprovedTube buttons"
+        "message": "Botões de ImprovedTube"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Ícone do ImprovedTube"
@@ -660,7 +660,7 @@
         "message": "Ativo apenas no YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Apenas player Tocando"
+        "message": "Apenas player tocando"
     },
     "openPopupPlayer": {
         "message": "Abra vídeos/playlist em uma nova janela"
