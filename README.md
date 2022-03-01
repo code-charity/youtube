@@ -1,3 +1,7 @@
+📟 Please get ready to help us in [**GitCoin Grants Round 13**](https://gitcoin.co/grants/4303/code4charity-users400000-years9-workdaily-income-2)
+   - Fortunately we got accepted for this democratic/public funding. - Every $1 donation in crypto *could* give us up to ~$15 .  
+     Yet, to make your voice count, it has to happen March 9 - 24. And several of us will have to participate to stand out. 
+
 <h1 align="center">«Improve YouTube!»</h1>
 <p align="center">
 <b><code>/ImprovedTube/</code></b> is a lightweight extension to improve your view & content discovery. Powerful features & a pretty UI.</p>
@@ -26,8 +30,8 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 **👪 Join us?** ImprovedTube is the only project of it's kind. <code><code>(_Over the years we saw other openly developeded YouTube Extensions [start well but](https://github.com/YePpHa/YouTubeCenter) resign [later](https://github.com/ParticleCore/Iridium)._) </code></code> Please spread the word 📣
 
 ## 🧩 ToDo
-- [ ] **1. Documentation wiki, screenshots, videos** <code><i>(We need to help the people learn easier about our [80+ features](https://github.com/ImprovedTube/ImprovedTube/wiki/Features). Drafts welcome. No documentation exists. (/🛈tooltips. let alone marketing. ImprovedTube can fly higher through your word of mouth🌱 and enable us to work on all wishes.</i></code>
-   - [ ] Updating translations <code> some language files miss additions.</code>
+- [ ] **1. Documentation wiki, screenshots, videos** <code>(We need to help the people learn easier about our [80+ features](https://github.com/ImprovedTube/ImprovedTube/wiki/Features). Drafts welcome. No documentation exists. (/🛈tooltips. let alone marketing. ImprovedTube can fly higher through your word of mouth🌱 and enable us to work on all wishes.</code>
+   - [ ] Updating translations <code><i> some language files miss additions.</i></code>
    - [ ] Proofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json)
 
 - [ ] [**Plans🧩**](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen+label%3A🧩Plan++-label%3A%22not+Goo.+Chrome%22+)<code> _specification added. Often unique/special(/complex)_ </code>,
