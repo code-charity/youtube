@@ -1,6 +1,6 @@
 📟 Please get ready to help us in [**GitCoin Grants Round 13**](https://gitcoin.co/grants/4303/code4charity-users400000-years9-workdaily-income-2)
    - Fortunately we got accepted for this democratic/public funding. - Every $1 donation in crypto *could* give us up to ~$15 .  
-     Yet, to make your voice count, it has to happen March 9 - 24. And several of us will have to participate to stand out. 
+     to make your voice count, it has to happen **March 9**(-24). And several of us have to participate to stand out. 
 
 <h1 align="center">«Improve YouTube!»</h1>
 <p align="center">
