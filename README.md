@@ -1,6 +1,5 @@
 📟 Let's get ready for [**GitCoin Grants Round 13**](https://gitcoin.co/grants/4303/code4charity-users400000-years9-workdaily-income-2). (=Please help us by donating >= $0.01  in crypto)
- - Fortunately we got accepted for this democratic/public funding, so that even your $1 can increase our development by up to ~$20. (To make your voice count like that, it has to happen **March 9**(-24). And several of us have to participate to stand out from irrelevant proposals)
- - (Please review our text there)
+ - Fortunately we got accepted for this democratic/public funding, so that even your $1 can increase our development by up to ~$20. (To make your voice count like that, it has to happen **March 9**(-24). And several of us have to participate to stand out from irrelevant proposals(please review our's))
 
 <h1 align="center">«Improve YouTube!»</h1>
 <p align="center">
