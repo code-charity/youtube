@@ -1,4 +1,4 @@
-📟 Let's get ready for our [**GitCoin GR13 proposal**](https://gitcoin.co/grants/4303/code4charity-users400000-years9-workdaily-income-2).  Please help us by donating >= $0.01  in crypto. 
+📟 Let's get ready for GitCoin Round 13 ([**our proposal**](https://gitcoin.co/grants/4303/code4charity-users400000-years9-workdaily-income-2)).  Please help us through donating >= $0.01  in crypto. 
  - Fortunately we got approved for this public/democratic funding, so that even your $1 can increase our development by up to ~$20. (To make your voice count for that, it has to be **March 9**(-24). And several of us have to participate to stand out from irrelevant projects.
 
 <h1 align="center">«Improve YouTube!»</h1>
