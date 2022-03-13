@@ -59,6 +59,7 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json">✔️Português (Brasil)</a></code>:<code><a href="https://github.com/dthiago">dthiago</a></code>,<code><a href="https://github.com/Mike-Correa">Mike-Correa</a></code><br>
 <code><a href="https://github.com/DavidBrazSan">DavidBrazSan</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ro/messages.json">✓Română</a></code>:<code><a href="https://github.com/hateofhades">hateofhades</a></code><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/si/messages.json">✓සිංහල (Sri Lanka)</a></code>:<code><a href="https://github.com/AshenNethsara">AshenNethsara</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json">✓Slovenčina</a></code>:<code><a href="https://github.com/bbc-s">bbc-s</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json">✓Türkçe</a></code>:<code><a href="https://github.com/onurdumangoz">onurdumangoz</a></code>,<code><a href="https://github.com/daswareinfach">daswareinfach</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/th/messages.json">😕Thai</a></code>:<code><a href="https://github.com/????????">______</a></code> (you?)<br>
