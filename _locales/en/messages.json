@@ -897,10 +897,10 @@
         "message": "Sunset to sunrise"
     },
     "systemPeferenceDark": {
-        "message": "System peference: dark"
+        "message": "System preference: dark"
     },
     "systemPeferenceLight": {
-        "message": "System peference: light"
+        "message": "System preference: light"
     },
     "teal": {
         "message": "Teal"
