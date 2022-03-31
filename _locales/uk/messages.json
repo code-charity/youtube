@@ -60,7 +60,7 @@
         "message": "Amber"
     },
     "analyzer": {
-        "message": "Analyzer"
+        "message": "Analyser"
     },
     "appearance": {
         "message": "Appearance"
@@ -102,7 +102,7 @@
         "message": "Avoid CPU rendering when possible"
     },
     "backgroundColor": {
-        "message": "Background color"
+        "message": "Background colour"
     },
     "backgroundOpacity": {
         "message": "Background opacity"
@@ -111,7 +111,7 @@
         "message": "Backup & reset"
     },
     "baseOnSystemColorScheme": {
-        "message": "Base on system color scheme"
+        "message": "Base on system colour scheme"
     },
     "belowPlayer": {
         "message": "Below player"
@@ -144,7 +144,7 @@
         "message": "Blue"
     },
     "blueGray": {
-        "message": "Blue gray"
+        "message": "Blue grey"
     },
     "bluelight": {
         "message": "Bluelight"
@@ -273,7 +273,7 @@
         "message": "Description"
     },
     "description_ext": {
-        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+        "message": "Make YouTube tidy+smart! YouTube video colour ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
         "message": "Desert"
@@ -345,7 +345,7 @@
         "message": "Font"
     },
     "fontColor": {
-        "message": "Font color"
+        "message": "Font colour"
     },
     "fontFamily": {
         "message": "Font family"
@@ -369,7 +369,7 @@
         "message": "Forced playback speed"
     },
     "forcedTheaterMode": {
-        "message": "Forced theater mode"
+        "message": "Forced theatre mode"
     },
     "forcedVolume": {
         "message": "Forced volume"
@@ -615,7 +615,7 @@
         "message": "Move thumbnails right"
     },
     "myColors": {
-        "message": "My colors"
+        "message": "My colours"
     },
     "name": {
         "message": "Name"
@@ -708,7 +708,7 @@
         "message": "Player"
     },
     "playerColor": {
-        "message": "Player color"
+        "message": "Player colour"
     },
     "playerSize": {
         "message": "Player size"
@@ -735,7 +735,7 @@
         "message": "Previous video"
     },
     "primaryColor": {
-        "message": "Primary color"
+        "message": "Primary colour"
     },
     "purple": {
         "message": "Purple"
@@ -897,16 +897,16 @@
         "message": "Sunset to sunrise"
     },
     "systemPeferenceDark": {
-        "message": "System peference: dark"
+        "message": "System preference: dark"
     },
     "systemPeferenceLight": {
-        "message": "System peference: light"
+        "message": "System preference: light"
     },
     "teal": {
         "message": "Teal"
     },
     "textColor": {
-        "message": "Text color"
+        "message": "Text colour"
     },
     "themes": {
         "message": "Themes"
@@ -1014,7 +1014,7 @@
         "message": "White"
     },
     "windowColor": {
-        "message": "Window color"
+        "message": "Window colour"
     },
     "windowOpacity": {
         "message": "Window opacity"
