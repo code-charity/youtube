@@ -78,9 +78,9 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 
 ## Recently:
 
-❔ <code><code>**ImprovedTube controls in, under or around the video player or cursor** [842](https://github.com/code4charity/YouTube-Extension/issues/842).</code></code><br>
+❔ <code><code>**ImprovedTube controls in, under or around the video player or cursor [842](https://github.com/code4charity/YouTube-Extension/issues/842).**</code></code><br>
 ❔ <code><code>**Meaningful/Most similar extensions**? Social-Fixer(, Youtube Enhancer, Simplify, ...)  [1016](https://github.com/code4charity/YouTube-Extension/issues/1016).</code></code><br>
-📟 <code><code>Enjoy our other projects: global [Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making. (more below) </code></code><br>
+📟 <code><code>Enjoy **our projects: global** [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making. (more below) </code></code><br>
 📟 <code><code>We are focused on bugs & UX. Wishes for new features might have to wait but please keep them up! </code></code><br>
 📟 <code><code>Firefox, Edge, Opera, Whale added (please try&rate) </code></code>
  
