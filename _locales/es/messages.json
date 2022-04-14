@@ -722,6 +722,9 @@
     "popupPlayer": {
         "message": "Reproductor emergente"
     },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
+    },
     "position": {
         "message": "Posición"
     },

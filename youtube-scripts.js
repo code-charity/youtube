@@ -12,6 +12,7 @@
       4.1.5 Mark watched videos
       4.1.6 Only one player instance playing
       4.1.7 HD thumbnails
+      4.1.8 Add popup window buttons
     4.2.0 Appearance
       4.2.1 Player
         4.2.1.1 Player size
@@ -119,7 +120,8 @@ var ImprovedTube = {
         comments: {},
         collapse_of_subscription_sections: [],
         mark_watched_videos: [],
-        blacklist_buttons: []
+        blacklist_buttons: [],
+        popup_window_buttons: []
     },
     regex: {
         channel: new RegExp('\/(user|channel|c)\/'),
@@ -187,6 +189,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 
         this.channelDefaultTab(node);
         this.markWatchedVideos(node);
+        this.popupWindowButtons(node);
 
         if (node.className.indexOf('ytd-thumbnail') !== -1) {
             this.blacklist('video', node);
@@ -1068,6 +1071,56 @@ ImprovedTube.thumbnailsQuality = function (node) {
     }
 };
 
+/*------------------------------------------------------------------------------
+4.1.8 ADD POPUP WINDOW BUTTONS
+------------------------------------------------------------------------------*/
+
+ImprovedTube.popupWindowButtons = function (node) {
+    if (this.isset(node) === false) {
+        var thumbnails = document.querySelectorAll('#thumbnail.ytd-thumbnail,.thumb-link');
+
+        for (var i = 0, l = thumbnails.length; i < l; i++) {
+            this.popupWindowButtons(thumbnails[i]);
+        }
+
+        return;
+    }
+
+    if (this.storage.popup_window_buttons === true) {
+        if (
+            node.id === 'thumbnail' && node.className.indexOf('ytd-thumbnail') !== -1 ||
+            node.className.indexOf('thumb-link') !== -1
+        ) {
+            var button = document.createElement('button'),
+                svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+                path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            button.className = 'it-popup-window';
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                try {
+                    var video_id = ImprovedTube.getParam(new URL(this.parentNode.href).search.substr(1), 'v');
+                    window.open('//www.youtube.com/embed/' + video_id + '?autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no');
+                 } catch (err) {}
+            });
+
+            svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+            path.setAttributeNS(null, 'd', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z');
+
+            svg.appendChild(path);
+            button.appendChild(svg);
+
+            node.appendChild(button);
+            this.elements.popup_window_buttons.push(button);
+        }
+    } else {
+        var buttons = this.elements.popup_window_buttons;
+
+        for (var i = 0, l = buttons.length; i < l; i++) {
+            buttons[i].remove();
+        }
+    }
+};
 
 /*------------------------------------------------------------------------------
 4.2.0 APPEARANCE
