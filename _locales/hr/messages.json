@@ -722,6 +722,9 @@
     "popupPlayer": {
         "message": "Player u skočnom prozoru"
     },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
+    },
     "position": {
         "message": "Položaj"
     },
