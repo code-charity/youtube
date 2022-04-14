@@ -722,6 +722,9 @@
     "popupPlayer": {
         "message": "Popup player"
     },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
+    },
     "position": {
         "message": "Position එක"
     },
@@ -1005,7 +1008,7 @@
         "message": "Watch later"
     },
     "watchTime": {
-        "message": "Watch time එක" 
+        "message": "Watch time එක"
     },
     "whenTabIsChanged": {
         "message": "Tab එක වෙනස් කළ විට"

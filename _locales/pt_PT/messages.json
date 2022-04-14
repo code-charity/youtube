@@ -722,6 +722,9 @@
     "popupPlayer": {
         "message": "Leitor em janela"
     },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
+    },
     "position": {
         "message": "Posição"
     },

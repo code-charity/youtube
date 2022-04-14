@@ -722,6 +722,9 @@
     "popupPlayer": {
         "message": "Player popup"
     },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
+    },
     "position": {
         "message": "Poziție"
     },

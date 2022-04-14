@@ -722,6 +722,9 @@
     "popupPlayer": {
         "message": "弹出播放器"
     },
+    "popupWindowButtons": {
+        "message": "添加弹出播放器按钮"
+    },
     "position": {
         "message": "位置"
     },
