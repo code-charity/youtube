@@ -728,6 +728,9 @@
     "popupPlayer": {
         "message": "مشفل منبثق"
     },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
+    },
     "position": {
         "message": "التموضع"
     },

@@ -728,6 +728,9 @@
     "popupPlayer": {
         "message": "Плеер во всплывающем окне"
     },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
+    },
     "position": {
         "message": "Положение"
     },
