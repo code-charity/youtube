@@ -2744,6 +2744,10 @@ var skeleton = {
                                 }
                             }
                         },
+                        popup_window_buttons: {
+                            component: 'switch',
+                            text: 'popupWindowButtons',
+                        },
                         track_watched_videos: {
                             component: 'switch',
                             text: 'trackWatchedVideos'

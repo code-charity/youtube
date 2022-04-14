@@ -286,7 +286,6 @@ html[it-remove-related-search-results=true] li>div.search-refinements {
     visibility: visible;
 }
 
-
 /*------------------------------------------------------------------------------
 1.6 LIMIT PAGE WIDTH
 ------------------------------------------------------------------------------*/
@@ -376,6 +375,40 @@ html[it-scroll-bar=hidden] ::-webkit-scrollbar{
     display: none;
 }
 
+/*------------------------------------------------------------------------------
+1.11 Popup Window Button
+------------------------------------------------------------------------------*/
+
+.it-popup-window {
+    position: absolute;
+    z-index: 999;
+    bottom: 36px;
+    left: 4px;
+    visibility: hidden;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    text-align: center;
+    color: #888;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, .8);
+    font-family: inherit;
+    border: none;
+}
+
+.it-popup-window svg {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    pointer-events: none;
+}
+
+*:hover>.it-popup-window {
+    visibility: visible;
+}
 
 /*-------------------------------------------------------------------------------
 2.0 APPEARANCE

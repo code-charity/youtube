@@ -722,6 +722,9 @@
     "popupPlayer": {
         "message": "팝업 플레이어"
     },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
+    },
     "position": {
         "message": "위치"
     },
