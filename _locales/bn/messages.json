@@ -722,6 +722,9 @@
     "popupPlayer": {
         "message": "পপআপ প্লেয়ার"
     },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
+    },
     "position": {
         "message": "অবস্থান"
     },

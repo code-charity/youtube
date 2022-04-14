@@ -722,6 +722,9 @@
     "popupPlayer": {
         "message": "Popup player"
     },
+    "popupWindowButtons": {
+        "message": "Add popup Window buttons"
+    },
     "position": {
         "message": "Position"
     },

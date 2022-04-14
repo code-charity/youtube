@@ -722,6 +722,9 @@
     "popupPlayer": {
         "message": "Détacher le lecteur"
     },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
+    },
     "position": {
         "message": "Position"
     },

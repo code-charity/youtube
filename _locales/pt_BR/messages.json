@@ -722,6 +722,9 @@
     "popupPlayer": {
         "message": "Player externo"
     },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
+    },
     "position": {
         "message": "Posição"
     },
