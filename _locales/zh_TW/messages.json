@@ -63,13 +63,13 @@
         "message": "觀看紀錄"
     },
     "appearance": {
-        "message": "外貌"
+        "message": "外觀"
     },
     "areYouSureYouWantToExportTheData": {
         "message": "您確定要匯出資料嗎？"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Are you sure you want to import the data?"
+        "message": "確定要匯入資料嗎？"
     },
     "audio": {
         "message": "音頻"
@@ -90,16 +90,16 @@
         "message": "自動播放"
     },
     "avoidAv1": {
-        "message": "Avoid AV1"
+        "message": "忽略 AV1"
     },
     "avoidAv1Vp8Vp9": {
-        "message": "Avoid AV1, VP8, VP9"
+        "message": "忽略 AV1, VP8, VP9"
     },
     "avoidAv1Vp9": {
-        "message": "Avoid AV1, VP9"
+        "message": "忽略 AV1, VP9"
     },
     "avoidCpuRenderingWhenPossible": {
-        "message": "Avoid CPU rendering when possible"
+        "message": "盡可能避免使用 CPU 渲染"
     },
     "backgroundColor": {
         "message": "背景顏色"
@@ -123,22 +123,22 @@
         "message": "黑名單"
     },
     "blockAll": {
-        "message": "封鎖所有"
+        "message": "封鎖全部"
     },
     "blockAv1": {
-        "message": "Block AV1"
+        "message": "封鎖 AV1"
     },
     "blockH264": {
-        "message": "Block H.264"
+        "message": "封鎖 H.264"
     },
     "blockMusic": {
-        "message": "禁止音樂"
+        "message": "封鎖音樂"
     },
     "blockVp8": {
-        "message": "Block VP8"
+        "message": "封鎖 VP8"
     },
     "blockVp9": {
-        "message": "Block VP9"
+        "message": "封鎖 VP9"
     },
     "blue": {
         "message": "藍色"
@@ -213,7 +213,7 @@
         "message": "截斷章節名稱"
     },
     "custom": {
-        "message": "Custom"
+        "message": "自訂"
     },
     "customCss": {
         "message": "自訂 CSS"
@@ -270,7 +270,7 @@
         "message": "內凹"
     },
     "description": {
-        "message": "Description"
+        "message": "描述"
     },
     "description_ext": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
@@ -384,7 +384,7 @@
         "message": "一般"
     },
     "geoPreference": {
-        "message": "Geo Preference"
+        "message": "地理位置偏好"
     },
     "github": {
         "message": "GitHub"
@@ -507,10 +507,10 @@
         "message": "顯示影片上傳時間"
     },
     "icons": {
-        "message": "圖標"
+        "message": "圖示"
     },
     "iconsOnly": {
-        "message": "只有圖標"
+        "message": "只有圖示"
     },
     "importSettings": {
         "message": "導入設定"
@@ -519,7 +519,7 @@
         "message": "改進 YouTube 圖示"
     },
     "improvedtubeButtons": {
-        "message": "ImprovedTube buttons"
+        "message": "ImprovedTube 按鈕"
     },
     "improvedtubeIconOnYoutube": {
         "message": "於 YouTube 中顯示 ImprovedTube 圖示"
@@ -591,7 +591,7 @@
         "message": "地區"
     },
     "loop": {
-        "message": "Loop"
+        "message": "重複播放"
     },
     "loudnessNormalization": {
         "message": "音量標準化"
@@ -696,7 +696,7 @@
         "message": "平台"
     },
     "playAllButton": {
-        "message": "\"Play all\" button"
+        "message": "\"播放全部\" 按鈕"
     },
     "playPause": {
         "message": "播放/暫停"
@@ -918,7 +918,7 @@
         "message": "這將刪除所有的 cookies。"
     },
     "thisWillRemoveAllWatchedVideos": {
-        "message": "This will remove all watched videos."
+        "message": "這將移除全部播放過的影片。"
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "這將刪除所有 YouTube Cookies。"
