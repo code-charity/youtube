@@ -12,82 +12,82 @@
         "message": "⇧"
     },
     "about": {
-        "message": "About"
+        "message": "Về"
     },
     "accept": {
-        "message": "Accept"
+        "message": "Chấp nhận"
     },
     "activate": {
-        "message": "Activate"
+        "message": "Kích hoạt"
     },
     "activateCaptions": {
-        "message": "Activate captions"
+        "message": "Kích hoạt phụ đề"
     },
     "activateFullscreen": {
-        "message": "Activate fullscreen"
+        "message": "Kích hoạt toàn màn hình"
     },
     "activated": {
-        "message": "Activated"
+        "message": "Đã kích hoạt"
     },
     "activatedFeatures": {
-        "message": "Activated features"
+        "message": "Các tính năng đã được kích hoạt"
     },
     "activeFeatures": {
-        "message": "Active features"
+        "message": "Các tính năng hoạt động"
     },
     "addScrollToTop": {
-        "message": "Add «Scroll to top»"
+        "message": "Thêm «Cuộn lên đầu»"
     },
     "ads": {
-        "message": "Ads"
+        "message": "Quảng cáo"
     },
     "all": {
-        "message": "All"
+        "message": "Tất cả"
     },
     "allow": {
-        "message": "Allow"
+        "message": "Cho phép"
     },
     "allow60fps": {
-        "message": "Allow 60fps"
+        "message": "Cho phép 60fps"
     },
     "alwaysActive": {
-        "message": "Always active"
+        "message": "Luôn luôn hoạt động"
     },
     "alwaysShowProgressBar": {
-        "message": "Always show progress bar"
+        "message": "Luôn hiển thị thanh tiến trình"
     },
     "amber": {
-        "message": "Amber"
+        "message": "Hổ phách"
     },
     "analyzer": {
-        "message": "Analyzer"
+        "message": "Bộ phân tích"
     },
     "appearance": {
-        "message": "Appearance"
+        "message": "Diện mạo"
     },
     "areYouSureYouWantToExportTheData": {
-        "message": "Are you sure you want to export the data?"
+        "message": "Bạn có chắc chắn muốn xuất dữ liệu không?"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Are you sure you want to import the data?"
+        "message": "Bạn có chắc chắn muốn nhập dữ liệu không?"
     },
     "audio": {
-        "message": "Audio"
+        "message": "Âm thanh"
     },
     "audioFormats": {
-        "message": "Audio formats"
+        "message": "Định dạng âm thanh"
     },
     "auto": {
-        "message": "Auto"
+        "message": "Tự động"
     },
     "autoFullscreen": {
-        "message": "Auto-fullscreen"
+        "message": "Tự động toàn màn hình"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Autopause when switching tabs"
+        "message": "Tự động dừng khi chuyển đổi tab"
     },
     "autoplay": {
-        "message": "Autoplay"
+        "message": "Tự động phát"
     },
     "avoidAv1": {
         "message": "Avoid AV1"
@@ -99,88 +99,88 @@
         "message": "Avoid AV1, VP9"
     },
     "avoidCpuRenderingWhenPossible": {
-        "message": "Avoid CPU rendering when possible"
+        "message": "Tránh hiển thị CPU khi có thể"
     },
     "backgroundColor": {
-        "message": "Background color"
+        "message": "Màu nền"
     },
     "backgroundOpacity": {
-        "message": "Background opacity"
+        "message": "Độ mờ của nền"
     },
     "backupAndReset": {
-        "message": "Backup & reset"
+        "message": "Sao lưu & thiết lập lại"
     },
     "baseOnSystemColorScheme": {
-        "message": "Base on system color scheme"
+        "message": "Dựa trên bảng màu hệ thống"
     },
     "belowPlayer": {
-        "message": "Below player"
+        "message": "Bên dưới trình phát"
     },
     "black": {
-        "message": "Black"
+        "message": "Đen"
     },
     "blacklist": {
-        "message": "Blacklist"
+        "message": "Danh sách đen"
     },
     "blockAll": {
-        "message": "Block all"
+        "message": "Chặn tất cả"
     },
     "blockAv1": {
-        "message": "Block AV1"
+        "message": "Chặn AV1"
     },
     "blockH264": {
-        "message": "Block H.264"
+        "message": "Chặn H.264"
     },
     "blockMusic": {
-        "message": "Block music"
+        "message": "Chặn âm nhạc"
     },
     "blockVp8": {
-        "message": "Block VP8"
+        "message": "Chặn VP8"
     },
     "blockVp9": {
-        "message": "Block VP9"
+        "message": "Chặn VP9"
     },
     "blue": {
-        "message": "Blue"
+        "message": "Xanh dương"
     },
     "blueGray": {
-        "message": "Blue gray"
+        "message": "Xám xanh"
     },
     "bluelight": {
-        "message": "Bluelight"
+        "message": "Ánh sáng xanh"
     },
     "brown": {
-        "message": "Brown"
+        "message": "Nâu"
     },
     "browser": {
-        "message": "Browser"
+        "message": "Trình duyệt"
     },
     "browserVersion": {
-        "message": "Browser version"
+        "message": "Phiên bản trình duyệt"
     },
     "bubbles": {
-        "message": "Bubbles"
+        "message": "Bong bóng"
     },
     "bug": {
         "message": "Bug"
     },
     "buttons": {
-        "message": "Buttons"
+        "message": "Nút"
     },
     "cancel": {
-        "message": "Cancel"
+        "message": "Huỷ bỏ"
     },
     "categories": {
-        "message": "Categories"
+        "message": "Thể loại"
     },
     "channel": {
-        "message": "Channel"
+        "message": "Kênh"
     },
     "channels": {
-        "message": "Channels"
+        "message": "Kênh"
     },
     "characterEdgeStyle": {
-        "message": "Character edge style"
+        "message": "Kiểu cạnh ký tự"
     },
     "clipboard": {
         "message": "Clipboard"
@@ -192,16 +192,16 @@
         "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
-        "message": "Collapse of subscription sections"
+        "message": "Thu gọn các phần đăng ký"
     },
     "collapsed": {
-        "message": "Collapsed"
+        "message": "Đã thu gọn"
     },
     "comments": {
-        "message": "Comments"
+        "message": "Bình luận"
     },
     "confirmationBeforeClosing": {
-        "message": "Confirmation before closing"
+        "message": "Xác nhận trước khi đóng cửa"
     },
     "cookies": {
         "message": "Cookies"
@@ -210,834 +210,834 @@
         "message": "Cores"
     },
     "cropChapterTitles": {
-        "message": "Crop chapter titles"
+        "message": "Cắt tiêu đề chương"
     },
     "custom": {
-        "message": "Custom"
+        "message": "Tuỳ chỉnh"
     },
     "customCss": {
-        "message": "Custom CSS"
+        "message": "Tuỳ chỉnh CSS"
     },
     "customJs": {
-        "message": "Custom JS"
+        "message": "Tuỳ chỉnh JS"
     },
     "customMiniPlayer": {
-        "message": "Custom Mini-Player"
+        "message": "Tuỳ chỉnh Trình phát Mini"
     },
     "cyan": {
-        "message": "Cyan"
+        "message": "Xanh lơ"
     },
     "dark": {
-        "message": "Dark"
+        "message": "Tối"
     },
     "darkTheme": {
-        "message": "Dark theme"
+        "message": "Chủ đề tối"
     },
     "dateAndTime": {
-        "message": "Date & time"
+        "message": "Ngày & giờ"
     },
     "dawn": {
-        "message": "Dawn"
+        "message": "Bình minh"
     },
     "decreasePlaybackSpeed": {
-        "message": "Decrease playback speed"
+        "message": "Giảm tốc độ phát lại"
     },
     "decreaseVolume": {
-        "message": "Decrease volume"
+        "message": "Giảm âm lượng"
     },
     "deepOrange": {
-        "message": "Deep orange"
+        "message": "Cam đậm"
     },
     "deepPurple": {
-        "message": "Deep purple"
+        "message": "Tím đậm"
     },
     "default": {
-        "message": "Default"
+        "message": "Mặc định"
     },
     "defaultChannelTab": {
-        "message": "Default channel tab"
+        "message": "Tab kênh mặc định"
     },
     "defaultContentCountry": {
-        "message": "Default content country"
+        "message": "Quốc gia nội dung mặc định"
     },
     "deleteWatchedVideos": {
-        "message": "Delete watched videos"
+        "message": "Xóa video đã xem"
     },
     "deleteYoutubeCookies": {
-        "message": "Delete YouTube cookies"
+        "message": "Xóa cookie của YouTube"
     },
     "depressed": {
-        "message": "Depressed"
+        "message": "Ẩn xuống"
     },
     "description": {
-        "message": "Description"
+        "message": "Mô tả"
     },
     "description_ext": {
-        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+        "message": "Làm cho YouTube gọn gàng+thông minh! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
-        "message": "Desert"
+        "message": "Rời đi"
     },
     "details": {
-        "message": "Details"
+        "message": "Chi tiết"
     },
     "developerOptions": {
-        "message": "Developer options"
+        "message": "Tùy chọn nhà phát triển"
     },
     "device": {
-        "message": "Device"
+        "message": "Thiết bị"
     },
     "dim": {
-        "message": "Dim"
+        "message": "Mờ"
     },
     "disabled": {
-        "message": "Disabled"
+        "message": "Vô hiệu hóa"
     },
     "dislike": {
-        "message": "Dislike"
+        "message": "Không thích"
     },
     "doNotChange": {
-        "message": "Don't change"
+        "message": "Đừng thay đổi"
     },
     "donate": {
-        "message": "Donate"
+        "message": "Quyên tặng"
     },
     "draggable": {
-        "message": "Draggable"
+        "message": "Có thể kéo"
     },
     "dropShadow": {
-        "message": "Drop shadow"
+        "message": "Bóng đổ"
     },
     "email": {
         "message": "Email"
     },
     "empty": {
-        "message": "Empty"
+        "message": "Trống"
     },
     "enabled": {
-        "message": "Enabled"
+        "message": "Đã bật"
     },
     "enabledForced": {
-        "message": "Enabled (forced)"
+        "message": "Đã bật (bắt buộc)"
     },
     "expanded": {
-        "message": "Expanded"
+        "message": "Đã mở rộng"
     },
     "exportSettings": {
-        "message": "Export settings"
+        "message": "Xuất cài đặt"
     },
     "extension": {
-        "message": "Extension"
+        "message": "Phần mở rộng"
     },
     "file": {
-        "message": "File"
+        "message": "Tập tin"
     },
     "filters": {
-        "message": "Filters"
+        "message": "Bộ lọc"
     },
     "fitToWindow": {
-        "message": "Fit to window"
+        "message": "Vừa với cửa sổ"
     },
     "flash": {
         "message": "Flash"
     },
     "font": {
-        "message": "Font"
+        "message": "Phông chữ"
     },
     "fontColor": {
-        "message": "Font color"
+        "message": "Màu phông chữ"
     },
     "fontFamily": {
-        "message": "Font family"
+        "message": "Họ phông chữ"
     },
     "fontOpacity": {
-        "message": "Font opacity"
+        "message": "Độ mờ phông chữ"
     },
     "fontSize": {
-        "message": "Font size"
+        "message": "Cỡ phông chữ"
     },
     "footer": {
-        "message": "Footer"
+        "message": "Chân trang"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "Bắt buộc SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Forced play video from the beginning"
+        "message": "Bắt buộc phát video từ đầu"
     },
     "forcedPlaybackSpeed": {
-        "message": "Forced playback speed"
+        "message": "Tốc độ phát lại bắt buộc"
     },
     "forcedTheaterMode": {
-        "message": "Forced theater mode"
+        "message": "Bắt buộc chế độ rạp hát"
     },
     "forcedVolume": {
-        "message": "Forced volume"
+        "message": "Bắt buộc âm lượng"
     },
     "foundABug": {
-        "message": "Found a bug?"
+        "message": "Tìm thấy một lỗi?"
     },
     "fullWindow": {
-        "message": "Full window"
+        "message": "Toàn cửa sổ"
     },
     "general": {
-        "message": "General"
+        "message": "Chung"
     },
     "geoPreference": {
-        "message": "Geo Preference"
+        "message": "Vị trí ưu thích"
     },
     "github": {
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Go to search box"
+        "message": "Đi tới hộp tìm kiếm"
     },
     "googleApiKey": {
-        "message": "Google API key"
+        "message": "Khóa API Google"
     },
     "gpu": {
         "message": "GPU"
     },
     "green": {
-        "message": "Green"
+        "message": "Xanh lục"
     },
     "hd": {
         "message": "HD"
     },
     "hdThumbnail": {
-        "message": "HD thumbnail"
+        "message": "Hình thu nhỏ HD"
     },
     "header": {
-        "message": "Header"
+        "message": "Tiêu đề"
     },
     "hidden": {
-        "message": "Hidden"
+        "message": "Ẩn giấu"
     },
     "hiddenOnVideoPage": {
-        "message": "Hidden on video page"
+        "message": "Ẩn trên trang video"
     },
     "hideAnimatedThumbnails": {
-        "message": "Hide animated thumbnails"
+        "message": "Ẩn hình thu nhỏ động"
     },
     "hideAnnotations": {
-        "message": "Hide annotations"
+        "message": "Ẩn chú thích"
     },
     "hideCards": {
-        "message": "Hide cards"
+        "message": "Ẩn thẻ"
     },
     "hideCountryCode": {
-        "message": "Hide country code"
+        "message": "Ẩn mã quốc gia"
     },
     "hideDate": {
-        "message": "Hide date"
+        "message": "Ẩn ngày"
     },
     "hideDetails": {
-        "message": "Hide details"
+        "message": "Ẩn chi tiết"
     },
     "hideEndscreen": {
-        "message": "Hide endscreen"
+        "message": "Ẩn màn hình kết thúc"
     },
     "hideFeaturedContent": {
-        "message": "Hide featured content"
+        "message": "Ẩn nội dung nổi bật"
     },
     "hideFooter": {
-        "message": "Hide footer"
+        "message": "Ẩn chân trang"
     },
     "hideGradientBottom": {
-        "message": "Hide shadow around player-bar"
+        "message": "Ẩn bóng xung quanh thanh trình phát"
     },
     "hideMoreButton": {
-        "message": "Hide \"More\" button"
+        "message": "Ẩn nút \"Thêm\" "
     },
     "hidePlayerControlsBar": {
-        "message": "Hide player controls bar"
+        "message": "Ẩn thanh điều khiển trình phát"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
+        "message": "Ẩn các nút trên thanh điều khiển trình phát"
     },
     "hidePlayerControlsBarOptions": {
-        "message": "Hide player controls options"
+        "message": "Ẩn các tùy chọn điều khiển trình phát"
     },
     "hidePlaylist": {
-        "message": "Hide playlist"
+        "message": "Ẩn danh sách phát"
     },
     "hideRightButtons": {
-        "message": "Hide right buttons"
+        "message": "Ẩn các nút bên phải"
     },
     "hideSaveButton": {
-        "message": "Hide \"Save\" button"
+        "message": "Ẩn nút \"Lưu\" "
     },
     "hideScrollForDetails": {
-        "message": "Hide «Scroll for details»"
+        "message": "Ẩn «Cuộn để biết chi tiết»"
     },
     "hideShareButton": {
-        "message": "Hide \"Share\" button"
+        "message": "Ẩn nút \"Chia sẻ\" "
     },
     "hideSkipOverlay": {
-        "message": "Hide 5 seconds skip animation"
+        "message": "Ẩn hoạt ảnh bỏ qua 5 giây"
     },
     "hideThumbnailOverlay": {
-        "message": "Hide buttons on thumbnails"
+        "message": "Ẩn các nút trên hình thu nhỏ"
     },
     "hideThumbnails": {
-        "message": "Hide thumbnails"
+        "message": "Ẩn hình thu nhỏ"
     },
     "hideViewsCount": {
-        "message": "Hide views count"
+        "message": "Ẩn số lượt xem"
     },
     "hideVoiceSearchButton": {
-        "message": "Hide voice search button"
+        "message": "Ẩn nút tìm kiếm bằng giọng nói"
     },
     "high": {
-        "message": "High"
+        "message": "Cao"
     },
     "history": {
-        "message": "History"
+        "message": "Lịch sử"
     },
     "home": {
-        "message": "Home"
+        "message": "Nhà"
     },
     "hover": {
-        "message": "Hover"
+        "message": "Di chuyển"
     },
     "hoverOnVideoPage": {
-        "message": "Hover on video page"
+        "message": "Di chuyển trên trang video"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "How long ago the video was uploaded"
+        "message": "Video đã được tải lên cách đây bao lâu"
     },
     "icons": {
-        "message": "Icons"
+        "message": "Biểu tượng"
     },
     "iconsOnly": {
-        "message": "Icons only"
+        "message": "Chỉ các biểu tượng"
     },
     "importSettings": {
-        "message": "Import settings"
+        "message": "Nhập cài đặt"
     },
     "improveLogo": {
-        "message": "Improve logo"
+        "message": "Cải thiện logo"
     },
     "improvedtubeButtons": {
-        "message": "ImprovedTube buttons"
+        "message": "Nút ImprovedTube"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "ImprovedTube icon on YouTube"
+        "message": "Biểu tượng ImprovedTube trên YouTube"
     },
     "improvedtubeLanguage": {
-        "message": "ImprovedTube language"
+        "message": "Ngôn ngữ ImprovedTube"
     },
     "improvedtubeVersion": {
-        "message": "ImprovedTube version"
+        "message": "Phiên bản ImprovedTube"
     },
     "increasePlaybackSpeed": {
-        "message": "Increase playback speed"
+        "message": "Tăng tốc độ phát lại"
     },
     "increaseVolume": {
-        "message": "Increase volume"
+        "message": "Tăng âm lượng"
     },
     "indigo": {
-        "message": "Indigo"
+        "message": "Chàm"
     },
     "items": {
         "message": "Items"
     },
     "language": {
-        "message": "Language"
+        "message": "Ngôn ngữ"
     },
     "languages": {
-        "message": "Languages"
+        "message": "Ngôn ngữ"
     },
     "legacyYoutube": {
         "message": "Legacy YouTube"
     },
     "library": {
-        "message": "Library"
+        "message": "Thư viện"
     },
     "light": {
-        "message": "Light"
+        "message": "Sáng"
     },
     "lightBlue": {
-        "message": "Light blue"
+        "message": "Xanh lam nhạt"
     },
     "lightGreen": {
-        "message": "Light green"
+        "message": "Xanh lục nhạt"
     },
     "like": {
-        "message": "Like"
+        "message": "Thích"
     },
     "liked": {
-        "message": "Liked"
+        "message": "Đã thích"
     },
     "likes": {
-        "message": "Likes"
+        "message": "Thích"
     },
     "lime": {
-        "message": "Lime"
+        "message": "Chanh xanh"
     },
     "limitPageWidth": {
-        "message": "Limit page width"
+        "message": "Giới hạn chiều rộng trang"
     },
     "list": {
-        "message": "List"
+        "message": "Danh sách"
     },
     "liveChat": {
-        "message": "Live chat"
+        "message": "Trò chuyện trực tiếp"
     },
     "liveChatType": {
-        "message": "Live chat type"
+        "message": "Loại trò chuyện trực tiếp"
     },
     "location": {
-        "message": "Location"
+        "message": "Địa điểm"
     },
     "loop": {
-        "message": "Loop"
+        "message": "Vòng lặp"
     },
     "loudnessNormalization": {
-        "message": "Loudness normalization"
+        "message": "Chuẩn hóa độ ồn"
     },
     "low": {
-        "message": "Low"
+        "message": "Thấp"
     },
     "markWatchedVideos": {
-        "message": "Mark watched videos"
+        "message": "Đánh dấu video đã xem"
     },
     "medium": {
-        "message": "Medium"
+        "message": "Trung bình"
     },
     "mixer": {
         "message": "Mixer"
     },
     "moveSidebarLeft": {
-        "message": "Move sidebar left"
+        "message": "Di chuyển thanh bên sang trái"
     },
     "moveThumbnailsRight": {
-        "message": "Move thumbnails right"
+        "message": "Di chuyển hình thu nhỏ sang phải"
     },
     "myColors": {
-        "message": "My colors"
+        "message": "Màu sắc của tôi"
     },
     "name": {
-        "message": "Name"
+        "message": "Tên"
     },
     "nativeMiniPlayer": {
-        "message": "Native mini player"
+        "message": "Trình phát mini gốc"
     },
     "new": {
-        "message": "New"
+        "message": "Mới"
     },
     "nextVideo": {
-        "message": "Next video"
+        "message": "Video tiếp theo"
     },
     "night": {
-        "message": "Night"
+        "message": "Đêm"
     },
     "noActiveFeatures": {
-        "message": "No active features"
+        "message": "Không có tính năng hoạt động"
     },
     "noOpenVideoTabs": {
-        "message": "No open video tabs"
+        "message": "Không có tab video đang mở"
     },
     "none": {
-        "message": "None"
+        "message": "Không có"
     },
     "normal": {
-        "message": "Normal"
+        "message": "Bình thường"
     },
     "ok": {
         "message": "Ok"
     },
     "old": {
-        "message": "Old"
+        "message": "Cũ"
     },
     "onAllVideos": {
-        "message": "On all videos"
+        "message": "Trên tất cả các video"
     },
     "onSubscribedChannels": {
-        "message": "On subscribed channels"
+        "message": "Trên các kênh đã đăng ký"
     },
     "onlyActiveOnYoutube": {
-        "message": "Only active on YouTube"
+        "message": "Chỉ hoạt động trên YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Only one player instance playing"
     },
     "openPopupPlayer": {
-        "message": "Open video/playlist in a new window"
+        "message": "Mở video/danh sách phát trong một cửa sổ mới"
     },
     "orange": {
-        "message": "Orange"
+        "message": "Cam"
     },
     "os": {
         "message": "OS"
     },
     "other": {
-        "message": "Other"
+        "message": "Khác"
     },
     "outline": {
-        "message": "Outline"
+        "message": "Đường nét"
     },
     "overlay": {
-        "message": "Overlay"
+        "message": "Lớp phủ"
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Quyền"
     },
     "pictureInPicture": {
         "message": "Picture-in-Picture"
     },
     "pink": {
-        "message": "Pink"
+        "message": "Hồng"
     },
     "plain": {
-        "message": "Plain"
+        "message": "Đơn giản"
     },
     "platform": {
-        "message": "Platform"
+        "message": "Nền tảng"
     },
     "playAllButton": {
-        "message": "\"Play all\" button"
+        "message": "Nút \"Phát tất cả\" "
     },
     "playPause": {
-        "message": "Play / Pause"
+        "message": "Phát / Tạm dừng"
     },
     "playbackSpeed": {
-        "message": "Playback speed"
+        "message": "Tốc độ phát lại"
     },
     "player": {
-        "message": "Player"
+        "message": "Trình phát"
     },
     "playerColor": {
-        "message": "Player color"
+        "message": "Màu trình phát"
     },
     "playerSize": {
-        "message": "Player size"
+        "message": "Kích thước trình phát"
     },
     "playlist": {
-        "message": "Playlist"
+        "message": "Danh sách phát"
     },
     "playlists": {
-        "message": "Playlists"
+        "message": "Danh sách phát"
     },
     "popupPlayer": {
-        "message": "Popup player"
+        "message": "Trình phát popup"
     },
     "popupWindowButtons": {
         "message": "popup_window_buttons"
     },
     "position": {
-        "message": "Position"
+        "message": "Vị trí"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Press any key or use mouse wheel."
+        "message": "Nhấn phím bất kỳ hoặc sử dụng lăn chuột."
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Press any key or use mouse wheel"
+        "message": "Nhấn phím bất kỳ hoặc sử dụng lăn chuột"
     },
     "previousVideo": {
-        "message": "Previous video"
+        "message": "Video trước"
     },
     "primaryColor": {
-        "message": "Primary color"
+        "message": "Màu chính"
     },
     "purple": {
-        "message": "Purple"
+        "message": "Tím"
     },
     "quality": {
-        "message": "Quality"
+        "message": "Chất lượng"
     },
     "raised": {
-        "message": "Raised"
+        "message": "Nâng lên"
     },
     "ram": {
         "message": "RAM"
     },
     "rateMe": {
-        "message": "Rate me"
+        "message": "Đánh giá tôi"
     },
     "rateUs": {
-        "message": "Rate us"
+        "message": "Đánh giá chúng tôi"
     },
     "red": {
-        "message": "Red"
+        "message": "Đỏ"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "Nút hiển thị không thích màu đỏ"
     },
     "relatedVideos": {
-        "message": "Related videos"
+        "message": "Các video liên quan"
     },
     "remote": {
-        "message": "Play on TV"
+        "message": "Phát trên TV"
     },
     "removeRelatedSearchResults": {
-        "message": "Remove related search results"
+        "message": "Xóa kết quả tìm kiếm có liên quan"
     },
     "repeat": {
-        "message": "Repeat"
+        "message": "Lặp lại"
     },
     "reset": {
-        "message": "Reset"
+        "message": "Cài đặt lại"
     },
     "resetAllSettings": {
-        "message": "Reset all settings"
+        "message": "Đặt lại tất cả các thiết lập"
     },
     "resetAllShortcuts": {
-        "message": "Reset all shortcuts"
+        "message": "Đặt lại tất cả các phím tắt"
     },
     "reverse": {
-        "message": "Reverse"
+        "message": "Đảo ngược"
     },
     "rotate": {
-        "message": "Rotate"
+        "message": "Quay"
     },
     "save": {
-        "message": "Save"
+        "message": "Lưu"
     },
     "saveAs": {
-        "message": "Save as"
+        "message": "Lưu thành"
     },
     "schedule": {
-        "message": "Schedule"
+        "message": "Lịch trình"
     },
     "screen": {
-        "message": "Screen"
+        "message": "Màn hình"
     },
     "screenshot": {
-        "message": "Screenshot"
+        "message": "Ảnh chụp màn hình"
     },
     "scrollBar": {
-        "message": "Scroll Bar"
+        "message": "Thanh cuộn"
     },
     "sd": {
         "message": "SD"
     },
     "search": {
-        "message": "Search"
+        "message": "Tìm kiếm"
     },
     "searchBarOnly": {
-        "message": "Search bar only"
+        "message": "Chỉ thanh tìm kiếm"
     },
     "seekBackward10Seconds": {
-        "message": "Seek backward 10 seconds"
+        "message": "Tua lùi 10 giây"
     },
     "seekForward10Seconds": {
-        "message": "Seek forward 10 seconds"
+        "message": "Tua tiến 10 giây"
     },
     "seekNextChapter": {
-        "message": "Seek Next Chapter"
+        "message": "Tìm chương tiếp theo"
     },
     "seekPreviousChapter": {
-        "message": "Seek Previous Chapter"
+        "message": "Tìm kiếm chương trước"
     },
     "settings": {
-        "message": "Settings"
+        "message": "Cài đặt"
     },
     "settingsSuccessfullyImported": {
-        "message": "Settings successfully imported"
+        "message": "Đã nhập thành công cài đặt"
     },
     "shortcuts": {
-        "message": "Shortcuts"
+        "message": "Phím tắt"
     },
     "showCardsOnMouseHover": {
-        "message": "Show cards on mouse hover"
+        "message": "Hiển thị thẻ khi di chuột"
     },
     "showChannelVideosCount": {
-        "message": "Show channel videos count"
+        "message": "Hiển thị số lượng video trên kênh"
     },
     "showLess": {
-        "message": "Show less"
+        "message": "Hiện ít hơn"
     },
     "showMore": {
-        "message": "Show more"
+        "message": "Hiện nhiều hơn"
     },
     "showRemainingDuration": {
-        "message": "Show video remaining duration"
+        "message": "Hiển thị thời lượng còn lại của video"
     },
     "shuffle": {
-        "message": "Shuffle"
+        "message": "Xáo trộn"
     },
     "sidebar": {
-        "message": "Sidebar"
+        "message": "Thanh bên"
     },
     "spacebar": {
-        "message": "Spacebar"
+        "message": "Phím cách"
     },
     "squaredUserImages": {
         "message": "Squared user images"
     },
     "static": {
-        "message": "Static"
+        "message": "Tĩnh"
     },
     "statsForNerds": {
-        "message": "Show Stats for Nerds"
+        "message": "Hiển thị số liệu thống kê cho Nerds"
     },
     "step": {
-        "message": "Step"
+        "message": "Bước"
     },
     "stop": {
-        "message": "Stop"
+        "message": "Dừng"
     },
     "style": {
-        "message": "Style"
+        "message": "Phong cách"
     },
     "styles": {
-        "message": "Styles"
+        "message": "Phong cách"
     },
     "subscribe": {
-        "message": "Subscribe"
+        "message": "Đăng ký"
     },
     "subscriptions": {
-        "message": "Subscriptions"
+        "message": "Đăng ký"
     },
     "subtitles": {
-        "message": "Subtitles"
+        "message": "Phụ đề"
     },
     "sunset": {
-        "message": "Sunset"
+        "message": "Hoàng hôn"
     },
     "sunsetToSunrise": {
-        "message": "Sunset to sunrise"
+        "message": "Hoàng hôn đến bình minh"
     },
     "systemPeferenceDark": {
-        "message": "System peference: dark"
+        "message": "Tùy chọn hệ thống: tối"
     },
     "systemPeferenceLight": {
-        "message": "System peference: light"
+        "message": "Tùy chọn hệ thống: sáng"
     },
     "teal": {
-        "message": "Teal"
+        "message": "Mòng két"
     },
     "textColor": {
-        "message": "Text color"
+        "message": "Màu văn bản"
     },
     "themes": {
-        "message": "Themes"
+        "message": "Chủ đề"
     },
     "thisWillRemoveAllCookies": {
-        "message": "This will remove all cookies."
+        "message": "Điều này sẽ xóa tất cả cookie."
     },
     "thisWillRemoveAllWatchedVideos": {
-        "message": "This will remove all watched videos."
+        "message": "Thao tác này sẽ xóa tất cả video đã xem."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "This will remove all YouTube cookies"
+        "message": "Thao tác này sẽ xóa tất cả cookie của YouTube"
     },
     "thisWillResetAllSettings": {
-        "message": "This will reset all settings."
+        "message": "Điều này sẽ đặt lại tất cả cài đặt."
     },
     "thisWillResetAllShortcuts": {
-        "message": "This will reset all shortcuts"
+        "message": "Thao tác này sẽ đặt lại tất cả phím tắt"
     },
     "thumbnails": {
-        "message": "Thumbnails"
+        "message": "Hình thu nhỏ"
     },
     "thumbnailsQuality": {
-        "message": "Thumbnails Quality"
+        "message": "Chất lượng hình thu nhỏ"
     },
     "timeFrom": {
-        "message": "Time from"
+        "message": "Thời gian từ"
     },
     "timeTo": {
-        "message": "Time to"
+        "message": "Thời gian đến"
     },
     "todayAt": {
-        "message": "Today at"
+        "message": "Hôm nay lúc"
     },
     "toggleAutoplay": {
-        "message": "Toggle autoplay"
+        "message": "Chuyển đổi tự động phát"
     },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "Chuyển đổi thẻ"
     },
     "toggleControls": {
-        "message": "Toggle player controls"
+        "message": "Chuyển đổi điều khiển trình phát"
     },
     "topChat": {
-        "message": "Top chat"
+        "message": "Trò chuyện hàng đầu"
     },
     "trackWatchedVideos": {
-        "message": "Track watched videos"
+        "message": "Theo dõi các video đã xem"
     },
     "trailerAutoplay": {
-        "message": "Trailer autoplay"
+        "message": "Tự động phát đoạn giới thiệu"
     },
     "translations": {
-        "message": "Translations"
+        "message": "Bản dịch"
     },
     "transparentBackground": {
-        "message": "Transparent background"
+        "message": "Nền trong suốt"
     },
     "trending": {
-        "message": "Trending"
+        "message": "Xu hướng"
     },
     "tryToReloadThePage": {
-        "message": "Try to reload the page"
+        "message": "Cố gắng tải lại trang"
     },
     "type": {
-        "message": "Type"
+        "message": "Gõ phím"
     },
     "upNextAutoplay": {
-        "message": "Up next autoplay"
+        "message": "Tự động phát tiếp theo"
     },
     "use24HourFormat": {
-        "message": "Use 24-hour format"
+        "message": "Sử dụng định dạng 24 giờ"
     },
     "version": {
-        "message": "Version"
+        "message": "Phiên bản"
     },
     "video": {
         "message": "Video"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "The video description will be expanded to get the name of the category"
+        "message": "Mô tả video sẽ được mở rộng để lấy tên của danh mục"
     },
     "videoFormats": {
-        "message": "Video formats"
+        "message": "Định dạng video"
     },
     "videos": {
         "message": "Videos"
     },
     "viewMode": {
-        "message": "View Mode"
+        "message": "Chế độ xem"
     },
     "volume": {
-        "message": "Volume"
+        "message": "Âm lượng"
     },
     "watchLater": {
-        "message": "Watch later"
+        "message": "Xem sau"
     },
     "watchTime": {
-        "message": "Watch time"
+        "message": "Thời gian xem"
     },
     "whenTabIsChanged": {
-        "message": "When tab is changed"
+        "message": "Khi tab được thay đổi"
     },
     "white": {
-        "message": "White"
+        "message": "Trắng"
     },
     "windowColor": {
-        "message": "Window color"
+        "message": "Màu cửa sổ"
     },
     "windowOpacity": {
-        "message": "Window opacity"
+        "message": "Độ mờ cửa sổ"
     },
     "yellow": {
-        "message": "Yellow"
+        "message": "Vàng"
     },
     "youtubeHeaderLeft": {
-        "message": "YouTube Header (left)"
+        "message": "Tiêu đề YouTube (bên trái)"
     },
     "youtubeHeaderRight": {
-        "message": "YouTube Header (right)"
+        "message": "Tiêu đề YouTube (bên phải)"
     },
     "youtubeHomePage": {
-        "message": "YouTube home page"
+        "message": "Trang chủ YouTube"
     },
     "youtubeLanguage": {
-        "message": "YouTube language"
+        "message": "Ngôn ngữ YouTube"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
+        "message": "YouTube giới hạn chất lượng video 1080p cho h.264 codec"
     }
 }
