@@ -20,6 +20,7 @@ body {
 
 body[data-theme=dark] {
     --satus-primary: #ff4158;
+    --satus-section-opaque-background: #333333;
 }
 
 body[data-theme=night] {
@@ -28,7 +29,7 @@ body[data-theme=night] {
     --satus-header-text: #fafafa;
     --satus-layers-background: #142952;
     --satus-layers-text: #fafafa;
-    --satus-section-card-background: #1f3d7a;
+    --satus-section-opaque-background: #1f3d7a;
     --satus-modal-background: #24478f;
     --satus-modal-text: #fafafa;
     --satus-hover: rgba(255, 255, 255, .07);
@@ -44,7 +45,7 @@ body[data-theme=dawn] {
     --satus-header-text: #fafafa;
     --satus-layers-background: #e23681;
     --satus-layers-text: #eee;
-    --satus-section-card-background: rgb(255, 255, 255, .2);
+    --satus-section-opaque-background: rgb(255, 255, 255, .2);
     --satus-modal-background: #ed8e5e;
     --satus-modal-text: #fafafa;
     --satus-hover: rgba(255, 255, 255, .07);
@@ -60,7 +61,7 @@ body[data-theme=sunset] {
     --satus-header-text: #fafafa;
     --satus-layers-background: #2f3364;
     --satus-layers-text: #eee;
-    --satus-section-card-background: rgb(138, 92, 96, .5);
+    --satus-section-opaque-background: rgb(138, 92, 96, .5);
     --satus-modal-background: #a96165;
     --satus-modal-text: #fafafa;
     --satus-hover: rgba(255, 255, 255, .07);
@@ -76,7 +77,7 @@ body[data-theme=desert] {
     --satus-header-text: #fafafa;
     --satus-layers-background: #e6bf4c;
     --satus-layers-text: #4d4d4d;
-    --satus-section-card-background: #f5e0a3;
+    --satus-section-opaque-background: #f5e0a3;
     --satus-modal-background: #8cb7f2;
     --satus-modal-text: #fafafa;
     --satus-hover: rgba(255, 255, 255, .07);
@@ -92,7 +93,7 @@ body[data-theme=plain] {
     --satus-header-text: #404040;
     --satus-layers-background: #dea975;
     --satus-layers-text: #404040;
-    --satus-section-card-background: #e2b88d;
+    --satus-section-opaque-background: #e2b88d;
     --satus-modal-background: #abceb8;
     --satus-modal-text: #404040;
     --satus-hover: rgba(255, 255, 255, .07);
@@ -330,7 +331,7 @@ body[data-improvedtube_home='list'] .satus-section--home {
     color: var(--satus-section-card-text);
     border: 1px solid rgba(0, 0, 0, .1);
     border-radius: 8px;
-    background: var(--satus-section-card-background);
+    background: var(--satus-section-opaque-background);
     justify-content: stretch;
 }
 
@@ -1058,7 +1059,7 @@ body[data-it_analyzer='false'] .satus-button--email {
     opacity: 0;
     border: unset;
     border-radius: unset;
-    background: #fff;
+    background: var(--satus-section-opaque-background); 
 }
 
 .satus-section--mixer:hover>.satus-section {
