@@ -60,6 +60,8 @@ body {
     --satus-sortable-ghost: rgba(var(--satus-contrast), .80);
     --satus-sortable-background: rgba(var(--satus-contrast), .08);
     --satus-sortable-text: currentColor;
+
+    --satus-slider-background: #fff;
 }
 
 
@@ -102,6 +104,7 @@ body[data-theme=dark] {
     --satus-alert-error-background: #501616;
     --satus-alert-error-border: #6f1f1f;
     --satus-alert-error-color: #cf7777;
+    --satus-slider-background: #333333;
 }
 
 
@@ -144,6 +147,7 @@ body[data-theme=black] {
     --satus-alert-error-background: #501616;
     --satus-alert-error-border: #6f1f1f;
     --satus-alert-error-color: #cf7777;
+    --satus-slider-background: #333333;
 }
 /*--------------------------------------------------------------
 >>> ELEMENTS:
@@ -467,6 +471,7 @@ body[data-theme=black] {
     padding: 4px 8px;
     border-radius: 4px;
     background: #fff;
+    color: #575757;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .15), inset 0 -3px 0 rgba(0, 0, 0, .1);
     align-items: center;
     justify-content: center;
@@ -1091,7 +1096,7 @@ body[data-theme=black] {
 
 .satus-slider {
     display: block;
-    background: #fff;
+    background: var(--satus-slider-background);
 }
 
 .satus-slider__label {
