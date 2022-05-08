@@ -745,10 +745,17 @@ html[data-page-type=video][it-player-size='full_window'] {
     --it-player-size: 100vh;
 }
 
+html[data-page-type=video][it-player-size='full_window'] .ytp-fit-cover-video .html5-main-video{
+    object-fit:contain !important;
+}
+
 html[data-page-type=video][it-player-size='fit_to_window'] {
     --it-player-size: 100vh;
 }
 
+html[data-page-type=video][it-player-size='fit_to_window'] .ytp-fit-cover-video .html5-main-video{
+    object-fit:contain !important;
+}
 
 /*------------------------------------------------------------------------------
 # ELEMENTS
