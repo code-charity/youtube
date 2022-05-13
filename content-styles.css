@@ -2712,6 +2712,7 @@ html[it-player-ads=block_all] #masthead-ad {
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
+    object-fit: contain !important;
 }
 
 
