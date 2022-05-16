@@ -1888,6 +1888,7 @@ ImprovedTube.autoplay = function (video) {
         setTimeout(function () {
             video.parentNode.parentNode.pauseVideo();
         });
+        this.check = false;
     }
     else if (ImprovedTube.allow_autoplay === false && video.parentNode.parentNode.classList.contains('ad-showing') === false &&
         (
