@@ -1879,7 +1879,6 @@ ImprovedTube.schedule = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.autoplay = function (video) {
-    this.check;
     if (ImprovedTube.video_url !== location.href) {
         ImprovedTube.allow_autoplay = false;
     }
