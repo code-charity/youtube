@@ -1879,22 +1879,26 @@ ImprovedTube.schedule = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.autoplay = function (video) {
+    this.check;
     if (ImprovedTube.video_url !== location.href) {
         ImprovedTube.allow_autoplay = false;
     }
 
-    if (
-        (
-            (location.href.indexOf('/watch?') !== -1 && location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) ||
-            (location.href.indexOf('/watch?') !== -1 && location.href.indexOf('list=') !== -1 && ImprovedTube.storage.playlist_autoplay === false) ||
-            (ImprovedTube.regex.channel.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
-        ) === true &&
-        ImprovedTube.allow_autoplay === false &&
-        video.parentNode.parentNode.classList.contains('ad-showing') === false
-    ) {
+    if (this.check === true){
         setTimeout(function () {
             video.parentNode.parentNode.pauseVideo();
         });
+    }
+    else if (ImprovedTube.allow_autoplay === false && video.parentNode.parentNode.classList.contains('ad-showing') === false &&
+        (
+            (location.href.indexOf('/watch?') !== -1 && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) || (location.href.indexOf('list=') !== -1 && ImprovedTube.storage.playlist_autoplay === false))) ||
+            (ImprovedTube.regex.channel.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
+        )
+    ) {
+        setTimeout(function () {
+            video.parentNode.parentNode.stopVideo();
+        });
+        this.check = true;
     }
 };
 
