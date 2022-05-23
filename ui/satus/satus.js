@@ -2306,6 +2306,37 @@ satus.components.shortcut = function (skeleton) {
                         }
                     }
                 },
+                empty: {
+                    component: 'button',
+                    text: 'empty',
+                    on: {
+                        click: function () {
+                            component.data = {
+                            "alt": false,
+                            "ctrl": false,
+                            "shift": false,
+                            "keys": {
+                                "0": {
+                                    "code": "Lang1",
+                                    "key": ""
+                                }
+                            },
+                            "wheel": 0
+                        };
+
+                            component.storageValue = component.data;
+
+                            component.storageChange();
+
+                            component.render(component.valueElement);
+
+                            this.parentNode.parentNode.parentNode.close();
+
+                            window.removeEventListener('keydown', component.keydown);
+                            window.removeEventListener('wheel', component.mousewheel);
+                        }
+                    }
+                },
                 cancel: {
                     component: 'button',
                     text: 'cancel',
