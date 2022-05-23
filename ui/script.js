@@ -5217,6 +5217,10 @@ var skeleton = {
                                             component: 'switch',
                                             text: 'subtitles'
                                         },
+                                        auto_generate: {
+                                            component: 'switch',
+                                            text: 'Allow auto generate'
+                                        },
                                         subtitles_language: {
                                             component: 'select',
                                             text: 'language',
@@ -5229,6 +5233,10 @@ var skeleton = {
                                                     text: 'Afrikaans'
                                                 },
                                                 {
+                                                    value: 'sq',
+                                                    text: 'Albanian'
+                                                },
+                                                {
                                                     value: 'am',
                                                     text: 'Amharic'
                                                 },
@@ -5237,24 +5245,36 @@ var skeleton = {
                                                     text: 'Arabic'
                                                 },
                                                 {
+                                                    value: 'hy',
+                                                    text: 'Armenian'
+                                                },
+                                                {
                                                     value: 'az',
                                                     text: 'Azerbaijani'
-                                                },
-                                                {
-                                                    value: 'be',
-                                                    text: 'Belarusian'
-                                                },
-                                                {
-                                                    value: 'bg',
-                                                    text: 'Bulgarian'
                                                 },
                                                 {
                                                     value: 'bn',
                                                     text: 'Bangla'
                                                 },
                                                 {
+                                                    value: 'eu',
+                                                    text: 'Basque'
+                                                },
+                                                {
+                                                    value: 'be',
+                                                    text: 'Belarusian'
+                                                },
+                                                {
                                                     value: 'bs',
                                                     text: 'Bosnian'
+                                                },
+                                                {
+                                                    value: 'bg',
+                                                    text: 'Bulgarian'
+                                                },
+                                                {
+                                                    value: 'my',
+                                                    text: 'Burmese'
                                                 },
                                                 {
                                                     value: 'ca',
@@ -5265,28 +5285,32 @@ var skeleton = {
                                                     text: 'Cebuano'
                                                 },
                                                 {
+                                                    value: 'zh-Hans',
+                                                    text: 'Chinese (Simplified)'
+                                                },
+                                                {
+                                                    value: 'zh-Hant',
+                                                    text: 'Chinese (Traditional)'
+                                                },
+                                                {
                                                     value: 'co',
                                                     text: 'Corsican'
+                                                },
+                                                {
+                                                    value: 'hr',
+                                                    text: 'Croatian'
                                                 },
                                                 {
                                                     value: 'cs',
                                                     text: 'Czech'
                                                 },
                                                 {
-                                                    value: 'cy',
-                                                    text: 'Welsh'
-                                                },
-                                                {
                                                     value: 'da',
                                                     text: 'Danish'
                                                 },
                                                 {
-                                                    value: 'de',
-                                                    text: 'German'
-                                                },
-                                                {
-                                                    value: 'el',
-                                                    text: 'Greek'
+                                                    value: 'nl',
+                                                    text: 'Dutch'
                                                 },
                                                 {
                                                     value: 'en',
@@ -5297,52 +5321,44 @@ var skeleton = {
                                                     text: 'Esperanto'
                                                 },
                                                 {
-                                                    value: 'es',
-                                                    text: 'Spanish'
-                                                },
-                                                {
                                                     value: 'et',
                                                     text: 'Estonian'
-                                                },
-                                                {
-                                                    value: 'eu',
-                                                    text: 'Basque'
-                                                },
-                                                {
-                                                    value: 'fa',
-                                                    text: 'Persian'
-                                                },
-                                                {
-                                                    value: 'fi',
-                                                    text: 'Finnish'
                                                 },
                                                 {
                                                     value: 'fil',
                                                     text: 'Filipino'
                                                 },
                                                 {
+                                                    value: 'fi',
+                                                    text: 'Finnish'
+                                                },
+                                                {
                                                     value: 'fr',
                                                     text: 'French'
-                                                },
-                                                {
-                                                    value: 'fy',
-                                                    text: 'Western Frisian'
-                                                },
-                                                {
-                                                    value: 'ga',
-                                                    text: 'Irish'
-                                                },
-                                                {
-                                                    value: 'gd',
-                                                    text: 'Scottish Gaelic'
                                                 },
                                                 {
                                                     value: 'gl',
                                                     text: 'Galician'
                                                 },
                                                 {
+                                                    value: 'ka',
+                                                    text: 'Georgian'
+                                                },
+                                                {
+                                                    value: 'de',
+                                                    text: 'German'
+                                                },
+                                                {
+                                                    value: 'el',
+                                                    text: 'Greek'
+                                                },
+                                                {
                                                     value: 'gu',
                                                     text: 'Gujarati'
+                                                },
+                                                {
+                                                    value: 'ht',
+                                                    text: 'Haitian Creole'
                                                 },
                                                 {
                                                     value: 'ha',
@@ -5353,6 +5369,10 @@ var skeleton = {
                                                     text: 'Hawaiian'
                                                 },
                                                 {
+                                                    value: 'iw',
+                                                    text: 'Hebrew'
+                                                },
+                                                {
                                                     value: 'hi',
                                                     text: 'Hindi'
                                                 },
@@ -5361,40 +5381,28 @@ var skeleton = {
                                                     text: 'Hmong'
                                                 },
                                                 {
-                                                    value: 'hr',
-                                                    text: 'Croatian'
-                                                },
-                                                {
-                                                    value: 'ht',
-                                                    text: 'Haitian Creole'
-                                                },
-                                                {
                                                     value: 'hu',
                                                     text: 'Hungarian'
-                                                },
-                                                {
-                                                    value: 'hy',
-                                                    text: 'Armenian'
-                                                },
-                                                {
-                                                    value: 'id',
-                                                    text: 'Indonesian'
-                                                },
-                                                {
-                                                    value: 'ig',
-                                                    text: 'Igbo'
                                                 },
                                                 {
                                                     value: 'is',
                                                     text: 'Icelandic'
                                                 },
                                                 {
-                                                    value: 'it',
-                                                    text: 'Italian'
+                                                    value: 'ig',
+                                                    text: 'Igbo'
                                                 },
                                                 {
-                                                    value: 'iw',
-                                                    text: 'Hebrew'
+                                                    value: 'id',
+                                                    text: 'Indonesian'
+                                                },
+                                                {
+                                                    value: 'ga',
+                                                    text: 'Irish'
+                                                },
+                                                {
+                                                    value: 'it',
+                                                    text: 'Italian'
                                                 },
                                                 {
                                                     value: 'ja',
@@ -5405,8 +5413,8 @@ var skeleton = {
                                                     text: 'Javanese'
                                                 },
                                                 {
-                                                    value: 'ka',
-                                                    text: 'Georgian'
+                                                    value: 'kn',
+                                                    text: 'Kannada'
                                                 },
                                                 {
                                                     value: 'kk',
@@ -5417,8 +5425,8 @@ var skeleton = {
                                                     text: 'Khmer'
                                                 },
                                                 {
-                                                    value: 'kn',
-                                                    text: 'Kannada'
+                                                    value: 'rw',
+                                                    text: 'Kinyarwanda'
                                                 },
                                                 {
                                                     value: 'ko',
@@ -5433,68 +5441,60 @@ var skeleton = {
                                                     text: 'Kyrgyz'
                                                 },
                                                 {
-                                                    value: 'la',
-                                                    text: 'Latin'
-                                                },
-                                                {
-                                                    value: 'lb',
-                                                    text: 'Luxembourgish'
-                                                },
-                                                {
                                                     value: 'lo',
                                                     text: 'Lao'
                                                 },
                                                 {
-                                                    value: 'lt',
-                                                    text: 'Lithuanian'
+                                                    value: 'la',
+                                                    text: 'Latin'
                                                 },
                                                 {
                                                     value: 'lv',
                                                     text: 'Latvian'
                                                 },
                                                 {
-                                                    value: 'mg',
-                                                    text: 'Malagasy'
+                                                    value: 'lt',
+                                                    text: 'Lithuanian'
                                                 },
                                                 {
-                                                    value: 'mi',
-                                                    text: 'Maori'
+                                                    value: 'lb',
+                                                    text: 'Luxembourgish'
                                                 },
                                                 {
                                                     value: 'mk',
                                                     text: 'Macedonian'
                                                 },
                                                 {
-                                                    value: 'ml',
-                                                    text: 'Malayalam'
-                                                },
-                                                {
-                                                    value: 'mn',
-                                                    text: 'Mongolian'
-                                                },
-                                                {
-                                                    value: 'mr',
-                                                    text: 'Marathi'
+                                                    value: 'mg',
+                                                    text: 'Malagasy'
                                                 },
                                                 {
                                                     value: 'ms',
                                                     text: 'Malay'
                                                 },
                                                 {
+                                                    value: 'ml',
+                                                    text: 'Malayalam'
+                                                },
+                                                {
                                                     value: 'mt',
                                                     text: 'Maltese'
                                                 },
                                                 {
-                                                    value: 'my',
-                                                    text: 'Burmese'
+                                                    value: 'mi',
+                                                    text: 'Maori'
+                                                },
+                                                {
+                                                    value: 'mr',
+                                                    text: 'Marathi'
+                                                },
+                                                {
+                                                    value: 'mn',
+                                                    text: 'Mongolian'
                                                 },
                                                 {
                                                     value: 'ne',
                                                     text: 'Nepali'
-                                                },
-                                                {
-                                                    value: 'nl',
-                                                    text: 'Dutch'
                                                 },
                                                 {
                                                     value: 'no',
@@ -5509,20 +5509,24 @@ var skeleton = {
                                                     text: 'Odia'
                                                 },
                                                 {
-                                                    value: 'pa',
-                                                    text: 'Punjabi'
+                                                    value: 'ps',
+                                                    text: 'Pashto'
+                                                },
+                                                {
+                                                    value: 'fa',
+                                                    text: 'Persian'
                                                 },
                                                 {
                                                     value: 'pl',
                                                     text: 'Polish'
                                                 },
                                                 {
-                                                    value: 'ps',
-                                                    text: 'Pashto'
-                                                },
-                                                {
                                                     value: 'pt',
                                                     text: 'Portuguese'
+                                                },
+                                                {
+                                                    value: 'pa',
+                                                    text: 'Punjabi'
                                                 },
                                                 {
                                                     value: 'ro',
@@ -5533,8 +5537,20 @@ var skeleton = {
                                                     text: 'Russian'
                                                 },
                                                 {
-                                                    value: 'rw',
-                                                    text: 'Kinyarwanda'
+                                                    value: 'sm',
+                                                    text: 'Samoan'
+                                                },
+                                                {
+                                                    value: 'gd',
+                                                    text: 'Scottish Gaelic'
+                                                },
+                                                {
+                                                    value: 'sr',
+                                                    text: 'Serbian'
+                                                },
+                                                {
+                                                    value: 'sn',
+                                                    text: 'Shona'
                                                 },
                                                 {
                                                     value: 'sd',
@@ -5553,72 +5569,56 @@ var skeleton = {
                                                     text: 'Slovenian'
                                                 },
                                                 {
-                                                    value: 'sm',
-                                                    text: 'Samoan'
-                                                },
-                                                {
-                                                    value: 'sn',
-                                                    text: 'Shona'
-                                                },
-                                                {
                                                     value: 'so',
                                                     text: 'Somali'
-                                                },
-                                                {
-                                                    value: 'sq',
-                                                    text: 'Albanian'
-                                                },
-                                                {
-                                                    value: 'sr',
-                                                    text: 'Serbian'
                                                 },
                                                 {
                                                     value: 'st',
                                                     text: 'Southern Sotho'
                                                 },
                                                 {
-                                                    value: 'su',
-                                                    text: 'Sundanese'
+                                                    value: 'es',
+                                                    text: 'Spanish'
                                                 },
                                                 {
-                                                    value: 'sv',
-                                                    text: 'Swedish'
+                                                    value: 'su',
+                                                    text: 'Sundanese'
                                                 },
                                                 {
                                                     value: 'sw',
                                                     text: 'Swahili'
                                                 },
                                                 {
-                                                    value: 'ta',
-                                                    text: 'Tamil'
-                                                },
-                                                {
-                                                    value: 'te',
-                                                    text: 'Telugu'
+                                                    value: 'sv',
+                                                    text: 'Swedish'
                                                 },
                                                 {
                                                     value: 'tg',
                                                     text: 'Tajik'
                                                 },
                                                 {
-                                                    value: 'th',
-                                                    text: 'Thai'
-                                                },
-                                                {
-                                                    value: 'tk',
-                                                    text: 'Turkmen'
-                                                },
-                                                {
-                                                    value: 'tr',
-                                                    text: 'Turkish'
+                                                    value: 'ta',
+                                                    text: 'Tamil'
                                                 },
                                                 {
                                                     value: 'tt',
                                                     text: 'Tatar'
                                                 },
                                                 {
-                                                    value: 'ug',
-                                                    text: 'Uyghur'
+                                                    value: 'te',
+                                                    text: 'Telugu'
+                                                },
+                                                {
+                                                    value: 'th',
+                                                    text: 'Thai'
+                                                },
+                                                {
+                                                    value: 'tr',
+                                                    text: 'Turkish'
+                                                },
+                                                {
+                                                    value: 'tk',
+                                                    text: 'Turkmen'
                                                 },
                                                 {
                                                     value: 'uk',
@@ -5629,12 +5629,24 @@ var skeleton = {
                                                     text: 'Urdu'
                                                 },
                                                 {
+                                                    value: 'ug',
+                                                    text: 'Uyghur'
+                                                },
+                                                {
                                                     value: 'uz',
                                                     text: 'Uzbek'
                                                 },
                                                 {
                                                     value: 'vi',
                                                     text: 'Vietnamese'
+                                                },
+                                                {
+                                                    value: 'cy',
+                                                    text: 'Welsh'
+                                                },
+                                                {
+                                                    value: 'fy',
+                                                    text: 'Western Frisian'
                                                 },
                                                 {
                                                     value: 'xh',
@@ -5647,14 +5659,6 @@ var skeleton = {
                                                 {
                                                     value: 'yo',
                                                     text: 'Yoruba'
-                                                },
-                                                {
-                                                    value: 'zh-Hans',
-                                                    text: 'Chinese (Simplified)'
-                                                },
-                                                {
-                                                    value: 'zh-Hant',
-                                                    text: 'Chinese (Traditional)'
                                                 },
                                                 {
                                                     value: 'zu',
