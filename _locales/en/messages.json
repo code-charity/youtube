@@ -69,7 +69,7 @@
         "message": "Are you sure you want to export the data?"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Are you sure you want to import the data?"
+        "message": "Are you sure you want to import this data?"
     },
     "audio": {
         "message": "Audio"
@@ -363,7 +363,7 @@
         "message": "Force SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Forced play video from the beginning"
+        "message": "Force video to play from the beginning"
     },
     "forcedPlaybackSpeed": {
         "message": "Forced playback speed"
@@ -453,7 +453,7 @@
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
+        "message": "Hide player controls     buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
@@ -474,7 +474,7 @@
         "message": "Hide \"Share\" button"
     },
     "hideSkipOverlay": {
-        "message": "Hide 5 seconds skip animation"
+        "message": "Hide 5 second skip animation"
     },
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
@@ -762,7 +762,7 @@
         "message": "Red"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red color"
+        "message": "Show dislike button in red"
     },
     "relatedVideos": {
         "message": "Related videos"
