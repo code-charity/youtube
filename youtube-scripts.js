@@ -1973,11 +1973,12 @@ ImprovedTube.subtitles = function () {
 
 
 /*------------------------------------------------------------------------------
-4.4.4.1 SUBTITLES LANGUAGE
+4.4.4.1 SUBTITLES LANGUAGE / AUTO GENERATE
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.subtitlesLanguage = function () {
-    var option = this.storage.subtitles_language;
+    var option = this.storage.subtitles_language,
+        autoGenerate = this.storage.auto_generate;
 
     if (this.isset(option) && option !== 'default') {
         var player = this.elements.player,
@@ -1988,15 +1989,18 @@ ImprovedTube.subtitlesLanguage = function () {
                 includeAsr: true
             });
 
-            if (tracklist && tracklist[0]) {
-                tracklist = tracklist[0];
-
-                tracklist.translationLanguage = {
-                    languageCode: option,
-                    languageName: option
-                };
-
-                this.elements.player.setOption('captions', 'track', tracklist);
+            var matchTrack = false;
+            for (var i =0, l = tracklist.length; i<l; i++){
+                if (tracklist[i].languageCode.includes(option)) {
+                    if(autoGenerate === tracklist[i].vss_id.includes("a.")){
+                        this.elements.player.setOption('captions', 'track', tracklist);
+                        matchTrack = true;
+                    }
+                    break;
+                }
+            }
+            if (!matchTrack){
+                player.toggleSubtitles();
             }
         }
     }
