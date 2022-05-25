@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "Hide cards"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
