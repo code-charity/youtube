@@ -11,6 +11,8 @@
   1.7 Squared user images
   1.8 Hide animated thumbnails
   1.9 Hide buttons on thumbnails
+  1.10 Scroll Bar
+  1.11 Popup Window Button
 2.0 Appearance
   2.1 Header
     2.1.1 Position
@@ -1202,6 +1204,15 @@ html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-ren
 
 html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer:nth-last-child(1),
 html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-last-child(1) {
+    display: none;
+}
+
+/*------------------------------------------------------------------------------
+2.4.7 HIDE DOWNLOAD BUTTON
+------------------------------------------------------------------------------*/
+
+html[it-hide-download-button=true] #info #top-level-buttons ytd-download-button-renderer,
+html[it-hide-download-button=true] #info #top-level-buttons-computed ytd-download-button-renderer {
     display: none;
 }
 
