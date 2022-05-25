@@ -1231,7 +1231,7 @@ html[it-hide-clip-button=true] #info #top-level-buttons-computed ytd-button-rend
 
 ------------------------------------------------------------------------------*/
 
-html[it-hide-more-button=true] #info #top-level-buttons-computed+yt-icon-button {
+html[it-hide-more-button=true] #info #flexible-item-buttons+yt-icon-button {
     display: none;
 }
 
