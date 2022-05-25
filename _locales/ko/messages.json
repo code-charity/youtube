@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "카드 숨기기"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "국가코드 숨기기"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "상세설명 숨기기"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "종료후 화면 숨기기"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "\"오버레이 건너뛰기\" 숨기기"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
