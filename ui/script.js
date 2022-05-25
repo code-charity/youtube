@@ -4487,6 +4487,11 @@ var skeleton = {
                                         text: 'hideDownloadButton',
                                         tags: 'hide,remove'
                                     },
+                                    hide_clip_button: {
+                                        component: 'switch',
+                                        text: 'hideClipButton',
+                                        tags: 'hide,remove'
+                                    },
                                     hide_more_button: {
                                         component: 'switch',
                                         text: 'hideMoreButton',
