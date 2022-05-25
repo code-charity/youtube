@@ -1127,7 +1127,8 @@ html[it-hide-details=true] #watch-header,
 html[it-hide-details=true] #watch-action-panels,
 html[it-hide-details=true] #action-panel-details,
 html[it-hide-details=true] #primary-inner>#info,
-html[it-hide-details=true] #primary-inner>#meta {
+html[it-hide-details=true] #primary-inner>#meta,
+html[it-hide-details=true] #primary-inner .watch-active-metadata {
     display: none !important;
 }
 
