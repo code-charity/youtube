@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "Ocultar cards"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Ocultar código do país"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "Ocultar detalhes"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Ocultar tela final"
@@ -473,8 +479,8 @@
     "hideShareButton": {
         "message": "Ocultar botão \"Compartilhar\""
     },
-    "hideSkipOverlay": {
-        "message": "Ocultar animação de pulo de 5 segundos"
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Ocultar botões nas miniaturas"

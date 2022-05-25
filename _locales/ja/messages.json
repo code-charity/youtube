@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "カードを隠す"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "地域コードを隠す"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "詳細を隠す"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "再生終了時の画面を隠す"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "スキップオーバーレイを隠す"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "サムネイルオーバーレイを隠す"

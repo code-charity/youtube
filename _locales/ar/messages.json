@@ -428,6 +428,9 @@
     "hideCards": {
         "message": "إخفاء البطاقات"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -436,6 +439,9 @@
     },
     "hideDetails": {
         "message": "إخفاء التفاصيل"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "إخفاء شاشة النهاية"
@@ -477,10 +483,13 @@
         "message": "Hide \"Share\" button"
     },
     "hideSkipOverlay": {
-        "message": "Hide Skip Overlay"
+        "message": "Hide 5 second skip animation"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
-        "message": "Hide thumbnail overlay"
+        "message": "Hide buttons on thumbnails"
     },
     "hideThumbnails": {
         "message": "Hide thumbnails"
