@@ -1200,8 +1200,8 @@ html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-ren
 2.4.6 HIDE SAVE BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer:nth-child(4),
-html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-child(4) {
+html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer:nth-last-child(1),
+html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-last-child(1) {
     display: none;
 }
 
