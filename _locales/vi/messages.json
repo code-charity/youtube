@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "Ẩn thẻ"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Ẩn mã quốc gia"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "Ẩn chi tiết"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Ẩn màn hình kết thúc"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "Ẩn hoạt ảnh bỏ qua 5 giây"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Ẩn các nút trên hình thu nhỏ"

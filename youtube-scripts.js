@@ -27,6 +27,7 @@
         4.2.3.1 How long ago the video was uploaded
         4.2.3.2 Show channel videos count
         4.2.3.3 Description
+        4.2.3.4 Hide Detail Button
       4.2.5 Comments
     4.3.0 Themes
       4.3.1 My colors
@@ -270,6 +271,7 @@ ImprovedTube.ytElementsHandler = function (node) {
         if (document.documentElement.dataset.pageType === 'video') {
             this.howLongAgoTheVideoWasUploaded();
             this.channelVideosCount();
+            this.hideDetailButton();
         }
     } else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
         if (node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
@@ -1547,6 +1549,20 @@ ImprovedTube.channelVideosCount = function () {
 ImprovedTube.description = function () {
     if (this.storage.description === 'expanded') {
         this.elements.moreButton.click();
+    }
+};
+
+
+/*------------------------------------------------------------------------------
+4.2.3.4 HIDE DETAIL BUTTON
+------------------------------------------------------------------------------*/
+
+ImprovedTube.hideDetailButton = function () {
+    var detail_element = document.querySelectorAll('#info #top-level-buttons-computed ytd-button-renderer')
+    console.log(detail_element);
+    console.log(detail_element.length);
+    if( detail_element.length === 4){
+        detail_element[1].setAttribute('id','thanks-button');
     }
 };
 
