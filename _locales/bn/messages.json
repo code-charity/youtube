@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "কার্ড লুকান"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "কান্ট্রি কোড লুকান"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "আড়াল বিস্তারিত"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "এন্ডস্ক্রিন লুকান"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "স্কিপ ওভারলে লুকান"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"

@@ -11,6 +11,8 @@
   1.7 Squared user images
   1.8 Hide animated thumbnails
   1.9 Hide buttons on thumbnails
+  1.10 Scroll Bar
+  1.11 Popup Window Button
 2.0 Appearance
   2.1 Header
     2.1.1 Position
@@ -42,12 +44,15 @@
     2.4.3 Hide date
     2.4.4 Likes
     2.4.5 Hide share button
-    2.4.6 Hide save button
-    2.4.7 Hide more button
-    2.4.8 Description
-    2.4.9 How long ago the video was uploaded
-    2.4.10 Show channel videos count
-    2.4.11 Show dislike button red colour
+    2.4.6 Hide download button
+    2.4.7 Hide thanks button
+    2.4.8 Hide clip button
+    2.4.9 Hide save button
+    2.4.10 Hide more button
+    2.4.11 Description
+    2.4.12 How long ago the video was uploaded
+    2.4.13 Show channel videos count
+    2.4.14 Show dislike button red colour
   2.5 Comments
   2.6 Footer
 3.0 Themes
@@ -1122,7 +1127,8 @@ html[it-hide-details=true] #watch-header,
 html[it-hide-details=true] #watch-action-panels,
 html[it-hide-details=true] #action-panel-details,
 html[it-hide-details=true] #primary-inner>#info,
-html[it-hide-details=true] #primary-inner>#meta {
+html[it-hide-details=true] #primary-inner>#meta,
+html[it-hide-details=true] #primary-inner .watch-active-metadata {
     display: none !important;
 }
 
@@ -1197,26 +1203,56 @@ html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-ren
 
 
 /*------------------------------------------------------------------------------
-2.4.6 HIDE SAVE BUTTON
+2.4.6 HIDE DOWNLOAD BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer:nth-child(4),
-html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-child(4) {
+html[it-hide-download-button=true] #info #top-level-buttons ytd-download-button-renderer,
+html[it-hide-download-button=true] #info #top-level-buttons-computed ytd-download-button-renderer {
     display: none;
 }
 
 
 /*------------------------------------------------------------------------------
-2.4.7 HIDE MORE BUTTON
+2.4.7 HIDE THANKS BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-more-button=true] #info #top-level-buttons-computed+yt-icon-button {
+html[it-hide-thanks-button=true] #info #top-level-buttons #thanks-button,
+html[it-hide-thanks-button=true] #info #top-level-buttons-computed #thanks-button {
     display: none;
 }
 
 
 /*------------------------------------------------------------------------------
-2.4.8 DESCRIPTION
+2.4.8 HIDE CLIP BUTTON
+------------------------------------------------------------------------------*/
+
+html[it-hide-clip-button=true] #info #top-level-buttons ytd-button-renderer:nth-last-child(2),
+html[it-hide-clip-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-last-child(2) {
+    display: none;
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.9 HIDE SAVE BUTTON
+------------------------------------------------------------------------------*/
+
+html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer:nth-last-child(1),
+html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-last-child(1) {
+    display: none;
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.10 HIDE MORE BUTTON
+------------------------------------------------------------------------------*/
+
+html[it-hide-more-button=true] #info #flexible-item-buttons+yt-icon-button {
+    display: none;
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.11 DESCRIPTION
 ------------------------------------------------------------------------------*/
 
 html[it-description=hidden] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
@@ -1226,7 +1262,7 @@ html[it-description=hidden] div#action-panel-details {
 
 
 /*------------------------------------------------------------------------------
-2.4.9 HOW LONG AGO THE VIDEO WAS UPLOADED
+2.4.12 HOW LONG AGO THE VIDEO WAS UPLOADED
 ------------------------------------------------------------------------------*/
 
 .it-how-long-ago-the-video-was-uploaded {
@@ -1237,7 +1273,7 @@ html[it-description=hidden] div#action-panel-details {
 
 
 /*------------------------------------------------------------------------------
-2.4.10 SHOW CHANNEL VIDEOS COUNT
+2.4.13 SHOW CHANNEL VIDEOS COUNT
 ------------------------------------------------------------------------------*/
 
 .it-channel-videos-count {
@@ -1248,7 +1284,7 @@ html[it-description=hidden] div#action-panel-details {
 
 
 /*------------------------------------------------------------------------------
-2.4.11 SHOW DISLIKE RED COLOR
+2.4.14 SHOW DISLIKE RED COLOR
 ------------------------------------------------------------------------------*/
 
 [it-red-dislike-button=true] #top-level-buttons>ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active>a,

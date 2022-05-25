@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "Nascondi tessere di fine video"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Nascondi codice paese"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "Nascondi dettagli"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Nascondi finale video"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "Nascondi \"Salta overlay\""
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Nascondi overlay miniature"

@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "Esconder cartas"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "Esconder detalhes"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Esconder ecãn final"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"

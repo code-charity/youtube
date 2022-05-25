@@ -363,7 +363,7 @@
         "message": "Force SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Forced play video from the beginning"
+        "message": "Force video to play from the beginning"
     },
     "forcedPlaybackSpeed": {
         "message": "Forced playback speed"
@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "Hide cards"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -434,6 +437,9 @@
     "hideDetails": {
         "message": "Hide details"
     },
+	"hideDownloadButton": 	{
+		"message": "Hide \"Download\" button"
+	},
     "hideEndscreen": {
         "message": "Hide endscreen"
     },
@@ -453,7 +459,7 @@
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
@@ -474,7 +480,10 @@
         "message": "Hide \"Share\" button"
     },
     "hideSkipOverlay": {
-        "message": "Hide 5 seconds skip animation"
+        "message": "Hide 5 second skip animation"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
@@ -723,7 +732,7 @@
         "message": "Popup player"
     },
     "popupWindowButtons": {
-        "message": "popup_window_buttons"
+        "message": "Add popup Window buttons"
     },
     "position": {
         "message": "Position"
@@ -762,7 +771,7 @@
         "message": "Red"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "Show dislike button in red"
     },
     "relatedVideos": {
         "message": "Related videos"
@@ -900,10 +909,10 @@
         "message": "Sunset to sunrise"
     },
     "systemPeferenceDark": {
-        "message": "System peference: dark"
+        "message": "System preference: dark"
     },
     "systemPeferenceLight": {
-        "message": "System peference: light"
+        "message": "System preference: light"
     },
     "teal": {
         "message": "Teal"

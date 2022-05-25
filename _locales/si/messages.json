@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "Cards සඟවන්න"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Country code එක හංගන්න"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "Details හංගන්න"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Endscreen එක හංගන්න"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "5 seconds skip animation එක සඟවන්න"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Thumbnail මත තිබෙන button සඟවන්න"

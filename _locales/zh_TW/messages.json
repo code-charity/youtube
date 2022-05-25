@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "隱藏資訊卡"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "隱藏國家代號"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "隱藏細節"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "隱藏結束畫面"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "隱藏「跳至區段」按鈕"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "隱藏縮圖上的按鈕"

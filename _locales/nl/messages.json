@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "Verberg kaarten"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Verberg landcode"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "Verberg details"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Verberg eindscherm"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "Verberg knop voor overslaan omslag"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Verberg miniatuurafbeeldingen omslag"

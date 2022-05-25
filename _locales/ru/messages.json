@@ -428,6 +428,9 @@
     "hideCards": {
         "message": "Скрывать карточки"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Скрывать код страны"
     },
@@ -436,6 +439,9 @@
     },
     "hideDetails": {
         "message": "Скрывать подробную информацию"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Скрывать экран после видео"
@@ -478,6 +484,9 @@
     },
     "hideSkipOverlay": {
         "message": "Скрывать наложение \"5 секунд\""
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Скрывать наложение на превью"
