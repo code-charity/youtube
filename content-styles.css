@@ -1219,6 +1219,16 @@ html[it-hide-download-button=true] #info #top-level-buttons-computed ytd-downloa
 
 /*------------------------------------------------------------------------------
 2.4.7 HIDE MORE BUTTON
+/*------------------------------------------------------------------------------
+2.4.8 HIDE CLIP BUTTON
+------------------------------------------------------------------------------*/
+
+html[it-hide-clip-button=true] #info #top-level-buttons ytd-button-renderer:nth-last-child(2),
+html[it-hide-clip-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-last-child(2) {
+    display: none;
+}
+
+
 ------------------------------------------------------------------------------*/
 
 html[it-hide-more-button=true] #info #top-level-buttons-computed+yt-icon-button {
