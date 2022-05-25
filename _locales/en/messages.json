@@ -482,6 +482,9 @@
     "hideSkipOverlay": {
         "message": "Hide 5 second skip animation"
     },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
+    },
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
     },
