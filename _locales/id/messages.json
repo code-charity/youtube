@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "Sembunyikan kartu"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "Sembunyikan detail"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Sembunyikan layar akhir"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"

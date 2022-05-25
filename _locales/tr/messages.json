@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "Kartları gizle"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Ülke kodunu gizle"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "Detayları gizle"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Ekran sonunu gizle"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "Yer Paylaşımını Atla Gizle"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Küçük resim yer paylaşımını gizle"

@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "Απόκρυψε τις κάρτες"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "Απόκρυψε τις λεπτομέρειες"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Απόκρυψε την κάρτα τέλους"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
