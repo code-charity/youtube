@@ -8,11 +8,13 @@
 <p align="center"><a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 <img alt="YouTube extension" src="https://raw.githubusercontent.com/victor-savinov/graphics/master/previews/improvedtube/screenshot-github.png"></a><br> &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/chrome.png" alt="Chrome Extension" width="155"></a>
-<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox.png" alt="Firefox add-ons" width="105px"><img width="127" alt="recommended by firefox" src="https://user-images.githubusercontent.com/25022245/147242029-b4cf4544-a3a9-436a-9bb7-61c9a7976629.png"></a><a href="https://microsoftedge.microsoft.com/addons/detail/knbckijjjbmkjiagojjneoplbjilfllc"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge.png" alt="Edge Youtube Extension" width="117"></a><a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/"><img width="109" src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera Extension"></a>
-<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Google-Chrome-Webstore-for-Mircrosoft-Edge--&--Opera"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge"  height="34px"></a><a href="https://developer.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa"><img src="https://whale.naver.com/_resource/img/32.png"></a>
+ <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/firefox.png" alt="Firefox add-ons" width="120px"></a>  
+<a href="https://microsoftedge.microsoft.com/addons/detail/knbckijjjbmkjiagojjneoplbjilfllc"><img src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/edge.png" alt="Edge Youtube Extension" width="117"></a>
+<a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/"><img width="109" src="https://github.com/code4charity/YouTube-Extension/blob/master/previews/opera.png" alt="Opera Extension"></a>
+<a href="https://developer.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa"><img src="https://whale.naver.com/_resource/img/32.png"></a>
 <a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Installation#safari"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="34px" height="33px"></a>
 <a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Installation#chrome--chromium--brave--edge--vivaldi"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="34px"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="34px"> <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="34px"></a>
-
+<br>  <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">   <img width="137" alt="recommended by firefox" src="https://user-images.githubusercontent.com/25022245/147242029-b4cf4544-a3a9-436a-9bb7-61c9a7976629.png"> </a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Google-Chrome-Webstore-for-Mircrosoft-Edge--&--Opera"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" align="top" height="16px"></a>  <a href="https://addons.opera.com/en/extensions/details/install-chrome-extensions/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="opera" height="16px" align="top"></a> 
 </p>
 <table align="right"><th><h4 align="right"> <i> Critiques </i>&nbsp; & &nbsp; Credits &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4> </th><tr><td>
 	<code><i><b><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">
@@ -60,7 +62,7 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json">✓Slovenčina</a></code>:<code><a href="https://github.com/bbc-s">bbc-s</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json">✓Türkçe</a></code>:<code><a href="https://github.com/onurdumangoz">onurdumangoz</a></code>,<code><a href="https://github.com/daswareinfach">daswareinfach</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/th/messages.json">😕Thai</a></code>:<code><a href="https://github.com/????????">______</a></code> (you?)<br>
- <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vn/messages.json">😕Vietnamese</a></code>:<code><a href="https://github.com/????????">______</a></code> (you?)<br>
+ <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vn/messages.json">Vietnamese</a></code>:<code><a href="https://github.com/zeref-dragneel">zeref-dragneel</a></code> (you?)<br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json">✓Русский</a></code>:<code><a href="https://github.com/qweered">qweered</a></code>,<code><a href="https://github.com/alexesprit">alexesprit</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json">✓ελληνικά</a></code>:<code><a href="https://github.com/molyvius">molyvius</a></code><br>
 <code><a href="https://github.com/code4charity/YouTube-Extension/blob/master/_locales/ar/messages.json">✓العربية</a></code>:<code><a href="https://github.com/Raayib">Raayib</a></code><br>
@@ -109,7 +111,7 @@ We like to help good meaningful causes. projects@improvedtube.com
 <hr>
 
 <details>
-<summary>Old/verbose Introduction:</summary>
+<summary> Old/verbose Introduction: </summary>
 	
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  is an extension we built to refine and sweeten your YouTube experience. A one-stop-shop with many powerful features to enhance YouTube, yet liteweight. A larger player & tidy YouTube UI / hiding distractions were the first loved feature. And there was so much left to build and are many clever features to come still. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImprovedTube is designed with our own UI library: [Satus](https://github.com/victor-savinov/satus) (to manage your settings efficiently & create familiar apps/['cousins](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl) easily.) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please spread the word: ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned. No other project provides so much CSS to adjust a website[🦄](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)</font>.
@@ -166,3 +168,4 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
 </details>
+<hr>
