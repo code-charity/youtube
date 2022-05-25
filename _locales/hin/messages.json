@@ -425,6 +425,9 @@
     "hideCards": {
         "message": "पत्ते छिपाओ"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
     "hideCountryCode": {
         "message": "देश कोड छुपाएं"
     },
@@ -433,6 +436,9 @@
     },
     "hideDetails": {
         "message": "जानकारी छिपाएँ"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "अंत स्क्रीन छिपाएँ"
@@ -475,6 +481,9 @@
     },
     "hideSkipOverlay": {
         "message": "स्किप ओवरले छुपाएं"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
