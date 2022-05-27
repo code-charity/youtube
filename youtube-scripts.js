@@ -2009,7 +2009,7 @@ ImprovedTube.subtitlesLanguage = function () {
             for (var i =0, l = tracklist.length; i<l; i++){
                 if (tracklist[i].languageCode.includes(option)) {
                     if(autoGenerate === tracklist[i].vss_id.includes("a.")){
-                        this.elements.player.setOption('captions', 'track', tracklist);
+                        this.elements.player.setOption('captions', 'track', tracklist[i]);
                         matchTrack = true;
                     }
                     break;
