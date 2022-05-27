@@ -66,10 +66,10 @@
         "message": "Görünüm"
     },
     "areYouSureYouWantToExportTheData": {
-        "message": "Are you sure you want to export the data?"
+        "message": "Verileri dışa aktarmak istediğinizden emin misiniz?"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Are you sure you want to import the data?"
+        "message": "Verileri içe aktarmak istediğinizden emin misiniz?"
     },
     "audio": {
         "message": "Ses"
@@ -222,7 +222,7 @@
         "message": "Koyu mor"
     },
     "default": {
-        "message": "Default"
+        "message": "Varsayılan"
     },
     "defaultChannelTab": {
         "message": "Varsayılan kanal sekmesi"
@@ -456,7 +456,7 @@
         "message": "Sesli arama düğmesini gizle"
     },
     "high": {
-        "message": "High"
+        "message": "Yüksek"
     },
     "history": {
         "message": "Geçmiş"
@@ -558,13 +558,13 @@
         "message": "Gürültü normalleştirme"
     },
     "low": {
-        "message": "Low"
+        "message": "Düşük"
     },
     "markWatchedVideos": {
         "message": "İzlenen videoları işaretle"
     },
     "medium": {
-        "message": "Medium"
+        "message": "Orta"
     },
     "mixer": {
         "message": "Karıştırıcı"
@@ -606,7 +606,7 @@
         "message": "Normal"
     },
     "ok": {
-        "message": "Ok"
+        "message": "Tamam"
     },
     "old": {
         "message": "Eski"
@@ -882,7 +882,7 @@
         "message": "Küçük resimler"
     },
     "thumbnailsQuality": {
-        "message": "Thumbnails Quality"
+        "message": "Thumbnail Kalitesi"
     },
     "timeFrom": {
         "message": "Şu zamandan"
