@@ -3082,8 +3082,6 @@ ImprovedTube.playerSDR = function () {
 ImprovedTube.playerControls = function (mouseIn=false) {
     var player = this.elements.player;
 
-    console.log('playerControls(' + mouseIn.toString() + ')')
-
     if (player) {
         if (this.storage.player_hide_controls === 'always') {
             player.hideControls();
