@@ -1,4 +1,16 @@
 {
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
     "about": {
         "message": "সম্পর্কিত"
     },
@@ -11,14 +23,14 @@
     "activateCaptions": {
         "message": "ক্যাপশন সক্রিয় করুন"
     },
+    "activateFullscreen": {
+        "message": "পূর্ণ পর্দা সক্রিয় করুন"
+    },
     "activated": {
         "message": "সক্রিয়"
     },
     "activatedFeatures": {
         "message": "বৈশিষ্ট্য সক্রিয় করুন"
-    },
-    "activateFullscreen": {
-        "message": "পূর্ণ পর্দা সক্রিয় করুন"
     },
     "activeFeatures": {
         "message": "সক্রিয় বৈশিষ্"
@@ -38,9 +50,6 @@
     "allow60fps": {
         "message": "60 ফ্রেম প্রতি সেকেন্ অনুমতি দিনড"
     },
-    "forceSDR": {
-        "message": "Force SDR"
-    },
     "alwaysActive": {
         "message": "সর্বদা সক্রিয়"
     },
@@ -56,17 +65,11 @@
     "appearance": {
         "message": "উপস্থিতি"
     },
-    "ARROWDOWN": {
-        "message": "⇩"
+    "areYouSureYouWantToExportTheData": {
+        "message": "Are you sure you want to export the data?"
     },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
+    "areYouSureYouWantToImportTheData": {
+        "message": "Are you sure you want to import the data?"
     },
     "audio": {
         "message": "শ্রুতি"
@@ -86,6 +89,24 @@
     "autoplay": {
         "message": "স্বয়ংক্রিয় চালু"
     },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
+    "backgroundColor": {
+        "message": "পটভূমির রং"
+    },
+    "backgroundOpacity": {
+        "message": "পটভূমি অস্বচ্ছতা"
+    },
     "backupAndReset": {
         "message": "ব্যাকআপ এবং পুনরায় সেট করুন"
     },
@@ -103,6 +124,21 @@
     },
     "blockAll": {
         "message": "সবাইকে ব্লক"
+    },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
+    "blockMusic": {
+        "message": "Block music"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "নীল"
@@ -143,17 +179,23 @@
     "channels": {
         "message": "চ্যানেলগুলি"
     },
+    "characterEdgeStyle": {
+        "message": "ক্যারেক্টার এজ স্টাইল"
+    },
     "clipboard": {
         "message": "ক্লিপবোর্ড"
     },
     "codecH264": {
         "message": "কোডেক h.264"
     },
-    "collapsed": {
-        "message": "ভেঙে দেবো"
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "সাবস্ক্রিপশন বিভাগ ভেঙে দেবো"
+    },
+    "collapsed": {
+        "message": "ভেঙে দেবো"
     },
     "comments": {
         "message": "মন্তব্য"
@@ -169,6 +211,9 @@
     },
     "cropChapterTitles": {
         "message": "অধ্যায়ের শিরোনাম হ্রাস করুন"
+    },
+    "custom": {
+        "message": "Custom"
     },
     "customCss": {
         "message": "কাস্টম CSS"
@@ -206,14 +251,29 @@
     "deepPurple": {
         "message": "গভীর বেগুনি"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "ডিফল্ট চ্যানেল ট্যাব"
+    },
+    "defaultContentCountry": {
+        "message": "ডিফল্ট বিষয়বস্তুর দেশ"
+    },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
     },
     "deleteYoutubeCookies": {
         "message": "ইউটিউব এর কুকি ডিলিট করুন"
     },
+    "depressed": {
+        "message": "বিষণ্ণ"
+    },
     "description": {
-        "message": "বর্ণনা"
+        "message": "Description"
+    },
+    "description_ext": {
+        "message": "ইউটিউব পরিপাটি+স্মার্ট করুন! ইউটিউব ভিডিও কালার অ্যাড স্কিপ ভলিউম স্পিড চ্যানেল টুল স্টাইল এইচডি বিজ্ঞাপন অ্যাডব্লক অ্যাডব্লকার ট্যাগ কীওয়ার্ড প্লেলিস্ট"
     },
     "desert": {
         "message": "মরুভূমি"
@@ -236,14 +296,17 @@
     "dislike": {
         "message": "অপছন্দ"
     },
-    "donate": {
-        "message": "দান করুন"
-    },
     "doNotChange": {
         "message": "পরিবর্তন করবেন না"
     },
+    "donate": {
+        "message": "দান করুন"
+    },
     "draggable": {
         "message": "টেনে আনে"
+    },
+    "dropShadow": {
+        "message": "ছায়া ফেলে দিন"
     },
     "email": {
         "message": "ইমেল"
@@ -281,8 +344,26 @@
     "font": {
         "message": "হরফ"
     },
+    "fontColor": {
+        "message": "অক্ষরের রং"
+    },
+    "fontFamily": {
+        "message": "হরফ সংগ্রহ"
+    },
+    "fontOpacity": {
+        "message": "হরফের অস্বচ্ছতা"
+    },
+    "fontSize": {
+        "message": "অক্ষরের আকার"
+    },
     "footer": {
         "message": "পাদচরণ"
+    },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "জোর করে শুরু থেকে ভিডিও চালান"
     },
     "forcedPlaybackSpeed": {
         "message": "জোর করে প্লেব্যাক গতি"
@@ -302,11 +383,17 @@
     "general": {
         "message": "সাধারণ"
     },
+    "geoPreference": {
+        "message": "Geo Preference"
+    },
     "github": {
         "message": "গিটহাব"
     },
     "goToSearchBox": {
         "message": "অনুসন্ধান বাক্সে যান"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "জিপিইউ"
@@ -314,11 +401,11 @@
     "green": {
         "message": "সবুজ"
     },
+    "hd": {
+        "message": "HD"
+    },
     "hdThumbnail": {
         "message": "এইচডি থাম্বনেল"
-    },
-    "hdThumbnails": {
-        "message": "এইচডি থামনেল গুলি"
     },
     "header": {
         "message": "শিরোনাম"
@@ -338,8 +425,20 @@
     "hideCards": {
         "message": "কার্ড লুকান"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
+    "hideCountryCode": {
+        "message": "কান্ট্রি কোড লুকান"
+    },
+    "hideDate": {
+        "message": "তারিখ লুকান"
+    },
     "hideDetails": {
         "message": "আড়াল বিস্তারিত"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "এন্ডস্ক্রিন লুকান"
@@ -353,17 +452,53 @@
     "hideGradientBottom": {
         "message": "গ্রেডিয়েন্ট নীচে লুকান"
     },
+    "hideMoreButton": {
+        "message": "আরও লুকান বোতাম"
+    },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "প্লেলিস্ট লুকান"
     },
     "hideRightButtons": {
         "message": "ডান বোতামগুলি লুকান"
     },
+    "hideSaveButton": {
+        "message": "সংরক্ষণ ভোতার লোকাল"
+    },
     "hideScrollForDetails": {
         "message": "«বিশদ জন্য স্ক্রোলs» লুকান"
     },
+    "hideShareButton": {
+        "message": "শেয়ার বাটন লোকাল"
+    },
+    "hideSkipOverlay": {
+        "message": "স্কিপ ওভারলে লুকান"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
+    },
     "hideViewsCount": {
         "message": "দর্শন গণনা লুকান"
+    },
+    "hideVoiceSearchButton": {
+        "message": "বক্তৃতা সার্চ বাটন লুকান"
+    },
+    "high": {
+        "message": "High"
     },
     "history": {
         "message": "ইতিহাস"
@@ -389,8 +524,11 @@
     "importSettings": {
         "message": "সেটিংস আমদানি করুন"
     },
-    "improvedtubeIconInBrowser": {
-        "message": "ব্রাউজারে উন্নত YouTube আইকন"
+    "improveLogo": {
+        "message": "লোগো উন্নত করুন"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "ইউটিউবে উন্নত আইকন"
@@ -400,9 +538,6 @@
     },
     "improvedtubeVersion": {
         "message": "উন্নত YouTube সংস্করণ"
-    },
-    "improveLogo": {
-        "message": "লোগো উন্নত করুন"
     },
     "increasePlaybackSpeed": {
         "message": "প্লেব্যাকের গতি বাড়ান"
@@ -416,11 +551,17 @@
     "items": {
         "message": "আইটেম"
     },
+    "language": {
+        "message": "ভাষা"
+    },
     "languages": {
-        "message": "Languages"
+        "message": "ভাষা"
     },
     "legacyYoutube": {
         "message": "উত্তরাধিকার ইউটিউব"
+    },
+    "library": {
+        "message": "Library"
     },
     "light": {
         "message": "হালকাো"
@@ -434,11 +575,17 @@
     "like": {
         "message": "লাইক"
     },
+    "liked": {
+        "message": "Liked"
+    },
     "likes": {
         "message": "লাইক গুলি"
     },
     "lime": {
         "message": "চুন"
+    },
+    "limitPageWidth": {
+        "message": "পৃষ্ঠার প্রস্থ সীমিত করুন"
     },
     "list": {
         "message": "তালিকা"
@@ -449,14 +596,32 @@
     "liveChatType": {
         "message": "লাইভ চ্যাট টাইপ"
     },
+    "location": {
+        "message": "অবস্থান"
+    },
+    "loop": {
+        "message": "Loop"
+    },
     "loudnessNormalization": {
         "message": "আওয়াজের স্বাভাবিককরণ"
+    },
+    "low": {
+        "message": "Low"
     },
     "markWatchedVideos": {
         "message": "দেখা ভিডিওগুলি চিহ্নিত করুন"
     },
+    "medium": {
+        "message": "Medium"
+    },
     "mixer": {
         "message": "মিক্সার"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "আমার রং"
@@ -479,14 +644,17 @@
     "noActiveFeatures": {
         "message": "কোনও সক্রিয় বৈশিষ্ট্য নেই"
     },
-    "none": {
-        "message": "কিছুই না"
-    },
     "noOpenVideoTabs": {
         "message": "কোনও খোলা ভিডিও ট্যাব নেই"
     },
+    "none": {
+        "message": "কিছুই না"
+    },
     "normal": {
         "message": "সাধারণ"
+    },
+    "ok": {
+        "message": "Ok"
     },
     "old": {
         "message": "পুরাতন"
@@ -494,14 +662,17 @@
     "onAllVideos": {
         "message": "সমস্ত ভিডিওতে"
     },
+    "onSubscribedChannels": {
+        "message": "সাবস্ক্রাইব করা চ্যানেলগুলিতে"
+    },
     "onlyActiveOnYoutube": {
         "message": "শুধুমাত্র ইউটিউবে সক্রিয়"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "কেবলমাত্র একজন খেলোয়াড় খেলছে"
     },
-    "onSubscribedChannels": {
-        "message": "সাবস্ক্রাইব করা চ্যানেলগুলিতে"
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
     },
     "orange": {
         "message": "কমলা"
@@ -511,6 +682,12 @@
     },
     "other": {
         "message": "অন্যান্য"
+    },
+    "outline": {
+        "message": "রূপরেখা"
+    },
+    "overlay": {
+        "message": "Overlay"
     },
     "permissions": {
         "message": "অনুমতি"
@@ -526,6 +703,12 @@
     },
     "platform": {
         "message": "প্ল্যাটফর্ম"
+    },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
+    "playPause": {
+        "message": "খেলার / বিরতি"
     },
     "playbackSpeed": {
         "message": "প্লেব্যাক গতি"
@@ -545,11 +728,11 @@
     "playlists": {
         "message": "প্লেলিস্ট"
     },
-    "playPause": {
-        "message": "খেলার / বিরতি"
-    },
     "popupPlayer": {
         "message": "পপআপ প্লেয়ার"
+    },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
     },
     "position": {
         "message": "অবস্থান"
@@ -572,8 +755,14 @@
     "quality": {
         "message": "গুণ"
     },
+    "raised": {
+        "message": "উত্থাপিত"
+    },
     "ram": {
         "message": "র্যাম"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "মতামত দিন"
@@ -586,6 +775,9 @@
     },
     "relatedVideos": {
         "message": "সংশ্লিষ্ট ভিডিও"
+    },
+    "remote": {
+        "message": "Play on TV"
     },
     "removeRelatedSearchResults": {
         "message": "সম্পর্কিত অনুসন্ধান ফলাফল সরান"
@@ -623,6 +815,12 @@
     "screenshot": {
         "message": "স্ক্রিনশট"
     },
+    "scrollBar": {
+        "message": "Scroll Bar"
+    },
+    "sd": {
+        "message": "SD"
+    },
     "search": {
         "message": "অনুসন্ধান করুন"
     },
@@ -634,6 +832,12 @@
     },
     "seekForward10Seconds": {
         "message": "10 সেকেন্ড এগিয়ে যান"
+    },
+    "seekNextChapter": {
+        "message": "পরবর্তী অধ্যায় সন্ধান করুন"
+    },
+    "seekPreviousChapter": {
+        "message": "পূর্ববর্তী অধ্যায় সন্ধান করুন"
     },
     "settings": {
         "message": "সেটিংস"
@@ -649,6 +853,15 @@
     },
     "showChannelVideosCount": {
         "message": "চ্যানেল ভিডিও গণনা দেখান"
+    },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "ভিডিও অবশিষ্ট সময় দেখান"
     },
     "shuffle": {
         "message": "অদলবদল"
@@ -680,6 +893,9 @@
     "styles": {
         "message": "শৈলী"
     },
+    "subscribe": {
+        "message": "Subscribe"
+    },
     "subscriptions": {
         "message": "সাবস্ক্রিপশন"
     },
@@ -710,6 +926,9 @@
     "thisWillRemoveAllCookies": {
         "message": "এটি সমস্ত কুকি মুছে ফেলবে।"
     },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
+    },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "এটি সমস্ত ইউটিউব কুকিজ অপসারণ করবে"
     },
@@ -722,6 +941,9 @@
     "thumbnails": {
         "message": "থাম্বনেইলস"
     },
+    "thumbnailsQuality": {
+        "message": "Thumbnails Quality"
+    },
     "timeFrom": {
         "message": "সময় থেকে"
     },
@@ -731,11 +953,20 @@
     "todayAt": {
         "message": "আজ এ"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "কার্ড প্রতিস্থাপন করুন"
+    },
+    "toggleControls": {
+        "message": "Toggle controls"
     },
     "topChat": {
         "message": "শীর্ষ চ্যাট"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "ট্রেলার অটোপ্লে"
@@ -776,6 +1007,9 @@
     "videos": {
         "message": "ভিডিও"
     },
+    "viewMode": {
+        "message": "View Mode"
+    },
     "volume": {
         "message": "শব্দ"
     },
@@ -790,6 +1024,12 @@
     },
     "white": {
         "message": "সাদা"
+    },
+    "windowColor": {
+        "message": "উইন্ডো রঙ"
+    },
+    "windowOpacity": {
+        "message": "উইন্ডোর অস্বচ্ছতা"
     },
     "yellow": {
         "message": "হলুদ"

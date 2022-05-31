@@ -1,6 +1,15 @@
 {
-    "cropChapterTitles": {
-        "message": "Potong bagian judul "
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
     },
     "about": {
         "message": "Tentang"
@@ -14,14 +23,14 @@
     "activateCaptions": {
         "message": "Aktifkan keterangan"
     },
+    "activateFullscreen": {
+        "message": "Aktifkan layar penuh"
+    },
     "activated": {
         "message": "Diaktifkan"
     },
     "activatedFeatures": {
         "message": "Fitur diaktifkan"
-    },
-    "activateFullscreen": {
-        "message": "Aktifkan layar penuh"
     },
     "activeFeatures": {
         "message": "Fitur yang aktif"
@@ -41,9 +50,6 @@
     "allow60fps": {
         "message": "Izinkan 60fps"
     },
-    "forceSDR": {
-        "message": "Force SDR"
-    },
     "alwaysActive": {
         "message": "Selalu aktif"
     },
@@ -59,17 +65,11 @@
     "appearance": {
         "message": "Tampilan"
     },
-    "ARROWDOWN": {
-        "message": "⇩"
+    "areYouSureYouWantToExportTheData": {
+        "message": "Are you sure you want to export the data?"
     },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
+    "areYouSureYouWantToImportTheData": {
+        "message": "Are you sure you want to import the data?"
     },
     "audio": {
         "message": "Suara"
@@ -89,6 +89,24 @@
     "autoplay": {
         "message": "Putar secara otomatis"
     },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "Cadangkan & setel ulang"
     },
@@ -106,6 +124,21 @@
     },
     "blockAll": {
         "message": "Blokir semua"
+    },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
+    "blockMusic": {
+        "message": "Block music"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "Biru"
@@ -146,17 +179,23 @@
     "channels": {
         "message": "Saluran"
     },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
+    },
     "clipboard": {
         "message": "Clipboard"
     },
     "codecH264": {
         "message": "Codec h.264"
     },
-    "collapsed": {
-        "message": "Tutup"
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "Tutup bagian berlangganan"
+    },
+    "collapsed": {
+        "message": "Tutup"
     },
     "comments": {
         "message": "Komentar"
@@ -170,11 +209,20 @@
     "cores": {
         "message": "Inti"
     },
+    "cropChapterTitles": {
+        "message": "Potong bagian judul "
+    },
+    "custom": {
+        "message": "Custom"
+    },
     "customCss": {
         "message": "Kostum CSS"
     },
     "customJs": {
         "message": "Kostum JS"
+    },
+    "customMiniPlayer": {
+        "message": "Custom Mini-Player"
     },
     "cyan": {
         "message": "Cyan"
@@ -203,14 +251,29 @@
     "deepPurple": {
         "message": "Ungu tua"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Tab saluran standar"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
+    },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
     },
     "deleteYoutubeCookies": {
         "message": "Hapus kuki youtube"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
-        "message": "Deskripsi"
+        "message": "Description"
+    },
+    "description_ext": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
         "message": "Gurun"
@@ -233,14 +296,17 @@
     "dislike": {
         "message": "Tidak Suka"
     },
-    "donate": {
-        "message": "Donasi"
-    },
     "doNotChange": {
         "message": "Jangan ubah"
     },
+    "donate": {
+        "message": "Donasi"
+    },
     "draggable": {
         "message": "Dapat diseret"
+    },
+    "dropShadow": {
+        "message": "Drop shadow"
     },
     "email": {
         "message": "Surel"
@@ -278,8 +344,26 @@
     "font": {
         "message": "Font"
     },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
+    },
     "footer": {
         "message": "Catatan kaki"
+    },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
     },
     "forcedPlaybackSpeed": {
         "message": "Paksa kecepatan pemutaran"
@@ -299,11 +383,17 @@
     "general": {
         "message": "Umum"
     },
+    "geoPreference": {
+        "message": "Geo Preference"
+    },
     "github": {
         "message": "GitHub"
     },
     "goToSearchBox": {
         "message": "Ke kotak pencarian"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -311,10 +401,10 @@
     "green": {
         "message": "Hijau"
     },
-    "hdThumbnail": {
-        "message": "Gambar kecil HD"
+    "hd": {
+        "message": "HD"
     },
-    "hdThumbnails": {
+    "hdThumbnail": {
         "message": "Gambar kecil HD"
     },
     "header": {
@@ -335,8 +425,20 @@
     "hideCards": {
         "message": "Sembunyikan kartu"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
+    "hideDate": {
+        "message": "Hide date"
+    },
     "hideDetails": {
         "message": "Sembunyikan detail"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Sembunyikan layar akhir"
@@ -347,17 +449,56 @@
     "hideFooter": {
         "message": "Sembunyikan catatan kaki"
     },
+    "hideGradientBottom": {
+        "message": "Sembunyikan Gradient Bagian Bawah"
+    },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "Sembunyikan daftar putar"
     },
     "hideRightButtons": {
         "message": "Sembunyikan tombol kanan"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "Sembunyikan «gulir untuk detail»"
     },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
+    },
+    "hideSkipOverlay": {
+        "message": "Hide Skip Overlay"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
+    },
     "hideViewsCount": {
         "message": "Sembunyikan jumlah penayangan"
+    },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
+    "high": {
+        "message": "High"
     },
     "history": {
         "message": "Sejarah"
@@ -383,8 +524,11 @@
     "importSettings": {
         "message": "Impor pengaturan"
     },
-    "improvedtubeIconInBrowser": {
-        "message": "Ikon ImprovedTube di peramban"
+    "improveLogo": {
+        "message": "Tingkatkan kualitas logo"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Ikon ImprovedTube di YouTube"
@@ -394,9 +538,6 @@
     },
     "improvedtubeVersion": {
         "message": "Versi ImprovedTube"
-    },
-    "improveLogo": {
-        "message": "Tingkatkan kualitas logo"
     },
     "increasePlaybackSpeed": {
         "message": "Tingkatkan kecepatan pemutaran"
@@ -410,11 +551,17 @@
     "items": {
         "message": "Item"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "Bahasa"
     },
     "legacyYoutube": {
         "message": "YouTube lama"
+    },
+    "library": {
+        "message": "Library"
     },
     "light": {
         "message": "Terang"
@@ -428,11 +575,17 @@
     "like": {
         "message": "Suka"
     },
+    "liked": {
+        "message": "Liked"
+    },
     "likes": {
         "message": "Suka"
     },
     "lime": {
         "message": "Limau"
+    },
+    "limitPageWidth": {
+        "message": "Limit page width"
     },
     "list": {
         "message": "Daftar"
@@ -443,17 +596,32 @@
     "liveChatType": {
         "message": "Jenis obrolan langsung"
     },
+    "location": {
+        "message": "Location"
+    },
+    "loop": {
+        "message": "Loop"
+    },
     "loudnessNormalization": {
         "message": "Normalkan suara"
+    },
+    "low": {
+        "message": "Low"
     },
     "markWatchedVideos": {
         "message": "Tandai video yang ditonton"
     },
-    "customMiniPlayer": {
-        "message": "Custom Mini-Player"
+    "medium": {
+        "message": "Medium"
     },
     "mixer": {
         "message": "Mixer"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "Warna saya"
@@ -476,14 +644,17 @@
     "noActiveFeatures": {
         "message": "Tidak ada fitur aktif"
     },
-    "none": {
-        "message": "Tidak ada"
-    },
     "noOpenVideoTabs": {
         "message": "Tidak ada tab video terbuka"
     },
+    "none": {
+        "message": "Tidak ada"
+    },
     "normal": {
         "message": "Normal"
+    },
+    "ok": {
+        "message": "Ok"
     },
     "old": {
         "message": "Lama"
@@ -491,14 +662,17 @@
     "onAllVideos": {
         "message": "Disetiap video"
     },
+    "onSubscribedChannels": {
+        "message": "Di saluran berlangganan"
+    },
     "onlyActiveOnYoutube": {
         "message": "Hanya aktif di YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Hanya mainkan satu pemutar"
     },
-    "onSubscribedChannels": {
-        "message": "Di saluran berlangganan"
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
     },
     "orange": {
         "message": "Oranye"
@@ -508,6 +682,12 @@
     },
     "other": {
         "message": "Lainnya"
+    },
+    "outline": {
+        "message": "Outline"
+    },
+    "overlay": {
+        "message": "Overlay"
     },
     "permissions": {
         "message": "Perizinan"
@@ -523,6 +703,12 @@
     },
     "platform": {
         "message": "Platform"
+    },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
+    "playPause": {
+        "message": "Mulai / Jeda"
     },
     "playbackSpeed": {
         "message": "Kecepatan pemutar"
@@ -542,11 +728,11 @@
     "playlists": {
         "message": "Daftar putar"
     },
-    "playPause": {
-        "message": "Mulai / Jeda"
-    },
     "popupPlayer": {
         "message": "Pemutar sembulan"
+    },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
     },
     "position": {
         "message": "Posisi"
@@ -569,8 +755,14 @@
     "quality": {
         "message": "Kualitas video"
     },
+    "raised": {
+        "message": "Raised"
+    },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Nilai Kami"
@@ -578,8 +770,14 @@
     "red": {
         "message": "Merah"
     },
+    "redDislikeButton": {
+        "message": "Show dislike button red colour"
+    },
     "relatedVideos": {
         "message": "Video terkait"
+    },
+    "remote": {
+        "message": "Play on TV"
     },
     "removeRelatedSearchResults": {
         "message": "Hapus hasil pencarian terkait"
@@ -617,6 +815,12 @@
     "screenshot": {
         "message": "Tangkapan layar"
     },
+    "scrollBar": {
+        "message": "Scroll Bar"
+    },
+    "sd": {
+        "message": "SD"
+    },
     "search": {
         "message": "Cari"
     },
@@ -628,6 +832,12 @@
     },
     "seekForward10Seconds": {
         "message": "Maju 10 detik"
+    },
+    "seekNextChapter": {
+        "message": "seekNextChapter"
+    },
+    "seekPreviousChapter": {
+        "message": "seekPreviousChapter"
     },
     "settings": {
         "message": "Pengaturan"
@@ -644,6 +854,15 @@
     "showChannelVideosCount": {
         "message": "Tampilkan jumlah video saluran"
     },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
+    },
     "shuffle": {
         "message": "Putar secara acak"
     },
@@ -659,6 +878,9 @@
     "static": {
         "message": "Statis"
     },
+    "statsForNerds": {
+        "message": "Tampilkan statistik bagi para 'kutu buku'"
+    },
     "step": {
         "message": "Langkah"
     },
@@ -670,6 +892,9 @@
     },
     "styles": {
         "message": "Mode"
+    },
+    "subscribe": {
+        "message": "Subscribe"
     },
     "subscriptions": {
         "message": "Berlangganan"
@@ -701,6 +926,9 @@
     "thisWillRemoveAllCookies": {
         "message": "Ini akan menghapus semua kuki."
     },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
+    },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Ini akan menghapus semua kuki YouTube"
     },
@@ -713,6 +941,9 @@
     "thumbnails": {
         "message": "Gambar kecil"
     },
+    "thumbnailsQuality": {
+        "message": "Thumbnails Quality"
+    },
     "timeFrom": {
         "message": "Waktu dari"
     },
@@ -722,8 +953,20 @@
     "todayAt": {
         "message": "Hari ini di"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
+    "toggleCards": {
+        "message": "Alihkan kartu"
+    },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "Obrolan teratas"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "Putar otomatis cuplikan"
@@ -764,6 +1007,9 @@
     "videos": {
         "message": "Video"
     },
+    "viewMode": {
+        "message": "View Mode"
+    },
     "volume": {
         "message": "Suara"
     },
@@ -778,6 +1024,12 @@
     },
     "white": {
         "message": "Putih"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "Kuning"
@@ -796,14 +1048,5 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube membatasi kualitas video hingga 1080p untuk codec h.264"
-    },
-    "hideGradientBottom": {
-            "message": "Sembunyikan Gradient Bagian Bawah"
-    },
-    "statsForNerds": {
-        "message": "Tampilkan statistik bagi para 'kutu buku'"
-    },
-    "toggleCards": {
-        "message": "Alihkan kartu"
     }
 }
