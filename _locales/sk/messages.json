@@ -1,4 +1,16 @@
 {
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
     "about": {
         "message": "O"
     },
@@ -11,14 +23,14 @@
     "activateCaptions": {
         "message": "Aktivovať titulky"
     },
+    "activateFullscreen": {
+        "message": "Aktivovať zobrazenie na celú obrazovku"
+    },
     "activated": {
         "message": "Aktivované"
     },
     "activatedFeatures": {
         "message": "Aktivované fukncie"
-    },
-    "activateFullscreen": {
-        "message": "Aktivovať zobrazenie na celú obrazovku"
     },
     "activeFeatures": {
         "message": "Aktívne funkcie"
@@ -38,9 +50,6 @@
     "allow60fps": {
         "message": "Povoliť 60fps"
     },
-    "forceSDR": {
-        "message": "Force SDR"
-    },
     "alwaysActive": {
         "message": "Vždy aktívne"
     },
@@ -56,17 +65,11 @@
     "appearance": {
         "message": "Vzhľad"
     },
-    "ARROWDOWN": {
-        "message": "⇩"
+    "areYouSureYouWantToExportTheData": {
+        "message": "Are you sure you want to export the data?"
     },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
+    "areYouSureYouWantToImportTheData": {
+        "message": "Are you sure you want to import the data?"
     },
     "audio": {
         "message": "Zvuk"
@@ -86,6 +89,24 @@
     "autoplay": {
         "message": "Automatické prehrávanie"
     },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "Zálohovanie & Obnova"
     },
@@ -103,6 +124,21 @@
     },
     "blockAll": {
         "message": "Zablokovať všetko"
+    },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
+    "blockMusic": {
+        "message": "Block music"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "Modrá"
@@ -143,17 +179,23 @@
     "channels": {
         "message": "Kanály"
     },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
+    },
     "clipboard": {
         "message": "Schránka"
     },
     "codecH264": {
         "message": "Kodek h.264"
     },
-    "collapsed": {
-        "message": "Zbaliť"
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "Zbaliť sekciu Odber"
+    },
+    "collapsed": {
+        "message": "Zbaliť"
     },
     "comments": {
         "message": "Komentáre"
@@ -169,6 +211,9 @@
     },
     "cropChapterTitles": {
         "message": "Crop chapter titles"
+    },
+    "custom": {
+        "message": "Custom"
     },
     "customCss": {
         "message": "Vlastné CSS"
@@ -206,14 +251,29 @@
     "deepPurple": {
         "message": "Tmavo fialová"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Predvolená karta kanálu"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
+    },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
     },
     "deleteYoutubeCookies": {
         "message": "Vymazať YouTube cookies"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
-        "message": "Podrobnosti"
+        "message": "Description"
+    },
+    "description_ext": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
         "message": "Púšť"
@@ -236,14 +296,17 @@
     "dislike": {
         "message": "Dislike"
     },
-    "donate": {
-        "message": "Prispieť"
-    },
     "doNotChange": {
         "message": "Nemeniť"
     },
+    "donate": {
+        "message": "Prispieť"
+    },
     "draggable": {
         "message": "Posuvné"
+    },
+    "dropShadow": {
+        "message": "Drop shadow"
     },
     "email": {
         "message": "Email"
@@ -281,8 +344,26 @@
     "font": {
         "message": "Písmo"
     },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
+    },
     "footer": {
         "message": "Pätička"
+    },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
     },
     "forcedPlaybackSpeed": {
         "message": "Vynútená rýchlosť prehrávania"
@@ -302,11 +383,17 @@
     "general": {
         "message": "Všeobecné"
     },
+    "geoPreference": {
+        "message": "Geo Preference"
+    },
     "github": {
         "message": "GitHub"
     },
     "goToSearchBox": {
         "message": "Prejdite do vyhľadávanieho poľa"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
@@ -314,11 +401,11 @@
     "green": {
         "message": "Zelená"
     },
+    "hd": {
+        "message": "HD"
+    },
     "hdThumbnail": {
         "message": "HD náhlad"
-    },
-    "hdThumbnails": {
-        "message": "HD náhlady"
     },
     "header": {
         "message": "Hlavička"
@@ -338,8 +425,20 @@
     "hideCards": {
         "message": "Skryť karty"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
+    "hideDate": {
+        "message": "Hide date"
+    },
     "hideDetails": {
         "message": "Skryť detaily"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Skryť zobrazenie na konci videa"
@@ -353,17 +452,53 @@
     "hideGradientBottom": {
         "message": "Hide Gradient Bottom"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "Skryť zoznam videí"
     },
     "hideRightButtons": {
         "message": "Skryť tlčidlá v pravo"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "Skryť «Zarolujte pre detaily»"
     },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
+    },
+    "hideSkipOverlay": {
+        "message": "Hide Skip Overlay"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
+    },
     "hideViewsCount": {
         "message": "Skyť počet videní"
+    },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
+    "high": {
+        "message": "High"
     },
     "history": {
         "message": "História"
@@ -389,8 +524,11 @@
     "importSettings": {
         "message": "Importovať nastavenia"
     },
-    "improvedtubeIconInBrowser": {
-        "message": "ImprovedTube ikona v prehliadači"
+    "improveLogo": {
+        "message": "Improve logo"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "ImprovedTube ikona na YouTube"
@@ -400,9 +538,6 @@
     },
     "improvedtubeVersion": {
         "message": "ImprovedTube verzia"
-    },
-    "improveLogo": {
-        "message": "Improve logo"
     },
     "increasePlaybackSpeed": {
         "message": "Zvýšiť rýchlosť prehrávania"
@@ -416,11 +551,17 @@
     "items": {
         "message": "Items"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "Jazyky"
     },
     "legacyYoutube": {
         "message": "Starý YouTube"
+    },
+    "library": {
+        "message": "Library"
     },
     "light": {
         "message": "Svetlo"
@@ -434,11 +575,17 @@
     "like": {
         "message": "Páči sa mi to"
     },
+    "liked": {
+        "message": "Liked"
+    },
     "likes": {
         "message": "Páči sa mi to"
     },
     "lime": {
         "message": "Limetková"
+    },
+    "limitPageWidth": {
+        "message": "Limit page width"
     },
     "list": {
         "message": "Zoznam"
@@ -449,14 +596,32 @@
     "liveChatType": {
         "message": "Typ živého chatu"
     },
+    "location": {
+        "message": "Location"
+    },
+    "loop": {
+        "message": "Loop"
+    },
     "loudnessNormalization": {
         "message": "Vyrovnanie hlasitosti"
+    },
+    "low": {
+        "message": "Low"
     },
     "markWatchedVideos": {
         "message": "Označiť ako videné"
     },
+    "medium": {
+        "message": "Medium"
+    },
     "mixer": {
         "message": "Mixér"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "Moje farby"
@@ -479,14 +644,17 @@
     "noActiveFeatures": {
         "message": "Žiadne aktívne fukncie"
     },
-    "none": {
-        "message": "Žiadny"
-    },
     "noOpenVideoTabs": {
         "message": "Žiadne otvorené karty s videami"
     },
+    "none": {
+        "message": "Žiadny"
+    },
     "normal": {
         "message": "Normále"
+    },
+    "ok": {
+        "message": "Ok"
     },
     "old": {
         "message": "Starý"
@@ -494,14 +662,17 @@
     "onAllVideos": {
         "message": "Na všetkých videách"
     },
+    "onSubscribedChannels": {
+        "message": "Na odoberaných kanáloch"
+    },
     "onlyActiveOnYoutube": {
         "message": "Aktívne iba na YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Prehrávať iba jedno video"
     },
-    "onSubscribedChannels": {
-        "message": "Na odoberaných kanáloch"
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
     },
     "orange": {
         "message": "Oranžová"
@@ -511,6 +682,12 @@
     },
     "other": {
         "message": "Ostatné"
+    },
+    "outline": {
+        "message": "Outline"
+    },
+    "overlay": {
+        "message": "Overlay"
     },
     "permissions": {
         "message": "Povolenia"
@@ -526,6 +703,12 @@
     },
     "platform": {
         "message": "Platforma"
+    },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
+    "playPause": {
+        "message": "Prehrať / Pozastavť"
     },
     "playbackSpeed": {
         "message": "Rýchlosť prehrávania"
@@ -545,11 +728,11 @@
     "playlists": {
         "message": "Zoznamy videí"
     },
-    "playPause": {
-        "message": "Prehrať / Pozastavť"
-    },
     "popupPlayer": {
         "message": "Popup prehrávač"
+    },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
     },
     "position": {
         "message": "Pozícia"
@@ -572,8 +755,14 @@
     "quality": {
         "message": "Kvalita"
     },
+    "raised": {
+        "message": "Raised"
+    },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Ohodnoťte nás"
@@ -586,6 +775,9 @@
     },
     "relatedVideos": {
         "message": "Súvisiace videá"
+    },
+    "remote": {
+        "message": "Play on TV"
     },
     "removeRelatedSearchResults": {
         "message": "Odstránte príbuzné výsledky vyhľadávania"
@@ -623,6 +815,12 @@
     "screenshot": {
         "message": "Screenshot"
     },
+    "scrollBar": {
+        "message": "Scroll Bar"
+    },
+    "sd": {
+        "message": "SD"
+    },
     "search": {
         "message": "Vyhľadať"
     },
@@ -634,6 +832,12 @@
     },
     "seekForward10Seconds": {
         "message": "Pretočiť dopredu o 10 sekúnd"
+    },
+    "seekNextChapter": {
+        "message": "seekNextChapter"
+    },
+    "seekPreviousChapter": {
+        "message": "seekPreviousChapter"
     },
     "settings": {
         "message": "Nastavenia"
@@ -649,6 +853,15 @@
     },
     "showChannelVideosCount": {
         "message": "Zobraziť počet videí kanálu"
+    },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Náhodne"
@@ -680,6 +893,9 @@
     "styles": {
         "message": "Štýly"
     },
+    "subscribe": {
+        "message": "Subscribe"
+    },
     "subscriptions": {
         "message": "Odbery"
     },
@@ -710,6 +926,9 @@
     "thisWillRemoveAllCookies": {
         "message": "Toto odstráni všetky cookies."
     },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
+    },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Toto odstráni všetky YouTube cookies"
     },
@@ -722,6 +941,9 @@
     "thumbnails": {
         "message": "Náhlady"
     },
+    "thumbnailsQuality": {
+        "message": "Thumbnails Quality"
+    },
     "timeFrom": {
         "message": "Čas od"
     },
@@ -731,11 +953,20 @@
     "todayAt": {
         "message": "Dnes o"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "Toggle cards"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "Top chat"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "Automatické prehrávanie ukážky"
@@ -776,6 +1007,9 @@
     "videos": {
         "message": "Vedeá"
     },
+    "viewMode": {
+        "message": "View Mode"
+    },
     "volume": {
         "message": "Hlasitosť"
     },
@@ -790,6 +1024,12 @@
     },
     "white": {
         "message": "Biela"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "Žltá"

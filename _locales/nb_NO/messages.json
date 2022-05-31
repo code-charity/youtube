@@ -1,4 +1,16 @@
 {
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
     "about": {
         "message": "Om"
     },
@@ -11,14 +23,14 @@
     "activateCaptions": {
         "message": "Aktiver underteksting"
     },
+    "activateFullscreen": {
+        "message": "Aktiver fullskjerm"
+    },
     "activated": {
         "message": "Aktivert"
     },
     "activatedFeatures": {
         "message": "Aktiverte funksjoner"
-    },
-    "activateFullscreen": {
-        "message": "Aktiver fullskjerm"
     },
     "activeFeatures": {
         "message": "Aktive funksjoner"
@@ -38,9 +50,6 @@
     "allow60fps": {
         "message": "Tillat 60 bps"
     },
-    "forceSDR": {
-        "message": "Force SDR"
-    },
     "alwaysActive": {
         "message": "Alltid aktiv"
     },
@@ -56,17 +65,11 @@
     "appearance": {
         "message": "Utseende"
     },
-    "ARROWDOWN": {
-        "message": "⇩"
+    "areYouSureYouWantToExportTheData": {
+        "message": "Are you sure you want to export the data?"
     },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
+    "areYouSureYouWantToImportTheData": {
+        "message": "Are you sure you want to import the data?"
     },
     "audio": {
         "message": "Lyd"
@@ -86,6 +89,24 @@
     "autoplay": {
         "message": "Autoplay"
     },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "Sikkerhetskopiering og tilbakestilling"
     },
@@ -103,6 +124,21 @@
     },
     "blockAll": {
         "message": "Blokker alle"
+    },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
+    "blockMusic": {
+        "message": "Block music"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "Blå"
@@ -143,17 +179,23 @@
     "channels": {
         "message": "Kanaler"
     },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
+    },
     "clipboard": {
         "message": "Utklippstavle"
     },
     "codecH264": {
         "message": "H.264-kodek"
     },
-    "collapsed": {
-        "message": "kollapset"
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "Kollaps av abonnementsdelene"
+    },
+    "collapsed": {
+        "message": "kollapset"
     },
     "comments": {
         "message": "Kommentarer"
@@ -169,6 +211,9 @@
     },
     "cropChapterTitles": {
         "message": "Beskjær kapitteltitler"
+    },
+    "custom": {
+        "message": "Custom"
     },
     "customCss": {
         "message": "Tilpasset CSS"
@@ -206,14 +251,29 @@
     "deepPurple": {
         "message": "Mørkelilla"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Forvalgt kanalfane"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
+    },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
     },
     "deleteYoutubeCookies": {
         "message": "Slett YouTube-informasjonskapsler"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
-        "message": "Beskrivelse"
+        "message": "Description"
+    },
+    "description_ext": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
         "message": "Ørken"
@@ -236,14 +296,17 @@
     "dislike": {
         "message": "Mislik"
     },
-    "donate": {
-        "message": "Doner"
-    },
     "doNotChange": {
         "message": "Ikke endre"
     },
+    "donate": {
+        "message": "Doner"
+    },
     "draggable": {
         "message": "Flyttbare"
+    },
+    "dropShadow": {
+        "message": "Drop shadow"
     },
     "email": {
         "message": "E-post"
@@ -281,8 +344,26 @@
     "font": {
         "message": "Font"
     },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
+    },
     "footer": {
         "message": "Bunntekst"
+    },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
     },
     "forcedPlaybackSpeed": {
         "message": "Tvungen avspillingshastighet"
@@ -311,17 +392,20 @@
     "goToSearchBox": {
         "message": "Gå til søkefeltet"
     },
+    "googleApiKey": {
+        "message": "Google API key"
+    },
     "gpu": {
         "message": "GPU"
     },
     "green": {
         "message": "Grønn"
     },
+    "hd": {
+        "message": "HD"
+    },
     "hdThumbnail": {
         "message": "HD-miniatyrbilde"
-    },
-    "hdThumbnails": {
-        "message": "HD-miniatyrbilder"
     },
     "header": {
         "message": "Overskrift"
@@ -341,8 +425,20 @@
     "hideCards": {
         "message": "Skjul kort"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
+    "hideDate": {
+        "message": "Hide date"
+    },
     "hideDetails": {
         "message": "Skjul detaljer"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Skjul sluttskjerm"
@@ -356,17 +452,53 @@
     "hideGradientBottom": {
         "message": "Skjul bunn-fargeovergang"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "Skjul spilleliste"
     },
     "hideRightButtons": {
         "message": "Skjul høyre-knapper"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "Skjul «Bla for detaljer»"
     },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
+    },
+    "hideSkipOverlay": {
+        "message": "Hide Skip Overlay"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
+    },
     "hideViewsCount": {
         "message": "Skjul visningsteller"
+    },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
+    "high": {
+        "message": "High"
     },
     "history": {
         "message": "Historie"
@@ -392,8 +524,11 @@
     "importSettings": {
         "message": "Importer innstillinger"
     },
-    "improvedtubeIconInBrowser": {
-        "message": "ImprovedTube-ikonet i nettleseren"
+    "improveLogo": {
+        "message": "Forbedre logo"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "ImprovedTube-ikonet på YouTube"
@@ -403,9 +538,6 @@
     },
     "improvedtubeVersion": {
         "message": "ImprovedTube-versjon"
-    },
-    "improveLogo": {
-        "message": "Forbedre logo"
     },
     "increasePlaybackSpeed": {
         "message": "Øk avspillingshastigheten"
@@ -419,11 +551,17 @@
     "items": {
         "message": "Elementer"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "Språk"
     },
     "legacyYoutube": {
         "message": "Gammeldags YouTube"
+    },
+    "library": {
+        "message": "Library"
     },
     "light": {
         "message": "Lys"
@@ -437,11 +575,17 @@
     "like": {
         "message": "Gunst"
     },
+    "liked": {
+        "message": "Liked"
+    },
     "likes": {
         "message": "Begunstninger"
     },
     "lime": {
         "message": "Lime"
+    },
+    "limitPageWidth": {
+        "message": "Limit page width"
     },
     "list": {
         "message": "Liste"
@@ -452,14 +596,32 @@
     "liveChatType": {
         "message": "Sanntidssludringstype"
     },
+    "location": {
+        "message": "Location"
+    },
+    "loop": {
+        "message": "Loop"
+    },
     "loudnessNormalization": {
         "message": "Lydstyrkenormalisering"
+    },
+    "low": {
+        "message": "Low"
     },
     "markWatchedVideos": {
         "message": "Marker sette videoer"
     },
+    "medium": {
+        "message": "Medium"
+    },
     "mixer": {
         "message": "Mikser"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "Mine farger"
@@ -482,14 +644,17 @@
     "noActiveFeatures": {
         "message": "Ingen aktive funksjoner"
     },
-    "none": {
-        "message": "Ingen"
-    },
     "noOpenVideoTabs": {
         "message": "Ingen åpne videofaner"
     },
+    "none": {
+        "message": "Ingen"
+    },
     "normal": {
         "message": "Normal"
+    },
+    "ok": {
+        "message": "Ok"
     },
     "old": {
         "message": "Gammel"
@@ -497,14 +662,17 @@
     "onAllVideos": {
         "message": "På alle videoer"
     },
+    "onSubscribedChannels": {
+        "message": "På abonnementskanaler"
+    },
     "onlyActiveOnYoutube": {
         "message": "Kun aktiv på YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Kun én avspiller viser noe"
     },
-    "onSubscribedChannels": {
-        "message": "På abonnementskanaler"
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
     },
     "orange": {
         "message": "Oransje"
@@ -514,6 +682,12 @@
     },
     "other": {
         "message": "Andre"
+    },
+    "outline": {
+        "message": "Outline"
+    },
+    "overlay": {
+        "message": "Overlay"
     },
     "permissions": {
         "message": "rettigheter"
@@ -529,6 +703,12 @@
     },
     "platform": {
         "message": "Plattform"
+    },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
+    "playPause": {
+        "message": "Spill / Pause"
     },
     "playbackSpeed": {
         "message": "Avspillingshastighet"
@@ -548,11 +728,11 @@
     "playlists": {
         "message": "Spillelister"
     },
-    "playPause": {
-        "message": "Spill / Pause"
-    },
     "popupPlayer": {
         "message": "Oppsprettsspiller"
+    },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
     },
     "position": {
         "message": "Posisjon"
@@ -575,8 +755,14 @@
     "quality": {
         "message": "Kvalitet"
     },
+    "raised": {
+        "message": "Raised"
+    },
     "ram": {
         "message": "Minne"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Rangere oss"
@@ -589,6 +775,9 @@
     },
     "relatedVideos": {
         "message": "Relaterte videoer"
+    },
+    "remote": {
+        "message": "Play on TV"
     },
     "removeRelatedSearchResults": {
         "message": "Fjern relaterte søkeresultater"
@@ -626,6 +815,12 @@
     "screenshot": {
         "message": "Skjeravbildning"
     },
+    "scrollBar": {
+        "message": "Scroll Bar"
+    },
+    "sd": {
+        "message": "SD"
+    },
     "search": {
         "message": "Søk"
     },
@@ -637,6 +832,12 @@
     },
     "seekForward10Seconds": {
         "message": "Spol 10 sekunder fremover"
+    },
+    "seekNextChapter": {
+        "message": "seekNextChapter"
+    },
+    "seekPreviousChapter": {
+        "message": "seekPreviousChapter"
     },
     "settings": {
         "message": "Innstillinger"
@@ -652,6 +853,15 @@
     },
     "showChannelVideosCount": {
         "message": "Vis antall kanaler"
+    },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Tilfeldig rekkefølge"
@@ -683,6 +893,9 @@
     "styles": {
         "message": "Stiler"
     },
+    "subscribe": {
+        "message": "Subscribe"
+    },
     "subscriptions": {
         "message": "Abonnementer"
     },
@@ -713,6 +926,9 @@
     "thisWillRemoveAllCookies": {
         "message": "Dette vil fjerne alle informasjonskapsler."
     },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
+    },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Dette vil fjerne alle YouTube-informasjonskapsler"
     },
@@ -725,6 +941,9 @@
     "thumbnails": {
         "message": "miniatyrbilder "
     },
+    "thumbnailsQuality": {
+        "message": "Thumbnails Quality"
+    },
     "timeFrom": {
         "message": "Fra"
     },
@@ -734,11 +953,20 @@
     "todayAt": {
         "message": "I dag kl."
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "Veksle kort"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "Hovedsludring"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "Trailer autospilling"
@@ -779,6 +1007,9 @@
     "videos": {
         "message": "Videoer"
     },
+    "viewMode": {
+        "message": "View Mode"
+    },
     "volume": {
         "message": "Lydstyrke"
     },
@@ -793,6 +1024,12 @@
     },
     "white": {
         "message": "Hvit"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "Gul"
