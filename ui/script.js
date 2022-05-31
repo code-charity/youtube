@@ -5997,9 +5997,21 @@ var skeleton = {
                                 text: 'loudnessNormalization',
                                 value: true
                             },
-                            player_hide_controls: {
-                                component: 'switch',
-                                text: 'hidePlayerControlsBar'
+                            hide_controls: {
+                                component: 'select',
+                                text: 'hidePlayerControlsBar',
+								options: [{
+									text: 'off',
+									value: 'off',
+									default: 'true'
+								}, {
+									text: 'whenPaused',
+									value: 'when_paused'
+								}, {
+									text: 'always',
+									value: 'always'
+								}],
+								storage: 'player_hide_controls'
                             },
                             player_hide_controls_options: {
                                 component: 'button',
