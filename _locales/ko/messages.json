@@ -1,4 +1,16 @@
 {
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
     "about": {
         "message": "정보"
     },
@@ -11,14 +23,14 @@
     "activateCaptions": {
         "message": "자막 활성화"
     },
+    "activateFullscreen": {
+        "message": "전체화면 활성화"
+    },
     "activated": {
         "message": "활성화됨"
     },
     "activatedFeatures": {
         "message": "활성화된 기능"
-    },
-    "activateFullscreen": {
-        "message": "전체화면 활성화"
     },
     "activeFeatures": {
         "message": "활성 기능"
@@ -38,14 +50,11 @@
     "allow60fps": {
         "message": "60에프피에스(fps) 허용"
     },
-    "forceSDR": {
-        "message": "Force SDR"
-    },
     "alwaysActive": {
         "message": "항상 활성화"
     },
     "alwaysShowProgressBar": {
-        "message": "재생 진행 상태 항상 표시"
+        "message": "재생 진행상태(Progress Bar) 항상 표시"
     },
     "amber": {
         "message": "호박색"
@@ -56,17 +65,11 @@
     "appearance": {
         "message": "외관"
     },
-    "ARROWDOWN": {
-        "message": "⇩"
+    "areYouSureYouWantToExportTheData": {
+        "message": "Are you sure you want to export the data?"
     },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
+    "areYouSureYouWantToImportTheData": {
+        "message": "Are you sure you want to import the data?"
     },
     "audio": {
         "message": "오디오"
@@ -86,6 +89,24 @@
     "autoplay": {
         "message": "자동재생"
     },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "백업 & 리셋"
     },
@@ -103,6 +124,21 @@
     },
     "blockAll": {
         "message": "모두 차단"
+    },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
+    "blockMusic": {
+        "message": "Block music"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "파랑"
@@ -143,17 +179,23 @@
     "channels": {
         "message": "채널"
     },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
+    },
     "clipboard": {
         "message": "클립보드"
     },
     "codecH264": {
         "message": "코덱 h.264"
     },
-    "collapsed": {
-        "message": "축소됨"
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "구독섹션 축소"
+    },
+    "collapsed": {
+        "message": "축소됨"
     },
     "comments": {
         "message": "댓글"
@@ -169,6 +211,9 @@
     },
     "cropChapterTitles": {
         "message": "제목 자르기"
+    },
+    "custom": {
+        "message": "Custom"
     },
     "customCss": {
         "message": "사용자 지정 캐스캐이팅 스타일 시트(CSS)"
@@ -206,14 +251,29 @@
     "deepPurple": {
         "message": "진한 보라"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "기본 채널 탭"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
+    },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
     },
     "deleteYoutubeCookies": {
         "message": "유튜브 쿠키 삭제"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
-        "message": "설명"
+        "message": "Description"
+    },
+    "description_ext": {
+        "message": "유튜브를 깔끌하고 스마트하게 만들어줍니다! 유튜브 비디오 내 컬러, 광고제거, 볼륨, 배속, 채널 툴, 스타일, HD, 광고성 블록, 태그, 키워드, 재생목록"
     },
     "desert": {
         "message": "사막"
@@ -225,7 +285,7 @@
         "message": "개발자 옵션"
     },
     "device": {
-        "message": "기기"
+        "message": "디바이스"
     },
     "dim": {
         "message": "어둡게"
@@ -236,14 +296,17 @@
     "dislike": {
         "message": "싫어요"
     },
-    "donate": {
-        "message": "후원하기"
-    },
     "doNotChange": {
         "message": "바꾸지 않음"
     },
+    "donate": {
+        "message": "후원하기"
+    },
     "draggable": {
         "message": "드래그 가능"
+    },
+    "dropShadow": {
+        "message": "Drop shadow"
     },
     "email": {
         "message": "이메일"
@@ -255,7 +318,7 @@
         "message": "활성화"
     },
     "enabledForced": {
-        "message": "활성화 (강제)"
+        "message": "강제로 활성화"
     },
     "expanded": {
         "message": "확장"
@@ -281,8 +344,26 @@
     "font": {
         "message": "글꼴"
     },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
+    },
     "footer": {
         "message": "하단"
+    },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
     },
     "forcedPlaybackSpeed": {
         "message": "되감기 속도 강제설정"
@@ -302,11 +383,17 @@
     "general": {
         "message": "일반"
     },
+    "geoPreference": {
+        "message": "Geo Preference"
+    },
     "github": {
         "message": "깃허브(GitHub)"
     },
     "goToSearchBox": {
         "message": "검색창으로 이동"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "그래픽 처리 장치"
@@ -314,10 +401,10 @@
     "green": {
         "message": "초록"
     },
-    "hdThumbnail": {
-        "message": "HD 썸네일"
+    "hd": {
+        "message": "HD"
     },
-    "hdThumbnails": {
+    "hdThumbnail": {
         "message": "HD 썸네일"
     },
     "header": {
@@ -338,8 +425,20 @@
     "hideCards": {
         "message": "카드 숨기기"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
+    "hideCountryCode": {
+        "message": "국가코드 숨기기"
+    },
+    "hideDate": {
+        "message": "날짜 숨기기"
+    },
     "hideDetails": {
         "message": "상세설명 숨기기"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "종료후 화면 숨기기"
@@ -353,17 +452,53 @@
     "hideGradientBottom": {
         "message": "그라데이션 맨 아래로 숨기기"
     },
+    "hideMoreButton": {
+        "message": "\"더보기\" 버튼 숨기기"
+    },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "재생 목록 숨기기"
     },
     "hideRightButtons": {
         "message": "오른쪽 버튼 숨기기"
     },
+    "hideSaveButton": {
+        "message": "\"저장\" 버튼 숨기기"
+    },
     "hideScrollForDetails": {
         "message": "«스크롤 하여 자세한 설명» 숨기기"
     },
+    "hideShareButton": {
+        "message": "\"공유\" 버튼 숨기기"
+    },
+    "hideSkipOverlay": {
+        "message": "\"오버레이 건너뛰기\" 숨기기"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
+    },
     "hideViewsCount": {
         "message": "조회수 숨기기"
+    },
+    "hideVoiceSearchButton": {
+        "message": "\"음성으로 찾기\" 버튼 숨기기"
+    },
+    "high": {
+        "message": "High"
     },
     "history": {
         "message": "히스토리"
@@ -389,8 +524,11 @@
     "importSettings": {
         "message": "설정 불러오기"
     },
-    "improvedtubeIconInBrowser": {
-        "message": "향상된 브라우저 아이콘"
+    "improveLogo": {
+        "message": "향상된 로고"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "향상된 유튜브 아이콘"
@@ -400,9 +538,6 @@
     },
     "improvedtubeVersion": {
         "message": "향상된 유튜브 버전"
-    },
-    "improveLogo": {
-        "message": "향상된 로고"
     },
     "increasePlaybackSpeed": {
         "message": "되감기 속도 증가"
@@ -416,11 +551,17 @@
     "items": {
         "message": "요소"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "언어"
     },
     "legacyYoutube": {
         "message": "레거시 유튜브"
+    },
+    "library": {
+        "message": "Library"
     },
     "light": {
         "message": "밝게"
@@ -434,11 +575,17 @@
     "like": {
         "message": "좋아요"
     },
+    "liked": {
+        "message": "Liked"
+    },
     "likes": {
         "message": "좋아요"
     },
     "lime": {
         "message": "라임"
+    },
+    "limitPageWidth": {
+        "message": "Limit page width"
     },
     "list": {
         "message": "리스트"
@@ -449,14 +596,32 @@
     "liveChatType": {
         "message": "실시간 채팅 유형"
     },
+    "location": {
+        "message": "지역"
+    },
+    "loop": {
+        "message": "Loop"
+    },
     "loudnessNormalization": {
         "message": "볼륨 자동조정"
+    },
+    "low": {
+        "message": "Low"
     },
     "markWatchedVideos": {
         "message": "시청한 영상 표시"
     },
+    "medium": {
+        "message": "Medium"
+    },
     "mixer": {
         "message": "믹서"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "내 컬러"
@@ -479,14 +644,17 @@
     "noActiveFeatures": {
         "message": "활성 기능 없음"
     },
-    "none": {
-        "message": "없음"
-    },
     "noOpenVideoTabs": {
         "message": "열린 비디오 탭 없음"
     },
+    "none": {
+        "message": "없음"
+    },
     "normal": {
         "message": "기본"
+    },
+    "ok": {
+        "message": "Ok"
     },
     "old": {
         "message": "오래됨"
@@ -494,14 +662,17 @@
     "onAllVideos": {
         "message": "모든 비디오"
     },
+    "onSubscribedChannels": {
+        "message": "구독한 채널"
+    },
     "onlyActiveOnYoutube": {
         "message": "유튜브만 활성화"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "하나의 플레이어만 재생"
     },
-    "onSubscribedChannels": {
-        "message": "구독한 채널"
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
     },
     "orange": {
         "message": "주황"
@@ -511,6 +682,12 @@
     },
     "other": {
         "message": "기타"
+    },
+    "outline": {
+        "message": "Outline"
+    },
+    "overlay": {
+        "message": "Overlay"
     },
     "permissions": {
         "message": "권한"
@@ -526,6 +703,12 @@
     },
     "platform": {
         "message": "플랫폼"
+    },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
+    "playPause": {
+        "message": "재생 / 일시정지"
     },
     "playbackSpeed": {
         "message": "되감기 속도"
@@ -545,11 +728,11 @@
     "playlists": {
         "message": "플레이리스트"
     },
-    "playPause": {
-        "message": "재생 / 일시정지"
-    },
     "popupPlayer": {
         "message": "팝업 플레이어"
+    },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
     },
     "position": {
         "message": "위치"
@@ -572,8 +755,14 @@
     "quality": {
         "message": "퀄리티"
     },
+    "raised": {
+        "message": "Raised"
+    },
     "ram": {
         "message": "램"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "평가하기"
@@ -581,8 +770,14 @@
     "red": {
         "message": "빨강"
     },
+    "redDislikeButton": {
+        "message": "Show dislike button red colour"
+    },
     "relatedVideos": {
         "message": "관련 영상"
+    },
+    "remote": {
+        "message": "Play on TV"
     },
     "removeRelatedSearchResults": {
         "message": "관련 검색결과 제거"
@@ -620,6 +815,12 @@
     "screenshot": {
         "message": "스크린샷"
     },
+    "scrollBar": {
+        "message": "Scroll Bar"
+    },
+    "sd": {
+        "message": "SD"
+    },
     "search": {
         "message": "검색"
     },
@@ -631,6 +832,12 @@
     },
     "seekForward10Seconds": {
         "message": "앞으로 10초"
+    },
+    "seekNextChapter": {
+        "message": "다음 챕터 보기"
+    },
+    "seekPreviousChapter": {
+        "message": "이전 챕터 보기"
     },
     "settings": {
         "message": "설정"
@@ -646,6 +853,15 @@
     },
     "showChannelVideosCount": {
         "message": "채널의 비디오수 표시"
+    },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "셔플"
@@ -677,6 +893,9 @@
     "styles": {
         "message": "스타일"
     },
+    "subscribe": {
+        "message": "Subscribe"
+    },
     "subscriptions": {
         "message": "구독"
     },
@@ -707,6 +926,9 @@
     "thisWillRemoveAllCookies": {
         "message": "모든 쿠키를 삭제합니다."
     },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
+    },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "모든 유튜브 쿠키를 삭제합니다."
     },
@@ -719,6 +941,9 @@
     "thumbnails": {
         "message": "썸네일"
     },
+    "thumbnailsQuality": {
+        "message": "Thumbnails Quality"
+    },
     "timeFrom": {
         "message": "다음시간 부터"
     },
@@ -728,11 +953,20 @@
     "todayAt": {
         "message": "오늘의"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "토글 카드"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "탑 챗"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "트레일러 자동재생"
@@ -773,6 +1007,9 @@
     "videos": {
         "message": "비디오"
     },
+    "viewMode": {
+        "message": "View Mode"
+    },
     "volume": {
         "message": "음량"
     },
@@ -787,6 +1024,12 @@
     },
     "white": {
         "message": "하양"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "노랑"

@@ -1,4 +1,16 @@
 {
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
     "about": {
         "message": "حول"
     },
@@ -11,14 +23,14 @@
     "activateCaptions": {
         "message": "تفعيل الترجمة"
     },
+    "activateFullscreen": {
+        "message": "تفعيل ملء الشاشة"
+    },
     "activated": {
         "message": "مفعل"
     },
     "activatedFeatures": {
         "message": "الميزات المفعلة"
-    },
-    "activateFullscreen": {
-        "message": "تفعيل ملء الشاشة"
     },
     "activeFeatures": {
         "message": "الميزات النشطة"
@@ -38,9 +50,6 @@
     "allow60fps": {
         "message": "السماح لـ60إطار"
     },
-    "forceSDR": {
-        "message": "SDR فرض"
-    },
     "alwaysActive": {
         "message": "دائما نشط"
     },
@@ -56,17 +65,11 @@
     "appearance": {
         "message": "المظهر العام"
     },
-    "ARROWDOWN": {
-        "message": "⇩"
+    "areYouSureYouWantToExportTheData": {
+        "message": "Are you sure you want to export the data?"
     },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
+    "areYouSureYouWantToImportTheData": {
+        "message": "Are you sure you want to import the data?"
     },
     "audio": {
         "message": "الصوت"
@@ -86,6 +89,24 @@
     "autoplay": {
         "message": "تشغيل تلقائي"
     },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
+    "backgroundColor": {
+        "message": "Background color"
+    },
+    "backgroundOpacity": {
+        "message": "Background opacity"
+    },
     "backupAndReset": {
         "message": "إعادة تعيين والنسخ الاحتياطي"
     },
@@ -103,6 +124,21 @@
     },
     "blockAll": {
         "message": "حظر الكل"
+    },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
+    "blockMusic": {
+        "message": "Block music"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "ازرق"
@@ -143,17 +179,23 @@
     "channels": {
         "message": "القنوات"
     },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
+    },
     "clipboard": {
         "message": "الحافظة"
     },
     "codecH264": {
         "message": "h.الترميز 264"
     },
-    "collapsed": {
-        "message": "ضغط"
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "ضغط قسم الاشتراكات"
+    },
+    "collapsed": {
+        "message": "ضغط"
     },
     "comments": {
         "message": "التعليقات"
@@ -169,6 +211,9 @@
     },
     "cropChapterTitles": {
         "message": "اقتطاع عناوين الفصول"
+    },
+    "custom": {
+        "message": "Custom"
     },
     "customCss": {
         "message": "مخصص CSS"
@@ -197,6 +242,9 @@
     "decreasePlaybackSpeed": {
         "message": "تقليل سرعة التشغيل"
     },
+    "decreaseVolume": {
+        "message": "Decrease volume"
+    },
     "decreaseVolume5": {
         "message": "5% خفض الصوت"
     },
@@ -206,14 +254,29 @@
     "deepPurple": {
         "message": "أرجواني داكن"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "علامة تبويب القناة الافتراضية"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
+    },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
     },
     "deleteYoutubeCookies": {
         "message": "حذف ملفات تعريف الارتباط من اليوتيوب"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
-        "message": "الوصف"
+        "message": "Description"
+    },
+    "description_ext": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
         "message": "صحراء"
@@ -236,14 +299,17 @@
     "dislike": {
         "message": "لم يعجبنى"
     },
-    "donate": {
-        "message": "تبرع"
-    },
     "doNotChange": {
         "message": "الإفتراضي"
     },
+    "donate": {
+        "message": "تبرع"
+    },
     "draggable": {
         "message": "قابل للسحب"
+    },
+    "dropShadow": {
+        "message": "Drop shadow"
     },
     "email": {
         "message": "البريد الإلكتروني"
@@ -281,8 +347,26 @@
     "font": {
         "message": "الخط"
     },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
+    },
     "footer": {
         "message": "الحزء السفلي"
+    },
+    "forceSDR": {
+        "message": "SDR فرض"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
     },
     "forcedPlaybackSpeed": {
         "message": "تثبيت سرعة التشغيل"
@@ -302,11 +386,17 @@
     "general": {
         "message": "عام"
     },
+    "geoPreference": {
+        "message": "Geo Preference"
+    },
     "github": {
         "message": "جيتهب"
     },
     "goToSearchBox": {
         "message": "انتقل إلى مربع البحث"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "كرت الشاشة"
@@ -314,11 +404,11 @@
     "green": {
         "message": "أخضر"
     },
+    "hd": {
+        "message": "HD"
+    },
     "hdThumbnail": {
         "message": "صورة مصغرة عالية الدقة"
-    },
-    "hdThumbnails": {
-        "message": "صور مصغرة عالية الدقة"
     },
     "header": {
         "message": "الجزء العلوي"
@@ -338,8 +428,20 @@
     "hideCards": {
         "message": "إخفاء البطاقات"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
+    "hideDate": {
+        "message": "Hide date"
+    },
     "hideDetails": {
         "message": "إخفاء التفاصيل"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "إخفاء شاشة النهاية"
@@ -353,17 +455,53 @@
     "hideGradientBottom": {
         "message": "إخفاء التدرج الأسود السفلي"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "إخفاء قائمة التشغيل"
     },
     "hideRightButtons": {
         "message": "إخفاء الأزرار اليسرى"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "«إخفاء «التمرير للحصول على التفاصيل"
     },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
+    },
+    "hideSkipOverlay": {
+        "message": "Hide 5 second skip animation"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide buttons on thumbnails"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
+    },
     "hideViewsCount": {
         "message": "إخفاء عدد المشاهدات"
+    },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
+    "high": {
+        "message": "High"
     },
     "history": {
         "message": "السجلّ"
@@ -389,8 +527,11 @@
     "importSettings": {
         "message": "استيراد الاعدادات"
     },
-    "improvedtubeIconInBrowser": {
-        "message": "في المتصفح ImprovedTube ايقونة"
+    "improveLogo": {
+        "message": "تحسين الشعار"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "في اليوتيوب ImprovedTube ايقونة"
@@ -401,11 +542,11 @@
     "improvedtubeVersion": {
         "message": "ImprovedTube اصدار"
     },
-    "improveLogo": {
-        "message": "تحسين الشعار"
-    },
     "increasePlaybackSpeed": {
         "message": "زيادة سرعة التشغيل"
+    },
+    "increaseVolume": {
+        "message": "Increase volume"
     },
     "increaseVolume5": {
         "message": "5% زيادة الصوت"
@@ -416,11 +557,17 @@
     "items": {
         "message": "العناصر"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "اللغات"
     },
     "legacyYoutube": {
         "message": "اليوتيوب القديم"
+    },
+    "library": {
+        "message": "Library"
     },
     "light": {
         "message": "ضوء"
@@ -434,11 +581,17 @@
     "like": {
         "message": "اعحبني"
     },
+    "liked": {
+        "message": "Liked"
+    },
     "likes": {
         "message": "الإعجابات"
     },
     "lime": {
         "message": "جير"
+    },
+    "limitPageWidth": {
+        "message": "Limit page width"
     },
     "list": {
         "message": "قائمة"
@@ -449,14 +602,32 @@
     "liveChatType": {
         "message": "نوع المحادثة مباشرة"
     },
+    "location": {
+        "message": "Location"
+    },
+    "loop": {
+        "message": "Loop"
+    },
     "loudnessNormalization": {
         "message": "تطبيع الإزعاج"
+    },
+    "low": {
+        "message": "Low"
     },
     "markWatchedVideos": {
         "message": "التعليم على الفيديو المشاهد"
     },
+    "medium": {
+        "message": "Medium"
+    },
     "mixer": {
         "message": "مهندس الصوت"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "ألواني"
@@ -479,14 +650,17 @@
     "noActiveFeatures": {
         "message": "لا يوجد ميزات نشطة"
     },
-    "none": {
-        "message": "لاشيء"
-    },
     "noOpenVideoTabs": {
         "message": "لا توجد علامات تبويب فيديو مفتوحة"
     },
+    "none": {
+        "message": "لاشيء"
+    },
     "normal": {
         "message": "عادي"
+    },
+    "ok": {
+        "message": "Ok"
     },
     "old": {
         "message": "قديم"
@@ -494,14 +668,17 @@
     "onAllVideos": {
         "message": "على جميع مقاطع الفيديو"
     },
+    "onSubscribedChannels": {
+        "message": "على القنوات المشتركة"
+    },
     "onlyActiveOnYoutube": {
         "message": "نشط فقط على اليوتيوب"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "تشغيل مشغل واحد فقط"
     },
-    "onSubscribedChannels": {
-        "message": "على القنوات المشتركة"
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
     },
     "orange": {
         "message": "برتقالي"
@@ -511,6 +688,12 @@
     },
     "other": {
         "message": "آخر"
+    },
+    "outline": {
+        "message": "Outline"
+    },
+    "overlay": {
+        "message": "Overlay"
     },
     "permissions": {
         "message": "الأذونات"
@@ -526,6 +709,12 @@
     },
     "platform": {
         "message": "المنصة"
+    },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
+    "playPause": {
+        "message": "تشغيل / ايقاف"
     },
     "playbackSpeed": {
         "message": "سرعة التشغيل"
@@ -545,11 +734,11 @@
     "playlists": {
         "message": "قوائم التشغيل"
     },
-    "playPause": {
-        "message": "تشغيل / ايقاف"
-    },
     "popupPlayer": {
         "message": "مشفل منبثق"
+    },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
     },
     "position": {
         "message": "التموضع"
@@ -572,8 +761,14 @@
     "quality": {
         "message": "الجودة"
     },
+    "raised": {
+        "message": "Raised"
+    },
     "ram": {
         "message": "الذاكرة العشوائية"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "قيمنا"
@@ -586,6 +781,9 @@
     },
     "relatedVideos": {
         "message": "فيديوهات ذات علاقة"
+    },
+    "remote": {
+        "message": "Play on TV"
     },
     "removeRelatedSearchResults": {
         "message": "إزالة عمليات بحث مرتبطة بـ"
@@ -623,6 +821,12 @@
     "screenshot": {
         "message": "لقطة شاشة"
     },
+    "scrollBar": {
+        "message": "Scroll Bar"
+    },
+    "sd": {
+        "message": "SD"
+    },
     "search": {
         "message": "بحث"
     },
@@ -634,6 +838,12 @@
     },
     "seekForward10Seconds": {
         "message": "تقديم 10 ثوانٍ إلى الأمام"
+    },
+    "seekNextChapter": {
+        "message": "seekNextChapter"
+    },
+    "seekPreviousChapter": {
+        "message": "seekPreviousChapter"
     },
     "settings": {
         "message": "الإعدادات"
@@ -649,6 +859,15 @@
     },
     "showChannelVideosCount": {
         "message": "إظهار عدد مقاطع الفيديو للقناة"
+    },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "عشوائي"
@@ -680,6 +899,9 @@
     "styles": {
         "message": "الأنماط"
     },
+    "subscribe": {
+        "message": "Subscribe"
+    },
     "subscriptions": {
         "message": "الاشتراكات"
     },
@@ -710,6 +932,9 @@
     "thisWillRemoveAllCookies": {
         "message": ".سيؤدي هذا إلى إزالة كافة ملفات تعريف الارتباط"
     },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
+    },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "سيؤدي هذا إلى إزالة جميع ملفات تعريف ارتباط اليوتيوب"
     },
@@ -722,6 +947,9 @@
     "thumbnails": {
         "message": "الصور المصغرة"
     },
+    "thumbnailsQuality": {
+        "message": "Thumbnails Quality"
+    },
     "timeFrom": {
         "message": "الوقت من"
     },
@@ -731,11 +959,20 @@
     "todayAt": {
         "message": "اليوم عند الساعة"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "تبديل وضع البطاقات"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "رسائل المحادثة الهامّة"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "التشغيل التلقائي للفيديو الدعائي"
@@ -776,6 +1013,9 @@
     "videos": {
         "message": "الفيديوهات"
     },
+    "viewMode": {
+        "message": "View Mode"
+    },
     "volume": {
         "message": "الصوت"
     },
@@ -790,6 +1030,12 @@
     },
     "white": {
         "message": "أبيض"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "أصفر"

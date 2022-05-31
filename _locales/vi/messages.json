@@ -1,0 +1,1052 @@
+{
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
+    "about": {
+        "message": "Về"
+    },
+    "accept": {
+        "message": "Chấp nhận"
+    },
+    "activate": {
+        "message": "Kích hoạt"
+    },
+    "activateCaptions": {
+        "message": "Kích hoạt phụ đề"
+    },
+    "activateFullscreen": {
+        "message": "Kích hoạt toàn màn hình"
+    },
+    "activated": {
+        "message": "Đã kích hoạt"
+    },
+    "activatedFeatures": {
+        "message": "Các tính năng đã được kích hoạt"
+    },
+    "activeFeatures": {
+        "message": "Các tính năng hoạt động"
+    },
+    "addScrollToTop": {
+        "message": "Thêm «Cuộn lên đầu»"
+    },
+    "ads": {
+        "message": "Quảng cáo"
+    },
+    "all": {
+        "message": "Tất cả"
+    },
+    "allow": {
+        "message": "Cho phép"
+    },
+    "allow60fps": {
+        "message": "Cho phép 60fps"
+    },
+    "alwaysActive": {
+        "message": "Luôn luôn hoạt động"
+    },
+    "alwaysShowProgressBar": {
+        "message": "Luôn hiển thị thanh tiến trình"
+    },
+    "amber": {
+        "message": "Hổ phách"
+    },
+    "analyzer": {
+        "message": "Bộ phân tích"
+    },
+    "appearance": {
+        "message": "Diện mạo"
+    },
+    "areYouSureYouWantToExportTheData": {
+        "message": "Bạn có chắc chắn muốn xuất dữ liệu không?"
+    },
+    "areYouSureYouWantToImportTheData": {
+        "message": "Bạn có chắc chắn muốn nhập dữ liệu không?"
+    },
+    "audio": {
+        "message": "Âm thanh"
+    },
+    "audioFormats": {
+        "message": "Định dạng âm thanh"
+    },
+    "auto": {
+        "message": "Tự động"
+    },
+    "autoFullscreen": {
+        "message": "Tự động toàn màn hình"
+    },
+    "autopauseWhenSwitchingTabs": {
+        "message": "Tự động dừng khi chuyển đổi tab"
+    },
+    "autoplay": {
+        "message": "Tự động phát"
+    },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Tránh hiển thị CPU khi có thể"
+    },
+    "backgroundColor": {
+        "message": "Màu nền"
+    },
+    "backgroundOpacity": {
+        "message": "Độ mờ của nền"
+    },
+    "backupAndReset": {
+        "message": "Sao lưu & thiết lập lại"
+    },
+    "baseOnSystemColorScheme": {
+        "message": "Dựa trên bảng màu hệ thống"
+    },
+    "belowPlayer": {
+        "message": "Bên dưới trình phát"
+    },
+    "black": {
+        "message": "Đen"
+    },
+    "blacklist": {
+        "message": "Danh sách đen"
+    },
+    "blockAll": {
+        "message": "Chặn tất cả"
+    },
+    "blockAv1": {
+        "message": "Chặn AV1"
+    },
+    "blockH264": {
+        "message": "Chặn H.264"
+    },
+    "blockMusic": {
+        "message": "Chặn âm nhạc"
+    },
+    "blockVp8": {
+        "message": "Chặn VP8"
+    },
+    "blockVp9": {
+        "message": "Chặn VP9"
+    },
+    "blue": {
+        "message": "Xanh dương"
+    },
+    "blueGray": {
+        "message": "Xám xanh"
+    },
+    "bluelight": {
+        "message": "Ánh sáng xanh"
+    },
+    "brown": {
+        "message": "Nâu"
+    },
+    "browser": {
+        "message": "Trình duyệt"
+    },
+    "browserVersion": {
+        "message": "Phiên bản trình duyệt"
+    },
+    "bubbles": {
+        "message": "Bong bóng"
+    },
+    "bug": {
+        "message": "Bug"
+    },
+    "buttons": {
+        "message": "Nút"
+    },
+    "cancel": {
+        "message": "Huỷ bỏ"
+    },
+    "categories": {
+        "message": "Thể loại"
+    },
+    "channel": {
+        "message": "Kênh"
+    },
+    "channels": {
+        "message": "Kênh"
+    },
+    "characterEdgeStyle": {
+        "message": "Kiểu cạnh ký tự"
+    },
+    "clipboard": {
+        "message": "Clipboard"
+    },
+    "codecH264": {
+        "message": "Codec h.264"
+    },
+    "codecs": {
+        "message": "Codecs"
+    },
+    "collapseOfSubscriptionSections": {
+        "message": "Thu gọn các phần đăng ký"
+    },
+    "collapsed": {
+        "message": "Đã thu gọn"
+    },
+    "comments": {
+        "message": "Bình luận"
+    },
+    "confirmationBeforeClosing": {
+        "message": "Xác nhận trước khi đóng cửa"
+    },
+    "cookies": {
+        "message": "Cookies"
+    },
+    "cores": {
+        "message": "Cores"
+    },
+    "cropChapterTitles": {
+        "message": "Cắt tiêu đề chương"
+    },
+    "custom": {
+        "message": "Tuỳ chỉnh"
+    },
+    "customCss": {
+        "message": "Tuỳ chỉnh CSS"
+    },
+    "customJs": {
+        "message": "Tuỳ chỉnh JS"
+    },
+    "customMiniPlayer": {
+        "message": "Tuỳ chỉnh Trình phát Mini"
+    },
+    "cyan": {
+        "message": "Xanh lơ"
+    },
+    "dark": {
+        "message": "Tối"
+    },
+    "darkTheme": {
+        "message": "Chủ đề tối"
+    },
+    "dateAndTime": {
+        "message": "Ngày & giờ"
+    },
+    "dawn": {
+        "message": "Bình minh"
+    },
+    "decreasePlaybackSpeed": {
+        "message": "Giảm tốc độ phát lại"
+    },
+    "decreaseVolume": {
+        "message": "Giảm âm lượng"
+    },
+    "deepOrange": {
+        "message": "Cam đậm"
+    },
+    "deepPurple": {
+        "message": "Tím đậm"
+    },
+    "default": {
+        "message": "Mặc định"
+    },
+    "defaultChannelTab": {
+        "message": "Tab kênh mặc định"
+    },
+    "defaultContentCountry": {
+        "message": "Quốc gia nội dung mặc định"
+    },
+    "deleteWatchedVideos": {
+        "message": "Xóa video đã xem"
+    },
+    "deleteYoutubeCookies": {
+        "message": "Xóa cookie của YouTube"
+    },
+    "depressed": {
+        "message": "Ẩn xuống"
+    },
+    "description": {
+        "message": "Mô tả"
+    },
+    "description_ext": {
+        "message": "Làm cho YouTube gọn gàng+thông minh! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+    },
+    "desert": {
+        "message": "Rời đi"
+    },
+    "details": {
+        "message": "Chi tiết"
+    },
+    "developerOptions": {
+        "message": "Tùy chọn nhà phát triển"
+    },
+    "device": {
+        "message": "Thiết bị"
+    },
+    "dim": {
+        "message": "Mờ"
+    },
+    "disabled": {
+        "message": "Vô hiệu hóa"
+    },
+    "dislike": {
+        "message": "Không thích"
+    },
+    "doNotChange": {
+        "message": "Đừng thay đổi"
+    },
+    "donate": {
+        "message": "Quyên tặng"
+    },
+    "draggable": {
+        "message": "Có thể kéo"
+    },
+    "dropShadow": {
+        "message": "Bóng đổ"
+    },
+    "email": {
+        "message": "Email"
+    },
+    "empty": {
+        "message": "Trống"
+    },
+    "enabled": {
+        "message": "Đã bật"
+    },
+    "enabledForced": {
+        "message": "Đã bật (bắt buộc)"
+    },
+    "expanded": {
+        "message": "Đã mở rộng"
+    },
+    "exportSettings": {
+        "message": "Xuất cài đặt"
+    },
+    "extension": {
+        "message": "Phần mở rộng"
+    },
+    "file": {
+        "message": "Tập tin"
+    },
+    "filters": {
+        "message": "Bộ lọc"
+    },
+    "fitToWindow": {
+        "message": "Vừa với cửa sổ"
+    },
+    "flash": {
+        "message": "Flash"
+    },
+    "font": {
+        "message": "Phông chữ"
+    },
+    "fontColor": {
+        "message": "Màu phông chữ"
+    },
+    "fontFamily": {
+        "message": "Họ phông chữ"
+    },
+    "fontOpacity": {
+        "message": "Độ mờ phông chữ"
+    },
+    "fontSize": {
+        "message": "Cỡ phông chữ"
+    },
+    "footer": {
+        "message": "Chân trang"
+    },
+    "forceSDR": {
+        "message": "Bắt buộc SDR"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Bắt buộc phát video từ đầu"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Tốc độ phát lại bắt buộc"
+    },
+    "forcedTheaterMode": {
+        "message": "Bắt buộc chế độ rạp hát"
+    },
+    "forcedVolume": {
+        "message": "Bắt buộc âm lượng"
+    },
+    "foundABug": {
+        "message": "Tìm thấy một lỗi?"
+    },
+    "fullWindow": {
+        "message": "Toàn cửa sổ"
+    },
+    "general": {
+        "message": "Chung"
+    },
+    "geoPreference": {
+        "message": "Vị trí ưu thích"
+    },
+    "github": {
+        "message": "GitHub"
+    },
+    "goToSearchBox": {
+        "message": "Đi tới hộp tìm kiếm"
+    },
+    "googleApiKey": {
+        "message": "Khóa API Google"
+    },
+    "gpu": {
+        "message": "GPU"
+    },
+    "green": {
+        "message": "Xanh lục"
+    },
+    "hd": {
+        "message": "HD"
+    },
+    "hdThumbnail": {
+        "message": "Hình thu nhỏ HD"
+    },
+    "header": {
+        "message": "Tiêu đề"
+    },
+    "hidden": {
+        "message": "Ẩn giấu"
+    },
+    "hiddenOnVideoPage": {
+        "message": "Ẩn trên trang video"
+    },
+    "hideAnimatedThumbnails": {
+        "message": "Ẩn hình thu nhỏ động"
+    },
+    "hideAnnotations": {
+        "message": "Ẩn chú thích"
+    },
+    "hideCards": {
+        "message": "Ẩn thẻ"
+    },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
+    "hideCountryCode": {
+        "message": "Ẩn mã quốc gia"
+    },
+    "hideDate": {
+        "message": "Ẩn ngày"
+    },
+    "hideDetails": {
+        "message": "Ẩn chi tiết"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
+    },
+    "hideEndscreen": {
+        "message": "Ẩn màn hình kết thúc"
+    },
+    "hideFeaturedContent": {
+        "message": "Ẩn nội dung nổi bật"
+    },
+    "hideFooter": {
+        "message": "Ẩn chân trang"
+    },
+    "hideGradientBottom": {
+        "message": "Ẩn bóng xung quanh thanh trình phát"
+    },
+    "hideMoreButton": {
+        "message": "Ẩn nút \"Thêm\" "
+    },
+    "hidePlayerControlsBar": {
+        "message": "Ẩn thanh điều khiển trình phát"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Ẩn các nút trên thanh điều khiển trình phát"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Ẩn các tùy chọn điều khiển trình phát"
+    },
+    "hidePlaylist": {
+        "message": "Ẩn danh sách phát"
+    },
+    "hideRightButtons": {
+        "message": "Ẩn các nút bên phải"
+    },
+    "hideSaveButton": {
+        "message": "Ẩn nút \"Lưu\" "
+    },
+    "hideScrollForDetails": {
+        "message": "Ẩn «Cuộn để biết chi tiết»"
+    },
+    "hideShareButton": {
+        "message": "Ẩn nút \"Chia sẻ\" "
+    },
+    "hideSkipOverlay": {
+        "message": "Ẩn hoạt ảnh bỏ qua 5 giây"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Ẩn các nút trên hình thu nhỏ"
+    },
+    "hideThumbnails": {
+        "message": "Ẩn hình thu nhỏ"
+    },
+    "hideViewsCount": {
+        "message": "Ẩn số lượt xem"
+    },
+    "hideVoiceSearchButton": {
+        "message": "Ẩn nút tìm kiếm bằng giọng nói"
+    },
+    "high": {
+        "message": "Cao"
+    },
+    "history": {
+        "message": "Lịch sử"
+    },
+    "home": {
+        "message": "Nhà"
+    },
+    "hover": {
+        "message": "Di chuyển"
+    },
+    "hoverOnVideoPage": {
+        "message": "Di chuyển trên trang video"
+    },
+    "howLongAgoTheVideoWasUploaded": {
+        "message": "Video đã được tải lên cách đây bao lâu"
+    },
+    "icons": {
+        "message": "Biểu tượng"
+    },
+    "iconsOnly": {
+        "message": "Chỉ các biểu tượng"
+    },
+    "importSettings": {
+        "message": "Nhập cài đặt"
+    },
+    "improveLogo": {
+        "message": "Cải thiện logo"
+    },
+    "improvedtubeButtons": {
+        "message": "Nút ImprovedTube"
+    },
+    "improvedtubeIconOnYoutube": {
+        "message": "Biểu tượng ImprovedTube trên YouTube"
+    },
+    "improvedtubeLanguage": {
+        "message": "Ngôn ngữ ImprovedTube"
+    },
+    "improvedtubeVersion": {
+        "message": "Phiên bản ImprovedTube"
+    },
+    "increasePlaybackSpeed": {
+        "message": "Tăng tốc độ phát lại"
+    },
+    "increaseVolume": {
+        "message": "Tăng âm lượng"
+    },
+    "indigo": {
+        "message": "Chàm"
+    },
+    "items": {
+        "message": "Items"
+    },
+    "language": {
+        "message": "Ngôn ngữ"
+    },
+    "languages": {
+        "message": "Ngôn ngữ"
+    },
+    "legacyYoutube": {
+        "message": "Legacy YouTube"
+    },
+    "library": {
+        "message": "Thư viện"
+    },
+    "light": {
+        "message": "Sáng"
+    },
+    "lightBlue": {
+        "message": "Xanh lam nhạt"
+    },
+    "lightGreen": {
+        "message": "Xanh lục nhạt"
+    },
+    "like": {
+        "message": "Thích"
+    },
+    "liked": {
+        "message": "Đã thích"
+    },
+    "likes": {
+        "message": "Thích"
+    },
+    "lime": {
+        "message": "Chanh xanh"
+    },
+    "limitPageWidth": {
+        "message": "Giới hạn chiều rộng trang"
+    },
+    "list": {
+        "message": "Danh sách"
+    },
+    "liveChat": {
+        "message": "Trò chuyện trực tiếp"
+    },
+    "liveChatType": {
+        "message": "Loại trò chuyện trực tiếp"
+    },
+    "location": {
+        "message": "Địa điểm"
+    },
+    "loop": {
+        "message": "Vòng lặp"
+    },
+    "loudnessNormalization": {
+        "message": "Chuẩn hóa độ ồn"
+    },
+    "low": {
+        "message": "Thấp"
+    },
+    "markWatchedVideos": {
+        "message": "Đánh dấu video đã xem"
+    },
+    "medium": {
+        "message": "Trung bình"
+    },
+    "mixer": {
+        "message": "Mixer"
+    },
+    "moveSidebarLeft": {
+        "message": "Di chuyển thanh bên sang trái"
+    },
+    "moveThumbnailsRight": {
+        "message": "Di chuyển hình thu nhỏ sang phải"
+    },
+    "myColors": {
+        "message": "Màu sắc của tôi"
+    },
+    "name": {
+        "message": "Tên"
+    },
+    "nativeMiniPlayer": {
+        "message": "Trình phát mini gốc"
+    },
+    "new": {
+        "message": "Mới"
+    },
+    "nextVideo": {
+        "message": "Video tiếp theo"
+    },
+    "night": {
+        "message": "Đêm"
+    },
+    "noActiveFeatures": {
+        "message": "Không có tính năng hoạt động"
+    },
+    "noOpenVideoTabs": {
+        "message": "Không có tab video đang mở"
+    },
+    "none": {
+        "message": "Không có"
+    },
+    "normal": {
+        "message": "Bình thường"
+    },
+    "ok": {
+        "message": "Ok"
+    },
+    "old": {
+        "message": "Cũ"
+    },
+    "onAllVideos": {
+        "message": "Trên tất cả các video"
+    },
+    "onSubscribedChannels": {
+        "message": "Trên các kênh đã đăng ký"
+    },
+    "onlyActiveOnYoutube": {
+        "message": "Chỉ hoạt động trên YouTube"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "Only one player instance playing"
+    },
+    "openPopupPlayer": {
+        "message": "Mở video/danh sách phát trong một cửa sổ mới"
+    },
+    "orange": {
+        "message": "Cam"
+    },
+    "os": {
+        "message": "OS"
+    },
+    "other": {
+        "message": "Khác"
+    },
+    "outline": {
+        "message": "Đường nét"
+    },
+    "overlay": {
+        "message": "Lớp phủ"
+    },
+    "permissions": {
+        "message": "Quyền"
+    },
+    "pictureInPicture": {
+        "message": "Picture-in-Picture"
+    },
+    "pink": {
+        "message": "Hồng"
+    },
+    "plain": {
+        "message": "Đơn giản"
+    },
+    "platform": {
+        "message": "Nền tảng"
+    },
+    "playAllButton": {
+        "message": "Nút \"Phát tất cả\" "
+    },
+    "playPause": {
+        "message": "Phát / Tạm dừng"
+    },
+    "playbackSpeed": {
+        "message": "Tốc độ phát lại"
+    },
+    "player": {
+        "message": "Trình phát"
+    },
+    "playerColor": {
+        "message": "Màu trình phát"
+    },
+    "playerSize": {
+        "message": "Kích thước trình phát"
+    },
+    "playlist": {
+        "message": "Danh sách phát"
+    },
+    "playlists": {
+        "message": "Danh sách phát"
+    },
+    "popupPlayer": {
+        "message": "Trình phát popup"
+    },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
+    },
+    "position": {
+        "message": "Vị trí"
+    },
+    "pressAnyKeyOrScroll": {
+        "message": "Nhấn phím bất kỳ hoặc sử dụng lăn chuột."
+    },
+    "pressAnyKeyOrUseMouseWheel": {
+        "message": "Nhấn phím bất kỳ hoặc sử dụng lăn chuột"
+    },
+    "previousVideo": {
+        "message": "Video trước"
+    },
+    "primaryColor": {
+        "message": "Màu chính"
+    },
+    "purple": {
+        "message": "Tím"
+    },
+    "quality": {
+        "message": "Chất lượng"
+    },
+    "raised": {
+        "message": "Nâng lên"
+    },
+    "ram": {
+        "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Đánh giá tôi"
+    },
+    "rateUs": {
+        "message": "Đánh giá chúng tôi"
+    },
+    "red": {
+        "message": "Đỏ"
+    },
+    "redDislikeButton": {
+        "message": "Nút hiển thị không thích màu đỏ"
+    },
+    "relatedVideos": {
+        "message": "Các video liên quan"
+    },
+    "remote": {
+        "message": "Phát trên TV"
+    },
+    "removeRelatedSearchResults": {
+        "message": "Xóa kết quả tìm kiếm có liên quan"
+    },
+    "repeat": {
+        "message": "Lặp lại"
+    },
+    "reset": {
+        "message": "Cài đặt lại"
+    },
+    "resetAllSettings": {
+        "message": "Đặt lại tất cả các thiết lập"
+    },
+    "resetAllShortcuts": {
+        "message": "Đặt lại tất cả các phím tắt"
+    },
+    "reverse": {
+        "message": "Đảo ngược"
+    },
+    "rotate": {
+        "message": "Quay"
+    },
+    "save": {
+        "message": "Lưu"
+    },
+    "saveAs": {
+        "message": "Lưu thành"
+    },
+    "schedule": {
+        "message": "Lịch trình"
+    },
+    "screen": {
+        "message": "Màn hình"
+    },
+    "screenshot": {
+        "message": "Ảnh chụp màn hình"
+    },
+    "scrollBar": {
+        "message": "Thanh cuộn"
+    },
+    "sd": {
+        "message": "SD"
+    },
+    "search": {
+        "message": "Tìm kiếm"
+    },
+    "searchBarOnly": {
+        "message": "Chỉ thanh tìm kiếm"
+    },
+    "seekBackward10Seconds": {
+        "message": "Tua lùi 10 giây"
+    },
+    "seekForward10Seconds": {
+        "message": "Tua tiến 10 giây"
+    },
+    "seekNextChapter": {
+        "message": "Tìm chương tiếp theo"
+    },
+    "seekPreviousChapter": {
+        "message": "Tìm kiếm chương trước"
+    },
+    "settings": {
+        "message": "Cài đặt"
+    },
+    "settingsSuccessfullyImported": {
+        "message": "Đã nhập thành công cài đặt"
+    },
+    "shortcuts": {
+        "message": "Phím tắt"
+    },
+    "showCardsOnMouseHover": {
+        "message": "Hiển thị thẻ khi di chuột"
+    },
+    "showChannelVideosCount": {
+        "message": "Hiển thị số lượng video trên kênh"
+    },
+    "showLess": {
+        "message": "Hiện ít hơn"
+    },
+    "showMore": {
+        "message": "Hiện nhiều hơn"
+    },
+    "showRemainingDuration": {
+        "message": "Hiển thị thời lượng còn lại của video"
+    },
+    "shuffle": {
+        "message": "Xáo trộn"
+    },
+    "sidebar": {
+        "message": "Thanh bên"
+    },
+    "spacebar": {
+        "message": "Phím cách"
+    },
+    "squaredUserImages": {
+        "message": "Squared user images"
+    },
+    "static": {
+        "message": "Tĩnh"
+    },
+    "statsForNerds": {
+        "message": "Hiển thị số liệu thống kê cho Nerds"
+    },
+    "step": {
+        "message": "Bước"
+    },
+    "stop": {
+        "message": "Dừng"
+    },
+    "style": {
+        "message": "Phong cách"
+    },
+    "styles": {
+        "message": "Phong cách"
+    },
+    "subscribe": {
+        "message": "Đăng ký"
+    },
+    "subscriptions": {
+        "message": "Đăng ký"
+    },
+    "subtitles": {
+        "message": "Phụ đề"
+    },
+    "sunset": {
+        "message": "Hoàng hôn"
+    },
+    "sunsetToSunrise": {
+        "message": "Hoàng hôn đến bình minh"
+    },
+    "systemPeferenceDark": {
+        "message": "Tùy chọn hệ thống: tối"
+    },
+    "systemPeferenceLight": {
+        "message": "Tùy chọn hệ thống: sáng"
+    },
+    "teal": {
+        "message": "Mòng két"
+    },
+    "textColor": {
+        "message": "Màu văn bản"
+    },
+    "themes": {
+        "message": "Chủ đề"
+    },
+    "thisWillRemoveAllCookies": {
+        "message": "Điều này sẽ xóa tất cả cookie."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "Thao tác này sẽ xóa tất cả video đã xem."
+    },
+    "thisWillRemoveAllYouTubeCookies": {
+        "message": "Thao tác này sẽ xóa tất cả cookie của YouTube"
+    },
+    "thisWillResetAllSettings": {
+        "message": "Điều này sẽ đặt lại tất cả cài đặt."
+    },
+    "thisWillResetAllShortcuts": {
+        "message": "Thao tác này sẽ đặt lại tất cả phím tắt"
+    },
+    "thumbnails": {
+        "message": "Hình thu nhỏ"
+    },
+    "thumbnailsQuality": {
+        "message": "Chất lượng hình thu nhỏ"
+    },
+    "timeFrom": {
+        "message": "Thời gian từ"
+    },
+    "timeTo": {
+        "message": "Thời gian đến"
+    },
+    "todayAt": {
+        "message": "Hôm nay lúc"
+    },
+    "toggleAutoplay": {
+        "message": "Chuyển đổi tự động phát"
+    },
+    "toggleCards": {
+        "message": "Chuyển đổi thẻ"
+    },
+    "toggleControls": {
+        "message": "Chuyển đổi điều khiển trình phát"
+    },
+    "topChat": {
+        "message": "Trò chuyện hàng đầu"
+    },
+    "trackWatchedVideos": {
+        "message": "Theo dõi các video đã xem"
+    },
+    "trailerAutoplay": {
+        "message": "Tự động phát đoạn giới thiệu"
+    },
+    "translations": {
+        "message": "Bản dịch"
+    },
+    "transparentBackground": {
+        "message": "Nền trong suốt"
+    },
+    "trending": {
+        "message": "Xu hướng"
+    },
+    "tryToReloadThePage": {
+        "message": "Cố gắng tải lại trang"
+    },
+    "type": {
+        "message": "Gõ phím"
+    },
+    "upNextAutoplay": {
+        "message": "Tự động phát tiếp theo"
+    },
+    "use24HourFormat": {
+        "message": "Sử dụng định dạng 24 giờ"
+    },
+    "version": {
+        "message": "Phiên bản"
+    },
+    "video": {
+        "message": "Video"
+    },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "Mô tả video sẽ được mở rộng để lấy tên của danh mục"
+    },
+    "videoFormats": {
+        "message": "Định dạng video"
+    },
+    "videos": {
+        "message": "Videos"
+    },
+    "viewMode": {
+        "message": "Chế độ xem"
+    },
+    "volume": {
+        "message": "Âm lượng"
+    },
+    "watchLater": {
+        "message": "Xem sau"
+    },
+    "watchTime": {
+        "message": "Thời gian xem"
+    },
+    "whenTabIsChanged": {
+        "message": "Khi tab được thay đổi"
+    },
+    "white": {
+        "message": "Trắng"
+    },
+    "windowColor": {
+        "message": "Màu cửa sổ"
+    },
+    "windowOpacity": {
+        "message": "Độ mờ cửa sổ"
+    },
+    "yellow": {
+        "message": "Vàng"
+    },
+    "youtubeHeaderLeft": {
+        "message": "Tiêu đề YouTube (bên trái)"
+    },
+    "youtubeHeaderRight": {
+        "message": "Tiêu đề YouTube (bên phải)"
+    },
+    "youtubeHomePage": {
+        "message": "Trang chủ YouTube"
+    },
+    "youtubeLanguage": {
+        "message": "Ngôn ngữ YouTube"
+    },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "YouTube giới hạn chất lượng video 1080p cho h.264 codec"
+    }
+}

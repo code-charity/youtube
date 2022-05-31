@@ -1,4 +1,16 @@
 {
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
     "about": {
         "message": "के बारे में"
     },
@@ -11,14 +23,14 @@
     "activateCaptions": {
         "message": "कैप्शन सक्रिय करें"
     },
+    "activateFullscreen": {
+        "message": "पूर्णस्क्रीन सक्रिय करें"
+    },
     "activated": {
         "message": "सक्रिय"
     },
     "activatedFeatures": {
         "message": "सक्रिय विशेषताएं"
-    },
-    "activateFullscreen": {
-        "message": "पूर्णस्क्रीन सक्रिय करें"
     },
     "activeFeatures": {
         "message": "सक्रिय विशेषताएं"
@@ -38,9 +50,6 @@
     "allow60fps": {
         "message": "60fps की अनुमति दें"
     },
-    "forceSDR": {
-        "message": "Force SDR"
-    },
     "alwaysActive": {
         "message": "हमेशा सक्रिय"
     },
@@ -56,17 +65,11 @@
     "appearance": {
         "message": "दिखावट"
     },
-    "ARROWDOWN": {
-        "message": "⇩"
+    "areYouSureYouWantToExportTheData": {
+        "message": "Are you sure you want to export the data?"
     },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
+    "areYouSureYouWantToImportTheData": {
+        "message": "Are you sure you want to import the data?"
     },
     "audio": {
         "message": "ऑडियो"
@@ -86,6 +89,24 @@
     "autoplay": {
         "message": "स्वत: प्ले"
     },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
+    "backgroundColor": {
+        "message": "पीछे का रंग"
+    },
+    "backgroundOpacity": {
+        "message": "पृष्ठभूमि अस्पष्टता"
+    },
     "backupAndReset": {
         "message": "बैकअप पुनर्स्थापित करना"
     },
@@ -103,6 +124,21 @@
     },
     "blockAll": {
         "message": "सभी को अवरोधित करें"
+    },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
+    "blockMusic": {
+        "message": "Block music"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "नीला"
@@ -143,17 +179,23 @@
     "channels": {
         "message": "चैनल"
     },
+    "characterEdgeStyle": {
+        "message": "कैरेक्टर एज स्टाइल"
+    },
     "clipboard": {
         "message": "क्लिपबोर्ड"
     },
     "codecH264": {
-        "message": "कोडक ज 64२६४ 64"
+        "message": "कोडक H264"
     },
-    "collapsed": {
-        "message": "संक्षिप्त"
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "सदस्यता वर्गों का पतन"
+    },
+    "collapsed": {
+        "message": "संक्षिप्त"
     },
     "comments": {
         "message": "टिप्पणियाँ"
@@ -169,6 +211,9 @@
     },
     "cropChapterTitles": {
         "message": "फसल अध्याय के शीर्षक"
+    },
+    "custom": {
+        "message": "Custom"
     },
     "customCss": {
         "message": "कस्टम सीएसएस"
@@ -206,14 +251,29 @@
     "deepPurple": {
         "message": "गहरा बैंगनी"
     },
+    "default": {
+        "message": "डिफ़ॉल्ट"
+    },
     "defaultChannelTab": {
         "message": "डिफ़ॉल्ट चैनल टैब"
+    },
+    "defaultContentCountry": {
+        "message": "डिफॉल्ट विषय देश"
+    },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
     },
     "deleteYoutubeCookies": {
         "message": "यूट्यूब कुकीज़ हटाएं"
     },
+    "depressed": {
+        "message": "उदास"
+    },
     "description": {
-        "message": "विवरण"
+        "message": "Description"
+    },
+    "description_ext": {
+        "message": "YouTube को व्यवस्थित एवं स्मार्ट बनाएं! यूट्यूब वीडियो कलर एड स्किप वॉल्यूम स्पीड चैनल टूल स्टाइल एचडी विज्ञापन एडब्लॉकर टैग कीवर्ड प्लेलिस्ट"
     },
     "desert": {
         "message": "रेगिस्तान"
@@ -236,14 +296,17 @@
     "dislike": {
         "message": "नापसन्द"
     },
-    "donate": {
-        "message": "दान"
-    },
     "doNotChange": {
         "message": "मत बदलो"
     },
+    "donate": {
+        "message": "दान"
+    },
     "draggable": {
         "message": "खींचने योग्य"
+    },
+    "dropShadow": {
+        "message": "परछाई डालना"
     },
     "email": {
         "message": "ईमेल"
@@ -279,10 +342,28 @@
         "message": "चमक"
     },
     "font": {
-        "message": "फ़ॉन्ट"
+        "message": "लिपि"
+    },
+    "fontColor": {
+        "message": "लिपि का रंग"
+    },
+    "fontFamily": {
+        "message": "लिपीओ का काि  संग्रह"
+    },
+    "fontOpacity": {
+        "message": "लिपि की अस्पष्टता"
+    },
+    "fontSize": {
+        "message": "लिपीओ का आकार"
     },
     "footer": {
         "message": "पाद लेख"
+    },
+    "forceSDR": {
+        "message": "Force SDR"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "जबरदस्ती वीडियो शुरू से प्ले करें"
     },
     "forcedPlaybackSpeed": {
         "message": "जबरन पार्श्व गति"
@@ -302,11 +383,17 @@
     "general": {
         "message": "सामान्य"
     },
+    "geoPreference": {
+        "message": "Geo Preference"
+    },
     "github": {
         "message": "गिटहब"
     },
     "goToSearchBox": {
         "message": "सर्च बॉक्स पर जाएं"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
     },
     "gpu": {
         "message": "जी पी यू"
@@ -314,10 +401,10 @@
     "green": {
         "message": "हरा"
     },
-    "hdThumbnail": {
-        "message": "एच डी थंबनेल"
+    "hd": {
+        "message": "HD"
     },
-    "hdThumbnails": {
+    "hdThumbnail": {
         "message": "एच डी थंबनेल"
     },
     "header": {
@@ -338,8 +425,20 @@
     "hideCards": {
         "message": "पत्ते छिपाओ"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
+    "hideCountryCode": {
+        "message": "देश कोड छुपाएं"
+    },
+    "hideDate": {
+        "message": "तारीख छुपाएं"
+    },
     "hideDetails": {
         "message": "जानकारी छिपाएँ"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "अंत स्क्रीन छिपाएँ"
@@ -353,17 +452,53 @@
     "hideGradientBottom": {
         "message": "ग्रेडिएंट बॉटम छुपाएं"
     },
+    "hideMoreButton": {
+        "message": "अधिक बटन छुपाएं"
+    },
+    "hidePlayerControlsBar": {
+        "message": "Hide player controls bar"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "प्लेलिस्ट छिपाएं"
     },
     "hideRightButtons": {
         "message": "दाएं बटन छुपाएं"
     },
+    "hideSaveButton": {
+        "message": "सहेजें बटन छुपाएं"
+    },
     "hideScrollForDetails": {
         "message": "छिपाएँ «विवरण के लिए स्क्रॉल»"
     },
+    "hideShareButton": {
+        "message": "शेयर बटन छुपाएं"
+    },
+    "hideSkipOverlay": {
+        "message": "स्किप ओवरले छुपाएं"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
+    },
     "hideViewsCount": {
         "message": "व्यू काउंट छिपाएं"
+    },
+    "hideVoiceSearchButton": {
+        "message": "ध्वनि खोज बटन छुपाएं"
+    },
+    "high": {
+        "message": "High"
     },
     "history": {
         "message": "इतिहास"
@@ -389,8 +524,11 @@
     "importSettings": {
         "message": "सेटिंग आयात करना"
     },
-    "improvedtubeIconInBrowser": {
-        "message": "ब्राउज़र में बेहतर आइकन"
+    "improveLogo": {
+        "message": "लोगो सुधारो"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "यूट्यूब पर बेहतर आइकन"
@@ -400,9 +538,6 @@
     },
     "improvedtubeVersion": {
         "message": "ImprovedTube संस्करण"
-    },
-    "improveLogo": {
-        "message": "लोगो सुधारो"
     },
     "increasePlaybackSpeed": {
         "message": "प्लेबैक स्पीड बढ़ाएं"
@@ -416,11 +551,17 @@
     "items": {
         "message": "आइटम"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "बोली"
     },
     "legacyYoutube": {
         "message": "विरासत यूट्यूब"
+    },
+    "library": {
+        "message": "Library"
     },
     "light": {
         "message": "हलका"
@@ -434,11 +575,17 @@
     "like": {
         "message": "पसंद"
     },
+    "liked": {
+        "message": "Liked"
+    },
     "likes": {
         "message": "को यह पसंद है"
     },
     "lime": {
         "message": "पीला हरा रंग"
+    },
+    "limitPageWidth": {
+        "message": "पृष्ठ की चौड़ाई सीमित करें"
     },
     "list": {
         "message": "सूची"
@@ -449,14 +596,32 @@
     "liveChatType": {
         "message": "लाइव चैट प्रकार"
     },
+    "location": {
+        "message": "स्थान"
+    },
+    "loop": {
+        "message": "Loop"
+    },
     "loudnessNormalization": {
         "message": "जोर से सामान्य होना"
+    },
+    "low": {
+        "message": "Low"
     },
     "markWatchedVideos": {
         "message": "चिह्नित वीडियो देखे गए"
     },
+    "medium": {
+        "message": "Medium"
+    },
     "mixer": {
         "message": "मिक्सर"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "मेरे रंग"
@@ -479,14 +644,17 @@
     "noActiveFeatures": {
         "message": "कोई सक्रिय सुविधाएँ नहीं"
     },
-    "none": {
-        "message": "कोई नहीं"
-    },
     "noOpenVideoTabs": {
         "message": "कोई खुला वीडियो टैब नहीं"
     },
+    "none": {
+        "message": "कोई नहीं"
+    },
     "normal": {
         "message": "साधारण"
+    },
+    "ok": {
+        "message": "Ok"
     },
     "old": {
         "message": "पुराना"
@@ -494,14 +662,17 @@
     "onAllVideos": {
         "message": "सभी वीडियो पर"
     },
+    "onSubscribedChannels": {
+        "message": "सदस्यता प्राप्त चैनलों पर"
+    },
     "onlyActiveOnYoutube": {
         "message": "केवल यूट्यूब पर सक्रिय है"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "केवल एक प्लेयर का चल रहा है"
     },
-    "onSubscribedChannels": {
-        "message": "सदस्यता प्राप्त चैनलों पर"
+    "openPopupPlayer": {
+        "message": "Open video/playlist in a new window"
     },
     "orange": {
         "message": "नारंगी रंग"
@@ -511,6 +682,12 @@
     },
     "other": {
         "message": "अन्य"
+    },
+    "outline": {
+        "message": "Outline"
+    },
+    "overlay": {
+        "message": "Overlay"
     },
     "permissions": {
         "message": "अनुमतियां"
@@ -526,6 +703,12 @@
     },
     "platform": {
         "message": "मंच"
+    },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
+    "playPause": {
+        "message": "प्ले / ठहराव"
     },
     "playbackSpeed": {
         "message": "प्लेबैक स्पीड"
@@ -545,11 +728,11 @@
     "playlists": {
         "message": "प्लेलिस्ट"
     },
-    "playPause": {
-        "message": "प्ले / ठहराव"
-    },
     "popupPlayer": {
         "message": "पॉप अप प्लेयर"
+    },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
     },
     "position": {
         "message": "स्थान"
@@ -572,8 +755,14 @@
     "quality": {
         "message": "गुणवत्ता"
     },
+    "raised": {
+        "message": "Raised"
+    },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "हमें रेटिंग दें"
@@ -586,6 +775,9 @@
     },
     "relatedVideos": {
         "message": "संबंधित वीडियो"
+    },
+    "remote": {
+        "message": "Play on TV"
     },
     "removeRelatedSearchResults": {
         "message": "संबंधित खोज परिणाम निकालें"
@@ -623,6 +815,12 @@
     "screenshot": {
         "message": "स्क्रीनशॉट"
     },
+    "scrollBar": {
+        "message": "Scroll Bar"
+    },
+    "sd": {
+        "message": "SD"
+    },
     "search": {
         "message": "खोज"
     },
@@ -634,6 +832,12 @@
     },
     "seekForward10Seconds": {
         "message": "पिछड़े 10 सेकंड की तलाश करें"
+    },
+    "seekNextChapter": {
+        "message": "अगले अध्याय पर चलें"
+    },
+    "seekPreviousChapter": {
+        "message": "पिछले अध्याय पर चलें"
     },
     "settings": {
         "message": "समायोजन"
@@ -649,6 +853,15 @@
     },
     "showChannelVideosCount": {
         "message": "चैनल वीडियो काउंट दिखाएं"
+    },
+    "showLess": {
+        "message": "कम दिखाएं"
+    },
+    "showMore": {
+        "message": "और दिखाएं"
+    },
+    "showRemainingDuration": {
+        "message": "वीडियो की बची हुई अवधि दिखाएं"
     },
     "shuffle": {
         "message": "मिश्रण"
@@ -680,6 +893,9 @@
     "styles": {
         "message": "शैलियाँ"
     },
+    "subscribe": {
+        "message": "Subscribe"
+    },
     "subscriptions": {
         "message": "सदस्यता"
     },
@@ -710,6 +926,9 @@
     "thisWillRemoveAllCookies": {
         "message": "यह सभी कुकीज़ को हटा देगा।"
     },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
+    },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "यह सभी यूट्यूब कुकीज़ को हटा देगा।"
     },
@@ -722,6 +941,9 @@
     "thumbnails": {
         "message": "थंबनेल"
     },
+    "thumbnailsQuality": {
+        "message": "Thumbnails Quality"
+    },
     "timeFrom": {
         "message": "से समय"
     },
@@ -731,11 +953,20 @@
     "todayAt": {
         "message": "आज इस समय"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "Toggle cards"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "शीर्ष चैट"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "ट्रेलर ऑटोप्ले"
@@ -776,6 +1007,9 @@
     "videos": {
         "message": "वीडियो"
     },
+    "viewMode": {
+        "message": "View Mode"
+    },
     "volume": {
         "message": "ध्वनि"
     },
@@ -790,6 +1024,12 @@
     },
     "white": {
         "message": "सफेद"
+    },
+    "windowColor": {
+        "message": "विंडो का रंग"
+    },
+    "windowOpacity": {
+        "message": "विंडो की अस्पष्टता"
     },
     "yellow": {
         "message": "पीला"

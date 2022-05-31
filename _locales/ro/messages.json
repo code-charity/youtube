@@ -1,4 +1,16 @@
 {
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
     "about": {
         "message": "Despre"
     },
@@ -11,14 +23,14 @@
     "activateCaptions": {
         "message": "Activează subtitrările"
     },
+    "activateFullscreen": {
+        "message": "Activează ecran complet"
+    },
     "activated": {
         "message": "Activat"
     },
     "activatedFeatures": {
         "message": "Caracteristici activate"
-    },
-    "activateFullscreen": {
-        "message": "Activează ecran complet"
     },
     "activeFeatures": {
         "message": "Caracteristici active"
@@ -38,9 +50,6 @@
     "allow60fps": {
         "message": "Permite 60fps"
     },
-    "forceSDR": {
-        "message": "Forțează SDR"
-    },
     "alwaysActive": {
         "message": "Mereu activ"
     },
@@ -48,7 +57,7 @@
         "message": "Arată mereu bara de progres"
     },
     "amber": {
-        "message": "Amber"
+        "message": "Chihlimbar"
     },
     "analyzer": {
         "message": "Analizator"
@@ -56,17 +65,11 @@
     "appearance": {
         "message": "Aparențe"
     },
-    "ARROWDOWN": {
-        "message": "⇩"
+    "areYouSureYouWantToExportTheData": {
+        "message": "Sigur doriți să exportați datele?"
     },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
+    "areYouSureYouWantToImportTheData": {
+        "message": "Sigur doriți să importați datele?"
     },
     "audio": {
         "message": "Audio"
@@ -78,13 +81,31 @@
         "message": "Auto"
     },
     "autoFullscreen": {
-        "message": "Auto-fullscreen"
+        "message": "ecran complet automat"
     },
     "autopauseWhenSwitchingTabs": {
         "message": "Pauzează automat la schimbarea tab-ului"
     },
     "autoplay": {
         "message": "Pornește automat"
+    },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Avoid CPU rendering when possible"
+    },
+    "backgroundColor": {
+        "message": "Culoare de fundal"
+    },
+    "backgroundOpacity": {
+        "message": "Opacitatea fundalului"
     },
     "backupAndReset": {
         "message": "Salvează & resetează"
@@ -103,6 +124,21 @@
     },
     "blockAll": {
         "message": "Blochează tot"
+    },
+    "blockAv1": {
+        "message": "Block AV1"
+    },
+    "blockH264": {
+        "message": "Block H.264"
+    },
+    "blockMusic": {
+        "message": "Interzice muzica"
+    },
+    "blockVp8": {
+        "message": "Block VP8"
+    },
+    "blockVp9": {
+        "message": "Block VP9"
     },
     "blue": {
         "message": "Albastru"
@@ -143,17 +179,23 @@
     "channels": {
         "message": "Canale"
     },
+    "characterEdgeStyle": {
+        "message": "Character edge style"
+    },
     "clipboard": {
         "message": "Clipboard"
     },
     "codecH264": {
         "message": "Codec h.264"
     },
-    "collapsed": {
-        "message": "Închis"
+    "codecs": {
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
         "message": "Închide secțiunea de subscripții"
+    },
+    "collapsed": {
+        "message": "Închis"
     },
     "comments": {
         "message": "Comentarii"
@@ -170,6 +212,9 @@
     "cropChapterTitles": {
         "message": "Taie titlurile capitolelor"
     },
+    "custom": {
+        "message": "Personalizat"
+    },
     "customCss": {
         "message": "CSS Personalizat"
     },
@@ -178,9 +223,6 @@
     },
     "customMiniPlayer": {
         "message": "Mini-Player Personalizat"
-    },
-    "openPopupPlayer": {
-        "message": "Deschide videoclipul/playlistul într-o fereastră nouă"
     },
     "cyan": {
         "message": "Cyan"
@@ -209,14 +251,29 @@
     "deepPurple": {
         "message": "Mov închis"
     },
+    "default": {
+        "message": "Default"
+    },
     "defaultChannelTab": {
         "message": "Tab-ul implicit al canalului"
+    },
+    "defaultContentCountry": {
+        "message": "Default content country"
+    },
+    "deleteWatchedVideos": {
+        "message": "Delete watched videos"
     },
     "deleteYoutubeCookies": {
         "message": "Șterge cookie-urile YouTube"
     },
+    "depressed": {
+        "message": "Depressed"
+    },
     "description": {
-        "message": "Descriere"
+        "message": "Description"
+    },
+    "description_ext": {
+        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
         "message": "Deșert"
@@ -239,14 +296,17 @@
     "dislike": {
         "message": "Nu îmi place"
     },
-    "donate": {
-        "message": "Donează"
-    },
     "doNotChange": {
         "message": "Nu schimba"
     },
+    "donate": {
+        "message": "Donează"
+    },
     "draggable": {
         "message": "Poate fi tras"
+    },
+    "dropShadow": {
+        "message": "Drop shadow"
     },
     "email": {
         "message": "Email"
@@ -284,8 +344,26 @@
     "font": {
         "message": "Font"
     },
+    "fontColor": {
+        "message": "Font color"
+    },
+    "fontFamily": {
+        "message": "Font family"
+    },
+    "fontOpacity": {
+        "message": "Font opacity"
+    },
+    "fontSize": {
+        "message": "Font size"
+    },
     "footer": {
         "message": "Subsol"
+    },
+    "forceSDR": {
+        "message": "Forțează SDR"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
     },
     "forcedPlaybackSpeed": {
         "message": "Viteză de playback forțată"
@@ -314,17 +392,20 @@
     "goToSearchBox": {
         "message": "Du-te la casuța de căutare"
     },
+    "googleApiKey": {
+        "message": "Google API key"
+    },
     "gpu": {
         "message": "GPU"
     },
     "green": {
         "message": "Verde"
     },
+    "hd": {
+        "message": "HD"
+    },
     "hdThumbnail": {
         "message": "Miniatură HD"
-    },
-    "hdThumbnails": {
-        "message": "Miniaturi HD"
     },
     "header": {
         "message": "Antet"
@@ -344,8 +425,20 @@
     "hideCards": {
         "message": "Ascunde cardurile"
     },
+    "hideClipButton": {
+        "message": "Hide \"Clip\" button"
+    },
+    "hideCountryCode": {
+        "message": "Hide country code"
+    },
+    "hideDate": {
+        "message": "Hide date"
+    },
     "hideDetails": {
         "message": "Ascunde detaliile"
+    },
+    "hideDownloadButton": {
+        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Ascunde ecranul de final"
@@ -359,17 +452,53 @@
     "hideGradientBottom": {
         "message": "Ascunde Gradient Bottom"
     },
+    "hideMoreButton": {
+        "message": "Hide \"More\" button"
+    },
+    "hidePlayerControlsBar": {
+        "message": "Ascundeți bara de control al jucătorului"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Ascunde butoanele din bara de control al jucătorului"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Hide player controls options"
+    },
     "hidePlaylist": {
         "message": "Ascunde playlistul"
     },
     "hideRightButtons": {
         "message": "Ascunde butoanele din dreapta"
     },
+    "hideSaveButton": {
+        "message": "Hide \"Save\" button"
+    },
     "hideScrollForDetails": {
         "message": "Ascunde «Derulează pentru detalii»"
     },
+    "hideShareButton": {
+        "message": "Hide \"Share\" button"
+    },
+    "hideSkipOverlay": {
+        "message": "Hide Skip Overlay"
+    },
+    "hideThanksButton": {
+        "message": "Hide \"Thanks\" button"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Hide thumbnail overlay"
+    },
+    "hideThumbnails": {
+        "message": "Hide thumbnails"
+    },
     "hideViewsCount": {
         "message": "Ascunde numărul vizualizărilor"
+    },
+    "hideVoiceSearchButton": {
+        "message": "Hide voice search button"
+    },
+    "high": {
+        "message": "High"
     },
     "history": {
         "message": "Istoric"
@@ -395,8 +524,11 @@
     "importSettings": {
         "message": "Importă setările"
     },
-    "improvedtubeIconInBrowser": {
-        "message": "Iconița ImprovedTube în browser"
+    "improveLogo": {
+        "message": "Îmbunătățește sigla"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Iconița ImprovedTube pe YouTube"
@@ -406,9 +538,6 @@
     },
     "improvedtubeVersion": {
         "message": "Versiunea ImprovedTube"
-    },
-    "improveLogo": {
-        "message": "Îmbunătățește sigla"
     },
     "increasePlaybackSpeed": {
         "message": "Crește viteza de playback"
@@ -422,11 +551,17 @@
     "items": {
         "message": "Obiecte"
     },
+    "language": {
+        "message": "Language"
+    },
     "languages": {
         "message": "Limbi"
     },
     "legacyYoutube": {
         "message": "YouTube vechi"
+    },
+    "library": {
+        "message": "Library"
     },
     "light": {
         "message": "Deschis"
@@ -440,11 +575,17 @@
     "like": {
         "message": "Îmi place"
     },
+    "liked": {
+        "message": "Liked"
+    },
     "likes": {
         "message": "Like-uri"
     },
     "lime": {
         "message": "Lime"
+    },
+    "limitPageWidth": {
+        "message": "Limit page width"
     },
     "list": {
         "message": "Listă"
@@ -455,14 +596,32 @@
     "liveChatType": {
         "message": "Chat live scrie"
     },
+    "location": {
+        "message": "Location"
+    },
+    "loop": {
+        "message": "Loop"
+    },
     "loudnessNormalization": {
         "message": "Normalizează zgomotul"
+    },
+    "low": {
+        "message": "Low"
     },
     "markWatchedVideos": {
         "message": "Marchează videoclipurile văzute"
     },
+    "medium": {
+        "message": "Medium"
+    },
     "mixer": {
         "message": "Mixer"
+    },
+    "moveSidebarLeft": {
+        "message": "Move sidebar left"
+    },
+    "moveThumbnailsRight": {
+        "message": "Move thumbnails right"
     },
     "myColors": {
         "message": "Culorile mele"
@@ -485,14 +644,17 @@
     "noActiveFeatures": {
         "message": "Nici o caracteristică activată"
     },
-    "none": {
-        "message": "Nimic"
-    },
     "noOpenVideoTabs": {
         "message": "Niciun tab video deschis"
     },
+    "none": {
+        "message": "Nimic"
+    },
     "normal": {
         "message": "Normal"
+    },
+    "ok": {
+        "message": "Ok"
     },
     "old": {
         "message": "Vechi"
@@ -500,14 +662,17 @@
     "onAllVideos": {
         "message": "Pe toate videoclipurile"
     },
+    "onSubscribedChannels": {
+        "message": "Pe canalele abonate"
+    },
     "onlyActiveOnYoutube": {
         "message": "Activ doar pe YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Doar o instanță de player care merge"
     },
-    "onSubscribedChannels": {
-        "message": "Pe canalele abonate"
+    "openPopupPlayer": {
+        "message": "Deschide videoclipul/playlistul într-o fereastră nouă"
     },
     "orange": {
         "message": "Portocaliu"
@@ -517,6 +682,12 @@
     },
     "other": {
         "message": "Altele"
+    },
+    "outline": {
+        "message": "Outline"
+    },
+    "overlay": {
+        "message": "Overlay"
     },
     "permissions": {
         "message": "Permisiuni"
@@ -532,6 +703,12 @@
     },
     "platform": {
         "message": "Platformă"
+    },
+    "playAllButton": {
+        "message": "\"Play all\" button"
+    },
+    "playPause": {
+        "message": "Redă / Pauză"
     },
     "playbackSpeed": {
         "message": "Viteza playbackului"
@@ -551,11 +728,11 @@
     "playlists": {
         "message": "Playlisturi"
     },
-    "playPause": {
-        "message": "Redă / Pauză"
-    },
     "popupPlayer": {
         "message": "Player popup"
+    },
+    "popupWindowButtons": {
+        "message": "popup_window_buttons"
     },
     "position": {
         "message": "Poziție"
@@ -578,8 +755,14 @@
     "quality": {
         "message": "Calitate"
     },
+    "raised": {
+        "message": "Raised"
+    },
     "ram": {
         "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Rate me"
     },
     "rateUs": {
         "message": "Dă-ne o notă"
@@ -592,6 +775,9 @@
     },
     "relatedVideos": {
         "message": "Videoclipuri asemănătoare"
+    },
+    "remote": {
+        "message": "Play on TV"
     },
     "removeRelatedSearchResults": {
         "message": "Elimină rezultatele asemănătoare a căutării"
@@ -629,6 +815,12 @@
     "screenshot": {
         "message": "Captură de ecran"
     },
+    "scrollBar": {
+        "message": "Scroll Bar"
+    },
+    "sd": {
+        "message": "SD"
+    },
     "search": {
         "message": "Caută"
     },
@@ -640,6 +832,12 @@
     },
     "seekForward10Seconds": {
         "message": "Sari înainte 10 secunde"
+    },
+    "seekNextChapter": {
+        "message": "seekNextChapter"
+    },
+    "seekPreviousChapter": {
+        "message": "seekPreviousChapter"
     },
     "settings": {
         "message": "Setări"
@@ -655,6 +853,15 @@
     },
     "showChannelVideosCount": {
         "message": "Arată numărul de videoclipuri al canalului"
+    },
+    "showLess": {
+        "message": "Show less"
+    },
+    "showMore": {
+        "message": "Show more"
+    },
+    "showRemainingDuration": {
+        "message": "Show video remaining duration"
     },
     "shuffle": {
         "message": "Amestecă"
@@ -686,6 +893,9 @@
     "styles": {
         "message": "Stiluri"
     },
+    "subscribe": {
+        "message": "Subscribe"
+    },
     "subscriptions": {
         "message": "Abonamente"
     },
@@ -716,6 +926,9 @@
     "thisWillRemoveAllCookies": {
         "message": "Asta va șterge toate cookie-urile."
     },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "This will remove all watched videos."
+    },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Asta va șterge toate cooki-urile YouTube."
     },
@@ -728,6 +941,9 @@
     "thumbnails": {
         "message": "Miniaturi"
     },
+    "thumbnailsQuality": {
+        "message": "Thumbnails Quality"
+    },
     "timeFrom": {
         "message": "Timp de la"
     },
@@ -737,11 +953,20 @@
     "todayAt": {
         "message": "Azi la"
     },
+    "toggleAutoplay": {
+        "message": "Toggle autoplay"
+    },
     "toggleCards": {
         "message": "Comută cardurile"
     },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
     "topChat": {
         "message": "Top chat"
+    },
+    "trackWatchedVideos": {
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
         "message": "Auto-redă trailerul"
@@ -782,6 +1007,9 @@
     "videos": {
         "message": "Videoclipuri"
     },
+    "viewMode": {
+        "message": "View Mode"
+    },
     "volume": {
         "message": "Volum"
     },
@@ -796,6 +1024,12 @@
     },
     "white": {
         "message": "Alb"
+    },
+    "windowColor": {
+        "message": "Window color"
+    },
+    "windowOpacity": {
+        "message": "Window opacity"
     },
     "yellow": {
         "message": "Galben"
