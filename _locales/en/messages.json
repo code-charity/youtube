@@ -50,6 +50,9 @@
     "allow60fps": {
         "message": "Allow 60fps"
     },
+    "always": {
+        "message": "Always"
+    },
     "alwaysActive": {
         "message": "Always active"
     },
@@ -656,6 +659,9 @@
     "ok": {
         "message": "Ok"
     },
+    "off": {
+        "message": "Off"
+    },
     "old": {
         "message": "Old"
     },
@@ -1018,6 +1024,9 @@
     },
     "watchTime": {
         "message": "Watch time"
+    },
+    "whenPaused": {
+        "message": "When paused"
     },
     "whenTabIsChanged": {
         "message": "When tab is changed"
