@@ -4477,11 +4477,6 @@ var skeleton = {
                                         text: 'hideShareButton',
                                         tags: 'hide,remove'
                                     },
-                                    hide_save_button: {
-                                        component: 'switch',
-                                        text: 'hideSaveButton',
-                                        tags: 'hide,remove'
-                                    },
                                     hide_download_button: {
                                         component: 'switch',
                                         text: 'hideDownloadButton',
@@ -4495,6 +4490,11 @@ var skeleton = {
                                     hide_clip_button: {
                                         component: 'switch',
                                         text: 'hideClipButton',
+                                        tags: 'hide,remove'
+                                    },
+                                    hide_save_button: {
+                                        component: 'switch',
+                                        text: 'hideSaveButton',
                                         tags: 'hide,remove'
                                     },
                                     hide_more_button: {
