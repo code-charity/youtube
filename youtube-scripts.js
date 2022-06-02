@@ -264,6 +264,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 
         this.improvedtubeYoutubeIcon();
         this.improvedtubeYoutubeButtonsUnderPlayer();
+        this.hideDetailButton(node.querySelectorAll('#info #top-level-buttons-computed ytd-button-renderer'));
     } else if (name === 'YTD-VIDEO-SECONDARY-INFO-RENDERER') {
         this.elements.yt_channel_name = node.querySelector('ytd-channel-name');
         this.elements.yt_channel_link = node.querySelector('ytd-channel-name a');
@@ -271,7 +272,6 @@ ImprovedTube.ytElementsHandler = function (node) {
         if (document.documentElement.dataset.pageType === 'video') {
             this.howLongAgoTheVideoWasUploaded();
             this.channelVideosCount();
-            this.hideDetailButton();
         }
     } else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
         if (node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
@@ -1557,12 +1557,9 @@ ImprovedTube.description = function () {
 4.2.3.4 HIDE DETAIL BUTTON
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.hideDetailButton = function () {
-    var detail_element = document.querySelectorAll('#info #top-level-buttons-computed ytd-button-renderer')
-    console.log(detail_element);
-    console.log(detail_element.length);
-    if( detail_element.length === 4){
-        detail_element[1].setAttribute('id','thanks-button');
+ImprovedTube.hideDetailButton = function (el) {
+    if(el[2].textContent.indexOf('Thanks') !== -1){
+        el[2].setAttribute('id','thanks-button');
     }
 };
 
