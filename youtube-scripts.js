@@ -1558,11 +1558,9 @@ ImprovedTube.description = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.hideDetailButton = function () {
-    var detail_element = document.querySelectorAll('#info #top-level-buttons-computed ytd-button-renderer')
-    console.log(detail_element);
-    console.log(detail_element.length);
-    if( detail_element.length === 4){
-        detail_element[1].setAttribute('id','thanks-button');
+    var detail_element = document.querySelectorAll('#info #top-level-buttons-computed ytd-button-renderer');
+    if(detail_element[2].textContent.match('(.*)Thanks(.*)')){
+        detail_element[2].setAttribute('id','thanks-button');
     }
 };
 
