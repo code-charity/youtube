@@ -1236,8 +1236,8 @@ html[it-hide-clip-button=true] #info #top-level-buttons-computed ytd-button-rend
 2.4.9 HIDE SAVE BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer:nth-last-child(1),
-html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-last-child(1) {
+html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer:not(:only-of-type):last-child,
+html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer:not(:only-of-type):last-child {
     display: none;
 }
 
