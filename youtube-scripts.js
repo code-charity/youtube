@@ -264,7 +264,9 @@ ImprovedTube.ytElementsHandler = function (node) {
 
         this.improvedtubeYoutubeIcon();
         this.improvedtubeYoutubeButtonsUnderPlayer();
-        this.hideDetailButton(node.querySelectorAll('#info #top-level-buttons-computed ytd-button-renderer'));
+        if(document.documentElement.dataset.pageType == 'video'){
+            this.hideDetailButton(node.querySelectorAll('#info #top-level-buttons-computed ytd-button-renderer'));
+        }
     } else if (name === 'YTD-VIDEO-SECONDARY-INFO-RENDERER') {
         this.elements.yt_channel_name = node.querySelector('ytd-channel-name');
         this.elements.yt_channel_link = node.querySelector('ytd-channel-name a');
