@@ -1558,9 +1558,13 @@ ImprovedTube.description = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.hideDetailButton = function (el) {
-    if(el[2].textContent.indexOf('Thanks') !== -1){
-        el[2].setAttribute('id','thanks-button');
-    }
+    try {
+		if(el[2].textContent.indexOf('Thanks') !== -1){
+			el[2].setAttribute('id','thanks-button');
+		}
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 
