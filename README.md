@@ -20,7 +20,7 @@ Recommended by Firefox</b>🦊</a></code><br>(only 108 extensions)</i><br><i> - 
 <br> Big thanks ❤️ to our <br> 
 <b><a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors, developers</a>, 
 <br><a href="https://github.com/code4charity/YouTube-Extension#--translators-">translators</a></b>/wiki-authors,
-<br><a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>/sponsors:bowtie:<br>(none yet!)
+<br><a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>:bowtie:<br>
 </td></tr></table>
 
 ### [**👪 Join us?**](https://github.com/code-for-charity)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ImprovedTube is the only one of a kind: 
@@ -33,7 +33,7 @@ We need to help the people learn easier about our [90+ features](https://github.
       - [ ] [**Updating translations**](https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo " - some language files miss additions.") <i> - some language files miss additions.</i> - Also: Poofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) 
 
 - [ ] **2.** <code>[**Plans & Specifications 🧩**](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+sort%3Acomments-desc+is%3Aopen+label%3A🧩Plan++-label%3A%22not+Goo.+Chrome%22+ "unique & relevant, often special")</code> - unique & relevant, often special
-  - [**<code>Discussions</code>**](https://github.com/code4charity/YouTube-Extension/discussions?discussions_q=category%3AToDo+category%3A%22Wishes+%26+Ideas%22+) ; & [**<code>organizational Discussions</code>**](https://github.com/code4charity/YouTube-Extension/discussions/categories/organization "future & structure") future & structure 
+  -  [**<code>Discussions</code>**](https://github.com/code4charity/YouTube-Extension/discussions?discussions_q=category%3AToDo+category%3A%22Wishes+%26+Ideas%22+) & [**<code>organizational Discussions</code>**](https://github.com/code4charity/YouTube-Extension/discussions/categories/organization "future & structure") - future & structure 
 
 - [ ] **3.** [<code>**Feature Requests🌟🧚**</code>](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+ "- sometimes easy / CSS") - sometimes easy / CSS  &nbsp;&nbsp;[_+Rest/Unsorted 'issues'_](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3Atweak "every github issues that is not yet labeled = covered by the previous links")
 - [ ] **4.** [<code>**Bugs🐞 / YouTube Updates**</code>](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+ "we aim to offer some bug-bounties. Please ask")  we aim to offer some <b>bug-bounties</b> <code><i>[Please ask.](mailto:bugs@improvedtube.com?subject=TODO_BOUNTY_LINK "we miss you")</i></code>.
