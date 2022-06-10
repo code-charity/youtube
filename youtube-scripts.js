@@ -3236,11 +3236,8 @@ ImprovedTube.channelDefaultTab = function (a) {
 
     if (option && option !== '/' && a.parentNode && a.parentNode.id !== 'contenteditable-root') {
         if (this.regex.channel_home_page.test(a.href) && !a.href.endsWith(option)) {
-            if (!a.dataset.itOrigin) {
-                a.dataset.itOrigin = a.href.replace(this.regex.channel_home_page_postfix, '');
-            }
 
-            a.href = a.dataset.itOrigin + option;
+            a.href = a.href.replace(this.regex.channel_home_page_postfix, '') + option;
 
             a.addEventListener('click', function (event) {
                 event.stopPropagation();
