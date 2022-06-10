@@ -3575,7 +3575,7 @@ ImprovedTube.shortcutStop = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutToggleAutoplay = function () {
-    var toggle = document.querySelector('.ytp-autonav-toggle-button'),
+    var toggle = document.querySelector('#ytd-player .ytp-autonav-toggle-button'),
         attribute = toggle.getAttribute('aria-checked') === 'true';
 
     if (toggle) {
