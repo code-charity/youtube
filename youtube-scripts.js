@@ -141,8 +141,6 @@ var ImprovedTube = {
     played_time: 0,
     allow_autoplay: false,
     mini_player__mode: false,
-    mini_player__lock_aspect_ratio: true,
-    mini_player__aspect_ratio: 1.25, // default based on a width 200 and height 160 (taken from below)
     mini_player__move: false,
     mini_player__cursor: '',
     mini_player__x: 0,
@@ -2285,16 +2283,15 @@ ImprovedTube.playerAds = function (parent) {
 4.4.7 CUSTOM MINI-PLAYER
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.mini_player__setSize = function (width, height, corner) {
-    if (ImprovedTube.mini_player__lock_aspect_ratio && corner) {
-	diff_w = width - ImprovedTube.elements.player.style.width.replace('px','');
-	diff_h = height - ImprovedTube.elements.player.style.height.replace('px','');
-	    
-        if (diff_w >= diff_h) {
-            height = width / ImprovedTube.mini_player__aspect_ratio;
-        } else {
-            width = height * ImprovedTube.mini_player__aspect_ratio;
-        }
+ImprovedTube.mini_player__setSize = function (width, height, keep_ar, keep_area) {
+    if (keep_ar) {
+        const aspect_ratio = ImprovedTube.elements.video.style.width.replace('px', '') / ImprovedTube.elements.video.style.height.replace('px', '');
+	    if (keep_area) {
+	        height = Math.sqrt((width * height) / aspect_ratio);
+	        width = height * aspect_ratio;
+	    } else {
+	        height = width / aspect_ratio;
+	    }
     }
 
     ImprovedTube.elements.player.style.width = width + 'px';
@@ -2307,7 +2304,6 @@ ImprovedTube.miniPlayer_scroll = function () {
 
         ImprovedTube.mini_player__original_width = ImprovedTube.elements.player.offsetWidth;
         ImprovedTube.mini_player__original_height = ImprovedTube.elements.player.offsetHeight;
-        ImprovedTube.mini_player__aspect_ratio = ImprovedTube.mini_player__original_width / ImprovedTube.mini_player__original_height;
 
         ImprovedTube.elements.player.classList.add('it-mini-player');
 
@@ -2319,7 +2315,7 @@ ImprovedTube.miniPlayer_scroll = function () {
 
         ImprovedTube.elements.player.style.transform = 'translate(' + ImprovedTube.mini_player__x + 'px, ' + ImprovedTube.mini_player__y + 'px)';
 
-        ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__width, ImprovedTube.mini_player__height, true);
+        ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__width, ImprovedTube.mini_player__height, true, true);
 
         window.addEventListener('mousedown', ImprovedTube.miniPlayer_mouseDown);
         window.addEventListener('mousemove', ImprovedTube.miniPlayer_cursorUpdate);
