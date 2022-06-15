@@ -509,7 +509,8 @@ html[it-header-position=static] #chips-wrapper.ytd-feed-filter-chip-bar-renderer
 2.1.2 IMPROVE LOGO
 ------------------------------------------------------------------------------*/
 
-html[it-header-improve-logo=true] ytd-topbar-logo-renderer#logo {
+html[it-header-improve-logo=true] ytd-topbar-logo-renderer#logo,
+html[it-header-improve-logo=true] ytd-topbar-logo-renderer.ytd-app {
     filter: grayscale(1);
 }
 
