@@ -226,7 +226,7 @@ ImprovedTube.ytElementsHandler = function (node) {
         if (node.getAttribute('itemprop') === 'genre') {
             ImprovedTube.genre = node.content;
         }
-    } else if (name === 'YTD-TOGGLE-BUTTON-RENDERER') {
+    } else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
         if (
             node.parentComponent &&
             node.parentComponent.nodeName === 'YTD-MENU-RENDERER' &&
