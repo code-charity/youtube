@@ -3213,7 +3213,6 @@ ImprovedTube.playlistRepeat = function () {
     var button = ImprovedTube.elements.playlist.repeat_button,
         option = ImprovedTube.storage.playlist_repeat;
 
-    console.log(button);
     if (button && ((option === true && button.firstElementChild.firstElementChild.attributes[2].textContent !== 'Loop video') || (option === 'disabled' && button.firstElementChild.firstElementChild.attributes[2].textContent === 'Loop playlist'))) {
         button.click();
     }
