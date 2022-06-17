@@ -236,7 +236,7 @@ ImprovedTube.ytElementsHandler = function (node) {
             var index = Array.prototype.indexOf.call(node.parentNode.children, node);
 
             if (index === 0) {
-                this.elements.playlist.repeat_button = node;
+                this.elements.playlist.repeat_button = node.button.firstElementChild;
 
                 this.playlistRepeat();
 
@@ -3213,7 +3213,8 @@ ImprovedTube.playlistRepeat = function () {
     var button = ImprovedTube.elements.playlist.repeat_button,
         option = ImprovedTube.storage.playlist_repeat;
 
-    if (button && (option === true && button.className.search('style-default-active') === -1 || option === 'disabled' && button.className.indexOf('style-default-active') !== -1)) {
+    console.log(button);
+    if (button && ((option === true && button.firstElementChild.firstElementChild.attributes[2].textContent !== 'Loop video') || (option === 'disabled' && button.firstElementChild.firstElementChild.attributes[2].textContent === 'Loop playlist'))) {
         button.click();
     }
 };
