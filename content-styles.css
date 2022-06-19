@@ -1046,6 +1046,20 @@ html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui, .ytp-doubletap-ui-lega
 2.3 SIDEBAR
 ------------------------------------------------------------------------------*/
 
+ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy {
+    width: auto !important;
+    min-width: unset !important;
+}
+
+ytd-live-chat-frame,
+div#secondary div#related,
+div#secondary div#panels,
+div#secondary div#donation-shelf,
+div#secondary #playlist{
+    width: var(--ytd-watch-flexy-sidebar-width);
+    min-width: var(--ytd-watch-flexy-sidebar-min-width);
+}
+
 /*------------------------------------------------------------------------------
 2.3.1 LIVECHAT
 ------------------------------------------------------------------------------*/
@@ -1076,6 +1090,8 @@ html[it-hide-playlist=true] #placeholder-playlist {
 ------------------------------------------------------------------------------*/
 
 html[it-related-videos=hidden] div#related,
+html[it-related-videos=hidden] div#secondary div#panels,
+html[it-related-videos=hidden] div#secondary div#donation-shelf,
 html[it-related-videos=collapsed].related-videos-collapsed #related>*:not(#improvedtube-collapsed-related-videos),
 html[it-related-videos=collapsed]:not(.related-videos-collapsed) #improvedtube-collapsed-related-videos .show-more-text,
 html[it-related-videos=collapsed].related-videos-collapsed #improvedtube-collapsed-related-videos .show-less-text {
