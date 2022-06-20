@@ -448,8 +448,8 @@ html[it-header-position=hover] #masthead-container,
 html[it-header-position=hover] tp-yt-app-drawer,
 html[it-header-position=hover] ytd-mini-guide-renderer,
 html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container,
-html[it-header-position=hover_on_video_page] tp-yt-app-drawer,
-html[it-header-position=hover_on_video_page] ytd-mini-guide-renderer,
+html[it-header-position=hover_on_video_page][data-page-type='video'] tp-yt-app-drawer,
+html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-mini-guide-renderer,
 html[it-header-position=static] tp-yt-app-drawer,
 html[it-header-position=static] ytd-mini-guide-renderer {
     z-index: 2147483647 !important;
