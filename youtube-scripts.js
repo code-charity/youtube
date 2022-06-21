@@ -1560,8 +1560,8 @@ ImprovedTube.description = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.hideDetailButton = function (el) {
-    if(el[2].textContent.indexOf('Thanks') !== -1){
-        el[2].setAttribute('id','thanks-button');
+    for(var i = 0; i < el.length; i++){
+        el[i].setAttribute('id', el[i].textContent + '-button');
     }
 };
 
