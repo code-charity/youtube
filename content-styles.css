@@ -1225,8 +1225,8 @@ html[it-hide-date=true] #count + #info-strings > #dot {
 2.4.5 HIDE SHARE BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-share-button=true] #info #top-level-buttons ytd-button-renderer:nth-child(3),
-html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-child(3) {
+html[it-hide-share-button=true] #info #top-level-buttons ytd-button-renderer#Share-button,
+html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-renderer#Share-button {
     display: none;
 }
 
@@ -1245,8 +1245,8 @@ html[it-hide-download-button=true] #info #top-level-buttons-computed ytd-downloa
 2.4.7 HIDE THANKS BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-thanks-button=true] #info #top-level-buttons #thanks-button,
-html[it-hide-thanks-button=true] #info #top-level-buttons-computed #thanks-button {
+html[it-hide-thanks-button=true] #info #top-level-buttons ytd-button-renderer#Thanks-button,
+html[it-hide-thanks-button=true] #info #top-level-buttons-computed ytd-button-renderer#Thanks-button {
     display: none;
 }
 
@@ -1255,8 +1255,8 @@ html[it-hide-thanks-button=true] #info #top-level-buttons-computed #thanks-butto
 2.4.8 HIDE CLIP BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-clip-button=true] #info #top-level-buttons ytd-button-renderer:nth-last-child(2),
-html[it-hide-clip-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-last-child(2) {
+html[it-hide-clip-button=true] #info #top-level-buttons ytd-button-renderer#Clip-button,
+html[it-hide-clip-button=true] #info #top-level-buttons-computed ytd-button-renderer#Clip-button {
     display: none;
 }
 
@@ -1265,8 +1265,8 @@ html[it-hide-clip-button=true] #info #top-level-buttons-computed ytd-button-rend
 2.4.9 HIDE SAVE BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer:not(:only-of-type):last-child,
-html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer:not(:only-of-type):last-child {
+html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer#Save-button,
+html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer#Save-button {
     display: none;
 }
 
