@@ -470,6 +470,9 @@
     "hidePlaylist": {
         "message": "Hide playlist"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "Hide right buttons"
     },

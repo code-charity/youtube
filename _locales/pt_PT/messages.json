@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "Esconder lista de reprodução"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "Esconder botões do lado direito"
     },

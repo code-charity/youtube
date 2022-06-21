@@ -48,11 +48,12 @@
     2.4.7 Hide thanks button
     2.4.8 Hide clip button
     2.4.9 Hide save button
-    2.4.10 Hide more button
-    2.4.11 Description
-    2.4.12 How long ago the video was uploaded
-    2.4.13 Show channel videos count
-    2.4.14 Show dislike button red colour
+    2.4.10 Hide report button
+    2.4.11 Hide more button
+    2.4.12 Description
+    2.4.13 How long ago the video was uploaded
+    2.4.14 Show channel videos count
+    2.4.15 Show dislike button red colour
   2.5 Comments
   2.6 Footer
 3.0 Themes
@@ -1225,8 +1226,8 @@ html[it-hide-date=true] #count + #info-strings > #dot {
 2.4.5 HIDE SHARE BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-share-button=true] #info #top-level-buttons ytd-button-renderer:nth-child(3),
-html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-child(3) {
+html[it-hide-share-button=true] #info #top-level-buttons ytd-button-renderer#Share-button,
+html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-renderer#Share-button {
     display: none;
 }
 
@@ -1245,8 +1246,8 @@ html[it-hide-download-button=true] #info #top-level-buttons-computed ytd-downloa
 2.4.7 HIDE THANKS BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-thanks-button=true] #info #top-level-buttons #thanks-button,
-html[it-hide-thanks-button=true] #info #top-level-buttons-computed #thanks-button {
+html[it-hide-thanks-button=true] #info #top-level-buttons ytd-button-renderer#Thanks-button,
+html[it-hide-thanks-button=true] #info #top-level-buttons-computed ytd-button-renderer#Thanks-button {
     display: none;
 }
 
@@ -1255,8 +1256,8 @@ html[it-hide-thanks-button=true] #info #top-level-buttons-computed #thanks-butto
 2.4.8 HIDE CLIP BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-clip-button=true] #info #top-level-buttons ytd-button-renderer:nth-last-child(2),
-html[it-hide-clip-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-last-child(2) {
+html[it-hide-clip-button=true] #info #top-level-buttons ytd-button-renderer#Clip-button,
+html[it-hide-clip-button=true] #info #top-level-buttons-computed ytd-button-renderer#Clip-button {
     display: none;
 }
 
@@ -1265,14 +1266,24 @@ html[it-hide-clip-button=true] #info #top-level-buttons-computed ytd-button-rend
 2.4.9 HIDE SAVE BUTTON
 ------------------------------------------------------------------------------*/
 
-html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer:not(:only-of-type):last-child,
-html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer:not(:only-of-type):last-child {
+html[it-hide-save-button=true] #info #top-level-buttons ytd-button-renderer#Save-button,
+html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-renderer#Save-button {
     display: none;
 }
 
 
 /*------------------------------------------------------------------------------
-2.4.10 HIDE MORE BUTTON
+2.4.10 REPORT REPORT BUTTON
+------------------------------------------------------------------------------*/
+
+html[it-hide-report-button=true] #info #top-level-buttons ytd-button-renderer#-button,
+html[it-hide-report-button=true] #info #top-level-buttons-computed ytd-button-renderer#-button {
+    display: none;
+}
+
+
+/*------------------------------------------------------------------------------
+2.4.11 HIDE MORE BUTTON
 ------------------------------------------------------------------------------*/
 
 html[it-hide-more-button=true] #info #flexible-item-buttons+yt-icon-button {
@@ -1281,7 +1292,7 @@ html[it-hide-more-button=true] #info #flexible-item-buttons+yt-icon-button {
 
 
 /*------------------------------------------------------------------------------
-2.4.11 DESCRIPTION
+2.4.12 DESCRIPTION
 ------------------------------------------------------------------------------*/
 
 html[it-description=hidden] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
@@ -1291,7 +1302,7 @@ html[it-description=hidden] div#action-panel-details {
 
 
 /*------------------------------------------------------------------------------
-2.4.12 HOW LONG AGO THE VIDEO WAS UPLOADED
+2.4.13 HOW LONG AGO THE VIDEO WAS UPLOADED
 ------------------------------------------------------------------------------*/
 
 .it-how-long-ago-the-video-was-uploaded {
@@ -1302,7 +1313,7 @@ html[it-description=hidden] div#action-panel-details {
 
 
 /*------------------------------------------------------------------------------
-2.4.13 SHOW CHANNEL VIDEOS COUNT
+2.4.14 SHOW CHANNEL VIDEOS COUNT
 ------------------------------------------------------------------------------*/
 
 .it-channel-videos-count {
@@ -1313,7 +1324,7 @@ html[it-description=hidden] div#action-panel-details {
 
 
 /*------------------------------------------------------------------------------
-2.4.14 SHOW DISLIKE RED COLOR
+2.4.15 SHOW DISLIKE RED COLOR
 ------------------------------------------------------------------------------*/
 
 [it-red-dislike-button=true] #top-level-buttons>ytd-toggle-button-renderer.style-scope.ytd-menu-renderer.force-icon-button:nth-child(2).style-default-active>a,
