@@ -470,6 +470,9 @@
     "hidePlaylist": {
         "message": "Скрывать плейлисты"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "Скрывать кнопки (справа)"
     },

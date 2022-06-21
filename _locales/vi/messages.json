@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "Ẩn danh sách phát"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "Ẩn các nút bên phải"
     },

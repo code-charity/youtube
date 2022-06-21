@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "Verberg afspeellijst"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "Verberg knoppen rechterkant"
     },

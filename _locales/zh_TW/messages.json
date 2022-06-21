@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "隱藏播放清單"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "隱藏右側按鈕"
     },

@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "Sakrij popis za reprodukciju"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "Sakrij desne gumbe"
     },
