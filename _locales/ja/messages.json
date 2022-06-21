@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "再生リストを隠す"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "右ボタンを隠す"
     },

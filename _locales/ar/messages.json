@@ -470,6 +470,9 @@
     "hidePlaylist": {
         "message": "إخفاء قائمة التشغيل"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "إخفاء الأزرار اليسرى"
     },

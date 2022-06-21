@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "Απόκρυψε τα playlists"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "Απόκρυψε τα κουμπιά στα δεξιά"
     },
