@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "재생 목록 숨기기"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "오른쪽 버튼 숨기기"
     },

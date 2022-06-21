@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "প্লেলিস্ট লুকান"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "ডান বোতামগুলি লুকান"
     },
