@@ -1901,6 +1901,10 @@ ImprovedTube.autoplay = function (video) {
     if (this.check === true){
         setTimeout(function () {
             video.parentNode.parentNode.pauseVideo();
+            console.log(ImprovedTube.storage);
+            if (ImprovedTube.storage.forced_play_video_from_the_beginning === false && ImprovedTube.video_url.match(/&t=(\d+)s/)) {
+                video.parentNode.parentNode.seekTo(ImprovedTube.video_url.match(/&t=(\d+)s/)[1]);
+            }
         });
         this.check = false;
     }
