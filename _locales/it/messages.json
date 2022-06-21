@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "Nascondi scaletta"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "Nascondi pulsanti sulla destra"
     },

@@ -4497,6 +4497,11 @@ var skeleton = {
                                         text: 'hideSaveButton',
                                         tags: 'hide,remove'
                                     },
+                                    hide_report_button: {
+                                        component: 'switch',
+                                        text: 'hideReportButton',
+                                        tags: 'hide,remove'
+                                    },
                                     hide_more_button: {
                                         component: 'switch',
                                         text: 'hideMoreButton',
