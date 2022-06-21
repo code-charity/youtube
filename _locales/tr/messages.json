@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "Oynatma Listesi'ni gizle"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "Sağ butonları gizle"
     },

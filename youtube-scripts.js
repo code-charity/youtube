@@ -1560,8 +1560,8 @@ ImprovedTube.description = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.hideDetailButton = function (el) {
-    if(el[2].textContent.indexOf('Thanks') !== -1){
-        el[2].setAttribute('id','thanks-button');
+    for(var i = 0; i < el.length; i++){
+        el[i].setAttribute('id', el[i].textContent + '-button');
     }
 };
 
@@ -1901,6 +1901,10 @@ ImprovedTube.autoplay = function (video) {
     if (this.check === true){
         setTimeout(function () {
             video.parentNode.parentNode.pauseVideo();
+            console.log(ImprovedTube.storage);
+            if (ImprovedTube.storage.forced_play_video_from_the_beginning === false && ImprovedTube.video_url.match(/&t=(\d+)s/)) {
+                video.parentNode.parentNode.seekTo(ImprovedTube.video_url.match(/&t=(\d+)s/)[1]);
+            }
         });
         this.check = false;
     }

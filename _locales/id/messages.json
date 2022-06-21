@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "Sembunyikan daftar putar"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "Sembunyikan tombol kanan"
     },

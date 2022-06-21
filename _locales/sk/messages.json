@@ -467,6 +467,9 @@
     "hidePlaylist": {
         "message": "Skryť zoznam videí"
     },
+    "hideReportButton": {
+        "message": "Hide \"Report\" button"
+    },
     "hideRightButtons": {
         "message": "Skryť tlčidlá v pravo"
     },
