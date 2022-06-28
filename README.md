@@ -1,4 +1,4 @@
-<h1 align="center">«Improve YouTube!» 🦫</h1>
+<h1 align="center">«Improve YouTube!»</h1>
 <b><code>/ImprovedTube/</code></b> is a lightweight & powerful extension to improve your view, playback & content-discovery. <br> ~100 features & a pretty UI.</p>
 <p align="center">
 <a href="https://github.com/code4charity/YouTube-Extension/wiki/Features"><code>✔️Features</code></a>&nbsp; · &nbsp;<a href="https://github.com/code4charity/YouTube-Extension/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title="><code>Wish a🌟feature</code></a>&nbsp; · &nbsp;<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate"><code>Donate<b>🎁</b></code></a>&nbsp; ·
