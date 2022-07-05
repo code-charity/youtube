@@ -24,11 +24,11 @@
 </p>
 
 <p align="center">
-	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report a bug</a>
+	<a href="https://github.com/code4charity/YouTube-Extension/issues/new">[Report a bug]</a>
 	·
-	<a href="https://github.com/code4charity/YouTube-Extension/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">Request feature</a>
+	<a href="https://github.com/code4charity/YouTube-Extension/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">[Request feature]</a>
 	·
-	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">Donate</a>
+	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">[Donate]</a>
 	·
-	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">Features</a>
+	<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">[Features]</a>
 </p>
