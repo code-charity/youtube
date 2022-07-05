@@ -91,7 +91,7 @@ def removeItem(allFiles):
         with open(keyFile, 'r+') as json_file:
             data = json.load(json_file)
 
-            if data[key]:
+            if key in data:
                 del data[key]
 
             json_file.seek(0)
@@ -143,8 +143,8 @@ def decodeCharacters(allFiles):
 
 def upgrade():
     locales = [
-        'am',
         'ar',
+        'am',
         'bg',
         'bn',
         'ca',
@@ -153,7 +153,10 @@ def upgrade():
         'de',
         'el',
         'en',
+        'en_GB',
+        'en_US',
         'es',
+        'es_419',
         'et',
         'fa',
         'fi',
@@ -162,7 +165,6 @@ def upgrade():
         'gu',
         'he',
         'hi',
-        'hin',
         'hr',
         'hu',
         'id',
@@ -175,7 +177,6 @@ def upgrade():
         'ml',
         'mr',
         'ms',
-        'nb_NO',
         'nl',
         'no',
         'pl',
