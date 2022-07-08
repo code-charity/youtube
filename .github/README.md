@@ -47,8 +47,8 @@ We gradually kept achieving [s](https://www.google.com/search?q="sisyphean+task"
 ### <div align="center"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   please [**spread the word** <code><code><code><code><code>📣</code></code></code></code></code>](Http://Twitter_Whatsapp_Discord_Youtube_Facebook_eMail_Telegram_Signal "Why aren't there millions of users yet? We didn't write a guide or manual, let alone marketing. ImprovedTube can fly higher through your word of mouth🌱 & enable us to work on all wishes.")</div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  - **W**hy arent there millions of users yet? We didn't write a guide or manual (let alone marketing). ImprovedTube can easily fly higher through your word of mouth & enable us to work on all wishes 🌱. 
 
-<details><summary>&nbsp; <code>&nbsp;click to see our:</code> &nbsp; &nbsp;&nbsp; 
- <code>🏝<h1><code><code>🧗<code><code>🏕🚀To-Do</code>List</code></code></code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>v</summary>
+<details><summary>&nbsp; <code>▽&nbsp;click to see our:</code> &nbsp; &nbsp;&nbsp; 
+ <code>🏝<h1><code><code>🧗<code><code>🏕🚀To-Do</code>List</code></code></code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>▽</summary>
 	
 ##### **1.** - <code>[ ]</code> [**<code>Documentation, wiki, screenshots, video, ...</code>**](https://github.com/code-for-charity/YouTube-Extension/wiki "We need to help people learning as easily as possible about our 90+ features. (Drafts welcome. This will become 🛈tooltips in the extension too!")</code>
 >  We need to help people learning as easy as possible about our [90+ features](https://github.com/ImprovedTube/ImprovedTube/wiki/Features). (Drafts welcome. This will become **🛈tooltips** in the extension!")  &nbsp;&nbsp;&nbsp; - <code>**[ ]**</code> [Updating translations](https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo " - some language files miss additions.") <i> - some language files miss additions.</i> - Also: Poofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) 
@@ -93,7 +93,7 @@ We gradually kept achieving [s](https://www.google.com/search?q="sisyphean+task"
 
 </td></tr></table> 
 
-###  <div align="left">&nbsp;&nbsp;&nbsp; 📟 Ticker / Recently:</div>
+###  <div align="left">&nbsp;&nbsp;&nbsp; Ticker / Recently:</div>
 
 ###### ❔[**<code><code><code>ImprovedTube controls</code></code></code>** in, under or around the video player or cursor](https://github.com/code4charity/YouTube-Extension/issues/842).  <br> ❔[**<code><code>Meaningful/Most similar extensions</code></code>**? Social-Fixer, Youtube Enhancer, Simplify, ...](https://github.com/code4charity/YouTube-Extension/issues/1016).<br> 📟 We are focused on <code>update, bugs & UX</code> but please keep up your wishes for Features!<code><code><code><code>♥</code></code></code></code><br> 📟 Enjoy **our projects: global** [**<code><code><code>Dark Mode</code></code></code>**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making, ...<br> 📟 **<code>2021</code>:** Firefox, Edge, Opera, Whale added (please try&rate)
 
