@@ -1,5 +1,8 @@
 <h1 align="center">«Improve YouTube!»</h1>
 
+
+	
+
 <p align="center"><b><code>/ImprovedTube/</code></b> is a lightweight & powerful extension to improve your video experience & choice.</p>
 
 <p align="center">
@@ -33,7 +36,7 @@
 </p>
 <p align="center"><a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd"><img width="525" alt="YouTube Extension" src="https://user-images.githubusercontent.com/25022245/177911301-bbcf6edc-6bc9-47c4-aa0c-3d1cccbaa269.png"></a></p>
 <table align="right"><th><h4 align="center"> <i> Critiques </i> </h4> </th><tr><td> <i>
--<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/"><img width="107" alt="recommended by firefox" src="https://user-images.githubusercontent.com/25022245/147242029-b4cf4544-a3a9-436a-9bb7-61c9a7976629.png"></a> <code>by Firefox<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">🦊</a></code>(only <b>108</b> extensions)</i><br><i> - 'Might be the best YouTube Extension Ever' <code><a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110" "Lifehacker.com"><img src="https://lifehacker.com/favicon.ico" height="15px">(2021)</a></code><br> - 'enhances YouTube in meaningful ways' <code><a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways" "gHacks.net"><img src="https://ghacks.net/favicon.ico" height="15px">2021</a></code><br> - 'Strong add-on, that gives full control over Youtube.<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Yet clear and easy' <code><a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" "Chip.de"><img src="https://www.chip.de/favicon.ico"></a></code><br></i> 
+-<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/"><img width="111" alt="recommended by firefox" src="https://user-images.githubusercontent.com/25022245/147242029-b4cf4544-a3a9-436a-9bb7-61c9a7976629.png"></a> <code>by Firefox<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">🦊</a></code>(only <b>108</b> extensions)</i><br><i> - 'Might be the best YouTube Extension Ever' <code><a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110" "Lifehacker.com"><img src="https://lifehacker.com/favicon.ico" height="15px">(2021)</a></code><br> - 'enhances YouTube in meaningful ways' <code><a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways" "gHacks.net"><img src="https://ghacks.net/favicon.ico" height="15px">2021</a></code><br> - 'Strong add-on, that gives full control over Youtube.<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Yet clear and easy' <code><a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" "Chip.de"><img src="https://www.chip.de/favicon.ico"></a></code><br></i> 
 Big thanks ❤️ to our <b><a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors, developers</a>, <br><a href="https://github.com/code4charity/YouTube-Extension#--translators-">translators</a></b>/wiki-authors, <a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators</a>:bowtie:<br>
 </td></tr></table> 
 	
