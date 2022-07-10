@@ -90,7 +90,7 @@
         "message": "Autoodtwarzanie"
     },
     "avoidAv1": {
-        "message": "Avoid AV1"
+        "message": "Unikaj AV1"
     },
     "avoidAv1Vp8Vp9": {
         "message": "Unikaj AV1, VP8, VP9"
@@ -189,7 +189,7 @@
         "message": "Kodek h.264"
     },
     "codecs": {
-        "message": "Codecs"
+        "message": "Kodeki"
     },
     "collapseOfSubscriptionSections": {
         "message": "Zwinięcie sekcji subskrypcji"
@@ -213,7 +213,7 @@
         "message": "Przycinaj tytuły rozdziałów"
     },
     "custom": {
-        "message": "Custom"
+        "message": "Niestandardowy"
     },
     "customCss": {
         "message": "Niestandardowy CSS"
@@ -270,7 +270,7 @@
         "message": "Wklęsłe"
     },
     "description": {
-        "message": "Description"
+        "message": "Opis"
     },
     "description_ext": {
         "message": "Spraw, aby YouTube był uporządkowany i inteligentny! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
@@ -426,7 +426,7 @@
         "message": "Ukryj karty"
     },
     "hideClipButton": {
-        "message": "Hide \"Clip\" button"
+        "message": "Ukryj przycisk \"Klip\""
     },
     "hideCountryCode": {
         "message": "Ukryj kod kraju"
@@ -438,7 +438,7 @@
         "message": "Ukryj szczegóły"
     },
     "hideDownloadButton": {
-        "message": "Hide \"Download\" button"
+        "message": "Ukryj przycisk \"Pobierz\""
     },
     "hideEndscreen": {
         "message": "Ukryj ekran końcowy"
@@ -468,7 +468,7 @@
         "message": "Ukryj playliste"
     },
     "hideReportButton": {
-        "message": "Hide \"Report\" button"
+        "message": "Ukryj przycisk \"Zgłoś\""
     },
     "hideRightButtons": {
         "message": "Ukryj przyciski po prawej"
@@ -486,7 +486,7 @@
         "message": "Ukryj nakładkę pomijania"
     },
     "hideThanksButton": {
-        "message": "Hide \"Thanks\" button"
+        "message": "Ukryj przycisk \"Podziękuj\""
     },
     "hideThumbnailOverlay": {
         "message": "Ukryj przyciski na miniaturach"
@@ -603,7 +603,7 @@
         "message": "Położenie"
     },
     "loop": {
-        "message": "Loop"
+        "message": "Pętla"
     },
     "loudnessNormalization": {
         "message": "Normalizacja głośności"
