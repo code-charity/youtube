@@ -417,7 +417,7 @@ ImprovedTube.ytElementsHandler = function (node) {
             subtree: false
         });
     } else if (name === 'TP-YT-PAPER-BUTTON') {
-        if (id === 'more' && node.parentNode.parentNode.id === 'container') {
+        if (document.documentElement.dataset.pageType === 'video' && id === 'more' && node.parentNode.parentNode.id === 'container') {
             this.elements.moreButton = node;
 
             this.description();
@@ -1552,7 +1552,10 @@ ImprovedTube.channelVideosCount = function () {
 
 ImprovedTube.description = function () {
     if (this.storage.description === 'expanded') {
-        this.elements.moreButton.click();
+        var button = this.elements.moreButton;
+        setTimeout(function () {
+            button.click();
+        }, 500);
     }
 };
 
@@ -4557,12 +4560,8 @@ document.addEventListener('improvedtube-player-loaded', function () {
 
 document.addEventListener('yt-navigate-finish', function () {
     ImprovedTube.pageType();
-
-
-    if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
-        ImprovedTube.videoPageUpdate();
-        ImprovedTube.initPlayer();
-    }
+    ImprovedTube.childHandler(document.body);
+    ImprovedTube.init();
 
     ImprovedTube.channelPlayAllButton();
 });
