@@ -2807,7 +2807,7 @@ ImprovedTube.playerVolume = function () {
             volume = Number(volume);
         }
 
-        if (volume <= 100) {
+        if (!this.audioContextGain && volume <= 100) {
             if (this.audioContext) {
                 this.audioContext.close();
             }
