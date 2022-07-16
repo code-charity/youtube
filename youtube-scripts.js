@@ -264,7 +264,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 
         this.improvedtubeYoutubeIcon();
         this.improvedtubeYoutubeButtonsUnderPlayer();
-        if(document.documentElement.dataset.pageType == 'video'){
+        if(document.documentElement.dataset.pageType === 'video'){
             this.hideDetailButton(node.querySelectorAll('#info #top-level-buttons-computed ytd-button-renderer'));
         }
     } else if (name === 'YTD-VIDEO-SECONDARY-INFO-RENDERER') {
@@ -4563,14 +4563,16 @@ document.addEventListener('yt-navigate-finish', function () {
 });
 
 document.addEventListener('yt-page-data-updated', function (event) {
-    setTimeout(function () {
-        ImprovedTube.howLongAgoTheVideoWasUploaded();
-    }, 1000);
-
-    if (/[?&]list=([^&]+).*$/.test(location.href)) {
-        ImprovedTube.playlistRepeat();
-        ImprovedTube.playlistShuffle();
-        ImprovedTube.playlistReverse();
+    if(document.documentElement.dataset.pageType === 'video'){
+        setTimeout(function () {
+            ImprovedTube.howLongAgoTheVideoWasUploaded();
+        }, 1000);
+    
+        if (/[?&]list=([^&]+).*$/.test(location.href)) {
+            ImprovedTube.playlistRepeat();
+            ImprovedTube.playlistShuffle();
+            ImprovedTube.playlistReverse();
+        }
     }
 });
 
