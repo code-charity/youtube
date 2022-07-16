@@ -4519,10 +4519,6 @@ ImprovedTube.init = function () {
         ImprovedTube.themes();
     });
 
-    window.addEventListener('yt-page-data-updated', function () {
-        ImprovedTube.pageType();
-    });
-
     var yt_player_updated = function () {
         document.dispatchEvent(new CustomEvent('improvedtube-player-loaded'));
 
@@ -4592,8 +4588,6 @@ new MutationObserver(function (mutationList) {
             if (message){
                 if (message.storage) {
                     ImprovedTube.storage = message.storage;
-
-                    ImprovedTube.init();
                 } else if (message['storage-update']) {
                     var storage_update = message['storage-update'];
 
