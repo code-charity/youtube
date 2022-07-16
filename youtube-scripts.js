@@ -1555,7 +1555,7 @@ ImprovedTube.description = function () {
         var button = this.elements.moreButton;
         setTimeout(function () {
             button.click();
-        }, 500);
+        }, 750);
     }
 };
 
