@@ -42,7 +42,7 @@
 </td></tr></table> 
 	
 ### <div align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The only one of a kind: </div>[**👪 Join us?**](https://github.com/code-for-charity "github.com/Code-for-Charity")
-We gradually kept achieving [s](https://www.google.com/search?q="sisyphean+task"&tbm=isch "google images?")isyphean tasks since 2012. Now adding something is finally as easy as any web development & soo motivating with ~ 0.5 million users. It's all here for you!</code></code> 
+We gradually kept achieving [sisyphean tasks](https://www.google.com/search?q="sisyphean+task"&tbm=isch "google images?") since 2012. Now adding something is finally as easy as any web development & soo motivating with ~ 0.5 million users. It's all here for you!</code></code> 
 > (_Throughout the years we saw other openly developed YouTube Extensions [s](https://github.com/YePpHa/YouTubeCenter "YouTubeCenter")tart well but resign [l](https://github.com/ParticleCore/Iridium "Iridium")ater._)
 ### <div align="center"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   please [**spread the word** <code><code><code><code><code>📣</code></code></code></code></code>](Http://Twitter_Whatsapp_Discord_Youtube_Facebook_eMail_Telegram_Signal "Why aren't there millions of users yet? We didn't write a guide or manual, let alone marketing. ImprovedTube can fly higher through your word of mouth🌱 & enable us to work on all wishes.")</div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  - **W**hy arent there millions of users yet? We didn't write a guide or manual (let alone marketing). ImprovedTube can easily fly higher through your word of mouth & enable us to work on all wishes 🌱. 
