@@ -264,7 +264,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 
         this.improvedtubeYoutubeIcon();
         this.improvedtubeYoutubeButtonsUnderPlayer();
-        if(document.documentElement.dataset.pageType == 'video'){
+        if(document.documentElement.dataset.pageType === 'video'){
             this.hideDetailButton(node.querySelectorAll('#info #top-level-buttons-computed ytd-button-renderer'));
         }
     } else if (name === 'YTD-VIDEO-SECONDARY-INFO-RENDERER') {
@@ -1555,7 +1555,7 @@ ImprovedTube.description = function () {
         var button = this.elements.moreButton;
         setTimeout(function () {
             button.click();
-        }, 500);
+        }, 750);
     }
 };
 
@@ -4519,10 +4519,6 @@ ImprovedTube.init = function () {
         ImprovedTube.themes();
     });
 
-    window.addEventListener('yt-page-data-updated', function () {
-        ImprovedTube.pageType();
-    });
-
     var yt_player_updated = function () {
         document.dispatchEvent(new CustomEvent('improvedtube-player-loaded'));
 
@@ -4567,14 +4563,16 @@ document.addEventListener('yt-navigate-finish', function () {
 });
 
 document.addEventListener('yt-page-data-updated', function (event) {
-    setTimeout(function () {
-        ImprovedTube.howLongAgoTheVideoWasUploaded();
-    }, 1000);
-
-    if (/[?&]list=([^&]+).*$/.test(location.href)) {
-        ImprovedTube.playlistRepeat();
-        ImprovedTube.playlistShuffle();
-        ImprovedTube.playlistReverse();
+    if(document.documentElement.dataset.pageType === 'video'){
+        setTimeout(function () {
+            ImprovedTube.howLongAgoTheVideoWasUploaded();
+        }, 1000);
+    
+        if (/[?&]list=([^&]+).*$/.test(location.href)) {
+            ImprovedTube.playlistRepeat();
+            ImprovedTube.playlistShuffle();
+            ImprovedTube.playlistReverse();
+        }
     }
 });
 
@@ -4592,8 +4590,6 @@ new MutationObserver(function (mutationList) {
             if (message){
                 if (message.storage) {
                     ImprovedTube.storage = message.storage;
-
-                    ImprovedTube.init();
                 } else if (message['storage-update']) {
                     var storage_update = message['storage-update'];
 
