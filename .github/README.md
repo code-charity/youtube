@@ -1,6 +1,4 @@
-<h1 align="center">«Improve YouTube!»</h1>
-
-
+<h1 align="center">«Improve YouTube!» :beaver:</h1>
 	
 
 <p align="center"><b><code>/ImprovedTube/</code></b> is a lightweight & powerful extension to improve your video experience & choice.</p>
