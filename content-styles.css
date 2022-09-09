@@ -870,6 +870,8 @@ html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change'
 
 [data-page-type='video'][it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) video {
 	position: static !important;
+	width: 100% !important;
+	height: calc(var(--it-player-size) - var(--it-header-size)) !important;
 	max-height: calc(var(--it-player-size) - var(--it-header-size)) !important;
 }
 
