@@ -488,7 +488,6 @@ ImprovedTube.playerOnPlay = function () {
             this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
             this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
 
-            ImprovedTube.autoplay(this);
             ImprovedTube.playerLoudnessNormalization();
 
             return original.apply(this, arguments);
@@ -1898,30 +1897,21 @@ ImprovedTube.schedule = function () {
 4.4.1 AUTOPLAY
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.autoplay = function (video) {
+ImprovedTube.autoplay = function () {
+    var video = ImprovedTube.elements.player;
     if (ImprovedTube.video_url !== location.href) {
         ImprovedTube.allow_autoplay = false;
     }
 
-    if (this.check === true){
-        setTimeout(function () {
-            video.parentNode.parentNode.pauseVideo();
-            if (ImprovedTube.storage.forced_play_video_from_the_beginning === false && ImprovedTube.video_url.match(/&t=(\d+)s/)) {
-                video.parentNode.parentNode.seekTo(ImprovedTube.video_url.match(/&t=(\d+)s/)[1]);
-            }
-        });
-        this.check = false;
-    }
-    else if (ImprovedTube.allow_autoplay === false && video.parentNode.parentNode.classList.contains('ad-showing') === false &&
+    if (ImprovedTube.allow_autoplay === false && video.classList.contains('ad-showing') === false &&
         (
-            (location.href.indexOf('/watch?') !== -1 && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) || (location.href.indexOf('list=') !== -1 && ImprovedTube.storage.playlist_autoplay === false))) ||
-            (ImprovedTube.regex.channel.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
+            (document.documentElement.dataset.pageType === "video" && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) || (ImprovedTube.storage.playlist_autoplay === false))) ||
+            (document.documentElement.dataset.pageType === "channel" && ImprovedTube.storage.channel_trailer_autoplay === false)
         )
     ) {
         setTimeout(function () {
-            video.parentNode.parentNode.stopVideo();
+            video.pauseVideo();
         });
-        this.check = true;
     }
 };
 
@@ -4527,14 +4517,14 @@ ImprovedTube.init = function () {
 
     window.addEventListener('yt-player-updated', yt_player_updated);
 
-    this.bluelight();
     this.codecs();
     this.player60fps();
+    this.playerOnPlay();
     this.playerSDR();
     this.shortcuts();
-    this.playerOnPlay();
     this.onkeydown();
     this.onmousedown();
+    this.bluelight();
     this.defaultContentCountry();
     this.youtubeLanguage();
 
@@ -4556,6 +4546,7 @@ document.addEventListener('improvedtube-player-loaded', function () {
 
 document.addEventListener('yt-navigate-finish', function () {
     ImprovedTube.pageType();
+    ImprovedTube.autoplay();
     ImprovedTube.childHandler(document.body);
     ImprovedTube.init();
 
