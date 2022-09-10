@@ -1180,9 +1180,13 @@ ImprovedTube.playerSize = function () {
                 height = max_height;
             }
 
-            style.textContent += 'width:' + width + 'px !important;';
+            if (this.elements.ytd_watch.theater) {
+                style.textContent += 'width:' + width + 'px !important;';
+            }
+            else {
+                style.textContent += 'width:100% !important;';
+            }
             style.textContent += 'height:' + height + 'px !important;';
-
             style.textContent += '}';
 
             this.elements.player_size_style = style;
@@ -1194,7 +1198,7 @@ ImprovedTube.playerSize = function () {
             }, 100);
         }
 
-        if (this.storage.player_size === 'custom') {
+        else if (this.storage.player_size === 'custom') {
             var width = Number(this.storage.custom_player_size_width) || 1280,
                 height = Number(this.storage.custom_player_size_height) || 720,
                 style = this.elements.player_size_style || document.createElement('style');
