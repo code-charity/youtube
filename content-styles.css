@@ -1220,8 +1220,8 @@ html[it-hide-date=true] #count+#info-strings>#dot {
 2.4.5 HIDE SHARE BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-share-button=true] #info #top-level-buttons ytd-button-renderer#Share-button,
-html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-renderer#Share-button {
+html[it-hide-share-button=true] #info #top-level-buttons ytd-button-renderer:nth-child(3),
+html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-child(3) {
 	display: none;
 }
 
@@ -1270,8 +1270,8 @@ html[it-hide-save-button=true] #info #top-level-buttons-computed ytd-button-rend
 2.4.10 REPORT REPORT BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-report-button=true] #info #top-level-buttons ytd-button-renderer#-button,
-html[it-hide-report-button=true] #info #top-level-buttons-computed ytd-button-renderer#-button {
+html[it-hide-report-button=true] #info #top-level-buttons ytd-button-renderer#Report-button,
+html[it-hide-report-button=true] #info #top-level-buttons-computed ytd-button-renderer#Report-button {
 	display: none;
 }
 
@@ -1280,7 +1280,7 @@ html[it-hide-report-button=true] #info #top-level-buttons-computed ytd-button-re
 2.4.11 HIDE MORE BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-more-button=true] #info #flexible-item-buttons+yt-icon-button {
+html[it-hide-more-button=true] #info ytd-menu-renderer yt-button-shape#button-shape {
 	display: none;
 }
 
