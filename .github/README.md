@@ -1,4 +1,4 @@
-<h1 align="center">«Improve YouTube!» <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/346/beaver_1f9ab.png" height="42px"> </h1>
+<h1 align="center">«Improve YouTube!» <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/346/beaver_1f9ab.png" height="39px"> </h1>
 	
 
 <p align="center"><b><code>/ImprovedTube/</code></b> is a lightweight & powerful extension to improve your video experience & choice.</p>
