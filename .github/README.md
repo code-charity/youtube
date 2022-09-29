@@ -15,7 +15,7 @@
 	<a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/">
 	<img src="https://img.shields.io/badge/%20-Opera-red?logo=opera&logoColor=white">
 	</a>
-	<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Installation#safari">tudy
+	<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Installation#safari">
 	<img src="https://img.shields.io/badge/%20-Safari-lightgrey?logo=safari&logoColor=white">
 	</a>
 	<a href="https://developer.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa">
