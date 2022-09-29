@@ -368,8 +368,11 @@
     "forcedPlayVideoFromTheBeginning": {
         "message": "Force video to play from the beginning"
     },
-    "forcedPlaybackSpeed": {
-        "message": "Forced playback speed"
+    "defaultPlaybackSpeedMenu": {
+        "message": "Default Playback Speed"
+    },
+    "defaultPlaybackSpeedEnable": {
+        "message": "Enable Default playback speed"
     },
     "forcedTheaterMode": {
         "message": "Forced theater mode"
@@ -719,8 +722,8 @@
     "playPause": {
         "message": "Play / Pause"
     },
-    "playbackSpeed": {
-        "message": "Playback speed"
+    "defaultPlaybackSpeedSet": {
+        "message": "Set Default Playback Speed"
     },
     "player": {
         "message": "Player"
