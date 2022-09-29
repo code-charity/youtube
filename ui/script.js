@@ -5205,25 +5205,36 @@ var skeleton = {
 								text: 'autopauseWhenSwitchingTabs',
 								storage: 'player_autopause_when_switching_tabs'
 							},
-							player_forced_playback_speed: {
-								component: 'switch',
-								text: 'forcedPlaybackSpeed',
-								id: 'forced-playback-speed',
-								onrender: function () {
-									this.dataset.value = satus.storage.player_forced_playback_speed;
-								},
-								onchange: function () {
-									this.dataset.value = satus.storage.player_forced_playback_speed;
+							default_playback_speed_menu: {
+								component: 'button',
+								text: 'defaultPlaybackSpeedMenu',
+								on: {
+									click: {
+										component: 'section',
+										variant: 'card',
+
+										player_default_playback_speed_enable: {
+											component: 'switch',
+											text: 'defaultPlaybackSpeedEnable',
+											id: 'default-playback-speed-enable',
+											onrender: function () {
+												this.dataset.value = satus.storage.player_default_playback_speed_enable;
+											},
+											onchange: function () {
+												this.dataset.value = satus.storage.player_default_playback_speed_enable;
+											}
+										},
+										player_playback_speed: {
+											component: 'slider',
+											text: 'defaultPlaybackSpeedSet',
+											textarea: true,
+											value: 1,
+											min: .1,
+											max: 8,
+											step: .05
+										}
+									}
 								}
-							},
-							player_playback_speed: {
-								component: 'slider',
-								text: 'playbackSpeed',
-								textarea: true,
-								value: 1,
-								min: .1,
-								max: 8,
-								step: .05
 							},
 							subtitles: {
 								component: 'button',
