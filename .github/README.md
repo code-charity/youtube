@@ -91,7 +91,7 @@ We gradually kept achieving [s](https://www.google.com/search?q="sisyphean+task"
 
 </td></tr></table> 
 
-###  <div align="left">&nbsp;&nbsp;&nbsp; Ticker / Recently:</div>
+###  <div align="left">&nbsp;&nbsp;&nbsp; "Ticker" </div>
 
 ###### ❔[**<code><code><code>ImprovedTube controls</code></code></code>** in, under or around the video player or cursor](https://github.com/code4charity/YouTube-Extension/issues/842).  <br> ❔[**<code><code>Meaningful/Most similar extensions</code></code>**? Social-Fixer, Youtube Enhancer, Simplify, ...](https://github.com/code4charity/YouTube-Extension/issues/1016).<br> 📟 We are focused on <code>update, bugs & UX</code> but please keep up your wishes for Features!<code><code><code><code>♡</code></code></code></code><br> 📟 Enjoy **our projects: global** [**<code><code><code>Dark Mode</code></code></code>**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making, ...<br> 📟 **<code>2021</code>:** Firefox, Edge, Opera, Whale added (please try&rate)
 
