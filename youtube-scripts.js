@@ -418,9 +418,9 @@ ImprovedTube.ytElementsHandler = function (node) {
         });
     } else if (name === 'TP-YT-PAPER-BUTTON') {
         if (document.documentElement.dataset.pageType === 'video' && id === 'more' && node.parentNode.parentNode.id === 'container') {
-            this.elements.moreButton = node;
-
-            this.description();
+            setTimeout(function () {
+                ImprovedTube.description(node);
+            }, 750);
         }
     }
 };
@@ -1553,12 +1553,9 @@ ImprovedTube.channelVideosCount = function () {
 4.2.3.3 DESCRIPTION
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.description = function () {
+ImprovedTube.description = function (el) {
     if (this.storage.description === 'expanded') {
-        var button = this.elements.moreButton;
-        setTimeout(function () {
-            button.click();
-        }, 750);
+        el.click();
     }
 };
 
