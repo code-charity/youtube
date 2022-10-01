@@ -1584,8 +1584,7 @@ ImprovedTube.hideDetailButton = function (el) {
                 el[i].setAttribute('id', 'Report-button');
             }
         }
-    }, 30);
-    console.log(el);
+    }, 35);
 };
 
 
