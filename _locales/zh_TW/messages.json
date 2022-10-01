@@ -50,6 +50,9 @@
     "allow60fps": {
         "message": "允許 60fps"
     },
+    "always": {
+        "message": "Always"
+    },
     "alwaysActive": {
         "message": "始終有效"
     },
@@ -182,6 +185,9 @@
     "characterEdgeStyle": {
         "message": "字型邊緣型式"
     },
+    "clip": {
+        "message": "Clip"
+    },
     "clipboard": {
         "message": "剪貼簿"
     },
@@ -301,6 +307,9 @@
     },
     "donate": {
         "message": "捐贈"
+    },
+    "download": {
+        "message": "Download"
     },
     "draggable": {
         "message": "可拖動"
@@ -422,11 +431,11 @@
     "hideAnnotations": {
         "message": "隱藏註解"
     },
+    "hideButtonLabel": {
+        "message": "Hide Button Label"
+    },
     "hideCards": {
         "message": "隱藏資訊卡"
-    },
-    "hideClipButton": {
-        "message": "Hide \"Clip\" button"
     },
     "hideCountryCode": {
         "message": "隱藏國家代號"
@@ -434,11 +443,11 @@
     "hideDate": {
         "message": "隱藏日期"
     },
+    "hideDetailButton": {
+        "message": "Hide Detail Button"
+    },
     "hideDetails": {
         "message": "隱藏細節"
-    },
-    "hideDownloadButton": {
-        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "隱藏結束畫面"
@@ -452,9 +461,6 @@
     "hideGradientBottom": {
         "message": "隱藏底部漸層圖層"
     },
-    "hideMoreButton": {
-        "message": "隱藏「顯示更多」按鈕"
-    },
     "hidePlayerControlsBar": {
         "message": "隱藏播放器控制欄"
     },
@@ -467,26 +473,14 @@
     "hidePlaylist": {
         "message": "隱藏播放清單"
     },
-    "hideReportButton": {
-        "message": "Hide \"Report\" button"
-    },
     "hideRightButtons": {
         "message": "隱藏右側按鈕"
-    },
-    "hideSaveButton": {
-        "message": "隱藏「儲存」按鈕"
     },
     "hideScrollForDetails": {
         "message": "隱藏「向下捲動即可查看詳情」"
     },
-    "hideShareButton": {
-        "message": "隱藏「分享」按鈕"
-    },
     "hideSkipOverlay": {
         "message": "隱藏「跳至區段」按鈕"
-    },
-    "hideThanksButton": {
-        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "隱藏縮圖上的按鈕"
@@ -578,11 +572,11 @@
     "like": {
         "message": "喜歡"
     },
+    "likeAndDislike": {
+        "message": "Like and Dislike "
+    },
     "liked": {
         "message": "Liked"
-    },
-    "likes": {
-        "message": "顯示按讚數量"
     },
     "lime": {
         "message": "萊姆色"
@@ -620,6 +614,9 @@
     "mixer": {
         "message": "音量混合器"
     },
+    "more": {
+        "message": "More"
+    },
     "moveSidebarLeft": {
         "message": "將側邊欄移至右方"
     },
@@ -655,6 +652,9 @@
     },
     "normal": {
         "message": "正常"
+    },
+    "off": {
+        "message": "Off"
     },
     "ok": {
         "message": "Ok"
@@ -788,6 +788,9 @@
     "repeat": {
         "message": "重複播放"
     },
+    "report": {
+        "message": "Report"
+    },
     "reset": {
         "message": "重置"
     },
@@ -847,6 +850,9 @@
     },
     "settingsSuccessfullyImported": {
         "message": "已成功匯入設定"
+    },
+    "share": {
+        "message": "Share"
     },
     "shortcuts": {
         "message": "快捷鍵"
@@ -922,6 +928,9 @@
     },
     "textColor": {
         "message": "文字顏色"
+    },
+    "thanks": {
+        "message": "Thanks"
     },
     "themes": {
         "message": "主題"
@@ -1021,6 +1030,9 @@
     },
     "watchTime": {
         "message": "已觀看時間"
+    },
+    "whenPaused": {
+        "message": "When paused"
     },
     "whenTabIsChanged": {
         "message": "當分頁改變時"
