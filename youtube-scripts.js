@@ -265,7 +265,7 @@ ImprovedTube.ytElementsHandler = function (node) {
         this.improvedtubeYoutubeIcon();
         this.improvedtubeYoutubeButtonsUnderPlayer();
         if(document.documentElement.dataset.pageType === 'video'){
-            this.hideDetailButton(node.querySelectorAll('#info #top-level-buttons-computed ytd-button-renderer'));
+            this.hideDetailButton(node.querySelector('#info #top-level-buttons-computed').children);
         }
     } else if (name === 'YTD-VIDEO-SECONDARY-INFO-RENDERER') {
         this.elements.yt_channel_name = node.querySelector('ytd-channel-name');
@@ -418,9 +418,9 @@ ImprovedTube.ytElementsHandler = function (node) {
         });
     } else if (name === 'TP-YT-PAPER-BUTTON') {
         if (document.documentElement.dataset.pageType === 'video' && id === 'more' && node.parentNode.parentNode.id === 'container') {
-            this.elements.moreButton = node;
-
-            this.description();
+            setTimeout(function () {
+                ImprovedTube.description(node);
+            }, 750);
         }
     }
 };
@@ -1563,12 +1563,10 @@ ImprovedTube.channelVideosCount = function () {
 4.2.3.3 DESCRIPTION
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.description = function () {
+ImprovedTube.description = function (el) {
     if (this.storage.description === 'expanded') {
-        var button = this.elements.moreButton;
-        setTimeout(function () {
-            button.click();
-        }, 750);
+        console.log(el);
+        el.click();
     }
 };
 
@@ -1578,9 +1576,26 @@ ImprovedTube.description = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.hideDetailButton = function (el) {
-    for(var i = 0; i < el.length; i++){
-        el[i].setAttribute('id', el[i].textContent + '-button');
-    }
+    setTimeout(function () {
+        for (var i = 2; i < el.length; i++) {
+            tmp = el[i].querySelector("g.yt-icon path").attributes.d.textContent.split(" ")[0];
+            if (tmp === "M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z") {
+                el[i].setAttribute('id', 'Save-button');
+            }
+            else if (tmp === "M8,7c0,0.55-0.45,1-1,1S6,7.55,6,7c0-0.55,0.45-1,1-1S8,6.45,8,7z") {
+                el[i].setAttribute('id', 'Clip-button');
+            }
+            else if (tmp === "M16.5,3C19.02,3,21,5.19,21,7.99c0,3.7-3.28,6.94-8.25,11.86L12,20.59l-0.74-0.73l-0.04-0.04C6.27,14.92,3,11.69,3,7.99") {
+                el[i].setAttribute('id', 'Thanks-button');
+            }
+            else if (tmp === "M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0.24-1.2L13.42,11H12.6H6V4H13.18") {
+                el[i].setAttribute('id', 'Report-button');
+            }
+            else if (tmp === "M15,5.63L20.66,12L15,18.37V15v-1h-1c-3.96,0-7.14,1-9.75,3.09c1.84-4.07,5.11-6.4,9.89-7.1L15,9.86V9V5.63") {
+                el[i].setAttribute('id', 'Share-button');
+            }
+        }
+    }, 30);
 };
 
 

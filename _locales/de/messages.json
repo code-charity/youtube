@@ -50,6 +50,9 @@
     "allow60fps": {
         "message": "60fps zulassen"
     },
+    "always": {
+        "message": "Always"
+    },
     "alwaysActive": {
         "message": "Immer aktiv"
     },
@@ -182,6 +185,9 @@
     "characterEdgeStyle": {
         "message": "Zeichenumrandung"
     },
+    "clip": {
+        "message": "Clip"
+    },
     "clipboard": {
         "message": "Zwischenablage"
     },
@@ -301,6 +307,9 @@
     },
     "donate": {
         "message": "Spenden"
+    },
+    "download": {
+        "message": "Download"
     },
     "draggable": {
         "message": "Verschiebbar"
@@ -422,11 +431,11 @@
     "hideAnnotations": {
         "message": "Anmerkungen ausblenden"
     },
+    "hideButtonLabel": {
+        "message": "Hide Button Label"
+    },
     "hideCards": {
         "message": "Karten ausblenden"
-    },
-    "hideClipButton": {
-        "message": "Hide \"Clip\" button"
     },
     "hideCountryCode": {
         "message": "Ländercode ausblenden"
@@ -434,11 +443,11 @@
     "hideDate": {
         "message": "Datum ausblenden"
     },
+    "hideDetailButton": {
+        "message": "Hide Detail Button"
+    },
     "hideDetails": {
         "message": "Details ausblenden"
-    },
-    "hideDownloadButton": {
-        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Endkarten ausblenden (Schlussbildschirme)"
@@ -452,9 +461,6 @@
     "hideGradientBottom": {
         "message": "Farbverlauf ausblenden"
     },
-    "hideMoreButton": {
-        "message": "\"Mehr\" Schaltfläche ausblenden"
-    },
     "hidePlayerControlsBar": {
         "message": "Kontrolleiste ausblenden"
     },
@@ -467,26 +473,14 @@
     "hidePlaylist": {
         "message": "Playlists ausblenden"
     },
-    "hideReportButton": {
-        "message": "Hide \"Report\" button"
-    },
     "hideRightButtons": {
         "message": "Rechte Buttons ausblenden"
-    },
-    "hideSaveButton": {
-        "message": "\"Speichern\" Schaltfläche ausblenden"
     },
     "hideScrollForDetails": {
         "message": "„Für Details scrollen“ ausblenden"
     },
-    "hideShareButton": {
-        "message": "\"Teilen\" Schaltfläche ausblenden"
-    },
     "hideSkipOverlay": {
         "message": "Überspringen Overlay ausblenden"
-    },
-    "hideThanksButton": {
-        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Thumbnail Overlay ausblenden"
@@ -578,11 +572,11 @@
     "like": {
         "message": "Like"
     },
+    "likeAndDislike": {
+        "message": "Like and Dislike "
+    },
     "liked": {
         "message": "Liked"
-    },
-    "likes": {
-        "message": "Likes"
     },
     "lime": {
         "message": "Limette"
@@ -620,6 +614,9 @@
     "mixer": {
         "message": "Mischpult"
     },
+    "more": {
+        "message": "More"
+    },
     "moveSidebarLeft": {
         "message": "Seitenleiste nach links verschieben"
     },
@@ -655,6 +652,9 @@
     },
     "normal": {
         "message": "Normal"
+    },
+    "off": {
+        "message": "Off"
     },
     "ok": {
         "message": "Ok"
@@ -788,6 +788,9 @@
     "repeat": {
         "message": "Repeat (Wiederholen)"
     },
+    "report": {
+        "message": "Report"
+    },
     "reset": {
         "message": "Zurücksetzen"
     },
@@ -847,6 +850,9 @@
     },
     "settingsSuccessfullyImported": {
         "message": "Einstellungen erfolgreich importiert!"
+    },
+    "share": {
+        "message": "Share"
     },
     "shortcuts": {
         "message": "Hotkeys"
@@ -922,6 +928,9 @@
     },
     "textColor": {
         "message": "Textfarbe"
+    },
+    "thanks": {
+        "message": "Thanks"
     },
     "themes": {
         "message": "Farbschemen"
@@ -1021,6 +1030,9 @@
     },
     "watchTime": {
         "message": "Verbrauchte Zeit"
+    },
+    "whenPaused": {
+        "message": "When paused"
     },
     "whenTabIsChanged": {
         "message": "Beim Tab-Wechsel"

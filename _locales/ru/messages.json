@@ -50,6 +50,9 @@
     "allow60fps": {
         "message": "Разрешить 60fps"
     },
+    "always": {
+        "message": "Always"
+    },
     "alwaysActive": {
         "message": "Всегда активный"
     },
@@ -182,6 +185,9 @@
     "characterEdgeStyle": {
         "message": "Стиль контура символов"
     },
+    "clip": {
+        "message": "Clip"
+    },
     "clipboard": {
         "message": "Буфер обмена"
     },
@@ -305,6 +311,9 @@
     "donate": {
         "message": "Пожертвовать"
     },
+    "download": {
+        "message": "Download"
+    },
     "draggable": {
         "message": "Перетаскиваемый"
     },
@@ -425,11 +434,11 @@
     "hideAnnotations": {
         "message": "Скрывать аннотации"
     },
+    "hideButtonLabel": {
+        "message": "Hide Button Label"
+    },
     "hideCards": {
         "message": "Скрывать карточки"
-    },
-    "hideClipButton": {
-        "message": "Hide \"Clip\" button"
     },
     "hideCountryCode": {
         "message": "Скрывать код страны"
@@ -437,11 +446,11 @@
     "hideDate": {
         "message": "Скрывать дату видео"
     },
+    "hideDetailButton": {
+        "message": "Hide Detail Button"
+    },
     "hideDetails": {
         "message": "Скрывать подробную информацию"
-    },
-    "hideDownloadButton": {
-        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Скрывать экран после видео"
@@ -455,9 +464,6 @@
     "hideGradientBottom": {
         "message": "Скрывать кнопку градиента"
     },
-    "hideMoreButton": {
-        "message": "Скрывать кнопку \"...\""
-    },
     "hidePlayerControlsBar": {
         "message": "Скрывать панель управления плеером"
     },
@@ -470,26 +476,14 @@
     "hidePlaylist": {
         "message": "Скрывать плейлисты"
     },
-    "hideReportButton": {
-        "message": "Hide \"Report\" button"
-    },
     "hideRightButtons": {
         "message": "Скрывать кнопки (справа)"
-    },
-    "hideSaveButton": {
-        "message": "Скрывать кнопку \"Сохранить\""
     },
     "hideScrollForDetails": {
         "message": "Скрывать «Прокрутите для подробной информации»"
     },
-    "hideShareButton": {
-        "message": "Скрывать кнопку \"Поделиться\""
-    },
     "hideSkipOverlay": {
         "message": "Скрывать наложение \"5 секунд\""
-    },
-    "hideThanksButton": {
-        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Скрывать наложение на превью"
@@ -584,11 +578,11 @@
     "like": {
         "message": "Лайк"
     },
+    "likeAndDislike": {
+        "message": "Like and Dislike "
+    },
     "liked": {
         "message": "Понравившиеся"
-    },
-    "likes": {
-        "message": "Лайки"
     },
     "lime": {
         "message": "Лайм"
@@ -626,6 +620,9 @@
     "mixer": {
         "message": "Миксер"
     },
+    "more": {
+        "message": "More"
+    },
     "moveSidebarLeft": {
         "message": "Сместить боковую панель влево"
     },
@@ -661,6 +658,9 @@
     },
     "normal": {
         "message": "Обычный"
+    },
+    "off": {
+        "message": "Off"
     },
     "ok": {
         "message": "Хорошо"
@@ -794,6 +794,9 @@
     "repeat": {
         "message": "Повтор"
     },
+    "report": {
+        "message": "Report"
+    },
     "reset": {
         "message": "Сбросить"
     },
@@ -853,6 +856,9 @@
     },
     "settingsSuccessfullyImported": {
         "message": "Настройки успешно импортированы"
+    },
+    "share": {
+        "message": "Share"
     },
     "shortcuts": {
         "message": "Горячие клавиши"
@@ -928,6 +934,9 @@
     },
     "textColor": {
         "message": "Цвет текста"
+    },
+    "thanks": {
+        "message": "Thanks"
     },
     "themes": {
         "message": "Темы"
@@ -1027,6 +1036,9 @@
     },
     "watchTime": {
         "message": "Время просмотра"
+    },
+    "whenPaused": {
+        "message": "When paused"
     },
     "whenTabIsChanged": {
         "message": "При смене вкладки"

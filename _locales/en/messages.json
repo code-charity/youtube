@@ -185,6 +185,9 @@
     "characterEdgeStyle": {
         "message": "Character edge style"
     },
+    "clip": {
+        "message": "Clip"
+    },
     "clipboard": {
         "message": "Clipboard"
     },
@@ -304,6 +307,9 @@
     },
     "donate": {
         "message": "Donate"
+    },
+    "download": {
+        "message": "Download"
     },
     "draggable": {
         "message": "Draggable"
@@ -428,11 +434,11 @@
     "hideAnnotations": {
         "message": "Hide annotations"
     },
+    "hideButtonLabel": {
+        "message": "Hide Button Label"
+    },
     "hideCards": {
         "message": "Hide cards"
-    },
-    "hideClipButton": {
-        "message": "Hide \"Clip\" button"
     },
     "hideCountryCode": {
         "message": "Hide country code"
@@ -440,11 +446,11 @@
     "hideDate": {
         "message": "Hide date"
     },
+    "hideDetailButton": {
+        "message": "Hide Detail Button"
+    },
     "hideDetails": {
         "message": "Hide details"
-    },
-    "hideDownloadButton": {
-        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Hide endscreen"
@@ -458,9 +464,6 @@
     "hideGradientBottom": {
         "message": "Hide shadow around player-bar"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
     },
@@ -473,26 +476,14 @@
     "hidePlaylist": {
         "message": "Hide playlist"
     },
-    "hideReportButton": {
-        "message": "Hide \"Report\" button"
-    },
     "hideRightButtons": {
         "message": "Hide right buttons"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
     },
     "hideScrollForDetails": {
         "message": "Hide «Scroll for details»"
     },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideSkipOverlay": {
         "message": "Hide 5 second skip animation"
-    },
-    "hideThanksButton": {
-        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
@@ -584,11 +575,11 @@
     "like": {
         "message": "Like"
     },
+    "likeAndDislike": {
+        "message": "Like and Dislike "
+    },
     "liked": {
         "message": "Liked"
-    },
-    "likes": {
-        "message": "Likes"
     },
     "lime": {
         "message": "Lime"
@@ -626,6 +617,9 @@
     "mixer": {
         "message": "Mixer"
     },
+    "more": {
+        "message": "More"
+    },
     "moveSidebarLeft": {
         "message": "Move sidebar left"
     },
@@ -662,11 +656,11 @@
     "normal": {
         "message": "Normal"
     },
-    "ok": {
-        "message": "Ok"
-    },
     "off": {
         "message": "Off"
+    },
+    "ok": {
+        "message": "Ok"
     },
     "old": {
         "message": "Old"
@@ -797,6 +791,9 @@
     "repeat": {
         "message": "Repeat"
     },
+    "report": {
+        "message": "Report"
+    },
     "reset": {
         "message": "Reset"
     },
@@ -856,6 +853,9 @@
     },
     "settingsSuccessfullyImported": {
         "message": "Settings successfully imported"
+    },
+    "share": {
+        "message": "Share"
     },
     "shortcuts": {
         "message": "Shortcuts"
@@ -931,6 +931,9 @@
     },
     "textColor": {
         "message": "Text color"
+    },
+    "thanks": {
+        "message": "Thanks"
     },
     "themes": {
         "message": "Themes"

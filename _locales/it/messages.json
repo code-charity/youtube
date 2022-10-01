@@ -50,6 +50,9 @@
     "allow60fps": {
         "message": "Permetti 60 fps"
     },
+    "always": {
+        "message": "Always"
+    },
     "alwaysActive": {
         "message": "Sempre attivo"
     },
@@ -182,6 +185,9 @@
     "characterEdgeStyle": {
         "message": "Stile del bordo carattere"
     },
+    "clip": {
+        "message": "Clip"
+    },
     "clipboard": {
         "message": "Appunti"
     },
@@ -301,6 +307,9 @@
     },
     "donate": {
         "message": "Donazione"
+    },
+    "download": {
+        "message": "Download"
     },
     "draggable": {
         "message": "Trascinabile"
@@ -422,11 +431,11 @@
     "hideAnnotations": {
         "message": "Nascondi annotazioni"
     },
+    "hideButtonLabel": {
+        "message": "Hide Button Label"
+    },
     "hideCards": {
         "message": "Nascondi tessere di fine video"
-    },
-    "hideClipButton": {
-        "message": "Hide \"Clip\" button"
     },
     "hideCountryCode": {
         "message": "Nascondi codice paese"
@@ -434,11 +443,11 @@
     "hideDate": {
         "message": "Nascondi data"
     },
+    "hideDetailButton": {
+        "message": "Hide Detail Button"
+    },
     "hideDetails": {
         "message": "Nascondi dettagli"
-    },
-    "hideDownloadButton": {
-        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Nascondi finale video"
@@ -452,9 +461,6 @@
     "hideGradientBottom": {
         "message": "Nascondi fondo gradiente"
     },
-    "hideMoreButton": {
-        "message": "Nascondi bottone \"Altro\""
-    },
     "hidePlayerControlsBar": {
         "message": "Nascondi barra dei controlli del lettore"
     },
@@ -467,26 +473,14 @@
     "hidePlaylist": {
         "message": "Nascondi scaletta"
     },
-    "hideReportButton": {
-        "message": "Hide \"Report\" button"
-    },
     "hideRightButtons": {
         "message": "Nascondi pulsanti sulla destra"
-    },
-    "hideSaveButton": {
-        "message": "Nascondi bottone \"Salva\""
     },
     "hideScrollForDetails": {
         "message": "Nascondi «Scorri per dettagli»"
     },
-    "hideShareButton": {
-        "message": "Nascondi bottone \"Condividi\""
-    },
     "hideSkipOverlay": {
         "message": "Nascondi \"Salta overlay\""
-    },
-    "hideThanksButton": {
-        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Nascondi overlay miniature"
@@ -578,11 +572,11 @@
     "like": {
         "message": "Mi piace"
     },
+    "likeAndDislike": {
+        "message": "Like and Dislike "
+    },
     "liked": {
         "message": "Piaciuto"
-    },
-    "likes": {
-        "message": "Numero di Mi piace"
     },
     "lime": {
         "message": "Lime"
@@ -620,6 +614,9 @@
     "mixer": {
         "message": "Mixer"
     },
+    "more": {
+        "message": "More"
+    },
     "moveSidebarLeft": {
         "message": "Sposta barra laterale a sinistra"
     },
@@ -655,6 +652,9 @@
     },
     "normal": {
         "message": "Standard"
+    },
+    "off": {
+        "message": "Off"
     },
     "ok": {
         "message": "Ok"
@@ -788,6 +788,9 @@
     "repeat": {
         "message": "Ripeti"
     },
+    "report": {
+        "message": "Report"
+    },
     "reset": {
         "message": "Reimposta"
     },
@@ -847,6 +850,9 @@
     },
     "settingsSuccessfullyImported": {
         "message": "Impostazioni importate con successo"
+    },
+    "share": {
+        "message": "Share"
     },
     "shortcuts": {
         "message": "Scorciatoie"
@@ -922,6 +928,9 @@
     },
     "textColor": {
         "message": "Colore testo"
+    },
+    "thanks": {
+        "message": "Thanks"
     },
     "themes": {
         "message": "Temi"
@@ -1021,6 +1030,9 @@
     },
     "watchTime": {
         "message": "Tempo di visione"
+    },
+    "whenPaused": {
+        "message": "When paused"
     },
     "whenTabIsChanged": {
         "message": "Quando si cambia scheda"
