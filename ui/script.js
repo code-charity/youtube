@@ -4456,56 +4456,100 @@ var skeleton = {
 										text: 'hideDate',
 										tags: 'hide,remove'
 									},
-									likes: {
-										component: 'select',
-										text: 'likes',
-
-										options: [{
-											text: 'normal',
-											value: 'normal'
-										}, {
-											text: 'iconsOnly',
-											value: 'icons_only'
-										}, {
-											text: 'hidden',
-											value: 'hidden'
-										}],
-										tags: 'hide,remove'
+									hide_details_button: {
+										component: 'button',
+										text: 'hideDetailButton',
+										on: {
+											click: {
+												component: 'section',
+												variant: 'card',
+												hide_like_button: {
+													component: 'switch',
+													text: 'likeAndDislike',
+													tags: 'hide,remove'
+												},
+												hide_share_button: {
+													component: 'switch',
+													text: 'share',
+													tags: 'hide,remove'
+												},
+												hide_download_button: {
+													component: 'switch',
+													text: 'download',
+													tags: 'hide,remove'
+												},
+												hide_thanks_button: {
+													component: 'switch',
+													text: 'thanks',
+													tags: 'hide,remove'
+												},
+												hide_clip_button: {
+													component: 'switch',
+													text: 'clip',
+													tags: 'hide,remove'
+												},
+												hide_save_button: {
+													component: 'switch',
+													text: 'save',
+													tags: 'hide,remove'
+												},
+												hide_report_button: {
+													component: 'switch',
+													text: 'report',
+													tags: 'hide,remove'
+												},
+												hide_more_button: {
+													component: 'switch',
+													text: 'more',
+													tags: 'hide,remove'
+												}
+											}
+										}
 									},
-									hide_share_button: {
-										component: 'switch',
-										text: 'hideShareButton',
-										tags: 'hide,remove'
-									},
-									hide_download_button: {
-										component: 'switch',
-										text: 'hideDownloadButton',
-										tags: 'hide,remove'
-									},
-									hide_thanks_button: {
-										component: 'switch',
-										text: 'hideThanksButton',
-										tags: 'hide,remove'
-									},
-									hide_clip_button: {
-										component: 'switch',
-										text: 'hideClipButton',
-										tags: 'hide,remove'
-									},
-									hide_save_button: {
-										component: 'switch',
-										text: 'hideSaveButton',
-										tags: 'hide,remove'
-									},
-									hide_report_button: {
-										component: 'switch',
-										text: 'hideReportButton',
-										tags: 'hide,remove'
-									},
-									hide_more_button: {
-										component: 'switch',
-										text: 'hideMoreButton',
-										tags: 'hide,remove'
+									hide_details_button_text: {
+										component: 'button',
+										text: 'hideButtonLabel',
+										on: {
+											click: {
+												component: 'section',
+												variant: 'card',
+												hide_like_button_text: {
+													component: 'switch',
+													text: 'likeAndDislike',
+													tags: 'hide,remove'
+												},
+												hide_like_button_text: {
+													component: 'switch',
+													text: 'likeAndDislike',
+													tags: 'hide,remove'
+												},
+												hide_share_button_text: {
+													component: 'switch',
+													text: 'share',
+													tags: 'hide,remove'
+												},
+												hide_download_button_text: {
+													component: 'switch',
+													text: 'download',
+													tags: 'hide,remove'
+												},
+												hide_thanks_button_text: {
+													component: 'switch',
+													text: 'thanks',
+													tags: 'hide,remove'
+												},
+												hide_clip_button_text: {
+													component: 'switch',
+													text: 'clip',
+													tags: 'hide,remove'
+												},
+												hide_save_button_text: {
+													component: 'switch',
+													text: 'save',
+													tags: 'hide,remove'
+												}
+											}
+										}
 									},
 									description: {
 										component: 'select',
