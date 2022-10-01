@@ -1220,8 +1220,8 @@ html[it-hide-date=true] #count+#info-strings>#dot {
 2.4.5 HIDE SHARE BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-share-button=true] #info #top-level-buttons ytd-button-renderer:nth-child(3),
-html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-renderer:nth-child(3) {
+html[it-hide-share-button=true] #info #top-level-buttons ytd-button-renderer#Share-button,
+html[it-hide-share-button=true] #info #top-level-buttons-computed ytd-button-renderer#Share-button {
 	display: none;
 }
 
