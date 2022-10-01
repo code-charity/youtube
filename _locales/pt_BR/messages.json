@@ -50,6 +50,9 @@
     "allow60fps": {
         "message": "Permitir 60fps"
     },
+    "always": {
+        "message": "Always"
+    },
     "alwaysActive": {
         "message": "Sempre ativo"
     },
@@ -182,6 +185,9 @@
     "characterEdgeStyle": {
         "message": "Estilo da borda de personagem"
     },
+    "clip": {
+        "message": "Clip"
+    },
     "clipboard": {
         "message": "Àrea de transferência"
     },
@@ -301,6 +307,9 @@
     },
     "donate": {
         "message": "Doar"
+    },
+    "download": {
+        "message": "Download"
     },
     "draggable": {
         "message": "Arrastável"
@@ -422,11 +431,11 @@
     "hideAnnotations": {
         "message": "Ocultar anotações"
     },
+    "hideButtonLabel": {
+        "message": "Hide Button Label"
+    },
     "hideCards": {
         "message": "Ocultar cards"
-    },
-    "hideClipButton": {
-        "message": "Hide \"Clip\" button"
     },
     "hideCountryCode": {
         "message": "Ocultar código do país"
@@ -434,11 +443,11 @@
     "hideDate": {
         "message": "Ocultar data"
     },
+    "hideDetailButton": {
+        "message": "Hide Detail Button"
+    },
     "hideDetails": {
         "message": "Ocultar detalhes"
-    },
-    "hideDownloadButton": {
-        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Ocultar tela final"
@@ -452,9 +461,6 @@
     "hideGradientBottom": {
         "message": "Ocultar sombra ao redor da barra do player"
     },
-    "hideMoreButton": {
-        "message": "Ocultar botão \"Mais\""
-    },
     "hidePlayerControlsBar": {
         "message": "Ocultar a barra de controles do player"
     },
@@ -467,23 +473,14 @@
     "hidePlaylist": {
         "message": "Ocultar playlist"
     },
-    "hideReportButton": {
-        "message": "Hide \"Report\" button"
-    },
     "hideRightButtons": {
         "message": "Ocultar botões à direita"
-    },
-    "hideSaveButton": {
-        "message": "Ocultar botão \"Salvar\""
     },
     "hideScrollForDetails": {
         "message": "Ocultar «Rolar para ver detalhes»"
     },
-    "hideShareButton": {
-        "message": "Ocultar botão \"Compartilhar\""
-    },
-    "hideThanksButton": {
-        "message": "Hide \"Thanks\" button"
+    "hideSkipOverlay": {
+        "message": "Hide 5 second skip animation"
     },
     "hideThumbnailOverlay": {
         "message": "Ocultar botões nas miniaturas"
@@ -575,11 +572,11 @@
     "like": {
         "message": "Avaliar!"
     },
+    "likeAndDislike": {
+        "message": "Like and Dislike "
+    },
     "liked": {
         "message": "Avaliado"
-    },
-    "likes": {
-        "message": "Avaliações"
     },
     "lime": {
         "message": "Verde Limão"
@@ -617,6 +614,9 @@
     "mixer": {
         "message": "Mixer"
     },
+    "more": {
+        "message": "More"
+    },
     "moveSidebarLeft": {
         "message": "Mover barra lateral para esquerda"
     },
@@ -652,6 +652,9 @@
     },
     "normal": {
         "message": "Normal"
+    },
+    "off": {
+        "message": "Off"
     },
     "ok": {
         "message": "Ok"
@@ -785,6 +788,9 @@
     "repeat": {
         "message": "Repetir"
     },
+    "report": {
+        "message": "Report"
+    },
     "reset": {
         "message": "Restaurar"
     },
@@ -844,6 +850,9 @@
     },
     "settingsSuccessfullyImported": {
         "message": "Configurações importadas com sucesso"
+    },
+    "share": {
+        "message": "Share"
     },
     "shortcuts": {
         "message": "Atalhos"
@@ -919,6 +928,9 @@
     },
     "textColor": {
         "message": "Cor do texto"
+    },
+    "thanks": {
+        "message": "Thanks"
     },
     "themes": {
         "message": "Temas"
@@ -1018,6 +1030,9 @@
     },
     "watchTime": {
         "message": "Tempo de exibição"
+    },
+    "whenPaused": {
+        "message": "When paused"
     },
     "whenTabIsChanged": {
         "message": "Quando a aba é alterada"

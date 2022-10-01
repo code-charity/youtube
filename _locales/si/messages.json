@@ -182,6 +182,9 @@
     "characterEdgeStyle": {
         "message": "Character edge style"
     },
+    "clip": {
+        "message": "Clip"
+    },
     "clipboard": {
         "message": "Clipboard එක"
     },
@@ -301,6 +304,9 @@
     },
     "donate": {
         "message": "Donate කරන්න"
+    },
+    "download": {
+        "message": "Download"
     },
     "draggable": {
         "message": "Drag කළ හැකි"
@@ -422,11 +428,11 @@
     "hideAnnotations": {
         "message": "Annotations සඟවන්න"
     },
+    "hideButtonLabel": {
+        "message": "Hide Button Label"
+    },
     "hideCards": {
         "message": "Cards සඟවන්න"
-    },
-    "hideClipButton": {
-        "message": "Hide \"Clip\" button"
     },
     "hideCountryCode": {
         "message": "Country code එක හංගන්න"
@@ -434,11 +440,11 @@
     "hideDate": {
         "message": "Date එක හංගන්න"
     },
+    "hideDetailButton": {
+        "message": "Hide Detail Button"
+    },
     "hideDetails": {
         "message": "Details හංගන්න"
-    },
-    "hideDownloadButton": {
-        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Endscreen එක හංගන්න"
@@ -452,9 +458,6 @@
     "hideGradientBottom": {
         "message": "Player-bar එක වටේ තියෙන shadow එක සගවන්න"
     },
-    "hideMoreButton": {
-        "message": "\"More\" button එක සඟවන්න"
-    },
     "hidePlayerControlsBar": {
         "message": "Player controls bar එක සඟවන්න"
     },
@@ -467,26 +470,14 @@
     "hidePlaylist": {
         "message": "Playlist සඟවන්න"
     },
-    "hideReportButton": {
-        "message": "Hide \"Report\" button"
-    },
     "hideRightButtons": {
         "message": "දකුණු පැත්තෙ තියෙන button සඟවන්න"
-    },
-    "hideSaveButton": {
-        "message": "\"Save\" button එක සඟවන්න"
     },
     "hideScrollForDetails": {
         "message": "«Scroll for details» සඟවන්න"
     },
-    "hideShareButton": {
-        "message": "\"Share\" button සඟවන්න"
-    },
     "hideSkipOverlay": {
         "message": "5 seconds skip animation එක සඟවන්න"
-    },
-    "hideThanksButton": {
-        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Thumbnail මත තිබෙන button සඟවන්න"
@@ -578,11 +569,11 @@
     "like": {
         "message": "Like"
     },
+    "likeAndDislike": {
+        "message": "Like and Dislike "
+    },
     "liked": {
         "message": "Liked"
-    },
-    "likes": {
-        "message": "Likes"
     },
     "lime": {
         "message": "Lime"
@@ -619,6 +610,9 @@
     },
     "mixer": {
         "message": "Mixer එක"
+    },
+    "more": {
+        "message": "More"
     },
     "moveSidebarLeft": {
         "message": "Sidebar එක වම් පැත්තට යවන්න"
@@ -788,6 +782,9 @@
     "repeat": {
         "message": "Repeat කරන්න"
     },
+    "report": {
+        "message": "Report"
+    },
     "reset": {
         "message": "Reset කරන්න"
     },
@@ -847,6 +844,9 @@
     },
     "settingsSuccessfullyImported": {
         "message": "සාර්ථකව settings import කරනලදී."
+    },
+    "share": {
+        "message": "Share"
     },
     "shortcuts": {
         "message": "Shortcuts"
@@ -922,6 +922,9 @@
     },
     "textColor": {
         "message": "Text color එක"
+    },
+    "thanks": {
+        "message": "Thanks"
     },
     "themes": {
         "message": "Themes"

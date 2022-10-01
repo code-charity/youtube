@@ -50,6 +50,9 @@
     "allow60fps": {
         "message": "Cho phép 60fps"
     },
+    "always": {
+        "message": "Always"
+    },
     "alwaysActive": {
         "message": "Luôn luôn hoạt động"
     },
@@ -182,6 +185,9 @@
     "characterEdgeStyle": {
         "message": "Kiểu cạnh ký tự"
     },
+    "clip": {
+        "message": "Clip"
+    },
     "clipboard": {
         "message": "Clipboard"
     },
@@ -301,6 +307,9 @@
     },
     "donate": {
         "message": "Quyên tặng"
+    },
+    "download": {
+        "message": "Download"
     },
     "draggable": {
         "message": "Có thể kéo"
@@ -422,11 +431,11 @@
     "hideAnnotations": {
         "message": "Ẩn chú thích"
     },
+    "hideButtonLabel": {
+        "message": "Hide Button Label"
+    },
     "hideCards": {
         "message": "Ẩn thẻ"
-    },
-    "hideClipButton": {
-        "message": "Hide \"Clip\" button"
     },
     "hideCountryCode": {
         "message": "Ẩn mã quốc gia"
@@ -434,11 +443,11 @@
     "hideDate": {
         "message": "Ẩn ngày"
     },
+    "hideDetailButton": {
+        "message": "Hide Detail Button"
+    },
     "hideDetails": {
         "message": "Ẩn chi tiết"
-    },
-    "hideDownloadButton": {
-        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Ẩn màn hình kết thúc"
@@ -452,9 +461,6 @@
     "hideGradientBottom": {
         "message": "Ẩn bóng xung quanh thanh trình phát"
     },
-    "hideMoreButton": {
-        "message": "Ẩn nút \"Thêm\" "
-    },
     "hidePlayerControlsBar": {
         "message": "Ẩn thanh điều khiển trình phát"
     },
@@ -467,26 +473,14 @@
     "hidePlaylist": {
         "message": "Ẩn danh sách phát"
     },
-    "hideReportButton": {
-        "message": "Hide \"Report\" button"
-    },
     "hideRightButtons": {
         "message": "Ẩn các nút bên phải"
-    },
-    "hideSaveButton": {
-        "message": "Ẩn nút \"Lưu\" "
     },
     "hideScrollForDetails": {
         "message": "Ẩn «Cuộn để biết chi tiết»"
     },
-    "hideShareButton": {
-        "message": "Ẩn nút \"Chia sẻ\" "
-    },
     "hideSkipOverlay": {
         "message": "Ẩn hoạt ảnh bỏ qua 5 giây"
-    },
-    "hideThanksButton": {
-        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Ẩn các nút trên hình thu nhỏ"
@@ -578,11 +572,11 @@
     "like": {
         "message": "Thích"
     },
+    "likeAndDislike": {
+        "message": "Like and Dislike "
+    },
     "liked": {
         "message": "Đã thích"
-    },
-    "likes": {
-        "message": "Thích"
     },
     "lime": {
         "message": "Chanh xanh"
@@ -620,6 +614,9 @@
     "mixer": {
         "message": "Mixer"
     },
+    "more": {
+        "message": "More"
+    },
     "moveSidebarLeft": {
         "message": "Di chuyển thanh bên sang trái"
     },
@@ -655,6 +652,9 @@
     },
     "normal": {
         "message": "Bình thường"
+    },
+    "off": {
+        "message": "Off"
     },
     "ok": {
         "message": "Ok"
@@ -788,6 +788,9 @@
     "repeat": {
         "message": "Lặp lại"
     },
+    "report": {
+        "message": "Report"
+    },
     "reset": {
         "message": "Cài đặt lại"
     },
@@ -847,6 +850,9 @@
     },
     "settingsSuccessfullyImported": {
         "message": "Đã nhập thành công cài đặt"
+    },
+    "share": {
+        "message": "Share"
     },
     "shortcuts": {
         "message": "Phím tắt"
@@ -922,6 +928,9 @@
     },
     "textColor": {
         "message": "Màu văn bản"
+    },
+    "thanks": {
+        "message": "Thanks"
     },
     "themes": {
         "message": "Chủ đề"
@@ -1021,6 +1030,9 @@
     },
     "watchTime": {
         "message": "Thời gian xem"
+    },
+    "whenPaused": {
+        "message": "When paused"
     },
     "whenTabIsChanged": {
         "message": "Khi tab được thay đổi"
