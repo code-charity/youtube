@@ -50,6 +50,9 @@
     "allow60fps": {
         "message": "Izinkan 60fps"
     },
+    "always": {
+        "message": "Always"
+    },
     "alwaysActive": {
         "message": "Selalu aktif"
     },
@@ -182,6 +185,9 @@
     "characterEdgeStyle": {
         "message": "Character edge style"
     },
+    "clip": {
+        "message": "Clip"
+    },
     "clipboard": {
         "message": "Clipboard"
     },
@@ -301,6 +307,9 @@
     },
     "donate": {
         "message": "Donasi"
+    },
+    "download": {
+        "message": "Download"
     },
     "draggable": {
         "message": "Dapat diseret"
@@ -422,11 +431,11 @@
     "hideAnnotations": {
         "message": "Sembunyikan penjelasan"
     },
+    "hideButtonLabel": {
+        "message": "Hide Button Label"
+    },
     "hideCards": {
         "message": "Sembunyikan kartu"
-    },
-    "hideClipButton": {
-        "message": "Hide \"Clip\" button"
     },
     "hideCountryCode": {
         "message": "Hide country code"
@@ -434,11 +443,11 @@
     "hideDate": {
         "message": "Hide date"
     },
+    "hideDetailButton": {
+        "message": "Hide Detail Button"
+    },
     "hideDetails": {
         "message": "Sembunyikan detail"
-    },
-    "hideDownloadButton": {
-        "message": "Hide \"Download\" button"
     },
     "hideEndscreen": {
         "message": "Sembunyikan layar akhir"
@@ -452,9 +461,6 @@
     "hideGradientBottom": {
         "message": "Sembunyikan Gradient Bagian Bawah"
     },
-    "hideMoreButton": {
-        "message": "Hide \"More\" button"
-    },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
     },
@@ -467,26 +473,14 @@
     "hidePlaylist": {
         "message": "Sembunyikan daftar putar"
     },
-    "hideReportButton": {
-        "message": "Hide \"Report\" button"
-    },
     "hideRightButtons": {
         "message": "Sembunyikan tombol kanan"
-    },
-    "hideSaveButton": {
-        "message": "Hide \"Save\" button"
     },
     "hideScrollForDetails": {
         "message": "Sembunyikan «gulir untuk detail»"
     },
-    "hideShareButton": {
-        "message": "Hide \"Share\" button"
-    },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
-    },
-    "hideThanksButton": {
-        "message": "Hide \"Thanks\" button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
@@ -578,11 +572,11 @@
     "like": {
         "message": "Suka"
     },
+    "likeAndDislike": {
+        "message": "Like and Dislike "
+    },
     "liked": {
         "message": "Liked"
-    },
-    "likes": {
-        "message": "Suka"
     },
     "lime": {
         "message": "Limau"
@@ -620,6 +614,9 @@
     "mixer": {
         "message": "Mixer"
     },
+    "more": {
+        "message": "More"
+    },
     "moveSidebarLeft": {
         "message": "Move sidebar left"
     },
@@ -655,6 +652,9 @@
     },
     "normal": {
         "message": "Normal"
+    },
+    "off": {
+        "message": "Off"
     },
     "ok": {
         "message": "Ok"
@@ -788,6 +788,9 @@
     "repeat": {
         "message": "Putar ulang"
     },
+    "report": {
+        "message": "Report"
+    },
     "reset": {
         "message": "Setel ulang"
     },
@@ -847,6 +850,9 @@
     },
     "settingsSuccessfullyImported": {
         "message": "Berhasil mengimpor pengaturan"
+    },
+    "share": {
+        "message": "Share"
     },
     "shortcuts": {
         "message": "Pintasan"
@@ -922,6 +928,9 @@
     },
     "textColor": {
         "message": "Warna teks"
+    },
+    "thanks": {
+        "message": "Thanks"
     },
     "themes": {
         "message": "Tema"
@@ -1021,6 +1030,9 @@
     },
     "watchTime": {
         "message": "Waktu tayang"
+    },
+    "whenPaused": {
+        "message": "When paused"
     },
     "whenTabIsChanged": {
         "message": "Saat tab berubah"
