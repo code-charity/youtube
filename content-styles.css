@@ -1158,14 +1158,13 @@ html[it-hide-details=true] #primary-inner .watch-active-metadata {
 
 
 /*--------------------------------------------------------------
-2.4.2 HIDE VIEWS COUNT
+2.4.2 HIDE VIEWS & COMMENTS COUNTS   
 --------------------------------------------------------------*/
 
 html[it-hide-views-count=true] #count,
 html[it-hide-views-count=true] #count+#info-strings>#dot {
 	display: none;
 }
-
 
 /*--------------------------------------------------------------
 2.4.3 HIDE DATE
