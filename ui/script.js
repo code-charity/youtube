@@ -4519,9 +4519,9 @@ var skeleton = {
 													text: 'likeAndDislike',
 													tags: 'hide,remove'
 												},
-												hide_like_button_text: {
+												hide_dislike_button_text: {
 													component: 'switch',
-													text: 'likeAndDislike',
+													text: 'dislike',
 													tags: 'hide,remove'
 												},
 												hide_share_button_text: {
