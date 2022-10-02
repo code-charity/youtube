@@ -4447,21 +4447,11 @@ var skeleton = {
 										tags: 'hide,remove'
 									},
 									hide_views_count: {
-										component: 'select',
+										component: 'switch',
 										text: 'hideViewsCount',									
-										options: [{
-											text: 'normal',
-											value: 'normal'
-										}, {
-											text: 'both',
-											value: 'both'
-										}, {
-											text: 'views count ',
-											value: 'true'
-										}],
 										tags: 'hide,remove'
 									},
-									
+																		
 									hide_date: {
 										component: 'switch',
 										text: 'hideDate',
