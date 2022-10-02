@@ -417,7 +417,7 @@ ImprovedTube.ytElementsHandler = function (node) {
             subtree: false
         });
     } else if (name === 'TP-YT-PAPER-BUTTON') {
-        if (document.documentElement.dataset.pageType === 'video' && id === 'more' && node.parentNode.parentNode.id === 'container') {
+        if (document.documentElement.dataset.pageType === 'video' && id === 'more' || id === 'expand-sizer' && node.parentNode.parentNode.id === 'container') {
             setTimeout(function () {
                 ImprovedTube.description(node);
             }, 750);
@@ -1560,7 +1560,7 @@ ImprovedTube.channelVideosCount = function () {
 
 
 /*------------------------------------------------------------------------------
-4.2.3.3 DESCRIPTION
+4.2.3.3 FZ
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.description = function (el) {
@@ -1579,6 +1579,9 @@ ImprovedTube.hideDetailButton = function (el) {
     setTimeout(function () {
         for (var i = 2; i < el.length; i++) {
             tmp = el[i].querySelector("g.yt-icon path").attributes.d.textContent.split(" ")[0];
+	    if (tmp === "M17,4h-1H6.57C5.5,4,4.59,4.67,4.38,5.61l-1.34,6C2.77,12.85") {
+                el[i].setAttribute('id', 'Dislike');
+            }
             if (tmp === "M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z") {
                 el[i].setAttribute('id', 'Save-button');
             }
