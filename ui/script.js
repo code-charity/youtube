@@ -4563,6 +4563,9 @@ var skeleton = {
 											text: 'expanded',
 											value: 'expanded'
 										}, {
+									       	        text: 'classic',
+											value: 'classic'
+										}, {
 											text: 'hidden',
 											value: 'hidden'
 										}],
