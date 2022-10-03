@@ -317,6 +317,9 @@
     "dropShadow": {
         "message": "Toon Schaduw"
     },
+    "durationWithSpeed": {
+        "message": "Show time remaining with reference to playback speed"
+    },
     "email": {
         "message": "E-mailadres"
     },
