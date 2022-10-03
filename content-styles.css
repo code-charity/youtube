@@ -1289,19 +1289,18 @@ html[it-hide-more-button=true] #info ytd-menu-renderer yt-button-shape#button-sh
 2.4.12 DESCRIPTION
 --------------------------------------------------------------*/
 
+html[it-description=hidden] #description,
 html[it-description=hidden] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
 html[it-description=hidden] div#action-panel-details,
 ytd-watch-flexy #info-contents, ytd-watch-flexy #meta-contents {
 	display: none !important;
 }
 
-html[it-description=classic] ytd-watch-metadata,
-html[it-description=expanded] ytd-watch-metadata {
+html[it-description=classic] ytd-watch-metadata {
 	display: none !important;
 }
 
-html[it-description=classic] ytd-watch-flexy #info-contents, ytd-watch-flexy #meta-contents,
-html[it-description=expanded] ytd-watch-flexy #info-contents, ytd-watch-flexy #meta-contents {
+html[it-description=classic] ytd-watch-flexy #info-contents, ytd-watch-flexy #meta-contents {
 	display: block !important;
 }
 
