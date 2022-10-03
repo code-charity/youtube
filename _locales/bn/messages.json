@@ -317,6 +317,9 @@
     "dropShadow": {
         "message": "ছায়া ফেলে দিন"
     },
+    "durationWithSpeed": {
+        "message": "Show time remaining with reference to playback speed"
+    },
     "email": {
         "message": "ইমেল"
     },
