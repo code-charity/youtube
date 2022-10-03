@@ -1196,6 +1196,11 @@ html[it-hide-date=true] #count+#info-strings>#dot {
 	display: none;
 }
 
+[it-hide-dislike-button-text=true] #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(2) div.cbox,
+[it-hide-dislike-button-text=true] #top-level-buttons ytd-toggle-button-renderer:nth-child(2) div.cbox  {
+	display: none;
+}
+
 /*--------------------------------------------------------------
 2.4.5 HIDE SHARE BUTTON
 --------------------------------------------------------------*/
