@@ -314,6 +314,9 @@
     "dropShadow": {
         "message": "හෙවනැල්ල"
     },
+    "durationWithSpeed": {
+        "message": "Show time remaining with reference to playback speed"
+    },
     "email": {
         "message": "Email එක"
     },

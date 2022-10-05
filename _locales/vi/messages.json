@@ -317,6 +317,9 @@
     "dropShadow": {
         "message": "Bóng đổ"
     },
+    "durationWithSpeed": {
+        "message": "Show time remaining with reference to playback speed"
+    },
     "email": {
         "message": "Email"
     },

@@ -320,6 +320,9 @@
     "dropShadow": {
         "message": "Отбрасывемая тень"
     },
+    "durationWithSpeed": {
+        "message": "Show time remaining with reference to playback speed"
+    },
     "email": {
         "message": "E-mail"
     },

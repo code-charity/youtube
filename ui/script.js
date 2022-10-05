@@ -4329,6 +4329,11 @@ var skeleton = {
 										text: 'showRemainingDuration',
 										value: false
 									},
+									duration_with_speed: {
+										component: 'switch',
+										text: 'durationWithSpeed',
+										value: false
+									},
 									always_show_progress_bar: {
 										component: 'switch',
 										text: 'alwaysShowProgressBar'

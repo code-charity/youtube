@@ -317,6 +317,9 @@
     "dropShadow": {
         "message": "Drop shadow"
     },
+    "durationWithSpeed": {
+        "message": "Show time remaining with reference to playback speed"
+    },
     "email": {
         "message": "E-mail"
     },
