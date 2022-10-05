@@ -314,6 +314,9 @@
     "dropShadow": {
         "message": "परछाई डालना"
     },
+    "durationWithSpeed": {
+        "message": "Show time remaining with reference to playback speed"
+    },
     "email": {
         "message": "ईमेल"
     },
