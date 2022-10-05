@@ -317,6 +317,9 @@
     "dropShadow": {
         "message": "投射陰影"
     },
+    "durationWithSpeed": {
+        "message": "Show time remaining with reference to playback speed"
+    },
     "email": {
         "message": "Email"
     },
