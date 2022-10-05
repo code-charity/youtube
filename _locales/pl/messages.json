@@ -51,7 +51,7 @@
         "message": "Zezwól na 60fps"
     },
     "always": {
-        "message": "Always"
+        "message": "Zawsze"
     },
     "alwaysActive": {
         "message": "Zawsze aktywne"
@@ -435,7 +435,7 @@
         "message": "Ukryj adnotacje"
     },
     "hideButtonLabel": {
-        "message": "Hide Button Label"
+        "message": "Ukryj etykiete przycisku"
     },
     "hideCards": {
         "message": "Ukryj karty"
@@ -447,7 +447,7 @@
         "message": "Ukryj datę"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Ukryj przycisk Szczegóły"
     },
     "hideDetails": {
         "message": "Ukryj szczegóły"
@@ -657,7 +657,7 @@
         "message": "Normalny"
     },
     "off": {
-        "message": "Off"
+        "message": "Wyłączone"
     },
     "ok": {
         "message": "Ok"
@@ -855,7 +855,7 @@
         "message": "Ustawienia pomyślnie zaimportowane"
     },
     "share": {
-        "message": "Share"
+        "message": "Udostępnij"
     },
     "shortcuts": {
         "message": "Skróty"
@@ -996,7 +996,7 @@
         "message": "Na czasie"
     },
     "tryToReloadThePage": {
-        "message": "Spróbuj przeładować stronę"
+        "message": "Spróbuj odświeżyć stronę"
     },
     "type": {
         "message": "Typ"
@@ -1035,7 +1035,7 @@
         "message": "Czas oglądania"
     },
     "whenPaused": {
-        "message": "When paused"
+        "message": "Kiedy wideo jest zatrzymane"
     },
     "whenTabIsChanged": {
         "message": "Kiedy zostaje zmieniona karta"
