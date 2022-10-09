@@ -1,0 +1,8 @@
+/*--------------------------------------------------------------
+>>> PLAYER
+--------------------------------------------------------------*/
+
+#forced-volume:not([data-value='true']) + .satus-slider,
+#forced-playback-speed:not([data-value='true']) + .satus-slider {
+	display: none;
+}
