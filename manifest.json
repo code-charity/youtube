@@ -6,10 +6,10 @@
 	"version": "4.0",
 	"default_locale": "en",
 	"icons": {
-		"128": "icons/128.png",
-		"16": "icons/16.png",
-		"32": "icons/32.png",
-		"48": "icons/48.png"
+		"128": "assets/icons/128.png",
+		"16": "assets/icons/16.png",
+		"32": "assets/icons/32.png",
+		"48": "assets/icons/48.png"
 	},
 	"background": {
 		"scripts": [
@@ -17,9 +17,9 @@
 		]
 	},
 	"browser_action": {
-		"default_popup": "ui/popup.html"
+		"default_popup": "options-page/index.html"
 	},
-	"options_page": "ui/options.html",
+	"options_page": "options-page/index.html",
 	"content_scripts": [
 		{
 			"all_frames": true,
@@ -37,31 +37,6 @@
 			],
 			"matches": [
 				"https://www.youtube.com/*"
-			],
-			"run_at": "document_start"
-		},
-		{
-			"all_frames": true,
-			"css": [
-				"ui/satus/satus.css",
-				"ui/styles.css"
-			],
-			"js": [
-				"ui/satus/satus.js",
-				"ui/script.js"
-			],
-			"matches": [
-				"https://www.youtube.com/improvedtube"
-			],
-			"run_at": "document_end"
-		},
-		{
-			"all_frames": true,
-			"js": [
-				"ui/page.js"
-			],
-			"matches": [
-				"https://www.youtube.com/improvedtube"
 			],
 			"run_at": "document_start"
 		}

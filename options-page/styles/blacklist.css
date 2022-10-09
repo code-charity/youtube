@@ -1,0 +1,22 @@
+/*--------------------------------------------------------------
+>>> BLACKLIST
+--------------------------------------------------------------*/
+
+.satus-div--blacklist> :first-child {
+	overflow: hidden;
+
+	white-space: nowrap;
+	text-overflow: ellipsis;
+
+	flex: 1;
+}
+
+.satus-div--blacklist>button {
+	height: 32px;
+	margin: 0 0 0 12px;
+	padding: 6px;
+}
+
+.satus-div--blacklist:not(:hover)>button {
+	display: none;
+}

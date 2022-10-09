@@ -1,0 +1,372 @@
+/*--------------------------------------------------------------
+>>> SHURTCUTS
+--------------------------------------------------------------*/
+
+extension.skeleton.main.layers.section.shortcuts = {
+	component: 'button',
+	variant: 'shortcuts',
+	category: true,
+	on: {
+		click: {
+			playerSection: {
+				component: 'section',
+				variant: 'card',
+				title: 'player',
+
+				shortcut_quality: {
+					component: 'button',
+					text: 'quality',
+					on: {
+						click: {
+							component: 'section',
+							variant: 'card',
+
+							shortcut_auto: {
+								component: 'shortcut',
+								text: 'auto'
+							},
+							shortcut_144p: {
+								component: 'shortcut',
+								text: '144p'
+							},
+							shortcut_240p: {
+								component: 'shortcut',
+								text: '240p'
+							},
+							shortcut_360p: {
+								component: 'shortcut',
+								text: '360p'
+							},
+							shortcut_480p: {
+								component: 'shortcut',
+								text: '480p'
+							},
+							shortcut_720p: {
+								component: 'shortcut',
+								text: '720p'
+							},
+							shortcut_1080p: {
+								component: 'shortcut',
+								text: '1080p'
+							},
+							shortcut_1440p: {
+								component: 'shortcut',
+								text: '1440p'
+							},
+							shortcut_2160p: {
+								component: 'shortcut',
+								text: '2160p'
+							},
+							shortcut_2880p: {
+								component: 'shortcut',
+								text: '2880p'
+							},
+							shortcut_4320p: {
+								component: 'shortcut',
+								text: '4320p'
+							}
+						}
+					}
+				},
+				volume: {
+					component: 'button',
+					text: 'volume',
+					on: {
+						click: {
+							section_1: {
+								component: 'section',
+								variant: 'card',
+
+								volume_step: {
+									component: 'slider',
+									text: 'step',
+									min: 1,
+									max: 10,
+									step: 1,
+									value: 5,
+									storage: 'shortcut_volume_step'
+								}
+							},
+
+							section_2: {
+								component: 'section',
+								variant: 'card',
+
+								increase_volume: {
+									component: 'shortcut',
+									text: 'increaseVolume',
+									storage: 'shortcut_increase_volume',
+									value: {
+										keys: {
+											38: {
+												key: 'ArrowUp'
+											}
+										}
+									}
+								},
+								decrease_volume: {
+									component: 'shortcut',
+									text: 'decreaseVolume',
+									storage: 'shortcut_decrease_volume',
+									value: {
+										keys: {
+											40: {
+												key: 'ArrowDown'
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				playback_speed: {
+					component: 'button',
+					text: 'playbackSpeed',
+					on: {
+						click: {
+							section_step: {
+								component: 'section',
+								variant: 'card',
+
+								playback_speed_step: {
+									component: 'slider',
+									text: 'step',
+									min: .05,
+									max: .5,
+									step: .05,
+									value: .05,
+									storage: 'shortcut_playback_speed_step'
+								}
+							},
+
+							section: {
+								component: 'section',
+								variant: 'card',
+
+								increase_playback_speed: {
+									component: 'shortcut',
+									text: 'increasePlaybackSpeed',
+									storage: 'shortcut_increase_playback_speed',
+									value: {
+										keys: {
+											188: {
+												key: '<'
+											}
+										}
+									}
+								},
+								decrease_playback_speed: {
+									component: 'shortcut',
+									text: 'decreasePlaybackSpeed',
+									storage: 'shortcut_decrease_playback_speed',
+									value: {
+										keys: {
+											190: {
+												key: '>'
+											}
+										}
+									}
+								},
+								reset_playback_speed: {
+									component: 'shortcut',
+									text: 'reset',
+									storage: 'shortcut_reset_playback_speed'
+								}
+							}
+						}
+					}
+				},
+				shortcut_play_pause: {
+					component: 'shortcut',
+					text: 'playPause',
+					value: {
+						keys: {
+							32: {
+								code: 'space'
+							}
+						}
+					}
+				},
+				shortcut_stop: {
+					component: 'shortcut',
+					text: 'stop'
+				},
+				shortcut_seek_backward: {
+					component: 'shortcut',
+					text: 'seekBackward10Seconds',
+					value: {
+						keys: {
+							74: {
+								key: 'j'
+							}
+						}
+					}
+				},
+				shortcut_seek_forward: {
+					component: 'shortcut',
+					text: 'seekForward10Seconds',
+					value: {
+						keys: {
+							76: {
+								key: 'l'
+							}
+						}
+					}
+				},
+				shortcut_seek_next_chapter: {
+					component: 'shortcut',
+					text: 'seekNextChapter'
+				},
+				shortcut_seek_previous_chapter: {
+					component: 'shortcut',
+					text: 'seekPreviousChapter'
+				},
+				shortcut_next_video: {
+					component: 'shortcut',
+					text: 'nextVideo',
+					value: {
+						shift: true,
+						keys: {
+							78: {
+								key: 'n'
+							}
+						}
+					}
+				},
+				shortcut_prev_video: {
+					component: 'shortcut',
+					text: 'previousVideo',
+					value: {
+						shift: true,
+						keys: {
+							80: {
+								key: 'p'
+							}
+						}
+					}
+				},
+				shortcut_activate_fullscreen: {
+					component: 'shortcut',
+					text: 'activateFullscreen',
+					value: {
+						keys: {
+							70: {
+								key: 'f'
+							}
+						}
+					}
+				},
+				shortcut_activate_captions: {
+					component: 'shortcut',
+					text: 'activateCaptions',
+					value: {
+						keys: {
+							67: {
+								key: 'c'
+							}
+						}
+					}
+				},
+				shortcut_toggle_cards: {
+					component: 'shortcut',
+					text: 'toggleCards'
+				},
+				shortcut_popup_player: {
+					component: 'shortcut',
+					text: 'popupPlayer'
+				},
+				shortcut_stats_for_nerds: {
+					component: 'shortcut',
+					text: 'statsForNerds'
+				}
+			},
+			section: {
+				component: 'section',
+				variant: 'card',
+
+				picture_in_picture: {
+					component: 'shortcut',
+					text: 'pictureInPicture',
+					storage: 'shortcut_picture_in_picture'
+				},
+				shortcut_screenshot: {
+					component: 'shortcut',
+					text: 'screenshot'
+				},
+				shortcut_toggle_controls: {
+					component: 'shortcut',
+					text: 'toggleControls'
+				},
+				shortcut_toggle_autoplay: {
+					component: 'shortcut',
+					text: 'toggleAutoplay'
+				},
+				shortcut_custom_mini_player: {
+					component: 'shortcut',
+					text: 'customMiniPlayer',
+					value: {
+						keys: {
+							73: {
+								key: 'i'
+							}
+						}
+					}
+				},
+				shortcut_go_to_search_box: {
+					component: 'shortcut',
+					text: 'goToSearchBox',
+					value: {
+						keys: {
+							191: {
+								key: '/'
+							}
+						}
+					}
+				},
+				shortcut_like_shortcut: {
+					component: 'shortcut',
+					text: 'like'
+				},
+				shortcut_dislike_shortcut: {
+					component: 'shortcut',
+					text: 'dislike'
+				},
+				shortcut_subscribe: {
+					component: 'shortcut',
+					text: 'subscribe'
+				},
+				shortcut_dark_theme: {
+					component: 'shortcut',
+					text: 'darkTheme'
+				}
+			}
+		}
+	},
+
+	icon: {
+		component: 'span',
+
+		svg: {
+			component: 'svg',
+			attr: {
+				'viewBox': '0 0 24 24',
+				'fill': 'transparent',
+				'stroke': 'currentColor',
+				'stroke-linecap': 'round',
+				'stroke-width': '1.75'
+			},
+
+			path: {
+				component: 'path',
+				attr: {
+					'd': 'M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z'
+				}
+			}
+		}
+	},
+	label: {
+		component: 'span',
+		text: 'shortcuts'
+	}
+};
