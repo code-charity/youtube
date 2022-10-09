@@ -1,0 +1,31 @@
+/*--------------------------------------------------------------
+>>> SETTINGS:
+----------------------------------------------------------------
+# Animations
+# Email
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# ANIMATIONS
+--------------------------------------------------------------*/
+
+[layer-animation-scale='0'] .satus-layers__layer {
+	animation-duration: 0s !important
+}
+
+
+/*--------------------------------------------------------------
+# EMAIL
+--------------------------------------------------------------*/
+
+.satus-button--email {
+	display: flex;
+	height: auto;
+	margin: auto;
+	padding: 8px;
+	cursor: pointer;
+	text-align: center;
+	letter-spacing: .125px;
+	color: var(--satus-primary);
+	justify-content: center
+}
