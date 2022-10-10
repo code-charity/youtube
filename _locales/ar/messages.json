@@ -65,6 +65,9 @@
     "analyzer": {
         "message": "المحلل"
     },
+    "animations": {
+        "message": "Animations"
+    },
     "appearance": {
         "message": "المظهر العام"
     },
@@ -416,6 +419,9 @@
     "green": {
         "message": "أخضر"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -443,6 +449,12 @@
     "hideCards": {
         "message": "إخفاء البطاقات"
     },
+    "hideCategories": {
+        "message": "Hide categories"
+    },
+    "hideClipButton": {
+        "message": "Hide clip button"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -454,6 +466,9 @@
     },
     "hideDetails": {
         "message": "إخفاء التفاصيل"
+    },
+    "hideDownloadButton": {
+        "message": "Hide download button"
     },
     "hideEndscreen": {
         "message": "إخفاء شاشة النهاية"
@@ -467,6 +482,9 @@
     "hideGradientBottom": {
         "message": "إخفاء التدرج الأسود السفلي"
     },
+    "hideMoreButton": {
+        "message": "Hide more button"
+    },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
     },
@@ -479,14 +497,26 @@
     "hidePlaylist": {
         "message": "إخفاء قائمة التشغيل"
     },
+    "hideReportButton": {
+        "message": "Hide report button"
+    },
     "hideRightButtons": {
         "message": "إخفاء الأزرار اليسرى"
+    },
+    "hideSaveButton": {
+        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "«إخفاء «التمرير للحصول على التفاصيل"
     },
+    "hideShareButton": {
+        "message": "Hide share button"
+    },
     "hideSkipOverlay": {
         "message": "Hide 5 second skip animation"
+    },
+    "hideThanksButton": {
+        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
@@ -563,6 +593,12 @@
     "languages": {
         "message": "اللغات"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": "اليوتيوب القديم"
     },
@@ -586,6 +622,9 @@
     },
     "liked": {
         "message": "Liked"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "جير"
@@ -626,6 +665,9 @@
     "more": {
         "message": "More"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "Move sidebar left"
     },
@@ -649,6 +691,9 @@
     },
     "night": {
         "message": "ليل"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "لا يوجد ميزات نشطة"
@@ -881,11 +926,17 @@
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
+    "showVersion": {
+        "message": "Show version"
+    },
     "shuffle": {
         "message": "عشوائي"
     },
     "sidebar": {
         "message": "الشريط الجانبي"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "مفتاح المسافة"

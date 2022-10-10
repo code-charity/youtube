@@ -65,6 +65,9 @@
     "analyzer": {
         "message": "Pengnalisa"
     },
+    "animations": {
+        "message": "Animations"
+    },
     "appearance": {
         "message": "Tampilan"
     },
@@ -413,6 +416,9 @@
     "green": {
         "message": "Hijau"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -440,6 +446,12 @@
     "hideCards": {
         "message": "Sembunyikan kartu"
     },
+    "hideCategories": {
+        "message": "Hide categories"
+    },
+    "hideClipButton": {
+        "message": "Hide clip button"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -451,6 +463,9 @@
     },
     "hideDetails": {
         "message": "Sembunyikan detail"
+    },
+    "hideDownloadButton": {
+        "message": "Hide download button"
     },
     "hideEndscreen": {
         "message": "Sembunyikan layar akhir"
@@ -464,6 +479,9 @@
     "hideGradientBottom": {
         "message": "Sembunyikan Gradient Bagian Bawah"
     },
+    "hideMoreButton": {
+        "message": "Hide more button"
+    },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
     },
@@ -476,14 +494,26 @@
     "hidePlaylist": {
         "message": "Sembunyikan daftar putar"
     },
+    "hideReportButton": {
+        "message": "Hide report button"
+    },
     "hideRightButtons": {
         "message": "Sembunyikan tombol kanan"
+    },
+    "hideSaveButton": {
+        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "Sembunyikan «gulir untuk detail»"
     },
+    "hideShareButton": {
+        "message": "Hide share button"
+    },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
+    },
+    "hideThanksButton": {
+        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
@@ -557,6 +587,12 @@
     "languages": {
         "message": "Bahasa"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": "YouTube lama"
     },
@@ -580,6 +616,9 @@
     },
     "liked": {
         "message": "Liked"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "Limau"
@@ -620,6 +659,9 @@
     "more": {
         "message": "More"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "Move sidebar left"
     },
@@ -643,6 +685,9 @@
     },
     "night": {
         "message": "Malam"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "Tidak ada fitur aktif"
@@ -875,11 +920,17 @@
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
+    "showVersion": {
+        "message": "Show version"
+    },
     "shuffle": {
         "message": "Putar secara acak"
     },
     "sidebar": {
         "message": "Bilah samping"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "Bilah spasi"

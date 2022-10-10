@@ -65,6 +65,9 @@
     "analyzer": {
         "message": "觀看紀錄"
     },
+    "animations": {
+        "message": "Animations"
+    },
     "appearance": {
         "message": "外觀"
     },
@@ -413,6 +416,9 @@
     "green": {
         "message": "綠色"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -440,6 +446,12 @@
     "hideCards": {
         "message": "隱藏資訊卡"
     },
+    "hideCategories": {
+        "message": "Hide categories"
+    },
+    "hideClipButton": {
+        "message": "Hide clip button"
+    },
     "hideCountryCode": {
         "message": "隱藏國家代號"
     },
@@ -451,6 +463,9 @@
     },
     "hideDetails": {
         "message": "隱藏細節"
+    },
+    "hideDownloadButton": {
+        "message": "Hide download button"
     },
     "hideEndscreen": {
         "message": "隱藏結束畫面"
@@ -464,6 +479,9 @@
     "hideGradientBottom": {
         "message": "隱藏底部漸層圖層"
     },
+    "hideMoreButton": {
+        "message": "Hide more button"
+    },
     "hidePlayerControlsBar": {
         "message": "隱藏播放器控制欄"
     },
@@ -476,14 +494,26 @@
     "hidePlaylist": {
         "message": "隱藏播放清單"
     },
+    "hideReportButton": {
+        "message": "Hide report button"
+    },
     "hideRightButtons": {
         "message": "隱藏右側按鈕"
+    },
+    "hideSaveButton": {
+        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "隱藏「向下捲動即可查看詳情」"
     },
+    "hideShareButton": {
+        "message": "Hide share button"
+    },
     "hideSkipOverlay": {
         "message": "隱藏「跳至區段」按鈕"
+    },
+    "hideThanksButton": {
+        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "隱藏縮圖上的按鈕"
@@ -557,6 +587,12 @@
     "languages": {
         "message": "語言"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": "舊版 YouTube"
     },
@@ -580,6 +616,9 @@
     },
     "liked": {
         "message": "Liked"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "萊姆色"
@@ -620,6 +659,9 @@
     "more": {
         "message": "More"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "將側邊欄移至右方"
     },
@@ -643,6 +685,9 @@
     },
     "night": {
         "message": "夜晚"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "無已啟用功能"
@@ -875,11 +920,17 @@
     "showRemainingDuration": {
         "message": "顯示影片剩餘時間"
     },
+    "showVersion": {
+        "message": "Show version"
+    },
     "shuffle": {
         "message": "隨機播放"
     },
     "sidebar": {
         "message": "側邊欄"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "空白鍵"
