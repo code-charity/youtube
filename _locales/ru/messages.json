@@ -65,6 +65,9 @@
     "analyzer": {
         "message": "Анализатор"
     },
+    "animations": {
+        "message": "Animations"
+    },
     "appearance": {
         "message": "Внешний вид"
     },
@@ -416,6 +419,9 @@
     "green": {
         "message": "Зеленый"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -443,6 +449,12 @@
     "hideCards": {
         "message": "Скрывать карточки"
     },
+    "hideCategories": {
+        "message": "Hide categories"
+    },
+    "hideClipButton": {
+        "message": "Hide clip button"
+    },
     "hideCountryCode": {
         "message": "Скрывать код страны"
     },
@@ -454,6 +466,9 @@
     },
     "hideDetails": {
         "message": "Скрывать подробную информацию"
+    },
+    "hideDownloadButton": {
+        "message": "Hide download button"
     },
     "hideEndscreen": {
         "message": "Скрывать экран после видео"
@@ -467,6 +482,9 @@
     "hideGradientBottom": {
         "message": "Скрывать кнопку градиента"
     },
+    "hideMoreButton": {
+        "message": "Hide more button"
+    },
     "hidePlayerControlsBar": {
         "message": "Скрывать панель управления плеером"
     },
@@ -479,14 +497,26 @@
     "hidePlaylist": {
         "message": "Скрывать плейлисты"
     },
+    "hideReportButton": {
+        "message": "Hide report button"
+    },
     "hideRightButtons": {
         "message": "Скрывать кнопки (справа)"
+    },
+    "hideSaveButton": {
+        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "Скрывать «Прокрутите для подробной информации»"
     },
+    "hideShareButton": {
+        "message": "Hide share button"
+    },
     "hideSkipOverlay": {
         "message": "Скрывать наложение \"5 секунд\""
+    },
+    "hideThanksButton": {
+        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Скрывать наложение на превью"
@@ -563,6 +593,12 @@
     "languages": {
         "message": "Языки"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": "Старая версия YouTube"
     },
@@ -586,6 +622,9 @@
     },
     "liked": {
         "message": "Понравившиеся"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "Лайм"
@@ -626,6 +665,9 @@
     "more": {
         "message": "More"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "Сместить боковую панель влево"
     },
@@ -649,6 +691,9 @@
     },
     "night": {
         "message": "Ночь"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "Нет активных функций"
@@ -881,11 +926,17 @@
     "showRemainingDuration": {
         "message": "Показать время до конца видео"
     },
+    "showVersion": {
+        "message": "Show version"
+    },
     "shuffle": {
         "message": "Перемешать"
     },
     "sidebar": {
         "message": "Боковая панель"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "Пробел"

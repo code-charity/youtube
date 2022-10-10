@@ -65,6 +65,9 @@
     "analyzer": {
         "message": "분석"
     },
+    "animations": {
+        "message": "Animations"
+    },
     "appearance": {
         "message": "외관"
     },
@@ -413,6 +416,9 @@
     "green": {
         "message": "초록"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -440,6 +446,12 @@
     "hideCards": {
         "message": "카드 숨기기"
     },
+    "hideCategories": {
+        "message": "Hide categories"
+    },
+    "hideClipButton": {
+        "message": "Hide clip button"
+    },
     "hideCountryCode": {
         "message": "국가코드 숨기기"
     },
@@ -451,6 +463,9 @@
     },
     "hideDetails": {
         "message": "상세설명 숨기기"
+    },
+    "hideDownloadButton": {
+        "message": "Hide download button"
     },
     "hideEndscreen": {
         "message": "종료후 화면 숨기기"
@@ -464,6 +479,9 @@
     "hideGradientBottom": {
         "message": "그라데이션 맨 아래로 숨기기"
     },
+    "hideMoreButton": {
+        "message": "Hide more button"
+    },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
     },
@@ -476,14 +494,26 @@
     "hidePlaylist": {
         "message": "재생 목록 숨기기"
     },
+    "hideReportButton": {
+        "message": "Hide report button"
+    },
     "hideRightButtons": {
         "message": "오른쪽 버튼 숨기기"
+    },
+    "hideSaveButton": {
+        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "«스크롤 하여 자세한 설명» 숨기기"
     },
+    "hideShareButton": {
+        "message": "Hide share button"
+    },
     "hideSkipOverlay": {
         "message": "\"오버레이 건너뛰기\" 숨기기"
+    },
+    "hideThanksButton": {
+        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
@@ -557,6 +587,12 @@
     "languages": {
         "message": "언어"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": "레거시 유튜브"
     },
@@ -580,6 +616,9 @@
     },
     "liked": {
         "message": "Liked"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "라임"
@@ -620,6 +659,9 @@
     "more": {
         "message": "More"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "Move sidebar left"
     },
@@ -643,6 +685,9 @@
     },
     "night": {
         "message": "저녘"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "활성 기능 없음"
@@ -875,11 +920,17 @@
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
+    "showVersion": {
+        "message": "Show version"
+    },
     "shuffle": {
         "message": "셔플"
     },
     "sidebar": {
         "message": "사이드바"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "스페이스바"

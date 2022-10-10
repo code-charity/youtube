@@ -62,6 +62,9 @@
     "analyzer": {
         "message": "विश्लेषक"
     },
+    "animations": {
+        "message": "Animations"
+    },
     "appearance": {
         "message": "दिखावट"
     },
@@ -410,6 +413,9 @@
     "green": {
         "message": "हरा"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -437,6 +443,12 @@
     "hideCards": {
         "message": "पत्ते छिपाओ"
     },
+    "hideCategories": {
+        "message": "Hide categories"
+    },
+    "hideClipButton": {
+        "message": "Hide clip button"
+    },
     "hideCountryCode": {
         "message": "देश कोड छुपाएं"
     },
@@ -448,6 +460,9 @@
     },
     "hideDetails": {
         "message": "जानकारी छिपाएँ"
+    },
+    "hideDownloadButton": {
+        "message": "Hide download button"
     },
     "hideEndscreen": {
         "message": "अंत स्क्रीन छिपाएँ"
@@ -461,6 +476,9 @@
     "hideGradientBottom": {
         "message": "ग्रेडिएंट बॉटम छुपाएं"
     },
+    "hideMoreButton": {
+        "message": "Hide more button"
+    },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
     },
@@ -473,14 +491,26 @@
     "hidePlaylist": {
         "message": "प्लेलिस्ट छिपाएं"
     },
+    "hideReportButton": {
+        "message": "Hide report button"
+    },
     "hideRightButtons": {
         "message": "दाएं बटन छुपाएं"
+    },
+    "hideSaveButton": {
+        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "छिपाएँ «विवरण के लिए स्क्रॉल»"
     },
+    "hideShareButton": {
+        "message": "Hide share button"
+    },
     "hideSkipOverlay": {
         "message": "स्किप ओवरले छुपाएं"
+    },
+    "hideThanksButton": {
+        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
@@ -554,6 +584,12 @@
     "languages": {
         "message": "बोली"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": "विरासत यूट्यूब"
     },
@@ -577,6 +613,9 @@
     },
     "liked": {
         "message": "Liked"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "पीला हरा रंग"
@@ -617,6 +656,9 @@
     "more": {
         "message": "More"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "Move sidebar left"
     },
@@ -640,6 +682,9 @@
     },
     "night": {
         "message": "रात"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "कोई सक्रिय सुविधाएँ नहीं"
@@ -869,11 +914,17 @@
     "showRemainingDuration": {
         "message": "वीडियो की बची हुई अवधि दिखाएं"
     },
+    "showVersion": {
+        "message": "Show version"
+    },
     "shuffle": {
         "message": "मिश्रण"
     },
     "sidebar": {
         "message": "साइडबार"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "स्पेस बार"
