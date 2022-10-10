@@ -1,7 +1,7 @@
-<h1 align="center">«Improve YouTube!» &nbsp;&nbsp;&nbsp;</h1>
+<h1 align="center">ImprovedTube &nbsp;&nbsp;&nbsp;</h1>
 	
 
-<p align="center"><b><code>/ImprovedTube/</code></b> is a lightweight & powerful extension to improve your video experience & choice.</p>
+<p align="center"><b><code>/«Improve YouTube!»/</code></b> is a lightweight & powerful extension to improve your video experience & choice.</p>
 
 <p align="center">
 	<a href="https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd">
@@ -39,13 +39,13 @@
  Big thanks ♡ to our <b><a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors,</a> <a href="https://github.com/dodieboy" "🏅🥇🥈🥉">Dodieboy</a>, <br> <a href="https://github.com/code-for-charity/YouTube-Extension#--translators-"> translators</a></b>/wiki-authors, <a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators :bowtie: :octocat:</a>   <br>
 </td></tr></table> 
 	
-### <div align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The only one of a kind: </div>[**👪 Join us?**](https://github.com/code-for-charity "github.com/Code-for-Charity")
+#### [**👪 Join us?**](https://github.com/code-for-charity "github.com/Code-for-Charity") <div align="center">The only one of a kind: </div>
 We gradually kept achieving [s](https://www.google.com/search?q="sisyphean+task"&tbm=isch "google images?")isyphean tasks since 2012, to give you 100+ efficient features. Now adding or fixing something is finally often as easy as any web development & soo motivating as there are 0.5 million users. It's all here for you!</code></code> 
 > (_Throughout the years we saw other openly developed YouTube Extensions [s](https://github.com/YePpHa/YouTubeCenter "YouTubeCenter")tart well but resign [l](https://github.com/ParticleCore/Iridium "Iridium")ater._)
-### <div align="center"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   please [**spread the word** <code><code><code><code><code>📣</code></code></code></code></code>](Http://Twitter_Whatsapp_Discord_Youtube_Facebook_eMail_Telegram_Signal "Why aren't there millions of users yet? We didn't write a guide or manual, let alone marketing. ImprovedTube can fly higher through your word of mouth🌱 & enable us to work on all wishes.")</div>
+#### <div align="center"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   please [**spread the word** <code><code><code><code><code>📣</code></code></code></code></code>](Http://Twitter_Whatsapp_Discord_Youtube_Facebook_eMail_Telegram_Signal "Why aren't there millions of users yet? We didn't write a guide or manual, let alone marketing. ImprovedTube can fly higher through your word of mouth🌱 & enable us to work on all wishes.")</div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  - **W**hy arent there millions of users yet? We didn't write a guide or manual (let alone marketing). ImprovedTube can easily fly higher through your word of mouth & enable us to work on all wishes 🌱. 
 
-<details><summary align="left"><code><h1>&nbsp;&nbsp;▽&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+<details><summary align="left"><code><h1>&nbsp;▽&nbsp;&nbsp;&nbsp;  
  🏝<code><code>⛵<code><code>🏕<code>Our To-Do</code>List</code></code></h1> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▽</code>🖱️</code></summary>
 	
 ##### **1.** - <code>[ ]</code> [**<code>Documentation, wiki, screenshots, video, ...</code>**](https://github.com/code-for-charity/YouTube-Extension/wiki "We need to help people learning as easily as possible about our 90+ features. (Drafts welcome. This will become 🛈tooltips in the extension too!")</code>
@@ -54,7 +54,7 @@ We gradually kept achieving [s](https://www.google.com/search?q="sisyphean+task"
 ##### **3.** - <code>[ ]</code>  [<code>**Feature Requests🌟🧚**</code>](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+ "- sometimes easy / CSS") - sometimes easy / CSS<br>&nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; - <code>[ ]</code>   &nbsp;&nbsp;&nbsp; **+** [**<code>Wishes in discussions</code>**](https://github.com/code-for-charity/YouTube-Extension/discussions?discussions_q=-category%3AToDo+-category%3AOrganization+ "Wishes, Ideas, Questions, News")   <br> - <code>[ ]</code>  [<code>**Bugs🐞 / YouTube Updates**</code>](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+ "we aim to offer some bug-bounties. Please ask")  we aim to offer some <b>bug-bounties</b> <code><i>[Please ask](mailto:bugs@improvedtube.com?subject=TODO_BOUNTY_LINK "❤️")</i></code>. <br> 
 > **- <code>[ ]</code> Tidy:** [<code>(Rest/Unsorted 'issues')</code>](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3A"Niche%2Frare+usecase%3F%2Ffun%3F"++-label%3Aunclear)  - "Our github issues, which are not yet labled, which makes them appear in one of the ToDo-categories above")   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Further reading: [***"Contributing without programming"***](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)  & [*"Our CSS, JavaScript, json"*](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code>(<code> ***outdated**)* (*Newcomers are [we](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)lcome tho! We review all edits & love to collaborate*</code>)</code> </details>
 
-<table align="right"><th><i> <h4 align="center"> 🌎 Translators <a href="https://github.com/code-for-charity/YouTube-Extension#--translators-" title="💕">♡</a></h4></i></th>
+<table align="right"><th><i> <h3 align="center"> 🌎 Translators <a href="https://github.com/code-for-charity/YouTube-Extension#--translators-" title="💕">♡</a></h4></i></th>
 <tr><td>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json" >✓Bahasa Indonesia</a></code>:<code><a href="https://github.com/Bagus23">Bagus23</a></code>,<code><a href="https://github.com/fdciabdul">A.Muttaqin</a></code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json">✔️Deutsch</a></code>:<code><a href="https://github.com/Termuellinator" "✨🏆">Termuellinator</a></code>,<code><a href="https://github.com/css-smueller">css-smueller</a></code><br>
@@ -105,15 +105,15 @@ Start Page <a href="https://github.com/victor-savinov/start-page"><img src="http
 
 **Development:**  [**Satus** (=Our UI library)](https://github.com/victor-savinov/satus), [_T E_](https://github.com/victor-savinov/theme-engine),  [_P_](https://github.com/victor-savinov/pluviam), _[Code Editor](https://github.com/victor-savinov/code-editor), [Viscum Player](https://github.com/victor-savinov/viscum-player)_,   <br>_**Open-Source & Git:** [Pull Requests bots](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot) [Regex Collector](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns),_
 
-## <div align="center">  💡 Got great ideas?  </div>
+### <div align="center">  💡 Got great ideas?  </div>
 We will work on novel (new & unique) projects for you [github/**Wish-Factory**](https://github.com/code-for-charity/wish-factory "🎁") (or ideas@improvedtube.com)
 
-## <div align="center">  🌾 Our Work  <a href="https://starchart.cc/ImprovedTube/YouTube.svg"><img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="118px"></a> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> </div>
-### 👩‍💻 Expertise / Advice <img width="280" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png"> 
+### <div align="left">  🌾 Our Work  <a href="https://starchart.cc/ImprovedTube/YouTube.svg"><img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="118px"></a> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> </div>
+#### / 👩‍💻 Expertise / Advice <img width="280" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png"> 
 <img align="center" width="527" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png">
-
-Do you need to run an extension, site, app or repo with many users & a great feedback score?  
+Do you need to run an extension, site, app or repo with many users & great feedback? (& potentially top of the line / awarded by the Nr1. authority)  
 We'd like to help other good / meaningful projects@improvedtube.com
+
 <br><hr><details><summary><code><h3>&nbsp;&nbsp;▽&nbsp;&nbsp;<code>&nbsp;&nbsp;&nbsp;&nbsp;📜Old Introduction:</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></i>▽</code>🖱️</summary> 
 
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
