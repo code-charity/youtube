@@ -111,9 +111,9 @@ We will work on novel (new & unique) projects for you [github/**Wish-Factory**](
 ### <div align="left">  🌾 Our Work  <a href="https://starchart.cc/ImprovedTube/YouTube.svg"><img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="118px"></a> <img width="133" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> </div>
 #### / 👩‍💻 Expertise / Advice <img width="280" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png"> 
 <img align="center" width="527" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png">
-
-Do you need to run an extension, site, app or repo with many users & a great feedback score?  
+Do you need to run an extension, site, app or repo with many users & great feedback? (& potentially top of the line / awarded by the Nr1. authority)  
 We'd like to help other good / meaningful projects@improvedtube.com
+
 <br><hr><details><summary><code><h3>&nbsp;&nbsp;▽&nbsp;&nbsp;<code>&nbsp;&nbsp;&nbsp;&nbsp;📜Old Introduction:</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></i>▽</code>🖱️</summary> 
 
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
