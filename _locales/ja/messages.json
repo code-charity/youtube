@@ -65,6 +65,9 @@
     "analyzer": {
         "message": "分析"
     },
+    "animations": {
+        "message": "Animations"
+    },
     "appearance": {
         "message": "外観"
     },
@@ -413,6 +416,9 @@
     "green": {
         "message": "緑"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -440,6 +446,12 @@
     "hideCards": {
         "message": "カードを隠す"
     },
+    "hideCategories": {
+        "message": "Hide categories"
+    },
+    "hideClipButton": {
+        "message": "Hide clip button"
+    },
     "hideCountryCode": {
         "message": "地域コードを隠す"
     },
@@ -451,6 +463,9 @@
     },
     "hideDetails": {
         "message": "詳細を隠す"
+    },
+    "hideDownloadButton": {
+        "message": "Hide download button"
     },
     "hideEndscreen": {
         "message": "再生終了時の画面を隠す"
@@ -464,6 +479,9 @@
     "hideGradientBottom": {
         "message": "グラデーションの下部を隠す"
     },
+    "hideMoreButton": {
+        "message": "Hide more button"
+    },
     "hidePlayerControlsBar": {
         "message": "プレーヤーのコントロールバーを隠す"
     },
@@ -476,14 +494,26 @@
     "hidePlaylist": {
         "message": "再生リストを隠す"
     },
+    "hideReportButton": {
+        "message": "Hide report button"
+    },
     "hideRightButtons": {
         "message": "右ボタンを隠す"
+    },
+    "hideSaveButton": {
+        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "\"スクロールして詳細を表示\" を隠す"
     },
+    "hideShareButton": {
+        "message": "Hide share button"
+    },
     "hideSkipOverlay": {
         "message": "スキップオーバーレイを隠す"
+    },
+    "hideThanksButton": {
+        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "サムネイルオーバーレイを隠す"
@@ -557,6 +587,12 @@
     "languages": {
         "message": "言語"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": "古い YouTube にする"
     },
@@ -580,6 +616,9 @@
     },
     "liked": {
         "message": "Liked"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "ライム"
@@ -620,6 +659,9 @@
     "more": {
         "message": "More"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "サイドバーを左に移動"
     },
@@ -643,6 +685,9 @@
     },
     "night": {
         "message": "夜"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "有効化された機能がありません"
@@ -875,11 +920,17 @@
     "showRemainingDuration": {
         "message": "動画の残り時間を表示する"
     },
+    "showVersion": {
+        "message": "Show version"
+    },
     "shuffle": {
         "message": "シャッフル"
     },
     "sidebar": {
         "message": "サイドバー"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "スペースキー"

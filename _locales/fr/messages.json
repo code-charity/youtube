@@ -65,6 +65,9 @@
     "analyzer": {
         "message": "Analyser"
     },
+    "animations": {
+        "message": "Animations"
+    },
     "appearance": {
         "message": "Apparence"
     },
@@ -413,6 +416,9 @@
     "green": {
         "message": "Vert"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -440,6 +446,12 @@
     "hideCards": {
         "message": "Cacher les cartes"
     },
+    "hideCategories": {
+        "message": "Hide categories"
+    },
+    "hideClipButton": {
+        "message": "Hide clip button"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -451,6 +463,9 @@
     },
     "hideDetails": {
         "message": "Cacher les détails"
+    },
+    "hideDownloadButton": {
+        "message": "Hide download button"
     },
     "hideEndscreen": {
         "message": "Cacher l'écran de fin"
@@ -464,6 +479,9 @@
     "hideGradientBottom": {
         "message": "Masquer le dégradé du bas"
     },
+    "hideMoreButton": {
+        "message": "Hide more button"
+    },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
     },
@@ -476,14 +494,26 @@
     "hidePlaylist": {
         "message": "Cacher la liste de lecture"
     },
+    "hideReportButton": {
+        "message": "Hide report button"
+    },
     "hideRightButtons": {
         "message": "Cacher les boutons à droite"
+    },
+    "hideSaveButton": {
+        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "Cacher « Faire défiler pour les détails »"
     },
+    "hideShareButton": {
+        "message": "Hide share button"
+    },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
+    },
+    "hideThanksButton": {
+        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
@@ -557,6 +587,12 @@
     "languages": {
         "message": "Langues"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": "Ancienne version de Youtube"
     },
@@ -580,6 +616,9 @@
     },
     "liked": {
         "message": "Liked"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "Citron vert"
@@ -620,6 +659,9 @@
     "more": {
         "message": "More"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "Move sidebar left"
     },
@@ -643,6 +685,9 @@
     },
     "night": {
         "message": "Nuit"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "Pas de fonctionalité active"
@@ -875,11 +920,17 @@
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
+    "showVersion": {
+        "message": "Show version"
+    },
     "shuffle": {
         "message": "Aléatoire"
     },
     "sidebar": {
         "message": "Barre latérale"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "Barre d'espace"

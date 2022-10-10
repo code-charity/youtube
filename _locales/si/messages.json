@@ -62,6 +62,9 @@
     "analyzer": {
         "message": "විශ්ලේෂක"
     },
+    "animations": {
+        "message": "Animations"
+    },
     "appearance": {
         "message": "පෙනුම"
     },
@@ -410,6 +413,9 @@
     "green": {
         "message": "කොළ"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -437,6 +443,12 @@
     "hideCards": {
         "message": "Cards සඟවන්න"
     },
+    "hideCategories": {
+        "message": "Hide categories"
+    },
+    "hideClipButton": {
+        "message": "Hide clip button"
+    },
     "hideCountryCode": {
         "message": "Country code එක හංගන්න"
     },
@@ -448,6 +460,9 @@
     },
     "hideDetails": {
         "message": "Details හංගන්න"
+    },
+    "hideDownloadButton": {
+        "message": "Hide download button"
     },
     "hideEndscreen": {
         "message": "Endscreen එක හංගන්න"
@@ -461,6 +476,9 @@
     "hideGradientBottom": {
         "message": "Player-bar එක වටේ තියෙන shadow එක සගවන්න"
     },
+    "hideMoreButton": {
+        "message": "Hide more button"
+    },
     "hidePlayerControlsBar": {
         "message": "Player controls bar එක සඟවන්න"
     },
@@ -473,14 +491,26 @@
     "hidePlaylist": {
         "message": "Playlist සඟවන්න"
     },
+    "hideReportButton": {
+        "message": "Hide report button"
+    },
     "hideRightButtons": {
         "message": "දකුණු පැත්තෙ තියෙන button සඟවන්න"
+    },
+    "hideSaveButton": {
+        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "«Scroll for details» සඟවන්න"
     },
+    "hideShareButton": {
+        "message": "Hide share button"
+    },
     "hideSkipOverlay": {
         "message": "5 seconds skip animation එක සඟවන්න"
+    },
+    "hideThanksButton": {
+        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Thumbnail මත තිබෙන button සඟවන්න"
@@ -554,6 +584,12 @@
     "languages": {
         "message": "භාෂාවන්"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": "Legacy YouTube"
     },
@@ -577,6 +613,9 @@
     },
     "liked": {
         "message": "Liked"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "Lime"
@@ -617,6 +656,9 @@
     "more": {
         "message": "More"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "Sidebar එක වම් පැත්තට යවන්න"
     },
@@ -640,6 +682,9 @@
     },
     "night": {
         "message": "Night"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "ක්‍රියාකාරීව තිබෙන Features නොමැත"
@@ -869,11 +914,17 @@
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
+    "showVersion": {
+        "message": "Show version"
+    },
     "shuffle": {
         "message": "Shuffle කරන්න"
     },
     "sidebar": {
         "message": "Sidebar එක"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "Spacebar එක"

@@ -65,6 +65,9 @@
     "analyzer": {
         "message": "Bộ phân tích"
     },
+    "animations": {
+        "message": "Animations"
+    },
     "appearance": {
         "message": "Diện mạo"
     },
@@ -413,6 +416,9 @@
     "green": {
         "message": "Xanh lục"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -440,6 +446,12 @@
     "hideCards": {
         "message": "Ẩn thẻ"
     },
+    "hideCategories": {
+        "message": "Hide categories"
+    },
+    "hideClipButton": {
+        "message": "Hide clip button"
+    },
     "hideCountryCode": {
         "message": "Ẩn mã quốc gia"
     },
@@ -451,6 +463,9 @@
     },
     "hideDetails": {
         "message": "Ẩn chi tiết"
+    },
+    "hideDownloadButton": {
+        "message": "Hide download button"
     },
     "hideEndscreen": {
         "message": "Ẩn màn hình kết thúc"
@@ -464,6 +479,9 @@
     "hideGradientBottom": {
         "message": "Ẩn bóng xung quanh thanh trình phát"
     },
+    "hideMoreButton": {
+        "message": "Hide more button"
+    },
     "hidePlayerControlsBar": {
         "message": "Ẩn thanh điều khiển trình phát"
     },
@@ -476,14 +494,26 @@
     "hidePlaylist": {
         "message": "Ẩn danh sách phát"
     },
+    "hideReportButton": {
+        "message": "Hide report button"
+    },
     "hideRightButtons": {
         "message": "Ẩn các nút bên phải"
+    },
+    "hideSaveButton": {
+        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "Ẩn «Cuộn để biết chi tiết»"
     },
+    "hideShareButton": {
+        "message": "Hide share button"
+    },
     "hideSkipOverlay": {
         "message": "Ẩn hoạt ảnh bỏ qua 5 giây"
+    },
+    "hideThanksButton": {
+        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Ẩn các nút trên hình thu nhỏ"
@@ -557,6 +587,12 @@
     "languages": {
         "message": "Ngôn ngữ"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": "Legacy YouTube"
     },
@@ -580,6 +616,9 @@
     },
     "liked": {
         "message": "Đã thích"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "Chanh xanh"
@@ -620,6 +659,9 @@
     "more": {
         "message": "More"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "Di chuyển thanh bên sang trái"
     },
@@ -643,6 +685,9 @@
     },
     "night": {
         "message": "Đêm"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "Không có tính năng hoạt động"
@@ -875,11 +920,17 @@
     "showRemainingDuration": {
         "message": "Hiển thị thời lượng còn lại của video"
     },
+    "showVersion": {
+        "message": "Show version"
+    },
     "shuffle": {
         "message": "Xáo trộn"
     },
     "sidebar": {
         "message": "Thanh bên"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "Phím cách"

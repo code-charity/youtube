@@ -65,6 +65,9 @@
     "analyzer": {
         "message": "Analizator"
     },
+    "animations": {
+        "message": "Animations"
+    },
     "appearance": {
         "message": "Izgled"
     },
@@ -413,6 +416,9 @@
     "green": {
         "message": "Zelena"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -440,6 +446,12 @@
     "hideCards": {
         "message": "Sakrij kartice"
     },
+    "hideCategories": {
+        "message": "Hide categories"
+    },
+    "hideClipButton": {
+        "message": "Hide clip button"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
@@ -451,6 +463,9 @@
     },
     "hideDetails": {
         "message": "Sakrij detalje"
+    },
+    "hideDownloadButton": {
+        "message": "Hide download button"
     },
     "hideEndscreen": {
         "message": "Sakrij završni zaslon"
@@ -464,6 +479,9 @@
     "hideGradientBottom": {
         "message": "Sakrij sjenu oko trake playera"
     },
+    "hideMoreButton": {
+        "message": "Hide more button"
+    },
     "hidePlayerControlsBar": {
         "message": "Sakrij kontrole playera"
     },
@@ -476,14 +494,26 @@
     "hidePlaylist": {
         "message": "Sakrij popis za reprodukciju"
     },
+    "hideReportButton": {
+        "message": "Hide report button"
+    },
     "hideRightButtons": {
         "message": "Sakrij desne gumbe"
+    },
+    "hideSaveButton": {
+        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "Sakrij «Pomakni za detalje»"
     },
+    "hideShareButton": {
+        "message": "Hide share button"
+    },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
+    },
+    "hideThanksButton": {
+        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Sakrij gumbe na sličicama"
@@ -557,6 +587,12 @@
     "languages": {
         "message": "Jezici"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": "Naslijeđeni YouTube"
     },
@@ -580,6 +616,9 @@
     },
     "liked": {
         "message": "Liked"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "Limeta"
@@ -620,6 +659,9 @@
     "more": {
         "message": "More"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "Move sidebar left"
     },
@@ -643,6 +685,9 @@
     },
     "night": {
         "message": "Noć"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "Nema aktivnih značajki"
@@ -875,11 +920,17 @@
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
+    "showVersion": {
+        "message": "Show version"
+    },
     "shuffle": {
         "message": "Nasumično"
     },
     "sidebar": {
         "message": "Bočna traka"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "Tipka razmaka"
