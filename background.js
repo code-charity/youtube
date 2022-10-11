@@ -1,45 +1,8 @@
 /*--------------------------------------------------------------
 >>> BACKGROUND
 ----------------------------------------------------------------
-# Google Analytics
-# Locale
+# 
 --------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# GOOGLE ANALYTICS
---------------------------------------------------------------*/
-
-var _gaq = [];
-
-function googleAnalytics(previous_time) {
-    var version = chrome.runtime.getManifest().version,
-        script = document.createElement('script'),
-        current_time = new Date().getTime();
-
-    _gaq.push(['_setAccount', 'UA-88354155-1']);
-    _gaq.push(['_setSessionCookieTimeout', 14400000]);
-
-    if (current_time - (previous_time || 0) >= 86400000) {
-        _gaq.push([
-            '_trackPageview',
-            '/improvedtube-' + version + '/background',
-            'page-loaded'
-        ]);
-
-        chrome.storage.local.set({
-            ga: current_time
-        });
-    }
-
-    script.src = 'https://ssl.google-analytics.com/ga.js';
-
-    document.body.appendChild(script);
-}
-
-chrome.storage.local.get(function (items) {
-    //googleAnalytics(items.ga);
-});
-
 
 /*--------------------------------------------------------------
 # LOCALE
