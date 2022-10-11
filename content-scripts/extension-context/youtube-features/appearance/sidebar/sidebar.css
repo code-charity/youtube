@@ -1,0 +1,98 @@
+/*--------------------------------------------------------------
+>>> SIDEBAR
+----------------------------------------------------------------
+# Related videos
+# Livechat
+# Hide playlist
+# Move sidebar left
+# Move thumbnails right
+# Hide thumbnails
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# RELATED VIDEOS
+--------------------------------------------------------------*/
+
+html[it-related-videos='hidden'] #related > ytd-watch-next-secondary-results-renderer > #items {
+	display: none !important;
+}
+
+html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-renderer > #items:not([it-activated])::before {
+	content: 'Show more' !important;
+}
+
+html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-renderer > #items[it-activated]::before {
+	content: 'Show less' !important;
+}
+
+html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-renderer > #items::before {
+	font-family: inherit !important;
+	font-size: 1.6rem !important;
+	font-weight: 400 !important;
+
+	display: flex !important;
+
+	width: 100% !important;
+	height: 48px !important;
+	margin: 0 !important;
+
+	color: var(--yt-spec-text-primary) !important;
+	border-bottom: 1px solid var(--yt-spec-10-percent-layer) !important;
+
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-renderer > #items:not([it-activated]) > *{
+	visibility: hidden !important;
+
+	pointer-events: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# LIVECHAT
+--------------------------------------------------------------*/
+
+html[it-livechat='hidden'] ytd-live-chat-frame#chat {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE PLAYLIST
+--------------------------------------------------------------*/
+
+html[it-hide-playlist='true'] ytd-playlist-panel-renderer#playlist {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# MOVE SIDEBAR LEFT
+--------------------------------------------------------------*/
+
+html[it-sidebar-left='true'] #columns>#primary,
+html[it-sidebar-left='true'] #head>#upnext
+{
+	order: 7 !important;
+}
+
+
+/*--------------------------------------------------------------
+# MOVE THUMBNAILS RIGHT
+--------------------------------------------------------------*/
+
+html[it-thumbnails-right='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail {
+	order: 7 !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE THUMBNAILS
+--------------------------------------------------------------*/
+
+html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail,
+html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
+	display: none !important;
+}

@@ -1,0 +1,204 @@
+/*--------------------------------------------------------------
+>>> PLAYER
+----------------------------------------------------------------
+# Hide shadow around player bar
+# Always show progress bar
+# Transparent background
+# Hide annotations
+# Hide cards
+# Show cards on mouse hover
+# Hide endscreen
+# Hide "Scroll for details"
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# HIDE SHADOW AROUND PLAYER BAR
+--------------------------------------------------------------*/
+
+html[it-hide-gradient-bottom='true'] .ytp-gradient-bottom {
+	display: none;
+}
+
+
+/*--------------------------------------------------------------
+# ALWAYS SHOW PROGRESS BAR
+--------------------------------------------------------------*/
+
+html[it-always-show-progress-bar='true'] .html5-video-player:not(.it-mini-player).ytp-autohide .ytp-chrome-bottom {
+	opacity: 1 !important;
+}
+
+html[it-always-show-progress-bar='true'] .html5-video-player:not(.it-mini-player).ytp-autohide .ytp-chrome-bottom .ytp-chrome-controls {
+	opacity: 0 !important;
+}
+
+html[it-always-show-progress-bar='true'] .html5-video-player:not(.it-mini-player).ytp-autohide .ytp-chrome-bottom .ytp-progress-bar-container {
+	bottom: 0 !important;
+}
+
+
+/*--------------------------------------------------------------
+# COLOR
+--------------------------------------------------------------*/
+
+html[it-player-color='pink'] {
+	--it-player-color: #e91e63;
+}
+
+html[it-player-color='purple'] {
+	--it-player-color: #9c27b0;
+}
+
+html[it-player-color='deep_purple'] {
+	--it-player-color: #673ab7;
+}
+
+html[it-player-color='indigo'] {
+	--it-player-color: #3f51b5;
+}
+
+html[it-player-color='blue'] {
+	--it-player-color: #1e88e5;
+}
+
+html[it-player-color='light_blue'] {
+	--it-player-color: #03a9f4;
+}
+
+html[it-player-color='cyan'] {
+	--it-player-color: #00bcd4;
+}
+
+html[it-player-color='teal'] {
+	--it-player-color: #009688;
+}
+
+html[it-player-color='green'] {
+	--it-player-color: #4caf50;
+}
+
+html[it-player-color='light_green'] {
+	--it-player-color: #8bc34a;
+}
+
+html[it-player-color='lime'] {
+	--it-player-color: #cddc39;
+}
+
+html[it-player-color='yellow'] {
+	--it-player-color: #ffeb3b;
+}
+
+html[it-player-color='amber'] {
+	--it-player-color: #ffc107;
+}
+
+html[it-player-color='orange'] {
+	--it-player-color: #ff9800;
+}
+
+html[it-player-color='deep_orange'] {
+	--it-player-color: #ff5722;
+}
+
+html[it-player-color='brown'] {
+	--it-player-color: #795548;
+}
+
+html[it-player-color='blue_gray'] {
+	--it-player-color: #607d8b;
+}
+
+html[it-player-color='white'] {
+	--it-player-color: #fff;
+}
+
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-play-progress,
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-scrubber-button,
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-menuitem[aria-checked='true'] .ytp-menuitem-toggle-checkbox,
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-settings-button.ytp-hd-quality-badge:after {
+	background-color: var(--it-player-color) !important;
+}
+
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-swatch-color {
+	color: var(--it-player-color) !important;
+}
+
+
+/*--------------------------------------------------------------
+# TRANSPARENT BACKGROUND
+--------------------------------------------------------------*/
+
+html[it-player-transparent-background='true'] #player-theater-container,
+html[it-player-transparent-background='true'] #theater-background,
+html[it-player-transparent-background='true'] #player-api,
+html[it-player-transparent-background='true'] .player-api,
+html[it-player-transparent-background='true'] #movie_player,
+html[it-player-transparent-background='true'] #player-container,
+html[it-player-transparent-background='true'] #movie_player video {
+	background-color: transparent !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE ANNOTATIONS
+--------------------------------------------------------------*/
+
+html[it-player-hide-annotations='true'] .annotation,
+html[it-player-hide-annotations='true'] .annotation-type-text,
+html[it-player-hide-annotations='true'] .annotation-shape {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE CARDS
+--------------------------------------------------------------*/
+
+html[it-player-hide-cards='true'] .ytp-ce-element,
+html[it-player-hide-cards='true'] .ytp-ce-video,
+html[it-player-hide-cards='true'] .ytp-cards-button,
+html[it-player-hide-cards='true'] .ytp-cards-teaser {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# SHOW CARDS ON MOUSE HOVER
+--------------------------------------------------------------*/
+
+html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:not(:hover) .ytp-ce-element,
+html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:not(:hover) .ytp-ce-video,
+html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:not(:hover) .ytp-cards-button,
+html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:not(:hover) .ytp-cards-teaser {
+	display: none !important;
+}
+
+html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:hover .ytp-ce-element,
+html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:hover .ytp-ce-video,
+html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:hover .ytp-cards-button,
+html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:hover .ytp-cards-teaser {
+	display: block !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE ENDSCREEN
+--------------------------------------------------------------*/
+
+html[it-player-hide-endscreen='true'] .html5-endscreen {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE "SCROLL FOR DETAILS"
+--------------------------------------------------------------*/
+
+html[it-hide-scroll-for-details='true'] button.ytp-fullerscreen-edu-button {
+	display: none !important;
+}
+
+html[it-hide-scroll-for-details='true'] ytd-app[scrolling_] {
+	overflow: hidden !important;
+}
