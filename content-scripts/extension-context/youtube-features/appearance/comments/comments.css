@@ -1,0 +1,66 @@
+/*--------------------------------------------------------------
+>>> COMMENTS:
+----------------------------------------------------------------
+# Comments
+	# Collapsed
+	# Hidden
+# Hide avatars
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# COLLAPSED
+--------------------------------------------------------------*/
+
+html[it-comments='collapsed'] ytd-comments:not([it-activated]) ytd-comments-header-renderer::after {
+	content: 'Show more' !important;
+}
+
+html[it-comments='collapsed'] ytd-comments[it-activated] ytd-comments-header-renderer::after {
+	content: 'Show less' !important;
+}
+
+html[it-comments='collapsed'] ytd-comments ytd-comments-header-renderer::after {
+	font-family: inherit !important;
+	font-size: 1.6rem !important;
+	font-weight: 400 !important;
+
+	display: flex !important;
+
+	width: 100% !important;
+	height: 48px !important;
+	margin: 16px 0 0 !important;
+
+	color: var(--yt-spec-text-primary) !important;
+	border-bottom: 1px solid var(--yt-spec-10-percent-layer) !important;
+
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+html[it-comments='collapsed'] ytd-comments:not([it-activated]) ytd-item-section-renderer>#spinner-container,
+html[it-comments='collapsed'] ytd-comments:not([it-activated]) ytd-item-section-renderer>#contents,
+html[it-comments='collapsed'] ytd-comments:not([it-activated]) ytd-item-section-renderer>#continuations {
+	visibility: hidden !important;
+
+	pointer-events: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDDEN
+--------------------------------------------------------------*/
+
+html[it-comments='hidden'] ytd-comments {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE AVATARS
+--------------------------------------------------------------*/
+
+html[it-hide-author-avatars='true'] ytd-comments #author-thumbnail,
+html[it-hide-author-avatars='true'] ytd-comments #creator-thumbnail,
+html[it-hide-author-avatars='true'] ytd-comments #hearted-thumbnail {
+	display: none !important;
+}

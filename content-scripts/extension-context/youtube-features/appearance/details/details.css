@@ -1,0 +1,165 @@
+/*--------------------------------------------------------------
+>>> DETAILS
+----------------------------------------------------------------
+# 
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# HIDE DETAILS
+--------------------------------------------------------------*/
+
+html[it-hide-details='true'] ytd-video-primary-info-renderer,
+html[it-hide-details='true'] ytd-video-secondary-info-renderer {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE VIEWS COUNT
+--------------------------------------------------------------*/
+
+html[it-hide-views-count='true'] #info #count,
+html[it-hide-views-count='true'] #info #count + #info-strings>#dot {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE DATE
+--------------------------------------------------------------*/
+
+html[it-hide-date='true'] #info #count + #info-strings>yt-formatted-string,
+html[it-hide-date='true'] #info #count + #info-strings>#dot {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# LIKES
+--------------------------------------------------------------*/
+
+html[it-likes='hidden'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(1),
+html[it-likes='hidden'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(2) {
+	display: none !important;
+}
+
+html[it-likes='icons_only'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(1) yt-formatted-string,
+html[it-likes='icons_only'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(2) yt-formatted-string {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE SHARE BUTTON
+--------------------------------------------------------------*/
+
+html[it-hide-share-button='true'] #info .top-level-buttons ytd-button-renderer:nth-child(3) {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE DOWNLOAD BUTTON
+--------------------------------------------------------------*/
+
+html[it-hide-download-button='true'] #info .top-level-buttons ytd-download-button-renderer {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE THANKS BUTTON
+--------------------------------------------------------------*/
+
+html[it-hide-thanks-button='true'] #info .top-level-buttons ytd-button-renderer#Thanks-button {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE CLIP BUTTON
+--------------------------------------------------------------*/
+
+html[it-hide-clip-button='true'] #info .top-level-buttons ytd-button-renderer#Clip-button {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE SAVE BUTTON
+--------------------------------------------------------------*/
+
+html[it-hide-save-button='true'] #info .top-level-buttons ytd-button-renderer:last-child {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE REPORT BUTTON
+--------------------------------------------------------------*/
+
+html[it-hide-report-button='true'] #info .top-level-buttons ytd-button-renderer#-button {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE MORE BUTTON
+--------------------------------------------------------------*/
+
+html[it-hide-more-button='true'] #info ytd-menu-renderer>yt-icon-button {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# DESCRIPTION
+--------------------------------------------------------------*/
+
+html[it-description='hidden'] #meta>#meta-contents ytd-expander {
+	display: none !important;
+}
+
+html[it-description='expanded'] #meta>#meta-contents ytd-expander tp-yt-paper-button {
+	display: none !important;
+}
+
+html[it-description='expanded'] #meta>#meta-contents ytd-expander>#content {
+	max-height: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HOW LONG AGO THE VIDEO WAS UPLOADED
+--------------------------------------------------------------*/
+
+.it-how-long-ago-the-video-was-uploaded {
+	float: right !important;
+
+	margin-left: 4px !important;
+
+	color: var(--yt-spec-text-secondary) !important;
+}
+
+
+/*--------------------------------------------------------------
+# SHOW CHANNEL VIDEOS COUNT
+--------------------------------------------------------------*/
+
+.it-channel-videos-count {
+	display: inline-block !important;
+
+	margin-left: 4px !important;
+
+	color: var(--yt-spec-text-secondary) !important;
+}
+
+
+/*--------------------------------------------------------------
+# SHOW DISLIKE RED COLOR
+--------------------------------------------------------------*/
+
+html[it-red-dislike-button='true'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(2),
+html[it-red-dislike-button='true'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(2) yt-formatted-string {
+	color: #fc0000 !important;
+}

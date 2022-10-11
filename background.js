@@ -1,22 +1,63 @@
 /*--------------------------------------------------------------
 >>> BACKGROUND
 ----------------------------------------------------------------
-# Uninstall URL
-# Context menu
-# Tab focus/blur
-# Migration
-# Initialization
-    # Get items from storage
-    # Message listener
-    # Update listener
+# Google Analytics
+# Locale
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# UNINSTALL URL
+# GOOGLE ANALYTICS
 --------------------------------------------------------------*/
 
-function uninstallURL() {
-	chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
+var _gaq = [];
+
+function googleAnalytics(previous_time) {
+    var version = chrome.runtime.getManifest().version,
+        script = document.createElement('script'),
+        current_time = new Date().getTime();
+
+    _gaq.push(['_setAccount', 'UA-88354155-1']);
+    _gaq.push(['_setSessionCookieTimeout', 14400000]);
+
+    if (current_time - (previous_time || 0) >= 86400000) {
+        _gaq.push([
+            '_trackPageview',
+            '/improvedtube-' + version + '/background',
+            'page-loaded'
+        ]);
+
+        chrome.storage.local.set({
+            ga: current_time
+        });
+    }
+
+    script.src = 'https://ssl.google-analytics.com/ga.js';
+
+    document.body.appendChild(script);
+}
+
+chrome.storage.local.get(function (items) {
+    //googleAnalytics(items.ga);
+});
+
+
+/*--------------------------------------------------------------
+# LOCALE
+--------------------------------------------------------------*/
+
+
+function getLocale(language, callback) {
+	language = language.replace('-', '_');
+
+	fetch('_locales/' + language + '/messages.json').then(function (response) {
+		if (response.ok) {
+			response.json().then(callback);
+		} else {
+			getLocale('en', callback);
+		}
+	}).catch(function () {
+		getLocale('en', callback);
+	});
 }
 
 
@@ -24,35 +65,64 @@ function uninstallURL() {
 # CONTEXT MENU
 --------------------------------------------------------------*/
 
-function updateContextMenu(locale) {
-	var items = [
-		'donate',
-		'rateMe',
-		'GitHub'
-	];
-
-	chrome.contextMenus.removeAll();
-
-	for (var i = 0; i < 3; i++) {
-		var item = items[i];
-
-		chrome.contextMenus.create({
-			id: String(i),
-			title: locale[item] || item,
-			contexts: ['browser_action']
-		});
+function updateContextMenu(language) {
+	if (!language) {
+		language = chrome.i18n.getUILanguage();
 	}
 
-	chrome.contextMenus.onClicked.addListener(function (info) {
-		var links = [
-			'https://www.improvedtube.com/donate',
-			'https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd',
-			'https://github.com/code4charity/YouTube-Extension'
+	getLocale(language, function (response) {
+		var items = [
+			'donate',
+			'rateMe',
+			'GitHub'
 		];
 
-		window.open(links[info.menuItemId]);
+		chrome.contextMenus.removeAll();
+
+		for (var i = 0; i < 3; i++) {
+			var item = items[i],
+				text = response[item];
+
+			if (text) {
+				text = text.message;
+			} else {
+				text = item;
+			}
+
+			chrome.contextMenus.create({
+				id: String(i),
+				title: text,
+				contexts: ['browser_action']
+			});
+		}
+
+		chrome.contextMenus.onClicked.addListener(function (info) {
+			var links = [
+				'https://www.improvedtube.com/donate',
+				'https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd',
+				'https://github.com/code4charity/YouTube-Extension'
+			];
+
+			window.open(links[info.menuItemId]);
+		});
 	});
 }
+
+chrome.runtime.onInstalled.addListener(function (details) {
+	chrome.storage.local.get(function (items) {
+		var language = items.language;
+
+		updateContextMenu(language);
+	});
+});
+
+chrome.storage.onChanged.addListener(function (changes) {
+	for (var key in changes) {
+		if (key === 'language') {
+			updateContextMenu(changes[key].newValue);
+		}
+	}
+});
 
 
 /*--------------------------------------------------------------
@@ -119,150 +189,13 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
 
 
 /*--------------------------------------------------------------
-# MIGRATION
---------------------------------------------------------------*/
-
-function migration(items) {
-	if (items.hd_thumbnails === true) {
-		items.thumbnails_quality = 'maxresdefault';
-	}
-
-	for (var key in items) {
-		var item = items[key];
-
-		if (key.indexOf('shortcut') !== -1 && typeof item === 'string') {
-			try {
-				item = JSON.parse(item);
-
-				var value = {
-					alt: item.altKey,
-					ctrl: item.ctrlKey,
-					shift: item.shiftKey
-				};
-
-				if (item.hasOwnProperty('key') && item.hasOwnProperty('keyCode')) {
-					value.keys = {};
-
-					value.keys[item.keyCode] = {
-						key: item.key
-					};
-				}
-
-				if (item.hasOwnProperty('wheel')) {
-					value.wheel = item.wheel < 0 ? -1 : 1;
-				}
-
-				items[key] = value;
-			} catch (error) {
-				console.log(error);
-			}
-		}
-	}
-
-	if (items.theme_my_colors === true) {
-		items.theme = 'my-colors';
-	} else if (items.default_dark_theme === true) {
-		items.theme = 'dark';
-	} else if (items.night_theme === true) {
-		items.theme = 'night';
-	} else if (items.dawn_theme === true) {
-		items.theme = 'dawn';
-	} else if (items.sunset_theme === true) {
-		items.theme = 'sunset';
-	} else if (items.desert_theme === true) {
-		items.theme = 'desert';
-	} else if (items.plain_theme === true) {
-		items.theme = 'plain';
-	} else if (items.black_theme === true) {
-		items.theme = 'black';
-	}
-
-	if (typeof items.theme_primary_color === 'string') {
-		var match = items.theme_primary_color.match(/[0-9.]+/g);
-
-		if (match) {
-			for (var i = 0, l = match.length; i < l; i++) {
-				match[i] = parseFloat(match[i]);
-			}
-		}
-
-		items.theme_primary_color = match;
-	}
-
-	if (typeof items.theme_text_color === 'string') {
-		var match = items.theme_text_color.match(/[0-9.]+/g);
-
-		if (match) {
-			for (var i = 0, l = match.length; i < l; i++) {
-				match[i] = parseFloat(match[i]);
-			}
-		}
-
-		items.theme_text_color = match;
-	}
-
-	chrome.storage.local.set(items);
-
-	chrome.storage.local.remove('hd_thumbnails');
-	chrome.storage.local.remove('theme_my_colors');
-	chrome.storage.local.remove('default_dark_theme');
-	chrome.storage.local.remove('night_theme');
-	chrome.storage.local.remove('dawn_theme');
-	chrome.storage.local.remove('sunset_theme');
-	chrome.storage.local.remove('desert_theme');
-	chrome.storage.local.remove('plain_theme');
-	chrome.storage.local.remove('black_theme');
-}
-
-
-/*--------------------------------------------------------------
-# INITIALIZATION
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# GET ITEMS FROM STORAGE
---------------------------------------------------------------*/
-
-chrome.storage.local.get(function (items) {
-	uninstallURL();
-	migration(items);
-});
-
-
-/*--------------------------------------------------------------
 # MESSAGE LISTENER
 --------------------------------------------------------------*/
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	var name = request.name;
 
-	if (name === 'migration') {
-		chrome.storage.local.get(function (items) {
-			try {
-				migration(items);
-			} catch (error) {}
-
-			setTimeout(function () {
-				if (sender.tab) {
-					sendResponse(sender.tab.id);
-				}
-			}, 500);
-		});
-
-		return true;
-	} else if (name === 'only-one-player') {
-		chrome.tabs.query({}, function (tabs) {
-			for (var i = 0, l = tabs.length; i < l; i++) {
-				var tab = tabs[i];
-
-				if (sender.tab.id !== tab.id) {
-					chrome.tabs.sendMessage(tab.id, {
-						action: 'pause'
-					});
-				}
-			}
-		});
-	} else if (name === 'download') {
+	if (name === 'download') {
 		chrome.permissions.request({
 			permissions: ['downloads'],
 			origins: ['https://www.youtube.com/*']
@@ -285,36 +218,39 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 				console.error('Permission is not granted.');
 			}
 		});
-	} else if (name === 'export') {
-		chrome.storage.local.get(function (data) {
-			chrome.permissions.request({
-				permissions: ['downloads'],
-				origins: ['https://www.youtube.com/*']
-			}, function (granted) {
-				if (granted) {
-					var blob = new Blob([JSON.stringify(data)], {
-							type: 'application/octet-stream'
-						}),
-						date = new Date();
+	}
+});
 
-					chrome.downloads.download({
-						url: URL.createObjectURL(blob),
-						filename: 'improvedtube-' + (date.getMonth() + 1) + '-' + date.getDate() + '-' + date.getFullYear() + '.txt',
-						saveAs: true
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+	var action = message.action || message;
+
+	if (action === 'play') {
+		chrome.tabs.query({}, function (tabs) {
+			for (var i = 0, l = tabs.length; i < l; i++) {
+				var tab = tabs[i];
+
+				if (sender.tab.id !== tab.id) {
+					chrome.tabs.sendMessage(tab.id, {
+						action: 'another-video-started-playing'
 					});
 				}
-			});
+			}
+		});
+	} else if (action === 'options-page-connected') {
+		sendResponse({
+			isTab: sender.hasOwnProperty('tab')
+		});
+	} else if (action === 'tab-connected') {
+		sendResponse({
+			hostname: new URL(sender.url).hostname,
+			tabId: sender.tab.id
 		});
 	}
 });
 
 
 /*--------------------------------------------------------------
-# UPDATE LISTENER
+# UNINSTALL URL
 --------------------------------------------------------------*/
 
-chrome.runtime.onInstalled.addListener(function (details) {
-	chrome.storage.local.get(function (items) {
-		migration(items);
-	});
-});
+chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
