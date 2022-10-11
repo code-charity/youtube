@@ -1,0 +1,382 @@
+/*--------------------------------------------------------------
+>>> GENERAL:
+----------------------------------------------------------------
+# YouTube home page
+# Collapse of subscription section
+# Remove related search results
+# Scroll bar
+# Add "Scroll to top"
+# Limit page width
+# Squared user images
+# Mark watched videos
+# Hide aniamted thubmnails
+# Hide buttons on thumbnails
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# YOUTUBE HOME PAGE
+--------------------------------------------------------------*/
+
+html[it-pathname='/'][it-youtube-home-page='search']>body,
+html[it-pathname='/'][it-youtube-home-page='search'] #guide[opened] {
+	visibility: hidden !important;
+
+	pointer-events: none !important;
+}
+
+html[it-pathname='/'][it-youtube-home-page='search']>body {
+	overflow: hidden !important;
+
+	width: 100vw !important;
+	height: 100vh !important;
+}
+
+html[it-pathname='/'][it-youtube-home-page='search'] ytd-searchbox,
+html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox {
+	position: fixed !important;
+	z-index: 99999 !important;
+	top: 0 !important;
+	left: 0 !important;
+
+	display: flex !important;
+	visibility: visible !important;
+
+	box-sizing: border-box !important;
+	width: 100vw !important;
+	height: 100vh !important;
+	margin: 0 !important;
+	padding: 16px !important;
+
+	pointer-events: all !important;
+
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+html[it-pathname='/'][it-youtube-home-page='search'] ytd-searchbox>form,
+html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox>form {
+	width: 100% !important;
+	max-width: 768px !important;
+}
+
+
+/*--------------------------------------------------------------
+# COLLAPSE OF SUBSCRIPTION SECTIONS
+--------------------------------------------------------------*/
+
+html[it-pathname='/feed/subscriptions'][it-collapse-of-subscription-sections='true'] ytd-item-section-renderer h2 #title {
+	overflow: visible !important;
+
+	cursor: pointer !important;
+}
+
+html[it-pathname='/feed/subscriptions'][it-collapse-of-subscription-sections='true'] ytd-item-section-renderer h2 #title::after {
+	position: relative !important;
+	top: 2px !important;
+
+	display: inline-block !important;
+
+	width: 6px !important;
+	height: 6px !important;
+	margin: 0 0 0 12px !important;
+
+	content: '' !important;
+	transform: rotate(45deg) !important;
+	transform-origin: center center !important;
+
+	border-top: currentColor 2px solid !important;
+	border-left: currentColor 2px solid !important;
+}
+
+html[it-pathname='/feed/subscriptions'][it-collapse-of-subscription-sections='true'] ytd-item-section-renderer.it-section-collapsed h2 #title::after {
+	top: -3px !important;
+
+	transform: rotate(-135deg) !important;
+}
+
+html[it-pathname='/feed/subscriptions'][it-collapse-of-subscription-sections='true'] ytd-item-section-renderer .grid-subheader+#contents {
+	overflow: hidden !important;
+}
+
+html[it-pathname='/feed/subscriptions'][it-collapse-of-subscription-sections='true'] ytd-item-section-renderer.it-section-collapsed .grid-subheader+#contents {
+	height: 0 !important;
+}
+
+
+/*--------------------------------------------------------------
+# REMOVE RELATED SEARCH RESULTS
+--------------------------------------------------------------*/
+
+html[it-pathname='/results'][it-remove-related-search-results='true'] ytd-shelf-renderer>#dismissible>.grid-subheader,
+html[it-pathname='/results'][it-remove-related-search-results='true'] ytd-shelf-renderer>#dismissible>.grid-subheader+#contents {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# SCROLL BAR
+--------------------------------------------------------------*/
+
+html[it-scroll-bar=hidden] body {
+	overflow-y: overlay;
+}
+
+html[it-scroll-bar=hidden] ::-webkit-scrollbar {
+	display: none;
+}
+
+
+/*--------------------------------------------------------------
+# ADD "SCROLL TO TOP"
+--------------------------------------------------------------*/
+
+#it-scroll-to-top {
+	position: fixed !important;
+	z-index: 999 !important;
+	right: 32px !important;
+	bottom: 32px !important;
+
+	display: flex !important;
+	visibility: hidden !important;
+
+	box-sizing: border-box !important;
+	width: 56px !important;
+	height: 56px !important;
+
+	cursor: pointer !important;
+	transition: background 500ms 250ms, transform 500ms, box-shadow 525ms !important;
+	transform: translateY(88px) !important;
+	pointer-events: none !important;
+
+	opacity: 0 !important;
+	border-radius: 50% !important;
+	background: linear-gradient(135deg, #ff4766, #f50029) !important;
+	box-shadow: 0 2px 1px 1px #d60024, 0 4px 4px rgb(82, 0, 14, .32) !important;
+
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+#it-scroll-to-top>svg {
+	width: 24px !important;
+
+	fill: #fff !important;
+}
+
+html[it-scroll-to-top='true'] #it-scroll-to-top {
+	visibility: visible !important;
+
+	transform: translateY(0px) !important;
+	pointer-events: all !important;
+
+	opacity: 1 !important;
+}
+
+html[it-scroll-to-top='true'] #it-scroll-to-top:focus,
+html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
+	transition: background 250ms 125ms, transform 250ms, box-shadow 275ms !important;
+	transform: translateY(4px) scale(.975) !important;
+
+	box-shadow: 0 1px 1px 0 #d60024, 0 1px 2px rgb(82, 0, 14, .32) !important;
+}
+
+
+/*--------------------------------------------------------------
+# LIMIT PAGE WIDTH
+--------------------------------------------------------------*/
+
+html[it-limit-page-width='false'] ytd-browse > ytd-two-column-browse-results-renderer {
+	width: auto !important;
+	max-width: auto !important;
+}
+
+html[it-limit-page-width='false'] ytd-watch-flexy:not([fullscreen]) #columns.ytd-watch-flexy,
+html[it-limit-page-width='false'] ytd-watch-flexy:not([fullscreen]) #primary.ytd-watch-flexy {
+	max-width: 100% !important;
+}
+
+html[it-limit-page-width='false'] ytd-watch-flexy:not([fullscreen]) #player-container-outer.ytd-watch-flexy {
+	max-width: 100% !important;
+	max-height: var(--ytd-watch-flexy-max-player-height) !important;
+}
+
+html[it-limit-page-width='false'] ytd-watch-flexy:not([fullscreen]) #player-container-inner.ytd-watch-flexy {
+	padding-top: calc(var(--ytd-watch-flexy-max-player-height) + 45px) !important;
+}
+
+html[it-limit-page-width='false'] ytd-watch-flexy:not([fullscreen]) #player {
+	padding-bottom: 45px !important;
+}
+
+html[it-limit-page-width='false'] ytd-watch-flexy:not([fullscreen]) .html5-video-container {
+	width: 100% !important;
+	height: 100% !important;
+}
+
+html[it-limit-page-width='false'] ytd-watch-flexy:not([fullscreen]) video {
+	position: static !important;
+	top: 0 !important;
+	left: 0 !important;
+
+	width: 100% !important;
+	height: 100% !important;
+
+	object-fit: contain !important;
+}
+
+
+/*--------------------------------------------------------------
+# SQUARED USER IMAGES
+--------------------------------------------------------------*/
+
+html[it-squared-user-images='true'] #avatar.ytd-shelf-renderer,
+html[it-squared-user-images='true'] yt-img-shadow,
+html[it-squared-user-images='true'] #yt-masthead-user .yt-masthead-user-icon {
+	border-radius: unset !important;
+}
+
+
+/*--------------------------------------------------------------
+# Popup Window Button
+--------------------------------------------------------------*/
+
+.it-popup-window {
+	font-family: inherit;
+
+	position: absolute;
+	z-index: 999;
+	bottom: 36px;
+	left: 4px;
+
+	visibility: hidden;
+
+	width: 28px;
+	height: 28px;
+
+	cursor: pointer;
+	text-align: center;
+
+	color: #888;
+	border: none;
+	border-radius: 2px;
+	background: rgba(0, 0, 0, .8);
+}
+
+.it-popup-window svg {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+
+	width: 20px;
+	height: 20px;
+
+	pointer-events: none;
+
+	fill: currentColor;
+}
+
+*:hover>.it-popup-window {
+	visibility: visible;
+}
+
+
+/*--------------------------------------------------------------
+# MARK WATCHED VIDEOS
+--------------------------------------------------------------*/
+
+.it-mark-watched-videos {
+	font-family: inherit !important;
+	font-size: inherit !important;
+
+	position: absolute !important;
+	z-index: 999 !important;
+	bottom: 4px !important;
+	left: 4px !important;
+
+	visibility: hidden !important;
+
+	width: 28px !important;
+	height: 28px !important;
+	padding: 2px !important;
+
+	content: '' !important;
+	cursor: pointer !important;
+	text-align: center !important;
+
+	color: #888 !important;
+	border: none !important;
+	border-radius: 2px !important;
+	background-color: rgba(0, 0, 0, .8) !important;
+
+	fill: #fff !important;
+}
+
+.it-mark-watched-videos[data-watched] {
+	background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFF" d="M12 4.5C7 4.5 2.7 7.6 1 12a11.8 11.8 0 0 0 22 0c-1.7-4.4-6-7.5-11-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/%3E%3C/svg%3E') !important;
+}
+
+#thumbnail.ytd-thumbnail:hover .it-mark-watched-videos {
+	visibility: visible !important;
+}
+
+.it-mark-watched-videos[watched]>svg:first-child,
+.it-mark-watched-videos:not([watched])>svg:last-child {
+	display: none !important;
+}
+
+.it-mark-watched-videos:hover {
+	border-top-right-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+}
+
+.it-mark-watched-videos::after {
+	font-size: 1.2em !important;
+	font-weight: 500 !important;
+
+	position: absolute !important;
+	top: 0 !important;
+	left: 100% !important;
+
+	display: flex !important;
+	overflow: hidden !important;
+
+	width: 0 !important;
+	height: 28px !important;
+
+	content: 'Watched';
+	transition: width 200ms !important;
+	text-transform: uppercase !important;
+
+	color: var(--yt-spec-icon-active-other, #fff) !important;
+	border-top-right-radius: 2px !important;
+	border-bottom-right-radius: 2px !important;
+	background: rgba(0, 0, 0, .8) !important;
+
+	align-items: center !important;
+	justify-content: center !important;
+}
+
+.it-mark-watched-videos:hover::after {
+	width: 96px !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE ANIMATED THUMBNAILS
+--------------------------------------------------------------*/
+
+html[it-hide-animated-thumbnails='true'] #mouseover-overlay,
+html[it-hide-animated-thumbnails='true'] .mouseover-play,
+html[it-hide-animated-thumbnails='true'] .mouseover-img,
+html[it-hide-animated-thumbnails='true'] #preview>ytd-video-preview {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE BUTTONS ON THUMBNAILS
+--------------------------------------------------------------*/
+
+html[it-hide-thumbnail-overlay='true'] #hover-overlays {
+	display: none !important;
+}
