@@ -1,7 +1,11 @@
 /*--------------------------------------------------------------
 >>> BACKGROUND
 ----------------------------------------------------------------
-# 
+# Locale
+# Context menu
+# Tab focus/blur
+# Message listener
+# Uninstall URL
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -216,4 +220,4 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 # UNINSTALL URL
 --------------------------------------------------------------*/
 
-chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
+//chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
