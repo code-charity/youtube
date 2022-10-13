@@ -21,8 +21,8 @@
 - Require moving google analytics. We can removing it from the Repo & only add it when generating the google webstore version.
 
 #### ImprovedTube:
-- Repo will include m.youtube permissions (firefox addons are available on phones),  
- - + *.youtube.com  + global permission, to help with all videos. 
-     (besides Google Webstore version remains with www.youtube yet (by mistake), until we announce change
+- Repo will include m.youtube permissions (firefox addons are available on phones) <br>    _(besides Google Webstore version remains with www . youtube only (by mistake), until we announce change)_
+  - & *.youtube.com  + global permission, to work for all \<videos\>. 
+     
 
 
