@@ -1,0 +1,26 @@
+## To-Do / Required 
+### EVERY EXTENSION: 
+- Edge: doesnt allow a chrome update url 
+  update urls by browser: https://edge.microsoft.com/extensionwebstorebase/v1/crx ,  https://clients2.google.com/service/update2/crx 
+
+#### Extension name
+   - Edge & Whale deny '  (Replace ' with *) 
+   - Whale denies '&' (replace with '+')  
+   - Opera denies Emoji (delete)
+
+- Microsoft store has a bug/complification with languages https://github.com/code4charity/YouTube-Extension/discussions/966#discussioncomment-963315
+
+#### FIREFOX: 
+
+- Security: remove or comment-out:  "remote content" (googleapis.com/youtube) called as dynamic innerHtml
+
+#### Firefox & Opera:   
+
+- Removing google analytics - or rather removing from Repo & adding it only for google webstore version?
+
+### ImprovedTube:
+- Repo will include m.youtube permissions (firefox addons are available on phones),  
+ - + *.youtube.com  + global permission, to help with all videos. 
+     (besides Google Webstore version remains with www.youtube yet (by mistake), until we announce change
+
+# Version 3.2: Firefox has commented-out  // video.parentNode.parentNode.pauseVideo();  (fixes autoplay-bug)
