@@ -52,7 +52,7 @@
 			</ul></td></tr></table>			
 			
 
-<details><summary align="left"><code>&nbsp;&nbsp;&nbsp;<h2>🏝<code><code>⛵<code><code>🏕<code>Our To-Do</code>List</code></code></h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👇🏼</code></code></summary>
+<details><summary align="left"><code>&nbsp;&nbsp;&nbsp;<h2>🏝<code><code>⛵<code><code>🏕<code>Our To-Do</code>List</code></code></h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👇🏻</code></code></summary>
 	
 ##### **1.** - <code>[ ]</code> [**<code>Documentation, wiki, screenshots, video, ...</code>**](https://github.com/code-for-charity/YouTube-Extension/wiki "We need to help people learning as easily as possible about our 90+ features. (Drafts welcome. This will become 🛈tooltips in the extension too!")</code>
 >  We need to help people to learn as easily as possible about our [90+ features](https://github.com/ImprovedTube/ImprovedTube/wiki/Features). (Drafts welcome. This will become **🛈tooltips** in the extension!")  &nbsp;&nbsp;&nbsp; - <code>**[ ]**</code> [Updating translations](https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo " - some language files miss additions.") <i> - some language files miss additions.</i> - Also: Poofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) 
@@ -81,7 +81,7 @@
    - 6.) Select the `manifest.json` file from unzipped folder
 </details><br>
 
-<details><summary align="left"><code><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1>Our Extensions🎁 / Projects</h1></code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👇🏻</code></summary>
+<details><summary align="left"><code><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1>Our Extensions🎁 / Projects</h1></code>&nbsp;&nbsp;&nbsp;👇🏻</code></summary>
 	
 ### Extensions
 * **Browsing / Filters:** [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl)[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/victor-savinov/night-mode) <br>  + [**unFreeze me**(Deny overwriting Right-Click, Ctrl+F,...)](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) [<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/victor-savinov/hid-control-prevention) <br>     + [**Regex Replace**](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm) [<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/victor-savinov/regex-replace) + <br> [**Custom user agent**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj) [<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="21px">](https://github.com/victor-savinov/custom-user-agent)  
