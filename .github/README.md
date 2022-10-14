@@ -52,8 +52,7 @@
 			</ul></td></tr></table>			
 			
 
-<details><summary align="left"><code><h2>&nbsp;&nbsp;&nbsp;
-	🏝<code><code>⛵<code><code>🏕<code>Our To-Do</code>List</code></code></h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👇🏼</code></code></summary>
+<details><summary align="left"><code>&nbsp;&nbsp;&nbsp;<h2>🏝<code><code>⛵<code><code>🏕<code>Our To-Do</code>List</code></code></h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👇🏼</code></code></summary>
 	
 ##### **1.** - <code>[ ]</code> [**<code>Documentation, wiki, screenshots, video, ...</code>**](https://github.com/code-for-charity/YouTube-Extension/wiki "We need to help people learning as easily as possible about our 90+ features. (Drafts welcome. This will become 🛈tooltips in the extension too!")</code>
 >  We need to help people to learn as easily as possible about our [90+ features](https://github.com/ImprovedTube/ImprovedTube/wiki/Features). (Drafts welcome. This will become **🛈tooltips** in the extension!")  &nbsp;&nbsp;&nbsp; - <code>**[ ]**</code> [Updating translations](https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo " - some language files miss additions.") <i> - some language files miss additions.</i> - Also: Poofreading [English](https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json) 
@@ -63,7 +62,7 @@
 </details>
 
 <br>
-<details><summary align="left"><code>&nbsp;&nbsp;&nbsp;<h3>🔧 Install from source </h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></summary>
+<details><summary align="left"><code>&nbsp;&nbsp;&nbsp;<h3>🔧 Install from source </h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></summary>
 
 ### 1.) **Download & extract the [[latest🧪version]](https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip) or  [[release]](https://github.com/code-for-charity/YouTube-Extension/releases)**
 - **Safari**: 
@@ -149,7 +148,7 @@ We'll work on novel (new & unique) projects [github/**Wish-Factory**](https://gi
 </details>
 
 <br><br>
-<hr><details><summary><code><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📜Old Introduction:</h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;</code></summary> 
+<hr><details><summary><code><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📜Old Introduction:</h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>&nbsp;&nbsp;&nbsp;&nbsp;</code></summary> 
 
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  is an extension we built <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/346/beaver_1f9ab.png" height="28px"> to refine your YouTube experience. A one-stop-shop with many powerful features to enhance YouTube, yet liteweight. A larger player & tidy YouTube UI / hiding distractions were the first loved feature. And there was so much left to build and are many clever features to come still. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImprovedTube is designed with our own UI library: [Satus](https://github.com/victor-savinov/satus) (to manage your settings efficiently & create familiar apps/['cousins](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl) easily.) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please spread the word: ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned. No other project provides so much CSS to adjust a website[🦄](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)</font>.
