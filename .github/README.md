@@ -144,8 +144,9 @@ We'll work on novel (new & unique) projects [github/**Wish-Factory**](https://gi
 <details><summary align="left"><code><h2><div align="left">🌾👩‍💻"Behind the scenes"<a href="https://starchart.cc/ImprovedTube/YouTube.svg"><img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="118px" title="github starchart"></a></div> </h2></code></summary>
 <img width="343" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
 
-<img width="475" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png">
-<img align="center" width="475" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png"><br><br> <b> Do you need to run a popular extension, site, app or repo?</b><br> We'll love to help meaningful projects@improvedtube.com 
+<img width="442" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png">
+<br>(billions of video minutes)
+<img align="center" width="442" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png"> <br><br> <b> Do you need to run a popular extension, site, app or repo?</b><br> We'll love to help meaningful projects@improvedtube.com 
 </details>
 
 <br><br>
