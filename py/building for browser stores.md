@@ -17,7 +17,7 @@
 
 #### Firefox & Opera :   
 
-- Require moving google analytics. We can removing it from the Repo & only add it when generating the google webstore version.
+- Require moving google analytics. We can remove it from the GitHub & only add it when generating the google webstore version.
 
 #### ImprovedTube:
 - Repo will include m.youtube permissions (firefox addons are available on phones) <br>    _(besides Google Webstore version remains with www . youtube only (by mistake), until we announce change)_
