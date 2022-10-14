@@ -70,15 +70,15 @@
 
 - **Chrome / Chromium / Brave / Edge / Vivaldi**
   - 2.) Go to your Browser's Extensions page (*chrome://extensions/*)
-  - 3.) Activate `Developer mode`
-  - 4.) Click the `Load unpacked` button & Select the extracted folder
+   - 3.) Activate `Developer mode`
+    - 4.) Click the `Load unpacked` button & Select the extracted folder
 
 - **Firefox / LibreWolf / Waterfox / IceCat**
    - 2.) Go to `Add-ons` (*about:addons*)
-   - 3.) Click on `Extensions` tab
-   - 4.) Click on `Debug Add-ons` (*about:debugging#/runtime/this-firefox*)
-   - 5.) Click on `Load Temporary Add-on…`
-   - 6.) Select the `manifest.json` file from unzipped folder
+    - 3.) Click on `Extensions` tab
+     - 4.) Click on `Debug Add-ons` (*about:debugging#/runtime/this-firefox*)
+      - 5.) Click on `Load Temporary Add-on…`
+       - 6.) Select the `manifest.json` file from unzipped folder
 </details><br>
 
 <details><summary align="left"><code><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1>Our Extensions🎁 / Projects</h1></code>&nbsp;&nbsp;&nbsp;👇🏻</code></summary>
