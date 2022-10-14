@@ -42,7 +42,7 @@
  Since 2012 we have gradually been adding lightweight features & keeping up with sisyphean maintainance after big Youtube changes (throughout the years we witnessed the birth & fall of other promising & open YouTube Extensions [1](https://github.com/YePpHa/YouTubeCenter "YouTubeCenter"), [2](https://github.com/ParticleCore/Iridium "Iridium"), ... ) Yet adding something is easier & so motivating as there are 500 000 users. [[👪Join us]](https://github.com/code-for-charity/YouTube-Extension/discussions/1006 "github.com/Code-for-Charity"). 
 
 ##### <div align="center">Spread the word [<code><code><code><code>📣</code></code></code></code>](Http://Twitter_Whatsapp_Discord_Youtube_Facebook_eMail_Telegram_Signal)</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **W**hy arent there millions of users yet? We didn't write a guide or manuall Let alone ads. This project can still fly much higher through your word of mouth & enable us to work on all wishes 🌱  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can still fly much higher through your word of mouth & enable us to work on all wishes 🌱  
 
 <table align="right"><tr><th><h3 align="center">Planned Features</h3></th>	</tr>
 	<tr><td><ul>		<li>Tool Tips</li>
