@@ -1,6 +1,6 @@
 #### EVERY EXTENSION: 
 - Edge: doesnt allow a chrome update url 
-  update urls by browser: https://edge.microsoft.com/extensionwebstorebase/v1/crx ,  https://clients2.google.com/service/update2/crx 
+  - update URL  edge:  https://edge.microsoft.com/extensionwebstorebase/v1/crx ,  chrome: https://clients2.google.com/service/update2/crx 
 
 ##### Extension name
 
