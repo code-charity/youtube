@@ -45,10 +45,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can still fly much higher through your word of mouth & enable us to work on all wishes 🌱  
 
 <table align="right"><tr><th><h3 align="center">Planned Features</h3></th>	</tr>
-	<tr><td><ul>		<li>Tool Tips</li>
-				<li>Smart Blocking, Filtering & Discovery</li>
-				<li>Global Video Controls</li>
-				<li>Preventing CPU Rendering by default</li>				
+	<tr><td><ul>		<li>GUI: Tool Tips</li>
+ 				<li>Global Video Controls</li>
+                                <li>Fullpage Video History Dashboard</li>
+				<li>Smart Filtering/Blocking/Discovery</li>
+                                <li>Preventing CPU Rendering by default</li>				
 			</ul></td></tr></table>			
 			
 
