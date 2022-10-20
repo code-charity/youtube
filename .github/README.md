@@ -101,11 +101,12 @@ Planned Features</h3></th></tr><tr><td>
 <code> <code><code>🎁</code></code>Extensions/Projects</code></h2></code>▼</summary>
 	
 ### Our extensions
-* **`Browsing / Filters`:** <code>
-[**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl " - Universal dark-mode!") </code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/dark-mode)<br><code>
-[**unFreeze me**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl " - Unlock your Right-Click, Ctrl+F, Selection anywhere!")</code> [<img src="github.png" height="18px">](https://github.com/code-for-charity/hid-control-prevention)
-[**`Custom user agent`**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/custom-user-agent)
-[`Regex Replace`](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm) [<img src="github.png" height="18px">](https://github.com/code-for-charity/regex-replace)
+* **`Browsing`:** 
+[**`History Manager`**<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" height="18px"></a>]<br>
+[<code>[**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl " - Universal dark-mode!") </code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/dark-mode)]<br>
+[<code>[**unFreeze me**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl " - Unlock your Right-Click, Ctrl+F, Selection anywhere!")</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/hid-control-prevention)]
+[[**`Custom user agent`**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/custom-user-agent)]
+[[`Regex Replace`](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm) [<img src="github.png" height="18px">](https://github.com/code-for-charity/regex-replace)]
 
 * `Research`: <code>
 [Regex Search](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")</code>[<img src="github.png" height="15px">](https://github.com/code-for-charity/regex-search)
@@ -116,13 +117,13 @@ Planned Features</h3></th></tr><tr><td>
 (<i><del>Equalizer[<img src="github.png" height="18px">](https://github.com/code-for-charity/equalizer)</del></i>)
 
 * <b>`Home`:</b> 
-**`History Manager`**<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" height="18px"></a>
-(<i><del> Start Page <a href="https://github.com/code-for-charity/start-page"><img src="github.png" height="18px"></a></del></i>) 
-[`TextEditor`]([https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka?hl=de))[<img src="github.png" height="18px">](https://github.com/code-for-charity/Texteditor2)
-[`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-for-charity/to-do)
-(<i>[`auto-scroll`](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch)<a href="https://github.com/code-for-charity/auto-scroll"><img src="github.png" height="18px"></a></i>)
 
-### **`Development`:** [**`Satus`**](https://github.com/code-for-charity/satus) - Our UI library [**`WebGL.js`**](https://github.com/code-for-charity/webgl.js) - WebGL Library (<del>[TE](https://github.com/victor-savinov/theme-engine),[P](https://github.com/victor-savinov/pluviam),[CodeEdit](https://github.com/victor-savinov/code-editor), [Viscum Player](https://github.com/victor-savinov/viscum-player)</del>)
+(<i><del> Start Page <a href="https://github.com/code-for-charity/start-page"><img src="github.png" height="18px"></a></del></i>) 
+[[`TextEditor`]([https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka?hl=de))[<img src="github.png" height="18px">](https://github.com/code-for-charity/Texteditor2)]
+[[`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-for-charity/to-do)]
+[[`auto-scroll`](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch "(missing in Linux)")<a href="https://github.com/code-for-charity/auto-scroll"><img src="github.png" height="18px"></a>]
+
+### **`Development`:** [[**`Satus`**](https://github.com/code-for-charity/satus) - Our UI library] [[**`WebGL.js`**](https://github.com/code-for-charity/webgl.js) - WebGL Library] (<del>[TE](https://github.com/victor-savinov/theme-engine),[P](https://github.com/victor-savinov/pluviam),[CodeEdit](https://github.com/victor-savinov/code-editor), [Viscum Player](https://github.com/victor-savinov/viscum-player)</del>)
 
 ### Git Community
 🐣[`Regex Collector`](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - community-list of Regex") 
