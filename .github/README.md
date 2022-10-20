@@ -17,26 +17,28 @@ is a lightweight & powerful extension to improve your video experience & choice.
 
 <p align="center">
   <a href="https://github.com/code4charity/YouTube-Extension/issues/new">[Report a bug]</a>
- ·<a href="https://github.com/code4charity/YouTube-Extension/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">[Request feature]</a>
- ·<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">[Donate]</a>
- ·<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">[Features]</a>   
+ · <a href="https://github.com/code4charity/YouTube-Extension/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">[Request feature]</a>
+ · <a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">[Donate]</a>
+ · <a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">[Features]</a>   
  </p>
 
 <p align="center"><a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd"><img width="654" alt="YouTube Extension" src="https://user-images.githubusercontent.com/25022245/177911301-bbcf6edc-6bc9-47c4-aa0c-3d1cccbaa269.png"></a></p>
 
-<table align="right"><th><h3 align="center">
-Critiques</h3> </th><tr><td><div align="right"> 
+ <table align="right"><th><h3 align="center"> Critiques</h3> </th>  <tr><td> <table align="right"><tr><td><div align="right"> 
 <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="In 2021 we first uploaded a Firefox Version & were permanently recommended"><img width="154" alt="recommended by firefox" src="https://user-images.githubusercontent.com/9015764/178100681-728b9513-b6f8-4bf7-8949-c3d8449669ec.svg">
 by <img src="https://design.firefox.com/product-identity/firefox/firefox/firefox-logo.svg" height="25px"></a>(only ~ 100)<br><i>
 <code><code>'Might be the best YouTube Extension Ever'</code></code>- <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110" title="- Lifehacker.com 2021"><img src="https://lifehacker.com/favicon.ico" height="16px"></a><br>
 <code>'enhances YouTube in meaningful ways'</code>- <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways" title="- gHacks.net"><img src="https://ghacks.net/favicon.ico" height="15px"></a><br>
-<code><code><code>'Strong add-on, full control. Yet clear & easy'</code></code></code>- <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" title="- Chip.de"><img src="https://www.chip.de/favicon.ico"></a><br>
+<code><code><code>'Strong add-on, full control. Yet clear & easy'</code></code></code>- <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" title="- Chip.de"><img src="https://www.chip.de/favicon.ico"></a></div>
+ </td></tr></table><div align="right">   	
 Big thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors,</a> <a href="https://github.com/dodieboy" title="🏅🥇🥈🥉">dodieboy</a>,<br>
-<a href="https://github.com/code-for-charity/YouTube-Extension#--translators-">translators</a>/wiki-authors & <a href="https://www.blockchain.com/btc/address/144kqL6nGEQtVL3QCdADY4EtduZ95Vu1pL">donators :bowtie:</a> </div></i>
- </td></tr></table> 
+<a href="https://github.com/code-for-charity/YouTube-Extension#--translators-">translators</a>/wiki-authors & <a href="https://www.improvedtube.com/donate">donators :bowtie:</a> </div></i>
+ </td></tr></table>
 	
 ### The strongest Youtube Extension<br> 90 proven features - the only one of a kind 
- Since 2012 we have gradually been adding lightweight features & keeping up with sisyphean maintainance after big Youtube changes (throughout the years we witnessed the birth & fall of other promising & open YouTube Extensions [1](https://github.com/YePpHa/YouTubeCenter "YouTubeCenter"), [2](https://github.com/ParticleCore/Iridium "Iridium"), ... ) Yet adding something is easier & so motivating as there are 500 000 users. [[👪Join us]](https://github.com/code-for-charity/YouTube-Extension/discussions/1006 "github.com/Code-for-Charity"). 
+ Since 2012 we have gradually been adding lightweight features & keeping up with Youtube changes.
+(throughout the years we witnessed the birth & fall of other promising & open YouTube Extensions [1](https://github.com/YePpHa/YouTubeCenter "YouTubeCenter"), [2](https://github.com/ParticleCore/Iridium "Iridium"), ... ) 
+Today adding something is easier & so motivating as there are 500 000 users. [[👪Join us]](https://github.com/code-for-charity/YouTube-Extension/discussions/1006 "github.com/Code-for-Charity"). 
 ##### <div align="center">Spread the word [<code><code><code><code>📣</code></code></code></code>](Http://Twitter_Whatsapp_Discord_Youtube_Facebook_eMail_Telegram_Signal)</div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 
 **W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can still fly much higher through your word of mouth & eventually enable us to work on all wishes & more immediate updates around the clock 🌱  
@@ -46,7 +48,7 @@ Big thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/grap
 Planned Features</h3></th></tr><tr><td>
                                                                          
  - 🛈ToolTips
- - global Video Controls
+ - Global Video Controls
  - Fullpage Video History/Dashboard
  - Smart Filtering/Blocking/Discovery
  - Preventing CPU Rendering by default 
@@ -67,11 +69,11 @@ Planned Features</h3></th></tr><tr><td>
  <details><summary align="left"><code><h3>&nbsp;&nbsp;&nbsp;&nbsp;
 🧰 Features&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></code></summary>
                                     
- - Fit Video to window & default resolution & Pop-up player
- - hiding distractions
- - Youtube Themes & Colors
+ - Fit Video to window, default resolution or pop-up player
+ - Hiding distractions
+ - Youtube Themes, Colors & night schedule
  - Video Repeat-, screenshot-, rotate-buttons
- - *Many* Customizable hotkeys / shortcuts
+ - Customizable hotkeys / shortcuts
 <div align=center><a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">[Full List of Features]</a></div>
  </details>
 
@@ -95,44 +97,45 @@ Planned Features</h3></th></tr><tr><td>
            - 6.) Select the `manifest.json` file from unzipped folder
  </details>
 
-<details><summary align="center"><code><h2>&nbsp;
-<code>🎁 Extensions/Projects</h2></code>&nbsp;▼</code></summary>
+ <details><summary align="center"><code><h2>
+<code> <code><code>🎁</code></code>Extensions/Projects</code></h2></code>▼</summary>
 	
 ### Our extensions
 * **`Browsing / Filters`:** <code>
-[**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl " - Universal dark-mode!") </code>[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/code-for-charity/dark-mode)<br><code>
-[**unFreeze me**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl " - Unlock your Right-Click, Ctrl+F, Selection anywhere!")</code> [<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/code-for-charity/hid-control-prevention)
-[**`Custom user agent`**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/code-for-charity/custom-user-agent)
-[`Regex Replace`](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm) [<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/code-for-charity/regex-replace)
+[**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl " - Universal dark-mode!") </code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/dark-mode)<br><code>
+[**unFreeze me**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl " - Unlock your Right-Click, Ctrl+F, Selection anywhere!")</code> [<img src="github.png" height="18px">](https://github.com/code-for-charity/hid-control-prevention)
+[**`Custom user agent`**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/custom-user-agent)
+[`Regex Replace`](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm) [<img src="github.png" height="18px">](https://github.com/code-for-charity/regex-replace)
 
 * `Research`: <code>
-[Regex Search](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")</code>[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="15px">](https://github.com/code-for-charity/regex-search)
+[Regex Search](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")</code>[<img src="github.png" height="15px">](https://github.com/code-for-charity/regex-search)
 * **`Video / Media`:** (Features to be integrated in ImprovedTube...)<br><code>
-[**Looper**](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)</code>[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/code-for-charity/looper)<code>
-[**Frame by Frame**](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)</code>[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/code-for-charity/frame-by-frame)
-[**`unBlob`**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/code-for-charity/unblob)
-(<i><del>Equalizer[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/code-for-charity/equalizer)</del></i>)
+[**Looper**](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/looper)<code>
+[**Frame by Frame**](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/frame-by-frame)
+[**`unBlob`**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/unblob)
+(<i><del>Equalizer[<img src="github.png" height="18px">](https://github.com/code-for-charity/equalizer)</del></i>)
 
-* 🐣<b>`Home`:</b> 
-**`History Manager`**<a href="https://github.com/code-for-charity/history-manager"><img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px"></a>
-(<i><del> Start Page <a href="https://github.com/code-for-charity/start-page"><img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px"></a></del></i>) 
-[`TextEditor`]([https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka?hl=de))[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/code-for-charity/Texteditor2)
-[`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px">](https://github.com/code-for-charity/to-do)
-(<i>[`auto-scroll`](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch)<a href="https://github.com/code-for-charity/auto-scroll"><img src="https://camo.githubusercontent.com/4883534c0efe4140d2899349f631d8bda267086c38d17e3b92a379e97cfa3050/68747470733a2f2f692e696d6775722e636f6d2f6d3645597265312e706e67" height="18px"></a></i>)
+* <b>`Home`:</b> 
+**`History Manager`**<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" height="18px"></a>
+(<i><del> Start Page <a href="https://github.com/code-for-charity/start-page"><img src="github.png" height="18px"></a></del></i>) 
+[`TextEditor`]([https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka?hl=de))[<img src="github.png" height="18px">](https://github.com/code-for-charity/Texteditor2)
+[`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-for-charity/to-do)
+(<i>[`auto-scroll`](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch)<a href="https://github.com/code-for-charity/auto-scroll"><img src="github.png" height="18px"></a></i>)
 
-### Open-Source & Git
-[`Regex Collector`](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - community-list of Regex") 
-[`Pull Requests bots`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)
-<br>**`Development`:** [**`Satus`**](https://github.com/code-for-charity/satus) - Our UI library [**`WebGL.js`**](https://github.com/code-for-charity/webgl.js) - WebGL Library 
-<br><del>[TE](https://github.com/victor-savinov/theme-engine),[P](https://github.com/victor-savinov/pluviam),[CodeEdit](https://github.com/victor-savinov/code-editor), [Viscum Player](https://github.com/victor-savinov/viscum-player),   
-</del></details>
+### **`Development`:** [**`Satus`**](https://github.com/code-for-charity/satus) - Our UI library [**`WebGL.js`**](https://github.com/code-for-charity/webgl.js) - WebGL Library (<del>[TE](https://github.com/victor-savinov/theme-engine),[P](https://github.com/victor-savinov/pluviam),[CodeEdit](https://github.com/victor-savinov/code-editor), [Viscum Player](https://github.com/victor-savinov/viscum-player)</del>)
+
+### Git Community
+🐣[`Regex Collector`](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - community-list of Regex") 
+🌱[`Pull Requests bots`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)
+
+ </details> 
 
  <table align="right"><th><i><h3 align="center">
 🌎 Translators <a href="https://github.com/code-for-charity/YouTube-Extension#--translators-" title="💕">♡</a></h4></i></th>
-<tr><td><code>
+ <tr><td>   <table><tr><td>  <code>  
 <code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json" title="English">EN</a></code>+<code>
-<a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/uk/messages.json" title="English (UK)">en_GB</a></code> :
-<a href="https://github.com/KorbinCode" "✨🏆"><code>KorbinCode</code></a>
+ <a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/uk/messages.json" title="English (UK)">en_GB</a></code> :
+<a href="https://github.com/KorbinCode" title="✨🏆"><code>KorbinCode</code></a>
 <br>Proofreaders:<code><a href="https://github.com/????????">___</a></code> (You?) </code><br><code>
 <code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json" title="中文 (简体)">CN(zh_CN)</a></code> :
 <a href="https://github.com/niceRAM" title="✨🏆"><code>niceRAM</code></a>,
@@ -157,7 +160,8 @@ Planned Features</h3></th></tr><tr><td>
 <code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json" title="বাংলা">BN</a></code> :
 <a href="https://github.com/BRAVO68WEB" title="✨🏆"><code>BRAVO68WEB</code></a><br><code>
 <code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json" title="Русский">RU</a></code> :
-<a href="https://github.com/qweered"><code>qweered</code></a>,<a href="https://github.com/alexesprit"><code>alexesprit</code></a><br><code>	
+<a href="https://github.com/qweered"><code>qweered</code></a>,
+<a href="https://github.com/alexesprit"><code>alexesprit</code></a><br><code>	
 <code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json" title="Português (Brasil)">pt_BR</a></code> :
 <a href="https://github.com/dthiago" title="✨🏆"><code>dthiago</code></a>,
 <a href="https://github.com/Mike-Correa"><code>Mike-Correa</code></a><br>
@@ -168,7 +172,7 @@ Planned Features</h3></th></tr><tr><td>
 <a href="https://github.com/Bagus23"><code>Bagus23</code></a>,
 <a href="https://github.com/fdciabdul"><code>A.Muttaqin</code></a><br><code>	
 <code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json" title="Deutsch">DE</a></code> :
-<a href="https://github.com/Termuellinator" "✨🏆"><code>Termuellinator</code></a>,
+<a href="https://github.com/Termuellinator" title="✨🏆"><code>Termuellinator</code></a>,
 <a href="https://github.com/css-smueller"><code>css-smueller</code></a><br><code>
 <code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json" title="日本語">JA</a></code> :
 <a href="https://github.com/utuhiro78" title="✨🏆"><code>utuhiro78</code></a><br><code>
@@ -231,36 +235,35 @@ Planned Features</h3></th></tr><tr><td>
 <code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Catalan, Valencian">Catalan, Valencian</a></code> :
 <a href="https://github.com/_____">(You?)</a><br><code>		
 <code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Estonian">Estonian</a></code> :
-<a href="https://github.com/_____">(You?)</a><br>	
-<br><code><code>✓</code></code> = <i> missing some additions/updates </i>
+<a href="https://github.com/_____">(You?)</a><br> 
+ </td></tr></table>
 	
+<code><code>✓</code></code> = <i> missing some additions/updates </i>	
 <div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo">Help us Translate</a>]</div><br>
 
-<h6><i> The following popular languages are<br>
-spoken mainly. But dont hesitate to add<br>
-one of them. (Even if or fun)</i></h6><code> 
-Urdu</code>
+<div align="center"><i> The following popular languages are<br>
+spoken mainly. But dont hesitate to add<br> one of them. (Even if just for fun)</i> <br><code> 
+Urdu</code>   
 Nigerian Pidgin (English Creole)<br>
 Western-&Eastern-Punjabi<br>
 Marathi(Indo-European)<code>Telugu</code><br>
 <code>Tamil</code> Yue Chinese (incl. Cantonese)<br>
 Tagalog (New name: Filipino)<br> Wu Chinese (incl. Shanghainese)<br>
-<code>Hausa</code><br>Egyptian Spoken Arabic<br>
+<code>Hausa</code>Egyptian Spoken Arabic<br>
 <code>Swahili</code><code>Javanese</code>Kannada<code>Gujarati</code><br>
 Amharic, Bhojpuri, <br>
 Min Nan Chinese (incl. Hokkien),<br> 
 Jin Chinese <code>Yoruba</code> Hakka Chinese,<br>
 Burmese, <br>
 Spoken Arabic: Sudanese & Algerian <br> 
-Lingala, Malaysian Malay<br><br>
-<i>(Combined these have more native <br>
+Lingala, Malaysian Malay<br>
+<i>(Combined these have more first-language <br>
 speakers than English + Spanish + Hindi. <br>
 And more second-language speakers than <br>
-Chinese + Hindi + Spanish) <br></i>
- <br><div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo">Help us Translate</a>]</div>
- </td></tr></table> 
-
-
+Chinese + Hindi + Spanish) <br></i></div>
+<br><div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo">Help us Translate</a>]</div>
+  </td></tr></table>   </td></tr></table> 
+  
  <details><summary><code><h3>&nbsp;&nbsp;&nbsp;&nbsp;
 📟 "Ticker"</h3>&nbsp;&nbsp;</code></summary>
 	
