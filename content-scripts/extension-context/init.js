@@ -130,7 +130,7 @@ document.addEventListener('it-message-from-youtube', function () {
 			console.log(error);
 		}
 
-		console.log(message);
+		//console.log(message);
 
 		if (message.requestOptionsUrl === true) {
 			extension.messages.send({

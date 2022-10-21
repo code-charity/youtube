@@ -440,7 +440,7 @@
     "hideCards": {
         "message": "Ocultar tarjetas"
     },
-    "hideCommentsCount":{
+    "hideCommentsCount": {
         "message": "Hide comments count"
     },
     "hideCountryCode": {
@@ -577,9 +577,6 @@
     },
     "like": {
         "message": "Me gusta"
-    },
-    "likeAndDislike": {
-        "message": "Like and Dislike "
     },
     "liked": {
         "message": "Me gusta"

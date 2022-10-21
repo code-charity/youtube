@@ -446,10 +446,7 @@
     "hideCategories": {
         "message": "Hide categories"
     },
-    "hideClipButton": {
-        "message": "Hide clip button"
-    },
-    "hideCommentsCount":{
+    "hideCommentsCount": {
         "message": "Hide comments count"
     },
     "hideCountryCode": {
@@ -464,9 +461,6 @@
     "hideDetails": {
         "message": "Details හංගන්න"
     },
-    "hideDownloadButton": {
-        "message": "Hide download button"
-    },
     "hideEndscreen": {
         "message": "Endscreen එක හංගන්න"
     },
@@ -478,9 +472,6 @@
     },
     "hideGradientBottom": {
         "message": "Player-bar එක වටේ තියෙන shadow එක සගවන්න"
-    },
-    "hideMoreButton": {
-        "message": "Hide more button"
     },
     "hidePlayerControlsBar": {
         "message": "Player controls bar එක සඟවන්න"
@@ -494,26 +485,14 @@
     "hidePlaylist": {
         "message": "Playlist සඟවන්න"
     },
-    "hideReportButton": {
-        "message": "Hide report button"
-    },
     "hideRightButtons": {
         "message": "දකුණු පැත්තෙ තියෙන button සඟවන්න"
-    },
-    "hideSaveButton": {
-        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "«Scroll for details» සඟවන්න"
     },
-    "hideShareButton": {
-        "message": "Hide share button"
-    },
     "hideSkipOverlay": {
         "message": "5 seconds skip animation එක සඟවන්න"
-    },
-    "hideThanksButton": {
-        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Thumbnail මත තිබෙන button සඟවන්න"
@@ -610,9 +589,6 @@
     },
     "like": {
         "message": "Like"
-    },
-    "likeAndDislike": {
-        "message": "Like and Dislike "
     },
     "liked": {
         "message": "Liked"

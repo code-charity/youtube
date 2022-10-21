@@ -449,10 +449,7 @@
     "hideCategories": {
         "message": "Hide categories"
     },
-    "hideClipButton": {
-        "message": "Hide clip button"
-    },
-    "hideCommentsCount":{
+    "hideCommentsCount": {
         "message": "Hide comments count"
     },
     "hideCountryCode": {
@@ -467,9 +464,6 @@
     "hideDetails": {
         "message": "Ukryj szczegóły"
     },
-    "hideDownloadButton": {
-        "message": "Hide download button"
-    },
     "hideEndscreen": {
         "message": "Ukryj ekran końcowy"
     },
@@ -481,9 +475,6 @@
     },
     "hideGradientBottom": {
         "message": "Ukryj cień dookoła paska odtwarzania"
-    },
-    "hideMoreButton": {
-        "message": "Hide more button"
     },
     "hidePlayerControlsBar": {
         "message": "Ukryj pasek sterowania odtwarzaczem"
@@ -497,26 +488,14 @@
     "hidePlaylist": {
         "message": "Ukryj playliste"
     },
-    "hideReportButton": {
-        "message": "Hide report button"
-    },
     "hideRightButtons": {
         "message": "Ukryj przyciski po prawej"
-    },
-    "hideSaveButton": {
-        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "Ukryj «Przewiń do szczegółów»"
     },
-    "hideShareButton": {
-        "message": "Hide share button"
-    },
     "hideSkipOverlay": {
         "message": "Ukryj nakładkę pomijania"
-    },
-    "hideThanksButton": {
-        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Ukryj przyciski na miniaturach"
@@ -613,9 +592,6 @@
     },
     "like": {
         "message": "Polub"
-    },
-    "likeAndDislike": {
-        "message": "Like and Dislike "
     },
     "liked": {
         "message": "Polubione"
