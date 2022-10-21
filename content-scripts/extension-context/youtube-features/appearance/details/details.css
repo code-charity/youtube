@@ -23,6 +23,13 @@ html[it-hide-views-count='true'] #info #count + #info-strings>#dot {
 	display: none !important;
 }
 
+/*--------------------------------------------------------------
+# HIDE COMMENTS COUNT
+--------------------------------------------------------------*/
+
+html[it-hide-comments-count='true'] #comments #count {
+  display: none !important;
+}
 
 /*--------------------------------------------------------------
 # HIDE DATE
