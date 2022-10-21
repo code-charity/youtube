@@ -440,6 +440,9 @@
     "hideCards": {
         "message": "Ocultar tarjetas"
     },
+    "hideCommentsCount":{
+        "message": "Hide comments count"
+    },
     "hideCountryCode": {
         "message": "Ocultar código de país"
     },
