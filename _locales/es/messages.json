@@ -449,10 +449,7 @@
     "hideCategories": {
         "message": "Hide categories"
     },
-    "hideClipButton": {
-        "message": "Hide clip button"
-    },
-    "hideCommentsCount":{
+    "hideCommentsCount": {
         "message": "Hide comments count"
     },
     "hideCountryCode": {
@@ -467,9 +464,6 @@
     "hideDetails": {
         "message": "Ocultar detalles"
     },
-    "hideDownloadButton": {
-        "message": "Hide download button"
-    },
     "hideEndscreen": {
         "message": "Ocultar pantalla final"
     },
@@ -481,9 +475,6 @@
     },
     "hideGradientBottom": {
         "message": "Ocultar parte inferior degradada"
-    },
-    "hideMoreButton": {
-        "message": "Hide more button"
     },
     "hidePlayerControlsBar": {
         "message": "Ocultar la barra del reproductor"
@@ -497,26 +488,14 @@
     "hidePlaylist": {
         "message": "Ocultar playlist"
     },
-    "hideReportButton": {
-        "message": "Hide report button"
-    },
     "hideRightButtons": {
         "message": "Ocultar botones de la derecha"
-    },
-    "hideSaveButton": {
-        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "Ocultar «Desliza hacia abajo para ver más detalles»"
     },
-    "hideShareButton": {
-        "message": "Hide share button"
-    },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
-    },
-    "hideThanksButton": {
-        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
@@ -613,9 +592,6 @@
     },
     "like": {
         "message": "Me gusta"
-    },
-    "likeAndDislike": {
-        "message": "Like and Dislike "
     },
     "liked": {
         "message": "Me gusta"

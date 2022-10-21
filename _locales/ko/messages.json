@@ -449,10 +449,7 @@
     "hideCategories": {
         "message": "Hide categories"
     },
-    "hideClipButton": {
-        "message": "Hide clip button"
-    },
-    "hideCommentsCount":{
+    "hideCommentsCount": {
         "message": "Hide comments count"
     },
     "hideCountryCode": {
@@ -467,9 +464,6 @@
     "hideDetails": {
         "message": "상세설명 숨기기"
     },
-    "hideDownloadButton": {
-        "message": "Hide download button"
-    },
     "hideEndscreen": {
         "message": "종료후 화면 숨기기"
     },
@@ -481,9 +475,6 @@
     },
     "hideGradientBottom": {
         "message": "그라데이션 맨 아래로 숨기기"
-    },
-    "hideMoreButton": {
-        "message": "Hide more button"
     },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
@@ -497,26 +488,14 @@
     "hidePlaylist": {
         "message": "재생 목록 숨기기"
     },
-    "hideReportButton": {
-        "message": "Hide report button"
-    },
     "hideRightButtons": {
         "message": "오른쪽 버튼 숨기기"
-    },
-    "hideSaveButton": {
-        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "«스크롤 하여 자세한 설명» 숨기기"
     },
-    "hideShareButton": {
-        "message": "Hide share button"
-    },
     "hideSkipOverlay": {
         "message": "\"오버레이 건너뛰기\" 숨기기"
-    },
-    "hideThanksButton": {
-        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
@@ -613,9 +592,6 @@
     },
     "like": {
         "message": "좋아요"
-    },
-    "likeAndDislike": {
-        "message": "Like and Dislike "
     },
     "liked": {
         "message": "Liked"
