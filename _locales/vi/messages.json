@@ -449,10 +449,7 @@
     "hideCategories": {
         "message": "Hide categories"
     },
-    "hideClipButton": {
-        "message": "Hide clip button"
-    },
-    "hideCommentsCount":{
+    "hideCommentsCount": {
         "message": "Hide comments count"
     },
     "hideCountryCode": {
@@ -467,9 +464,6 @@
     "hideDetails": {
         "message": "Ẩn chi tiết"
     },
-    "hideDownloadButton": {
-        "message": "Hide download button"
-    },
     "hideEndscreen": {
         "message": "Ẩn màn hình kết thúc"
     },
@@ -481,9 +475,6 @@
     },
     "hideGradientBottom": {
         "message": "Ẩn bóng xung quanh thanh trình phát"
-    },
-    "hideMoreButton": {
-        "message": "Hide more button"
     },
     "hidePlayerControlsBar": {
         "message": "Ẩn thanh điều khiển trình phát"
@@ -497,26 +488,14 @@
     "hidePlaylist": {
         "message": "Ẩn danh sách phát"
     },
-    "hideReportButton": {
-        "message": "Hide report button"
-    },
     "hideRightButtons": {
         "message": "Ẩn các nút bên phải"
-    },
-    "hideSaveButton": {
-        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "Ẩn «Cuộn để biết chi tiết»"
     },
-    "hideShareButton": {
-        "message": "Hide share button"
-    },
     "hideSkipOverlay": {
         "message": "Ẩn hoạt ảnh bỏ qua 5 giây"
-    },
-    "hideThanksButton": {
-        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Ẩn các nút trên hình thu nhỏ"
@@ -613,9 +592,6 @@
     },
     "like": {
         "message": "Thích"
-    },
-    "likeAndDislike": {
-        "message": "Like and Dislike "
     },
     "liked": {
         "message": "Đã thích"

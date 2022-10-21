@@ -452,10 +452,7 @@
     "hideCategories": {
         "message": "Hide categories"
     },
-    "hideClipButton": {
-        "message": "Hide clip button"
-    },
-    "hideCommentsCount":{
+    "hideCommentsCount": {
         "message": "Hide comments count"
     },
     "hideCountryCode": {
@@ -470,9 +467,6 @@
     "hideDetails": {
         "message": "Скрывать подробную информацию"
     },
-    "hideDownloadButton": {
-        "message": "Hide download button"
-    },
     "hideEndscreen": {
         "message": "Скрывать экран после видео"
     },
@@ -484,9 +478,6 @@
     },
     "hideGradientBottom": {
         "message": "Скрывать кнопку градиента"
-    },
-    "hideMoreButton": {
-        "message": "Hide more button"
     },
     "hidePlayerControlsBar": {
         "message": "Скрывать панель управления плеером"
@@ -500,26 +491,14 @@
     "hidePlaylist": {
         "message": "Скрывать плейлисты"
     },
-    "hideReportButton": {
-        "message": "Hide report button"
-    },
     "hideRightButtons": {
         "message": "Скрывать кнопки (справа)"
-    },
-    "hideSaveButton": {
-        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "Скрывать «Прокрутите для подробной информации»"
     },
-    "hideShareButton": {
-        "message": "Hide share button"
-    },
     "hideSkipOverlay": {
         "message": "Скрывать наложение \"5 секунд\""
-    },
-    "hideThanksButton": {
-        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Скрывать наложение на превью"
@@ -619,9 +598,6 @@
     },
     "like": {
         "message": "Лайк"
-    },
-    "likeAndDislike": {
-        "message": "Like and Dislike "
     },
     "liked": {
         "message": "Понравившиеся"
