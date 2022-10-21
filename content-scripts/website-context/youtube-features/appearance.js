@@ -25,45 +25,7 @@ ImprovedTube.playerSize = function () {
 			}
 		}
 
-		if (this.storage.player_size === 'fit_to_window' && this.elements.ytd_watch && this.elements.ytd_player) {
-			var video = this.elements.video,
-				aspect_ratio = video.videoWidth / video.videoHeight,
-				width,
-				height,
-				max_height = window.innerHeight,
-				style = this.elements.player_size_style || document.createElement('style');
-
-			if (this.elements.ytd_watch.theater === true) {
-				width = this.elements.ytd_player.offsetWidth;
-
-				style.textContent = '[data-page-type="video"][it-player-size="fit_to_window"] ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) video {';
-			} else {
-				width = this.elements.ytd_watch.offsetWidth;
-
-				style.textContent = '[data-page-type="video"][it-player-size="fit_to_window"] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) video {';
-			}
-
-			height = width / aspect_ratio;
-
-			if (height > max_height) {
-				width -= (height - max_height) * aspect_ratio;
-				height = max_height;
-			}
-
-			style.textContent += 'width:' + width + 'px !important;';
-			style.textContent += 'height:' + height + 'px !important;';
-
-			style.textContent += '}';
-
-			this.elements.player_size_style = style;
-
-			document.body.appendChild(style);
-
-			setTimeout(function () {
-				window.dispatchEvent(new Event('resize'));
-			}, 100);
-		}
-
+		
 		if (this.storage.player_size === 'custom') {
 			var width = Number(this.storage.custom_player_size_width) || 1280,
 				height = Number(this.storage.custom_player_size_height) || 720,
