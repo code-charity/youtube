@@ -454,6 +454,11 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 			hide_author_avatars: {
 				component: 'switch',
 				text: 'Hide Avatars'
+			},
+			hide_comments_count: {
+				component: 'switch',
+				text: 'hideCommentsCount',
+				tags: 'hide,remove'
 			}
 		}
 	}
