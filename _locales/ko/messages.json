@@ -452,6 +452,9 @@
     "hideClipButton": {
         "message": "Hide clip button"
     },
+    "hideCommentsCount":{
+        "message": "Hide comments count"
+    },
     "hideCountryCode": {
         "message": "국가코드 숨기기"
     },

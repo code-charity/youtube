@@ -449,6 +449,9 @@
     "hideClipButton": {
         "message": "Hide clip button"
     },
+    "hideCommentsCount":{
+        "message": "Hide comments count"
+    },
     "hideCountryCode": {
         "message": "देश कोड छुपाएं"
     },
