@@ -452,6 +452,9 @@
     "hideClipButton": {
         "message": "Hide clip button"
     },
+    "hideCommentsCount":{
+        "message": "Hide comments count"
+    },
     "hideCountryCode": {
         "message": "কান্ট্রি কোড লুকান"
     },

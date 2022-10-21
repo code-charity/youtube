@@ -461,6 +461,9 @@
     "hideClipButton": {
         "message": "Hide clip button"
     },
+    "hideCommentsCount":{
+        "message": "Hide comments count"
+    },
     "hideCountryCode": {
         "message": "Hide country code"
     },
