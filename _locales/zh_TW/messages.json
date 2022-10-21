@@ -449,10 +449,7 @@
     "hideCategories": {
         "message": "Hide categories"
     },
-    "hideClipButton": {
-        "message": "Hide clip button"
-    },
-    "hideCommentsCount":{
+    "hideCommentsCount": {
         "message": "Hide comments count"
     },
     "hideCountryCode": {
@@ -467,9 +464,6 @@
     "hideDetails": {
         "message": "隱藏細節"
     },
-    "hideDownloadButton": {
-        "message": "Hide download button"
-    },
     "hideEndscreen": {
         "message": "隱藏結束畫面"
     },
@@ -481,9 +475,6 @@
     },
     "hideGradientBottom": {
         "message": "隱藏底部漸層圖層"
-    },
-    "hideMoreButton": {
-        "message": "Hide more button"
     },
     "hidePlayerControlsBar": {
         "message": "隱藏播放器控制欄"
@@ -497,26 +488,14 @@
     "hidePlaylist": {
         "message": "隱藏播放清單"
     },
-    "hideReportButton": {
-        "message": "Hide report button"
-    },
     "hideRightButtons": {
         "message": "隱藏右側按鈕"
-    },
-    "hideSaveButton": {
-        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "隱藏「向下捲動即可查看詳情」"
     },
-    "hideShareButton": {
-        "message": "Hide share button"
-    },
     "hideSkipOverlay": {
         "message": "隱藏「跳至區段」按鈕"
-    },
-    "hideThanksButton": {
-        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "隱藏縮圖上的按鈕"
@@ -613,9 +592,6 @@
     },
     "like": {
         "message": "喜歡"
-    },
-    "likeAndDislike": {
-        "message": "Like and Dislike "
     },
     "liked": {
         "message": "Liked"

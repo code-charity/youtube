@@ -449,12 +449,9 @@
     "hideCategories": {
         "message": "Hide categories"
     },
-    "hideClipButton": {
-        "message": "Hide clip button"
+    "hideCommentsCount": {
+        "message": "Hide comments count"
     },
-  "hideCommentsCount": {
-    "message": "Hide comments count"
-  },
     "hideCountryCode": {
         "message": "Ländercode ausblenden"
     },
@@ -466,9 +463,6 @@
     },
     "hideDetails": {
         "message": "Details ausblenden"
-    },
-    "hideDownloadButton": {
-        "message": "Hide download button"
     },
     "hideEndscreen": {
         "message": "Endkarten ausblenden (Schlussbildschirme)"
@@ -482,9 +476,6 @@
     "hideGradientBottom": {
         "message": "Farbverlauf ausblenden"
     },
-    "hideMoreButton": {
-        "message": "Hide more button"
-    },
     "hidePlayerControlsBar": {
         "message": "Kontrolleiste ausblenden"
     },
@@ -497,26 +488,14 @@
     "hidePlaylist": {
         "message": "Playlists ausblenden"
     },
-    "hideReportButton": {
-        "message": "Hide report button"
-    },
     "hideRightButtons": {
         "message": "Rechte Buttons ausblenden"
-    },
-    "hideSaveButton": {
-        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "„Für Details scrollen“ ausblenden"
     },
-    "hideShareButton": {
-        "message": "Hide share button"
-    },
     "hideSkipOverlay": {
         "message": "Überspringen Overlay ausblenden"
-    },
-    "hideThanksButton": {
-        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Thumbnail Overlay ausblenden"
@@ -613,9 +592,6 @@
     },
     "like": {
         "message": "Like"
-    },
-    "likeAndDislike": {
-        "message": "Like and Dislike "
     },
     "liked": {
         "message": "Liked"

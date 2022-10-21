@@ -449,10 +449,7 @@
     "hideCategories": {
         "message": "Hide categories"
     },
-    "hideClipButton": {
-        "message": "Hide clip button"
-    },
-    "hideCommentsCount":{
+    "hideCommentsCount": {
         "message": "Hide comments count"
     },
     "hideCountryCode": {
@@ -467,9 +464,6 @@
     "hideDetails": {
         "message": "আড়াল বিস্তারিত"
     },
-    "hideDownloadButton": {
-        "message": "Hide download button"
-    },
     "hideEndscreen": {
         "message": "এন্ডস্ক্রিন লুকান"
     },
@@ -481,9 +475,6 @@
     },
     "hideGradientBottom": {
         "message": "গ্রেডিয়েন্ট নীচে লুকান"
-    },
-    "hideMoreButton": {
-        "message": "Hide more button"
     },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
@@ -497,26 +488,14 @@
     "hidePlaylist": {
         "message": "প্লেলিস্ট লুকান"
     },
-    "hideReportButton": {
-        "message": "Hide report button"
-    },
     "hideRightButtons": {
         "message": "ডান বোতামগুলি লুকান"
-    },
-    "hideSaveButton": {
-        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "«বিশদ জন্য স্ক্রোলs» লুকান"
     },
-    "hideShareButton": {
-        "message": "Hide share button"
-    },
     "hideSkipOverlay": {
         "message": "স্কিপ ওভারলে লুকান"
-    },
-    "hideThanksButton": {
-        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
@@ -613,9 +592,6 @@
     },
     "like": {
         "message": "লাইক"
-    },
-    "likeAndDislike": {
-        "message": "Like and Dislike "
     },
     "liked": {
         "message": "Liked"

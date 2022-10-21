@@ -449,10 +449,7 @@
     "hideCategories": {
         "message": "Hide categories"
     },
-    "hideClipButton": {
-        "message": "Hide clip button"
-    },
-    "hideCommentsCount":{
+    "hideCommentsCount": {
         "message": "Hide comments count"
     },
     "hideCountryCode": {
@@ -467,9 +464,6 @@
     "hideDetails": {
         "message": "Sembunyikan detail"
     },
-    "hideDownloadButton": {
-        "message": "Hide download button"
-    },
     "hideEndscreen": {
         "message": "Sembunyikan layar akhir"
     },
@@ -481,9 +475,6 @@
     },
     "hideGradientBottom": {
         "message": "Sembunyikan Gradient Bagian Bawah"
-    },
-    "hideMoreButton": {
-        "message": "Hide more button"
     },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
@@ -497,26 +488,14 @@
     "hidePlaylist": {
         "message": "Sembunyikan daftar putar"
     },
-    "hideReportButton": {
-        "message": "Hide report button"
-    },
     "hideRightButtons": {
         "message": "Sembunyikan tombol kanan"
-    },
-    "hideSaveButton": {
-        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "Sembunyikan «gulir untuk detail»"
     },
-    "hideShareButton": {
-        "message": "Hide share button"
-    },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
-    },
-    "hideThanksButton": {
-        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
@@ -613,9 +592,6 @@
     },
     "like": {
         "message": "Suka"
-    },
-    "likeAndDislike": {
-        "message": "Like and Dislike "
     },
     "liked": {
         "message": "Liked"

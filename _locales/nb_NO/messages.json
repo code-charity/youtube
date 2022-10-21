@@ -446,10 +446,7 @@
     "hideCategories": {
         "message": "Hide categories"
     },
-    "hideClipButton": {
-        "message": "Hide clip button"
-    },
-    "hideCommentsCount":{
+    "hideCommentsCount": {
         "message": "Hide comments count"
     },
     "hideCountryCode": {
@@ -464,9 +461,6 @@
     "hideDetails": {
         "message": "Skjul detaljer"
     },
-    "hideDownloadButton": {
-        "message": "Hide download button"
-    },
     "hideEndscreen": {
         "message": "Skjul sluttskjerm"
     },
@@ -478,9 +472,6 @@
     },
     "hideGradientBottom": {
         "message": "Skjul bunn-fargeovergang"
-    },
-    "hideMoreButton": {
-        "message": "Hide more button"
     },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
@@ -494,26 +485,14 @@
     "hidePlaylist": {
         "message": "Skjul spilleliste"
     },
-    "hideReportButton": {
-        "message": "Hide report button"
-    },
     "hideRightButtons": {
         "message": "Skjul høyre-knapper"
-    },
-    "hideSaveButton": {
-        "message": "Hide save button"
     },
     "hideScrollForDetails": {
         "message": "Skjul «Bla for detaljer»"
     },
-    "hideShareButton": {
-        "message": "Hide share button"
-    },
     "hideSkipOverlay": {
         "message": "Hide Skip Overlay"
-    },
-    "hideThanksButton": {
-        "message": "Hide thanks button"
     },
     "hideThumbnailOverlay": {
         "message": "Hide thumbnail overlay"
@@ -610,9 +589,6 @@
     },
     "like": {
         "message": "Gunst"
-    },
-    "likeAndDislike": {
-        "message": "Like and Dislike "
     },
     "liked": {
         "message": "Liked"
