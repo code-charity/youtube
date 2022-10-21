@@ -69,7 +69,7 @@ def addItem(allFiles):
     camelized_message = lowerCamelCase(message)
 
     for keyFile in allFiles:
-        with open(keyFile, 'r+') as json_file:
+        with open(keyFile, 'r+', encoding='utf-8') as json_file:
             data = json.load(json_file)
 
             if (camelized_message in data) == False:
@@ -88,7 +88,7 @@ def removeItem(allFiles):
     key = input('Enter your key (lowerCamelCase): ')
 
     for keyFile in allFiles:
-        with open(keyFile, 'r+') as json_file:
+        with open(keyFile, 'r+', encoding='utf-8') as json_file:
             data = json.load(json_file)
 
             if key in data:
@@ -109,7 +109,7 @@ def changeKey(allFiles):
     new_key = input('Enter new key: ')
 
     for keyFile in allFiles:
-        with open(keyFile, 'r+') as file:
+        with open(keyFile, 'r+', encoding='utf-8') as file:
             data = json.load(file)
 
             if old_key in data:
@@ -128,7 +128,7 @@ def changeKey(allFiles):
 
 def decodeCharacters(allFiles):
     for keyFile in allFiles:
-        with open(keyFile, 'r+') as json_file:
+        with open(keyFile, 'r+', encoding='utf-8') as json_file:
             data = json.load(json_file)
 
             json_file.seek(0)
@@ -200,7 +200,7 @@ def upgrade():
     ]
 
     if os.path.exists('../_locales/en/messages.json'):
-        file = open('../_locales/en/messages.json', 'r+')
+        file = open('../_locales/en/messages.json', 'r+', encoding='utf-8')
         
         default_locale = json.load(file)
 
@@ -220,7 +220,7 @@ def upgrade():
             
             file.close()
         else:
-            with open(path + '/messages.json', 'r+') as file:
+            with open(path + '/messages.json', 'r+', encoding='utf-8') as file:
                 data = json.load(file)
 
                 file.seek(0)
