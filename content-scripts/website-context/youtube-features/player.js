@@ -1114,12 +1114,22 @@ ImprovedTube.playerSDR = function () {
 4.4.19 Hide controls
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.playerControls = function () {
-	if (this.elements.player) {
-		if (this.storage.player_hide_controls === true) {
-			this.elements.player.hideControls();
-		} else {
-			this.elements.player.showControls();
-		}
-	}
+ImprovedTube.playerControls = function (mouseIn=false) {
+    var player = this.elements.player;
+
+    if (player) {
+        if (this.storage.player_hide_controls === 'always') {
+            player.hideControls();
+        } else if(this.storage.player_hide_controls === 'off') {
+            player.showControls();
+        } else if(this.storage.player_hide_controls === 'when_paused') {
+            if(this.elements.video.paused) {
+                if(mouseIn) {
+                    player.showControls();
+                } else {
+					player.hideControls();
+				}
+			}
+        }
+    }
 };
