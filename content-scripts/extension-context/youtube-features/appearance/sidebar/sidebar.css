@@ -10,10 +10,29 @@
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
+# SIDEBAR AUTO SIZING
+--------------------------------------------------------------*/
+ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy {
+    width: auto !important;
+    min-width: unset !important;
+}
+
+ytd-live-chat-frame,
+div#secondary div#related,
+div#secondary div#panels,
+div#secondary div#donation-shelf,
+div#secondary #playlist {
+    width: var(--ytd-watch-flexy-sidebar-width);
+    min-width: var(--ytd-watch-flexy-sidebar-min-width);
+}
+
+/*--------------------------------------------------------------
 # RELATED VIDEOS
 --------------------------------------------------------------*/
 
-html[it-related-videos='hidden'] #related > ytd-watch-next-secondary-results-renderer > #items {
+html[it-related-videos='hidden'] #related > ytd-watch-next-secondary-results-renderer > #items,
+html[it-related-videos=hidden] div#secondary div#panels,
+html[it-related-videos=hidden] div#secondary div#donation-shelf {
 	display: none !important;
 }
 
