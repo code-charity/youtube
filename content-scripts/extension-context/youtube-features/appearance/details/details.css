@@ -175,16 +175,19 @@ html[it-hide-more-button=true] #menu yt-button-shape#button-shape {
 # DESCRIPTION
 --------------------------------------------------------------*/
 
-html[it-description='hidden'] #meta>#meta-contents ytd-expander {
+html[it-description=hidden] #description,
+html[it-description=hidden] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
+html[it-description=hidden] div#action-panel-details,
+ytd-watch-flexy #info-contents, ytd-watch-flexy #meta-contents {
 	display: none !important;
 }
 
-html[it-description='expanded'] #meta>#meta-contents ytd-expander tp-yt-paper-button {
+html[it-description=classic] ytd-watch-metadata {
 	display: none !important;
 }
 
-html[it-description='expanded'] #meta>#meta-contents ytd-expander>#content {
-	max-height: none !important;
+html[it-description=classic] ytd-watch-flexy #info-contents, ytd-watch-flexy #meta-contents {
+	display: block !important;
 }
 
 

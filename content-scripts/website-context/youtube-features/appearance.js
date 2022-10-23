@@ -153,7 +153,13 @@ ImprovedTube.alwaysShowProgressBar = function () {
 
 ImprovedTube.formatSecond = function (rTime) {
 	var time = new Date(null);
-	time.setSeconds(rTime);
+	if (this.storage.duration_with_speed === true) {
+        var playbackRate = this.elements.video.playbackRate;
+        time.setSeconds(rTime / playbackRate);
+    } else {
+        time.setSeconds(rTime);
+    }
+	
 	if (rTime / 3600 < 1) {
 		return time.toISOString().substr(14, 5);
 	} else {
