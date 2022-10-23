@@ -186,6 +186,77 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					storage: 'custom_player_size_height'
 				}
 			},
+			hide_controls: {
+				component: 'select',
+				text: 'hidePlayerControlsBar',
+				options: [{
+					text: 'off',
+					value: 'off',
+					default: 'true'
+				}, {
+					text: 'whenPaused',
+					value: 'when_paused'
+				}, {
+					text: 'always',
+					value: 'always'
+				}],
+				storage: 'player_hide_controls'
+			},
+			player_hide_controls_options: {
+				component: 'button',
+				text: 'hidePlayerControlsBarButtons',
+				on: {
+					click: {
+						component: 'section',
+						variant: 'card',
+	
+						player_play_button: {
+							component: 'switch',
+							text: 'playPause'
+						},
+						player_previous_button: {
+							component: 'switch',
+							text: 'previousVideo'
+						},
+						player_next_button: {
+							component: 'switch',
+							text: 'nextVideo'
+						},
+						player_volume_button: {
+							component: 'switch',
+							text: 'volume'
+						},
+						player_autoplay_button: {
+							component: 'switch',
+							text: 'autoplay'
+						},
+						player_settings_button: {
+							component: 'switch',
+							text: 'settings'
+						},
+						player_subtitles_button: {
+							component: 'switch',
+							text: 'subtitles'
+						},
+						player_miniplayer_button: {
+							component: 'switch',
+							text: 'nativeMiniPlayer'
+						},
+						player_view_button: {
+							component: 'switch',
+							text: 'viewMode'
+						},
+						player_screen_button: {
+							component: 'switch',
+							text: 'screen'
+						},
+						player_remote_button: {
+							component: 'switch',
+							text: 'remote'
+						}
+					}
+				}
+			},
 			forced_theater_mode: {
 				component: 'switch',
 				text: 'forcedTheaterMode',
