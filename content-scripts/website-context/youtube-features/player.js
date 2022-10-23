@@ -101,29 +101,33 @@ ImprovedTube.subtitles = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.subtitlesLanguage = function () {
-	var option = this.storage.subtitles_language;
+    var option = this.storage.subtitles_language,
+        autoGenerate = this.storage.auto_generate;
 
-	if (this.isset(option) && option !== 'default') {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
+    if (this.isset(option) && option !== 'default') {
+        var player = this.elements.player,
+            button = this.elements.player_subtitles_button;
 
-		if (player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
-			var tracklist = this.elements.player.getOption('captions', 'tracklist', {
-				includeAsr: true
-			});
+        if (player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
+            var tracklist = this.elements.player.getOption('captions', 'tracklist', {
+                includeAsr: true
+            });
 
-			if (tracklist && tracklist[0]) {
-				tracklist = tracklist[0];
-
-				tracklist.translationLanguage = {
-					languageCode: option,
-					languageName: option
-				};
-
-				this.elements.player.setOption('captions', 'track', tracklist);
-			}
-		}
-	}
+            var matchTrack = false;
+            for (var i =0, l = tracklist.length; i<l; i++){
+                if (tracklist[i].languageCode.includes(option)) {
+                    if(autoGenerate === tracklist[i].vss_id.includes("a.")){
+                        this.elements.player.setOption('captions', 'track', tracklist[i]);
+                        matchTrack = true;
+                    }
+                    break;
+                }
+            }
+            if (!matchTrack){
+                player.toggleSubtitles();
+            }
+        }
+    }
 };
 
 
