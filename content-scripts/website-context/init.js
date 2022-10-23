@@ -86,7 +86,7 @@ document.addEventListener('yt-navigate-finish', function () {
 });
 
 document.addEventListener('yt-page-data-updated', function (event) {
-	if (/[?&]list=([^&]+).*$/.test(location.href)) {
+	if (document.documentElement.dataset.pageType === 'video' && /[?&]list=([^&]+).*$/.test(location.href)) {
 		ImprovedTube.playlistRepeat();
 		ImprovedTube.playlistShuffle();
 		ImprovedTube.playlistReverse();
