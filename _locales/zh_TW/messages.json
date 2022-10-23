@@ -114,7 +114,7 @@
         "message": "背景透明度"
     },
     "backupAndReset": {
-        "message": "備份 & 重置"
+        "message": "備份 & 重設"
     },
     "baseOnSystemColorScheme": {
         "message": "使用系統配色方案"
@@ -198,7 +198,7 @@
         "message": "使用 H.264 解碼"
     },
     "codecs": {
-        "message": "Codecs"
+        "message": "編碼"
     },
     "collapseOfSubscriptionSections": {
         "message": "於訂閱區顯示縮放按鈕"
@@ -405,7 +405,7 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "轉到搜索框"
+        "message": "轉到搜尋框"
     },
     "googleApiKey": {
         "message": "Google API 金鑰"
@@ -417,7 +417,7 @@
         "message": "綠色"
     },
     "hardwareInformation": {
-        "message": "Hardware information"
+        "message": "硬體資訊"
     },
     "hd": {
         "message": "HD"
@@ -441,16 +441,16 @@
         "message": "隱藏註解"
     },
     "hideButtonLabel": {
-        "message": "Hide Button Label"
+        "message": "隱藏按鈕標籤"
     },
     "hideCards": {
         "message": "隱藏資訊卡"
     },
     "hideCategories": {
-        "message": "Hide categories"
+        "message": "隱藏分類"
     },
     "hideCommentsCount": {
-        "message": "Hide comments count"
+        "message": "隱藏評論數量"
     },
     "hideCountryCode": {
         "message": "隱藏國家代號"
@@ -459,10 +459,10 @@
         "message": "隱藏日期"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "隱藏詳細資訊按鈕"
     },
     "hideDetails": {
-        "message": "隱藏細節"
+        "message": "隱藏詳細資訊"
     },
     "hideEndscreen": {
         "message": "隱藏結束畫面"
@@ -636,10 +636,10 @@
         "message": "音量混合器"
     },
     "more": {
-        "message": "More"
+        "message": "更多"
     },
     "mostViewedChannels": {
-        "message": "Most viewed channels"
+        "message": "最多觀看的頻道"
     },
     "moveSidebarLeft": {
         "message": "將側邊欄移至右方"
@@ -666,7 +666,7 @@
         "message": "夜晚"
     },
     "nightMode": {
-        "message": "Night mode"
+        "message": "夜晚模式"
     },
     "noActiveFeatures": {
         "message": "無已啟用功能"
@@ -681,7 +681,7 @@
         "message": "正常"
     },
     "off": {
-        "message": "Off"
+        "message": "關閉"
     },
     "ok": {
         "message": "Ok"
@@ -816,16 +816,16 @@
         "message": "重複播放"
     },
     "report": {
-        "message": "Report"
+        "message": "回報"
     },
     "reset": {
-        "message": "重置"
+        "message": "重設"
     },
     "resetAllSettings": {
-        "message": "重置所有設定"
+        "message": "重設所有設定"
     },
     "resetAllShortcuts": {
-        "message": "重置所有快捷鍵"
+        "message": "重設所有快捷鍵"
     },
     "reverse": {
         "message": "回播"
@@ -879,7 +879,7 @@
         "message": "已成功匯入設定"
     },
     "share": {
-        "message": "Share"
+        "message": "分享"
     },
     "shortcuts": {
         "message": "快捷鍵"
@@ -900,7 +900,7 @@
         "message": "顯示影片剩餘時間"
     },
     "showVersion": {
-        "message": "Show version"
+        "message": "顯示版本"
     },
     "shuffle": {
         "message": "隨機播放"
@@ -909,7 +909,7 @@
         "message": "側邊欄"
     },
     "softwareInformation": {
-        "message": "Software information"
+        "message": "軟體資訊"
     },
     "spacebar": {
         "message": "空白鍵"
@@ -978,10 +978,10 @@
         "message": "這將刪除所有 YouTube Cookies。"
     },
     "thisWillResetAllSettings": {
-        "message": "這將重置所有設定。"
+        "message": "這將重設所有設定。"
     },
     "thisWillResetAllShortcuts": {
-        "message": "這將重置所有快捷鍵。"
+        "message": "這將重設所有快捷鍵。"
     },
     "thumbnails": {
         "message": "縮圖"
@@ -1065,7 +1065,7 @@
         "message": "已觀看時間"
     },
     "whenPaused": {
-        "message": "When paused"
+        "message": "當暫停播放時"
     },
     "whenTabIsChanged": {
         "message": "當分頁改變時"
@@ -1089,7 +1089,7 @@
         "message": "YouTube 標頭 (右)"
     },
     "youtubeHomePage": {
-        "message": "預設的 YouTube 主頁"
+        "message": "預設的 YouTube 首頁"
     },
     "youtubeLanguage": {
         "message": "YouTube 語言"
