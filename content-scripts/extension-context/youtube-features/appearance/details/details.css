@@ -41,18 +41,32 @@ html[it-hide-date='true'] #info #count + #info-strings>#dot {
 }
 
 
-/*--------------------------------------------------------------
-# LIKES
+ /*--------------------------------------------------------------
+HIDE LIKE BUTTON
 --------------------------------------------------------------*/
 
-html[it-likes='hidden'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(1),
-html[it-likes='hidden'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(2) {
-	display: none !important;
+[it-hide-like-button=true] #info #top-level-buttons ytd-toggle-button-renderer:nth-child(1),
+[it-hide-like-button=true] #info #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1) {
+	display: none;
 }
 
-html[it-likes='icons_only'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(1) yt-formatted-string,
-html[it-likes='icons_only'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(2) yt-formatted-string {
-	display: none !important;
+[it-hide-like-button-text=true] #top-level-buttons ytd-toggle-button-renderer:nth-child(1) div.cbox,
+[it-hide-like-button-text=true] #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1) div.cbox {
+	display: none;
+}
+
+ /*--------------------------------------------------------------
+HIDE DISLIKE BUTTON
+--------------------------------------------------------------*/
+
+[it-hide-dislike-button=true] #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(2),
+[it-hide-dislike-button=true] #top-level-buttons ytd-toggle-button-renderer:nth-child(2) {
+	display: none;
+}
+
+[it-hide-dislike-button-text=true] #top-level-buttons ytd-toggle-button-renderer:nth-child(2) div.cbox,
+[it-hide-dislike-button-text=true] #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(2) div.cbox {
+	display: none;
 }
 
 
@@ -60,8 +74,14 @@ html[it-likes='icons_only'] #info .top-level-buttons>ytd-toggle-button-renderer:
 # HIDE SHARE BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-share-button='true'] #info .top-level-buttons ytd-button-renderer:nth-child(3) {
-	display: none !important;
+html[it-hide-share-button=true] #top-level-buttons ytd-button-renderer#Share-button,
+html[it-hide-share-button=true] #top-level-buttons-computed ytd-button-renderer#Share-button {
+	display: none;
+}
+
+html[it-hide-share-button-text=true] #top-level-buttons ytd-button-renderer#Share-button div.cbox,
+html[it-hide-share-button-text=true] #top-level-buttons-computed ytd-button-renderer#Share-button div.cbox {
+	display: none;
 }
 
 
@@ -69,8 +89,14 @@ html[it-hide-share-button='true'] #info .top-level-buttons ytd-button-renderer:n
 # HIDE DOWNLOAD BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-download-button='true'] #info .top-level-buttons ytd-download-button-renderer {
-	display: none !important;
+html[it-hide-download-button=true] #top-level-buttons ytd-download-button-renderer,
+html[it-hide-download-button=true] #top-level-buttons-computed ytd-download-button-renderer {
+	display: none;
+}
+
+html[it-hide-download-button-text=true] #top-level-buttons ytd-download-button-renderer div.cbox ,
+html[it-hide-download-button-text=true] #top-level-buttons-computed ytd-download-button-renderer div.cbox {
+	display: none;
 }
 
 
@@ -78,8 +104,14 @@ html[it-hide-download-button='true'] #info .top-level-buttons ytd-download-butto
 # HIDE THANKS BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-thanks-button='true'] #info .top-level-buttons ytd-button-renderer#Thanks-button {
-	display: none !important;
+html[it-hide-thanks-button=true] #top-level-buttons ytd-button-renderer#Thanks-button,
+html[it-hide-thanks-button=true] #top-level-buttons-computed ytd-button-renderer#Thanks-button {
+	display: none;
+}
+
+html[it-hide-thanks-button-text=true] #top-level-buttons ytd-button-renderer#Thanks-button div.cbox,
+html[it-hide-thanks-button-text=true] #top-level-buttons-computed ytd-button-renderer#Thanks-button div.cbox {
+	display: none;
 }
 
 
@@ -87,8 +119,14 @@ html[it-hide-thanks-button='true'] #info .top-level-buttons ytd-button-renderer#
 # HIDE CLIP BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-clip-button='true'] #info .top-level-buttons ytd-button-renderer#Clip-button {
-	display: none !important;
+html[it-hide-clip-button=true] #top-level-buttons ytd-button-renderer#Clip-button,
+html[it-hide-clip-button=true] #top-level-buttons-computed ytd-button-renderer#Clip-button {
+	display: none;
+}
+
+html[it-hide-clip-button-text=true] #top-level-buttons ytd-button-renderer#Clip-button div.cbox,
+html[it-hide-clip-button-text=true] #top-level-buttons-computed ytd-button-renderer#Clip-button div.cbox {
+	display: none;
 }
 
 
@@ -96,8 +134,14 @@ html[it-hide-clip-button='true'] #info .top-level-buttons ytd-button-renderer#Cl
 # HIDE SAVE BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-save-button='true'] #info .top-level-buttons ytd-button-renderer:last-child {
-	display: none !important;
+html[it-hide-save-button=true] #top-level-buttons ytd-button-renderer#Save-button,
+html[it-hide-save-button=true] #top-level-buttons-computed ytd-button-renderer#Save-button {
+	display: none;
+}
+
+html[it-hide-save-button-text=true] #top-level-buttons ytd-button-renderer#Save-button div.cbox,
+html[it-hide-save-button-text=true] #top-level-buttons-computed ytd-button-renderer#Save-button div.cbox {
+	display: none;
 }
 
 
@@ -105,8 +149,9 @@ html[it-hide-save-button='true'] #info .top-level-buttons ytd-button-renderer:la
 # HIDE REPORT BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-report-button='true'] #info .top-level-buttons ytd-button-renderer#-button {
-	display: none !important;
+html[it-hide-report-button=true] #top-level-buttons ytd-button-renderer#Report-button,
+html[it-hide-report-button=true] #top-level-buttons-computed ytd-button-renderer#Report-button {
+	display: none;
 }
 
 
@@ -114,8 +159,8 @@ html[it-hide-report-button='true'] #info .top-level-buttons ytd-button-renderer#
 # HIDE MORE BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-more-button='true'] #info ytd-menu-renderer>yt-icon-button {
-	display: none !important;
+html[it-hide-more-button=true] #menu yt-button-shape#button-shape {
+	display: none;
 }
 
 
