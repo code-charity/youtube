@@ -159,7 +159,7 @@ ImprovedTube.formatSecond = function (rTime) {
     } else {
         time.setSeconds(rTime);
     }
-	
+
 	if (rTime / 3600 < 1) {
 		return time.toISOString().substr(14, 5);
 	} else {
@@ -345,3 +345,28 @@ ImprovedTube.hideDetailButton = function (el) {
         }
     }, 30);
 };
+
+/*--------------------------------------------------------------
+4.2.3.5 DAY OF WEEK
+--------------------------------------------------------------*/
+
+ImprovedTube.dayOfWeek = function () {
+	var element = document.querySelector('.ytd-day-of-week');
+	if (this.storage.day_of_week === true) {
+		var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+		setTimeout (function () {
+			var videoDate = document.querySelector('ytd-video-primary-info-renderer #info #info-strings yt-formatted-string')
+			var tempDate = new Date(videoDate.textContent);
+			if (!element) {
+				var label = document.createElement('span');
+				label.textContent = days[tempDate.getDay()] + ", ";
+				label.className = 'ytd-day-of-week';
+				videoDate.prepend(label);
+			} else {
+				element.textContent = days[tempDate.getDay()] + ", ";
+			}
+		}, 30);
+	} else if (element) {
+		element.remove();
+	}
+}

@@ -308,6 +308,9 @@
     "dislike": {
         "message": "Tidak Suka"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "Jangan ubah"
     },

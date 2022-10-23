@@ -547,6 +547,10 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 			red_dislike_button: {
 				component: 'switch',
 				text: 'redDislikeButton'
+			},
+			day_of_week: {
+				component: 'switch',
+				text: 'displayDayOfTheWeak'
 			}
 		}
 	}

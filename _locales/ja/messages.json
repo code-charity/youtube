@@ -308,6 +308,9 @@
     "dislike": {
         "message": "低評価"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "変更しない"
     },

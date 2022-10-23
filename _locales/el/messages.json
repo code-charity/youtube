@@ -308,6 +308,9 @@
     "dislike": {
         "message": "Δε μου αρέσει"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "Να μην αλλάξει"
     },
