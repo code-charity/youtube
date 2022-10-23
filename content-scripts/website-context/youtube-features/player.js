@@ -20,7 +20,6 @@ ImprovedTube.autoplay = function () {
     ) {
         setTimeout(function () {
             video.pauseVideo();
-			
         });
     }
 };

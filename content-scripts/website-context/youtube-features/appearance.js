@@ -63,20 +63,18 @@ ImprovedTube.playerSize = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.forcedTheaterMode = function () {
-	if (
-		window.self === window.top &&
-		this.storage.forced_theater_mode === true &&
-		this.elements.ytd_watch &&
-		this.elements.player
+	if (ImprovedTube.storage.forced_theater_mode === true &&
+		ImprovedTube.elements.ytd_watch &&
+		ImprovedTube.elements.player
 	) {
-		var button = this.elements.player.querySelector('button.ytp-size-button');
+		var button = ImprovedTube.elements.player.querySelector('button.ytp-size-button');
 
-		if (button && this.elements.ytd_watch.theater === false) {
+		if (button && ImprovedTube.elements.ytd_watch.theater === false) {
 			document.cookie = 'wide=1;domain=.youtube.com';
 
 			setTimeout(function () {
 				button.click();
-			}, 200);
+			}, 100);
 		}
 	}
 };
