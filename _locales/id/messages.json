@@ -269,6 +269,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
+    },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
     },
@@ -329,6 +332,9 @@
     "empty": {
         "message": "Kosong"
     },
+    "enableDefaultPlaybackSpeed": {
+        "message": "Enable Default playback speed"
+    },
     "enabled": {
         "message": "Aktifkan"
     },
@@ -379,9 +385,6 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forced play video from the beginning"
-    },
-    "forcedPlaybackSpeed": {
-        "message": "Paksa kecepatan pemutaran"
     },
     "forcedTheaterMode": {
         "message": "Paksa mode teater"
@@ -740,9 +743,6 @@
     "playPause": {
         "message": "Mulai / Jeda"
     },
-    "playbackSpeed": {
-        "message": "Kecepatan pemutar"
-    },
     "player": {
         "message": "Pemutar"
     },
@@ -871,6 +871,9 @@
     },
     "seekPreviousChapter": {
         "message": "seekPreviousChapter"
+    },
+    "setDefaultPlaybackSpeed": {
+        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "Pengaturan"

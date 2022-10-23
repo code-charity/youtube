@@ -269,6 +269,9 @@
     "defaultContentCountry": {
         "message": "Domyślny kraj zawartości"
     },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
+    },
     "deleteWatchedVideos": {
         "message": "Usuń obejrzane wideo"
     },
@@ -329,6 +332,9 @@
     "empty": {
         "message": "Pusty"
     },
+    "enableDefaultPlaybackSpeed": {
+        "message": "Enable Default playback speed"
+    },
     "enabled": {
         "message": "Włączony"
     },
@@ -379,9 +385,6 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Wymuś odtwarzanie wideo od początku"
-    },
-    "forcedPlaybackSpeed": {
-        "message": "Wymuś prędkość odtwarzania"
     },
     "forcedTheaterMode": {
         "message": "Wymuś tryb kinowy"
@@ -740,9 +743,6 @@
     "playPause": {
         "message": "Odtwarzanie / Pauza"
     },
-    "playbackSpeed": {
-        "message": "Prędkość odtwarzania"
-    },
     "player": {
         "message": "Odtwarzacz"
     },
@@ -871,6 +871,9 @@
     },
     "seekPreviousChapter": {
         "message": "Przewiń do poprzedniego rozdziału"
+    },
+    "setDefaultPlaybackSpeed": {
+        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "Ustawienia"

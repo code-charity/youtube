@@ -269,6 +269,9 @@
     "defaultContentCountry": {
         "message": "デフォルトのコンテンツの地域"
     },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
+    },
     "deleteWatchedVideos": {
         "message": "視聴した動画を削除する"
     },
@@ -329,6 +332,9 @@
     "empty": {
         "message": "なし"
     },
+    "enableDefaultPlaybackSpeed": {
+        "message": "Enable Default playback speed"
+    },
     "enabled": {
         "message": "有効"
     },
@@ -379,9 +385,6 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "強制的に動画を最初から再生する"
-    },
-    "forcedPlaybackSpeed": {
-        "message": "再生速度を指定する"
     },
     "forcedTheaterMode": {
         "message": "シアターモードにする"
@@ -740,9 +743,6 @@
     "playPause": {
         "message": "再生/一時停止"
     },
-    "playbackSpeed": {
-        "message": "再生速度"
-    },
     "player": {
         "message": "プレーヤー"
     },
@@ -871,6 +871,9 @@
     },
     "seekPreviousChapter": {
         "message": "前のチャプターへ戻る"
+    },
+    "setDefaultPlaybackSpeed": {
+        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "設定"

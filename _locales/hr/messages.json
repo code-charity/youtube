@@ -269,6 +269,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
+    },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
     },
@@ -329,6 +332,9 @@
     "empty": {
         "message": "Prazno"
     },
+    "enableDefaultPlaybackSpeed": {
+        "message": "Enable Default playback speed"
+    },
     "enabled": {
         "message": "Omogućeno"
     },
@@ -379,9 +385,6 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forced play video from the beginning"
-    },
-    "forcedPlaybackSpeed": {
-        "message": "Prisiljena brzina reprodukcije"
     },
     "forcedTheaterMode": {
         "message": "Prisiljen kazališni način"
@@ -740,9 +743,6 @@
     "playPause": {
         "message": "Reprodukcija / pauza"
     },
-    "playbackSpeed": {
-        "message": "Brzina reprodukcije"
-    },
     "player": {
         "message": "Player"
     },
@@ -871,6 +871,9 @@
     },
     "seekPreviousChapter": {
         "message": "seekPreviousChapter"
+    },
+    "setDefaultPlaybackSpeed": {
+        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "Postavke"
