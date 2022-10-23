@@ -102,3 +102,13 @@ window.addEventListener('load', function () {
 
 	ImprovedTube.improvedtubeYoutubeIcon();
 });
+
+document.addEventListener('improvedtube-player-loaded', function () {
+    ImprovedTube.elements.player.parentNode.addEventListener('mouseenter', function () {
+		ImprovedTube.playerControls(true);
+	});
+
+	ImprovedTube.elements.player.parentNode.addEventListener('mouseleave', function () {
+		ImprovedTube.playerControls(false);
+	});
+});
