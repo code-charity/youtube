@@ -12,54 +12,81 @@
 # POSITION
 --------------------------------------------------------------*/
 
-html[it-header-position='hidden'] #masthead,
-html[it-header-position='hidden'] #guide-spacer,
-html[it-header-position='static'] #guide-spacer,
-html[it-header-position^='hidden'][it-pathname='/watch'] #masthead,
-html[it-header-position^='hidden'][it-pathname='/watch'] #guide-spacer {
-	display: none !important;
+html[it-header-position=hidden] tp-yt-app-drawer#guide #guide-spacer,
+html[it-header-position=hidden] #masthead-container,
+html[it-header-position=hidden] tp-yt-app-drawer:not([opened]) #header ytd-topbar-logo-renderer,
+html[it-header-position=hover] tp-yt-app-drawer#guide #guide-spacer,
+html[it-header-position=hover] tp-yt-app-drawer:not([opened]) #header ytd-topbar-logo-renderer,
+html[it-header-position=static] tp-yt-app-drawer#guide #guide-spacer,
+html[it-header-position=static] tp-yt-app-drawer:not([opened]) #header ytd-topbar-logo-renderer,
+html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container,
+html[it-header-position=hidden_on_video_page][data-page-type=video] tp-yt-app-drawer#guide #guide-spacer,
+html[it-header-position=hover_on_video_page][data-page-type=video] tp-yt-app-drawer#guide #guide-spacer {
+	display: none;
 }
 
-html[it-header-position='hidden'] #page-manager,
-html[it-header-position^='hidden'][it-pathname='/watch'] #page-manager {
-	margin-top: 0 !important;
+html[it-header-position=hover] #masthead-container,
+html[it-header-position=hover] tp-yt-app-drawer,
+html[it-header-position=hover] ytd-mini-guide-renderer,
+html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container,
+html[it-header-position=hover_on_video_page][data-page-type='video'] tp-yt-app-drawer,
+html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-mini-guide-renderer,
+html[it-header-position=static] tp-yt-app-drawer,
+html[it-header-position=static] ytd-mini-guide-renderer {
+	z-index: 2147483647 !important;
 }
 
-html[it-header-position='hover'] #masthead-container,
-html[it-header-position^='hover'][it-pathname='/watch'] #masthead-container {
-	z-index: 9999 !important;
-
-	transition: transform 200ms !important;
-	transform: translateY(-80%) !important;
+html[it-header-position=hidden] ytd-page-manager#page-manager,
+html[it-header-position=hidden_on_video_page][data-page-type='video'] ytd-page-manager#page-manager,
+html[it-header-position=hover] ytd-page-manager#page-manager,
+html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-page-manager#page-manager,
+html[it-header-position=static] ytd-page-manager#page-manager {
+	margin-top: 0;
 }
 
-html[it-header-position='hover'] #masthead-container:hover,
-html[it-header-position^='hover'][it-pathname='/watch'] #masthead-container:hover,
-html[it-search-focus='true'] #masthead-container {
-	transform: translateY(0%) !important;
+html[it-header-position=hover]:not([it-improvedtube-search=true]) #masthead-container,
+html[it-header-position=hover_on_video_page][data-page-type='video']:not([it-improvedtube-search=true]) #masthead-container {
+	transition: transform 250ms;
+	transform: translateY(-75%);
 }
 
-html[it-header-position='hover'] #guide-spacer,
-html[it-header-position='hover'] #page-manager,
-html[it-header-position^='hover'][it-pathname='/watch'] #guide-spacer,
-html[it-header-position^='hover'][it-pathname='/watch'] #page-manager,
-html[it-header-position^='static'] #page-manager {
-	margin-top: 0 !important;
+html[it-header-position=hover] #masthead-container:hover,
+html[it-header-position=hover][it-search-focus=true] #masthead-container,
+html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:hover,
+html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container {
+	transform: translateY(0%);
 }
 
-html[it-header-position^='hidden'] ytd-mini-guide-renderer,
-html[it-header-position^='hover'] ytd-mini-guide-renderer {
-	top: 0 !important;
+html[it-header-position=hidden]:not([it-search-focus=true]) #masthead-container {
+	transform: translateY(-100%);
 }
 
-html[it-header-position='static'] #masthead-container {
-	position: relative !important;
+html[it-header-position=static] .ytd-app:not([masthead-hidden_]) #masthead-container {
+	position: relative;
+	z-index: 999999999999 !important;
 }
 
-html[it-header-position^='hover'] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
-html[it-header-position^='hidden'] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
-html[it-header-position='static'] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
-	position: inherit !important;
+html[it-header-position=hover]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,
+html[it-header-position=hidden]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,
+html[it-header-position=static]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header {
+	position: absolute;
+	visibility: visible;
+	left: 240px;
+	top: 120px;
+	padding: 0 16px;
+	background: var(--yt-spec-brand-background-solid);
+}
+
+html[it-header-position=hover] tp-yt-app-drawer #header,
+html[it-header-position=hidden] tp-yt-app-drawer #header,
+html[it-header-position=static] tp-yt-app-drawer #header {
+	display: flex !important;
+}
+
+html[it-header-position=hover] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
+html[it-header-position=hidden] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
+html[it-header-position=static] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+	position: inherit;
 }
 
 
