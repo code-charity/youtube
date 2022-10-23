@@ -305,6 +305,9 @@
     "dislike": {
         "message": "नापसन्द"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "मत बदलो"
     },

@@ -308,6 +308,9 @@
     "dislike": {
         "message": "অপছন্দ"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "পরিবর্তন করবেন না"
     },

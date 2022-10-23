@@ -308,6 +308,9 @@
     "dislike": {
         "message": "Ne sviđa mi se"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "Nemoj mijenjati"
     },
