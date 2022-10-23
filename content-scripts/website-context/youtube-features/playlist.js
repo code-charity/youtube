@@ -11,8 +11,7 @@ ImprovedTube.playlistUpNextAutoplay = function (event) {
 		ImprovedTube.getParam(location.href, 'list') &&
 		ImprovedTube.storage.playlist_up_next_autoplay === false
 	) {
-		event.preventDefault();
-		event.stopPropagation();
+		this.elements.ytd_watch.playlistData.currentIndex = this.elements.ytd_watch.playlistData.totalVideos
 	}
 };
 
