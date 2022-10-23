@@ -6,24 +6,23 @@
 4.4.1 AUTOPLAY
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.autoplay = function (video) {
-	if (ImprovedTube.video_url !== location.href) {
-		ImprovedTube.allow_autoplay = false;
-	}
+ImprovedTube.autoplay = function () {
+    var video = ImprovedTube.elements.player;
+    if (ImprovedTube.video_url !== location.href) {
+        ImprovedTube.allow_autoplay = false;
+    }
 
-	if (
-		(
-			(location.href.indexOf('/watch?') !== -1 && location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) ||
-			(location.href.indexOf('/watch?') !== -1 && location.href.indexOf('list=') !== -1 && ImprovedTube.storage.playlist_autoplay === false) ||
-			(ImprovedTube.regex.channel.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
-		) === true &&
-		ImprovedTube.allow_autoplay === false &&
-		video.parentNode.parentNode.classList.contains('ad-showing') === false
-	) {
-		setTimeout(function () {
-			video.parentNode.parentNode.pauseVideo();
-		});
-	}
+    if (ImprovedTube.allow_autoplay === false && video.classList.contains('ad-showing') === false &&
+        (
+            (document.documentElement.dataset.pageType === "video" && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) || (ImprovedTube.storage.playlist_autoplay === false))) ||
+            (document.documentElement.dataset.pageType === "channel" && ImprovedTube.storage.channel_trailer_autoplay === false)
+        )
+    ) {
+        setTimeout(function () {
+            video.pauseVideo();
+			
+        });
+    }
 };
 
 
