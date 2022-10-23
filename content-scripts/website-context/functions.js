@@ -32,7 +32,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 		if (node.getAttribute('itemprop') === 'genre') {
 			ImprovedTube.genre = node.content;
 		}
-	} else if (name === 'YTD-TOGGLE-BUTTON-RENDERER') {
+	} else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
 		if (
 			node.parentComponent &&
 			node.parentComponent.nodeName === 'YTD-MENU-RENDERER' &&
@@ -42,9 +42,9 @@ ImprovedTube.ytElementsHandler = function (node) {
 			var index = Array.prototype.indexOf.call(node.parentNode.children, node);
 
 			if (index === 0) {
-				this.elements.playlist.repeat_button = node;
-
-				this.playlistRepeat();
+				if (name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
+					this.elements.playlist.repeat_button = node.button.firstElementChild;
+				}
 
 				this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;
 
