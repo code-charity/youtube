@@ -241,7 +241,6 @@ ImprovedTube.videoPageUpdate = function () {
 
 		this.howLongAgoTheVideoWasUploaded();
 		this.channelVideosCount();
-
 		this.upNextAutoplay();
 		this.playerAutofullscreen();
 		this.playerScreenshotButton();
@@ -284,7 +283,6 @@ ImprovedTube.initPlayer = function () {
 		delete ImprovedTube.elements.player.dataset.defaultQuality;
 
 		ImprovedTube.forcedPlayVideoFromTheBeginning();
-		ImprovedTube.forcedTheaterMode();
 		ImprovedTube.playerPlaybackSpeed(false);
 		ImprovedTube.subtitles();
 		ImprovedTube.subtitlesLanguage();
@@ -299,6 +297,10 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.subtitlesBackgroundOpacity();
 		ImprovedTube.playerQuality();
 		ImprovedTube.playerVolume();
+
+		setTimeout(function () {
+            ImprovedTube.forcedTheaterMode();
+        }, 150);
 
 		if (location.href.indexOf('/embed/') === -1) {
 			ImprovedTube.miniPlayer();
