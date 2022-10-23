@@ -269,6 +269,9 @@
     "defaultContentCountry": {
         "message": "默认内容国家"
     },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
+    },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
     },
@@ -329,6 +332,9 @@
     "empty": {
         "message": "暂无"
     },
+    "enableDefaultPlaybackSpeed": {
+        "message": "Enable Default playback speed"
+    },
     "enabled": {
         "message": "启用"
     },
@@ -379,9 +385,6 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forced play video from the beginning"
-    },
-    "forcedPlaybackSpeed": {
-        "message": "强制设置播放速度"
     },
     "forcedTheaterMode": {
         "message": "强制设置剧场模式"
@@ -740,9 +743,6 @@
     "playPause": {
         "message": "播放/暂停"
     },
-    "playbackSpeed": {
-        "message": "播放速度"
-    },
     "player": {
         "message": "播放器"
     },
@@ -871,6 +871,9 @@
     },
     "seekPreviousChapter": {
         "message": "寻找上一章"
+    },
+    "setDefaultPlaybackSpeed": {
+        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "ImprovedTube 设置"

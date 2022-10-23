@@ -269,6 +269,9 @@
     "defaultContentCountry": {
         "message": "預設國家"
     },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
+    },
     "deleteWatchedVideos": {
         "message": "刪除已觀看的影片"
     },
@@ -329,6 +332,9 @@
     "empty": {
         "message": "空白"
     },
+    "enableDefaultPlaybackSpeed": {
+        "message": "Enable Default playback speed"
+    },
     "enabled": {
         "message": "啟用"
     },
@@ -379,9 +385,6 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "強制從頭播放"
-    },
-    "forcedPlaybackSpeed": {
-        "message": "強制播放速度"
     },
     "forcedTheaterMode": {
         "message": "強制劇院模式"
@@ -740,9 +743,6 @@
     "playPause": {
         "message": "播放/暫停"
     },
-    "playbackSpeed": {
-        "message": "播放速度"
-    },
     "player": {
         "message": "播放器"
     },
@@ -871,6 +871,9 @@
     },
     "seekPreviousChapter": {
         "message": "跳至前一章節"
+    },
+    "setDefaultPlaybackSpeed": {
+        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "設定"

@@ -269,6 +269,9 @@
     "defaultContentCountry": {
         "message": "Standaardland voor inhoud"
     },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
+    },
     "deleteWatchedVideos": {
         "message": "Verwijder bekeken video's"
     },
@@ -329,6 +332,9 @@
     "empty": {
         "message": "Leeg"
     },
+    "enableDefaultPlaybackSpeed": {
+        "message": "Enable Default playback speed"
+    },
     "enabled": {
         "message": "Ingeschakeld"
     },
@@ -379,9 +385,6 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forceer video's af te spelen vanaf het begin"
-    },
-    "forcedPlaybackSpeed": {
-        "message": "Forceer afspeelsnelheid"
     },
     "forcedTheaterMode": {
         "message": "Forceer Theatermodus"
@@ -740,9 +743,6 @@
     "playPause": {
         "message": "Video afspelen/pauzeren"
     },
-    "playbackSpeed": {
-        "message": "Afspeelsnelheid"
-    },
     "player": {
         "message": "Speler"
     },
@@ -871,6 +871,9 @@
     },
     "seekPreviousChapter": {
         "message": "Ga naar vorig hoofdstuk"
+    },
+    "setDefaultPlaybackSpeed": {
+        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "Instellingen"

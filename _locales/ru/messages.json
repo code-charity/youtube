@@ -272,6 +272,9 @@
     "defaultContentCountry": {
         "message": "Страна по умолчанию"
     },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
+    },
     "deleteWatchedVideos": {
         "message": "Удалять просмотренные видео"
     },
@@ -332,6 +335,9 @@
     "empty": {
         "message": "Пустой"
     },
+    "enableDefaultPlaybackSpeed": {
+        "message": "Enable Default playback speed"
+    },
     "enabled": {
         "message": "Включен"
     },
@@ -382,9 +388,6 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Всегда играть видео с начала"
-    },
-    "forcedPlaybackSpeed": {
-        "message": "Принудительная скорость воспроизведения"
     },
     "forcedTheaterMode": {
         "message": "Принудительно переходить в режим кино"
@@ -746,9 +749,6 @@
     "playPause": {
         "message": "Играть / Пауза"
     },
-    "playbackSpeed": {
-        "message": "Скорость воспроизведения"
-    },
     "player": {
         "message": "Плеер"
     },
@@ -877,6 +877,9 @@
     },
     "seekPreviousChapter": {
         "message": "Предыдущая глава"
+    },
+    "setDefaultPlaybackSpeed": {
+        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "Настройки"

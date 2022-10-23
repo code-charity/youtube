@@ -272,6 +272,9 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
+    },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
     },
@@ -332,6 +335,9 @@
     "empty": {
         "message": "فارغة"
     },
+    "enableDefaultPlaybackSpeed": {
+        "message": "Enable Default playback speed"
+    },
     "enabled": {
         "message": "ممكّن"
     },
@@ -382,9 +388,6 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forced play video from the beginning"
-    },
-    "forcedPlaybackSpeed": {
-        "message": "تثبيت سرعة التشغيل"
     },
     "forcedTheaterMode": {
         "message": "فرض وضع المسرح"
@@ -746,9 +749,6 @@
     "playPause": {
         "message": "تشغيل / ايقاف"
     },
-    "playbackSpeed": {
-        "message": "سرعة التشغيل"
-    },
     "player": {
         "message": "المشغل"
     },
@@ -877,6 +877,9 @@
     },
     "seekPreviousChapter": {
         "message": "seekPreviousChapter"
+    },
+    "setDefaultPlaybackSpeed": {
+        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "الإعدادات"

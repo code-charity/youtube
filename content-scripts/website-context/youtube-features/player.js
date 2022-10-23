@@ -70,7 +70,7 @@ ImprovedTube.playerPlaybackSpeed = function (change) {
 		option = 1;
 	}
 
-	if (this.storage.player_forced_playback_speed === true) {
+	if (this.storage.player_default_playback_speed_enable === true) {
 		if (location.href.indexOf('music') === -1 && player.getVideoData().isLive === false) {
 			player.setPlaybackRate(Number(option));
 			video.playbackRate = Number(option);
