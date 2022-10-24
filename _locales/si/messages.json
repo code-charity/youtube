@@ -266,9 +266,6 @@
     "defaultContentCountry": {
         "message": "සාමාන්‍ය content country එක"
     },
-    "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
-    },
     "deleteWatchedVideos": {
         "message": "බලපු වීඩියෝ delete කරන්න"
     },
@@ -332,9 +329,6 @@
     "empty": {
         "message": "හිස්"
     },
-    "enableDefaultPlaybackSpeed": {
-        "message": "Enable Default playback speed"
-    },
     "enabled": {
         "message": "Enabled"
     },
@@ -385,6 +379,9 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "වීඩියෝව මුල සිට බලහත්කාරයෙන් play කරන්න"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Forced playback speed"
     },
     "forcedTheaterMode": {
         "message": "Forced theater mode"
@@ -740,6 +737,9 @@
     "playPause": {
         "message": "Play කරන්න / Pause කරන්න"
     },
+    "playbackSpeed": {
+        "message": "Playback speed එක"
+    },
     "player": {
         "message": "Player එක"
     },
@@ -868,9 +868,6 @@
     },
     "seekPreviousChapter": {
         "message": "Seek Previous Chapter"
-    },
-    "setDefaultPlaybackSpeed": {
-        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "Settings"

@@ -269,9 +269,6 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
-    "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
-    },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
     },
@@ -335,9 +332,6 @@
     "empty": {
         "message": "Prázdny"
     },
-    "enableDefaultPlaybackSpeed": {
-        "message": "Enable Default playback speed"
-    },
     "enabled": {
         "message": "Zapnuté"
     },
@@ -388,6 +382,9 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forced play video from the beginning"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Vynútená rýchlosť prehrávania"
     },
     "forcedTheaterMode": {
         "message": "Vynútený divadelný režim"
@@ -746,6 +743,9 @@
     "playPause": {
         "message": "Prehrať / Pozastavť"
     },
+    "playbackSpeed": {
+        "message": "Rýchlosť prehrávania"
+    },
     "player": {
         "message": "Prehrávač"
     },
@@ -874,9 +874,6 @@
     },
     "seekPreviousChapter": {
         "message": "seekPreviousChapter"
-    },
-    "setDefaultPlaybackSpeed": {
-        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "Nastavenia"

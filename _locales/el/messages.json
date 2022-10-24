@@ -269,9 +269,6 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
-    "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
-    },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
     },
@@ -335,9 +332,6 @@
     "empty": {
         "message": "Κενό"
     },
-    "enableDefaultPlaybackSpeed": {
-        "message": "Enable Default playback speed"
-    },
     "enabled": {
         "message": "Ενεργοποιημένο"
     },
@@ -388,6 +382,9 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forced play video from the beginning"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Υποχρεωτική ταχύτητα αναπαραγωγής"
     },
     "forcedTheaterMode": {
         "message": "Υποχρεωτική λειτουργία κινηματογράφου"
@@ -746,6 +743,9 @@
     "playPause": {
         "message": "Play / Pause"
     },
+    "playbackSpeed": {
+        "message": "Ταχύτητα αναπαραγωγής"
+    },
     "player": {
         "message": "Player"
     },
@@ -874,9 +874,6 @@
     },
     "seekPreviousChapter": {
         "message": "seekPreviousChapter"
-    },
-    "setDefaultPlaybackSpeed": {
-        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "Ρυθμίσεις"

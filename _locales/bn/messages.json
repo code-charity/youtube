@@ -269,9 +269,6 @@
     "defaultContentCountry": {
         "message": "ডিফল্ট বিষয়বস্তুর দেশ"
     },
-    "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
-    },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
     },
@@ -335,9 +332,6 @@
     "empty": {
         "message": "খালি"
     },
-    "enableDefaultPlaybackSpeed": {
-        "message": "Enable Default playback speed"
-    },
     "enabled": {
         "message": "সক্ষম"
     },
@@ -388,6 +382,9 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "জোর করে শুরু থেকে ভিডিও চালান"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "জোর করে প্লেব্যাক গতি"
     },
     "forcedTheaterMode": {
         "message": "জোর করে থিয়েটার মোড"
@@ -746,6 +743,9 @@
     "playPause": {
         "message": "খেলার / বিরতি"
     },
+    "playbackSpeed": {
+        "message": "প্লেব্যাক গতি"
+    },
     "player": {
         "message": "প্লেয়ার"
     },
@@ -874,9 +874,6 @@
     },
     "seekPreviousChapter": {
         "message": "পূর্ববর্তী অধ্যায় সন্ধান করুন"
-    },
-    "setDefaultPlaybackSpeed": {
-        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "সেটিংস"

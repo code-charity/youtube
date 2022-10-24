@@ -269,9 +269,6 @@
     "defaultContentCountry": {
         "message": "Varsayılan içerik ülkesi"
     },
-    "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
-    },
     "deleteWatchedVideos": {
         "message": "İzlenen videoları sil"
     },
@@ -335,9 +332,6 @@
     "empty": {
         "message": "Boş"
     },
-    "enableDefaultPlaybackSpeed": {
-        "message": "Enable Default playback speed"
-    },
     "enabled": {
         "message": "Etkin"
     },
@@ -388,6 +382,9 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "En başından itibaren zorunlu oynatma videosu"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Oynatma hızını uygulamaya zorla"
     },
     "forcedTheaterMode": {
         "message": "Sinema modunu zorla"
@@ -746,6 +743,9 @@
     "playPause": {
         "message": "Oynat / Duraklat"
     },
+    "playbackSpeed": {
+        "message": "Oynatma hızı"
+    },
     "player": {
         "message": "Oynatıcı"
     },
@@ -874,9 +874,6 @@
     },
     "seekPreviousChapter": {
         "message": "Önceki Bölümü Ara"
-    },
-    "setDefaultPlaybackSpeed": {
-        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "Ayarlar"
