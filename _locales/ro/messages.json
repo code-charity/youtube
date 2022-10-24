@@ -269,9 +269,6 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
-    "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
-    },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
     },
@@ -335,9 +332,6 @@
     "empty": {
         "message": "Gol"
     },
-    "enableDefaultPlaybackSpeed": {
-        "message": "Enable Default playback speed"
-    },
     "enabled": {
         "message": "Activat"
     },
@@ -388,6 +382,9 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forced play video from the beginning"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Viteză de playback forțată"
     },
     "forcedTheaterMode": {
         "message": "Modul teatru forțat"
@@ -746,6 +743,9 @@
     "playPause": {
         "message": "Redă / Pauză"
     },
+    "playbackSpeed": {
+        "message": "Viteza playbackului"
+    },
     "player": {
         "message": "Player"
     },
@@ -874,9 +874,6 @@
     },
     "seekPreviousChapter": {
         "message": "seekPreviousChapter"
-    },
-    "setDefaultPlaybackSpeed": {
-        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "Setări"

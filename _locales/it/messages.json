@@ -269,9 +269,6 @@
     "defaultContentCountry": {
         "message": "Paese del contenuto predefinito"
     },
-    "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
-    },
     "deleteWatchedVideos": {
         "message": "Elimina video guardati"
     },
@@ -335,9 +332,6 @@
     "empty": {
         "message": "Vuota"
     },
-    "enableDefaultPlaybackSpeed": {
-        "message": "Enable Default playback speed"
-    },
     "enabled": {
         "message": "Abilitato"
     },
@@ -388,6 +382,9 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Riproduzione forzata di video dall'inizio"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Velocità di riproduzione forzata"
     },
     "forcedTheaterMode": {
         "message": "Modalità cinema forzata"
@@ -746,6 +743,9 @@
     "playPause": {
         "message": "Avvio/Pausa"
     },
+    "playbackSpeed": {
+        "message": "Velocità di riproduzione"
+    },
     "player": {
         "message": "Lettore"
     },
@@ -874,9 +874,6 @@
     },
     "seekPreviousChapter": {
         "message": "Cerca precedente capitolo"
-    },
-    "setDefaultPlaybackSpeed": {
-        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "Impostazioni"

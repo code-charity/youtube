@@ -269,9 +269,6 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
-    "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
-    },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
     },
@@ -335,9 +332,6 @@
     "empty": {
         "message": "비어있음"
     },
-    "enableDefaultPlaybackSpeed": {
-        "message": "Enable Default playback speed"
-    },
     "enabled": {
         "message": "활성화"
     },
@@ -388,6 +382,9 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forced play video from the beginning"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "되감기 속도 강제설정"
     },
     "forcedTheaterMode": {
         "message": "강제 영화관 모드"
@@ -746,6 +743,9 @@
     "playPause": {
         "message": "재생 / 일시정지"
     },
+    "playbackSpeed": {
+        "message": "되감기 속도"
+    },
     "player": {
         "message": "플레이어"
     },
@@ -874,9 +874,6 @@
     },
     "seekPreviousChapter": {
         "message": "이전 챕터 보기"
-    },
-    "setDefaultPlaybackSpeed": {
-        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "설정"

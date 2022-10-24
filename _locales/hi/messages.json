@@ -266,9 +266,6 @@
     "defaultContentCountry": {
         "message": "डिफॉल्ट विषय देश"
     },
-    "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
-    },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
     },
@@ -332,9 +329,6 @@
     "empty": {
         "message": "खाली"
     },
-    "enableDefaultPlaybackSpeed": {
-        "message": "Enable Default playback speed"
-    },
     "enabled": {
         "message": "सक्रिय"
     },
@@ -385,6 +379,9 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "जबरदस्ती वीडियो शुरू से प्ले करें"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "जबरन पार्श्व गति"
     },
     "forcedTheaterMode": {
         "message": "जबरन थिएटर मोड"
@@ -740,6 +737,9 @@
     "playPause": {
         "message": "प्ले / ठहराव"
     },
+    "playbackSpeed": {
+        "message": "प्लेबैक स्पीड"
+    },
     "player": {
         "message": "प्लेयर"
     },
@@ -868,9 +868,6 @@
     },
     "seekPreviousChapter": {
         "message": "पिछले अध्याय पर चलें"
-    },
-    "setDefaultPlaybackSpeed": {
-        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "समायोजन"

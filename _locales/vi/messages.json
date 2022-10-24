@@ -269,9 +269,6 @@
     "defaultContentCountry": {
         "message": "Quốc gia nội dung mặc định"
     },
-    "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
-    },
     "deleteWatchedVideos": {
         "message": "Xóa video đã xem"
     },
@@ -335,9 +332,6 @@
     "empty": {
         "message": "Trống"
     },
-    "enableDefaultPlaybackSpeed": {
-        "message": "Enable Default playback speed"
-    },
     "enabled": {
         "message": "Đã bật"
     },
@@ -388,6 +382,9 @@
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Bắt buộc phát video từ đầu"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Tốc độ phát lại bắt buộc"
     },
     "forcedTheaterMode": {
         "message": "Bắt buộc chế độ rạp hát"
@@ -746,6 +743,9 @@
     "playPause": {
         "message": "Phát / Tạm dừng"
     },
+    "playbackSpeed": {
+        "message": "Tốc độ phát lại"
+    },
     "player": {
         "message": "Trình phát"
     },
@@ -874,9 +874,6 @@
     },
     "seekPreviousChapter": {
         "message": "Tìm kiếm chương trước"
-    },
-    "setDefaultPlaybackSpeed": {
-        "message": "Set Default Playback Speed"
     },
     "settings": {
         "message": "Cài đặt"
