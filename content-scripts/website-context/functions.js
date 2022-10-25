@@ -116,8 +116,6 @@ ImprovedTube.ytElementsHandler = function (node) {
 			ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
 			ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
 
-			ImprovedTube.playerSize();
-
 			new MutationObserver(function (mutationList) {
 				for (var i = 0, l = mutationList.length; i < l; i++) {
 					var mutation = mutationList[i];
@@ -190,25 +188,6 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 			node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;
 		}
-
-		new MutationObserver(function (mutationList) {
-			for (var i = 0, l = mutationList.length; i < l; i++) {
-				var mutation = mutationList[i];
-
-				if (mutation.type === 'attributes') {
-					if (mutation.attributeName === 'theater') {
-						setTimeout(function () {
-							ImprovedTube.playerSize();
-						}, 100);
-					}
-				}
-			}
-		}).observe(node, {
-			attributes: true,
-			attributeFilter: ['theater'],
-			childList: false,
-			subtree: false
-		});
 	}
 };
 
@@ -261,9 +240,6 @@ ImprovedTube.videoPageUpdate = function () {
 ImprovedTube.playerOnPlay = function () {
 	HTMLMediaElement.prototype.play = (function (original) {
 		return function () {
-			this.removeEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
-			this.addEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
-
 			this.removeEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
 			this.addEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
 
@@ -313,12 +289,6 @@ ImprovedTube.initPlayer = function () {
 			ImprovedTube.miniPlayer();
 		}
 	}
-};
-
-ImprovedTube.playerOnLoadedMetadata = function () {
-	setTimeout(function () {
-		ImprovedTube.playerSize();
-	}, 100);
 };
 
 ImprovedTube.playerOnTimeUpdate = function () {
