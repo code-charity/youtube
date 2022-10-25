@@ -4,12 +4,13 @@
 
 ImprovedTube.childHandler = function (node) {
 	var children = node.children;
+	if (node.nodeName !== 'SCRIPT' && node.nodeName !== 'svg' && node.nodeName !== '#text'&& node.nodeName !== '#comment' && node.nodeName !== 'SPAN' && node.nodeName !== 'DOM-IF' && node.nodeName !== 'DOM-REPEAT') {
+		this.ytElementsHandler(node);
 
-	this.ytElementsHandler(node);
-
-	if (children) {
-		for (var i = 0, l = children.length; i < l; i++) {
-			ImprovedTube.childHandler(children[i]);
+		if (children) {
+			for (var i = 0, l = children.length; i < l; i++) {
+				ImprovedTube.childHandler(children[i]);
+			}
 		}
 	}
 };
@@ -18,15 +19,16 @@ ImprovedTube.ytElementsHandler = function (node) {
 	var name = node.nodeName,
 		id = node.id;
 
-	if (name === 'A' && node.href) {
-		this.channelDefaultTab(node);
+	if (name === 'A') {
+		if (node.href) {
+			this.channelDefaultTab(node);
 
-		if (node.className.indexOf('ytd-thumbnail') !== -1) {
-			this.blacklist('video', node);
-		}
-
-		if (node.href.match(/(channel|user|c)\/([^/]+)/)) {
-			this.blacklist('channel', node);
+			if (node.className.indexOf('ytd-thumbnail') !== -1) {
+				this.blacklist('video', node);
+			}
+			if (node.href.match(/(channel|user|c)\/([^/]+)/)) {
+				this.blacklist('channel', node);
+			}
 		}
 	} else if (name === 'META') {
 		if (node.getAttribute('itemprop') === 'genre') {
@@ -59,10 +61,12 @@ ImprovedTube.ytElementsHandler = function (node) {
 				this.playlistReverse();
 			}
 		}
-	} else if (name === 'YTD-GUIDE-SECTION-RENDERER' && !this.elements.sidebar_section) {
-		this.elements.sidebar_section = node;
+	} else if (name === 'YTD-GUIDE-SECTION-RENDERER') {
+		if (!this.elements.sidebar_section) {
+			this.elements.sidebar_section = node;
 
-		this.improvedtubeYoutubeIcon();
+			this.improvedtubeYoutubeIcon();
+		}
 	} else if (name === 'YTD-VIDEO-PRIMARY-INFO-RENDERER') {
 		this.elements.video_title = node.querySelector('.title.ytd-video-primary-info-renderer');
 
@@ -91,20 +95,20 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 		this.livechat();
 	} else if (name === 'YTD-MASTHEAD') {
-		if(!this.elements.masthead) {
+		if (!this.elements.masthead) {
 			this.elements.masthead = {
 				start: node.querySelector('#start'),
 				end: node.querySelector('#end'),
 				logo: node.querySelector('a#logo')
 			};
-	
+
 			this.improvedtubeYoutubeIcon();
 		}
 	} else if (name === 'YTD-PLAYER') {
-		if(!this.elements.ytd_player) {
+		if (!this.elements.ytd_player) {
 			ImprovedTube.elements.ytd_player = node;
 		}
-	} else if (id === 'movie_player' && !this.elements.player) {
+	} else if (id === 'movie_player') {
 		if (!this.elements.player) {
 			ImprovedTube.elements.player = node;
 			ImprovedTube.elements.video = node.querySelector('video');

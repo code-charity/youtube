@@ -19,9 +19,7 @@ ImprovedTube.observer = new MutationObserver(function (mutationList) {
 			}
 		}
 	}
-});
-
-ImprovedTube.observer.observe(document.documentElement, {
+}).observe(document.documentElement, {
 	attributes: false,
 	childList: true,
 	subtree: true
