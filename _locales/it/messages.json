@@ -105,7 +105,7 @@
         "message": "Evita AV1, VP9"
     },
     "avoidCpuRenderingWhenPossible": {
-        "message": "Evita rendering della CPU il più possibile"
+        "message": "Evita rendering tramite CPU quando possibile"
     },
     "backgroundColor": {
         "message": "Colore di sfondo"
