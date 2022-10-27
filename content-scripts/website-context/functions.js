@@ -206,7 +206,7 @@ ImprovedTube.pageType = function () {
 };
 
 ImprovedTube.pageOnFocus = function () {
-	this.playerAutopauseWhenSwitchingTabs();
+	ImprovedTube.playerAutopauseWhenSwitchingTabs();
 };
 
 ImprovedTube.videoPageUpdate = function () {
@@ -249,7 +249,7 @@ ImprovedTube.playerOnPlay = function () {
 			this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 			this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
 
-			ImprovedTube.autoplay(this);
+			ImprovedTube.autoplay();
 			ImprovedTube.playerLoudnessNormalization();
 
 			return original.apply(this, arguments);

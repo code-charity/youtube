@@ -355,17 +355,17 @@ ImprovedTube.dayOfWeek = function () {
 	if (this.storage.day_of_week === true) {
 		var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 		setTimeout (function () {
-			var videoDate = document.querySelector('ytd-video-primary-info-renderer #info #info-strings yt-formatted-string')
-			var tempDate = new Date(videoDate.textContent);
+			var videoDate = document.querySelector('[itemprop=datePublished]').content;
+			var tempDate = new Date(videoDate);
 			if (!element) {
 				var label = document.createElement('span');
-				label.textContent = days[tempDate.getDay()] + ", ";
+				label.textContent = " , " + days[tempDate.getDay() + 1];
 				label.className = 'ytd-day-of-week';
-				videoDate.prepend(label);
+				document.querySelector('ytd-video-primary-info-renderer #info #info-strings yt-formatted-string').append(label);
 			} else {
-				element.textContent = days[tempDate.getDay()] + ", ";
+				element.textContent = days[tempDate.getDay() + 1] + ", ";
 			}
-		}, 30);
+		}, 25);
 	} else if (element) {
 		element.remove();
 	}
