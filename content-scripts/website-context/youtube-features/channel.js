@@ -9,7 +9,7 @@
 ImprovedTube.channelDefaultTab = function (a) {
 	var option = this.storage.channel_default_tab;
 
-	if (option && option !== '/' && a.parentNode && a.parentNode.id !== 'contenteditable-root') {
+	if (option && option !== '/' && a && a.parentNode && a.parentNode.id !== 'contenteditable-root') {
 		if (this.regex.channel_home_page.test(a.href) && !a.href.endsWith(option)) {
 			a.href = a.href.replace(this.regex.channel_home_page_postfix, '') + option;
 
