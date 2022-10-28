@@ -135,11 +135,11 @@ document.addEventListener('it-message-from-extension', function () {
 			if (ImprovedTube[camelized_key]) {
 				ImprovedTube[camelized_key]();
 			}
-		} else if (message.focus === true) {
+		} else if (message.focus === true && ImprovedTube.elements.player) {
 			ImprovedTube.focus = true;
 
 			ImprovedTube.pageOnFocus();
-		} else if (message.blur === true) {
+		} else if (message.blur === true && ImprovedTube.elements.player) {
 			ImprovedTube.focus = false;
 
 			ImprovedTube.pageOnFocus();
