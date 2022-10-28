@@ -46,8 +46,9 @@ html[it-header-position=static] ytd-page-manager#page-manager {
 
 html[it-header-position=hover]:not([it-improvedtube-search=true]) #masthead-container,
 html[it-header-position=hover_on_video_page][data-page-type='video']:not([it-improvedtube-search=true]) #masthead-container {
-	transition: transform 250ms;
+	transition: all 250ms ease-in-out;
 	transform: translateY(-75%);
+	opacity: 0;
 }
 
 html[it-header-position=hover] #masthead-container:hover,
@@ -55,6 +56,7 @@ html[it-header-position=hover][it-search-focus=true] #masthead-container,
 html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:hover,
 html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container {
 	transform: translateY(0%);
+	opacity: 1;
 }
 
 html[it-header-position=hidden]:not([it-search-focus=true]) #masthead-container {
