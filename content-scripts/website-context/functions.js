@@ -44,10 +44,6 @@ ImprovedTube.ytElementsHandler = function (node) {
 			var index = Array.prototype.indexOf.call(node.parentNode.children, node);
 
 			if (index === 0) {
-				if (name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
-					this.elements.playlist.repeat_button = node.button.firstElementChild;
-				}
-
 				this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;
 
 				this.playlistReverse();
