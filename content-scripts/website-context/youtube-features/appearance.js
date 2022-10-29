@@ -11,49 +11,20 @@
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerSize = function () {
-	if (window.self === window.top) {
-		if (this.elements.player_size_style) {
-			this.elements.player_size_style.remove();
-		}
+	if (this.storage.player_size === 'custom') {
+		console.log("yes");
+		var width = Number(this.storage.custom_player_size_width) || 1280,
+			height = Number(this.storage.custom_player_size_height) || 720,
+			style = this.elements.player_size_style || document.createElement('style');
 
-		if (this.storage.forced_theater_mode === true && this.storage.player_size === 'fit_to_window') {
-			var button = document.querySelector('button.ytp-size-button'),
-				container = document.getElementById('player-theater-container');
+		style.textContent = '[data-page-type="video"][it-player-size="custom"]  {';
+		style.textContent += '--it-player-width:' + width + 'px;';
+		style.textContent += '--it-player-height:' + height + 'px;';
+		style.textContent += '}';
 
-			if (button && (container && !container.firstChild)) {
-				button.click();
-			}
-		}
+		document.body.appendChild(style);
 
-		
-		if (this.storage.player_size === 'custom') {
-			var width = Number(this.storage.custom_player_size_width) || 1280,
-				height = Number(this.storage.custom_player_size_height) || 720,
-				style = this.elements.player_size_style || document.createElement('style');
-
-			style.textContent = '[data-page-type="video"][it-player-size="custom"] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) video {';
-			style.textContent += 'width:' + width + 'px !important;';
-			style.textContent += 'height:' + height + 'px !important;';
-			style.textContent += '}';
-
-			style.textContent += '[data-page-type="video"][it-player-size="custom"] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #player-container-inner.ytd-watch-flexy {';
-			style.textContent += 'padding-top:' + height + 'px !important;';
-			style.textContent += '}';
-
-			style.textContent += '[data-page-type="video"][it-player-size="custom"] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #player-theater-container.ytd-watch-flexy {';
-			style.textContent += 'height:' + height + 'px !important;';
-			style.textContent += 'min-height:' + height + 'px !important;';
-			style.textContent += 'max-height:' + height + 'px !important;';
-			style.textContent += '}';
-
-			this.elements.player_size_style = style;
-
-			document.body.appendChild(style);
-
-			setTimeout(function () {
-				window.dispatchEvent(new Event('resize'));
-			}, 100);
-		}
+		window.dispatchEvent(new Event('resize'));
 	}
 };
 
@@ -63,20 +34,18 @@ ImprovedTube.playerSize = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.forcedTheaterMode = function () {
-	if (
-		window.self === window.top &&
-		this.storage.forced_theater_mode === true &&
-		this.elements.ytd_watch &&
-		this.elements.player
+	if (ImprovedTube.storage.forced_theater_mode === true &&
+		ImprovedTube.elements.ytd_watch &&
+		ImprovedTube.elements.player
 	) {
-		var button = this.elements.player.querySelector('button.ytp-size-button');
+		var button = ImprovedTube.elements.player.querySelector('button.ytp-size-button');
 
-		if (button && this.elements.ytd_watch.theater === false) {
+		if (button && ImprovedTube.elements.ytd_watch.theater === false) {
 			document.cookie = 'wide=1;domain=.youtube.com';
 
 			setTimeout(function () {
 				button.click();
-			}, 200);
+			}, 100);
 		}
 	}
 };
@@ -155,7 +124,13 @@ ImprovedTube.alwaysShowProgressBar = function () {
 
 ImprovedTube.formatSecond = function (rTime) {
 	var time = new Date(null);
-	time.setSeconds(rTime);
+	if (this.storage.duration_with_speed === true) {
+        var playbackRate = this.elements.video.playbackRate;
+        time.setSeconds(rTime / playbackRate);
+    } else {
+        time.setSeconds(rTime);
+    }
+
 	if (rTime / 3600 < 1) {
 		return time.toISOString().substr(14, 5);
 	} else {
@@ -268,41 +243,51 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.channelVideosCount = function () {
-	if (this.storage.channel_videos_count === true && this.elements.yt_channel_link) {
-		var xhr = new XMLHttpRequest(),
-			key = this.storage['google-api-key'] || ImprovedTube.defaultApiKey,
-			id = this.elements.yt_channel_link.href.slice(this.elements.yt_channel_link.href.indexOf('/channel/') + '/channel/'.length);
+    if (this.storage.channel_videos_count === true && this.elements.yt_channel_link) {
+        var key = this.storage['google-api-key'] || ImprovedTube.defaultApiKey;
+        if (this.elements.yt_channel_link.href.indexOf('/channel/') == -1) {
+            var xhr = new XMLHttpRequest(),
+                id = this.getParam(location.href.slice(location.href.indexOf('?') + 1), 'v');
 
-		if (id.indexOf('/') !== -1) {
-			id = id.match(/.+?(?=\/)/)[0];
-		}
+            xhr.open('GET', 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + id + '&key=' + key, false);
+            xhr.send();
+            var response = JSON.parse(xhr.responseText);
+            id = response.items[0].snippet.channelId;
+        } else {
+            id = this.elements.yt_channel_link.href.slice(this.elements.yt_channel_link.href.indexOf('/channel/') + '/channel/'.length);
+            if (id.indexOf('/') !== -1) {
+                id = id.match(/.+?(?=\/)/)[0];
+            }
+        }
 
-		xhr.addEventListener('load', function () {
-			var response = JSON.parse(this.responseText),
-				parent = document.querySelector('#meta ytd-channel-name + yt-formatted-string'),
-				element = ImprovedTube.elements.channel_videos_count || document.createElement('div');
+        xhr = new XMLHttpRequest();
 
-			ImprovedTube.empty(element);
+        xhr.addEventListener('load', function () {
+            var response = JSON.parse(this.responseText),
+                parent = document.querySelector('#meta ytd-channel-name + yt-formatted-string'),
+                element = ImprovedTube.elements.channel_videos_count || document.createElement('div');
 
-			if (response.error) {
-				element.appendChild(document.createTextNode('• Error: ' + response.error.code));
-			} else {
-				element.appendChild(document.createTextNode('• ' + response.items[0].statistics.videoCount + ' videos'));
-			}
+            ImprovedTube.empty(element);
 
-			element.className = 'it-channel-videos-count';
+            if (response.error) {
+                element.appendChild(document.createTextNode('• Error: ' + response.error.code));
+            } else {
+                element.appendChild(document.createTextNode('• ' + response.items[0].statistics.videoCount + ' videos'));
+            }
 
-			ImprovedTube.elements.channel_videos_count = element;
+            element.className = 'it-channel-videos-count';
 
-			parent.appendChild(element);
+            ImprovedTube.elements.channel_videos_count = element;
 
-			ImprovedTube.elements.channel_videos_count = element;
-		});
+            parent.appendChild(element);
+
+            ImprovedTube.elements.channel_videos_count = element;
+        });
 
 
-		xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=' + id + '&key=' + key, true);
-		xhr.send();
-	}
+        xhr.open('GET', 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=' + id + '&key=' + key, true);
+        xhr.send();
+    }
 };
 
  /*------------------------------------------------------------------------------
@@ -331,3 +316,28 @@ ImprovedTube.hideDetailButton = function (el) {
         }
     }, 30);
 };
+
+/*--------------------------------------------------------------
+4.2.3.5 DAY OF WEEK
+--------------------------------------------------------------*/
+
+ImprovedTube.dayOfWeek = function () {
+	var element = document.querySelector('.ytd-day-of-week');
+	if (this.storage.day_of_week === true) {
+		var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+		setTimeout (function () {
+			var videoDate = document.querySelector('[itemprop=datePublished]').content;
+			var tempDate = new Date(videoDate);
+			if (!element) {
+				var label = document.createElement('span');
+				label.textContent = " , " + days[tempDate.getDay() + 1];
+				label.className = 'ytd-day-of-week';
+				document.querySelector('ytd-video-primary-info-renderer #info #info-strings yt-formatted-string').append(label);
+			} else {
+				element.textContent = days[tempDate.getDay() + 1] + ", ";
+			}
+		}, 25);
+	} else if (element) {
+		element.remove();
+	}
+}

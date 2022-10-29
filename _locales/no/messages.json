@@ -305,6 +305,9 @@
     "dislike": {
         "message": "Mislik"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "Ikke endre"
     },
@@ -439,9 +442,6 @@
     },
     "hideAnnotations": {
         "message": "Skjul annoteringer"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "Skjul kort"

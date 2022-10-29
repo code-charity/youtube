@@ -305,6 +305,9 @@
     "dislike": {
         "message": "Không thích"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "Đừng thay đổi"
     },
@@ -439,9 +442,6 @@
     },
     "hideAnnotations": {
         "message": "Ẩn chú thích"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "Ẩn thẻ"

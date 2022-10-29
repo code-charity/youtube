@@ -305,6 +305,9 @@
     "dislike": {
         "message": "Non mi piace"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "Non cambiare"
     },
@@ -439,9 +442,6 @@
     },
     "hideAnnotations": {
         "message": "Nascondi annotazioni"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "Nascondi tessere di fine video"

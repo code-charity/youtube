@@ -305,6 +305,9 @@
     "dislike": {
         "message": "অপছন্দ"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "পরিবর্তন করবেন না"
     },
@@ -439,9 +442,6 @@
     },
     "hideAnnotations": {
         "message": "টীকাগুলি লুকান"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "কার্ড লুকান"

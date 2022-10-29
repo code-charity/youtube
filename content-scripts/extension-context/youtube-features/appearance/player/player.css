@@ -477,3 +477,37 @@ html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change'
 	height: calc(var(--it-player-size) - var(--it-header-size)) !important;
 	max-height: none !important;
 }
+
+/*--------------------------------------------------------------
+# CUSTOM PLAYER SIZE
+--------------------------------------------------------------*/
+
+html[data-page-type='video'][it-player-size='custom'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container,
+html[data-page-type='video'][it-player-size='custom'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) #player-theater-container {
+	width: var(--it-player-width) !important;
+	height: var(--it-player-height) !important;
+	margin: 0 auto;
+	min-height: auto !important;
+	max-height: none !important;
+}
+
+html[data-page-type='video'][it-player-size='custom'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container-inner {
+	padding-top: var(--it-player-height) !important;
+}
+
+/*------------------------------------------------------------------------------
+HIDE CONTROLS OPTIONS
+------------------------------------------------------------------------------*/
+html[it-player-play-button=true] .ytp-play-button,
+html[it-player-previous-button=true] .ytp-prev-button,
+html[it-player-next-button=true] .ytp-next-button,
+html[it-player-volume-button=true] .ytp-volume-area,
+html[it-player-autoplay-button=true] .ytp-right-controls .ytp-button[data-tooltip-target-id = ytp-autonav-toggle-button],
+html[it-player-settings-button=true] .ytp-settings-button,
+html[it-player-subtitles-button=true] .ytp-subtitles-button,
+html[it-player-miniplayer-button=true] .ytp-miniplayer-button,
+html[it-player-view-button=true] .ytp-size-button,
+html[it-player-screen-button=true] .ytp-fullscreen-button,
+html[it-player-remote-button=true] .ytp-remote-button {
+	display: none !important;
+}

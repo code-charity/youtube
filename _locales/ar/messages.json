@@ -308,6 +308,9 @@
     "dislike": {
         "message": "لم يعجبنى"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "الإفتراضي"
     },
@@ -442,9 +445,6 @@
     },
     "hideAnnotations": {
         "message": "إخفاء التعليقات التوضيحية"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "إخفاء البطاقات"

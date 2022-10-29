@@ -305,6 +305,9 @@
     "dislike": {
         "message": "Nu îmi place"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "Nu schimba"
     },
@@ -439,9 +442,6 @@
     },
     "hideAnnotations": {
         "message": "Ascunde adnotările"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "Ascunde cardurile"

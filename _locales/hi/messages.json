@@ -302,6 +302,9 @@
     "dislike": {
         "message": "नापसन्द"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "मत बदलो"
     },
@@ -436,9 +439,6 @@
     },
     "hideAnnotations": {
         "message": "एनोटेशन छुपाएं"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "पत्ते छिपाओ"

@@ -302,6 +302,9 @@
     "dislike": {
         "message": "Dislike"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "වෙනස් කරන්න එපා"
     },
@@ -436,9 +439,6 @@
     },
     "hideAnnotations": {
         "message": "Annotations සඟවන්න"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "Cards සඟවන්න"
