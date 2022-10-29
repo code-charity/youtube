@@ -275,6 +275,7 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 			player_remaining_duration: {
 				component: 'switch',
 				text: 'showRemainingDuration',
+				id: 'show-remaining-duration',
 				value: false
 			},
 			duration_with_speed: {

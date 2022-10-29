@@ -160,7 +160,11 @@
 	content: 'x';
 }
 
+
  /*--------------------------------------------------------------
-HIDE DETAIL BUTTON
+DURATION WITH SPEED
 --------------------------------------------------------------*/
 
+#show-remaining-duration:not([data-value='true']) + .satus-switch {
+	display: none;
+}
