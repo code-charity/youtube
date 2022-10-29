@@ -305,6 +305,9 @@
     "dislike": {
         "message": "踩一下"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "不做改变"
     },
@@ -439,9 +442,6 @@
     },
     "hideAnnotations": {
         "message": "隐藏预览图"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "隐藏信息卡片"

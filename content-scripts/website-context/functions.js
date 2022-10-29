@@ -4,12 +4,13 @@
 
 ImprovedTube.childHandler = function (node) {
 	var children = node.children;
+	if (node.nodeName !== 'SCRIPT' && node.nodeName !== 'svg' && node.nodeName !== '#text'&& node.nodeName !== '#comment' && node.nodeName !== 'SPAN' && node.nodeName !== 'DOM-IF' && node.nodeName !== 'DOM-REPEAT') {
+		this.ytElementsHandler(node);
 
-	this.ytElementsHandler(node);
-
-	if (children) {
-		for (var i = 0, l = children.length; i < l; i++) {
-			ImprovedTube.childHandler(children[i]);
+		if (children) {
+			for (var i = 0, l = children.length; i < l; i++) {
+				ImprovedTube.childHandler(children[i]);
+			}
 		}
 	}
 };
@@ -18,21 +19,22 @@ ImprovedTube.ytElementsHandler = function (node) {
 	var name = node.nodeName,
 		id = node.id;
 
-	if (name === 'A' && node.href) {
-		this.channelDefaultTab(node);
+	if (name === 'A') {
+		if (node.href) {
+			this.channelDefaultTab(node);
 
-		if (node.className.indexOf('ytd-thumbnail') !== -1) {
-			this.blacklist('video', node);
-		}
-
-		if (node.href.match(/(channel|user|c)\/([^/]+)/)) {
-			this.blacklist('channel', node);
+			if (node.className.indexOf('ytd-thumbnail') !== -1) {
+				this.blacklist('video', node);
+			}
+			if (node.href.match(/(channel|user|c)\/([^/]+)/)) {
+				this.blacklist('channel', node);
+			}
 		}
 	} else if (name === 'META') {
 		if (node.getAttribute('itemprop') === 'genre') {
 			ImprovedTube.genre = node.content;
 		}
-	} else if (name === 'YTD-TOGGLE-BUTTON-RENDERER') {
+	} else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
 		if (
 			node.parentComponent &&
 			node.parentComponent.nodeName === 'YTD-MENU-RENDERER' &&
@@ -42,10 +44,6 @@ ImprovedTube.ytElementsHandler = function (node) {
 			var index = Array.prototype.indexOf.call(node.parentNode.children, node);
 
 			if (index === 0) {
-				this.elements.playlist.repeat_button = node;
-
-				this.playlistRepeat();
-
 				this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;
 
 				this.playlistReverse();
@@ -59,10 +57,12 @@ ImprovedTube.ytElementsHandler = function (node) {
 				this.playlistReverse();
 			}
 		}
-	} else if (name === 'YTD-GUIDE-SECTION-RENDERER' && !this.elements.sidebar_section) {
-		this.elements.sidebar_section = node;
+	} else if (name === 'YTD-GUIDE-SECTION-RENDERER') {
+		if (!this.elements.sidebar_section) {
+			this.elements.sidebar_section = node;
 
-		this.improvedtubeYoutubeIcon();
+			this.improvedtubeYoutubeIcon();
+		}
 	} else if (name === 'YTD-VIDEO-PRIMARY-INFO-RENDERER') {
 		this.elements.video_title = node.querySelector('.title.ytd-video-primary-info-renderer');
 
@@ -90,63 +90,67 @@ ImprovedTube.ytElementsHandler = function (node) {
 		this.elements.livechat.button = node.querySelector('ytd-toggle-button-renderer');
 
 		this.livechat();
-	} else if (name === 'YTD-MASTHEAD' && !this.elements.masthead) {
-		this.elements.masthead = {
-			start: node.querySelector('#start'),
-			end: node.querySelector('#end'),
-			logo: node.querySelector('a#logo')
-		};
+	} else if (name === 'YTD-MASTHEAD') {
+		if (!this.elements.masthead) {
+			this.elements.masthead = {
+				start: node.querySelector('#start'),
+				end: node.querySelector('#end'),
+				logo: node.querySelector('a#logo')
+			};
 
-		this.improvedtubeYoutubeIcon();
-	} else if (name === 'YTD-PLAYER' && !this.elements.ytd_player) {
-		ImprovedTube.elements.ytd_player = node;
-	} else if (id === 'movie_player' && !this.elements.player) {
-		if (!this.elements.ytd_player) {}
+			this.improvedtubeYoutubeIcon();
+		}
+	} else if (name === 'YTD-PLAYER') {
+		if (!this.elements.ytd_player) {
+			ImprovedTube.elements.ytd_player = node;
+		}
+	} else if (id === 'movie_player') {
+		if (!this.elements.player) {
+			ImprovedTube.elements.player = node;
+			ImprovedTube.elements.video = node.querySelector('video');
+			ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
+			ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
+			ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
 
-		ImprovedTube.elements.player = node;
-		ImprovedTube.elements.video = node.querySelector('video');
-		ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
-		ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
-		ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
+			ImprovedTube.playerSize();
 
-		ImprovedTube.playerSize();
+			new MutationObserver(function (mutationList) {
+				for (var i = 0, l = mutationList.length; i < l; i++) {
+					var mutation = mutationList[i];
 
-		new MutationObserver(function (mutationList) {
-			for (var i = 0, l = mutationList.length; i < l; i++) {
-				var mutation = mutationList[i];
+					if (mutation.type === 'childList') {
+						for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
+							var node = mutation.addedNodes[j];
 
-				if (mutation.type === 'childList') {
-					for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
-						var node = mutation.addedNodes[j];
-
-						if (node.nodeName === 'DIV' && node.className.indexOf('ytp-ad-player-overlay') !== -1) {
-							ImprovedTube.playerAds(node);
+							if (node.nodeName === 'DIV' && node.className.indexOf('ytp-ad-player-overlay') !== -1) {
+								ImprovedTube.playerAds(node);
+							}
 						}
 					}
 				}
-			}
-		}).observe(node, {
-			attributes: false,
-			childList: true,
-			subtree: true
-		});
+			}).observe(node, {
+				attributes: false,
+				childList: true,
+				subtree: true
+			});
 
-		new MutationObserver(function (mutationList) {
-			for (var i = 0, l = mutationList.length; i < l; i++) {
-				var mutation = mutationList[i];
+			new MutationObserver(function (mutationList) {
+				for (var i = 0, l = mutationList.length; i < l; i++) {
+					var mutation = mutationList[i];
 
-				if (mutation.type === 'attributes') {
-					if (mutation.attributeName === 'style') {
-						ImprovedTube.playerHdThumbnail();
+					if (mutation.type === 'attributes') {
+						if (mutation.attributeName === 'style') {
+							ImprovedTube.playerHdThumbnail();
+						}
 					}
 				}
-			}
-		}).observe(ImprovedTube.elements.player_thumbnail, {
-			attributes: true,
-			attributeFilter: ['style'],
-			childList: false,
-			subtree: false
-		});
+			}).observe(ImprovedTube.elements.player_thumbnail, {
+				attributes: true,
+				attributeFilter: ['style'],
+				childList: false,
+				subtree: false
+			});
+		}
 	} else if (name === 'YTD-WATCH-FLEXY') {
 		this.elements.ytd_watch = node;
 
@@ -182,25 +186,6 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 			node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;
 		}
-
-		new MutationObserver(function (mutationList) {
-			for (var i = 0, l = mutationList.length; i < l; i++) {
-				var mutation = mutationList[i];
-
-				if (mutation.type === 'attributes') {
-					if (mutation.attributeName === 'theater') {
-						setTimeout(function () {
-							ImprovedTube.playerSize();
-						}, 100);
-					}
-				}
-			}
-		}).observe(node, {
-			attributes: true,
-			attributeFilter: ['theater'],
-			childList: false,
-			subtree: false
-		});
 	}
 };
 
@@ -219,36 +204,34 @@ ImprovedTube.pageType = function () {
 };
 
 ImprovedTube.pageOnFocus = function () {
-	this.playerAutopauseWhenSwitchingTabs();
+	ImprovedTube.playerAutopauseWhenSwitchingTabs();
 };
 
 ImprovedTube.videoPageUpdate = function () {
 	if (document.documentElement.dataset.pageType === 'video') {
 		var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');
 
-		if (this.storage.track_watched_videos === true) {
-			if (video_id) {
-				ImprovedTube.messages.send({
-					action: 'watched',
-					type: 'add',
-					id: video_id,
-					title: document.title
-				});
-			}
+		if (this.storage.track_watched_videos === true && video_id) {
+			ImprovedTube.messages.send({
+				action: 'watched',
+				type: 'add',
+				id: video_id,
+				title: document.title
+			});
 		}
 
 		this.initialVideoUpdateDone = true;
 
-		this.howLongAgoTheVideoWasUploaded();
-		this.channelVideosCount();
-
-		this.upNextAutoplay();
-		this.playerAutofullscreen();
-		this.playerScreenshotButton();
-		this.playerRepeatButton();
-		this.playerRotateButton();
-		this.playerPopupButton();
-		this.playerControls();
+		ImprovedTube.howLongAgoTheVideoWasUploaded();
+		ImprovedTube.dayOfWeek();
+		ImprovedTube.channelVideosCount();
+		ImprovedTube.upNextAutoplay();
+		ImprovedTube.playerAutofullscreen();
+		ImprovedTube.playerScreenshotButton();
+		ImprovedTube.playerRepeatButton();
+		ImprovedTube.playerRotateButton();
+		ImprovedTube.playerPopupButton();
+		ImprovedTube.playerControls();
 	}
 };
 
@@ -267,7 +250,7 @@ ImprovedTube.playerOnPlay = function () {
 			this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 			this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
 
-			ImprovedTube.autoplay(this);
+			ImprovedTube.autoplay();
 			ImprovedTube.playerLoudnessNormalization();
 
 			return original.apply(this, arguments);
@@ -284,7 +267,6 @@ ImprovedTube.initPlayer = function () {
 		delete ImprovedTube.elements.player.dataset.defaultQuality;
 
 		ImprovedTube.forcedPlayVideoFromTheBeginning();
-		ImprovedTube.forcedTheaterMode();
 		ImprovedTube.playerPlaybackSpeed(false);
 		ImprovedTube.subtitles();
 		ImprovedTube.subtitlesLanguage();
@@ -300,16 +282,14 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerQuality();
 		ImprovedTube.playerVolume();
 
+		setTimeout(function () {
+            ImprovedTube.forcedTheaterMode();
+        }, 150);
+
 		if (location.href.indexOf('/embed/') === -1) {
 			ImprovedTube.miniPlayer();
 		}
 	}
-};
-
-ImprovedTube.playerOnLoadedMetadata = function () {
-	setTimeout(function () {
-		ImprovedTube.playerSize();
-	}, 100);
 };
 
 ImprovedTube.playerOnTimeUpdate = function () {
@@ -329,6 +309,12 @@ ImprovedTube.playerOnTimeUpdate = function () {
 	ImprovedTube.playerRemainingDuration();
 
 	ImprovedTube.played_time += .25;
+};
+
+ImprovedTube.playerOnLoadedMetadata = function () {
+	setTimeout(function () {
+		ImprovedTube.playerSize();
+	}, 100);
 };
 
 ImprovedTube.playerOnPause = function (event) {

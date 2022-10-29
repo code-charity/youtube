@@ -305,6 +305,9 @@
     "dislike": {
         "message": "Δε μου αρέσει"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "Να μην αλλάξει"
     },
@@ -439,9 +442,6 @@
     },
     "hideAnnotations": {
         "message": "Απόκρυψε τα annotations"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "Απόκρυψε τις κάρτες"

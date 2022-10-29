@@ -305,6 +305,9 @@
     "dislike": {
         "message": "Tidak Suka"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "Jangan ubah"
     },
@@ -439,9 +442,6 @@
     },
     "hideAnnotations": {
         "message": "Sembunyikan penjelasan"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "Sembunyikan kartu"

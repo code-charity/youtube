@@ -305,6 +305,9 @@
     "dislike": {
         "message": "低評価"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "変更しない"
     },
@@ -439,9 +442,6 @@
     },
     "hideAnnotations": {
         "message": "アノテーションを隠す"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "カードを隠す"

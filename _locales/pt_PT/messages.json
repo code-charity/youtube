@@ -305,6 +305,9 @@
     "dislike": {
         "message": "Não gostar"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "Não mudes"
     },
@@ -439,9 +442,6 @@
     },
     "hideAnnotations": {
         "message": "Esconder anotações"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "Esconder cartas"

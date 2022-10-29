@@ -305,6 +305,9 @@
     "dislike": {
         "message": "Beğenmeme"
     },
+    "displayDayOfTheWeak": {
+        "message": "Display day of the weak"
+    },
     "doNotChange": {
         "message": "Değiştirme"
     },
@@ -439,9 +442,6 @@
     },
     "hideAnnotations": {
         "message": "Ek açıklamaları gizle"
-    },
-    "hideButtonLabel": {
-        "message": "Hide Button Label"
     },
     "hideCards": {
         "message": "Kartları gizle"

@@ -6,24 +6,22 @@
 4.4.1 AUTOPLAY
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.autoplay = function (video) {
-	if (ImprovedTube.video_url !== location.href) {
-		ImprovedTube.allow_autoplay = false;
-	}
+ImprovedTube.autoplay = function () {
+    var video = ImprovedTube.elements.player;
+    if (ImprovedTube.video_url !== location.href) {
+        ImprovedTube.allow_autoplay = false;
+    }
 
-	if (
-		(
-			(location.href.indexOf('/watch?') !== -1 && location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) ||
-			(location.href.indexOf('/watch?') !== -1 && location.href.indexOf('list=') !== -1 && ImprovedTube.storage.playlist_autoplay === false) ||
-			(ImprovedTube.regex.channel.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
-		) === true &&
-		ImprovedTube.allow_autoplay === false &&
-		video.parentNode.parentNode.classList.contains('ad-showing') === false
-	) {
-		setTimeout(function () {
-			video.parentNode.parentNode.pauseVideo();
-		});
-	}
+    if (ImprovedTube.allow_autoplay === false && video.classList.contains('ad-showing') === false &&
+        (
+            (document.documentElement.dataset.pageType === "video" && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) || (ImprovedTube.storage.playlist_autoplay === false))) ||
+            (document.documentElement.dataset.pageType === "channel" && ImprovedTube.storage.channel_trailer_autoplay === false)
+        )
+    ) {
+        setTimeout(function () {
+            video.pauseVideo();
+        });
+    }
 };
 
 
@@ -101,29 +99,33 @@ ImprovedTube.subtitles = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.subtitlesLanguage = function () {
-	var option = this.storage.subtitles_language;
+    var option = this.storage.subtitles_language,
+        autoGenerate = this.storage.auto_generate;
 
-	if (this.isset(option) && option !== 'default') {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
+    if (this.isset(option) && option !== 'default') {
+        var player = this.elements.player,
+            button = this.elements.player_subtitles_button;
 
-		if (player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
-			var tracklist = this.elements.player.getOption('captions', 'tracklist', {
-				includeAsr: true
-			});
+        if (player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
+            var tracklist = this.elements.player.getOption('captions', 'tracklist', {
+                includeAsr: true
+            });
 
-			if (tracklist && tracklist[0]) {
-				tracklist = tracklist[0];
-
-				tracklist.translationLanguage = {
-					languageCode: option,
-					languageName: option
-				};
-
-				this.elements.player.setOption('captions', 'track', tracklist);
-			}
-		}
-	}
+            var matchTrack = false;
+            for (var i =0, l = tracklist.length; i<l; i++){
+                if (tracklist[i].languageCode.includes(option)) {
+                    if(autoGenerate === tracklist[i].vss_id.includes("a.")){
+                        this.elements.player.setOption('captions', 'track', tracklist[i]);
+                        matchTrack = true;
+                    }
+                    break;
+                }
+            }
+            if (!matchTrack){
+                player.toggleSubtitles();
+            }
+        }
+    }
 };
 
 
@@ -388,9 +390,19 @@ ImprovedTube.playerAds = function (parent) {
 4.4.7 CUSTOM MINI-PLAYER
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.mini_player__setSize = function (width, height) {
-	ImprovedTube.elements.player.style.width = width + 'px';
-	ImprovedTube.elements.player.style.height = height + 'px';
+ImprovedTube.mini_player__setSize = function (width, height, keep_ar, keep_area) {
+    if (keep_ar) {
+        const aspect_ratio = ImprovedTube.elements.video.style.width.replace('px', '') / ImprovedTube.elements.video.style.height.replace('px', '');
+	    if (keep_area) {
+	        height = Math.sqrt((width * height) / aspect_ratio);
+	        width = height * aspect_ratio;
+	    } else {
+	        height = width / aspect_ratio;
+	    }
+    }
+
+    ImprovedTube.elements.player.style.width = width + 'px';
+    ImprovedTube.elements.player.style.height = height + 'px'; 
 };
 
 ImprovedTube.miniPlayer_scroll = function () {
@@ -410,7 +422,7 @@ ImprovedTube.miniPlayer_scroll = function () {
 
 		ImprovedTube.elements.player.style.transform = 'translate(' + ImprovedTube.mini_player__x + 'px, ' + ImprovedTube.mini_player__y + 'px)';
 
-		ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__width, ImprovedTube.mini_player__height);
+		ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__width, ImprovedTube.mini_player__height, true, true);
 
 		window.addEventListener('mousedown', ImprovedTube.miniPlayer_mouseDown);
 		window.addEventListener('mousemove', ImprovedTube.miniPlayer_cursorUpdate);
@@ -632,15 +644,15 @@ ImprovedTube.miniPlayer_resizeMouseMove = function (event) {
 		ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__x + ImprovedTube.mini_player__width - event.clientX, ImprovedTube.mini_player__height);
 	} else if (ImprovedTube.mini_player__cursor === 'ne-resize') {
 		ImprovedTube.elements.player.style.transform = 'translate(' + ImprovedTube.mini_player__x + 'px, ' + event.clientY + 'px)';
-		ImprovedTube.mini_player__setSize(event.clientX - ImprovedTube.mini_player__x, ImprovedTube.mini_player__y + ImprovedTube.mini_player__height - event.clientY);
+		ImprovedTube.mini_player__setSize(event.clientX - ImprovedTube.mini_player__x, ImprovedTube.mini_player__y + ImprovedTube.mini_player__height - event.clientY, true);
 	} else if (ImprovedTube.mini_player__cursor === 'se-resize') {
-		ImprovedTube.mini_player__setSize(event.clientX - ImprovedTube.mini_player__x, event.clientY - ImprovedTube.mini_player__y);
+		ImprovedTube.mini_player__setSize(event.clientX - ImprovedTube.mini_player__x, event.clientY - ImprovedTube.mini_player__y, true);
 	} else if (ImprovedTube.mini_player__cursor === 'sw-resize') {
 		ImprovedTube.elements.player.style.transform = 'translate(' + event.clientX + 'px, ' + ImprovedTube.mini_player__y + 'px)';
-		ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__x + ImprovedTube.mini_player__width - event.clientX, event.clientY - ImprovedTube.mini_player__y);
+		ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__x + ImprovedTube.mini_player__width - event.clientX, event.clientY - ImprovedTube.mini_player__y, true);
 	} else if (ImprovedTube.mini_player__cursor === 'nw-resize') {
 		ImprovedTube.elements.player.style.transform = 'translate(' + event.clientX + 'px, ' + event.clientY + 'px)';
-		ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__x + ImprovedTube.mini_player__width - event.clientX, ImprovedTube.mini_player__y + ImprovedTube.mini_player__height - event.clientY);
+		ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__x + ImprovedTube.mini_player__width - event.clientX, ImprovedTube.mini_player__y + ImprovedTube.mini_player__height - event.clientY, true);
 	}
 };
 
@@ -1114,12 +1126,22 @@ ImprovedTube.playerSDR = function () {
 4.4.19 Hide controls
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.playerControls = function () {
-	if (this.elements.player) {
-		if (this.storage.player_hide_controls === true) {
-			this.elements.player.hideControls();
-		} else {
-			this.elements.player.showControls();
-		}
-	}
+ImprovedTube.playerControls = function (mouseIn=false) {
+    var player = this.elements.player;
+
+    if (player) {
+        if (this.storage.player_hide_controls === 'always') {
+            player.hideControls();
+        } else if(this.storage.player_hide_controls === 'off') {
+            player.showControls();
+        } else if(this.storage.player_hide_controls === 'when_paused') {
+            if(this.elements.video.paused) {
+                if(mouseIn) {
+                    player.showControls();
+                } else {
+					player.hideControls();
+				}
+			}
+        }
+    }
 };
