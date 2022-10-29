@@ -424,38 +424,108 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 						component: 'section',
 						variant: 'card',
 						hide_like_button: {
-							component: 'switch',
+							component: 'select',
 							text: 'like',
+							options: [{
+								text: 'normal',
+								value: 'normal'
+							}, {
+								text: 'iconsOnly',
+								value: 'icons_only'
+							}, {
+								text: 'hidden',
+								value: 'hidden'
+							}],
 							tags: 'hide,remove'
 						},
 						hide_dislike_button: {
-							component: 'switch',
+							component: 'select',
 							text: 'dislike',
+							options: [{
+								text: 'normal',
+								value: 'normal'
+							}, {
+								text: 'iconsOnly',
+								value: 'icons_only'
+							}, {
+								text: 'hidden',
+								value: 'hidden'
+							}],
 							tags: 'hide,remove'
 						},
 						hide_share_button: {
-							component: 'switch',
+							component: 'select',
 							text: 'share',
+							options: [{
+								text: 'normal',
+								value: 'normal'
+							}, {
+								text: 'iconsOnly',
+								value: 'icons_only'
+							}, {
+								text: 'hidden',
+								value: 'hidden'
+							}],
 							tags: 'hide,remove'
 						},
 						hide_download_button: {
-							component: 'switch',
+							component: 'select',
 							text: 'download',
+							options: [{
+								text: 'normal',
+								value: 'normal'
+							}, {
+								text: 'iconsOnly',
+								value: 'icons_only'
+							}, {
+								text: 'hidden',
+								value: 'hidden'
+							}],
 							tags: 'hide,remove'
 						},
 						hide_thanks_button: {
-							component: 'switch',
+							component: 'select',
 							text: 'thanks',
+							options: [{
+								text: 'normal',
+								value: 'normal'
+							}, {
+								text: 'iconsOnly',
+								value: 'icons_only'
+							}, {
+								text: 'hidden',
+								value: 'hidden'
+							}],
 							tags: 'hide,remove'
 						},
 						hide_clip_button: {
-							component: 'switch',
+							component: 'select',
 							text: 'clip',
+							options: [{
+								text: 'normal',
+								value: 'normal'
+							}, {
+								text: 'iconsOnly',
+								value: 'icons_only'
+							}, {
+								text: 'hidden',
+								value: 'hidden'
+							}],
 							tags: 'hide,remove'
 						},
 						hide_save_button: {
-							component: 'switch',
+							component: 'select',
 							text: 'save',
+							options: [{
+								text: 'normal',
+								value: 'normal'
+							}, {
+								text: 'iconsOnly',
+								value: 'icons_only'
+							}, {
+								text: 'hidden',
+								value: 'hidden'
+							}],
 							tags: 'hide,remove'
 						},
 						hide_report_button: {
@@ -466,56 +536,6 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 						hide_more_button: {
 							component: 'switch',
 							text: 'more',
-							tags: 'hide,remove'
-						},
-						hide_more_button: {
-							component: 'switch',
-							text: 'more',
-							tags: 'hide,remove'
-						}
-					}
-				}
-			},
-			hide_details_button_text: {
-				component: 'button',
-				text: 'hideButtonLabel',
-				on: {
-					click: {
-						component: 'section',
-						variant: 'card',
-						hide_like_button_text: {
-							component: 'switch',
-							text: 'like',
-							tags: 'hide,remove'
-						},
-						hide_dislike_button_text: {
-							component: 'switch',
-							text: 'dislike',
-							tags: 'hide,remove'  
-						},
-						hide_share_button_text: {
-							component: 'switch',
-							text: 'share',
-							tags: 'hide,remove'
-						},
-						hide_download_button_text: {
-							component: 'switch',
-							text: 'download',
-							tags: 'hide,remove'
-						},
-						hide_thanks_button_text: {
-							component: 'switch',
-							text: 'thanks',
-							tags: 'hide,remove'
-						},
-						hide_clip_button_text: {
-							component: 'switch',
-							text: 'clip',
-							tags: 'hide,remove'
-						},
-						hide_save_button_text: {
-							component: 'switch',
-							text: 'save',
 							tags: 'hide,remove'
 						}
 					}
