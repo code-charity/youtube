@@ -11,49 +11,20 @@
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerSize = function () {
-	if (window.self === window.top) {
-		if (this.elements.player_size_style) {
-			this.elements.player_size_style.remove();
-		}
+	if (this.storage.player_size === 'custom') {
+		console.log("yes");
+		var width = Number(this.storage.custom_player_size_width) || 1280,
+			height = Number(this.storage.custom_player_size_height) || 720,
+			style = this.elements.player_size_style || document.createElement('style');
 
-		if (this.storage.forced_theater_mode === true && this.storage.player_size === 'fit_to_window') {
-			var button = document.querySelector('button.ytp-size-button'),
-				container = document.getElementById('player-theater-container');
+		style.textContent = '[data-page-type="video"][it-player-size="custom"]  {';
+		style.textContent += '--it-player-width:' + width + 'px;';
+		style.textContent += '--it-player-height:' + height + 'px;';
+		style.textContent += '}';
 
-			if (button && (container && !container.firstChild)) {
-				button.click();
-			}
-		}
+		document.body.appendChild(style);
 
-		
-		if (this.storage.player_size === 'custom') {
-			var width = Number(this.storage.custom_player_size_width) || 1280,
-				height = Number(this.storage.custom_player_size_height) || 720,
-				style = this.elements.player_size_style || document.createElement('style');
-
-			style.textContent = '[data-page-type="video"][it-player-size="custom"] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player:not(.it-mini-player) video {';
-			style.textContent += 'width:' + width + 'px !important;';
-			style.textContent += 'height:' + height + 'px !important;';
-			style.textContent += '}';
-
-			style.textContent += '[data-page-type="video"][it-player-size="custom"] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #player-container-inner.ytd-watch-flexy {';
-			style.textContent += 'padding-top:' + height + 'px !important;';
-			style.textContent += '}';
-
-			style.textContent += '[data-page-type="video"][it-player-size="custom"] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #player-theater-container.ytd-watch-flexy {';
-			style.textContent += 'height:' + height + 'px !important;';
-			style.textContent += 'min-height:' + height + 'px !important;';
-			style.textContent += 'max-height:' + height + 'px !important;';
-			style.textContent += '}';
-
-			this.elements.player_size_style = style;
-
-			document.body.appendChild(style);
-
-			setTimeout(function () {
-				window.dispatchEvent(new Event('resize'));
-			}, 100);
-		}
+		window.dispatchEvent(new Event('resize'));
 	}
 };
 

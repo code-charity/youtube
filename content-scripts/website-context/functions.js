@@ -112,6 +112,8 @@ ImprovedTube.ytElementsHandler = function (node) {
 			ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
 			ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
 
+			ImprovedTube.playerSize();
+
 			new MutationObserver(function (mutationList) {
 				for (var i = 0, l = mutationList.length; i < l; i++) {
 					var mutation = mutationList[i];
@@ -236,6 +238,9 @@ ImprovedTube.videoPageUpdate = function () {
 ImprovedTube.playerOnPlay = function () {
 	HTMLMediaElement.prototype.play = (function (original) {
 		return function () {
+			this.removeEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
+			this.addEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
+
 			this.removeEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
 			this.addEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
 
@@ -304,6 +309,12 @@ ImprovedTube.playerOnTimeUpdate = function () {
 	ImprovedTube.playerRemainingDuration();
 
 	ImprovedTube.played_time += .25;
+};
+
+ImprovedTube.playerOnLoadedMetadata = function () {
+	setTimeout(function () {
+		ImprovedTube.playerSize();
+	}, 100);
 };
 
 ImprovedTube.playerOnPause = function (event) {

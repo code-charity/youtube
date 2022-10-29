@@ -478,8 +478,25 @@ html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change'
 	max-height: none !important;
 }
 
+/*--------------------------------------------------------------
+# CUSTOM PLAYER SIZE
+--------------------------------------------------------------*/
+
+html[data-page-type='video'][it-player-size='custom'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container,
+html[data-page-type='video'][it-player-size='custom'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) #player-theater-container {
+	width: var(--it-player-width) !important;
+	height: var(--it-player-height) !important;
+	margin: 0 auto;
+	min-height: auto !important;
+	max-height: none !important;
+}
+
+html[data-page-type='video'][it-player-size='custom'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container-inner {
+	padding-top: var(--it-player-height) !important;
+}
+
 /*------------------------------------------------------------------------------
-hide controls options
+HIDE CONTROLS OPTIONS
 ------------------------------------------------------------------------------*/
 html[it-player-play-button=true] .ytp-play-button,
 html[it-player-previous-button=true] .ytp-prev-button,
