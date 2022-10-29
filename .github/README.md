@@ -187,7 +187,8 @@ Planned Features</h3></th></tr><tr><td>
 ❌<a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/___/messages.json" title="_______">(Iranian) Persian</a></code> :
 <a href="https://github.com/????????">_____</a></code>(You?)<br><code>
 <code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json" title="Italiano">IT</a></code> :
-<a href="https://github.com/urfausto" title="✨🏆"><code>urfausto</code></a><br><code>
+<a href="https://github.com/urfausto" title="✨🏆"><code>urfausto</code></a>,
+<a href="https://github.com/FedericoSlongo"><code>FedericoSlongo</code></a><br><code>
 ❌<a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/th/messages.json" title="Thai">TH Thai</a></code> :
 <a href="https://github.com/????????">______</a></code>(You?)<br><code>
 <code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pl/messages.json" title="Polski">PL</a></code> :
