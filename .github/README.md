@@ -81,7 +81,7 @@ Planned Features</h3></th></tr><tr><td>
  <details><summary><code><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 🔧 Install from source </h4>&nbsp;</code></summary>
 
-### 1.) **Download & extract the [[latest🧪version]](https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip) or  [[release]](https://github.com/code-for-charity/YouTube-Extension/releases)**
+1.) **Download & extract the [[latest🧪version]](https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip) or  [[release]](https://github.com/code-for-charity/YouTube-Extension/releases)**
 - **Safari**: 
   - 2.) [**#494**](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)
 
