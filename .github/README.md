@@ -99,15 +99,16 @@ Planned Features</h3></th></tr><tr><td>
  </details>
 
  <details><summary align="center"><code><h2>
-<code> <code><code>🎁</code></code>Extensions&Projects</code></h2></code>▼</summary>
+<code> <code><code>🎁</code></code>Extensions & Projects</code></h2></code>▼</summary>
 
 #### [**`History Manager`**<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" height="18px"></a>]  [<code>[**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl " - Universal dark-mode!") </code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/dark-mode)]  <code>[**unLock me**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl " - Unlock your Right-Click, Ctrl+F, Selection anywhere!")</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/unlock-keyboard-and-mouse)] [[**`Custom user agent`**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/user-agent)] [[`Regex Replace`](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)<a href="" title="No Repo. We should upload it from Webstore & merge it into 'Regex':"><img src="github.png" height="18px"></a>]
-##### Research: <code> [[Regex (Search)](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")</code>[<img src="github.png" height="15px">](https://github.com/code-for-charity/regex)]
+##### Research: [<code>[Regex (Search)](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")</code>[<img src="github.png" height="15px">](https://github.com/code-for-charity/regex)]
 #### **Video / Media:** (**to be integrated in ImprovedTube**...) [<code>[**Looper**](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/looper)] [<code>[**Frame by Frame**](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/frame-by-frame)]     [[**`unBlob`**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/unblob)] (<i><del>Equalizer[<img src="github.png" height="18px">](https://github.com/code-for-charity/equalizer)</del></i>)
 
 ##### <b>Home:</b>  (Start Page <a href="https://github.com/code-for-charity/start-page"><img src="github.png" height="18px"></a> <i> to be uploaded </i>)  [[`TextEditor`]([https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka?hl=de))[<img src="github.png" height="18px">](https://github.com/code-for-charity/Editor)]  [[`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-for-charity/todo)]   [[`auto-scroll`](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch "(missing in Linux)")<a href="https://github.com/code-for-charity/auto-scroll"><img src="github.png" height="18px"></a>]
 
-### Projects: 
+---
+
 #### **Development:**  [[**`Satus`**](https://github.com/code-for-charity/satus) - Our UI library] [[**`WebGL.js`**](https://github.com/code-for-charity/webgl.js) - WebGL Library] (<del>[TE](https://github.com/victor-savinov/theme-engine),[P](https://github.com/victor-savinov/pluviam),[CodeEdit](https://github.com/victor-savinov/code-editor), [Viscum Player](https://github.com/victor-savinov/viscum-player)</del>)
 
 #### Git Community: [🐣[`Regex Collector`](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - community-list of Regex")]  [🌱[`Pull Requests bots`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)]
@@ -286,7 +287,7 @@ Do you need to run a popular extension, site, app or repo?</b><br> We'll love to
       <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
         <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" /></a> </p>
 
-### Some ImprovedTube features:
+** Some ImprovedTube features**:
 - Video quality
 - Themes and customisation
 - Repeat-, screenshot-, rotate-buttons
@@ -300,9 +301,8 @@ Do you need to run a popular extension, site, app or repo?</b><br> We'll love to
 - Volume mixer
 _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
-## 🔧 Install from source
-
-### 1.) **Download & extract the [[latest🧪version]](https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip) or  [[release]](https://github.com/code-for-charity/YouTube-Extension/releases)**
+**🔧 Install from source**
+1.) **Download & extract the [[latest🧪version]](https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip) or  [[release]](https://github.com/code-for-charity/YouTube-Extension/releases)**
 - **Safari**: 
   - 2.) [Issue #494](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)
 
@@ -318,7 +318,7 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
    - 5.) Click on `Load Temporary Add-on…`
    - 6.) Select the `manifest.json` file from unzipped folder
 
- #### Web browser support 
+#### Web browser support 
 |[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="28px" />](https://brave.com)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="28px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://www.microsoft.com/edge)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](https://addons.opera.com/en/extensions/details/install-chrome-extensions/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://www.apple.com/safari/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
