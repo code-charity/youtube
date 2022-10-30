@@ -92,6 +92,11 @@ window.addEventListener('load', function () {
 		logo: document.querySelector('ytd-masthead a#logo')
 	};
 
+	ImprovedTube.elements.app_drawer = {
+		start: document.querySelector('tp-yt-app-drawer #header'),
+		logo: document.querySelector('tp-yt-app-drawer a#logo')
+	};
+
 	ImprovedTube.improvedtubeYoutubeIcon();
 });
 

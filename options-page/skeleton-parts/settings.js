@@ -164,6 +164,29 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.firstSectio
 							}
 						}
 					}
+				},
+				improvedtube_youtube_icon: {
+					text: 'improvedtubeIconOnYoutube',
+					component: 'select',
+					options: [{
+						text: 'disabled',
+						value: 'disabled'
+					}, {
+						text: 'youtubeHeaderLeft',
+						value: 'header_left'
+					}, {
+						text: 'youtubeHeaderRight',
+						value: 'header_right'
+					}, {
+						text: 'sidebar',
+						value: 'sidebar'
+					}, {
+						text: 'draggable',
+						value: 'draggable'
+					}, {
+						text: 'belowPlayer',
+						value: 'below_player'
+					}]
 				}
 			},
 			animations: {

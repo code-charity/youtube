@@ -100,6 +100,16 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 			this.improvedtubeYoutubeIcon();
 		}
+	}
+	else if (name === 'TP-YT-APP-DRAWER') {
+		if (!this.elements.app_drawer) {
+			this.elements.app_drawer = {
+				start: node.querySelector('div#header'),
+				logo: node.querySelector('a#logo')
+			};
+
+			this.improvedtubeYoutubeIcon();
+		}
 	} else if (name === 'YTD-PLAYER') {
 		if (!this.elements.ytd_player) {
 			ImprovedTube.elements.ytd_player = node;
