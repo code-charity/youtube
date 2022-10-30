@@ -20,6 +20,7 @@ var ImprovedTube = {
 	elements: {
 		buttons: {},
 		masthead: {},
+		app_drawer: {},
 		playlist: {},
 		livechat: {},
 		related: {},

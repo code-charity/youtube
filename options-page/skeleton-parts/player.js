@@ -801,6 +801,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			on: {
 				click: function () {
 					if (this.dataset.value === 'true') {
+						var component = this;
 						satus.render({
 							component: 'modal',
 
@@ -817,20 +818,22 @@ extension.skeleton.main.layers.section.player.on.click = {
 									text: 'cancel',
 									on: {
 										click: function () {
-											this.parentNode.parentNode.parentNode.click();
+											component.click();
+											this.parentNode.parentNode.parentNode.close()
 										}
 									}
 								},
 								ok: {
 									component: 'button',
 									text: 'OK',
-									onclick: function () {
-
-										this.parentNode.parentNode.parentNode.click();
+									on: {
+										click: function () {
+											this.parentNode.parentNode.parentNode.close()
+										}
 									}
 								}
 							}
-						});
+						},this.parentNode.parentNode.parentNode);
 					}
 				}
 			}

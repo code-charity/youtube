@@ -116,8 +116,11 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 	button.style.top = '';
 
 	if (option === 'header_left') {
-		if (this.elements.masthead.start) {
-			this.elements.masthead.start.insertBefore(button, this.elements.masthead.start.children[0]);
+		if (this.storage.header_position === 'normal' && this.elements.masthead.start) {
+			this.elements.masthead.start.appendChild(button);
+		}
+		else if (this.elements.app_drawer.start) {
+			this.elements.app_drawer.start.appendChild(button);
 		}
 	} else if (option === 'header_right') {
 		if (this.elements.masthead.end) {
