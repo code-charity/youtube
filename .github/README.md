@@ -99,33 +99,18 @@ Planned Features</h3></th></tr><tr><td>
  </details>
 
  <details><summary align="center"><code><h2>
-<code> <code><code>🎁</code></code>Extensions/Projects</code></h2></code>▼</summary>
-	
-### Our extensions
-[**`History Manager`**<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" height="18px"></a>]  [<code>[**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl " - Universal dark-mode!") </code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/dark-mode)]<br>
-[<code>[**unLock me**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl " - Unlock your Right-Click, Ctrl+F, Selection anywhere!")</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/unlock-keyboard-and-mouse)]
-[[**`Custom user agent`**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/user-agent)]
-[[`Regex Replace`](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)<a href="" title="No Repo. We can upload it from google webstore - or merge it as a feature of Regex Search"><img src="github.png" height="18px"></a>]
-   * Research: <code>
-[[Regex Search](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")</code>[<img src="github.png" height="15px">](https://github.com/code-for-charity/regex)]
-* **Video / Media:** (**to be integrated in ImprovedTube**...)<br><code>
-[[**Looper**](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/looper)]
-[<code>[**Frame by Frame**](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/frame-by-frame)]
-[[**`unBlob`**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/unblob)]
-(<i><del>Equalizer[<img src="github.png" height="18px">](https://github.com/code-for-charity/equalizer)</del></i>)
+<code> <code><code>🎁</code></code>Extensions&Projects</code></h2></code>▼</summary>
 
- + <b>Home:</b> 
-(Start Page <a href="https://github.com/code-for-charity/start-page"><img src="github.png" height="18px"></a> <i> to be uploadedto be uploaded </i>) 
-[[`TextEditor`]([https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka?hl=de))[<img src="github.png" height="18px">](https://github.com/code-for-charity/Editor)]
-[[`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-for-charity/todo)]
-[[`auto-scroll`](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch "(missing in Linux)")<a href="https://github.com/code-for-charity/auto-scroll"><img src="github.png" height="18px"></a>]
+#### [**`History Manager`**<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" height="18px"></a>]  [<code>[**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl " - Universal dark-mode!") </code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/dark-mode)]  <code>[**unLock me**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl " - Unlock your Right-Click, Ctrl+F, Selection anywhere!")</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/unlock-keyboard-and-mouse)] [[**`Custom user agent`**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/user-agent)] [[`Regex Replace`](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)<a href="" title="No Repo. We should upload it from Webstore & merge it into "Regex":"><img src="github.png" height="18px"></a>]
+##### Research: <code> [[Regex (Search)](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")</code>[<img src="github.png" height="15px">](https://github.com/code-for-charity/regex)]
+#### **Video / Media:** (**to be integrated in ImprovedTube**...) [<code>[**Looper**](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/looper)] [<code>[**Frame by Frame**](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/frame-by-frame)]     [[**`unBlob`**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/unblob)] (<i><del>Equalizer[<img src="github.png" height="18px">](https://github.com/code-for-charity/equalizer)</del></i>)
 
-#### **Development:** 
-[[**`Satus`**](https://github.com/code-for-charity/satus) - Our UI library] [[**`WebGL.js`**](https://github.com/code-for-charity/webgl.js) - WebGL Library] (<del>[TE](https://github.com/victor-savinov/theme-engine),[P](https://github.com/victor-savinov/pluviam),[CodeEdit](https://github.com/victor-savinov/code-editor), [Viscum Player](https://github.com/victor-savinov/viscum-player)</del>)
+##### <b>Home:</b>  (Start Page <a href="https://github.com/code-for-charity/start-page"><img src="github.png" height="18px"></a> <i> to be uploaded </i>)  [[`TextEditor`]([https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka?hl=de))[<img src="github.png" height="18px">](https://github.com/code-for-charity/Editor)]  [[`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-for-charity/todo)]   [[`auto-scroll`](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch "(missing in Linux)")<a href="https://github.com/code-for-charity/auto-scroll"><img src="github.png" height="18px"></a>]
 
-#### Git Community:
-[🐣[`Regex Collector`](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - community-list of Regex")]
-[🌱[`Pull Requests bots`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)]
+### Projects: 
+#### **Development:**  [[**`Satus`**](https://github.com/code-for-charity/satus) - Our UI library] [[**`WebGL.js`**](https://github.com/code-for-charity/webgl.js) - WebGL Library] (<del>[TE](https://github.com/victor-savinov/theme-engine),[P](https://github.com/victor-savinov/pluviam),[CodeEdit](https://github.com/victor-savinov/code-editor), [Viscum Player](https://github.com/victor-savinov/viscum-player)</del>)
+
+#### Git Community: [🐣[`Regex Collector`](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - community-list of Regex")]  [🌱[`Pull Requests bots`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)]
 
  </details> 
 
