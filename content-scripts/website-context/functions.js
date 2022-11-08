@@ -196,7 +196,13 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 			node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;
 		}
-	}
+	}else if (name === 'TP-YT-PAPER-BUTTON') {
+        if (document.documentElement.dataset.pageType === 'video' && id === 'more' && node.parentNode.parentNode.id === 'container') {
+            setTimeout(function () {
+                ImprovedTube.description(node);
+            }, 750);
+        }
+    }
 };
 
 ImprovedTube.pageType = function () {
