@@ -264,6 +264,8 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-swatch-logo-override: rgb(255, 255, 255) !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
 	--yt-swatch-header-primary: #734;
+	--yt-spec-base-background: #734 !important;
+	--yt-spec-raised-background: #734 !important;
 	--yt-spec-brand-background-solid: #d44d5c !important;
 	--yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
 	--yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
