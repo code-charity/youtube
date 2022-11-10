@@ -46,6 +46,10 @@
 	--yt-swatch-logo-override: rgb(255, 255, 255) !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
 	--yt-swatch-header-primary: #000;
+	--yt-spec-base-background: #000 !important;
+	--yt-spec-raised-background: #000 !important;
+	--yt-spec-menu-background: #000 !important;
+	--yt-spec-inverted-background: #fff;
 	--yt-spec-brand-background-solid: #000 !important;
 	--yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
 	--yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
@@ -266,6 +270,8 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-swatch-header-primary: #734;
 	--yt-spec-base-background: #734 !important;
 	--yt-spec-raised-background: #734 !important;
+	--yt-spec-menu-background: #734 !important;
+	--yt-spec-inverted-background: #fff;
 	--yt-spec-brand-background-solid: #d44d5c !important;
 	--yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
 	--yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
@@ -316,6 +322,9 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-swatch-textbox-bg: rgba(19, 19, 19, 1) !important;
 	--yt-swatch-logo-override: rgb(255, 255, 255) !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
+	--yt-spec-general-background-a: #d44d5c !important;
+	--yt-spec-general-background-b: #d44d5c !important;
+	--yt-spec-general-background-c: #d44d5c !important;
 }
 
 [it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
@@ -485,6 +494,10 @@ html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=sy
 	--yt-swatch-logo-override: #555 !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
 	--yt-swatch-header-primary: #bee3db;
+	--yt-spec-base-background: #faf9f9 !important;
+	--yt-spec-raised-background: #faf9f9 !important;
+	--yt-spec-menu-background: #faf9f9 !important;
+	--yt-spec-inverted-background: #fff;
 	--yt-spec-brand-background-solid: #faf9f9 !important;
 	--yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
 	--yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
@@ -535,6 +548,9 @@ html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=sy
 	--yt-swatch-textbox-bg: rgba(19, 19, 19, 1) !important;
 	--yt-swatch-logo-override: #555 !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
+	--yt-spec-general-background-a: #faf9f9 !important;
+	--yt-spec-general-background-b: #faf9f9 !important;
+	--yt-spec-general-background-c: #faf9f9 !important;
 }
 
 [it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
@@ -697,6 +713,10 @@ html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=
 	--yt-swatch-logo-override: rgb(255, 255, 255) !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
 	--yt-swatch-header-primary: #007ea7;
+	--yt-spec-base-background: #003459 !important;
+	--yt-spec-raised-background: #003459 !important;
+	--yt-spec-menu-background: #003459 !important;
+	--yt-spec-inverted-background: #fff;
 	--yt-spec-brand-background-solid: #003459 !important;
 	--yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
 	--yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
@@ -754,6 +774,9 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-swatch-textbox-bg: rgba(19, 19, 19, 1) !important;
 	--yt-swatch-logo-override: rgb(255, 255, 255) !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
+	--yt-spec-general-background-a: #003459 !important;
+	--yt-spec-general-background-b: #003459 !important;
+	--yt-spec-general-background-c: #003459 !important;
 }
 
 [it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
@@ -915,6 +938,10 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-swatch-logo-override: #666 !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
 	--yt-swatch-header-primary: #d6d1b1;
+	--yt-spec-base-background: #c7efcf !important;
+	--yt-spec-raised-background: #c7efcf !important;
+	--yt-spec-menu-background: #c7efcf !important;
+	--yt-spec-inverted-background: #fff;
 	--yt-spec-brand-background-solid: #c7efcf !important;
 	--yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
 	--yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
@@ -965,6 +992,9 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-swatch-textbox-bg: rgba(19, 19, 19, 1) !important;
 	--yt-swatch-logo-override: #666 !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
+	--yt-spec-general-background-a: #c7efcf !important;
+	--yt-spec-general-background-b: #c7efcf !important;
+	--yt-spec-general-background-c: #c7efcf !important;
 }
 
 [it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
@@ -1127,6 +1157,10 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-swatch-logo-override: rgb(255, 255, 255) !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
 	--yt-swatch-header-primary: #f56264;
+	--yt-spec-base-background: #2f3364 !important;
+	--yt-spec-raised-background: #2f3364 !important;
+	--yt-spec-menu-background: #2f3364 !important;
+	--yt-spec-inverted-background: #fff;
 	--yt-spec-brand-background-solid: #2f3364 !important;
 	--yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
 	--yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
@@ -1177,6 +1211,9 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-swatch-textbox-bg: rgba(19, 19, 19, 1) !important;
 	--yt-swatch-logo-override: rgb(255, 255, 255) !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
+	--yt-spec-general-background-a: #2f3364 !important;
+	--yt-spec-general-background-b: #2f3364 !important;
+	--yt-spec-general-background-c: #2f3364 !important;
 }
 
 [it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
