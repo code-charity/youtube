@@ -105,7 +105,7 @@
         "message": "Avoid AV1, VP9"
     },
     "avoidCpuRenderingWhenPossible": {
-        "message": "Avoid CPU rendering when possible"
+        "message": "Mümkün olduğunda CPU oluşturma işleminden kaçının"
     },
     "backgroundColor": {
         "message": "Arkaplan rengi"
@@ -144,7 +144,7 @@
         "message": "Block VP8"
     },
     "blockVp9": {
-        "message": "Block VP9"
+        "message": "VP9'u engelle"
     },
     "blue": {
         "message": "Mavi"
@@ -195,10 +195,10 @@
         "message": "Pano"
     },
     "codecH264": {
-        "message": "Codec h.264"
+        "message": "Kodek h.264"
     },
     "codecs": {
-        "message": "Codecs"
+        "message": "Kodekler"
     },
     "collapseOfSubscriptionSections": {
         "message": "Abonelik bölümlerini daralt"
@@ -279,7 +279,7 @@
         "message": "Bunalımlı"
     },
     "description": {
-        "message": "Description"
+        "message": "Açıklama"
     },
     "description_ext": {
         "message": "YouTube'u düzenli+akıllı hale getirin! YouTube video renkli reklam hacmi atlama hızı kanal aracı stili HD reklamlar reklam engelleme reklam engelleyici etiketleri anahtar kelime oynatma listesi"
@@ -306,7 +306,7 @@
         "message": "Beğenmeme"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Zayıfların gününü göster"
     },
     "doNotChange": {
         "message": "Değiştirme"
@@ -315,7 +315,7 @@
         "message": "Bağış"
     },
     "download": {
-        "message": "Download"
+        "message": "İndir"
     },
     "draggable": {
         "message": "Sürüklenebilir"
@@ -324,7 +324,7 @@
         "message": "Düşen gölge"
     },
     "durationWithSpeed": {
-        "message": "Show time remaining with reference to playback speed"
+        "message": "Oynatma hızına göre kalan süreyi göster"
     },
     "email": {
         "message": "Eposta"
@@ -420,7 +420,7 @@
         "message": "Yeşil"
     },
     "hardwareInformation": {
-        "message": "Hardware information"
+        "message": "Donanım Bilgileri"
     },
     "hd": {
         "message": "HD"
@@ -447,10 +447,10 @@
         "message": "Kartları gizle"
     },
     "hideCategories": {
-        "message": "Hide categories"
+        "message": "Kategorileri gizle"
     },
     "hideCommentsCount": {
-        "message": "Hide comments count"
+        "message": "Yorum sayısını gizle"
     },
     "hideCountryCode": {
         "message": "Ülke kodunu gizle"
@@ -459,7 +459,7 @@
         "message": "Tarihi gizle"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Ayrıntı Düğmesini Gizle"
     },
     "hideDetails": {
         "message": "Detayları gizle"
@@ -540,7 +540,7 @@
         "message": "Logoyu geliştir"
     },
     "improvedtubeButtons": {
-        "message": "ImprovedTube buttons"
+        "message": "ImprovedTube butonları"
     },
     "improvedtubeIconOnYoutube": {
         "message": "YouTube'da ImprovedTube Simgesi"
@@ -570,10 +570,10 @@
         "message": "Diller"
     },
     "layerAnimationScale": {
-        "message": "Layer animation scale"
+        "message": "Katman animasyon ölçeği"
     },
     "layout": {
-        "message": "Layout"
+        "message": "Düzen"
     },
     "legacyYoutube": {
         "message": "Eski YouTube"
@@ -597,7 +597,7 @@
         "message": "Beğenildi"
     },
     "likes": {
-        "message": "Likes"
+        "message": "Beğeniler"
     },
     "lime": {
         "message": "Lime"
@@ -618,7 +618,7 @@
         "message": "Konum"
     },
     "loop": {
-        "message": "Loop"
+        "message": "Döngü"
     },
     "loudnessNormalization": {
         "message": "Gürültü normalleştirme"
@@ -636,10 +636,10 @@
         "message": "Karıştırıcı"
     },
     "more": {
-        "message": "More"
+        "message": "Daha fazla"
     },
     "mostViewedChannels": {
-        "message": "Most viewed channels"
+        "message": "En çok izlenen kanallar"
     },
     "moveSidebarLeft": {
         "message": "Kenar çubuğunu sola taşı"
@@ -681,7 +681,7 @@
         "message": "Normal"
     },
     "off": {
-        "message": "Off"
+        "message": "Kapalı"
     },
     "ok": {
         "message": "Tamam"
@@ -702,7 +702,7 @@
         "message": "Sadece bir oynatıcı örneği"
     },
     "openPopupPlayer": {
-        "message": "Open video/playlist in a new window"
+        "message": "Videoyu/oynatma listesini yeni pencerede aç"
     },
     "orange": {
         "message": "Turuncu"
@@ -735,7 +735,7 @@
         "message": "Platform"
     },
     "playAllButton": {
-        "message": "\"Play all\" button"
+        "message": "\"Tümünü oynat\" butonu"
     },
     "playPause": {
         "message": "Oynat / Duraklat"
@@ -900,7 +900,7 @@
         "message": "Videonun kalan süresini göster"
     },
     "showVersion": {
-        "message": "Show version"
+        "message": "Versionu göster"
     },
     "shuffle": {
         "message": "Karıştır"
@@ -909,7 +909,7 @@
         "message": "Kenar çubuğu"
     },
     "softwareInformation": {
-        "message": "Software information"
+        "message": "Yazılım bilgisi"
     },
     "spacebar": {
         "message": "Ara çubuğu"
@@ -963,7 +963,7 @@
         "message": "Yazı rengi"
     },
     "thanks": {
-        "message": "Thanks"
+        "message": "Teşekkürler"
     },
     "themes": {
         "message": "Temalar"
@@ -972,7 +972,7 @@
         "message": "Bu, tüm çerezleri kaldıracaktır."
     },
     "thisWillRemoveAllWatchedVideos": {
-        "message": "This will remove all watched videos."
+        "message": "Bu, izlenen tüm videoları kaldıracaktır."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Bu, tüm YouTube çerezlerini kaldıracaktır."
