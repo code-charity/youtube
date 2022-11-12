@@ -53,13 +53,13 @@ html[it-hide-date='true'] #info #count + #info-strings>#dot {
 HIDE LIKE BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-like-button='hidden'] #info #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1),
-html[it-hide-like-button='icons_only'] #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1) div.cbox {
+html[it-likes='hidden'] #info #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1),
+html[it-likes='icons_only'] #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1) div.cbox {
 	display: none;
 }
 
-html[it-hide-like-button='icons_only'] #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1) .yt-spec-button-shape-next__icon,
-html[it-hide-like-button='icons_only'] #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1) button{
+html[it-likes='icons_only'] #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1) .yt-spec-button-shape-next__icon,
+html[it-likes='icons_only'] #top-level-buttons-computed ytd-toggle-button-renderer:nth-child(1) button{
 	margin: 0;
 	padding: 0 5px;
 }
