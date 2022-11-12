@@ -59,7 +59,7 @@ function updateContextMenu(language) {
 			chrome.contextMenus.create({
 				id: String(i),
 				title: text,
-				contexts: ['browser_action']
+				contexts: ['action']
 			});
 		}
 
