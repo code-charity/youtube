@@ -423,7 +423,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 					click: {
 						component: 'section',
 						variant: 'card',
-						hide_like_button: {
+						likes: {
 							component: 'select',
 							text: 'like',
 							options: [{
