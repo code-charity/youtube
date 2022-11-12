@@ -44,7 +44,13 @@
     "all": {
         "message": "All"
     },
-    "allow": {
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your settings will be erased and can't be recovered"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your shortcuts will be erased and can't be recovered"
+    },
+	"allow": {
         "message": "Allow"
     },
     "allow60fps": {
@@ -122,6 +128,9 @@
     "belowPlayer": {
         "message": "Below player"
     },
+    "bitness": {
+        "message": "Bitness"
+    },										  
     "black": {
         "message": "Black"
     },
@@ -155,6 +164,9 @@
     "bluelight": {
         "message": "Bluelight"
     },
+    "brightness": {
+        "message": "Brightness"
+    },	  
     "brown": {
         "message": "Brown"
     },
@@ -269,14 +281,8 @@
     "defaultContentCountry": {
         "message": "Default content country"
     },
-    "defaultPlaybackSpeedEnable": {
-        "message": "Enable Default playback speed"
-    },
-    "defaultPlaybackSpeedMenu": {
+    "defaultPlaybackSpeed": {
         "message": "Default Playback Speed"
-    },
-    "defaultPlaybackSpeedSet": {
-        "message": "Set Default Playback Speed"
     },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
@@ -473,6 +479,9 @@
     "hideDetails": {
         "message": "Hide details"
     },
+						   
+											 
+	  
     "hideEndscreen": {
         "message": "Hide endscreen"
     },
@@ -485,6 +494,9 @@
     "hideGradientBottom": {
         "message": "Hide shadow around player-bar"
     },
+					   
+										 
+	  
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
     },
@@ -497,15 +509,27 @@
     "hidePlaylist": {
         "message": "Hide playlist"
     },
+						 
+										   
+	  
     "hideRightButtons": {
         "message": "Hide right buttons"
     },
+					   
+										 
+	  
     "hideScrollForDetails": {
         "message": "Hide «Scroll for details»"
     },
+						
+										  
+	  
     "hideSkipOverlay": {
         "message": "Hide 5 second skip animation"
     },
+						 
+										   
+	  
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
     },
@@ -527,6 +551,9 @@
     "home": {
         "message": "Home"
     },
+    "homeScreen": {
+        "message": "Home screen"
+    },	  
     "hover": {
         "message": "Hover"
     },
@@ -1073,6 +1100,9 @@
     "watchTime": {
         "message": "Watch time"
     },
+    "watchedVideos": {
+        "message": "Watched videos"
+    },	  
     "whenPaused": {
         "message": "When paused"
     },
