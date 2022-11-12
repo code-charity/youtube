@@ -990,7 +990,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 	section_3: {
 		component: 'section',
 		variant: 'card',
-		title: 'Buttons  (below the player)',
+		title: 'Buttons below the player',
 
 		below_player_screenshot: {
 			component: 'switch',
