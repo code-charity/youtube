@@ -478,10 +478,7 @@
     },
     "hideDetails": {
         "message": "Hide details"
-    },
-						   
-											 
-	  
+    }, 
     "hideEndscreen": {
         "message": "Hide endscreen"
     },
@@ -493,10 +490,7 @@
     },
     "hideGradientBottom": {
         "message": "Hide shadow around player-bar"
-    },
-					   
-										 
-	  
+    },  
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
     },
@@ -508,28 +502,16 @@
     },
     "hidePlaylist": {
         "message": "Hide playlist"
-    },
-						 
-										   
-	  
+    },  
     "hideRightButtons": {
         "message": "Hide right buttons"
-    },
-					   
-										 
-	  
+    },  
     "hideScrollForDetails": {
         "message": "Hide «Scroll for details»"
-    },
-						
-										  
-	  
+    },  
     "hideSkipOverlay": {
         "message": "Hide 5 second skip animation"
-    },
-						 
-										   
-	  
+    },  
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
     },
