@@ -5,8 +5,8 @@ For some quick editing,  text is at the start of lines
 
 
 <h1 align="center">
-ImprovedTube &nbsp;&nbsp;</h1><p align="center"><b><code>
-/«Improve YouTube!»/</code></b> 
+«Improve YouTube!»  &nbsp;&nbsp;</h1><p align="center"><b><code>
+/ImprovedTube/</code></b> 
 is a lightweight & powerful extension to enrich your experience & enable your choice.</p>
  <p align="center">
   <a href="https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd"><img src="https://img.shields.io/badge/%20-Chrome-red?logo=googlechrome&logoColor=white"> </a>
