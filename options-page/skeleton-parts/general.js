@@ -7,7 +7,8 @@ extension.skeleton.main.layers.section.general = {
 	variant: 'general',
 	category: true,
 	on: {
-		click: [{
+		click: {
+			section_1: {
 				component: 'section',
 				variant: 'card',
 
@@ -1144,7 +1145,7 @@ extension.skeleton.main.layers.section.general = {
 					}]
 				}
 			},
-			{
+			section_2: {
 				component: 'section',
 				variant: 'card',
 				title: 'watchedVideos',
@@ -1225,7 +1226,7 @@ extension.skeleton.main.layers.section.general = {
 					}
 				}
 			},
-			{
+			section_3: {
 				component: 'section',
 				variant: 'card',
 				title: 'thumbnails',
@@ -1265,7 +1266,7 @@ extension.skeleton.main.layers.section.general = {
 					tags: 'preview'
 				}
 			}
-		]
+		}
 	},
 
 	icon: {
