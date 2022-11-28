@@ -1,8 +1,10 @@
-<!-- * * * * * * * * * * -->
-<!-- For quick editing, -->
-<!-- text appears at the start of lines -->
-<!-- (while html appears at the end) -->
-<!-- * * * * * * * * * * --> <h1 align="center">
+
+   <!-- * * * * * * * * * *  * * * * * * * * * * * * * * * * * * * * * * * 
+For some quick editing,  text is at the start of lines 
+(while html appears at the end)   * * * * * * * * * *  * * * * * * * * * * --> 
+
+
+<h1 align="center">
 ImprovedTube &nbsp;&nbsp;</h1><p align="center"><b><code>
 /«Improve YouTube!»/</code></b> 
 is a lightweight & powerful extension to enrich your experience & enable your choice.</p>
