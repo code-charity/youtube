@@ -31,7 +31,7 @@ var ImprovedTube = {
 	},
 	regex: {
 		channel: new RegExp('\/(user|channel|c)\/'),
-		channel_home_page: new RegExp('\/(user|channel|c)\/.+(\/featured)?\/?$'),
+		channel_home_page: new RegExp('\/(\@|user\/|channel\/|c\/).+(\/featured)?\/?$'),
 		channel_home_page_postfix: new RegExp('\/(featured)?\/?$'),
 		thumbnail_quality: new RegExp('(default\.jpg|mqdefault\.jpg|hqdefault\.jpg|hq720\.jpg|sddefault\.jpg|maxresdefault\.jpg)+'),
 		video_id: new RegExp('[?&]v=([^&]+)'),
