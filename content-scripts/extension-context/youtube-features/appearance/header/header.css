@@ -43,6 +43,10 @@ html[it-header-position=hidden] ytd-page-manager#page-manager,
 html[it-header-position=hidden_on_video_page][data-page-type='video'] ytd-page-manager#page-manager,
 html[it-header-position=hover] ytd-page-manager#page-manager,
 html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-page-manager#page-manager,
+html[it-header-position=hidden][data-page-type='channel'] tp-yt-app-header#header,
+html[it-header-position=hidden_on_video_page][data-page-type='channel'] tp-yt-app-header#header,
+html[it-header-position=hover][data-page-type='channel'] tp-yt-app-header#header,
+html[it-header-position=hover_on_video_page][data-page-type='channel'] tp-yt-app-header#header,
 html[it-header-position=static] ytd-page-manager#page-manager {
 	margin-top: 0;
 }
