@@ -212,7 +212,7 @@ ImprovedTube.pageType = function () {
 		document.documentElement.dataset.pageType = 'subscriptions';
 	} else if (/\/watch\?/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'video';
-	} else if (/\/channel|user|c\//.test(location.href)) {
+	} else if (/\/channel|\/user|\/c\/|\/@.*\//.test(location.href)) {
 		document.documentElement.dataset.pageType = 'channel';
 	} else {
 		document.documentElement.dataset.pageType = 'other';

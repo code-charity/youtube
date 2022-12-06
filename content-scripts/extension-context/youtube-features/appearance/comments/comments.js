@@ -24,7 +24,7 @@ extension.features.comments = function (anything) {
 					event.clientY - rect.top + rect.height >= 0 &&
 					rect.top + rect.height - event.clientY < 48
 				) {
-					document.querySelector('ytd-comments').toggleAttribute('it-activated');
+					target.parentNode.parentNode.parentNode.toggleAttribute('it-activated');
 				}
 			}
 		}
