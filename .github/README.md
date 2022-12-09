@@ -152,7 +152,8 @@ Planned Features</h3></th></tr><tr><td>
 <a href="https://github.com/BRAVO68WEB" title="✨🏆"><code>BRAVO68WEB</code></a><br><code>
 <code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json" title="Русский">RU</a></code> :
 <a href="https://github.com/qweered"><code>qweered</code></a>,
-<a href="https://github.com/alexesprit"><code>alexesprit</code></a><br><code>	
+<a href="https://github.com/alexesprit"><code>alexesprit</code></a>,
+<a href="https://github.com/kenclaron"><code>kenclaron</code></a>, <br><code>	
 <code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json" title="Português (Brasil)">pt_BR</a></code> :
 <a href="https://github.com/dthiago" title="✨🏆"><code>dthiago</code></a>,
 <a href="https://github.com/Mike-Correa"><code>Mike-Correa</code></a><br>
