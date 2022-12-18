@@ -49,7 +49,7 @@ Today adding something is easier & so motivating as there are 500 000 users. [[ð
  <table align="right"><tr><th><h3 align="center">
 Planned Features</h3></th></tr><tr><td>
                                                                          
- - ðŸ›ˆToolTips
+ - ToolTips
  - Global Video Controls
  - Fullpage Video History/Dashboard
  - Smart Filtering/Blocking/Discovery
