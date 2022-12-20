@@ -18,7 +18,7 @@
 
 <table>
 	<tr>
-		<th>Link</th>
+		<th>Store</th>
 		<th>Version</th>
 	</tr>
 	<tr>
