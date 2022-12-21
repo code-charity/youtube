@@ -4,8 +4,15 @@
 </h1>
 
 <p>Lightweight and powerful extension to enrich your YouTube experience.</p>
+
+<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report a bug</a> ·
+<a href="https://github.com/code4charity/YouTube-Extension/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">Request feature</a> ·
+<a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing#donate">Donate</a>
+
+
 <br>
-<br>
+
+
 <h2>Install</h2>
 
 <table>
@@ -34,5 +41,11 @@
 		<td>3.800</td>
 	</tr>
 </table>
-<br>
 <p>Or install manually from <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Manual-installation">GitHub</a>.</p>
+
+
+<br>
+
+
+<h2>Contributing</h2>
+<p>For more info on how to contribute please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.</p>
