@@ -3,7 +3,7 @@
 	ImprovedTube
 </h1>
 
-<p>Lightweight & powerful extension to enrich your video-experience & -choice.</p>
+<p>Lightweight and powerful extension to enrich your video-experience and choice.</p>
 <a href="https://github.com/code4charity/YouTube-Extension/issues/new">[Report a bug]</a> ·
 <a href="https://github.com/code4charity/YouTube-Extension/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">[Request feature]</a> ·
 <a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">[Donate]</a> ·
