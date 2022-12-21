@@ -5,8 +5,8 @@
 
 <p>Lightweight and powerful extension to enrich your YouTube experience.</p>
 
-<a href="https://github.com/code4charity/YouTube-Extension/issues/new">Report a bug</a> ·
-<a href="https://github.com/code4charity/YouTube-Extension/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">Request feature</a> ·
+<a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/new">Report a bug</a> ·
+<a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">Request feature</a> ·
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing#donate">Donate</a>
 
 
