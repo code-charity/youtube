@@ -4,16 +4,8 @@
 </h1>
 
 <p>Lightweight and powerful extension to enrich your YouTube experience.</p>
-<a href="https://github.com/code4charity/YouTube-Extension/issues/new">[Report a bug]</a> ·
-<a href="https://github.com/code4charity/YouTube-Extension/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">[Request feature]</a> ·
-<a href="https://github.com/code4charity/YouTube-Extension/wiki/Donate">[Donate]</a> ·
-<a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">[Features]</a>
- 
 <br>
 <br>
-<br>
-
-
 <h2>Install</h2>
 
 <table>
