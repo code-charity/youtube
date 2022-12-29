@@ -7,6 +7,7 @@
 
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/new">Report a bug</a> ·
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">Request feature</a> ·
+<a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">Contribute</a> ·
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing#donate">Donate</a>
 
 
