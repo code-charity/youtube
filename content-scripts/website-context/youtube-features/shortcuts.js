@@ -538,7 +538,7 @@ ImprovedTube.shortcutResetPlaybackSpeed = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutGoToSearchBox = function () {
-	var search = document.querySelector('#search');
+	var search = document.querySelector('input#search');
 
 	if (search) {
 		search.focus();
