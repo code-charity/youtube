@@ -575,7 +575,7 @@ ImprovedTube.shortcutActivateCaptions = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutLike = function () {
-	var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer')[0]);
+	var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer button')[0]);
 
 	if (like) {
 		like.click();
@@ -588,7 +588,7 @@ ImprovedTube.shortcutLike = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutDislike = function () {
-	var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer')[1]);
+	var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer button')[1]);
 
 	if (like) {
 		like.click();
