@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": "되감기 속도 강제설정"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "강제 영화관 모드"
     },

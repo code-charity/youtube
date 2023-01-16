@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": "Tốc độ phát lại bắt buộc"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "Bắt buộc chế độ rạp hát"
     },
