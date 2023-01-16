@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": "Velocità di riproduzione forzata"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "Modalità cinema forzata"
     },
