@@ -23,7 +23,8 @@
 ---
 
 #### ImprovedTube only:
-- The repo should include m.youtube (firefox addons are available on phones)  AND  *.youtube.com  + global permission, to work for all \<video\>'s. 
+- The repo should include m.youtube (firefox addons are available on phones)  
+  AND  *.youtube.com  + global permission, to work for all \<video\>'s. 
  <br>  besides as of now only our Google Webstore version should remains with www.youtube, until we announce change
   
      
