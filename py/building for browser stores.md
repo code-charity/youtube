@@ -1,4 +1,4 @@
-#### EVERY EXTENSION: 
+#### For every Browser extension: 
 - Edge: doesnt allow a chrome update url 
   - update URL  edge:  https://edge.microsoft.com/extensionwebstorebase/v1/crx ,  chrome: https://clients2.google.com/service/update2/crx 
 
@@ -19,9 +19,13 @@
 
 - Require moving google analytics. We can removing it from the Repo & only add it when generating the google webstore version.
 
-#### ImprovedTube:
-- Repo will include m.youtube permissions (firefox addons are available on phones) <br>    _(besides Google Webstore version remains with www . youtube only (by mistake), until we announce change)_
-  - & *.youtube.com  + global permission, to work for all \<videos\>. 
+---
+---
+
+#### ImprovedTube only:
+- The repo should include m.youtube (firefox addons are available on phones)  AND  *.youtube.com  + global permission, to work for all \<video\>'s. 
+ <br>  besides as of now the Google Webstore version remains with www.youtube only, until we announce change
+  
      
 
 
