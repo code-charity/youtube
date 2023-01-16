@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": "再生速度を指定する"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "シアターモードにする"
     },

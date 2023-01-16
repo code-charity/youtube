@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": "Υποχρεωτική ταχύτητα αναπαραγωγής"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "Υποχρεωτική λειτουργία κινηματογράφου"
     },
