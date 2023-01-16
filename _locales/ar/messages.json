@@ -389,6 +389,9 @@
     "forcedPlaybackSpeed": {
         "message": "تثبيت سرعة التشغيل"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "فرض وضع المسرح"
     },

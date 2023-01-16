@@ -383,6 +383,9 @@
     "forcedPlaybackSpeed": {
         "message": "जबरन पार्श्व गति"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "जबरन थिएटर मोड"
     },

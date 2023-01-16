@@ -383,6 +383,9 @@
     "forcedPlaybackSpeed": {
         "message": "Tvungen avspillingshastighet"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "Tvunget teater-modus"
     },

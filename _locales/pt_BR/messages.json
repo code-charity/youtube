@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": " Velocidade do reprodução forçado"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "Modo teatro forçado"
     },
