@@ -3,7 +3,7 @@
 	ImprovedTube
 </h1>
 
-<p>Lightweight and powerful extension to enrich your YouTube experience.</p>
+<p>Powerful but lightweight extension to enrich your video experience & content selection.</p>
 
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/new">Report a bug</a> ·
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">Request feature</a> ·
@@ -23,7 +23,7 @@
 	</tr>
 	<tr>
 		<td><a href="https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd">Chrome Web Store</a></td>
-		<td>4.0.1</td>
+		<td>4.0.1.17</td>
 	</tr>
 	<tr>
 		<td><a href="https://microsoftedge.microsoft.com/addons/detail/improve-youtube-video-/knbckijjjbmkjiagojjneoplbjilfllc">Microsoft Edge Addons</a></td>
@@ -31,7 +31,7 @@
 	</tr>
 	<tr>
 		<td><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">Firefox Add-ons</a></td>
-		<td>3.935</td>
+		<td>4.0.1.17</td>
 	</tr>
 	<tr>
 		<td><a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/">Opera Add-ons</a></td>
