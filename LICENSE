@@ -15,9 +15,9 @@ DRAFT:
                  Please vote about our futures actions.
   3. PUBLISHERS: All unmodified distribution is welcome (essential)! permitted! 
                (just don't wrap it in ads or drive-by installs!)
-    3.1 MODIFIED Versions or pieces of our code:  
+    3.1. MODIFIED Versions or pieces of our code:  
      - Registered Charity organisations: you can modify / repurpose. (Just don't remove our links or state the source well.)
-       RESTICTION: COMMERCIALLY modifying or repurosing any of the code that is not the full, such as 'version 3.8'.   
+       RESTRICTION: COMMERCIALLY modifying or repurosing any of the code that is not the full, such as 'version 3.8'.   
             Written permission/contract is required. No such permission was granted to as of 2023. 
             Exception: OS's (Operatings Systems. Debian, Fedora, etc.)  
 
@@ -25,7 +25,7 @@ DRAFT:
 so that the license doesnt require virality)
 ---
 COMMENT/POSTAMBLE:
-1. Reason for the specific restriction: 
+Reason for the specific restriction in 3.1.: 
    Some publishers use [our] code without permission commercially, with [excessive] adware/spyware. 
 Together they can have more users than the original, since software is often not chosen well. 
 Thus we rationally/responsibly have to care.
