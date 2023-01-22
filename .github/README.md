@@ -6,8 +6,6 @@
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing#donate">Donate</a>
 <br> 
 
-<!-- The list below only stays formatted when there is a line break above --> 
-	
 <h2>Install</h2>
 <table>
 	<tr>
@@ -38,8 +36,8 @@
 		<td><a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip">latest</a></td>
 	</tr></table>
 	
-<table><h2>Roadmap</h2> <tr><td>
-
+<table><h2>Roadmap</h2> <tr><td><!-- The list below only stays formatted when there is a line break above --> 
+	
  - Finding developers and patreons
  - All bugs & wishes                                                             
  - 🛈ToolTips & documentation 
@@ -49,14 +47,10 @@
  - Full-page GUI, watch-history, dashboard  
 </td></tr></table>
 
-
-
 <h2>Contributing</h2>
-<p>For more info on how to contribute please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.</p>
+For more info on how to contribute please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
 	
-
-
-<details><summary><h3>&nbsp;&nbsp;&nbsp;Long 'ugly' <code>Readme.md</code>: </h3></summary> 
+<details><summary>&nbsp;&nbsp;&nbsp;<h4><code>Long 'ugly' Readme.md</code>: </h4></summary> 
   <!-- * * * * * * * * * *  * * * * * * * * * * * * * * * * * * * * * * * 
 For some quick editing,  text is at the start of lines & html does not
        * * * * * * * * * *  * * * * * * * * * * --> 
