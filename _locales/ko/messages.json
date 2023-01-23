@@ -36,7 +36,7 @@
         "message": "활성 기능"
     },
     "addScrollToTop": {
-        "message": "<<맨 위로>> 추가"
+        "message": "<<맨 위로>> 버튼 추가"
     },
     "ads": {
         "message": "광고"
@@ -105,7 +105,7 @@
         "message": "AV1, VP9 막기"
     },
     "avoidCpuRenderingWhenPossible": {
-        "message": "가능할 경우 CPU 렌더링 막기"
+        "message": "가능한 경우 CPU 렌더링 막기"
     },
     "backgroundColor": {
         "message": "배경 색상"
@@ -204,7 +204,7 @@
         "message": "구독 섹션 접기"
     },
     "collapsed": {
-        "message": "접힘"
+        "message": "접기"
     },
     "comments": {
         "message": "댓글"
@@ -219,7 +219,7 @@
         "message": "코어"
     },
     "cropChapterTitles": {
-        "message": "긴 챕터 제목 자르기"
+        "message": "긴 챕터 이름 자르기"
     },
     "custom": {
         "message": "사용자 지정"
@@ -453,7 +453,7 @@
         "message": "카테고리 숨기기"
     },
     "hideCommentsCount": {
-        "message": "Hide comments count"
+        "message": "댓글 개수 숨기기"
     },
     "hideCountryCode": {
         "message": "국가코드 숨기기"
@@ -462,10 +462,10 @@
         "message": "날짜 숨기기"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "상세 버튼 숨기기"
     },
     "hideDetails": {
-        "message": "상세설명 숨기기"
+        "message": "영상 설명란 숨기기"
     },
     "hideEndscreen": {
         "message": "영상 끝난 후 추천 영상 숨기기"
@@ -477,16 +477,16 @@
         "message": "하단 숨기기"
     },
     "hideGradientBottom": {
-        "message": "그라데이션 맨 아래로 숨기기"
+        "message": "영상 아래 그라데이션 숨기기"
     },
     "hidePlayerControlsBar": {
-        "message": "Hide player controls bar"
+        "message": "플레이어 컨트롤 바 숨기기"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
+        "message": "플레이어 컨트롤 버튼 숨기기"
     },
     "hidePlayerControlsBarOptions": {
-        "message": "Hide player controls options"
+        "message": "플레이어 컨트롤 옵션 숨기기"
     },
     "hidePlaylist": {
         "message": "재생 목록 숨기기"
@@ -507,7 +507,7 @@
         "message": "섬네일 숨기기"
     },
     "hideViewsCount": {
-        "message": "조회수 숨기기"
+        "message": "조회 수 숨기기"
     },
     "hideVoiceSearchButton": {
         "message": "\"음성으로 찾기\" 버튼 숨기기"
@@ -567,7 +567,7 @@
         "message": "요소"
     },
     "language": {
-        "message": "Language"
+        "message": "언어"
     },
     "languages": {
         "message": "언어"
@@ -705,7 +705,7 @@
         "message": "하나의 플레이어만 재생"
     },
     "openPopupPlayer": {
-        "message": "Open video/playlist in a new window"
+        "message": "동영상/재생목록을 새 창에서 열기"
     },
     "orange": {
         "message": "주황"
@@ -720,7 +720,7 @@
         "message": "외곽선"
     },
     "overlay": {
-        "message": "Overlay"
+        "message": "오버레이"
     },
     "permissions": {
         "message": "권한"
@@ -738,7 +738,7 @@
         "message": "플랫폼"
     },
     "playAllButton": {
-        "message": "\"Play all\" button"
+        "message": "\"모두 재생\" 버튼"
     },
     "playPause": {
         "message": "재생 / 일시중지"
@@ -804,13 +804,13 @@
         "message": "빨강"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "싫어요 버튼 빨간색으로 표시"
     },
     "relatedVideos": {
         "message": "관련 영상"
     },
     "remote": {
-        "message": "Play on TV"
+        "message": "TV에서 재생"
     },
     "removeRelatedSearchResults": {
         "message": "관련 검색 결과 제거"
@@ -819,7 +819,7 @@
         "message": "반복"
     },
     "report": {
-        "message": "Report"
+        "message": "신고"
     },
     "reset": {
         "message": "리셋"
@@ -837,10 +837,10 @@
         "message": "회전"
     },
     "save": {
-        "message": "저장"
+        "message": "오프라인 저장"
     },
     "saveAs": {
-        "message": "다른이름으로 저장"
+        "message": "다른 이름으로 저장"
     },
     "schedule": {
         "message": "스케줄"
@@ -891,16 +891,16 @@
         "message": "마우스 올릴 때 카드 보기"
     },
     "showChannelVideosCount": {
-        "message": "채널의 비디오 수 표시"
+        "message": "채널의 동영상 수 표시"
     },
     "showLess": {
-        "message": "Show less"
+        "message": "간략히"
     },
     "showMore": {
-        "message": "Show more"
+        "message": "더보기"
     },
     "showRemainingDuration": {
-        "message": "Show video remaining duration"
+        "message": "동영상 남은 시간 표시"
     },
     "showVersion": {
         "message": "버전 표시"
@@ -1047,13 +1047,13 @@
         "message": "영상"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "카테고리의 이름을 얻기 위해 비디오 설명이 확장됩니다"
+        "message": "카테고리의 이름을 얻기 위해 동영상 설명이 확장됩니다"
     },
     "videoFormats": {
-        "message": "비디오 형식"
+        "message": "동영상 형식"
     },
     "videos": {
-        "message": "비디오"
+        "message": "동영상"
     },
     "viewMode": {
         "message": "영화관 모드 전환"
