@@ -6,11 +6,11 @@
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing#donate">Donate</a>
 <br> 
 
-<h2>Install</h2>
+<h3>Install</h3>
 <table>
 	<tr>
-		<td>Store</th>
-		<td>Version</th>
+		<td>Store</td>
+		<td>Version</td>
 	</tr>
 	<tr>
 		<td><a href="https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd">Chrome Web Store</a></td>
@@ -35,8 +35,12 @@
 		<td> or <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Manual-installation">install manually</a></td>
 		<td><a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip">latest</a></td>
 	</tr></table>
-	
-<table><h2>Roadmap</h2> <tr><td><!-- The list below only stays formatted when there is a line break above --> 
+
+<h2>Contributing</h2>
+For more info on how to contribute please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
+
+<h3>Roadmap</h3>
+<table><tr>  <td><!-- The list below only stays formatted when there is a line break above --> 
 	
  - Finding developers and patreons
  - All bugs & wishes                                                             
@@ -45,12 +49,12 @@
  - Smart player buttons for all \<video\>
  - Smart content-filtering & discovery
  - Full-page GUI, watch-history, dashboard  
+ - Integrating data such as [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) 
+ - Integrating code / features like [YCS](https://github.com/sonigy/YCS) [YR](https://github.com/MarcGuiselin/youtube-refined) [NY](https://github.com/raingart/Nova-YouTube-extension) [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
 </td></tr></table>
 
-<h2>Contributing</h2>
-For more info on how to contribute please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
-	
-<details><summary>&nbsp;&nbsp;&nbsp;<h4><code>Long 'ugly' Readme.md</code>: </h4></summary> 
+
+<details><summary>&nbsp;&nbsp;&nbsp;<h3>Long 'ugly' <code>Readme.md</code>: </h3></summary> 
   <!-- * * * * * * * * * *  * * * * * * * * * * * * * * * * * * * * * * * 
 For some quick editing,  text is at the start of lines & html does not
        * * * * * * * * * *  * * * * * * * * * * --> 
