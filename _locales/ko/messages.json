@@ -446,6 +446,9 @@
     "hideAnnotations": {
         "message": "설명 숨기기"
     },
+    "hideAvatars": {
+        "message": "사용자 사진 숨기기"
+    },
     "hideCards": {
         "message": "카드 숨기기"
     },
@@ -1014,7 +1017,7 @@
         "message": "탑 챗"
     },
     "trackWatchedVideos": {
-        "message": "Track watched videos"
+        "message": "시청한 동영상 추적"
     },
     "trailerAutoplay": {
         "message": "트레일러 자동재생"
