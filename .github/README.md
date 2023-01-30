@@ -49,8 +49,8 @@ For more info on how to contribute please see the <a href="https://github.com/co
  - Smart player buttons for all \<video\>
  - Smart content-filtering & discovery
  - Full-page GUI, watch-history, dashboard  
- - Integrating data such as [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) 
- - Integrating code / features like [YCS](https://github.com/sonigy/YCS) [YR](https://github.com/MarcGuiselin/youtube-refined) [NY](https://github.com/raingart/Nova-YouTube-extension) [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
+ - Integrating data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.  
+ - Integrating code / features like [YCS](https://github.com/sonigy/YCS), [YR](https://github.com/MarcGuiselin/youtube-refined), [NY](https://github.com/raingart/Nova-YouTube-extension), [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
 </td></tr></table>
 
 
