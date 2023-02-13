@@ -570,6 +570,7 @@ extension.features.showHeaderOnSearch = function (event) {
 
 			search.addEventListener('focusout', function (e) {
 				var origHeaderPos = document.documentElement.getAttribute('it-header-position-original');
+				origHeaderPos === 'null' ? 'normal' : origHeaderPos;
 				document.documentElement.setAttribute('it-header-position', origHeaderPos);
 			});
 
