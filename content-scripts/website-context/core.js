@@ -126,7 +126,9 @@ document.addEventListener('it-message-from-extension', function () {
 			var camelized_key = message.camelizedKey;
 
 			ImprovedTube.storage[message.key] = message.value;
-
+			if(ImprovedTube.storage[message.key]==="when_paused"){
+				ImprovedTube.whenPaused();
+			};
 			if (camelized_key === 'blacklistActivate') {
 				camelized_key = 'blacklist';
 			} else if (camelized_key === 'playerForcedPlaybackSpeed') {
