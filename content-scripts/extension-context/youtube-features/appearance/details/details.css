@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
->>> DETAILS
+>>> DETAILS  
 ----------------------------------------------------------------
 # 
 --------------------------------------------------------------*/
@@ -13,11 +13,12 @@
 } 
 
 /*--------------------------------------------------------------
-# HIDE DETAILS
+# HIDE DETAILS 
 --------------------------------------------------------------*/
 
 html[it-hide-details='true'] ytd-video-primary-info-renderer,
-html[it-hide-details='true'] ytd-video-secondary-info-renderer {
+html[it-hide-details='true'] ytd-video-secondary-info-renderer,
+html[it-hide-details='true'] ytd-watch-metadata { 
 	display: none !important;
 }
 
@@ -27,7 +28,8 @@ html[it-hide-details='true'] ytd-video-secondary-info-renderer {
 --------------------------------------------------------------*/
 
 html[it-hide-views-count='true'] #info #count,
-html[it-hide-views-count='true'] #info #count + #info-strings>#dot {
+html[it-hide-views-count='true'] #info #count + #info-strings>#dot,
+html[it-hide-views-count='true'] ytd-watch-metadata #info>span:first-child {
 	display: none !important;
 }
 
@@ -44,7 +46,8 @@ html[it-hide-comments-count='true'] #comments #count {
 --------------------------------------------------------------*/
 
 html[it-hide-date='true'] #info #count + #info-strings>yt-formatted-string,
-html[it-hide-date='true'] #info #count + #info-strings>#dot {
+html[it-hide-date='true'] #info #count + #info-strings>#dot,
+html[it-hide-date='true'] ytd-watch-metadata #info>span:last-child {
 	display: none !important;
 }
 
