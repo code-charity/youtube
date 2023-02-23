@@ -196,10 +196,17 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 			node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;
 		}
+	}else if (id ==='description-inner') {
+	if (document.documentElement.dataset.pageType === 'video'){ 
+		setTimeout(function () {
+			ImprovedTube.description(node);
+	    }, 750);    
+		}	   
+        //old
 	}else if (name === 'TP-YT-PAPER-BUTTON') {
         if (document.documentElement.dataset.pageType === 'video' && id === 'more' && node.parentNode.parentNode.id === 'container') {
             setTimeout(function () {
-                ImprovedTube.description(node);
+               	 	ImprovedTube.description(node);
             }, 750);
         }
     }
@@ -212,7 +219,7 @@ ImprovedTube.pageType = function () {
 		document.documentElement.dataset.pageType = 'subscriptions';
 	} else if (/\/watch\?/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'video';
-	} else if (/\/channel|\/user|\/c\/|\/@.*\//.test(location.href)) {
+	} else if (/\/channel|\/user|\/c\/|\/@/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'channel';
 	} else {
 		document.documentElement.dataset.pageType = 'other';
