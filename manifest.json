@@ -1,6 +1,6 @@
 {
 	"manifest_version": 3,
-	"name": "ImprovedTube",
+	"name": "'Improve YouTube!' Video Tools",
 	"description": "__MSG_description_ext__",
 	"version": "4.0.1",
 	"default_locale": "en",
