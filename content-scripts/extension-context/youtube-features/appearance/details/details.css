@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
->>> DETAILS
+>>> DETAILS  
 ----------------------------------------------------------------
 # 
 --------------------------------------------------------------*/
@@ -13,11 +13,12 @@
 } 
 
 /*--------------------------------------------------------------
-# HIDE DETAILS
+# HIDE DETAILS 
 --------------------------------------------------------------*/
 
 html[it-hide-details='true'] ytd-video-primary-info-renderer,
-html[it-hide-details='true'] ytd-video-secondary-info-renderer {
+html[it-hide-details='true'] ytd-video-secondary-info-renderer,
+html[it-hide-details='true'] ytd-watch-metadata { 
 	display: none !important;
 }
 
@@ -27,7 +28,8 @@ html[it-hide-details='true'] ytd-video-secondary-info-renderer {
 --------------------------------------------------------------*/
 
 html[it-hide-views-count='true'] #info #count,
-html[it-hide-views-count='true'] #info #count + #info-strings>#dot {
+html[it-hide-views-count='true'] #info #count + #info-strings>#dot,
+html[it-hide-views-count='true'] ytd-watch-metadata #info>span:first-child {
 	display: none !important;
 }
 
@@ -44,7 +46,8 @@ html[it-hide-comments-count='true'] #comments #count {
 --------------------------------------------------------------*/
 
 html[it-hide-date='true'] #info #count + #info-strings>yt-formatted-string,
-html[it-hide-date='true'] #info #count + #info-strings>#dot {
+html[it-hide-date='true'] #info #count + #info-strings>#dot,
+html[it-hide-date='true'] ytd-watch-metadata #info>span:last-child {
 	display: none !important;
 }
 
@@ -183,21 +186,19 @@ html[it-hide-more-button='hidden'] #menu yt-button-shape#button-shape {
 # DESCRIPTION
 --------------------------------------------------------------*/
 
+/* html[it-details-old-style=true]  */
+.ytd-watch-flexy #info-contents, .ytd-watch-flexy #meta-contents { display: block !important; } 
+#below.ytd-watch-flexy { top:-20px; }
+
+
 html[it-description=hidden] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
 html[it-description=hidden] div#action-panel-details,
-ytd-watch-flexy #info-contents, ytd-watch-flexy #meta-contents {
-	display: none !important;
+html[it-description=hidden] ytd-expander.ytd-video-secondary-info-renderer,
+html[it-description=hidden] #description-inline-expander {
+	display: none !important; 
 }
 
-html[it-description=normal] ytd-watch-metadata,
-html[it-description=expanded] ytd-watch-metadata {
-	display: none !important;
-}
-
-html[it-description=normal] ytd-watch-flexy #info-contents, ytd-watch-flexy #meta-contents,
-html[it-description=expanded] ytd-watch-flexy #info-contents, ytd-watch-flexy #meta-contents {
-	display: block !important;
-}
+div.style-scope.ytd-watch-flexy + ytd-watch-metadata  { display: none !important;}
 
 
 /*--------------------------------------------------------------

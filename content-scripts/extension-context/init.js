@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	bodyReady();
 });
-let prevRequestAction = "";
+
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	if (request.action === 'focus') {
 		extension.messages.send({
@@ -112,16 +112,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		extension.messages.send({
 			deleteCookies: true
 		});
-	} else if (
-		request.action === "another-video-started-playing" &&
-		prevRequestAction === "new-tab-opened"
-	  ) {
-		console.log("Continue playing");
-	  } else if (request.action === "another-video-started-playing") {
+	}  else if (request.action === "another-video-started-playing") {
 		extension.features.onlyOnePlayerInstancePlaying();
 	  }
 	
-	  prevRequestAction = request.action;
+
 });
 
 document.addEventListener('it-message-from-youtube', function () {
