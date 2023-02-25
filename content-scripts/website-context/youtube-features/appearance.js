@@ -284,11 +284,9 @@ ImprovedTube.channelVideosCount = function () {
 4.2.3.3 DESCRIPTION
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.description = function () {
+ImprovedTube.description = function (el) {
     if (this.storage.description === "expanded") {
-        document.querySelector("#more").click();
-    }else if(this.storage.description === "normal"){
-        document.querySelector("#less").click();
+        el.click();
     }
 };
 
