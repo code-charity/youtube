@@ -8,7 +8,7 @@
 
 ImprovedTube.myColors = function () {
 	if (
-		this.storage.theme === 'my-colors' &&
+		this.storage.theme === 'custom' &&
 		Array.isArray(this.storage.theme_primary_color) &&
 		Array.isArray(this.storage.theme_text_color)
 	) {
@@ -68,6 +68,10 @@ ImprovedTube.myColors = function () {
 			'--yt-spec-brand-subscribe-button-background:' + text_color + ' !important;' +
 			'--yt-spec-wordmark-text:' + text_color + ' !important;' +
 			'--yt-spec-selected-nav-text:' + text_color + ' !important;' +
+			'--yt-spec-base-background:' + primary_color + '!important;' +
+			'--yt-spec-raised-background:' + primary_color + '!important;' +
+			'--yt-spec-menu-background:' + primary_color + '!important;' +
+			'--yt-spec-inverted-background: #fff;' +
 			'}';
 
 		this.elements.my_colors = style;
