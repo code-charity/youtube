@@ -81,15 +81,19 @@ ImprovedTube.themes = function () {
 		if (this.elements.my_colors) {
 			this.elements.my_colors.remove();
 		}
+		const pref = document.cookie.match(/PREF\=.*(f6=[^\&]+)/)[0];
 		if (this.storage.theme === 'dark' || this.storage.theme === 'black') {
 			if (!document.documentElement.hasAttribute('dark')) {
+				document.cookie = pref.replace(/(f6=)[^\&]+/, '$1400') + "; domain=.youtube.com";
 				document.documentElement.setAttribute('dark', '');
-				document.documentElement.removeAttribute('it-theme');
+				location.reload();
 			}
 		}
 		else {
 			if (document.documentElement.hasAttribute('dark')) {
+				document.cookie = pref.replace(/(f6=)[^\&]+/, '$180000') + "; domain=.youtube.com";
 				document.documentElement.removeAttribute('dark');
+				location.reload();
 			}
 		}
 	}
