@@ -181,6 +181,9 @@ document.addEventListener('it-message-from-extension', function () {
 			}
 		}
 	}
+	if(ImprovedTube.storage.only_one_player_instance_playing === true){
+		ImprovedTube.storage = {...ImprovedTube.storage, player_autoplay: false, playlist_autoplay: false}
+	}
 });
 
 /*--------------------------------------------------------------
