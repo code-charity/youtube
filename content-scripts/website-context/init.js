@@ -42,6 +42,7 @@ new MutationObserver(function (mutationList) {
 
 ImprovedTube.init = function () {
 	ImprovedTube.pageType();
+	ImprovedTube.themes();
 
 	var yt_player_updated = function () {
 		document.dispatchEvent(new CustomEvent('improvedtube-player-loaded'));
