@@ -286,13 +286,15 @@ ImprovedTube.channelVideosCount = function () {
 
 ImprovedTube.description = function (el) {
     if (this.storage.description === "expanded") {
-        document.querySelector("#more").click();
-    }else if (this.storage.description === "normal") {
-        document.querySelector("#less").click();
+        el.click();
     }
 };
 
-/*------------------ailButton = function (el) {
+/*------------------------------------------------------------------------------
+4.2.3.4 HIDE DETAIL BUTTON
+------------------------------------------------------------------------------*/
+
+ImprovedTube.hideDetailButton = function (el) {
     setTimeout(function () {
         for (var i = 2; i < el.length; i++) {
             tmp = el[i].querySelector("g.yt-icon path").attributes.d.textContent.split(" ")[0];
