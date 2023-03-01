@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "'Improve YouTube!' Video Tools",
 	"description": "__MSG_description_ext__",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"default_locale": "en",
 	"icons": {
 		"128": "assets/icons/128.png",
