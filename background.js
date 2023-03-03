@@ -209,8 +209,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
       } else if (tabs.length < prevTabsLength){
         prevTabsLength = tabs.length
       }else{
-		  for (var i = 0, l = tabs.length; i < l; i++) {
-			prevTabsLength = tabs.length;
+		  for (var i = 0, l = tabs.length; i < l; i++) {		
 			var tab = tabs[i];
 	
 			if (sender.tab.id !== tab.id) {
