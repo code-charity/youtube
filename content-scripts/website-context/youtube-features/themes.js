@@ -6,9 +6,9 @@
 4.3.1 MY COLORS
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.themes = function () {
+ImprovedTube.myColors = function () {
 	if (
-		this.storage.theme === 'custom' &&
+		this.storage.theme === 'my-colors' &&
 		Array.isArray(this.storage.theme_primary_color) &&
 		Array.isArray(this.storage.theme_text_color)
 	) {
@@ -68,33 +68,12 @@ ImprovedTube.themes = function () {
 			'--yt-spec-brand-subscribe-button-background:' + text_color + ' !important;' +
 			'--yt-spec-wordmark-text:' + text_color + ' !important;' +
 			'--yt-spec-selected-nav-text:' + text_color + ' !important;' +
-			'--yt-spec-base-background:' + primary_color + '!important;' +
-			'--yt-spec-raised-background:' + primary_color + '!important;' +
-			'--yt-spec-menu-background:' + primary_color + '!important;' +
-			'--yt-spec-inverted-background: #fff;' +
 			'}';
 
 		this.elements.my_colors = style;
 
 		document.documentElement.appendChild(style);
-	} else {
-		if (this.elements.my_colors) {
-			this.elements.my_colors.remove();
-		}
-		const pref = document.cookie.match(/PREF\=.*(f6=[^\&]+)/)[0];
-		if (this.storage.theme === 'dark' || this.storage.theme === 'black') {
-			if (!document.documentElement.hasAttribute('dark')) {
-				document.cookie = pref.replace(/(f6=)[^\&]+/, '$1400') + "; domain=.youtube.com";
-				document.documentElement.setAttribute('dark', '');
-				location.reload();
-			}
-		}
-		else {
-			if (document.documentElement.hasAttribute('dark')) {
-				document.cookie = pref.replace(/(f6=)[^\&]+/, '$180000') + "; domain=.youtube.com";
-				document.documentElement.removeAttribute('dark');
-				location.reload();
-			}
-		}
+	} else if (this.elements.my_colors) {
+		this.elements.my_colors.remove();
 	}
 };

@@ -11,15 +11,18 @@ ImprovedTube.autoplay = function () {
     if (ImprovedTube.video_url !== location.href) {
         ImprovedTube.allow_autoplay = false;
 		ImprovedTube.video_url = location.href
+		ImprovedTube.storage.newTab = false
     }
-    // if (allow autoplay is false) and  (no ads playing) and
-	// ( there is a video and ( (it is not in a playlist and  auto play is off ) or ( playlist auto play is off and it is not in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
-    if (ImprovedTube.allow_autoplay === false && video.classList.contains('ad-showing') === false &&
+
+    if (ImprovedTube.allow_autoplay === false  &&(
         (
             (document.documentElement.dataset.pageType === "video" && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) || (ImprovedTube.storage.playlist_autoplay === false && location.href.indexOf('list=') !== -1))) ||
             (document.documentElement.dataset.pageType === "channel" && ImprovedTube.storage.channel_trailer_autoplay === false)
-        )
+        ) || ( ImprovedTube.storage.only_one_player_instance_playing && ImprovedTube.storage.newTab)
+
+	)
     ) {
+		
         setTimeout(function () {
             video.pauseVideo();
         });
