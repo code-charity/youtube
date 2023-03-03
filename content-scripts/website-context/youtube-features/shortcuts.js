@@ -612,13 +612,13 @@ ImprovedTube.shortcutSubscribe = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutDarkTheme = function () {
-	const pref = document.cookie.match(/PREF\=.*(f6=[^\&]+)/)[0];
+	//const pref = document.cookie.match(/PREF\=.*(f6=[^\&]+)/)[0];
 	if (document.documentElement.hasAttribute('dark')) {
-		document.cookie = pref.replace(/(f6=)[^\&]+/, '$180000') + "; domain=.youtube.com";
+		//document.cookie = pref.replace(/(f6=)[^\&]+/, '$180000') + "; domain=.youtube.com";
 		document.documentElement.removeAttribute('dark');
 		document.documentElement.removeAttribute('it-theme');
 	} else {
-		document.cookie = pref.replace(/(f6=)[^\&]+/, '$1400') + "; domain=.youtube.com";
+		//document.cookie = pref.replace(/(f6=)[^\&]+/, '$1400') + "; domain=.youtube.com";
 		document.documentElement.setAttribute('dark', '');
 		document.documentElement.setAttribute('it-theme', 'true');
 	}
