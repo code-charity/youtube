@@ -1,19 +1,23 @@
 {
-	"manifest_version": 3,
-	"name": "'Improve YouTube!' Video Tools",
+	"manifest_version": 2,
+	"name": "'Improve YouTube!' (Video & YouTube Tools)🎧",
+	"short_name": "ImprovedTube",
 	"description": "__MSG_description_ext__",
-	"version": "4.0.2",
+	"version": "4.0.35",
 	"default_locale": "en",
 	"icons": {
-		"128": "assets/icons/128.png",
+								
 		"16": "assets/icons/16.png",
 		"32": "assets/icons/32.png",
-		"48": "assets/icons/48.png"
+		"48": "assets/icons/48.png",
+		"128": "assets/icons/128.png"
 	},
 	"background": {
-		"service_worker": "background.js"
+		"scripts": [
+			"background.js"
+		]
 	},
-	"action": {
+	"browser_action": {
 		"default_popup": "options-page/index.html"
 	},
 	"options_page": "options-page/index.html",
@@ -62,25 +66,18 @@
 		"storage"
 	],
 	"web_accessible_resources": [
-		{
-			"resources": [
-				"options-page/index.html",
-				"content-scripts/website-context/core.js",
-				"content-scripts/website-context/functions.js",
-				"content-scripts/website-context/youtube-features/appearance.js",
-				"content-scripts/website-context/youtube-features/themes.js",
-				"content-scripts/website-context/youtube-features/player.js",
-				"content-scripts/website-context/youtube-features/playlist.js",
-				"content-scripts/website-context/youtube-features/channel.js",
-				"content-scripts/website-context/youtube-features/shortcuts.js",
-				"content-scripts/website-context/youtube-features/blacklist.js",
-				"content-scripts/website-context/youtube-features/settings.js",
-				"content-scripts/website-context/init.js",
-				"content-scripts/website-context/mutations.js"
-			],
-			"matches": [
-				"https://www.youtube.com/*"
+			"options-page/index.html",
+			"content-scripts/website-context/core.js",
+			"content-scripts/website-context/functions.js",
+			"content-scripts/website-context/youtube-features/appearance.js",
+			"content-scripts/website-context/youtube-features/themes.js",
+			"content-scripts/website-context/youtube-features/player.js",
+			"content-scripts/website-context/youtube-features/playlist.js",
+			"content-scripts/website-context/youtube-features/channel.js",
+			"content-scripts/website-context/youtube-features/shortcuts.js",
+			"content-scripts/website-context/youtube-features/blacklist.js",
+			"content-scripts/website-context/youtube-features/settings.js",
+			"content-scripts/website-context/init.js",
+			"content-scripts/website-context/mutations.js"
 			]
-		}
-	]
 }
