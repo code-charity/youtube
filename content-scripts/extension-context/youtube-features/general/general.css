@@ -197,15 +197,10 @@ html[it-limit-page-width='false'] ytd-watch-flexy:not([fullscreen]) #primary.ytd
 
 html[it-limit-page-width='false'] ytd-watch-flexy:not([fullscreen]) #player-container-outer.ytd-watch-flexy {
 	max-width: 100% !important;
-	max-height: var(--ytd-watch-flexy-max-player-height) !important;
 }
 
 html[it-limit-page-width='false'] ytd-watch-flexy:not([fullscreen]) #player-container-inner.ytd-watch-flexy {
 	padding-top: calc(var(--ytd-watch-flexy-max-player-height) + 45px) !important;
-}
-
-html[it-limit-page-width='false'] ytd-watch-flexy:not([fullscreen]) #player {
-	padding-bottom: 45px !important;
 }
 
 html[it-limit-page-width='false'] ytd-watch-flexy:not([fullscreen]) .html5-video-container {
