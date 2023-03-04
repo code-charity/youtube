@@ -30,12 +30,12 @@ var ImprovedTube = {
 		blacklist_buttons: []
 	},
 	regex: {
-		channel: new RegExp('\/(@|((channel|user|c)\/)))'),
-		channel_home_page: new RegExp('\/(@|((channel|user|c)\/)))[^/]+(\/featured)?\/?$'),
+		channel: new RegExp('\/@|((channel|user|c)\/)'),
+		channel_home_page: new RegExp('\/@|((channel|user|c)\/)[^/]+(\/featured)?\/?$'),
 		channel_home_page_postfix: new RegExp('\/(featured)?\/?$'),
 		thumbnail_quality: new RegExp('(default\.jpg|mqdefault\.jpg|hqdefault\.jpg|hq720\.jpg|sddefault\.jpg|maxresdefault\.jpg)+'),
 		video_id: new RegExp('[?&]v=([^&]+)'),
-		channel_link: new RegExp('https:\/\/www.youtube.com\/(@|((channel|user|c)\/)))')
+		channel_link: new RegExp('https:\/\/www.youtube.com\/@|((channel|user|c)\/)')
 	},
 	video_src: false,
 	initialVideoUpdateDone: false,
