@@ -26,7 +26,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 			if (node.className.indexOf('ytd-thumbnail') !== -1) {
 				this.blacklist('video', node);
 			}
-			if (node.href.match(/(channel|user|c)\/([^/]+)/)) {
+			if (node.href.match(/@|((channel|user|c)\/))([^/]+)/)) {
 				this.blacklist('channel', node);
 			}
 		}
@@ -213,13 +213,13 @@ ImprovedTube.ytElementsHandler = function (node) {
 };
 
 ImprovedTube.pageType = function () {
-	if (location.pathname === '/') {
-		document.documentElement.dataset.pageType = 'home';
-	} else if (/\/subscriptions\?/.test(location.href)) {
-		document.documentElement.dataset.pageType = 'subscriptions';
-	} else if (/\/watch\?/.test(location.href)) {
+	if (/^\/watch\?/.test(location.pathname)) {
 		document.documentElement.dataset.pageType = 'video';
-	} else if (/\/channel|\/user|\/c\/|\/@/.test(location.href)) {
+	} else if (location.pathname === '/') {
+		document.documentElement.dataset.pageType = 'home';
+	} else if (/^\/subscriptions\?/.test(location.pathname)) {
+		document.documentElement.dataset.pageType = 'subscriptions';
+	} else if (/^\/(@|((channel|user|c)\/)))[^/]+(?!\/videos)/.test(location.pathname)) {
 		document.documentElement.dataset.pageType = 'channel';
 	} else {
 		document.documentElement.dataset.pageType = 'other';
