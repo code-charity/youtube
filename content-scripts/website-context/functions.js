@@ -206,13 +206,13 @@ ImprovedTube.ytElementsHandler = function (node) {
 };
 
 ImprovedTube.pageType = function () {
-	if (location.pathname === '/') {
-		document.documentElement.dataset.pageType = 'home';
-	} else if (/\/subscriptions\?/.test(location.href)) {
-		document.documentElement.dataset.pageType = 'subscriptions';
-	} else if (/\/watch\?/.test(location.href)) {
+	if (/^\/watch\?/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'video';
-	} else if (/\/channel|\/user|\/c\/|\/@.*\//.test(location.href)) {
+	} else if (location.pathname === '/') {
+		document.documentElement.dataset.pageType = 'home';
+	} else if (/^\/subscriptions\?/.test(location.href)) {
+		document.documentElement.dataset.pageType = 'subscriptions';
+	} else if (/^\/channel|\/user|\/c\/|\/@(?!video)/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'channel';
 	} else {
 		document.documentElement.dataset.pageType = 'other';
