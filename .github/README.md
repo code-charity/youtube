@@ -81,7 +81,7 @@ is a lightweight & powerful extension to enrich your experience & enable your ch
 
  <table align="right"><th><h3 align="center"> Critiques</h3> </th>  <tr><td> <table align="right"><tr><td><div align="right"> 
 <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="In 2021 we first uploaded a Firefox Version & were permanently recommended"><img width="154" alt="recommended by firefox" src="https://user-images.githubusercontent.com/9015764/178100681-728b9513-b6f8-4bf7-8949-c3d8449669ec.svg">
-by <img src="https://design.firefox.com/product-identity/firefox/firefox/firefox-logo.svg" height="25px"></a>(only ~ 100)<br><i>
+by <img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" height="25px"></a>(only ~ 100)<br><i>
 <code><code>'Might be the best YouTube Extension Ever'</code></code>- <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110" title="- Lifehacker.com 2021"><img src="https://lifehacker.com/favicon.ico" height="16px"></a><br>
 <code>'enhances YouTube in meaningful ways'</code>- <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways" title="- gHacks.net"><img src="https://ghacks.net/favicon.ico" height="15px"></a><br>
 <code><code><code>'Strong add-on, full control. Yet clear & easy'</code></code></code>- <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" title="- Chip.de"><img src="https://www.chip.de/favicon.ico"></a></div>
@@ -91,7 +91,7 @@ Big thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/grap
  </td></tr></table>
 
 
-### The strongest Youtube Extension<br> 90 proven features - the only one of a kind 
+### The strongest Youtube Extension<br> 80 proven features - the only one of a kind 
  Since 2012 we have gradually been adding lightweight features & keeping up with Youtube changes.
 (throughout the years we witnessed the birth & fall of other promising & open YouTube Extensions [1](https://github.com/YePpHa/YouTubeCenter "YouTubeCenter"), [2](https://github.com/ParticleCore/Iridium "Iridium"), ... ) 
 Today adding something is easier & so motivating as there are 500 000 users. [[👪Join us]](https://github.com/code-for-charity/YouTube-Extension/discussions/1006 "github.com/Code-for-Charity"). 
@@ -101,7 +101,7 @@ Today adding something is easier & so motivating as there are 500 000 users. [[�
 **W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can still fly much higher through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock 🌱  
 
 <table align="right"><tr><td> <h2 >Roadmap</h2> 
-
+	
  - Finding developers and patreons
  - All bugs & wishes                                                             
  - 🛈ToolTips & documentation 
@@ -109,6 +109,8 @@ Today adding something is easier & so motivating as there are 500 000 users. [[�
  - Smart player buttons for all \<video\>
  - Smart content-filtering & discovery
  - Full-page GUI, watch-history, dashboard  
+ - Integrating data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.  
+ - Integrating code / features like [YCS](https://github.com/sonigy/YCS), [YR](https://github.com/MarcGuiselin/youtube-refined), [NY](https://github.com/raingart/Nova-YouTube-extension), [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
 </td></tr></table>
 
 
@@ -347,7 +349,7 @@ Do you need to run a popular extension, site, app or repo?</b><br> We'll love to
       <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
         <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" /></a> </p>
 
-** Some ImprovedTube features**:
+**Some ImprovedTube features**:
 - Video quality
 - Themes and customisation
 - Repeat-, screenshot-, rotate-buttons
