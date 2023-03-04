@@ -109,6 +109,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'forcedPlaybackSpeed',
 			id: 'forced-playback-speed'
 		},
+		player_force_speed_on_music: {
+			component: 'switch',
+			text: 'forcedPlaybackSpeedMusic',
+			id: 'forced-playback-speed-music'
+		},
 		player_playback_speed: {
 			component: 'slider',
 			text: 'playbackSpeed',

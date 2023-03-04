@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": "erzwungene Abspielgeschwindigkeit"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "Kinomodus erzwingen"
     },

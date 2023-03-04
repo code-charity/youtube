@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": "Oynatma hızını uygulamaya zorla"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "Sinema modunu zorla"
     },

@@ -468,8 +468,8 @@ extension.features.trackWatchedVideos = function () {
 	if (extension.storage.get('track_watched_videos') === true && document.documentElement.getAttribute('it-pathname').indexOf('/watch') === 0) {
 		var id = extension.functions.getUrlParameter(location.href, 'v');
 
-		if (!extension.storage.get('watched')) {
-			extension.storage.get('watched') = {};
+		if (!extension.storage.watched) {
+			extension.storage.watched = {};
 		}
 
 		extension.storage.get('watched')[id] = {
@@ -548,6 +548,32 @@ extension.features.thumbnailsQuality = function (anything) {
 
 		if (this.thumbnailsQuality.observer) {
 			this.thumbnailsQuality.observer.disconnect();
+		}
+	}
+};
+
+/*--------------------------------------------------------------
+# SHOW HEADER ON "SEARCH"
+--------------------------------------------------------------*/
+
+extension.features.showHeaderOnSearch = function (event) {
+	var search = document.querySelector('input#search');
+	if (search) {
+
+		var headerPos = document.documentElement.getAttribute('it-header-position');
+		document.documentElement.setAttribute('it-header-position-original', headerPos);
+		if (headerPos !== 'normal' && headerPos !== 'static') {
+
+			search.addEventListener('focusin', function (e) {
+				document.documentElement.setAttribute('it-header-position', 'normal');
+			});
+
+			search.addEventListener('focusout', function (e) {
+				var origHeaderPos = document.documentElement.getAttribute('it-header-position-original');
+				origHeaderPos === 'null' ? 'normal' : origHeaderPos;
+				document.documentElement.setAttribute('it-header-position', origHeaderPos);
+			});
+
 		}
 	}
 };

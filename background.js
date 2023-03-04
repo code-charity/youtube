@@ -188,21 +188,34 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	}
 });
 
+let prevTabsLength = 0;
+
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-	var action = message.action || message;
+  var action = message.action || message;
 
-	if (action === 'play') {
-		chrome.tabs.query({}, function (tabs) {
-			for (var i = 0, l = tabs.length; i < l; i++) {
-				var tab = tabs[i];
+  if (action === "play") {
+    chrome.tabs.query({}, function (tabs) {
+      if (tabs.length > prevTabsLength) {
+        prevTabsLength = tabs.length;
+        for (var i = 0, l = tabs.length; i < l; i++) {
+          var tab = tabs[i];
+          chrome.tabs.sendMessage(tab.id, {
+            action: "new-tab-opened",
+          });
+        }
+      } else {
+        prevTabsLength = tabs.length;
+      }
+      for (var i = 0, l = tabs.length; i < l; i++) {
+        var tab = tabs[i];
 
-				if (sender.tab.id !== tab.id) {
-					chrome.tabs.sendMessage(tab.id, {
-						action: 'another-video-started-playing'
-					});
-				}
-			}
-		});
+        if (sender.tab.id !== tab.id) {
+          chrome.tabs.sendMessage(tab.id, {
+            action: "another-video-started-playing",
+          });
+        }
+      }
+    });
 	} else if (action === 'options-page-connected') {
 		sendResponse({
 			isTab: sender.hasOwnProperty('tab')

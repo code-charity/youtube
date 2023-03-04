@@ -51,7 +51,7 @@
         "message": "Cho phép 60fps"
     },
     "always": {
-        "message": "Always"
+        "message": "Luôn luôn"
     },
     "alwaysActive": {
         "message": "Luôn luôn hoạt động"
@@ -66,7 +66,7 @@
         "message": "Bộ phân tích"
     },
     "animations": {
-        "message": "Animations"
+        "message": "Hoạt ảnh"
     },
     "appearance": {
         "message": "Diện mạo"
@@ -96,16 +96,16 @@
         "message": "Tự động phát"
     },
     "avoidAv1": {
-        "message": "Avoid AV1"
+        "message": "Tránh AV1"
     },
     "avoidAv1Vp8Vp9": {
-        "message": "Avoid AV1, VP8, VP9"
+        "message": "Tránh AV1, VP8, VP9"
     },
     "avoidAv1Vp9": {
-        "message": "Avoid AV1, VP9"
+        "message": "Tránh AV1, VP9"
     },
     "avoidCpuRenderingWhenPossible": {
-        "message": "Tránh hiển thị CPU khi có thể"
+        "message": "Tránh kết xuất bằng CPU khi có thể"
     },
     "backgroundColor": {
         "message": "Màu nền"
@@ -153,7 +153,7 @@
         "message": "Xám xanh"
     },
     "bluelight": {
-        "message": "Ánh sáng xanh"
+        "message": "Sáng xanh"
     },
     "brown": {
         "message": "Nâu"
@@ -192,7 +192,7 @@
         "message": "Clip"
     },
     "clipboard": {
-        "message": "Clipboard"
+        "message": "Bảng tạm"
     },
     "codecH264": {
         "message": "Codec h.264"
@@ -225,13 +225,13 @@
         "message": "Tuỳ chỉnh"
     },
     "customCss": {
-        "message": "Tuỳ chỉnh CSS"
+        "message": "Mã CSS tuỳ chỉnh"
     },
     "customJs": {
-        "message": "Tuỳ chỉnh JS"
+        "message": "Mã JS tuỳ chỉnh"
     },
     "customMiniPlayer": {
-        "message": "Tuỳ chỉnh Trình phát Mini"
+        "message": "Trình phát Mini tuỳ chỉnh"
     },
     "cyan": {
         "message": "Xanh lơ"
@@ -285,7 +285,7 @@
         "message": "Làm cho YouTube gọn gàng+thông minh! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
-        "message": "Rời đi"
+        "message": "Sa mạc"
     },
     "details": {
         "message": "Chi tiết"
@@ -306,16 +306,16 @@
         "message": "Không thích"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Hiển thị ngày trong tuần"
     },
     "doNotChange": {
         "message": "Đừng thay đổi"
     },
     "donate": {
-        "message": "Quyên tặng"
+        "message": "Donate"
     },
     "download": {
-        "message": "Download"
+        "message": "Tải xuống"
     },
     "draggable": {
         "message": "Có thể kéo"
@@ -324,7 +324,7 @@
         "message": "Bóng đổ"
     },
     "durationWithSpeed": {
-        "message": "Show time remaining with reference to playback speed"
+        "message": "Hiển thị thời gian còn lại tương đương với tốc độ phát hiện tại"
     },
     "email": {
         "message": "Email"
@@ -381,19 +381,22 @@
         "message": "Bắt buộc SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Bắt buộc phát video từ đầu"
+        "message": "Buộc phát video từ đầu"
     },
     "forcedPlaybackSpeed": {
-        "message": "Tốc độ phát lại bắt buộc"
+        "message": "Buộc tốc độ phát"
+    },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Buộc tốc độ phát cho âm nhạc"
     },
     "forcedTheaterMode": {
-        "message": "Bắt buộc chế độ rạp hát"
+        "message": "Buộc chế độ rạp hát"
     },
     "forcedVolume": {
-        "message": "Bắt buộc âm lượng"
+        "message": "Buộc mức âm lượng"
     },
     "foundABug": {
-        "message": "Tìm thấy một lỗi?"
+        "message": "Tìm thấy lỗi (bug)?"
     },
     "fullWindow": {
         "message": "Toàn cửa sổ"
@@ -402,7 +405,7 @@
         "message": "Chung"
     },
     "geoPreference": {
-        "message": "Vị trí ưu thích"
+        "message": "Vị trí ưa thích"
     },
     "github": {
         "message": "GitHub"
@@ -411,16 +414,16 @@
         "message": "Đi tới hộp tìm kiếm"
     },
     "googleApiKey": {
-        "message": "Khóa API Google"
+        "message": "Key API Google"
     },
     "gpu": {
         "message": "GPU"
     },
     "green": {
-        "message": "Xanh lục"
+        "message": "Xanh lá cây"
     },
     "hardwareInformation": {
-        "message": "Hardware information"
+        "message": "Thông tin phần cứng"
     },
     "hd": {
         "message": "HD"
@@ -429,10 +432,10 @@
         "message": "Hình thu nhỏ HD"
     },
     "header": {
-        "message": "Tiêu đề"
+        "message": "Phần đầu"
     },
     "hidden": {
-        "message": "Ẩn giấu"
+        "message": "Ẩn"
     },
     "hiddenOnVideoPage": {
         "message": "Ẩn trên trang video"
@@ -447,10 +450,10 @@
         "message": "Ẩn thẻ"
     },
     "hideCategories": {
-        "message": "Hide categories"
+        "message": "Ẩn mục"
     },
     "hideCommentsCount": {
-        "message": "Hide comments count"
+        "message": "Ẩn số lượng bình luận"
     },
     "hideCountryCode": {
         "message": "Ẩn mã quốc gia"
@@ -459,7 +462,7 @@
         "message": "Ẩn ngày"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Ẩn nút chi tiết"
     },
     "hideDetails": {
         "message": "Ẩn chi tiết"
@@ -537,7 +540,7 @@
         "message": "Nhập cài đặt"
     },
     "improveLogo": {
-        "message": "Cải thiện logo"
+        "message": "Logo đã sửa"
     },
     "improvedtubeButtons": {
         "message": "Nút ImprovedTube"
@@ -546,13 +549,13 @@
         "message": "Biểu tượng ImprovedTube trên YouTube"
     },
     "improvedtubeLanguage": {
-        "message": "Ngôn ngữ ImprovedTube"
+        "message": "Ngôn ngữ của ImprovedTube"
     },
     "improvedtubeVersion": {
         "message": "Phiên bản ImprovedTube"
     },
     "increasePlaybackSpeed": {
-        "message": "Tăng tốc độ phát lại"
+        "message": "Tăng tốc độ phát"
     },
     "increaseVolume": {
         "message": "Tăng âm lượng"
@@ -570,7 +573,7 @@
         "message": "Ngôn ngữ"
     },
     "layerAnimationScale": {
-        "message": "Layer animation scale"
+        "message": "Tỉ lệ lớp hoạt ảnh"
     },
     "layout": {
         "message": "Layout"
@@ -597,10 +600,10 @@
         "message": "Đã thích"
     },
     "likes": {
-        "message": "Likes"
+        "message": "Thích"
     },
     "lime": {
-        "message": "Chanh xanh"
+        "message": "Chanh"
     },
     "limitPageWidth": {
         "message": "Giới hạn chiều rộng trang"
@@ -636,10 +639,10 @@
         "message": "Mixer"
     },
     "more": {
-        "message": "More"
+        "message": "Thêm nữa"
     },
     "mostViewedChannels": {
-        "message": "Most viewed channels"
+        "message": "Kênh được xem nhiều nhất"
     },
     "moveSidebarLeft": {
         "message": "Di chuyển thanh bên sang trái"
@@ -666,7 +669,7 @@
         "message": "Đêm"
     },
     "nightMode": {
-        "message": "Night mode"
+        "message": "Chế độ tối"
     },
     "noActiveFeatures": {
         "message": "Không có tính năng hoạt động"
@@ -681,7 +684,7 @@
         "message": "Bình thường"
     },
     "off": {
-        "message": "Off"
+        "message": "Tắt"
     },
     "ok": {
         "message": "Ok"
@@ -699,7 +702,7 @@
         "message": "Chỉ hoạt động trên YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Only one player instance playing"
+        "message": "Chỉ một tab phát video"
     },
     "openPopupPlayer": {
         "message": "Mở video/danh sách phát trong một cửa sổ mới"
@@ -714,7 +717,7 @@
         "message": "Khác"
     },
     "outline": {
-        "message": "Đường nét"
+        "message": "Đường viền"
     },
     "overlay": {
         "message": "Lớp phủ"
@@ -723,7 +726,7 @@
         "message": "Quyền"
     },
     "pictureInPicture": {
-        "message": "Picture-in-Picture"
+        "message": "Ảnh trong ảnh"
     },
     "pink": {
         "message": "Hồng"
@@ -759,10 +762,10 @@
         "message": "Danh sách phát"
     },
     "popupPlayer": {
-        "message": "Trình phát popup"
+        "message": "Trình phát nổi"
     },
     "popupWindowButtons": {
-        "message": "popup_window_buttons"
+        "message": "Nút cửa sổ nổi"
     },
     "position": {
         "message": "Vị trí"
@@ -801,7 +804,7 @@
         "message": "Đỏ"
     },
     "redDislikeButton": {
-        "message": "Nút hiển thị không thích màu đỏ"
+        "message": "Nút không thích màu đỏ"
     },
     "relatedVideos": {
         "message": "Các video liên quan"
@@ -816,10 +819,10 @@
         "message": "Lặp lại"
     },
     "report": {
-        "message": "Report"
+        "message": "Báo cáo"
     },
     "reset": {
-        "message": "Cài đặt lại"
+        "message": "Đặt lại"
     },
     "resetAllSettings": {
         "message": "Đặt lại tất cả các thiết lập"
@@ -879,7 +882,7 @@
         "message": "Đã nhập thành công cài đặt"
     },
     "share": {
-        "message": "Share"
+        "message": "Chia sẻ"
     },
     "shortcuts": {
         "message": "Phím tắt"
@@ -900,28 +903,28 @@
         "message": "Hiển thị thời lượng còn lại của video"
     },
     "showVersion": {
-        "message": "Show version"
+        "message": "Hiển thị phiên bản"
     },
     "shuffle": {
-        "message": "Xáo trộn"
+        "message": "Trộn"
     },
     "sidebar": {
         "message": "Thanh bên"
     },
     "softwareInformation": {
-        "message": "Software information"
+        "message": "Thông tin phần mềm"
     },
     "spacebar": {
         "message": "Phím cách"
     },
     "squaredUserImages": {
-        "message": "Squared user images"
+        "message": "Ảnh người dùng hình vuông"
     },
     "static": {
         "message": "Tĩnh"
     },
     "statsForNerds": {
-        "message": "Hiển thị số liệu thống kê cho Nerds"
+        "message": "Hiển thị số liệu thống kê"
     },
     "step": {
         "message": "Bước"
@@ -957,13 +960,13 @@
         "message": "Tùy chọn hệ thống: sáng"
     },
     "teal": {
-        "message": "Mòng két"
+        "message": "Xanh mòng két"
     },
     "textColor": {
         "message": "Màu văn bản"
     },
     "thanks": {
-        "message": "Thanks"
+        "message": "Cảm ơn"
     },
     "themes": {
         "message": "Chủ đề"
@@ -1065,10 +1068,10 @@
         "message": "Thời gian xem"
     },
     "whenPaused": {
-        "message": "When paused"
+        "message": "Khi tạm dừng"
     },
     "whenTabIsChanged": {
-        "message": "Khi tab được thay đổi"
+        "message": "Khi thay đổi tab"
     },
     "white": {
         "message": "Trắng"
