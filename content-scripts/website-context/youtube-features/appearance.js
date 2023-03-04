@@ -295,22 +295,15 @@ ImprovedTube.description = function (el) {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.hideDetailButton = function (el) {
-    setTimeout(function () {
-        for (var i = 2; i < el.length; i++) {
-            tmp = el[i].querySelector("g.yt-icon path").attributes.d.textContent.split(" ")[0];
-            if (tmp === "M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z") {
-                el[i].setAttribute("id", "Save-button");
-            } else if (tmp === "M8,7c0,0.55-0.45,1-1,1S6,7.55,6,7c0-0.55,0.45-1,1-1S8,6.45,8,7z") {
-                el[i].setAttribute("id", "Clip-button");
-            } else if (tmp === "M16.5,3C19.02,3,21,5.19,21,7.99c0,3.7-3.28,6.94-8.25,11.86L12,20.59l-0.74-0.73l-0.04-0.04C6.27,14.92,3,11.69,3,7.99") {
-                el[i].setAttribute("id", "Thanks-button");
-            } else if (tmp === "M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0.24-1.2L13.42,11H12.6H6V4H13.18") {
-                el[i].setAttribute("id", "Report-button");
-            } else if (tmp === "M15,5.63L20.66,12L15,18.37V15v-1h-1c-3.96,0-7.14,1-9.75,3.09c1.84-4.07,5.11-6.4,9.89-7.1L15,9.86V9V5.63") {
-                el[i].setAttribute("id", "Share-button");
-            }
-        }
-    }, 30);
+    if (el.length === 4) {
+        el[3].setAttribute("id", "Save-button");
+        el[2].setAttribute("id", "Clip-button");
+        el[1].setAttribute("id", "Thanks-button");
+    }
+    else if (el.length === 3) {
+        el[2].setAttribute("id", "Save-button");
+        el[1].setAttribute("id", "Clip-button");
+    }
 };
 
 /*--------------------------------------------------------------
