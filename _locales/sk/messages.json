@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": "Vynútená rýchlosť prehrávania"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "Vynútený divadelný režim"
     },

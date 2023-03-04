@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": "Prisiljena brzina reprodukcije"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "Prisiljen kazališni način"
     },

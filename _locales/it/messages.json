@@ -279,7 +279,7 @@
         "message": "Depresso"
     },
     "description": {
-        "message": "Description"
+        "message": "Descrizione"
     },
     "description_ext": {
         "message": "Rendi YouTube ordinato & intelligente! YouTube colore video salta annuncio volume velocità canale utensile stile HD annunci blocca-annunci etichette tags keyword playlist"
@@ -306,7 +306,7 @@
         "message": "Non mi piace"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Mostra il giorno della settimana"
     },
     "doNotChange": {
         "message": "Non cambiare"
@@ -324,7 +324,7 @@
         "message": "Drop shadow"
     },
     "durationWithSpeed": {
-        "message": "Show time remaining with reference to playback speed"
+        "message": "Mostra il tempo rimanente con riferimento alla velocità di riproduzione"
     },
     "email": {
         "message": "E-mail"
@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": "Velocità di riproduzione forzata"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "Modalità cinema forzata"
     },
@@ -402,7 +405,7 @@
         "message": "Generale"
     },
     "geoPreference": {
-        "message": "Geo Preference"
+        "message": "Preferenza Geo"
     },
     "github": {
         "message": "GitHub"
@@ -411,7 +414,7 @@
         "message": "Vai alla casella di ricerca"
     },
     "googleApiKey": {
-        "message": "Google API key"
+        "message": "Chiave API di Google"
     },
     "gpu": {
         "message": "GPU"
@@ -420,7 +423,7 @@
         "message": "Verde"
     },
     "hardwareInformation": {
-        "message": "Hardware information"
+        "message": "Informazioni hardware"
     },
     "hd": {
         "message": "HD"
@@ -447,10 +450,10 @@
         "message": "Nascondi tessere di fine video"
     },
     "hideCategories": {
-        "message": "Hide categories"
+        "message": "Nascondi categorie"
     },
     "hideCommentsCount": {
-        "message": "Hide comments count"
+        "message": "Nascondi il numero dei commenti"
     },
     "hideCountryCode": {
         "message": "Nascondi codice paese"
@@ -459,7 +462,7 @@
         "message": "Nascondi data"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Nascondi il pulsante dei dettagli"
     },
     "hideDetails": {
         "message": "Nascondi dettagli"
@@ -579,7 +582,7 @@
         "message": "YouTube versione legacy"
     },
     "library": {
-        "message": "Library"
+        "message": "Librerie"
     },
     "light": {
         "message": "Chiaro"
@@ -597,7 +600,7 @@
         "message": "Piaciuto"
     },
     "likes": {
-        "message": "Likes"
+        "message": "Mi piace"
     },
     "lime": {
         "message": "Lime"
@@ -636,7 +639,7 @@
         "message": "Mixer"
     },
     "more": {
-        "message": "More"
+        "message": "Di piú"
     },
     "mostViewedChannels": {
         "message": "Most viewed channels"
@@ -666,7 +669,7 @@
         "message": "Notte"
     },
     "nightMode": {
-        "message": "Night mode"
+        "message": "Molta notturna"
     },
     "noActiveFeatures": {
         "message": "Nessuna funzione attivata"
@@ -702,7 +705,7 @@
         "message": "Istanza unica di riproduzione attiva"
     },
     "openPopupPlayer": {
-        "message": "Open video/playlist in a new window"
+        "message": "Apri video/playlist in una nuova finestra"
     },
     "orange": {
         "message": "Arancione"
@@ -735,7 +738,7 @@
         "message": "Piattaforma"
     },
     "playAllButton": {
-        "message": "\"Play all\" button"
+        "message": "\"Riproduci tutto\" pulsante"
     },
     "playPause": {
         "message": "Avvio/Pausa"
@@ -1005,7 +1008,7 @@
         "message": "Dis/attiva tessere di fine video"
     },
     "toggleControls": {
-        "message": "Toggle controls"
+        "message": "Attiva/disattiva i controlli"
     },
     "topChat": {
         "message": "Chat superiore"

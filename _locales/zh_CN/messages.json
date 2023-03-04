@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": "强制设置播放速度"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "强制设置剧场模式"
     },

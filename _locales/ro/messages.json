@@ -386,6 +386,9 @@
     "forcedPlaybackSpeed": {
         "message": "Viteză de playback forțată"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "Modul teatru forțat"
     },

@@ -51,7 +51,7 @@
         "message": "Разрешить 60fps"
     },
     "always": {
-        "message": "Always"
+        "message": "Всегда"
     },
     "alwaysActive": {
         "message": "Всегда активный"
@@ -66,7 +66,7 @@
         "message": "Анализатор"
     },
     "animations": {
-        "message": "Animations"
+        "message": "Анимации"
     },
     "appearance": {
         "message": "Внешний вид"
@@ -132,19 +132,19 @@
         "message": "Блокировать все"
     },
     "blockAv1": {
-        "message": "Block AV1"
+        "message": "Блокировать AV1"
     },
     "blockH264": {
-        "message": "Block H.264"
+        "message": "Блокировать H.264"
     },
     "blockMusic": {
         "message": "Блокировать музыку"
     },
     "blockVp8": {
-        "message": "Block VP8"
+        "message": "Блокировать VP8"
     },
     "blockVp9": {
-        "message": "Block VP9"
+        "message": "Блокировать VP9"
     },
     "blue": {
         "message": "Синий"
@@ -189,7 +189,7 @@
         "message": "Стиль контура символов"
     },
     "clip": {
-        "message": "Clip"
+        "message": "Создать клип"
     },
     "clipboard": {
         "message": "Буфер обмена"
@@ -198,7 +198,7 @@
         "message": "Кодек H.264"
     },
     "codecs": {
-        "message": "Codecs"
+        "message": "Кодеки"
     },
     "collapseOfSubscriptionSections": {
         "message": "Свернуть раздел подписок"
@@ -231,7 +231,7 @@
         "message": "Пользовательский JS"
     },
     "customMiniPlayer": {
-        "message": "Новый мини-плеер"
+        "message": "Пользовательский мини-плеер"
     },
     "cyan": {
         "message": "Бирюзовый"
@@ -282,7 +282,7 @@
         "message": "Депрессивный"
     },
     "description": {
-        "message": "Description"
+        "message": "Описание"
     },
     "description_ext": {
         "message": "Сделайте YouTube аккуратным + умным! Цвет видео YouTube пропуск рекламы громкость скорость канала стиль инструмента HD реклама adblock блокировщик рекламы теги список ключевых слов"
@@ -309,7 +309,7 @@
         "message": "Дизлайк"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Показывать день недели"
     },
     "doNotChange": {
         "message": "Не менять"
@@ -324,10 +324,10 @@
         "message": "Перетаскиваемый"
     },
     "dropShadow": {
-        "message": "Отбрасывемая тень"
+        "message": "Отбрасываемая тень"
     },
     "durationWithSpeed": {
-        "message": "Show time remaining with reference to playback speed"
+        "message": "Показывать оставшееся время видео с учётом скорости воспроизведения"
     },
     "email": {
         "message": "E-mail"
@@ -389,6 +389,9 @@
     "forcedPlaybackSpeed": {
         "message": "Принудительная скорость воспроизведения"
     },
+    "forcedPlaybackSpeedMusic": {
+        "message": "Force playback speed for music"
+    },
     "forcedTheaterMode": {
         "message": "Принудительно переходить в режим кино"
     },
@@ -423,7 +426,7 @@
         "message": "Зеленый"
     },
     "hardwareInformation": {
-        "message": "Hardware information"
+        "message": "Информация об оборудовании"
     },
     "hd": {
         "message": "HD"
@@ -462,7 +465,7 @@
         "message": "Скрывать дату видео"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Скрывать кнопку «Ещё»"
     },
     "hideDetails": {
         "message": "Скрывать подробную информацию"
@@ -543,7 +546,7 @@
         "message": "Улучшить логотип YouTube"
     },
     "improvedtubeButtons": {
-        "message": "ImprovedTube buttons"
+        "message": "Кнопки расширения ImprovedTube"
     },
     "improvedtubeIconOnYoutube": {
         "message": "Значок ImprovedTube в YouTube"
@@ -576,10 +579,10 @@
         "message": "Языки"
     },
     "layerAnimationScale": {
-        "message": "Layer animation scale"
+        "message": "Масштаб слоя анимации"
     },
     "layout": {
-        "message": "Layout"
+        "message": "Слой"
     },
     "legacyYoutube": {
         "message": "Старая версия YouTube"
@@ -603,7 +606,7 @@
         "message": "Понравившиеся"
     },
     "likes": {
-        "message": "Likes"
+        "message": "Лайки"
     },
     "lime": {
         "message": "Лайм"
@@ -645,7 +648,7 @@
         "message": "More"
     },
     "mostViewedChannels": {
-        "message": "Most viewed channels"
+        "message": "Самые просматриваемые каналы"
     },
     "moveSidebarLeft": {
         "message": "Сместить боковую панель влево"
@@ -672,7 +675,7 @@
         "message": "Ночь"
     },
     "nightMode": {
-        "message": "Night mode"
+        "message": "Ночной режим"
     },
     "noActiveFeatures": {
         "message": "Нет активных функций"
@@ -687,7 +690,7 @@
         "message": "Обычный"
     },
     "off": {
-        "message": "Off"
+        "message": "Выключить"
     },
     "ok": {
         "message": "Хорошо"
@@ -768,7 +771,7 @@
         "message": "Плеер во всплывающем окне"
     },
     "popupWindowButtons": {
-        "message": "popup_window_buttons"
+        "message": "Добавить кнопки всплывающего окна"
     },
     "position": {
         "message": "Положение"
@@ -822,7 +825,7 @@
         "message": "Повтор"
     },
     "report": {
-        "message": "Report"
+        "message": "Пожаловаться"
     },
     "reset": {
         "message": "Сбросить"
@@ -885,7 +888,7 @@
         "message": "Настройки успешно импортированы"
     },
     "share": {
-        "message": "Share"
+        "message": "Поделиться"
     },
     "shortcuts": {
         "message": "Горячие клавиши"
@@ -906,7 +909,7 @@
         "message": "Показать время до конца видео"
     },
     "showVersion": {
-        "message": "Show version"
+        "message": "Показывать версию"
     },
     "shuffle": {
         "message": "Перемешать"
@@ -915,7 +918,7 @@
         "message": "Боковая панель"
     },
     "softwareInformation": {
-        "message": "Software information"
+        "message": "Информация о программном обеспечении"
     },
     "spacebar": {
         "message": "Пробел"
@@ -1071,7 +1074,7 @@
         "message": "Время просмотра"
     },
     "whenPaused": {
-        "message": "When paused"
+        "message": "При паузе"
     },
     "whenTabIsChanged": {
         "message": "При смене вкладки"
@@ -1101,6 +1104,6 @@
         "message": "Язык YouTube"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube ограничивает качетво видео до 1080p для кодека H.264"
+        "message": "YouTube ограничивает качество видео до 1080p для кодека H.264"
     }
 }
