@@ -63,7 +63,8 @@
 	],
 	"permissions": [
 		"contextMenus",
-		"storage"
+		"storage",
+		"https://*.youtube.com/*"
 	],
 	"web_accessible_resources": [
 			"options-page/index.html",
