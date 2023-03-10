@@ -206,7 +206,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 		}	   
         //old
 	}else if (name === 'TP-YT-PAPER-BUTTON') {
-        if (document.documentElement.dataset.pageType === 'video' && id === 'more' && node.classList.contains('ytd-expander')) {
+        if (document.documentElement.dataset.pageType === 'video' && id === 'more' && node.classList.contains('ytd-expander') || node.parentNode.parentNode.id === 'container') {
             setTimeout(function () {
                	 	ImprovedTube.description(node);
             }, 750);

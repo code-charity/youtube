@@ -81,7 +81,7 @@ ImprovedTube.themes = function () {
 		if (this.elements.my_colors) {
 			this.elements.my_colors.remove();
 		}
-
+/*
 		pref = '';
 		cookieValue = '400';
 		if (document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)) {
@@ -104,6 +104,7 @@ ImprovedTube.themes = function () {
 		} else {
 			cookieValue = pref + "&f6=" + cookieValue;
 		}
-		ImprovedTube.setCookie('PREF', cookieValue);
+		ImprovedTube.setCookie('PREF', cookieValue); 
+		*/
 	}
 };
