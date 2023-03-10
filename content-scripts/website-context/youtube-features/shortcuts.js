@@ -615,11 +615,11 @@ ImprovedTube.shortcutDarkTheme = function () {
 	if (document.documentElement.hasAttribute('dark')) {
 		document.documentElement.removeAttribute('dark');
 		document.querySelector('ytd-masthead').removeAttribute('dark');
-		document.documentElement.removeAttribute('it-theme');
+		document.documentElement.removeAttribute('it-themes');
 	} else {
 		document.documentElement.setAttribute('dark', '');
 		document.querySelector('ytd-masthead').setAttribute('dark', '');
-		document.documentElement.setAttribute('it-theme', 'true');
+		document.documentElement.setAttribute('it-themes', 'true');
 	}
 };
 
