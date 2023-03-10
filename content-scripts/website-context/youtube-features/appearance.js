@@ -156,10 +156,18 @@ ImprovedTube.playerRemainingDuration = function () {
 /*------------------------------------------------------------------------------
 4.2.2.1 LIVECHAT
 ------------------------------------------------------------------------------*/
-
+let isCollapsed = false
 ImprovedTube.livechat = function () {
     if (this.storage.livechat === "collapsed") {
-        ImprovedTube.elements.livechat.button.click();
+        if(ImprovedTube.elements.livechat && !isCollapsed){
+            ImprovedTube.elements.livechat.button.click();
+            isCollapsed = true 
+        }
+    }else{
+        if(isCollapsed){
+            ImprovedTube.elements.livechat.button.click();
+            isCollapsed = false
+        }
     }
 };
 
