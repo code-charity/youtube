@@ -81,17 +81,20 @@ ImprovedTube.themes = function () {
 		if (this.elements.my_colors) {
 			this.elements.my_colors.remove();
 		}
-		if (this.storage.theme === 'dark' || this.storage.theme === 'black') {
+		if (this.storage.theme === 'default' ){
+			if (document.documentElement.hasAttribute('it-themes') === true){
+				document.documentElement.setAttribute('it-themes', 'false');
+				location.reload();
+			}
+		} else if (this.storage.theme === 'dark' || this.storage.theme === 'black') {
 			if (!document.documentElement.hasAttribute('dark')) {
 				document.documentElement.setAttribute('dark', '');
-				document.querySelector('ytd-masthead').setAttribute('dark', '');
-				document.documentElement.setAttribute('it-theme', 'true');
+				document.documentElement.setAttribute('it-themes', 'true');
 			}
 		} else {
 			if (document.documentElement.hasAttribute('dark')) {
 				document.documentElement.removeAttribute('dark');
-				document.querySelector('ytd-masthead').removeAttribute('dark');
-				document.documentElement.removeAttribute('it-theme');
+				document.documentElement.removeAttribute('it-themes');
 			}
 		}
 	}
