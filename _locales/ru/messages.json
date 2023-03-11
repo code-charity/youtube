@@ -390,7 +390,7 @@
         "message": "Принудительная скорость воспроизведения"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "Принудительно переходить в режим кино"

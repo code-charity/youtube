@@ -129,7 +129,7 @@
         "message": "Blacklist"
     },
     "blockAll": {
-        "message": "Block all"
+        "message": "Off (block or skip)"
     },
     "blockAv1": {
         "message": "Block AV1"
@@ -138,7 +138,7 @@
         "message": "Block H.264"
     },
     "blockMusic": {
-        "message": "Block music"
+        "message": "Skip ads while I play music"
     },
     "blockVp8": {
         "message": "Block VP8"
@@ -267,7 +267,7 @@
         "message": "Default channel tab"
     },
     "defaultContentCountry": {
-        "message": "Default content country"
+        "message": "Country (virtual travel!)"
     },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
@@ -384,10 +384,10 @@
         "message": "Forced play video from the beginning"
     },
     "forcedPlaybackSpeed": {
-        "message": "Forced playback speed"
+        "message": "Forced playback speed, speed-watching"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "Forced theater mode"
@@ -462,7 +462,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "Hide details"
@@ -528,13 +528,13 @@
         "message": "Hover on video page"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "How long ago the video was uploaded"
+        "message": "Show video's age (how long ago it was uploaded)"
     },
     "icons": {
         "message": "Icons"
     },
     "iconsOnly": {
-        "message": "Icons only"
+        "message": "Icon only"
     },
     "importSettings": {
         "message": "Import settings"
@@ -693,16 +693,16 @@
         "message": "Old"
     },
     "onAllVideos": {
-        "message": "On all videos"
+        "message": "On"
     },
     "onSubscribedChannels": {
-        "message": "On subscribed channels"
+        "message": "Off, except on my subscribed channels"
     },
     "onlyActiveOnYoutube": {
         "message": "Only active on YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Don't let a 2nd video auto-start at once"
+        "message": "Don't let a 2nd player instance play a once"
     },
     "openPopupPlayer": {
         "message": "Open video/playlist in a new window"
@@ -750,7 +750,7 @@
         "message": "Player"
     },
     "playerColor": {
-        "message": "Player color"
+        "message": "Progress bar color"
     },
     "playerSize": {
         "message": "Player size"
