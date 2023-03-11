@@ -33,7 +33,7 @@
         "message": "Activated features"
     },
     "activeFeatures": {
-        "message": "Active features"
+        "message": "My active features"
     },
     "addScrollToTop": {
         "message": "Add «Scroll to top»"
@@ -87,7 +87,7 @@
         "message": "Auto-fullscreen"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Autopause when switching tabs"
+        "message": "Pause while not visible"
     },
     "autoplay": {
         "message": "Autoplay"
@@ -198,7 +198,7 @@
         "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
-        "message": "Collapse of subscription sections"
+        "message": "Fold subscriptions' sections (collapsed accordion)"
     },
     "collapsed": {
         "message": "Collapsed"
@@ -303,7 +303,7 @@
         "message": "Dislike"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "Don't change"
@@ -351,7 +351,7 @@
         "message": "Filters"
     },
     "fitToWindow": {
-        "message": "Fit to window"
+        "message": "Old alternative"
     },
     "flash": {
         "message": "Flash"
@@ -375,7 +375,7 @@
         "message": "Footer"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "Avoid HDR, keep SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Force video to play from the beginning"
@@ -396,7 +396,7 @@
         "message": "Found a bug?"
     },
     "fullWindow": {
-        "message": "Full window"
+        "message": "Full height"
     },
     "general": {
         "message": "General"
@@ -624,10 +624,10 @@
         "message": "More"
     },
     "moveSidebarLeft": {
-        "message": "Move sidebar left"
+        "message": "To the left!"
     },
     "moveThumbnailsRight": {
-        "message": "Move thumbnails right"
+        "message": "Thumbnails to the right!"
     },
     "myColors": {
         "message": "My colors"
@@ -678,7 +678,7 @@
         "message": "Only active on YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Only one player instance playing"
+        "message": "Don't let a 2nd video auto-start at once"
     },
     "openPopupPlayer": {
         "message": "Open video/playlist in a new window"
@@ -780,7 +780,7 @@
         "message": "Red"
     },
     "redDislikeButton": {
-        "message": "Show dislike button in red"
+        "message": "Red DisLiked-button"
     },
     "relatedVideos": {
         "message": "Related videos"

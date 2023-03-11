@@ -306,7 +306,7 @@
         "message": "Dislike"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "Nemeniť"
@@ -378,7 +378,7 @@
         "message": "Pätička"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "Avoid HDR, keep SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forced play video from the beginning"
@@ -645,10 +645,10 @@
         "message": "Most viewed channels"
     },
     "moveSidebarLeft": {
-        "message": "Move sidebar left"
+        "message": "To the left!"
     },
     "moveThumbnailsRight": {
-        "message": "Move thumbnails right"
+        "message": "Thumbnails to the right!"
     },
     "myColors": {
         "message": "Moje farby"
@@ -804,7 +804,7 @@
         "message": "Červená"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "Red DisLiked-button"
     },
     "relatedVideos": {
         "message": "Súvisiace videá"
