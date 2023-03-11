@@ -138,7 +138,7 @@
         "message": "Block H.264"
     },
     "blockMusic": {
-        "message": "Block music"
+        "message": "Skip ads while I play music"
     },
     "blockVp8": {
         "message": "Block VP8"
@@ -387,7 +387,7 @@
         "message": "强制设置播放速度"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "强制设置剧场模式"
@@ -462,7 +462,7 @@
         "message": "隐藏日期"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "隐藏详细信息"

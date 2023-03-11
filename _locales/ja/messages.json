@@ -387,7 +387,7 @@
         "message": "再生速度を指定する"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "シアターモードにする"
@@ -462,7 +462,7 @@
         "message": "日付を隠す"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "詳細を隠す"
