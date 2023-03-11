@@ -306,7 +306,7 @@
         "message": "অপছন্দ"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "পরিবর্তন করবেন না"
@@ -378,7 +378,7 @@
         "message": "পাদচরণ"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "Avoid HDR, keep SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "জোর করে শুরু থেকে ভিডিও চালান"
@@ -645,10 +645,10 @@
         "message": "Most viewed channels"
     },
     "moveSidebarLeft": {
-        "message": "Move sidebar left"
+        "message": "To the left!"
     },
     "moveThumbnailsRight": {
-        "message": "Move thumbnails right"
+        "message": "Thumbnails to the right!"
     },
     "myColors": {
         "message": "আমার রং"

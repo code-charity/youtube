@@ -303,7 +303,7 @@
         "message": "Dislike"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "වෙනස් කරන්න එපා"
@@ -351,7 +351,7 @@
         "message": "Filters"
     },
     "fitToWindow": {
-        "message": "Fit to window"
+        "message": "Old alternative"
     },
     "flash": {
         "message": "Flash"
@@ -375,7 +375,7 @@
         "message": "Footer එක"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "Avoid HDR, keep SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "වීඩියෝව මුල සිට බලහත්කාරයෙන් play කරන්න"
@@ -396,7 +396,7 @@
         "message": "දෝෂයක් හම්බුනාද ඔයාට?"
     },
     "fullWindow": {
-        "message": "Full window"
+        "message": "Full height"
     },
     "general": {
         "message": "සාමාන්‍ය"
@@ -696,7 +696,7 @@
         "message": "Only active on YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Only one player instance playing"
+        "message": "Don't let a 2nd video auto-start at once"
     },
     "openPopupPlayer": {
         "message": "video හෝ playlist new window එකකින් open කරන්න"
