@@ -96,7 +96,7 @@
         "message": "Auto-fullscreen"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Auto-pause while I'm in another tab"
+        "message": "Auto-pause while I'm not in the tab"
     },
     "autoplay": {
         "message": "Autoplay"
@@ -720,7 +720,7 @@
         "message": "Only active on YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Don't let a 2nd player instance play a once"
+        "message": "Pause while I watch a 2nd video"
     },
     "openPopupPlayer": {
         "message": "Open video/playlist in a new window"
