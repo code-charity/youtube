@@ -612,28 +612,15 @@ ImprovedTube.shortcutSubscribe = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutDarkTheme = function () {
-/*	pref = '';
-	cookieValue = '400';
-	if (document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)) {
-		pref = document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)[1];
-	}
-*/
 	if (document.documentElement.hasAttribute('dark')) {
-//		cookieValue = '80000';
 		document.documentElement.removeAttribute('dark');
-		document.documentElement.removeAttribute('it-theme');
+		document.querySelector('ytd-masthead').removeAttribute('dark');
+		document.documentElement.removeAttribute('it-themes');
 	} else {
 		document.documentElement.setAttribute('dark', '');
-		document.documentElement.setAttribute('it-theme', 'true');
+		document.querySelector('ytd-masthead').setAttribute('dark', '');
+		document.documentElement.setAttribute('it-themes', 'true');
 	}
-/*
-	if (pref.match(/(f6=)[^\&]+/)){
-		cookieValue = pref.replace(/(f6=)[^\&]+/, cookieValue);
-	} else {
-		cookieValue = pref + "&f6=" + cookieValue;
-	}
-	ImprovedTube.setCookie('PREF', cookieValue); 
-*/
 };
 
 

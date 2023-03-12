@@ -17,7 +17,7 @@ extension.attributes = function () {
 		title_version: true,
 		it_general: true,
 		it_appearance: true,
-		it_themes: true,
+		it_themes: false,
 		it_player: true,
 		it_playlist: true,
 		it_channel: true,
