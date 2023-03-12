@@ -73,7 +73,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 				 on: {					click: function () {
 							if (satus.storage.get('player_autopause_when_switching_tabs')) {
 								if (satus.storage.get('only_one_player_instance_playing')) {
-								//	this.previousSibling.click();
+									this.previousSibling.click();
 								}
 							}
 						}
