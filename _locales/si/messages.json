@@ -696,7 +696,7 @@
         "message": "Only active on YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Don't let a 2nd player instance play a once"
+        "message": "Pause while I watch a 2nd video"
     },
     "openPopupPlayer": {
         "message": "video හෝ playlist new window එකකින් open කරන්න"
