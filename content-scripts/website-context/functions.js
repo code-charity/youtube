@@ -215,13 +215,13 @@ ImprovedTube.ytElementsHandler = function (node) {
 };
 
 ImprovedTube.pageType = function () {
-	if (/^\/watch\?/.test(location.pathname)) {
+	if (/\/watch\?/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'video';
 	} else if (location.pathname === '/') {
 		document.documentElement.dataset.pageType = 'home';
-	} else if (/^\/subscriptions\?/.test(location.pathname)) {
+	} else if (/\/subscriptions\?/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'subscriptions';
-	} else if (/^\/@|((channel|user|c)\/)[^/]+(?!\/videos)/.test(location.pathname)) {
+	} else if (/\/@|((channel|user|c)\/)[^/]+(?!\/videos)/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'channel';
 	} else {
 		document.documentElement.dataset.pageType = 'other';
