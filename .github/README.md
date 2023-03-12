@@ -14,23 +14,23 @@
 	</tr>
 	<tr>
 		<td><a href="https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd">Chrome Web Store</a></td>
-		<td>4.0.1.17</td>
+		<td>4.1</td>
 	</tr>
 	<tr>
 		<td><a href="https://microsoftedge.microsoft.com/addons/detail/improve-youtube-video-/knbckijjjbmkjiagojjneoplbjilfllc">Microsoft Edge Addons</a></td>
-		<td>3.800</td>
+		<td>4.1</td>
 	</tr>
 	<tr>
 		<td><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">Firefox Add-ons</a></td>
-		<td>4.0.1.17</td>
+		<td>4.1</td>
 	</tr>
 	<tr>
 		<td><a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/">Opera Add-ons</a></td>
-		<td>3.920</td>
+		<td>4.1</td>
 	</tr>
 	<tr>
 		<td><a href="https://developer.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa">Whale Store</a></td>
-		<td>3.800</td>
+		<td>4.1</td>
 	<tr>
 		<td> or <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Manual-installation">install manually</a></td>
 		<td><a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip">latest</a></td>
@@ -59,8 +59,8 @@ For more info on how to contribute please see the <a href="https://github.com/co
 For some quick editing,  text is at the start of lines & html does not
        * * * * * * * * * *  * * * * * * * * * * --> 
 <h1 align="center">
-«Improve YouTube!»  &nbsp;&nbsp;</h1><p align="center"><b><code>
-/ImprovedTube/</code></b> 
+«Improve YouTube!»  &nbsp;&nbsp;</h1><p align="center"><b>
+<code>/ImprovedTube/</code></b> 
 is a lightweight & powerful extension to enrich your experience & enable your choice.</p>
  <p align="center">
   <a href="https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd"><img src="https://img.shields.io/badge/%20-Chrome-lightgrey?logo=googlechrome&logoColor=white"> </a
