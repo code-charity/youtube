@@ -45,7 +45,6 @@ extension.skeleton.main.layers.section.themes = {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # THEMES
 --------------------------------------------------------------*/
@@ -75,11 +74,75 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 							text: 'primaryColor',
 							value: [200, 200, 200]
 						},
-						theme_text_color: {
+
+				scroll_bar: {
+					component: 'select',
+					text: 'scrollBar',
+					options: [{
+						text: 'default',
+						value: 'default'
+					}, {
+						text: 'hidden',
+						value: 'hidden'
+					}]
+				},
+				font: {
+					component: 'select',
+					text: 'font',
+					options: [{
+						text: 'default',
+						value: 'Default'
+					}, {
+						text: 'Comfortaa',
+						value: 'Comfortaa'
+					}, {
+						text: 'Lato',
+						value: 'Lato'
+					}, {
+						text: 'Marriweather',
+						value: 'Marriweather'
+					}, {
+						text: 'Montserrat',
+						value: 'Montserrat'
+					}, {
+						text: 'Noto Sans',
+						value: 'Noto+Sans'
+					}, {
+						text: 'Open Sans',
+						value: 'Open+Sans'
+					}, {
+						text: 'Oswald',
+						value: 'Oswald'
+					}, {
+						text: 'Poppins',
+						value: 'Poppins'
+					}, {
+						text: 'PT Sans',
+						value: 'PT+Sans'
+					}, {
+						text: 'Raleway',
+						value: 'Raleway'
+					}, {
+						text: 'Roboto Condensed',
+						value: 'Roboto+Condensed'
+					}, {
+						text: 'Roboto Mono',
+						value: 'Roboto+Mono'
+					}, {
+						text: 'Roboto Slab',
+						value: 'Roboto+Slab'
+					}, {
+						text: 'Source Sans Pro',
+						value: 'Source+Sans+Pro'
+					}]
+				},
+				theme_text_color: {
 							component: 'color-picker',
 							text: 'textColor',
 							value: [25, 25, 25]
-						}
+						},
+
+
 					}
 				}
 			}

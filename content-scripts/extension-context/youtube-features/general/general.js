@@ -2,8 +2,8 @@
 >>> GENERAL:
 ----------------------------------------------------------------
 # YouTube home page
-# Collapse of subscription sections
-# Only one player instance playing
+# Fold subscriptions' sections (collapsed accordion)
+# Don't let a second video auto-start at once
 # Add "Scroll to top"
 # Confirmation before closing
 # Default content country

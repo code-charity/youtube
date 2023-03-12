@@ -2,11 +2,11 @@
 >>> SIDEBAR
 ----------------------------------------------------------------
 # Related videos
-# Livechat
-# Hide playlist
 # Move sidebar left
 # Move thumbnails right
 # Hide thumbnails
+# Livechat
+# Hide playlist
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -68,25 +68,33 @@ html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-
 	pointer-events: none !important;
 }
 
-
 /*--------------------------------------------------------------
-# LIVECHAT
+# NO PAGE MARGIN
 --------------------------------------------------------------*/
 
-html[it-livechat='hidden'] ytd-live-chat-frame#chat {
-	display: none !important;
-}
+html[data-page-type=video][it-no-page-margin='true'] ytd-browse > ytd-two-column-browse-results-renderer {
+	width: auto !important;
+	max-width: auto !important; }
 
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #columns.ytd-watch-flexy, 
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #primary.ytd-watch-flexy {
+	max-width: 98.5% !important; margin: 2px !important;  }
 
-/*--------------------------------------------------------------
-# HIDE PLAYLIST
---------------------------------------------------------------*/
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #secondary.ytd-watch-flexy {
+	margin-right: calc (-12px - 0.4vw -0.4vh) !important;}
 
-html[it-hide-playlist='true'] ytd-playlist-panel-renderer#playlist {
-	display: none !important;
-}
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #below {
+	margin-left: calc(4vh + 3vw - 35px) !important;} 
 
+html[data-page-type=video][it-player-size='max_width'] .ytp-fit-cover-video .html5-main-video {
+	object-fit: contain !important;}
 
+html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #player {
+	margin-top: -12px !important; object-fit: contain !important;}
+html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #player-container-outer.ytd-watch-flexy {
+	max-width: 98.5% !important;}
+
+	
 /*--------------------------------------------------------------
 # MOVE SIDEBAR LEFT
 --------------------------------------------------------------*/
@@ -96,6 +104,8 @@ html[it-sidebar-left='true'] #head>#upnext
 {
 	order: 7 !important;
 }
+
+html[it-sidebar-left='true'] #columns>#secondary {margin-left: calc(0.5vw + 4px); margin-right:0.2vw !important;}
 
 
 /*--------------------------------------------------------------
@@ -113,5 +123,23 @@ html[it-thumbnails-right='true'] ytd-watch-next-secondary-results-renderer ytd-t
 
 html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail,
 html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# LIVECHAT
+--------------------------------------------------------------*/
+
+html[it-livechat='hidden'] ytd-live-chat-frame#chat {
+	display: none !important;
+}
+
+
+/*--------------------------------------------------------------
+# HIDE PLAYLIST
+--------------------------------------------------------------*/
+
+html[it-hide-playlist='true'] ytd-playlist-panel-renderer#playlist {
 	display: none !important;
 }

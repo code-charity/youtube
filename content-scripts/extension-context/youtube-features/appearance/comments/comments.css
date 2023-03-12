@@ -4,13 +4,12 @@
 # Comments
 	# Collapsed
 	# Hidden
+# Squared User Images
 # Hide avatars
 --------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 # COLLAPSED
 --------------------------------------------------------------*/
-
 html[it-comments='collapsed'] ytd-comments:not([it-activated]) ytd-comments-header-renderer::after {
 	content: 'Show more' !important;
 }
@@ -45,22 +44,26 @@ html[it-comments='collapsed'] ytd-comments:not([it-activated]) ytd-item-section-
 	pointer-events: none !important;
 }
 
-
 /*--------------------------------------------------------------
 # HIDDEN
 --------------------------------------------------------------*/
-
 html[it-comments='hidden'] ytd-comments {
 	display: none !important;
 }
 
-
 /*--------------------------------------------------------------
 # HIDE AVATARS
 --------------------------------------------------------------*/
-
 html[it-hide-author-avatars='true'] ytd-comments #author-thumbnail,
 html[it-hide-author-avatars='true'] ytd-comments #creator-thumbnail,
 html[it-hide-author-avatars='true'] ytd-comments #hearted-thumbnail {
 	display: none !important;
+}
+/*--------------------------------------------------------------
+# SQUARED USER IMAGES
+--------------------------------------------------------------*/
+html[it-squared-user-images='true'] #avatar.ytd-shelf-renderer,
+html[it-squared-user-images='true'] yt-img-shadow,
+html[it-squared-user-images='true'] #yt-masthead-user .yt-masthead-user-icon {
+	border-radius: unset !important;
 }

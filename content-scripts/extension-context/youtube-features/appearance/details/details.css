@@ -51,7 +51,18 @@ html[it-hide-date='true'] ytd-watch-metadata #info>span:last-child {
 	display: none !important;
 }
 
+ /*--------------------------------------------------------------
+YouTube's detail buttons
+--------------------------------------------------------------*/
 
+html[it-youtubesDetailButtons='remove_labels'] #menu ytd-button-renderer div:nth-child(2), 
+html[it-youtubesDetailButtons='remove_labels'] #menu ytd-button-renderer .cbox 
+{display:none;}
+html[it-youtubesDetailButtons='hide_labels']  #menu ytd-button-renderer div:nth-child(2) {visibility:hidden}
+html[it-youtubesDetailButtons='faint_transparent'] #menu button {opacity:0.5;}
+html[it-youtubesDetailButtons='remove'] #menu button {display:none;}
+html[it-youtubesDetailButtons='remove_icons']  #menu button div:first-child {display:none;}
+ 
  /*--------------------------------------------------------------
 HIDE LIKE BUTTON
 --------------------------------------------------------------*/
@@ -231,7 +242,6 @@ div.style-scope.ytd-watch-flexy + ytd-watch-metadata  { display: none !important
 # SHOW DISLIKE RED COLOR
 --------------------------------------------------------------*/
 
-html[it-red-dislike-button='true'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(2),
-html[it-red-dislike-button='true'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(2) yt-formatted-string {
-	color: #fc0000 !important;
+html[it-red-dislike-button='true'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer *[aria-pressed='true'] yt-icon {
+	color: #f02200 !important;
 }

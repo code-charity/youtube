@@ -741,7 +741,7 @@
         "message": "Popup player"
     },
     "popupWindowButtons": {
-        "message": "Add a popup player button to each thumbnail"
+        "message": "Add a popup-player-button to each thumbnail"
     },
     "position": {
         "message": "Position"
