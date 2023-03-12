@@ -197,7 +197,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.firstSectio
 				layer_animation_scale: {
 					component: 'select',
 					text: 'layerAnimationScale',
-					value: 1,
+					value: 0,
 					options: [{
 						text: '0x',
 						value: 0
