@@ -11,81 +11,7 @@ extension.skeleton.main.layers.section.general = {
 			section_1: {
 				component: 'section',
 				variant: 'card',
-
-				youtube_home_page: {
-					component: 'select',
-					text: 'youtubeHomePage',
-					options: [{
-						text: 'home',
-						value: '/'
-					}, {
-						text: 'trending',
-						value: '/feed/trending'
-					}, {
-						text: 'subscriptions',
-						value: '/feed/subscriptions'
-					}, {
-						text: 'history',
-						value: '/feed/history'
-					}, {
-						text: 'watchLater',
-						value: '/playlist?list=WL'
-					}, {
-						text: 'search',
-						value: 'search'
-					}, {
-						text: 'liked',
-						value: '/playlist?list=LL'
-					}, {
-						text: 'library',
-						value: '/feed/library'
-					}],
-					tags: 'trending,subscriptions,history,watch,search'
-				},
-				collapse_of_subscription_sections: {
-					component: 'switch',
-					text: 'collapseOfSubscriptionSections'
-				},
-				remove_related_search_results: {
-					component: 'switch',
-					text: 'removeRelatedSearchResults'
-				},
-				only_one_player_instance_playing: {
-					component: 'switch',
-					text: 'onlyOnePlayerInstancePlaying'
-				},
-				scroll_bar: {
-					component: 'select',
-					text: 'scrollBar',
-					options: [{
-						text: 'default',
-						value: 'default'
-					}, {
-						text: 'hidden',
-						value: 'hidden'
-					}]
-				},
-				add_scroll_to_top: {
-					component: 'switch',
-					text: 'addScrollToTop',
-					tags: 'up'
-				},
-				limit_page_width: {
-					component: 'switch',
-					text: 'limitPageWidth',
-					value: true
-				},
-				squared_user_images: {
-					component: 'switch',
-					text: 'squaredUserImages',
-					tags: 'avatar'
-				},
-				confirmation_before_closing: {
-					component: 'switch',
-					text: 'confirmationBeforeClosing',
-					tags: 'random prevent close exit'
-				},
-				default_content_country: {
+default_content_country: {
 					component: 'select',
 					text: 'defaultContentCountry',
 					options: [{
@@ -1089,62 +1015,46 @@ extension.skeleton.main.layers.section.general = {
 							value: "AX"
 						}
 					]
-				},
-				popup_window_buttons: {
-					component: 'switch',
-					text: 'popupWindowButtons',
-				},
-				font: {
+				},			
+				youtube_home_page: {
 					component: 'select',
-					text: 'font',
+					text: 'youtubeHomePage',
 					options: [{
-						text: 'default',
-						value: 'Default'
+						text: 'home',
+						value: '/'
 					}, {
-						text: 'Comfortaa',
-						value: 'Comfortaa'
+						text: 'trending',
+						value: '/feed/trending'
 					}, {
-						text: 'Lato',
-						value: 'Lato'
+						text: 'subscriptions',
+						value: '/feed/subscriptions'
 					}, {
-						text: 'Marriweather',
-						value: 'Marriweather'
+						text: 'history',
+						value: '/feed/history'
 					}, {
-						text: 'Montserrat',
-						value: 'Montserrat'
+						text: 'watchLater',
+						value: '/playlist?list=WL'
 					}, {
-						text: 'Noto Sans',
-						value: 'Noto+Sans'
+						text: 'search',
+						value: 'search'
 					}, {
-						text: 'Open Sans',
-						value: 'Open+Sans'
+						text: 'liked',
+						value: '/playlist?list=LL'
 					}, {
-						text: 'Oswald',
-						value: 'Oswald'
-					}, {
-						text: 'Poppins',
-						value: 'Poppins'
-					}, {
-						text: 'PT Sans',
-						value: 'PT+Sans'
-					}, {
-						text: 'Raleway',
-						value: 'Raleway'
-					}, {
-						text: 'Roboto Condensed',
-						value: 'Roboto+Condensed'
-					}, {
-						text: 'Roboto Mono',
-						value: 'Roboto+Mono'
-					}, {
-						text: 'Roboto Slab',
-						value: 'Roboto+Slab'
-					}, {
-						text: 'Source Sans Pro',
-						value: 'Source+Sans+Pro'
-					}]
-				}
-			},
+						text: 'library',
+						value: '/feed/library'
+					}],
+					tags: 'trending,subscriptions,history,watch,search'
+				},			
+				collapse_of_subscription_sections: {
+					component: 'switch',
+					text: 'collapseOfSubscriptionSections'
+				},
+				remove_related_search_results: {
+					component: 'switch',
+					text: 'removeRelatedSearchResults'
+				},	
+			},				
 			section_2: {
 				component: 'section',
 				variant: 'card',
@@ -1230,7 +1140,20 @@ extension.skeleton.main.layers.section.general = {
 				component: 'section',
 				variant: 'card',
 				title: 'thumbnails',
-
+				hide_animated_thumbnails: {
+					component: 'switch',
+					text: 'hideAnimatedThumbnails',
+					tags: 'preview'
+				},
+				popup_window_buttons: {
+					component: 'switch',
+					text: 'popupWindowButtons',
+				},
+				hide_thumbnail_overlay: {
+					component: 'switch',
+					text: 'hideThumbnailOverlay',
+					tags: 'preview'
+				},
 				thumbnails_quality: {
 					component: 'select',
 					text: 'thumbnailsQuality',
@@ -1254,17 +1177,22 @@ extension.skeleton.main.layers.section.general = {
 						value: 'maxresdefault'
 					}],
 					tags: 'preview quality'
-				},
-				hide_animated_thumbnails: {
-					component: 'switch',
-					text: 'hideAnimatedThumbnails',
-					tags: 'preview'
-				},
-				hide_thumbnail_overlay: {
-					component: 'switch',
-					text: 'hideThumbnailOverlay',
-					tags: 'preview'
 				}
+			},
+			section_4: {
+				component: 'section',
+				variant: 'card',
+				title: 'more',
+				add_scroll_to_top: {
+					component: 'switch',
+					text: 'addScrollToTop',
+					tags: 'up'
+				},
+				confirmation_before_closing: {
+					component: 'switch',
+					text: 'confirmationBeforeClosing',
+					tags: 'random prevent close exit'
+				},
 			}
 		}
 	},
