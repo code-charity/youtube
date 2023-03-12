@@ -90,7 +90,7 @@
         "message": "Auto-fullscreen"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Pause while not visible"
+        "message": "Auto-pause while I'm in another tab"
     },
     "autoplay": {
         "message": "Autoplay"
