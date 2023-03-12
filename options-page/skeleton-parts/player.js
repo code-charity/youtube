@@ -53,6 +53,19 @@ extension.skeleton.main.layers.section.player.on.click = {
 			value: true,
 			storage: 'player_autoplay'
 		},
+				autopause_when_switching_tabs: {
+			component: 'switch',
+			text: 'autopauseWhenSwitchingTabs',
+			storage: 'player_autopause_when_switching_tabs',
+				 on: {					click: function () {
+							if (satus.storage.get('player_autopause_when_switching_tabs')) {
+								if (satus.storage.get('only_one_player_instance_playing')) {
+									this.nextSibling.click();
+								}
+							}
+						}
+					}	
+		},
 				only_one_player_instance_playing: {
 			component: 'switch',
 			text: 'onlyOnePlayerInstancePlaying',
@@ -60,25 +73,12 @@ extension.skeleton.main.layers.section.player.on.click = {
 						click: function () {
 							if (satus.storage.get('only_one_player_instance_playing')) {
 								if (satus.storage.get('player_autopause_when_switching_tabs')) {
-									this.nextSibling.click();
+									this.previousSibling.click();
 								}
 							}
 						}
 					}			
 		},	
-		autopause_when_switching_tabs: {
-			component: 'switch',
-			text: 'autopauseWhenSwitchingTabs',
-			storage: 'player_autopause_when_switching_tabs',
-				 on: {					click: function () {
-							if (satus.storage.get('player_autopause_when_switching_tabs')) {
-								if (satus.storage.get('only_one_player_instance_playing')) {
-									this.previousSibling.click();
-								}
-							}
-						}
-					}	
-		},
 		ads: {
 			text: 'ads',
 			component: 'select',
