@@ -199,8 +199,8 @@ html[it-hide-more-button='true'] #menu yt-button-shape#button-shape {
 
 /* html[it-details-old-style=true]  */
 .ytd-watch-flexy #info-contents, .ytd-watch-flexy #meta-contents { display: block !important; } 
-#below.ytd-watch-flexy { top:-20px; }
-
+ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
+ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
 
 html[it-description=hidden] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
 html[it-description=hidden] div#action-panel-details,
