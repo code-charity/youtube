@@ -351,31 +351,24 @@ html[data-page-type=video][it-player-size='2160p'] {
 /*--------------------------------------------------------------
 # MAX WIDTH ON PAGE
 --------------------------------------------------------------*/
-
 html[data-page-type=video][it-player-size='max_width'] ytd-browse > ytd-two-column-browse-results-renderer {
 	width: auto !important;
 	max-width: auto !important;}
 
 html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #columns.ytd-watch-flexy, 
 html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #primary.ytd-watch-flexy {
-	max-width: 100% !important;  margin: 2px !important;  }
-	
-html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #secondary.ytd-watch-flexy {
-	margin-right: -12px; }	
+	max-width: 98.5% !important;  margin: 2px !important;  }
 
 html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #below {
-	margin-left: calc(5vh + 4vw - 35px) !important; } 
-
-html[data-page-type=video][it-player-size='max_width'] {
-	--it-player-size: 100vh;}
-
-html[data-page-type=video][it-player-size='max_width'] .ytp-fit-cover-video .html5-main-video {
-	object-fit: contain !important;}
+	margin-left: max(18px, calc(21vw - 230px)) !important;
+	margin-right:max(18px, calc(13vw - 130px)) !important;
+	max-width: 1600px !important;
+	} 
 
 html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #player {
-	margin-top: -24px !important; object-fit: contain !important;}
+	margin-top: -20px !important; object-fit: contain !important;}
 html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #player-container-outer.ytd-watch-flexy {
-	max-width: 100% !important;}
+	max-width: 98.5% !important;}
 	
 html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #player-container-inner.ytd-watch-flexy {
 	padding-top: calc(var(--ytd-watch-flexy-max-player-height) + 45px) !important;}
@@ -392,6 +385,12 @@ html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([full
 	height: 100% !important;
     justify-content: center !important}
 	
+html[data-page-type=video][it-player-size='max_width'] {
+	--it-player-size: 100vh;}
+
+html[data-page-type=video][it-player-size='max_width'] .ytp-fit-cover-video .html5-main-video {
+	object-fit: contain !important;}
+	
 /*--------------------------------------------------------------
 # FULL HEIGHT  "Full window"
 --------------------------------------------------------------*/
@@ -403,7 +402,7 @@ html[data-page-type=video][it-player-size='full_window'] .ytp-fit-cover-video .h
 	object-fit: contain !important;}
 
 /*--------------------------------------------------------------
-#  Max. Width /  "FIT TO WINDOW"  (needs update)
+#  "FIT TO WINDOW"  (needs update)
 --------------------------------------------------------------*/
 
 html[data-page-type=video][it-player-size='fit_to_window'] {
@@ -411,7 +410,7 @@ html[data-page-type=video][it-player-size='fit_to_window'] {
 
 html[data-page-type=video][it-player-size='fit_to_window'] .ytp-fit-cover-video .html5-main-video {
 	object-fit: contain !important;}
-
+	
 /*--------------------------------------------------------------
 # ELEMENTS
 --------------------------------------------------------------*/
