@@ -551,29 +551,3 @@ extension.features.thumbnailsQuality = function (anything) {
 		}
 	}
 };
-
-/*--------------------------------------------------------------
-# SHOW HEADER ON "SEARCH"
---------------------------------------------------------------*/
-
-extension.features.showHeaderOnSearch = function (event) {
-	var search = document.querySelector('input#search');
-	if (search) {
-
-		var headerPos = document.documentElement.getAttribute('it-header-position');
-		document.documentElement.setAttribute('it-header-position-original', headerPos);
-		if (headerPos !== 'normal' && headerPos !== 'static') {
-
-			search.addEventListener('focusin', function (e) {
-				document.documentElement.setAttribute('it-header-position', 'normal');
-			});
-
-			search.addEventListener('focusout', function (e) {
-				var origHeaderPos = document.documentElement.getAttribute('it-header-position-original');
-				origHeaderPos === 'null' ? 'normal' : origHeaderPos;
-				document.documentElement.setAttribute('it-header-position', origHeaderPos);
-			});
-
-		}
-	}
-};
