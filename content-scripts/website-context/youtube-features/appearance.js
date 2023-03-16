@@ -152,17 +152,16 @@ ImprovedTube.playerRemainingDuration = function () {
 /*------------------------------------------------------------------------------
 4.2.1.6 Comments position to sidebar
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebarPosition=()=>{
-    console.log("from new function")
-    if(ImprovedTube.storage.comments_sidebar_position){ 
+ImprovedTube.commentsSidebarPosition=()=>{ if(ImprovedTube.storage.comments_sidebar_position){ 
         document.querySelector("#columns").appendChild(document.querySelector("#comments"),function() {
-            console.log("comments and its children have been appended to columns")})
+			})
         document.querySelector("#primary-inner").appendChild(document.querySelector("#secondary"),function() {
-            console.log("secondary and its children have been appended to primary-inner")})
+            // console.log("secondary and its children have been appended to primary-inner")
+			})
     }else{
         document.querySelector("#columns").appendChild(document.querySelector("#secondary"))
         document.querySelector("#below").appendChild(document.querySelector("#comments"))
-    }
+   } 
 }
 /*------------------------------------------------------------------------------
 4.2.2 SIDEBAR
@@ -355,4 +354,3 @@ ImprovedTube.dayOfWeek = function () {
         element.remove();
     }
 };
-

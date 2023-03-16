@@ -558,7 +558,6 @@ ImprovedTube.shortcutGoToSearchBox = function () {
 	}
 };
 
-
 /*------------------------------------------------------------------------------
 4.7.20 ACTIVATE FULLSCREEN
 ------------------------------------------------------------------------------*/
@@ -625,17 +624,36 @@ ImprovedTube.shortcutSubscribe = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutDarkTheme = function () {
+	pref = '';
+	cookieValue = '400';
+	if (document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)) {
+		pref = document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)[1];
+	}	
+	
+	
 	if (document.documentElement.hasAttribute('dark')) {
+		cookieValue = '80000';
 		document.documentElement.removeAttribute('dark');
 		document.querySelector('ytd-masthead').removeAttribute('dark');
 		document.documentElement.removeAttribute('it-themes');
+		document.getElementById("cinematics").style.visibility = 'hidden';
+
 	} else {
 		document.documentElement.setAttribute('dark', '');
 		document.querySelector('ytd-masthead').setAttribute('dark', '');
 		document.documentElement.setAttribute('it-themes', 'true');
+		document.getElementById("cinematics").style.visibility = 'visibile';
+	    document.getElementById("cinematics").style.mixBlendMode = 'lighten';
 	}
+	
+	
+	if (pref.match(/(f6=)[^\&]+/)){
+		cookieValue = pref.replace(/(f6=)[^\&]+/, cookieValue);
+	} else {
+		cookieValue = pref + "&f6=" + cookieValue;
+	}
+	ImprovedTube.setCookie('PREF', cookieValue);
 };
-
 
 /*------------------------------------------------------------------------------
 4.7.26 CUSTOM MINI PLAYER
