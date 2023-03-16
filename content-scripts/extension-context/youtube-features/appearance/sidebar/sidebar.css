@@ -72,27 +72,32 @@ html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-
 # NO PAGE MARGIN
 --------------------------------------------------------------*/
 
-html[data-page-type=video][it-no-page-margin='true'] ytd-browse > ytd-two-column-browse-results-renderer {
-	width: auto !important;
-	max-width: auto !important; }
-
 html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #columns.ytd-watch-flexy, 
 html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #primary.ytd-watch-flexy {
-	max-width: 98.5% !important; margin: 2px !important;  }
+	max-width: 99% !important; margin: 1px !important;  }
 
-html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #secondary.ytd-watch-flexy {
-	margin-right: calc (-12px - 0.4vw -0.4vh) !important;}
-
-html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #below {
-	margin-left: calc(4vh + 3vw - 35px) !important;} 
-
-html[data-page-type=video][it-player-size='max_width'] .ytp-fit-cover-video .html5-main-video {
-	object-fit: contain !important;}
-
-html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #player {
-	margin-top: -12px !important; object-fit: contain !important;}
-html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #player-container-outer.ytd-watch-flexy {
-	max-width: 98.5% !important;}
+@media screen and (max-width: 2300px) and (min-width: 1250px) {	
+	html[data-page-type=video][it-no-page-margin='true'] ytd-browse > ytd-two-column-browse-results-renderer {
+	width: auto !important;
+	max-width: auto !important; }
+	html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #secondary.ytd-watch-flexy {
+	margin-right: calc (-12px - 0.4vw - 0.4vh) !important;}
+	html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #below {
+		margin-left: max(18px, calc(21vw - 230px)) !important;
+	    margin-right:max(18px, calc(13vw - 130px)) !important;
+		max-width: 1280px !important;	} 
+}
+		
+@media screen and (min-width: 2301px) {	
+	html[data-page-type=video][it-no-page-margin='true'][it-sidebar-left='true'] #secondary
+	{left: 15px !important;}
+	html[data-page-type=video][it-no-page-margin='true']:not([it-player-size='max_width']) #secondary
+	{position:absolute !important;  right: 15px; }
+	html[data-page-type=video][it-no-page-margin='true']:not([it-player-size='1080p']):not([it-player-size='1440p']):not([it-player-size='2160p']):not([it-player-size='custom']):not([it-player-size='max_width']) ytd-watch-flexy:not([fullscreen]) #primary.ytd-watch-flexy {
+	max-width: 1280px !important; }
+	html[data-page-type=video][it-no-page-margin='true']:not([it-player-size='1080p']):not([it-player-size='1440p']):not([it-player-size='2160p']):not([it-player-size='custom']):not([it-player-size='max_width']) ytd-watch-flexy:not([fullscreen]) #below {
+	margin-left: 1px !important;}
+}	
 
 	
 /*--------------------------------------------------------------
@@ -107,7 +112,6 @@ html[it-sidebar-left='true'] #head>#upnext
 
 html[it-sidebar-left='true'] #columns>#secondary {margin-left: calc(0.5vw + 4px); margin-right:0.2vw !important;}
 
-
 /*--------------------------------------------------------------
 # MOVE THUMBNAILS RIGHT
 --------------------------------------------------------------*/
@@ -115,7 +119,6 @@ html[it-sidebar-left='true'] #columns>#secondary {margin-left: calc(0.5vw + 4px)
 html[it-thumbnails-right='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail {
 	order: 7 !important;
 }
-
 
 /*--------------------------------------------------------------
 # HIDE THUMBNAILS
@@ -126,7 +129,6 @@ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-pl
 	display: none !important;
 }
 
-
 /*--------------------------------------------------------------
 # LIVECHAT
 --------------------------------------------------------------*/
@@ -134,7 +136,6 @@ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-pl
 html[it-livechat='hidden'] ytd-live-chat-frame#chat {
 	display: none !important;
 }
-
 
 /*--------------------------------------------------------------
 # HIDE PLAYLIST
