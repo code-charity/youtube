@@ -135,13 +135,13 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
                         text: "doNotChange",
                         value: "do_not_change",
                     },
-                    {
-                        text: "fullWindow",
-                        value: "full_window",
-                    },
 					{
                         text: "Max. width within the page",
                         value: "max_width",
+                    },
+					{
+                        text: "fullWindow",
+                        value: "full_window",
                     },
                     {
                         text: "fitToWindow",
@@ -425,10 +425,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
                 text: "hideScrollForDetails",
                 tags: "remove,hide",
             },
-            comments_sidebar_position: {
-                component: "switch",
-                text: "commentsSidebarPosition",
-            },
         },
     },
 };
@@ -457,6 +453,14 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
                     {
                         text: "expanded",
                         value: "expanded",
+                    },
+					{
+                        text: "Classic",
+                        value: "classic",
+                    },
+					{
+                        text: "Classic expanded",
+                        value: "classic_expanded",
                     },
                     {
                         text: "hidden",
@@ -719,6 +723,10 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
                         value: "hidden",
                     },
                 ],
+            },
+				comments_sidebar_position: {
+                component: "switch",
+                text: "SidebarPosition",
             },
 			squared_user_images: {
 				component: 'switch',

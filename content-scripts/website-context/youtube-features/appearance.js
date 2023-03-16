@@ -308,10 +308,11 @@ ImprovedTube.channelVideosCount = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.description = function (el) {
-    if (this.storage.description === "expanded") {
-        if(el){el.click();} else {document.querySelector("#more").click();}
-		}
-	else if (this.storage.description === "normal") {document.querySelector("#less").click();}
+    if (this.storage.description === "classic_expanded" || this.storage.description === "expanded" ) {
+        if(el){el.click();} else {document.querySelector("#more").click() || document.querySelector("#expand").click() ;}
+		ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();}
+	else if (this.storage.description === "normal") {document.querySelector("#less").click() || document.querySelector("#collapse").click() ;
+	ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();}
 };
 
 /*------------------------------------------------------------------------------
@@ -354,3 +355,4 @@ ImprovedTube.dayOfWeek = function () {
         element.remove();
     }
 };
+
