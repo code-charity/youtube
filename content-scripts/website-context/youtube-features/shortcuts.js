@@ -532,18 +532,31 @@ ImprovedTube.shortcutResetPlaybackSpeed = function () {
 	}
 };
 
-
 /*------------------------------------------------------------------------------
 4.7.19 GO TO SEARCH BOX
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutGoToSearchBox = function () {
 	var search = document.querySelector('input#search');
-
 	if (search) {
 		search.focus();
+		//SHOW HEADER ON "SEARCH"
+	var headerPos = document.documentElement.getAttribute('it-header-position');
+    if (headerPos){if (headerPos !== 'normal' && headerPos !== 'static') {
+			document.documentElement.setAttribute('it-header-position-original', headerPos);
+			
+
+			search.addEventListener('focusin', function (e) {
+				document.documentElement.setAttribute('it-header-position', 'normal');
+			});
+
+			search.addEventListener('focusout', function (e) {
+				var origHeaderPos = document.documentElement.getAttribute('it-header-position-original');			
+				document.documentElement.setAttribute('it-header-position', origHeaderPos);
+			});
+		}}	
 	}
-};
+}
 
 
 /*------------------------------------------------------------------------------

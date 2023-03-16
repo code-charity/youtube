@@ -29,7 +29,7 @@ function bodyReady() {
 	if (extension.ready && extension.domReady) {
 		extension.features.addScrollToTop();
 		extension.features.font();
-		extension.features.showHeaderOnSearch();
+//		extension.features.showHeaderOnSearch();
 	}
 }
 
