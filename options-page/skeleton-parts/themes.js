@@ -68,7 +68,7 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 					section: {
 						component: 'section',
 						variant: 'card',
-
+						group: 'theme',
 						theme_primary_color: {
 							component: 'color-picker',
 							text: 'primaryColor',

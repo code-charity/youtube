@@ -31,6 +31,13 @@
 /*------------------------------------------------------------------------------
 3.3 THEMES
 ------------------------------------------------------------------------------*/
+/*update*/
+[it-theme=block] #cinematics, 
+[it-theme=desert] #cinematics {display:none !important}
+[it-theme=dawn] #cinematics,
+[it-theme=sunset] #cinematics,
+[it-theme=night] #cinematics { mix-blend-mode: lighten !important}
+[it-theme=plain] #cinematics { filter:invert(100%) !important; mix-blend-mode: darken !important}
 
 /*BLACK*/
 
@@ -539,7 +546,7 @@ html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=sy
 [it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
 [data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark] ytd-masthead,
 [data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light] ytd-masthead {
-	background: #bee3db !important;
+	background: #ced3cb !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
 	--yt-swatch-text: #555 !important;

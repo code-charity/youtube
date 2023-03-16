@@ -17,14 +17,14 @@ extension.attributes = function () {
 		title_version: true,
 		it_general: true,
 		it_appearance: true,
-		it_themes: false,
+		it_themes: true,
 		it_player: true,
 		it_playlist: true,
 		it_channel: true,
 		it_shortcuts: true,
 		it_blacklist: true,
 		it_analyzer: true,
-		layer_animation_scale: true
+		layer_animation_scale: false
 	};
 
 	for (var attribute in attributes) {
