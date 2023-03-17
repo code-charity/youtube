@@ -489,13 +489,17 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
                                     value: "remove_labels",
                                 },
                                 {
-                                    text: "Faint/transparent",
-                                    value: "faint_transparent",
+                                    text: "Faint/half-transparent",
+                                    value: "half_transparent",
                                 },
 								 {
                                     text: "Remove",
                                     value: "remove",
                                 },
+								 {
+                                    text: "Transparent background",
+                                    value: "transparent_background",
+                                },											
 							    {
                                     text: "Hide names",
                                     value: "hide_labels",
