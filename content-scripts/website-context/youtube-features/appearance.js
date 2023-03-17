@@ -153,14 +153,12 @@ ImprovedTube.playerRemainingDuration = function () {
 4.2.1.6 Comments position to sidebar
 ------------------------------------------------------------------------------*/
 ImprovedTube.commentsSidebarPosition=()=>{ if(ImprovedTube.storage.comments_sidebar_position){ 
-        document.querySelector("#columns").appendChild(document.querySelector("#comments"),function() {
-			})
-        document.querySelector("#primary-inner").appendChild(document.querySelector("#secondary"),function() {
-            // console.log("secondary and its children have been appended to primary-inner")
-			})
+      document.querySelector("#columns").appendChild(document.querySelector("#comments"));
+      document.querySelector("#primary-inner").appendChild(document.querySelector("#secondary"));
+		// console.log("secondary and its children have been appended to primary-inner")	
     }else{
-        document.querySelector("#columns").appendChild(document.querySelector("#secondary"))
-        document.querySelector("#below").appendChild(document.querySelector("#comments"))
+      document.querySelector("#columns").appendChild(document.querySelector("#secondary"));
+      document.querySelector("#below").appendChild(document.querySelector("#comments"));
    } 
 }
 /*------------------------------------------------------------------------------
