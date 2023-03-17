@@ -303,7 +303,7 @@
         "message": "Dislike"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "No cambiar"
@@ -384,7 +384,7 @@
         "message": "Forzar velocidad de reproducción"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "Forzar modo teatro"
@@ -453,7 +453,7 @@
         "message": "Ocultar fecha"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "Ocultar detalles"

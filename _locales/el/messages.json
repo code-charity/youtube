@@ -138,7 +138,7 @@
         "message": "Block H.264"
     },
     "blockMusic": {
-        "message": "Block music"
+        "message": "Skip ads while I play music"
     },
     "blockVp8": {
         "message": "Block VP8"
@@ -267,7 +267,7 @@
         "message": "Προεπιλεγμένη καρτέλα καναλιού"
     },
     "defaultContentCountry": {
-        "message": "Default content country"
+        "message": "Country (virtual travel!)"
     },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
@@ -306,7 +306,7 @@
         "message": "Δε μου αρέσει"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "Να μην αλλάξει"
@@ -378,7 +378,7 @@
         "message": "Υποσέλιδο"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "Avoid HDR, keep SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forced play video from the beginning"
@@ -387,7 +387,7 @@
         "message": "Υποχρεωτική ταχύτητα αναπαραγωγής"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "Υποχρεωτική λειτουργία κινηματογράφου"
@@ -462,7 +462,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "Απόκρυψε τις λεπτομέρειες"
@@ -645,10 +645,10 @@
         "message": "Most viewed channels"
     },
     "moveSidebarLeft": {
-        "message": "Move sidebar left"
+        "message": "To the left!"
     },
     "moveThumbnailsRight": {
-        "message": "Move thumbnails right"
+        "message": "Thumbnails to the right!"
     },
     "myColors": {
         "message": "Τα χρώματά μου"

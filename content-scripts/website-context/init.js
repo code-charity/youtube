@@ -42,7 +42,7 @@ new MutationObserver(function (mutationList) {
 
 ImprovedTube.init = function () {
 	ImprovedTube.pageType();
-	ImprovedTube.themes();
+	
 
 	var yt_player_updated = function () {
 		document.dispatchEvent(new CustomEvent('improvedtube-player-loaded'));
@@ -64,12 +64,13 @@ ImprovedTube.init = function () {
 
 	if (window.matchMedia) {
 		document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	}
+	} ImprovedTube.themes();
 };
 
 document.addEventListener('yt-navigate-finish', function () {
 	ImprovedTube.pageType();
-
+	ImprovedTube.commentsSidebarPosition();
+	
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();
 		ImprovedTube.initPlayer();

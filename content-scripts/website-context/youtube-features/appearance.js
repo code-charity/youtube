@@ -150,16 +150,36 @@ ImprovedTube.playerRemainingDuration = function () {
 };
 
 /*------------------------------------------------------------------------------
+4.2.1.6 Comments position to sidebar
+------------------------------------------------------------------------------*/
+ImprovedTube.commentsSidebarPosition=()=>{ if(ImprovedTube.storage.comments_sidebar_position){ 
+      document.querySelector("#columns").appendChild(document.querySelector("#comments"));
+      document.querySelector("#primary-inner").appendChild(document.querySelector("#secondary"));
+		// console.log("secondary and its children have been appended to primary-inner")	
+    }else{
+      document.querySelector("#columns").appendChild(document.querySelector("#secondary"));
+      document.querySelector("#below").appendChild(document.querySelector("#comments"));
+   } 
+}
+/*------------------------------------------------------------------------------
 4.2.2 SIDEBAR
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
 4.2.2.1 LIVECHAT
 ------------------------------------------------------------------------------*/
-
+let isCollapsed = false
 ImprovedTube.livechat = function () {
     if (this.storage.livechat === "collapsed") {
-        ImprovedTube.elements.livechat.button.click();
+        if(ImprovedTube.elements.livechat && !isCollapsed){
+            ImprovedTube.elements.livechat.button.click();
+            isCollapsed = true 
+        }
+    }else{
+        if(isCollapsed){
+            ImprovedTube.elements.livechat.button.click();
+            isCollapsed = false
+        }
     }
 };
 
@@ -285,9 +305,11 @@ ImprovedTube.channelVideosCount = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.description = function (el) {
-    if (this.storage.description === "expanded") {
-        el.click();
-    }
+    if (this.storage.description === "classic_expanded" || this.storage.description === "expanded" ) {
+        if(el){el.click();} else {document.querySelector("#more").click() || document.querySelector("#expand").click() ;}
+		ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();}
+	else if (this.storage.description === "normal") {document.querySelector("#less").click() || document.querySelector("#collapse").click() ;
+	ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();}
 };
 
 /*------------------------------------------------------------------------------

@@ -88,9 +88,9 @@ ImprovedTube.ytElementsHandler = function (node) {
 		}
 
 		ImprovedTube.elements.subscribe_button = node;
-	} else if (id === 'chat') {
-		this.elements.livechat.button = node.querySelector('ytd-toggle-button-renderer');
-
+	} else if (id === 'show-hide-button') {
+		this.elements.livechat.button = document.querySelector('[aria-label="Hide chat"]');
+		// console.log(document.querySelector('[aria-label="Hide chat"]'))
 		this.livechat();
 	} else if (name === 'YTD-MASTHEAD') {
 		if (!this.elements.masthead) {
@@ -206,7 +206,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 		}	   
         //old
 	}else if (name === 'TP-YT-PAPER-BUTTON') {
-        if (document.documentElement.dataset.pageType === 'video' && id === 'more' && node.classList.contains('ytd-expander')) {
+        if (document.documentElement.dataset.pageType === 'video' && id === 'more' && node.classList.contains('ytd-expander') || (node.parentNode.parentNode !== null && node.parentNode.parentNode.id === 'container')) {
             setTimeout(function () {
                	 	ImprovedTube.description(node);
             }, 750);
@@ -215,13 +215,13 @@ ImprovedTube.ytElementsHandler = function (node) {
 };
 
 ImprovedTube.pageType = function () {
-	if (/^\/watch\?/.test(location.pathname)) {
+	if (/\/watch\?/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'video';
 	} else if (location.pathname === '/') {
 		document.documentElement.dataset.pageType = 'home';
-	} else if (/^\/subscriptions\?/.test(location.pathname)) {
+	} else if (/\/subscriptions\?/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'subscriptions';
-	} else if (/^\/@|((channel|user|c)\/)[^/]+(?!\/videos)/.test(location.pathname)) {
+	} else if (/\/@|((channel|user|c)\/)[^/]+(?!\/videos)/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'channel';
 	} else {
 		document.documentElement.dataset.pageType = 'other';

@@ -303,7 +303,7 @@
         "message": "Dislike"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "වෙනස් කරන්න එපා"
@@ -351,7 +351,7 @@
         "message": "Filters"
     },
     "fitToWindow": {
-        "message": "Fit to window"
+        "message": "Old alternative ('Fit to window')"
     },
     "flash": {
         "message": "Flash"
@@ -375,16 +375,16 @@
         "message": "Footer එක"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "Avoid HDR, keep SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "වීඩියෝව මුල සිට බලහත්කාරයෙන් play කරන්න"
     },
     "forcedPlaybackSpeed": {
-        "message": "Forced playback speed"
+        "message": "Forced playback speed, speed-watching"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "Forced theater mode"
@@ -396,7 +396,7 @@
         "message": "දෝෂයක් හම්බුනාද ඔයාට?"
     },
     "fullWindow": {
-        "message": "Full window"
+        "message": "Full height"
     },
     "general": {
         "message": "සාමාන්‍ය"
@@ -459,7 +459,7 @@
         "message": "Date එක හංගන්න"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "Details හංගන්න"
@@ -696,7 +696,7 @@
         "message": "Only active on YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Only one player instance playing"
+        "message": "Pause while I watch a 2nd video"
     },
     "openPopupPlayer": {
         "message": "video හෝ playlist new window එකකින් open කරන්න"

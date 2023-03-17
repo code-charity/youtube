@@ -138,7 +138,7 @@
         "message": "Block H.264"
     },
     "blockMusic": {
-        "message": "Block music"
+        "message": "Skip ads while I play music"
     },
     "blockVp8": {
         "message": "Block VP8"
@@ -306,7 +306,7 @@
         "message": "অপছন্দ"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "পরিবর্তন করবেন না"
@@ -378,7 +378,7 @@
         "message": "পাদচরণ"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "Avoid HDR, keep SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "জোর করে শুরু থেকে ভিডিও চালান"
@@ -387,7 +387,7 @@
         "message": "জোর করে প্লেব্যাক গতি"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "জোর করে থিয়েটার মোড"
@@ -462,7 +462,7 @@
         "message": "তারিখ লুকান"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "আড়াল বিস্তারিত"
@@ -645,10 +645,10 @@
         "message": "Most viewed channels"
     },
     "moveSidebarLeft": {
-        "message": "Move sidebar left"
+        "message": "To the left!"
     },
     "moveThumbnailsRight": {
-        "message": "Move thumbnails right"
+        "message": "Thumbnails to the right!"
     },
     "myColors": {
         "message": "আমার রং"

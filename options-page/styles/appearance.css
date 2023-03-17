@@ -102,9 +102,9 @@
 	left: 16px;
 
 	width: calc(70% - 32px);
-	height: 64px;
+	height: 32px;
 	min-height: auto;
-}
+} 
 
 .satus-section--appearance .satus-button--sidebar {
 	top: 64px;

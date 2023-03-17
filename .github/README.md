@@ -14,27 +14,24 @@
 	</tr>
 	<tr>
 		<td><a href="https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd">Chrome Web Store</a></td>
-		<td>4.0.1.17</td>
+		<td>4.2</td>
 	</tr>
 	<tr>
 		<td><a href="https://microsoftedge.microsoft.com/addons/detail/improve-youtube-video-/knbckijjjbmkjiagojjneoplbjilfllc">Microsoft Edge Addons</a></td>
-		<td>3.800</td>
+		<td>4.2</td>
 	</tr>
 	<tr>
 		<td><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">Firefox Add-ons</a></td>
-		<td>4.0.1.17</td>
+		<td>4.2</td>
 	</tr>
 	<tr>
 		<td><a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/">Opera Add-ons</a></td>
-		<td>3.920</td>
+		<td>4.2</td>
 	</tr>
 	<tr>
 		<td><a href="https://developer.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa">Whale Store</a></td>
-		<td>3.800</td>
-	<tr>
-		<td> or <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Manual-installation">install manually</a></td>
-		<td><a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip">latest</a></td>
-	</tr></table>
+		<td>4.2</td>
+	</tr></table> or <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Manual-installation">install manually</a> : <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip">latest</a>
 
 <h2>Contributing</h2>
 For more info on how to contribute please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
@@ -59,8 +56,8 @@ For more info on how to contribute please see the <a href="https://github.com/co
 For some quick editing,  text is at the start of lines & html does not
        * * * * * * * * * *  * * * * * * * * * * --> 
 <h1 align="center">
-«Improve YouTube!»  &nbsp;&nbsp;</h1><p align="center"><b><code>
-/ImprovedTube/</code></b> 
+«Improve YouTube!»  &nbsp;&nbsp;</h1><p align="center"><b>
+<code>/ImprovedTube/</code></b> 
 is a lightweight & powerful extension to enrich your experience & enable your choice.</p>
  <p align="center">
   <a href="https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd"><img src="https://img.shields.io/badge/%20-Chrome-lightgrey?logo=googlechrome&logoColor=white"> </a
@@ -68,7 +65,7 @@ is a lightweight & powerful extension to enrich your experience & enable your ch
 	<a href="https://microsoftedge.microsoft.com/addons/detail/improve-youtube-video-/knbckijjjbmkjiagojjneoplbjilfllc"><img src="https://img.shields.io/badge/Edge-teal?logo=microsoftedge&logoColor=white"></a>
 	<a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/"><img src="https://img.shields.io/badge/%20-Opera-lightgrey?logo=opera&logoColor=white"></a>
 	<a href="https://developer.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa"><img src="https://img.shields.io/badge/%20-Whale-white?&logoColor=white&logo=data:image/png;base64,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"></a>
-<a href="https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753"><img src="https://img.shields.io/badge/%20-Safari-lightgrey?logo=safari&logoColor=white"></a></p>
+<a href="https://apps.apple.com/us/app/improved-tube/id1672777754"><img src="https://img.shields.io/badge/%20-Safari-white?logo=safari&logoColor=black"></a></p>
 
 <p align="center">
   <a href="https://github.com/code4charity/YouTube-Extension/issues/new">[Report a bug]</a>

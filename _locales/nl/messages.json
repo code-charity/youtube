@@ -306,7 +306,7 @@
         "message": "Niet leuk vinden"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "Niet aanpassen"
@@ -387,7 +387,7 @@
         "message": "Forceer afspeelsnelheid"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "Forceer Theatermodus"
@@ -462,7 +462,7 @@
         "message": "Verberg datum"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "Verberg details"

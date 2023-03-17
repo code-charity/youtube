@@ -51,7 +51,18 @@ html[it-hide-date='true'] ytd-watch-metadata #info>span:last-child {
 	display: none !important;
 }
 
+ /*--------------------------------------------------------------
+YouTube's detail buttons
+--------------------------------------------------------------*/
 
+html[it-youtubesDetailButtons='remove_labels'] #menu ytd-button-renderer div:nth-child(2), 
+html[it-youtubesDetailButtons='remove_labels'] #menu ytd-button-renderer .cbox 
+{display:none;}
+html[it-youtubesDetailButtons='hide_labels']  #menu ytd-button-renderer div:nth-child(2) {visibility:hidden}
+html[it-youtubesDetailButtons='faint_transparent'] #menu button {opacity:0.5;}
+html[it-youtubesDetailButtons='remove'] #menu button {display:none;}
+html[it-youtubesDetailButtons='remove_icons']  #menu button div:first-child {display:none;}
+ 
  /*--------------------------------------------------------------
 HIDE LIKE BUTTON
 --------------------------------------------------------------*/
@@ -187,19 +198,30 @@ html[it-hide-more-button='true'] #menu yt-button-shape#button-shape {
 --------------------------------------------------------------*/
 
 /* html[it-details-old-style=true]  */
-.ytd-watch-flexy #info-contents, .ytd-watch-flexy #meta-contents { display: block !important; } 
-#below.ytd-watch-flexy { top:-20px; }
 
+html[it-description='normal']  { }
+html[it-description='expanded'] { } 
 
-html[it-description=hidden] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
-html[it-description=hidden] div#action-panel-details,
-html[it-description=hidden] ytd-expander.ytd-video-secondary-info-renderer,
-html[it-description=hidden] #description-inline-expander {
+html[it-description='classic'] .ytd-watch-flexy #info-contents, 
+html[it-description='classic'] .ytd-watch-flexy #meta-contents { display: block !important; } 
+html[it-description='classic'] #below.ytd-watch-flexy { top:-20px; }
+html[it-description='classic'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
+html[it-description='classic'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
+
+html[it-description='classic_expanded'] .ytd-watch-flexy #info-contents,
+html[it-description='classic_expanded'] .ytd-watch-flexy #meta-contents { display: block !important; } 
+html[it-description='classic_expanded'] #below.ytd-watch-flexy { top:-20px; }
+html[it-description='classic_expanded'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
+html[it-description='classic_expanded'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
+
+html[it-description='hidden'] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
+html[it-description='hidden'] div#action-panel-details,
+html[it-description='hidden'] ytd-expander.ytd-video-secondary-info-renderer,
+html[it-description='hidden'] #description-inline-expander {
 	display: none !important; 
 }
-
-div.style-scope.ytd-watch-flexy + ytd-watch-metadata  { display: none !important;}
-
+html[it-description='classic'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata  { display: none !important;}
+html[it-description='classic_expanded'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata  { display: none !important;}
 
 /*--------------------------------------------------------------
 # HOW LONG AGO THE VIDEO WAS UPLOADED
@@ -231,7 +253,6 @@ div.style-scope.ytd-watch-flexy + ytd-watch-metadata  { display: none !important
 # SHOW DISLIKE RED COLOR
 --------------------------------------------------------------*/
 
-html[it-red-dislike-button='true'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(2),
-html[it-red-dislike-button='true'] #info .top-level-buttons>ytd-toggle-button-renderer:nth-child(2) yt-formatted-string {
-	color: #fc0000 !important;
+html[it-red-dislike-button='true'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer *[aria-pressed='true'] yt-icon {
+	color: #f02200 !important;
 }

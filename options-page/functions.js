@@ -24,7 +24,7 @@ extension.attributes = function () {
 		it_shortcuts: true,
 		it_blacklist: true,
 		it_analyzer: true,
-		layer_animation_scale: true
+		layer_animation_scale: false
 	};
 
 	for (var attribute in attributes) {

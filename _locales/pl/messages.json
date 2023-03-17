@@ -306,7 +306,7 @@
         "message": "Nie podoba mi się"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "Nie zmieniaj"
@@ -387,7 +387,7 @@
         "message": "Wymuś prędkość odtwarzania"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "Wymuś tryb kinowy"

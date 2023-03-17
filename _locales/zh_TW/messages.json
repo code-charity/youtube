@@ -306,7 +306,7 @@
         "message": "不喜歡"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "不要改變"
@@ -387,7 +387,7 @@
         "message": "強制播放速度"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "強制劇院模式"

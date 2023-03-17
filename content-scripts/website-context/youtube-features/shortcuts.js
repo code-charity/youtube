@@ -133,10 +133,15 @@ ImprovedTube.shortcuts = function () {
 	});
 
 	document.addEventListener('improvedtube-player-loaded', function () {
-		ImprovedTube.elements.player.parentNode.addEventListener('mouseover', function () {
+	try{ImprovedTube.elements.player.parentNode.addEventListener('mouseover', function () {
 			mouse.player = true;
 			mouse.wheel = 0;
-		}, true);
+	}, true);} catch(err){console.log(err);} 
+	finally { setTimeout( ImprovedTube.elements.player.parentNode.addEventListener('mouseover', function () {
+			mouse.player = true;
+			mouse.wheel = 0;
+	}, true), 300);
+	}
 
 		ImprovedTube.elements.player.parentNode.addEventListener('mouseout', function () {
 			mouse.player = false;
@@ -532,19 +537,31 @@ ImprovedTube.shortcutResetPlaybackSpeed = function () {
 	}
 };
 
-
 /*------------------------------------------------------------------------------
 4.7.19 GO TO SEARCH BOX
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutGoToSearchBox = function () {
 	var search = document.querySelector('input#search');
-
 	if (search) {
 		search.focus();
+		//SHOW HEADER ON "SEARCH"
+	var headerPos = document.documentElement.getAttribute('it-header-position');
+    if (headerPos){if (headerPos !== 'normal' && headerPos !== 'static') {
+			document.documentElement.setAttribute('it-header-position-original', headerPos);
+			
+
+			search.addEventListener('focusin', function (e) {
+				document.documentElement.setAttribute('it-header-position', 'normal');
+			});
+
+			search.addEventListener('focusout', function (e) {
+				var origHeaderPos = document.documentElement.getAttribute('it-header-position-original');			
+				document.documentElement.setAttribute('it-header-position', origHeaderPos);
+			});
+		}}	
 	}
 };
-
 
 /*------------------------------------------------------------------------------
 4.7.20 ACTIVATE FULLSCREEN
@@ -616,17 +633,25 @@ ImprovedTube.shortcutDarkTheme = function () {
 	cookieValue = '400';
 	if (document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)) {
 		pref = document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)[1];
-	}
-
+	}	
+	
+	
 	if (document.documentElement.hasAttribute('dark')) {
 		cookieValue = '80000';
 		document.documentElement.removeAttribute('dark');
-		document.documentElement.removeAttribute('it-theme');
+		document.querySelector('ytd-masthead').removeAttribute('dark');
+		document.documentElement.removeAttribute('it-themes');
+		document.getElementById("cinematics").style.visibility = 'hidden';
+
 	} else {
 		document.documentElement.setAttribute('dark', '');
-		document.documentElement.setAttribute('it-theme', 'true');
+		document.querySelector('ytd-masthead').setAttribute('dark', '');
+		document.documentElement.setAttribute('it-themes', 'true');
+		document.getElementById("cinematics").style.visibility = 'visibile';
+	    document.getElementById("cinematics").style.mixBlendMode = 'lighten';
 	}
-
+	
+	
 	if (pref.match(/(f6=)[^\&]+/)){
 		cookieValue = pref.replace(/(f6=)[^\&]+/, cookieValue);
 	} else {
@@ -634,7 +659,6 @@ ImprovedTube.shortcutDarkTheme = function () {
 	}
 	ImprovedTube.setCookie('PREF', cookieValue);
 };
-
 
 /*------------------------------------------------------------------------------
 4.7.26 CUSTOM MINI PLAYER

@@ -53,6 +53,51 @@ extension.skeleton.main.layers.section.player.on.click = {
 			value: true,
 			storage: 'player_autoplay'
 		},
+				autopause_when_switching_tabs: {
+			component: 'switch',
+			text: 'autopauseWhenSwitchingTabs',
+			storage: 'player_autopause_when_switching_tabs',
+				 on: {					click: function () {
+							if (satus.storage.get('player_autopause_when_switching_tabs')) {
+								if (satus.storage.get('only_one_player_instance_playing')) {
+									this.nextSibling.click();
+								}
+							}
+						}
+					}	
+		},
+				only_one_player_instance_playing: {
+			component: 'switch',
+			text: 'onlyOnePlayerInstancePlaying',
+			 on: {
+						click: function () {
+							if (satus.storage.get('only_one_player_instance_playing')) {
+								if (satus.storage.get('player_autopause_when_switching_tabs')) {
+									this.previousSibling.click();
+								}
+							}
+						}
+					}			
+		},	
+		ads: {
+			text: 'ads',
+			component: 'select',
+			options: [{
+				text: 'onAllVideos',
+				value: 'all_videos',
+				default: 'true'
+			}, {
+				text: 'blockAll',
+				value: 'block_all'
+			}, {
+				text: 'blockMusic',
+				value: 'block_music'
+			}, {
+				text: 'onSubscribedChannels',
+				value: 'subscribed_channels'
+			}],
+			storage: 'player_ads'
+		},
 		quality: {
 			component: 'select',
 			text: 'quality',
@@ -104,6 +149,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			max: 400,
 			value: 100
 		},
+		player_loudness_normalization: {
+			component: 'switch',
+			text: 'loudnessNormalization',
+			value: true
+		},
 		player_forced_playback_speed: {
 			component: 'switch',
 			text: 'forcedPlaybackSpeed',
@@ -123,6 +173,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			max: 8,
 			step: .05
 		},
+
 		forced_play_video_from_the_beginning: {
 			component: 'switch',
 			text: 'forcedPlayVideoFromTheBeginning'
@@ -131,12 +182,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'autoFullscreen',
 			storage: 'player_autofullscreen'
-		},
-		autopause_when_switching_tabs: {
-			component: 'switch',
-			text: 'autopauseWhenSwitchingTabs',
-			storage: 'player_autopause_when_switching_tabs'
-		},
+		},		
 		subtitles: {
 			component: 'button',
 			text: 'subtitles',
@@ -896,6 +942,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 					value: 'av1-vp8-vp9'
 				}
 			]
+		
 		},
 		player_60fps: {
 			component: 'switch',
@@ -908,30 +955,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			value: false,
 			storage: 'player_SDR'
 		},
-		player_loudness_normalization: {
-			component: 'switch',
-			text: 'loudnessNormalization',
-			value: true
-		},
-		ads: {
-			text: 'ads',
-			component: 'select',
-			options: [{
-				text: 'onAllVideos',
-				value: 'all_videos',
-				default: 'true'
-			}, {
-				text: 'onSubscribedChannels',
-				value: 'subscribed_channels'
-			}, {
-				text: 'blockMusic',
-				value: 'block_music'
-			}, {
-				text: 'blockAll',
-				value: 'block_all'
-			}],
-			storage: 'player_ads'
-		}
 	},
 	section_2: {
 		component: 'section',

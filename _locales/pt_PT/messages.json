@@ -138,7 +138,7 @@
         "message": "Block H.264"
     },
     "blockMusic": {
-        "message": "Block music"
+        "message": "Skip ads while I play music"
     },
     "blockVp8": {
         "message": "Block VP8"
@@ -267,7 +267,7 @@
         "message": "Aba padrão do canal"
     },
     "defaultContentCountry": {
-        "message": "Default content country"
+        "message": "Country (virtual travel!)"
     },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
@@ -306,7 +306,7 @@
         "message": "Não gostar"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "Não mudes"
@@ -378,7 +378,7 @@
         "message": "Cabeçalho"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "Avoid HDR, keep SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forced play video from the beginning"
@@ -387,7 +387,7 @@
         "message": "Forçar velocidade de leitura"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "Forçar modo de cinema"
@@ -462,7 +462,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "Esconder detalhes"
@@ -645,10 +645,10 @@
         "message": "Most viewed channels"
     },
     "moveSidebarLeft": {
-        "message": "Move sidebar left"
+        "message": "To the left!"
     },
     "moveThumbnailsRight": {
-        "message": "Move thumbnails right"
+        "message": "Thumbnails to the right!"
     },
     "myColors": {
         "message": "Minhas cores"
@@ -804,7 +804,7 @@
         "message": "Vermelho"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "Red DisLiked-button"
     },
     "relatedVideos": {
         "message": "Videos relacionados"

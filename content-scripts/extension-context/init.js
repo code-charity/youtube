@@ -29,7 +29,6 @@ function bodyReady() {
 	if (extension.ready && extension.domReady) {
 		extension.features.addScrollToTop();
 		extension.features.font();
-		extension.features.showHeaderOnSearch();
 	}
 }
 
@@ -229,8 +228,7 @@ document.addEventListener('it-message-from-youtube', function () {
 
 document.addEventListener('it-play', function (event) {
 	var videos = document.querySelectorAll('video');
-
-	chrome.runtime.sendMessage({
-		action: 'play'
-	});
-});
+	 try {chrome.runtime.sendMessage({action: 'play'})} 
+       catch(error){console.log(error);	setTimeout(chrome.runtime.sendMessage({action: 'play'}),280)}
+	   });
+		

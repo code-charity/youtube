@@ -2,8 +2,8 @@
 >>> GENERAL:
 ----------------------------------------------------------------
 # YouTube home page
-# Collapse of subscription sections
-# Only one player instance playing
+# Fold subscriptions' sections (collapsed accordion)
+# Don't let a second video auto-start at once
 # Add "Scroll to top"
 # Confirmation before closing
 # Default content country
@@ -548,32 +548,6 @@ extension.features.thumbnailsQuality = function (anything) {
 
 		if (this.thumbnailsQuality.observer) {
 			this.thumbnailsQuality.observer.disconnect();
-		}
-	}
-};
-
-/*--------------------------------------------------------------
-# SHOW HEADER ON "SEARCH"
---------------------------------------------------------------*/
-
-extension.features.showHeaderOnSearch = function (event) {
-	var search = document.querySelector('input#search');
-	if (search) {
-
-		var headerPos = document.documentElement.getAttribute('it-header-position');
-		document.documentElement.setAttribute('it-header-position-original', headerPos);
-		if (headerPos !== 'normal' && headerPos !== 'static') {
-
-			search.addEventListener('focusin', function (e) {
-				document.documentElement.setAttribute('it-header-position', 'normal');
-			});
-
-			search.addEventListener('focusout', function (e) {
-				var origHeaderPos = document.documentElement.getAttribute('it-header-position-original');
-				origHeaderPos === 'null' ? 'normal' : origHeaderPos;
-				document.documentElement.setAttribute('it-header-position', origHeaderPos);
-			});
-
 		}
 	}
 };

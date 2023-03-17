@@ -33,7 +33,7 @@
         "message": "Activated features"
     },
     "activeFeatures": {
-        "message": "Active features"
+        "message": "My active features"
     },
     "addScrollToTop": {
         "message": "Add «Scroll to top»"
@@ -90,7 +90,7 @@
         "message": "Auto-fullscreen"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Autopause when switching tabs"
+        "message": "Auto-pause while I'm not in the tab"
     },
     "autoplay": {
         "message": "Autoplay"
@@ -129,7 +129,7 @@
         "message": "Blacklist"
     },
     "blockAll": {
-        "message": "Block all"
+        "message": "Off (block or skip)"
     },
     "blockAv1": {
         "message": "Block AV1"
@@ -138,7 +138,7 @@
         "message": "Block H.264"
     },
     "blockMusic": {
-        "message": "Block music"
+        "message": "Skip ads while I play music"
     },
     "blockVp8": {
         "message": "Block VP8"
@@ -201,7 +201,7 @@
         "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
-        "message": "Collapse of subscription sections"
+        "message": "Fold subscriptions' sections (collapsed accordion)"
     },
     "collapsed": {
         "message": "Collapsed"
@@ -267,7 +267,7 @@
         "message": "Default channel tab"
     },
     "defaultContentCountry": {
-        "message": "Default content country"
+        "message": "Country (virtual travel!)"
     },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
@@ -306,7 +306,7 @@
         "message": "Dislike"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the weak"
+        "message": "Display day of the week"
     },
     "doNotChange": {
         "message": "Don't change"
@@ -354,7 +354,7 @@
         "message": "Filters"
     },
     "fitToWindow": {
-        "message": "Fit to window"
+        "message": "Old alternative ('Fit to window')"
     },
     "flash": {
         "message": "Flash"
@@ -378,16 +378,16 @@
         "message": "Footer"
     },
     "forceSDR": {
-        "message": "Force SDR"
+        "message": "Avoid HDR, keep SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "Forced play video from the beginning"
     },
     "forcedPlaybackSpeed": {
-        "message": "Forced playback speed"
+        "message": "Forced playback speed, speed-watching"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "Force playback speed for music"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "Forced theater mode"
@@ -399,7 +399,7 @@
         "message": "Found a bug?"
     },
     "fullWindow": {
-        "message": "Full window"
+        "message": "Full height"
     },
     "general": {
         "message": "General"
@@ -462,7 +462,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "Hide details"
@@ -528,13 +528,13 @@
         "message": "Hover on video page"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "How long ago the video was uploaded"
+        "message": "Show video's age (how long ago it was uploaded)"
     },
     "icons": {
         "message": "Icons"
     },
     "iconsOnly": {
-        "message": "Icons only"
+        "message": "Icon only"
     },
     "importSettings": {
         "message": "Import settings"
@@ -645,10 +645,10 @@
         "message": "Most viewed channels"
     },
     "moveSidebarLeft": {
-        "message": "Move sidebar left"
+        "message": "To the left!"
     },
     "moveThumbnailsRight": {
-        "message": "Move thumbnails right"
+        "message": "Thumbnails to the right!"
     },
     "myColors": {
         "message": "My colors"
@@ -693,16 +693,16 @@
         "message": "Old"
     },
     "onAllVideos": {
-        "message": "On all videos"
+        "message": "On"
     },
     "onSubscribedChannels": {
-        "message": "On subscribed channels"
+        "message": "Off, except on my subscribed channels"
     },
     "onlyActiveOnYoutube": {
         "message": "Only active on YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Only one player instance playing"
+        "message": "Pause while I watch a 2nd video"
     },
     "openPopupPlayer": {
         "message": "Open video/playlist in a new window"
@@ -750,7 +750,7 @@
         "message": "Player"
     },
     "playerColor": {
-        "message": "Player color"
+        "message": "Progress bar color"
     },
     "playerSize": {
         "message": "Player size"
@@ -804,7 +804,7 @@
         "message": "Red"
     },
     "redDislikeButton": {
-        "message": "Show dislike button red colour"
+        "message": "Red DisLiked-button"
     },
     "relatedVideos": {
         "message": "Related videos"
