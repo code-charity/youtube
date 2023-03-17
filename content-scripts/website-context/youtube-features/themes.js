@@ -97,8 +97,8 @@ ImprovedTube.themes = function () {
 					cookieValue = '80000'; 	document.documentElement.removeAttribute('dark');
 		document.querySelector('ytd-masthead').removeAttribute('dark');	
 		document.getElementById("cinematics").style.visibility = 'hidden';
-		document.getElementById("cinematics").style.display = 'none !important';
-		document.querySelector('ytd-masthead').style.backgroundColor ='#fffff7'	;}
+		document.getElementById("cinematics").style.display = 'none !important';}
+		document.querySelector('ytd-masthead').style.backgroundColor ='#fffff7'	;
 			}			
 			else if (this.storage.theme === 'dark'){ c = '400'; document.documentElement.setAttribute('dark', '');
 			document.querySelector('ytd-masthead').setAttribute('dark', '')	

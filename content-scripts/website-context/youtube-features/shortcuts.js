@@ -133,10 +133,15 @@ ImprovedTube.shortcuts = function () {
 	});
 
 	document.addEventListener('improvedtube-player-loaded', function () {
-		ImprovedTube.elements.player.parentNode.addEventListener('mouseover', function () {
+	try{ImprovedTube.elements.player.parentNode.addEventListener('mouseover', function () {
 			mouse.player = true;
 			mouse.wheel = 0;
-		}, true);
+	}, true);} catch(err){console.log(err);} 
+	finally { setTimeout( ImprovedTube.elements.player.parentNode.addEventListener('mouseover', function () {
+			mouse.player = true;
+			mouse.wheel = 0;
+	}, true), 300);
+	}
 
 		ImprovedTube.elements.player.parentNode.addEventListener('mouseout', function () {
 			mouse.player = false;

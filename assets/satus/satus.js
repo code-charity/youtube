@@ -1,1919 +1,3371 @@
+/*--------------------------------------------------------------
+>>> CORE
+----------------------------------------------------------------
+# Global variable
+# Animations duration
+# Append
+# Attr
+# Camelize
+# Snakelize
+# Class
+# Create element
+# CSS
+# Empty
+# Element index
+# Events
+# Get property
+# Is
+# On
+# Render
+# Sort
+# Storage
+	# Clear
+	# Get
+	# Import
+	# Set
+	# Remove
+	# On changed
+# Localization
+# Log
+# Text
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# GLOBAL VARIABLE
+--------------------------------------------------------------*/
+
 var satus = {
   components: {},
-  events: { data: {} },
-  locale: { data: {} },
-  storage: { data: {}, type: "extension" },
-  getAnimationDuration: function (e) {
-    return (
-      1e3 *
-      Number(
-        window
-          .getComputedStyle(e)
-          .getPropertyValue("animation-duration")
-          .replace(/[^0-9.]/g, "")
-      )
-    );
+  events: {
+    data: {}
   },
-  append: function (e, t) {
-    (t || document.body).appendChild(e);
+  locale: {
+    data: {}
   },
-  attr: function (e, t) {
-    if (t)
-      for (var n in t) {
-        var s = t[n];
-        satus.isFunction(s) && (s = s()),
-          e.namespaceURI
-            ? !1 === s
-              ? e.removeAttributeNS(null, n)
-              : e.setAttributeNS(null, n, s)
-            : !1 === s
-            ? e.removeAttribute(n)
-            : e.setAttribute(n, s);
-      }
-  },
-  camelize: function (e) {
-    for (var t = "", n = 0, s = e.length; n < s; n++) {
-      var a = e[n];
-      t += "_" === a || "-" === a ? e[++n].toUpperCase() : a;
-    }
-    return t;
-  },
-  snakelize: function (e) {
-    return e.replace(/([A-Z])/g, "-$1").toLowerCase();
-  },
-  class: function (e, t) {
-    t && e.classList.add(t);
-  },
-  clone: function (e) {
-    for (
-      var t = e.cloneNode(!0),
-        n = window.getComputedStyle(e.parentNode),
-        s = window.getComputedStyle(e),
-        a = "",
-        o = 0,
-        r = s.length;
-      o < r;
-      o++
-    ) {
-      var i = s[o],
-        l = s.getPropertyValue(i);
-      "background-color" === i && (l = n.getPropertyValue("background-color")),
-        -1 ===
-          ["box-shadow", "left", "top", "bottom", "right", "opacity"].indexOf(
-            i
-          ) && (a += i + ":" + l + ";");
-    }
-    return t.setAttribute("style", a), t;
-  },
-  createElement: function (e, t, n) {
-    var s = this.camelize(e),
-      a = "satus-" + (t || e),
-      o = a.match(/__[^__]+/g);
-    return (
-      n || ("svg" === e && (n = "http://www.w3.org/2000/svg")),
-      (e = n
-        ? document.createElementNS(n, e)
-        : this.components[s]
-        ? document.createElement("div")
-        : document.createElement(e)),
-      o && 1 < o.length && (a = a.slice(0, a.indexOf("__")) + o[o.length - 1]),
-      (e.componentName = t),
-      (e.className = a),
-      (e.createChildElement = function (e, t, n) {
-        n = satus.createElement(e, this.componentName + "__" + (t || e), n);
-        return (
-          this.baseProvider && (n.baseProvider = this.baseProvider),
-          this.layersProvider && (n.layersProvider = this.layersProvider),
-          this.appendChild(n),
-          n
-        );
-      }),
-      e
-    );
-  },
-  css: function (e, t) {
-    return window.getComputedStyle(e).getPropertyValue(t);
-  },
-  decrypt: async function (e, t) {
-    var n = e
-        .slice(0, 24)
-        .match(/.{2}/g)
-        .map((e) => parseInt(e, 16)),
-      s = { name: "AES-GCM", iv: new Uint8Array(n) };
-    try {
-      var a = new TextDecoder().decode(
-        await crypto.subtle.decrypt(
-          s,
-          await crypto.subtle.importKey(
-            "raw",
-            await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)),
-            s,
-            !1,
-            ["decrypt"]
-          ),
-          new Uint8Array(
-            atob(e.slice(24))
-              .match(/[\s\S]/g)
-              .map((e) => e.charCodeAt(0))
-          )
-        )
-      );
-    } catch (e) {
-      return !1;
-    }
-    return a;
-  },
-  encrypt: async function (e, t) {
-    var n = crypto.getRandomValues(new Uint8Array(12)),
-      s = { name: "AES-GCM", iv: n };
-    return (
-      Array.from(n)
-        .map((e) => ("00" + e.toString(16)).slice(-2))
-        .join("") +
-      btoa(
-        Array.from(
-          new Uint8Array(
-            await crypto.subtle.encrypt(
-              s,
-              await crypto.subtle.importKey(
-                "raw",
-                await crypto.subtle.digest(
-                  "SHA-256",
-                  new TextEncoder().encode(t)
-                ),
-                s,
-                !1,
-                ["encrypt"]
-              ),
-              new TextEncoder().encode(e)
-            )
-          )
-        )
-          .map((e) => String.fromCharCode(e))
-          .join("")
-      )
-    );
-  },
-  data: function (e, t) {
-    if (t)
-      for (var n in t) {
-        var s = t[n];
-        satus.isFunction(s) && (s = s()), (e.dataset[n] = s);
-      }
-  },
-  empty: function (e, t = []) {
-    for (var n = e.childNodes.length - 1; -1 < n; n--) {
-      var s = e.childNodes[n];
-      -1 === t.indexOf(s) && s.remove();
-    }
-  },
-  elementIndex: function (e) {
-    return Array.prototype.slice.call(e.parentNode.children).indexOf(e);
-  },
+  storage: {
+    data: {},
+    type: 'extension'
+  }
 };
-(satus.events.on = function (e, t) {
-  this.data[e] || (this.data[e] = []), this.data[e].push(t);
-}),
-  (satus.events.trigger = function (e, t) {
-    var n = this.data[e];
-    if (n) for (var s = 0, a = n.length; s < a; s++) n[s](t);
-  }),
-  (satus.fetch = function (e, t, n, s) {
-    fetch(e)
-      .then(function (e) {
-        e.ok ? e[s || "json"]().then(t) : n();
-      })
-      .catch(function () {
-        n(t);
-      });
-  }),
-  (satus.getProperty = function (e, t) {
-    for (var n = t.split("."), s = 0, a = n.length; s < a; s++) {
-      var o = n[s];
-      if ((console.log(e), !(e = e[o]))) return !1;
-      if (s === a - 1) return e;
-    }
-  }),
-  (satus.indexOf = function (e, t) {
-    var n = 0;
-    if (satus.isArray(t)) n = t.indexOf(e);
-    else for (; (e = e.previousElementSibling); ) n++;
-    return n;
-  }),
-  (satus.toIndex = function (e, t, n) {
-    satus.isArray(n) && n.splice(e, 0, n.splice(satus.indexOf(t, n), 1)[0]);
-  }),
-  (satus.isset = function (e, t) {
-    if (!0 !== t) return null != e;
-    for (
-      var n = e.split(".").filter(function (e) {
-          return "" != e;
-        }),
-        s = 0,
-        a = n.length;
-      s < a;
-      s++
-    ) {
-      if (!satus.isset(e[n[s]])) return;
-      e = e[n[s]];
-    }
-    return e;
-  }),
-  (satus.isArray = function (e) {
-    return !!Array.isArray(e);
-  }),
-  (satus.isBoolean = function (e) {
-    return !1 === e || !0 === e;
-  }),
-  (satus.isElement = function (e) {
-    return e instanceof Element || e instanceof HTMLDocument;
-  }),
-  (satus.isFunction = function (e) {
-    return "function" == typeof e;
-  }),
-  (satus.isNodeList = function (e) {
-    return e instanceof NodeList;
-  }),
-  (satus.isNumber = function (e) {
-    return "number" == typeof e && !1 === isNaN(e);
-  }),
-  (satus.isObject = function (e) {
-    return e instanceof Object && null !== e;
-  }),
-  (satus.isString = function (e) {
-    return "string" == typeof e;
-  }),
-  (satus.on = function (e, t) {
-    if (t)
-      for (var n in t) {
-        var s = t[n];
-        "selectionchange" === n && (e = document),
-          satus.isFunction(s)
-            ? e.addEventListener(n, s)
-            : satus.isArray(s) || satus.isObject(s)
-            ? e.addEventListener(n, function (e) {
-                var t = this.skeleton.on[e.type],
-                  e = this.layersProvider;
-                (t.parentSkeleton = this.skeleton),
-                  (t.parentElement = this),
-                  !e &&
-                    0 < this.baseProvider.layers.length &&
-                    (e = this.baseProvider.layers[0]),
-                  !0 === t.prepend
-                    ? satus.prepend(t, this.parentNode)
-                    : e && "modal" !== t.component
-                    ? e.open(t)
-                    : satus.render(t, this.baseProvider);
-              })
-            : satus.isString(s) &&
-              e.addEventListener(n, function () {
-                for (
-                  var e = this.skeleton.on[event.type].match(
-                      /(["'`].+["'`]|[^.()]+)/g
-                    ),
-                    t = this.baseProvider,
-                    n = 0,
-                    s = e.length;
-                  n < s;
-                  n++
-                ) {
-                  var a = e[n];
-                  t.skeleton[a]
-                    ? (t = t.skeleton[a])
-                    : "function" == typeof t[a]
-                    ? t[a]()
-                    : (t = t[a]),
-                    t.rendered && (t = t.rendered);
-                }
-              });
+
+
+/*--------------------------------------------------------------
+# ANIMATION DURATION
+--------------------------------------------------------------*/
+
+satus.getAnimationDuration = function(element) {
+  return Number(window.getComputedStyle(element).getPropertyValue('animation-duration').replace(/[^0-9.]/g, '')) * 1000;
+};
+
+
+/*--------------------------------------------------------------
+# APPEND
+--------------------------------------------------------------*/
+
+satus.append = function(child, parent) {
+  (parent || document.body).appendChild(child);
+};
+
+
+/*--------------------------------------------------------------
+# ATTR
+--------------------------------------------------------------*/
+
+satus.attr = function(element, attributes) {
+  if (attributes) {
+    for (var name in attributes) {
+      var value = attributes[name];
+
+      if (satus.isFunction(value)) {
+        value = value();
       }
-  }),
-  (satus.parentify = function (e, t) {
-    for (var n in e) {
-      var s;
-      -1 === t.indexOf(n) &&
-        ((s = e[n]),
-        satus.isset(s) &&
-          ((s.parentObject = e),
-          !satus.isObject(s) ||
-            satus.isArray(s) ||
-            satus.isElement(s) ||
-            satus.isFunction(s) ||
-            this.parentify(s, t)));
-    }
-  }),
-  (satus.prepend = function (e, t) {
-    this.isElement(e)
-      ? t.prepend(e)
-      : this.isObject(e) && this.render(e, t, void 0, void 0, !0);
-  }),
-  (satus.properties = function (e, t) {
-    if (t)
-      for (var n in t) {
-        var s = t[n];
-        -1 !== ["placeholder", "title"].indexOf(n) && (s = satus.locale.get(s)),
-          (e[n] = s);
-      }
-  }),
-  (satus.remove = function (e, t) {
-    satus.isArray(t) && t.splice(satus.indexOf(e, t), 1);
-  }),
-  (satus.render = function (t, e, n, s, a, o) {
-    var r, i, l, u;
-    if (t.component && !0 !== s) {
-      var c = t.component,
-        d = this.camelize(c),
-        s = t.namespaceURI;
-      if (
-        (s ||
-          ("svg" === c
-            ? (s = "http://www.w3.org/2000/svg")
-            : t.parentSkeleton &&
-              t.parentSkeleton.namespaceURI &&
-              (s = t.parentSkeleton.namespaceURI),
-          (t.namespaceURI = s)),
-        (r = this.createElement(c, c, s)),
-        ((t.rendered = r).skeleton = t),
-        ((r.childrenContainer = r).componentName = c),
-        t.variant)
-      ) {
-        var p = t.variant;
-        if ((this.isFunction(p) && (p = p()), satus.isArray(p)))
-          for (var h = 0, v = p.length; h < v; h++)
-            r.className += " satus-" + c + "--" + p[h];
-        else r.className += " satus-" + c + "--" + p;
-      }
-      t.id && (r.id = t.id),
-        e &&
-          (e.baseProvider && (r.baseProvider = e.baseProvider),
-          e.layersProvider && (r.layersProvider = e.layersProvider)),
-        this.attr(r, t.attr),
-        this.style(r, t.style),
-        this.data(r, t.data),
-        this.class(r, t.class),
-        this.properties(r, t.properties),
-        this.on(r, t.on),
-        (r.storage =
-          ((l = r),
-          (u = t.storage || n || !1),
-          satus.isFunction(u) && (u = u()),
-          !1 !== t.storage &&
-            (u && (i = satus.storage.get(u)),
-            t.hasOwnProperty("value") && void 0 === i && (i = t.value)),
-          Object.defineProperties(
-            {},
-            {
-              key: {
-                get: function () {
-                  return u;
-                },
-                set: function (e) {
-                  u = e;
-                },
-              },
-              value: {
-                get: function () {
-                  return i;
-                },
-                set: function (e) {
-                  (i = e),
-                    !1 !== t.storage && satus.storage.set(u, e),
-                    l.dispatchEvent(new CustomEvent("change"));
-                },
-              },
-            }
-          ))),
-        this.components[d] && this.components[d](r, t),
-        this.text(r.childrenContainer, t.text),
-        this.prepend(t.before, r.childrenContainer),
-        a ? this.prepend(r, e) : this.append(r, e),
-        !1 === t.hasOwnProperty("parentSkeleton") &&
-          e &&
-          (t.parentSkeleton = e.skeleton),
-        satus.events.trigger("render", r),
-        r.dispatchEvent(new CustomEvent("render")),
-        (e = r.childrenContainer || r);
-    }
-    if ((!r || !1 !== r.renderChildren) & (!0 !== o))
-      for (var m in t) {
-        var f = t[m];
-        "parentSkeleton" !== m &&
-          "parentElement" !== m &&
-          "parentObject" !== m &&
-          "before" !== m &&
-          f &&
-          f.component &&
-          ((f.parentSkeleton = t),
-          r && (f.parentElement = r),
-          this.render(f, e, m, void 0, a));
-      }
-    return r;
-  }),
-  (satus.sort = function (e, t, n) {
-    var s = n ? typeof e[0][n] : typeof e[0];
-    return "desc" !== t
-      ? "number" === s
-        ? n
-          ? e.sort(function (e, t) {
-              return e[n] - t[n];
-            })
-          : e.sort(function (e, t) {
-              return e - t;
-            })
-        : "string" === s
-        ? n
-          ? e.sort(function (e, t) {
-              return e[n].localeCompare(t[n]);
-            })
-          : e.sort(function (e, t) {
-              return e.localeCompare(t);
-            })
-        : void 0
-      : "number" === s
-      ? n
-        ? e.sort(function (e, t) {
-            return t[n] - e[n];
-          })
-        : e.sort(function (e, t) {
-            return t - e;
-          })
-      : "string" === s
-      ? n
-        ? e.sort(function (e, t) {
-            return t[n].localeCompare(e[n]);
-          })
-        : e.sort(function (e, t) {
-            return t.localeCompare(e);
-          })
-      : void 0;
-  }),
-  (satus.storage.clear = function (e) {
-    (this.data = {}),
-      chrome.storage.local.clear(function () {
-        satus.events.trigger("storage-clear"), e && e();
-      });
-  }),
-  (satus.storage.get = function (e, t) {
-    var n = this.data;
-    if ("string" == typeof e) {
-      for (
-        var s = 0,
-          a = (e = e.split("/").filter(function (e) {
-            return "" != e;
-          })).length;
-        s < a;
-        s++
-      ) {
-        if (!satus.isset(n[e[s]])) return;
-        n = n[e[s]];
-      }
-      return "function" == typeof n ? n() : n;
-    }
-  }),
-  (satus.storage.import = function (e, n) {
-    var s = this;
-    "function" == typeof e && ((n = e), (e = void 0)),
-      chrome.storage.local.get(e, function (e) {
-        for (var t in e) s.data[t] = e[t];
-        satus.log("STORAGE: data was successfully imported"),
-          satus.events.trigger("storage-import"),
-          n && n(e);
-      });
-  }),
-  (satus.storage.remove = function (e, t) {
-    var n = this.data;
-    if ("string" == typeof e) {
-      for (
-        var s = 0,
-          a = (e = e.split("/").filter(function (e) {
-            return "" != e;
-          })).length;
-        s < a;
-        s++
-      ) {
-        if (!satus.isset(n[e[s]])) return;
-        s === a - 1 ? delete n[e[s]] : (n = n[e[s]]);
-      }
-      1 === e.length
-        ? chrome.storage.local.remove(e[0])
-        : chrome.storage.local.set(this.data, function () {
-            satus.events.trigger("storage-remove"), t && t();
-          });
-    }
-  }),
-  (satus.storage.set = function (e, t, n) {
-    var s = {},
-      a = this.data;
-    if ("string" == typeof e) {
-      for (
-        var o = 0,
-          r = (e = e.split("/").filter(function (e) {
-            return "" != e;
-          })).length;
-        o < r;
-        o++
-      ) {
-        var i = e[o];
-        o < r - 1 ? (a = a[i] || ((a[i] = {}), a[i])) : (a[i] = t);
-      }
-      for (e in this.data)
-        "function" != typeof this.data[e] && (s[e] = this.data[e]);
-      chrome.storage.local.set(s, function () {
-        satus.events.trigger("storage-set"), n && n();
-      });
-    }
-  }),
-  (satus.storage.onchanged = function (n) {
-    chrome.storage.onChanged.addListener(function (e) {
-      for (var t in e) n(t, e[t].newValue);
-    });
-  }),
-  (satus.last = function (e) {
-    if (this.isArray(e) || this.isNodeList(e) || e instanceof HTMLCollection)
-      return e[e.length - 1];
-  }),
-  (satus.locale.get = function (e) {
-    return this.data[e] || e;
-  }),
-  (satus.locale.import = function (e, n, t) {
-    e = e || window.navigator.language;
-    0 === e.indexOf("en") && (e = "en"),
-      (e = e.replace("-", "_")),
-      (t = t || "_locales/"),
-      satus.fetch(
-        chrome.runtime.getURL(t + e + "/messages.json"),
-        function (e) {
-          for (var t in e) satus.locale.data[t] = e[t].message;
-          n && n();
-        },
-        function (e) {
-          satus.fetch(
-            chrome.runtime.getURL(t + "en/messages.json"),
-            e,
-            function () {
-              e();
-            }
-          );
+
+      if (element.namespaceURI) {
+        if (value === false) {
+          element.removeAttributeNS(null, name);
+        } else {
+          element.setAttributeNS(null, name, value);
         }
-      );
-  }),
-  (satus.log = function () {
-    console.log.apply(null, arguments);
-  }),
-  (satus.style = function (e, t) {
-    if (t) for (var n in t) e.style[n] = t[n];
-  }),
-  (satus.text = function (e, t) {
-    t &&
-      (satus.isFunction(t) && (t = t()),
-      e.appendChild(document.createTextNode(this.locale.get(t))));
-  }),
-  (satus.components.modal = function (e, t) {
-    (e.scrim = e.createChildElement("div", "scrim")),
-      (e.surface = e.createChildElement("div", "surface")),
-      (e.close = function () {
-        var e = this;
-        this.classList.add("satus-modal--closing"),
-          setTimeout(function () {
-            e.remove(), e.dispatchEvent(new CustomEvent("close"));
-          }, 1e3 *
-            Number(
-              satus
-                .css(this.surface, "animation-duration")
-                .replace(/[^0-9.]/g, "")
-            ));
-      }),
-      e.scrim.addEventListener("click", function () {
-        this.parentNode.close();
-      }),
-      satus.isset(t.content)
-        ? ((e.surface.content = e.surface.createChildElement("p", "content")),
-          satus.isObject(t.content)
-            ? satus.render(t.content, e.surface.content)
-            : (e.surface.content.textContent = satus.locale.get(t.content)))
-        : (e.childrenContainer = e.surface),
-      satus.components.modal[t.variant] &&
-        satus.components.modal[t.variant](e, t);
-  }),
-  (satus.components.modal.confirm = function (e, t) {
-    if (
-      ((e.surface.actions = satus.render(
-        { component: "section", variant: "align-end" },
-        e.surface
-      )),
-      t.buttons)
-    )
-      for (var n in t.buttons) {
-        var s = t.buttons[n];
-        satus.isObject(s) &&
-          "button" === s.component &&
-          (satus.render(s, e.surface.actions).modalProvider = e);
+      } else {
+        if (value === false) {
+          element.removeAttribute(name);
+        } else {
+          element.setAttribute(name, value);
+        }
       }
-    else
-      satus.render(
-        {
-          cancel: {
-            component: "button",
-            text: "cancel",
-            properties: { modalProvider: e },
-            on: {
-              click: function () {
-                this.modalProvider.dispatchEvent(new CustomEvent("cancel")),
-                  this.modalProvider.close();
-              },
-            },
-          },
-          ok: {
-            component: "button",
-            text: "ok",
-            properties: { modalProvider: e },
-            on: {
-              click: function () {
-                this.modalProvider.dispatchEvent(new CustomEvent("confirm")),
-                  this.modalProvider.close();
-              },
-            },
-          },
-        },
-        e.surface.actions
-      );
-  }),
-  (satus.components.grid = function (e, t) {
-    console.log(e, t);
-  }),
-  (satus.components.textField = function (t, e) {
-    var n = t.createChildElement("div", "container"),
-      s = n.createChildElement(1 === e.rows ? "input" : "textarea"),
-      a = n.createChildElement("div", "display"),
-      o = a.createChildElement("div", "line-numbers"),
-      r = a.createChildElement("pre"),
-      i = a.createChildElement("div", "selection"),
-      l = a.createChildElement("div", "cursor"),
-      n = n.createChildElement("pre", "hidden-value");
-    if (
-      (1 === e.rows &&
-        (t.setAttribute("multiline", "false"), (t.multiline = !1)),
-      (t.placeholder = e.placeholder),
-      (t.input = s),
-      (t.display = a),
-      (t.lineNumbers = o),
-      (t.pre = r),
-      (t.hiddenValue = n),
-      (t.selection = i),
-      (t.cursor = l),
-      (t.syntax = {
-        current: "text",
-        handlers: {
-          regex: function (e, s) {
-            var t = /^(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??$/,
-              n = e.match(
-                /\[\^?]?(?:[^\\\]]+|\\[\S\s]?)*]?|\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9][0-9]*|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)|\((?:\?[:=!]?)?|(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??|[^.?*+^${[()|\\]+|./g
-              );
-            function a(e, t) {
-              var n = document.createElement("span");
-              (n.className = e), (n.textContent = t), s.appendChild(n);
-            }
-            if (n)
-              for (var o = 0, r = n.length; o < r; o++) {
-                var i = n[o];
-                "[" === i[0]
-                  ? a("character-class", i)
-                  : "(" === i[0] || ")" === i[0]
-                  ? a("group", i)
-                  : "\\" === i[0] || "^" === i
-                  ? a("anchor", i)
-                  : t.test(i)
-                  ? a("quantifier", i)
-                  : a("|" === i || "." === i ? "metasequence" : "text", i);
+    }
+  }
+};
+
+
+/*--------------------------------------------------------------
+# CAMELIZE
+--------------------------------------------------------------*/
+
+satus.camelize = function(string) {
+  var result = '';
+
+  for (var i = 0, l = string.length; i < l; i++) {
+    var character = string[i];
+
+    if (character === '_' || character === '-') {
+      i++;
+
+      result += string[i].toUpperCase();
+    } else {
+      result += character;
+    }
+  }
+
+  return result;
+};
+
+
+/*--------------------------------------------------------------
+# SNAKELIZE
+--------------------------------------------------------------*/
+
+satus.snakelize = function(string) {
+  return string.replace(/([A-Z])/g, '-$1').toLowerCase();
+};
+
+
+/*--------------------------------------------------------------
+# CLASS
+--------------------------------------------------------------*/
+
+satus.class = function(element, className) {
+  if (className) {
+    element.classList.add(className);
+  }
+};
+
+
+/*--------------------------------------------------------------
+# CLONE
+--------------------------------------------------------------*/
+
+satus.clone = function(item) {
+  var clone = item.cloneNode(true),
+    parent_css = window.getComputedStyle(item.parentNode),
+    css = window.getComputedStyle(item),
+    style = '';
+
+  for (var i = 0, l = css.length; i < l; i++) {
+    var property = css[i],
+      value = css.getPropertyValue(property);
+
+    if (property === 'background-color') {
+      value = parent_css.getPropertyValue('background-color');
+    }
+
+    if (['box-shadow', 'left', 'top', 'bottom', 'right', 'opacity'].indexOf(property) === -1) {
+      style += property + ':' + value + ';';
+    }
+  }
+
+
+  clone.setAttribute('style', style);
+
+  return clone;
+};
+
+
+/*--------------------------------------------------------------
+# CREATE ELEMENT
+--------------------------------------------------------------*/
+
+satus.createElement = function(tagName, componentName, namespaceURI) {
+  var camelizedTagName = this.camelize(tagName),
+    className = 'satus-' + (componentName || tagName),
+    element,
+    match = className.match(/__[^__]+/g);
+
+  if (!namespaceURI) {
+    if (tagName === 'svg') {
+      namespaceURI = 'http://www.w3.org/2000/svg';
+    }
+  }
+
+  if (namespaceURI) {
+    element = document.createElementNS(namespaceURI, tagName);
+  } else if (this.components[camelizedTagName]) {
+    element = document.createElement('div');
+  } else {
+    element = document.createElement(tagName);
+  }
+
+  if (match && match.length > 1) {
+    className = className.slice(0, className.indexOf('__')) + match[match.length - 1];
+  }
+
+  element.componentName = componentName;
+  element.className = className;
+
+  element.createChildElement = function(tagName, componentName, namespaceURI) {
+    var element = satus.createElement(tagName, this.componentName + '__' + (componentName || tagName), namespaceURI);
+
+    if (this.baseProvider) {
+      element.baseProvider = this.baseProvider;
+    }
+
+    if (this.layersProvider) {
+      element.layersProvider = this.layersProvider;
+    }
+
+    this.appendChild(element);
+
+    return element;
+  };
+
+  return element;
+};
+
+
+/*--------------------------------------------------------------
+# CSS
+--------------------------------------------------------------*/
+
+satus.css = function(element, property) {
+  return window.getComputedStyle(element).getPropertyValue(property);
+};
+
+
+/*--------------------------------------------------------------
+# CRYPT
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# DECRYPTION
+--------------------------------------------------------------*/
+
+satus.decrypt = async function(text, password) {
+  var iv = text.slice(0, 24).match(/.{2}/g).map(byte => parseInt(byte, 16)),
+    algorithm = {
+      name: 'AES-GCM',
+      iv: new Uint8Array(iv)
+    };
+
+  try {
+    var data = new TextDecoder().decode(await crypto.subtle.decrypt(
+      algorithm,
+      await crypto.subtle.importKey(
+        'raw',
+        await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password)),
+        algorithm,
+        false, ['decrypt']
+      ),
+      new Uint8Array(atob(text.slice(24)).match(/[\s\S]/g).map(ch => ch.charCodeAt(0)))
+    ));
+  } catch (err) {
+    return false;
+  }
+
+  return data;
+};
+
+
+/*--------------------------------------------------------------
+# ENCRYPTION
+--------------------------------------------------------------*/
+
+satus.encrypt = async function(text, password) {
+  var iv = crypto.getRandomValues(new Uint8Array(12)),
+    algorithm = {
+      name: 'AES-GCM',
+      iv: iv
+    };
+
+  return Array.from(iv).map(b => ('00' + b.toString(16)).slice(-2)).join('') + btoa(Array.from(new Uint8Array(await crypto.subtle.encrypt(
+    algorithm,
+    await crypto.subtle.importKey('raw', await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password)), algorithm, false, ['encrypt']),
+    new TextEncoder().encode(text)
+  ))).map(byte => String.fromCharCode(byte)).join(''));
+};
+
+
+/*--------------------------------------------------------------
+# DATA
+--------------------------------------------------------------*/
+
+satus.data = function(element, data) {
+  if (data) {
+    for (var key in data) {
+      var value = data[key];
+
+      if (satus.isFunction(value)) {
+        value = value();
+      }
+
+      element.dataset[key] = value;
+    }
+  }
+};
+
+
+/*--------------------------------------------------------------
+# EMPTY
+--------------------------------------------------------------*/
+
+satus.empty = function(element, exclude = []) {
+  for (var i = element.childNodes.length - 1; i > -1; i--) {
+    var child = element.childNodes[i];
+
+    if (exclude.indexOf(child) === -1) {
+      child.remove();
+    }
+  }
+};
+
+
+/*--------------------------------------------------------------
+# ELEMENT INDEX
+--------------------------------------------------------------*/
+
+satus.elementIndex = function(element) {
+  return Array.prototype.slice.call(element.parentNode.children).indexOf(element);
+};
+
+
+/*--------------------------------------------------------------
+# EVENTS
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# ON
+--------------------------------------------------------------*/
+
+satus.events.on = function(type, handler) {
+  if (!this.data[type]) {
+    this.data[type] = [];
+  }
+
+  this.data[type].push(handler);
+};
+
+
+/*--------------------------------------------------------------
+# TRIGGER
+--------------------------------------------------------------*/
+
+satus.events.trigger = function(type, data) {
+  var handlers = this.data[type];
+
+  if (handlers) {
+    for (var i = 0, l = handlers.length; i < l; i++) {
+      handlers[i](data);
+    }
+  }
+};
+
+
+/*--------------------------------------------------------------
+# FETCH
+--------------------------------------------------------------*/
+
+satus.fetch = function(url, success, error, type) {
+  fetch(url).then(function(response) {
+    if (response.ok) {
+      response[type || 'json']().then(success);
+    } else {
+      error();
+    }
+  }).catch(function() {
+    error(success);
+  });
+};
+
+
+/*--------------------------------------------------------------
+# GET PROPERTY
+--------------------------------------------------------------*/
+
+satus.getProperty = function(object, string) {
+  var properties = string.split('.');
+
+  for (var i = 0, l = properties.length; i < l; i++) {
+    var property = properties[i];
+
+    console.log(object);
+
+    if (object = object[property]) {
+      if (i === l - 1) {
+        return object;
+      }
+    } else {
+      return false;
+    }
+  }
+};
+
+
+/*--------------------------------------------------------------
+# INDEX OF
+--------------------------------------------------------------*/
+
+satus.indexOf = function(child, parent) {
+  var index = 0;
+
+  if (satus.isArray(parent)) {
+    index = parent.indexOf(child);
+  } else {
+    while ((child = child.previousElementSibling)) {
+      index++;
+    }
+  }
+
+  return index;
+};
+
+
+/*--------------------------------------------------------------
+# TO INDEX
+--------------------------------------------------------------*/
+
+satus.toIndex = function(index, child, parent) {
+  if (satus.isArray(parent)) {
+    parent.splice(index, 0, parent.splice(satus.indexOf(child, parent), 1)[0])
+  }
+};
+
+
+/*--------------------------------------------------------------
+# ISSET
+--------------------------------------------------------------*/
+
+satus.isset = function(target, is_object) {
+  if (is_object === true) {
+    var keys = target.split('.').filter(function(value) {
+      return value != '';
+    });
+
+    for (var i = 0, l = keys.length; i < l; i++) {
+      if (satus.isset(target[keys[i]])) {
+        target = target[keys[i]];
+      } else {
+        return undefined;
+      }
+    }
+
+    return target;
+  } else {
+    if (target === null || target === undefined) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+
+/*--------------------------------------------------------------
+# IS
+--------------------------------------------------------------*/
+
+satus.isArray = function(target) {
+  if (Array.isArray(target)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+satus.isBoolean = function(target) {
+  return target === false || target === true;
+};
+
+satus.isElement = function(target) {
+  return target instanceof Element || target instanceof HTMLDocument;
+};
+
+satus.isFunction = function(target) {
+  return typeof target === 'function';
+};
+
+satus.isNodeList = function(target) {
+  return target instanceof NodeList;
+};
+
+satus.isNumber = function(target) {
+  if (typeof target === 'number' && isNaN(target) === false) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+satus.isObject = function(target) {
+  return target instanceof Object && target !== null;
+};
+
+satus.isString = function(target) {
+  if (typeof target === 'string') {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+
+/*--------------------------------------------------------------
+# ON
+--------------------------------------------------------------*/
+
+satus.on = function(element, listeners) {
+  if (listeners) {
+    for (var type in listeners) {
+      var listener = listeners[type];
+
+      if (type === 'selectionchange') {
+        element = document;
+      }
+
+      if (satus.isFunction(listener)) {
+        element.addEventListener(type, listener);
+      } else if (satus.isArray(listener) || satus.isObject(listener)) {
+        element.addEventListener(type, function(event) {
+          var target = this.skeleton.on[event.type],
+            layers = this.layersProvider;
+
+          target.parentSkeleton = this.skeleton;
+          target.parentElement = this;
+
+          if (!layers && this.baseProvider.layers.length > 0) {
+            layers = this.baseProvider.layers[0];
+          }
+
+          if (target.prepend === true) {
+            satus.prepend(target, this.parentNode);
+          } else if (layers && target.component !== 'modal') {
+            layers.open(target);
+          } else {
+            satus.render(target, this.baseProvider);
+          }
+        });
+      } else if (satus.isString(listener)) {
+        element.addEventListener(type, function() {
+          var match = this.skeleton.on[event.type].match(/(["'`].+["'`]|[^.()]+)/g),
+            target = this.baseProvider;
+
+          for (var i = 0, l = match.length; i < l; i++) {
+            var key = match[i];
+
+            if (target.skeleton[key]) {
+              target = target.skeleton[key];
+            } else {
+              if (typeof target[key] === 'function') {
+                target[key]();
+              } else {
+                target = target[key];
               }
+            }
+
+            if (target.rendered) {
+              target = target.rendered;
+            }
+          }
+        });
+      }
+    }
+  }
+};
+
+
+/*--------------------------------------------------------------
+# PARENTIFY
+--------------------------------------------------------------*/
+
+satus.parentify = function(parentObject, exclude) {
+  for (var key in parentObject) {
+    if (exclude.indexOf(key) === -1) {
+      var child = parentObject[key];
+
+      if (satus.isset(child)) {
+        child.parentObject = parentObject;
+
+        if (
+          satus.isObject(child) &&
+          !satus.isArray(child) &&
+          !satus.isElement(child) &&
+          !satus.isFunction(child)
+        ) {
+          this.parentify(child, exclude);
+        }
+      }
+    }
+  }
+};
+
+
+/*--------------------------------------------------------------
+# PREPEND
+--------------------------------------------------------------*/
+
+satus.prepend = function(child, parent) {
+  if (this.isElement(child)) {
+    parent.prepend(child);
+  } else if (this.isObject(child)) {
+    this.render(child, parent, undefined, undefined, true);
+  }
+};
+
+
+/*--------------------------------------------------------------
+# PROPERTIES
+--------------------------------------------------------------*/
+
+satus.properties = function(element, properties) {
+  if (properties) {
+    for (var key in properties) {
+      var property = properties[key];
+
+      if (['placeholder', 'title'].indexOf(key) !== -1) {
+        property = satus.locale.get(property);
+      }
+
+      element[key] = property;
+    }
+  }
+};
+
+
+/*--------------------------------------------------------------
+# REMOVE
+--------------------------------------------------------------*/
+
+satus.remove = function(child, parent) {
+  if (satus.isArray(parent)) {
+    parent.splice(satus.indexOf(child, parent), 1);
+  }
+};
+
+
+/*--------------------------------------------------------------
+# RENDER
+--------------------------------------------------------------*/
+
+satus.render = function(skeleton, container, property, childrenOnly, prepend, skip_children) {
+  var element;
+
+  if (skeleton.component && childrenOnly !== true) {
+    var tagName = skeleton.component,
+      camelizedTagName = this.camelize(tagName),
+      namespaceURI = skeleton.namespaceURI;
+
+    if (!namespaceURI) {
+      if (tagName === 'svg') {
+        namespaceURI = 'http://www.w3.org/2000/svg';
+      } else if (skeleton.parentSkeleton && skeleton.parentSkeleton.namespaceURI) {
+        namespaceURI = skeleton.parentSkeleton.namespaceURI;
+      }
+
+      skeleton.namespaceURI = namespaceURI;
+    }
+
+    element = this.createElement(tagName, tagName, namespaceURI);
+
+    skeleton.rendered = element;
+    element.skeleton = skeleton;
+    element.childrenContainer = element;
+    element.componentName = tagName;
+
+    if (skeleton.variant) {
+      var variant = skeleton.variant;
+
+      if (this.isFunction(variant)) {
+        variant = variant();
+      }
+
+      if (satus.isArray(variant)) {
+        for (var i = 0, l = variant.length; i < l; i++) {
+          element.className += ' satus-' + tagName + '--' + variant[i];
+        }
+      } else {
+        element.className += ' satus-' + tagName + '--' + variant;
+      }
+    }
+
+    if (skeleton.id) {
+      element.id = skeleton.id;
+    }
+
+    if (container) {
+      if (container.baseProvider) {
+        element.baseProvider = container.baseProvider;
+      }
+
+      if (container.layersProvider) {
+        element.layersProvider = container.layersProvider;
+      }
+    }
+
+    this.attr(element, skeleton.attr);
+    this.style(element, skeleton.style);
+    this.data(element, skeleton.data);
+    this.class(element, skeleton.class);
+    this.properties(element, skeleton.properties);
+    this.on(element, skeleton.on);
+
+    element.storage = (function() {
+      var parent = element,
+        key = skeleton.storage || property || false,
+        value;
+
+      if (satus.isFunction(key)) {
+        key = key();
+      }
+
+      if (skeleton.storage !== false) {
+        if (key) {
+          value = satus.storage.get(key);
+        }
+
+        if (skeleton.hasOwnProperty('value') && value === undefined) {
+          value = skeleton.value;
+        }
+      }
+
+      return Object.defineProperties({}, {
+        key: {
+          get: function() {
+            return key;
           },
+          set: function(string) {
+            key = string;
+          }
         },
-        set: function (e) {
-          this.handlers[e] ? (this.current = e) : (this.current = "text"),
-            r.update();
-        },
-      }),
-      !(t.focus = function () {
-        this.input.focus();
-      }) === e.lineNumbers &&
-        (t.setAttribute("line-numbers", "false"),
-        t.lineNumbers.setAttribute("hidden", "")),
-      satus.isset(e.cols) && (s.cols = e.cols),
-      satus.isset(e.rows) && (s.rows = e.rows),
-      Object.defineProperty(t, "value", {
-        get: function () {
-          return this.input.value;
-        },
-        set: function (e) {
-          this.input.value = e;
-        },
-      }),
-      e.syntax && t.syntax.set(e.syntax),
-      i.setAttribute("disabled", ""),
-      (o.update = function () {
-        var e = this.parentNode.parentNode.parentNode,
-          t = e.input.value.split("\n").length;
-        if (t !== this.children.length) {
-          satus.empty(this);
-          for (var n = 1; n <= t; n++) {
-            var s = document.createElement("span");
-            (s.textContent = n), this.appendChild(s);
+        value: {
+          get: function() {
+            return value;
+          },
+          set: function(val) {
+            value = val;
+
+            if (skeleton.storage !== false) {
+              satus.storage.set(key, val);
+            }
+
+            parent.dispatchEvent(new CustomEvent('change'));
           }
         }
-        e.input.style.paddingLeft = this.offsetWidth + "px";
-      }),
-      (r.update = function () {
-        for (
-          var e = this.parentNode.parentNode.parentNode,
-            t = e.syntax.handlers[e.syntax.current],
-            n = e.value || "",
-            s = this.childNodes.length - 1;
-          -1 < s;
-          s--
-        )
-          this.childNodes[s].remove();
-        t ? t(n, this) : (this.textContent = n),
-          0 === n.length &&
-            ((n =
-              "function" == typeof (n = e.placeholder)
-                ? e.placeholder()
-                : satus.locale.get(n)),
-            (this.textContent = n));
-      }),
-      (l.update = function () {
-        var e,
-          t = this.parentNode.parentNode.parentNode,
-          n = t.input,
-          s = n.value,
-          a = (s.split("\n").length, n.selectionStart),
-          o = n.selectionEnd,
-          r = s.slice(0, a).split("\n");
-        (this.style.animation = "none"),
-          "forward" === n.selectionDirection
-            ? (t.hiddenValue.textContent = s.substring(0, o))
-            : (t.hiddenValue.textContent = s.substring(0, a)),
-          (e = t.hiddenValue.offsetHeight),
-          (t.hiddenValue.textContent = satus.last(r)),
-          (e -= t.hiddenValue.offsetHeight),
-          !1 !== t.multiline && (this.style.top = e + "px"),
-          (this.style.left =
-            t.hiddenValue.offsetWidth + t.lineNumbers.offsetWidth + "px"),
-          a === o
-            ? t.selection.setAttribute("disabled", "")
-            : t.selection.removeAttribute("disabled"),
-          (this.style.animation = ""),
-          (t.hiddenValue.textContent = "");
-      }),
-      document.addEventListener("selectionchange", function (e) {
-        t.lineNumbers.update(), t.pre.update(), t.cursor.update();
-      }),
-      s.addEventListener("input", function () {
-        var e = this.parentNode.parentNode;
-        (e.storage.value = this.value),
-          e.lineNumbers.update(),
-          e.pre.update(),
-          e.cursor.update();
-      }),
-      s.addEventListener("scroll", function (e) {
-        var t = this.parentNode.parentNode;
-        (t.display.style.top = -this.scrollTop + "px"),
-          (t.display.style.left = -this.scrollLeft + "px"),
-          t.lineNumbers.update(),
-          t.pre.update(),
-          t.cursor.update();
-      }),
-      t.addEventListener("change", function () {
-        this.lineNumbers.update(), this.pre.update(), this.cursor.update();
-      }),
-      (t.value = t.storage.value || ""),
-      t.addEventListener("render", function () {
-        t.lineNumbers.update(), t.pre.update(), t.cursor.update();
-      }),
-      e.on)
-    )
-      for (var u in e.on)
-        s.addEventListener(u, function (e) {
-          this.parentNode.parentNode.dispatchEvent(new Event(e.type));
-        });
-  }),
-  (satus.components.chart = function (e, t) {
-    var n = t.type;
-    this.chart[n] &&
-      (e.classList.add("satus-chart--" + n), this.chart[n](e, t));
-  }),
-  (satus.components.chart.bar = function (e, t) {
-    var n = t.labels,
-      s = t.datasets,
-      a = [];
-    if (
-      (satus.isFunction(n) && (n = n()),
-      satus.isFunction(s) && (s = s()),
-      satus.isArray(n))
-    )
-      for (
-        var o = e.createChildElement("div", "labels"), r = 0, i = n.length;
-        r < i;
-        r++
-      ) {
-        var l = n[r];
-        o.createChildElement("div", "section").textContent = l;
+      });
+    }());
+
+    if (this.components[camelizedTagName]) {
+      this.components[camelizedTagName](element, skeleton);
+    }
+
+    this.text(element.childrenContainer, skeleton.text);
+    this.prepend(skeleton.before, element.childrenContainer);
+
+    if (prepend) {
+      this.prepend(element, container);
+    } else {
+      this.append(element, container);
+    }
+
+    if (skeleton.hasOwnProperty('parentSkeleton') === false && container) {
+      skeleton.parentSkeleton = container.skeleton;
+    }
+
+    satus.events.trigger('render', element);
+
+    element.dispatchEvent(new CustomEvent('render'));
+
+    container = element.childrenContainer || element;
+  }
+
+  if ((!element || element.renderChildren !== false) & skip_children !== true) {
+    for (var key in skeleton) {
+      var item = skeleton[key];
+
+      if (key !== 'parentSkeleton' && key !== 'parentElement' && key !== 'parentObject' && key !== 'before') {
+        if (item && item.component) {
+          item.parentSkeleton = skeleton;
+
+          if (element) {
+            item.parentElement = element;
+          }
+
+          this.render(item, container, key, undefined, prepend);
+        }
       }
-    if (satus.isArray(s))
-      for (
-        o = e.createChildElement("div", "bars"), r = 0, i = s.length;
-        r < i;
-        r++
-      )
-        for (var u = s[r], c = 0, d = u.data.length; c < d; c++) {
-          satus.isElement(a[c]) || a.push(o.createChildElement("div", "bar"));
-          var p = a[c].createChildElement("div", "piece");
-          (p.title = u.label),
-            (p.style.height = u.data[c] + "%"),
-            (p.style.backgroundColor = "rgb(" + u.color.join(",") + ")");
-        }
-  }),
-  (satus.components.select = function (e, t) {
-    var n = e.createChildElement("div", "content");
-    (e.childrenContainer = n),
-      (e.valueElement = document.createElement("span")),
-      (e.selectElement = document.createElement("select")),
-      (e.valueElement.className = "satus-select__value"),
-      e.appendChild(e.valueElement),
-      e.appendChild(e.selectElement),
-      (e.options = t.options || []),
-      satus.isFunction(e.options) &&
-        ((e.options = e.options()), satus.isset(e.options) || (e.options = []));
-    for (var s = 0, a = e.options.length; s < a; s++) {
-      var o = document.createElement("option");
-      (o.value = e.options[s].value),
-        satus.text(o, e.options[s].text),
-        e.selectElement.appendChild(o);
     }
-    Object.defineProperty(e, "value", {
-      get: function () {
-        return this.selectElement.value;
-      },
-      set: function (e) {
-        this.selectElement.value = e;
-      },
-    }),
-      (e.render = function () {
-        satus.empty(this.valueElement),
-          this.selectElement.options[this.selectElement.selectedIndex] &&
-            satus.text(
-              this.valueElement,
-              this.selectElement.options[this.selectElement.selectedIndex].text
-            ),
-          (this.dataset.value = this.value);
-      }),
-      e.selectElement.addEventListener("change", function () {
-        var e = this.parentNode;
-        (e.storage.value = this.value), e.render();
-      }),
-      (e.value = e.storage.value || e.options[0].value),
-      e.render();
-  }),
-  (satus.components.divider = function () {}),
-  (satus.components.section = function (e, t) {
-    satus.isString(t.title) && (e.dataset.title = satus.locale.get(t.title));
-  }),
-  (satus.components.base = function (e) {
-    (e.baseProvider = e).layers = [];
-  }),
-  (satus.components.alert = function (e, t) {}),
-  (satus.components.time = function (e, t) {
-    var n = Object.assign({}, t);
-    (n.component = "select"),
-      (n.options = []),
-      satus.isFunction(n.hour12) && (n.hour12 = n.hour12());
-    for (var s = 0; s < 24; s++) {
-      var a = s,
-        o = s;
-      !0 === n.hour12 && 12 < s && (a -= 12),
-        a < 10 && ((a = "0" + a), (o = "0" + o)),
-        !0 === n.hour12 ? (a += 12 < s ? ":00 pm" : ":00 am") : (a += ":00"),
-        n.options.push({ text: a, value: o + ":00" });
-    }
-    satus.components.select(e, n), e.classList.add("satus-select");
-  }),
-  (satus.components.sidebar = function (e, t) {}),
-  (satus.components.layers = function (e, t) {
-    (e.path = []),
-      (e.renderChildren = !1),
-      e.baseProvider.layers.push(e),
-      ((e.layersProvider = e).back = function () {
-        1 < this.path.length &&
-          (this.path.pop(), this.open(this.path[this.path.length - 1], !1));
-      }),
-      (e.open = function (e, t) {
-        var n = satus.last(this.querySelectorAll(".satus-layers__layer")),
-          s = this.createChildElement("div", "layer");
-        !1 !== t
-          ? (n &&
-              ((n.style.animation = "fadeOutLeft 100ms linear forwards"),
-              (s.style.animation = "fadeInRight 100ms linear forwards")),
-            this.path.push(e))
-          : ((n.style.animation = "fadeOutRight 100ms linear forwards"),
-            (s.style.animation = "fadeInLeft 100ms linear forwards")),
-          n &&
-            setTimeout(function () {
-              n.remove();
-            }, satus.getAnimationDuration(n)),
-          (s.skeleton = e),
-          (s.baseProvider = this.baseProvider),
-          satus.render(e, s, void 0, "layers" === e.component),
-          this.dispatchEvent(new Event("open"));
-      }),
-      (e.update = function () {
-        var e = this.querySelector(".satus-layers__layer");
-        satus.empty(e), satus.render(e.skeleton, e);
-      }),
-      e.open(t);
-  }),
-  (satus.components.list = function (e, t) {
-    for (var n = 0, s = t.items.length; n < s; n++)
-      for (
-        var a = e.createChildElement("div", "item"),
-          o = t.items[n],
-          r = 0,
-          i = o.length;
-        r < i;
-        r++
-      ) {
-        var l = o[r];
-        satus.isObject(l)
-          ? satus.render(l, a)
-          : (a.createChildElement("span").textContent = satus.locale.get(l));
-      }
-  }),
-  (satus.components.colorPicker = function (e, t) {
-    var n = e.createChildElement("div", "content"),
-      s = e.createChildElement("span", "value");
-    (e.childrenContainer = n),
-      (e.valueElement = s),
-      (e.className = "satus-button"),
-      e.addEventListener("click", function () {
-        var e = this.rgb,
-          t = satus.color.rgbToHsl(e),
-          n = t[1] / 100,
-          s = t[2] / 100,
-          e = s + (n *= s < 0.5 ? s : 1 - s),
-          n = (2 * n) / (s + n);
-        satus.render(
-          {
-            component: "modal",
-            variant: "color-picker",
-            value: t,
-            parentElement: this,
-            palette: {
-              component: "div",
-              class: "satus-color-picker__palette",
-              style: { backgroundColor: "hsl(" + t[0] + "deg, 100%, 50%)" },
-              on: {
-                mousedown: function () {
-                  var r = this,
-                    i = this.getBoundingClientRect(),
-                    l = this.children[0];
-                  function t(e) {
-                    var t = r.skeleton.parentSkeleton.storage.value,
-                      n = e.clientX - i.left,
-                      s = e.clientY - i.top,
-                      n = Math.min(Math.max(n, 0), i.width) / (i.width / 100),
-                      a =
-                        100 -
-                        (s =
-                          Math.min(Math.max(s, 0), i.height) /
-                          (i.height / 100)),
-                      o = ((2 - n / 100) * a) / 2;
-                    (t[1] = (n * a) / (o < 50 ? 2 * o : 200 - 2 * o)),
-                      (t[2] = o),
-                      (l.style.left = n + "%"),
-                      (l.style.top = s + "%"),
-                      (r.nextSibling.children[0].style.backgroundColor =
-                        "hsl(" + t[0] + "deg," + t[1] + "%, " + t[2] + "%)"),
-                      e.preventDefault();
-                  }
-                  window.addEventListener("mousemove", t),
-                    window.addEventListener("mouseup", function e() {
-                      window.removeEventListener("mousemove", t),
-                        window.removeEventListener("mouseup", e);
-                    });
-                },
-              },
-              cursor: {
-                component: "div",
-                class: "satus-color-picker__cursor",
-                style: { left: 100 * n + "%", top: 100 - 100 * e + "%" },
-              },
-            },
-            section: {
-              component: "section",
-              variant: "color",
-              color: {
-                component: "div",
-                class: "satus-color-picker__color",
-                style: { backgroundColor: "rgb(" + this.rgb.join(",") + ")" },
-              },
-              hue: {
-                component: "slider",
-                class: "satus-color-picker__hue",
-                storage: !1,
-                value: t[0],
-                max: 360,
-                on: {
-                  change: function () {
-                    var e =
-                      this.skeleton.parentSkeleton.parentSkeleton.storage.value;
-                    (e[0] = this.values[0]),
-                      (this.previousSibling.style.backgroundColor =
-                        "hsl(" + e[0] + "deg," + e[1] + "%, " + e[2] + "%)"),
-                      (this.parentSkeletonNode.previousSibling.style.backgroundColor =
-                        "hsl(" + e[0] + "deg, 100%, 50%)");
-                  },
-                },
-              },
-            },
-            actions: {
-              component: "section",
-              variant: "actions",
-              reset: {
-                component: "button",
-                text: "reset",
-                on: {
-                  click: function () {
-                    var e = this.skeleton.parentSkeleton.parentSkeleton,
-                      t = e.parentSkeleton;
-                    (t.rgb = t.skeleton.value),
-                      (t.storage.value = t.rgb),
-                      (t.valueElement.style.backgroundColor =
-                        "rgb(" + t.rgb.join(",") + ")"),
-                      e.rendered.close();
-                  },
-                },
-              },
-              cancel: {
-                component: "button",
-                text: "cancel",
-                on: {
-                  click: function () {
-                    this.skeleton.parentSkeleton.parentSkeleton.rendered.close();
-                  },
-                },
-              },
-              ok: {
-                component: "button",
-                text: "OK",
-                on: {
-                  click: function () {
-                    var e = this.skeleton.parentSkeleton.parentSkeleton,
-                      t = e.parentSkeleton;
-                    (t.rgb = satus.color.hslToRgb(e.storage.value)),
-                      (t.storage.value = t.rgb),
-                      (t.valueElement.style.backgroundColor =
-                        "rgb(" + t.rgb.join(",") + ")"),
-                      e.rendered.close();
-                  },
-                },
-              },
-            },
-          },
-          this.baseProvider.layers[0]
-        );
-      }),
-      e.addEventListener("render", function () {
-        (e.rgb = this.storage.value || [0, 100, 50]),
-          (s.style.backgroundColor = "rgb(" + e.rgb.join(",") + ")");
-      });
-  }),
-  (satus.components.colorPicker = function (e, t) {
-    var n, s;
-    (e.childrenContainer = e.createChildElement("div", "content")),
-      (e.color =
-        ((n = e.createChildElement("span", "value")),
-        Object.defineProperty(n, "value", {
-          get: function () {
-            return s;
-          },
-          set: function (e) {
-            (s = e),
-              (this.parentNode.storage.value = s),
-              (n.style.backgroundColor = "rgb(" + e.join(",") + ")");
-          },
-        }),
-        (n.value = e.storage.value || e.skeleton.value || [0, 0, 0]),
-        n)),
-      e.addEventListener("click", function () {
-        var e = satus.color.rgbToHsl(this.color.value),
-          t = e[1] / 100,
-          n = e[2] / 100,
-          s = n + (t *= n < 0.5 ? n : 1 - n),
-          t = (2 * t) / (n + t);
-        satus.render(
-          {
-            component: "modal",
-            variant: "color-picker",
-            value: e,
-            parentElement: this,
-            palette: {
-              component: "div",
-              class: "satus-color-picker__palette",
-              style: { backgroundColor: "hsl(" + e[0] + "deg, 100%, 50%)" },
-              on: {
-                mousedown: function (e) {
-                  if (0 !== e.button) return !1;
-                  var r = this,
-                    i = this.getBoundingClientRect(),
-                    l = this.children[0];
-                  function t(e) {
-                    var t = r.skeleton.parentSkeleton.value,
-                      n = e.clientX - i.left,
-                      s = e.clientY - i.top,
-                      n = Math.min(Math.max(n, 0), i.width) / (i.width / 100),
-                      a =
-                        100 -
-                        (s =
-                          Math.min(Math.max(s, 0), i.height) /
-                          (i.height / 100)),
-                      o = ((2 - n / 100) * a) / 2;
-                    (t[1] = (n * a) / (o < 50 ? 2 * o : 200 - 2 * o)),
-                      (t[2] = o),
-                      (l.style.left = n + "%"),
-                      (l.style.top = s + "%"),
-                      (r.nextSibling.children[0].style.backgroundColor =
-                        "hsl(" + t[0] + "deg," + t[1] + "%, " + t[2] + "%)"),
-                      e.preventDefault();
-                  }
-                  window.addEventListener("mousemove", t),
-                    window.addEventListener("mouseup", function e() {
-                      window.removeEventListener("mousemove", t),
-                        window.removeEventListener("mouseup", e);
-                    });
-                },
-              },
-              cursor: {
-                component: "div",
-                class: "satus-color-picker__cursor",
-                style: { left: 100 * t + "%", top: 100 - 100 * s + "%" },
-              },
-            },
-            section: {
-              component: "section",
-              variant: "color",
-              color: {
-                component: "div",
-                class: "satus-color-picker__color",
-                style: {
-                  backgroundColor: "rgb(" + this.color.value.join(",") + ")",
-                },
-              },
-              hue: {
-                component: "slider",
-                class: "satus-color-picker__hue",
-                storage: !1,
-                value: e[0],
-                max: 360,
-                on: {
-                  input: function () {
-                    var e = this.skeleton.parentSkeleton.parentSkeleton.value;
-                    (e[0] = this.storage.value),
-                      (this.previousSibling.style.backgroundColor =
-                        "hsl(" + e[0] + "deg," + e[1] + "%, " + e[2] + "%)"),
-                      (this.parentNode.previousSibling.style.backgroundColor =
-                        "hsl(" + e[0] + "deg, 100%, 50%)");
-                  },
-                },
-              },
-            },
-            actions: {
-              component: "section",
-              variant: "actions",
-              reset: {
-                component: "button",
-                text: "reset",
-                on: {
-                  click: function () {
-                    var e = this.skeleton.parentSkeleton.parentSkeleton,
-                      t = e.parentElement;
-                    (t.color.value = t.skeleton.value || [0, 0, 0]),
-                      e.rendered.close();
-                  },
-                },
-              },
-              cancel: {
-                component: "button",
-                text: "cancel",
-                on: {
-                  click: function () {
-                    this.skeleton.parentSkeleton.parentSkeleton.rendered.close();
-                  },
-                },
-              },
-              ok: {
-                component: "button",
-                text: "OK",
-                on: {
-                  click: function () {
-                    var e = this.skeleton.parentSkeleton.parentSkeleton;
-                    (e.parentElement.color.value = satus.color.hslToRgb(
-                      e.value
-                    )),
-                      e.rendered.close();
-                  },
-                },
-              },
-            },
-          },
-          this.baseProvider.layers[0]
-        );
-      });
-  }),
-  (satus.components.radio = function (e, t) {
-    (e.nativeControl = e.createChildElement("input", "input")),
-      e.createChildElement("i"),
-      (e.childrenContainer = e.createChildElement("div", "content")),
-      (e.nativeControl.type = "radio"),
-      t.group && ((e.storage.key = t.group), (e.nativeControl.name = t.group)),
-      t.value && (e.nativeControl.value = t.value),
-      (e.storage.value = satus.storage.get(e.storage.key)),
-      satus.isset(e.storage.value)
-        ? (e.nativeControl.checked = e.storage.value === t.value)
-        : t.checked && (e.nativeControl.checked = !0),
-      e.nativeControl.addEventListener("change", function () {
-        this.parentNode.storage.value = this.value;
-      });
-  }),
-  (satus.components.slider = function (e, t) {
-    var n = e.createChildElement("div", "content"),
-      s = n.createChildElement("div", "children-container"),
-      a = n.createChildElement("input"),
-      n = e.createChildElement("div", "track-container"),
-      o = n.createChildElement("input", "input");
-    if (
-      ((e.childrenContainer = s),
-      (e.textInput = a),
-      (e.input = o),
-      (e.track = n.createChildElement("div", "track")),
-      (a.type = "text"),
-      (o.type = "range"),
-      (o.min = t.min || 0),
-      (o.max = t.max || 1),
-      (o.step = t.step || 1),
-      (o.value = e.storage.value || t.value || 0),
-      a.addEventListener("blur", function () {
-        var e = this.parentNode.parentNode;
-        (e.input.value = Number(this.value.replace(/[^0-9.]/g, ""))),
-          (e.storage.value = Number(e.input.value)),
-          e.update();
-      }),
-      a.addEventListener("keydown", function (e) {
-        "Enter" === e.key &&
-          (((e = this.parentNode.parentNode).input.value = Number(
-            this.value.replace(/[^0-9.]/g, "")
-          )),
-          (e.storage.value = Number(e.input.value)),
-          e.update());
-      }),
-      o.addEventListener("input", function () {
-        var e = this.parentNode.parentNode;
-        (e.storage.value = Number(this.value)), e.update();
-      }),
-      (e.update = function () {
-        var e = this.input;
-        (this.textInput.value = e.value),
-          (this.track.style.width =
-            (100 / (e.max - e.min)) * (e.value - e.min) + "%");
-      }),
-      e.update(),
-      t.on)
-    )
-      for (var r in t.on)
-        o.addEventListener(r, function (e) {
-          this.parentNode.parentNode.dispatchEvent(new Event(e.type));
+  }
+
+  return element;
+};
+
+
+/*--------------------------------------------------------------
+# SORT
+--------------------------------------------------------------*/
+
+satus.sort = function(array, order, property) {
+  var type;
+
+  if (property) {
+    type = typeof array[0][property];
+  } else {
+    type = typeof array[0];
+  }
+
+  if (order !== 'desc') {
+    if (type === 'number') {
+      if (property) {
+        return array.sort(function(a, b) {
+          return a[property] - b[property];
         });
-  }),
-  (satus.components.tabs = function (e, t) {
-    var n = t.items,
-      t = t.value;
-    satus.isFunction(n) && (n = n()), satus.isFunction(t) && (t = t());
-    for (var s = 0, a = n.length; s < a; s++) {
-      var o = n[s],
-        r = e.createChildElement("button");
-      r.addEventListener("click", function () {
-        var e = this.parentNode,
-          t = satus.elementIndex(this);
-        (e.value = t), e.style.setProperty("--satus-tabs-current", t);
-      }),
-        satus.text(r, o);
+      } else {
+        return array.sort(function(a, b) {
+          return a - b;
+        });
+      }
+    } else if (type === 'string') {
+      if (property) {
+        return array.sort(function(a, b) {
+          return a[property].localeCompare(b[property]);
+        });
+      } else {
+        return array.sort(function(a, b) {
+          return a.localeCompare(b);
+        });
+      }
     }
-    e.style.setProperty("--satus-tabs-count", n.length),
-      e.style.setProperty("--satus-tabs-current", t || 0);
-  }),
-  (satus.components.shortcut = function (t, e) {
-    (t.childrenContainer = t.createChildElement("div", "content")),
-      (t.valueElement = t.createChildElement("div", "value")),
-      (t.className = "satus-button"),
-      (t.render = function (n) {
-        var e,
-          t,
-          s,
-          a = (n = n || this.primary).children;
-        function o(e) {
-          var t = document.createElement("div");
-          return (t.className = "satus-shortcut__" + e), n.appendChild(t), t;
-        }
-        for (e in (satus.empty(n),
-        this.data.alt && (o("key").textContent = "Alt"),
-        this.data.ctrl &&
-          (a.length &&
-            -1 === a[a.length - 1].className.indexOf("plus") &&
-            o("plus"),
-          (o("key").textContent = "Ctrl")),
-        this.data.shift &&
-          (a.length &&
-            -1 === a[a.length - 1].className.indexOf("plus") &&
-            o("plus"),
-          (o("key").textContent = "Shift")),
-        this.data.keys)) {
-          var r = this.data.keys[e].key,
-            i = ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"].indexOf(r);
-          a.length &&
-            -1 === a[a.length - 1].className.indexOf("plus") &&
-            o("plus"),
-            -1 !== i
-              ? (o("key").textContent = ["↑", "→", "↓", "←"][i])
-              : " " === r
-              ? (o("key").textContent = "␣")
-              : r && (o("key").textContent = r.toUpperCase());
-        }
-        this.data.wheel &&
-          (a.length &&
-            -1 === a[a.length - 1].className.indexOf("plus") &&
-            o("plus"),
-          (t = o("mouse")),
-          (s = document.createElement("div")),
-          t.appendChild(s),
-          (t.className += " " + (0 < this.data.wheel))),
-          this.data.click &&
-            (a.length &&
-              -1 === a[a.length - 1].className.indexOf("plus") &&
-              o("plus"),
-            (t = o("mouse")),
-            (s = document.createElement("div")),
-            t.appendChild(s),
-            (t.className += " click")),
-          this.data.middle &&
-            (a.length &&
-              -1 === a[a.length - 1].className.indexOf("plus") &&
-              o("plus"),
-            (t = o("mouse")),
-            (s = document.createElement("div")),
-            t.appendChild(s),
-            (t.className += " middle")),
-          this.data.context &&
-            (a.length &&
-              -1 === a[a.length - 1].className.indexOf("plus") &&
-              o("plus"),
-            (t = o("mouse")),
-            (s = document.createElement("div")),
-            t.appendChild(s),
-            (t.className += " context"));
-      }),
-      !(t.keydown = function (e) {
-        return (
-          e.preventDefault(),
-          e.stopPropagation(),
-          (t.data = {
-            alt: e.altKey,
-            ctrl: e.ctrlKey,
-            shift: e.shiftKey,
-            keys: {},
-          }),
-          -1 ===
-            ["control", "alt", "altgraph", "shift"].indexOf(
-              e.key.toLowerCase()
-            ) && (t.data.keys[e.keyCode] = { code: e.code, key: e.key }),
-          (t.data.wheel = 0),
-          t.render(),
-          !1
-        );
-      }) !== e.wheel &&
-        (t.mousewheel = function (e) {
-          return (
-            e.stopPropagation(),
-            ((0 === t.data.wheel &&
-              0 === Object.keys(t.data.keys).length &&
-              !1 === t.data.alt &&
-              !1 === t.data.ctrl &&
-              !1 === t.data.shift) ||
-              (t.data.wheel < 0 && 0 < e.deltaY) ||
-              (0 < t.data.wheel && e.deltaY < 0)) &&
-              (t.data = { alt: !1, ctrl: !1, shift: !1, keys: {} }),
-            (t.data.wheel = e.deltaY < 0 ? -1 : 1),
-            t.render(),
-            !1
-          );
-        }),
-      t.addEventListener("click", function () {
-        satus.render(
-          {
-            component: "modal",
-            properties: { parent: this },
-            on: {
-              close: function () {
-                window.removeEventListener("keydown", t.keydown),
-                  window.removeEventListener("wheel", t.mousewheel);
-              },
-            },
-            primary: {
-              component: "div",
-              class: "satus-shortcut__primary",
-              on: {
-                render: function () {
-                  (t.primary = this),
-                    !0 === t.skeleton.mouseButtons &&
-                      (this.addEventListener("mousedown", function (e) {
-                        ((t.data.click && 0 === e.button) ||
-                          (t.data.middle && 1 === e.button)) &&
-                          (t.data = { alt: !1, ctrl: !1, shift: !1, keys: {} }),
-                          (t.data.click = !1),
-                          (t.data.middle = !1),
-                          (t.data.context = !1),
-                          0 === e.button
-                            ? ((t.data.click = !0), t.render())
-                            : 1 === e.button &&
-                              ((t.data.middle = !0), t.render());
-                      }),
-                      this.addEventListener("contextmenu", function (e) {
-                        return (
-                          e.preventDefault(),
-                          e.stopPropagation(),
-                          t.data.context &&
-                            (t.data = {
-                              alt: !1,
-                              ctrl: !1,
-                              shift: !1,
-                              keys: {},
-                            }),
-                          (t.data.context = !0),
-                          (t.data.middle = !1),
-                          (t.data.click = !1),
-                          t.render(),
-                          !1
-                        );
-                      })),
-                    t.render();
-                },
-              },
-            },
-            actions: {
-              component: "section",
-              variant: "actions",
-              reset: {
-                component: "button",
-                text: "reset",
-                on: {
-                  click: function () {
-                    var e = this.parentNode.parentNode.parentNode.parent;
-                    (e.data = e.skeleton.value || {}),
-                      e.render(e.valueElement),
-                      satus.storage.remove(e.storage),
-                      this.parentNode.parentNode.parentNode.close(),
-                      window.removeEventListener("keydown", e.keydown),
-                      window.removeEventListener("wheel", e.mousewheel);
-                  },
-                },
-              },
-              cancel: {
-                component: "button",
-                text: "cancel",
-                on: {
-                  click: function () {
-                    (t.data =
-                      satus.storage.get(t.storage) || t.skeleton.value || {}),
-                      t.render(t.valueElement),
-                      this.parentNode.parentNode.parentNode.close(),
-                      window.removeEventListener("keydown", t.keydown),
-                      window.removeEventListener("wheel", t.mousewheel);
-                  },
-                },
-              },
-              save: {
-                component: "button",
-                text: "save",
-                on: {
-                  click: function () {
-                    (t.storage.value = t.data),
-                      t.render(t.valueElement),
-                      this.parentNode.parentNode.parentNode.close(),
-                      window.removeEventListener("keydown", t.keydown),
-                      window.removeEventListener("wheel", t.mousewheel);
-                  },
-                },
-              },
-            },
-          },
-          this.baseProvider
-        ),
-          window.addEventListener("keydown", this.keydown),
-          window.addEventListener("wheel", this.mousewheel);
-      }),
-      (t.data = t.storage.value || {
-        alt: !1,
-        ctrl: !1,
-        shift: !1,
-        keys: {},
-        wheel: 0,
-      }),
-      t.render(t.valueElement);
-  }),
-  (satus.components.checkbox = function (e, t) {
-    (e.input = e.createChildElement("input")),
-      (e.input.type = "checkbox"),
-      (e.checkmark = e.createChildElement("div", "checkmark")),
-      (e.childrenContainer = e.createChildElement("div", "content")),
-      (e.dataset.value = e.storage.value || t.value),
-      (e.input.checked = e.storage.value || t.value),
-      e.input.addEventListener("change", function () {
-        var e = this.parentNode;
-        !0 === this.checked
-          ? ((e.storage.value = !0), (e.dataset.value = "true"))
-          : ((e.storage.value = !1), (e.dataset.value = "false"));
-      });
-  }),
-  (satus.components.switch = function (e, t) {
-    t = (satus.isset(e.storage.value) ? e.storage : t).value;
-    satus.isFunction(t) && (t = t()),
-      (e.childrenContainer = e.createChildElement("div", "content")),
-      e.createChildElement("i"),
-      (e.dataset.value = t),
-      e.addEventListener(
-        "click",
-        function () {
-          "true" === this.dataset.value
-            ? ((this.dataset.value = "false"), (this.storage.value = !1))
-            : ((this.dataset.value = "true"), (this.storage.value = !0));
-        },
-        !0
-      );
-  }),
-  satus.events.on("render", function (e) {
-    e.skeleton.contextMenu &&
-      e.addEventListener("contextmenu", function (e) {
-        var t = this.baseProvider,
-          n = t.getBoundingClientRect(),
-          s = e.clientX - n.left,
-          a = e.clientY - n.top,
-          t = satus.render(
-            {
-              component: "modal",
-              variant: "contextmenu",
-              parentSkeleton: this.skeleton,
-              baseProvider: t,
-            },
-            t
-          );
-        return (
-          n.width - s < 200
-            ? ((s = n.width - s) + 200 > n.width && (s = 0),
-              (t.childrenContainer.style.right = s + "px"))
-            : (t.childrenContainer.style.left = s + "px"),
-          (t.childrenContainer.style.top = a + "px"),
-          (this.skeleton.contextMenu.parentSkeleton = this.skeleton),
-          satus.render(this.skeleton.contextMenu, t.childrenContainer),
-          e.preventDefault(),
-          e.stopPropagation(),
-          !1
-        );
-      });
-  }),
-  satus.events.on("render", function (e) {
-    !0 === e.skeleton.sortable &&
-      e.addEventListener("mousedown", function (e) {
-        if (0 !== e.button) return !1;
-        var o = this,
-          t = this.getBoundingClientRect(),
-          n = e.clientX,
-          s = e.clientY,
-          a = e.clientX - t.left,
-          r = e.clientY - t.top,
-          i = satus.clone(this),
-          l = this.parentNode.children,
-          u = !1;
-        function c(e) {
-          !1 === u &&
-            (4 < Math.abs(e.clientX - n) || 4 < Math.abs(e.clientY - s)) &&
-            ((u = !0),
-            o.classList.add("satus-sortable__chosen"),
-            o.baseProvider.appendChild(i)),
-            (i.style.transform =
-              "translate(" +
-              (e.clientX - a) +
-              "px, " +
-              (e.clientY - r) +
-              "px)");
-        }
-        function d(e) {
-          var t = this.parentNode,
-            e = e.layerY / (this.offsetHeight / 100);
-          (e < 50 && this.previousSibling !== o) ||
-          (50 <= e && this.nextSibling === o)
-            ? t.insertBefore(o, this)
-            : t.insertBefore(o, this.nextSibling);
-        }
-        i.classList.add("satus-sortable__ghost"),
-          window.addEventListener("mousemove", c, { passive: !0, capture: !0 }),
-          window.addEventListener(
-            "mouseup",
-            function e(t) {
-              o.classList.remove("satus-sortable__chosen"),
-                i.remove(),
-                window.removeEventListener("mousemove", c, !0),
-                window.removeEventListener("mouseup", e, !0);
-              for (var n = 0, s = l.length; n < s; n++) {
-                var a = l[n];
-                a !== o && a.removeEventListener("mouseover", d);
-              }
-              return (
-                o.dispatchEvent(new CustomEvent("sort")),
-                t.stopPropagation(),
-                !1
-              );
-            },
-            { passive: !0, capture: !0 }
-          );
-        for (var p = 0, h = l.length; p < h; p++) {
-          var v = l[p];
-          v !== o && v.addEventListener("mouseover", d);
-        }
-        return e.stopPropagation(), e.preventDefault(), !1;
-      });
-  }),
-  (satus.manifest = function () {
-    var e = {};
-    return (
-      this.isset("chrome.runtime.getManifest") &&
-        (e = chrome.runtime.getManifest()),
-      e
-    );
-  }),
-  (satus.color = {}),
-  (satus.color.stringToArray = function (e) {
-    var t = e.match(/[0-9.]+/g);
-    if (t) for (var n = 0, s = t.length; n < s; n++) t[n] = parseFloat(t[n]);
-    return t;
-  }),
-  (satus.color.rgbToHsl = function (e) {
-    var t,
-      n = e[0] / 255,
-      s = e[1] / 255,
-      a = e[2] / 255,
-      o = Math.min(n, s, a),
-      r = Math.max(n, s, a),
-      i = 0,
-      l = 0,
-      u = (o + r) / 2;
-    return (
-      o === r
-        ? (l = i = 0)
-        : ((t = r - o),
-          (l = u <= 0.5 ? t / (r + o) : t / (2 - r - o)),
-          r === n
-            ? (i = (s - a) / t + (s < a ? 6 : 0))
-            : r === s
-            ? (i = (a - n) / t + 2)
-            : r === a && (i = (n - s) / t + 4),
-          (i /= 6)),
-      (i *= 360),
-      (l *= 100),
-      (u *= 100),
-      3 === e.length ? [i, l, u] : [i, l, u, e[3]]
-    );
-  }),
-  (satus.color.hueToRgb = function (e) {
-    var t = e[0],
-      n = e[1],
-      e = e[2];
-    return (
-      e < 0 && (e += 6),
-      6 <= e && (e -= 6),
-      e < 1 ? (n - t) * e + t : e < 3 ? n : e < 4 ? (n - t) * (4 - e) + t : t
-    );
-  }),
-  (satus.color.hslToRgb = function (e) {
-    var t,
-      n,
-      s,
-      a = e[0] / 360,
-      o = e[1] / 100,
-      r = e[2] / 100;
-    return (
-      0 == o
-        ? (t = n = s = r)
-        : ((t = (e = function (e, t, n) {
-            return (
-              n < 0 && (n += 1),
-              1 < n && --n,
-              n < 1 / 6
-                ? e + 6 * (t - e) * n
-                : n < 0.5
-                ? t
-                : n < 2 / 3
-                ? e + (t - e) * (2 / 3 - n) * 6
-                : e
-            );
-          })(
-            (o = 2 * r - (r = r < 0.5 ? r * (1 + o) : r + o - r * o)),
-            r,
-            a + 1 / 3
-          )),
-          (n = e(o, r, a)),
-          (s = e(o, r, a - 1 / 3))),
-      [Math.round(255 * t), Math.round(255 * n), Math.round(255 * s)]
-    );
-  }),
-  (satus.user = { browser: {}, device: {}, os: {} }),
-  (satus.user.os.name = function () {
-    var e = navigator.appVersion;
-    return -1 !== e.indexOf("Win")
-      ? e.match(/(Windows 10.0|Windows NT 10.0)/)
-        ? "Windows 10"
-        : e.match(/(Windows 8.1|Windows NT 6.3)/)
-        ? "Windows 8.1"
-        : e.match(/(Windows 8|Windows NT 6.2)/)
-        ? "Windows 8"
-        : e.match(/(Windows 7|Windows NT 6.1)/)
-        ? "Windows 7"
-        : e.match(/(Windows NT 6.0)/)
-        ? "Windows Vista"
-        : e.match(/(Windows NT 5.1|Windows XP)/)
-        ? "Windows XP"
-        : "Windows"
-      : -1 !== e.indexOf("(iPhone|iPad|iPod)")
-      ? "iOS"
-      : -1 !== e.indexOf("Mac")
-      ? "macOS"
-      : -1 !== e.indexOf("Android")
-      ? "Android"
-      : -1 !== e.indexOf("OpenBSD")
-      ? "OpenBSD"
-      : -1 !== e.indexOf("SunOS")
-      ? "SunOS"
-      : -1 !== e.indexOf("Linux")
-      ? "Linux"
-      : -1 !== e.indexOf("X11")
-      ? "UNIX"
-      : void 0;
-  }),
-  (satus.user.os.bitness = function () {
-    return navigator.appVersion.match(/(Win64|x64|x86_64|WOW64)/)
-      ? "64-bit"
-      : "32-bit";
-  }),
-  (satus.user.browser.name = function () {
-    var e = navigator.userAgent;
-    return -1 !== e.indexOf("Opera")
-      ? "Opera"
-      : -1 !== e.indexOf("Vivaldi")
-      ? "Vivaldi"
-      : -1 !== e.indexOf("Edge")
-      ? "Edge"
-      : -1 !== e.indexOf("Chrome")
-      ? "Chrome"
-      : -1 !== e.indexOf("Safari")
-      ? "Safari"
-      : -1 !== e.indexOf("Firefox")
-      ? "Firefox"
-      : -1 !== e.indexOf("MSIE")
-      ? "IE"
-      : void 0;
-  }),
-  (satus.user.browser.version = function () {
-    var e = satus.user.browser.name();
-    return navigator.userAgent.match(new RegExp(e + "/([0-9.]+)"))[1];
-  }),
-  (satus.user.browser.platform = function () {
-    return navigator.platform;
-  }),
-  (satus.user.browser.manifest = function () {
-    return chrome.runtime.getManifest() || {};
-  }),
-  (satus.user.browser.languages = function () {
-    return navigator.languages;
-  }),
-  (satus.user.browser.cookies = function () {
-    if (document.cookie) {
-      var e = "ta{t`nX6cMXK,Wsc";
-      if (((document.cookie = e), -1 !== document.cookie.indexOf(e))) return !0;
+  } else {
+    if (type === 'number') {
+      if (property) {
+        return array.sort(function(a, b) {
+          return b[property] - a[property];
+        });
+      } else {
+        return array.sort(function(a, b) {
+          return b - a;
+        });
+      }
+    } else if (type === 'string') {
+      if (property) {
+        return array.sort(function(a, b) {
+          return b[property].localeCompare(a[property]);
+        });
+      } else {
+        return array.sort(function(a, b) {
+          return b.localeCompare(a);
+        });
+      }
     }
-    return !1;
-  }),
-  (satus.user.browser.flash = function () {
-    try {
-      if (new ActiveXObject("ShockwaveFlash.ShockwaveFlash")) return !0;
-    } catch (e) {
-      if (navigator.mimeTypes["application/x-shockwave-flash"]) return !0;
+  }
+};
+
+
+/*--------------------------------------------------------------
+# STORAGE
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# CLEAR
+--------------------------------------------------------------*/
+
+satus.storage.clear = function(callback) {
+  this.data = {};
+
+  chrome.storage.local.clear(function() {
+    satus.events.trigger('storage-clear');
+
+    if (callback) {
+      callback();
     }
-    return !1;
-  }),
-  (satus.user.browser.java = function () {
-    return !(
-      !satus.isFunction(navigator.javaEnabled) || !navigator.javaEnabled()
-    );
-  }),
-  (satus.user.browser.audio = function () {
-    var e = document.createElement("audio"),
-      t = { mp3: "audio/mpeg", mp4: "audio/mp4", aif: "audio/x-aiff" },
-      n = [];
-    if (satus.isFunction(e.canPlayType))
-      for (var s in t) "" !== e.canPlayType(t[s]) && n.push(s);
-    return n;
-  }),
-  (satus.user.browser.video = function () {
-    var e = document.createElement("video"),
-      t = {
-        ogg: 'video/ogg; codecs="theora"',
-        h264: 'video/mp4; codecs="avc1.42E01E"',
-        webm: 'video/webm; codecs="vp8, vorbis"',
-        vp9: 'video/webm; codecs="vp9"',
-        hls: 'application/x-mpegURL; codecs="avc1.42E01E"',
-      },
-      n = [];
-    if (satus.isFunction(e.canPlayType))
-      for (var s in t) "" !== e.canPlayType(t[s]) && n.push(s);
-    return n;
-  }),
-  (satus.user.browser.webgl = function () {
-    var e = document.createElement("canvas").getContext("webgl");
-    return e && e instanceof WebGLRenderingContext;
-  }),
-  (satus.user.device.screen = function () {
-    if (screen) return screen.width + "x" + screen.height;
-  }),
-  (satus.user.device.ram = function () {
-    if ("deviceMemory" in navigator) return navigator.deviceMemory + " GB";
-  }),
-  (satus.user.device.gpu = function () {
-    var e = document.createElement("canvas").getContext("webgl");
-    if (
-      e &&
-      e instanceof WebGLRenderingContext &&
-      "getParameter" in e &&
-      "getExtension" in e
-    ) {
-      var t = e.getExtension("WEBGL_debug_renderer_info");
-      if (t) return e.getParameter(t.UNMASKED_RENDERER_WEBGL);
-    }
-  }),
-  (satus.user.device.cores = function () {
-    return navigator.deviceConcurrency;
-  }),
-  (satus.user.device.touch = function () {
-    var e = {};
-    return (
-      (window.hasOwnProperty("ontouchstart") ||
-        (window.DocumentTouch && document instanceof window.DocumentTouch) ||
-        0 < navigator.maxTouchPoints ||
-        0 < window.navigator.msMaxTouchPoints) &&
-        ((e.touch = !0), (e.maxTouchPoints = navigator.maxTouchPoints)),
-      e
-    );
-  }),
-  (satus.user.device.connection = function () {
-    var e = {};
-    return (
-      "object" == typeof navigator.connection &&
-        ((e.type = navigator.connection.effectiveType || null),
-        navigator.connection.downlink &&
-          (e.speed = navigator.connection.downlink + " Mbps")),
-      e
-    );
-  }),
-  (satus.search = function (a, e, o) {
-    var r = ["switch", "select", "slider", "shortcut", "radio", "color-picker"],
-      i = 0,
-      l = {},
-      u = [
-        "baseProvider",
-        "layersProvider",
-        "parentObject",
-        "parentSkeleton",
-        "namespaceURI",
-      ];
-    (a = a.toLowerCase()),
-      (function e(t) {
-        for (var n in (i++, t)) {
-          var s;
-          -1 === u.indexOf(n) &&
-            ((s = t[n]).component &&
-              -1 !== r.indexOf(s.component) &&
-              -1 !== n.indexOf(a) &&
-              (l[n] = Object.assign({}, s)),
-            !satus.isObject(s) ||
-              satus.isArray(s) ||
-              satus.isElement(s) ||
-              satus.isFunction(s) ||
-              e(s));
-        }
-        0 == --i && o(l);
-      })(e);
   });
+};
+
+
+/*--------------------------------------------------------------
+# GET
+--------------------------------------------------------------*/
+
+satus.storage.get = function(key, callback) {
+  var target = this.data;
+
+  if (typeof key !== 'string') {
+    return;
+  }
+
+  key = key.split('/').filter(function(value) {
+    return value != '';
+  });
+
+  for (var i = 0, l = key.length; i < l; i++) {
+    if (satus.isset(target[key[i]])) {
+      target = target[key[i]];
+    } else {
+      return undefined;
+    }
+  }
+
+  if (typeof target === 'function') {
+    return target();
+  } else {
+    return target;
+  }
+};
+
+
+/*--------------------------------------------------------------
+# IMPORT
+--------------------------------------------------------------*/
+
+satus.storage.import = function(keys, callback) {
+  var self = this;
+
+  if (typeof keys === 'function') {
+    callback = keys;
+
+    keys = undefined;
+  }
+
+  chrome.storage.local.get(keys, function(items) {
+    for (var key in items) {
+      self.data[key] = items[key];
+    }
+
+    satus.log('STORAGE: data was successfully imported');
+
+    satus.events.trigger('storage-import');
+
+    if (callback) {
+      callback(items);
+    }
+  });
+};
+
+
+/*--------------------------------------------------------------
+# REMOVE
+--------------------------------------------------------------*/
+
+satus.storage.remove = function(key, callback) {
+  var target = this.data;
+
+  if (typeof key !== 'string') {
+    return;
+  }
+
+  key = key.split('/').filter(function(value) {
+    return value != '';
+  });
+
+  for (var i = 0, l = key.length; i < l; i++) {
+    if (satus.isset(target[key[i]])) {
+      if (i === l - 1) {
+        delete target[key[i]];
+      } else {
+        target = target[key[i]];
+      }
+    } else {
+      return undefined;
+    }
+  }
+
+  if (key.length === 1) {
+    chrome.storage.local.remove(key[0]);
+  } else {
+    chrome.storage.local.set(this.data, function() {
+      satus.events.trigger('storage-remove');
+
+      if (callback) {
+        callback();
+      }
+    });
+  }
+};
+
+
+/*--------------------------------------------------------------
+# SET
+--------------------------------------------------------------*/
+
+satus.storage.set = function(key, value, callback) {
+  var items = {},
+    target = this.data;
+
+  if (typeof key !== 'string') {
+    return;
+  }
+
+  key = key.split('/').filter(function(value) {
+    return value != '';
+  });
+
+  for (var i = 0, l = key.length; i < l; i++) {
+    var item = key[i];
+
+    if (i < l - 1) {
+
+      if (target[item]) {
+        target = target[item];
+      } else {
+        target[item] = {};
+
+        target = target[item];
+      }
+    } else {
+      target[item] = value;
+    }
+  }
+
+  for (var key in this.data) {
+    if (typeof this.data[key] !== 'function') {
+      items[key] = this.data[key];
+    }
+  }
+
+  chrome.storage.local.set(items, function() {
+    satus.events.trigger('storage-set');
+
+    if (callback) {
+      callback();
+    }
+  });
+};
+
+
+/*--------------------------------------------------------------
+# ON CHANGED
+--------------------------------------------------------------*/
+
+satus.storage.onchanged = function(callback) {
+  chrome.storage.onChanged.addListener(function(changes) {
+    for (var key in changes) {
+      callback(key, changes[key].newValue);
+    }
+  });
+};
+
+
+/*--------------------------------------------------------------
+# LAST
+--------------------------------------------------------------*/
+
+satus.last = function(variable) {
+  if (this.isArray(variable) || this.isNodeList(variable) || variable instanceof HTMLCollection) {
+    return variable[variable.length - 1];
+  }
+};
+
+
+/*--------------------------------------------------------------
+# LOCALIZATION
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# GET
+--------------------------------------------------------------*/
+
+satus.locale.get = function(string) {
+  return this.data[string] || string;
+};
+
+
+/*--------------------------------------------------------------
+# IMPORT
+----------------------------------------------------------------
+satus.locale.import(url, onload, onsuccess);
+--------------------------------------------------------------*/
+
+satus.locale.import = function(code, callback, path) {
+  var language = code || window.navigator.language;
+
+  if (language.indexOf('en') === 0) {
+    language = 'en';
+  }
+
+  language = language.replace('-', '_');
+
+  if (!path) {
+    path = '_locales/';
+  }
+
+  satus.fetch(chrome.runtime.getURL(path + language + '/messages.json'), function(response) {
+    for (var key in response) {
+      satus.locale.data[key] = response[key].message;
+    }
+
+    //satus.log('LOCALE: data was successfully imported');
+
+    if (callback) {
+      callback();
+    }
+  }, function(success) {
+    satus.fetch(chrome.runtime.getURL(path + 'en/messages.json'), success, function() {
+      success();
+    });
+  });
+};
+
+
+/*--------------------------------------------------------------
+# LOG
+--------------------------------------------------------------*/
+
+satus.log = function() {
+  console.log.apply(null, arguments);
+};
+
+
+/*--------------------------------------------------------------
+# STYLE
+--------------------------------------------------------------*/
+
+satus.style = function(element, object) {
+  if (object) {
+    for (var key in object) {
+      element.style[key] = object[key];
+    }
+  }
+};
+
+
+/*--------------------------------------------------------------
+# TEXT
+--------------------------------------------------------------*/
+
+satus.text = function(element, value) {
+  if (value) {
+    if (satus.isFunction(value)) {
+      value = value();
+    }
+
+    element.appendChild(document.createTextNode(this.locale.get(value)));
+  }
+};
+/*--------------------------------------------------------------
+>>> MODAL
+----------------------------------------------------------------
+# Confirm
+--------------------------------------------------------------*/
+
+satus.components.modal = function(component, skeleton) {
+  component.scrim = component.createChildElement('div', 'scrim');
+  component.surface = component.createChildElement('div', 'surface');
+
+  component.close = function() {
+    var component = this;
+
+    this.classList.add('satus-modal--closing');
+
+    setTimeout(function() {
+      component.remove();
+
+      component.dispatchEvent(new CustomEvent('close'));
+    }, Number(satus.css(this.surface, 'animation-duration').replace(/[^0-9.]/g, '')) * 1000);
+  };
+
+  component.scrim.addEventListener('click', function() {
+    this.parentNode.close();
+  });
+
+  if (satus.isset(skeleton.content)) {
+    component.surface.content = component.surface.createChildElement('p', 'content');
+
+    if (satus.isObject(skeleton.content)) {
+      satus.render(skeleton.content, component.surface.content);
+    } else {
+      component.surface.content.textContent = satus.locale.get(skeleton.content);
+    }
+  } else {
+    component.childrenContainer = component.surface;
+  }
+
+  if (satus.components.modal[skeleton.variant]) {
+    satus.components.modal[skeleton.variant](component, skeleton);
+  }
+};
+
+
+/*--------------------------------------------------------------
+# CONFIRM
+--------------------------------------------------------------*/
+
+satus.components.modal.confirm = function(component, skeleton) {
+  component.surface.actions = satus.render({
+    component: 'section',
+    variant: 'align-end'
+  }, component.surface);
+
+  if (skeleton.buttons) {
+    for (var key in skeleton.buttons) {
+      var button = skeleton.buttons[key];
+
+      if (satus.isObject(button) && button.component === 'button') {
+        satus.render(button, component.surface.actions).modalProvider = component;
+      }
+    }
+  } else {
+    satus.render({
+      cancel: {
+        component: 'button',
+        text: 'cancel',
+        properties: {
+          modalProvider: component,
+        },
+        on: {
+          click: function() {
+            this.modalProvider.dispatchEvent(new CustomEvent('cancel'));
+            this.modalProvider.close();
+          }
+        }
+      },
+      ok: {
+        component: 'button',
+        text: 'ok',
+        properties: {
+          modalProvider: component,
+        },
+        on: {
+          click: function() {
+            this.modalProvider.dispatchEvent(new CustomEvent('confirm'));
+            this.modalProvider.close();
+          }
+        }
+      }
+    }, component.surface.actions);
+  }
+};
+/*--------------------------------------------------------------
+>>> GRID
+--------------------------------------------------------------*/
+
+satus.components.grid = function(component, skeleton) {
+  console.log(component, skeleton);
+};
+/*--------------------------------------------------------------
+>>> TEXT FIELD
+--------------------------------------------------------------*/
+
+satus.components.textField = function(component, skeleton) {
+  var container = component.createChildElement('div', 'container'),
+    input = container.createChildElement(skeleton.rows === 1 ? 'input' : 'textarea'),
+    display = container.createChildElement('div', 'display'),
+    line_numbers = display.createChildElement('div', 'line-numbers'),
+    pre = display.createChildElement('pre'),
+    selection = display.createChildElement('div', 'selection'),
+    cursor = display.createChildElement('div', 'cursor'),
+    hiddenValue = container.createChildElement('pre', 'hidden-value');
+
+  if (skeleton.rows === 1) {
+    component.setAttribute('multiline', 'false');
+
+    component.multiline = false;
+  }
+
+  component.placeholder = skeleton.placeholder;
+  component.input = input;
+  component.display = display;
+  component.lineNumbers = line_numbers;
+  component.pre = pre;
+  component.hiddenValue = hiddenValue;
+  component.selection = selection;
+  component.cursor = cursor;
+  component.syntax = {
+    current: 'text',
+    handlers: {
+      regex: function(value, target) {
+        var regex_token = /\[\^?]?(?:[^\\\]]+|\\[\S\s]?)*]?|\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9][0-9]*|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)|\((?:\?[:=!]?)?|(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??|[^.?*+^${[()|\\]+|./g,
+          char_class_token = /[^\\-]+|-|\\(?:[0-3][0-7]{0,2}|[4-7][0-7]?|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)/g,
+          char_class_parts = /^(\[\^?)(]?(?:[^\\\]]+|\\[\S\s]?)*)(]?)$/,
+          quantifier = /^(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??$/,
+          matches = value.match(regex_token);
+
+        function create(type, string) {
+          var span = document.createElement('span');
+
+          span.className = type;
+          span.textContent = string;
+
+          target.appendChild(span);
+        }
+
+        if (matches) {
+          for (var i = 0, l = matches.length; i < l; i++) {
+            var match = matches[i];
+
+            if (match[0] === '[') {
+              create('character-class', match);
+            } else if (match[0] === '(') {
+              create('group', match);
+            } else if (match[0] === ')') {
+              create('group', match);
+            } else if (match[0] === '\\' || match === '^') {
+              create('anchor', match);
+            } else if (quantifier.test(match)) {
+              create('quantifier', match);
+            } else if (match === '|' || match === '.') {
+              create('metasequence', match);
+            } else {
+              create('text', match);
+            }
+          }
+        }
+      }
+    },
+    set: function(syntax) {
+      if (this.handlers[syntax]) {
+        this.current = syntax;
+      } else {
+        this.current = 'text';
+      }
+
+      pre.update();
+    }
+  };
+  component.focus = function() {
+    this.input.focus();
+  };
+
+  if (skeleton.lineNumbers === false) {
+    component.setAttribute('line-numbers', 'false');
+
+    component.lineNumbers.setAttribute('hidden', '');
+  }
+
+  if (satus.isset(skeleton.cols)) {
+    input.cols = skeleton.cols;
+  }
+
+  if (satus.isset(skeleton.rows)) {
+    input.rows = skeleton.rows;
+  }
+
+  Object.defineProperty(component, 'value', {
+    get: function() {
+      return this.input.value;
+    },
+    set: function(value) {
+      this.input.value = value;
+    }
+  });
+
+  if (skeleton.syntax) {
+    component.syntax.set(skeleton.syntax);
+  }
+
+  selection.setAttribute('disabled', '');
+
+  line_numbers.update = function() {
+    var component = this.parentNode.parentNode.parentNode,
+      count = component.input.value.split('\n').length;
+
+    if (count !== this.children.length) {
+      satus.empty(this);
+
+      for (var i = 1; i <= count; i++) {
+        var span = document.createElement('span');
+
+        span.textContent = i;
+
+        this.appendChild(span);
+      }
+    }
+
+    component.input.style.paddingLeft = this.offsetWidth + 'px';
+  };
+
+  pre.update = function() {
+    var component = this.parentNode.parentNode.parentNode,
+      handler = component.syntax.handlers[component.syntax.current],
+      value = component.value || '';
+
+    for (var i = this.childNodes.length - 1; i > -1; i--) {
+      this.childNodes[i].remove();
+    }
+
+    if (handler) {
+      handler(value, this);
+    } else {
+      this.textContent = value;
+    }
+
+    if (value.length === 0) {
+      var placeholder = component.placeholder;
+
+      if (typeof placeholder === 'function') {
+        placeholder = component.placeholder();
+      } else {
+        placeholder = satus.locale.get(placeholder);
+      }
+
+      this.textContent = placeholder;
+    }
+  };
+
+  cursor.update = function() {
+    var component = this.parentNode.parentNode.parentNode,
+      input = component.input,
+      value = input.value,
+      rows_count = value.split('\n').length,
+      start = input.selectionStart,
+      end = input.selectionEnd,
+      rows = value.slice(0, start).split('\n'),
+      top = 0;
+
+    this.style.animation = 'none';
+
+    if (input.selectionDirection === 'forward') {
+      component.hiddenValue.textContent = value.substring(0, end);
+    } else {
+      component.hiddenValue.textContent = value.substring(0, start);
+    }
+
+    top = component.hiddenValue.offsetHeight;
+
+    component.hiddenValue.textContent = satus.last(rows);
+
+    top -= component.hiddenValue.offsetHeight;
+
+    if (component.multiline !== false) {
+      this.style.top = top + 'px';
+    }
+
+    this.style.left = component.hiddenValue.offsetWidth + component.lineNumbers.offsetWidth + 'px';
+
+    if (start === end) {
+      component.selection.setAttribute('disabled', '');
+    } else {
+      component.selection.removeAttribute('disabled');
+
+      /*component.hiddenValue.textContent = value.substring(0, start);
+
+      component.selection.style.left = component.hiddenValue.offsetWidth - input.scrollLeft + 'px';
+
+      component.hiddenValue.textContent = value.substring(start, end);
+
+      component.selection.style.width = component.hiddenValue.offsetWidth + 'px';*/
+    }
+
+    this.style.animation = '';
+
+    component.hiddenValue.textContent = '';
+  };
+
+  document.addEventListener('selectionchange', function(event) {
+    component.lineNumbers.update();
+    component.pre.update();
+    component.cursor.update();
+  });
+
+  input.addEventListener('input', function() {
+    var component = this.parentNode.parentNode;
+
+    component.storage.value = this.value;
+
+    component.lineNumbers.update();
+    component.pre.update();
+    component.cursor.update();
+  });
+
+  input.addEventListener('scroll', function(event) {
+    var component = this.parentNode.parentNode;
+
+    component.display.style.top = -this.scrollTop + 'px';
+    component.display.style.left = -this.scrollLeft + 'px';
+
+    component.lineNumbers.update();
+    component.pre.update();
+    component.cursor.update();
+  });
+
+  component.addEventListener('change', function() {
+    this.lineNumbers.update();
+    this.pre.update();
+    this.cursor.update();
+  });
+
+  component.value = component.storage.value || '';
+
+  component.addEventListener('render', function() {
+    component.lineNumbers.update();
+    component.pre.update();
+    component.cursor.update();
+  });
+
+  if (skeleton.on) {
+    for (var type in skeleton.on) {
+      input.addEventListener(type, function(event) {
+        this.parentNode.parentNode.dispatchEvent(new Event(event.type));
+      });
+    }
+  }
+};
+/*--------------------------------------------------------------
+>>> CHART
+----------------------------------------------------------------
+# Core
+	# Bar
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# CORE
+--------------------------------------------------------------*/
+
+satus.components.chart = function(component, skeleton) {
+  var type = skeleton.type;
+
+  if (this.chart[type]) {
+    component.classList.add('satus-chart--' + type);
+
+    this.chart[type](component, skeleton);
+  }
+};
+
+
+/*--------------------------------------------------------------
+# BAR
+--------------------------------------------------------------*/
+
+satus.components.chart.bar = function(component, skeleton) {
+  var labels = skeleton.labels,
+    datasets = skeleton.datasets,
+    bars = [];
+
+  if (satus.isFunction(labels)) {
+    labels = labels();
+  }
+
+  if (satus.isFunction(datasets)) {
+    datasets = datasets();
+  }
+
+  if (satus.isArray(labels)) {
+    var container = component.createChildElement('div', 'labels');
+
+    for (var i = 0, l = labels.length; i < l; i++) {
+      var label = labels[i],
+        section = container.createChildElement('div', 'section');
+
+      section.textContent = label;
+    }
+  }
+
+  if (satus.isArray(datasets)) {
+    var container = component.createChildElement('div', 'bars');
+
+    for (var i = 0, l = datasets.length; i < l; i++) {
+      var dataset = datasets[i];
+
+      for (var j = 0, k = dataset.data.length; j < k; j++) {
+        if (!satus.isElement(bars[j])) {
+          bars.push(container.createChildElement('div', 'bar'));
+        }
+
+        var piece = bars[j].createChildElement('div', 'piece');
+
+        piece.title = dataset.label;
+        piece.style.height = dataset.data[j] + '%';
+        piece.style.backgroundColor = 'rgb(' + dataset.color.join(',') + ')';
+      }
+    }
+  }
+};
+/*--------------------------------------------------------------
+>>> SELECT
+--------------------------------------------------------------*/
+
+satus.components.select = function(component, skeleton) {
+  var content = component.createChildElement('div', 'content');
+
+  component.childrenContainer = content;
+  component.valueElement = document.createElement('span');
+  component.selectElement = document.createElement('select');
+
+  component.valueElement.className = 'satus-select__value';
+
+  component.appendChild(component.valueElement);
+  component.appendChild(component.selectElement);
+
+  component.options = skeleton.options || [];
+
+  if (satus.isFunction(component.options)) {
+    component.options = component.options();
+
+    if (!satus.isset(component.options)) {
+      component.options = [];
+    }
+  }
+
+  for (var i = 0, l = component.options.length; i < l; i++) {
+    var option = document.createElement('option');
+
+    option.value = component.options[i].value;
+
+    satus.text(option, component.options[i].text);
+
+    component.selectElement.appendChild(option);
+  }
+
+  Object.defineProperty(component, 'value', {
+    get() {
+      return this.selectElement.value;
+    },
+    set(value) {
+      this.selectElement.value = value;
+    }
+  });
+
+  component.render = function() {
+    satus.empty(this.valueElement);
+
+    if (this.selectElement.options[this.selectElement.selectedIndex]) {
+      satus.text(this.valueElement, this.selectElement.options[this.selectElement.selectedIndex].text);
+    }
+
+    this.dataset.value = this.value;
+  };
+
+  component.selectElement.addEventListener('change', function() {
+    var component = this.parentNode;
+
+    component.storage.value = this.value;
+
+    component.render();
+  });
+
+  component.value = component.storage.value || component.options[0].value;
+
+  component.render();
+};
+/*--------------------------------------------------------------
+>>> DIVIDER
+--------------------------------------------------------------*/
+
+satus.components.divider = function() {};
+/*--------------------------------------------------------------
+>>> SECTION
+--------------------------------------------------------------*/
+
+satus.components.section = function(component, skeleton) {
+  if (satus.isString(skeleton.title)) {
+    component.dataset.title = satus.locale.get(skeleton.title);
+  }
+};
+/*--------------------------------------------------------------
+>>> BASE
+--------------------------------------------------------------*/
+
+satus.components.base = function(component) {
+  component.baseProvider = component;
+  component.layers = [];
+};
+/*--------------------------------------------------------------
+>>> ALERT
+--------------------------------------------------------------*/
+
+satus.components.alert = function(component, skeleton) {};
+/*--------------------------------------------------------------
+>>> TIME
+--------------------------------------------------------------*/
+
+satus.components.time = function(component, skeleton) {
+  var select_skeleton = Object.assign({}, skeleton);
+
+  select_skeleton.component = 'select';
+  select_skeleton.options = [];
+
+  if (satus.isFunction(select_skeleton.hour12)) {
+    select_skeleton.hour12 = select_skeleton.hour12();
+  }
+
+  for (var i = 0, l = 24; i < l; i++) {
+    var hour = i,
+      value = i;
+
+    if (select_skeleton.hour12 === true && i > 12) {
+      hour -= 12;
+    }
+
+    if (hour < 10) {
+      hour = '0' + hour;
+      value = '0' + value;
+    }
+
+    if (select_skeleton.hour12 === true) {
+      if (i > 12) {
+        hour += ':00 pm';
+      } else {
+        hour += ':00 am';
+      }
+    } else {
+      hour += ':00'
+    }
+
+    select_skeleton.options.push({
+      text: hour,
+      value: value + ':00'
+    });
+  }
+
+  satus.components.select(component, select_skeleton);
+
+  component.classList.add('satus-select');
+};
+/*--------------------------------------------------------------
+>>> SIDEBAR
+--------------------------------------------------------------*/
+
+satus.components.sidebar = function(component, skeleton) {};
+/*--------------------------------------------------------------
+>>> LAYERS
+--------------------------------------------------------------*/
+
+satus.components.layers = function(component, skeleton) {
+  component.path = [];
+  component.renderChildren = false;
+  component.baseProvider.layers.push(component);
+  component.layersProvider = component;
+
+  component.back = function() {
+    if (this.path.length > 1) {
+      this.path.pop();
+
+      this.open(this.path[this.path.length - 1], false);
+    }
+  };
+
+  component.open = function(skeleton, history) {
+    var previous_layer = satus.last(this.querySelectorAll('.satus-layers__layer')),
+      layer = this.createChildElement('div', 'layer');
+
+    if (history !== false) {
+      if (previous_layer) {
+        previous_layer.style.animation = 'fadeOutLeft 100ms linear forwards';
+        layer.style.animation = 'fadeInRight 100ms linear forwards';
+      }
+
+      this.path.push(skeleton);
+    } else {
+      previous_layer.style.animation = 'fadeOutRight 100ms linear forwards';
+      layer.style.animation = 'fadeInLeft 100ms linear forwards';
+    }
+
+    if (previous_layer) {
+      setTimeout(function() {
+        previous_layer.remove();
+      }, satus.getAnimationDuration(previous_layer));
+    }
+
+    layer.skeleton = skeleton;
+    layer.baseProvider = this.baseProvider;
+
+    satus.render(skeleton, layer, undefined, skeleton.component === 'layers');
+
+    this.dispatchEvent(new Event('open'));
+  };
+
+  component.update = function() {
+    var layer = this.querySelector('.satus-layers__layer');
+
+    satus.empty(layer);
+    satus.render(layer.skeleton, layer);
+  };
+
+  component.open(skeleton);
+};
+/*--------------------------------------------------------------
+>>> LIST
+--------------------------------------------------------------*/
+
+satus.components.list = function(component, skeleton) {
+  for (var i = 0, l = skeleton.items.length; i < l; i++) {
+    var li = component.createChildElement('div', 'item'),
+      item = skeleton.items[i];
+
+    for (var j = 0, k = item.length; j < k; j++) {
+      var child = item[j];
+
+      if (satus.isObject(child)) {
+        satus.render(child, li);
+      } else {
+        var span = li.createChildElement('span');
+
+        span.textContent = satus.locale.get(child);
+      }
+    }
+  }
+};
+/*--------------------------------------------------------------
+>>> COLOR PICKER
+--------------------------------------------------------------*/
+
+satus.components.colorPicker = function(component, skeleton) {
+  var component_content = component.createChildElement('div', 'content'),
+    component_value = component.createChildElement('span', 'value');
+
+  component.childrenContainer = component_content;
+  component.valueElement = component_value;
+
+  component.className = 'satus-button';
+
+  component.addEventListener('click', function() {
+    var rgb = this.rgb,
+      hsl = satus.color.rgbToHsl(rgb),
+      s = hsl[1] / 100,
+      l = hsl[2] / 100;
+
+    s *= l < .5 ? l : 1 - l;
+
+    var v = l + s;
+
+    s = 2 * s / (l + s);
+
+    satus.render({
+      component: 'modal',
+      variant: 'color-picker',
+      value: hsl,
+      parentElement: this,
+
+      palette: {
+        component: 'div',
+        class: 'satus-color-picker__palette',
+        style: {
+          'backgroundColor': 'hsl(' + hsl[0] + 'deg, 100%, 50%)'
+        },
+        on: {
+          mousedown: function() {
+            var palette = this,
+              rect = this.getBoundingClientRect(),
+              cursor = this.children[0];
+
+            function mousemove(event) {
+              var hsl = palette.skeleton.parentSkeleton.storage.value,
+                x = event.clientX - rect.left,
+                y = event.clientY - rect.top,
+                s;
+
+              x = Math.min(Math.max(x, 0), rect.width) / (rect.width / 100);
+              y = Math.min(Math.max(y, 0), rect.height) / (rect.height / 100);
+
+              var v = 100 - y,
+                l = (2 - x / 100) * v / 2;
+
+              hsl[1] = x * v / (l < 50 ? l * 2 : 200 - l * 2);
+              hsl[2] = l;
+
+              cursor.style.left = x + '%';
+              cursor.style.top = y + '%';
+
+              palette.nextSibling.children[0].style.backgroundColor = 'hsl(' + hsl[0] + 'deg,' + hsl[1] + '%, ' + hsl[2] + '%)';
+
+              event.preventDefault();
+            }
+
+            function mouseup() {
+              window.removeEventListener('mousemove', mousemove);
+              window.removeEventListener('mouseup', mouseup);
+            }
+
+            window.addEventListener('mousemove', mousemove);
+            window.addEventListener('mouseup', mouseup);
+          }
+        },
+
+        cursor: {
+          component: 'div',
+          class: 'satus-color-picker__cursor',
+          style: {
+            'left': s * 100 + '%',
+            'top': 100 - v * 100 + '%'
+          }
+        }
+      },
+      section: {
+        component: 'section',
+        variant: 'color',
+
+        color: {
+          component: 'div',
+          class: 'satus-color-picker__color',
+          style: {
+            'backgroundColor': 'rgb(' + this.rgb.join(',') + ')'
+          }
+        },
+        hue: {
+          component: 'slider',
+          class: 'satus-color-picker__hue',
+          storage: false,
+          value: hsl[0],
+          max: 360,
+          on: {
+            change: function() {
+              var modal = this.skeleton.parentSkeleton.parentSkeleton,
+                hsl = modal.storage.value;
+
+              hsl[0] = this.values[0];
+
+              this.previousSibling.style.backgroundColor = 'hsl(' + hsl[0] + 'deg,' + hsl[1] + '%, ' + hsl[2] + '%)';
+              this.parentSkeletonNode.previousSibling.style.backgroundColor = 'hsl(' + hsl[0] + 'deg, 100%, 50%)';
+            }
+          }
+        }
+      },
+      actions: {
+        component: 'section',
+        variant: 'actions',
+
+        reset: {
+          component: 'button',
+          text: 'reset',
+          on: {
+            click: function() {
+              var modal = this.skeleton.parentSkeleton.parentSkeleton,
+                component = modal.parentSkeleton;
+
+              component.rgb = component.skeleton.value;
+
+              component.storage.value = component.rgb;
+
+              component.valueElement.style.backgroundColor = 'rgb(' + component.rgb.join(',') + ')';
+
+              modal.rendered.close();
+            }
+          }
+        },
+        cancel: {
+          component: 'button',
+          text: 'cancel',
+          on: {
+            click: function() {
+              this.skeleton.parentSkeleton.parentSkeleton.rendered.close();
+            }
+          }
+        },
+        ok: {
+          component: 'button',
+          text: 'OK',
+          on: {
+            click: function() {
+              var modal = this.skeleton.parentSkeleton.parentSkeleton,
+                component = modal.parentSkeleton;
+
+              component.rgb = satus.color.hslToRgb(modal.storage.value);
+
+              component.storage.value = component.rgb;
+
+              component.valueElement.style.backgroundColor = 'rgb(' + component.rgb.join(',') + ')';
+
+              modal.rendered.close();
+            }
+          }
+        }
+      }
+    }, this.baseProvider.layers[0]);
+  });
+
+  component.addEventListener('render', function() {
+    component.rgb = this.storage.value || [0, 100, 50];
+
+    component_value.style.backgroundColor = 'rgb(' + component.rgb.join(',') + ')';
+  });
+};
+
+satus.components.colorPicker = function(component, skeleton) {
+  component.childrenContainer = component.createChildElement('div', 'content');
+
+  component.color = (function(element) {
+    var array;
+
+    Object.defineProperty(element, 'value', {
+      get: function() {
+        return array;
+      },
+      set: function(value) {
+        array = value;
+
+        this.parentNode.storage.value = array;
+
+        element.style.backgroundColor = 'rgb(' + value.join(',') + ')';
+      }
+    });
+
+    element.value = component.storage.value || component.skeleton.value || [0, 0, 0];
+
+    return element;
+  })(component.createChildElement('span', 'value'));
+
+  component.addEventListener('click', function() {
+    var hsl = satus.color.rgbToHsl(this.color.value),
+      s = hsl[1] / 100,
+      l = hsl[2] / 100;
+
+    s *= l < .5 ? l : 1 - l;
+
+    var v = l + s;
+
+    s = 2 * s / (l + s);
+
+    satus.render({
+      component: 'modal',
+      variant: 'color-picker',
+      value: hsl,
+      parentElement: this,
+
+      palette: {
+        component: 'div',
+        class: 'satus-color-picker__palette',
+        style: {
+          'backgroundColor': 'hsl(' + hsl[0] + 'deg, 100%, 50%)'
+        },
+        on: {
+          mousedown: function(event) {
+            if (event.button !== 0) {
+              return false;
+            }
+
+            var palette = this,
+              rect = this.getBoundingClientRect(),
+              cursor = this.children[0];
+
+            function mousemove(event) {
+              var hsl = palette.skeleton.parentSkeleton.value,
+                x = event.clientX - rect.left,
+                y = event.clientY - rect.top,
+                s;
+
+              x = Math.min(Math.max(x, 0), rect.width) / (rect.width / 100);
+              y = Math.min(Math.max(y, 0), rect.height) / (rect.height / 100);
+
+              var v = 100 - y,
+                l = (2 - x / 100) * v / 2;
+
+              hsl[1] = x * v / (l < 50 ? l * 2 : 200 - l * 2);
+              hsl[2] = l;
+
+              cursor.style.left = x + '%';
+              cursor.style.top = y + '%';
+
+              palette.nextSibling.children[0].style.backgroundColor = 'hsl(' + hsl[0] + 'deg,' + hsl[1] + '%, ' + hsl[2] + '%)';
+
+              event.preventDefault();
+            }
+
+            function mouseup() {
+              window.removeEventListener('mousemove', mousemove);
+              window.removeEventListener('mouseup', mouseup);
+            }
+
+            window.addEventListener('mousemove', mousemove);
+            window.addEventListener('mouseup', mouseup);
+          }
+        },
+
+        cursor: {
+          component: 'div',
+          class: 'satus-color-picker__cursor',
+          style: {
+            'left': s * 100 + '%',
+            'top': 100 - v * 100 + '%'
+          }
+        }
+      },
+      section: {
+        component: 'section',
+        variant: 'color',
+
+        color: {
+          component: 'div',
+          class: 'satus-color-picker__color',
+          style: {
+            'backgroundColor': 'rgb(' + this.color.value.join(',') + ')'
+          }
+        },
+        hue: {
+          component: 'slider',
+          class: 'satus-color-picker__hue',
+          storage: false,
+          value: hsl[0],
+          max: 360,
+          on: {
+            input: function() {
+              var modal = this.skeleton.parentSkeleton.parentSkeleton,
+                hsl = modal.value;
+
+              hsl[0] = this.storage.value;
+
+              this.previousSibling.style.backgroundColor = 'hsl(' + hsl[0] + 'deg,' + hsl[1] + '%, ' + hsl[2] + '%)';
+              this.parentNode.previousSibling.style.backgroundColor = 'hsl(' + hsl[0] + 'deg, 100%, 50%)';
+            }
+          }
+        }
+      },
+      actions: {
+        component: 'section',
+        variant: 'actions',
+
+        reset: {
+          component: 'button',
+          text: 'reset',
+          on: {
+            click: function() {
+              var modal = this.skeleton.parentSkeleton.parentSkeleton,
+                component = modal.parentElement;
+
+              component.color.value = component.skeleton.value || [0, 0, 0];
+
+              modal.rendered.close();
+            }
+          }
+        },
+        cancel: {
+          component: 'button',
+          text: 'cancel',
+          on: {
+            click: function() {
+              this.skeleton.parentSkeleton.parentSkeleton.rendered.close();
+            }
+          }
+        },
+        ok: {
+          component: 'button',
+          text: 'OK',
+          on: {
+            click: function() {
+              var modal = this.skeleton.parentSkeleton.parentSkeleton,
+                component = modal.parentElement;
+
+              component.color.value = satus.color.hslToRgb(modal.value);
+
+              modal.rendered.close();
+            }
+          }
+        }
+      }
+    }, this.baseProvider.layers[0]);
+  });
+};
+/*--------------------------------------------------------------
+>>> RADIO
+--------------------------------------------------------------*/
+
+satus.components.radio = function(component, skeleton) {
+  component.nativeControl = component.createChildElement('input', 'input');
+
+  component.createChildElement('i');
+
+  component.childrenContainer = component.createChildElement('div', 'content');
+
+  component.nativeControl.type = 'radio';
+
+  if (skeleton.group) {
+    component.storage.key = skeleton.group;
+    component.nativeControl.name = skeleton.group;
+  }
+
+  if (skeleton.value) {
+    component.nativeControl.value = skeleton.value;
+  }
+
+  component.storage.value = satus.storage.get(component.storage.key);
+
+  if (satus.isset(component.storage.value)) {
+    component.nativeControl.checked = component.storage.value === skeleton.value;
+  } else if (skeleton.checked) {
+    component.nativeControl.checked = true;
+  }
+
+  component.nativeControl.addEventListener('change', function() {
+    var component = this.parentNode;
+
+    component.storage.value = this.value;
+  });
+};
+/*--------------------------------------------------------------
+>>> SLIDER
+--------------------------------------------------------------*/
+
+satus.components.slider = function(component, skeleton) {
+  var content = component.createChildElement('div', 'content'),
+    children_container = content.createChildElement('div', 'children-container'),
+    text_input = content.createChildElement('input'),
+    track_container = component.createChildElement('div', 'track-container'),
+    input = track_container.createChildElement('input', 'input');
+
+  component.childrenContainer = children_container;
+  component.textInput = text_input;
+  component.input = input;
+  component.track = track_container.createChildElement('div', 'track');
+
+  text_input.type = 'text';
+
+  input.type = 'range';
+  input.min = skeleton.min || 0;
+  input.max = skeleton.max || 1;
+  input.step = skeleton.step || 1;
+  input.value = component.storage.value || skeleton.value || 0;
+
+  text_input.addEventListener('blur', function() {
+    var component = this.parentNode.parentNode;
+
+    component.input.value = Number(this.value.replace(/[^0-9.]/g, ''));
+    component.storage.value = Number(component.input.value);
+
+    component.update();
+  });
+
+  text_input.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      var component = this.parentNode.parentNode;
+
+      component.input.value = Number(this.value.replace(/[^0-9.]/g, ''));
+      component.storage.value = Number(component.input.value);
+
+      component.update();
+    }
+  });
+
+  input.addEventListener('input', function() {
+    var component = this.parentNode.parentNode;
+
+    component.storage.value = Number(this.value);
+
+    component.update();
+  });
+
+  component.update = function() {
+    var input = this.input;
+
+    this.textInput.value = input.value;
+
+    this.track.style.width = 100 / (input.max - input.min) * (input.value - input.min) + '%';
+  };
+
+  component.update();
+
+  if (skeleton.on) {
+    for (var type in skeleton.on) {
+      input.addEventListener(type, function(event) {
+        this.parentNode.parentNode.dispatchEvent(new Event(event.type));
+      });
+    }
+  }
+};
+/*--------------------------------------------------------------
+>>> TABS
+--------------------------------------------------------------*/
+
+satus.components.tabs = function(component, skeleton) {
+  var tabs = skeleton.items,
+    value = skeleton.value;
+
+  if (satus.isFunction(tabs)) {
+    tabs = tabs();
+  }
+
+  if (satus.isFunction(value)) {
+    value = value();
+  }
+
+  for (var i = 0, l = tabs.length; i < l; i++) {
+    var tab = tabs[i],
+      button = component.createChildElement('button');
+
+    button.addEventListener('click', function() {
+      var component = this.parentNode,
+        index = satus.elementIndex(this);
+
+      component.value = index;
+
+      component.style.setProperty('--satus-tabs-current', index);
+    });
+
+    satus.text(button, tab);
+  }
+
+  component.style.setProperty('--satus-tabs-count', tabs.length);
+  component.style.setProperty('--satus-tabs-current', value || 0);
+};
+/*--------------------------------------------------------------
+>>> SHORTCUT
+--------------------------------------------------------------*/
+
+satus.components.shortcut = function(component, skeleton) {
+  component.childrenContainer = component.createChildElement('div', 'content');
+  component.valueElement = component.createChildElement('div', 'value');
+
+  component.className = 'satus-button';
+
+  component.render = function(parent) {
+    var self = this,
+      parent = parent || self.primary,
+      children = parent.children;
+
+    satus.empty(parent);
+
+    function createElement(name) {
+      var element = document.createElement('div');
+
+      element.className = 'satus-shortcut__' + name;
+
+      parent.appendChild(element);
+
+      return element;
+    }
+
+    if (this.data.alt) {
+      createElement('key').textContent = 'Alt';
+    }
+
+    if (this.data.ctrl) {
+      if (children.length && children[children.length - 1].className.indexOf('plus') === -1) {
+        createElement('plus');
+      }
+
+      createElement('key').textContent = 'Ctrl';
+    }
+
+    if (this.data.shift) {
+      if (children.length && children[children.length - 1].className.indexOf('plus') === -1) {
+        createElement('plus');
+      }
+
+      createElement('key').textContent = 'Shift';
+    }
+
+    for (var code in this.data.keys) {
+      var key = this.data.keys[code].key,
+        arrows = ['ArrowUp', 'ArrowRight', 'ArrowDown', 'ArrowLeft'],
+        index = arrows.indexOf(key);
+
+      if (children.length && children[children.length - 1].className.indexOf('plus') === -1) {
+        createElement('plus');
+      }
+
+      if (index !== -1) {
+        createElement('key').textContent = ['↑', '→', '↓', '←'][index];
+      } else if (key === ' ') {
+        createElement('key').textContent = '␣';
+      } else if (key) {
+        createElement('key').textContent = key.toUpperCase();
+      }
+    }
+
+    if (this.data.wheel) {
+      if (children.length && children[children.length - 1].className.indexOf('plus') === -1) {
+        createElement('plus');
+      }
+
+      var mouse = createElement('mouse'),
+        div = document.createElement('div');
+
+      mouse.appendChild(div);
+
+      mouse.className += ' ' + (this.data.wheel > 0);
+    }
+
+    if (this.data.click) {
+      if (children.length && children[children.length - 1].className.indexOf('plus') === -1) {
+        createElement('plus');
+      }
+
+      var mouse = createElement('mouse'),
+        div = document.createElement('div');
+
+      mouse.appendChild(div);
+
+      mouse.className += ' click';
+    }
+
+    if (this.data.middle) {
+      if (children.length && children[children.length - 1].className.indexOf('plus') === -1) {
+        createElement('plus');
+      }
+
+      var mouse = createElement('mouse'),
+        div = document.createElement('div');
+
+      mouse.appendChild(div);
+
+      mouse.className += ' middle';
+    }
+
+    if (this.data.context) {
+      if (children.length && children[children.length - 1].className.indexOf('plus') === -1) {
+        createElement('plus');
+      }
+
+      var mouse = createElement('mouse'),
+        div = document.createElement('div');
+
+      mouse.appendChild(div);
+
+      mouse.className += ' context';
+    }
+  };
+
+  component.keydown = function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    component.data = {
+      alt: event.altKey,
+      ctrl: event.ctrlKey,
+      shift: event.shiftKey,
+      keys: {}
+    };
+
+    if (['control', 'alt', 'altgraph', 'shift'].indexOf(event.key.toLowerCase()) === -1) {
+      component.data.keys[event.keyCode] = {
+        code: event.code,
+        key: event.key
+      };
+    }
+
+    component.data.wheel = 0;
+
+    component.render();
+
+    return false;
+  };
+
+  if (skeleton.wheel !== false) {
+    component.mousewheel = function(event) {
+      event.stopPropagation();
+
+      if (
+        (
+          component.data.wheel === 0 &&
+          (
+            Object.keys(component.data.keys).length === 0 &&
+            component.data.alt === false &&
+            component.data.ctrl === false &&
+            component.data.shift === false
+          )
+        ) ||
+        component.data.wheel < 0 && event.deltaY > 0 ||
+        component.data.wheel > 0 && event.deltaY < 0) {
+        component.data = {
+          alt: false,
+          ctrl: false,
+          shift: false,
+          keys: {}
+        };
+      }
+
+      component.data.wheel = event.deltaY < 0 ? -1 : 1;
+
+      component.render();
+
+      return false;
+    };
+  }
+
+  component.addEventListener('click', function() {
+    satus.render({
+      component: 'modal',
+      properties: {
+        parent: this
+      },
+      on: {
+        close: function() {
+          window.removeEventListener('keydown', component.keydown);
+          window.removeEventListener('wheel', component.mousewheel);
+        }
+      },
+
+      primary: {
+        component: 'div',
+        class: 'satus-shortcut__primary',
+        on: {
+          render: function() {
+            component.primary = this;
+
+            if (component.skeleton.mouseButtons === true) {
+              this.addEventListener('mousedown', function(event) {
+                if (
+                  component.data.click && event.button === 0 ||
+                  component.data.middle && event.button === 1
+                ) {
+                  component.data = {
+                    alt: false,
+                    ctrl: false,
+                    shift: false,
+                    keys: {}
+                  };
+                }
+
+                component.data.click = false;
+                component.data.middle = false;
+                component.data.context = false;
+
+                if (event.button === 0) {
+                  component.data.click = true;
+
+                  component.render();
+                } else if (event.button === 1) {
+                  component.data.middle = true;
+
+                  component.render();
+                }
+              });
+
+              this.addEventListener('contextmenu', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                if (component.data.context) {
+                  component.data = {
+                    alt: false,
+                    ctrl: false,
+                    shift: false,
+                    keys: {}
+                  };
+                }
+
+                component.data.context = true;
+                component.data.middle = false;
+                component.data.click = false;
+
+                component.render();
+
+                return false;
+              });
+            }
+
+            component.render();
+          }
+        }
+      },
+      actions: {
+        component: 'section',
+        variant: 'actions',
+
+        reset: {
+          component: 'button',
+          text: 'reset',
+          on: {
+            click: function() {
+              var component = this.parentNode.parentNode.parentNode.parent;
+
+              component.data = component.skeleton.value || {};
+
+              component.render(component.valueElement);
+
+              satus.storage.remove(component.storage);
+
+              this.parentNode.parentNode.parentNode.close();
+
+              window.removeEventListener('keydown', component.keydown);
+              window.removeEventListener('wheel', component.mousewheel);
+            }
+          }
+        },
+        cancel: {
+          component: 'button',
+          text: 'cancel',
+          on: {
+            click: function() {
+              component.data = satus.storage.get(component.storage) || component.skeleton.value || {};
+
+              component.render(component.valueElement);
+
+              this.parentNode.parentNode.parentNode.close();
+
+              window.removeEventListener('keydown', component.keydown);
+              window.removeEventListener('wheel', component.mousewheel);
+            }
+          }
+        },
+        save: {
+          component: 'button',
+          text: 'save',
+          on: {
+            click: function() {
+              component.storage.value = component.data;
+
+              component.render(component.valueElement);
+
+              this.parentNode.parentNode.parentNode.close();
+
+              window.removeEventListener('keydown', component.keydown);
+              window.removeEventListener('wheel', component.mousewheel);
+            }
+          }
+        }
+      }
+    }, this.baseProvider);
+
+    window.addEventListener('keydown', this.keydown);
+    window.addEventListener('wheel', this.mousewheel);
+  });
+
+  component.data = component.storage.value || {
+    alt: false,
+    ctrl: false,
+    shift: false,
+    keys: {},
+    wheel: 0
+  };
+
+  component.render(component.valueElement);
+};
+/*--------------------------------------------------------------
+>>> CHECKBOX
+--------------------------------------------------------------*/
+
+satus.components.checkbox = function(component, skeleton) {
+  component.input = component.createChildElement('input');
+  component.input.type = 'checkbox';
+
+  component.checkmark = component.createChildElement('div', 'checkmark');
+
+  component.childrenContainer = component.createChildElement('div', 'content');
+
+  component.dataset.value = component.storage.value || skeleton.value;
+  component.input.checked = component.storage.value || skeleton.value;
+
+  component.input.addEventListener('change', function() {
+    var component = this.parentNode;
+
+    if (this.checked === true) {
+      component.storage.value = true;
+      component.dataset.value = 'true';
+    } else {
+      component.storage.value = false;
+      component.dataset.value = 'false';
+    }
+  });
+};
+/*--------------------------------------------------------------
+>>> SWITCH
+--------------------------------------------------------------*/
+
+satus.components.switch = function(component, skeleton) {
+  var value = satus.isset(component.storage.value) ? component.storage.value : skeleton.value;
+
+  if (satus.isFunction(value)) {
+    value = value();
+  }
+
+  component.childrenContainer = component.createChildElement('div', 'content');
+
+  component.createChildElement('i');
+
+  component.dataset.value = value;
+
+  component.addEventListener('click', function() {
+    if (this.dataset.value === 'true') {
+      this.dataset.value = 'false';
+      this.storage.value = false;
+    } else {
+      this.dataset.value = 'true';
+      this.storage.value = true;
+    }
+  }, true);
+};
+/*--------------------------------------------------------------
+>>> CONTEXT MENU
+--------------------------------------------------------------*/
+
+satus.events.on('render', function(component) {
+  if (component.skeleton.contextMenu) {
+    component.addEventListener('contextmenu', function(event) {
+      var base = this.baseProvider,
+        base_rect = base.getBoundingClientRect(),
+        x = event.clientX - base_rect.left,
+        y = event.clientY - base_rect.top,
+        modal = satus.render({
+          component: 'modal',
+          variant: 'contextmenu',
+          parentSkeleton: this.skeleton,
+          baseProvider: base
+        }, base);
+
+      if (base_rect.width - x < 200) {
+        x = base_rect.width - x;
+
+        if (x + 200 > base_rect.width) {
+          x = 0;
+        }
+
+        modal.childrenContainer.style.right = x + 'px';
+      } else {
+        modal.childrenContainer.style.left = x + 'px';
+      }
+
+      modal.childrenContainer.style.top = y + 'px';
+
+      this.skeleton.contextMenu.parentSkeleton = this.skeleton;
+
+      satus.render(this.skeleton.contextMenu, modal.childrenContainer);
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      return false;
+    });
+  }
+});
+/*--------------------------------------------------------------
+>>> SORTABLE
+--------------------------------------------------------------*/
+
+satus.events.on('render', function(component) {
+  if (component.skeleton.sortable === true) {
+    component.addEventListener('mousedown', function(event) {
+      if (event.button !== 0) {
+        return false;
+      }
+
+      var component = this,
+        rect = this.getBoundingClientRect(),
+        x = event.clientX,
+        y = event.clientY,
+        offset_x = event.clientX - rect.left,
+        offset_y = event.clientY - rect.top,
+        ghost = satus.clone(this),
+        children = this.parentNode.children,
+        appended = false;
+
+      ghost.classList.add('satus-sortable__ghost');
+
+      function mousemove(event) {
+        if (appended === false && (Math.abs(event.clientX - x) > 4 || Math.abs(event.clientY - y) > 4)) {
+          appended = true;
+
+          component.classList.add('satus-sortable__chosen');
+
+          component.baseProvider.appendChild(ghost);
+        }
+
+        ghost.style.transform = 'translate(' + (event.clientX - offset_x) + 'px, ' + (event.clientY - offset_y) + 'px)';
+      }
+
+      function mouseup(event) {
+        component.classList.remove('satus-sortable__chosen');
+        ghost.remove();
+
+        window.removeEventListener('mousemove', mousemove, true);
+        window.removeEventListener('mouseup', mouseup, true);
+
+        for (var i = 0, l = children.length; i < l; i++) {
+          var child = children[i];
+
+          if (child !== component) {
+            child.removeEventListener('mouseover', siblingMouseOver);
+          }
+        }
+
+        component.dispatchEvent(new CustomEvent('sort'));
+
+        event.stopPropagation();
+
+        return false;
+      }
+
+      window.addEventListener('mousemove', mousemove, {
+        passive: true,
+        capture: true
+      });
+
+      window.addEventListener('mouseup', mouseup, {
+        passive: true,
+        capture: true
+      });
+
+      function siblingMouseOver(event) {
+        var parent = this.parentNode,
+          y = event.layerY / (this.offsetHeight / 100);
+
+        if (y < 50 && this.previousSibling !== component || y >= 50 && this.nextSibling === component) {
+          parent.insertBefore(component, this);
+        } else {
+          parent.insertBefore(component, this.nextSibling);
+        }
+      }
+
+      for (var i = 0, l = children.length; i < l; i++) {
+        var child = children[i];
+
+        if (child !== component) {
+          child.addEventListener('mouseover', siblingMouseOver);
+        }
+      }
+
+      event.stopPropagation();
+      event.preventDefault();
+
+      return false;
+    });
+  }
+});
+/*--------------------------------------------------------------
+>>> MANIFEST
+--------------------------------------------------------------*/
+
+satus.manifest = function() {
+  var object = {};
+
+  if (this.isset('chrome.runtime.getManifest')) {
+    object = chrome.runtime.getManifest();
+  }
+
+  return object;
+};
+/*--------------------------------------------------------------
+>>> COLOR:
+----------------------------------------------------------------
+# String to array
+# RGB to HSL
+# HUE to RGB
+# HSL to RGB
+--------------------------------------------------------------*/
+
+satus.color = {};
+
+
+/*--------------------------------------------------------------
+# STRING TO ARRAY
+--------------------------------------------------------------*/
+
+satus.color.stringToArray = function(string) {
+  var match = string.match(/[0-9.]+/g);
+
+  if (match) {
+    for (var i = 0, l = match.length; i < l; i++) {
+      match[i] = parseFloat(match[i]);
+    }
+  }
+
+  return match;
+};
+
+
+/*--------------------------------------------------------------
+# RGB TO HSL
+--------------------------------------------------------------*/
+
+satus.color.rgbToHsl = function(array) {
+  var r = array[0] / 255,
+    g = array[1] / 255,
+    b = array[2] / 255,
+    min = Math.min(r, g, b),
+    max = Math.max(r, g, b),
+    h = 0,
+    s = 0,
+    l = (min + max) / 2;
+
+  if (min === max) {
+    h = 0;
+    s = 0;
+  } else {
+    var delta = max - min;
+
+    s = l <= 0.5 ? delta / (max + min) : delta / (2 - max - min);
+
+    if (max === r) {
+      h = (g - b) / delta + (g < b ? 6 : 0);
+    } else if (max === g) {
+      h = (b - r) / delta + 2;
+    } else if (max === b) {
+      h = (r - g) / delta + 4;
+    }
+
+    h /= 6;
+  }
+
+  h *= 360;
+  s *= 100;
+  l *= 100;
+
+  if (array.length === 3) {
+    return [h, s, l];
+  } else {
+    return [h, s, l, array[3]];
+  }
+};
+
+
+/*--------------------------------------------------------------
+# HUE TO RGB
+--------------------------------------------------------------*/
+
+satus.color.hueToRgb = function(array) {
+  var t1 = array[0],
+    t2 = array[1],
+    hue = array[2];
+
+  if (hue < 0) {
+    hue += 6;
+  }
+
+  if (hue >= 6) {
+    hue -= 6;
+  }
+
+  if (hue < 1) {
+    return (t2 - t1) * hue + t1;
+  } else if (hue < 3) {
+    return t2;
+  } else if (hue < 4) {
+    return (t2 - t1) * (4 - hue) + t1;
+  } else {
+    return t1;
+  }
+};
+
+
+/*--------------------------------------------------------------
+# HSL TO RGB
+--------------------------------------------------------------*/
+
+satus.color.hslToRgb = function(array) {
+  var h = array[0] / 360,
+    s = array[1] / 100,
+    l = array[2] / 100,
+    r, g, b;
+
+  if (s == 0) {
+    r = g = b = l;
+  } else {
+    var hue2rgb = function(p, q, t) {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+      return p;
+    };
+
+    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    var p = 2 * l - q;
+    r = hue2rgb(p, q, h + 1 / 3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1 / 3);
+  }
+
+  return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+};
+/*--------------------------------------------------------------
+>>> USER
+----------------------------------------------------------------
+# OS
+    # Name
+    # Bitness
+# Browser
+    # Name
+    # Version
+    # Platform
+    # Manifest
+    # Languages
+    # Cookies
+    # Flash
+    # Java
+    # Audio
+    # Video
+    # WebGL
+# Device
+    # Screen
+    # RAM
+    # GPU
+    # Cores
+    # Touch
+    # Connection
+--------------------------------------------------------------*/
+
+satus.user = {
+  browser: {},
+  device: {},
+  os: {}
+};
+
+/*--------------------------------------------------------------
+# OS
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# NAME
+--------------------------------------------------------------*/
+
+satus.user.os.name = function() {
+  var app_version = navigator.appVersion;
+
+  if (app_version.indexOf('Win') !== -1) {
+    if (app_version.match(/(Windows 10.0|Windows NT 10.0)/)) {
+      return 'Windows 10';
+    } else if (app_version.match(/(Windows 8.1|Windows NT 6.3)/)) {
+      return 'Windows 8.1';
+    } else if (app_version.match(/(Windows 8|Windows NT 6.2)/)) {
+      return 'Windows 8';
+    } else if (app_version.match(/(Windows 7|Windows NT 6.1)/)) {
+      return 'Windows 7';
+    } else if (app_version.match(/(Windows NT 6.0)/)) {
+      return 'Windows Vista';
+    } else if (app_version.match(/(Windows NT 5.1|Windows XP)/)) {
+      return 'Windows XP';
+    } else {
+      return 'Windows';
+    }
+  } else if (app_version.indexOf('(iPhone|iPad|iPod)') !== -1) {
+    return 'iOS';
+  } else if (app_version.indexOf('Mac') !== -1) {
+    return 'macOS';
+  } else if (app_version.indexOf('Android') !== -1) {
+    return 'Android';
+  } else if (app_version.indexOf('OpenBSD') !== -1) {
+    return 'OpenBSD';
+  } else if (app_version.indexOf('SunOS') !== -1) {
+    return 'SunOS';
+  } else if (app_version.indexOf('Linux') !== -1) {
+    return 'Linux';
+  } else if (app_version.indexOf('X11') !== -1) {
+    return 'UNIX';
+  }
+};
+
+
+/*--------------------------------------------------------------
+# BITNESS
+--------------------------------------------------------------*/
+
+satus.user.os.bitness = function() {
+  if (navigator.appVersion.match(/(Win64|x64|x86_64|WOW64)/)) {
+    return '64-bit';
+  } else {
+    return '32-bit';
+  }
+};
+
+
+/*--------------------------------------------------------------
+# BROWSER
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# NAME
+--------------------------------------------------------------*/
+
+satus.user.browser.name = function() {
+  var user_agent = navigator.userAgent;
+
+  if (user_agent.indexOf('Opera') !== -1) {
+    return 'Opera';
+  } else if (user_agent.indexOf('Vivaldi') !== -1) {
+    return 'Vivaldi';
+  } else if (user_agent.indexOf('Edge') !== -1) {
+    return 'Edge';
+  } else if (user_agent.indexOf('Chrome') !== -1) {
+    return 'Chrome';
+  } else if (user_agent.indexOf('Safari') !== -1) {
+    return 'Safari';
+  } else if (user_agent.indexOf('Firefox') !== -1) {
+    return 'Firefox';
+  } else if (user_agent.indexOf('MSIE') !== -1) {
+    return 'IE';
+  }
+};
+
+
+/*--------------------------------------------------------------
+# VERSION
+--------------------------------------------------------------*/
+
+satus.user.browser.version = function() {
+  var browser_name = satus.user.browser.name(),
+    browser_version = navigator.userAgent.match(new RegExp(browser_name + '/([0-9.]+)'));
+
+  return browser_version[1];
+};
+
+
+/*--------------------------------------------------------------
+# PLATFORM
+--------------------------------------------------------------*/
+
+satus.user.browser.platform = function() {
+  return navigator.platform;
+};
+
+
+/*--------------------------------------------------------------
+# MANIFEST
+--------------------------------------------------------------*/
+
+satus.user.browser.manifest = function() {
+  return chrome.runtime.getManifest() || {};
+};
+
+
+/*--------------------------------------------------------------
+# LANGUAGES
+--------------------------------------------------------------*/
+
+satus.user.browser.languages = function() {
+  return navigator.languages;
+};
+
+
+/*--------------------------------------------------------------
+# COOKIES
+--------------------------------------------------------------*/
+
+satus.user.browser.cookies = function() {
+  if (document.cookie) {
+    var random_cookie = 'ta{t`nX6cMXK,Wsc';
+
+    document.cookie = random_cookie;
+
+    if (document.cookie.indexOf(random_cookie) !== -1) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+
+/*--------------------------------------------------------------
+# FLASH
+--------------------------------------------------------------*/
+
+satus.user.browser.flash = function() {
+  try {
+    if (new ActiveXObject('ShockwaveFlash.ShockwaveFlash')) {
+      return true;
+    }
+  } catch (error) {
+    if (navigator.mimeTypes['application/x-shockwave-flash']) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+
+/*--------------------------------------------------------------
+# JAVA
+--------------------------------------------------------------*/
+
+satus.user.browser.java = function() {
+  if (satus.isFunction(navigator.javaEnabled) && navigator.javaEnabled()) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+
+/*--------------------------------------------------------------
+# AUDIO
+--------------------------------------------------------------*/
+
+satus.user.browser.audio = function() {
+  var audio = document.createElement('audio'),
+    types = {
+      mp3: 'audio/mpeg',
+      mp4: 'audio/mp4',
+      aif: 'audio/x-aiff'
+    },
+    result = [];
+
+  if (satus.isFunction(audio.canPlayType)) {
+    for (var key in types) {
+      var can_play_type = audio.canPlayType(types[key]);
+
+      if (can_play_type !== '') {
+        result.push(key);
+      }
+    }
+  }
+
+  return result;
+};
+
+
+/*--------------------------------------------------------------
+# VIDEO
+--------------------------------------------------------------*/
+
+satus.user.browser.video = function() {
+  var video = document.createElement('video'),
+    types = {
+      ogg: 'video/ogg; codecs="theora"',
+      h264: 'video/mp4; codecs="avc1.42E01E"',
+      webm: 'video/webm; codecs="vp8, vorbis"',
+      vp9: 'video/webm; codecs="vp9"',
+      hls: 'application/x-mpegURL; codecs="avc1.42E01E"'
+    },
+    result = [];
+
+  if (satus.isFunction(video.canPlayType)) {
+    for (var key in types) {
+      var can_play_type = video.canPlayType(types[key]);
+
+      if (can_play_type !== '') {
+        result.push(key);
+      }
+    }
+  }
+
+  return result;
+};
+
+
+/*--------------------------------------------------------------
+# WEBGL
+--------------------------------------------------------------*/
+
+satus.user.browser.webgl = function() {
+  var cvs = document.createElement('canvas'),
+    ctx = cvs.getContext('webgl');
+
+  return ctx && ctx instanceof WebGLRenderingContext;
+};
+
+
+/*--------------------------------------------------------------
+# HARDWARE
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# SCREEN
+--------------------------------------------------------------*/
+
+satus.user.device.screen = function() {
+  if (screen) {
+    return screen.width + 'x' + screen.height;
+  }
+};
+
+
+/*--------------------------------------------------------------
+# RAM
+--------------------------------------------------------------*/
+
+satus.user.device.ram = function() {
+  if ('deviceMemory' in navigator) {
+    return navigator.deviceMemory + ' GB';
+  }
+};
+
+
+/*--------------------------------------------------------------
+# GPU
+--------------------------------------------------------------*/
+
+satus.user.device.gpu = function() {
+  var cvs = document.createElement('canvas'),
+    ctx = cvs.getContext('webgl');
+
+  if (
+    ctx &&
+    ctx instanceof WebGLRenderingContext &&
+    'getParameter' in ctx &&
+    'getExtension' in ctx
+  ) {
+    var info = ctx.getExtension('WEBGL_debug_renderer_info');
+
+    if (info) {
+      return ctx.getParameter(info.UNMASKED_RENDERER_WEBGL);
+    }
+  }
+};
+
+
+/*--------------------------------------------------------------
+# CORES
+--------------------------------------------------------------*/
+
+satus.user.device.cores = function() {
+  return navigator.deviceConcurrency;
+};
+
+
+/*--------------------------------------------------------------
+# TOUCH
+--------------------------------------------------------------*/
+
+satus.user.device.touch = function() {
+  var result = {};
+
+  if (
+    window.hasOwnProperty('ontouchstart') ||
+    window.DocumentTouch && document instanceof window.DocumentTouch ||
+    navigator.maxTouchPoints > 0 ||
+    window.navigator.msMaxTouchPoints > 0
+  ) {
+    result.touch = true;
+    result.maxTouchPoints = navigator.maxTouchPoints;
+  }
+
+  return result;
+};
+
+
+/*--------------------------------------------------------------
+# CONNECTION
+--------------------------------------------------------------*/
+
+satus.user.device.connection = function() {
+  var result = {};
+
+  if (typeof navigator.connection === 'object') {
+    result.type = navigator.connection.effectiveType || null;
+
+    if (navigator.connection.downlink) {
+      result.speed = navigator.connection.downlink + ' Mbps';
+    }
+  }
+
+  return result;
+};
+/*--------------------------------------------------------------
+# SEARCH
+--------------------------------------------------------------*/
+
+satus.search = function(query, object, callback) {
+  var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker'],
+    threads = 0,
+    results = {},
+    excluded = [
+      'baseProvider',
+      'layersProvider',
+      'parentObject',
+      'parentSkeleton',
+      'namespaceURI'
+    ];
+
+  query = query.toLowerCase();
+
+  function parse(items, parent) {
+    threads++;
+
+    for (var key in items) {
+      if (excluded.indexOf(key) === -1) {
+        var item = items[key];
+
+        if (item.component) {
+          //console.log(key, item.component);
+
+          if (elements.indexOf(item.component) !== -1 && key.indexOf(query) !== -1) {
+            results[key] = Object.assign({}, item);
+          }
+        }
+
+        if (
+          satus.isObject(item) &&
+          !satus.isArray(item) &&
+          !satus.isElement(item) &&
+          !satus.isFunction(item)
+        ) {
+          parse(item, items);
+        }
+      }
+    }
+
+    threads--;
+
+    if (threads === 0) {
+      callback(results);
+    }
+  }
+
+  parse(object);
+};
