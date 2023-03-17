@@ -275,7 +275,7 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-swatch-logo-override: rgb(255, 255, 255) !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
 	--yt-swatch-header-primary: #734;
-	--yt-spec-base-background: #d38255 !important;
+	--yt-spec-base-background: #d58245 !important;
 	--yt-spec-raised-background: #734 !important;
 	--yt-spec-menu-background: #734 !important;
 	--yt-spec-inverted-background: #fff;
