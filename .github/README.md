@@ -14,23 +14,23 @@
 	</tr>
 	<tr>
 		<td><a href="https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd">Chrome Web Store</a></td>
-		<td>4.1</td>
+		<td>4.2</td>
 	</tr>
 	<tr>
 		<td><a href="https://microsoftedge.microsoft.com/addons/detail/improve-youtube-video-/knbckijjjbmkjiagojjneoplbjilfllc">Microsoft Edge Addons</a></td>
-		<td>4.1</td>
+		<td>4.2</td>
 	</tr>
 	<tr>
 		<td><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">Firefox Add-ons</a></td>
-		<td>4.1</td>
+		<td>4.2</td>
 	</tr>
 	<tr>
 		<td><a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/">Opera Add-ons</a></td>
-		<td>4.1</td>
+		<td>4.2</td>
 	</tr>
 	<tr>
 		<td><a href="https://developer.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa">Whale Store</a></td>
-		<td>4.1</td>
+		<td>4.2</td>
 	</tr></table> or <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Manual-installation">install manually</a> : <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip">latest</a>
 
 <h2>Contributing</h2>
