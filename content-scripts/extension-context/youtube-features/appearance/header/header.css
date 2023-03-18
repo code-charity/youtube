@@ -11,8 +11,10 @@
 /*--------------------------------------------------------------
 # POSITION
 --------------------------------------------------------------*/
-/*html[it-header-position=hidden] #masthead-container,
-  html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container, */
+html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container,
+html[it-header-position=hidden]:not([it-search-focus=true]) #masthead-container {
+	transform: translateY(-100%);
+}
 html[it-header-position=hidden] tp-yt-app-drawer#guide #guide-spacer,
 html[it-header-position=hidden] tp-yt-app-drawer:not([opened]) #header ytd-topbar-logo-renderer,
 html[it-header-position=hidden] tp-yt-app-drawer:not([opened]) #header .it-button,
@@ -64,10 +66,6 @@ html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-c
 html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container {
 	transform: translateY(0%);
 	opacity: 1;
-}
-
-html[it-header-position=hidden]:not([it-search-focus=true]) #masthead-container {
-	transform: translateY(-100%);
 }
 
 html[it-header-position=static] .ytd-app:not([masthead-hidden_]) #masthead-container {
