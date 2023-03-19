@@ -43,14 +43,15 @@ For more info on how to contribute please see the <a href="https://github.com/co
 
 <h3>Roadmap</h3>
 <table><tr>  <td><!-- The list below only stays formatted when there is a line break above --> 
-	
+
  - Finding developers and patreons
- - All bugs & wishes                                                             
- - 🛈ToolTips & documentation 
- - Avoiding CPU-rendering by default  
+ - All bugs
+ - ℹToolTips & documentation 
+ - Avoiding CPU-rendering by default 
+ 
  - Smart player buttons for all \<video\>
  - Smart content-filtering & discovery
- - Full-page GUI, watch-history, dashboard  
+ - Full-page GUI, watch-history, dashboard 
  - Integrating data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.  
  - Integrating code / features like [YCS](https://github.com/sonigy/YCS), [YR](https://github.com/MarcGuiselin/youtube-refined), [NY](https://github.com/raingart/Nova-YouTube-extension), [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
 </td></tr></table>
@@ -103,14 +104,15 @@ Today adding something is easier & so motivating as there are 500 000 users. [[�
 **W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can still fly much higher through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock 🌱  
 
 <table align="right"><tr><td> <h2 >Roadmap</h2> 
-	
+
  - Finding developers and patreons
- - All bugs & wishes                                                             
- - 🛈ToolTips & documentation 
- - Avoiding CPU-rendering by default  
+ - All bugs & wishes                
+ - ℹToolTips & documentation
+ - Avoiding CPU-rendering by default
+ 
  - Smart player buttons for all \<video\>
  - Smart content-filtering & discovery
- - Full-page GUI, watch-history, dashboard  
+ - Full-page GUI, watch-history, dashboard 
  - Integrating data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.  
  - Integrating code / features like [YCS](https://github.com/sonigy/YCS), [YR](https://github.com/MarcGuiselin/youtube-refined), [NY](https://github.com/raingart/Nova-YouTube-extension), [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
 </td></tr></table>
