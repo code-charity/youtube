@@ -353,7 +353,8 @@ satus.events.trigger = function(type, data) {
 
   if (handlers) {
     for (var i = 0, l = handlers.length; i < l; i++) {
-    try {handlers[i](data);} catch(err){console.log(err);} finally{setTimeout(handlers[i](data),300);}
+    try {handlers[i](data);} 
+	   catch(err){console.log(err);}
     }
   }
 };
@@ -1020,7 +1021,8 @@ satus.storage.set = function(key, value, callback) {
   }
 
   chrome.storage.local.set(items, function() {
- try {satus.events.trigger('storage-set');} catch(err){console.log(err);} finally{setTimeout(satus.events.trigger('storage-set'),300);}    
+ try {satus.events.trigger('storage-set');} 
+	catch(err){console.log(err);}    
 
     if (callback) {
       callback();

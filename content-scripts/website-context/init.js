@@ -64,7 +64,7 @@ ImprovedTube.init = function () {
 
 	if (window.matchMedia) {
 		document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	} ImprovedTube.themes();
+	}  ImprovedTube.myColors();
 };
 
 document.addEventListener('yt-navigate-finish', function () {
@@ -101,6 +101,7 @@ window.addEventListener('load', function () {
 
 	ImprovedTube.improvedtubeYoutubeIcon();
 });
+
 ImprovedTube.whenPaused=()=>{
 		ImprovedTube.elements.player.parentNode.addEventListener('mouseenter', function () {
 			ImprovedTube.playerControls(true);

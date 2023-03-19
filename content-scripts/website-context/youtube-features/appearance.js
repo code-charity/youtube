@@ -307,11 +307,9 @@ ImprovedTube.channelVideosCount = function () {
 ImprovedTube.description = function (el) {
     if (this.storage.description === "classic_expanded" || this.storage.description === "expanded" ) {
         if(el){el.click();} else {document.querySelector("#more").click() || document.querySelector("#expand").click() ;}
-		ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();}
-	else if (this.storage.description === "normal") {document.querySelector("#less").click() || document.querySelector("#collapse").click() ;
-	ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();}
+		}
 };
-
+	
 /*------------------------------------------------------------------------------
 4.2.3.4 HIDE DETAIL BUTTON
 ------------------------------------------------------------------------------*/
