@@ -221,17 +221,6 @@ html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([full
     justify-content: center !important}
 	
 /*--------------------------------------------------------------
-# SQUARED USER IMAGES
---------------------------------------------------------------*/
-
-html[it-squared-user-images='true'] #avatar.ytd-shelf-renderer,
-html[it-squared-user-images='true'] yt-img-shadow,
-html[it-squared-user-images='true'] #yt-masthead-user .yt-masthead-user-icon {
-	border-radius: unset !important;
-}
-
-
-/*--------------------------------------------------------------
 # Popup Window Button
 --------------------------------------------------------------*/
 

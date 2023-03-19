@@ -127,16 +127,20 @@ document.addEventListener('it-message-from-extension', function () {
 
 			ImprovedTube.storage[message.key] = message.value;
 			if(ImprovedTube.storage[message.key]==="when_paused"){
-				ImprovedTube.whenPaused();
+				ImprovedTube.whenPaused();	
 			};
 			if (camelized_key === 'blacklistActivate') {
 				camelized_key = 'blacklist';
 			} else if (camelized_key === 'playerForcedPlaybackSpeed') {
 				camelized_key = 'playerPlaybackSpeed';
 			} else if (camelized_key === 'theme') {
-				ImprovedTube.themes();
+				ImprovedTube.myColors();
+				ImprovedTube.setTheme();
 			}
-
+				else if (camelized_key === 'description') {
+				if (ImprovedTube.storage.description === "normal") 
+				{document.querySelector("#less").click() || document.querySelector("#collapse").click() ;} 
+			}
 			if (ImprovedTube[camelized_key]) {
 				ImprovedTube[camelized_key]();
 			}
@@ -153,7 +157,7 @@ document.addEventListener('it-message-from-extension', function () {
 		} else if (message.pause === true) {
 			if (ImprovedTube.elements.player) {
 				ImprovedTube.played_before_blur = ImprovedTube.elements.player.getPlayerState() === 1;
-				ImprovedTube.elements.player.pauseVideo();
+				ImprovedTube.elements.player.pauseVideo();	 		
 			}
 		} else if (message.hasOwnProperty('setVolume')) {
 			if (ImprovedTube.elements.player) {
@@ -171,17 +175,17 @@ document.addEventListener('it-message-from-extension', function () {
 			if (iframe) {
 				iframe.src = message.responseOptionsUrl;
 			}
-		} else if (message.hasOwnProperty('mixer')) {
+		} /* else if (message.hasOwnProperty('mixer')) {
 			if (ImprovedTube.elements.player) {
-				/*document.documentElement.setAttribute('it-response', JSON.stringify({
+				  document.documentElement.setAttribute('it-response', JSON.stringify({
 					mixer: true,
 					url: location.href.match(/(\?|\&)v=[^&]+/)[0].substr(3),
 					volume: ImprovedTube.elements.player.getVolume(),
 					playbackRate: ImprovedTube.elements.player.getPlaybackRate(),
 					title: document.title
-				}));*/
+				}));
 			}
-		}
+		} */
 	}
 });
 

@@ -25,14 +25,11 @@
 ------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------
-3.0 THEMES
-------------------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------------------
 3.3 THEMES
 ------------------------------------------------------------------------------*/
-/*update*/
-[it-theme=block] #cinematics, 
+
+/*update: cinematics */
+[it-theme=black] #cinematics, 
 [it-theme=desert] #cinematics {display:none !important}
 [it-theme=dawn] #cinematics,
 [it-theme=sunset] #cinematics,
@@ -262,7 +259,7 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 
 
 /*DAWN*/
-
+  
 [it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
 [data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark],
 [data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] {
@@ -274,8 +271,8 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-swatch-textbox-bg: rgba(19, 19, 19, 1) !important;
 	--yt-swatch-logo-override: rgb(255, 255, 255) !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
-	--yt-swatch-header-primary: #734;
-	--yt-spec-base-background: #d58245 !important;
+	--yt-swatch-header-primary: #a46;
+	--yt-spec-base-background: #734 !important;
 	--yt-spec-raised-background: #734 !important;
 	--yt-spec-menu-background: #734 !important;
 	--yt-spec-inverted-background: #fff;
@@ -320,7 +317,7 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 [it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
 [data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark] ytd-masthead,
 [data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] ytd-masthead {
-	background: #b85282 !important;
+	background: #835 !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
@@ -487,7 +484,7 @@ html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=sy
 }
 
 
-/*DESERT*/
+/*DESERT*/ 
 
 [it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
 [data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark],
@@ -1149,8 +1146,9 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-blue-suggestive: transparent;
 }
 
-/*SUNSET*/
 
+/*SUNSET*/
+  
 [it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
 [data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark],
 [data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] {
@@ -1163,11 +1161,11 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-swatch-logo-override: rgb(255, 255, 255) !important;
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
 	--yt-swatch-header-primary: #f56264;
-	--yt-spec-base-background: #24367f !important;
-	--yt-spec-raised-background: #3a4375 !important;
-	--yt-spec-menu-background: #2f335 !important;
+	--yt-spec-base-background: #283567 !important;
+	--yt-spec-raised-background: #2f3364 !important;
+	--yt-spec-menu-background: #2f3364 !important;
 	--yt-spec-inverted-background: #fff;
-	--yt-spec-brand-background-solid: #1a2750 !important;
+	--yt-spec-brand-background-solid: #2f3364 !important;
 	--yt-spec-brand-background-primary: rgba(0, 0, 0, .98) !important;
 	--yt-spec-brand-background-secondary: rgba(0, 0, 0, .95) !important;
 	--yt-spec-general-background-a: #2f3364 !important;
@@ -1208,7 +1206,7 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 [it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
 [data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark] ytd-masthead,
 [data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] ytd-masthead {
-	background: #d35406 !important;
+	background: #f56258 !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
