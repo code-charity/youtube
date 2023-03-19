@@ -18,7 +18,7 @@
 	</tr>
 	<tr>
 		<td>
-	<a href="https://apps.apple.com/us/app/improved-tube/id1672777754"><img src="https://img.shields.io/badge/%20-Safari-white?logo=safari&logoColor=black"></a></p></a>*finally*</td>
+	<a href="https://apps.apple.com/us/app/improved-tube/id1672777754"><img src="https://img.shields.io/badge/%20-Safari-white?logo=safari&logoColor=black"></a> (finally)</td>
 		<td>4.3</td>
 	</tr>
 	<tr>
