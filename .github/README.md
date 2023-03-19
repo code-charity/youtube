@@ -48,7 +48,7 @@ For more info on how to contribute please see the <a href="https://github.com/co
  - All bugs
  - ℹToolTips & documentation 
  - Avoiding CPU-rendering by default 
- 
+ ---
  - Smart player buttons for all \<video\>
  - Smart content-filtering & discovery
  - Full-page GUI, watch-history, dashboard 
@@ -109,7 +109,7 @@ Today adding something is easier & so motivating as there are 500 000 users. [[�
  - All bugs & wishes                
  - ℹToolTips & documentation
  - Avoiding CPU-rendering by default
- 
+ ---
  - Smart player buttons for all \<video\>
  - Smart content-filtering & discovery
  - Full-page GUI, watch-history, dashboard 
