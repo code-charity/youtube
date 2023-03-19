@@ -14,23 +14,28 @@
 	</tr>
 	<tr>
 		<td><a href="https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd">Chrome Web Store</a></td>
-		<td>4.2</td>
+		<td>4.3</td>
+	</tr>
+	<tr>
+		<td>
+	<a href="https://apps.apple.com/us/app/improved-tube/id1672777754"><img src="https://img.shields.io/badge/%20-Safari-white?logo=safari&logoColor=black"></a> (finally)</td>
+		<td>4.3</td>
 	</tr>
 	<tr>
 		<td><a href="https://microsoftedge.microsoft.com/addons/detail/improve-youtube-video-/knbckijjjbmkjiagojjneoplbjilfllc">Microsoft Edge Addons</a></td>
-		<td>4.2</td>
+		<td>4.3</td>
 	</tr>
 	<tr>
 		<td><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/">Firefox Add-ons</a></td>
-		<td>4.2</td>
+		<td>4.3</td>
 	</tr>
 	<tr>
 		<td><a href="https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/">Opera Add-ons</a></td>
-		<td>4.2</td>
+		<td>4.3</td>
 	</tr>
 	<tr>
 		<td><a href="https://developer.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa">Whale Store</a></td>
-		<td>4.2</td>
+		<td>4.3</td>
 	</tr></table> or <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Manual-installation">install manually</a> : <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip">latest</a>
 
 <h2>Contributing</h2>
@@ -38,14 +43,15 @@ For more info on how to contribute please see the <a href="https://github.com/co
 
 <h3>Roadmap</h3>
 <table><tr>  <td><!-- The list below only stays formatted when there is a line break above --> 
-	
+
  - Finding developers and patreons
- - All bugs & wishes                                                             
- - 🛈ToolTips & documentation 
- - Avoiding CPU-rendering by default  
+ - All bugs
+ - ℹToolTips & documentation 
+ - Avoiding CPU-rendering by default 
+ ---
  - Smart player buttons for all \<video\>
  - Smart content-filtering & discovery
- - Full-page GUI, watch-history, dashboard  
+ - Full-page GUI, watch-history, dashboard 
  - Integrating data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.  
  - Integrating code / features like [YCS](https://github.com/sonigy/YCS), [YR](https://github.com/MarcGuiselin/youtube-refined), [NY](https://github.com/raingart/Nova-YouTube-extension), [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
 </td></tr></table>
@@ -98,14 +104,15 @@ Today adding something is easier & so motivating as there are 500 000 users. [[�
 **W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can still fly much higher through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock 🌱  
 
 <table align="right"><tr><td> <h2 >Roadmap</h2> 
-	
+
  - Finding developers and patreons
- - All bugs & wishes                                                             
- - 🛈ToolTips & documentation 
- - Avoiding CPU-rendering by default  
+ - All bugs & wishes                
+ - ℹToolTips & documentation
+ - Avoiding CPU-rendering by default
+ ---
  - Smart player buttons for all \<video\>
  - Smart content-filtering & discovery
- - Full-page GUI, watch-history, dashboard  
+ - Full-page GUI, watch-history, dashboard 
  - Integrating data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.  
  - Integrating code / features like [YCS](https://github.com/sonigy/YCS), [YR](https://github.com/MarcGuiselin/youtube-refined), [NY](https://github.com/raingart/Nova-YouTube-extension), [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
 </td></tr></table>
@@ -341,7 +348,7 @@ Do you need to run a popular extension, site, app or repo?</b><br> We'll love to
 📜Old Introduction:</h4>&nbsp;&nbsp;&nbsp;</i>&nbsp;&nbsp;</code></summary> 
 
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is an extension we built <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/346/beaver_1f9ab.png" height="28px"> to refine your YouTube experience. A one-stop-shop with many powerful features to enhance YouTube, yet liteweight. A larger player & tidy YouTube UI / hiding distractions were the first loved feature. And there was so much left to build and are many clever features to come still. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImprovedTube is designed with our own UI library: [Satus](https://github.com/victor-savinov/satus) (to manage your settings efficiently & create familiar apps/['cousins](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl) easily.) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please spread the word: ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned. No other project provides so much CSS to adjust a website[🦄](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)</font>.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is an extension we built <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/346/beaver_1f9ab.png" height="28px"> to refine your YouTube experience. A powerful one-stop-shop with many features to enhance YouTube, yet liteweight. Be it a larger player or more tidy / studious YouTube UI, hiding distractions. And there was so much left to build and are many clever features to come still. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImprovedTube is designed with our own UI library: [Satus](https://github.com/victor-savinov/satus) (to manage your settings efficiently & create familiar apps/['cousins](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl) easily.) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please spread the word: ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned. No other project provides so much CSS to adjust a website[🦄](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)</font>.
 <p align="center">
       <a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
         <img src="https://img.shields.io/chrome-web-store/v/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="chrome-web-store-link" /><img src="https://img.shields.io/chrome-web-store/users/bnomihfieiccainjcjblhegjgglakjdd?style=for-the-badge" alt="Chrome-users" /></a> </p>
