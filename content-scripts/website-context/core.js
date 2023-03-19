@@ -138,7 +138,7 @@ document.addEventListener('it-message-from-extension', function () {
 				ImprovedTube.setTheme();
 			}
 				else if (camelized_key === 'description') {
-				if (ImprovedTube.storage.description === "normal") 
+				if (ImprovedTube.storage.description === "normal" || ImprovedTube.storage.description === "classic" ) 
 				{document.querySelector("#less").click() || document.querySelector("#collapse").click() ;} 
 			}
 			if (ImprovedTube[camelized_key]) {
