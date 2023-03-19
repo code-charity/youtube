@@ -13,7 +13,7 @@ html[it-comments-sidebar-position='true'] #comments { max-width: min(1100px, 30v
 @media screen and (max-width: 2419px) and (min-width: 1438px) {	
 html[it-comments-sidebar-position='true'] #secondary {top:0px !important; margin-top: -10px !important; }
 html[it-comments-sidebar-position='true'] #primary {top:0px !important; margin-left: 10px !important; }
-
+}
 /*--------------------------------------------------------------
 # COLLAPSED
 --------------------------------------------------------------*/
