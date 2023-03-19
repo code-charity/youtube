@@ -154,12 +154,11 @@ ImprovedTube.playerRemainingDuration = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.commentsSidebarPosition=()=>{ if(ImprovedTube.storage.comments_sidebar_position){ 
       document.querySelector("#columns").appendChild(document.querySelector("#comments"));
-      document.querySelector("#primary-inner").appendChild(document.querySelector("#secondary"));
+// }else{document.querySelector("#columns").appendChild(document.querySelector("#secondary"));
+  if(window.matchMedia("(max-width: 1438px)").matches){ document.querySelector("#primary-inner").appendChild(document.querySelector("#secondary"));}
 		// console.log("secondary and its children have been appended to primary-inner")	
-    }else{
-      document.querySelector("#columns").appendChild(document.querySelector("#secondary"));
-      document.querySelector("#below").appendChild(document.querySelector("#comments"));
-   } 
+//   }else{ document.querySelector("#below").appendChild(document.querySelector("#comments"));
+   }   
 }
 /*------------------------------------------------------------------------------
 4.2.2 SIDEBAR
@@ -309,7 +308,7 @@ ImprovedTube.description = function (el) {
         if(el){el.click();} else {document.querySelector("#more").click() || document.querySelector("#expand").click() ;}
 		}
 };
-	
+
 /*------------------------------------------------------------------------------
 4.2.3.4 HIDE DETAIL BUTTON
 ------------------------------------------------------------------------------*/
