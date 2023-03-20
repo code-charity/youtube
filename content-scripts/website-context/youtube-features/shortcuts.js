@@ -141,7 +141,12 @@ ImprovedTube.shortcuts = function () {
 			mouse.player = true;
 			mouse.wheel = 0;
 	}, true)}, 200);
-	} });
+	} 
+	ImprovedTube.elements.player.parentNode.addEventListener('mouseout', function () {
+			mouse.player = false;
+			mouse.wheel = 0;
+		}, true);
+});
 	
 	document.addEventListener('improvedtube-blur', function () {
 		keyboard.alt = false;
