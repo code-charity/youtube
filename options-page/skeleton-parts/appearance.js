@@ -193,6 +193,8 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
                     component: "text-field",
                     placeholder: "1280",
                     storage: "custom_player_size_width",
+					rows: 1,
+					lineNumbers: false
                 },
                 x: {
                     component: "span",
@@ -202,6 +204,8 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
                     component: "text-field",
                     placeholder: "720",
                     storage: "custom_player_size_height",
+					rows: 1,
+					lineNumbers: false
                 },
             },
             hide_controls: {
