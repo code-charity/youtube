@@ -165,6 +165,21 @@ ImprovedTube.commentsSidebarPosition=()=>{ if(ImprovedTube.storage.comments_side
 /*------------------------------------------------------------------------------
 4.2.2 SIDEBAR
 ------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------
+# TRANSCRIPT
+--------------------------------------------------------------*/
+
+ImprovedTube.transcript = function (el){
+if (ImprovedTube.storage.transcript === true){
+try{el.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}
+catch(e){console.log(e);
+setTimeout(function(){try{el.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}
+catch{}},800)};
+setTimeout(function(){try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M5,11h2v2H5V11z M15,15H5v2h10V15z"]').closest("tp-yt-paper-item").click();}
+catch{setTimeout(function(){try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M5,11h2v2H5V11z M15,15H5v2h10V15z"]').closest("tp-yt-paper-item").click();}
+catch{el.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}},300);}
+},7);
+}}
 
 /*------------------------------------------------------------------------------
 4.2.2.1 LIVECHAT
@@ -306,10 +321,9 @@ ImprovedTube.channelVideosCount = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.description = function (el) {
-    if (this.storage.description === "classic_expanded" || this.storage.description === "expanded" ) {
-        if(el){el.click();} else {document.querySelector("#more").click() || document.querySelector("#expand").click() ;}
-		}
-};
+    if (this.storage.description === "classic_expanded" || this.storage.description === "expanded" ) 
+	   if(el)try{el.click()}catch{setTimeout(function(){el.click();},700);}
+    };	
 
 /*------------------------------------------------------------------------------
 4.2.3.4 HIDE DETAIL BUTTON

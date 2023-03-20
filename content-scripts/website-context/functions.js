@@ -202,14 +202,20 @@ ImprovedTube.ytElementsHandler = function (node) {
 	if (document.documentElement.dataset.pageType === 'video'){ 
 		setTimeout(function () {
 			ImprovedTube.description(node);
-	    }, 750);    
+	    }, 300);    
 		}	   
-        //old
-	}else if (name === 'TP-YT-PAPER-BUTTON') {
-        if (document.documentElement.dataset.pageType === 'video' && id === 'more' && node.classList.contains('ytd-expander') || (node.parentNode.parentNode !== null && node.parentNode.parentNode.id === 'container')) {
+	}else if (id === 'meta') {
+        if (document.documentElement.dataset.pageType === 'video') {
             setTimeout(function () {
-               	 	ImprovedTube.description(node);
-            }, 750);
+               	 	ImprovedTube.description(node.querySelector('#more'));
+            }, 300);
+        }
+    }
+	else if (id === 'below') {
+        if (document.documentElement.dataset.pageType === 'video') {
+            setTimeout(function () {
+               	 	ImprovedTube.transcript(node);
+            }, 400);
         }
     }
 };
