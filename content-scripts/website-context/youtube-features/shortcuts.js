@@ -133,21 +133,17 @@ ImprovedTube.shortcuts = function () {
 	});
 
 	document.addEventListener('improvedtube-player-loaded', function () {
-	try{ImprovedTube.elements.player.parentNode.addEventListener('mouseover', function () {
-			mouse.player = true;
-			mouse.wheel = 0;
-	}, true);} catch(err){console.log(err); setTimeout(function(){
 		ImprovedTube.elements.player.parentNode.addEventListener('mouseover', function () {
 			mouse.player = true;
 			mouse.wheel = 0;
-	}, true)}, 200);
-	} 
-	ImprovedTube.elements.player.parentNode.addEventListener('mouseout', function () {
+		}, true);
+
+		ImprovedTube.elements.player.parentNode.addEventListener('mouseout', function () {
 			mouse.player = false;
 			mouse.wheel = 0;
 		}, true);
-});
-	
+	});
+
 	document.addEventListener('improvedtube-blur', function () {
 		keyboard.alt = false;
 		keyboard.ctrl = false;
