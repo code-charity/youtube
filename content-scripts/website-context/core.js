@@ -145,11 +145,14 @@ document.addEventListener('it-message-from-extension', function () {
  			  else if (camelized_key === 'transcript') { 
 				if (ImprovedTube.storage.transcript === true){			
 				  document.querySelector('#below svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();
-				  setTimeout(function(){
-					try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M5,11h2v2H5V11z M15,15H5v2h10V15z"]').closest("tp-yt-paper-item").click();}
+				  setTimeout(function(){ 
+					try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M5,11h2v2H5V11z M15,15H5v2h10V15z"]').closest("tp-yt-paper-item").click();
+					document.querySelector('tp-yt-iron-dropdown').style.setProperty('opacity', '0.1', 'important');}
+
 					catch(e){console.log(e); setTimeout(function(){ 
-					try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M5,11h2v2H5V11z M15,15H5v2h10V15z"]').closest("tp-yt-paper-item").click();}
-					catch{}},200);}},1)   
+					try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M5,11h2v2H5V11z M15,15H5v2h10V15z"]').closest("tp-yt-paper-item").click();
+					document.querySelector('tp-yt-iron-dropdown').style.setProperty('opacity', '0.1', 'important');}
+					catch{}},300);}},1)   
 				} if (ImprovedTube.storage.transcript === false){document.querySelector('*[target-id*=transcript] #visibility-button button').click();}
 			  }		
 			if (ImprovedTube[camelized_key]) {

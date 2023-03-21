@@ -1,7 +1,6 @@
 /*------------------------------------------------------------------------------
 4.4.0 PLAYER
 ------------------------------------------------------------------------------*/
-
 /*------------------------------------------------------------------------------
 4.4.1 AUTOPLAY
 ------------------------------------------------------------------------------*/
@@ -25,7 +24,6 @@ ImprovedTube.autoplay = function () {
         });
     }
 };
-
 
 
 /*------------------------------------------------------------------------------
@@ -363,7 +361,6 @@ ImprovedTube.subtitlesFontOpacity = function () {
 	}
 };
 
-
 /*------------------------------------------------------------------------------
 4.4.5 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
@@ -391,19 +388,18 @@ ImprovedTube.playerAds = function (parent) {
 	var button = parent.querySelector('.ytp-ad-skip-button.ytp-button');
 	if (button) {
 		if (this.storage.player_ads === 'block_all') {
-			button.click();
+			button.click(); querySelector("*[target-id*='engagement-panel-ads']").remove(); querySelector(".ytd-ad-slot-renderer").remove();
 		} else if (this.storage.player_ads === 'subscribed_channels') {
 			if (!parent.querySelector('#meta paper-button[subscribed]')) {
-				button.click();
+				button.click(); querySelector("*[target-id*='engagement-panel-ads']").remove(); querySelector(".ytd-ad-slot-renderer").remove();
 			}
 		} else if (this.storage.player_ads === 'block_music') {
 			if (ImprovedTube.elements.genre === 'music') {
-				button.click();
+				button.click(); querySelector("*[target-id*='engagement-panel-ads']").remove(); querySelector(".ytd-ad-slot-renderer").remove();
 			}
 		}
-	}
-};
-
+	}   
+};       
 
 /*------------------------------------------------------------------------------
 4.4.7 CUSTOM MINI-PLAYER
