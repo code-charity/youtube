@@ -11,9 +11,10 @@
 /*--------------------------------------------------------------
 # POSITION
 --------------------------------------------------------------*/
-html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container,
-html[it-header-position=hidden]:not([it-search-focus=true]) #masthead-container {
-	transform: translateY(-100%);
+
+html[it-header-position=hidden] #masthead-container:not([it-search-focus=true]),
+html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container:not([it-search-focus=true])
+{transform: translateY(-100%);
 }
 html[it-header-position=hidden] tp-yt-app-drawer#guide #guide-spacer,
 html[it-header-position=hidden] tp-yt-app-drawer:not([opened]) #header ytd-topbar-logo-renderer,
@@ -26,7 +27,7 @@ html[it-header-position=static] tp-yt-app-drawer:not([opened]) #header ytd-topba
 html[it-header-position=static] tp-yt-app-drawer:not([opened]) #header .it-button,
 html[it-header-position=hidden_on_video_page][data-page-type=video] tp-yt-app-drawer#guide #guide-spacer,
 html[it-header-position=hover_on_video_page][data-page-type=video] tp-yt-app-drawer#guide #guide-spacer {
-	display: none;
+	display:none;
 }
 
 html[it-header-position=hover] #masthead-container,
@@ -37,7 +38,7 @@ html[it-header-position=hover_on_video_page][data-page-type='video'] tp-yt-app-d
 html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-mini-guide-renderer,
 html[it-header-position=static] tp-yt-app-drawer,
 html[it-header-position=static] ytd-mini-guide-renderer {
-	z-index: 2147483647 !important;
+	z-index: 2200 !important;
 }
 
 html[it-header-position=hidden] ytd-page-manager#page-manager,
@@ -54,10 +55,10 @@ html[it-header-position=static] ytd-page-manager#page-manager {
 
 html[it-header-position=hover]:not([it-improvedtube-search=true]) #masthead-container,
 html[it-header-position=hover_on_video_page][data-page-type='video']:not([it-improvedtube-search=true]) #masthead-container {
-	transition: all 250ms ease-in-out;
-	transform: translateY(-75%);
-	height: 20%;
-	opacity: 0;
+	transition: all 320ms ease-in-out;
+	transform: translateY(-38%);
+	height: 68px;
+	opacity: 0
 }
 
 html[it-header-position=hover] #masthead-container:hover,
@@ -73,6 +74,7 @@ html[it-header-position=static] .ytd-app:not([masthead-hidden_]) #masthead-conta
 	z-index: 999999999999 !important;
 }
 
+html[it-header-position=hover_on_video_page]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,
 html[it-header-position=hover]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,
 html[it-header-position=hidden]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,
 html[it-header-position=static]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header {

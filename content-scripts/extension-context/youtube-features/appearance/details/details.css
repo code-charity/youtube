@@ -1,9 +1,6 @@
 /*--------------------------------------------------------------
 >>> DETAILS  
 ----------------------------------------------------------------
-# 
---------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -197,11 +194,6 @@ html[it-hide-more-button='true'] #menu yt-button-shape#button-shape {
 # DESCRIPTION
 --------------------------------------------------------------*/
 
-/* html[it-details-old-style=true]  */
-
-html[it-description='normal']  { }
-html[it-description='expanded'] { } 
-
 html[it-description='classic'] .ytd-watch-flexy #info-contents, 
 html[it-description='classic'] .ytd-watch-flexy #meta-contents { display: block !important; } 
 html[it-description='classic'] #below.ytd-watch-flexy { top:-20px; }
@@ -234,7 +226,6 @@ html[it-description='classic_expanded'] div.style-scope.ytd-watch-flexy + ytd-wa
 
 	color: var(--yt-spec-text-secondary) !important;
 }
-
 
 /*--------------------------------------------------------------
 # SHOW CHANNEL VIDEOS COUNT
