@@ -791,8 +791,36 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			transcript: {
 					component: 'switch',
 					text: 'Transcript',
-					value: false
-			},	
+					value: false,
+					storage: 'transcript',
+				 on: {					click: function () {
+							if (satus.storage.get('transcript')) {
+								if (satus.storage.get('no_page_margin')) {
+									this.nextSibling.click();
+								}
+							}
+						}
+					}	
+			},
+			no_page_margin: {
+					component: 'switch',
+					text: 'To the side! (No page margin)',
+					value: false,
+							 on: {
+						click: function () {
+							if (satus.storage.get('no_page_margin')) {
+								if (satus.storage.get('transcript')) {
+									this.previousSibling.click();
+								}
+							}
+						}
+					}
+			},
+            sidebar_left: {
+                component: "switch",
+                text: "moveSidebarLeft",
+            },			
+			
             related_videos: {
                 component: "select",
                 text: "relatedVideos",
@@ -812,15 +840,7 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
                 ],
                 tags: "right",
             },
-			no_page_margin: {
-					component: 'switch',
-					text: 'To the side! (No page margin)',
-					value: false
-			},
-            sidebar_left: {
-                component: "switch",
-                text: "moveSidebarLeft",
-            },
+
             thumbnails_right: {
                 component: "switch",
                 text: "moveThumbnailsRight",
