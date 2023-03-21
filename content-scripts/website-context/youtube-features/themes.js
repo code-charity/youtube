@@ -86,7 +86,7 @@ ImprovedTube.myColors = function () {
 		  {document.querySelector('ytd-masthead').style.backgroundColor = ''+primary_color+'';	}		
 
 	} else if (this.elements.my_colors) {
-		this.elements.my_colors.remove();}  	
+		this.elements.my_colors.remove(); document.querySelector('ytd-masthead').style.backgroundColor ='rgba(255, 255, 255, 0.2)'	;}  	
 
 };		
 
@@ -94,9 +94,10 @@ ImprovedTube.setTheme = function () {
 	    	if (this.storage.theme === 'default'){
 			if (document.documentElement.hasAttribute('it-themes') !== null && document.documentElement.hasAttribute('it-themes') === true){													 
 				document.documentElement.removeAttribute('it-themes');			
-				document.documentElement.setAttribute('it-themes', 'false');				
+				document.documentElement.setAttribute('it-themes', 'false');	
+				document.querySelector('ytd-masthead').style.backgroundColor ='rgba(255, 255, 255, 0.5)';				
 				}
-						document.querySelector('ytd-masthead').style.backgroundColor ='rgba(0, 0, 0, 0)'	;
+						
 			}			
 		 else if (this.storage.theme === 'dark'){ 
 		    if (document.documentElement.hasAttribute('dark') !== null && document.documentElement.hasAttribute('dark') ){
