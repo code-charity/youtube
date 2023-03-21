@@ -34,6 +34,13 @@ ImprovedTube.ytElementsHandler = function (node) {
 		if (node.getAttribute('itemprop') === 'genre') {
 			ImprovedTube.genre = node.content;
 		}
+		if (node.getAttribute('name') === 'keywords') {
+			ImprovedTube.keywords = node.content;
+		}
+		if (node.getAttribute('itemprop') === 'name') {
+		   ImprovedTube.title = node.content;
+		}
+	//	if (node.getAttribute('name') === 'interactionCount') {	ImprovedTube.likes = node.content; }
 	} else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
 		if (
 			node.parentComponent &&

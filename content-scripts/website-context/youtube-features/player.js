@@ -82,7 +82,11 @@ ImprovedTube.playerPlaybackSpeed = function (change) {
 		if (this.storage.player_forced_playback_speed === true) {
 			if (player.getVideoData().isLive === false &&
 				(this.storage.player_force_speed_on_music === true ||
-					(location.href.indexOf('music') === -1 && document.querySelector('h3#title')?.innerText !== 'Music')
+					(document.querySelector('h3#title')?.innerText !== 'Music'
+					&& (ImprovedTube.genre !== 'Music' || /interview|back[- ]?stage/i.test(ImprovedTube.keywords + ImprovedTube.title) ) 
+					&& !/official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|karaoke|(sing|play)[- ]?along/i.test(ImprovedTube.title + ImprovedTube.keywords)	 
+					&& location.href.indexOf('music') === -1
+					)
 			)) {
 				player.setPlaybackRate(Number(option));
 				video.playbackRate = Number(option);
