@@ -1,4 +1,6 @@
-/*--------------------------------------------------------------
+html {overflow-x: hidden !important; }   /* WHY? doesnt this work with our [it-transcript='true'] */
+
+ /*--------------------------------------------------------------
 >>> SIDEBAR
 ----------------------------------------------------------------
 # Related videos
@@ -28,15 +30,11 @@ div#secondary #playlist {
 /*--------------------------------------------------------------
 # TRANSCRIPT
 --------------------------------------------------------------*/
-
-html[data-page-type=video][it-transcript='true'][it-sidebar-left='true'] body { overflow-x: hidden !important; }
-
 html[data-page-type=video][it-transcript='true'] *[target-id*='transcript'], 
 html[data-page-type=video][it-transcript='true'] *[target-id*='transcript']  ytd-engagement-panel-section-list-renderer #content
 { max-height: 77vh !important;  }
-
-  html[data-page-type=video][it-transcript='true'][it-sidebar-left='transcript']  ytd-watch-flexy:not([fullscreen]) #columns
-  { display:flex !important; max-width:88% !important; } 
+html[data-page-type=video][it-transcript='true'][it-sidebar-left='transcript']  ytd-watch-flexy:not([fullscreen]) #columns
+ { display:flex !important; max-width:88% !important;   } 
 
 @media screen and  (min-width: 1599px) {	
 html[data-page-type=video][it-transcript='true'] *[target-id*='transcript'], 
@@ -54,14 +52,13 @@ html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it
 html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it-player-size='max_width']) td-engagement-panel-section-list-renderer
 {  text-align: right !important; direction: ltr; }
 html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it-player-size='max_width']) #player
-  {  left:-10px !important;}
-
+  {  left:-10px !important;} 
 }
 
 /*  ADS  */
 
-html[it-player-ads*='block'] *[target-id*='engagement-panel-ads'] {display: none !important;}
-html[it-player-ads*='block']  .ytd-ad-slot-renderer {display: none !important;}
+html[it-player-ads="block_all"] *[target-id*='engagement-panel-ads'] {display: none !important;}
+html[it-player-ads="block_all"] .ytd-ad-slot-renderer {display: none !important;}
 
 /*--------------------------------------------------------------
 # RELATED VIDEOS
@@ -116,7 +113,7 @@ html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullsc
 @media screen and (max-width: 2300px) and (min-width: 1250px) {	
 	html[data-page-type=video][it-no-page-margin='true'] ytd-browse > ytd-two-column-browse-results-renderer {
 	width: auto !important;
-	max-width: auto !important;  overflow-x: hidden; }
+	max-width: auto !important; overflow-x: hidden; }
 	html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #secondary.ytd-watch-flexy {
 	margin-right: calc (-12px - 0.4vw - 0.4vh) !important;}
 	html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #below {
