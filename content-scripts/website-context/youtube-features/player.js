@@ -388,14 +388,14 @@ ImprovedTube.playerAds = function (parent) {
 	var button = parent.querySelector('.ytp-ad-skip-button.ytp-button');
 	if (button) {
 		if (this.storage.player_ads === 'block_all') {
-			button.click(); querySelector("*[target-id*='engagement-panel-ads']").remove(); querySelector(".ytd-ad-slot-renderer").remove();
+			button.click(); document.querySelector("*[target-id*='engagement-panel-ads']").remove(); document.querySelector(".ytd-ad-slot-renderer").remove();
 		} else if (this.storage.player_ads === 'subscribed_channels') {
 			if (!parent.querySelector('#meta paper-button[subscribed]')) {
-				button.click(); querySelector("*[target-id*='engagement-panel-ads']").remove(); querySelector(".ytd-ad-slot-renderer").remove();
+				button.click(); document.querySelector("*[target-id*='engagement-panel-ads']").remove(); document.querySelector(".ytd-ad-slot-renderer").remove();
 			}
 		} else if (this.storage.player_ads === 'block_music') {
 			if (ImprovedTube.elements.genre === 'music') {
-				button.click(); querySelector("*[target-id*='engagement-panel-ads']").remove(); querySelector(".ytd-ad-slot-renderer").remove();
+				button.click(); document.querySelector("*[target-id*='engagement-panel-ads']").remove(); document.querySelector(".ytd-ad-slot-renderer").remove();
 			}
 		}
 	}   
