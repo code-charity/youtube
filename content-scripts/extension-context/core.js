@@ -268,7 +268,10 @@ extension.storage.get = function (key) {
 # LISTENER
 --------------------------------------------------------------*/
 
-extension.storage.listener = function () {
+extension.storage.listener = function (newTab) {
+	if(newTab){
+		chrome.storage.local.set({newTab: true})
+	}
 	chrome.storage.onChanged.addListener(function (changes) {
 		for (var key in changes) {
 			var value = changes[key].newValue,
