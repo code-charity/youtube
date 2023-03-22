@@ -1,5 +1,5 @@
 [submodule "from ImprovedTube"]
 path = assets/satus
-url = https://github.com/code-for-charity/SATUS/blob/master/satus.js
-url = https://github.com/code-for-charity/SATUS/blob/master/satus.css
+url = https://github.com/code-for-charity/SATUS
+url = https://github.com/code-for-charity/SATUS
   
