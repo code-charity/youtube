@@ -55,15 +55,9 @@ html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it
   {  left:-10px !important;} 
 }
 
-/*  ADS  */
-
-html[it-player-ads="block_all"] *[target-id*='engagement-panel-ads'] {display: none !important;}
-html[it-player-ads="block_all"] .ytd-ad-slot-renderer {display: none !important;}
-
 /*--------------------------------------------------------------
 # RELATED VIDEOS
 --------------------------------------------------------------*/
-
 html[it-related-videos='hidden'] #related > ytd-watch-next-secondary-results-renderer > #items,
 html[it-related-videos=hidden] div#secondary div#panels,
 html[it-related-videos=hidden] div#secondary div#donation-shelf {
@@ -105,7 +99,6 @@ html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-
 /*--------------------------------------------------------------
 # NO PAGE MARGIN
 --------------------------------------------------------------*/
-
 html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #columns.ytd-watch-flexy, 
 html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #primary.ytd-watch-flexy {
 	max-width: 99% !important; margin: 1px !important;   }
@@ -137,7 +130,6 @@ html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullsc
 /*--------------------------------------------------------------
 # MOVE SIDEBAR LEFT
 --------------------------------------------------------------*/
-
 html[it-sidebar-left='true'] #columns>#primary,
 html[it-sidebar-left='true'] #head>#upnext
 {
@@ -149,7 +141,6 @@ html[it-sidebar-left='true'] #columns>#secondary {margin-left: calc(0.5vw + 4px)
 /*--------------------------------------------------------------
 # MOVE THUMBNAILS RIGHT
 --------------------------------------------------------------*/
-
 html[it-thumbnails-right='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail {
 	order: 7 !important;
 }
@@ -157,7 +148,6 @@ html[it-thumbnails-right='true'] ytd-watch-next-secondary-results-renderer ytd-t
 /*--------------------------------------------------------------
 # HIDE THUMBNAILS
 --------------------------------------------------------------*/
-
 html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail,
 html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
 	display: none !important;
@@ -166,7 +156,6 @@ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-pl
 /*--------------------------------------------------------------
 # LIVECHAT
 --------------------------------------------------------------*/
-
 html[it-livechat='hidden'] ytd-live-chat-frame#chat {
 	display: none !important;
 }
@@ -174,7 +163,6 @@ html[it-livechat='hidden'] ytd-live-chat-frame#chat {
 /*--------------------------------------------------------------
 # HIDE PLAYLIST
 --------------------------------------------------------------*/
-
 html[it-hide-playlist='true'] ytd-playlist-panel-renderer#playlist {
 	display: none !important;
 }

@@ -5,10 +5,10 @@
 	"version": "4.1",
 	"default_locale": "en",
 	"icons": {
-		"128": "assets/icons/128.png",
-		"16": "assets/icons/16.png",
-		"32": "assets/icons/32.png",
-		"48": "assets/icons/48.png"
+		"128": "media/icons/128.png",
+		"16": "media/icons/16.png",
+		"32": "media/icons/32.png",
+		"48": "media/icons/48.png"
 	},
 	"background": {
 		"service_worker": "background.js"
@@ -21,31 +21,31 @@
 		{
 			"all_frames": true,
 			"css": [
-				"content-scripts/extension-context/youtube-features/content-styles.css",
-				"content-scripts/extension-context/youtube-features/night-mode/night-mode.css",
-				"content-scripts/extension-context/youtube-features/general/general.css",
-				"content-scripts/extension-context/youtube-features/appearance/header/header.css",
-				"content-scripts/extension-context/youtube-features/appearance/player/player.css",
-				"content-scripts/extension-context/youtube-features/appearance/details/details.css",
-				"content-scripts/extension-context/youtube-features/appearance/sidebar/sidebar.css",
-				"content-scripts/extension-context/youtube-features/appearance/comments/comments.css",
-				"content-scripts/extension-context/youtube-features/appearance/footer/footer.css"
+				"JS/extension/www.youtube.com/styles.css",
+				"JS/extension/www.youtube.com/night-mode/night-mode.css",
+				"JS/extension/www.youtube.com/general/general.css",
+				"JS/extension/www.youtube.com/appearance/header/header.css",
+				"JS/extension/www.youtube.com/appearance/player/player.css",
+				"JS/extension/www.youtube.com/appearance/details/details.css",
+				"JS/extension/www.youtube.com/appearance/sidebar/sidebar.css",
+				"JS/extension/www.youtube.com/appearance/comments/comments.css",
+				"JS/extension/www.youtube.com/appearance/footer/footer.css"
 			],
 			"exclude_matches": [
 				"https://www.youtube.com/audiolibrary/*",
 				"https://www.youtube.com/tv*"
 			],
 			"js": [
-				"assets/satus/satus.js",
-				"content-scripts/extension-context/core.js",
-				"content-scripts/extension-context/functions.js",
-				"content-scripts/extension-context/youtube-features/night-mode/night-mode.js",
-				"content-scripts/extension-context/youtube-features/general/general.js",
-				"content-scripts/extension-context/youtube-features/appearance/player/player.js",
-				"content-scripts/extension-context/youtube-features/appearance/details/details.js",
-				"content-scripts/extension-context/youtube-features/appearance/sidebar/sidebar.js",
-				"content-scripts/extension-context/youtube-features/appearance/comments/comments.js",
-				"content-scripts/extension-context/init.js"
+				"JS/satus.js",
+				"JS/extension/core.js",
+				"JS/extension/functions.js",
+				"JS/extension/www.youtube.com/night-mode/night-mode.js",
+				"JS/extension/www.youtube.com/general/general.js",
+				"JS/extension/www.youtube.com/appearance/player/player.js",
+				"JS/extension/www.youtube.com/appearance/details/details.js",
+				"JS/extension/www.youtube.com/appearance/sidebar/sidebar.js",
+				"JS/extension/www.youtube.com/appearance/comments/comments.js",
+				"JS/extension/init.js"
 			],
 			"matches": [
 				"https://www.youtube.com/*"
@@ -65,18 +65,18 @@
 		{
 			"resources": [
 				"options-page/index.html",
-				"content-scripts/website-context/core.js",
-				"content-scripts/website-context/functions.js",
-				"content-scripts/website-context/youtube-features/appearance.js",
-				"content-scripts/website-context/youtube-features/themes.js",
-				"content-scripts/website-context/youtube-features/player.js",
-				"content-scripts/website-context/youtube-features/playlist.js",
-				"content-scripts/website-context/youtube-features/channel.js",
-				"content-scripts/website-context/youtube-features/shortcuts.js",
-				"content-scripts/website-context/youtube-features/blacklist.js",
-				"content-scripts/website-context/youtube-features/settings.js",
-				"content-scripts/website-context/init.js",
-				"content-scripts/website-context/mutations.js"
+				"JS/web-accessible/core.js",
+				"JS/web-accessible/functions.js",
+				"JS/web-accessible/www.youtube.com/appearance.js",
+				"JS/web-accessible/www.youtube.com/themes.js",
+				"JS/web-accessible/www.youtube.com/player.js",
+				"JS/web-accessible/www.youtube.com/playlist.js",
+				"JS/web-accessible/www.youtube.com/channel.js",
+				"JS/web-accessible/www.youtube.com/shortcuts.js",
+				"JS/web-accessible/www.youtube.com/blacklist.js",
+				"JS/web-accessible/www.youtube.com/settings.js",
+				"JS/web-accessible/init.js",
+				"JS/web-accessible/mutations.js"
 			],
 			"matches": [
 				"https://www.youtube.com/*"
