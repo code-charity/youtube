@@ -56,18 +56,18 @@ chrome.runtime.sendMessage({
 });
 
 extension.inject([
-	'/content-scripts/website-context/core.js',
-	'/content-scripts/website-context/functions.js',
-	'/content-scripts/website-context/youtube-features/appearance.js',
-	'/content-scripts/website-context/youtube-features/themes.js',
-	'/content-scripts/website-context/youtube-features/player.js',
-	'/content-scripts/website-context/youtube-features/playlist.js',
-	'/content-scripts/website-context/youtube-features/channel.js',
-	'/content-scripts/website-context/youtube-features/shortcuts.js',
-	'/content-scripts/website-context/youtube-features/blacklist.js',
-	'/content-scripts/website-context/youtube-features/settings.js',
-	'/content-scripts/website-context/init.js',
-	'/content-scripts/website-context/mutations.js'
+	'/JS/web-accessible/core.js',
+	'/JS/web-accessible/functions.js',
+	'/JS/web-accessible/www.youtube.com/appearance.js',
+	'/JS/web-accessible/www.youtube.com/themes.js',
+	'/JS/web-accessible/www.youtube.com/player.js',
+	'/JS/web-accessible/www.youtube.com/playlist.js',
+	'/JS/web-accessible/www.youtube.com/channel.js',
+	'/JS/web-accessible/www.youtube.com/shortcuts.js',
+	'/JS/web-accessible/www.youtube.com/blacklist.js',
+	'/JS/web-accessible/www.youtube.com/settings.js',
+	'/JS/web-accessible/init.js',
+	'/JS/web-accessible/mutations.js'
 ], function () {
 	extension.ready = true;
 
