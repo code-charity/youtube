@@ -17,13 +17,16 @@
 
  - (Finding developers / patreons)
  - All bugs & some wishes 
- - (i) ToolTips & documentation 
+ - (i) ToolTips & documentation
  - Avoiding CPU-rendering by default 
  - Smart player buttons for all \<video\>
  - Smart content-filtering & discovery
  - Full-page GUI, watch-history, dashboard 
  - Integrating data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.  
- - Integrating code / features like [YCS](https://github.com/sonigy/YCS), [YR](https://github.com/MarcGuiselin/youtube-refined), [NY](https://github.com/raingart/Nova-YouTube-extension), [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
+ - Integrating code / features like [YCS](https://github.com/sonigy/YCS), [YR](https://github.com/MarcGuiselin/youtube-refined), [NY](https://github.com/raingart/Nova-YouTube-extension); [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
+  - Run on m.youtube.com, hide what wont work
+     - Ask Samsung Browser to list us.
+
 </td></tr></table>
 
 <h2>Contributing</h2>
