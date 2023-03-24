@@ -56,18 +56,18 @@ chrome.runtime.sendMessage({
 });
 
 extension.inject([
-	'/JS/web-accessible/core.js',
-	'/JS/web-accessible/functions.js',
-	'/JS/web-accessible/www.youtube.com/appearance.js',
-	'/JS/web-accessible/www.youtube.com/themes.js',
-	'/JS/web-accessible/www.youtube.com/player.js',
-	'/JS/web-accessible/www.youtube.com/playlist.js',
-	'/JS/web-accessible/www.youtube.com/channel.js',
-	'/JS/web-accessible/www.youtube.com/shortcuts.js',
-	'/JS/web-accessible/www.youtube.com/blacklist.js',
-	'/JS/web-accessible/www.youtube.com/settings.js',
-	'/JS/web-accessible/init.js',
-	'/JS/web-accessible/mutations.js'
+	'/js&css/web-accessible/core.js',
+	'/js&css/web-accessible/functions.js',
+	'/js&css/web-accessible/www.youtube.com/appearance.js',
+	'/js&css/web-accessible/www.youtube.com/themes.js',
+	'/js&css/web-accessible/www.youtube.com/player.js',
+	'/js&css/web-accessible/www.youtube.com/playlist.js',
+	'/js&css/web-accessible/www.youtube.com/channel.js',
+	'/js&css/web-accessible/www.youtube.com/shortcuts.js',
+	'/js&css/web-accessible/www.youtube.com/blacklist.js',
+	'/js&css/web-accessible/www.youtube.com/settings.js',
+	'/js&css/web-accessible/init.js',
+	'/js&css/web-accessible/mutations.js'
 ], function () {
 	extension.ready = true;
 
@@ -141,7 +141,7 @@ document.addEventListener('it-message-from-youtube', function () {
 
 		if (message.requestOptionsUrl === true) {
 			extension.messages.send({
-				responseOptionsUrl: chrome.runtime.getURL('options-page/index.html')
+				responseOptionsUrl: chrome.runtime.getURL('menu/index.html')
 			});
 		} else if (message.onlyOnePlayer === true) {
 			chrome.runtime.sendMessage({
