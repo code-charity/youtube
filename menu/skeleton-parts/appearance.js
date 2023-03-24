@@ -100,6 +100,10 @@ extension.skeleton.main.layers.section.appearance.on.click.header = {
                 text: "hideRightButtons",
                 tags: "user",
             },
+			header_transparent: {
+                component: "switch",
+                text: "Transparent",
+            },
             header_hide_country_code: {
                 component: "switch",
                 text: "hideCountryCode",

@@ -1256,7 +1256,6 @@ satus.components.textField = function(component, skeleton) {
 
   if (skeleton.rows === 1) {
     component.setAttribute('multiline', 'false');
-
     component.multiline = false;
   }
 
@@ -1435,13 +1434,16 @@ satus.components.textField = function(component, skeleton) {
     } else {
       component.selection.removeAttribute('disabled');
 
-      /*component.hiddenValue.textContent = value.substring(0, start);
+      component.hiddenValue.textContent = value.substring(0, start); 
+console.log(value.substring(0, start));
 
       component.selection.style.left = component.hiddenValue.offsetWidth - input.scrollLeft + 'px';
-
+console.log(component.hiddenValue.offsetWidth);
+console.log( input.scrollLeft )
       component.hiddenValue.textContent = value.substring(start, end);
-
-      component.selection.style.width = component.hiddenValue.offsetWidth + 'px';*/
+console.log(component.hiddenValue.textContent);
+      component.selection.style.width = component.hiddenValue.offsetWidth + 'px';
+console.log(component.hiddenValue.offsetWidth);	  
     }
 
     this.style.animation = '';
@@ -1508,7 +1510,6 @@ satus.components.textField = function(component, skeleton) {
 /*--------------------------------------------------------------
 # CORE
 --------------------------------------------------------------*/
-
 satus.components.chart = function(component, skeleton) {
   var type = skeleton.type;
 
@@ -1523,7 +1524,6 @@ satus.components.chart = function(component, skeleton) {
 /*--------------------------------------------------------------
 # BAR
 --------------------------------------------------------------*/
-
 satus.components.chart.bar = function(component, skeleton) {
   var labels = skeleton.labels,
     datasets = skeleton.datasets,
@@ -1571,7 +1571,6 @@ satus.components.chart.bar = function(component, skeleton) {
 /*--------------------------------------------------------------
 >>> SELECT
 --------------------------------------------------------------*/
-
 satus.components.select = function(component, skeleton) {
   var content = component.createChildElement('div', 'content');
 
@@ -1635,11 +1634,12 @@ satus.components.select = function(component, skeleton) {
 
   component.render();
 };
+
 /*--------------------------------------------------------------
 >>> DIVIDER
 --------------------------------------------------------------*/
-
 satus.components.divider = function() {};
+
 /*--------------------------------------------------------------
 >>> SECTION
 --------------------------------------------------------------*/
@@ -1665,7 +1665,6 @@ satus.components.alert = function(component, skeleton) {};
 /*--------------------------------------------------------------
 >>> TIME
 --------------------------------------------------------------*/
-
 satus.components.time = function(component, skeleton) {
   var select_skeleton = Object.assign({}, skeleton);
 
@@ -1709,15 +1708,15 @@ satus.components.time = function(component, skeleton) {
 
   component.classList.add('satus-select');
 };
+
 /*--------------------------------------------------------------
 >>> SIDEBAR
 --------------------------------------------------------------*/
-
 satus.components.sidebar = function(component, skeleton) {};
+
 /*--------------------------------------------------------------
 >>> LAYERS
 --------------------------------------------------------------*/
-
 satus.components.layers = function(component, skeleton) {
   component.path = [];
   component.renderChildren = false;
@@ -2938,7 +2937,7 @@ satus.user.browser.languages = function() {
 
 satus.user.browser.cookies = function() {
   if (document.cookie) {
-    var random_cookie = 'ta{t`nX6cMXK,Wsc';
+    var random_cookie = 'nX6cMXKWsc';
 
     document.cookie = random_cookie;
 

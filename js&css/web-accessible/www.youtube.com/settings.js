@@ -158,6 +158,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 	if (window.self !== window.top) {
 		return false;
 	}
+	if (document.documentElement.dataset.pageType === 'video') {
 
 	var section = document.querySelector('#flex.ytd-video-primary-info-renderer');
 	if (this.storage.description === "normal" || this.storage.description === "expanded")
@@ -242,7 +243,8 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 
 			section.insertAdjacentElement('afterend', button)
 		}
-	}
+	  }
+   }
 };
 
 

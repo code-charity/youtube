@@ -593,7 +593,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 							if (location.href.indexOf('/index.html?action=import-settings') !== -1) {
 								extension.importSettings();
 							} else {
-								window.open(chrome.runtime.getURL('options-page/index.html?action=import-settings'), '_blank');
+								window.open(chrome.runtime.getURL('menu/index.html?action=import-settings'), '_blank');
 							}
 						}
 					}
@@ -606,7 +606,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 							if (location.href.indexOf('/index.html?action=export-settings') !== -1) {
 								extension.exportSettings();
 							} else {
-								window.open(chrome.runtime.getURL('options-page/index.html?action=export-settings'), '_blank');
+								window.open(chrome.runtime.getURL('menu/index.html?action=export-settings'), '_blank');
 							}
 						}
 					}
