@@ -152,7 +152,7 @@ ImprovedTube.playerRemainingDuration = function () {
 /*------------------------------------------------------------------------------
 4.2.1.6 Comments position to sidebar
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebarPosition=()=>{ if(ImprovedTube.storage.comments_sidebar_position){ 
+ImprovedTube.commentsSidebar=()=>{ if(ImprovedTube.storage.comments_sidebar){ 
       document.querySelector("#columns").appendChild(document.querySelector("#comments"));
   
   if(window.matchMedia("(max-width: 1598px)").matches)
