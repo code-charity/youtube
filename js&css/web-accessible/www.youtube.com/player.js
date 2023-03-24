@@ -80,11 +80,11 @@ ImprovedTube.playerPlaybackSpeed = function (change) {
 		if (this.storage.player_forced_playback_speed === true) {
 			if (player.getVideoData().isLive === false &&
 				(this.storage.player_force_speed_on_music === true ||
-					(document.querySelector('h3#title')?.innerText !== 'Music'
-					&& (ImprovedTube.genre !== 'Music' || /interview|back[- ]?stage/i.test(ImprovedTube.keywords + ImprovedTube.title) ) 
-					&& !/official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|karaoke|(sing|play)[- ]?along/i.test(ImprovedTube.title + ImprovedTube.keywords)	 
-					&& location.href.indexOf('music') === -1
-					)
+				 document.querySelector('h3#title')?.innerText !== 'Music'  // (=buyable/registered music table)
+				|| ( 
+				    (ImprovedTube.elements.category !== 'Music' && !/official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|karaok|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكيкараоке|カラオケ|노래방/i.test(ImprovedTube.elements.title + ImprovedTube.elements.keywords)	 	
+					) || /do[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(ImprovedTube.elements.keywords + ImprovedTube.elements.title)
+				  ) // && location.href.indexOf('music') === -1   // (=only running on www.youtube.com anyways)
 			)) {
 				player.setPlaybackRate(Number(option));
 				video.playbackRate = Number(option);
@@ -394,7 +394,7 @@ ImprovedTube.playerAds = function (parent) {
 				button.click(); document.querySelector("*[target-id*='engagement-panel-ads']").remove(); document.querySelector(".ytd-ad-slot-renderer").remove();
 			}
 		} else if (this.storage.player_ads === 'block_music') {
-			if (ImprovedTube.elements.genre === 'music') {
+			if (ImprovedTube.elements.category === 'music') {
 				button.click(); document.querySelector("*[target-id*='engagement-panel-ads']").remove(); document.querySelector(".ytd-ad-slot-renderer").remove();
 			}
 		}

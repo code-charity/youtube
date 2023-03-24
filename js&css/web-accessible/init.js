@@ -69,7 +69,7 @@ ImprovedTube.init = function () {
 
 document.addEventListener('yt-navigate-finish', function () {
 	ImprovedTube.pageType();
-	ImprovedTube.commentsSidebarPosition();
+	ImprovedTube.commentsSidebar();
 	
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();

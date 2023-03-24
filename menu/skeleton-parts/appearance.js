@@ -738,7 +738,7 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
             },
 				comments_sidebar_position: {
                 component: "switch",
-                text: "SidebarPosition",
+                text: "sidebar",
             },
 			squared_user_images: {
 				component: 'switch',

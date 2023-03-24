@@ -32,7 +32,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 		}
 	} else if (name === 'META') {
 		if (node.getAttribute('itemprop') === 'genre') {
-			ImprovedTube.genre = node.content;
+			ImprovedTube.category = node.content;
 		}
 		if (node.getAttribute('name') === 'keywords') {
 			ImprovedTube.keywords = node.content;
