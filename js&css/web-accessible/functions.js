@@ -205,26 +205,19 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 			node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;
 		}
-	}else if (id ==='description-inner') {
-	if (document.documentElement.dataset.pageType === 'video'){ 
-		setTimeout(function () {
+  }else if (document.documentElement.dataset.pageType === 'video'){
+	 if (id ==='description-inner') {
+			setTimeout(function () {
 			ImprovedTube.description(node);
-	    }, 300);    
-		}	   
-	}else if (id === 'meta') {
-        if (document.documentElement.dataset.pageType === 'video') {
-            setTimeout(function () {
-               	 	ImprovedTube.description(node.querySelector('#more'));
-            }, 300);
-        }
-    }
-	else if (id === 'below') {
-        if (document.documentElement.dataset.pageType === 'video') {
-            setTimeout(function () {
-               	 	ImprovedTube.transcript(node);
-            }, 400);
-        }
-    }
+	    }, 300);   			   
+	}else if (id === 'meta')  {setTimeout(function () { ImprovedTube.description(node.querySelector('#more'));    }, 300);
+    }else if (id === 'below' ){setTimeout(function () {  }, 0);
+    }else if (id === 'panels'){setTimeout(function () {	
+				ImprovedTube.transcript(node);
+				ImprovedTube.chapters(node);    }, 300);
+	}
+  }
+
 };
 
 ImprovedTube.pageType = function () {

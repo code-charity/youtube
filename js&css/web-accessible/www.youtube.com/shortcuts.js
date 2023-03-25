@@ -580,7 +580,20 @@ ImprovedTube.shortcutActivateCaptions = function () {
 		player.toggleSubtitlesOn();
 	}
 };
+/*------Chapters------*/
 
+ImprovedTube.shortcutChapters = function () {	
+          try{var height = document.querySelector('*[target-id*=chapters]').clientHeight;}catch{}
+          if (height) {try{document.querySelector('*[target-id*=chapters] #visibility-button button').click();}catch{}}	
+		  else   { try{document.querySelector('*[target-id*=chapters]').removeAttribute('visibility');}catch{} }
+};			
+		
+/*------Transcript------*/
+ImprovedTube.shortcutTranscript = function () {	
+          try{var height = document.querySelector('*[target-id*=transcript]').clientHeight;}catch{}
+          if (height) {try{document.querySelector('*[target-id*=transcript] #visibility-button button').click();}catch{}}	
+		  else   { try{document.querySelector('*[target-id*=transcript]').removeAttribute('visibility');}catch{} }
+};
 
 /*------------------------------------------------------------------------------
 4.7.22 LIKE
@@ -588,7 +601,6 @@ ImprovedTube.shortcutActivateCaptions = function () {
 
 ImprovedTube.shortcutLike = function () {
 	var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer button')[0]);
-
 	if (like) {
 		like.click();
 	}
@@ -601,11 +613,26 @@ ImprovedTube.shortcutLike = function () {
 
 ImprovedTube.shortcutDislike = function () {
 	var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer button')[1]);
-
 	if (like) {
 		like.click();
 	}
 };
+
+/*------Report------*/
+
+ImprovedTube.shortcutReport = function () {
+try{document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}
+catch(e){console.log(e);
+setTimeout(function(){try{document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}
+catch{}},800)};
+setTimeout(function(){try{document.querySelector('tp-yt-iron-dropdown').style.setProperty('opacity', '0.1', 'important');document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
+	catch{setTimeout(function()
+		{try{document.querySelector('tp-yt-iron-dropdown').style.setProperty('opacity', '0.1', 'important');document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
+			catch{document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}
+},500);
+}
+},7);  
+}
 
 
 /*------------------------------------------------------------------------------
@@ -703,3 +730,4 @@ ImprovedTube.shortcutPopupPlayer = function () {
 		window.open('//www.youtube.com/embed/' + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8) + '?start=' + parseInt(player.getCurrentTime()) + '&autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=' + player.offsetWidth + ',height=' + player.offsetHeight);
 	}
 };
+

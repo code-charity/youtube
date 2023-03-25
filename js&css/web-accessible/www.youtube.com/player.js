@@ -385,7 +385,7 @@ ImprovedTube.upNextAutoplay = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerAds = function (parent) {
-	var button = parent.querySelector('.ytp-ad-skip-button.ytp-button');
+	try{var button = parent.querySelector('.ytp-ad-skip-button.ytp-button');}catch{}
 	if (button) {
 		if (this.storage.player_ads === 'block_all') {
 			button.click(); document.querySelector("*[target-id*='engagement-panel-ads']").remove(); document.querySelector(".ytd-ad-slot-renderer").remove();

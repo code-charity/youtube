@@ -792,6 +792,10 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
         click: {
             component: "section",
             variant: "card",
+			chapters: {
+					component: 'switch',
+					text: 'Chapters',	
+			},
 			transcript: {
 					component: 'switch',
 					text: 'Transcript',
