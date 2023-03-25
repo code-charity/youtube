@@ -469,6 +469,11 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 					{
                         text: "Classic expanded",
                         value: "classic_expanded",
+						
+                    },
+					{
+                        text: "Classic hidden",
+                        value: "classic_hidden",
                     },
                     {
                         text: "hidden",

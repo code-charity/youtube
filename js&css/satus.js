@@ -2873,8 +2873,9 @@ satus.user.os.bitness = function() {
 
 satus.user.browser.name = function() {
   var user_agent = navigator.userAgent;
-
-  if (user_agent.indexOf('Opera') !== -1) {
+  if (!!navigator.brave) {
+    return 'Brave';
+  }	else if (user_agent.indexOf("Opera") != -1 || user_agent.indexOf('OPR') != -1) {
     return 'Opera';
   } else if (user_agent.indexOf('Vivaldi') !== -1) {
     return 'Vivaldi';
