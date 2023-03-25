@@ -210,11 +210,11 @@ ImprovedTube.ytElementsHandler = function (node) {
 			setTimeout(function () {
 			ImprovedTube.description(node);
 	    }, 300);   			   
-	}else if (id === 'meta')  {setTimeout(function () { ImprovedTube.description(node.querySelector('#more'));    }, 300);
+	}else if (id === 'meta') {setTimeout(function () { ImprovedTube.description(node.querySelector('#more'));    }, 200);
     }else if (id === 'below' ){setTimeout(function () {  }, 0);
     }else if (id === 'panels'){setTimeout(function () {	
 				ImprovedTube.transcript(node);
-				ImprovedTube.chapters(node);    }, 300);
+				ImprovedTube.chapters(node);    }, 200);
 	}
   }
 
@@ -227,7 +227,7 @@ ImprovedTube.pageType = function () {
 		document.documentElement.dataset.pageType = 'home';
 	} else if (/\/subscriptions\?/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'subscriptions';
-	} else if (/\/@|((channel|user|c)\/)[^/]+(?!\/videos)/.test(location.href)) {
+	} else if (/\/@|(\/(channel|user|c)\/)[^/]+(?!\/videos)/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'channel';
 	} else {
 		document.documentElement.dataset.pageType = 'other';

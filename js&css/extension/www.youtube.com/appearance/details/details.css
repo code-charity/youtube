@@ -206,14 +206,23 @@ html[it-description='classic_expanded'] #below.ytd-watch-flexy { top:-20px; }
 html[it-description='classic_expanded'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
 html[it-description='classic_expanded'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
 
+html[it-description='classic_hidden'] .ytd-watch-flexy #info-contents { display: block !important; } 
+html[it-description='classic_hidden'] #below.ytd-watch-flexy { top:-20px; }
+html[it-description='classic_hidden'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
+html[it-description='classic_hidden'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
+
 html[it-description='hidden'] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
 html[it-description='hidden'] div#action-panel-details,
 html[it-description='hidden'] ytd-expander.ytd-video-secondary-info-renderer,
 html[it-description='hidden'] #description-inline-expander {
 	display: none !important; 
 }
-html[it-description='classic'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata  { display: none !important;}
-html[it-description='classic_expanded'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata  { display: none !important;}
+html[it-description='classic'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata,
+html[it-description='classic_expanded'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata,
+html[it-description='classic_hidden'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata  
+{display: none !important;}
+
+
 
 /*--------------------------------------------------------------
 # HOW LONG AGO THE VIDEO WAS UPLOADED

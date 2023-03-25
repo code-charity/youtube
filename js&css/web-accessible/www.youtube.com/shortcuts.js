@@ -651,29 +651,31 @@ ImprovedTube.shortcutSubscribe = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutDarkTheme = function () {
-	pref = '';
-	cookieValue = '400';
-	if (document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)) {
-		pref = document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)[1];
-	}	
-	
-	
+
 	if (document.documentElement.hasAttribute('dark')) {
 		cookieValue = '80000';
 		document.documentElement.removeAttribute('dark');
 		document.querySelector('ytd-masthead').removeAttribute('dark');
-		document.documentElement.removeAttribute('it-themes');
 		document.getElementById("cinematics").style.visibility = 'hidden';
+		document.querySelector('ytd-masthead').style.backgroundColor ='#fff';	
+		ImprovedTube.setTheme(); ImprovedTube.myColors();
 
 	} else {
-		document.documentElement.setAttribute('dark', '');
-		document.querySelector('ytd-masthead').setAttribute('dark', '');
-		document.documentElement.setAttribute('it-themes', 'true');
-		document.getElementById("cinematics").style.visibility = 'visibile';
-	    document.getElementById("cinematics").style.mixBlendMode = 'lighten';
-	}
+   	    document.documentElement.setAttribute('dark', '');  	 
+		if (this.storage.theme === 'custom' ){ this.elements.my_colors.remove();  }
+		if (this.storage.theme === 'dawn' ){ this.elements.dawn.remove();  }
+			if (document.documentElement.hasAttribute('it-themes') !== null && document.documentElement.hasAttribute('it-themes') === true){													 
+				document.documentElement.removeAttribute('it-themes');			
+				document.documentElement.setAttribute('it-themes', 'false');			
+				}
+		document.querySelector('ytd-masthead').style.cssText = 'background-color: #000;';	
+		document.getElementById("cinematics").style.visibility = 'visible';
+		
+}   pref = ''; 
+	if (document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)) {
+		pref = document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)[1];}
 	
-	
+	cookieValue = '400';	
 	if (pref.match(/(f6=)[^\&]+/)){
 		cookieValue = pref.replace(/(f6=)[^\&]+/, cookieValue);
 	} else {
