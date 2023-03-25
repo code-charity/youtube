@@ -1434,16 +1434,10 @@ satus.components.textField = function(component, skeleton) {
     } else {
       component.selection.removeAttribute('disabled');
 
-      component.hiddenValue.textContent = value.substring(0, start); 
-console.log(value.substring(0, start));
-
-      component.selection.style.left = component.hiddenValue.offsetWidth - input.scrollLeft + 'px';
-console.log(component.hiddenValue.offsetWidth);
-console.log( input.scrollLeft )
-      component.hiddenValue.textContent = value.substring(start, end);
-console.log(component.hiddenValue.textContent);
-      component.selection.style.width = component.hiddenValue.offsetWidth + 'px';
-console.log(component.hiddenValue.offsetWidth);	  
+      component.hiddenValue.textContent = value.substring(0, start); //console.log(value.substring(0, start));
+      component.selection.style.left = component.hiddenValue.offsetWidth - input.scrollLeft + 'px'; //console.log(component.hiddenValue.offsetWidth); console.log( input.scrollLeft )
+      component.hiddenValue.textContent = value.substring(start, end); //console.log(component.hiddenValue.textContent);
+      component.selection.style.width = component.hiddenValue.offsetWidth + 'px';  //console.log(component.hiddenValue.offsetWidth);	  
     }
 
     this.style.animation = '';

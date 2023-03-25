@@ -1,8 +1,9 @@
 {
 	"manifest_version": 3,
+	"short_name" : "ImprovedTube",
 	"name": "'Improve YouTube!'🎧(for YouTube & Videos)",
 	"description": "__MSG_description_ext__",
-	"version": "4.1",
+	"version": "4.6",
 	"default_locale": "en",
 	"icons": {
 		"128": "stuff/icons/128.png",

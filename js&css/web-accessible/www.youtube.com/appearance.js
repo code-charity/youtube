@@ -17,7 +17,7 @@ ImprovedTube.playerSize = function () {
             height = Number(this.storage.custom_player_size_height) || 720,
             style = this.elements.player_size_style || document.createElement("style");
 
-        style.textContent = '[data-page-type="video"][it-player-size="custom"]  {';
+        style.textContent = ':root  {';
         style.textContent += "--it-player-width:" + width + "px;";
         style.textContent += "--it-player-height:" + height + "px;";
         style.textContent += "}";
@@ -318,8 +318,8 @@ ImprovedTube.channelVideosCount = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.description = function (el) {
-    if (this.storage.description === "classic_expanded" || this.storage.description === "expanded" ) 
-	   if(el)try{el.click()}catch{setTimeout(function(){el.click();},700);}
+    if (this.storage.description === "expanded" || this.storage.description === "classic_expanded" ) 
+	   if(el)try{el.click()}catch{setTimeout(function(){el.click();},1000);}
     };	
 
 /*------------------------------------------------------------------------------

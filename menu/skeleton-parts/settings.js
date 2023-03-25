@@ -92,7 +92,8 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.firstSectio
 
 				title_version: {
 					component: 'switch',
-					text: 'showVersion'
+					text: 'showVersion',
+					value: true
 				}
 			},
 			home: {
@@ -165,29 +166,6 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.firstSectio
 						}
 					}
 				},
-				improvedtube_youtube_icon: {
-					text: 'improvedtubeIconOnYoutube',
-					component: 'select',
-					options: [{
-						text: 'disabled',
-						value: 'disabled'
-					}, {
-						text: 'youtubeHeaderLeft',
-						value: 'header_left'
-					}, {
-						text: 'youtubeHeaderRight',
-						value: 'header_right'
-					}, {
-						text: 'sidebar',
-						value: 'sidebar'
-					}, {
-						text: 'draggable',
-						value: 'draggable'
-					}, {
-						text: 'belowPlayer',
-						value: 'below_player'
-					}]
-				}
 			},
 			animations: {
 				component: 'section',
@@ -519,44 +497,6 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 
 
 /*--------------------------------------------------------------
-# DATE & TIME
---------------------------------------------------------------*/
-
-extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.dateAndTime = {
-	component: 'button',
-	text: 'dateAndTime',
-	before: {
-		svg: {
-			component: 'svg',
-			attr: {
-				'viewBox': '0 0 24 24',
-				'fill': 'currentColor'
-			},
-
-			path: {
-				component: 'path',
-				attr: {
-					'd': 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z'
-				}
-			}
-		}
-	},
-	on: {
-		click: {
-			component: 'section',
-			variant: 'card',
-
-			use_24_hour_format: {
-				component: 'switch',
-				text: 'use24HourFormat',
-				value: true
-			}
-		}
-	}
-};
-
-
-/*--------------------------------------------------------------
 # BACKUP & RESET
 --------------------------------------------------------------*/
 
@@ -776,7 +716,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 
 extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.about = {
 	component: 'button',
-	text: 'about',
+	text: 'Specs',
 	before: {
 		svg: {
 			component: 'svg',
@@ -802,7 +742,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 				list: {
 					component: 'list',
 					items: [
-						['name', satus.user.browser.manifest().name],
+						['name', satus.user.browser.manifest().short_name],
 						['version', satus.user.browser.manifest().version_name || satus.user.browser.manifest().version],
 						['permissions', satus.user.browser.manifest().permissions.join(', ').replace('https://www.youtube.com/', 'YouTube')]
 					]
@@ -872,6 +812,43 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 						}
 					}
 				}
+			}
+		}
+	}
+};
+
+/*--------------------------------------------------------------
+# DATE & TIME
+--------------------------------------------------------------*/
+
+extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.dateAndTime = {
+	component: 'button',
+	text: 'dateAndTime',
+	before: {
+		svg: {
+			component: 'svg',
+			attr: {
+				'viewBox': '0 0 24 24',
+				'fill': 'currentColor'
+			},
+
+			path: {
+				component: 'path',
+				attr: {
+					'd': 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-.2-13c-.5 0-.8.3-.8.7v4.7c0 .4.2.7.5.9l4.1 2.5c.4.2.8 0 1-.3.2-.3.1-.7-.2-1l-3.9-2.2V7.7c0-.4-.3-.7-.7-.7z'
+				}
+			}
+		}
+	},
+	on: {
+		click: {
+			component: 'section',
+			variant: 'card',
+
+			use_24_hour_format: {
+				component: 'switch',
+				text: 'use24HourFormat',
+				value: true
 			}
 		}
 	}

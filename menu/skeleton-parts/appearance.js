@@ -482,6 +482,11 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
                 ],
                 tags: "hide,remove",
             },
+			hideSubscribe: {
+                component: "switch",
+                text: "Hide Subscribe",
+                tags: "hide,remove,subscribe-button",
+            },
 			hide_details_button: {
                 component: "button",
                 text: "hideDetailButton",
@@ -489,7 +494,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
                     click: {
                         component: "section",
                         variant: "card",
-						youtubesdetailbuttons: {
+						youtubeDetailButtons: {
                             component: "select",
                             text: "YouTube's detail buttons",
                             options: [

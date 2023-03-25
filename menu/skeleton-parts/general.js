@@ -11,7 +11,30 @@ extension.skeleton.main.layers.section.general = {
 			section_1: {
 				component: 'section',
 				variant: 'card',
-default_content_country: {
+				improvedtube_youtube_icon: {
+					text: 'improvedtubeIconOnYoutube',
+					component: 'select',
+					options: [{
+						text: 'disabled',
+						value: 'disabled'
+					}, {
+						text: 'draggable',
+						value: 'draggable'
+					}, {
+						text: 'youtubeHeaderLeft',
+						value: 'header_left'
+					}, {
+						text: 'youtubeHeaderRight',
+						value: 'header_right'
+					}, {
+						text: 'sidebar',
+						value: 'sidebar'
+					}, {
+						text: 'belowPlayer',
+						value: 'below_player'
+					}]
+				},
+				default_content_country: {
 					component: 'select',
 					text: 'defaultContentCountry',
 					options: [{
@@ -1183,6 +1206,67 @@ default_content_country: {
 				component: 'section',
 				variant: 'card',
 				title: 'more',
+					font: {
+					component: 'select',
+					text: 'font',
+					options: [{
+						text: 'default',
+						value: 'Default'
+					}, {
+						text: 'Comfortaa',
+						value: 'Comfortaa'
+					}, {
+						text: 'Lato',
+						value: 'Lato'
+					}, {
+						text: 'Marriweather',
+						value: 'Marriweather'
+					}, {
+						text: 'Montserrat',
+						value: 'Montserrat'
+					}, {
+						text: 'Noto Sans',
+						value: 'Noto+Sans'
+					}, {
+						text: 'Open Sans',
+						value: 'Open+Sans'
+					}, {
+						text: 'Oswald',
+						value: 'Oswald'
+					}, {
+						text: 'Poppins',
+						value: 'Poppins'
+					}, {
+						text: 'PT Sans',
+						value: 'PT+Sans'
+					}, {
+						text: 'Raleway',
+						value: 'Raleway'
+					}, {
+						text: 'Roboto Condensed',
+						value: 'Roboto+Condensed'
+					}, {
+						text: 'Roboto Mono',
+						value: 'Roboto+Mono'
+					}, {
+						text: 'Roboto Slab',
+						value: 'Roboto+Slab'
+					}, {
+						text: 'Source Sans Pro',
+						value: 'Source+Sans+Pro'
+					}]
+				},
+				scroll_bar: {
+					component: 'select',
+					text: 'scrollBar',
+					options: [{
+						text: 'default',
+						value: 'default'
+					}, {
+						text: 'hidden',
+						value: 'hidden'
+					}]
+				},
 				add_scroll_to_top: {
 					component: 'switch',
 					text: 'addScrollToTop',
