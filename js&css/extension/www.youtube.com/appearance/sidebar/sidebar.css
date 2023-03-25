@@ -26,7 +26,6 @@ div#secondary #playlist {
     width: var(--ytd-watch-flexy-sidebar-width);
     min-width: var(--ytd-watch-flexy-sidebar-min-width);
 }
-
 /*--------------------------------------------------------------
 # TRANSCRIPT
 --------------------------------------------------------------*/
@@ -34,16 +33,16 @@ html[data-page-type=video][it-transcript='true'] *[target-id*='transcript'],
 html[data-page-type=video][it-transcript='true'] *[target-id*='transcript']  ytd-engagement-panel-section-list-renderer #content
 { max-height: 77vh !important;  }
 html[data-page-type=video][it-transcript='true'][it-sidebar-left='transcript']  ytd-watch-flexy:not([fullscreen]) #columns
- { display:flex !important; max-width:88% !important;   } 
+ { display:flex !important; max-width:95% !important;   } 
 
 @media screen and  (min-width: 1599px) {	
 html[data-page-type=video][it-transcript='true'] *[target-id*='transcript'], 
 html[data-page-type=video][it-transcript='true'] *[target-id*='transcript']:not([it-sidebar-left='true']) ytd-engagement-panel-section-list-renderer #content {
 display:flex !important; max-width: 80%; min-width: clamp(390px, calc(31vw - 90px), 950px ); } 
 html[data-page-type=video][it-transcript='true']  ytd-watch-flexy:not([fullscreen]) #secondary
-{ display:flex !important; max-width: 88% !important; } 
+{ display:flex !important; max-width: 95% !important; } 
 html[data-page-type=video][it-transcript='true'] ytd-browse > ytd-two-column-browse-results-renderer {
- object-fit: contain !important; max-width: 88% !important; margin: -5px; }
+ object-fit: contain !important; max-width: 95% !important; margin: -5px; }
 html[data-page-type=video][it-transcript='true']:not([it-player-size='1080p']):not([it-player-size='1440p']):not([it-player-size='2160p']):not([it-player-size='custom']):not([it-player-size='max_width']) ytd-watch-flexy:not([fullscreen]) #player{
 max-width: 1280px !important; right: -20px; align:right; content-align: right !important}
 

@@ -143,20 +143,16 @@ document.addEventListener('it-message-from-extension', function () {
 				{document.querySelector("#less").click() || document.querySelector("#collapse").click() ;} 
 			} 
  			  else if (camelized_key === 'transcript') { 
-				if (ImprovedTube.storage.transcript === true){			
-				  document.querySelector('#below svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();
-				  setTimeout(function(){ 
-					try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M5,11h2v2H5V11z M15,15H5v2h10V15z"]').closest("tp-yt-paper-item").click();
-					document.querySelector('tp-yt-iron-dropdown').style.setProperty('opacity', '0.1', 'important');}
-
-					catch(e){console.log(e); setTimeout(function(){ 
-					try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M5,11h2v2H5V11z M15,15H5v2h10V15z"]').closest("tp-yt-paper-item").click();
-					document.querySelector('tp-yt-iron-dropdown').style.setProperty('opacity', '0.1', 'important');}
-					catch{}},300);}},1)   
-				} if (ImprovedTube.storage.transcript === false){document.querySelector('*[target-id*=transcript] #visibility-button button').click();}
-			  }		
+   				  if (ImprovedTube.storage.transcript === true) {try{document.querySelector('*[target-id*=transcript]').removeAttribute('visibility');}catch{}	
+				} if (ImprovedTube.storage.transcript === false){try{document.querySelector('*[target-id*=transcript] #visibility-button button').click();}catch{}}
+			  }	
+			  else if (camelized_key === 'chapters') { 
+					 if (ImprovedTube.storage.chapters === true){try{document.querySelector('*[target-id*=chapters]').removeAttribute('visibility');}catch{}				  		  
+				} if (ImprovedTube.storage.chapters === false){try{document.querySelector('*[target-id*=chapters] #visibility-button button').click();}catch{}}
+			  }	
+			  
 			if (ImprovedTube[camelized_key]) {
-				ImprovedTube[camelized_key]();
+				try{ImprovedTube[camelized_key]()}catch{};
 			}
 		} else if (message.focus === true && ImprovedTube.elements.player) {
 			ImprovedTube.focus = true;

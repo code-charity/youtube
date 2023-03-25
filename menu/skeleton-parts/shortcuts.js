@@ -324,13 +324,25 @@ extension.skeleton.main.layers.section.shortcuts = {
 						}
 					}
 				},
-				shortcut_like_shortcut: {
+				shortcut_chapters: {
+					component: 'shortcut',
+					text: 'Chapters'
+				},
+				shortcut_transcript: {
+					component: 'shortcut',
+					text: 'Transcript'
+				},
+				shortcut_like: {
 					component: 'shortcut',
 					text: 'like'
 				},
-				shortcut_dislike_shortcut: {
+				shortcut_dislike: {
 					component: 'shortcut',
 					text: 'dislike'
+				},
+				shortcut_report: {
+					component: 'shortcut',
+					text: 'report'
 				},
 				shortcut_subscribe: {
 					component: 'shortcut',
