@@ -161,7 +161,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 	if (document.documentElement.dataset.pageType === 'video') {
 
 	var section = document.querySelector('#flex.ytd-video-primary-info-renderer');
-	if (this.storage.description === "normal" || this.storage.description === "expanded")
+	if (this.storage.description !== "classic" &&  this.storage.description !== "classic_expanded" && this.storage.description !== "classic_hidden"  )
 	   {var section = document.querySelector('#subscribe-button');}
 
 	if (section && !document.querySelector('.improvedtube-player-button')) {
