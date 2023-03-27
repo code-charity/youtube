@@ -67,7 +67,7 @@ by <img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/lo
 <code><code><code>'Strong add-on, full control. Yet clear & easy'</code></code></code>- <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" title="- Chip.de"><img src="https://www.chip.de/favicon.ico"></a></div>
  </td></tr></table><div align="right">   	
 Big thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">contributors,</a> <a href="https://github.com/dodieboy" title="🏅🥇🥈🥉">dodieboy</a>,<br>
-<a href="https://github.com/code-for-charity/YouTube-Extension#--translators-">translators</a>/wiki-authors & <a href="https://www.improvedtube.com/donate">donators :bowtie:</a> </div></i>
+<a href="https://github.com/code-for-charity/YouTube-Extension#--translators-">translators</a>/wiki-authors & <a href="https://improvedtube.com/donate">donators :bowtie:</a> </div></i>
  </td></tr></table>
 
 
