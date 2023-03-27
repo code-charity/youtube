@@ -52,13 +52,19 @@ html[it-hide-date='true'] ytd-watch-metadata #info>span:last-child {
 YouTube's detail buttons
 --------------------------------------------------------------*/
 
-html[it-youtubesDetailButtons='remove_labels'] #menu ytd-button-renderer div:nth-child(2), 
-html[it-youtubesDetailButtons='remove_labels'] #menu ytd-button-renderer .cbox, 
-html[it-youtubesDetailButtons='remove'] #menu button,
-html[it-youtubesDetailButtons='remove_icons']  #menu button div:first-child {display:none;}
-html[it-youtubesDetailButtons='hide_labels']  #menu ytd-button-renderer div:nth-child(2) {visibility:hidden}
-html[it-youtubesDetailButtons='half_transparent'] #menu button {opacity:0.5;}
-html[it-youtubesDetailButtons='transparent_background'] #menu button {background-color:rgba(0, 0, 0, 0) !important;}  
+html[it-youtubeDetailButtons='remove_labels'] #menu ytd-button-renderer div:nth-child(2), 
+html[it-youtubeDetailButtons='remove_labels'] #menu ytd-button-renderer .cbox, 
+html[it-youtubeDetailButtons='remove'] #menu button,
+html[it-youtubeDetailButtons='remove_icons']  #menu button div:first-child {display:none;}
+html[it-youtubeDetailButtons='hide_labels']  #menu ytd-button-renderer div:nth-child(2) {visibility:hidden}
+html[it-youtubeDetailButtons='half_transparent'] #menu button {opacity:0.5;}
+html[it-youtubeDetailButtons='transparent_background'] #menu button {background-color:rgba(0, 0, 0, 0) !important;}  
+ 
+ 
+  /*--------------------------------------------------------------
+HIDE SUBSCRIBE
+--------------------------------------------------------------*/
+html[it-hideSubscribe='true'] #subscribe-button {display: none !important;}
  
  /*--------------------------------------------------------------
 HIDE LIKE BUTTON

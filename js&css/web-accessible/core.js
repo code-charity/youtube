@@ -138,9 +138,9 @@ document.addEventListener('it-message-from-extension', function () {
 				ImprovedTube.setTheme();
 			} else if (camelized_key === 'description') {
 			    if (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.description === "classic_expanded" ) 
-			    {document.querySelector("#more").click() || document.querySelector("#expand").click() ;}	
+			    {try{document.querySelector("#more").click() || document.querySelector("#expand").click() ;} catch{} }	
 				if (ImprovedTube.storage.description === "normal" || ImprovedTube.storage.description === "classic" ) 
-				{document.querySelector("#less").click() || document.querySelector("#collapse").click() ;} 
+				{try{document.querySelector("#less").click() || document.querySelector("#collapse").click();} catch{}} 
 			} 
  			  else if (camelized_key === 'transcript') { 
    				  if (ImprovedTube.storage.transcript === true) {try{document.querySelector('*[target-id*=transcript]').removeAttribute('visibility');}catch{}	
