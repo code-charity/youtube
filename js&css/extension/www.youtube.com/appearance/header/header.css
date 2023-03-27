@@ -57,23 +57,29 @@ html[it-header-position=static] ytd-page-manager#page-manager {
 
 html[it-header-position=hover]:not([it-improvedtube-search=true]) #masthead-container,
 html[it-header-position=hover_on_video_page][data-page-type='video']:not([it-improvedtube-search=true]) #masthead-container {
+
 	transition: all 320ms ease-in-out;
 	transform: translateY(-38%);
 	height: 68px;
-	opacity: 0
+	opacity: 0;
 }
 
 html[it-header-position=hover] #masthead-container:hover,
 html[it-header-position=hover][it-search-focus=true] #masthead-container,
 html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:hover,
-html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container {
-	transform: translateY(0%);
-	opacity: 1;
+html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container,
+html[it-header-position=hover] #masthead-container:hover #background,
+html[it-header-position=hover][it-search-focus=true] #masthead-container #background,
+html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:hover #background,
+html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container #background {
+	transform: translateY(0%);	
+	opacity: 1 !important;	
 }
+
 
 html[it-header-position=static] .ytd-app:not([masthead-hidden_]) #masthead-container {
 	position: relative;
-	z-index: 999999999999 !important;
+	z-index: 7000 !important;
 }
 
 html[it-header-position=hover_on_video_page]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,

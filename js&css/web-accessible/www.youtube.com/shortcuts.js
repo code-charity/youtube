@@ -235,11 +235,7 @@ ImprovedTube.shortcutQuality = function (key) {
 
 ImprovedTube.shortcutPictureInPicture = function () {
 	if (this.elements.video) {
-		if (document.pictureInPictureElement) {
-			document.exitPictureInPicture();
-		  } else if (document.pictureInPictureEnabled) {
-			this.elements.video.requestPictureInPicture();
-		  }
+		this.elements.video.requestPictureInPicture();
 	}
 };
 

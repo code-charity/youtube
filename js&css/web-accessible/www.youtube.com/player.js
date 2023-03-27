@@ -9,7 +9,6 @@ ImprovedTube.autoplay = function () {
     var video = ImprovedTube.elements.player;
     if (ImprovedTube.video_url !== location.href) {
         ImprovedTube.allow_autoplay = false;
-		ImprovedTube.video_url = location.href
     }
     // if (allow autoplay is false) and  (no ads playing) and
 	// ( there is a video and ( (it is not in a playlist and  auto play is off ) or ( playlist auto play is off and it is not in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
@@ -406,14 +405,14 @@ ImprovedTube.playerAds = function (parent) {
 	try{var button = parent.querySelector('.ytp-ad-skip-button.ytp-button');}catch{}
 	if (button) {
 		if (this.storage.player_ads === 'block_all') {
-			button.click(); document.querySelector("*[target-id*='engagement-panel-ads']").remove(); document.querySelector(".ytd-ad-slot-renderer").remove();
+			button.click(); 
 		} else if (this.storage.player_ads === 'subscribed_channels') {
 			if (!parent.querySelector('#meta paper-button[subscribed]')) {
-				button.click(); document.querySelector("*[target-id*='engagement-panel-ads']").remove(); document.querySelector(".ytd-ad-slot-renderer").remove();
+				button.click(); 
 			}
 		} else if (this.storage.player_ads === 'block_music') {
 			if (ImprovedTube.elements.category === 'music') {
-				button.click(); document.querySelector("*[target-id*='engagement-panel-ads']").remove(); document.querySelector(".ytd-ad-slot-renderer").remove();
+				button.click();  
 			}
 		}
 	}   
