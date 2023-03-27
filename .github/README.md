@@ -27,7 +27,7 @@
  - Smart content-filtering & discovery
  - Full-page GUI, watch-history, dashboard 
  - Integrating data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.  
- - Integrating code / features like [YCS](https://github.com/sonigy/YCS), [YR](https://github.com/MarcGuiselin/youtube-refined), [NY](https://github.com/raingart/Nova-YouTube-extension); [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
+ - Integrating code /features like [YCS](https://github.com/sonigy/YCS), [YR](https://github.com/MarcGuiselin/youtube-refined), [NY](https://github.com/raingart/Nova-YouTube-extension); [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
   - Run on m.youtube.com, hide what wont work
      - Ask Samsung Browser to list us.
 
@@ -39,7 +39,7 @@
 <br></i></div></td></tr><tr></tr><tr><td><div align="right"> 	
 Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">c</a>ontributors, <a href="https://github.com/dodieboy" title="🏅">D</a>odieboy,
 <br><a href="https://github.com/code-for-charity/YouTube-Extension#--translators-">t</a>ranslators & potential wiki-authors / <a href="https://improvedtube.com/donate">d</a>onators <a href="https://improvedtube.com/donate">:bowtie:</a></div></i>
- </td></tr><tr></tr><tr><td><h2>Translators&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="https://github.com/code-for-charity/YouTube-Extension#--translators-" title="💕">♡</a>&nbsp;&nbsp;🌎</h2> <b>
+ </td></tr><tr></tr><tr><td><h2>Translators&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <a href="https://github.com/code-for-charity/YouTube-Extension#--translators-" title="💕">♡</a>&nbsp;&nbsp;🌎</h2> <b>
 <code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json" title="English">EN</a></code>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/uk/messages.json" title="English (UK)">en_GB</a></code> :
 <a href="https://github.com/KorbinCode" title="✨🏆"><code>KorbinCode</code></a><b>
@@ -216,9 +216,9 @@ We might work on novel (new & unique) projects [github/**Wish-Factory**](https:/
 <code>👩‍💻</code> "Behind the scenes"</summary>
 <code> <a href="https://starchart.cc/ImprovedTube/YouTube.svg"><img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="170px" title="github starchart"></a> </code>
 <img width="313" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
-<img width="442" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png">
+<img width="400" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png">
 <br><b>D</bo you need to run a popular extension, site, app or repo?><br> We'll love to help meaningful projects@improvedtube.com 	
-<img align="center" width="442" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png"> 
+<img align="center" width="400" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png"> 
 </details><details><summary><h4>
 <code>🏝<code>⛵</code>🏕</code> Issue-Filters // To-Do List</h4></summary>
 
