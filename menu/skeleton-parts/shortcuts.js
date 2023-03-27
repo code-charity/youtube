@@ -290,6 +290,11 @@ extension.skeleton.main.layers.section.shortcuts = {
 					text: 'pictureInPicture',
 					storage: 'shortcut_picture_in_picture'
 				},
+				auto_picture_in_picture: {
+					component: 'shortcut',
+					text: 'autoPictureInPicture',
+					storage: 'shortcut_auto_picture_in_picture'
+				},
 				shortcut_screenshot: {
 					component: 'shortcut',
 					text: 'screenshot'
