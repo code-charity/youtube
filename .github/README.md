@@ -173,7 +173,7 @@ For more info on how to contribute please see the <a href="https://github.com/co
 <br><br><br>
 
 <p align="center"><a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
-<img width="146" alt="Improve Youtube" src="https://user-images.githubusercontent.com/25022245/228036605-948665f5-290e-47fb-948b-94efcd21305b.png"><img width="147" alt="Improve Youtube 2" src="https://user-images.githubusercontent.com/25022245/228036608-f428f6f1-943f-4ed4-b644-45c9bbe76146.png"><img width="146.1" alt="Improve Youtube 3" src="https://user-images.githubusercontent.com/25022245/228036610-9890f27f-c283-40e2-94ab-b9f6203eecff.png">
+<img width="144" alt="Improve Youtube 2" src="https://user-images.githubusercontent.com/25022245/228036608-f428f6f1-943f-4ed4-b644-45c9bbe76146.png"><img width="143.1" alt="Improve Youtube 3" src="https://user-images.githubusercontent.com/25022245/228036610-9890f27f-c283-40e2-94ab-b9f6203eecff.png"><img width="143" alt="Improve Youtube" src="https://user-images.githubusercontent.com/25022245/228036605-948665f5-290e-47fb-948b-94efcd21305b.png">
 </a></p>  	
 
 <details><summary><h4>
