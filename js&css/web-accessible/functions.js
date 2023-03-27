@@ -236,6 +236,7 @@ ImprovedTube.pageType = function () {
 
 ImprovedTube.pageOnFocus = function () {
 	ImprovedTube.playerAutopauseWhenSwitchingTabs();
+	ImprovedTube.playerAutoPip();
 };
 
 ImprovedTube.videoPageUpdate = function () {
