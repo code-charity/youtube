@@ -154,6 +154,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'loudnessNormalization',
 			value: true
 		},
+		player_autoPip: {
+			component: 'switch',
+			text: 'autoPip',
+			value: false
+		},
 		player_forced_playback_speed: {
 			component: 'switch',
 			text: 'forcedPlaybackSpeed',

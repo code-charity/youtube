@@ -56,6 +56,24 @@ ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
 
 
 /*------------------------------------------------------------------------------
+4.4.2 AUTO PIP WHEN SWITCHING TABS
+------------------------------------------------------------------------------*/
+
+ImprovedTube.playerAutoPip = function () {
+	const video = ImprovedTube.elements.video;
+	
+	if (this.storage.player_autoPip === true && video) {
+		(async () => {
+			try {
+				await video.requestPictureInPicture();
+			  } catch (error) {
+				console.error('Failed to enter Picture-in-Picture mode', error);
+			  }
+		  })();	
+		}
+};
+
+/*------------------------------------------------------------------------------
 4.4.3 FORCED PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 
