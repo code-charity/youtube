@@ -41,7 +41,7 @@
 	
 **Thanks** ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">c</a>ontributors, <a href="https://github.com/dodieboy" title="🏅">D</a>odieboy,
 <br><a href="https://github.com/code-for-charity/YouTube-Extension#--translators-">t</a>ranslators (+ wiki-authors? +<a href="https://improvedtube.com/donate">d</a>onators?)<a href="https://improvedtube.com/donate">:bowtie:</a></div></i>
-<h2>Translators&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <a href="https://github.com/code-for-charity/YouTube-Extension#--translators-" title="💕">♡</a>&nbsp;&nbsp;🌎</h2> <b>
+<h2>Translators&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <a href="https://github.com/code-for-charity/YouTube-Extension#--translators-" title="💕">♡</a>&nbsp;&nbsp;🌎</h2> 
 <code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json" title="English">EN</a></code>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/uk/messages.json" title="English (UK)">en_GB</a></code> :
 <a href="https://github.com/KorbinCode" title="✨🏆"><code>KorbinCode</code></a><b>
@@ -145,7 +145,7 @@
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Catalan, Valencian">Catalan, Valencian</a></code> :
 <a href="https://github.com/_____">(You?)</a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Estonian">Estonian</a></code> :
-<a href="https://github.com/_____">(You?)</a><br> </b> </td></tr><tr><td> 
+<a href="https://github.com/_____">(You?)</a><br> </td></tr><tr><td> 
  <code><code>✓</code></code> = <i> missing some additions/updates </i><br><div align="center"><i><br> 
 The following popular languages are<br>
 spoken mainly. But dont hesitate to add<br> one of them. (Even if just for fun)</i> <br>
@@ -304,7 +304,3 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
          - 5.) Click on `Load Temporary Add-on…`
            - 6.) Select the `manifest.json` file from unzipped folder
  </details>	
-
-
-
-
