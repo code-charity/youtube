@@ -21,11 +21,11 @@
 <table align="right"><tr><td><h2>Roadmap</h2> <!-- The list below only stays formatted when there is a line break above --> 
 
  - (Finding developers / patreons)
- - All bugs & some wishes 
- - (i) ToolTips & documentation
- - Avoiding CPU-rendering by default 
- - Smart player buttons for all \<video\>
- - Smart content-filtering & discovery
+ - All bugs & many wishes 
+ - [i] ToolTips & documentation
+ - [Auto](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1211) Avoiding CPU-rendering
+ - Smart [Player buttons](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1445) for all \<video\>
+ - Smart [content-filtering & discovery](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1451) + [#x](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1463)
  - Full-page GUI, watch-history, dashboard 
  - Integrating data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.  
  - Continuously Integrating code /features<br> like: [YCS](https://github.com/sonigy/YCS), [YR](https://github.com/MarcGuiselin/youtube-refined), [NY](https://github.com/raingart/Nova-YouTube-extension); [IC](https://github.com/ThomasTavernier/Improve-Crunchyroll) 
@@ -172,10 +172,9 @@ Chinese + Hindi + Spanish) <br></i></div>
 
 <h2>Contributing</h2>
 For more info on how to contribute, <br> please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
-<br>
-<br>
-<br>
-<br>
+
+<br><br><br><br><br>
+
 <details><summary>
 Original introduction</summary>
 
