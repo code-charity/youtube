@@ -32,14 +32,14 @@
   - Run on m.youtube.com (grey-out some) 
      - Ask Samsung Browser to list us.
 
-<h2> Critiques</h2> <div align="right"> <i>
-<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(In 2021 we first uploaded a Firefox Version & were permanently recommended among 109extensions)"><img width="148" alt="recommended by firefox" src="https://user-images.githubusercontent.com/9015764/178100681-728b9513-b6f8-4bf7-8949-c3d8449669ec.svg"></a> (<b>~ Top100</b>) - <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" height="21px"></a><br>
+<h2> Critiques</h2> <div align="right"> 
+<a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(In 2021 we first uploaded a Firefox Version & were permanently recommended among 109extensions)"><img width="148" alt="recommended by firefox" src="https://user-images.githubusercontent.com/9015764/178100681-728b9513-b6f8-4bf7-8949-c3d8449669ec.svg"></a> (<b>~ Top100</b>) - <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" height="21px"></a><br><i>
 'Might be the best YouTube Extension Ever' - <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110" title="- Lifehacker.com 2021"><img src="https://lifehacker.com/favicon.ico" height="16px"></a><br>
 'enhances YouTube in meaningful ways' - <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways" title="- gHacks.net"><img src="https://ghacks.net/favicon.ico" height="15px"></a><br>
 'Strong Add-on, full control. Yet clear & easy' - <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" title="- Chip.de"><img src="https://www.chip.de/favicon.ico"></a>
 <br></i></div><div align="right"> 	
 	
-**Thanks** ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">c</a>ontributors, <a href="https://github.com/dodieboy" title="🏅">D</a>odieboy,
+Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">c</a>ontributors, <a href="https://github.com/dodieboy" title="🏅">D</a>odieboy,
 <br><a href="https://github.com/code-for-charity/YouTube-Extension#--translators-">t</a>ranslators (+ wiki-authors? +<a href="https://improvedtube.com/donate">d</a>onators?)<a href="https://improvedtube.com/donate">:bowtie:</a></div></i>
 <h2>Translators&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <a href="https://github.com/code-for-charity/YouTube-Extension#--translators-" title="💕">♡</a>&nbsp;&nbsp;🌎</h2> 
 <code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json" title="English">EN</a></code>
