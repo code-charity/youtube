@@ -811,13 +811,13 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 					text: 'Transcript',
 					value: false,
 					storage: 'transcript',
-				 on: {					click: function () {
+				 on: {					click: function () {  setTimeout(() => { 
 							if (satus.storage.get('transcript')) {
 								if (satus.storage.get('no_page_margin')) {
 									this.nextSibling.click();
 								}
 							}
-						}
+						}, "250"); }
 					}	
 			},
 			no_page_margin: {
@@ -825,13 +825,13 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 					text: 'To the side! (No page margin)',
 					value: false,
 							 on: {
-						click: function () {
+						click: function () {  setTimeout(() => { 
 							if (satus.storage.get('no_page_margin')) {
 								if (satus.storage.get('transcript')) {
 									this.previousSibling.click();
 								}
 							}
-						}
+						}, "250"); }
 					}
 			},
             sidebar_left: {

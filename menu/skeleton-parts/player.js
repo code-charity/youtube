@@ -57,28 +57,43 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'autopauseWhenSwitchingTabs',
 			storage: 'player_autopause_when_switching_tabs',
-				 on: {					click: function () {
+				 on: {	 click: function () { setTimeout(() => { 
+ 
 							if (satus.storage.get('player_autopause_when_switching_tabs')) {
 								if (satus.storage.get('only_one_player_instance_playing')) {
 									this.nextSibling.click();
 								}
 							}
-						}
+						  }, "250");  }
 					}	
 		},
 				only_one_player_instance_playing: {
 			component: 'switch',
 			text: 'onlyOnePlayerInstancePlaying',
 			 on: {
-						click: function () {
+						click: function () { setTimeout(() => { 
 							if (satus.storage.get('only_one_player_instance_playing')) {
 								if (satus.storage.get('player_autopause_when_switching_tabs')) {
 									this.previousSibling.click();
 								}
 							}
-						}
+						}, "250");  }
 					}			
-		},	
+		},
+				player_autoPip: {
+			component: 'switch',
+			text: 'autoPip',
+			value: false,
+			 on: {
+						click: function () { setTimeout(() => { 
+							if (satus.storage.get('player_autoPip')) {
+								if (satus.storage.get('player_autopause_when_switching_tabs')) {
+									this.previousSibling.click();
+								}
+							}
+						}, "250");  }
+					}		
+		},		
 		ads: {
 			text: 'ads',
 			component: 'select',
@@ -154,11 +169,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'loudnessNormalization',
 			value: true
 		},
-		player_autoPip: {
-			component: 'switch',
-			text: 'autoPip',
-			value: false
-		},
 		player_forced_playback_speed: {
 			component: 'switch',
 			text: 'forcedPlaybackSpeed',
@@ -175,7 +185,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			textarea: true,
 			value: 1,
 			min: .1,
-			max: 8,
+			max: 4,
 			step: .05
 		},
 
