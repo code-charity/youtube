@@ -7,7 +7,7 @@
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/new">Report a bug</a> ·
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">Wish a feature</a> · 
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">Contribute</a> ·
-<a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing#donate">Donate · </a>[Test🧪](https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip "Latest.zip")  <br></div>
+<a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing#donate">Donate</a> · [Test🧪](https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip "Latest.zip")  <br></div>
   
  <h3><img src="https://github.com/code-for-charity/ImprovedTube-for-YouTube/blob/a61f214ddfab91f0a29f41beaf6c3c52e738e0d7/assets/icons/32.png" style="vertical-align:middle"> ImprovedTube</h3>
 <p>Powerful but lightweight extension to enrich your video experience & enable your content selection.</p>
