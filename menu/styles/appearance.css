@@ -46,9 +46,9 @@
 .satus-section--appearance .satus-button--header {
 	top: 16px;
 	left: 16px;
-
+	font-size: 13px;
 	width: calc(100% - 32px);
-	height: 40px;
+	height: 33px;
 	min-height: auto;
 }
 
@@ -57,13 +57,12 @@
 }
 
 .satus-section--appearance .satus-button--player {
-	top: 64px;
+	top: 57px;
 	left: 16px;
-
 	width: calc(70% - 32px);
 	height: 96px;
 	min-height: auto;
-
+	font-size: 17px;
 	color: #eee;
 	border-color: #333;
 	background-color: #444;
@@ -80,36 +79,36 @@
 }
 
 .satus-section--appearance .satus-button--details {
-	top: 168px;
+	top: 161px;
 	left: 16px;
-
+	font-size: 16.5px;
 	width: calc(70% - 32px);
 	height: 56px;
 	min-height: auto;
 }
 
 .satus-section--appearance .satus-button--comments {
-	top: 232px;
+	top: 225px;
 	left: 16px;
 
 	width: calc(70% - 32px);
-	height: 80px;
+	height: 57px;
 	min-height: auto;
 }
 
 .satus-section--appearance .satus-button--footer {
-	top: 320px;
+	top: 290px;
 	left: 16px;
-
+	font-size: 7px;
 	width: calc(70% - 32px);
-	height: 32px;
 	min-height: auto;
+	height: 21px;  
+	opacity: 0.4;
 } 
 
 .satus-section--appearance .satus-button--sidebar {
-	top: 64px;
+	top: 57px;
 	left: calc(70% - 8px);
-
 	width: calc(30% - 8px);
 	height: 160px;
 }
