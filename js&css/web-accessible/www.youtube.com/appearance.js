@@ -11,21 +11,19 @@
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.playerSize = function () {
-    if (this.storage.player_size === "custom") {
-        console.log("yes");
+	if (this.storage.player_size === "custom") {    
         var width = Number(this.storage.custom_player_size_width) || 1280,
             height = Number(this.storage.custom_player_size_height) || 720,
             style = this.elements.player_size_style || document.createElement("style");
-
-        style.textContent = ':root  {';
+			
+        style.textContent = ':root {';
         style.textContent += "--it-player-width:" + width + "px;";
         style.textContent += "--it-player-height:" + height + "px;";
         style.textContent += "}";
-
+		
         document.body.appendChild(style);
-
-        window.dispatchEvent(new Event("resize"));
-    }
+        window.dispatchEvent(new Event('resize'));
+	}
 };
 
 /*------------------------------------------------------------------------------
