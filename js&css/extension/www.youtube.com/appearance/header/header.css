@@ -65,12 +65,16 @@ html[it-header-position=hover_on_video_page][data-page-type='video']:not([it-imp
 }
 
 html[it-header-position=hover] #masthead-container:hover,
+html[it-header-position=hover] #masthead-container:focus-within,
 html[it-header-position=hover][it-search-focus=true] #masthead-container,
 html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:hover,
+html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:focus-within,
 html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container,
 html[it-header-position=hover] #masthead-container:hover #background,
+html[it-header-position=hover] #masthead-container:focus-within #background,
 html[it-header-position=hover][it-search-focus=true] #masthead-container #background,
 html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:hover #background,
+html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:focus-within #background,
 html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container #background {
 	transform: translateY(0%);	
 	opacity: 1 !important;	
