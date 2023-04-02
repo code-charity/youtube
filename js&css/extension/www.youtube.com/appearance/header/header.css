@@ -8,7 +8,7 @@
 # Hide voice search button
 --------------------------------------------------------------*/
 
-html[it-header-transparent=true] ytd-masthead { background-color: rgba(255, 255, 255, 0.2) !important;}
+html[it-header-transparent=true] ytd-masthead { background-color: rgba(230, 230, 230, 0.1) !important;}
 
 /*--------------------------------------------------------------
 # POSITION
@@ -64,6 +64,8 @@ html[it-header-position=hover_on_video_page][data-page-type='video']:not([it-imp
 	opacity: 0;
 }
 
+html[it-header-position=hidden] #masthead-container:not([it-search-focus=true]):focus-within,
+html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container:not([it-search-focus=true]):focus-within,
 html[it-header-position=hover] #masthead-container:hover,
 html[it-header-position=hover] #masthead-container:focus-within,
 html[it-header-position=hover][it-search-focus=true] #masthead-container,
