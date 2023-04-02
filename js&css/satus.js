@@ -71,7 +71,7 @@ satus.append = function(child, parent) {
 # ATTR
 --------------------------------------------------------------*/
 
-satus.attr = function(element, attributes) {
+satus.setAttributes = satus.attr = function(element, attributes) {
   if (attributes) {
     for (var name in attributes) {
       var value = attributes[name];
