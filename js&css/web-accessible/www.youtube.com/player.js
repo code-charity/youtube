@@ -1158,22 +1158,36 @@ ImprovedTube.playerSDR = function () {
 4.4.19 Hide controls
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.playerControls = function (mouseIn=false) {
-    var player = this.elements.player;
-
-    if (player) {
-        if (this.storage.player_hide_controls === 'always') {
+ImprovedTube.playerControls = function (pause=false) {
+    var player = this.elements.player;   if (player) {
+		let hide = this.storage.player_hide_controls;
+        if (hide === 'always') {
             player.hideControls();
-        } else if(this.storage.player_hide_controls === 'off') {
+        } else if(hide === 'off') {
             player.showControls();
-        } else if(this.storage.player_hide_controls === 'when_paused') {
-            if(this.elements.video.paused) {
-                if(mouseIn) {
-                    player.showControls();
-                } else {
-					player.hideControls();
-				}
-			}
-        }
-    }
+        } else if(hide === 'when_paused') { 
+		   if(this.elements.video.paused){ 
+	       player.hideControls( );	
+	  
+	  ImprovedTube.elements.player.parentNode.addEventListener('mouseenter', function () { 
+	  player.showControls();});
+	  ImprovedTube.elements.player.parentNode.addEventListener('mouseleave', function () { 
+      player.hideControls( );});
+
+	  	  	
+		ImprovedTube.elements.player.parentNode.onmousemove = (function() { 
+			let onmousestop = function() {
+				player.hideControls( );
+			}, thread;
+			
+			return function() {
+			  player.showControls();
+			  clearTimeout(thread);
+			  thread = setTimeout(onmousestop, 1000);
+			};
+		  })();
+	   }} else { player.showControls();  }
+}
 };
+
+
