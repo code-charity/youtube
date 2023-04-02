@@ -359,8 +359,8 @@ ImprovedTube.playerOnPause = function (event) {
 			time: ImprovedTube.played_time
 		});
 	}
-
 	ImprovedTube.played_time = 0;
+	ImprovedTube.playerControls();
 };
 
 ImprovedTube.playerOnEnded = function (event) {
