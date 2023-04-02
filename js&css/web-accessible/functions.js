@@ -130,7 +130,6 @@ ImprovedTube.ytElementsHandler = function (node) {
 			ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
 			ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
 			ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
-
 			ImprovedTube.playerSize();
 
 			new MutationObserver(function (mutationList) {
@@ -264,6 +263,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
 		ImprovedTube.playerControls();
+		ImprovedTube.playerSize();
 	}
 };
 
