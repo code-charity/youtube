@@ -30,7 +30,7 @@ ImprovedTube.autoplay = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
-	if (this.storage.forced_play_video_from_the_beginning === true) {
+	if (this.storage.forced_play_video_from_the_beginning === true && document.documentElement.dataset.pageType === 'video') {
 		this.elements.player.seekTo(0);
 	}
 };
