@@ -10,15 +10,13 @@
 --------------------------------------------------------------*/
 
 @media screen and (min-width: 1599px) {	
-html[data-page-type=video][it-comments-sidebar-position='true'] #secondary {top:0px !important; margin: -10px !important; }
-html[data-page-type=video][it-comments-sidebar-position='true'] #primary {top:0px !important; margin-left: 0px !important; }
-html[data-page-type=video][it-comments-sidebar-position='true'] #comments { max-width: min(1200px, 20vw) !important; } 
+html[data-page-type=video][it-comments-sidebar='true'] #players {top:0px !important; margin-left: -20px !important; }
+html[data-page-type=video][it-comments-sidebar='true'] #comments { max-width: min(900px, 18vw) !important; } 
+html[data-page-type=video][it-comments-sidebar='true']:not([it-sidebar-left='true']) #secondary {top:0px !important;  margin-right: -18px !important; }
 
-html[data-page-type=video][it-comments-sidebar-position='true'] ytd-watch-flexy:not([fullscreen]) #columns,
-html[data-page-type=video][it-comments-sidebar-position='true'] ytd-watch-flexy:not([fullscreen]) #primary{
-max-width: 99.5% !important; }
 
-html[data-page-type=video][it-comments-sidebar-position='true']:not([it-player-size='1080p']):not([it-player-size='1440p']):not([it-player-size='2160p']):not([it-player-size='custom']):not([it-player-size='max_width']) ytd-watch-flexy:not([fullscreen]) #primary {
+
+html[data-page-type=video][it-comments-sidebar='true']:not([it-player-size='1080p']):not([it-player-size='1440p']):not([it-player-size='2160p']):not([it-player-size='custom']):not([it-player-size='max_width']) ytd-watch-flexy:not([fullscreen]) #primary {
 min-width: min(52%, 1280px) !important; max-width: 1280px !important; }
 }
 
