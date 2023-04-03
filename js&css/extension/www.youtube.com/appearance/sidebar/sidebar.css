@@ -99,18 +99,20 @@ html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-
 /*--------------------------------------------------------------
 # NO PAGE MARGIN
 --------------------------------------------------------------*/
-html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #columns.ytd-watch-flexy, 
-html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #primary.ytd-watch-flexy {
-	max-width: 99% !important; margin: 1px !important;   }
+	
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #columns.ytd-watch-flexy,
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #primary.ytd-watch-flexy,
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #secondary.ytd-watch-flexy {
+	max-width: 100% !important;  }
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #below {
+    margin-left: calc(4vh + 3vw - 40px) !important;} 	
 
 @media screen and (max-width: 2300px) and (min-width: 1250px) {	
-	html[data-page-type=video][it-no-page-margin='true'] ytd-browse > ytd-two-column-browse-results-renderer {
-	width: auto !important;
-	max-width: auto !important; overflow-x: hidden; }
+
 	html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #secondary.ytd-watch-flexy {
 	margin-right: calc (-12px - 0.4vw - 0.4vh) !important;}
 	html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #below {
-		margin-left: max(18px, calc(21vw - 230px)) !important;
+		margin-left: max(18px, calc(19vw - 230px)) !important;
 	    margin-right:max(18px, calc(13vw - 130px)) !important;
 		max-width: 1280px !important;	} 
 }
@@ -126,17 +128,25 @@ html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullsc
 	margin-left: 10px !important;}
 }	
 
+html[data-page-type=video][it-no-page-margin='true'] ytd-browse > ytd-two-column-browse-results-renderer {
+	width: auto !important;
+	max-width: auto !important; }
+
+
+
+	
+	
 	
 /*--------------------------------------------------------------
 # MOVE SIDEBAR LEFT
 --------------------------------------------------------------*/
 html[it-sidebar-left='true'] #columns>#primary,
-html[it-sidebar-left='true'] #head>#upnext
-{
-	order: 7 !important;
-}
+html[it-sidebar-left='true'] #head>#upnext{
+	order: 5 !important;}
+html[it-sidebar-left='true'][it-comments-sidebar='true'] #comments{order: 6 !important;}
 
-html[it-sidebar-left='true'] #columns>#secondary {margin-left: calc(0.5vw + 4px); margin-right:0.2vw !important;}
+
+html[it-sidebar-left='true'] #columns>#secondary>#related {margin-left: calc(0.5vw + 4px); margin-right:1vw !important;}
 
 /*--------------------------------------------------------------
 # MOVE THUMBNAILS RIGHT

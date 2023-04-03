@@ -555,8 +555,55 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 			reset: {
 				component: 'section',
 				variant: 'card',
+				delete_youtube_cookies: {
+															component: 'button',
+															text: 'deleteYoutubeCookies',
 
-				resetAllSettings: {
+															on: {
+																click: {
+																	component: 'modal',
+
+																	message: {
+																		component: 'span',
+																		text: 'thisWillRemoveAllYouTubeCookies'
+																	},
+																	section: {
+																		component: 'section',
+																		variant: 'actions',
+
+																		cancel: {
+																			component: 'button',
+																			text: 'cancel',
+																			on: {
+																				click: function () {
+																					this.parentNode.parentNode.parentNode.close();
+																				}
+																			}
+																		},
+																		accept: {
+																			component: 'button',
+																			text: 'accept',
+																			on: {
+																				click: function () {
+																					chrome.tabs.query({}, function (tabs) {
+																						for (var i = 0, l = tabs.length; i < l; i++) {
+																							if (tabs[i].hasOwnProperty('url')) {
+																								chrome.tabs.sendMessage(tabs[i].id, {
+																									action: 'delete-youtube-cookies'
+																								});
+																							}
+																						}
+																					});
+
+																					this.parentNode.parentNode.parentNode.close();
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														},
+					resetAllSettings: {
 					component: 'button',
 					text: 'resetAllSettings',
 					on: {
