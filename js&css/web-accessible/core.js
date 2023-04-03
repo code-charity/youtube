@@ -121,7 +121,8 @@ document.addEventListener('it-message-from-extension', function () {
 		if (message.action === 'storage-loaded') {
 			ImprovedTube.storage = message.storage;
 
-			ImprovedTube.init();
+//    FEEDBACK WHEN THE USER CHANGED A SETTING
+			ImprovedTube.init();	
 		} else if (message.action === 'storage-changed') {				
 			var camelized_key = message.camelizedKey;
 
@@ -150,7 +151,13 @@ document.addEventListener('it-message-from-extension', function () {
 					 if (ImprovedTube.storage.chapters === true){try{document.querySelector('*[target-id*=chapters]').removeAttribute('visibility');}catch{}				  		  
 				} if (ImprovedTube.storage.chapters === false){try{document.querySelector('*[target-id*=chapters] #visibility-button button').click();}catch{}}
 			  }	
-			  
+			    else if (camelized_key === 'commentsSidebar') { 
+				 if(ImprovedTube.storage.comments_sidebar === false) 
+				 {document.querySelector("#below").appendChild(document.querySelector("#comments")); 
+				  document.querySelector("#secondary").appendChild(document.querySelector("#related"));	}		
+						else{ImprovedTube.commentsSidebar();}
+			  }	
+			 			  
 			if (ImprovedTube[camelized_key]) {
 				try{ImprovedTube[camelized_key]()}catch{};
 			}
