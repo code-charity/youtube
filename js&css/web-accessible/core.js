@@ -121,8 +121,8 @@ document.addEventListener('it-message-from-extension', function () {
 		if (message.action === 'storage-loaded') {
 			ImprovedTube.storage = message.storage;
 
+//    FEEDBACK WHEN THE USER CHANGED A SETTING
 			ImprovedTube.init();	
-//    FEEDBACK WHEN THE USER CHANGED A SETTING			
 		} else if (message.action === 'storage-changed') {				
 			var camelized_key = message.camelizedKey;
 
