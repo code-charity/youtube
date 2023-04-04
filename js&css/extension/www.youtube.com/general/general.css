@@ -323,3 +323,8 @@ html[it-hide-animated-thumbnails='true'] #preview>ytd-video-preview {
 html[it-hide-thumbnail-overlay='true'] #hover-overlays {
 	display: none !important;
 }
+
+
+html[it-embeddedHidePauseOverlay='true'] .ytp-pause-overlay {display:none !important}
+html[it-embeddedHideYoutubeLogo='true'] a.ytp-youtube-button svg path {display:none !important}
+html[it-embeddedHideShare='true'] .ytp-share-button-visible:has(.ytp-share-icon) {display:none !important}

@@ -4,10 +4,9 @@
 # Hide
 --------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-# HIDE
---------------------------------------------------------------*/
-
-html[it-hide-footer='true'] ytd-guide-renderer #footer {
-	display: none !important;
+html[it-hide-footer='true'] ytd-guide-renderer #footer,
+html[it-hide-footer='true'] yt-mealbar-promo-renderer  {
+	display: none !important;	
 }
+
+

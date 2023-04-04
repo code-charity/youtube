@@ -46,9 +46,9 @@
 .satus-section--appearance .satus-button--header {
 	top: 16px;
 	left: 16px;
-	font-size: 13px;
+	font-size: 11px;
 	width: calc(100% - 32px);
-	height: 33px;
+	height: 29px;
 	min-height: auto;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .satus-section--appearance .satus-button--player {
-	top: 57px;
+	top: 53px;
 	left: 16px;
 	width: calc(70% - 32px);
 	height: 96px;
@@ -79,7 +79,7 @@
 }
 
 .satus-section--appearance .satus-button--details {
-	top: 161px;
+	top: 157px;
 	left: 16px;
 	font-size: 16.5px;
 	width: calc(70% - 32px);
@@ -88,7 +88,7 @@
 }
 
 .satus-section--appearance .satus-button--comments {
-	top: 225px;
+	top: 222px;
 	left: 16px;
 
 	width: calc(70% - 32px);
@@ -97,20 +97,19 @@
 }
 
 .satus-section--appearance .satus-button--footer {
-	top: 290px;
+	top: 286px;
 	left: 16px;
-	font-size: 7px;
-	width: calc(70% - 32px);
+	font-size: 11px;
+	width: calc(37% - 32px);
 	min-height: auto;
-	height: 21px;  
-	opacity: 0.4;
+	height: 38px;  
 } 
 
 .satus-section--appearance .satus-button--sidebar {
-	top: 57px;
+	top: 53px;
 	left: calc(70% - 8px);
 	width: calc(30% - 8px);
-	height: 160px;
+	height: 180px;
 }
 
 
@@ -159,6 +158,13 @@
 	content: 'x';
 }
 
+ /*--------------------------------------------------------------
+transcript compact spacing
+--------------------------------------------------------------*/
+
+#transcript:not([data-value='true']) + .satus-switch  
+	{display:none}
+
 
  /*--------------------------------------------------------------
 DURATION WITH SPEED
@@ -167,3 +173,4 @@ DURATION WITH SPEED
 #show-remaining-duration:not([data-value='true']) + .satus-switch {
 	display: none;
 }
+
