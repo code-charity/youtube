@@ -171,9 +171,10 @@ catch{}}}
  CHAPTERS
 --------------------------------------------------------------*/
 ImprovedTube.chapters = function (el){ if (ImprovedTube.storage.chapters === true){
-try{node.querySelector('*[target-id*=chapters]').removeAttribute('visibility');} 
+try{el.querySelector('*[target-id*=chapters]').removeAttribute('visibility');} 
 catch{}}
 }
+
 /*------------------------------------------------------------------------------
  LIVECHAT
 ------------------------------------------------------------------------------*/
@@ -296,7 +297,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
  DESCRIPTION
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.description = function (el) {
+ImprovedTube.descriptionLayout = function (el) {
     if (this.storage.description === "expanded" || this.storage.description === "classic_expanded" ) 
 	   if(el)try{el.click()}catch{setTimeout(function(){el.click();},1000);}
     };	

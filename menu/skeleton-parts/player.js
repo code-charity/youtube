@@ -94,25 +94,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 						}, "250");  }
 					}		
 		},		
-		ads: {
-			text: 'ads',
-			component: 'select',
-			options: [{
-				text: 'onAllVideos',
-				value: 'all_videos',
-				default: 'true'
-			}, {
-				text: 'blockAll',
-				value: 'block_all'
-			}, {
-				text: 'blockMusic',
-				value: 'block_music'
-			}, {
-				text: 'onSubscribedChannels',
-				value: 'subscribed_channels'
-			}],
-			storage: 'player_ads'
-		},
 		quality: {
 			component: 'select',
 			text: 'quality',
@@ -177,7 +158,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_force_speed_on_music: {
 			component: 'switch',
 			text: 'forcedPlaybackSpeedMusic',
-			id: 'forced-playback-speed-music'
 		},
 		player_playback_speed: {
 			component: 'slider',

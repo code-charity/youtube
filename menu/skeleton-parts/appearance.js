@@ -854,15 +854,20 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 					text: 'Transcript',
 					value: false,
 					storage: 'transcript',
+					id: 'transcript',
 				 on: {					click: function () {  setTimeout(() => { 
 							if (satus.storage.get('transcript')) {
 								if (satus.storage.get('no_page_margin')) {
-									this.nextSibling.click();
+									this.nextSibling.nextSibling.click();
 								}
 							}
 						}, "250"); }
 					}	
 			},
+			compactSpacing: {
+                component: "switch",
+                text: "Compact spacing",
+            },		
 			no_page_margin: {
 					component: 'switch',
 					text: 'To the side! (No page margin)',
@@ -871,7 +876,7 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 						click: function () {  setTimeout(() => { 
 							if (satus.storage.get('no_page_margin')) {
 								if (satus.storage.get('transcript')) {
-									this.previousSibling.click();
+									this.previousSibling.previousSibling.click();
 								}
 							}
 						}, "250"); }

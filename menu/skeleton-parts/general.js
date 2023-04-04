@@ -1039,6 +1039,25 @@ extension.skeleton.main.layers.section.general = {
 						}
 					]
 				},			
+			ads: {
+			text: 'ads',
+			component: 'select',
+			options: [{
+				text: 'onAllVideos',
+				value: 'all_videos',
+				default: 'true'
+			}, {
+				text: 'blockAll',
+				value: 'block_all'
+			}, {
+				text: 'blockMusic',
+				value: 'block_music'
+			}, {
+				text: 'onSubscribedChannels',
+				value: 'subscribed_channels'
+			}],
+			storage: 'ads'
+			},			
 				youtube_home_page: {
 					component: 'select',
 					text: 'youtubeHomePage',
@@ -1077,7 +1096,26 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'removeRelatedSearchResults'
 				},	
-			},				
+			},	
+				embed: {
+				component: 'section',
+				variant: 'card',
+				title: 'Emdedded Youtube',
+
+				embeddedHidePauseOverlay: {
+					component: 'switch',
+					text: 'Hide Pause Overlay',
+
+				},
+				embeddedHideYoutubeLogo: {
+					component: 'switch',
+					text: 'Hide YouTube Logo'
+				},
+				embeddedHideShare: {
+					component: 'switch',
+					text: "Hide 'Share'"
+				},
+			},		
 			section_2: {
 				component: 'section',
 				variant: 'card',
