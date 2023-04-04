@@ -21,7 +21,7 @@ chrome.runtime.onInstalled.addListener(function (installed){
     if(installed.reason == 'update'){
 //	    var thisVersion = chrome.runtime.getManifest().version;
 //		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
-      
+        chrome.storage.local.get('hideSubscribe', function (result) {if (result.hideSubscribe === true){ chrome.storage.local.set({subscribe: 'hidden'});
 		chrome.storage.local.get('limit_page_width', function (result) {
                             if (result.limit_page_width === false){
 								chrome.storage.local.set({no_page_margin: true});
@@ -32,10 +32,10 @@ chrome.runtime.onInstalled.addListener(function (installed){
 								}});
 								}											
                             });	
-	 //if(navigator.userAgent.indexOf("Firefox") != -1){chrome.storage.local.set({below_player_pip: false})};						
+	  if(navigator.userAgent.indexOf("Firefox") != -1){chrome.storage.local.set({below_player_pip: false})};						
 	}
 else if(installed.reason == 'install'){if(navigator.userAgent.indexOf("Firefox") != -1){chrome.storage.local.set({below_player_pip: false})};};
-// else if(installed.reason == 'install'){ console.log('Thanks for installing!');
+// console.log('Thanks for installing!');
 }
 
 

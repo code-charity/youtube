@@ -1030,25 +1030,4 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'popupPlayer'
 		}
 	},
-	section_3: {
-		component: 'section',
-		variant: 'card',
-		title: 'Buttons below the player',
-
-		below_player_screenshot: {
-			component: 'switch',
-			text: 'screenshot',
-			value: true
-		},
-		below_player_pip: {
-			component: 'switch',
-			text: 'pictureInPicture',
-			value: true
-		},
-		below_player_loop: {
-			component: 'switch',
-			text: 'loop',
-			value: true
-		}
-	}
 };
