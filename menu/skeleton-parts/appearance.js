@@ -482,21 +482,37 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
                 ],
                 tags: "hide,remove",
             },
-			hideSubscribe: {
-                component: "switch",
-                text: "Hide Subscribe",
-                tags: "hide,remove,subscribe-button",
-            },
-			hide_details_button: {
-                component: "button",
+			hide_detail_button: {
+                component: "Buttons",
                 text: "hideDetailButton",
                 on: {
                     click: {
-                        component: "section",
-                        variant: "card",
+							extraButtons: {
+							component: 'section',
+							variant: 'card',
+							title: 'Extra buttons',
+
+								below_player_screenshot: {
+								component: 'switch',
+								text: 'screenshot',
+								value: true
+								},
+								below_player_pip: {
+								component: 'switch',
+								text: 'pictureInPicture',
+								value: true
+								},
+								below_player_loop: {
+								component: 'switch',
+								text: 'loop',
+								value: true
+								}
+							},
+						component: 'section',
+						variant: 'card',
 						youtubeDetailButtons: {
                             component: "select",
-                            text: "YouTube's detail buttons",
+                            text: "YouTube's buttons",
                             options: [
                                 {
                                     text: "normal",
@@ -528,7 +544,33 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 								 },
                             ],
                             tags: "hide,remove",
-                        },    			
+                        },   
+						detailButtons: {
+						component: 'section',
+						variant: 'card',
+						subscribe: {
+							component: "select",
+							text: "'Subscribe'",
+							options: [
+                                {
+                                    text: "normal",
+                                    value: "normal",
+                                },
+                                {
+                                    text: "grey",
+                                    value: "grey",
+                                },
+							    {
+                                    text: "transparent",
+                                    value: "transparent",
+                                },
+                                {
+                                    text: "hidden",
+                                    value: "hidden",
+                                },
+                            ],
+							tags: "hide,remove,subscribe-button",
+						},						
 		                 likes: {
                             component: "select",
                             text: "'like'",
@@ -676,7 +718,8 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
                             text: "hide 'more'",
                             tags: "hide,remove",
                         },
-                    },
+					  },
+					},
                 },
             },  
 			hide_views_count: {
