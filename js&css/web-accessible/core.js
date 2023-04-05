@@ -44,7 +44,7 @@ var ImprovedTube = {
 	focus: false,
 	played_before_blur: false,
 	played_time: 0,
-	allow_autoplay: false,
+	ignore_autoplay_off: false,
 	mini_player__mode: false,
 	mini_player__move: false,
 	mini_player__cursor: '',

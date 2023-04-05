@@ -8,11 +8,11 @@
 ImprovedTube.autoplay = function () {
     var video = ImprovedTube.elements.player;
     if (ImprovedTube.video_url !== location.href) {
-        ImprovedTube.allow_autoplay = false;
+        ImprovedTube.ignore_autoplay_off = false;
     }
     // if (allow autoplay is false) and  (no ads playing) and
 	// ( there is a video and ( (it is not in a playlist and  auto play is off ) or ( playlist auto play is off and it is not in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
-    if (ImprovedTube.allow_autoplay === false && video.classList.contains('ad-showing') === false &&
+    if (ImprovedTube.ignore_autoplay_off === false && video.classList.contains('ad-showing') === false &&
         (
             (document.documentElement.dataset.pageType === "video" && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) || (ImprovedTube.storage.playlist_autoplay === false && location.href.indexOf('list=') !== -1))) ||
             (document.documentElement.dataset.pageType === "channel" && ImprovedTube.storage.channel_trailer_autoplay === false)

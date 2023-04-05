@@ -1100,7 +1100,7 @@ extension.skeleton.main.layers.section.general = {
 				embed: {
 				component: 'section',
 				variant: 'card',
-				title: 'Emdedded Youtube',
+				title: 'Embedded YouTube',
 
 				embeddedHidePauseOverlay: {
 					component: 'switch',
