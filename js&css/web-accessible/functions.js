@@ -396,7 +396,7 @@ ImprovedTube.onkeydown = function () {
 			ImprovedTube.elements.player &&
 			ImprovedTube.elements.player.className.indexOf('ad-showing') === -1
 		) {
-			ImprovedTube.allow_autoplay = true;
+			ImprovedTube.ignore_autoplay_off = true;
 		}
 	}, true);
 };
@@ -415,7 +415,7 @@ ImprovedTube.onmousedown = function (event) {
 						path[i].className.indexOf('ytp-play-button') !== -1
 					)
 				) {
-					ImprovedTube.allow_autoplay = true;
+					ImprovedTube.ignore_autoplay_off = true;
 				}
 			}
 		}
