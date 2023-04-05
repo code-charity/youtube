@@ -1125,13 +1125,13 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'markWatchedVideos',
 					on: {
-						click: function () {
+						click: function () { setTimeout(() => {
 							if (satus.storage.get('mark_watched_videos')) {
 								if (!satus.storage.get('track_watched_videos')) {
 									this.nextSibling.click();
 								}
 							}
-						}
+						} , "250");  }
 					}
 				},
 				track_watched_videos: {
