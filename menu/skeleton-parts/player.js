@@ -190,13 +190,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 						component: 'switch',
 						text: 'subtitles'
 					},
-					auto_generate: {
-						component: 'switch',
-						text: 'Allow auto generate'
-					},
 					subtitles_language: {
 						component: 'select',
 						text: 'language',
+						id: 'subtitles-language',
 						options: [{
 								value: 'default',
 								text: 'default'
@@ -638,6 +635,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 								text: 'Zulu'
 							}
 						]
+					},
+					auto_generate: {
+						component: 'switch',
+						text: 'Allow auto generate'
 					},
 					subtitles_font_family: {
 						component: 'select',

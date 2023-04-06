@@ -334,8 +334,7 @@ ImprovedTube.initPlayer = function () {
 
 		if (location.href.indexOf('/embed/') === -1) {
 			ImprovedTube.miniPlayer();
-		}  else { setTimeout(function() { document.querySelectorAll('a.ytp-youtube-button').remove();
-		document.querySelector('a.ytp-youtube-button svg path').setAttribute("d","m 45.405 11.073 m -37.302 -0.407 L 10.96 20.86 L 10.96 25.82 L 13.42 25.82 L 13.42 20.86 L 16.32 10.56 L 13.83 10.56 L 12.78 15.25 C 12.49 16.62 12.31 17.59 12.23 18.17 L 12.16 18.17 C 12.097 17.529 11.84 16.38 11.59 15.23 L 10.59 10.56 L 8.1 10.56 Z m 22 0 L 30.1 12.58 L 32.59 12.58 L 32.59 25.82 L 35.06 25.82 L 35.06 12.58 l 2.49 0 l 0 -2.02 l -7.45 0", "important" )	},3000)	}
+		}  
 	}
 };
 
