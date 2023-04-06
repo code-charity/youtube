@@ -854,12 +854,12 @@ ImprovedTube.miniPlayer_mouseDown = function (event) {
 };
 
 ImprovedTube.miniPlayer_mouseUp = function () {
-	var strg = JSON.parse(localStorage.getItem('improedtube-mini-player')) || {};
+	var strg = JSON.parse(localStorage.getItem('improvedtube-mini-player')) || {};
 
 	strg.x = ImprovedTube.mini_player__x;
 	strg.y = ImprovedTube.mini_player__y;
 
-	localStorage.setItem('improedtube-mini-player', JSON.stringify(strg));
+	localStorage.setItem('improvedtube-mini-player', JSON.stringify(strg));
 
 	window.removeEventListener('mouseup', ImprovedTube.miniPlayer_mouseUp);
 	window.removeEventListener('mousemove', ImprovedTube.miniPlayer_mouseMove);
@@ -1032,12 +1032,12 @@ ImprovedTube.miniPlayer_resizeMouseUp = function (event) {
 
 	window.dispatchEvent(new Event('resize'));
 
-	var strg = JSON.parse(localStorage.getItem('improedtube-mini-player')) || {};
+	var strg = JSON.parse(localStorage.getItem('improvedtube-mini-player')) || {};
 
 	strg.width = ImprovedTube.mini_player__width;
 	strg.height = ImprovedTube.mini_player__height;
 
-	localStorage.setItem('improedtube-mini-player', JSON.stringify(strg));
+	localStorage.setItem('improvedtube-mini-player', JSON.stringify(strg));
 
 	window.addEventListener('mousemove', ImprovedTube.miniPlayer_cursorUpdate);
 	window.removeEventListener('mouseup', ImprovedTube.miniPlayer_resizeMouseUp);
@@ -1046,7 +1046,7 @@ ImprovedTube.miniPlayer_resizeMouseUp = function (event) {
 
 ImprovedTube.miniPlayer = function () {
 	if (this.storage.mini_player === true) {
-		var data = localStorage.getItem('improedtube-mini-player');
+		var data = localStorage.getItem('improvedtube-mini-player');
 
 		try {
 			if (this.isset(data)) {
