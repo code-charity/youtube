@@ -24,15 +24,15 @@ min-width: min(calc(100vw - 1000px), 1260px) !important; max-width: 1260px !impo
 /*--------------------------------------------------------------
 # COLLAPSED
 --------------------------------------------------------------*/
-html[it-comments='collapsed'] ytd-comments:not([it-activated]) ytd-comments-header-renderer::after {
+html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-comments-header-renderer::after {
 	content: 'Show more' !important;
 }
 
-html[it-comments='collapsed'] ytd-comments[it-activated] ytd-comments-header-renderer::after {
+html[it-comments='collapsed'][data-page-type=video] ytd-comments[it-activated] ytd-comments-header-renderer::after {
 	content: 'Show less' !important;
 }
 
-html[it-comments='collapsed'] ytd-comments ytd-comments-header-renderer::after {
+html[it-comments='collapsed'][data-page-type=video] ytd-comments ytd-comments-header-renderer::after {
 	font-family: inherit !important;
 	font-size: 1.6rem !important;
 	font-weight: 400 !important;
@@ -50,9 +50,9 @@ html[it-comments='collapsed'] ytd-comments ytd-comments-header-renderer::after {
 	align-items: center !important;
 }
 
-html[it-comments='collapsed'] ytd-comments:not([it-activated]) ytd-item-section-renderer>#spinner-container,
-html[it-comments='collapsed'] ytd-comments:not([it-activated]) ytd-item-section-renderer>#contents,
-html[it-comments='collapsed'] ytd-comments:not([it-activated]) ytd-item-section-renderer>#continuations {
+html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-item-section-renderer>#spinner-container,
+html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-item-section-renderer>#contents,
+html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-item-section-renderer>#continuations {
 	visibility: hidden !important;
 
 	pointer-events: none !important;
