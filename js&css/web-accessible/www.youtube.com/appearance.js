@@ -7,7 +7,6 @@
 /*------------------------------------------------------------------------------
  PLAYER SIZE
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.playerSize = function () {
 	if (this.storage.player_size === "custom") {    
         var width = Number(this.storage.custom_player_size_width) || 1280,
@@ -23,11 +22,9 @@ ImprovedTube.playerSize = function () {
         window.dispatchEvent(new Event('resize'));
 	}
 };
-
 /*------------------------------------------------------------------------------
  FORCED THEATER MODE
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.forcedTheaterMode = function () {
     if (ImprovedTube.storage.forced_theater_mode === true && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player) {
         var button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
@@ -41,11 +38,9 @@ ImprovedTube.forcedTheaterMode = function () {
         }
     }
 };
-
 /*------------------------------------------------------------------------------
  HD THUMBNAIL
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.playerHdThumbnail = function () {
     if (this.storage.player_hd_thumbnail === true) {
         var thumbnail = ImprovedTube.elements.player_thumbnail;
@@ -55,11 +50,9 @@ ImprovedTube.playerHdThumbnail = function () {
         }
     }
 };
-
 /*------------------------------------------------------------------------------
  ALWAYS SHOW PROGRESS BAR
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.alwaysShowProgressBar = function () {
     if (this.storage.always_show_progress_bar === true) {
         var player = ImprovedTube.elements.player;
@@ -106,11 +99,9 @@ ImprovedTube.alwaysShowProgressBar = function () {
         }
     }
 };
-
 /*------------------------------------------------------------------------------
  VIDEO REMAINING DURATION
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.formatSecond = function (rTime) {
     var time = new Date(null);
     if (this.storage.duration_with_speed === true) {
@@ -144,7 +135,6 @@ ImprovedTube.playerRemainingDuration = function () {
         element.remove();
     }
 };
-
 /*------------------------------------------------------------------------------
  Comments Sidebar
 ------------------------------------------------------------------------------*/
@@ -174,7 +164,6 @@ ImprovedTube.chapters = function (el){ if (ImprovedTube.storage.chapters === tru
 try{el.querySelector('*[target-id*=chapters]').removeAttribute('visibility');} 
 catch{}}
 }
-
 /*------------------------------------------------------------------------------
  LIVECHAT
 ------------------------------------------------------------------------------*/
@@ -192,14 +181,12 @@ ImprovedTube.livechat = function () {
         }
     }
 };
-
 /*------------------------------------------------------------------------------
   DETAILS
 ------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------
   PLAYER BUTTONS
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 	if (window.self !== window.top) {
 		return false;
@@ -207,7 +194,8 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 	if (document.documentElement.dataset.pageType === 'video') {
 
 	var section = document.querySelector('#subscribe-button');  
-	if (this.storage.description == "classic" ||  this.storage.description == "classic_expanded" || this.storage.description !== "classic_hidden"  )
+	   if (this.storage.description == "classic" 
+		||  this.storage.description == "classic_expanded" || this.storage.description == "classic_hidden"  )
 	   {var section = document.querySelector('#flex.ytd-video-primary-info-renderer');}
 
 	if (section && !document.querySelector('.improvedtube-player-button')) {
@@ -252,8 +240,8 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 			button.className = 'improvedtube-player-button';
-			button.dataset.tooltip = 'Picture in picture';
-
+			button.dataset.tooltip = 'PiP';
+			svg.style.opacity = '.64';
 			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
 			path.setAttributeNS(null, 'd', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z');
 
@@ -278,10 +266,9 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 
 			button.className = 'improvedtube-player-button';
 			button.dataset.tooltip = 'Screenshot';
-
+			svg.style.opacity = '.55';
 			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
 			path.setAttributeNS(null, 'd', 'M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z');
-
 			button.onclick = ImprovedTube.screenshot;
 
 			svg.appendChild(path);
@@ -292,20 +279,16 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 	  }
    }
 };
-
 /*------------------------------------------------------------------------------
- DESCRIPTION
+ EXPAND DESCRIPTION
 ------------------------------------------------------------------------------*/
-
-ImprovedTube.descriptionLayout = function (el) {
+ImprovedTube.expandDescription = function (el) {
     if (this.storage.description === "expanded" || this.storage.description === "classic_expanded" ) 
 	   if(el)try{el.click()}catch{setTimeout(function(){el.click();},1000);}
     };	
-
 /*------------------------------------------------------------------------------
  HIDE DETAIL BUTTON
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.hideDetailButton = function (el) {
     if (el.length === 4) {
         el[3].setAttribute("id", "Save-button");
@@ -317,11 +300,9 @@ ImprovedTube.hideDetailButton = function (el) {
         el[1].setAttribute("id", "Clip-button");
     }
 };
-
 /*--------------------------------------------------------------
  DAY OF WEEK
 --------------------------------------------------------------*/
-
 ImprovedTube.dayOfWeek = function () {
     var element = document.querySelector(".ytd-day-of-week");
     if (this.storage.day_of_week === true) {
@@ -342,11 +323,9 @@ ImprovedTube.dayOfWeek = function () {
         element.remove();
     }
 };
-
 /*------------------------------------------------------------------------------
  HOW LONG AGO THE VIDEO WAS UPLOADED
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
     if (this.storage.how_long_ago_the_video_was_uploaded === true && this.elements.yt_channel_name) {
         var xhr = new XMLHttpRequest(),
@@ -403,11 +382,9 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
         xhr.send();
     }
 };
-
 /*------------------------------------------------------------------------------
  SHOW CHANNEL VIDEOS COUNT
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.channelVideosCount = function () {
     if (this.storage.channel_videos_count === true && this.elements.yt_channel_link) {
         var key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey;
