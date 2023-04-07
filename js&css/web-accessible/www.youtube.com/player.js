@@ -537,9 +537,8 @@ ImprovedTube.screenshot = function () {
 
 		cvs.toBlob(function (blob) {
 			if (ImprovedTube.storage.player_screenshot_save_as !== 'clipboard') {
-				var a = document.createElement('a');
-console.log("screeeeeeen");
-				a.href = URL.createObjectURL(blob);
+				var a = document.createElement('a'); 		
+				a.href = URL.createObjectURL(blob); console.log("screeeeeeenshot tada!");
 
 				a.download = location.href.match(/(\?|\&)v=[^&]+/)[0].substr(3) || location.href.match(/()embed\/[^&]+/)[0].substr(3) || improvedTube.videoID || location.href.match + '-' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + '.png';
 
@@ -570,7 +569,7 @@ ImprovedTube.playerScreenshotButton = function () {
 		this.createPlayerButton({
 			id: 'it-screenshot-button',
 			child: svg,
-			opacity: 1,
+			opacity: 0.64,
 			onclick: this.screenshot,
 			title: 'Screenshot'
 		});
@@ -637,7 +636,7 @@ ImprovedTube.playerRotateButton = function () {
 		this.createPlayerButton({
 			id: 'it-rotate-button',
 			child: svg,
-			opacity: 1,
+			opacity: 0.85,
 			onclick: function () {
 				var player = ImprovedTube.elements.player,
 					video = ImprovedTube.elements.video,
@@ -693,7 +692,7 @@ ImprovedTube.playerPopupButton = function () {
 		this.createPlayerButton({
 			id: 'it-popup-player-button',
 			child: svg,
-			opacity: 1,
+			opacity: 0.8,
 			onclick: function () {
 				var player = ImprovedTube.elements.player;
 

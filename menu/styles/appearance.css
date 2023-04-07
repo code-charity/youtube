@@ -5,23 +5,18 @@
 # Custom player size
 # Hide Detail Button
 --------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 # BUTTONS
 --------------------------------------------------------------*/
-
 .satus-section--appearance {
 	position: relative;
 
-	width: 100%;
-	max-width: 900px;
+	width: 100%; max-width: 900px;
 	height: 100%;
 	margin: auto;
 }
-
 .satus-section--appearance .satus-button {
 	position: absolute;
-
 	display: block;
 
 	transition: transform .5s, box-shadow .5s;
@@ -29,11 +24,10 @@
 	text-align: center;
 
 	border: 1px solid var(--it-appearance-shadow-color);
-	border-radius: 3px;
+	border-radius: 3px; 
 	background: var(--satus-section-background);
 	box-shadow: 0 0 2px 0 rgb(0 0 0 / 0%);
 }
-
 .satus-section--appearance .satus-button:hover {
 	z-index: 9;
 
@@ -42,7 +36,6 @@
 
 	box-shadow: 1px 1px 0 0 var(--main-appearance-shadow, var(--it-appearance-shadow-color)), 2px 2px 0 0 var(--main-appearance-shadow, var(--it-appearance-shadow-color)), 3px 3px 0 0 var(--main-appearance-shadow, var(--it-appearance-shadow-color)), 4px 4px 0 0 var(--main-appearance-shadow, var(--it-appearance-shadow-color)), 5px 6px 4px 0 rgba(0, 0, 0, .1);
 }
-
 .satus-section--appearance .satus-button--header {
 	top: 16px;
 	left: 16px;
@@ -51,11 +44,9 @@
 	height: 29px;
 	min-height: auto;
 }
-
 .satus-section--appearance .satus-button--header:hover {
 	transform: scale(1.03) translate(-9px, -4px);
 }
-
 .satus-section--appearance .satus-button--player {
 	top: 53px;
 	left: 16px;
@@ -111,12 +102,9 @@
 	width: calc(30% - 8px);
 	height: 180px;
 }
-
-
 /*--------------------------------------------------------------
 # CUSTOM PLAYER SIZE
 --------------------------------------------------------------*/
-
 .satus-section--custom-player-size {
 	position: relative;
 
@@ -157,20 +145,14 @@
 
 	content: 'x';
 }
-
  /*--------------------------------------------------------------
 transcript compact spacing
 --------------------------------------------------------------*/
-
 #transcript:not([data-value='true']) + .satus-switch  
 	{display:none}
-
-
  /*--------------------------------------------------------------
 DURATION WITH SPEED
 --------------------------------------------------------------*/
-
 #show-remaining-duration:not([data-value='true']) + .satus-switch {
 	display: none;
 }
-

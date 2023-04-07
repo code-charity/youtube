@@ -59,17 +59,33 @@ ImprovedTube.ytElementsHandler = function (node) {
 			var index = Array.prototype.indexOf.call(node.parentNode.children, node);
 
 			if (index === 0) {
-				this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;
-
-				this.playlistReverse();
+	 if (this.storage.playlist_reverse === true) {
+		try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
+		catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
+			catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
+				catch{try{this.elements.playlist.actions = node.parentNode;}
+					catch{try{this.elements.playlist.actions = node;}catch{}}
+					}
+				}	
+			}	
+		}
+				this.playlistReversess();
 			} else if (index === 1) {
 				this.elements.playlist.shuffle_button = node;
 
 				this.playlistShuffle();
 
-				this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;
-
-				this.playlistReverse();
+	 if (this.storage.playlist_reverse === true) {
+		try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
+		catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
+			catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
+				catch{try{this.elements.playlist.actions = node.parentNode;}
+					catch{try{this.elements.playlist.actions = node;}catch{}}
+					}
+				}	
+			}	
+		}
+				this.playlistReversess();
 			}
 		}
 	} else if (name === 'YTD-GUIDE-SECTION-RENDERER') {
@@ -215,9 +231,9 @@ ImprovedTube.ytElementsHandler = function (node) {
   }else if (document.documentElement.dataset.pageType === 'video'){
 	 if (id ==='description-inner') {
 			setTimeout(function () {
-			ImprovedTube.descriptionLayout(node);
+			ImprovedTube.expandDescription(node);
 	    }, 300);   			   
-	}else if (id === 'meta') {setTimeout(function () { ImprovedTube.descriptionLayout(node.querySelector('#more'));    }, 200);
+	}else if (id === 'meta') {setTimeout(function () { ImprovedTube.expandDescription(node.querySelector('#more'));    }, 200);
     }else if (id === 'below' ){setTimeout(function () {  }, 0);
     }else if (id === 'panels'){setTimeout(function () {	
 				ImprovedTube.transcript(node);
