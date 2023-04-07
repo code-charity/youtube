@@ -2,56 +2,45 @@
 >>> DETAILS  
 ----------------------------------------------------------------
 /*--------------------------------------------------------------
-# General
+General
 --------------------------------------------------------------*/
 #info #info-text {
 	max-height: 6rem;
 	display: block;
 } 
-
 /*--------------------------------------------------------------
-# HIDE DETAILS 
+HIDE DETAILS 
 --------------------------------------------------------------*/
-
 html[it-hide-details='true'] ytd-video-primary-info-renderer,
 html[it-hide-details='true'] ytd-video-secondary-info-renderer,
 html[it-hide-details='true'] ytd-watch-metadata { 
 	display: none !important;
 }
-
-
 /*--------------------------------------------------------------
-# HIDE VIEWS COUNT
+HIDE VIEWS COUNT
 --------------------------------------------------------------*/
-
 html[it-hide-views-count='true'] #info #count,
 html[it-hide-views-count='true'] #info #count + #info-strings>#dot,
 html[it-hide-views-count='true'] ytd-watch-metadata #info>span:first-child {
 	display: none !important;
 }
-
 /*--------------------------------------------------------------
-# HIDE COMMENTS COUNT
+HIDE COMMENTS COUNT
 --------------------------------------------------------------*/
-
 html[it-hide-comments-count='true'] #comments #count {
   display: none !important;
 }
-
 /*--------------------------------------------------------------
-# HIDE DATE
+HIDE DATE
 --------------------------------------------------------------*/
-
 html[it-hide-date='true'] #info #count + #info-strings>yt-formatted-string,
 html[it-hide-date='true'] #info #count + #info-strings>#dot,
 html[it-hide-date='true'] ytd-watch-metadata #info>span:last-child {
 	display: none !important;
 }
-
- /*--------------------------------------------------------------
+/*--------------------------------------------------------------
 YouTube's detail buttons
 --------------------------------------------------------------*/
-
 html[it-youtubeDetailButtons='remove_labels'] #menu ytd-button-renderer div:nth-child(2), 
 html[it-youtubeDetailButtons='remove_labels'] #menu ytd-button-renderer .cbox, 
 html[it-youtubeDetailButtons='remove_labels'] #subscribe-button .cbox,
@@ -65,19 +54,15 @@ html[it-youtubeDetailButtons='half_transparent'] #menu button {opacity:0.5;}
 html[it-youtubeDetailButtons='transparent_background'] #subscribe-button button,
 html[it-youtubeDetailButtons='transparent_background'] #menu button {background-color:rgba(0, 0, 0, 0.01) !important;}  
 html[it-youtubeDetailButtons='transparent_background'] #subscribe-button button {color:#111 !important;}
-  
-  /*--------------------------------------------------------------
+ /*--------------------------------------------------------------
 HIDE SUBSCRIBE
 --------------------------------------------------------------*/
 html[it-subscribe='hidden'] #subscribe-button {display: none !important;}
 html[it-subscribe='grey'] #subscribe-button button { background-color: #DDD !important; color:#111 !important; }
 html[it-subscribe='transparent'] #subscribe-button button {background-color:rgba(0, 0, 0, 0) !important; color:#111 !important; }
-
- 
- /*--------------------------------------------------------------
+/*--------------------------------------------------------------
 HIDE LIKE BUTTON
 --------------------------------------------------------------*/
-
 html[it-likes='hidden'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer,
 html[it-likes='icons_only'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer div.cbox  {
 	display: none;
@@ -88,71 +73,60 @@ html[it-likes='icons_only'] #top-level-buttons-computed #segmented-like-button y
 	margin: 0;
 	padding: 0 5px;
 }
-
-
  /*--------------------------------------------------------------
 HIDE DISLIKE BUTTON
 --------------------------------------------------------------*/
-
 html[it-hide-dislike-button='hidden'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer,
 html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer div.cbox {
 	display: none;
 }
-
 html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer .yt-spec-button-shape-next__icon,
 html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer button{
 	margin: 0;
 	padding: 0 5px;
 }
-
-
 /*--------------------------------------------------------------
-# HIDE SHARE BUTTON
+DISLIKED in RED
 --------------------------------------------------------------*/
-
+html[it-red-dislike-button='true'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer *[aria-pressed='true'] yt-icon {
+	color: #f02200 !important;
+}
+/*--------------------------------------------------------------
+HIDE SHARE BUTTON
+--------------------------------------------------------------*/
 html[it-hide-share-button='hidden'] #menu button:has(svg path[d^="M15,5.63L20.66,12L15,18.37V15v"]),
 html[it-hide-share-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M15,5.63L20.66,12L15,18.37V15v"]) {
 	display: none;
 }
-
 html[it-hide-share-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M15,5.63L20.66,12L15,18.37V15v"]) div:nth-child(2),
 html[it-hide-share-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M15,5.63L20.66,12L15,18.37V15v"]) .cbox{ 
 	display: none;
 }
-
-
 /*--------------------------------------------------------------
-# HIDE DOWNLOAD BUTTON
+HIDE DOWNLOAD BUTTON
 --------------------------------------------------------------*/
-
 html[it-hide-download-button='hidden'] #menu button:has(svg path[d^="M17 18V19H6V18H17ZM16.5 11.4"]),
 html[it-hide-download-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M17 18V19H6V18H17ZM16.5 11.4"]) {
 	display: none;
 }
-
 html[it-hide-download-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M17 18V19H6V18H17ZM16.5 11.4"]) div:nth-child(2),
 html[it-hide-download-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M17 18V19H6V18H17ZM16.5 11.4"]) .cbox{
 	display: none;
 }
-
 /*--------------------------------------------------------------
-# HIDE THANKS BUTTON
+HIDE THANKS BUTTON
 --------------------------------------------------------------*/
-
 html[it-hide-thanks-button='hidden'] #menu button:has(svg path[d^="M16.5,3C19.02,3,21,5.19,21,7.99c"]),
 html[it-hide-thanks-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M16.5,3C19.02,3,21,5.19,21,7.99c"]) {
 	display: none;
 }
-
 html[it-hide-thanks-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M16.5,3C19.02,3,21,5.19,21,7.99c"]) div:nth-child(2),
 html[it-hide-thanks-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M16.5,3C19.02,3,21,5.19,21,7.99c"]) .cbox{
 	display: none;
 }
-
 /*--------------------------------------------------------------
-# HIDE CLIP BUTTON
+HIDE CLIP BUTTON
 --------------------------------------------------------------*/
-
 html[it-hide-clip-button='hidden'] #menu button:has(svg path[d^="M8,7c0,0.55-0.45,1-1,1S6,7."]),
 html[it-hide-clip-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M8,7c0,0.55-0.45,1-1,1S6,7."]) {
 	display: none;
@@ -162,74 +136,61 @@ html[it-hide-clip-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^
 html[it-hide-clip-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M8,7c0,0.55-0.45,1-1,1S6,7."]) .cbox{
 	display: none;
 }
-
-
 /*--------------------------------------------------------------
-# HIDE SAVE BUTTON
+HIDE SAVE BUTTON
 --------------------------------------------------------------*/
-
 html[it-hide-save-button='hidden'] #menu button:has(svg path[d^="M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z"]),
 html[it-hide-save-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z"]) {
 	display: none;
 }
-
 html[it-hide-save-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z"]) div:nth-child(2),
 html[it-hide-save-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z"]) .cbox{
 	display: none;
 }
-
-
 /*--------------------------------------------------------------
-# HIDE REPORT BUTTON
+HIDE REPORT BUTTON
 --------------------------------------------------------------*/
-
-html[it-hide-report-button='true'] #menu button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]),
-html[it-hide-report-button='true'] #flexible-item-buttons button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]) {
+html[it-hide-report-button='true'] #menu button:has(svg path[d^="M13.18,4l0.24,1.2L13.58,"]),
+html[it-hide-report-button='true'] #flexible-item-buttons button:has(svg path[d^="M13.18,4l0.24,1.2L13.58,"]) {
 	display: none;
 }
-
-
 /*--------------------------------------------------------------
-# HIDE MORE BUTTON
+HIDE MORE BUTTON
 --------------------------------------------------------------*/
-
-html[it-hide-more-button='true'] #menu button:has(svg path[d^="M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z"]),
-html[it-hide-more-button='true'] #flexible-item-buttons button:has(svg path[d^="M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z"]) {
+html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]),
+html[it-hide-more-button='true'] #flexible-item-buttons button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]) {
 	display: none;
 }
-
 /*--------------------------------------------------------------
-# HIDE THANKS BUTTON
+HIDE THANKS BUTTON
 --------------------------------------------------------------*/
-
 html[it-hide-thanks-button='hidden'] #flexible-item-buttons ytd-button-renderer#Thanks-button,
 html[it-hide-thanks-button='icons_only'] #flexible-item-buttons ytd-button-renderer#Thanks-button div.cbox {
 	display: none;
 }
-
 /*--------------------------------------------------------------
-# HIDE CLIP BUTTON
+HIDE CLIP BUTTON
 --------------------------------------------------------------*/
-
 html[it-hide-clip-button='hidden'] #flexible-item-buttons ytd-button-renderer#Clip-button,
 html[it-hide-clip-button='icons_only'] #flexible-item-buttons ytd-button-renderer#Clip-button div.cbox {
 	display: none;
 }
-
 /*--------------------------------------------------------------
-# HIDE SAVE BUTTON
+HIDE SAVE BUTTON
 --------------------------------------------------------------*/
-
 html[it-hide-save-button='hidden'] #flexible-item-buttons ytd-button-renderer#Save-button,
 html[it-hide-save-button='icons_only'] #flexible-item-buttons ytd-button-renderer#Save-button div.cbox {
 	display: none;
 }
-
-
 /*--------------------------------------------------------------
-# DESCRIPTION
+DESCRIPTION
 --------------------------------------------------------------*/
-
+html[it-description='hidden'] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
+html[it-description='hidden'] div#action-panel-details,
+html[it-description='hidden'] ytd-expander.ytd-video-secondary-info-renderer,
+html[it-description='hidden'] #description-inline-expander {
+	display: none !important; 
+}
 html[it-description='classic'] .ytd-watch-flexy #info-contents, 
 html[it-description='classic'] .ytd-watch-flexy #meta-contents { display: block !important; } 
 html[it-description='classic'] #below.ytd-watch-flexy { top:-20px; }
@@ -247,23 +208,13 @@ html[it-description='classic_hidden'] #below.ytd-watch-flexy { top:-20px; }
 html[it-description='classic_hidden'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
 html[it-description='classic_hidden'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
 
-html[it-description='hidden'] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
-html[it-description='hidden'] div#action-panel-details,
-html[it-description='hidden'] ytd-expander.ytd-video-secondary-info-renderer,
-html[it-description='hidden'] #description-inline-expander {
-	display: none !important; 
-}
 html[it-description='classic'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata,
 html[it-description='classic_expanded'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata,
 html[it-description='classic_hidden'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata  
 {display: none !important;}
-
-
-
 /*--------------------------------------------------------------
-# HOW LONG AGO THE VIDEO WAS UPLOADED
+HOW LONG AGO THE VIDEO WAS UPLOADED
 --------------------------------------------------------------*/
-
 .it-how-long-ago-the-video-was-uploaded {
 	float: right !important;
 
@@ -271,24 +222,13 @@ html[it-description='classic_hidden'] div.style-scope.ytd-watch-flexy + ytd-watc
 
 	color: var(--yt-spec-text-secondary) !important;
 }
-
 /*--------------------------------------------------------------
-# SHOW CHANNEL VIDEOS COUNT
+SHOW CHANNEL VIDEOS COUNT
 --------------------------------------------------------------*/
-
 .it-channel-videos-count {
 	display: inline-block !important;
 
 	margin-left: 4px !important;
 
 	color: var(--yt-spec-text-secondary) !important;
-}
-
-
-/*--------------------------------------------------------------
-# SHOW DISLIKE RED COLOR
---------------------------------------------------------------*/
-
-html[it-red-dislike-button='true'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer *[aria-pressed='true'] yt-icon {
-	color: #f02200 !important;
 }
