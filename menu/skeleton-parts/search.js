@@ -5,6 +5,7 @@
 extension.skeleton.header.sectionEnd.search.on.click = {
 	component: 'text-field',
 	variant: 'search',
+	focus: true,
 	storage: false,
 	prepend: true,
 	placeholder: 'search',
@@ -204,3 +205,8 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 		}
 	}
 };
+
+
+
+
+

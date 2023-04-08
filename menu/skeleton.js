@@ -68,7 +68,9 @@ extension.skeleton.header = {
 		search: {
 			component: 'button',
 			variant: 'icon',
-			on: {},
+			on: {render: function () {
+				 this.click(); }				
+			},
 
 			svg: {
 				component: 'svg',

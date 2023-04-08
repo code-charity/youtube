@@ -1,11 +1,9 @@
 /*------------------------------------------------------------------------------
 4.5.0 PLAYLIST
 ------------------------------------------------------------------------------*/
-
 /*------------------------------------------------------------------------------
 4.5.1 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.playlistUpNextAutoplay = function (event) {
 	if (
 		ImprovedTube.getParam(location.href, 'list') &&
@@ -15,11 +13,9 @@ ImprovedTube.playlistUpNextAutoplay = function (event) {
 	}
 };
 
-
 /*------------------------------------------------------------------------------
 4.5.2 REVERSE
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.playlistReverse = function () {
 	if (this.storage.playlist_reverse === true) {
 		function update() {
@@ -92,11 +88,9 @@ ImprovedTube.playlistReverse = function () {
 	}
 };
 
-
 /*------------------------------------------------------------------------------
 4.5.3 REPEAT
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.playlistRepeat = function () {
     var option = ImprovedTube.storage.playlist_repeat,
 		button = document.querySelector("ytd-playlist-loop-button-renderer button"),
@@ -108,16 +102,15 @@ ImprovedTube.playlistRepeat = function () {
 	}
 };
 
-
 /*------------------------------------------------------------------------------
 4.5.4 SHUFFLE
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.playlistShuffle = function () {
 	var button = ImprovedTube.elements.playlist.shuffle_button,
 		option = ImprovedTube.storage.playlist_shuffle;
-
+		try{
 		if (button && ((option === true && button.firstElementChild.firstElementChild.attributes[2].textContent !== 'Loop video') || (option === 'disabled' && button.firstElementChild.firstElementChild.attributes[2].textContent === 'Loop playlist'))) {
 		button.click();
-	}
+		} 
+		}catch{}
 };

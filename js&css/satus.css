@@ -402,24 +402,29 @@
 
 	width: 100%;
 	min-width: 0;
-	max-width: none;
 	height: 100%;
 	min-height: 0;
-	max-height: none;
 	margin: 0;
 	padding: 0 12px;
 
 	white-space: pre;
-
-	opacity: 0;
 	color: inherit;
 	border: none;
 	border-radius: 4px;
 	outline: none;
-
-	appearance: none;
 	overflow-wrap: normal;
+/* 
+As our Syntax markup isnt read for <textarea>, is it?
+	opacity: 0;
+	max-width: none;
+	max-height: none;
+	appearance: none;  */
 }
+.satus-text-field__input
+{	opacity: 0;
+	max-width: none;
+	max-height: none;
+	appearance: none; }
 
 .satus-text-field__display {
 	position: absolute;
@@ -434,7 +439,7 @@
 
 .satus-text-field__line-numbers {
 	padding: 0 12px 0 0;
-
+    z-index: 10;
 	opacity: .5;
 }
 
@@ -480,7 +485,7 @@
 
 	width: 0;
 	height: 22px;
-	margin: 6px 12px;
+	margin: 6px -1px; 
 
 	border: 1px solid var(--satus-text-field-selection);
 	border-radius: 3px;
