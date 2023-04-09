@@ -3,10 +3,13 @@
 ----------------------------------------------------------------
 # GLOBAL VARIABLE:
 # BASICS: camelize(string)   snakelize(string)   
-		 isset(target, is_object)    log()
-		 sort(array, order, property)
-		 data(element, data)    
-		 
+		  sort(array, order, property)
+	  	  data(element, data)    
+		  isset(target, is_object)    
+			isFunction(target) 
+			is_________target) Array    Object Boolean
+						Element NodeList Number String
+		  log()			
 # DOM: append(child, parent)  
 	  setAttributes(element, attributes)          =attr() 
 	  createElement(tagName, componentName, namespaceURI)  
@@ -29,9 +32,6 @@ fetch(url, success, error, type)
 indexOf(child, parent)    
  toIndex(index, child, parent)
 
-# IS: isArray(target) isBoolean()
-	 isElement()	isFunction()	isNodeList()
-	 isNumber()		isObject()		isString()
 
 # ON: on(element, listeners)
 
@@ -59,7 +59,6 @@ locale.import = function(code, callback, path)
 text(element, value)
   // We always try to run values as functions? 
 	 // isFunction(value)  appears 6 times in satus.js
-
 ----------------------------------------------------------------
 
 >>> 2. COMPONENTS
@@ -141,34 +140,6 @@ satus.camelize = function(string) {
 satus.snakelize = function(string) {
   return string.replace(/([A-Z])/g, '-$1').toLowerCase();
 };
-/*---# ISSET-----------------------------------------------------*/
-satus.isset = function(target, is_object) {
-  if (is_object === true) {
-    var keys = target.split('.').filter(function(value) {
-      return value != '';
-    });
-
-    for (var i = 0, l = keys.length; i < l; i++) {
-      if (satus.isset(target[keys[i]])) {
-        target = target[keys[i]];
-      } else {
-        return undefined;
-      }
-    }
-
-    return target;
-  } else {
-    if (target === null || target === undefined) {
-      return false;
-    }
-  }
-
-  return true;
-};
-/*---LOG------------------------------------------------------*/
-satus.log = function() {
-  console.log.apply(null, arguments);
-};
 /*---SORT------------------------------------------------------*/
 satus.sort = function(array, order, property) {
   var type;
@@ -239,7 +210,45 @@ satus.data = function(element, data) {
     }
   }
 };
+/*---# ISSET-----------------------------------------------------*/
+satus.isset = function(target, is_object) {
+  if (is_object === true) {
+    var keys = target.split('.').filter(function(value) {
+      return value != '';
+    });
 
+    for (var i = 0, l = keys.length; i < l; i++) {
+      if (satus.isset(target[keys[i]])) {
+        target = target[keys[i]];
+      } else {
+        return undefined;
+      }
+    }
+
+    return target;
+  } else {
+    if (target === null || target === undefined) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+/*-------------------------------------------------------------
+	# is___(target)				 
+--------------------------------------------------------------*/
+satus.isFunction =function(target){return typeof target ==='function';};
+
+satus.isArray	 =function(t){if(Array.isArray(t))			 	        {return true;}else{return false;}};
+satus.isString   =function(t){if(typeof t ==='string')				    {return true;}else{return false;}};
+satus.isNumber	 =function(t){if(typeof t ==='number'&&isNaN(t)===false){return true;}else{return false;}};
+satus.isObject	 =function(t){return t instanceof Object && t !==null;};
+satus.isElement  =function(t){return t instanceof Element || t instanceof HTMLDocument;};
+satus.isNodeList =function(t){return t instanceof NodeList;};
+satus.isBoolean  =function(t){return t ===false || t ===true;};
+/*---LOG------------------------------------------------------*/
+satus.log =function(){console.log.apply(null, arguments);};
 
 /*--------------------------------------------------------------
 
@@ -555,57 +564,6 @@ satus.toIndex = function(index, child, parent) {
     parent.splice(index, 0, parent.splice(satus.indexOf(child, parent), 1)[0])
   }
 };
-
-/*--------------------------------------------------------------
-
-# IS
-
---------------------------------------------------------------*/
-satus.isArray = function(target) {
-  if (Array.isArray(target)) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-satus.isBoolean = function(target) {
-  return target === false || target === true;
-};
-
-satus.isElement = function(target) {
-  return target instanceof Element || target instanceof HTMLDocument;
-};
-
-satus.isFunction = function(target) {
-  return typeof target === 'function';
-};
-
-satus.isNodeList = function(target) {
-  return target instanceof NodeList;
-};
-
-satus.isNumber = function(target) {
-  if (typeof target === 'number' && isNaN(target) === false) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-satus.isObject = function(target) {
-  return target instanceof Object && target !== null;
-};
-
-satus.isString = function(target) {
-  if (typeof target === 'string') {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-
 /*--------------------------------------------------------------
 # ON
 --------------------------------------------------------------*/
