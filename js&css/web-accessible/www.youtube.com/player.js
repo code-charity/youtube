@@ -15,8 +15,8 @@ ImprovedTube.autoplay = function () {
         )
     ) {
         setTimeout(function () {console.log("autoplayyOFFFF");
-         video.pauseVideo(); 
-        });    
+         video.pauseVideo();
+        });
     }
 };
 /*------------------------------------------------------------------------------
@@ -49,7 +49,7 @@ AUTO PIP WHEN SWITCHING TABS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAutoPip = function () {
 	const video = ImprovedTube.elements.video;
-	
+
 	if (this.storage.player_autoPip === true && video) {
 		(async () => {
 			try {
@@ -57,7 +57,7 @@ ImprovedTube.playerAutoPip = function () {
 			  } catch (error) {
 				console.error('Failed to enter Picture-in-Picture mode', error);
 			  }
-		  })();	
+		  })();
 		}
 };
 /*------------------------------------------------------------------------------
@@ -84,8 +84,8 @@ ImprovedTube.playerPlaybackSpeed = function (change) {
 			if (player.getVideoData().isLive === false &&
 				(this.storage.player_force_speed_on_music === true ||
 				 document.querySelector('h3#title')?.innerText !== 'Music'  // (=buyable/registered music table)
-				|| ( 
-				    (ImprovedTube.elements.category !== 'Music' && !/official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|karaok|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكيкараоке|カラオケ|노래방/i.test(ImprovedTube.elements.title + ImprovedTube.elements.keywords)	 	
+				|| (
+				    (ImprovedTube.elements.category !== 'Music' && !/official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|karaok|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكيкараоке|カラオケ|노래방/i.test(ImprovedTube.elements.title + ImprovedTube.elements.keywords)
 					) || /do[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(ImprovedTube.elements.keywords + ImprovedTube.elements.title)
 				  ) // && location.href.indexOf('music') === -1   // (=only running on www.youtube.com anyways)
 			)) {
@@ -98,7 +98,7 @@ ImprovedTube.playerPlaybackSpeed = function (change) {
 	}, intervalMs);
 };
 /*------------------------------------------------------------------------------
-SUBTITLES 
+SUBTITLES
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitles = function () {
 	if (this.storage.player_subtitles === true) {
@@ -108,7 +108,7 @@ ImprovedTube.subtitles = function () {
 			player.toggleSubtitlesOn();
 		}
 	}
-};	
+};
 /*------------------------------------------------------------------------------
 SUBTITLES LANGUAGE
 ------------------------------------------------------------------------------*/
@@ -129,7 +129,7 @@ ImprovedTube.subtitlesLanguage = function () {
                     if( false === tracklist[i].vss_id.includes("a.") || true === this.storage.auto_generate){
                         this.elements.player.setOption('captions', 'track', tracklist[i]);
                         matchTrack = true; break;
-                    }                   
+                    }
                 }
             }
          //   if (!matchTrack){  player.toggleSubtitles();  }
@@ -348,18 +348,18 @@ ImprovedTube.playerAds = function (parent) {
 	try{var button = parent.querySelector('.ytp-ad-skip-button.ytp-button');}catch{}
 	if (button) {
 		if (this.storage.player_ads === 'block_all') {
-			button.click(); 
+			button.click();
 		} else if (this.storage.player_ads === 'subscribed_channels') {
 			if (!parent.querySelector('#meta paper-button[subscribed]')) {
-				button.click(); 
+				button.click();
 			}
 		} else if (this.storage.player_ads === 'block_music') {
 			if (ImprovedTube.elements.category === 'music') {
-				button.click();  
+				button.click();
 			}
 		}
-	}   
-};       
+	}
+};
 /*------------------------------------------------------------------------------
 AUTO FULLSCREEN
 ------------------------------------------------------------------------------*/
@@ -391,76 +391,6 @@ ImprovedTube.playerQuality = function () {
 			player.setPlaybackQuality(quality);
 			player.dataset.defaultQuality = quality;
 		}
-	}
-};
-/*------------------------------------------------------------------------------
-CODEC H.264
-------------------------------------------------------------------------------*/
-ImprovedTube.playerH264 = function () {
-	if (this.storage.player_h264 === true) {
-		var canPlayType = HTMLMediaElement.prototype.canPlayType;
-
-		function overwrite(self, callback, mime) {
-			if (/webm|vp8|vp9/.test(mime)) {
-				return false;
-			} else {
-				return callback.call(self, mime);
-			}
-		}
-
-		if (window.MediaSource) {
-			var isTypeSupported = window.MediaSource.isTypeSupported;
-
-			window.MediaSource.isTypeSupported = function (mime) {
-				return overwrite(this, isTypeSupported, mime);
-			};
-		}
-
-		HTMLMediaElement.prototype.canPlayType = function (mime) {
-			var status = overwrite(this, canPlayType, mime);
-
-			if (!status) {
-				return '';
-			} else {
-				return status;
-			}
-		};
-	}
-};
-/*------------------------------------------------------------------------------
-ALLOW 60FPS
-------------------------------------------------------------------------------*/
-ImprovedTube.player60fps = function () {
-	if (this.storage.player_60fps === false) {
-		var canPlayType = HTMLMediaElement.prototype.canPlayType;
-
-		function overwrite(self, callback, mime) {
-			var match = /framerate=(\d+)/.exec(mime);
-
-			if (match && match[1] > 30) {
-				return '';
-			} else {
-				return callback.call(self, mime);
-			}
-		}
-
-		if (window.MediaSource) {
-			var isTypeSupported = window.MediaSource.isTypeSupported;
-
-			window.MediaSource.isTypeSupported = function (mime) {
-				return overwrite(this, isTypeSupported, mime);
-			};
-		}
-
-		HTMLMediaElement.prototype.canPlayType = function (mime) {
-			var status = overwrite(this, canPlayType, mime);
-
-			if (!status) {
-				return '';
-			} else {
-				return status;
-			}
-		};
 	}
 };
 /*------------------------------------------------------------------------------
@@ -537,7 +467,7 @@ ImprovedTube.screenshot = function () {
 
 		cvs.toBlob(function (blob) {
 			if (ImprovedTube.storage.player_screenshot_save_as !== 'clipboard') {
-				var a = document.createElement('a'); 		
+				var a = document.createElement('a');
 				a.href = URL.createObjectURL(blob); console.log("screeeeeeenshot tada!");
 
 				a.download = location.href.match(/(\?|\&)v=[^&]+/)[0].substr(3) || location.href.match(/()embed\/[^&]+/)[0].substr(3) || improvedTube.videoID || location.href.match + '-' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + '.png';
@@ -728,21 +658,21 @@ ImprovedTube.playerControls = function (pause=false) {
             player.hideControls();
         } else if(hide === 'off') {
             player.showControls();
-        } else if(hide === 'when_paused') { 
-		   if(this.elements.video.paused){ 
-	       player.hideControls( );	
-	  
-	  ImprovedTube.elements.player.parentNode.addEventListener('mouseenter', function () { 
+        } else if(hide === 'when_paused') {
+		   if(this.elements.video.paused){
+	       player.hideControls( );
+
+	  ImprovedTube.elements.player.parentNode.addEventListener('mouseenter', function () {
 	  player.showControls();});
-	  ImprovedTube.elements.player.parentNode.addEventListener('mouseleave', function () { 
+	  ImprovedTube.elements.player.parentNode.addEventListener('mouseleave', function () {
       player.hideControls( );});
 
-	  	  	
-		ImprovedTube.elements.player.parentNode.onmousemove = (function() { 
+
+		ImprovedTube.elements.player.parentNode.onmousemove = (function() {
 			let onmousestop = function() {
 				player.hideControls( );
 			}, thread;
-			
+
 			return function() {
 			  player.showControls();
 			  clearTimeout(thread);
@@ -767,7 +697,7 @@ ImprovedTube.mini_player__setSize = function (width, height, keep_ar, keep_area)
     }
 
     ImprovedTube.elements.player.style.width = width + 'px';
-    ImprovedTube.elements.player.style.height = height + 'px'; 
+    ImprovedTube.elements.player.style.height = height + 'px';
 };
 
 ImprovedTube.miniPlayer_scroll = function () {
