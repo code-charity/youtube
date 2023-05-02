@@ -54,8 +54,6 @@ ImprovedTube.init = function () {
 	window.addEventListener('yt-player-updated', yt_player_updated);
 
 	this.playerOnPlay();
-	this.playerH264();
-	this.player60fps();
 	this.playerSDR();
 	this.shortcuts();
 	this.onkeydown();
