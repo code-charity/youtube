@@ -1110,6 +1110,16 @@ satus.components.modal = function(component, skeleton) {
   component.close = function() {
     var component = this;
 
+  component.close = function(outside) {
+    var component = this;
+    
+    //try calling cancel when clicked outside of modal dialog
+    if (outside) {
+        //not sure if bug free so better trap this for now
+        try { if (skeleton.actions.cancel.on.click) skeleton.actions.cancel.on.click(); }
+        catch(err){console.log(err);}
+    }
+
     this.classList.add('satus-modal--closing');
 
     setTimeout(function() {
@@ -1120,7 +1130,8 @@ satus.components.modal = function(component, skeleton) {
   };
 
   component.scrim.addEventListener('click', function() {
-    this.parentNode.close();
+    //this is someone clicking outside of modal dialog
+    this.parentNode.close(true);
   });
 
   if (satus.isset(skeleton.content)) {
