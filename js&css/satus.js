@@ -1107,9 +1107,6 @@ satus.components.modal = function(component, skeleton) {
   component.scrim = component.createChildElement('div', 'scrim');
   component.surface = component.createChildElement('div', 'surface');
 
-  component.close = function() {
-    var component = this;
-
   component.close = function(outside) {
     var component = this;
     
