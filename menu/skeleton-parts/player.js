@@ -53,47 +53,47 @@ extension.skeleton.main.layers.section.player.on.click = {
 			value: true,
 			storage: 'player_autoplay'
 		},
-				autopause_when_switching_tabs: {
+		autopause_when_switching_tabs: {
 			component: 'switch',
 			text: 'autopauseWhenSwitchingTabs',
 			storage: 'player_autopause_when_switching_tabs',
-				 on: {	 click: function () { setTimeout(() => { 
- 
+				 on: {	 click: function () { setTimeout(() => {
+
 							if (satus.storage.get('player_autopause_when_switching_tabs')) {
 								if (satus.storage.get('only_one_player_instance_playing')) {
 									this.nextSibling.click();
 								}
 							}
 						  }, "250");  }
-					}	
+					}
 		},
-				only_one_player_instance_playing: {
+		only_one_player_instance_playing: {
 			component: 'switch',
 			text: 'onlyOnePlayerInstancePlaying',
 			 on: {
-						click: function () { setTimeout(() => { 
+						click: function () { setTimeout(() => {
 							if (satus.storage.get('only_one_player_instance_playing')) {
 								if (satus.storage.get('player_autopause_when_switching_tabs')) {
 									this.previousSibling.click();
 								}
 							}
-						}, "250");  }
-					}			
+						}, "250");	}
+					}
 		},
-				player_autoPip: {
+		player_autoPip: {
 			component: 'switch',
 			text: 'autoPip',
 			value: false,
 			 on: {
-						click: function () { setTimeout(() => { 
+						click: function () { setTimeout(() => {
 							if (satus.storage.get('player_autoPip')) {
 								if (satus.storage.get('player_autopause_when_switching_tabs')) {
 									this.previousSibling.click();
 								}
 							}
-						}, "250");  }
-					}		
-		},		
+						}, "250");	}
+					}
+		},
 		quality: {
 			component: 'select',
 			text: 'quality',
@@ -177,7 +177,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'autoFullscreen',
 			storage: 'player_autofullscreen'
-		},		
+		},
 		subtitles: {
 			component: 'button',
 			text: 'subtitles',
@@ -938,7 +938,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 					value: 'av1-vp8-vp9'
 				}
 			]
-		
+
 		},
 		player_60fps: {
 			component: 'switch',
