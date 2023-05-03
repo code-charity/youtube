@@ -37,6 +37,39 @@ extension.skeleton.main.layers.section.player = {
 	}
 };
 
+/*--------------------------------------------------------------
+# ModalHelper
+--------------------------------------------------------------*/
+
+function ModalHelper(where, ok, cancel) {
+	satus.render({
+		component: 'modal',
+
+		message: {
+			component: 'text',
+			text: 'youtubeLimitsVideoQualityTo1080pForH264Codec'
+		},
+		actions: {
+			component: 'section',
+			variant: 'actions',
+
+			ok: {
+				component: 'button',
+				text: 'OK',
+				on: {
+					click: ok
+				}
+			},
+			cancel: {
+				component: 'button',
+				text: 'cancel',
+				on: {
+					click: cancel
+				}
+			}
+		}
+	}, where.parentNode.parentNode.parentNode);
+};
 
 /*--------------------------------------------------------------
 # SECTION
@@ -855,38 +888,19 @@ extension.skeleton.main.layers.section.player.on.click = {
 				click: function () {
 					if (this.dataset.value === 'true') {
 						var component = this;
-						satus.render({
-							component: 'modal',
-
-							message: {
-								component: 'text',
-								text: 'youtubeLimitsVideoQualityTo1080pForH264Codec'
-							},
-							actions: {
-								component: 'section',
-								variant: 'actions',
-
-								cancel: {
-									component: 'button',
-									text: 'cancel',
-									on: {
-										click: function () {
-											component.click();
-											this.parentNode.parentNode.parentNode.close()
-										}
-									}
-								},
-								ok: {
-									component: 'button',
-									text: 'OK',
-									on: {
-										click: function () {
-											this.parentNode.parentNode.parentNode.close()
-										}
-									}
-								}
+						ModalHelper(this, function(){
+							satus.storage.set('block_vp8', true);
+							satus.storage.set('block_vp9', true);
+							satus.storage.set('block_av1', true);
+							this.parentNode.parentNode.parentNode.close();
+							satus.storage.set('block_h264', false);
+						},
+						function(){
+							component.click();
+							if (this.componentName) {
+								this.parentNode.parentNode.parentNode.close();
 							}
-						},this.parentNode.parentNode.parentNode);
+						});
 					}
 				}
 			}
@@ -899,22 +913,49 @@ extension.skeleton.main.layers.section.player.on.click = {
 					section: {
 						component: 'section',
 						variant: 'card',
-
 						block_h264: {
 							component: 'switch',
-							text: 'blockH264'
+							text: 'blockH264',
+							on: {
+								click: function () {
+									if (this.dataset.value === 'true' && satus.storage.get('player_h264')) {
+										satus.storage.set('player_h264', false);
+									}
+								}
+							}
 						},
 						block_vp8: {
 							component: 'switch',
-							text: 'blockVp8'
+							text: 'blockVp8',
+							on: {
+								click: function () {
+									if (this.dataset.value === 'false' && satus.storage.get('player_h264')) {
+										satus.storage.set('player_h264', false);
+									}
+								}
+							}
 						},
 						block_vp9: {
 							component: 'switch',
-							text: 'blockVp9'
+							text: 'blockVp9',
+							on: {
+								click: function () {
+									if (this.dataset.value === 'false' && satus.storage.get('player_h264')) {
+										satus.storage.set('player_h264', false);
+									}
+								}
+							}
 						},
 						block_av1: {
 							component: 'switch',
-							text: 'blockAv1'
+							text: 'blockAv1',
+							on: {
+								click: function () {
+									if (this.dataset.value === 'false' && satus.storage.get('player_h264')) {
+										satus.storage.set('player_h264', false);
+									}
+								}
+							}
 						}
 					}
 				}
