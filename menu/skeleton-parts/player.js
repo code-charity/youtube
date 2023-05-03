@@ -57,42 +57,48 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'autopauseWhenSwitchingTabs',
 			storage: 'player_autopause_when_switching_tabs',
-				 on: {	 click: function () { setTimeout(() => {
-
-							if (satus.storage.get('player_autopause_when_switching_tabs')) {
-								if (satus.storage.get('only_one_player_instance_playing')) {
-									this.nextSibling.click();
-								}
+			on: {
+				click: function () {
+					setTimeout(() => {
+						if (satus.storage.get('player_autopause_when_switching_tabs')) {
+							if (satus.storage.get('only_one_player_instance_playing')) {
+								this.nextSibling.click();
 							}
-						  }, "250");  }
-					}
+						}
+					}, "250");
+				}
+			}
 		},
 		only_one_player_instance_playing: {
 			component: 'switch',
 			text: 'onlyOnePlayerInstancePlaying',
-			 on: {
-						click: function () { setTimeout(() => {
-							if (satus.storage.get('only_one_player_instance_playing')) {
-								if (satus.storage.get('player_autopause_when_switching_tabs')) {
-									this.previousSibling.click();
-								}
+			on: {
+				click: function () {
+					setTimeout(() => {
+						if (satus.storage.get('only_one_player_instance_playing')) {
+							if (satus.storage.get('player_autopause_when_switching_tabs')) {
+								this.previousSibling.click();
 							}
-						}, "250");	}
-					}
+						}
+					}, "250");
+				}
+			}
 		},
 		player_autoPip: {
 			component: 'switch',
 			text: 'autoPip',
 			value: false,
-			 on: {
-						click: function () { setTimeout(() => {
-							if (satus.storage.get('player_autoPip')) {
-								if (satus.storage.get('player_autopause_when_switching_tabs')) {
-									this.previousSibling.click();
-								}
+			on: {
+				click: function () {
+					setTimeout(() => {
+						if (satus.storage.get('player_autoPip')) {
+							if (satus.storage.get('player_autopause_when_switching_tabs')) {
+								this.previousSibling.click();
 							}
-						}, "250");	}
-					}
+						}
+					}, "250");
+				}
+			}
 		},
 		quality: {
 			component: 'select',
