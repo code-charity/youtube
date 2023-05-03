@@ -53,6 +53,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			value: true,
 			storage: 'player_autoplay'
 		},
+		up_next_autoplay: {
+			component: 'switch',
+			text: 'upNextAutoplay',
+			value: true
+		},
 		autopause_when_switching_tabs: {
 			component: 'switch',
 			text: 'autopauseWhenSwitchingTabs',
@@ -99,45 +104,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 					}, "250");
 				}
 			}
-		},
-		quality: {
-			component: 'select',
-			text: 'quality',
-			options: [{
-				text: 'auto',
-				value: 'auto'
-			}, {
-				text: '144p',
-				value: 'tiny'
-			}, {
-				text: '240p',
-				value: 'small'
-			}, {
-				text: '360p',
-				value: 'medium'
-			}, {
-				text: '480p',
-				value: 'large'
-			}, {
-				text: '720p',
-				value: 'hd720'
-			}, {
-				text: '1080p',
-				value: 'hd1080'
-			}, {
-				text: '1440p',
-				value: 'hd1440'
-			}, {
-				text: '2160p',
-				value: 'hd2160'
-			}, {
-				text: '2880p',
-				value: 'hd2880'
-			}, {
-				text: '4320p',
-				value: 'highres'
-			}],
-			storage: 'player_quality'
 		},
 		player_forced_volume: {
 			component: 'switch',
@@ -838,14 +804,48 @@ extension.skeleton.main.layers.section.player.on.click = {
 			value: true,
 			storage: 'player_crop_chapter_titles'
 		},
-		up_next_autoplay: {
-			component: 'switch',
-			text: 'upNextAutoplay',
-			value: true
-		},
 		mini_player: {
 			component: 'switch',
 			text: 'customMiniPlayer'
+		},
+		quality: {
+			component: 'select',
+			text: 'quality',
+			options: [{
+				text: 'auto',
+				value: 'auto'
+			}, {
+				text: '144p',
+				value: 'tiny'
+			}, {
+				text: '240p',
+				value: 'small'
+			}, {
+				text: '360p',
+				value: 'medium'
+			}, {
+				text: '480p',
+				value: 'large'
+			}, {
+				text: '720p',
+				value: 'hd720'
+			}, {
+				text: '1080p',
+				value: 'hd1080'
+			}, {
+				text: '1440p',
+				value: 'hd1440'
+			}, {
+				text: '2160p',
+				value: 'hd2160'
+			}, {
+				text: '2880p',
+				value: 'hd2880'
+			}, {
+				text: '4320p',
+				value: 'highres'
+			}],
+			storage: 'player_quality'
 		},
 		h264: {
 			component: 'switch',
