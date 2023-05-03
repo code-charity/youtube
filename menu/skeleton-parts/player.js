@@ -889,7 +889,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 					if (this.dataset.value === 'true') {
 						var component = this;
 						ModalHelper(this, function(){
-							satus.storage.set('block_vp8', true);
 							satus.storage.set('block_vp9', true);
 							satus.storage.set('block_av1', true);
 							this.parentNode.parentNode.parentNode.close();
@@ -919,17 +918,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 							on: {
 								click: function () {
 									if (this.dataset.value === 'true' && satus.storage.get('player_h264')) {
-										satus.storage.set('player_h264', false);
-									}
-								}
-							}
-						},
-						block_vp8: {
-							component: 'switch',
-							text: 'blockVp8',
-							on: {
-								click: function () {
-									if (this.dataset.value === 'false' && satus.storage.get('player_h264')) {
 										satus.storage.set('player_h264', false);
 									}
 								}
