@@ -41,13 +41,13 @@ extension.skeleton.main.layers.section.player = {
 # ModalHelper
 --------------------------------------------------------------*/
 
-function ModalHelper(where, ok, cancel) {
+function ModalHelper(where, what, ok, cancel) {
 	satus.render({
 		component: 'modal',
 
 		message: {
 			component: 'text',
-			text: 'youtubeLimitsVideoQualityTo1080pForH264Codec'
+			text: what
 		},
 		actions: {
 			component: 'section',
@@ -57,14 +57,23 @@ function ModalHelper(where, ok, cancel) {
 				component: 'button',
 				text: 'OK',
 				on: {
-					click: ok
+					click: function () {
+						ok();
+						this.parentNode.parentNode.parentNode.close();
+						}
 				}
 			},
 			cancel: {
 				component: 'button',
 				text: 'cancel',
 				on: {
-					click: cancel
+					click:  function () {
+						where.click();
+						cancel();
+						if (this.componentName) {
+							this.parentNode.parentNode.parentNode.close();
+							}
+						}
 				}
 			}
 		}
@@ -887,18 +896,12 @@ extension.skeleton.main.layers.section.player.on.click = {
 			on: {
 				click: function () {
 					if (this.dataset.value === 'true') {
-						var component = this;
-						ModalHelper(this, function(){
+						ModalHelper(this, 'youtubeLimitsVideoQualityTo1080pForH264Codec', function(){
 							satus.storage.set('block_vp9', true);
 							satus.storage.set('block_av1', true);
-							this.parentNode.parentNode.parentNode.close();
 							satus.storage.set('block_h264', false);
 						},
 						function(){
-							component.click();
-							if (this.componentName) {
-								this.parentNode.parentNode.parentNode.close();
-							}
 						});
 					}
 				}
@@ -920,6 +923,12 @@ extension.skeleton.main.layers.section.player.on.click = {
 									if (this.dataset.value === 'true' && satus.storage.get('player_h264')) {
 										satus.storage.set('player_h264', false);
 									}
+									if (this.dataset.value === 'true' && satus.storage.get('block_vp9')) {
+										ModalHelper(this, 'You need either VP9 or H264 enabled for Youtube to work. Disabling both will break Video.', function(){
+										},
+										function(){
+										});
+									}
 								}
 							}
 						},
@@ -930,6 +939,12 @@ extension.skeleton.main.layers.section.player.on.click = {
 								click: function () {
 									if (this.dataset.value === 'false' && satus.storage.get('player_h264')) {
 										satus.storage.set('player_h264', false);
+									}
+									if (this.dataset.value === 'true' && satus.storage.get('block_h264')) {
+										ModalHelper(this, 'You need either VP9 or H264 enabled for Youtube to work. Disabling both will break Video.', function(){
+										},
+										function(){
+										});
 									}
 								}
 							}
