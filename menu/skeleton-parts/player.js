@@ -38,7 +38,8 @@ extension.skeleton.main.layers.section.player = {
 };
 
 /*--------------------------------------------------------------
-# ModalHelper
+# ModalHelper, like satus.components.modal.confirm but lets you
+  pass callback functions
 --------------------------------------------------------------*/
 
 function ModalHelper(where, what, ok, cancel) {
@@ -895,14 +896,30 @@ extension.skeleton.main.layers.section.player.on.click = {
 			storage: 'player_h264',
 			on: {
 				click: function () {
+					//always refresh player_codecs element when clicking here
+					let skeleton = this.parentNode.skeleton;
+					refresh = function () {
+						skeleton.player_codecs.list.rendered.dispatchEvent(new CustomEvent('refresh'));
+						skeleton.optimize_codec_for_hardware_acceleration.list.rendered.dispatchEvent(new CustomEvent('refresh'));
+					}
 					if (this.dataset.value === 'true') {
 						ModalHelper(this, 'youtubeLimitsVideoQualityTo1080pForH264Codec', function(){
 							satus.storage.set('block_vp9', true);
 							satus.storage.set('block_av1', true);
 							satus.storage.set('block_h264', false);
+							refresh();
 						},
 						function(){
+							satus.storage.set('block_vp9', false);
+							satus.storage.set('block_av1', false);
+							satus.storage.set('block_h264', false);
+							refresh();
 						});
+					} else {
+						satus.storage.set('block_vp9', false);
+						satus.storage.set('block_av1', false);
+						satus.storage.set('block_h264', false);
+						refresh();
 					}
 				}
 			}
@@ -910,6 +927,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_codecs: {
 			component: 'button',
 			text: 'codecs',
+			style: {
+				justifyContent: 'space-between'
+			},
 			on: {
 				click: {
 					section: {
@@ -962,33 +982,68 @@ extension.skeleton.main.layers.section.player.on.click = {
 						}
 					}
 				}
+			},
+			list: {
+				component: 'span',
+				style: {
+					opacity: .64
+				},
+				on: {
+					refresh: function () { this.skeleton.on.render() },
+					render: function () {
+						var codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
+						var here = this.parentObject ? this.parentObject.rendered : this;
+
+						if (codecs) {
+							here.style = '';
+							here.textContent = codecs;
+						} else {
+							here.style = 'color: red!important; font-weight: bold;';
+							here.textContent = 'none';
+						}
+					}
+				}
 			}
 		},
-		avoid_cpu_rendering_when_possible: {
-			component: 'select',
-			text: 'avoidCpuRenderingWhenPossible',
-			options: [{
-					text: 'disabled',
-					value: 'disabled'
-				},
-				{
-					text: 'auto',
-					value: 'auto'
-				},
-				{
-					text: 'avoidAv1',
-					value: 'av1'
-				},
-				{
-					text: 'avoidAv1Vp9',
-					value: 'av1-vp9'
-				},
-				{
-					text: 'avoidAv1Vp8Vp9',
-					value: 'av1-vp8-vp9'
+		optimize_codec_for_hardware_acceleration: {
+			component: 'button',
+			text: 'Optimize Codec for hardware acceleration',
+			style: {
+				justifyContent: 'space-between'
+			},
+			on: {
+				click: function () {
+					//put some code here
 				}
-			]
+			},
+			list: {
+				component: 'span',
+				style: {
+					opacity: .64
+				},
+				on: {
+					refresh: function () { this.skeleton.on.render() },
+					render: function () {
+						// put some code here looking up GPU  capabilities and comparing to currrent codec selection
+						var codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
+						var here = this.parentObject ? this.parentObject.rendered : this;
 
+						if (1) { // todo
+							here.style = '';
+							here.textContent = 'Feature not yet available';
+						} else if (2) { // todo
+							here.style = '';
+							here.textContent = 'unknown GPU';
+						} else if (codecs) {
+							here.style = 'color: greenimportant; font-weight: bold;';
+							here.textContent = 'Optimal';
+						} else {
+							here.style = 'color: red!important; font-weight: bold;';
+							here.textContent = 'Not optimal';
+						}
+					}
+				}
+			}
 		},
 		player_60fps: {
 			component: 'switch',
