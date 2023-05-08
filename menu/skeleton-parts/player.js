@@ -890,6 +890,88 @@ extension.skeleton.main.layers.section.player.on.click = {
 			}],
 			storage: 'player_quality'
 		},
+		player_codecs: {
+			component: 'button',
+			text: 'codecs',
+			style: {
+				justifyContent: 'space-between'
+			},
+			on: {
+				click: {
+					section: {
+						
+						component: 'section',
+						variant: 'card',
+						block_av1: {
+							component: 'switch',
+							text: 'blockAv1',
+							on: {
+								click: function () {
+									if (this.dataset.value === 'false' && satus.storage.get('player_h264')) {
+										satus.storage.set('player_h264', false);
+									}
+								}
+							}
+						},
+						block_vp9: {
+							component: 'switch',
+							text: 'blockVp9',
+							on: {
+								click: function () {
+									if (this.dataset.value === 'false' && satus.storage.get('player_h264')) {
+										satus.storage.set('player_h264', false);
+									}
+									if (this.dataset.value === 'true' && satus.storage.get('block_h264')) {
+										ModalHelper(this, 'You need either VP9 or H264 enabled for Youtube to work. Disabling both will break Video.', function(){
+										},
+										function(){
+										});
+									}
+								}
+							}
+						},
+						block_h264: {
+							component: 'switch',
+							text: 'blockH264',
+							on: {
+								click: function () {
+									if (this.dataset.value === 'true' && satus.storage.get('player_h264')) {
+										satus.storage.set('player_h264', false);
+									}
+									if (this.dataset.value === 'true' && satus.storage.get('block_vp9')) {
+										ModalHelper(this, 'You need either VP9 or H264 enabled for Youtube to work. Disabling both will break Video.', function(){
+										},
+										function(){
+										});
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			list: {
+				component: 'span',
+				style: {
+					opacity: .64
+				},
+				on: {
+					refresh: function () { this.skeleton.on.render() },
+					render: function () {
+						var codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
+						var here = this.parentObject ? this.parentObject.rendered : this;
+
+						if (codecs) {
+							here.style = '';
+							here.textContent = codecs;
+						} else {
+							here.style = 'color: red!important; font-weight: bold;';
+							here.textContent = 'none';
+						}
+					}
+				}
+			}
+		},
 		h264: {
 			component: 'switch',
 			text: 'codecH264',
@@ -920,87 +1002,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 						satus.storage.set('block_av1', false);
 						satus.storage.set('block_h264', false);
 						refresh();
-					}
-				}
-			}
-		},
-		player_codecs: {
-			component: 'button',
-			text: 'codecs',
-			style: {
-				justifyContent: 'space-between'
-			},
-			on: {
-				click: {
-					section: {
-						component: 'section',
-						variant: 'card',
-						block_h264: {
-							component: 'switch',
-							text: 'blockH264',
-							on: {
-								click: function () {
-									if (this.dataset.value === 'true' && satus.storage.get('player_h264')) {
-										satus.storage.set('player_h264', false);
-									}
-									if (this.dataset.value === 'true' && satus.storage.get('block_vp9')) {
-										ModalHelper(this, 'You need either VP9 or H264 enabled for Youtube to work. Disabling both will break Video.', function(){
-										},
-										function(){
-										});
-									}
-								}
-							}
-						},
-						block_vp9: {
-							component: 'switch',
-							text: 'blockVp9',
-							on: {
-								click: function () {
-									if (this.dataset.value === 'false' && satus.storage.get('player_h264')) {
-										satus.storage.set('player_h264', false);
-									}
-									if (this.dataset.value === 'true' && satus.storage.get('block_h264')) {
-										ModalHelper(this, 'You need either VP9 or H264 enabled for Youtube to work. Disabling both will break Video.', function(){
-										},
-										function(){
-										});
-									}
-								}
-							}
-						},
-						block_av1: {
-							component: 'switch',
-							text: 'blockAv1',
-							on: {
-								click: function () {
-									if (this.dataset.value === 'false' && satus.storage.get('player_h264')) {
-										satus.storage.set('player_h264', false);
-									}
-								}
-							}
-						}
-					}
-				}
-			},
-			list: {
-				component: 'span',
-				style: {
-					opacity: .64
-				},
-				on: {
-					refresh: function () { this.skeleton.on.render() },
-					render: function () {
-						var codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
-						var here = this.parentObject ? this.parentObject.rendered : this;
-
-						if (codecs) {
-							here.style = '';
-							here.textContent = codecs;
-						} else {
-							here.style = 'color: red!important; font-weight: bold;';
-							here.textContent = 'none';
-						}
 					}
 				}
 			}
