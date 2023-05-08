@@ -376,6 +376,19 @@ ImprovedTube.playerAutofullscreen = function () {
 QUALITY
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerQuality = function () {
+	function closest (num, arr) {
+                let curr = arr[0];
+                let diff = Math.abs (num - curr);
+                for (let val = 0; val < arr.length; val++) {
+                    let newdiff = Math.abs (num - arr[val]);
+                    if (newdiff < diff) {
+                        diff = newdiff;
+                        curr = arr[val];
+                    }
+                }
+                return curr;
+            };
+
 	var player = this.elements.player,
 		quality = this.storage.player_quality;
 
@@ -384,7 +397,14 @@ ImprovedTube.playerQuality = function () {
 
 		if (quality && quality !== 'auto') {
 			if (available_quality_levels.includes(quality) === false) {
-				quality = available_quality_levels[0];
+				let label = ['tiny', 'small', 'medium', 'large', 'hd720', 'hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'];
+				let resolution = ['144', '240', '360', '480', '720', '1080', '1440', '2160', '2880', '4320'];
+				let availableresolutions = available_quality_levels.reduce(function (array, elem) {
+					array.push(resolution[label.indexOf(elem)]); return array;
+					}, []);
+
+				quality = closest (resolution[label.indexOf(quality)], availableresolutions);
+				quality = label[resolution.indexOf(quality)];
 			}
 
 			player.setPlaybackQualityRange(quality);
