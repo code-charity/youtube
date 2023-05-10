@@ -3062,7 +3062,7 @@ satus.user.device.gpu = function() {
 --------------------------------------------------------------*/
 
 satus.user.device.cores = function() {
-  return navigator.deviceConcurrency;
+  return navigator.deviceConcurrency || navigator.hardwareConcurrency;
 };
 
 
