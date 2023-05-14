@@ -44,9 +44,8 @@ satus.storage.import(function (items) {
 		]);
 
 		extension.attributes();
+		satus.events.on('storage-set', extension.attributes);
 	}, '_locales/');
-
-	satus.events.on('storage-set', extension.attributes);
 });
 
 chrome.runtime.sendMessage({
