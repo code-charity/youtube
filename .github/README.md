@@ -172,8 +172,7 @@ Chinese + Hindi + Spanish) <br></i></div>
 
 <h2>Contributing</h2>
 For more info on how to contribute, <br> please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
-
-<br><br><br><br>
+<br><br><br>
 
 <details><summary>
 Original introduction</summary>
@@ -193,7 +192,14 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 **W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱  
 	
   </details> <br>
-<h4> <code><code>🎁</code></code>Our Extensions: </h4></summary>
+  
+#### Vision for user-styles- & modding-Communities": 
+Instead of just tweaking@home we can for the world well priotized: [github/Universal-UserTweaks](https://github.com/code-charity/Universal-UserTweaks) 
+
+#### Initiative for (small) Open-Source Efficiency: 🌱[`Pull Requests bots`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot) 
+(+[`regEx Collector`](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - community-list of Regex") ? ) 
+
+<h3> <code><code>🎁</code></code>Our Extensions: </h3></summary>
 	
 **Superb:** [**<code>History Manager</code>**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" height="18px"></a>  **Filter:** <code>[**unFreeze me**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl " - Unlock your Right-Click, Ctrl+F, Selection anywhere!")</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/unlock-keyboard-and-mouse)  & <code>[**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl " - Universal dark-mode!") </code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/dark-mode)  
 <b> Research:</b> [<code><b> Ultimate Regex (Search & Replace, markup to come?)</b>](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")</code>[<img src="github.png" height="15px">](https://github.com/code-for-charity/regex) ([`Regex Replace`](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)<a href="https://github.com/code-for-charity/ultimate-REGEX-extension/issues/3" title="No Repo. We can upload it from Webstore (partly merged"><img src="github.png" height="18px"></a>) **Browser:** [**`Custom user agent`**](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/user-agent) &  [`auto-scroll`](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch "(missing in Linux)")<a href="https://github.com/code-for-charity/auto-scroll"><img src="github.png" height="18px"></a>
@@ -201,12 +207,11 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 <br><b>Home:</b> (Start Page tabs <a href="https://github.com/code-for-charity/start-page"><img src="github.png" height="18px"></a> <i> to be uploaded </i>), [`TextEditor`](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka) [<img src="github.png" height="18px">](https://github.com/code-for-charity/Editor), [`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-for-charity/todo)  
   **Development:**  [**`Satus`**](https://github.com/code-for-charity/satus) (Our JS library) |  [**`WebGL.js`**](https://github.com/code-for-charity/webgl.js) - WebGL Library ([Endless grid](https://github.com/code-for-charity/pluviam), [CodeEditor](https://github.com/code-for-charity/code-editor), [TE](https://github.com/code-for-charity/theme-engine), <del> [Viscum Player](https://github.com/code-for-charity/viscum-player)</del> - video.js?)  <br>
 
-#### We can help more projects at once! : [github/Universal-UserTweaks](https://github.com/code-charity/Universal-UserTweaks) 
-#### Initative for Open-source Dev-efficiency:: 🌱[`Pull Requests bots`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)  (+ 🐣[`Regex Collector`](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - community-list of Regex")  
+
 
 #### 💡 Got great ideas?   
 	
-We might work on novel (new & unique) <br> projects at [github/**Wish-Factory**](https://github.com/code-for-charity/wish-factory "💡🎁") (or ideas@improvedtube.com) 
+We might work on novel (new & unique) <br> projects at [github/**Wish-Factory**](https://github.com/code-for-charity/wish-factory "💡🎁") (or ideas@improvedtube.com) <br><br><br>
 <details><summary>
 <code>👩‍💻</code> "Behind the scenes"</summary>
 <code> <a href="https://starchart.cc/ImprovedTube/YouTube.svg"><img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="170px" title="github starchart"></a> </code>
@@ -228,9 +233,8 @@ We might work on novel (new & unique) <br> projects at [github/**Wish-Factory**]
  </details> <br><br><details><summary>
 <code>📟</code> "ImprovedTube Ticker 2022 / Pinned Issues"</summary>
 	
-###### ❔[**<code><code><code>ImprovedTube controls</code></code></code>** in, under or around the video player or cursor](https://github.com/code4charity/YouTube-Extension/issues/1445).  <br> ❔[**<code><code>Meaningful/Most similar extensions</code></code>**? Social-Fixer, Youtube Enhancer, Simplify, ...](https://github.com/code4charity/YouTube-Extension/issues/1016).<br> 📟 We are focused on <code>updates, bugs & UX</code> but please keep up your wishes for Features!<code><code><code>♡</code></code></code><br> 📟 Enjoy **our projects: global** [**<code><code><code>Dark Mode</code></code></code>**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making, ...<br> 📟 **<code>2021</code>:** Firefox, Edge, Opera, Whale added (please try&rate)
- </details><br>---<details><summary>
-<code>📜</code>Historic Introduction</summary> 
+###### ❔[**<code><code><code>ImprovedTube controls</code></code></code>** in, under or around the video player or cursor](https://github.com/code4charity/YouTube-Extension/issues/1445).  <br> ❔[**<code><code>Meaningful/Most similar extensions</code></code>**? Social-Fixer, Youtube Enhancer, Simplify, ...](https://github.com/code4charity/YouTube-Extension/issues/1016).<br> 📟 We are focused on <code>updates, bugs & UX</code> but please keep up your wishes for Features!<code><code><code>♡</code></code></code><br> 📟 Enjoy **our projects: global** [**<code><code><code>Dark Mode</code></code></code>**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making, ...<br> 📟 **<code>2021</code>:** Firefox, Edge, Opera, Whale added (please try&rate) </details><hr><br>
+<details><summary><code>📜</code>Historic Introduction</summary> 
 
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is an extension we built <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/346/beaver_1f9ab.png" height="28px"> to refine your YouTube experience. A powerful one-stop-shop with many features to enhance YouTube, yet liteweight. Be it a larger player or more tidy / studious YouTube UI, hiding distractions. And there was so much left to build and are many clever features to come still. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ImprovedTube is designed with our own UI library: [Satus](https://github.com/code-for-charity/satus) (to manage your settings efficiently & create familiar apps/['cousins](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl) easily.) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please spread the word: ImprovedTube is the only project of it's kind, because other open Youtube Extensions resigned. No other project provides so much CSS to adjust a website[🦄](https://github.com/search?q=stars%3A%3E700++size%3A%3E3000+++language%3ACSS++App+OR+Addon+OR+Extension+NOT+framework+NOT+apps&type=Repositories&s=updated&o=desc)</font>.
