@@ -172,7 +172,7 @@ Chinese + Hindi + Spanish) <br></i></div>
 
 <h2>Contributing</h2>
 For more info on how to contribute, <br> please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
-<br><br><br>
+<br><br><br><br>
 
 <details><summary>
 Original introduction</summary>
@@ -189,12 +189,10 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 
 ##### <div align="center">Spread the word [<code><code><code><code>📣</code></code></code></code>](Http://Twitter_Whatsapp_Discord_Youtube_Facebook_eMail_Telegram_Signal)</div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 
-**W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱  
-	
-  </details> <br>
+**W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> <br><hr>
   
-#### Vision for Tweaking-, Userstyle- & Modding-Community": 
-Instead of mostly tweaking@home we can do so for the world, well priotized: [github/Universal-UserTweaks](https://github.com/code-charity/Universal-UserTweaks) 
+#### Vision for the "tweaking-/userStyle-/modding-Community": 
+Insteada mostly 'tweakin@home like Sisyphos', we could simultaneously do so for the world greatly priotized: [github/Universal-UserTweaks](https://github.com/code-charity/Universal-UserTweaks) 
 
 #### Initiative for (small) Open-Source Efficiency: 🌱[`Pull Requests bots`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)
 (+ [`regEx Collector`](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - community-list of Regex") ? ) 
@@ -207,7 +205,7 @@ Instead of mostly tweaking@home we can do so for the world, well priotized: [git
 <br><b>Home:</b> (Start Page tabs <a href="https://github.com/code-for-charity/start-page"><img src="github.png" height="18px"></a> <i> to be uploaded </i>), [`TextEditor`](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka) [<img src="github.png" height="18px">](https://github.com/code-for-charity/Editor), [`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-for-charity/todo)  
   **Development:**  [**`Satus`**](https://github.com/code-for-charity/satus) (Our JS library) |  [**`WebGL.js`**](https://github.com/code-for-charity/webgl.js) - WebGL Library ([Endless grid](https://github.com/code-for-charity/pluviam), [CodeEditor](https://github.com/code-for-charity/code-editor), [TE](https://github.com/code-for-charity/theme-engine), <del> [Viscum Player](https://github.com/code-for-charity/viscum-player)</del> - video.js?)  <br>
 
-#### 💡 Got great ideas?   
+### 💡 Got great/er ideas?   
 	
 We might work on novel (new & unique) <br> projects at [github/**Wish-Factory**](https://github.com/code-for-charity/wish-factory "💡🎁") (or ideas@improvedtube.com) <br><br><br>
 <details><summary>
@@ -217,7 +215,7 @@ We might work on novel (new & unique) <br> projects at [github/**Wish-Factory**]
 <img width="400" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png">
 <div align="center"><br><img align="center" width="400" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png"> <br> <br> <b>D</b>o you need to run a popular extension, site, app or repo?<br> We'd love to help meaningful projects@improvedtube.com 	
 	<br></div></details><details><summary><h4>
-<code>🏝<code>⛵</code>🏕</code> Issue-Filters // To-Do List</h4></summary>
+<code>🏝<code>⛵</code>🏕</code> Github-Issue-Filters (= dynamic To-Do List) </h4></summary>
 
 **0.** <code>[ ]</code>  [<code>**Bugs🐞**</code>](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+ "we aim to offer some bug-bounties. Please ask")  (<i>we try to offer some bug bounty. [Please ask](mailto:bugs@improvedtube.com?subject=TODO_BOUNTY_LINK  "especially if you are at a cheap/poor place ❤️") </i>.)  	
 <br>**1.** **<code>[ ]</code>** [**<code>Documentation, wiki, screenshots, video, ...</code>**](https://github.com/code-for-charity/YouTube-Extension/wiki "We need to help people learning as easily as possible about our 90+ features. (Drafts welcome. This will become 🛈tooltips in the extension too!")</code>
