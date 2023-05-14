@@ -191,8 +191,8 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 
 **W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> <br><hr>
   
-#### Vision for the "tweaking-/userStyle-/modding-Community": 
-Insteada mostly 'tweakin@home like Sisyphos', we could simultaneously do so for the world greatly priotized: [github/Universal-UserTweaks](https://github.com/code-charity/Universal-UserTweaks) 
+#### Vision for the (tweaking-/userStyle-/modding-)Community: 
+'Insteada mostly only tweakin@home like Sisyphos', we can start to simultaneously do so for the world greatly priotized: [github/Universal-UserTweaks](https://github.com/code-charity/Universal-UserTweaks) 
 
 #### Initiative for (small) Open-Source Efficiency: 🌱[`Pull Requests bots`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)
 (+ [`regEx Collector`](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - community-list of Regex") ? ) 
