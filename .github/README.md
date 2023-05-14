@@ -207,18 +207,18 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 
 ### 💡 Got great/er ideas?   
 	
-We might work on novel (new & unique) <br> projects at [github/**Wish-Factory**](https://github.com/code-for-charity/wish-factory "💡🎁") (or ideas@improvedtube.com) <br><br><br>
+We might work on novel (new & unique) <br> projects at [github/**Wish-Factory**](https://github.com/code-for-charity/wish-factory "💡🎁") (or ideas@improvedtube.com)
 <details><summary>
 <code>👩‍💻</code> "Behind the scenes"</summary>
 <code> <a href="https://starchart.cc/ImprovedTube/YouTube.svg"><img src="https://starchart.cc/ImprovedTube/YouTube.svg" width="170px" title="github starchart"></a> </code>
 <img width="313" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
 <img width="400" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png">
 <div align="center"><br><img align="center" width="400" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png"> <br> <br> <b>D</b>o you need to run a popular extension, site, app or repo?<br> We'd love to help meaningful projects@improvedtube.com 	
-	<br></div></details>
+	<br></div></details><br><hr>
 
-### Our Labels, ordered by amount: [labels?sort=count](https://github.com/code-charity/youtube/labels?sort=count-desc)
+### Our Labels,  by amount: [?sort=count](https://github.com/code-charity/youtube/labels?sort=count-desc)
 
-<details><summary><h4><code>🏝<code>⛵</code>🏕</code> To-Do  ( - Label Filters & exclusions: Dynamic To-Do lists) </h4></summary>
+<details><summary><h3><code>🏝<code>⛵</code>🏕</code> To-Do </h3> <br>(Label Filters & exclusions: Dynamic To-Do lists) </summary>
 
 **0.** <code>[ ]</code>  [<code>**Bugs🐞**</code>](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+ "we aim to offer some bug-bounties. Please ask")  (<i>we try to offer some bug bounty. [Please ask](mailto:bugs@improvedtube.com?subject=TODO_BOUNTY_LINK  "especially if you are at a cheap/poor place ❤️") </i>.)  	
 <br>**1.** **<code>[ ]</code>** [**<code>Documentation, wiki, screenshots, video, ...</code>**](https://github.com/code-for-charity/YouTube-Extension/wiki "We need to help people learning as easily as possible about our 90+ features. (Drafts welcome. This will become 🛈tooltips in the extension too!")</code>
@@ -229,10 +229,10 @@ We might work on novel (new & unique) <br> projects at [github/**Wish-Factory**]
  
 <br>**0.1. <code>[ ]</code><i>** Tidy: <b> [<code>(Rest/Unsorted 'issues')</code>](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan%20ready+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3A"Niche%2Frare+usecase%3F%2Ffun%3F"++-label%3Aunclear "Our github issues, which are not yet labled yet to appear in one of the ToDo-categories above")  </i></b>
 > Further reading: [***"Contributing without programming"***](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)  & [*"Our CSS, JavaScript, json"*](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code>(<code> ***outdated**)* (*Newcomers are [we](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)lcome tho! We review all edits & love to collaborate*</code>)</code> 
- </details><br><br> <details><summary>
-<code>📟</code> "ImprovedTube Ticker 2022 / Pinned Issues"</summary>
+ </details><br><details><summary>
+<code>📟</code> "ImprovedTube Ticker 2022" /Pinned Issues</summary>
 	
-###### ❔[**<code><code><code>ImprovedTube controls</code></code></code>** in, under or around the video player or cursor](https://github.com/code4charity/YouTube-Extension/issues/1445).  <br> ❔[**<code><code>Meaningful/Most similar extensions</code></code>**? Social-Fixer, Youtube Enhancer, Simplify, ...](https://github.com/code4charity/YouTube-Extension/issues/1016).<br> 📟 We are focused on <code>updates, bugs & UX</code> but please keep up your wishes for Features!<code><code><code>♡</code></code></code><br> 📟 Enjoy **our projects: global** [**<code><code><code>Dark Mode</code></code></code>**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making, ...<br> 📟 **<code>2021</code>:** Firefox, Edge, Opera, Whale added (please try&rate) </details><hr><br>
+###### ❔[**<code><code><code>ImprovedTube controls</code></code></code>** in, under or around the video player or cursor](https://github.com/code4charity/YouTube-Extension/issues/1445).  <br> ❔[**<code><code>Meaningful/Most similar extensions</code></code>**? Social-Fixer, Youtube Enhancer, Simplify, ...](https://github.com/code4charity/YouTube-Extension/issues/1016).<br> 📟 We are focused on <code>updates, bugs & UX</code> but please keep up your wishes for Features!<code><code><code>♡</code></code></code><br> 📟 Enjoy **our projects: global** [**<code><code><code>Dark Mode</code></code></code>**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making, ...<br> 📟 **<code>2021</code>:** Firefox, Edge, Opera, Whale added (please try&rate) </details><br><hr><br>
 <details><summary><code>📜</code>Historic Introduction</summary> 
 
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
