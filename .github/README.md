@@ -216,9 +216,11 @@ We might work on novel (new & unique) <br> projects at [github/**Wish-Factory**]
 <div align="center"><br><img align="center" width="400" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png"> <br> <br> <b>D</b>o you need to run a popular extension, site, app or repo?<br> We'd love to help meaningful projects@improvedtube.com 	
 	<br></div></details><br><hr>
 
-### Our Labels,  by amount: [?sort=count](https://github.com/code-charity/youtube/labels?sort=count-desc)
+<h3><code>🏝<code>⛵</code>🏕</code> To-Do </h3>
 
-<details><summary><h3><code>🏝<code>⛵</code>🏕</code> To-Do </h3> <br>(Label Filters & exclusions: Dynamic To-Do lists) </summary>
+### <code>🏷️</code> Our Labels,  by amount: [?sort=count](https://github.com/code-charity/youtube/labels?sort=count-desc)
+
+<details><summary> <h4>(Label Filters & exclusions: Dynamic To-Do list) </h4></summary>
 
 **0.** <code>[ ]</code>  [<code>**Bugs🐞**</code>](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+ "we aim to offer some bug-bounties. Please ask")  (<i>we try to offer some bug bounty. [Please ask](mailto:bugs@improvedtube.com?subject=TODO_BOUNTY_LINK  "especially if you are at a cheap/poor place ❤️") </i>.)  	
 <br>**1.** **<code>[ ]</code>** [**<code>Documentation, wiki, screenshots, video, ...</code>**](https://github.com/code-for-charity/YouTube-Extension/wiki "We need to help people learning as easily as possible about our 90+ features. (Drafts welcome. This will become 🛈tooltips in the extension too!")</code>
@@ -232,7 +234,7 @@ We might work on novel (new & unique) <br> projects at [github/**Wish-Factory**]
  </details><br><details><summary>
 <code>📟</code> "ImprovedTube Ticker 2022" /Pinned Issues</summary>
 	
-###### ❔[**<code><code><code>ImprovedTube controls</code></code></code>** in, under or around the video player or cursor](https://github.com/code4charity/YouTube-Extension/issues/1445).  <br> ❔[**<code><code>Meaningful/Most similar extensions</code></code>**? Social-Fixer, Youtube Enhancer, Simplify, ...](https://github.com/code4charity/YouTube-Extension/issues/1016).<br> 📟 We are focused on <code>updates, bugs & UX</code> but please keep up your wishes for Features!<code><code><code>♡</code></code></code><br> 📟 Enjoy **our projects: global** [**<code><code><code>Dark Mode</code></code></code>**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making, ...<br> 📟 **<code>2021</code>:** Firefox, Edge, Opera, Whale added (please try&rate) </details><br><hr><br>
+###### ❔[**<code><code><code>ImprovedTube controls</code></code></code>** in, under or around the video player or cursor](https://github.com/code4charity/YouTube-Extension/issues/1445).  <br> ❔[**<code><code>Meaningful/Most similar extensions</code></code>**? Social-Fixer, Youtube Enhancer, Simplify, ...](https://github.com/code4charity/YouTube-Extension/issues/1016).<br> 📟 We are focused on <code>updates, bugs & UX</code> but please keep up your wishes for Features!<code><code><code>♡</code></code></code><br> 📟 Enjoy **our projects: global** [**<code><code><code>Dark Mode</code></code></code>**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making, ...<br> 📟 **<code>2021</code>:** Firefox, Edge, Opera, Whale added (please try&rate) </details><hr><br>
 <details><summary><code>📜</code>Historic Introduction</summary> 
 
 [ImprovedTube](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd),
