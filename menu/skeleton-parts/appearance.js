@@ -175,7 +175,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				custom_player_size_width: {
 					component: "text-field",
 					placeholder: "1280",
-					storage: "custom_player_size_width",
 					rows: 1,
 					lineNumbers: false
 				},
@@ -186,12 +185,11 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				custom_player_size_height: {
 					component: "text-field",
 					placeholder: "720",
-					storage: "custom_player_size_height",
 					rows: 1,
 					lineNumbers: false
 				}
 			},
-			hide_controls: {
+			player_hide_controls: {
 				component: "select",
 				text: "hidePlayerControlsBar",
 				options: [{
@@ -204,8 +202,7 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				}, {
 					text: "always",
 					value: "always"
-				}],
-				storage: "player_hide_controls"
+				}]
 			},
 			player_hide_controls_options: {
 				component: "button",
@@ -757,7 +754,6 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 				component: 'switch',
 				text: 'Transcript',
 				value: false,
-				storage: 'transcript',
 				id: 'transcript',
 				on: {
 					click: function () {  setTimeout(() => {
