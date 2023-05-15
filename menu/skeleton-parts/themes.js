@@ -74,13 +74,11 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 							text: 'primaryColor',
 							value: [200, 200, 200]
 						},
-				theme_text_color: {
+						theme_text_color: {
 							component: 'color-picker',
 							text: 'textColor',
 							value: [25, 25, 25]
-						},
-
-
+						}
 					}
 				}
 			}
