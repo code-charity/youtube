@@ -216,10 +216,7 @@ We might work on novel (new & unique) <br> projects at [github/**Wish-Factory**]
 <div align="center"><br><img align="center" width="400" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png"> <br> <br> <b>D</b>o you need to run a popular extension, site, app or repo?<br> We'd love to help meaningful projects@improvedtube.com 	
 	<br></div></details><br><hr>
 
-<h3><code>🏝<code>⛵</code>🏕</code> To-Do </h3>
-
-### <code>🏷️</code> Our Labels,  by amount: [?sort=count](https://github.com/code-charity/youtube/labels?sort=count-desc)
-
+### <code>🏝<code>⛵</code>🏕</code> To-Do:  <br>   Our Labels    by amount: [<code>🏷️</code>?sort=count](https://github.com/code-charity/youtube/labels?sort=count-desc) 
 <details><summary> <h4>(Label Filters & exclusions: Dynamic To-Do list) </h4></summary>
 
 **0.** <code>[ ]</code>  [<code>**Bugs🐞**</code>](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+ "we aim to offer some bug-bounties. Please ask")  (<i>we try to offer some bug bounty. [Please ask](mailto:bugs@improvedtube.com?subject=TODO_BOUNTY_LINK  "especially if you are at a cheap/poor place ❤️") </i>.)  	
