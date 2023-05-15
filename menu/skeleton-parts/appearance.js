@@ -864,9 +864,10 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 						}, "250"); }
 					}	
 			},
-			compactSpacing: {
+			compact_spacing: {
                 component: "switch",
                 text: "Compact spacing",
+				storage: 'compactSpacing'
             },		
 			no_page_margin: {
 					component: 'switch',
