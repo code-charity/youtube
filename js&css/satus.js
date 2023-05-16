@@ -2433,16 +2433,36 @@ satus.components.switch = function(component, skeleton) {
   component.createChildElement('i');
 
   component.dataset.value = value;
+	component.flip = satus.components.switch.flip;
 
-  component.addEventListener('click', function() {
-    if (this.dataset.value === 'true') {
-      this.dataset.value = 'false';
-      this.storage.value = false;
-    } else {
-      this.dataset.value = 'true';
-      this.storage.value = true;
-    }
-  }, true);
+	// 'custom' disables default onclick, user provided function should handle this functionality manually
+	if (!skeleton.custom) {
+		component.addEventListener('click', function() {
+			this.flip();
+		}, true);
+	}
+};
+
+satus.components.switch.flip = function(val) {
+	switch(val) {
+		case true:
+			this.dataset.value = 'true';
+			this.storage.value = true;
+			break;
+		case false:
+			this.dataset.value = 'false';
+			this.storage.value = false;
+			break;
+		case undefined:
+			if (this.dataset.value === 'true') {
+				this.dataset.value = 'false';
+				this.storage.value = false;
+			} else {
+				this.dataset.value = 'true';
+				this.storage.value = true;
+			}
+			break;
+	}
 };
 /*--------------------------------------------------------------
 >>> CONTEXT MENU
