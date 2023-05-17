@@ -61,46 +61,37 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'autopauseWhenSwitchingTabs',
 			storage: 'player_autopause_when_switching_tabs',
+			id: 'autopause_when_switching_tabs',
 			on: {
 				click: function () {
-					setTimeout(() => {
-						if (satus.storage.get('player_autopause_when_switching_tabs')) {
-							if (satus.storage.get('only_one_player_instance_playing')) {
-								this.nextSibling.click();
-							}
-						}
-					}, 250);
+					if (this.dataset.value === 'true' && satus.storage.get('only_one_player_instance_playing')) {
+						document.getElementById('only_one_player_instance_playing').flip(false);
+					}
 				}
 			}
 		},
 		only_one_player_instance_playing: {
 			component: 'switch',
 			text: 'onlyOnePlayerInstancePlaying',
+			id: 'only_one_player_instance_playing',
 			on: {
 				click: function () {
-					setTimeout(() => {
-						if (satus.storage.get('only_one_player_instance_playing')) {
-							if (satus.storage.get('player_autopause_when_switching_tabs')) {
-								this.previousSibling.click();
-							}
-						}
-					}, 250);
+					if (this.dataset.value === 'true' && satus.storage.get('player_autopause_when_switching_tabs')) {
+						document.getElementById('autopause_when_switching_tabs').flip(false);
+					}
 				}
 			}
 		},
 		player_autoPip: {
 			component: 'switch',
 			text: 'autoPip',
+			id: 'player_autoPip',
 			value: false,
 			on: {
 				click: function () {
-					setTimeout(() => {
-						if (satus.storage.get('player_autoPip')) {
-							if (satus.storage.get('player_autopause_when_switching_tabs')) {
-								this.previousSibling.click();
-							}
-						}
-					}, 250);
+					if (this.dataset.value === 'true' && satus.storage.get('player_autopause_when_switching_tabs')) {
+						document.getElementById('only_one_player_instance_playing').flip(false);
+					}
 				}
 			}
 		},
