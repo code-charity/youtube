@@ -57,8 +57,10 @@ locale.import = function(code, callback, path)
 	//satus.locale.import(url, onload, onsuccess);
 
 text(element, value)
-	// We always try to run values as functions?
-	// isFunction(value)	appears 6 times in satus.js
+
+// We always try to run values as functions to allow for dynamic content
+// for example menu/skeleton-parts/analyzer.js datasets: is being generated
+// from stored staticstics on the spot.
 ----------------------------------------------------------------
 
 >>> 2. COMPONENTS
@@ -1103,15 +1105,8 @@ satus.components.modal = function(component, skeleton) {
 	component.scrim = component.createChildElement('div', 'scrim');
 	component.surface = component.createChildElement('div', 'surface');
 
-	component.close = function(outside) {
+	component.close = function() {
 		var component = this;
-
-		//try calling cancel when clicked outside of modal dialog
-		if (outside) {
-			//not sure if bug free so better trap this for now
-			try { if (skeleton.actions.cancel.on.click) skeleton.actions.cancel.on.click(); }
-			catch(err){console.log(err);}
-		}
 
 		this.classList.add('satus-modal--closing');
 
@@ -1123,8 +1118,11 @@ satus.components.modal = function(component, skeleton) {
 	};
 
 	component.scrim.addEventListener('click', function() {
-		//this is someone clicking outside of modal dialog
-		this.parentNode.close(true);
+		// this is someone clicking outside of modal dialog, try cancel() first if default modal.confirm
+		if (skeleton.cancel && satus.isFunction(skeleton.cancel)) {
+			skeleton.cancel();
+		}
+		this.parentNode.close();
 	});
 
 	if (satus.isset(skeleton.content)) {
