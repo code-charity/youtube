@@ -67,6 +67,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 					if (this.dataset.value === 'true' && satus.storage.get('only_one_player_instance_playing')) {
 						document.getElementById('only_one_player_instance_playing').flip(false);
 					}
+					if (this.dataset.value === 'true' && satus.storage.get('player_autoPip')) {
+						document.getElementById('player_autoPip').flip(false);
+					}
 				}
 			}
 		},
@@ -90,7 +93,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 			on: {
 				click: function () {
 					if (this.dataset.value === 'true' && satus.storage.get('player_autopause_when_switching_tabs')) {
-						document.getElementById('only_one_player_instance_playing').flip(false);
+						document.getElementById('only_one_player_instance_playing').flip(true);
+						document.getElementById('autopause_when_switching_tabs').flip(false);
 					}
 				}
 			}
