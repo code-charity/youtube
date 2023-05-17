@@ -4,13 +4,9 @@
 
 .analyzer-watch-time {
 	font-size: 13px;
-
 	display: flex;
-
 	margin: 16px 6px 0;
-
 	opacity: .72;
-
 	justify-content: space-between;
 }
 
@@ -19,12 +15,9 @@
 }
 
 .satus-switch--activation {
-	margin: 12px;
 	padding: 12px;
-
 	border-radius: 3px;
 	background: rgba(var(--satus-light), .08);
-
 	--satus-switch-track: rgba(var(--satus-light), .1);
 }
 
