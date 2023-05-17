@@ -38,50 +38,6 @@ extension.skeleton.main.layers.section.player = {
 };
 
 /*--------------------------------------------------------------
-# ModalHelper, like satus.components.modal.confirm but lets you
-  pass callback functions
---------------------------------------------------------------*/
-
-function ModalHelper(where, what, ok, cancel) {
-	satus.render({
-		component: 'modal',
-
-		message: {
-			component: 'text',
-			text: what
-		},
-		actions: {
-			component: 'section',
-			variant: 'actions',
-
-			ok: {
-				component: 'button',
-				text: 'OK',
-				on: {
-					click: function () {
-						ok();
-						this.parentNode.parentNode.parentNode.close();
-					}
-				}
-			},
-			cancel: {
-				component: 'button',
-				text: 'cancel',
-				on: {
-					click: function () {
-						where.click();
-						cancel();
-						if (this.componentName) {
-							this.parentNode.parentNode.parentNode.close();
-						}
-					}
-				}
-			}
-		}
-	}, where.parentNode.parentNode.parentNode);
-};
-
-/*--------------------------------------------------------------
 # SECTION
 --------------------------------------------------------------*/
 
@@ -105,46 +61,37 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'autopauseWhenSwitchingTabs',
 			storage: 'player_autopause_when_switching_tabs',
+			id: 'autopause_when_switching_tabs',
 			on: {
 				click: function () {
-					setTimeout(() => {
-						if (satus.storage.get('player_autopause_when_switching_tabs')) {
-							if (satus.storage.get('only_one_player_instance_playing')) {
-								this.nextSibling.click();
-							}
-						}
-					}, 250);
+					if (this.dataset.value === 'true' && satus.storage.get('only_one_player_instance_playing')) {
+						document.getElementById('only_one_player_instance_playing').flip(false);
+					}
 				}
 			}
 		},
 		only_one_player_instance_playing: {
 			component: 'switch',
 			text: 'onlyOnePlayerInstancePlaying',
+			id: 'only_one_player_instance_playing',
 			on: {
 				click: function () {
-					setTimeout(() => {
-						if (satus.storage.get('only_one_player_instance_playing')) {
-							if (satus.storage.get('player_autopause_when_switching_tabs')) {
-								this.previousSibling.click();
-							}
-						}
-					}, 250);
+					if (this.dataset.value === 'true' && satus.storage.get('player_autopause_when_switching_tabs')) {
+						document.getElementById('autopause_when_switching_tabs').flip(false);
+					}
 				}
 			}
 		},
 		player_autoPip: {
 			component: 'switch',
 			text: 'autoPip',
+			id: 'player_autoPip',
 			value: false,
 			on: {
 				click: function () {
-					setTimeout(() => {
-						if (satus.storage.get('player_autoPip')) {
-							if (satus.storage.get('player_autopause_when_switching_tabs')) {
-								this.previousSibling.click();
-							}
-						}
-					}, 250);
+					if (this.dataset.value === 'true' && satus.storage.get('player_autopause_when_switching_tabs')) {
+						document.getElementById('only_one_player_instance_playing').flip(false);
+					}
 				}
 			}
 		},
@@ -743,6 +690,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_quality: {
 			component: 'select',
 			text: 'quality',
+			id: 'player_quality',
 			options: [{
 				text: 'auto',
 				value: 'auto'
@@ -776,7 +724,32 @@ extension.skeleton.main.layers.section.player.on.click = {
 			}, {
 				text: '4320p',
 				value: 'highres'
-			}]
+			}],
+			on: {
+				render: function () {
+					if (satus.storage.get('player_h264')) {
+						if (this.childNodes[1].textContent === 'Video disabled') {
+							this.childNodes[1].style = '';
+							this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
+						} else if (this.childNodes[2].selectedIndex >6) {
+							this.childNodes[1].style = 'color: red!important; font-weight: bold;';
+							this.childNodes[1].textContent = '1080p';
+						}
+						for (let index =7; index <= 10; index++) {
+							this.childNodes[2].childNodes[index].style = 'color: red!important; font-weight: bold;';
+						}
+					} else if (satus.storage.get('block_vp9') && satus.storage.get('block_av1') && satus.storage.get('block_h264')) {
+						this.childNodes[1].style = 'color: red!important; font-weight: bold;';
+						this.childNodes[1].textContent = 'Video disabled';
+					} else {
+						this.childNodes[1].style = '';
+						this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
+						for (let index =7; index <= 10; index++) {
+							this.childNodes[2].childNodes[index].style = '';
+						}
+					}
+				}
+			}
 		},
 		player_codecs: {
 			component: 'button',
@@ -794,25 +767,37 @@ extension.skeleton.main.layers.section.player.on.click = {
 							text: 'blockAv1',
 							on: {
 								click: function () {
-									if (this.dataset.value === 'false' && satus.storage.get('player_h264')) {
-										satus.storage.set('player_h264', false);
-									}
+									this.parentElement.skeleton.sanitize();
 								}
 							}
 						},
 						block_vp9: {
 							component: 'switch',
 							text: 'blockVp9',
+							custom: true,
 							on: {
 								click: function () {
-									if (this.dataset.value === 'false' && satus.storage.get('player_h264')) {
-										satus.storage.set('player_h264', false);
-									}
-									if (this.dataset.value === 'true' && satus.storage.get('block_h264')) {
-										ModalHelper(this, 'You need either VP9 or H264 enabled for Youtube to work. Disabling both will break Video.', function(){
-										},
-													function(){
-										});
+									if (this.dataset.value === 'false') {
+										if (satus.storage.get('block_h264')) {
+											let where = this;
+											satus.render({
+												component: 'modal',
+												variant: 'confirm',
+												content: 'You need either VP9 or H.264 enabled for Youtube to work. Disabling both will break Video.',
+												ok: function () {
+													where.flip(true);
+													where.parentElement.skeleton.sanitize();
+												},
+												cancel: function () {
+												}
+											}, extension.skeleton.rendered);
+										} else {
+											this.flip(true);
+											this.parentElement.skeleton.sanitize();
+										}
+									} else {
+										this.flip(false);
+										this.parentElement.skeleton.sanitize();
 									}
 								}
 							}
@@ -820,18 +805,42 @@ extension.skeleton.main.layers.section.player.on.click = {
 						block_h264: {
 							component: 'switch',
 							text: 'blockH264',
+							custom: true,
 							on: {
 								click: function () {
-									if (this.dataset.value === 'true' && satus.storage.get('player_h264')) {
-										satus.storage.set('player_h264', false);
-									}
-									if (this.dataset.value === 'true' && satus.storage.get('block_vp9')) {
-										ModalHelper(this, 'You need either VP9 or H264 enabled for Youtube to work. Disabling both will break Video.', function(){
-										},
-													function(){
-										});
+									if (this.dataset.value === 'false') {
+										if (satus.storage.get('block_vp9')) {
+											let where = this;
+											satus.render({
+												component: 'modal',
+												variant: 'confirm',
+												content: 'You need either VP9 or H.264 enabled for Youtube to work. Disabling both will break Video.',
+												ok: function () {
+													where.flip(true);
+													where.parentElement.skeleton.sanitize();
+												},
+												cancel: function () {
+												}
+											}, extension.skeleton.rendered);
+										} else {
+											this.flip(true);
+											this.parentElement.skeleton.sanitize();
+										}
+									} else {
+										this.flip(false);
+										this.parentElement.skeleton.sanitize();
 									}
 								}
+							}
+						},
+						sanitize: function () {
+							if (satus.storage.get('player_h264')) {
+								if ((!satus.storage.get('block_vp9') || !satus.storage.get('block_av1') && satus.storage.get('block_h264')) ||
+									(satus.storage.get('block_vp9') && satus.storage.get('block_av1') && satus.storage.get('block_h264'))) {
+									satus.storage.set('player_h264', false);
+								}
+							} else if (satus.storage.get('block_vp9') && satus.storage.get('block_av1') && !satus.storage.get('block_h264')) {
+								satus.storage.set('player_h264', true);
 							}
 						}
 					}
@@ -839,21 +848,20 @@ extension.skeleton.main.layers.section.player.on.click = {
 			},
 			list: {
 				component: 'span',
+				id: 'player_codecs',
 				style: {
 					opacity: .64
 				},
 				on: {
-					refresh: function () { this.skeleton.on.render() },
 					render: function () {
 						var codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
-						var here = this.parentObject ? this.parentObject.rendered : this;
 
 						if (codecs) {
-							here.style = '';
-							here.textContent = codecs;
+							this.style = '';
+							this.textContent = codecs;
 						} else {
-							here.style = 'color: red!important; font-weight: bold;';
-							here.textContent = 'none';
+							this.style = 'color: red!important; font-weight: bold;';
+							this.textContent = 'none';
 						}
 					}
 				}
@@ -863,28 +871,38 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'codecH264',
 			storage: 'player_h264',
+			custom: true,
 			on: {
 				click: function () {
-					//always refresh player_codecs element when clicking here
 					let skeleton = this.parentNode.skeleton;
+					// refresh player_codecs/optimize_codec_for_hardware_acceleration elements when we change codecs
 					refresh = function () {
-						skeleton.player_codecs.list.rendered.dispatchEvent(new CustomEvent('refresh'));
-						skeleton.optimize_codec_for_hardware_acceleration.list.rendered.dispatchEvent(new CustomEvent('refresh'));
+						document.getElementById('player_quality').dispatchEvent(new CustomEvent('render'));
+						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
+						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
 					}
-					if (this.dataset.value === 'true') {
-						ModalHelper(this, 'youtubeLimitsVideoQualityTo1080pForH264Codec', function(){
-							satus.storage.set('block_vp9', true);
-							satus.storage.set('block_av1', true);
-							satus.storage.set('block_h264', false);
-							refresh();
-						},
-									function(){
-							satus.storage.set('block_vp9', false);
-							satus.storage.set('block_av1', false);
-							satus.storage.set('block_h264', false);
-							refresh();
-						});
+					if (this.dataset.value === 'false') {
+						let where = this;
+						satus.render({
+							component: 'modal',
+							variant: 'confirm',
+							content: 'youtubeLimitsVideoQualityTo1080pForH264Codec',
+							ok: function () {
+								// manually turn switch ON
+								where.flip(true);
+								satus.storage.set('block_vp9', true);
+								satus.storage.set('block_av1', true);
+								satus.storage.set('block_h264', false);
+								refresh();
+							},
+							cancel: function () {
+								// nothing happens when we cancel
+							}
+						}, extension.skeleton.rendered);
 					} else {
+						// manually turn switch OFF
+						this.flip(false);
+						// reset all codecs to unlocked state
 						satus.storage.set('block_vp9', false);
 						satus.storage.set('block_av1', false);
 						satus.storage.set('block_h264', false);
@@ -906,28 +924,27 @@ extension.skeleton.main.layers.section.player.on.click = {
 			},
 			list: {
 				component: 'span',
+				id: 'optimize_codec_for_hardware_acceleration',
 				style: {
 					opacity: .64
 				},
 				on: {
-					refresh: function () { this.skeleton.on.render() },
 					render: function () {
 						// put some code here looking up GPU  capabilities and comparing to currrent codec selection
 						var codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
-						var here = this.parentObject ? this.parentObject.rendered : this;
 
 						if (1) { // todo
-							here.style = '';
-							here.textContent = 'Feature not yet available';
+							this.style = '';
+							this.textContent = 'Feature not yet available';
 						} else if (2) { // todo
-							here.style = '';
-							here.textContent = 'unknown GPU';
+							this.style = '';
+							this.textContent = 'GPU not in database';
 						} else if (codecs) {
-							here.style = 'color: greenimportant; font-weight: bold;';
-							here.textContent = 'Optimal';
+							this.style = 'color: green!important; font-weight: bold;';
+							this.textContent = 'Optimal';
 						} else {
-							here.style = 'color: red!important; font-weight: bold;';
-							here.textContent = 'Not optimal';
+							this.style = 'color: red!important; font-weight: bold;';
+							this.textContent = 'Not optimal';
 						}
 					}
 				}
