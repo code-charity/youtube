@@ -728,13 +728,19 @@ extension.skeleton.main.layers.section.player.on.click = {
 			on: {
 				render: function () {
 					if (satus.storage.get('player_h264')) {
-						if (this.childNodes[2].selectedIndex >6) {
+						if (this.childNodes[1].textContent === 'Video disabled') {
+							this.childNodes[1].style = '';
+							this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
+						} else if (this.childNodes[2].selectedIndex >6) {
 							this.childNodes[1].style = 'color: red!important; font-weight: bold;';
 							this.childNodes[1].textContent = '1080p';
 						}
 						for (let index =7; index <= 10; index++) {
 							this.childNodes[2].childNodes[index].style = 'color: red!important; font-weight: bold;';
 						}
+					} else if (satus.storage.get('block_vp9') && satus.storage.get('block_av1') && satus.storage.get('block_h264')) {
+						this.childNodes[1].style = 'color: red!important; font-weight: bold;';
+						this.childNodes[1].textContent = 'Video disabled';
 					} else {
 						this.childNodes[1].style = '';
 						this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
@@ -761,11 +767,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 							text: 'blockAv1',
 							on: {
 								click: function () {
-									if (this.dataset.value === 'false' && satus.storage.get('player_h264')) {
-										satus.storage.set('player_h264', false);
-									} else if (this.dataset.value === 'true' && !satus.storage.get('player_h264')) {
-										satus.storage.set('player_h264', true);
-									}
+									this.parentElement.skeleton.sanitize();
 								}
 							}
 						},
@@ -784,21 +786,18 @@ extension.skeleton.main.layers.section.player.on.click = {
 												content: 'You need either VP9 or H.264 enabled for Youtube to work. Disabling both will break Video.',
 												ok: function () {
 													where.flip(true);
+													where.parentElement.skeleton.sanitize();
 												},
 												cancel: function () {
 												}
 											}, extension.skeleton.rendered);
 										} else {
 											this.flip(true);
-											if (satus.storage.get('block_av1')) {
-												satus.storage.set('player_h264', true);
-											}
+											this.parentElement.skeleton.sanitize();
 										}
 									} else {
 										this.flip(false);
-										if (satus.storage.get('player_h264')) {
-											satus.storage.set('player_h264', false);
-										}
+										this.parentElement.skeleton.sanitize();
 									}
 								}
 							}
@@ -818,23 +817,30 @@ extension.skeleton.main.layers.section.player.on.click = {
 												content: 'You need either VP9 or H.264 enabled for Youtube to work. Disabling both will break Video.',
 												ok: function () {
 													where.flip(true);
+													where.parentElement.skeleton.sanitize();
 												},
 												cancel: function () {
 												}
 											}, extension.skeleton.rendered);
 										} else {
 											this.flip(true);
-											if (satus.storage.get('block_av1')) {
-												satus.storage.set('player_h264', true);
-											}
+											this.parentElement.skeleton.sanitize();
 										}
 									} else {
 										this.flip(false);
-										if (!satus.storage.get('player_h264')) {
-											satus.storage.set('player_h264', true);
-										}
+										this.parentElement.skeleton.sanitize();
 									}
 								}
+							}
+						},
+						sanitize: function () {
+							if (satus.storage.get('player_h264')) {
+								if ((!satus.storage.get('block_vp9') || !satus.storage.get('block_av1') && satus.storage.get('block_h264')) ||
+									(satus.storage.get('block_vp9') && satus.storage.get('block_av1') && satus.storage.get('block_h264'))) {
+									satus.storage.set('player_h264', false);
+								}
+							} else if (satus.storage.get('block_vp9') && satus.storage.get('block_av1') && !satus.storage.get('block_h264')) {
+								satus.storage.set('player_h264', true);
 							}
 						}
 					}
