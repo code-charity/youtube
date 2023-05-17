@@ -5,6 +5,7 @@
 extension.skeleton.main.layers.section.analyzer = {
 	component: 'button',
 	variant: 'analyzer',
+	category: true,
 	on: {
 		click: {
 			analyzer_activation: {
