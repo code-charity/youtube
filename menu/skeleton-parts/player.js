@@ -699,6 +699,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_quality: {
 			component: 'select',
 			text: 'quality',
+			id: 'player_quality',
 			options: [{
 				text: 'auto',
 				value: 'auto'
@@ -732,7 +733,26 @@ extension.skeleton.main.layers.section.player.on.click = {
 			}, {
 				text: '4320p',
 				value: 'highres'
-			}]
+			}],
+			on: {
+				render: function () {
+					if (satus.storage.get('player_h264')) {
+						if (this.childNodes[2].selectedIndex >6) {
+							this.childNodes[1].style = 'color: red!important; font-weight: bold;';
+							this.childNodes[1].textContent = '1080p';
+						}
+						for (let index =7; index <= 10; index++) {
+							this.childNodes[2].childNodes[index].style = 'color: red!important; font-weight: bold;';
+						}
+					} else {
+						this.childNodes[1].style = '';
+						this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
+						for (let index =7; index <= 10; index++) {
+							this.childNodes[2].childNodes[index].style = '';
+						}
+					}
+				}
+			}
 		},
 		player_codecs: {
 			component: 'button',
@@ -838,14 +858,13 @@ extension.skeleton.main.layers.section.player.on.click = {
 				on: {
 					render: function () {
 						var codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
-						var here = this.parentObject ? this.parentObject.rendered : this;
 
 						if (codecs) {
-							here.style = '';
-							here.textContent = codecs;
+							this.style = '';
+							this.textContent = codecs;
 						} else {
-							here.style = 'color: red!important; font-weight: bold;';
-							here.textContent = 'none';
+							this.style = 'color: red!important; font-weight: bold;';
+							this.textContent = 'none';
 						}
 					}
 				}
@@ -861,6 +880,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 					let skeleton = this.parentNode.skeleton;
 					// refresh player_codecs/optimize_codec_for_hardware_acceleration elements when we change codecs
 					refresh = function () {
+						document.getElementById('player_quality').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
 					}
@@ -915,20 +935,19 @@ extension.skeleton.main.layers.section.player.on.click = {
 					render: function () {
 						// put some code here looking up GPU  capabilities and comparing to currrent codec selection
 						var codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
-						var here = this.parentObject ? this.parentObject.rendered : this;
 
 						if (1) { // todo
-							here.style = '';
-							here.textContent = 'Feature not yet available';
+							this.style = '';
+							this.textContent = 'Feature not yet available';
 						} else if (2) { // todo
-							here.style = '';
-							here.textContent = 'GPU not in database';
+							this.style = '';
+							this.textContent = 'GPU not in database';
 						} else if (codecs) {
-							here.style = 'color: green!important; font-weight: bold;';
-							here.textContent = 'Optimal';
+							this.style = 'color: green!important; font-weight: bold;';
+							this.textContent = 'Optimal';
 						} else {
-							here.style = 'color: red!important; font-weight: bold;';
-							here.textContent = 'Not optimal';
+							this.style = 'color: red!important; font-weight: bold;';
+							this.textContent = 'Not optimal';
 						}
 					}
 				}
