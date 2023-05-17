@@ -2332,7 +2332,7 @@ satus.components.shortcut = function(component, skeleton) {
 
 							component.render(component.valueElement);
 
-							satus.storage.remove(component.storage);
+							satus.storage.remove(component.storage.key);
 
 							this.parentNode.parentNode.parentNode.close();
 
@@ -2346,7 +2346,7 @@ satus.components.shortcut = function(component, skeleton) {
 					text: 'cancel',
 					on: {
 						click: function() {
-							component.data = satus.storage.get(component.storage) || component.skeleton.value || {};
+							component.data = satus.storage.get(component.storage.key) || component.skeleton.value || {};
 
 							component.render(component.valueElement);
 
