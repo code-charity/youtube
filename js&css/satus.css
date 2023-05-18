@@ -1858,6 +1858,7 @@ As our Syntax markup isnt read for <textarea>, is it?
 	border: none;
 
 	appearance: none;
+	z-index: 1;
 }
 
 .satus-checkbox__checkmark {
