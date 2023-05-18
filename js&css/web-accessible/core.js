@@ -159,7 +159,7 @@ document.addEventListener('it-message-from-extension', function () {
 			} else {
 				localStorage.removeItem('it-codec');
 			}
-			if (!ImprovedTube.storage.player_60fps) {
+			if (ImprovedTube.storage.player_60fps === false) {
 				localStorage['it-player30fps'] = true;
 			} else {
 				localStorage.removeItem('it-player30fps');
@@ -180,7 +180,7 @@ document.addEventListener('it-message-from-extension', function () {
 				}
 			}
 			if(message.key==="player_60fps"){
-				if (!ImprovedTube.storage.player_60fps) {
+				if (ImprovedTube.storage.player_60fps === false) {
 				localStorage['it-player30fps'] = true;
 				} else {
 					localStorage.removeItem('it-player30fps');
