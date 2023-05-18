@@ -172,7 +172,7 @@ Chinese + Hindi + Spanish) <br></i></div>
 
 <h2>Contributing</h2>
 For more info on how to contribute, <br> please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
-<br><br><br><br>
+<br><br><br><br><br>
 
 <details><summary>
 Original introduction</summary>
@@ -189,11 +189,11 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 
 ##### <div align="center">Spread the word [<code><code><code><code>📣</code></code></code></code>](Http://Twitter_Whatsapp_Discord_Youtube_Facebook_eMail_Telegram_Signal)</div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 
-**W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> <br><hr>
+**W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> <hr>
 
 
 #### Initiative for Open-Source Efficiency: 🌱[`Pull Requests bots`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot) 
-(will especially help medium-size projects) (+ [`regEx Collector`](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - community-list of Regex") ? )  <hr>
+(will especially help medium-size projects)(+[`regEx Collector`](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - community-list of Regex")?)  <hr>
 #### Vision for the (tweaking-/userStyle-/modding-)Community: 
 We can start to optimize things for the world, greatly priotized: [github/Universal-UserTweaks](https://github.com/code-charity/Universal-UserTweaks)  "insteada mostly only tweakin@home like Sisyphos"
 <hr>
