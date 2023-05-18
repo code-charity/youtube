@@ -89,7 +89,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'autoPip',
 			id: 'player_autoPip',
-			value: false,
 			on: {
 				click: function () {
 					if (this.dataset.value === 'true' && satus.storage.get('player_autopause_when_switching_tabs')) {
@@ -778,6 +777,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						block_vp9: {
 							component: 'switch',
 							text: 'blockVp9',
+							value: false,
 							custom: true,
 							on: {
 								click: function () {
@@ -809,6 +809,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						block_h264: {
 							component: 'switch',
 							text: 'blockH264',
+							value: false,
 							custom: true,
 							on: {
 								click: function () {
@@ -875,6 +876,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'codecH264',
 			storage: 'player_h264',
+			value: false,
 			custom: true,
 			on: {
 				click: function () {
@@ -962,7 +964,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 		sdr: {
 			component: 'switch',
 			text: 'forceSDR',
-			value: false,
 			storage: 'player_SDR'
 		}
 	},
