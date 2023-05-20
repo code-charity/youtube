@@ -1,9 +1,6 @@
 html {overflow-x: hidden !important; }  
 /* Fix to tame Youtube's page-load / make it more calm  -  the player wont annoyingly slide in from the right anymore */
-									/* previously also: html[it-transcript='true'] {overflow-x: hidden !important; }  */
-									
-@-moz-document url-prefix() { overflow-x: visible !important; } /* REMOVE ME SOON https://github.com/code-charity/youtube/issues/1649 */
-
+									/* previously also: html[it-transcript='true'] {overflow-x: hidden !important; }  */									
 /*--------------------------------------------------------------
 >>> SIDEBAR
 ----------------------------------------------------------------
