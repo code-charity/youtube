@@ -43,18 +43,23 @@ html[it-ads=subscribed_channels] *[target-id*='engagement-panel-ads'],
 html[it-ads=subscribed_channels] .ytd-ad-slot-renderer,
 html[it-ads=subscribed_channels] yt-mealbar-promo-renderer, 
 html[it-ads=subscribed_channels] #player .ytp-ad-image-overlay,  
-html[it-ads=subscribed_channels] #player .video-ads, 
-html[it-ads=subscribed_channels] #player .ytp-ad-module, 
 html[it-ads=block_all] #related #player-ads,
 html[it-ads=block_all] #masthead-ad,
 html[it-ads=block_all] *[target-id*='engagement-panel-ads'],
 html[it-ads=block_all] .ytd-ad-slot-renderer, 
 html[it-ads=block_all] yt-mealbar-promo-renderer,
-html[it-ads=block_all] #player .ytp-ad-image-overlay, 
+html[it-ads=block_all] #player .ytp-ad-image-overlay { 
+display: none !important;}
+html[it-ads=subscribed_channels] #player .video-ads, 
+html[it-ads=subscribed_channels] #player .ytp-ad-module, 
 html[it-ads=block_all] #player .video-ads, 
 html[it-ads=block_all] #player .ytp-ad-module { 
-display: none !important;}
-
+opacity: 0 !important;}
+html[it-ads=subscribed_channels] #player .ytp-ad-preview-image,
+html[it-ads=block_all] #player .ytp-ad-preview-image,
+html[it-ads=subscribed_channels] #player .ytp-ad-skip-button-container,
+html[it-ads=block_all] #player .ytp-ad-skip-button-container {  
+opacity: 0.5 !important;}
 /*------------------------------------------------------------------------------
 4.3 MINIPLAYER
 ------------------------------------------------------------------------------*/
