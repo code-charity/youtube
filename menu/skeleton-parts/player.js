@@ -731,17 +731,17 @@ extension.skeleton.main.layers.section.player.on.click = {
 			on: {
 				render: function () {
 					if (satus.storage.get('player_h264')) {
-						if (this.childNodes[1].textContent === 'Video disabled') {
-							this.childNodes[1].style = '';
-							this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
-						} else if (this.childNodes[2].selectedIndex >6) {
+						if (this.childNodes[2].selectedIndex >6) {
 							this.childNodes[1].style = 'color: red!important; font-weight: bold;';
 							this.childNodes[1].textContent = '1080p';
+						} else {
+							this.childNodes[1].style = '';
+							this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
 						}
 						for (let index =7; index <= 10; index++) {
 							this.childNodes[2].childNodes[index].style = 'color: red!important; font-weight: bold;';
 						}
-					} else if (satus.storage.get('block_vp9') && satus.storage.get('block_av1') && satus.storage.get('block_h264')) {
+					} else if (satus.storage.get('block_vp9') && satus.storage.get('block_h264')) {
 						this.childNodes[1].style = 'color: red!important; font-weight: bold;';
 						this.childNodes[1].textContent = 'Video disabled';
 					} else {
@@ -861,8 +861,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 					render: function () {
 						var codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
 
-						if (codecs) {
+						if (codecs.includes('h.264') || codecs.includes('vp9')) {
 							this.style = '';
+							this.textContent = codecs;
+						} else if (codecs) {
+							this.style = 'color: red!important; font-weight: bold;';
 							this.textContent = codecs;
 						} else {
 							this.style = 'color: red!important; font-weight: bold;';
