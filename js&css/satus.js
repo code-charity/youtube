@@ -2967,7 +2967,9 @@ satus.user.browser.audio = function() {
 		types = {
 			mp3: 'audio/mpeg',
 			mp4: 'audio/mp4',
-			aif: 'audio/x-aiff'
+			aif: 'audio/x-aiff',
+			'AAC-LC': 'audio/mp4; codecs="mp4a.40.2"',
+			opus: 'audio/webm; codecs="opus"'
 		},
 		result = [];
 
@@ -2992,10 +2994,12 @@ satus.user.browser.audio = function() {
 satus.user.browser.video = function() {
 	var video = document.createElement('video'),
 		types = {
-			ogg: 'video/ogg; codecs="theora"',
-			h264: 'video/mp4; codecs="avc1.42E01E"',
-			webm: 'video/webm; codecs="vp8, vorbis"',
+			//ogg: 'video/ogg; codecs="theora"',
+			'H.264 Baseline Profile 3.0': 'video/mp4; codecs="avc1.42E01E"',
+			'H.264 Main Profile 4.0': 'video/mp4; codecs="avc1.640028"',
+			//webm: 'video/webm; codecs="vp8, vorbis"',
 			vp9: 'video/webm; codecs="vp9"',
+			av1: 'video/mp4; codecs=av01.0.05M.08',
 			hls: 'application/x-mpegURL; codecs="avc1.42E01E"'
 		},
 		result = [];
