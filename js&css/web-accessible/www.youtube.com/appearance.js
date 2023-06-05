@@ -138,15 +138,79 @@ ImprovedTube.playerRemainingDuration = function () {
 /*------------------------------------------------------------------------------
  Comments Sidebar
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebar = function() { if(ImprovedTube.storage.comments_sidebar === true){ 
-  if(window.matchMedia("(min-width: 1599px)").matches) {
-  document.querySelector("#primary").insertAdjacentElement('afterend', document.querySelector("#comments"));}
-  if(window.matchMedia("(max-width: 1598px)").matches) {	  
-    document.querySelector("#related").insertAdjacentElement('beforebegin', document.querySelector("#comments"));
-       setTimeout(function () {
-       document.querySelector("#primary-inner").appendChild(document.querySelector("#related"));}
-	);}
- }
+ImprovedTube.commentsSidebar = function() {
+	let hasApplied = 0
+	if(ImprovedTube.storage.comments_sidebar === true){
+    sidebar();
+		setGrid();
+    window.addEventListener("resize", sidebar)
+}
+	function sidebar(){
+
+		if(window.matchMedia("(min-width: 1600px)").matches) {
+			if (!hasApplied) {
+                document.querySelector("#primary").insertAdjacentElement('afterend', document.querySelector("#comments"));
+                let comments = document.querySelector("#comments")
+                let playlist = document.querySelector("#secondary #playlist") //TO DO: comments overriding playlist 
+                comments.insertBefore(playlist, comments.firstChild)
+                let i = 0
+                const itemsInterval = setInterval(()=>{
+                    let sections = document.querySelector("#columns #comments #sections")
+                    // let playlist = document.querySelector("#secondary #playlist")
+                    let chat = document.querySelector("#secondary #chat")
+                    let donation = document.querySelector("#secondary #donation-shelf")
+                    // console.log(document.getElementById("comments"))
+                    if(sections && (donation || chat)){
+                        console.log("we clearing")
+                        // sections.insertAdjacentElement("beforebegin",playlist)
+                        sections.insertAdjacentElement("beforebegin",chat)
+                        sections.insertAdjacentElement("beforebegin",donation)
+                        clearInterval(itemsInterval)
+                    } else if (i == 100) clearInterval(itemsInterval)
+                    i++
+                    console.log(i)
+                },100)
+			}
+			else if (hasApplied == 2){
+				console.log("from medium to big size")
+			} 
+			hasApplied = 1
+		}
+		else if(window.matchMedia("(min-width: 1000px)").matches) {	  
+			if (!hasApplied) {
+				let secondaryInner = document.getElementById("secondary-inner");
+				let primaryInner = document.getElementById("primary-inner");
+				let comments = document.querySelector("#comments");
+				let related = document.getElementById("related");
+				primaryInner.appendChild(document.getElementById("panels"));
+				primaryInner.appendChild(related)
+				const chat = document.getElementById("chat-template")
+				secondaryInner.appendChild(chat)
+				secondaryInner.appendChild(comments)
+			}
+			else if (hasApplied == 1){
+				console.log("from big to medium")
+			}
+			hasApplied = 2
+		}
+		else { /// 1000 <
+			if(hasApplied == 2){ //from 1600
+			}
+			else if (hasApplied == 1){ //from 1000
+			}
+			hasApplied = 0
+		}
+	}
+	function setGrid(){
+		let checkParentInterval = setInterval(() => {
+			container = document.querySelector("#related ytd-compact-video-renderer.style-scope")?.parentElement
+			if (container) {
+					clearInterval(checkParentInterval);
+					container.style.display = "flex"
+					container.style.flexWrap = "wrap"
+			}
+		}, 250);
+	}
 }
 /*------------------------------------------------------------------------------
  SIDEBAR
