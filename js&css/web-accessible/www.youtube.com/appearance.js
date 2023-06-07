@@ -139,64 +139,47 @@ ImprovedTube.playerRemainingDuration = function () {
  Comments Sidebar
 ------------------------------------------------------------------------------*/
 ImprovedTube.commentsSidebar = function() {
+    console.log("It's applying kek")
+    const video = document.querySelector("#player video.video-stream") || document.querySelector("#container video");
 	let hasApplied = 0
 	if(ImprovedTube.storage.comments_sidebar === true){
-    sidebar();
-		setGrid();
-    window.addEventListener("resize", sidebar)
-}
+        sidebar();
+        setGrid();
+        applyObserver();
+        window.addEventListener("resize", sidebar)
+    }
 	function sidebar(){
-
-		if(window.matchMedia("(min-width: 1600px)").matches) {
+        resizePlayer();
+		if(window.matchMedia("(min-width: 1984px)").matches) {
 			if (!hasApplied) {
-                document.querySelector("#primary").insertAdjacentElement('afterend', document.querySelector("#comments"));
-                let comments = document.querySelector("#comments")
-                let playlist = document.querySelector("#secondary #playlist") //TO DO: comments overriding playlist 
-                comments.insertBefore(playlist, comments.firstChild)
-                let i = 0
-                const itemsInterval = setInterval(()=>{
-                    let sections = document.querySelector("#columns #comments #sections")
-                    // let playlist = document.querySelector("#secondary #playlist")
-                    let chat = document.querySelector("#secondary #chat")
-                    let donation = document.querySelector("#secondary #donation-shelf")
-                    // console.log(document.getElementById("comments"))
-                    if(sections && (donation || chat)){
-                        console.log("we clearing")
-                        // sections.insertAdjacentElement("beforebegin",playlist)
-                        sections.insertAdjacentElement("beforebegin",chat)
-                        sections.insertAdjacentElement("beforebegin",donation)
-                        clearInterval(itemsInterval)
-                    } else if (i == 100) clearInterval(itemsInterval)
-                    i++
-                    console.log(i)
-                },100)
+                initialSetup()
+                setTimeout(() => {document.getElementById("columns").appendChild(document.getElementById("related"))})
 			}
-			else if (hasApplied == 2){
-				console.log("from medium to big size")
+			else if (hasApplied == 2){ //from medium to big size
+                setTimeout(() => {document.getElementById("columns").appendChild(document.getElementById("related"))})
 			} 
 			hasApplied = 1
 		}
 		else if(window.matchMedia("(min-width: 1000px)").matches) {	  
 			if (!hasApplied) {
-				let secondaryInner = document.getElementById("secondary-inner");
-				let primaryInner = document.getElementById("primary-inner");
-				let comments = document.querySelector("#comments");
-				let related = document.getElementById("related");
-				primaryInner.appendChild(document.getElementById("panels"));
-				primaryInner.appendChild(related)
-				const chat = document.getElementById("chat-template")
-				secondaryInner.appendChild(chat)
-				secondaryInner.appendChild(comments)
+				initialSetup()
 			}
-			else if (hasApplied == 1){
-				console.log("from big to medium")
+			else if (hasApplied == 1){ //from big to medium
+                document.getElementById("primary-inner").appendChild(document.getElementById("related"))
 			}
 			hasApplied = 2
 		}
-		else { /// 1000 <
-			if(hasApplied == 2){ //from 1600
+		else { /// <1000 
+			if(hasApplied == 1){
+                document.getElementById("primary-inner").appendChild(document.getElementById("related"))
+                let comments = document.querySelector("#comments")
+                let below = document.getElementById("below");
+                below.appendChild(comments)
 			}
-			else if (hasApplied == 1){ //from 1000
+			else if (hasApplied == 2){
+                let comments = document.querySelector("#comments")
+                let below = document.getElementById("below");
+                below.appendChild(comments)
 			}
 			hasApplied = 0
 		}
@@ -211,6 +194,38 @@ ImprovedTube.commentsSidebar = function() {
 			}
 		}, 250);
 	}
+    function initialSetup() {
+        let secondaryInner = document.getElementById("secondary-inner");
+        let primaryInner = document.getElementById("primary-inner");
+        let comments = document.querySelector("#comments");
+        setTimeout(() => {
+            primaryInner.appendChild(document.getElementById("panels"));
+            primaryInner.appendChild(document.getElementById("related"))
+            secondaryInner.appendChild(document.getElementById("chat-template"))
+            secondaryInner.appendChild(comments)
+        })
+    }
+    function resizePlayer() {
+        const width = video.offsetWidth;
+        const player = document.getElementById("player");
+        document.getElementById("primary").style.width = `${width}px`
+        player.style.width = `${width}px`
+    }
+    function applyObserver(){
+        const debouncedResizePlayer = debounce(resizePlayer, 200);
+        const resizeObserver = new ResizeObserver(debouncedResizePlayer);
+        resizeObserver.observe(video);
+    }
+    function debounce(callback, delay) {
+        let timerId;
+        return function (...args) {
+            clearTimeout(timerId);
+            timerId = setTimeout(() => {
+            callback.apply(this, args);
+            }, delay);
+        };
+    }
+      
 }
 /*------------------------------------------------------------------------------
  SIDEBAR
