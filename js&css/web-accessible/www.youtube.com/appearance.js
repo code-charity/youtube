@@ -139,9 +139,8 @@ ImprovedTube.playerRemainingDuration = function () {
  Comments Sidebar
 ------------------------------------------------------------------------------*/
 ImprovedTube.commentsSidebar = function() {
-    console.log("It's applying kek")
-    const video = document.querySelector("#player video.video-stream") || document.querySelector("#container video");
-	let hasApplied = 0
+    const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
+	let hasApplied = 0;
 	if(ImprovedTube.storage.comments_sidebar === true){
         sidebar();
         setGrid();
@@ -162,35 +161,35 @@ ImprovedTube.commentsSidebar = function() {
 		}
 		else if(window.matchMedia("(min-width: 1000px)").matches) {	  
 			if (!hasApplied) {
-				initialSetup()
+				initialSetup();
 			}
 			else if (hasApplied == 1){ //from big to medium
-                document.getElementById("primary-inner").appendChild(document.getElementById("related"))
+                document.getElementById("primary-inner").appendChild(document.getElementById("related"));
 			}
 			hasApplied = 2
 		}
 		else { /// <1000 
 			if(hasApplied == 1){
-                document.getElementById("primary-inner").appendChild(document.getElementById("related"))
-                let comments = document.querySelector("#comments")
+                document.getElementById("primary-inner").appendChild(document.getElementById("related"));
+                let comments = document.querySelector("#comments");
                 let below = document.getElementById("below");
-                below.appendChild(comments)
+                below.appendChild(comments);
 			}
 			else if (hasApplied == 2){
-                let comments = document.querySelector("#comments")
+                let comments = document.querySelector("#comments");
                 let below = document.getElementById("below");
-                below.appendChild(comments)
+                below.appendChild(comments);
 			}
-			hasApplied = 0
+			hasApplied = 0;
 		}
 	}
 	function setGrid(){
 		let checkParentInterval = setInterval(() => {
-			container = document.querySelector("#related ytd-compact-video-renderer.style-scope")?.parentElement
+			container = document.querySelector("#related ytd-compact-video-renderer.style-scope")?.parentElement;
 			if (container) {
 					clearInterval(checkParentInterval);
-					container.style.display = "flex"
-					container.style.flexWrap = "wrap"
+					container.style.display = "flex";
+					container.style.flexWrap = "wrap";
 			}
 		}, 250);
 	}
@@ -201,15 +200,15 @@ ImprovedTube.commentsSidebar = function() {
         setTimeout(() => {
             primaryInner.appendChild(document.getElementById("panels"));
             primaryInner.appendChild(document.getElementById("related"))
-            secondaryInner.appendChild(document.getElementById("chat-template"))
-            secondaryInner.appendChild(comments)
+            secondaryInner.appendChild(document.getElementById("chat-template"));
+            secondaryInner.appendChild(comments);
         })
     }
     function resizePlayer() {
-        const width = video.offsetWidth;
-        const player = document.getElementById("player");
-        document.getElementById("primary").style.width = `${width}px`
-        player.style.width = `${width}px`
+        const width = video.offsetWidth + 24;
+        const player = document.querySelector("#player.style-scope.ytd-watch-flexy");
+        document.getElementById("primary").style.width = `${width}px`;
+        player.style.width = `${width}px`;
     }
     function applyObserver(){
         const debouncedResizePlayer = debounce(resizePlayer, 200);
