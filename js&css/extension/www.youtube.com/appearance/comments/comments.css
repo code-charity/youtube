@@ -69,6 +69,8 @@
 	}
 	
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #primary-content {overflow: hidden;}
+	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns {justify-content: flex-start !important; overflow-x: scroll;}
+
 }
 @media screen and (min-width: 1000px){
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary, 
@@ -114,7 +116,7 @@ html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-sec
 html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-secondary-results-renderer ytd-continuation-item-renderer {min-width: 300px; max-width: 420px !important; flex-grow: 1; flex-basis: 0 !important; margin-right: 8px;}
 
 /* CUSTOM ENHANCEMENTS */
-html[data-page-type=video] #playlist { max-height: 460px; } /* SHOULD FIX #1693 */
+html[data-page-type=video] #playlist #items { max-height: calc(70px * 4 + 4px) ; padding-bottom: 0;} /* SHOULD FIX #1693, currently shows 4 videos */
 html[data-page-type=video] ytd-watch-flexy #chat > tp-yt-paper-button#label { width:calc(100% - 40px); }
 html[data-page-type=video] ytd-watch-flexy #right-arrow-container.ytd-merch-shelf-renderer { right: 44px !important; }
 
