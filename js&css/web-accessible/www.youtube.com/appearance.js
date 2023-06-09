@@ -143,6 +143,7 @@ ImprovedTube.commentsSidebar = function() {
 	let hasApplied = 0;
 	if(ImprovedTube.storage.comments_sidebar === true){
         sidebar();
+        styleScrollbars();
         setGrid();
         applyObserver();
         window.addEventListener("resize", sidebar)
@@ -209,6 +210,38 @@ ImprovedTube.commentsSidebar = function() {
         const player = document.querySelector("#player.style-scope.ytd-watch-flexy");
         document.getElementById("primary").style.width = `${width}px`;
         player.style.width = `${width}px`;
+    }
+    function styleScrollbars(){
+        if (!navigator.userAgent.toLowerCase().includes("mac")){
+            let color, colorHover
+            const isDarkMode = document.querySelector('ytd-app').getComputedStyle(ytdAppElement).getPropertyValue('--yt-spec-base-background') == "#0f0f0f";
+            if(isDarkMode) [color,colorHover] = ["#616161", "#909090"];
+            else [color,colorHover] = ["#aaaaaa", "#717171"];
+            const style = document.createElement("style");
+            const cssRule = `
+            #primary, #secondary {
+                overflow: overlay !important;
+            }
+            
+            ::-webkit-scrollbar
+            {
+                width: 16px;
+                height: 7px;
+            }
+            
+            ::-webkit-scrollbar-thumb{
+                background-color:   #${color};
+                border-radius: 10px;
+                border: 4px solid transparent;
+                background-clip: padding-box; // <== make the border work
+            }
+            
+            ::-webkit-scrollbar-thumb:hover{
+                background-color:#${colorHover};
+            }`;
+            style.appendChild(document.createTextNode(cssRule));
+            document.head.appendChild(style);
+        }
     }
     function applyObserver(){
         const debouncedResizePlayer = debounce(resizePlayer, 200);
