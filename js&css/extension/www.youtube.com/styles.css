@@ -54,7 +54,7 @@ html[it-ads=subscribed_channels] #player .video-ads,
 html[it-ads=subscribed_channels] #player .ytp-ad-module, 
 html[it-ads=block_all] #player .video-ads, 
 html[it-ads=block_all] #player .ytp-ad-module { 
-opacity: 0 !important;}
+opacity: 0.0001 !important;}
 html[it-ads=subscribed_channels] #player .ytp-ad-preview-image,
 html[it-ads=block_all] #player .ytp-ad-preview-image,
 html[it-ads=subscribed_channels] #player .ytp-ad-skip-button-container,
