@@ -214,7 +214,7 @@ ImprovedTube.commentsSidebar = function() {
     function styleScrollbars(){
         if (!navigator.userAgent.toLowerCase().includes("mac")){
             let color, colorHover
-            const isDarkMode = document.querySelector('ytd-app').getComputedStyle(ytdAppElement).getPropertyValue('--yt-spec-base-background') == "#0f0f0f";
+            const isDarkMode = getComputedStyle(document.querySelector('ytd-app')).getPropertyValue('--yt-spec-base-background') == "#0f0f0f";
             if(isDarkMode) [color,colorHover] = ["#616161", "#909090"];
             else [color,colorHover] = ["#aaaaaa", "#717171"];
             const style = document.createElement("style");
@@ -230,14 +230,14 @@ ImprovedTube.commentsSidebar = function() {
             }
             
             ::-webkit-scrollbar-thumb{
-                background-color:   #${color};
+                background-color: ${color};
                 border-radius: 10px;
                 border: 4px solid transparent;
-                background-clip: padding-box; // <== make the border work
+                background-clip: padding-box;
             }
             
             ::-webkit-scrollbar-thumb:hover{
-                background-color:#${colorHover};
+                background-color: ${colorHover};
             }`;
             style.appendChild(document.createTextNode(cssRule));
             document.head.appendChild(style);
