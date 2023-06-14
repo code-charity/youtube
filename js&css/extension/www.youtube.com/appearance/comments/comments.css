@@ -12,7 +12,6 @@
 /* 2 COLS FEATURE */
 @media screen and (min-width: 1952px) {	
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #related { flex-shrink: 4; min-width: 300px;}
-	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #related::before { content: ""; height: 24px; display: block;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #related {  width: auto !important;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #columns { max-width: 100%;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary {min-width: 300px !important; max-width: 420px;}
@@ -26,7 +25,7 @@
 	/*--------------------------------------------------------------
 		#TODO: there should be 2 new option in settings:
 			1 - [it-comments-sidebar-left] so we can shift comments-sidebar to the left (should appear only when 'Comments:Sidebar' is activated).
-			2 - [swap-sidebars] so we exchange the sidebars order (that would only apply to 1951px+ wide-screens, because player resize
+			2 - [swap-sidebars] so we exchange the sidebars order (that would only apply to 1952px+ wide-screens, because player resize
 			is messy AT THE MOMENT. Once resize works properly we can re-arrange this entire media-screen in its own setting option too).
 		Might also think on the edge-cases were both options are active
 	--------------------------------------------------------------*/
@@ -58,7 +57,7 @@
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #secondary { width: unset !important; max-width: 420px !important;} /*UP TO 658px*/
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #columns {max-width: 100%; min-width: unset !important;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary { margin-right: 0; padding-right: 0 !important; min-width: 300px !important;}
-	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary-inner {padding-left: 24px; padding-top: 24px; padding-right: 24px;}
+	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary-inner {padding-left: 24px; padding-right: 24px;}
 
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy[theater] #primary,
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy[fullscreen] #primary{
@@ -84,16 +83,17 @@
 
 
 	/* DIFFERENT HEADERS HEIGHT */
-	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=normal] #columns, /* BUG: if header has never been changed back and forth to normal, [it-header-position=normal] selector isn't applied */
-	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=static] #columns {
+	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=normal] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns, /* BUG: if header has never been changed back and forth to normal, [it-header-position=normal] selector isn't applied */
+	html[data-page-type=video][it-comments-sidebar='true']:not([it-header-position^=h]) ytd-watch-flexy:not([theater]):not([fullscreen]) #columns, /* temporary fix */
+	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=static] #columns{
 		height: calc(100vh - 56px);
 	}
-	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=hover] #columns,
-	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=hover_on_video_page] #columns{
+	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=hover] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns,
+	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=hover_on_video_page] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns{
 		height: calc(100vh - 14px);
 	}
-	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=hidden] #columns,
-	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=hidden_on_video_page] #columns{
+	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=hidden] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns,
+	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=hidden_on_video_page] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns{
 		height: calc(100vh);
 	}
 	
@@ -101,7 +101,11 @@
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #secondary{
 		height: inherit; overflow-y: scroll; overflow-x: hidden !important;
 	}
-
+	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns {overflow: hidden;}
+	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy[theater] #columns
+	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy[fullscreen] #columns{
+		height: auto;
+	}
 }
 
 
@@ -117,10 +121,12 @@ html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #donation
 html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-secondary-results-renderer ytd-compact-video-renderer,
 html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-secondary-results-renderer ytd-compact-radio-renderer,
 html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-secondary-results-renderer ytd-compact-playlist-renderer,
-html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-secondary-results-renderer ytd-continuation-item-renderer {min-width: 300px; max-width: 420px !important; flex-grow: 1; flex-basis: 0 !important; margin-right: 8px;}
+html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-secondary-results-renderer ytd-continuation-item-renderer {
+	min-width: 300px; max-width: 420px !important; flex-grow: 1; flex-basis: 0 !important; flex-direction: row; margin-right: 8px;
+}
 
 /* CUSTOM ENHANCEMENTS */
-html[data-page-type=video] #playlist #items { max-height: calc(70px * 4 + 4px) ; padding-bottom: 0;} /* MIGHT FIX #1693, currently shows 4 videos */
+html[data-page-type=video] #playlist #items { max-height: calc(70px * 4 + 4px) ; padding-bottom: 0;} /* MIGHT FIX #1693, currently shows up to 4 videos */
 html[data-page-type=video] ytd-watch-flexy #chat > tp-yt-paper-button#label { width:calc(100% - 40px); }
 html[data-page-type=video] ytd-watch-flexy #right-arrow-container.ytd-merch-shelf-renderer { right: 44px !important; }
 
