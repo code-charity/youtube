@@ -12,7 +12,6 @@
 /* 2 COLS FEATURE */
 @media screen and (min-width: 1952px) {	
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #related { flex-shrink: 4; min-width: 300px;}
-	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #related::before { content: ""; height: 24px; display: block;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #related {  width: auto !important;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #columns { max-width: 100%;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary {min-width: 300px !important; max-width: 420px;}
@@ -26,7 +25,7 @@
 	/*--------------------------------------------------------------
 		#TODO: there should be 2 new option in settings:
 			1 - [it-comments-sidebar-left] so we can shift comments-sidebar to the left (should appear only when 'Comments:Sidebar' is activated).
-			2 - [swap-sidebars] so we exchange the sidebars order (that would only apply to 1951px+ wide-screens, because player resize
+			2 - [swap-sidebars] so we exchange the sidebars order (that would only apply to 1952px+ wide-screens, because player resize
 			is messy AT THE MOMENT. Once resize works properly we can re-arrange this entire media-screen in its own setting option too).
 		Might also think on the edge-cases were both options are active
 	--------------------------------------------------------------*/
@@ -73,7 +72,6 @@
 @media screen and (min-width: 1000px){
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary, 
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary{margin-top: 0 !important; padding-top: 0 !important; padding-right: 0;}
-	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary::before { content: ""; height: 24px; display: block;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary {flex: 1 0 auto;padding: 0 24px; margin: 0;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary-inner {padding-top: 24px;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #player {margin: 0 auto;}
@@ -85,7 +83,8 @@
 
 	/* DIFFERENT HEADERS HEIGHT */
 	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=normal] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns, /* BUG: if header has never been changed back and forth to normal, [it-header-position=normal] selector isn't applied */
-	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=static] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns {
+	html[data-page-type=video][it-comments-sidebar='true']:not([it-header-position^=h]) ytd-watch-flexy:not([theater]):not([fullscreen]) #columns, /* temporary fix */
+	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=static] #columns{
 		height: calc(100vh - 56px);
 	}
 	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=hover] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns,
@@ -126,7 +125,7 @@ html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-sec
 }
 
 /* CUSTOM ENHANCEMENTS */
-html[data-page-type=video] #playlist #items { max-height: calc(70px * 4 + 4px) ; padding-bottom: 0;} /* MIGHT FIX #1693, currently shows 4 videos */
+html[data-page-type=video] #playlist #items { max-height: calc(70px * 4 + 4px) ; padding-bottom: 0;} /* MIGHT FIX #1693, currently shows up to 4 videos */
 html[data-page-type=video] ytd-watch-flexy #chat > tp-yt-paper-button#label { width:calc(100% - 40px); }
 html[data-page-type=video] ytd-watch-flexy #right-arrow-container.ytd-merch-shelf-renderer { right: 44px !important; }
 
