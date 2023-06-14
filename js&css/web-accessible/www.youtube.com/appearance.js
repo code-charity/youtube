@@ -150,7 +150,8 @@ ImprovedTube.commentsSidebar = function() {
     }
 	function sidebar(){
         resizePlayer();
-		if(window.matchMedia("(min-width: 1951px)").matches) {
+		if(window.matchMedia("(min-width: 1952px)").matches) {
+
 			if (!hasApplied) {
                 initialSetup()
                 setTimeout(() => {document.getElementById("columns").appendChild(document.getElementById("related"))})
