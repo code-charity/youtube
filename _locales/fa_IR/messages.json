@@ -83,7 +83,6 @@
 "areYouSureYouWantToImportTheData": {
 "message": "آیا از وارد کردن این داده‌ها اطمینان دارید؟"
 },
-{
 "audio": {
 "message": "صدا"
 },
@@ -159,7 +158,6 @@
 "blue": {
 "message": "آبی"
 },
-{
 "blueGray": {
 "message": "آبی خاکستری"
 },
@@ -265,7 +263,6 @@
 "decreasePlaybackSpeed": {
 "message": "کاهش سرعت پخش"
 },
-{
 "decreaseVolume": {
 "message": "کاهش صدا"
 },
@@ -353,7 +350,6 @@
 "enabled": {
 "message": "فعال"
 },
-{
 "enabledForced": {
 "message": "فعال (اجباری)"
 },
@@ -453,7 +449,6 @@
 "header": {
 "message": "سربرگ"
 },
-{
 "hidden": {
 "message": "پنهان شده"
 },
@@ -520,7 +515,6 @@
 "hideSkipOverlay": {
 "message": "مخفی کردن انیمیشن پرش پنج ثانیه‌ای"
 },
-{
 "hideThumbnailOverlay": {
 "message": "پنهان کردن دکمه ها در بندانگشتی ها"
 },
@@ -617,7 +611,6 @@
 "lightGreen": {
 "message": "سبز روشن"
 },
-{
 "like": {
 "message": "پسندیدن"
 },
@@ -717,7 +710,6 @@
 "old": {
 "message": "قدیمی"
 },
-{
 "onAllVideos": {
 "message": "روشن"
 },
@@ -764,7 +756,7 @@
 "message": "پلتفرم"
 },
 "playAllButton": {
-"message": "دکمه "پخش همه""
+"message": "دکمه پخش همه"
 },
 "playPause": {
 "message": "پخش / توقف"
@@ -802,7 +794,6 @@
 "pressAnyKeyOrUseMouseWheel": {
 "message": "هر کلیدی را فشار دهید یا از اسکرول موس استفاده کنید"
 },
-{
 "previousVideo": {
 "message": "ویدیو قبلی"
 },
@@ -902,7 +893,6 @@
 "seekPreviousChapter": {
 "message": "جستجو به فصل قبلی"
 },
-{
 "settings": {
 "message": "تنظیمات"
 },
@@ -999,7 +989,6 @@
 "themes": {
 "message": "تم‌ها"
 },
-{
 "thisWillRemoveAllCookies": {
 "message": "این کار کلیه کوکی ها را حذف می‌کند."
 },
@@ -1075,7 +1064,6 @@
 "video": {
 "message": "ویدیو"
 },
-{
 "videoDescriptionWillBeExpandedToGetNameOfCategory": {
 "message": "توضیحات ویدیو برای دریافت نام دسته بندی گسترش خواهد یافت"
 },
