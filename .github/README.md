@@ -93,8 +93,8 @@ Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/c
 <code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json" title="한국어">KO</a></code> :
 <a href="https://github.com/msc9533"><code>msc9533</code></a>,
 <a href="https://github.com/LYHyoung"><code>LYHyoung</code></a><br>
-<code>❌<a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/___/messages.json" title="_______">(Iranian) Persian</a></code> :
-<a href="https://github.com/????????">_____</a></code>(You?)<br>
+<code>✔️<a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fa_IR/messages.json" title="فارسی">(Iranian) Persian</a></code> :
+<a href="https://github.com/AC-Lover"><code>AC Lover</code></a><br>
 <code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json" title="Italiano">IT</a></code> :
 <a href="https://github.com/urfausto" title="✨🏆"><code>urfausto</code></a>,
 <a href="https://github.com/FedericoSlongo"><code>FedericoSlongo</code></a><br>
