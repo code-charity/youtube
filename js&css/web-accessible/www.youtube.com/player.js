@@ -346,17 +346,21 @@ ImprovedTube.upNextAutoplay = function () {
 ADS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAds = function (parent) {
-	try{var button = parent.querySelector('.ytp-ad-skip-button.ytp-button');}catch{}
-	if (button) {
+	let video = parent.querySelector('.video-stream.html5-main-video');
+	function skipAd() {
+		video.currentTime = video.duration;
+	}
+	
+	if (video) {
 		if (this.storage.player_ads === 'block_all') {
-			button.click();
+			skipAd();
 		} else if (this.storage.player_ads === 'subscribed_channels') {
 			if (!parent.querySelector('#meta paper-button[subscribed]')) {
-				button.click();
+				skipAd();
 			}
 		} else if (this.storage.player_ads === 'block_music') {
 			if (ImprovedTube.elements.category === 'music') {
-				button.click();
+				skipAd();
 			}
 		}
 	}
