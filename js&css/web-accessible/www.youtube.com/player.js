@@ -346,7 +346,8 @@ ImprovedTube.upNextAutoplay = function () {
 ADS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAds = function (parent) {
-	let video = parent.querySelector('.video-stream.html5-main-video');
+	// TODO: Replace this with centralized video element pointer
+	let video = document.querySelector('.video-stream.html5-main-video');
 	function skipAd() {
 		video.currentTime = video.duration;
 	}
