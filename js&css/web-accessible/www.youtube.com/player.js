@@ -346,23 +346,23 @@ ImprovedTube.upNextAutoplay = function () {
 ADS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAds = function (parent) {
+	let button = parent.querySelector('.ytp-ad-skip-button.ytp-button');
 	// TODO: Replace this with centralized video element pointer
 	let video = document.querySelector('.video-stream.html5-main-video');
 	function skipAd() {
-		video.currentTime = video.duration;
+		if (video) video.currentTime = video.duration;
+		if (button) button.click();
 	}
 	
-	if (video) {
-		if (this.storage.player_ads === 'block_all') {
+	if (this.storage.player_ads === 'block_all') {
+		skipAd();
+	} else if (this.storage.player_ads === 'subscribed_channels') {
+		if (!parent.querySelector('#meta paper-button[subscribed]')) {
 			skipAd();
-		} else if (this.storage.player_ads === 'subscribed_channels') {
-			if (!parent.querySelector('#meta paper-button[subscribed]')) {
-				skipAd();
-			}
-		} else if (this.storage.player_ads === 'block_music') {
-			if (ImprovedTube.elements.category === 'music') {
-				skipAd();
-			}
+		}
+	} else if (this.storage.player_ads === 'block_music') {
+		if (ImprovedTube.elements.category === 'music') {
+			skipAd();
 		}
 	}
 };
