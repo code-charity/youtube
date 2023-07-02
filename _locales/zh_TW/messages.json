@@ -27,7 +27,7 @@
         "message": "開啟全螢幕"
     },
     "activated": {
-        "message": "啟用"
+        "message": "已啟用"
     },
     "activatedFeatures": {
         "message": "已啟用功能"
@@ -51,7 +51,7 @@
         "message": "允許 60fps"
     },
     "always": {
-        "message": "Always"
+        "message": "總是"
     },
     "alwaysActive": {
         "message": "始終有效"
@@ -66,7 +66,7 @@
         "message": "觀看紀錄"
     },
     "animations": {
-        "message": "Animations"
+        "message": "動畫"
     },
     "appearance": {
         "message": "外觀"
@@ -78,10 +78,10 @@
         "message": "確定要匯入資料嗎？"
     },
     "audio": {
-        "message": "音頻"
+        "message": "音訊"
     },
     "audioFormats": {
-        "message": "音頻格式"
+        "message": "音訊格式"
     },
     "auto": {
         "message": "自動"
@@ -165,7 +165,7 @@
         "message": "瀏覽器版本"
     },
     "bubbles": {
-        "message": "Bubbles"
+        "message": "氣泡"
     },
     "bug": {
         "message": "問題"
@@ -189,7 +189,7 @@
         "message": "字型邊緣型式"
     },
     "clip": {
-        "message": "Clip"
+        "message": "剪輯"
     },
     "clipboard": {
         "message": "剪貼簿"
@@ -201,10 +201,10 @@
         "message": "編碼"
     },
     "collapseOfSubscriptionSections": {
-        "message": "於訂閱區顯示縮放按鈕"
+        "message": "折疊訂閱區塊"
     },
     "collapsed": {
-        "message": "簡縮"
+        "message": "折疊"
     },
     "comments": {
         "message": "評論"
@@ -282,7 +282,7 @@
         "message": "描述"
     },
     "description_ext": {
-        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+        "message": "讓 YouTube 更整潔、聰明！YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
         "message": "沙漠"
@@ -306,7 +306,7 @@
         "message": "不喜歡"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the week"
+        "message": "顯示星期幾"
     },
     "doNotChange": {
         "message": "不要改變"
@@ -315,7 +315,7 @@
         "message": "捐贈"
     },
     "download": {
-        "message": "Download"
+        "message": "下載"
     },
     "draggable": {
         "message": "可拖動"
@@ -324,7 +324,7 @@
         "message": "投射陰影"
     },
     "durationWithSpeed": {
-        "message": "Show time remaining with reference to playback speed"
+        "message": "依據播放速度顯示剩餘時間"
     },
     "email": {
         "message": "Email"
@@ -339,10 +339,10 @@
         "message": "強制啟用"
     },
     "expanded": {
-        "message": "擴展"
+        "message": "擴充套件"
     },
     "exportSettings": {
-        "message": "導出設定"
+        "message": "匯出設定"
     },
     "extension": {
         "message": "擴充元件"
@@ -360,7 +360,7 @@
         "message": "是否使用 Flash"
     },
     "font": {
-        "message": "字體"
+        "message": "字型"
     },
     "fontColor": {
         "message": "字型顏色"
@@ -375,7 +375,7 @@
         "message": "字型大小"
     },
     "footer": {
-        "message": "頁腳"
+        "message": "頁尾"
     },
     "forceSDR": {
         "message": "強制使用標準動態範圍 (SDR)"
@@ -387,7 +387,7 @@
         "message": "強制播放速度"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "(Force playback speed even for music?)"
+        "message": "(即使對音樂也強制播放速度？)"
     },
     "forcedTheaterMode": {
         "message": "強制劇院模式"
@@ -441,7 +441,7 @@
         "message": "於影片頁面自動隱藏"
     },
     "hideAnimatedThumbnails": {
-        "message": "隱藏動態的縮略圖"
+        "message": "隱藏動態的縮圖"
     },
     "hideAnnotations": {
         "message": "隱藏註解"
@@ -474,7 +474,7 @@
         "message": "隱藏精選影片"
     },
     "hideFooter": {
-        "message": "隱藏頁腳"
+        "message": "隱藏頁尾"
     },
     "hideGradientBottom": {
         "message": "隱藏底部漸層圖層"
@@ -495,7 +495,7 @@
         "message": "隱藏右側按鈕"
     },
     "hideScrollForDetails": {
-        "message": "隱藏「向下捲動即可查看詳情」"
+        "message": "隱藏「向下捲動即可檢視詳細資訊」"
     },
     "hideSkipOverlay": {
         "message": "隱藏「跳至區段」按鈕"
@@ -537,7 +537,7 @@
         "message": "只有圖示"
     },
     "importSettings": {
-        "message": "導入設定"
+        "message": "匯入設定"
     },
     "improveLogo": {
         "message": "改進 YouTube 圖示"
@@ -564,7 +564,7 @@
         "message": "靛青"
     },
     "items": {
-        "message": "項目"
+        "message": "專案"
     },
     "language": {
         "message": "語言"
@@ -573,10 +573,10 @@
         "message": "語言"
     },
     "layerAnimationScale": {
-        "message": "Layer animation scale"
+        "message": "圖層動畫縮放"
     },
     "layout": {
-        "message": "Layout"
+        "message": "版面配置"
     },
     "legacyYoutube": {
         "message": "舊版 YouTube"
@@ -597,10 +597,10 @@
         "message": "喜歡"
     },
     "liked": {
-        "message": "Liked"
+        "message": "已喜歡"
     },
     "likes": {
-        "message": "Likes"
+        "message": "喜歡"
     },
     "lime": {
         "message": "萊姆色"
@@ -612,10 +612,10 @@
         "message": "清單"
     },
     "liveChat": {
-        "message": "Live 聊天視窗"
+        "message": "直播聊天室"
     },
     "liveChatType": {
-        "message": "Live 聊天視窗種類"
+        "message": "直播聊天室類型"
     },
     "location": {
         "message": "地區"
@@ -657,7 +657,7 @@
         "message": "名稱"
     },
     "nativeMiniPlayer": {
-        "message": "迷你播放器"
+        "message": "原生迷你播放器"
     },
     "new": {
         "message": "新增"
@@ -687,7 +687,7 @@
         "message": "關閉"
     },
     "ok": {
-        "message": "Ok"
+        "message": "確定"
     },
     "old": {
         "message": "舊版"
@@ -765,7 +765,7 @@
         "message": "彈出播放器"
     },
     "popupWindowButtons": {
-        "message": "添加彈出播放器按鈕"
+        "message": "新增彈出播放器按鈕"
     },
     "position": {
         "message": "位置"
@@ -774,7 +774,7 @@
         "message": "按任意鍵或使用滑鼠滾輪。"
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "按任意鍵或使用鼠標滾輪。"
+        "message": "按任意鍵或使用滑鼠滾輪。"
     },
     "previousVideo": {
         "message": "回到之前的影片"
@@ -852,7 +852,7 @@
         "message": "截圖"
     },
     "scrollBar": {
-        "message": "滾動條"
+        "message": "捲軸"
     },
     "sd": {
         "message": "SD"
@@ -918,7 +918,7 @@
         "message": "空白鍵"
     },
     "squaredUserImages": {
-        "message": "方形用戶圖像"
+        "message": "方形使用者圖示"
     },
     "static": {
         "message": "靜止"
@@ -966,7 +966,7 @@
         "message": "文字顏色"
     },
     "thanks": {
-        "message": "Thanks"
+        "message": "感謝"
     },
     "themes": {
         "message": "主題"
