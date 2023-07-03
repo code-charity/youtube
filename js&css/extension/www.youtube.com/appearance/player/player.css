@@ -395,9 +395,9 @@ html[data-page-type=video][it-player-size='max_width'] .ytp-fit-cover-video .htm
 # FULL HEIGHT  "Full window"
 --------------------------------------------------------------*/
 
-html[data-page-type=video][it-player-size='full_window'] #player-wide-container {
-	/* 56px is from the navbar */
-	height: calc(var(--it-player-size) - 56px) !important;
+html[data-page-type=video][it-player-size='full_window'][it-forced-theater-mode='true'] #player-wide-container,
+html[data-page-type=video][it-player-size='full_window'][it-forced-theater-mode='false'] ytd-watch-flexy[theater] #player-wide-container {
+	height: calc(var(--it-player-size) - var(--it-header-size)) !important;
 	max-height: var(--it-player-size) !important;
 }
 
