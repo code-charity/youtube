@@ -395,6 +395,12 @@ html[data-page-type=video][it-player-size='max_width'] .ytp-fit-cover-video .htm
 # FULL HEIGHT  "Full window"
 --------------------------------------------------------------*/
 
+html[data-page-type=video][it-player-size='full_window'] #player-wide-container {
+	/* 56px is from the navbar */
+	height: calc(var(--it-player-size) - 56px) !important;
+	max-height: var(--it-player-size) !important;
+}
+
 html[data-page-type=video][it-player-size='full_window'] {
 	--it-player-size: 100vh;}
 
