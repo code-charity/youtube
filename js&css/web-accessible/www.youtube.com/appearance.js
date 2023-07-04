@@ -138,15 +138,127 @@ ImprovedTube.playerRemainingDuration = function () {
 /*------------------------------------------------------------------------------
  Comments Sidebar
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebar = function() { if(ImprovedTube.storage.comments_sidebar === true){ 
-  if(window.matchMedia("(min-width: 1599px)").matches) {
-  document.querySelector("#primary").insertAdjacentElement('afterend', document.querySelector("#comments"));}
-  if(window.matchMedia("(max-width: 1598px)").matches) {	  
-    document.querySelector("#related").insertAdjacentElement('beforebegin', document.querySelector("#comments"));
-       setTimeout(function () {
-       document.querySelector("#primary-inner").appendChild(document.querySelector("#related"));}
-	);}
- }
+ImprovedTube.commentsSidebar = function() {
+    const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
+	let hasApplied = 0;
+	if(ImprovedTube.storage.comments_sidebar === true){
+        sidebar();
+        styleScrollbars();
+        setGrid();
+        applyObserver();
+        window.addEventListener("resize", sidebar)
+    }
+	function sidebar(){
+        resizePlayer();
+		if(window.matchMedia("(min-width: 1952px)").matches) {
+
+			if (!hasApplied) {
+                initialSetup()
+                setTimeout(() => {document.getElementById("columns").appendChild(document.getElementById("related"))})
+			}
+			else if (hasApplied == 2){ //from medium to big size
+                setTimeout(() => {document.getElementById("columns").appendChild(document.getElementById("related"))})
+			} 
+			hasApplied = 1
+		}
+		else if(window.matchMedia("(min-width: 1000px)").matches) {	  
+			if (!hasApplied) {
+				initialSetup();
+			}
+			else if (hasApplied == 1){ //from big to medium
+                document.getElementById("primary-inner").appendChild(document.getElementById("related"));
+			}
+			hasApplied = 2
+		}
+		else { /// <1000 
+			if(hasApplied == 1){
+                document.getElementById("primary-inner").appendChild(document.getElementById("related"));
+                let comments = document.querySelector("#comments");
+                let below = document.getElementById("below");
+                below.appendChild(comments);
+			}
+			else if (hasApplied == 2){
+                let comments = document.querySelector("#comments");
+                let below = document.getElementById("below");
+                below.appendChild(comments);
+			}
+			hasApplied = 0;
+		}
+	}
+	function setGrid(){
+		let checkParentInterval = setInterval(() => {
+			container = document.querySelector("#related ytd-compact-video-renderer.style-scope")?.parentElement;
+			if (container) {
+					clearInterval(checkParentInterval);
+					container.style.display = "flex";
+					container.style.flexWrap = "wrap";
+			}
+		}, 250);
+	}
+    function initialSetup() {
+        let secondaryInner = document.getElementById("secondary-inner");
+        let primaryInner = document.getElementById("primary-inner");
+        let comments = document.querySelector("#comments");
+        setTimeout(() => {
+            primaryInner.appendChild(document.getElementById("panels"));
+            primaryInner.appendChild(document.getElementById("related"))
+            secondaryInner.appendChild(document.getElementById("chat-template"));
+            secondaryInner.appendChild(comments);
+        })
+    }
+    function resizePlayer() {
+        const width = video.offsetWidth + 24;
+        const player = document.querySelector("#player.style-scope.ytd-watch-flexy");
+        document.getElementById("primary").style.width = `${width}px`;
+        player.style.width = `${width}px`;
+    }
+    function styleScrollbars(){
+        if (!navigator.userAgent.toLowerCase().includes("mac")){
+            let color, colorHover
+            const isDarkMode = getComputedStyle(document.querySelector('ytd-app')).getPropertyValue('--yt-spec-base-background') == "#0f0f0f";
+            if(isDarkMode) [color,colorHover] = ["#616161", "#909090"];
+            else [color,colorHover] = ["#aaaaaa", "#717171"];
+            const style = document.createElement("style");
+            const cssRule = `
+            #primary, #secondary {
+                overflow: overlay !important;
+            }
+            
+            ::-webkit-scrollbar
+            {
+                width: 16px;
+                height: 7px;
+            }
+            
+            ::-webkit-scrollbar-thumb{
+                background-color: ${color};
+                border-radius: 10px;
+                border: 4px solid transparent;
+                background-clip: padding-box;
+            }
+            
+            ::-webkit-scrollbar-thumb:hover{
+                background-color: ${colorHover};
+            }`;
+            style.appendChild(document.createTextNode(cssRule));
+            document.head.appendChild(style);
+        }
+    }
+    function applyObserver(){
+        const debouncedResizePlayer = debounce(resizePlayer, 200);
+        const resizeObserver = new ResizeObserver(debouncedResizePlayer);
+        resizeObserver.observe(video);
+    }
+    function debounce(callback, delay) {
+        let timerId;
+        return function (...args) {
+            clearTimeout(timerId);
+            timerId = setTimeout(() => {
+            callback.apply(this, args);
+            }, delay);
+        };
+    }
+      
 }
 /*------------------------------------------------------------------------------
  SIDEBAR
