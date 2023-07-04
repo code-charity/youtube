@@ -136,6 +136,18 @@ ImprovedTube.playerRemainingDuration = function () {
     }
 };
 /*------------------------------------------------------------------------------
+ Comments Sidebar Simple
+------------------------------------------------------------------------------*/
+ImprovedTube.commentsSidebarSimple = function() { if(ImprovedTube.storage.comments_sidebar_simple === true){ 
+  if(window.matchMedia("(min-width: 1599px)").matches) {
+  document.querySelector("#primary").insertAdjacentElement('afterend', document.querySelector("#comments"));}
+  if(window.matchMedia("(max-width: 1598px)").matches) {	  
+    document.querySelector("#related").insertAdjacentElement('beforebegin', document.querySelector("#comments"));
+       setTimeout(function () {
+       document.querySelector("#primary-inner").appendChild(document.querySelector("#related"));}
+	);}
+}}
+/*------------------------------------------------------------------------------
  Comments Sidebar
 ------------------------------------------------------------------------------*/
 ImprovedTube.commentsSidebar = function() {
