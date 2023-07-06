@@ -147,6 +147,7 @@ ImprovedTube.commentsSidebarSimple = function() { if(ImprovedTube.storage.commen
        document.querySelector("#primary-inner").appendChild(document.querySelector("#related"));}
 	);}
  }
+}
 /*------------------------------------------------------------------------------
  Comments Sidebar
 ------------------------------------------------------------------------------*/
@@ -204,6 +205,7 @@ ImprovedTube.commentsSidebar = function() {
 					clearInterval(checkParentInterval);
 					container.style.display = "flex";
 					container.style.flexWrap = "wrap";
+					container.style.flexDirection = "row";
 			}
 		}, 250);
 	}

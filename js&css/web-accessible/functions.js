@@ -203,7 +203,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 			node.calculateCurrentPlayerSize_ = function () {
 				if (!this.theater && ImprovedTube.elements.player) {
 					if (this.updateStyles) {
-						this.updthisateStyles({
+						this.updateStyles({
 							'--ytd-watch-flexy-width-ratio': 1,
 							'--ytd-watch-flexy-height-ratio': 0.5625
 						});
