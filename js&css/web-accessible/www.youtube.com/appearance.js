@@ -155,11 +155,13 @@ ImprovedTube.commentsSidebar = function() {
     const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
 	let hasApplied = 0;
 	if(ImprovedTube.storage.comments_sidebar === true){
-        sidebar();
-        styleScrollbars();
-        setGrid();
-        applyObserver();
-        window.addEventListener("resize", sidebar)
+        if(/watch\?/.test(location.href)) {
+            sidebar();
+            styleScrollbars();
+            setGrid();
+            applyObserver();
+            window.addEventListener("resize", sidebar)
+        }
     }
 	function sidebar(){
         resizePlayer();
