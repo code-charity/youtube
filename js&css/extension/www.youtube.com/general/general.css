@@ -328,3 +328,31 @@ html[it-hide-thumbnail-overlay='true'] #hover-overlays {
 html[it-embeddedHidePauseOverlay='true'] .ytp-pause-overlay {display:none !important}
 html[it-embeddedHideYoutubeLogo='true'] a.ytp-youtube-button svg path {display:none !important}
 html[it-embeddedHideShare='true'] .ytp-share-button-visible:has(.ytp-share-icon) {display:none !important}
+
+
+/*--------------------------------------------------------------
+# COMPACT THEME
+--------------------------------------------------------------*/
+html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(2) > h3,
+html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(3) > h3,
+html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(4) > h3 {
+	cursor: pointer;
+	width: calc(100% - 12px);
+	border-radius: 10px;
+	min-height: var(--paper-item-min-height,48px);
+	display: flex;
+	align-items: center;
+	user-select: none;
+}
+
+html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(2) > h3:hover,
+html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(3) > h3:hover,
+html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(4) > h3:hover {
+	background-color: var(--yt-spec-badge-chip-background);
+}
+
+html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(2) > h3:active,
+html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(3) > h3:active,
+html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(4) > h3:active {
+	background-color: var(--yt-spec-10-percent-layer);
+}
