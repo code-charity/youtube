@@ -801,6 +801,15 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-blue-suggestive: transparent;
 }
 
+[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
+[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+	--yt-lightsource-section2-color: rgba(18,24,24,1.000) !important;
+	--yt-lightsource-section3-color: rgba(20,30,30,1.000) !important;
+	--yt-lightsource-section4-color: rgba(24,38,38,1.000) !important;
+	--yt-lightsource-primary-title-color: var(--yt-spec-text-primary) !important;
+	--yt-lightsource-secondary-title-color: var(--yt-spec-text-secondary) !important;
+}
 
 /*DAWN*/
   
@@ -1027,6 +1036,15 @@ html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=sy
 	filter: grayscale(1) brightness(4);
 }
 
+[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
+[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+	--yt-lightsource-section2-color: rgba(0, 0, 0, 0.1) !important;
+	--yt-lightsource-section3-color: rgba(0, 0, 0, 0.2) !important;
+	--yt-lightsource-section4-color: rgba(0, 0, 0, 0.3) !important;
+	--yt-lightsource-primary-title-color: var(--yt-spec-text-primary) !important;
+	--yt-lightsource-secondary-title-color: var(--yt-spec-text-secondary) !important;
+}
 
 /*DESERT*/ 
 
@@ -1471,6 +1489,15 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-blue-suggestive: transparent;
 }
 
+[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
+[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+	--yt-lightsource-section2-color: rgba(0, 0, 0, 0.1) !important;
+	--yt-lightsource-section3-color: rgba(0, 0, 0, 0.2) !important;
+	--yt-lightsource-section4-color: rgba(0, 0, 0, 0.3) !important;
+	--yt-lightsource-primary-title-color: var(--yt-spec-text-primary) !important;
+	--yt-lightsource-secondary-title-color: var(--yt-spec-text-secondary) !important;
+}
 
 /*PLAIN*/
 
@@ -1690,6 +1717,16 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-blue-suggestive: transparent;
 }
 
+[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
+[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+	--yt-lightsource-section2-color: rgba(0, 0, 0, 0.05) !important;
+	--yt-lightsource-section3-color: rgba(0, 0, 0, 0.1) !important;
+	--yt-lightsource-section4-color: rgba(0, 0, 0, 0.15) !important;
+	--yt-lightsource-primary-title-color: var(--yt-spec-text-primary) !important;
+	--yt-lightsource-secondary-title-color: var(--yt-spec-text-secondary) !important;
+}
+
 
 /*SUNSET*/
   
@@ -1906,4 +1943,14 @@ html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=
 	--yt-chat-bubble-self-border-color: hsl(0, 0%, 14%);
 	--yt-chat-bubble-self-background-color: #2f3364;
 	--yt-blue-suggestive: transparent;
+}
+
+[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
+[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+	--yt-lightsource-section2-color: rgba(0, 0, 0, 0.1) !important;
+	--yt-lightsource-section3-color: rgba(0, 0, 0, 0.2) !important;
+	--yt-lightsource-section4-color: rgba(0, 0, 0, 0.3) !important;
+	--yt-lightsource-primary-title-color: var(--yt-spec-text-primary) !important;
+	--yt-lightsource-secondary-title-color: var(--yt-spec-text-secondary) !important;
 }
