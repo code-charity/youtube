@@ -615,7 +615,7 @@ ytd-guide-section-renderer .it-button::after {
 	--yt-spec-icon-disabled: #aaa !important;
 	--yt-spec-badge-chip-background: rgba(0, 0, 0, .05) !important;
 	--yt-spec-verified-badge-background: rgba(0, 0, 0, .15) !important;
-	--yt-spec-suggested-action: #f2f8ff !important;
+	--yt-spec-suggested-action: rgba(40, 40, 40, .8) !important;
 	--yt-spec-button-chip-background-hover: rgba(0, 0, 0, .10) !important;
 	--yt-spec-touch-response: #000 !important;
 	--yt-spec-filled-button-text: #aaa !important;
@@ -846,7 +846,7 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-icon-disabled: rgb(255, 255, 255) !important;
 	--yt-spec-badge-chip-background: rgba(0, 0, 0, .05) !important;
 	--yt-spec-verified-badge-background: rgba(0, 0, 0, .15) !important;
-	--yt-spec-suggested-action: #f2f8ff !important;
+	--yt-spec-suggested-action: rgba(40, 40, 40, .8) !important;
 	--yt-spec-button-chip-background-hover: rgba(0, 0, 0, .10) !important;
 	--yt-spec-touch-response: #d44d5c !important;
 	--yt-spec-filled-button-text: rgb(255, 255, 255) !important;
@@ -1081,7 +1081,7 @@ html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=sy
 	--yt-spec-icon-disabled: #555 !important;
 	--yt-spec-badge-chip-background: rgba(0, 0, 0, .05) !important;
 	--yt-spec-verified-badge-background: rgba(0, 0, 0, .15) !important;
-	--yt-spec-suggested-action: #f2f8ff !important;
+	--yt-spec-suggested-action: rgba(40, 40, 40, .8) !important;
 	--yt-spec-button-chip-background-hover: rgba(0, 0, 0, .10) !important;
 	--yt-spec-touch-response: #faf9f9 !important;
 	--yt-spec-filled-button-text: #555 !important;
@@ -1300,7 +1300,7 @@ html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=
 	--yt-spec-icon-disabled: #fff !important;
 	--yt-spec-badge-chip-background: rgba(0, 0, 0, .05) !important;
 	--yt-spec-verified-badge-background: rgba(0, 0, 0, .15) !important;
-	--yt-spec-suggested-action: #f2f8ff !important;
+	--yt-spec-suggested-action: rgba(40, 40, 40, .8) !important;
 	--yt-spec-button-chip-background-hover: rgba(0, 0, 0, .10) !important;
 	--yt-spec-touch-response: #003459 !important;
 	--yt-spec-filled-button-text: #fff !important;
@@ -1534,7 +1534,7 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-icon-disabled: #666 !important;
 	--yt-spec-badge-chip-background: rgba(0, 0, 0, .05) !important;
 	--yt-spec-verified-badge-background: rgba(0, 0, 0, .15) !important;
-	--yt-spec-suggested-action: #f2f8ff !important;
+	--yt-spec-suggested-action: rgba(40, 40, 40, .8) !important;
 	--yt-spec-button-chip-background-hover: rgba(0, 0, 0, .10) !important;
 	--yt-spec-touch-response: #c7efcf !important;
 	--yt-spec-filled-button-text: #666 !important;
@@ -1763,7 +1763,7 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-icon-disabled: #fff !important;
 	--yt-spec-badge-chip-background: rgba(0, 0, 0, .05) !important;
 	--yt-spec-verified-badge-background: rgba(0, 0, 0, .15) !important;
-	--yt-spec-suggested-action: #f2f8ff !important;
+	--yt-spec-suggested-action: rgba(40, 40, 40, .8) !important;
 	--yt-spec-button-chip-background-hover: rgba(0, 0, 0, .10) !important;
 	--yt-spec-touch-response: #2f3364 !important;
 	--yt-spec-filled-button-text: #fff !important;
