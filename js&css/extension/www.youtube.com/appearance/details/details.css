@@ -98,53 +98,53 @@ html[it-red-dislike-button='true'] #top-level-buttons-computed #segmented-dislik
 /*--------------------------------------------------------------
 # HIDE SHARE BUTTON
 --------------------------------------------------------------*/
-html[it-hide-share-button='hidden'] #menu button:has(svg path[d^="M15,5.63L20.66,12L15,18.37V15v"]),
-html[it-hide-share-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M15,5.63L20.66,12L15,18.37V15v"]),
+html[it-hide-share-button='hidden'] #menu button:has(svg path[d^="M15 5.63 20.66 12 15 18.37V14h-1c-3.96"]),
+html[it-hide-share-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M15 5.63 20.66 12 15 18.37V14h-1c-3.96"]),
 
-html[it-hide-share-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M15,5.63L20.66,12L15,18.37V15v"]) div:nth-child(2),
-html[it-hide-share-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M15,5.63L20.66,12L15,18.37V15v"]) .cbox{ 
+html[it-hide-share-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M15 5.63 20.66 12 15 18.37V14h-1c-3.96"]) div:nth-child(2),
+html[it-hide-share-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M15 5.63 20.66 12 15 18.37V14h-1c-3.96"]) .cbox{ 
 	display: none;
 }
 /*--------------------------------------------------------------
 # HIDE DOWNLOAD BUTTON
 --------------------------------------------------------------*/
-html[it-hide-download-button='hidden'] #menu button:has(svg path[d^="M17 18V19H6V18H17ZM16.5 11.4"]),
-html[it-hide-download-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M17 18V19H6V18H17ZM16.5 11.4"]) {
+html[it-hide-download-button='hidden'] #menu button:has(svg path[d^="M17 18v1H6v-1h11zm-.5-6.6-.7-.7-3.8 3.7V4h-1v10.4l-3.8-3.8-.7.7"]),
+html[it-hide-download-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M17 18v1H6v-1h11zm-.5-6.6-.7-.7-3.8 3.7V4h-1v10.4l-3.8-3.8-.7.7"]) {
 	display: none;
 }
 
-html[it-hide-download-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M17 18V19H6V18H17ZM16.5 11.4"]) div:nth-child(2),
-html[it-hide-download-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M17 18V19H6V18H17ZM16.5 11.4"]) .cbox{
+html[it-hide-download-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M17 18v1H6v-1h11zm-.5-6.6-.7-.7-3.8 3.7V4h-1v10.4l-3.8-3.8-.7.7"]) div:nth-child(2),
+html[it-hide-download-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M17 18v1H6v-1h11zm-.5-6.6-.7-.7-3.8 3.7V4h-1v10.4l-3.8-3.8-.7.7"]) .cbox{
 	display: none;
 }
 /*--------------------------------------------------------------
 # HIDE THANKS BUTTON
 --------------------------------------------------------------*/
-html[it-hide-thanks-button='hidden'] #menu button:has(svg path[d^="M16.5,3C19.02,3,21,5.19,21,7.99c"]),
-html[it-hide-thanks-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M16.5,3C19.02,3,21,5.19,21,7.99c"]),
+html[it-hide-thanks-button='hidden'] #menu button:has(svg path[d^="M11 17h2v-1h1c.55 0"]),
+html[it-hide-thanks-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M11 17h2v-1h1c.55 0"]),
 
-html[it-hide-thanks-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M16.5,3C19.02,3,21,5.19,21,7.99c"]) div:nth-child(2),
-html[it-hide-thanks-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M16.5,3C19.02,3,21,5.19,21,7.99c"]) .cbox{
+html[it-hide-thanks-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M11 17h2v-1h1c.55 0"]) div:nth-child(2),
+html[it-hide-thanks-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M11 17h2v-1h1c.55 0"]) .cbox{
 	display: none;
 }
 /*--------------------------------------------------------------
 # HIDE CLIP BUTTON
 --------------------------------------------------------------*/
-html[it-hide-clip-button='hidden'] #menu button:has(svg path[d^="M8,7c0,0.55-0.45,1-1,1S6,7."]),
-html[it-hide-clip-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M8,7c0,0.55-0.45,1-1,1S6,7."]),
+html[it-hide-clip-button='hidden'] #menu button:has(svg path[d^="M8 7c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1"]),
+html[it-hide-clip-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M8 7c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1"]),
 
-html[it-hide-clip-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M8,7c0,0.55-0.45,1-1,1S6,7."]) div:nth-child(2),
-html[it-hide-clip-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M8,7c0,0.55-0.45,1-1,1S6,7."]) .cbox{
+html[it-hide-clip-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M8 7c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1"]) div:nth-child(2),
+html[it-hide-clip-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M8 7c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1"]) .cbox{
 	display: none;
 }
 /*--------------------------------------------------------------
 # HIDE SAVE BUTTON
 --------------------------------------------------------------*/
-html[it-hide-save-button='hidden'] #menu button:has(svg path[d^="M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z"]),
-html[it-hide-save-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z"]),
+html[it-hide-save-button='hidden'] #menu button:has(svg path[d^="M22 13h-4v4h-2v-4h-4v-2h4V7h2v4h4v2zm-8-6H2v1h12V7zM2"]),
+html[it-hide-save-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M22 13h-4v4h-2v-4h-4v-2h4V7h2v4h4v2zm-8-6H2v1h12V7zM2"]),
 
-html[it-hide-save-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z"]) div:nth-child(2),
-html[it-hide-save-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M22,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z"]) .cbox{
+html[it-hide-save-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M22 13h-4v4h-2v-4h-4v-2h4V7h2v4h4v2zm-8-6H2v1h12V7zM2"]) div:nth-child(2),
+html[it-hide-save-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M22 13h-4v4h-2v-4h-4v-2h4V7h2v4h4v2zm-8-6H2v1h12V7zM2"]) .cbox{
 	display: none;
 }
 /*--------------------------------------------------------------
