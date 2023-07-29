@@ -150,6 +150,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 	} else if (id === 'movie_player') {
 		if (!this.elements.player) {
 			ImprovedTube.elements.player = node;
+			ImprovedTube.elements.player.stopVideo();
 			ImprovedTube.elements.video = node.querySelector('video');
 			ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
 			ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
