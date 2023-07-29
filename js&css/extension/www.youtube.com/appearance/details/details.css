@@ -151,8 +151,8 @@ html[it-hide-save-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^
 HIDE REPORT BUTTON
 --------------------------------------------------------------*/
 html[it-hide-report-button='true'] #top-level-buttons-computed ytd-button-renderer#Report-button,
-html[it-hide-report-button='true'] #menu button:has(svg path[d^="M13.18,4l0.24,1.2L13.58,"]),
-html[it-hide-report-button='true'] #flexible-item-buttons button:has(svg path[d^="M13.18,4l0.24,1.2L13.58,"]) {
+html[it-hide-report-button='true'] #menu button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]),
+html[it-hide-report-button='true'] #flexible-item-buttons button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]) {
 	display: none;
 }
 /*--------------------------------------------------------------
