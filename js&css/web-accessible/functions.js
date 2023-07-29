@@ -3,8 +3,8 @@
 --------------------------------------------------------------*/
 
 ImprovedTube.childHandler = function (node) {
-	var children = node.children;
-	if (node.nodeName !== 'SCRIPT' && node.nodeName !== 'svg' && node.nodeName !== '#text'&& node.nodeName !== '#comment' && node.nodeName !== 'SPAN' && node.nodeName !== 'DOM-IF' && node.nodeName !== 'DOM-REPEAT') {
+	if (node.nodeName !== 'SCRIPT' && node.nodeName !== 'iron-iconset-svg' && node.nodeName !== 'svg' && node.nodeName !== '#text'&& node.nodeName !== '#comment' && node.nodeName !== 'SPAN' && node.nodeName !== 'DOM-IF' && node.nodeName !== 'DOM-REPEAT') {
+		var children = node.children;
 		this.ytElementsHandler(node);
 
 		if (children) {
