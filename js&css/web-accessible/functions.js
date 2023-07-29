@@ -59,32 +59,32 @@ ImprovedTube.ytElementsHandler = function (node) {
 			var index = Array.prototype.indexOf.call(node.parentNode.children, node);
 
 			if (index === 0) {
-	 if (this.storage.playlist_reverse === true) {
-		try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
-		catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
-			catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
-				catch{try{this.elements.playlist.actions = node.parentNode;}
-					catch{try{this.elements.playlist.actions = node;}catch{}}
+				if (this.storage.playlist_reverse === true) {
+					try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
+					catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
+						catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
+							catch{try{this.elements.playlist.actions = node.parentNode;}
+								catch{try{this.elements.playlist.actions = node;}catch{}}
+								}
+							}	
+						}	
 					}
-				}	
-			}	
-		}
 				this.playlistReverse();
 			} else if (index === 1) {
 				this.elements.playlist.shuffle_button = node;
 
 				this.playlistShuffle();
 
-	 if (this.storage.playlist_reverse === true) {
-		try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
-		catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
-			catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
-				catch{try{this.elements.playlist.actions = node.parentNode;}
-					catch{try{this.elements.playlist.actions = node;}catch{}}
+				if (this.storage.playlist_reverse === true) {
+					try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
+					catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
+						catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
+							catch{try{this.elements.playlist.actions = node.parentNode;}
+								catch{try{this.elements.playlist.actions = node;}catch{}}
+								}
+							}	
+						}	
 					}
-				}	
-			}	
-		}
 				this.playlistReverse();
 			}
 		}
@@ -229,18 +229,18 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 			node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;
 		}
-  }else if (document.documentElement.dataset.pageType === 'video'){
-	 if (id ==='description-inner') {
-			setTimeout(function () {
-			ImprovedTube.expandDescription(node);
-	    }, 300);   			   
-	}else if (id === 'meta') {setTimeout(function () { ImprovedTube.expandDescription(node.querySelector('#more'));    }, 200);
-    }else if (id === 'below' ){setTimeout(function () {  }, 0);
-    }else if (id === 'panels'){setTimeout(function () {	
-				ImprovedTube.transcript(node);
-				ImprovedTube.chapters(node);    }, 200);
+	}else if (document.documentElement.dataset.pageType === 'video'){
+		if (id ==='description-inner') {
+				setTimeout(function () {
+				ImprovedTube.expandDescription(node);
+			}, 300);
+		} else if (id === 'meta') {setTimeout(function () {ImprovedTube.expandDescription(node.querySelector('#more'));}, 200);
+		} else if (id === 'below' ){setTimeout(function () {  }, 0);
+		} else if (id === 'panels'){setTimeout(function () {
+			ImprovedTube.transcript(node);
+			ImprovedTube.chapters(node);}, 200);
+		}
 	}
-  }
 
 };
 
