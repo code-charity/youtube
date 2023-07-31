@@ -3,14 +3,16 @@
 --------------------------------------------------------------*/
 
 ImprovedTube.childHandler = function (node) {
+	//console.log(node.nodeName);
+	if (node.nodeName === 'SCRIPT' || node.nodeName === 'iron-iconset-svg' || node.nodeName === 'svg' || node.nodeName === 'SPAN' || node.nodeName === '#text' || node.nodeName === '#comment' || node.nodeName === 'yt-icon-shape' || node.nodeName === 'DOM-IF' || node.nodeName === 'DOM-REPEAT') {
+		return
+	}
 	var children = node.children;
-	if (node.nodeName !== 'SCRIPT' && node.nodeName !== 'svg' && node.nodeName !== '#text'&& node.nodeName !== '#comment' && node.nodeName !== 'SPAN' && node.nodeName !== 'DOM-IF' && node.nodeName !== 'DOM-REPEAT') {
-		this.ytElementsHandler(node);
+	this.ytElementsHandler(node);
 
-		if (children) {
-			for (var i = 0, l = children.length; i < l; i++) {
-				ImprovedTube.childHandler(children[i]);
-			}
+	if (children) {
+		for (var i = 0, l = children.length; i < l; i++) {
+			ImprovedTube.childHandler(children[i]);
 		}
 	}
 };
@@ -31,24 +33,26 @@ ImprovedTube.ytElementsHandler = function (node) {
 			}
 		}
 	} else if (name === 'META') {
-		if(node.getAttribute('name') === 'themeColor')			{ImprovedTube.themeColor = node.content;}
-		//if(node.getAttribute('name') === 'title')				{ImprovedTube.title = node.content;}
-		//if(node.getAttribute('name') === 'description')			{ImprovedTube.description = node.content;}
-		if(node.getAttribute('name') === 'keywords')			{ImprovedTube.keywords = node.content;}
-		if(node.getAttribute('itemprop') === 'name')			{ImprovedTube.title = node.content;}
-		if(node.getAttribute('itemprop') === 'description')		{ImprovedTube.description = node.content;}
-		if(node.getAttribute('itemprop') === 'paid')			{ImprovedTube.paid = node.content;}
-		if(node.getAttribute('itemprop') === 'channelId')		{ImprovedTube.channelId = node.content;}
-		if(node.getAttribute('itemprop') === 'videoId')			{ImprovedTube.videoId = node.content;}
-		if(node.getAttribute('itemprop') === 'unlisted')		{ImprovedTube.unlisted = node.content;}
-		// if(node.getAttribute('itemprop') === 'regionsAllowed'){ImprovedTube.regionsAllowed = node.content;}
-		if(node.getAttribute('itemprop') === 'duration')		{ImprovedTube.duration = node.content;}
-		if(node.getAttribute('itemprop') === 'isFamilyFriendly'){ImprovedTube.isFamilyFriendly = node.content;}
-		if(node.getAttribute('itemprop') === 'interactionCount'){ImprovedTube.views = node.content;}
-		if(node.getAttribute('itemprop') === 'datePublished'	){ImprovedTube.datePublished = node.content;}
-		if(node.getAttribute('itemprop') === 'uploadDate')		{ImprovedTube.uploadDate = node.content;}
-		if(node.getAttribute('itemprop') === 'genre')			{ImprovedTube.category  = node.content;}
-			
+		if(node.getAttribute('name')) {
+			if(node.getAttribute('name') === 'themeColor')			{ImprovedTube.themeColor = node.content;}
+			//if(node.getAttribute('name') === 'title')				{ImprovedTube.title = node.content;}
+			//if(node.getAttribute('name') === 'description')			{ImprovedTube.description = node.content;}
+			if(node.getAttribute('name') === 'keywords')			{ImprovedTube.keywords = node.content;}
+		} else if (node.getAttribute('itemprop')) {
+			if(node.getAttribute('itemprop') === 'name')			{ImprovedTube.title = node.content;}
+			if(node.getAttribute('itemprop') === 'description')		{ImprovedTube.description = node.content;}
+			if(node.getAttribute('itemprop') === 'paid')			{ImprovedTube.paid = node.content;}
+			if(node.getAttribute('itemprop') === 'channelId')		{ImprovedTube.channelId = node.content;}
+			if(node.getAttribute('itemprop') === 'videoId')			{ImprovedTube.videoId = node.content;}
+			if(node.getAttribute('itemprop') === 'unlisted')		{ImprovedTube.unlisted = node.content;}
+			// if(node.getAttribute('itemprop') === 'regionsAllowed'){ImprovedTube.regionsAllowed = node.content;}
+			if(node.getAttribute('itemprop') === 'duration')		{ImprovedTube.duration = node.content;}
+			if(node.getAttribute('itemprop') === 'isFamilyFriendly'){ImprovedTube.isFamilyFriendly = node.content;}
+			if(node.getAttribute('itemprop') === 'interactionCount'){ImprovedTube.views = node.content;}
+			if(node.getAttribute('itemprop') === 'datePublished'	){ImprovedTube.datePublished = node.content;}
+			if(node.getAttribute('itemprop') === 'uploadDate')		{ImprovedTube.uploadDate = node.content;}
+			if(node.getAttribute('itemprop') === 'genre')			{ImprovedTube.category  = node.content;}
+		}
 	} else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
 		if (
 			node.parentComponent &&
@@ -59,32 +63,32 @@ ImprovedTube.ytElementsHandler = function (node) {
 			var index = Array.prototype.indexOf.call(node.parentNode.children, node);
 
 			if (index === 0) {
-	 if (this.storage.playlist_reverse === true) {
-		try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
-		catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
-			catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
-				catch{try{this.elements.playlist.actions = node.parentNode;}
-					catch{try{this.elements.playlist.actions = node;}catch{}}
+				if (this.storage.playlist_reverse === true) {
+					try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
+					catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
+						catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
+							catch{try{this.elements.playlist.actions = node.parentNode;}
+								catch{try{this.elements.playlist.actions = node;}catch{}}
+								}
+							}	
+						}	
 					}
-				}	
-			}	
-		}
 				this.playlistReverse();
 			} else if (index === 1) {
 				this.elements.playlist.shuffle_button = node;
 
 				this.playlistShuffle();
 
-	 if (this.storage.playlist_reverse === true) {
-		try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
-		catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
-			catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
-				catch{try{this.elements.playlist.actions = node.parentNode;}
-					catch{try{this.elements.playlist.actions = node;}catch{}}
+				if (this.storage.playlist_reverse === true) {
+					try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
+					catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
+						catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
+							catch{try{this.elements.playlist.actions = node.parentNode;}
+								catch{try{this.elements.playlist.actions = node;}catch{}}
+								}
+							}	
+						}	
 					}
-				}	
-			}	
-		}
 				this.playlistReverse();
 			}
 		}
@@ -150,6 +154,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 	} else if (id === 'movie_player') {
 		if (!this.elements.player) {
 			ImprovedTube.elements.player = node;
+			ImprovedTube.elements.player.stopVideo();
 			ImprovedTube.elements.video = node.querySelector('video');
 			ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
 			ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
@@ -228,18 +233,18 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 			node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;
 		}
-  }else if (document.documentElement.dataset.pageType === 'video'){
-	 if (id ==='description-inner') {
-			setTimeout(function () {
-			ImprovedTube.expandDescription(node);
-	    }, 300);   			   
-	}else if (id === 'meta') {setTimeout(function () { ImprovedTube.expandDescription(node.querySelector('#more'));    }, 200);
-    }else if (id === 'below' ){setTimeout(function () {  }, 0);
-    }else if (id === 'panels'){setTimeout(function () {	
-				ImprovedTube.transcript(node);
-				ImprovedTube.chapters(node);    }, 200);
+	}else if (document.documentElement.dataset.pageType === 'video'){
+		if (id ==='description-inner') {
+				setTimeout(function () {
+				ImprovedTube.expandDescription(node);
+			}, 300);
+		} else if (id === 'meta') {setTimeout(function () {ImprovedTube.expandDescription(node.querySelector('#more'));}, 200);
+		} else if (id === 'below' ){setTimeout(function () {  }, 0);
+		} else if (id === 'panels'){setTimeout(function () {
+			ImprovedTube.transcript(node);
+			ImprovedTube.chapters(node);}, 200);
+		}
 	}
-  }
 
 };
 
