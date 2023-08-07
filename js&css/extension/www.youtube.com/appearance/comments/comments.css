@@ -138,10 +138,19 @@ html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-sec
 	min-width: 300px; max-width: 420px !important; flex-grow: 1; flex-basis: 0 !important; flex-direction: row; margin-right: 8px;
 }
 
+/* TO FIX #1693 untested: */
+html[data-page-type=video]:not([it-player-size]) #playlist #items,
+html[data-page-type=video]:not([it-player-size='do_not_change']) #playlist #items
+{max-height: min(var(--it-player-height), 77vh); padding-bottom: 0;}  
+
 /* CUSTOM ENHANCEMENTS */
-html[data-page-type=video] #playlist #items { max-height: calc(70px * 4 + 4px) ; padding-bottom: 0;} /* MIGHT FIX #1693, currently shows up to 4 videos */
+html[data-page-type=video][it-comments-sidebar='true'] #playlist #items
+{ max-height: calc(70px * 4 + 4px) ; padding-bottom: 0;}    /* currently shows up to 4 videos */
+
+/* undocumented global enhancements */
 html[data-page-type=video] ytd-watch-flexy #chat > tp-yt-paper-button#label { width:calc(100% - 40px); }
 html[data-page-type=video] ytd-watch-flexy #right-arrow-container.ytd-merch-shelf-renderer { right: 44px !important; }
+
 
 /*--------------------------------------------------------------
 # COLLAPSED
