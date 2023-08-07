@@ -64,7 +64,7 @@ ImprovedTube.playerAutoPip = function () {
 /*------------------------------------------------------------------------------
 FORCED PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerPlaybackSpeed = function (change) {
+ImprovedTube.playerPlaybackSpeed = function () {
 	var player = this.elements.player,
 		video = player.querySelector('video'),
 		option = this.storage.player_playback_speed,
@@ -76,27 +76,37 @@ ImprovedTube.playerPlaybackSpeed = function (change) {
 		option = 1;
 	}
 
-	var waitForDescInterval = setInterval(() => {
-		if (document.querySelector('div#description') || (++tries * intervalMs >= maxIntervalMs)) {
-			clearInterval(waitForDescInterval);
-		}
-
-		if (this.storage.player_forced_playback_speed === true) {
-			if (player.getVideoData().isLive === false &&
-				(this.storage.player_force_speed_on_music === true ||
-				 document.querySelector('h3#title')?.innerText !== 'Music'  // (=buyable/registered music table)
-				|| (
-				    (ImprovedTube.elements.category !== 'Music' && !/official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|karaok|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكيкараоке|カラオケ|노래방/i.test(ImprovedTube.elements.title + ImprovedTube.elements.keywords)
-					) || /do[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(ImprovedTube.elements.keywords + ImprovedTube.elements.title)
-				  ) // && location.href.indexOf('music') === -1   // (=only running on www.youtube.com anyways)
-			)) {
-				player.setPlaybackRate(Number(option));
-				video.playbackRate = Number(option);
-			} else {
-				player.setPlaybackRate(1);
+	if (this.storage.player_forced_playback_speed === true) {
+		var waitForDescInterval = setInterval(() => {
+			if (document.querySelector('div#description') || (++tries * intervalMs >= maxIntervalMs)) {
+				if (player.getVideoData().isLive === false) {
+					let category = document.querySelector('meta[itemprop=genre]')?.content;
+					let titlekeywords = document.getElementsByTagName('meta')?.title?.content + document.getElementsByTagName('meta')?.keywords?.content;
+					if (this.storage.player_force_speed_on_music === true // dont care if music, just switch it
+						|| (this.storage.player_force_speed_on_music === false // check if NOT music first
+							&& document.querySelector('h3#title')?.innerText !== 'Music' // (=buyable/registered music table)
+							&& category !== 'Music'
+							&& !(/official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|karaok|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكيкараоке|カラオケ|노래방/i.test(titlekeywords) && !/do[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(titlekeywords)) // says its music in description, but not backstage/interview? ugly hack!
+						// && location.href.indexOf('music') === -1	// (=only running on www.youtube.com anyways)
+						)) {
+							player.setPlaybackRate(Number(option));
+							video.playbackRate = Number(option);
+					} else { // Music and we are not overriding speed, set normal
+						player.setPlaybackRate(1);
+						video.playbackRate = 1;
+					}
+				}
+				clearInterval(waitForDescInterval);
 			}
-		}
-	}, intervalMs);
+		}, intervalMs);
+	} else {
+		player.setPlaybackRate(1);
+		video.playbackRate = 1;
+	}
+};
+
+ImprovedTube.playerForceSpeedOnMusic = function () {
+	ImprovedTube.playerPlaybackSpeed();
 };
 /*------------------------------------------------------------------------------
 SUBTITLES
