@@ -332,7 +332,7 @@ ImprovedTube.initPlayer = function () {
 		delete ImprovedTube.elements.player.dataset.defaultQuality;
 
 		ImprovedTube.forcedPlayVideoFromTheBeginning();
-		ImprovedTube.playerPlaybackSpeed(false);
+		ImprovedTube.playerPlaybackSpeed();
 		ImprovedTube.subtitles();
 		ImprovedTube.subtitlesLanguage();
 		ImprovedTube.subtitlesFontFamily();
