@@ -284,7 +284,8 @@ ImprovedTube.commentsSidebar = function() {
 --------------------------------------------------------------*/
 ImprovedTube.transcript = function (el){ if (ImprovedTube.storage.transcript === true){
 try{el.querySelector('*[target-id*=transcript]').removeAttribute('visibility');}
-catch{}}}
+catch{}}
+}
 /*----------------------------------------------------------------
  CHAPTERS
 --------------------------------------------------------------*/
@@ -413,7 +414,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 ImprovedTube.expandDescription = function (el) {
     if (this.storage.description === "expanded" || this.storage.description === "classic_expanded" ) 
 	   if(el)try{el.click()}catch{setTimeout(function(){el.click();},1000);}
-    };	
+};	
 /*------------------------------------------------------------------------------
  HIDE DETAIL BUTTON
 ------------------------------------------------------------------------------*/
