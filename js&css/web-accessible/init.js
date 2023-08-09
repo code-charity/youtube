@@ -52,7 +52,7 @@ ImprovedTube.init = function () {
 	};
 
 	window.addEventListener('yt-player-updated', yt_player_updated);
-
+	this.channelCompactTheme();
 	this.playerOnPlay();
 	this.playerSDR();
 	this.shortcuts();
