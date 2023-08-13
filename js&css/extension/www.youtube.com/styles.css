@@ -577,12 +577,6 @@ ytd-guide-section-renderer .it-button::after {
 [it-theme=night] #cinematics { mix-blend-mode: lighten !important}
 [it-theme=plain] #cinematics { filter:invert(100%) !important; mix-blend-mode: darken !important}
 
-/*video detail text color*/
-.yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary)}
-
-/* video detail text color for links */
-.yt-core-attributed-string--link-inherit-color .yt-core-attributed-string__link--call-to-action-color {color: rgb(62, 166, 255)}
-
 /*BLACK*/
 
 [it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
