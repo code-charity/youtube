@@ -580,6 +580,9 @@ ytd-guide-section-renderer .it-button::after {
 /*video detail text color*/
 .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary) !important}
 
+/* video detail text color for links */
+.yt-core-attributed-string--link-inherit-color .yt-core-attributed-string__link--call-to-action-color {color: rgb(62, 166, 255)}
+
 /*BLACK*/
 
 [it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
