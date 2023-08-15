@@ -28,15 +28,24 @@ ImprovedTube.playerSize = function () {
 ImprovedTube.forcedTheaterMode = function () {
     if (ImprovedTube.storage.forced_theater_mode === true && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player) {
         var button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
-
         if (button && ImprovedTube.elements.ytd_watch.theater === false) {
             document.cookie = "wide=1;domain=.youtube.com";
-
+            ImprovedTube.elements.ytd_watch.theater = true;
             setTimeout(function () {
                 button.click();
             }, 100);
         }
     }
+    else if(ImprovedTube.storage.forced_theater_mode === false && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player){
+        var button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
+        if (button && ImprovedTube.elements.ytd_watch.theater === true) {
+            ImprovedTube.elements.ytd_watch.theater = false;
+            setTimeout(function () {
+                button.click();
+            }, 100);
+        }
+    }
+
 };
 /*------------------------------------------------------------------------------
  HD THUMBNAIL
