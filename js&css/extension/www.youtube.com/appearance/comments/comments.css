@@ -22,6 +22,7 @@ html[data-page-type=video][it-comments-sidebar-simple='true']:not([it-player-siz
 min-width: min(calc(100vw - 1000px), 1260px) !important; max-width: 1260px !important; }
 }
 
+
 /* 2 COLS FEATURE */
 @media screen and (min-width: 1952px) {	
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #related { flex-shrink: 4; min-width: 300px;}
@@ -84,7 +85,7 @@ min-width: min(calc(100vw - 1000px), 1260px) !important; max-width: 1260px !impo
 }
 @media screen and (min-width: 1000px){
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary, 
-	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary{margin-top: 0 !important; padding-top: 0 !important; padding-right: 0;}
+	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary{margin-top: 0 !important; padding-top: 0 !important; padding-right: 0; flex-grow: 1;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary::before { content: ""; height: 24px; display: block;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary {flex: 1 0 auto;padding: 0 24px; margin: 0;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary-inner {padding-top: 24px;}
@@ -135,7 +136,7 @@ html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-sec
 html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-secondary-results-renderer ytd-compact-radio-renderer,
 html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-secondary-results-renderer ytd-compact-playlist-renderer,
 html[data-page-type=video][it-comments-sidebar='true'] #items.ytd-watch-next-secondary-results-renderer ytd-continuation-item-renderer {
-	min-width: 300px; max-width: 420px !important; flex-grow: 1; flex-basis: 0 !important; flex-direction: row; margin-right: 8px;
+	min-width: 300px; max-width: 420px !important; flex-grow: 1; flex-basis: 0 !important; margin-right: 8px;
 }
 
 /* TO FIX #1693 untested: */

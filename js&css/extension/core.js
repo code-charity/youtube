@@ -253,7 +253,7 @@ extension.storage.get = function (key) {
 			});
 
 		for (var i = 0, l = key.length; i < l; i++) {
-			var part = keys[i];
+			var part = key[i];
 
 			if (target.hasOwnProperty(part)) {
 				target = target[part];

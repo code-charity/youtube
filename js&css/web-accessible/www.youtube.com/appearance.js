@@ -146,7 +146,8 @@ ImprovedTube.commentsSidebarSimple = function() { if(ImprovedTube.storage.commen
        setTimeout(function () {
        document.querySelector("#primary-inner").appendChild(document.querySelector("#related"));}
 	);}
- }}
+ }
+}
 /*------------------------------------------------------------------------------
  Comments Sidebar
 ------------------------------------------------------------------------------*/
@@ -154,11 +155,13 @@ ImprovedTube.commentsSidebar = function() {
     const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
 	let hasApplied = 0;
 	if(ImprovedTube.storage.comments_sidebar === true){
-        sidebar();
-        styleScrollbars();
-        setGrid();
-        applyObserver();
-        window.addEventListener("resize", sidebar)
+        if(/watch\?/.test(location.href)) {
+            sidebar();
+            styleScrollbars();
+            setGrid();
+            applyObserver();
+            window.addEventListener("resize", sidebar)
+        }
     }
 	function sidebar(){
         resizePlayer();
@@ -204,6 +207,7 @@ ImprovedTube.commentsSidebar = function() {
 					clearInterval(checkParentInterval);
 					container.style.display = "flex";
 					container.style.flexWrap = "wrap";
+					container.style.flexDirection = "row";
 			}
 		}, 250);
 	}

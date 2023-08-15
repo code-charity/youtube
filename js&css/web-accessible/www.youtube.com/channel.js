@@ -72,3 +72,100 @@ ImprovedTube.channelPlayAllButton = function () {
 		}
 	}
 };
+
+/*------------------------------------------------------------------------------
+4.6.3 COMPACT THEME
+------------------------------------------------------------------------------*/
+
+var compact = compact || {}
+ImprovedTube.channelCompactTheme = function () {
+	compact.eventHandlerFns = compact.eventHandlerFns || []
+	compact.styles = compact.styles || []
+  if (this.storage.channel_compact_theme === true) {
+		compact.hasApplied = true
+		initialLoad();
+		document.querySelector("#sections #items") ? styleWithListeners() : styleWithInterval();
+  }
+	else if (compact.hasApplied) { //cleanup
+		try {clearInterval(compact.listener)} 
+		catch (err) {console.log("ERR: We couldn't clear listener. Reload page")}
+    if (compact.eventHandlerFns.length) removeListeners();
+		if (compact.styles.length) removeStyles()
+		compact = {}
+	}
+	function styleWithInterval() {
+		compact.listener = setInterval(() => {
+			let item = document.querySelector(`#sections ytd-guide-section-renderer:nth-child(4) #items`)
+			if (item) {
+				clearInterval(compact.listener);
+				styleWithListeners();
+			}
+		}, 250)
+	}
+
+	function styleWithListeners() {
+		compact.parents = []
+		compact.subs = []
+		for (let i = 0; i <= 2; i++) {
+			const parent = document.querySelector(`#sections > ytd-guide-section-renderer:nth-child(${i + 2}) > h3`);
+			const sub = document.querySelector(`#sections ytd-guide-section-renderer:nth-child(${i + 2}) #items`);
+			compact.parents[i] = parent;
+			compact.subs[i] = sub;
+			let isCompact = localStorage.getItem(`ImprovedTube-compact-${i}`) === "true";
+			isCompact ? (sub.style.display = "none") : null;
+
+			function eventHandlerFn () {
+				if (!isCompact) {
+					sub.style.display = "none"
+					isCompact = true
+				}
+				else {
+					sub.style.display = ""
+					isCompact = false
+				}
+				localStorage.setItem(`ImprovedTube-compact-${i}`, isCompact)
+			}
+
+			compact.eventHandlerFns.push(eventHandlerFn)
+			parent.addEventListener("click", eventHandlerFn)
+		}
+		removeStyles();
+	}
+	
+	function removeListeners(){ // EventListeners 
+		for (let i = 0; i <= 2; i++) {
+			const parent = compact.parents[i]
+			const sub = compact.subs[i]
+			parent.removeEventListener("click", compact.eventHandlerFns[i]);
+			sub.style.display = "";
+		}
+		compact.eventHandlerFns = []
+	}
+
+	function initialLoad() {
+    for (let i = 0; i <= 2; i++) {
+      let isCompact = localStorage.getItem(`ImprovedTube-compact-${i + 2}`) === "true"
+			isCompact ? appendStyle(i) : (compact.styles[i] = null);
+    }
+  }
+
+  function appendStyle(index) { // adds style tag
+    const cssRules = `
+			#sections > ytd-guide-section-renderer:nth-child(${index + 2}) > #items{
+				display:none;
+			};`;
+    const style = document.createElement("style");
+    style.appendChild(document.createTextNode(cssRules));
+    compact.styles[index] = style;
+    document.head.appendChild(compact.styles[index]);
+  }
+
+	function removeStyles(){ // styles tags
+		for (let i = 0; i <= compact.styles.length; i++){
+			if (compact.styles[i] && compact.styles[i].parentNode) { 
+				document.head.removeChild(compact.styles[i]);
+			}
+		}
+		compact.styles = []
+	}
+}
