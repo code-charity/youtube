@@ -577,6 +577,9 @@ ytd-guide-section-renderer .it-button::after {
 [it-theme=night] #cinematics { mix-blend-mode: lighten !important}
 [it-theme=plain] #cinematics { filter:invert(100%) !important; mix-blend-mode: darken !important}
 
+/*video detail text color. Fix. video detail text color was wrong in black theme*/
+[it-theme=black] .yt-core-attributed-string--link-inherit-color:not(a) {color: var(--yt-spec-text-primary) !important}
+
 /*BLACK*/
 
 [it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
