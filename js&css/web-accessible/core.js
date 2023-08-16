@@ -217,7 +217,14 @@ document.addEventListener('it-message-from-extension', function () {
 				  document.querySelector("#secondary").appendChild(document.querySelector("#related"));	}
 						else{ImprovedTube.commentsSidebar();}
 			  }
-
+			 else if (camelized_key === 'forcedTheaterMode') {  if(ImprovedTube.storage.forced_theater_mode === false && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player){
+				var button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
+				if (button && ImprovedTube.elements.ytd_watch.theater === true) {
+				ImprovedTube.elements.ytd_watch.theater = false;
+				setTimeout(function () { button.click();}, 100);
+				}
+			  }
+			 }
 			if (ImprovedTube[camelized_key]) {
 				try{ImprovedTube[camelized_key]()}catch{};
 			}
