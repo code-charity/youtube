@@ -21,7 +21,7 @@
         "message": "Aktivera"
     },
     "activateCaptions": {
-        "message": "Activate captions"
+        "message": "Aktivera undertexter"
     },
     "activateFullscreen": {
         "message": "Aktivera helskärm"
@@ -36,7 +36,7 @@
         "message": "Aktiva funktioner"
     },
     "addScrollToTop": {
-        "message": "Add «Scroll to top»"
+        "message": "Lägg till «Scrolla till toppen»"
     },
     "ads": {
         "message": "Reklam"
@@ -138,7 +138,7 @@
         "message": "Blockera H.264"
     },
     "blockMusic": {
-        "message": "Hoppa över annonser medan jag spelar musik"
+        "message": "Hoppa över reklam medan jag spelar musik"
     },
     "blockVp8": {
         "message": "Blockera VP8"
@@ -154,6 +154,7 @@
     },
     "bluelight": {
         "message": "Blåljus"
+    },
     "brown": {
         "message": "Brun"
     },
@@ -167,7 +168,7 @@
         "message": "Bubblor"
     },
     "bug": {
-        "message": "Bug"
+        "message": "Fel"
     },
     "buttons": {
         "message": "Knappar"
@@ -200,10 +201,10 @@
         "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
-        "message": "Fold subscriptions' sections (collapsed accordion)"
+        "message": "Vik prenumerationernas sektioner (hopfällt dragspel)"
     },
     "collapsed": {
-        "message": "Collapsed"
+        "message": "Hopvikt"
     },
     "comments": {
         "message": "Kommentarer"
@@ -239,7 +240,7 @@
         "message": "Mörk"
     },
     "darkTheme": {
-        "message": "Mörkt läge"
+        "message": "Mörkt tema"
     },
     "dateAndTime": {
         "message": "Datum och tid"
@@ -278,7 +279,7 @@
         "message": "Depressed"
     },
     "description": {
-        "message": "Description"
+        "message": "Beskrivning"
     },
     "description_ext": {
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
@@ -302,7 +303,7 @@
         "message": "Inaktiverad"
     },
     "dislike": {
-        "message": "Dislike"
+        "message": "Gilla inte"
     },
     "displayDayOfTheWeak": {
         "message": "Visa veckodag"
@@ -323,7 +324,7 @@
         "message": "Drop shadow"
     },
     "durationWithSpeed": {
-        "message": "Show time remaining with reference to playback speed"
+        "message": "Visa återstående tid i förhållande till uppspelningshastigheten"
     },
     "email": {
         "message": "E-mail"
@@ -593,10 +594,10 @@
         "message": "Ljusgrön"
     },
     "like": {
-        "message": "Like"
+        "message": "Gilla"
     },
     "liked": {
-        "message": "Liked"
+        "message": "Gillat"
     },
     "likes": {
         "message": "Likes"
@@ -803,7 +804,7 @@
         "message": "Röd"
     },
     "redDislikeButton": {
-        "message": "Red DisLiked-button"
+        "message": "Röd Gilla inte-knapp"
     },
     "relatedVideos": {
         "message": "Relaterade videor"
