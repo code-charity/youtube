@@ -12,187 +12,186 @@
         "message": "⇧"
     },
     "about": {
-        "message": "About"
+        "message": "Om"
     },
     "accept": {
-        "message": "Accept"
+        "message": "Acceptera"
     },
     "activate": {
-        "message": "Activate"
+        "message": "Aktivera"
     },
     "activateCaptions": {
         "message": "Activate captions"
     },
     "activateFullscreen": {
-        "message": "Activate fullscreen"
+        "message": "Aktivera helskärm"
     },
     "activated": {
-        "message": "Activated"
+        "message": "Aktiverad"
     },
     "activatedFeatures": {
-        "message": "Activated features"
+        "message": "Aktiverade funktioner"
     },
     "activeFeatures": {
-        "message": "My active features"
+        "message": "Aktiva funktioner"
     },
     "addScrollToTop": {
         "message": "Add «Scroll to top»"
     },
     "ads": {
-        "message": "Ads"
+        "message": "Reklam"
     },
     "all": {
-        "message": "All"
+        "message": "Allt"
     },
     "allow": {
-        "message": "Allow"
+        "message": "Tillåt"
     },
     "allow60fps": {
-        "message": "Allow 60fps"
+        "message": "Tillåt 60fps"
     },
     "always": {
-        "message": "Always"
+        "message": "Alltid"
     },
     "alwaysActive": {
-        "message": "Always active"
+        "message": "Alltid aktiv"
     },
     "alwaysShowProgressBar": {
-        "message": "Always show progress bar"
+        "message": "Visa alltid tidslinje"
     },
     "amber": {
-        "message": "Amber"
+        "message": "Bärnsten"
     },
     "analyzer": {
         "message": "Analyzer"
     },
     "animations": {
-        "message": "Animations"
+        "message": "Animationer"
     },
     "appearance": {
-        "message": "Appearance"
+        "message": "Utseende"
     },
     "areYouSureYouWantToExportTheData": {
-        "message": "Are you sure you want to export the data?"
+        "message": "Är du säker på att du vill exportera data?"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Are you sure you want to import the data?"
+        "message": "Är du säker på att du vill importera data?"
     },
     "audio": {
-        "message": "Audio"
+        "message": "Ljud"
     },
     "audioFormats": {
-        "message": "Audio formats"
+        "message": "Ljudformat"
     },
     "auto": {
         "message": "Auto"
     },
     "autoFullscreen": {
-        "message": "Auto-fullscreen"
+        "message": "Automatisk helskärm"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Auto-pause while I'm not in the tab"
+        "message": "Pausa automatiskt när jag inte är i fliken"
     },
     "autoplay": {
         "message": "Autoplay"
     },
     "avoidAv1": {
-        "message": "Avoid AV1"
+        "message": "Undvik AV1"
     },
     "avoidAv1Vp8Vp9": {
-        "message": "Avoid AV1, VP8, VP9"
+        "message": "Undvik AV1, VP8, VP9"
     },
     "avoidAv1Vp9": {
-        "message": "Avoid AV1, VP9"
+        "message": "Undvik AV1, VP9"
     },
     "avoidCpuRenderingWhenPossible": {
-        "message": "Avoid CPU rendering when possible"
+        "message": "Undvik CPU-rendering när det är möjligt"
     },
     "backgroundColor": {
-        "message": "Background color"
+        "message": "Bakgrundsfärg"
     },
     "backgroundOpacity": {
-        "message": "Background opacity"
+        "message": "Opacitet för bakgrund"
     },
     "backupAndReset": {
-        "message": "Backup & reset"
+        "message": "Backup och återställning"
     },
     "baseOnSystemColorScheme": {
-        "message": "Base on system color scheme"
+        "message": "Basera på systemets färgschema"
     },
     "belowPlayer": {
-        "message": "Below player"
+        "message": "Under spelaren"
     },
     "black": {
-        "message": "Black"
+        "message": "Svart"
     },
     "blacklist": {
         "message": "Blacklist"
     },
     "blockAll": {
-        "message": "Off (block or skip)"
+        "message": "Av (blockera eller hoppa över)"
     },
     "blockAv1": {
-        "message": "Block AV1"
+        "message": "Blockera AV1"
     },
     "blockH264": {
-        "message": "Block H.264"
+        "message": "Blockera H.264"
     },
     "blockMusic": {
-        "message": "Skip ads while I play music"
+        "message": "Hoppa över annonser medan jag spelar musik"
     },
     "blockVp8": {
-        "message": "Block VP8"
+        "message": "Blockera VP8"
     },
     "blockVp9": {
         "message": "Block VP9"
     },
     "blue": {
-        "message": "Blue"
+        "message": "Blå"
     },
     "blueGray": {
-        "message": "Blue gray"
+        "message": "Blågrå"
     },
     "bluelight": {
-        "message": "Bluelight"
-    },
+        "message": "Blåljus"
     "brown": {
-        "message": "Brown"
+        "message": "Brun"
     },
     "browser": {
-        "message": "Browser"
+        "message": "Webbläsare"
     },
     "browserVersion": {
-        "message": "Browser version"
+        "message": "Webbläsarversion"
     },
     "bubbles": {
-        "message": "Bubbles"
+        "message": "Bubblor"
     },
     "bug": {
         "message": "Bug"
     },
     "buttons": {
-        "message": "Buttons"
+        "message": "Knappar"
     },
     "cancel": {
-        "message": "Cancel"
+        "message": "Avbryt"
     },
     "categories": {
-        "message": "Categories"
+        "message": "Kategorier"
     },
     "channel": {
-        "message": "Channel"
+        "message": "Kanal"
     },
     "channels": {
-        "message": "Channels"
+        "message": "Kanaler"
     },
     "characterEdgeStyle": {
-        "message": "Character edge style"
+        "message": "Karaktärsgräns"
     },
     "clip": {
         "message": "Clip"
     },
     "clipboard": {
-        "message": "Clipboard"
+        "message": "Urklipp"
     },
     "codecH264": {
         "message": "Codec h.264"
@@ -207,73 +206,73 @@
         "message": "Collapsed"
     },
     "comments": {
-        "message": "Comments"
+        "message": "Kommentarer"
     },
     "confirmationBeforeClosing": {
-        "message": "Confirmation before closing"
+        "message": "Bekräftelse vid stängning"
     },
     "cookies": {
         "message": "Cookies"
     },
     "cores": {
-        "message": "Cores"
+        "message": "Kärnor"
     },
     "cropChapterTitles": {
-        "message": "Crop chapter titles"
+        "message": "Beskär kapiteltitlar"
     },
     "custom": {
-        "message": "Custom"
+        "message": "Anpassad"
     },
     "customCss": {
-        "message": "Custom CSS"
+        "message": "Anpassad CSS"
     },
     "customJs": {
-        "message": "Custom JS"
+        "message": "Anpassad JS"
     },
     "customMiniPlayer": {
-        "message": "Custom Mini-Player"
+        "message": "Anpassad Mini-Player"
     },
     "cyan": {
         "message": "Cyan"
     },
     "dark": {
-        "message": "Dark"
+        "message": "Mörk"
     },
     "darkTheme": {
-        "message": "Dark theme"
+        "message": "Mörkt läge"
     },
     "dateAndTime": {
-        "message": "Date & time"
+        "message": "Datum och tid"
     },
     "dawn": {
-        "message": "Dawn"
+        "message": "Gryning"
     },
     "decreasePlaybackSpeed": {
-        "message": "Decrease playback speed"
+        "message": "Sänka uppspelningshastigheten"
     },
     "decreaseVolume": {
-        "message": "Decrease volume"
+        "message": "Sänka volymen"
     },
     "deepOrange": {
-        "message": "Deep orange"
+        "message": "Djupt orange"
     },
     "deepPurple": {
-        "message": "Deep purple"
+        "message": "Djupt lila"
     },
     "default": {
-        "message": "Default"
+        "message": "Standard"
     },
     "defaultChannelTab": {
-        "message": "Default channel tab"
+        "message": "Standardflik för kanal"
     },
     "defaultContentCountry": {
-        "message": "Country (virtual travel)"
+        "message": "Land (virtual travel)"
     },
     "deleteWatchedVideos": {
-        "message": "Delete watched videos"
+        "message": "Radera tittade videor"
     },
     "deleteYoutubeCookies": {
-        "message": "Delete YouTube cookies"
+        "message": "Radera YouTube-cookies"
     },
     "depressed": {
         "message": "Depressed"
@@ -285,40 +284,40 @@
         "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
-        "message": "Desert"
+        "message": "Öken"
     },
     "details": {
-        "message": "Details"
+        "message": "Detaljer"
     },
     "developerOptions": {
-        "message": "Developer options"
+        "message": "Utvecklingsalternativ"
     },
     "device": {
-        "message": "Device"
+        "message": "Enhet"
     },
     "dim": {
         "message": "Dim"
     },
     "disabled": {
-        "message": "Disabled"
+        "message": "Inaktiverad"
     },
     "dislike": {
         "message": "Dislike"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the week"
+        "message": "Visa veckodag"
     },
     "doNotChange": {
-        "message": "Don't change"
+        "message": "Ändra ej"
     },
     "donate": {
-        "message": "Donate"
+        "message": "Donera"
     },
     "download": {
         "message": "Download"
     },
     "draggable": {
-        "message": "Draggable"
+        "message": "Flyttbar"
     },
     "dropShadow": {
         "message": "Drop shadow"
@@ -327,91 +326,91 @@
         "message": "Show time remaining with reference to playback speed"
     },
     "email": {
-        "message": "Email"
+        "message": "E-mail"
     },
     "empty": {
-        "message": "Empty"
+        "message": "tomt"
     },
     "enabled": {
-        "message": "Enabled"
+        "message": "Aktiverad"
     },
     "enabledForced": {
-        "message": "Enabled (forced)"
+        "message": "Aktiverad (tvingad)"
     },
     "expanded": {
-        "message": "Expanded"
+        "message": "Expanderad"
     },
     "exportSettings": {
-        "message": "Export settings"
+        "message": "Exportera inställningar"
     },
     "extension": {
-        "message": "Extension"
+        "message": "Tillägg"
     },
     "file": {
-        "message": "File"
+        "message": "Fil"
     },
     "filters": {
-        "message": "Filters"
+        "message": "Filter"
     },
     "fitToWindow": {
-        "message": "Old alternative ('Fit to window')"
+        "message": "Gammalt alternativ ('Anpassa till fönster')"
     },
     "flash": {
         "message": "Flash"
     },
     "font": {
-        "message": "Font"
+        "message": "Teckensnitt"
     },
     "fontColor": {
-        "message": "Font color"
+        "message": "Teckensnittsfärg"
     },
     "fontFamily": {
-        "message": "Font family"
+        "message": "Teckensnittsfamilj"
     },
     "fontOpacity": {
-        "message": "Font opacity"
+        "message": "Opacitet för teckensnitt"
     },
     "fontSize": {
-        "message": "Font size"
+        "message": "Teckenstorlek"
     },
     "footer": {
-        "message": "Footer"
+        "message": "Sidfot"
     },
     "forceSDR": {
-        "message": "Avoid HDR, keep SDR"
+        "message": "Undvik HDR, använd SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Forced play video from the beginning"
+        "message": "Tvinga video att spela från början"
     },
     "forcedPlaybackSpeed": {
-        "message": "Forced playback speed, speed-watching"
+        "message": "Forcerad uppspelningshastighet"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "(Force playback speed even for music?)"
+        "message": "(Tvinga uppspelningshastighet även för musik?)"
     },
     "forcedTheaterMode": {
-        "message": "Forced theater mode"
+        "message": "Påtvingad teaterläge"
     },
     "forcedVolume": {
-        "message": "Forced volume"
+        "message": "Påtvingad volym"
     },
     "foundABug": {
-        "message": "Found a bug?"
+        "message": "Hittade ett fel?"
     },
     "fullWindow": {
-        "message": "Full height"
+        "message": "Helt fönster"
     },
     "general": {
-        "message": "General"
+        "message": "Allmänt"
     },
     "geoPreference": {
-        "message": "Geo Preference"
+        "message": "Geo-preferens"
     },
     "github": {
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Go to search box"
+        "message": "Gå till sökfältet"
     },
     "googleApiKey": {
         "message": "Google API key"
@@ -420,145 +419,145 @@
         "message": "GPU"
     },
     "green": {
-        "message": "Green"
+        "message": "Grön"
     },
     "hardwareInformation": {
-        "message": "Hardware information"
+        "message": "Information om hårdvara"
     },
     "hd": {
         "message": "HD"
     },
     "hdThumbnail": {
-        "message": "HD thumbnail"
+        "message": "HD miniatyrbild"
     },
     "header": {
-        "message": "Header"
+        "message": "Rubrik"
     },
     "hidden": {
-        "message": "Hidden"
+        "message": "Dold"
     },
     "hiddenOnVideoPage": {
-        "message": "Hidden on video page"
+        "message": "Dold på videosidan"
     },
     "hideAnimatedThumbnails": {
-        "message": "Hide animated thumbnails"
+        "message": "Dölj animerade miniatyrbilder"
     },
     "hideAnnotations": {
-        "message": "Hide annotations"
+        "message": "Dölj anteckningar"
     },
     "hideCards": {
-        "message": "Hide cards"
+        "message": "Dölj kort"
     },
     "hideCategories": {
-        "message": "Hide categories"
+        "message": "Dölj kategorier"
     },
     "hideCommentsCount": {
-        "message": "Hide comments count"
+        "message": "Dölj antal kommentarer"
     },
     "hideCountryCode": {
-        "message": "Hide country code"
+        "message": "Dölj landskod"
     },
     "hideDate": {
-        "message": "Hide date"
+        "message": "Dölj datum"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "Knappar"
     },
     "hideDetails": {
-        "message": "Hide details"
+        "message": "Dölj detaljer"
     },
     "hideEndscreen": {
-        "message": "Hide endscreen"
+        "message": "Dölj slutskärm"
     },
     "hideFeaturedContent": {
-        "message": "Hide featured content"
+        "message": "Dölj framhävt innehåll"
     },
     "hideFooter": {
-        "message": "Hide footer"
+        "message": "Dölj sidfoten"
     },
     "hideGradientBottom": {
-        "message": "Hide shadow around player-bar"
+        "message": "Dölj skuggor runt spelarfältet"
     },
     "hidePlayerControlsBar": {
-        "message": "Hide player controls bar"
+        "message": "Dölj kontrollfältet för spelare"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
+        "message": "Dölj knappar i fältet för spelarkontroller"
     },
     "hidePlayerControlsBarOptions": {
-        "message": "Hide player controls options"
+        "message": "Dölj alternativ för spelarkontroll"
     },
     "hidePlaylist": {
-        "message": "Hide playlist"
+        "message": "Dölj spellista"
     },
     "hideRightButtons": {
-        "message": "Hide right buttons"
+        "message": "Dölj högerknappar"
     },
     "hideScrollForDetails": {
-        "message": "Hide «Scroll for details»"
+        "message": "Dölj «Bläddra för detaljer»"
     },
     "hideSkipOverlay": {
-        "message": "Hide 5 seconds skip animation"
+        "message": "Dölj 5 sekunders hoppa över animering"
     },
     "hideThumbnailOverlay": {
-        "message": "Hide buttons on thumbnails"
+        "message": "Dölj knappar på miniatyrbilder"
     },
     "hideThumbnails": {
-        "message": "Hide thumbnails"
+        "message": "Dölj miniatyrbilder"
     },
     "hideViewsCount": {
-        "message": "Hide views count"
+        "message": "Dölj antal visningar"
     },
     "hideVoiceSearchButton": {
-        "message": "Hide voice search button"
+        "message": "Dölj knappen för röstsökning"
     },
     "high": {
-        "message": "High"
+        "message": "Hög"
     },
     "history": {
-        "message": "History"
+        "message": "Historik"
     },
     "home": {
-        "message": "Home"
+        "message": "Hem"
     },
     "hover": {
-        "message": "Hover"
+        "message": "Visa vid muspekning"
     },
     "hoverOnVideoPage": {
-        "message": "Hover on video page"
+        "message": "Visa vid muspekning på videosidor"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Show video's age (how long ago it was uploaded)"
+        "message": "Visa videons ålder (sedan uppladdningsdatum)"
     },
     "icons": {
-        "message": "Icons"
+        "message": "Ikoner"
     },
     "iconsOnly": {
-        "message": "Icon only"
+        "message": "Endast ikoner"
     },
     "importSettings": {
-        "message": "Import settings"
+        "message": "Importera inställningar"
     },
     "improveLogo": {
-        "message": "Improve logo"
+        "message": "Förbättra logotypen"
     },
     "improvedtubeButtons": {
-        "message": "ImprovedTube buttons"
+        "message": "ImprovedTube knappar"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "ImprovedTube icon on YouTube"
+        "message": "ImprovedTube ikon på YouTube"
     },
     "improvedtubeLanguage": {
-        "message": "ImprovedTube language"
+        "message": "ImprovedTube språk"
     },
     "improvedtubeVersion": {
         "message": "ImprovedTube version"
     },
     "increasePlaybackSpeed": {
-        "message": "Increase playback speed"
+        "message": "Öka uppspelningshastigheten"
     },
     "increaseVolume": {
-        "message": "Increase volume"
+        "message": "Höj volymen"
     },
     "indigo": {
         "message": "Indigo"
@@ -567,31 +566,31 @@
         "message": "Items"
     },
     "language": {
-        "message": "Language"
+        "message": "Språk"
     },
     "languages": {
-        "message": "Languages"
+        "message": "Språk"
     },
     "layerAnimationScale": {
-        "message": "Layer animation scale"
+        "message": "Skala för lageranimering"
     },
     "layout": {
         "message": "Layout"
     },
     "legacyYoutube": {
-        "message": "Legacy YouTube"
+        "message": "Klassisk YouTube"
     },
     "library": {
-        "message": "Library"
+        "message": "Bibliotek"
     },
     "light": {
-        "message": "Light"
+        "message": "Ljus"
     },
     "lightBlue": {
-        "message": "Light blue"
+        "message": "Ljusblå"
     },
     "lightGreen": {
-        "message": "Light green"
+        "message": "Ljusgrön"
     },
     "like": {
         "message": "Like"
@@ -606,31 +605,31 @@
         "message": "Lime"
     },
     "limitPageWidth": {
-        "message": "Limit page width"
+        "message": "Begränsa sidbredd"
     },
     "list": {
-        "message": "List"
+        "message": "Lista"
     },
     "liveChat": {
-        "message": "Live chat"
+        "message": "Livechatt"
     },
     "liveChatType": {
-        "message": "Live chat type"
+        "message": "Typ av livechatt"
     },
     "location": {
-        "message": "Location"
+        "message": "Plats"
     },
     "loop": {
         "message": "Loop"
     },
     "loudnessNormalization": {
-        "message": "Loudness normalization"
+        "message": "Normalisering av ljudnivå"
     },
     "low": {
-        "message": "Low"
+        "message": "Låg"
     },
     "markWatchedVideos": {
-        "message": "Mark watched videos"
+        "message": "Markera visade videor"
     },
     "medium": {
         "message": "Medium"
@@ -639,73 +638,73 @@
         "message": "Mixer"
     },
     "more": {
-        "message": "More"
+        "message": "Mera"
     },
     "mostViewedChannels": {
-        "message": "Most viewed channels"
+        "message": "Mest visade kanaler"
     },
     "moveSidebarLeft": {
-        "message": "To the left!"
+        "message": "Till vänster!"
     },
     "moveThumbnailsRight": {
-        "message": "Thumbnails to the right!"
+        "message": "Miniatyrbilder till höger!"
     },
     "myColors": {
-        "message": "My colors"
+        "message": "Mina färger"
     },
     "name": {
-        "message": "Name"
+        "message": "Namn"
     },
     "nativeMiniPlayer": {
-        "message": "Native mini player"
+        "message": "Inbyggd mini-spelare"
     },
     "new": {
-        "message": "New"
+        "message": "Ny"
     },
     "nextVideo": {
-        "message": "Next video"
+        "message": "Nästa video"
     },
     "night": {
-        "message": "Night"
+        "message": "Natt"
     },
     "nightMode": {
-        "message": "Night mode"
+        "message": "Nattläge"
     },
     "noActiveFeatures": {
-        "message": "No active features"
+        "message": "Inga aktiva funktioner"
     },
     "noOpenVideoTabs": {
-        "message": "No open video tabs"
+        "message": "Inga öppna videoflikar"
     },
     "none": {
-        "message": "None"
+        "message": "Inga"
     },
     "normal": {
         "message": "Normal"
     },
     "off": {
-        "message": "Off"
+        "message": "Av"
     },
     "ok": {
         "message": "Ok"
     },
     "old": {
-        "message": "Old"
+        "message": "Gammal"
     },
     "onAllVideos": {
-        "message": "On"
+        "message": "På"
     },
     "onSubscribedChannels": {
-        "message": "Off, except on my subscribed channels"
+        "message": "Av, förutom på mina prenumererade kanaler"
     },
     "onlyActiveOnYoutube": {
-        "message": "Only active on YouTube"
+        "message": "Enbart aktivt på YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Pause while I watch a 2nd video"
+        "message": "Pausa medan jag tittar på en andra video"
     },
     "openPopupPlayer": {
-        "message": "Open video/playlist in a new window"
+        "message": "Öppna video/spellista i ny flik"
     },
     "orange": {
         "message": "Orange"
@@ -714,55 +713,55 @@
         "message": "OS"
     },
     "other": {
-        "message": "Other"
+        "message": "Annat"
     },
     "outline": {
-        "message": "Outline"
+        "message": "Gräns"
     },
     "overlay": {
-        "message": "Overlay"
+        "message": "Överlägg"
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Tillstånd"
     },
     "pictureInPicture": {
-        "message": "Picture-in-Picture"
+        "message": "Bild-i-bild"
     },
     "pink": {
-        "message": "Pink"
+        "message": "Rosa"
     },
     "plain": {
-        "message": "Plain"
+        "message": "Slät"
     },
     "platform": {
-        "message": "Platform"
+        "message": "Plattform"
     },
     "playAllButton": {
-        "message": "\"Play all\" button"
+        "message": "\"Spela allt\" knapp"
     },
     "playPause": {
-        "message": "Play / Pause"
+        "message": "Spela / Pausa"
     },
     "playbackSpeed": {
-        "message": "Playback speed"
+        "message": "Uppspelningshastighet"
     },
     "player": {
-        "message": "Player"
+        "message": "Spelare"
     },
     "playerColor": {
-        "message": "Progress bar color"
+        "message": "Färj på spelare"
     },
     "playerSize": {
-        "message": "Player size"
+        "message": "Storlek på spelare"
     },
     "playlist": {
-        "message": "Playlist"
+        "message": "Spellista"
     },
     "playlists": {
-        "message": "Playlists"
+        "message": "Spellistor"
     },
     "popupPlayer": {
-        "message": "Popup player"
+        "message": "Spelare i eget fönster"
     },
     "popupWindowButtons": {
         "message": "popup_window_buttons"
@@ -771,274 +770,274 @@
         "message": "Position"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Press any key or use mouse wheel."
+        "message": "Tryck på valfri knapp eller använd mushjulet."
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Press any key or use mouse wheel"
+        "message": "Tryck på valfri knapp eller använd mushjulet."
     },
     "previousVideo": {
-        "message": "Previous video"
+        "message": "Föregående video"
     },
     "primaryColor": {
-        "message": "Primary color"
+        "message": "Primärfärg"
     },
     "purple": {
-        "message": "Purple"
+        "message": "Lila"
     },
     "quality": {
-        "message": "Quality"
+        "message": "Kvalitet"
     },
     "raised": {
-        "message": "Raised"
+        "message": "Höjd"
     },
     "ram": {
         "message": "RAM"
     },
     "rateMe": {
-        "message": "Rate me"
+        "message": "Betygsätt mig"
     },
     "rateUs": {
-        "message": "Rate us"
+        "message": "Betygsätt oss"
     },
     "red": {
-        "message": "Red"
+        "message": "Röd"
     },
     "redDislikeButton": {
         "message": "Red DisLiked-button"
     },
     "relatedVideos": {
-        "message": "Related videos"
+        "message": "Relaterade videor"
     },
     "remote": {
-        "message": "Play on TV"
+        "message": "Spela på TV"
     },
     "removeRelatedSearchResults": {
-        "message": "Remove related search results"
+        "message": "Ta bort relaterade sökresultat"
     },
     "repeat": {
-        "message": "Repeat"
+        "message": "Repetera"
     },
     "report": {
-        "message": "Report"
+        "message": "Rapportera"
     },
     "reset": {
-        "message": "Reset"
+        "message": "Återställ"
     },
     "resetAllSettings": {
-        "message": "Reset all settings"
+        "message": "Återställ alla inställningar"
     },
     "resetAllShortcuts": {
-        "message": "Reset all shortcuts"
+        "message": "Återställ alla snabbkommandon"
     },
     "reverse": {
-        "message": "Reverse"
+        "message": "Omvänd"
     },
     "rotate": {
-        "message": "Rotate"
+        "message": "Rotera"
     },
     "save": {
-        "message": "Save"
+        "message": "Spara"
     },
     "saveAs": {
-        "message": "Save as"
+        "message": "Spara som"
     },
     "schedule": {
-        "message": "Schedule"
+        "message": "Tidsplan"
     },
     "screen": {
-        "message": "Screen"
+        "message": "Bildskärm"
     },
     "screenshot": {
-        "message": "Screenshot"
+        "message": "Skärmdump"
     },
     "scrollBar": {
-        "message": "Scroll Bar"
+        "message": "Rullningslist"
     },
     "sd": {
         "message": "SD"
     },
     "search": {
-        "message": "Search"
+        "message": "Sök"
     },
     "searchBarOnly": {
-        "message": "Search bar only"
+        "message": "Endast sökfält"
     },
     "seekBackward10Seconds": {
-        "message": "Seek backward 10 seconds"
+        "message": "Sök bakåt 10 sekunder"
     },
     "seekForward10Seconds": {
-        "message": "Seek forward 10 seconds"
+        "message": "Sök framåt 10 sekunder"
     },
     "seekNextChapter": {
-        "message": "Seek Next Chapter"
+        "message": "Sök nästa kapitel"
     },
     "seekPreviousChapter": {
-        "message": "Seek Previous Chapter"
+        "message": "Sök föregående kapitel"
     },
     "settings": {
-        "message": "Settings"
+        "message": "Inställningar"
     },
     "settingsSuccessfullyImported": {
-        "message": "Settings successfully imported"
+        "message": "Inställningarna har importerats"
     },
     "share": {
-        "message": "Share"
+        "message": "Dela"
     },
     "shortcuts": {
-        "message": "Shortcuts"
+        "message": "Snabbkommandon"
     },
     "showCardsOnMouseHover": {
-        "message": "Show cards on mouse hover"
+        "message": "Visa informationskort vid muspekaren"
     },
     "showChannelVideosCount": {
-        "message": "Show channel videos count"
+        "message": "Visa antal kanalvideor"
     },
     "showLess": {
-        "message": "Show less"
+        "message": "Visa färre"
     },
     "showMore": {
-        "message": "Show more"
+        "message": "Visa fler"
     },
     "showRemainingDuration": {
-        "message": "Show video remaining duration"
+        "message": "Visa återstående videotid"
     },
     "showVersion": {
-        "message": "Show version"
+        "message": "Visa version"
     },
     "shuffle": {
-        "message": "Shuffle"
+        "message": "Blanda"
     },
     "sidebar": {
-        "message": "Sidebar"
+        "message": "Sidofält"
     },
     "softwareInformation": {
-        "message": "Software information"
+        "message": "Programvaruinformation"
     },
     "spacebar": {
-        "message": "Spacebar"
+        "message": "Mellanslag"
     },
     "squaredUserImages": {
-        "message": "Squared user images"
+        "message": "Användarbilder i kvadrat"
     },
     "static": {
-        "message": "Static"
+        "message": "Statisk"
     },
     "statsForNerds": {
-        "message": "Show Stats for Nerds"
+        "message": "Visa statistik för nördar"
     },
     "step": {
-        "message": "Step"
+        "message": "Steg"
     },
     "stop": {
-        "message": "Stop"
+        "message": "Stopp"
     },
     "style": {
-        "message": "Style"
+        "message": "Stil"
     },
     "styles": {
-        "message": "Styles"
+        "message": "Stiler"
     },
     "subscribe": {
-        "message": "Subscribe"
+        "message": "Prenumerera"
     },
     "subscriptions": {
-        "message": "Subscriptions"
+        "message": "Prenumerationer"
     },
     "subtitles": {
-        "message": "Subtitles"
+        "message": "Undertexter"
     },
     "sunset": {
-        "message": "Sunset"
+        "message": "Solnedgång"
     },
     "sunsetToSunrise": {
-        "message": "Sunset to sunrise"
+        "message": "Solnedgång till soluppgång"
     },
     "systemPeferenceDark": {
-        "message": "System peference: dark"
+        "message": "Systemval: mörk"
     },
     "systemPeferenceLight": {
-        "message": "System peference: light"
+        "message": "Systemval: ljus"
     },
     "teal": {
-        "message": "Teal"
+        "message": "Blågrön"
     },
     "textColor": {
-        "message": "Text color"
+        "message": "Textfärg"
     },
     "thanks": {
-        "message": "Thanks"
+        "message": "Tack"
     },
     "themes": {
-        "message": "Themes"
+        "message": "Teman"
     },
     "thisWillRemoveAllCookies": {
-        "message": "This will remove all cookies."
+        "message": "Detta tar bort alla cookies."
     },
     "thisWillRemoveAllWatchedVideos": {
-        "message": "This will remove all watched videos."
+        "message": "Detta tar bort alla tittade videor."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "This will remove all YouTube cookies"
+        "message": "Detta tar bort alla YouTube-cookies"
     },
     "thisWillResetAllSettings": {
-        "message": "This will reset all settings."
+        "message": "Detta återställer alla inställningar."
     },
     "thisWillResetAllShortcuts": {
-        "message": "This will reset all shortcuts"
+        "message": "Detta återställer alla snabbkommandon"
     },
     "thumbnails": {
-        "message": "Thumbnails"
+        "message": "Miniatyrbilder"
     },
     "thumbnailsQuality": {
-        "message": "Thumbnails Quality"
+        "message": "Kvalitet på miniatyrbilder"
     },
     "timeFrom": {
-        "message": "Time from"
+        "message": "Tid från"
     },
     "timeTo": {
-        "message": "Time to"
+        "message": "Tid till"
     },
     "todayAt": {
-        "message": "Today at"
+        "message": "Idag vid"
     },
     "toggleAutoplay": {
-        "message": "Toggle autoplay"
+        "message": "Växla autoplay"
     },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "Växla kort"
     },
     "toggleControls": {
-        "message": "Toggle player controls"
+        "message": "Växla spelarkontroller"
     },
     "topChat": {
-        "message": "Top chat"
+        "message": "Topp chatt"
     },
     "trackWatchedVideos": {
-        "message": "Track watched videos"
+        "message": "Spåra visade videor"
     },
     "trailerAutoplay": {
-        "message": "Trailer autoplay"
+        "message": "Autoplay av trailer"
     },
     "translations": {
-        "message": "Translations"
+        "message": "Översättningar"
     },
     "transparentBackground": {
-        "message": "Transparent background"
+        "message": "Transparent bakgrund"
     },
     "trending": {
-        "message": "Trending"
+        "message": "Trendande"
     },
     "tryToReloadThePage": {
-        "message": "Try to reload the page"
+        "message": "Försök att ladda om sidan"
     },
     "type": {
-        "message": "Type"
+        "message": "Typ"
     },
     "upNextAutoplay": {
-        "message": "Up next autoplay"
+        "message": "Spela nästa video automatiskt"
     },
     "use24HourFormat": {
-        "message": "Use 24-hour format"
+        "message": "Använd 24-timmars format"
     },
     "version": {
         "message": "Version"
@@ -1047,57 +1046,57 @@
         "message": "Video"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "The video description will be expanded to get the name of the category"
+        "message": "Videobeskrivningen kommer att utökas för att få namnet på kategorin"
     },
     "videoFormats": {
-        "message": "Video formats"
+        "message": "Videoformat"
     },
     "videos": {
-        "message": "Videos"
+        "message": "Videor"
     },
     "viewMode": {
-        "message": "View Mode"
+        "message": "Visningsläge"
     },
     "volume": {
-        "message": "Volume"
+        "message": "Volym"
     },
     "watchLater": {
-        "message": "Watch later"
+        "message": "Titta på senare"
     },
     "watchTime": {
-        "message": "Watch time"
+        "message": "Visningstid"
     },
     "whenPaused": {
-        "message": "When paused"
+        "message": "När pausad"
     },
     "whenTabIsChanged": {
-        "message": "When tab is changed"
+        "message": "När fliken ändras"
     },
     "white": {
-        "message": "White"
+        "message": "Vit"
     },
     "windowColor": {
-        "message": "Window color"
+        "message": "Fönsterfärg"
     },
     "windowOpacity": {
-        "message": "Window opacity"
+        "message": "Fönstrets opacitet"
     },
     "yellow": {
-        "message": "Yellow"
+        "message": "Gul"
     },
     "youtubeHeaderLeft": {
-        "message": "YouTube Header (left)"
+        "message": "YouTube rubrik (vänster)"
     },
     "youtubeHeaderRight": {
-        "message": "YouTube Header (right)"
+        "message": "YouTube rubrik (höger)"
     },
     "youtubeHomePage": {
-        "message": "YouTube home page"
+        "message": "YouTube hemsida"
     },
     "youtubeLanguage": {
-        "message": "YouTube language"
+        "message": "YouTube språk"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
+        "message": "YouTube begränsar videokvaliteten till 1080p för h.264-codec."
     }
 }
