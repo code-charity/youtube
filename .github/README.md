@@ -108,8 +108,8 @@ Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/c
 <a href="https://github.com/_____">(You?)</a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Czech">Czech</a></code> :
 <a href="https://github.com/_____">(You?)</a><br>
-<code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Swedish">SE Swedish</a></code> :
-<a href="https://github.com/_____">(You?)</a><br>
+<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sv/messages.json" title="Swedish">SE</a></code> :
+<a href="https://github.com/KiloBravoBFE"><code>KiloBravoBFE</code></a><br>
 <code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json" title="Nederlands">NL</a></code> :
 <a href="https://github.com/aron-hoogeveen"><code>aron-hoogeveen</code></a>,
 <a href="https://github.com/Vistaus"><code>Vistaus</code></a><br>
