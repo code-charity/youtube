@@ -11,7 +11,7 @@ ImprovedTube.blacklist = function (type, node) {
 		return;
 	} else if (this.isset(node) === false) {
 		var a = document.querySelectorAll('a.ytd-thumbnail'),
-			a2 = document.querySelectorAll('a[href*="/channel/"],a[href*="/user/"],a[href*="/c/"]'),
+			a2 = document.querySelectorAll('a[href*="/channel/"],a[href*="/user/"],a[href*="/c/"],a[href*="/@"]'),
 			subscribe_buttons = document.querySelectorAll('ytd-subscribe-button-renderer.ytd-c4-tabbed-header-renderer');
 
 		for (var i = 0, l = a.length; i < l; i++) {
@@ -108,7 +108,7 @@ ImprovedTube.blacklist = function (type, node) {
 	} else if (type === 'channel') {
 		if (node.nodeName === 'A') {
 			try {
-				var id = node.href.match(/(channel|user|c)\/([^/]+)/)[2];
+				var id = node.href.match(/(channel\/|user\/|c\/@|@)([^\/]+)/)[2];
 
 				if (this.storage.blacklist.channels[id]) {
 					var parent = node.parentNode.__dataHost.__dataHost;
@@ -123,7 +123,7 @@ ImprovedTube.blacklist = function (type, node) {
 			} catch (err) {}
 		} else {
 			var button = this.elements.blacklistChannel || document.createElement('button'),
-				id = location.href.match(/(channel|user|c)\/([^/]+)/)[2];
+				id = location.href.match(/(channel\/|user\/|c\/@|@)([^\/]+)/)[2];
 
 			button.className = 'it-add-channel-to-blacklist';
 
@@ -137,7 +137,7 @@ ImprovedTube.blacklist = function (type, node) {
 
 			button.addEventListener('click', function (event) {
 				var data = this.parentNode.__dataHost.__data.data,
-					id = location.href.match(/(channel|user|c)\/([^/]+)/)[2];
+					id = location.href.match(/(channel\/|user\/|c\/@|@)([^\/]+)/)[2];
 
 				this.added = !this.added;
 
