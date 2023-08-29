@@ -38,10 +38,10 @@ ImprovedTube.ytElementsHandler = function (node) {
 			//if(node.getAttribute('name') === 'description')		{ImprovedTube.description = node.content;}	//duplicate
 			//if node.getAttribute('name') === 'themeColor')			{ImprovedTube.themeColor = node.content;}	//might help our darkmode/themes
 //Do we need any of these here before the player starts?
-			if(node.getAttribute('name') === 'keywords')			{ImprovedTube.keywords = node.content;}
+			//if(node.getAttribute('name') === 'keywords')			{ImprovedTube.keywords = node.content;}
 		} else if (node.getAttribute('itemprop')) {
-			if(node.getAttribute('itemprop') === 'name')			{ImprovedTube.title = node.content;}	
-			if(node.getAttribute('itemprop') === 'genre')			{ImprovedTube.category  = node.content;}
+			//if(node.getAttribute('itemprop') === 'name')			{ImprovedTube.title = node.content;}	
+			//if(node.getAttribute('itemprop') === 'genre')			{ImprovedTube.category  = node.content;}
 			//if(node.getAttribute('itemprop') === 'channelId')		{ImprovedTube.channelId = node.content;}
 			//if(node.getAttribute('itemprop') === 'videoId')		{ImprovedTube.videoId = node.content;}
 //The following infos will enable awesome, smart features.  Some of which everyone should use.
@@ -332,7 +332,7 @@ ImprovedTube.initPlayer = function () {
 		delete ImprovedTube.elements.player.dataset.defaultQuality;
 
 		ImprovedTube.forcedPlayVideoFromTheBeginning();
-		ImprovedTube.playerPlaybackSpeed(false);
+		ImprovedTube.playerPlaybackSpeed();
 		ImprovedTube.subtitles();
 		ImprovedTube.subtitlesLanguage();
 		ImprovedTube.subtitlesFontFamily();
