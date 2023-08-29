@@ -65,49 +65,66 @@ ImprovedTube.playerAutoPip = function () {
 FORCED PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPlaybackSpeed = function () {
-	var player = this.elements.player,
-		video = player.querySelector('video'),
-		option = this.storage.player_playback_speed,
-		tries = 0;
-	const intervalMs = 100,
-		maxIntervalMs = 5000;
-
-	if (this.isset(option) === false) {
-		option = 1;
-	}
-
 	if (this.storage.player_forced_playback_speed === true) {
-		var waitForDescInterval = setInterval(() => {
-			if (document.querySelector('div#description') || (++tries * intervalMs >= maxIntervalMs)) {
-				if (player.getVideoData().isLive === false) {
-					let category = document.querySelector('meta[itemprop=genre]')?.content;
-					let titlekeywords = document.getElementsByTagName('meta')?.title?.content + document.getElementsByTagName('meta')?.keywords?.content;
-					if (this.storage.player_force_speed_on_music === true // dont care if music, just switch it
-						|| (this.storage.player_force_speed_on_music === false // check if NOT music first
-							&& document.querySelector('h3#title')?.innerText !== 'Music' // (=buyable/registered music table)
-							&& category !== 'Music'
-							&& !(/official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|karaok|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكيкараоке|カラオケ|노래방/i.test(titlekeywords) && !/do[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(titlekeywords)) // says its music in description, but not backstage/interview? ugly hack!
-						// && location.href.indexOf('music') === -1	// (=only running on www.youtube.com anyways)
-						)) {
-							player.setPlaybackRate(Number(option));
-							video.playbackRate = Number(option);
-					} else { // Music and we are not overriding speed, set normal
-						player.setPlaybackRate(1);
-						video.playbackRate = 1;
-					}
+		var player = this.elements.player,
+		video = player.querySelector('video'),
+		option = this.storage.player_playback_speed;
+		if (this.isset(option) === false) {	option = 1; }
+	
+		if (player.getVideoData().isLive === false			
+			&& this.storage.player_force_speed_on_music !== true  // || location.href.indexOf('music.') !== -1)  // (=currently we are only running on www.youtube.com anyways)
+			|| this.storage.player_dont_speed_education === true) {
+	// Data: 
+		let category = document.querySelector('meta[itemprop=genre]')?.content;
+			if (this.storage.player_dont_speed_education === true && category === 'Education') // dont speed education
+								{ return;} 		
+		let titleAndKeywords = document.getElementsByTagName('meta')?.title?.content + " " + document.getElementsByTagName('meta')?.keywords?.content;
+		let duration = document.querySelector('meta[itemprop=duration]')?.content; // Example:  PT1H20M30S
+				function parseDuration(duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0); 
+				return h * 3600 + m * 60 + s; } 
+		let durationInSeconds = parseDuration(duration); 
+		let musicRegexMatch = /official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|karaok|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방/i.test(titleAndKeywords);
+		let notMusicRegexMatch = /do[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(titleAndKeywords);
+							     // (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
+				function testSongDuration(s) { 
+				if (135 <= s && s <= 260) {return 'very common';}
+				if (105 <= s && s <= 420) {return 'common';}
+				if (420 <= s && s <= 720) {return 'long';}	
+				if  (45 <= s && s <= 105) {return 'short';}	  
+				let musicSectionLength = document.querySelector('div#items[class*="music-section"]')?.children?.length;
+				if (musicSectionLength && (120 <= s / musicSectionLength && s / musicSectionLength<= 410)) {return 'multiple';}
+			}				
+		let songDurationType = testSongDuration(durationInSeconds);
+ // check if the video is PROBABLY MUSIC:							
+	if  ( 		(category === 'Music' || musicRegexMatch && !notMusicRegexMatch || songDurationType === 'verycommon')
+			||	(category === 'Music' && musicRegexMatch &&  typeof songDurationType !== 'undefined'  
+															|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범/i.test(titleAndKeywords) 
+																&& ([1150, 5000].includes(durationInSeconds))
+																)	
+			)
+		)	
+				{ //player.setPlaybackRate(1); video.playbackRate = 1;
+				} 
+				
+			else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);	//  #1729 question2		 
+			// Now this video might rarely be music 
+			// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
+					tries = 0; 	intervalMs = 150;  	if (location.href.indexOf('/watch?') !== -1) {maxTries = 10;} else {maxTries = 1;}  	
+														// ...except when it is an embedded player?
+		
+					var waitForDescription = setInterval(() => { 	
+					if (document.querySelector('div#description') || (++tries >= maxTries) ) {clearInterval(waitForDescription);}
+					if (document.querySelector('h3#title[class*="music-section"]')   // indicates buyable/registered music
+										 && typeof testSongDuration(durationInSeconds) !== 'undefined' ) // resonable duration
+											{player.setPlaybackRate(1); video.playbackRate = 1;} 			
+					intervalMs *= 1.4;				
+					}, intervalMs);	   						
 				}
-				clearInterval(waitForDescInterval);
-			}
-		}, intervalMs);
-	} else {
-		player.setPlaybackRate(1);
-		video.playbackRate = 1;
-	}
+		}	else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);}  //  #1729 question2	 
+	} 
 };
+// hi @raszpl  // ImprovedTube.playerForceSpeedOnMusic = function () {  ImprovedTube.playerPlaybackSpeed(); };  
 
-ImprovedTube.playerForceSpeedOnMusic = function () {
-	ImprovedTube.playerPlaybackSpeed();
-};
 /*------------------------------------------------------------------------------
 SUBTITLES
 ------------------------------------------------------------------------------*/

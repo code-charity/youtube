@@ -3,7 +3,8 @@
 --------------------------------------------------------------*/
 #forced-volume:not([data-value='true']) + .satus-slider,
 #forced-playback-speed:not([data-value='true']) + .satus-switch,
-#forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-slider 
+#forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch,
+#forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch + .satus-slider 
 	{display: none;}
  /*--------------------------------------------------------------
 SUBTITLES

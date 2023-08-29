@@ -696,7 +696,7 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 			},
 			comments_sidebar_simple: {
 				component: "switch",
-				text: "sidebar simple"
+				text: "Sidebar simple"
 			},
 			squared_user_images: {
 				component: 'switch',

@@ -381,7 +381,7 @@
         "message": "වීඩියෝව මුල සිට බලහත්කාරයෙන් play කරන්න"
     },
     "forcedPlaybackSpeed": {
-        "message": "Forced playback speed, speed-watching"
+        "message": "Speed-watching: Permanent speed"
     },
     "forcedPlaybackSpeedMusic": {
         "message": "(Force playback speed even for music?)"

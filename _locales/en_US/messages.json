@@ -381,7 +381,7 @@
         "message": "Force video to play from the beginning"
     },
     "forcedPlaybackSpeed": {
-        "message": "Forced playback speed, speed-watching"
+        "message": "Speed-watching: Permanent speed"
     },
     "forcedPlaybackSpeedMusic": {
         "message": "(Force playback speed even for music?)"

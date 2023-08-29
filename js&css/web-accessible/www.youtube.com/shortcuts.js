@@ -495,12 +495,13 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function () {
 		value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
 
 	if (video) {
-		video.playbackRate = video.playbackRate + value;
-
+				if ( video.playbackRate < 1 && video.playbackRate > 1-ImprovedTube.storage.shortcut_playback_speed_step ) {  
+                 video.playbackRate =  1 } // aligning at 1.0 independent of minimum
+		  else { video.playbackRate = Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
+					  }        	        
 		ImprovedTube.showStatus(video.playbackRate);
 	}
 };
-
 
 /*------------------------------------------------------------------------------
 4.7.17 DECREASE PLAYBACK SPEED
@@ -511,12 +512,13 @@ ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
 		value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
 
 	if (video) {
-		video.playbackRate = Math.max(video.playbackRate - value, .05);
-
+			if ( video.playbackRate < 0.1+ImprovedTube.storage.shortcut_playback_speed_step ) {  
+		    video.playbackRate =  video.playbackRate*0.7 } // slow down near minimum
+	  else { video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
+		    }
 		ImprovedTube.showStatus(video.playbackRate);
 	}
 };
-
 
 /*------------------------------------------------------------------------------
 4.7.18 RESET PLAYBACK SPEED

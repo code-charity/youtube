@@ -123,6 +123,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_force_speed_on_music: {
 			component: 'switch',
 			text: 'forcedPlaybackSpeedMusic'
+		},	
+		player_dont_speed_education: {
+			component: 'switch',
+			text: 'Don\'t speed up the (rare) category: Education',
 		},
 		player_playback_speed: {
 			component: 'slider',
@@ -133,7 +137,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			max: 4,
 			step: .05
 		},
-
 		forced_play_video_from_the_beginning: {
 			component: 'switch',
 			text: 'forcedPlayVideoFromTheBeginning'
