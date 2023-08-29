@@ -26,7 +26,7 @@ ImprovedTube.channelDefaultTab = function (a) {
 
 ImprovedTube.channelPlayAllButton = function () {
 	if (this.storage.channel_play_all_button === true) {
-		if (/\/(channel|user|c)\/[^/]+\/videos/.test(location.href)) {
+		if (/\/@|((channel|user|c)\/)[^/]+\/videos/.test(location.href)) {
 			var container = document.querySelector('ytd-channel-sub-menu-renderer #primary-items');
 
 			if (!this.elements.playAllButton) {

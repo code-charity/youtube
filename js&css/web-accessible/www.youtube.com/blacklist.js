@@ -108,7 +108,7 @@ ImprovedTube.blacklist = function (type, node) {
 	} else if (type === 'channel') {
 		if (node.nodeName === 'A') {
 			try {
-				var id = node.href.match(/(channel\/|user\/|c\/@|@)([^\/]+)/)[2];
+				var id = node.href.match(/@|c\/@?|channel\/|user\/([^/]+)/)[1]
 
 				if (this.storage.blacklist.channels[id]) {
 					var parent = node.parentNode.__dataHost.__dataHost;
@@ -123,7 +123,7 @@ ImprovedTube.blacklist = function (type, node) {
 			} catch (err) {}
 		} else {
 			var button = this.elements.blacklistChannel || document.createElement('button'),
-				id = location.href.match(/(channel\/|user\/|c\/@|@)([^\/]+)/)[2];
+				id = location.href.match(/@|c\/@?|channel\/|user\/([^/]+)/)[1];
 
 			button.className = 'it-add-channel-to-blacklist';
 
@@ -137,7 +137,7 @@ ImprovedTube.blacklist = function (type, node) {
 
 			button.addEventListener('click', function (event) {
 				var data = this.parentNode.__dataHost.__data.data,
-					id = location.href.match(/(channel\/|user\/|c\/@|@)([^\/]+)/)[2];
+					id = location.href.match(/@|c\/@?|channel\/|user\/([^/]+)/)[1];
 
 				this.added = !this.added;
 
