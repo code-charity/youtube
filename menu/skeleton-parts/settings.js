@@ -237,6 +237,9 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 					value: "en",
 					text: "English"
 				}, {
+					value: "ko",
+					text: "한국어"
+				}, {
 					value: "es",
 					text: "Español (España)"
 				}, {
