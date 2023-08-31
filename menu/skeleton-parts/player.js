@@ -87,7 +87,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_autoPip: {
 			component: 'switch',
-			text: 'autoPip',
+			text: 'Auto-PiP (picture in picture)',
 			id: 'player_autoPip',
 			on: {
 				click: function () {
