@@ -87,16 +87,16 @@ ImprovedTube.playerPlaybackSpeed = function () {
 		let notMusicRegexMatch = /do[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(titleAndKeywords);
 							     // (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
 				function testSongDuration(s) { 
-				if (135 <= s && s <= 260) {return 'very common';}
+				if (135 <= s && s <= 260) {return 'veryCommon';}
 				if (105 <= s && s <= 420) {return 'common';}
 				if (420 <= s && s <= 720) {return 'long';}	
 				if  (45 <= s && s <= 105) {return 'short';}	  
 				let musicSectionLength = document.querySelector('div#items[class*="music-section"]')?.children?.length;
-				if (musicSectionLength && (120 <= s / musicSectionLength && s / musicSectionLength<= 410)) {return 'multiple';}
+				if (musicSectionLength && (85 <= s / musicSectionLength && s / musicSectionLength<= 355)) {return 'multiple';}
 			}				
 		let songDurationType = testSongDuration(durationInSeconds);
  // check if the video is PROBABLY MUSIC:							
-	if  ( 		(category === 'Music' || musicRegexMatch && !notMusicRegexMatch || songDurationType === 'verycommon')
+	if  ( 		(category === 'Music' || musicRegexMatch && !notMusicRegexMatch || songDurationType === 'veryCommon')
 			||	(category === 'Music' && musicRegexMatch &&  typeof songDurationType !== 'undefined'  
 						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범/i.test(titleAndKeywords) 
 						&& 1150 <= durationInSeconds && durationInSeconds <= 5000)
