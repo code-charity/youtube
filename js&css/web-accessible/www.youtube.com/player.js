@@ -98,10 +98,9 @@ ImprovedTube.playerPlaybackSpeed = function () {
  // check if the video is PROBABLY MUSIC:							
 	if  ( 		(category === 'Music' || musicRegexMatch && !notMusicRegexMatch || songDurationType === 'verycommon')
 			||	(category === 'Music' && musicRegexMatch &&  typeof songDurationType !== 'undefined'  
-															|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범/i.test(titleAndKeywords) 
-																&& ([1150, 5000].includes(durationInSeconds))
-																)	
-			)
+						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범/i.test(titleAndKeywords) 
+						&& 1150 <= durationInSeconds && durationInSeconds <= 5000)
+				)	
 		)	
 				{ //player.setPlaybackRate(1); video.playbackRate = 1;
 				} 
