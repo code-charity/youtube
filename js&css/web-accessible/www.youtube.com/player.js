@@ -71,13 +71,13 @@ ImprovedTube.playerPlaybackSpeed = function () {
 		option = this.storage.player_playback_speed;
 		if (this.isset(option) === false) {	option = 1; }
 	
-		if (player.getVideoData().isLive === false			
-			&& this.storage.player_force_speed_on_music !== true  // || location.href.indexOf('music.') !== -1)  // (=currently we are only running on www.youtube.com anyways)
+		if (player.getVideoData().isLive === false
+			&& this.storage.player_force_speed_on_music !== true 
 			|| this.storage.player_dont_speed_education === true) {
 	// Data: 
 		let category = document.querySelector('meta[itemprop=genre]')?.content;
-			if (this.storage.player_dont_speed_education === true && category === 'Education') // dont speed education
-								{ return;} 		
+			if (this.storage.player_dont_speed_education === true && category === 'Education') {return;} 
+			if (this.storage.player_force_speed_on_music === true) {return;} 
 		let titleAndKeywords = document.getElementsByTagName('meta')?.title?.content + " " + document.getElementsByTagName('meta')?.keywords?.content;
 		let duration = document.querySelector('meta[itemprop=duration]')?.content; // Example:  PT1H20M30S
 				function parseDuration(duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0); 
@@ -96,18 +96,17 @@ ImprovedTube.playerPlaybackSpeed = function () {
 			}				
 		let songDurationType = testSongDuration(durationInSeconds);
  // check if the video is PROBABLY MUSIC:							
-	if  ( 		(category === 'Music' || musicRegexMatch && !notMusicRegexMatch || songDurationType === 'veryCommon')
-			||	(category === 'Music' && musicRegexMatch &&  typeof songDurationType !== 'undefined'  
+	if  ( 		( category === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))
+			||  ( musicRegexMatch && typeof songDurationType !== 'undefined' && !notMusicRegexMatch )
+			||	( category === 'Music' && musicRegexMatch &&  typeof songDurationType !== 'undefined'  
 						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범/i.test(titleAndKeywords) 
-						&& 1150 <= durationInSeconds && durationInSeconds <= 5000)
-				)	
-		)	
-				{ //player.setPlaybackRate(1); video.playbackRate = 1;
-				} 
-				
+							&& 1150 <= durationInSeconds && durationInSeconds <= 5000)
+							)
+		  //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
+		)	{ } //music player.setPlaybackRate(1); video.playbackRate = 1;				 				
 			else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);	//  #1729 question2		 
-			// Now this video might rarely be music 
-			// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
+				// Now this video might rarely be music 
+				// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
 					tries = 0; 	intervalMs = 150;  	if (location.href.indexOf('/watch?') !== -1) {maxTries = 10;} else {maxTries = 1;}  	
 														// ...except when it is an embedded player?
 		
@@ -123,7 +122,6 @@ ImprovedTube.playerPlaybackSpeed = function () {
 	} 
 };
 // hi @raszpl  // ImprovedTube.playerForceSpeedOnMusic = function () {  ImprovedTube.playerPlaybackSpeed(); };  
-
 /*------------------------------------------------------------------------------
 SUBTITLES
 ------------------------------------------------------------------------------*/
