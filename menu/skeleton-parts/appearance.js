@@ -131,12 +131,12 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					text: "doNotChange",
 					value: "do_not_change"
 				}, {
-					text: "Max. width within the page",
-					value: "max_width"
-				}, {
 					text: "fullWindow",
 					value: "full_window"
 				}, {
+					text: "Max. width within the page",
+					value: "max_width"
+				},  {
 					text: "fitToWindow",
 					value: "fit_to_window"
 				}, {
