@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "遇到問題了嗎?"
     },
+    "fullScreen": {
+        "message": "全螢幕"
+    },
     "fullWindow": {
         "message": "全螢幕"
     },

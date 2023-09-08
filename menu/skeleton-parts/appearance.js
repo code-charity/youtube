@@ -250,7 +250,7 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 						},
 						player_screen_button: {
 							component: "switch",
-							text: "screen"
+							text: "fullScreen"
 						},
 						player_remote_button: {
 							component: "switch",

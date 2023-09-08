@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Pronašli ste grešku?"
     },
+    "fullScreen": {
+        "message": "Cijeli zaslon"
+    },
     "fullWindow": {
         "message": "Puni prozor"
     },

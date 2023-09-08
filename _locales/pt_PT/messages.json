@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Encontrou um erro?"
     },
+    "fullScreen": {
+        "message": "Ecrã inteiro"
+    },
     "fullWindow": {
         "message": "Janela completa"
     },

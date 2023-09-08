@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Found a bug?"
     },
+    "fullScreen": {
+        "message": "Pilnekrāna režīms"
+    },
     "fullWindow": {
         "message": "Full height"
     },

@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Menemukan masalah?"
     },
+    "fullScreen": {
+        "message": "Layar penuh"
+    },
     "fullWindow": {
         "message": "Layar penuh"
     },

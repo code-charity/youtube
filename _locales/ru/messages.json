@@ -401,6 +401,9 @@
     "foundABug": {
         "message": "Нашли ошибку?"
     },
+    "fullScreen": {
+        "message": "Во весь экран"
+    },
     "fullWindow": {
         "message": "Растянуть на все окно"
     },

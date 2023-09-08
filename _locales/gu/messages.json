@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Found a bug?"
     },
+    "fullScreen": {
+        "message": "પૂર્ણ સ્ક્રીન"
+    },
     "fullWindow": {
         "message": "Full height"
     },

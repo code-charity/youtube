@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Tìm thấy lỗi (bug)?"
     },
+    "fullScreen": {
+        "message": "Toàn màn hình"
+    },
     "fullWindow": {
         "message": "Toàn cửa sổ"
     },

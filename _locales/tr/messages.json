@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Hata mı buldun?"
     },
+    "fullScreen": {
+        "message": "Tam ekran"
+    },
     "fullWindow": {
         "message": "Tam pencere"
     },

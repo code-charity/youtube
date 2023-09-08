@@ -395,6 +395,9 @@
     "foundABug": {
         "message": "बग मिला?"
     },
+    "fullScreen": {
+        "message": "फ़ुल स्क्रीन"
+    },
     "fullWindow": {
         "message": "पूर्ण स्क्रीन"
     },

@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "একটি বাগ খুঁজে পেয়েছি?"
     },
+    "fullScreen": {
+        "message": "পূর্ণ স্ক্রীণ"
+    },
     "fullWindow": {
         "message": "পুরো উইন্ডো"
     },

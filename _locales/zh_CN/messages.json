@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "遇到了Bug?"
     },
+    "fullScreen": {
+        "message": "全屏"
+    },
     "fullWindow": {
         "message": "全屏"
     },

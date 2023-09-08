@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "버그 신고"
     },
+    "fullScreen": {
+        "message": "전체 화면"
+    },
     "fullWindow": {
         "message": "전체 화면"
     },

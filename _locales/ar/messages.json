@@ -401,6 +401,9 @@
     "foundABug": {
         "message": "وجدت خطأ؟"
     },
+    "fullScreen": {
+        "message": "ملء الشاشة"
+    },
     "fullWindow": {
         "message": "نافذة كاملة"
     },

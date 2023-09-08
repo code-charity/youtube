@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Εντοπίσατε κάποιο σφάλμα;"
     },
+    "fullScreen": {
+        "message": "Πλήρης οθόνη"
+    },
     "fullWindow": {
         "message": "Πλήρες παράθυρο"
     },

@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Našli ste chybu?"
     },
+    "fullScreen": {
+        "message": "Celá obrazovka"
+    },
     "fullWindow": {
         "message": "Celé okno"
     },

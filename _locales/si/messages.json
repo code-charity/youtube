@@ -395,6 +395,9 @@
     "foundABug": {
         "message": "දෝෂයක් හම්බුනාද ඔයාට?"
     },
+    "fullScreen": {
+        "message": "පූර්ණ තිරය"
+    },
     "fullWindow": {
         "message": "Full height"
     },

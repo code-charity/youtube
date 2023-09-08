@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "バグ報告"
     },
+    "fullScreen": {
+        "message": "全画面"
+    },
     "fullWindow": {
         "message": "フルウィンドウ"
     },

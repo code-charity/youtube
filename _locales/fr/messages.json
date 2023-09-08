@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Un bogue?"
     },
+    "fullScreen": {
+        "message": "Plein écran"
+    },
     "fullWindow": {
         "message": "Fenêtre pleine"
     },

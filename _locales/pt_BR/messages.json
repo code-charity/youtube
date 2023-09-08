@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Encontrou um Bug?"
     },
+    "fullScreen": {
+        "message": "Tela inteira"
+    },
     "fullWindow": {
         "message": "Tela Cheia"
     },

@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Znalazłeś błąd?"
     },
+    "fullScreen": {
+        "message": "Pełny ekran"
+    },
     "fullWindow": {
         "message": "Pełne okno"
     },

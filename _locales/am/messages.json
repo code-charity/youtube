@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Found a bug?"
     },
+    "fullScreen": {
+        "message": "ሙሉ ማያ"
+    },
     "fullWindow": {
         "message": "Full height"
     },

@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Fant du en feil?"
     },
+    "fullScreen": {
+        "message": "Fullskjerm"
+    },
     "fullWindow": {
         "message": "Fullt vindu"
     },

@@ -398,6 +398,9 @@
     "foundABug": {
         "message": "Trovato un bug?"
     },
+    "fullScreen": {
+        "message": "Schermo intero"
+    },
     "fullWindow": {
         "message": "Finestra intera"
     },
