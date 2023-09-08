@@ -9,10 +9,16 @@ ImprovedTube.playlistUpNextAutoplay = function (event) {
 		ImprovedTube.getParam(location.href, 'list') &&
 		ImprovedTube.storage.playlist_up_next_autoplay === false
 	) {
-		this.elements.ytd_watch.playlistData.currentIndex = this.elements.ytd_watch.playlistData.totalVideos
+		if (this.elements.ytd_watch.playlistData)
+		{this.elements.ytd_watch.playlistData.currentIndex = this.elements.ytd_watch.playlistData.totalVideos}
+			else {var tries = 0; 	var intervalMs = 300;  var maxTries = 5; 		
+					var waitForPlaylist = setInterval(() => { 	
+					if (this.elements.ytd_watch.playlistData || (++tries >= maxTries) ) {
+					this.elements.ytd_watch.playlistData.currentIndex = this.elements.ytd_watch.playlistData.totalVideos; clearInterval(waitForPlaylist );}			
+					intervalMs *= 1.4;}, intervalMs);
+					}
 	}
-};
-
+};    		
 /*------------------------------------------------------------------------------
 4.5.2 REVERSE
 ------------------------------------------------------------------------------*/
