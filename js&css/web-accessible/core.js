@@ -30,7 +30,7 @@ var ImprovedTube = {
 		blacklist_buttons: []
 	},
 	regex: {
-		channel: new RegExp('\/@|((channel|user|c)\/)'),
+		channel: new RegExp('\/(@|c\/@?|channel\/|user\/)(?<name>[^/]+)'),
 		channel_home_page: new RegExp('\/@|((channel|user|c)\/)[^/]+(\/featured)?\/?$'),
 		channel_home_page_postfix: new RegExp('\/(featured)?\/?$'),
 		thumbnail_quality: new RegExp('(default\.jpg|mqdefault\.jpg|hqdefault\.jpg|hq720\.jpg|sddefault\.jpg|maxresdefault\.jpg)+'),
