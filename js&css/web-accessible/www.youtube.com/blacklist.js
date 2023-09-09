@@ -142,6 +142,7 @@ ImprovedTube.blacklist = function (type, node) {
 				this.added = !this.added;
 
 				ImprovedTube.messages.send({
+					action: 'blacklist',
 					type: 'channel',
 					id,
 					title: data.title,
