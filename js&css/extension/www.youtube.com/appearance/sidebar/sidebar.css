@@ -96,11 +96,18 @@ html[it-related-videos='Titles'] #related #dismissible #metadata { margin-top:-3
 /* html[it-related-videos='Titles'] #related #dismissible #metadata * {display: inline-block !important}
 */
 
-html[it-related-videos='hidden'] #related > ytd-watch-next-secondary-results-renderer > #items,
-html[it-related-videos=hidden] div#secondary div#panels,
-html[it-related-videos=hidden] div#secondary div#donation-shelf {
-	display: none !important;
-}
+html[it-related-videos='hidden'] #related #contents,
+html[it-related-videos='hidden'] #related #dismissible
+	{display: none !important}
+
+html[it-hide-tags='true'] #related #chips 
+	{display: none !important}
+
+html[it-hide-sidebar='true'] #related > ytd-watch-next-secondary-results-renderer > #items,
+html[it-hide-sidebar='true'] div#secondarys div#panels,
+html[it-hide-sidebar='true'] div#secondarys div#donation-shelf 
+	{display: none !important}
+
 
 html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-renderer > #items:not([it-activated])::before {
 	content: 'Show more' !important;

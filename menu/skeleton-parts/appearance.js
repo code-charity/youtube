@@ -757,17 +757,17 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 					text: "normal",
 					value: "normal"
 				}, {
-					text: "Titles",
-					value: "Titles"
-				},{
-					text: "Focus",
-					value: "Focus"
-				},{
-					text: "collapsed",
-					value: "collapsed"
-				}, {
 					text: "hidden",
 					value: "hidden"
+				}, {
+					text: "Focus",
+					value: "Focus"
+				}, {
+					text: "Titles",
+					value: "Titles"
+				}, {
+					text: "collapsed",
+					value: "collapsed"
 				}],
 				tags: "right",
 				on: {
@@ -834,6 +834,10 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 				component: "switch",
 				text: "Hide \'Shorts remixing this video\'"
 			},
+			hide_tags: {
+				component: "switch",
+				text: "Hide Tags"
+			},			
 			livechat: {
 				component: "select",
 				text: "liveChat",
@@ -852,6 +856,10 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			hide_playlist: {
 				component: "switch",
 				text: "hidePlaylist"
+			},
+			hide_sidebar: {
+				component: "switch",
+				text: "Hide whole Sidebar"
 			}
 		}
 	}
