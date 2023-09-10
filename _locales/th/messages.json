@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "ลบ Shorts ออกจากหน้าแรก"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "ลบ Shorts reel ออกจากผลการค้นหา"
     },
     "repeat": {
         "message": "Repeat"

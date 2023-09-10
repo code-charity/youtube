@@ -818,8 +818,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "إزالة الشورت من الصفحة الرئيسية"
+    },
     "removeRelatedSearchResults": {
         "message": "إزالة عمليات بحث مرتبطة بـ"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "إزالة لفة Shorts من نتائج البحث"
     },
     "repeat": {
         "message": "تكرار"
