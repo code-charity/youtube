@@ -818,6 +818,9 @@
     "removeRelatedSearchResults": {
         "message": "Αφαίρεσε σχετικά αποτελέσματα αναζήτησης"
     },
+    "removeShortsReelSearchResults": {
+        "message": "Αφαιρέστε τη λίστα Shorts από τα αποτελέσματα αναζήτησης"
+    },
     "repeat": {
         "message": "Επανάληψη"
     },

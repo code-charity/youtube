@@ -812,6 +812,9 @@
     "removeRelatedSearchResults": {
         "message": "संबंधित खोज परिणाम निकालें"
     },
+    "removeShortsReelSearchResults": {
+        "message": "खोज परिणामों से शॉर्ट्स रील को हटाएं"
+    },
     "repeat": {
         "message": "दोहराना"
     },

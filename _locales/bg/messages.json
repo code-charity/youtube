@@ -818,6 +818,9 @@
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },
+    "removeShortsReelSearchResults": {
+        "message": "Премахнете ролката Shorts от резултатите от търсенето"
+    },
     "repeat": {
         "message": "Repeat"
     },

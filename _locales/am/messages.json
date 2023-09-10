@@ -818,6 +818,9 @@
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },
+    "removeShortsReelSearchResults": {
+        "message": "የፈረሰኞች ዝግጅት ከስልክ ፍርቂ አውርድ"
+    },
     "repeat": {
         "message": "Repeat"
     },

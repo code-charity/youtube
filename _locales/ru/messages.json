@@ -824,6 +824,9 @@
     "removeRelatedSearchResults": {
         "message": "Удалять связанные результаты поиска"
     },
+    "removeShortsReelSearchResults": {
+        "message": "Удалить карусель Shorts из результатов поиска"
+    },
     "repeat": {
         "message": "Повтор"
     },

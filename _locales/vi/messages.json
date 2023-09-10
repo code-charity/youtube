@@ -818,6 +818,9 @@
     "removeRelatedSearchResults": {
         "message": "Xóa kết quả tìm kiếm có liên quan"
     },
+    "removeShortsReelSearchResults": {
+        "message": "Xóa vòng lặp Shorts khỏi kết quả tìm kiếm"
+    },
     "repeat": {
         "message": "Lặp lại"
     },

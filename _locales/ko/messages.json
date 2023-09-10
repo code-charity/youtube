@@ -821,6 +821,9 @@
     "removeRelatedSearchResults": {
         "message": "관련 검색 결과 제거"
     },
+    "removeShortsReelSearchResults": {
+        "message": "검색 결과에서 Shorts 리얼 제거"
+    },
     "repeat": {
         "message": "반복"
     },

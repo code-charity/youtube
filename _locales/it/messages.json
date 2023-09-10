@@ -818,6 +818,9 @@
     "removeRelatedSearchResults": {
         "message": "Rimuovi risultati di ricerca correlati"
     },
+    "removeShortsReelSearchResults": {
+        "message": "Rimuovi il carosello di Shorts dai risultati di ricerca"
+    },
     "repeat": {
         "message": "Ripeti"
     },

@@ -1097,6 +1097,10 @@ extension.skeleton.main.layers.section.general = {
 				remove_related_search_results: {
 					component: 'switch',
 					text: 'removeRelatedSearchResults'
+				},
+				remove_shorts_reel_search_results: {
+					component: 'switch',
+					text: 'removeShortsReelSearchResults'
 				}
 			},
 			embed: {

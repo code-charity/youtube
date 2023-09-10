@@ -818,6 +818,9 @@
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },
+    "removeShortsReelSearchResults": {
+        "message": "Távolítsa el a Shorts karusellt a keresési találatokból"
+    },
     "repeat": {
         "message": "Repeat"
     },

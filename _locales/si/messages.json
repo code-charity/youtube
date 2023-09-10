@@ -812,6 +812,9 @@
     "removeRelatedSearchResults": {
         "message": "Related search results කොටස ඉවත් කරන්න"
     },
+    "removeShortsReelSearchResults": {
+        "message": "සෙවා ප්‍රතිඵල සෙයානක් ඉවත් කරන්න"
+    },
     "repeat": {
         "message": "Repeat කරන්න"
     },
