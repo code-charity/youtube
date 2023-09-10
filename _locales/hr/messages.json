@@ -818,6 +818,9 @@
     "removeRelatedSearchResults": {
         "message": "Uklonite slične rezultate pretraživanja"
     },
+    "removeShortsReelSearchResults": {
+        "message": "Uklonite Shorts kolut iz rezultata pretrage"
+    },
     "repeat": {
         "message": "Ponovi"
     },

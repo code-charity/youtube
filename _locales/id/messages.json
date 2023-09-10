@@ -818,6 +818,9 @@
     "removeRelatedSearchResults": {
         "message": "Hapus hasil pencarian terkait"
     },
+    "removeShortsReelSearchResults": {
+        "message": "Hapus gulungan Shorts dari hasil pencarian"
+    },
     "repeat": {
         "message": "Putar ulang"
     },

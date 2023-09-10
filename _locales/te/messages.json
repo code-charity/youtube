@@ -818,6 +818,9 @@
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },
+    "removeShortsReelSearchResults": {
+        "message": "శోర్ట్స్ రీల్‌ను సెర్చ్ ఫలితాల నుండి తీసుకోండి"
+    },
     "repeat": {
         "message": "Repeat"
     },
