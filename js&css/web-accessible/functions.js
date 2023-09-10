@@ -32,16 +32,17 @@ ImprovedTube.ytElementsHandler = function (node) {
 				this.blacklist('channel', node);
 			}
 		}
-	} else if (name === 'META') {
-		if(node.getAttribute('name')) {
+	}  else if (name === 'META') {
+		 if(node.getAttribute('name')) {
 			//if(node.getAttribute('name') === 'title')			{ImprovedTube.title = node.content;}		//duplicate
 			//if(node.getAttribute('name') === 'description')		{ImprovedTube.description = node.content;}	//duplicate
 			//if node.getAttribute('name') === 'themeColor')			{ImprovedTube.themeColor = node.content;}	//might help our darkmode/themes
+
 //Do we need any of these here before the player starts?
 			//if(node.getAttribute('name') === 'keywords')			{ImprovedTube.keywords = node.content;}
-		} else if (node.getAttribute('itemprop')) {
+			} else if (node.getAttribute('itemprop')) {
 			//if(node.getAttribute('itemprop') === 'name')			{ImprovedTube.title = node.content;}	
-			//if(node.getAttribute('itemprop') === 'genre')			{ImprovedTube.category  = node.content;}
+			if(node.getAttribute('itemprop') === 'genre')			{ImprovedTube.category  = node.content;}
 			//if(node.getAttribute('itemprop') === 'channelId')		{ImprovedTube.channelId = node.content;}
 			//if(node.getAttribute('itemprop') === 'videoId')		{ImprovedTube.videoId = node.content;}
 //The following infos will enable awesome, smart features.  Some of which everyone should use.
@@ -56,7 +57,8 @@ ImprovedTube.ytElementsHandler = function (node) {
 					//to use in the "how long ago"-feature, not to fail without API key?  just like the "day-of-week"-feature above	
 			// if(node.getAttribute('itemprop') === 'uploadDate')	{ImprovedTube.uploadDate = node.content;}
 		}
-	} else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
+	} 
+		else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
 		if (
 			node.parentComponent &&
 			node.parentComponent.nodeName === 'YTD-MENU-RENDERER' &&
@@ -172,14 +174,16 @@ ImprovedTube.ytElementsHandler = function (node) {
 						for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
 							var node = mutation.addedNodes[j];
 
-							if (node.nodeName === 'DIV' && node.className.indexOf('ytp-ad-player-overlay') !== -1) {
-								ImprovedTube.playerAds(node);
-							}
+							if (node instanceof Element
+								&& node.querySelector('ytp-ad-player-overlay, .ytp-ad-text, .ytp-ad-overlay-close-container, ytd-button-renderer#dismiss-button') !== null
+								){ImprovedTube.playerAds(node);}
 						}
 					}
-				}
+					if (mutation.type === 'attributes' && mutation.attributeName === 'id' && mutation.target.querySelector('*[id^="ad-text"]') )
+						{ImprovedTube.playerAds(node);}
+				}	
 			}).observe(node, {
-				attributes: false,
+				attributes: true,
 				childList: true,
 				subtree: true
 			});
