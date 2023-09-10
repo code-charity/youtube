@@ -175,15 +175,16 @@ ImprovedTube.ytElementsHandler = function (node) {
 							var node = mutation.addedNodes[j];
 
 							if (node instanceof Element
-								&& node.querySelector('ytp-ad-player-overlay, .ytp-ad-text, .ytp-ad-overlay-close-container, ytd-button-renderer#dismiss-button') !== null
+								&& node.querySelector('ytp-ad-player-overlay, .ytp-ad-text, .ytp-ad-overlay-close-container, ytd-button-renderer#dismiss-button, *[id^="ad-text"], .ytp-ad-skip-button.ytp-button') !== null
 								){ImprovedTube.playerAds(node);}
 						}
 					}
-					if (mutation.type === 'attributes' && mutation.attributeName === 'id' && mutation.target.querySelector('*[id^="ad-text"]') )
-						{ImprovedTube.playerAds(node);}
+				//	if (mutation.type === 'attributes' && mutation.attributeName === 'id' && mutation.target.querySelector('*[id^="ad-text"]') )
+				//		{ImprovedTube.playerAds(node);}
 				}	
 			}).observe(node, {
-				attributes: true,
+				attributes: false,
+				// attributes: true,
 				childList: true,
 				subtree: true
 			});
