@@ -812,6 +812,9 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "Odstrani Shorts s prve strani"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },

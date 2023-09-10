@@ -812,6 +812,9 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "Eemalda kodulehe Shortsid"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },

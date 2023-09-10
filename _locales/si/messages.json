@@ -806,6 +806,9 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "මුල් පිටුවේ ෂෝට් ඉවත් කරනවා"
+    },
     "removeRelatedSearchResults": {
         "message": "Related search results කොටස ඉවත් කරන්න"
     },

@@ -812,6 +812,9 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "Shorts eltávolítása a főoldalról"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },
