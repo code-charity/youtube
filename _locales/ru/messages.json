@@ -818,6 +818,9 @@
     "remote": {
         "message": "Удаленное воспроизведение"
     },
+    "removeHomePageShorts": {
+        "message": "Удалить Shorts с главной страницы"
+    },
     "removeRelatedSearchResults": {
         "message": "Удалять связанные результаты поиска"
     },

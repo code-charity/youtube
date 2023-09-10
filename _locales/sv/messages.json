@@ -812,6 +812,9 @@
     "remote": {
         "message": "Spela på TV"
     },
+    "removeHomePageShorts": {
+        "message": "Ta bort Shorts från startsidan"
+    },
     "removeRelatedSearchResults": {
         "message": "Ta bort relaterade sökresultat"
     },

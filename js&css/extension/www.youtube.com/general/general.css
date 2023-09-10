@@ -61,6 +61,15 @@ html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox>form {
 
 
 /*--------------------------------------------------------------
+# REMOVE HOMEPAGE SHORTS
+--------------------------------------------------------------*/
+
+html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]) {
+	display: none !important
+}
+
+
+/*--------------------------------------------------------------
 # COLLAPSE OF SUBSCRIPTION SECTIONS
 --------------------------------------------------------------*/
 

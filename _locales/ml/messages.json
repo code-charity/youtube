@@ -812,6 +812,9 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "ഹോം പേജിന്റെ ഷോർട്ട് നീക്കം"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },

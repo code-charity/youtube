@@ -806,6 +806,9 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "मुखपृष्ठ के शॉर्ट्स हटाएं"
+    },
     "removeRelatedSearchResults": {
         "message": "संबंधित खोज परिणाम निकालें"
     },

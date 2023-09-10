@@ -812,6 +812,9 @@
     "remote": {
         "message": "Auf TV abspielen"
     },
+    "removeHomePageShorts": {
+        "message": "Startseite Shorts entfernen"
+    },
     "removeRelatedSearchResults": {
         "message": "Ähnliche Suchergebnisse entfernen"
     },

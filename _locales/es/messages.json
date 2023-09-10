@@ -812,6 +812,9 @@
     "remote": {
         "message": "Reproducir en el televisor"
     },
+    "removeHomePageShorts": {
+        "message": "Eliminar Shorts de la página de inicio"
+    },
     "removeRelatedSearchResults": {
         "message": "Quitar resultados relacionados"
     },

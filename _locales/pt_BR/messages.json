@@ -812,6 +812,9 @@
     "remote": {
         "message": "Assistir na TV"
     },
+    "removeHomePageShorts": {
+        "message": "Remover Shorts da página inicial"
+    },
     "removeRelatedSearchResults": {
         "message": "Remover os respectivos resultados de pesquisa"
     },

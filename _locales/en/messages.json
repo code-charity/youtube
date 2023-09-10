@@ -830,6 +830,9 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "Remove home page's Shorts"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },

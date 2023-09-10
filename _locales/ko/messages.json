@@ -815,6 +815,9 @@
     "remote": {
         "message": "TV에서 재생"
     },
+    "removeHomePageShorts": {
+        "message": "홈 페이지의 쇼츠 제거"
+    },
     "removeRelatedSearchResults": {
         "message": "관련 검색 결과 제거"
     },

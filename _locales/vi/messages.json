@@ -812,6 +812,9 @@
     "remote": {
         "message": "Phát trên TV"
     },
+    "removeHomePageShorts": {
+        "message": "Xóa Shorts trên trang chủ"
+    },
     "removeRelatedSearchResults": {
         "message": "Xóa kết quả tìm kiếm có liên quan"
     },
