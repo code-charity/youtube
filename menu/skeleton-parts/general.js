@@ -1090,9 +1090,17 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'collapseOfSubscriptionSections'
 				},
+				remove_home_page_shorts: {
+					component: 'switch',
+					text: 'removeHomePageShorts'
+				},
 				remove_related_search_results: {
 					component: 'switch',
 					text: 'removeRelatedSearchResults'
+				},
+				remove_shorts_reel_search_results: {
+					component: 'switch',
+					text: 'removeShortsReelSearchResults'
 				}
 			},
 			embed: {

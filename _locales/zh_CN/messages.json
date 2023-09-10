@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "移除主页的 Shorts"
+    },
     "removeRelatedSearchResults": {
         "message": "隐藏搜索相关结果"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "删除搜索结果中的 Shorts 轮播"
     },
     "repeat": {
         "message": "循环"

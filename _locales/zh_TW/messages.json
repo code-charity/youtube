@@ -812,8 +812,14 @@
     "remote": {
         "message": "於電視上播放"
     },
+    "removeHomePageShorts": {
+        "message": "移除主頁的 Shorts"
+    },
     "removeRelatedSearchResults": {
         "message": "移除搜尋相關結果"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "刪除搜尋結果中的 Shorts 輪播"
     },
     "repeat": {
         "message": "重複播放"

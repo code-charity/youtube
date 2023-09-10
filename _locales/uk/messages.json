@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "Видалити Shorts з головної сторінки"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Видаліть карусель Shorts з результатів пошуку"
     },
     "repeat": {
         "message": "Repeat"

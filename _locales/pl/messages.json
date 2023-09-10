@@ -812,8 +812,14 @@
     "remote": {
         "message": "Odtwarzaj na telewizorze"
     },
+    "removeHomePageShorts": {
+        "message": "Usuń Shorts z głównej strony"
+    },
     "removeRelatedSearchResults": {
         "message": "Usuń powiązane wyniki wyszukiwania"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Usuń karuzelę Shorts z wyników wyszukiwania"
     },
     "repeat": {
         "message": "Powtarzaj"
