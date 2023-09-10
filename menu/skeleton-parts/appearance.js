@@ -750,9 +750,47 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 		click: {
 			component: "section",
 			variant: "card",
-			chapters: {
-				component: 'switch',
-				text: 'Chapters'
+			related_videos: {
+				component: "select",
+				text: "relatedVideos",
+				options: [{
+					text: "normal",
+					value: "normal"
+				}, {
+					text: "Titles",
+					value: "Titles"
+				},{
+					text: "Focus",
+					value: "Focus"
+				},{
+					text: "collapsed",
+					value: "collapsed"
+				}, {
+					text: "hidden",
+					value: "hidden"
+				}],
+				tags: "right",
+				on: {
+					click: function () {  setTimeout(() => {
+						if (satus.storage.get('related_videos')==="Titles") {
+							if (!satus.storage.get('thumbnails_right')) {
+								this.nextSibling.nextSibling.click();
+							}
+						}
+					}, 250); }
+				}
+			},
+			sidebar_left: {
+				component: "switch",
+				text: "moveSidebarLeft"
+			},
+			thumbnails_right: {
+				component: "switch",
+				text: "moveThumbnailsRight"
+			},
+			thumbnails_hide: {
+				component: "switch",
+				text: "hideThumbnails"
 			},
 			transcript: {
 				component: 'switch',
@@ -788,34 +826,13 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 					}, 250); }
 				}
 			},
-			sidebar_left: {
-				component: "switch",
-				text: "moveSidebarLeft"
+			chapters: {
+				component: 'switch',
+				text: 'Chapters'
 			},
-
-			related_videos: {
-				component: "select",
-				text: "relatedVideos",
-				options: [{
-					text: "normal",
-					value: "normal"
-				}, {
-					text: "collapsed",
-					value: "collapsed"
-				}, {
-					text: "hidden",
-					value: "hidden"
-				}],
-				tags: "right"
-			},
-
-			thumbnails_right: {
+			hide_shorts_remixing: {
 				component: "switch",
-				text: "moveThumbnailsRight"
-			},
-			thumbnails_hide: {
-				component: "switch",
-				text: "hideThumbnails"
+				text: "Hide \'Shorts remixing this video\'"
 			},
 			livechat: {
 				component: "select",
