@@ -372,14 +372,13 @@ ImprovedTube.upNextAutoplay = function () {
 ADS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAds = function (parent) {
-	let button = parent.querySelector('.ytp-ad-skip-button.ytp-button');
+	let button = parent.querySelector('.ytp-ad-skip-button.ytp-button') || parent;
 	// TODO: Replace this with centralized video element pointer
 	let video = document.querySelector('.video-stream.html5-main-video');
 	function skipAd() {
-	//	if (video) video.currentTime = video.duration;
-		if (button) button.click();
-	}
-	
+		//if (video) video.currentTime = video.duration;
+		if (button) button.click(); 
+	}	
 	if (this.storage.player_ads === 'block_all') {
 		skipAd();
 	} else if (this.storage.player_ads === 'subscribed_channels') {

@@ -104,8 +104,9 @@ ImprovedTube.blacklist = function (type, node) {
 
 		if (id && id[1] && ImprovedTube.storage.blacklist.videos[id[1]]) {
 			//node.__dataHost.classList.add('it-blacklisted-video'); // this only affects the thumbnail
-			node.parentNode.__dataHost.$.dismissible.classList.add('it-blacklisted-video'); // this affects the title and co. as well
-
+			const dismissibleElement = node.parentNode.__dataHost.$.dismissible;
+			if (dismissibleElement) { dismissibleElement.classList.add('it-blacklisted-video'); } // this affects the title and co. as well
+		//	node.parentNode.parentNode.__dataHost.$.ytd-compact-video-renderer.classList.add('it-blacklisted-video');
 		}
 	} else if (type === 'channel') {
 		if (node.nodeName === 'A') {
@@ -120,6 +121,7 @@ ImprovedTube.blacklist = function (type, node) {
 						parent.nodeName === 'YTD-VIDEO-META-BLOCK'
 					) {
 						parent.__dataHost.$.dismissible.classList.add('it-blacklisted-video'); // this affects the title and co. as well
+					//	parent.__dataHost.$.ytd-compact-video-renderer.classList.add('it-blacklisted-video');
 					}
 				}
 			} catch (err) {}
