@@ -17,7 +17,7 @@
 
 
 
-<table align="right"><tr><td><h2>Roadmap</h2> <!-- The list below only stays formatted when there is a line break above --> 
+<table align="right"><tr><td><h3><a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code></a>Roadmap </h3> <!-- The list below only stays formatted when there is a line break above --> 
 
  - Find developers, patreons. 
  - All bugs, wishes, documentation, tooltips.
@@ -30,7 +30,7 @@
      - Ask Samsung Browser to list us.
  - Integrate data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.   
 
-<h2> Critiques</h2> <div align="right"> 
+<h3> Critiques</h3> <div align="right"> 
 <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(In 2021 we first uploaded a Firefox Version & were permanently recommended among 109extensions)"><img width="148" alt="recommended by firefox" src="https://user-images.githubusercontent.com/9015764/178100681-728b9513-b6f8-4bf7-8949-c3d8449669ec.svg"></a> (<b>~ Top100</b>) - <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" height="21px"></a><br><i>
 'Might be the best YouTube Extension Ever' - <a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110" title="- Lifehacker.com 2021"><img src="https://lifehacker.com/favicon.ico" height="16px"></a><br>
 'enhances YouTube in meaningful ways' - <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways" title="- gHacks.net"><img src="https://ghacks.net/favicon.ico" height="15px"></a><br>
@@ -39,7 +39,7 @@
 	
 Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">c</a>ontributors, <a href="https://github.com/dodieboy" title="🏅">D</a>odieboy,
 <br><a href="https://github.com/code-for-charity/YouTube-Extension#--translators-">t</a>ranslators (+ wiki-authors? +<a href="https://improvedtube.com/donate">d</a>onators?)<a href="https://improvedtube.com/donate">:bowtie:</a></div></i>
-<h2>Translators&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <a href="https://github.com/code-for-charity/YouTube-Extension#--translators-" title="💕">♡</a>&nbsp;&nbsp;🌎</h2> 
+<h3>Translators&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<a href="https://github.com/code-for-charity/YouTube-Extension#--translators-" title="💕">♡</a>&nbsp;&nbsp;🌎</h3> 
 <code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json" title="English">EN</a></code>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/uk/messages.json" title="English (UK)">en_GB</a></code> :
 <a href="https://github.com/KorbinCode" title="✨🏆"><code>KorbinCode</code></a>
@@ -196,7 +196,6 @@ This can especially help medium-size projects <br>
 #### Vision for the _(tweaking-/userStyle-/"modding-"_)Community: 
 We can optimize things for the world, greatly priotized: [<img src="github.png" height="18px">UUT](https://github.com/code-charity/Universal-UserTweaks) <br>  ("insteada just tweakin@home like Sisyphos")
 <hr>
-
 
 <h3> <code><code>🎁</code></code>Our Extensions: </h3></summary>
 	
