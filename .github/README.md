@@ -218,7 +218,7 @@ We might also work on novel (=new & unique) <br> projects at [github/**Wish-Fact
 
 #### <code>🏝<code>⛵</code>🏕</code> To-Do  <br>
 
-<details><summary> <h2> <a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code> Labels</a>, <br> Filters & exclusions (Dynamic To-Do lists) </h4></summary>
+<details><summary> <h3> <a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code> Labels</a>, <br> Filters & exclusions <br> (=Dynamic To-Do lists) </h3></summary>
 
 **0.** <code>[ ]</code>  [<code>**Bugs🐞**</code>](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+ "we aim to offer some bug-bounties. Please ask")  (<i>we try to offer some bug bounty. [Please ask](mailto:bugs@improvedtube.com?subject=TODO_BOUNTY_LINK  "especially if you are at a cheap/poor place ❤️") </i>.)  	
 <br>**1.** **<code>[ ]</code>** [**<code>Documentation, wiki, screenshots, video, ...</code>**](https://github.com/code-for-charity/YouTube-Extension/wiki "We need to help people learning as easily as possible about our 90+ features. (Drafts welcome. This will become 🛈tooltips in the extension too!")</code>
