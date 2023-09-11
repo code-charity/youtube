@@ -44,10 +44,10 @@ Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/c
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/uk/messages.json" title="English (UK)">en_GB</a></code> :
 <a href="https://github.com/KorbinCode" title="✨🏆"><code>KorbinCode</code></a>
 <br>Proofreaders:<code><a href="https://github.com/????????">___</a></code> (You?) </code><br>
-<code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json" title="中文 (简体)">CN(zh_CN)</a></code> :
+<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json" title="中文 (简体)">CN(zh_CN)</a></code> :
 <a href="https://github.com/niceRAM" title="✨🏆"><code>niceRAM</code></a>,
 <a href="https://github.com/ausers"><code>ausers</code></a><br>
-<code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json" title="中文 (繁體)">CN(zh_TW)</a></code> :
+<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json" title="中文 (繁體)">CN(zh_TW)</a></code> :
 <a href="https://github.com/Still34" title="✨🏆"><code>Still34</code></a>,
 <a href="https://github.com/water903"><code>water903</code></a>, <br>
 <a href="https://github.com/suitangi"><code>suitangi</code></a><br>
@@ -64,12 +64,12 @@ Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/c
 <a href="https://github.com/Solvabl"><code>Solvabl</code></a><br>
 <code><code>✓</code><a href="https://github.com/code4charity/YouTube-Extension/blob/master/_locales/ar/messages.json" title="العربية">AR</a></code> :
 <a href="https://github.com/Raayib"><code>Raayib</code></a><br>
-<code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json" title="বাংলা">BN</a></code> :
+<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json" title="বাংলা">BN</a></code> :
 <a href="https://github.com/BRAVO68WEB" title="✨🏆"><code>BRAVO68WEB</code></a><br>
 <code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json" title="Русский">RU</a></code> :
 <a href="https://github.com/qweered"><code>qweered</code></a>,
 <a href="https://github.com/alexesprit"><code>alexesprit</code></a><br>
-<code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json" title="Português (Brasil)">pt_BR</a></code> :
+<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json" title="Português (Brasil)">pt_BR</a></code> :
 <a href="https://github.com/dthiago" title="✨🏆"><code>dthiago</code></a>,
 <a href="https://github.com/Mike-Correa"><code>Mike-Correa</code></a><br>
 <a href="https://github.com/DavidBrazSan"><code>DavidBrazSan</code></a><br>
@@ -78,10 +78,10 @@ Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/c
 <code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json" title="Bahasa Indonesia">ID</a></code> :
 <a href="https://github.com/Bagus23"><code>Bagus23</code></a>,
 <a href="https://github.com/fdciabdul"><code>A.Muttaqin</code></a><br>
-<code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json" title="Deutsch">DE</a></code> :
+<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json" title="Deutsch">DE</a></code> :
 <a href="https://github.com/Termuellinator" title="✨🏆"><code>Termuellinator</code></a>,
 <a href="https://github.com/css-smueller"><code>css-smueller</code></a><br>
-<code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json" title="日本語">JA</a></code> :
+<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json" title="日本語">JA</a></code> :
 <a href="https://github.com/utuhiro78" title="✨🏆"><code>utuhiro78</code></a><br>
 <code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json" title="Türkçe">TR</a></code> :
 <a href="https://github.com/onurdumangoz"><code>onurdumangoz</code></a>,
@@ -91,14 +91,14 @@ Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/c
 <code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json" title="한국어">KO</a></code> :
 <a href="https://github.com/msc9533"><code>msc9533</code></a>,
 <a href="https://github.com/LYHyoung"><code>LYHyoung</code></a><br>
-<code>✔️<a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fa_IR/messages.json" title="فارسی">(Iranian) Persian</a></code> :
+<code>✓<a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fa_IR/messages.json" title="فارسی">(Iranian) Persian</a></code> :
 <a href="https://github.com/AC-Lover"><code>AC Lover</code></a><br>
-<code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json" title="Italiano">IT</a></code> :
+<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json" title="Italiano">IT</a></code> :
 <a href="https://github.com/urfausto" title="✨🏆"><code>urfausto</code></a>,
 <a href="https://github.com/FedericoSlongo"><code>FedericoSlongo</code></a><br>
 <code>❌<a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/th/messages.json" title="Thai">TH Thai</a></code> :
 <a href="https://github.com/????????">______</a></code>(You?)<br>
-<code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pl/messages.json" title="Polski">PL</a></code> :
+<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pl/messages.json" title="Polski">PL</a></code> :
 <a href="https://github.com/FluidExtractor" title="✨🏆"><code>FluidExtractor</code></a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Ukrainian">Ukrainian</a></code> :
 <a href="https://github.com/_____">(You?)</a><br>
@@ -144,7 +144,7 @@ Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/c
 <a href="https://github.com/_____">(You?)</a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Estonian">Estonian</a></code> :
 <a href="https://github.com/_____">(You?)</a><br> </td></tr><tr><td> 
- <code><code>✓</code></code> = <i> missing some additions/updates </i><br><div align="center"><i><br> 
+ <code><code>✓</code></code> = <i> might miss updates </i><br><div align="center"><i><br> 
 The following popular languages are<br>
 spoken mainly. But dont hesitate to add<br> one of them. (Even if just for fun)</i> <br>
 <code>Urdu</code>   
