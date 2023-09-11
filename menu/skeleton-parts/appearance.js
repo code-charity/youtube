@@ -768,6 +768,9 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 				}, {
 					text: "collapsed",
 					value: "collapsed"
+				}, {
+					text: "Hide the tabs only",
+					value: "hidetabs"
 				}],
 				tags: "right",
 				on: {
@@ -833,10 +836,6 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			hide_shorts_remixing: {
 				component: "switch",
 				text: "Hide \'Shorts remixing this video\'"
-			},
-			hide_tags: {
-				component: "switch",
-				text: "Hide Tags"
 			},			
 			livechat: {
 				component: "select",
@@ -859,7 +858,11 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			},
 			hide_sidebar: {
 				component: "switch",
-				text: "Hide whole Sidebar"
+				text: "Hide sidebar"
+			},
+			hide_tags: {
+				component: "switch",
+				text: "Hide tags"
 			}
 		}
 	}

@@ -77,10 +77,10 @@ ImprovedTube.playerPlaybackSpeed = function () {
 	// Data: 
 		let category = document.querySelector('meta[itemprop=genre]')?.content || false;
 			if (this.storage.player_dont_speed_education === true && category === 'Education') {return;} 
-			if (this.storage.player_force_speed_on_music === true) {return;} 
+			if (this.storage.player_force_speed_on_music === true) {player.setPlaybackRate(Number(option));	video.playbackRate = Number(option); return;} 
 		let titleAndKeywords = document.getElementsByTagName('meta')?.title?.content + " " + document.getElementsByTagName('meta')?.keywords?.content  || false;
-		let musicRegexMatch = /official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|karaok|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방/i.test(titleAndKeywords) || false;
-		let notMusicRegexMatch = /do[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(titleAndKeywords) || false;						     // (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
+		let musicRegexMatch = /official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|karaok|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방/i.test(titleAndKeywords);
+		let notMusicRegexMatch = /do[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(titleAndKeywords);						     // (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
 		let duration = document.querySelector('meta[itemprop=duration]')?.content || false; // Example:  PT1H20M30S
 		if (duration) {
 				function parseDuration(duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0); 

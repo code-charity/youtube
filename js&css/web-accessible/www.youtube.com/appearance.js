@@ -313,7 +313,7 @@ ImprovedTube.livechat = function () {
   DETAILS
 ------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------
-  PLAYER BUTTONS
+  EXTRA BUTTONS BELOW THE PLAYER
 ------------------------------------------------------------------------------*/
 ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 	if (window.self !== window.top) {
