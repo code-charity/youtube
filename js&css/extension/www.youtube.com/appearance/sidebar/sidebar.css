@@ -98,11 +98,11 @@ html[it-related-videos='Titles'] #related #dismissible #metadata { margin-top:-3
 html[it-related-videos='hidden'] #related #contents,
 html[it-related-videos='hidden'] #related #dismissible,
 html[it-related-videos='hidden'] #related > ytd-watch-next-secondary-results-renderer > #items,
-html[it-related-videos='hidden'] ytd-item-section-renderer,
-html[it-related-videos='hidden'] ytd-compact-video-renderer
+html[data-page-type=video][it-related-videos='hidden'] ytd-item-section-renderer,
+html[data-page-type=video][it-related-videos='hidden'] ytd-compact-video-renderer
 	{display: none !important}
 
-html[it-related-videos='hidetabs'] #related #chips 
+html[data-page-type=video][it-related-videos='hidetabs'] #related #chips 
 	{display: none !important}
 
 html[it-hide-sidebar='true'] #related > ytd-watch-next-secondary-results-renderer > #items,

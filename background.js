@@ -37,6 +37,8 @@ chrome.storage.local.get('limit_page_width', function (result) {
 	else if(installed.reason == 'install'){
 if(navigator.userAgent.indexOf("Firefox") != -1){chrome.storage.local.set({below_player_pip: false})};
 if(navigator.userAgent.indexOf("Safari") != -1){chrome.storage.local.set({below_player_pip: false})};	
+
+// still needed? (are screenshots broken in Safari?): 
 if(navigator.userAgent.indexOf("Safari") != -1){chrome.storage.local.set({below_player_screenshot: false})};	
 // console.log('Thanks for installing!');
 };
