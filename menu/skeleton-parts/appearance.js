@@ -859,10 +859,6 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			hide_sidebar: {
 				component: "switch",
 				text: "Hide sidebar"
-			},
-			hide_tags: {
-				component: "switch",
-				text: "Hide tags"
 			}
 		}
 	}

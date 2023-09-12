@@ -1054,7 +1054,7 @@ extension.skeleton.main.layers.section.general = {
 					}, {
 						text: 'onSubscribedChannels',
 						value: 'subscribed_channels'
-					}]
+					}], storage: 'ads'
 				},
 				youtube_home_page: {
 					component: 'select',
