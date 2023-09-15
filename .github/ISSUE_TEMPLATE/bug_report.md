@@ -8,8 +8,9 @@ assignees: ''
 ---
 
 ## Bug Report:
- ⚬ *BUG*:   <!-- (a clear/concise description) -->
- ⚬ *HOW*:   <!-- Steps to **reproduce** the Bug. ( Might require your specific combination of browser, versions, extensions, settings ) -->
+ ⚬ **BUG**:   <!-- (a clear/concise description) -->
+ ⚬ **HOW**:   <!-- Steps to **reproduce** the Bug. ( Might require your specific combination of browser, versions, extensions, settings ) -->
+⚬ ImprovedTube Version:         <!--  [e.g. 4.28 You can find it at the ⋮ icon>settings>version]   -->
 
 ---
 
@@ -33,11 +34,10 @@ _**2.** If you find the issue you can answer/react there to give it your voice (
 /  ⚬ *Context*:      <!-- (Additional context maybe)  --> 
 /  ⚬ *EXPECTED (/preferred) behavior*:
 
-##  Setup:           
-⚬ ImprovedTube Version:    <!--  [e.g. 4.1.1 You can find it at the ⋮ icon>settings>version]   -->
-⚬ Browser:    <!--  [e.g.  Chromium 83.0.4103.116  / Firefox / Safari / ...] -->
-⚬ Settings:   <!--  Maybe Attach exported settings  `(ImprovedTube -> Settings -> Backup & reset -> Export settings)`  -->
-  <!-- Maybe fill in more**details**:  -->
+###  Setup:           
+⚬ Browser:                                 <!--  [e.g.  Chromium 83.0.4103.116  / Firefox / Safari / ...] -->
+⚬ Settings:        <!--  MAYBE Attach your settings  `(ImprovedTube -> Settings -> Backup & reset -> Export settings. Can delete the video lists in it if any)`  -->  
+ <!--  &  MAYBE fill in more**details**:  -->
 ⚬ OS:          <!--  [e.g. Linux Ubuntu 16 /  Windows 7 / Mac OSX /  iOS ]  -->
 ⚬ Device:    <!--  [if applicable e.g. iPhone6] -->
 
