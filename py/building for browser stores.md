@@ -21,7 +21,7 @@
 - [ ] Require moving google analytics.  Can be added differently in Firefox. Could always remain in Webstore.
 
 #### ImprovedTube:
-- [ ]We should include m.youtube.
+- [ ] We should include m.youtube.
   AND  *.youtube.com  + global permission, to work for all \<video\>'s. 
   <br> besides right now only our Google Webstore version should remains with www.youtube, until we announce change
 
