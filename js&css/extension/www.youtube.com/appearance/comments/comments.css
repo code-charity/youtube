@@ -9,7 +9,6 @@
 # Hide avatars
 --------------------------------------------------------------*/
 
-
 @media screen and (min-width: 1599px) {	
 html[data-page-type=video][it-comments-sidebar-simple='true'] #player {   margin-left: -20px !important;}
 html[data-page-type=video][it-comments-sidebar-simple='true'] #columns {  display:flex !important; max-width:100% !important;}
@@ -22,7 +21,6 @@ html[data-page-type=video][it-comments-sidebar-simple='true']:not([it-player-siz
 min-width: min(calc(100vw - 1000px), 1260px) !important; max-width: 1260px !important; }
 }
 
-
 /* 2 COLS FEATURE */
 @media screen and (min-width: 1952px) {	
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #related { flex-shrink: 4; min-width: 300px;}
@@ -34,7 +32,6 @@ min-width: min(calc(100vw - 1000px), 1260px) !important; max-width: 1260px !impo
     max-width: 1280px !important;
 	}
 	html[data-page-type=video][it-comments-sidebar='true'][it-sidebar-left='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #secondary {flex-shrink: 2;}
-
 
 	/*--------------------------------------------------------------
 		#TODO: there should be 2 new option in settings:
@@ -65,14 +62,17 @@ min-width: min(calc(100vw - 1000px), 1260px) !important; max-width: 1260px !impo
 	html[data-page-type=video][it-comments-sidebar='true'][it-sidebar-left='true'] ytd-watch-flexy #secondary{border-left: 1px solid var(--yt-spec-10-percent-layer)}
 }
 
+@media screen and (min-width: 1952px) {
+/* or unset */
+	html[data-page-type=video][it-comments-sidebar='true'] #columns {max-width: 2400px !important; }
+} 
 
-@media screen and (min-width: 1000px) and (max-width: 1951px) {	
+@media screen and (min-width: 1000px) and (max-width: 1951px) {
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary {max-width: calc((100% - 420px) - 48px) !important;} /*UP TO (-658px)*/
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #secondary { width: unset !important; max-width: 420px !important;} /*UP TO 658px*/
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #columns {max-width: 100%; min-width: unset !important;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary { margin-right: 0; padding-right: 0 !important; min-width: 300px !important;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary-inner {padding-left: 24px; padding-right: 24px;}
-
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy[theater] #primary,
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy[fullscreen] #primary{
 		margin: 0;
@@ -148,9 +148,9 @@ html[data-page-type=video]:not([it-player-size='do_not_change']) #playlist #item
 html[data-page-type=video][it-comments-sidebar='true'] #playlist #items
 { max-height: calc(70px * 4 + 4px) ; padding-bottom: 0;}    /* currently shows up to 4 videos */
 
-/* undocumented global enhancements */
-html[data-page-type=video] ytd-watch-flexy #chat > tp-yt-paper-button#label { width:calc(100% - 40px); }
-html[data-page-type=video] ytd-watch-flexy #right-arrow-container.ytd-merch-shelf-renderer { right: 44px !important; }
+/* these were global without [it-comments-sidebar='true']  @D-Rekk */
+html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #chat > tp-yt-paper-button#label { width:calc(100% - 40px); }
+html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #right-arrow-container.ytd-merch-shelf-renderer { right: 44px !important; }
 
 
 /*--------------------------------------------------------------
