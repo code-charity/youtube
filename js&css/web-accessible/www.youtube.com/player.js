@@ -79,7 +79,7 @@ ImprovedTube.playerPlaybackSpeed = function () {
 			if (this.storage.player_dont_speed_education === true && category === 'Education') {return;} 
 			if (this.storage.player_force_speed_on_music === true) {player.setPlaybackRate(Number(option));	video.playbackRate = Number(option); return;} 
 		let titleAndKeywords = document.getElementsByTagName('meta')?.title?.content + " " + document.getElementsByTagName('meta')?.keywords?.content  || false;
-		let musicRegexMatch = /official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|karaok|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방/i.test(titleAndKeywords);
+		let musicRegexMatch = /official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|soundtrack|karaok|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방/i.test(titleAndKeywords);
 		let notMusicRegexMatch = /do[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(titleAndKeywords);						     // (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
 		let duration = document.querySelector('meta[itemprop=duration]')?.content || false; // Example:  PT1H20M30S
 		if (duration) {
