@@ -165,7 +165,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 			ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
 			ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
 			ImprovedTube.playerSize();
-	 //  if ( typeof this.storage.ads !== 'undefined' && this.storage.ads !== "all_videos" ) {
+	   if ( typeof this.storage.ads !== 'undefined' && this.storage.ads !== "all_videos" ) {
 			new MutationObserver(function (mutationList) {
 				for (var i = 0, l = mutationList.length; i < l; i++) {
 					var mutation = mutationList[i];
@@ -179,15 +179,16 @@ ImprovedTube.ytElementsHandler = function (node) {
 								){ImprovedTube.playerAds(node);}
 						}
 					}
-				//	if (mutation.type === 'attributes' && mutation.attributeName === 'id' && mutation.target.querySelector('*[id^="ad-text"]') )
-				//		{ImprovedTube.playerAds(node);}
+					if (mutation.type === 'attributes' && mutation.attributeName === 'id' && mutation.target.querySelector('*[id^="ad-text"]') )
+						{ImprovedTube.playerAds(node);}
 				}	
 			}).observe(node, {
 				attributes: false,
 				//  attributes: true,
 				childList: true,
 				subtree: true
-			});  // }
+			});   
+			}
 
 			new MutationObserver(function (mutationList) {
 				for (var i = 0, l = mutationList.length; i < l; i++) {
