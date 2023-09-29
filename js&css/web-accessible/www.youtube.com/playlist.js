@@ -102,8 +102,7 @@ ImprovedTube.playlistRepeat = function () {
 	    setTimeout(function (){
 		var option = ImprovedTube.storage.playlist_repeat,
 		button = document.querySelector("#button.ytd-playlist-loop-button-renderer") || document.querySelector("ytd-playlist-loop-button-renderer button") || document.querySelector("ytd-playlist-loop-button-renderer");
-		svg = button.querySelector("path").attributes.d.textContent.split(" ")[0];
-	if (button && (option === true && svg.startsWith('M21')
+	if (button && (option === true && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M21')
 	) && button.querySelector("#tooltip")?.textContent !== 'Loop video' 
 	  && button.firstElementChild?.firstElementChild?.attributes[2]?.textContent !== 'Loop video'  
 	  && button.querySelector("#tooltip")?.textContent !== 'Turn off loop' 
@@ -125,8 +124,7 @@ ImprovedTube.playlistShuffle = function () {
 		var button = ImprovedTube.elements.playlist.shuffle_button,
 		option = ImprovedTube.storage.playlist_shuffle;
 		button = document.querySelector('#playlist-actions #playlist-action-menu ytd-toggle-button-renderer');
-		svg = button.querySelector("path").attributes.d.textContent.split(" ")[0];
-	if (button && (option === true && svg.startsWith('M18.1')
+	if (button && (option === true && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M18.1')
 	) 	)  
 	{ button.click(); } 
 		}, 5000);
