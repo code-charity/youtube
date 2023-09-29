@@ -374,9 +374,9 @@ ADS
 ImprovedTube.playerAds = function (parent) {
 	let button = parent.querySelector('.ytp-ad-skip-button.ytp-button') || parent;
 	// TODO: Replace this with centralized video element pointer
-	let video = document.querySelector('.video-stream.html5-main-video') || false;
+	// let video = document.querySelector('.video-stream.html5-main-video') || false;
 	function skipAd() {
-		if (video) video.currentTime = video.duration;
+		// if (video) video.currentTime = video.duration;
 		if (button) button.click(); 
 	}	
 	if (this.storage.ads === 'block_all') {
