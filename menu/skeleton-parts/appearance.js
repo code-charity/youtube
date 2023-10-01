@@ -66,20 +66,20 @@ extension.skeleton.main.layers.section.appearance.on.click.header = {
 					text: "normal",
 					value: "normal"
 				}, {
+					text: "hoverOnVideoPage",
+					value: "hover_on_video_page"
+				}, {
+					text: "hiddenOnVideoPage",
+					value: "hidden_on_video_page"
+				}, {
+					text: "static",
+					value: "static"
+				}, {
 					text: "hidden",
 					value: "hidden"
 				}, {
 					text: "hover",
 					value: "hover"
-				}, {
-					text: "hiddenOnVideoPage",
-					value: "hidden_on_video_page"
-				}, {
-					text: "hoverOnVideoPage",
-					value: "hover_on_video_page"
-				}, {
-					text: "static",
-					value: "static"
 				}],
 				tags: "hide,hover,static,top"
 			},
