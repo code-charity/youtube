@@ -1,9 +1,26 @@
 /*--------------------------------------------------------------
 >>> INITIALIZATION
 --------------------------------------------------------------*/
-
 ImprovedTube.messages.create();
 ImprovedTube.messages.listener();
+
+/*
+//document.body.removeChild(document.body.getElementsByTagName("script")[1]);
+ var scriptElement = document.body.getElementsByTagName("script")[1] || false;
+ if (scriptElement && scriptElement.textContent) {
+    // Use regex to modify the JSON content while preserving the rest
+    var updatedContent = scriptElement.textContent.replace(/(^[^{]*)(\{.*?})([^}]*$)/gs, function(match, before, json, after) {
+      var parsedJSON = JSON.parse(json);
+      delete parsedJSON.playerAds;
+      delete parsedJSON.adPlacements;
+      delete parsedJSON.adSlots;
+	  console.log(parsedJSON.videoDetails);
+      var updatedJSON = JSON.stringify(parsedJSON);
+      return before + updatedJSON + after;
+    });
+    scriptElement.textContent = updatedContent;
+}
+*/
 
 if (document.body) {
 	ImprovedTube.childHandler(document.body);
