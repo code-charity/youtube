@@ -58,61 +58,61 @@ Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/c
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/uk/messages.json" title="English (UK)">en_GB</a></code> :
 <a href="https://github.com/KorbinCode" title="✨🏆"><code>KorbinCode</code></a>
 <br>Proofreaders:<code><a href="https://github.com/????????">___</a></code> (You?) </code><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json" title="中文 (简体)">CN(zh_CN)</a></code> :
-<a href="https://github.com/niceRAM" title="✨🏆"><code>niceRAM</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json" title="中文 (简体)">CN(zh_CN)</a></code> :
+<a href="https://github.com/niceRAM" title="✨🏆"><code>niceRAM</code></a> 
 <a href="https://github.com/ausers"><code>ausers</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json" title="中文 (繁體)">CN(zh_TW)</a></code> :
-<a href="https://github.com/Still34" title="✨🏆"><code>Still34</code></a>,
-<a href="https://github.com/water903"><code>water903</code></a>, <br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json" title="中文 (繁體)">CN(zh_TW)</a></code> :
+<a href="https://github.com/Still34" title="✨🏆"><code>Still34</code></a> 
+<a href="https://github.com/water903"><code>water903</code></a>  <br>
 <a href="https://github.com/suitangi"><code>suitangi</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json" title="Español">ES</a></code> :
-<a href="https://github.com/Kioraga"><code>Kioraga</code></a>,
-<a href="https://github.com/Compvictor"><code>Compvictor</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/es/messages.json" title="Español">ES</a></code> :
+<a href="https://github.com/Kioraga"><code>Kioraga</code></a> 
+<a href="https://github.com/Compvictor"><code>Compvictor</code></a> 
 <a href="https://github.com/dimateos"><code>dimateos</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hi/messages.json" title="हिन्दी">HI</a></code> :
-<a href="https://github.com/monishamandal02"><code>monishamandal02</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hi/messages.json" title="हिन्दी">HI</a></code> :
+<a href="https://github.com/monishamandal02"><code>monishamandal02</code></a> 
 <a href="https://github.com/BRAVO68WEB"><code>BRAVO68WEB</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json" title="Français">FR</a></code> :
-<a href="https://github.com/leghort"><code>leghort</code></a>,
-<a href="https://github.com/Eymiks"><code>Eymiks</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json" title="Français">FR</a></code> :
+<a href="https://github.com/leghort"><code>leghort</code></a> 
+<a href="https://github.com/Eymiks"><code>Eymiks</code></a> 
 <a href="https://github.com/Solvabl"><code>Solvabl</code></a><br>
-<code><code>✓</code><a href="https://github.com/code4charity/YouTube-Extension/blob/master/_locales/ar/messages.json" title="العربية">AR</a></code> :
+<code><a href="https://github.com/code4charity/YouTube-Extension/blob/master/_locales/ar/messages.json" title="العربية">AR</a></code> :
 <a href="https://github.com/Raayib"><code>Raayib</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json" title="বাংলা">BN</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json" title="বাংলা">BN</a></code> :
 <a href="https://github.com/BRAVO68WEB" title="✨🏆"><code>BRAVO68WEB</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json" title="Русский">RU</a></code> :
-<a href="https://github.com/qweered"><code>qweered</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json" title="Русский">RU</a></code> :
+<a href="https://github.com/qweered"><code>qweered</code></a> 
 <a href="https://github.com/alexesprit"><code>alexesprit</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json" title="Português (Brasil)">pt_BR</a></code> :
-<a href="https://github.com/dthiago" title="✨🏆"><code>dthiago</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_BR/messages.json" title="Português (Brasil)">pt_BR</a></code> :
+<a href="https://github.com/dthiago" title="✨🏆"><code>dthiago</code></a> 
 <a href="https://github.com/Mike-Correa"><code>Mike-Correa</code></a><br>
 <a href="https://github.com/DavidBrazSan"><code>DavidBrazSan</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json" title="Português">PT</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json" title="Português">PT</a></code> :
 <a href="https://github.com/DrNopt"><code>DrNopt</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json" title="Bahasa Indonesia">ID</a></code> :
-<a href="https://github.com/Bagus23"><code>Bagus23</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json" title="Bahasa Indonesia">ID</a></code> :
+<a href="https://github.com/Bagus23"><code>Bagus23</code></a> 
 <a href="https://github.com/fdciabdul"><code>A.Muttaqin</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json" title="Deutsch">DE</a></code> :
-<a href="https://github.com/Termuellinator" title="✨🏆"><code>Termuellinator</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json" title="Deutsch">DE</a></code> :
+<a href="https://github.com/Termuellinator" title="✨🏆"><code>Termuellinator</code></a> 
 <a href="https://github.com/css-smueller"><code>css-smueller</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json" title="日本語">JA</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ja/messages.json" title="日本語">JA</a></code> :
 <a href="https://github.com/utuhiro78" title="✨🏆"><code>utuhiro78</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json" title="Türkçe">TR</a></code> :
-<a href="https://github.com/onurdumangoz"><code>onurdumangoz</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json" title="Türkçe">TR</a></code> :
+<a href="https://github.com/onurdumangoz"><code>onurdumangoz</code></a> 
 <a href="https://github.com/daswareinfach"><code>daswareinfach</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vn/messages.json" title="Vietnamese">VN</a></code> :
 <a href="https://github.com/zeref-dragneel"><code>zeref-dragneel</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json" title="한국어">KO</a></code> :
-<a href="https://github.com/msc9533"><code>msc9533</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json" title="한국어">KO</a></code> :
+<a href="https://github.com/msc9533"><code>msc9533</code></a> 
 <a href="https://github.com/LYHyoung"><code>LYHyoung</code></a><br>
-<code>✓<a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fa_IR/messages.json" title="فارسی">(Iranian) Persian</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fa_IR/messages.json" title="فارسی">(Iranian) Persian</a></code> :
 <a href="https://github.com/AC-Lover"><code>AC Lover</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json" title="Italiano">IT</a></code> :
-<a href="https://github.com/urfausto" title="✨🏆"><code>urfausto</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json" title="Italiano">IT</a></code> :
+<a href="https://github.com/urfausto" title="✨🏆"><code>urfausto</code></a> 
 <a href="https://github.com/FedericoSlongo"><code>FedericoSlongo</code></a><br>
 <code>❌<a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/th/messages.json" title="Thai">TH Thai</a></code> :
 <a href="https://github.com/????????">______</a></code>(You?)<br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pl/messages.json" title="Polski">PL</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pl/messages.json" title="Polski">PL</a></code> :
 <a href="https://github.com/FluidExtractor" title="✨🏆"><code>FluidExtractor</code></a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Ukrainian">Ukrainian</a></code> :
 <a href="https://github.com/_____">(You?)</a><br>
@@ -120,16 +120,16 @@ Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/c
 <a href="https://github.com/_____">(You?)</a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Czech">Czech</a></code> :
 <a href="https://github.com/_____">(You?)</a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sv/messages.json" title="Swedish">SE</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sv/messages.json" title="Swedish">SE</a></code> :
 <a href="https://github.com/KiloBravoBFE"><code>KiloBravoBFE</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json" title="Nederlands">NL</a></code> :
-<a href="https://github.com/aron-hoogeveen"><code>aron-hoogeveen</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nl/messages.json" title="Nederlands">NL</a></code> :
+<a href="https://github.com/aron-hoogeveen"><code>aron-hoogeveen</code></a> 
 <a href="https://github.com/Vistaus"><code>Vistaus</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ro/messages.json" title="Română">RO</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ro/messages.json" title="Română">RO</a></code> :
 <a href="https://github.com/hateofhades"><code>hateofhades</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/si/messages.json" title="සිංහල (Sri Lanka)">SI</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/si/messages.json" title="සිංහල (Sri Lanka)">SI</a></code> :
 <a href="https://github.com/AshenNethsara"><code>AshenNethsara</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json" title="ελληνικά">EL(Greek)</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json" title="ελληνικά">EL(Greek)</a></code> :
 <a href="https://github.com/molyvius"><code>molyvius</code></a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Danish">DA Danish</a></code> :
 <a href="https://github.com/_____">(You?)</a><br>
@@ -143,42 +143,41 @@ Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/c
 <a href="https://github.com/_____">(You?)</a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Bulgarian">BG Bulgarian</a></code> :
 <a href="https://github.com/_____">(You?)</a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nb_NO/messages.json" title="Norsk Bokmål">no_NB</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/nb_NO/messages.json" title="Norsk Bokmål">no_NB</a></code> :
 <a href="https://github.com/comradekingu"><code>comradekingu</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hr/messages.json" title="Hrvatski">HR(Croatian)</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hr/messages.json" title="Hrvatski">HR(Croatian)</a></code> :
 <a href="https://github.com/mbeara"><code>mbeara</code></a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Croatian">Croatian</a></code> :
 <a href="https://github.com/_____">(You?)</a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/no/messages.json" title="Norsk">NO</a></code> :
-<a href="https://github.com/master3395"><code>master3395</code></a>,
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/no/messages.json" title="Norsk">NO</a></code> :
+<a href="https://github.com/master3395"><code>master3395</code></a> 
 <a href="https://github.com/comradekingu"><code>comradekingu</code></a><br>
-<code><code>✓</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json" title="Slovenčina">SK</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/sk/messages.json" title="Slovenčina">SK</a></code> :
 <a href="https://github.com/bbc-s"><code>bbc-s</code></a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Catalan, Valencian">Catalan, Valencian</a></code> :
 <a href="https://github.com/_____">(You?)</a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Estonian">Estonian</a></code> :
 <a href="https://github.com/_____">(You?)</a><br> </td></tr><tr><td> 
- <code><code>✓</code></code> = <i> might miss updates </i><br><div align="center"><i><br> 
-The following popular languages are<br>
+..While the following popular languages are<br>
 spoken mainly. But dont hesitate to add<br> one of them. (Even if just for fun)</i> <br>
-<code>Urdu</code>   
-Nigerian Pidgin (English Creole)<br>
-Western-&Eastern-Punjabi<br>
-Marathi(Indo-European)<code>Telugu</code><br>
+<code>Urdu</code>
+<code>Nigerian Pidgin (English Creole)</code><br>
+<code>Western-&Eastern-Punjabi</code><br>
+<code>Marathi</code>(Indo-European)<code>Telugu</code><br>
 <code>Tamil</code> Yue Chinese (incl. Cantonese)<br>
-Tagalog (New name: Filipino)<br> Wu Chinese (incl. Shanghainese)<br>
+<code>Tagalog</code>(New name: Filipino)<br> <code>Wu Chinese</code> (incl. Shanghainese)<br>
 <code>Hausa</code>Egyptian Spoken Arabic<br>
 <code>Swahili</code><code>Javanese</code>Kannada<code>Gujarati</code><br>
-Amharic, Bhojpuri, <br>
-Min Nan Chinese (incl. Hokkien),<br> 
-Jin Chinese <code>Yoruba</code> Hakka Chinese,<br>
-Burmese, <br>
-Spoken Arabic: Sudanese & Algerian <br> 
-Lingala, Malaysian Malay<br>
-<i>(Combined these have more first-language <br>
+<code>Amharic</code> <code>Bhojpuri</code> <br>
+<code>Min Nan Chinese</code> (incl. Hokkien),<br> 
+<code>Jin Chinese</code> <code>Yoruba</code> </code>Hakka Chinese</code><br>
+<code>Burmese</code><br>
+Spoken Arabic: <code>Sudanese</code> <code>Algerian</code> <br> 
+<code>Lingala</code> <code>Malaysian Malay</code><br>
+Combined these have more first-language <br>
 speakers than English + Spanish + Hindi. <br>
 And more second-language speakers than <br>
-Chinese + Hindi + Spanish) <br></i></div>
+Chinese + Hindi + Spanish. <br></i></div>
 <br><div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo">Help us Translate</a>]</div>
 </td></tr></table>  
 
@@ -194,9 +193,10 @@ This can especially help medium-size projects <br>
 We can optimize things for the world, greatly priotized: [<img src="github.png" height="18px">UUT](https://github.com/code-charity/Universal-UserTweaks) <br>  ("insteada just tweakin@home like Sisyphos")
 <br>
 
-<h3> <code><code>🎁</code></code>Our Extensions: </h3></summary>
+<h3> <code>🎁</code>Our Extensions: </h3></summary>
 	
-**Superb:** [**<code>History Manager</code>**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" height="18px"></a> **Filter:** <code>[unFreeze me](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl " - Unlock your Right-Click, Ctrl+F, Selection anywhere!")</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/unlock-keyboard-and-mouse)  & <code>[Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl " - Universal dark-mode!") </code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/dark-mode)  <b> Research:</b> [<code>Ultimate Regex](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/regex) ([`Regex Replace`](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)<a href="https://github.com/code-for-charity/ultimate-REGEX-extension/issues/3" title="No Repo. We can upload it from Webstore (partly merged"><img src="github.png" height="18px"></a>) **Browser:** [`Custom user agent`](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/user-agent) &  [`auto-scroll`](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch "(missing in Linux)")<a href="https://github.com/code-for-charity/auto-scroll"><img src="github.png" height="18px"></a> **Video / Media:** (to be integrated in ImprovedTube...) <code>[Looper](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/looper) <code>[Frame by Frame](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/frame-by-frame) [`unBlob`](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/unblob "please fix/adopt me!") (<i><del>Equalizer[<img src="github.png" height="18px">](https://github.com/code-for-charity/equalizer)</del></i>) <b>Home:</b> (Start Page tabs <a href="https://github.com/code-for-charity/start-page"><img src="github.png" height="18px"></a> <i> to be uploaded </i>), [`TextEditor`](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka) [<img src="github.png" height="18px">](https://github.com/code-for-charity/Editor), [`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-for-charity/todo)  <br>  **Development:**  [**`Satus`**](https://github.com/code-for-charity/satus) (Our JS library) |  [`WebGL.js`](https://github.com/code-for-charity/webgl.js) - WebGL Library | [endless grid](https://github.com/code-for-charity/pluviam), [CodeEditor](https://github.com/code-for-charity/code-editor), [TE](https://github.com/code-for-charity/theme-engine), <del> [Viscum Player](https://github.com/code-for-charity/viscum-player)</del> - video.js?  <br>
+**Superb:** [**<code>History Manager</code>**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" height="18px"></a>
+<br> **Global /Filters:** <code>[unFreeze me](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl " - Unlock your Right-Click, Ctrl+F, Selection anywhere!")</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/unlock-keyboard-and-mouse) <code>[Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl " - Universal dark-mode!") </code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/dark-mode) <br> <b> Research:</b> [<code>Ultimate Regex](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/regex) ([`Regex Replace`](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)<a href="https://github.com/code-for-charity/ultimate-REGEX-extension/issues/3" title="No Repo. We can upload it from Webstore (partly merged"><img src="github.png" height="18px"></a>) <br> **Browser:** [`Custom user agent`](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/user-agent) [`auto-scroll`](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch "(missing in Linux)")<a href="https://github.com/code-for-charity/auto-scroll"><img src="github.png" height="18px"></a> <br> **Video / Media:** (to be integrated here) <br> ImprovedTube...) <code>[Looper](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/looper) <code>[Frame by Frame](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/frame-by-frame) [`unBlob`](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/unblob "please fix/adopt me!") (<i><del>Equalizer[<img src="github.png" height="18px">](https://github.com/code-for-charity/equalizer)</del></i>) <br> <b>Home:</b> (Start Page tabs <a href="https://github.com/code-for-charity/start-page"><img src="github.png" height="18px"></a> <i> to be uploaded </i>), [`TextEditor`](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka) [<img src="github.png" height="18px">](https://github.com/code-for-charity/Editor), [`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-for-charity/todo)  <br>  **Development:**  [**`Satus`**](https://github.com/code-for-charity/satus) (Our JS library) |  [`WebGL.js`](https://github.com/code-for-charity/webgl.js) - WebGL Library | [endless grid](https://github.com/code-for-charity/pluviam), [CodeEditor](https://github.com/code-for-charity/code-editor), [TE](https://github.com/code-for-charity/theme-engine), <del> [Viscum Player](https://github.com/code-for-charity/viscum-player)</del> - video.js?  <br>
 
 ### 💡 Got great ideas?   
 	
@@ -211,7 +211,7 @@ We might also work on novel (=new & unique) projects at [github/**Wish-Factory**
 
 ### <code>🏝<code>⛵</code>🏕</code> To-Do  <br>
 
-<details><summary> <h4> <a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code> Labels</a>, <br> Filtered / sorted <br> (=Dynamic To-Do lists) </h4></summary>
+<details><summary> <h4> <a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code> Labels</a>  <br> Filtered / sorted <br> (=Dynamic To-Do lists) </h4></summary>
 
 **0.** <code>[ ]</code>  [<code>**Bugs🐞**</code>](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+ "we aim to offer some bug-bounties. Please ask")  (<i>we try to offer some bug bounty. [Please ask](mailto:bugs@improvedtube.com?subject=TODO_BOUNTY_LINK  "especially if you are at a cheap/poor place ❤️") </i>.)  	
 <br>**1.** **<code>[ ]</code>** [**<code>Documentation, wiki, screenshots, video, ...</code>**](https://github.com/code-for-charity/YouTube-Extension/wiki "We need to help people learning as easily as possible about our 90+ features. (Drafts welcome. This will become 🛈tooltips in the extension too!")</code>
