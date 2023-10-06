@@ -164,13 +164,13 @@ spoken mainly. But dont hesitate to add<br> one of them. (Even if just for fun)<
 <code>Nigerian Pidgin (English Creole)</code><br>
 <code>Western-&Eastern-Punjabi</code><br>
 <code>Marathi</code>(Indo-European)<code>Telugu</code><br>
-<code>Tamil</code> Yue Chinese (incl. Cantonese)<br>
+<code>Tamil</code> <code>Yue Chinese</code> (incl. Cantonese)<br>
 <code>Tagalog</code>(New name: Filipino)<br> <code>Wu Chinese</code> (incl. Shanghainese)<br>
-<code>Hausa</code>Egyptian Spoken Arabic<br>
+<code>Hausa</code> <code>Egyptian Spoken Arabic</code><br>
 <code>Swahili</code><code>Javanese</code>Kannada<code>Gujarati</code><br>
 <code>Amharic</code> <code>Bhojpuri</code> <br>
 <code>Min Nan Chinese</code> (incl. Hokkien),<br> 
-<code>Jin Chinese</code> <code>Yoruba</code> </code>Hakka Chinese</code><br>
+<code>Jin Chinese</code> <code>Yoruba</code>  <code>Hakka Chinese</code><br>
 <code>Burmese</code><br>
 Spoken Arabic: <code>Sudanese</code> <code>Algerian</code> <br> 
 <code>Lingala</code> <code>Malaysian Malay</code>
