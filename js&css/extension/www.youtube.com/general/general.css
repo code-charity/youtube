@@ -68,6 +68,13 @@ html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-section-render
 	display: none !important
 }
 
+@supports not selector(:has(a, b)) {
+	html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-shelf-renderer[is-shorts] {
+		display: none !important
+	}
+		
+}
+
 
 /*--------------------------------------------------------------
 # COLLAPSE OF SUBSCRIPTION SECTIONS
