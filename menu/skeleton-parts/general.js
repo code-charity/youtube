@@ -1319,7 +1319,11 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'confirmationBeforeClosing',
 					tags: 'random prevent close exit'
-				}
+				},
+				open_new_tab: {
+					component: "switch",
+					text: "openNewTab",
+				},
 			}
 		}
 	},
