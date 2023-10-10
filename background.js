@@ -263,6 +263,13 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	}
 });
 
+chrome.runtime.onMessage.addListener(function (request) {
+  if (request.action === "createNewTab") {
+    chrome.tabs.create({ url: request.url });
+  }
+});
+
+
 /*--------------------------------------------------------------
 # UNINSTALL URL
 --------------------------------------------------------------*/
