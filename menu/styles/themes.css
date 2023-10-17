@@ -35,6 +35,7 @@
 	--satus-tabs-foreground: #33343d;
 	--satus-text-field-background: #1e1e1e;
 	--satus-text-field-foreground: #e0e0e0;
+	--satus-shortcut-key-text: #131316;
 }
 
 .satus-base[theme='night'] {
@@ -61,6 +62,8 @@
 	--satus-text-field-background: #3a48b4;
 	--satus-text-field-foreground: #f5f5f5;
 	--satus-text-field-border: #5d6acb;
+	--satus-shortcut-key-text: #191f4d;
+
 }
 
 .satus-base[theme='dawn'] {
@@ -87,6 +90,7 @@
 	--satus-text-field-background: #ed74a9;
 	--satus-text-field-foreground: #f5f5f5;
 	--satus-text-field-border: #e53883;
+	--satus-shortcut-key-text: #de357c;
 }
 
 .satus-base[theme='sunset'] {
@@ -113,6 +117,7 @@
 	--satus-text-field-background: #313668;
 	--satus-text-field-foreground: #f5f5f5;
 	--satus-text-field-border: #313668;
+	--satus-shortcut-key-text: #2f3364;
 }
 
 .satus-base[theme='desert'] {
@@ -140,6 +145,7 @@
 	--satus-text-field-background: #73a1fc;
 	--satus-text-field-foreground: #f5f5f5;
 	--satus-text-field-border: #73a1fc;
+	--satus-shortcut-key-text: #73a1fc;
 }
 
 .satus-base[theme='plain'] {
@@ -167,6 +173,7 @@
 	--satus-text-field-background: ##57a87a;
 	--satus-text-field-foreground: #f5f5f5;
 	--satus-text-field-border: #4c946b;
+	--satus-shortcut-key-text: #57a87a;
 }
 
 .satus-base[theme='black'] {
@@ -190,6 +197,7 @@
 	--satus-text-field-background: #1e1e1e;
 	--satus-text-field-border: #333;
 	--satus-text-field-foreground: #e0e0e0;
+	--satus-shortcut-key-text: #000;
 }
 
 

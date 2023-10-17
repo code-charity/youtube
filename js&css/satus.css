@@ -150,6 +150,7 @@
 	--satus-input-text-background: #e8e8e3;
 	--satus-input-text-border: #d6d6cd;
 	--satus-input-text-text: #848471;
+	--satus-shortcut-key-text: #000;
 }
 
 .satus-base[theme=dark] {
@@ -1646,7 +1647,7 @@ As our Syntax markup isnt read for <textarea>, is it?
 
 .satus-shortcut__value>.satus-shortcut__key {
 	font-size: 12px;
-
+	color: var(--satus-shortcut-key-text);
 	min-width: 24px;
 	height: 24px;
 }
