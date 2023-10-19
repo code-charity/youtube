@@ -61,6 +61,7 @@ html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it
      html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it-player-size='max_width']) #player
      {z-index:1000 !important; left:-10px !important;} 
    */
+}
 html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer:hover { overflow-x: visible !important; }
 html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer:has(+ ytd-transcript-segment-renderer.active) yt-formatted-string 
 	{margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.26em !important;} 
