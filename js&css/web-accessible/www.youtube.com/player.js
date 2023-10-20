@@ -664,9 +664,8 @@ FIT-TO-WIN BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.fitToWinButton = function () {
 	if (this.storage.player_fit_to_win_button === true && (/watch\?/.test(location.href))) {
-		// const svgMarkup = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-unfold-vertical"><path d="M12 22v-6"/><path d="M12 8V2"/><path d="M4 12H2"/><path d="M10 12H8"/><path d="M16 12h-2"/><path d="M22 12h-2"/><path d="m15 19-3 3-3-3"/><path d="m15 5-3-3-3 3"/></svg>`;
-		const svgMarkup = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon"><path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>
-  `;
+		const svgMarkup = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon">
+		<path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>`;
 
     let tempContainer = document.createElement("div");
     tempContainer.innerHTML = svgMarkup;
@@ -677,15 +676,14 @@ ImprovedTube.fitToWinButton = function () {
 			opacity: 0.85,
 			position: "right",
 			onclick: function () {
-				var isFTW = document.querySelector("html").getAttribute("it-player-size") == "fit_to_window"
-					if (isFTW) {
-            ImprovedTube.storage.player_size = "do_not_change";
-            document.querySelector("html").setAttribute(`it-player-size`, "do_not_change");
-          } else {
-            ImprovedTube.storage.player_size = "fit_to_window";
-            document.querySelector("html").setAttribute(`it-player-size`, "fit_to_window");
-          }
-					window.dispatchEvent(new Event('resize'));
+				let previousSize = ImprovedTube.storage.player_size === "fit_to_window" ? "do_not_change" : ImprovedTube.storage.player_size;
+				let isFTW = document.querySelector("html").getAttribute("it-player-size") === "fit_to_window"
+				if (isFTW) {
+					document.querySelector("html").setAttribute(`it-player-size`, previousSize);
+				} else {
+					document.querySelector("html").setAttribute(`it-player-size`, "fit_to_window");
+				}
+				window.dispatchEvent(new Event('resize'));
 			},
 			title: 'Fit-To-Window'
 		});
