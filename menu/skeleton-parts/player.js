@@ -1027,6 +1027,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'rotate'
 		},
+		player_fit_to_win_button: {
+			component: 'switch',
+			text: 'fitToWindow'
+		},
 		player_popup_button: {
 			component: 'switch',
 			text: 'popupPlayer'
