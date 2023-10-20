@@ -178,7 +178,8 @@ Spoken Arabic: <code>Sudanese</code> <code>Algerian</code> <br>
  - Combined these have more 1st-language <br>
 speakers than English + Spanish + Hindi. <br>
 And more 2nd-language speakers than <br>
-Chinese + Hindi + Spanish. <br></i></div>
+Chinese + Hindi + Spanish. <br>
+(and there are so many more)</i></div>
 <div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo">Help us Translate</a>]</div>
 </td></tr></table>  
 
