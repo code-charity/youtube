@@ -43,7 +43,7 @@ extension.events.on('init', function () {
 	extension.features.markWatchedVideos();
 	extension.features.relatedVideos();
 	extension.features.comments();
-	extension.features.openNewTab();
+if (extension.storage.get("open_new_tab") === true) {extension.features.openNewTab();}
 
 	bodyReady();
 });
