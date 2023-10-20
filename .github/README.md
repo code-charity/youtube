@@ -12,13 +12,11 @@
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing#donate">Donate</a> · [Test🧪](https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip "Latest.zip")  </td></tr></table>
 
  <h3> <img src="https://github.com/code-for-charity/ImprovedTube-for-YouTube/blob/a61f214ddfab91f0a29f41beaf6c3c52e738e0d7/assets/icons/32.png" style="vertical-align:middle"> ImprovedTube</h3>
-  <br><table align="right"><tr><td> <i>'Might be the best YouTube Extension Ever' <br> 'enhances YouTube in meaningful ways'  <br> 'Strong Add-on, full control. Yet clear & easy' 
+  <br><table align="right"><tr><td> Top ~ 100 <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(We started late on Firefox, yet are among their ~100 recommentations)"><img width="140" alt="recommended by firefox" src="https://user-images.githubusercontent.com/9015764/178100681-728b9513-b6f8-4bf7-8949-c3d8449669ec.svg"></a><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(We started late on Firefox, yet are among their ~100 recommentations)"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" height="20px"></a><a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110" title="- Lifehacker.com 2021"><img src="https://lifehacker.com/favicon.ico" height="14px"></a> <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways" title="- gHacks.net"><img src="https://ghacks.net/favicon.ico" height="16px"></a> <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" title="- Chip.de"><img src="https://www.chip.de/favicon.ico" height="14px"></a><br><i>'Might be the best YouTube Extension Ever' <br> 'enhances YouTube in meaningful ways'  <br> 'Strong Add-on, full control. Yet clear & easy' 
 </i></td></tr></table>
-<p>Powerful but lightweight extension to enrich your video experience & enable your content selection. <br> Top ~ 100 <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(We started late on Firefox, yet are among their ~100 recommentations)"><img width="140" alt="recommended by firefox" src="https://user-images.githubusercontent.com/9015764/178100681-728b9513-b6f8-4bf7-8949-c3d8449669ec.svg"></a><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(We started late on Firefox, yet are among their ~100 recommentations)"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" height="20px"></a><a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110" title="- Lifehacker.com 2021"><img src="https://lifehacker.com/favicon.ico" height="14px"></a> <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways" title="- gHacks.net"><img src="https://ghacks.net/favicon.ico" height="16px"></a> <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" title="- Chip.de"><img src="https://www.chip.de/favicon.ico" height="14px"></a></p>
+<p>Powerful but lightweight extension, <br> to enrich your video experience & enable your content selection. </p>
 
 <div align="center">	 </div> 
-
-
 
 <details><summary>
 Original introduction</summary></summary>
@@ -34,7 +32,7 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 
 ##### <div align="center">Spread the word [<code><code><code><code>📣</code></code></code></code>](Http://Twitter_Whatsapp_Discord_Youtube_Facebook_eMail_Telegram_Signal)</div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 
-**W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> 
+**W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> <br><br>
 
 <table  align="right"><tr><td><h3><a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code></a>Roadmap</h3> <!-- The list below only stays formatted when there is a line break above --> 
 
@@ -178,7 +176,10 @@ Spoken Arabic: <code>Sudanese</code> <code>Algerian</code> <br>
  - Combined these have more 1st-language <br>
 speakers than English + Spanish + Hindi. <br>
 And more 2nd-language speakers than <br>
-Chinese + Hindi + Spanish. <br></i></div>
+Chinese + Hindi + Spanish. <br>
+</i></div>
+
+(And there are so many more.)
 <div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo">Help us Translate</a>]</div>
 </td></tr></table>  
 
@@ -186,18 +187,18 @@ Chinese + Hindi + Spanish. <br></i></div>
 For more info on how to contribute, <br> please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
 <br><br>
 
-#### 💡 Vision for Open-Source Efficiency: 🌱 [`Pull Requests bots`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)
-(This can especially help medium-size projects) <br> 
-(+[_community-list of regEx_](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
-#### 💡 Vision for the _(tweaking-/userStyle-/"modding-"_)Community:
+##### 💡 Vision for Open-Source Efficiency: 🌱 [`Auto Contributors`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)
+(Compare: Wikipedia Bots. Would especially help medium-size projects.) <br> 
+(+[community-list of regEx](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
+##### 💡 Vision for the _(tweaking-/userStyle-/"modding-"_)Community:
 We can optimize things for the world, greatly priotized: [<img src="github.png" height="18px">UUT](https://github.com/code-charity/Universal-UserTweaks) <br>  ("insteada just tweakin@home like Sisyphos")
 <br>
-#### 💡 Got great ideas?   
+##### 💡 Got great ideas?   
 	
 You can notify us if you have relavant (volunteer) work! (or ideas@improvedtube.com)
 + [github/**Wish-Factory**](https://github.com/code-for-charity/wish-factory "💡") 
 
-<h3> <code>🎁</code>Our Extensions:</h3></summary>
+<h4> <code>🎁</code>Our Extensions:</h4></summary>
 	
 **Superb:** [**<code>History Manager</code>**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" height="18px"></a>
 <br> **Global / Filters:** <code>[unFreeze me](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl " - Unlock your Right-Click, Ctrl+F, Selection anywhere!")</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/unlock-keyboard-and-mouse) <code>[Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl " - Universal dark-mode!") </code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/dark-mode) <br> <b> Research:</b> [<code>Ultimate Regex](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/regex) ([`Regex Replace`](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)<a href="https://github.com/code-for-charity/ultimate-REGEX-extension/issues/3" title="No Repo. We can upload it from Webstore (partly merged"><img src="github.png" height="18px"></a>) <br> **Browser:** [`Custom user agent`](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/user-agent) [`auto-scroll`](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch "(missing in Linux)")<a href="https://github.com/code-for-charity/auto-scroll"><img src="github.png" height="18px"></a> <br> **Video / Media:** (integrate them in this extension please) <br> <code>[Looper](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/looper) <code>[Frame by Frame](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/frame-by-frame) [`unBlob`](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/unblob "please fix/adopt me!") (<i><del>Equalizer[<img src="github.png" height="18px">](https://github.com/code-for-charity/equalizer)</del></i>) <br> <b>Home:</b> (Start Page tabs <a href="https://github.com/code-for-charity/start-page"><img src="github.png" height="18px"></a>), [`TextEditor`](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka) [<img src="github.png" height="18px">](https://github.com/code-for-charity/Editor), [`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-for-charity/todo)  <br>  **Development:**  [**`Satus`**](https://github.com/code-for-charity/satus) (Our JS library) |  [`WebGL.js`](https://github.com/code-for-charity/webgl.js) - WebGL Library <br> [endless grid](https://github.com/code-for-charity/pluviam), [CodeEditor](https://github.com/code-for-charity/code-editor), [TE](https://github.com/code-for-charity/theme-engine), <del> [Viscum Player](https://github.com/code-for-charity/viscum-player)</del> - video.js?  <br>
