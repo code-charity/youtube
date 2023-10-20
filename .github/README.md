@@ -12,13 +12,11 @@
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing#donate">Donate</a> · [Test🧪](https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip "Latest.zip")  </td></tr></table>
 
  <h3> <img src="https://github.com/code-for-charity/ImprovedTube-for-YouTube/blob/a61f214ddfab91f0a29f41beaf6c3c52e738e0d7/assets/icons/32.png" style="vertical-align:middle"> ImprovedTube</h3>
-  <br><table align="right"><tr><td> <i>'Might be the best YouTube Extension Ever' <br> 'enhances YouTube in meaningful ways'  <br> 'Strong Add-on, full control. Yet clear & easy' 
+  <br><table align="right"><tr><td> Top ~ 100 <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(We started late on Firefox, yet are among their ~100 recommentations)"><img width="140" alt="recommended by firefox" src="https://user-images.githubusercontent.com/9015764/178100681-728b9513-b6f8-4bf7-8949-c3d8449669ec.svg"></a><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(We started late on Firefox, yet are among their ~100 recommentations)"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" height="20px"></a><a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110" title="- Lifehacker.com 2021"><img src="https://lifehacker.com/favicon.ico" height="14px"></a> <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways" title="- gHacks.net"><img src="https://ghacks.net/favicon.ico" height="16px"></a> <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" title="- Chip.de"><img src="https://www.chip.de/favicon.ico" height="14px"></a><br><i>'Might be the best YouTube Extension Ever' <br> 'enhances YouTube in meaningful ways'  <br> 'Strong Add-on, full control. Yet clear & easy' 
 </i></td></tr></table>
-<p>Powerful but lightweight extension to enrich your video experience & enable your content selection. <br> Top ~ 100 <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(We started late on Firefox, yet are among their ~100 recommentations)"><img width="140" alt="recommended by firefox" src="https://user-images.githubusercontent.com/9015764/178100681-728b9513-b6f8-4bf7-8949-c3d8449669ec.svg"></a><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(We started late on Firefox, yet are among their ~100 recommentations)"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" height="20px"></a><a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110" title="- Lifehacker.com 2021"><img src="https://lifehacker.com/favicon.ico" height="14px"></a> <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways" title="- gHacks.net"><img src="https://ghacks.net/favicon.ico" height="16px"></a> <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" title="- Chip.de"><img src="https://www.chip.de/favicon.ico" height="14px"></a></p>
+<p>Powerful but lightweight extension, <br> to enrich your video experience & enable your content selection. </p>
 
 <div align="center">	 </div> 
-
-
 
 <details><summary>
 Original introduction</summary></summary>
@@ -34,7 +32,7 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 
 ##### <div align="center">Spread the word [<code><code><code><code>📣</code></code></code></code>](Http://Twitter_Whatsapp_Discord_Youtube_Facebook_eMail_Telegram_Signal)</div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 
-**W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> 
+**W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> <br><br>
 
 <table  align="right"><tr><td><h3><a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code></a>Roadmap</h3> <!-- The list below only stays formatted when there is a line break above --> 
 
