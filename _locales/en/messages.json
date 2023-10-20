@@ -1129,8 +1129,5 @@
     },
     "openNewTab": {
         "message": "Open in new tab"
-    },
-    "copyTranscript": {
-        "message": "Copy transcript"
     }
 }

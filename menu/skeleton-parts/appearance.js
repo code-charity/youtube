@@ -625,22 +625,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 					}
 				}
 			},
-			copy_transcript: {
-				component: "button",
-				text: "copyTranscript",
 
-				on: {
-					click: () => {
-						// close the popup to focus on the document
-						window.close();
-
-						chrome.tabs.query({active: true, lastFocusedWindow: true}, (tabs) => {
-							const tab = tabs[0];
-							chrome.tabs.sendMessage(tab.id, {action: "copyTranscript", tab});
-						})
-					}
-				}
-			},
 			hide_views_count: {
 				component: "switch",
 				text: "hideViewsCount",

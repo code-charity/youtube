@@ -62,8 +62,7 @@
 	],
 	"permissions": [
 		"contextMenus",
-		"storage",
-		"tabs"
+		"storage"
 	],
 	"web_accessible_resources": [
 			"menu/index.html",
