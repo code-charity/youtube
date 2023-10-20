@@ -297,6 +297,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerRepeatButton();
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
+		ImprovedTube.playerFitToWinButton();
 		ImprovedTube.playerControls();
 	}
 };
@@ -351,7 +352,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerRepeatButton();
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
-		ImprovedTube.fitToWinButton();
+		ImprovedTube.playerFitToWinButton();
 		ImprovedTube.playerControls();
 
 		setTimeout(function () {
