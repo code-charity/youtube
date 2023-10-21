@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "Odebrat Shorts z úvodní stránky"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Odstraňte karuselu Shorts z výsledků vyhledávání"
     },
     "repeat": {
         "message": "Repeat"

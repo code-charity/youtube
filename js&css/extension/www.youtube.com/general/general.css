@@ -61,6 +61,22 @@ html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox>form {
 
 
 /*--------------------------------------------------------------
+# REMOVE HOMEPAGE SHORTS
+--------------------------------------------------------------*/
+
+html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]) {
+	display: none !important
+}
+
+@supports not selector(:has(a, b)) {
+	html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-shelf-renderer[is-shorts] {
+		display: none !important
+	}
+		
+}
+
+
+/*--------------------------------------------------------------
 # COLLAPSE OF SUBSCRIPTION SECTIONS
 --------------------------------------------------------------*/
 
@@ -112,6 +128,14 @@ html[it-pathname='/results'][it-remove-related-search-results='true'] ytd-shelf-
 	display: none !important;
 }
 
+
+/*--------------------------------------------------------------
+# REMOVE SHOTS RELATED SEARCH RESULTS
+--------------------------------------------------------------*/
+
+html[it-pathname='/results'][it-remove-shorts-reel-search-results="true"] ytd-reel-shelf-renderer {
+	display: none !important
+}
 
 /*--------------------------------------------------------------
 # SCROLL BAR

@@ -812,8 +812,14 @@
     "remote": {
         "message": "Speel af op TV"
     },
+    "removeHomePageShorts": {
+        "message": "Verwijder Shorts van de startpagina"
+    },
     "removeRelatedSearchResults": {
         "message": "Verwijder resultaten van gerelateerde videos"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Verwijder Shorts-reel uit de zoekresultaten"
     },
     "repeat": {
         "message": "Herhalen"

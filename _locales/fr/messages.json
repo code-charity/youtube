@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "Supprimer les Shorts de la page d'accueil"
+    },
     "removeRelatedSearchResults": {
         "message": "Supprimer les résultats de recherche associés"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Supprimer la liste de Shorts des résultats de recherche"
     },
     "repeat": {
         "message": "Lire en boucle"

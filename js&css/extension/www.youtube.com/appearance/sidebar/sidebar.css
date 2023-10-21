@@ -1,6 +1,7 @@
 html {overflow-x: hidden !important; }  
 /* Fix to tame Youtube's page-load / make it more calm  -  the player wont annoyingly slide in from the right anymore */
-									/* previously also: html[it-transcript='true'] {overflow-x: hidden !important; }  */									
+									/* previously also: html[it-transcript='true'] {overflow-x: hidden !important; }*/
+@-moz-document url-prefix() { overflow-x: visible !important; } /* REMOVE ME SOON https://github.com/code-charity/youtube/issues/1649 */									
 /*--------------------------------------------------------------
 >>> SIDEBAR
 ----------------------------------------------------------------
@@ -35,7 +36,8 @@ html[data-page-type=video][it-transcript='true'] *[target-id*='transcript']  ytd
 { max-height: 77vh !important;  }
 html[data-page-type=video][it-transcript='true'] *[target-id*='transcript'] #title
 { opacity: 0.4; }
-html[data-page-type=video][it-transcript='true'][it-sidebar-left='transcript']  ytd-watch-flexy:not([fullscreen]) #columns
+
+html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']  ytd-watch-flexy:not([fullscreen]) #columns
  { display:flex !important; max-width:99% !important;   } 
  html[data-page-type=video][it-transcript='true'] *[target-id*='transcript'], 
 html[data-page-type=video][it-transcript='true'] *[target-id*='transcript']:not([it-sidebar-left='true']) ytd-engagement-panel-section-list-renderer #content {
@@ -49,37 +51,65 @@ html[data-page-type=video][it-transcript='true']  ytd-watch-flexy:not([fullscree
 html[data-page-type=video][it-transcript='true'] ytd-browse > ytd-two-column-browse-results-renderer {
  object-fit: contain !important; max-width: 99% !important; margin: -5px; }
 html[data-page-type=video][it-transcript='true'][it-sidebar-left='true'] *[target-id*='transcript'],
-html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it-player-size='max_width']) *[target-id*='transcript'] { min-width: 440px !important; max-width:440px !important;  object-fit: contain !important; overflow-x: hidden !important;  float: right;  /* direction: rtl; */
-} html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it-player-size='max_width']) td-engagement-panel-section-list-renderer
+html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it-player-size='max_width']) *[target-id*='transcript']
+{ min-width: 440px !important; max-width:440px !important;  object-fit: contain !important; overflow-x: hidden !important; float: right;  /* direction: rtl; */
+} 
+html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it-player-size='max_width']) td-engagement-panel-section-list-renderer
 {  /* text-align: right !important;  direction: ltr; */
-} html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it-player-size='max_width']) #player
-  {  z-index:1000 !important; left:-10px !important;} 
+} 
+/* caused #cinematics to get a higher z-index:
+     html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it-player-size='max_width']) #player
+     {z-index:1000 !important; left:-10px !important;} 
+   */
 }
-
 html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer:hover { overflow-x: visible !important; }
 html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer:has(+ ytd-transcript-segment-renderer.active) yt-formatted-string 
-	{margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.25em !important;} 
+	{margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.26em !important;} 
 html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer.active yt-formatted-string 
 	{margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.35em !important;}		
 html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer.active + ytd-transcript-segment-renderer yt-formatted-string 
-	{margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.3em !important;}
+	{margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.30em !important;}
 html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer.active + ytd-transcript-segment-renderer + ytd-transcript-segment-renderer yt-formatted-string 
-	{margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.25em !important;}
-
-html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'] ytd-transcript-segment-renderer * { max-height: 15px !important; margin-bottom:-5px !important; margin-top:-5px !important; }
+	{margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.24em !important;}
+html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'] ytd-transcript-segment-renderer *
+	{  margin-bottom:-4px !important; margin-top:-4px !important; }
 html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'], 
 html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript']  ytd-engagement-panel-section-list-renderer #content
-{ max-height: 69vh !important; margin-top:40px !important; }
+	{ max-height: 69vh !important; margin-top:40px !important; }
 
-	
 /*--------------------------------------------------------------
 # RELATED VIDEOS
 --------------------------------------------------------------*/
+html[it-related-videos='Focus'] #related #dismissible:not(.it-blacklisted-video):not(.ytd-reel-item-renderer) { opacity:0.8;  max-height:60px; overflow:hidden; margin-top:-1px;  transition: max-height 0.2s ease 0.15s;}
+html[it-related-videos='Focus'] #related #dismissible:not(.it-blacklisted-video):not(.ytd-reel-item-renderer) ytd-thumbnail {transform:scale(0.7); transform-origin: top; transition: all 0.2s ease 0.15s;}
+html[it-related-videos='Focus'] #related #dismissible:not(.it-blacklisted-video):not(.ytd-reel-item-renderer) ytd-playlist-thumbnail {transform:scale(0.7); transform-origin: top; transition: all 0.2s ease 0.15s;}
+html[it-related-videos='Focus'] #related #dismissible:hover:not(.it-blacklisted-video):not(.ytd-reel-item-renderer) { opacity: 1;  max-height: 85px; transition: max-height 0.3s ease 0.1s; margin-left: 0x !important }
+html[it-related-videos='Focus'] #related #dismissible:hover:not(.it-blacklisted-video):not(.ytd-reel-item-renderer) ytd-thumbnail { max-width: 170px; transform:scale(1); transition: all 0.3s ease 0.1s; }
+html[it-related-videos='Focus'] #related #dismissible:hover:not(.it-blacklisted-video):not(.ytd-reel-item-renderer) ytd-playlist-thumbnail { max-width: 170px; transform:scale(1); transition: all 0.3s ease 0.1s; }
+
+html[it-related-videos='Titles'] #related #dismissible:not(.ytd-reel-item-renderer) { opacity:0.8;  max-height:40px; overflow:hidden; margin-top:-1px;  transition: max-height 0.3s ease 0.1s;}
+html[it-related-videos='Titles'] #related #dismissible:not(.ytd-reel-item-renderer) ytd-thumbnail { max-width: 0px; transition: max-width 0.4s ease 0.1s;}
+html[it-related-videos='Titles'] #related #dismissible:not(.ytd-reel-item-renderer) ytd-playlist-thumbnail { max-width: 0px; transition: max-width 0.4s ease 0.1s;}
+html[it-related-videos='Titles'] #related #dismissible:hover:not(.ytd-reel-item-renderer) { opacity: 1;  max-height: 85px; transition: max-height 0.3s ease 0.9s; margin-left: 0x !important }
+html[it-related-videos='Titles'] #related #dismissible:hover:not(.ytd-reel-item-renderer) ytd-thumbnail { max-width: 170px; transform:scale(1); transition: max-width 0.3s ease 0.9s; }
+html[it-related-videos='Titles'] #related #dismissible:hover:not(.ytd-reel-item-renderer) ytd-playlist-thumbnail { max-width: 170px; transform:scale(1); transition: max-width 0.3s ease 0.9s; }
+html[it-related-videos='Titles'] #related #dismissible #metadata { margin-top:-3px; }
+/* html[it-related-videos='Titles'] #related #dismissible #metadata * {display: inline-block !important}
+*/
+
+html[it-related-videos='hidden'] #related #contents,
+html[it-related-videos='hidden'] #related #dismissible,
 html[it-related-videos='hidden'] #related > ytd-watch-next-secondary-results-renderer > #items,
-html[it-related-videos=hidden] div#secondary div#panels,
-html[it-related-videos=hidden] div#secondary div#donation-shelf {
-	display: none !important;
-}
+html[data-page-type=video][it-related-videos='hidden'] ytd-compact-video-renderer
+	{display: none !important}
+
+html[data-page-type=video][it-related-videos='hidetabs'] #related #chips 
+	{display: none !important}
+
+html[it-hide-sidebar='true'] #related > ytd-watch-next-secondary-results-renderer > #items,
+html[it-hide-sidebar='true'] div#secondary div#panels,
+html[it-hide-sidebar='true'] div#secondary div#donation-shelf 
+	{display: none !important}
 
 html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-renderer > #items:not([it-activated])::before {
 	content: 'Show more' !important;
@@ -153,21 +183,26 @@ html[data-page-type=video][it-no-page-margin='true'] ytd-browse > ytd-two-column
 /*--------------------------------------------------------------
 # MOVE SIDEBAR LEFT
 --------------------------------------------------------------*/
-html[it-sidebar-left='true'] #columns>#primary,
-html[it-sidebar-left='true'] #head>#upnext{
+html[data-page-type=video][it-sidebar-left='true'] #columns>#primary,
+html[data-page-type=video][it-sidebar-left='true'] #head>#upnext{
 	order: 5 !important;}
-	
-html[it-sidebar-left='true'][it-comments-sidebar='true'] #comments{order: 6 !important;}
 
-html[it-sidebar-left='true'] #columns>#secondary>#related {margin-left: calc(0.5vw + 4px); margin-right:1vw !important;}
+html[data-page-type=video][it-sidebar-left='true'] #columns>#secondary>#related {margin-left: calc(0.5vw + 4px); margin-right:1vw !important;}
 
 /*--------------------------------------------------------------
 # MOVE THUMBNAILS RIGHT
 --------------------------------------------------------------*/
-html[it-thumbnails-right='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail {
+html[it-thumbnails-right='true'] #related ytd-watch-next-secondary-results-renderer ytd-thumbnail,
+html[it-thumbnails-right='true'] #related .modern-collection-parent,
+html[it-thumbnails-right='true'] #related ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
 	order: 5 !important;
 }
-
+/*--------------------------------------------------------------
+# SHORTS REMIXING THIS VIDEO
+--------------------------------------------------------------*/
+html[it-hide-shorts-remixing='true'] #related ytd-reel-shelf-renderer{
+	display: none !important;
+}
 /*--------------------------------------------------------------
 # HIDE THUMBNAILS
 --------------------------------------------------------------*/
@@ -175,14 +210,12 @@ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-th
 html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
 	display: none !important;
 }
-
 /*--------------------------------------------------------------
 # LIVECHAT
 --------------------------------------------------------------*/
 html[it-livechat='hidden'] ytd-live-chat-frame#chat {
 	display: none !important;
 }
-
 /*--------------------------------------------------------------
 # HIDE PLAYLIST
 --------------------------------------------------------------*/

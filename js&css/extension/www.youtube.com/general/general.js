@@ -551,3 +551,38 @@ extension.features.thumbnailsQuality = function (anything) {
 		}
 	}
 };
+
+
+/*--------------------------------------------------------------
+# OPEN VIDEOS IN A NEW TAB
+--------------------------------------------------------------*/
+
+extension.features.openNewTab = function (){
+	window.onload = function () {
+		const searchButton = document.querySelector("button#search-icon-legacy");
+		const inputField = document.querySelector("input#search");
+
+		searchButton.addEventListener("click", (event) => {
+			if (extension.storage.get("open_new_tab") === true) {
+			  performSearchNewTab(event);
+			}
+		  });
+		inputField.addEventListener("keydown", function (event) {
+			if (extension.storage.get("open_new_tab") === true && event.key === "Enter") {
+				performSearchNewTab(event);
+			}
+		});
+
+		function performSearchNewTab(e) {
+		  e.stopImmediatePropagation();
+	  
+		  const newTabURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(
+			inputField.value
+		  )}`;
+		  chrome.runtime.sendMessage({ action: "createNewTab", url: newTabURL });
+	  
+		  inputField.value = "";
+		  inputField.focus();
+		}
+	}
+}

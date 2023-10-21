@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "حذف کردن شورت‌های صفحه اصلی"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "حذف کردن ریل Shorts از نتایج جستجو"
     },
     "repeat": {
         "message": "Repeat"

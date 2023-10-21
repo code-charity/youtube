@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "Fjern Shorts fra hjemmesiden"
+    },
     "removeRelatedSearchResults": {
         "message": "Fjern relaterte søkeresultater"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Fjern Shorts-rullen fra søkeresultatene"
     },
     "repeat": {
         "message": "Gjenta"

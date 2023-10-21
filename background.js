@@ -21,8 +21,9 @@ chrome.runtime.onInstalled.addListener(function (installed){
     if(installed.reason == 'update'){
 //	    var thisVersion = chrome.runtime.getManifest().version;
 //		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
-        chrome.storage.local.get('hideSubscribe', function (result) {if (result.hideSubscribe === true){ chrome.storage.local.set({subscribe: 'hidden'}); }});
-		chrome.storage.local.get('limit_page_width', function (result) {
+chrome.storage.local.get('channel_default_tab', function (result) {if (result.channel_default_tab === '/home'){ chrome.storage.local.set({channel_default_tab: '/'}); }});
+chrome.storage.local.get('hideSubscribe', function (result) {if (result.hideSubscribe === true){ chrome.storage.local.set({subscribe: 'hidden'}); }});
+chrome.storage.local.get('limit_page_width', function (result) {
                             if (result.limit_page_width === false){
 								chrome.storage.local.set({no_page_margin: true});
 								chrome.storage.local.remove(['limit_page_width'], (i) => {});
@@ -31,13 +32,13 @@ chrome.runtime.onInstalled.addListener(function (installed){
 								chrome.storage.local.set({player_size: 'max_width'});
 								}});
 								}											
-                            });	
-	  if(navigator.userAgent.indexOf("Firefox") != -1){chrome.storage.local.set({below_player_pip: false})};	
-	  if(navigator.userAgent.indexOf("Safari") != -1){chrome.storage.local.set({below_player_pip: false})};	  
-	  if(navigator.userAgent.indexOf("Safari") != -1){chrome.storage.local.set({below_player_screenshot: false})};	  
-	}
-else if(installed.reason == 'install'){if(navigator.userAgent.indexOf("Firefox") != -1){chrome.storage.local.set({below_player_pip: false})};
+                            });	 
+}
+	else if(installed.reason == 'install'){
+if(navigator.userAgent.indexOf("Firefox") != -1){chrome.storage.local.set({below_player_pip: false})};
 if(navigator.userAgent.indexOf("Safari") != -1){chrome.storage.local.set({below_player_pip: false})};	
+
+// still needed? (are screenshots broken in Safari?): 
 if(navigator.userAgent.indexOf("Safari") != -1){chrome.storage.local.set({below_player_screenshot: false})};	
 // console.log('Thanks for installing!');
 };
@@ -261,6 +262,19 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 		});
 	}
 });
+
+
+/*------ search results in new tab --------- */
+chrome.storage.local.get('open_new_tab', function (result) 
+{if (result.open_new_tab === true){ 
+
+chrome.runtime.onMessage.addListener(function (request) {
+  if (request.action === "createNewTab") {
+    chrome.tabs.create({ url: request.url });
+  }
+});
+
+}});
 
 /*--------------------------------------------------------------
 # UNINSTALL URL

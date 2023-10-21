@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "ホームページのショートを削除"
+    },
     "removeRelatedSearchResults": {
         "message": "関連動画を検索結果から削除する"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "検索結果からショートリールを削除"
     },
     "repeat": {
         "message": "リピート"

@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "Ondoa Shorts kutoka ukurasa wa nyumbani"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Ondoa gurudumu la Shorts kutoka kwenye matokeo ya utafutaji"
     },
     "repeat": {
         "message": "Repeat"

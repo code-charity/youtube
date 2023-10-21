@@ -812,8 +812,14 @@
     "remote": {
         "message": "TV'de oynat"
     },
+    "removeHomePageShorts": {
+        "message": "Ana sayfa Shorts'ları kaldır"
+    },
     "removeRelatedSearchResults": {
         "message": "İlgili arama sonuçlarını kaldır"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Arama sonuçlarından Shorts reelini kaldır"
     },
     "repeat": {
         "message": "Tekrarla"

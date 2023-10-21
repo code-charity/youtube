@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "মুখপৃষ্ঠের শর্ট মুছে দিন"
+    },
     "removeRelatedSearchResults": {
         "message": "সম্পর্কিত অনুসন্ধান ফলাফল সরান"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "অনুসন্ধানের ফলাফল থেকে শর্টস রিল সরান"
     },
     "repeat": {
         "message": "পুনরাবৃত্তি"
