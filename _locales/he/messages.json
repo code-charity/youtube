@@ -812,6 +812,9 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "הסר Shorts מהדף הראשי"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },

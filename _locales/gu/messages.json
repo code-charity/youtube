@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "મુખ્ય પેજના શોર્ટ્સ કાઢો"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "શોધના પરિણામોમાંથી શોર્ટસ રીલ કાઢી નાખો"
     },
     "repeat": {
         "message": "Repeat"

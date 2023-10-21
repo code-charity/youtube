@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "Pašalinkite Shorts iš pagrindinio puslapio"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Pašalinkite Shorts ritinį iš paieškos rezultatų"
     },
     "repeat": {
         "message": "Repeat"

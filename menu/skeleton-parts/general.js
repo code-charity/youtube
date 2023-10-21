@@ -1054,7 +1054,7 @@ extension.skeleton.main.layers.section.general = {
 					}, {
 						text: 'onSubscribedChannels',
 						value: 'subscribed_channels'
-					}]
+					}], storage: 'ads'
 				},
 				youtube_home_page: {
 					component: 'select',
@@ -1090,9 +1090,17 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'collapseOfSubscriptionSections'
 				},
+				remove_home_page_shorts: {
+					component: 'switch',
+					text: 'removeHomePageShorts'
+				},
 				remove_related_search_results: {
 					component: 'switch',
 					text: 'removeRelatedSearchResults'
+				},
+				remove_shorts_reel_search_results: {
+					component: 'switch',
+					text: 'removeShortsReelSearchResults'
 				}
 			},
 			embed: {
@@ -1311,7 +1319,11 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'confirmationBeforeClosing',
 					tags: 'random prevent close exit'
-				}
+				},
+				open_new_tab: {
+					component: "switch",
+					text: "openNewTab",
+				},
 			}
 		}
 	},

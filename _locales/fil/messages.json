@@ -812,8 +812,14 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "Alisin ang Shorts mula sa homepage"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Alisin ang Shorts reel mula sa mga resulta ng paghahanap"
     },
     "repeat": {
         "message": "Repeat"

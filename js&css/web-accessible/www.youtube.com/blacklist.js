@@ -103,27 +103,31 @@ ImprovedTube.blacklist = function (type, node) {
 		this.elements.blacklist_buttons.push(button);
 
 		if (id && id[1] && ImprovedTube.storage.blacklist.videos[id[1]]) {
-			node.parentNode.__dataHost.classList.add('it-blacklisted-video');
+			//node.__dataHost.classList.add('it-blacklisted-video'); // this only affects the thumbnail
+			const dismissibleElement = node.parentNode.__dataHost.$.dismissible;
+			if (dismissibleElement) { dismissibleElement.classList.add('it-blacklisted-video'); } // this affects the title and co. as well
+		//	node.parentNode.parentNode.__dataHost.$.ytd-compact-video-renderer.classList.add('it-blacklisted-video');
 		}
 	} else if (type === 'channel') {
 		if (node.nodeName === 'A') {
 			try {
-				var id = node.href.match(/@|c\/@?|channel\/|user\/([^/]+)/)[1]
+				var id = node.href.match(ImprovedTube.regex.channel).groups.name;
 
 				if (this.storage.blacklist.channels[id]) {
 					var parent = node.parentNode.__dataHost.__dataHost;
 
 					if (
-						parent.nodeName === 'YTD-GRID-VIDEO-RENDERER' &&
+						parent.nodeName === 'YTD-GRID-VIDEO-RENDERER' ||
 						parent.nodeName === 'YTD-VIDEO-META-BLOCK'
 					) {
-						parent.classList.add('it-blacklisted-video');
+						parent.__dataHost.$.dismissible.classList.add('it-blacklisted-video'); // this affects the title and co. as well
+					//	parent.__dataHost.$.ytd-compact-video-renderer.classList.add('it-blacklisted-video');
 					}
 				}
 			} catch (err) {}
 		} else {
 			var button = this.elements.blacklistChannel || document.createElement('button'),
-				id = location.href.match(/@|c\/@?|channel\/|user\/([^/]+)/)[1];
+				id = location.href.match(ImprovedTube.regex.channel).groups.name;
 
 			button.className = 'it-add-channel-to-blacklist';
 
@@ -137,11 +141,12 @@ ImprovedTube.blacklist = function (type, node) {
 
 			button.addEventListener('click', function (event) {
 				var data = this.parentNode.__dataHost.__data.data,
-					id = location.href.match(/@|c\/@?|channel\/|user\/([^/]+)/)[1];
+					id = location.href.match(ImprovedTube.regex.channel).groups.name;
 
 				this.added = !this.added;
 
 				ImprovedTube.messages.send({
+					action: 'blacklist',
 					type: 'channel',
 					id,
 					title: data.title,

@@ -788,6 +788,9 @@
     "remote": {
         "message": "Play on TV"
     },
+    "removeHomePageShorts": {
+        "message": "Remove home page's Shorts"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },
@@ -1069,5 +1072,8 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube limits video quality to 1080p for h.264 codec"
+    },
+    "openNewTab": {
+        "message": "Open in new tab"
     }
 }

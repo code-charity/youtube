@@ -16,13 +16,25 @@ extension.skeleton.main.layers.section.channel = {
 				text: 'defaultChannelTab',
 				options: [{
 					text: 'home',
-					value: '/home'
+					value: '/'
 				}, {
 					text: 'videos',
 					value: '/videos'
 				}, {
+					text: 'shorts',
+					value: '/shorts'
+				}, {
 					text: 'playlists',
 					value: '/playlists'
+				}, {
+					text: 'community',
+					value: '/community'
+				}, {
+					text: 'channels',
+					value: '/channels'
+				}, {
+					text: 'about',
+					value: '/about'
 				}]
 			},
 			channel_trailer_autoplay: {

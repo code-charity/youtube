@@ -66,20 +66,20 @@ extension.skeleton.main.layers.section.appearance.on.click.header = {
 					text: "normal",
 					value: "normal"
 				}, {
+					text: "hoverOnVideoPage",
+					value: "hover_on_video_page"
+				}, {
+					text: "hiddenOnVideoPage",
+					value: "hidden_on_video_page"
+				}, {
+					text: "static",
+					value: "static"
+				}, {
 					text: "hidden",
 					value: "hidden"
 				}, {
 					text: "hover",
 					value: "hover"
-				}, {
-					text: "hiddenOnVideoPage",
-					value: "hidden_on_video_page"
-				}, {
-					text: "hoverOnVideoPage",
-					value: "hover_on_video_page"
-				}, {
-					text: "static",
-					value: "static"
 				}],
 				tags: "hide,hover,static,top"
 			},
@@ -131,12 +131,12 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					text: "doNotChange",
 					value: "do_not_change"
 				}, {
-					text: "Max. width within the page",
-					value: "max_width"
-				}, {
 					text: "fullWindow",
 					value: "full_window"
 				}, {
+					text: "Max. width within the page",
+					value: "max_width"
+				},  {
 					text: "fitToWindow",
 					value: "fit_to_window"
 				}, {
@@ -625,6 +625,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 					}
 				}
 			},
+
 			hide_views_count: {
 				component: "switch",
 				text: "hideViewsCount",
@@ -750,9 +751,50 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 		click: {
 			component: "section",
 			variant: "card",
-			chapters: {
-				component: 'switch',
-				text: 'Chapters'
+			related_videos: {
+				component: "select",
+				text: "relatedVideos",
+				options: [{
+					text: "normal",
+					value: "normal"
+				}, {
+					text: "hidden",
+					value: "hidden"
+				}, {
+					text: "Focus",
+					value: "Focus"
+				}, {
+					text: "Titles",
+					value: "Titles"
+				}, {
+					text: "collapsed",
+					value: "collapsed"
+				}, {
+					text: "Hide the tabs only",
+					value: "hidetabs"
+				}],
+				tags: "right",
+				on: {
+					click: function () {  setTimeout(() => {
+						if (satus.storage.get('related_videos')==="Titles") {
+							if (!satus.storage.get('thumbnails_right')) {
+								this.nextSibling.nextSibling.click();
+							}
+						}
+					}, 250); }
+				}
+			},
+			sidebar_left: {
+				component: "switch",
+				text: "moveSidebarLeft"
+			},
+			thumbnails_right: {
+				component: "switch",
+				text: "moveThumbnailsRight"
+			},
+			thumbnails_hide: {
+				component: "switch",
+				text: "hideThumbnails"
 			},
 			transcript: {
 				component: 'switch',
@@ -788,35 +830,14 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 					}, 250); }
 				}
 			},
-			sidebar_left: {
+			chapters: {
+				component: 'switch',
+				text: 'Chapters'
+			},
+			hide_shorts_remixing: {
 				component: "switch",
-				text: "moveSidebarLeft"
-			},
-
-			related_videos: {
-				component: "select",
-				text: "relatedVideos",
-				options: [{
-					text: "normal",
-					value: "normal"
-				}, {
-					text: "collapsed",
-					value: "collapsed"
-				}, {
-					text: "hidden",
-					value: "hidden"
-				}],
-				tags: "right"
-			},
-
-			thumbnails_right: {
-				component: "switch",
-				text: "moveThumbnailsRight"
-			},
-			thumbnails_hide: {
-				component: "switch",
-				text: "hideThumbnails"
-			},
+				text: "Hide \'Shorts remixing this video\'"
+			},			
 			livechat: {
 				component: "select",
 				text: "liveChat",
@@ -835,6 +856,10 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			hide_playlist: {
 				component: "switch",
 				text: "hidePlaylist"
+			},
+			hide_sidebar: {
+				component: "switch",
+				text: "Hide sidebar"
 			}
 		}
 	}

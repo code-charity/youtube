@@ -9,10 +9,16 @@ ImprovedTube.playlistUpNextAutoplay = function (event) {
 		ImprovedTube.getParam(location.href, 'list') &&
 		ImprovedTube.storage.playlist_up_next_autoplay === false
 	) {
-		this.elements.ytd_watch.playlistData.currentIndex = this.elements.ytd_watch.playlistData.totalVideos
+		if (this.elements.ytd_watch.playlistData)
+		{this.elements.ytd_watch.playlistData.currentIndex = this.elements.ytd_watch.playlistData.totalVideos}
+			else {var tries = 0; 	var intervalMs = 300;  var maxTries = 5; 		
+					var waitForPlaylist = setInterval(() => { 	
+					if (this.elements.ytd_watch.playlistData || (++tries >= maxTries) ) {
+					this.elements.ytd_watch.playlistData.currentIndex = this.elements.ytd_watch.playlistData.totalVideos; clearInterval(waitForPlaylist );}			
+					intervalMs *= 1.4;}, intervalMs);
+					}
 	}
-};
-
+};    		
 /*------------------------------------------------------------------------------
 4.5.2 REVERSE
 ------------------------------------------------------------------------------*/
@@ -95,24 +101,32 @@ ImprovedTube.playlistRepeat = function () {
 	if ( ImprovedTube.storage.playlist_repeat === true ) { 
 	    setTimeout(function (){
 		var option = ImprovedTube.storage.playlist_repeat,
-		button = document.querySelector("ytd-playlist-loop-button-renderer button"),
-		svg = button.querySelector("path").attributes.d.textContent.split(" ")[0];
-	if (button && ((option === true && svg !== 'M20,14h2v5L5.84,19.02l1.77,1.77l-1.41,1.41L1.99,18l4.21-4.21l1.41,1.41l-1.82,1.82L20,17V14z') 
-//	|| (option === false && svg !== 'M21,13h1v5L3.93,18.03l2.62,2.62l-0.71,0.71L1.99,17.5l3.85-3.85l0.71,0.71l-2.67,2.67L21,17V13z')
-	))  { button.click(); } 
+		button = document.querySelector("#button.ytd-playlist-loop-button-renderer") || document.querySelector("ytd-playlist-loop-button-renderer button") || document.querySelector("ytd-playlist-loop-button-renderer");
+	if (button && (option === true && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M21')
+	) && button.querySelector("#tooltip")?.textContent !== 'Loop video' 
+	  && button.firstElementChild?.firstElementChild?.attributes[2]?.textContent !== 'Loop video'  
+	  && button.querySelector("#tooltip")?.textContent !== 'Turn off loop' 
+	  && button.firstElementChild?.firstElementChild?.attributes[2]?.textContent !== 'Turn off loop' 
+	)  
+	{ button.click(); } 
 		}, 5000);
 	}
 };
+
+/* https://github.com/code-charity/youtube/issues/1768#issuecomment-1720423923 */
 
 /*------------------------------------------------------------------------------
 4.5.4 SHUFFLE
 ------------------------------------------------------------------------------*/
 ImprovedTube.playlistShuffle = function () {
-	var button = ImprovedTube.elements.playlist.shuffle_button,
+	if ( ImprovedTube.storage.playlist_shuffle === true ) { 
+		setTimeout(function (){
+		var button = ImprovedTube.elements.playlist.shuffle_button,
 		option = ImprovedTube.storage.playlist_shuffle;
-		try{
-		if (button && ((option === true && button.firstElementChild.firstElementChild.attributes[2].textContent !== 'Loop video') || (option === 'disabled' && button.firstElementChild.firstElementChild.attributes[2].textContent === 'Loop playlist'))) {
-		button.click();
-		} 
-		}catch{}
+		button = document.querySelector('#playlist-actions #playlist-action-menu ytd-toggle-button-renderer');
+	if (button && (option === true && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M18.1')
+	) 	)  
+	{ button.click(); } 
+		}, 5000);
+	}
 };
