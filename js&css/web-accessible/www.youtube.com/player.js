@@ -79,14 +79,16 @@ ImprovedTube.playerPlaybackSpeed = function () {
 			if (this.storage.player_dont_speed_education === true && category === 'Education') {return;} 
 			if (this.storage.player_force_speed_on_music === true) {player.setPlaybackRate(Number(option));	video.playbackRate = Number(option); return;} 
 
-		let titleAndKeywords = document.getElementsByTagName('meta')?.title?.content + " " + document.getElementsByTagName('meta')?.keywords?.content  || false;
-		let musicRegexMatch = /official (music )?video|lyrics|cover[\)\]]|[\(\[]cover|cover version|soundtrack|unplugged|lo-fi|lofi|a(lla)? cappella|remix| feat\.|(piano|guitar|jazz|ukulele|violin|reggae) (version|cover)|karaok|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방/i.test(titleAndKeywords);
-		let notMusicRegexMatch = /do[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(titleAndKeywords);						     // (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
-		let duration = document.querySelector('meta[itemprop=duration]')?.content || false; // Example:  PT1H20M30S
+		let title = document.getElementsByTagName('meta')?.title?.content || false;
+		let keywords =	document.getElementsByTagName('meta')?.keywords?.content  || false;
+		var musicRegexMatch = /(official|music|lyrics)[ -]video|lyrics|cover[\)\]]|[\(\[]cover|cover version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella| feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ] (version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|\bremix|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|theme song/i.test(title);
+		if (!musicRegexMatch) { musicRegexMatch = /(official|music|lyrics)[ -]video|lyrics|cover[\)\]]|[\(\[]cover|cover version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella| feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ] (version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|, (remix|song|music|theme song),|\bfull song\b/i.test(keywords);} 
+		let notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(title + " " + keywords);						     // (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
+		var duration = document.querySelector('meta[itemprop=duration]')?.content || false; // Example:  PT1H20M30S
 			if(!duration) { itemprops = document.getElementsByTagName('meta'); 
 					for (var i = 0; i < itemprops.length; i++) {
 						if (itemprops[i].getAttribute('itemprop') === 'duration') {
-						let duration = itemprops[i].getAttribute('content') || false; break;}}}
+						duration = itemprops[i].getAttribute('content') || false; break;}}}
 		if (duration) {
 				function parseDuration(duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0); 
 				return h * 3600 + m * 60 + s; } 
@@ -100,16 +102,16 @@ ImprovedTube.playerPlaybackSpeed = function () {
 				if (musicSectionLength && (85 <= s / musicSectionLength && s / musicSectionLength<= 355)) {return 'multiple';}
 			}				
 		var songDurationType = testSongDuration(durationInSeconds); 
-		// console.log(category + "//" +  titleAndKeywords + "//" +  musicRegexMatch + "//" + notMusicRegexMatch + "//" + duration + "//" +  songDurationType);
+		// console.log("category: " + category + "//title: " +  title + "//keywords: " + keywords + "//music word match: " +  musicRegexMatch + "// not music word match:" + notMusicRegexMatch + "//duration: " + duration + "//song duration type: " +  songDurationType);
 		}	
 		
  // check if the video is PROBABLY MUSIC:
 	if  ( 		( category === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))
 			||  ( musicRegexMatch && !notMusicRegexMatch && typeof songDurationType !== 'undefined' 
-						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범/i.test(titleAndKeywords) 
+						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|\b(live|cd|vinyl|lp|ep)\b/i.test(title + " " + keywords) 
 							&& 1150 <= durationInSeconds && durationInSeconds <= 5000) )
 			||	( category === 'Music' && musicRegexMatch && typeof songDurationType !== 'undefined'  
-						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범/i.test(titleAndKeywords) 
+						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|\b(live|cd|vinyl|lp|ep)\b/i.test(title + " " + keywords) 
 							&& 1150 <= durationInSeconds && durationInSeconds <= 5000) )
 		  //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
 		)	{ } //music player.setPlaybackRate(1); video.playbackRate = 1;				 				
