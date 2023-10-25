@@ -44,6 +44,12 @@
     "all": {
         "message": "Tümü"
     },
+	    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "Tüm ayarlarınız silinir ve kurtarılamaz"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "Tüm kısayollarınız silinir ve kurtarılamaz"
+    },
     "allow": {
         "message": "İzin ver"
     },
@@ -51,7 +57,7 @@
         "message": "60fps'e izin ver"
     },
     "always": {
-        "message": "Always"
+        "message": "Sürekli"
     },
     "alwaysActive": {
         "message": "Sürekli etkin"
@@ -66,7 +72,7 @@
         "message": "Analizör"
     },
     "animations": {
-        "message": "Animations"
+        "message": "Animasyonlar"
     },
     "appearance": {
         "message": "Görünüm"
@@ -122,8 +128,11 @@
     "belowPlayer": {
         "message": "Oynatıcının altında"
     },
+	    "bitness": {
+        "message": "Bitness"
+    },
     "black": {
-        "message": "Kara"
+        "message": "Siyah"
     },
     "blacklist": {
         "message": "Kara Liste"
@@ -132,16 +141,16 @@
         "message": "Tümünü engelle"
     },
     "blockAv1": {
-        "message": "Block AV1"
+        "message": "AV1'i engelle"
     },
     "blockH264": {
-        "message": "Block H.264"
+        "message": "H.264'ü engelle"
     },
     "blockMusic": {
         "message": "Sesi engelle"
     },
     "blockVp8": {
-        "message": "Block VP8"
+        "message": "VP8'i engelle"
     },
     "blockVp9": {
         "message": "VP9'u engelle"
@@ -155,6 +164,9 @@
     "bluelight": {
         "message": "Mavi Işık"
     },
+	    "brightness": {
+        "message": "Parlaklık"
+    },	  
     "brown": {
         "message": "Kahverengi"
     },
@@ -189,7 +201,7 @@
         "message": "Karakter kenar stili"
     },
     "clip": {
-        "message": "Clip"
+        "message": "Klip"
     },
     "clipboard": {
         "message": "Pano"
@@ -222,7 +234,7 @@
         "message": "Bölüm başlıklarını kırp"
     },
     "custom": {
-        "message": "Custom"
+        "message": "Özel"
     },
     "customCss": {
         "message": "Özel CSS"
@@ -268,6 +280,9 @@
     },
     "defaultContentCountry": {
         "message": "Varsayılan içerik ülkesi"
+    },
+	    "defaultPlaybackSpeed": {
+        "message": "Varsayılan Oynatma Hızı"
     },
     "deleteWatchedVideos": {
         "message": "İzlenen videoları sil"
@@ -387,7 +402,7 @@
         "message": "Oynatma hızını uygulamaya zorla"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "(Force playback speed even for music?)"
+        "message": "(Müzik için bile oynatma hızını zorla?)"
     },
     "forcedTheaterMode": {
         "message": "Sinema modunu zorla"
@@ -405,7 +420,7 @@
         "message": "Genel"
     },
     "geoPreference": {
-        "message": "Geo Preference"
+        "message": "Coğrafi Tercih"
     },
     "github": {
         "message": "GitHub"
@@ -474,10 +489,10 @@
         "message": "Öne çıkan içeriği gizle"
     },
     "hideFooter": {
-        "message": "Footer'ı gizle"
+        "message": "Altbilgiyi gizle"
     },
     "hideGradientBottom": {
-        "message": "Gradyan Altını Gizle"
+        "message": "Oynatıcı çubuğunun etrafındaki gölgeyi gizle"
     },
     "hidePlayerControlsBar": {
         "message": "Oynatıcı kontrol çubuğunu gizle"
@@ -498,10 +513,10 @@
         "message": "«Ayrıntılar için kaydır» gizle"
     },
     "hideSkipOverlay": {
-        "message": "Yer Paylaşımını Atla Gizle"
+        "message": "5 saniyelik atlama animasyonunu gizle"
     },
     "hideThumbnailOverlay": {
-        "message": "Küçük resim yer paylaşımını gizle"
+        "message": "Küçük resimlerdeki düğmeleri gizle"
     },
     "hideThumbnails": {
         "message": "Küçük resimleri gizle"
@@ -521,6 +536,9 @@
     "home": {
         "message": "Ana Sayfa"
     },
+    "homeScreen": {
+        "message": "Ana Sayfa Ekranı"
+    },	  
     "hover": {
         "message": "Gölge"
     },
@@ -669,7 +687,7 @@
         "message": "Gece"
     },
     "nightMode": {
-        "message": "Night mode"
+        "message": "Gece modu"
     },
     "noActiveFeatures": {
         "message": "Aktif özellik yok"
@@ -696,7 +714,7 @@
         "message": "Tüm videolarda"
     },
     "onSubscribedChannels": {
-        "message": "Abone olunan kanallarda"
+        "message": "Kapalı, abone olduğum kanallar hariç"
     },
     "onlyActiveOnYoutube": {
         "message": "Yalnızca YouTube'da etkin"
@@ -750,7 +768,7 @@
         "message": "Oynatıcı"
     },
     "playerColor": {
-        "message": "Oynatıcı rengi"
+        "message": "İlerleme çubuğu rengi"
     },
     "playerSize": {
         "message": "Oynatıcı boyutu"
@@ -762,13 +780,13 @@
         "message": "Oynatma Listeleri"
     },
     "popupPlayer": {
-        "message": "Popup oynatıcı"
+        "message": "Açılır pencere oynatıcı"
     },
     "popupWindowButtons": {
-        "message": "popup_window_buttons"
+        "message": "Her küçük resme bir açılır oynatıcı düğmesi ekleyin"
     },
     "position": {
-        "message": "Konum"
+        "message": "Pozisyon"
     },
     "pressAnyKeyOrScroll": {
         "message": "Herhangi bir tuşa bas veya farenin tekerleğini kullan."
@@ -825,7 +843,7 @@
         "message": "Tekrarla"
     },
     "report": {
-        "message": "Report"
+        "message": "Raporla"
     },
     "reset": {
         "message": "Sıfırla"
@@ -876,7 +894,7 @@
         "message": "10 saniye ileriye git"
     },
     "seekNextChapter": {
-        "message": "10 saniye geriye git"
+        "message": "Sonraki Bölümü Ara"
     },
     "seekPreviousChapter": {
         "message": "Önceki Bölümü Ara"
@@ -888,7 +906,7 @@
         "message": "Ayarlar başarıyla içe aktarıldı"
     },
     "share": {
-        "message": "Share"
+        "message": "Paylaş"
     },
     "shortcuts": {
         "message": "Kısayollar"
@@ -921,7 +939,7 @@
         "message": "Yazılım bilgisi"
     },
     "spacebar": {
-        "message": "Ara çubuğu"
+        "message": "Boşluk Çubuğu"
     },
     "squaredUserImages": {
         "message": "Kare kullanıcı görüntüleri"
@@ -948,7 +966,7 @@
         "message": "Abone Ol"
     },
     "subscriptions": {
-        "message": "Aboneler"
+        "message": "Abonelikler"
     },
     "subtitles": {
         "message": "Altyazılar"
@@ -996,7 +1014,7 @@
         "message": "Küçük resimler"
     },
     "thumbnailsQuality": {
-        "message": "Thumbnail Kalitesi"
+        "message": "Küçük Resim Kalitesi"
     },
     "timeFrom": {
         "message": "Şu zamandan"
@@ -1073,8 +1091,11 @@
     "watchTime": {
         "message": "İzleme zamanı"
     },
+	"watchedVideos": {
+        "message": "İzlenen videolar"
+    },	
     "whenPaused": {
-        "message": "When paused"
+        "message": "Duraklatıldığında"
     },
     "whenTabIsChanged": {
         "message": "Sekme değiştirildiğinde"
@@ -1105,5 +1126,8 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube, h.264 codec bileşeni için video kalitesini 1080p ile sınırlar"
+    },
+	    "openNewTab": {
+        "message": "Yeni sekmede aç"
     }
 }
