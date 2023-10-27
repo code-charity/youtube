@@ -255,6 +255,8 @@ ImprovedTube.ytElementsHandler = function (node) {
 			ImprovedTube.chapters(node);}, 200);
 		}
 	}
+	// TODO move do different ifs ↑ to minimize calls (~ mini player, video player, and playlist page)
+	this.playlistPopup();
 
 };
 
