@@ -130,3 +130,48 @@ ImprovedTube.playlistShuffle = function () {
 		}, 5000);
 	}
 };
+
+/*------------------------------------------------------------------------------
+4.5.5 POPUP
+------------------------------------------------------------------------------*/
+ImprovedTube.playlistPopup = function () {
+	if (!(ImprovedTube.storage.playlist_popup ?? false)) return;
+	const shareButtonPlaylist = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-browse>ytd-playlist-header-renderer ytd-button-renderer.ytd-playlist-header-renderer:has(button[aria-label="Share"])'),
+		shuffleButtonMini = document.body.querySelector('ytd-app>ytd-miniplayer ytd-playlist-panel-renderer div#playlist-action-menu ytd-toggle-button-renderer.ytd-menu-renderer:has(button[aria-label="Shuffle playlist"])'),
+		shuffleButtonPanel = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-watch-flexy ytd-playlist-panel-renderer div#playlist-action-menu ytd-toggle-button-renderer.ytd-menu-renderer:has(button[aria-label="Shuffle playlist"])');
+	/* TODO
+		check siblings if there is a button (playlist popup button) → query select with id on parentElement (of the share/shuffle button)
+		→ if not, create one (data-list has the playlist id)
+		? class yt-spec-button-shape-next--tonal should be yt-spec-button-shape-next--text for the mini player and the playlist panel
+		? id must not be different for the 3 different button positions (when using querySelector ↑)
+		! refactor ~ one function to create a button and 3 checks for which variant to create
+	*/
+	if(shareButtonPlaylist != null && !document.getElementById('it-popup-playlist-button')){
+		var button = document.createElement('button'),
+			svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		
+		button.id = 'it-popup-playlist-button';
+		button.className = 'yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--overlay yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button style-scope ytd-playlist-header-renderer';
+		button.title = "Popup playlist";
+		button.style.opacity='0.8';
+		button.dataset.list = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-browse>ytd-playlist-header-renderer div.thumbnail-and-metadata-wrapper>a[href*="list="]').href.match(ImprovedTube.regex.playlist_id)[1];
+		button.addEventListener('click', function (event) {
+			window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${innerWidth},height=${innerHeight}`);
+		}, true);
+
+		svg.style.width = '24px';
+		svg.style.height = '24px';
+		svg.style.pointerEvents = 'none';
+		svg.style.fill = 'currentColor';
+		svg.setAttribute('viewBox', '0 0 24 24');
+		path.setAttribute('d', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z');
+
+		svg.append(path);
+
+		button.append(svg);
+
+		shareButtonPlaylist.insertAdjacentElement('afterend', button);
+		// ImprovedTube.elements.playlist.actions.appendChild(button);
+	}
+};

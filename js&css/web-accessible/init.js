@@ -105,6 +105,8 @@ document.addEventListener('yt-page-data-updated', function (event) {
 		ImprovedTube.playlistShuffle();
 		ImprovedTube.playlistReverse();
 	}
+	// TODO when does this event fire ?
+	// ImprovedTube.playlistPopup();
 });
 
 window.addEventListener('load', function () {
