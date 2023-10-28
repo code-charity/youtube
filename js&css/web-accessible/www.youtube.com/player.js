@@ -728,7 +728,11 @@ ImprovedTube.playerPopupButton = function () {
 
 				player.pauseVideo();
 
-				window.open('//www.youtube.com/embed/' + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8) + '?start=' + parseInt(player.getCurrentTime()) + '&autoplay=' + (ImprovedTube.storage.player_autoplay == false ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=' + player.offsetWidth + ',height=' + player.offsetHeight);
+				let urlPopup = `${location.protocol}//www.youtube.com/embed/${location.search.match(ImprovedTube.regex.video_id)[1]}?start=${parseInt(player.getCurrentTime())}&autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}`;
+				const listMatch = location.search.match(ImprovedTube.regex.playlist_id);
+				if (listMatch) urlPopup += `&list=${listMatch[1]}`;
+
+				window.open(urlPopup, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${player.offsetWidth},height=${player.offsetHeight}`);
 			},
 			title: 'Popup'
 		});
