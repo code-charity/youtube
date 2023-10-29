@@ -181,20 +181,6 @@ html[it-mini-player-cursor='nw-resize']::after {
 /*------------------------------------------------------------------------------
 # 
 ------------------------------------------------------------------------------*/
-.ytp-right-controls{
-	display: flex;
-}
-
-#it-fit-to-win-player-button{
-	order: 1;
-}
-.ytp-fullscreen-button{
-	order: 2;
-}
-
-#ftw-icon path {
-	fill: none;
-}
 .it-player-button {
 	position: relative !important;
 	display: flex !important;
@@ -207,7 +193,7 @@ html[it-mini-player-cursor='nw-resize']::after {
 .it-player-button>svg {
 	width: 56% !important;
 	height: auto !important;
-	fill: #fff;
+	fill: #fff !important;
 }
 
 .it-player-button--tooltip {
