@@ -403,7 +403,7 @@ html[data-page-type=video][it-player-size='full_window'] .ytp-fit-cover-video .h
 
 /*outdated line?*/ html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy[theater]:not([fullscreen]) #player-wide-container, 
 html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy[full-bleed-player]:not([fullscreen]) #full-bleed-container.ytd-watch-flexy {
-	height: calc(var(--it-player-size, 100vh) - var(--it-header-size)) !important;
+	height: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;
 	max-height: var(--it-player-size, 100vh) !important;
 }
 
@@ -422,13 +422,13 @@ html[data-page-type=video][it-player-size='fit_to_window'] .ytp-fit-cover-video 
 --------------------------------------------------------------*/
 
 html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='custom']):not([it-player-size='normal']):not([it-player-size='fit_to_window']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #player-container-inner {
-	padding-top: calc(var(--it-player-size) - var(--it-header-size)) !important;
+	padding-top: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;
 }
 
 html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='custom']):not([it-player-size='normal']):not([it-player-size='fit_to_window']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container,
 html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='custom']):not([it-player-size='normal']):not([it-player-size='fit_to_window']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) #player-theater-container {
 	width: auto !important;
-	height: calc(var(--it-player-size) - var(--it-header-size)) !important;
+	height: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;
 	min-height: auto !important;
 	max-height: none !important;
 }
@@ -452,7 +452,7 @@ html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change'
 	left: 0 !important;
 	width: auto !important;
 	max-width: 100% !important;
-	height: calc(var(--it-player-size) - var(--it-header-size)) !important;
+	height: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;
 }
 
 
@@ -491,7 +491,7 @@ html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change'
 [data-page-type='video'][it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) video {
 	position: static !important;
 	width: auto !important;
-	height: calc(var(--it-player-size) - var(--it-header-size)) !important;
+	height: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;
 	max-height: none !important;
 }
 
@@ -518,7 +518,7 @@ html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change'
 [data-page-type='video'][it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) video {
 	position: static !important;
 	width: 100% !important;
-	height: calc(var(--it-player-size) - var(--it-header-size)) !important;
+	height: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;
 	max-height: none !important;
 }
 
@@ -528,8 +528,8 @@ html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change'
 
 html[data-page-type='video'][it-player-size='custom'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container,
 html[data-page-type='video'][it-player-size='custom'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) #player-theater-container {
-	width: var(--it-player-width) !important;
-	height: var(--it-player-height) !important;
+	width: var(--it-player-width, 60vw) !important;
+	height: var(--it-player-height, 30vh) !important;
 	margin: 0 auto;
 	min-height: auto !important;
 	max-height: none !important;
