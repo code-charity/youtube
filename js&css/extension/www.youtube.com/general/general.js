@@ -558,17 +558,18 @@ extension.features.thumbnailsQuality = function (anything) {
 --------------------------------------------------------------*/
 
 extension.features.openNewTab = function (){
+	if (extension.storage.get("open_new_tab") === true) {
 	window.onload = function () {
 		const searchButton = document.querySelector("button#search-icon-legacy");
 		const inputField = document.querySelector("input#search");
 
 		searchButton.addEventListener("click", (event) => {
-			if (extension.storage.get("open_new_tab") === true) {
+			
 			  performSearchNewTab(event);
-			}
+			
 		  });
 		inputField.addEventListener("keydown", function (event) {
-			if (extension.storage.get("open_new_tab") === true && event.key === "Enter") {
+			if (event.key === "Enter") {
 				performSearchNewTab(event);
 			}
 		});
@@ -584,5 +585,6 @@ extension.features.openNewTab = function (){
 		  inputField.value = "";
 		  inputField.focus();
 		}
+	}
 	}
 }
