@@ -217,7 +217,7 @@ html[data-page-type=video][it-header-position=normal] ytd-app,
 html[data-page-type=video][it-header-position=static] ytd-app {
 	--it-header-size: 56px;
 }
-
+/* 
 html[data-page-type=video]:not([it-header-position]) ytd-watch-flexy:not([theater]),
 html[data-page-type=video][it-header-position=normal] ytd-watch-flexy:not([theater]),
 html[data-page-type=video][it-header-position=static] ytd-watch-flexy:not([theater]) {
@@ -234,7 +234,7 @@ html[data-page-type=video]:not([it-header-position]) div#page:not(.watch-wide),
 html[data-page-type=video][it-header-position=normal] div#page:not(.watch-wide),
 html[data-page-type=video][it-header-position=static] div#page:not(.watch-wide) {
 	--it-header-size: 70px;
-}
+} */
 
 
 /*--------------------------------------------------------------
@@ -395,6 +395,13 @@ html[data-page-type=video][it-player-size='max_width'] .ytp-fit-cover-video .htm
 # FULL HEIGHT  "Full window"
 --------------------------------------------------------------*/
 
+/*outdated line?*/ html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy[theater]:not([fullscreen]) #player-wide-container, 
+html[data-page-type=video][it-player-size='fit_to_window'] ytd-watch-flexy[full-bleed-player]:not([fullscreen]) #full-bleed-container.ytd-watch-flexy,
+html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy[full-bleed-player]:not([fullscreen]) #full-bleed-container.ytd-watch-flexy {
+	height: calc(var(--it-player-size) - var(--it-header-size)) !important;
+	max-height: var(--it-player-size) !important;
+}
+
 html[data-page-type=video][it-player-size='full_window'] {
 	--it-player-size: 100vh;}
 
@@ -411,6 +418,7 @@ html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy[full-bl
 #  "FIT TO WINDOW"  (needs update)
 --------------------------------------------------------------*/
 
+html[data-page-type="video"][it-player-size="fit_to_window"] ytd-watch-flexy[default-layout]:not([no-top-margin]):not([reduced-top-margin]) #primary {padding-top:0}
 html[data-page-type=video][it-player-size='fit_to_window'] {
 	--it-player-size: 100vh;}
 
@@ -483,18 +491,24 @@ html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change'
 	align-items: center !important;
 }
 
-[data-page-type='video'][it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) .html5-video-player {
-	display: table !important;
-	width: auto !important;
-}
 
 [data-page-type='video'][it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) video {
 	position: static !important;
-	width: auto !important;
-	height: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;
+/*	width: auto !important;
+	height: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;  
+	*/
 	max-height: none !important;
+	max-width: 100% !important;
+	height: var(--height, 64vh) !important;
+	width: var(--width, 36vw) !important;
+	
 }
 
+[data-page-type='video'][it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) #container {
+	--height: calc(var(--it-player-size) - var(--it-header-size));
+	--ratio: calc(var(--ytd-watch-flexy-width-ratio) / var(--ytd-watch-flexy-height-ratio));
+	--width: calc(var(--height) * var(--ratio));
+}
 
 /*--------------------------------------------------------------
 # THEATER: OFF
@@ -528,8 +542,8 @@ html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change'
 
 html[data-page-type='video'][it-player-size='custom'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container,
 html[data-page-type='video'][it-player-size='custom'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) #player-theater-container {
-	width: var(--it-player-width, 60vw) !important;
-	height: var(--it-player-height, 30vh) !important;
+	width: var(--it-player-width, 64vw) !important;
+	height: var(--it-player-height, 36vh) !important;
 	margin: 0 auto;
 	min-height: auto !important;
 	max-height: none !important;
