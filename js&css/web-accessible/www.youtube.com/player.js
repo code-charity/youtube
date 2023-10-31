@@ -728,11 +728,19 @@ ImprovedTube.playerPopupButton = function () {
 
 				player.pauseVideo();
 
-				let urlPopup = `${location.protocol}//www.youtube.com/embed/${location.search.match(ImprovedTube.regex.video_id)[1]}?start=${parseInt(player.getCurrentTime())}&autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}`;
+				const videoID = location.search.match(ImprovedTube.regex.video_id)[1];
+
+				let urlPopup = `${location.protocol}//www.youtube.com/embed/${videoID}?start=${parseInt(player.getCurrentTime())}&autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}`;
 				const listMatch = location.search.match(ImprovedTube.regex.playlist_id);
 				if (listMatch) urlPopup += `&list=${listMatch[1]}`;
 
-				window.open(urlPopup, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${player.offsetWidth},height=${player.offsetHeight}`);
+				const popup = window.open(urlPopup, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${player.offsetWidth},height=${player.offsetHeight}`);
+				if(popup && listMatch){
+					popup.addEventListener('load', function () {
+						const videoLink = popup.document.querySelector('div#player div.ytp-title-text>a[href]');
+						if (videoLink && videoLink.href.match(ImprovedTube.regex.video_id)[1] !== videoID) popup.location.search = popup.location.search.replace(/(\?)list=[^&]+&|&list=[^&]+/, '$1');
+					}, {passive: true, once: true});
+				}
 			},
 			title: 'Popup'
 		});
