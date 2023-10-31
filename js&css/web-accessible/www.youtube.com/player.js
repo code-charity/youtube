@@ -83,9 +83,9 @@ ImprovedTube.playerPlaybackSpeed = function () {
 		let keywords =	document.getElementsByTagName('meta')?.keywords?.content  || false;
 		var musicIdentifiers = new RegExp("(official|music|lyrics)[ -]video|(cover|studio|radio|album|alternate)[- ]version|theme song|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)" , "i");
 		var musicRegexMatch = musicIdentifiers.test(title);
-		if (!musicRegexMatch) { musicRegexMatch = /lyrics|\bremix|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover[\)\]]|[\(\[]cover|\bconcert\b/i.test(title); 
+		if (!musicRegexMatch) { musicRegexMatch = /lyrics|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i.test(title); 
 			if (!musicRegexMatch) { musicRegexMatch = musicIdentifiers.test(keywords);
-				if (!musicRegexMatch) { musicRegexMatch = /, (lyrics|remix|song|music),|\bfull song\b/i.test(keywords);
+				if (!musicRegexMatch) { musicRegexMatch = /, (lyrics|remix|song|music|AMV),|\bfull song\b/i.test(keywords);
 				}
 			}
 		}
