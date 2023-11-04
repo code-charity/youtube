@@ -81,15 +81,20 @@ ImprovedTube.playerPlaybackSpeed = function () {
 
 		let title = document.getElementsByTagName('meta')?.title?.content || false;
 		let keywords =	document.getElementsByTagName('meta')?.keywords?.content  || false;
-		var musicIdentifiers = /(official|music|lyrics)[ -]video|(cover|studio|radio|album|alternate)[- ]version|theme song|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
-		var musicRegexMatch = musicIdentifiers.test(title);
-		if (!musicRegexMatch) { musicRegexMatch = /lyrics|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i.test(title); 
-			if (!musicRegexMatch) { musicRegexMatch = musicIdentifiers.test(keywords);
-				if (!musicRegexMatch) { musicRegexMatch = /, (lyrics|remix|song|music|AMV),|\bfull song\b/i.test(keywords);
+		var musicIdentifiers = /(official|music|lyrics)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
+		var musicIdentifiersTitleOnly = /lyrics|theme song|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i;
+		var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + musicIdentifiers.source, "i");		
+		var musicRegexMatch = musicIdentifiersTitle.test(title);
+		if (!musicRegexMatch) { 
+				var musicIdentifiersTagsOnly = /, (lyrics|remix|song|music|AMV|theme song|full song),/i; 	
+				var musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + musicIdentifiers.source, "i");	
+				var keywordsAmount = 1 + ((keywords || '').match(/,/) || []).length;
+				if ( ((keywords || '').match(musicIdentifiersTags) || []).length / keywordsAmount > 0.08 {
+					musicRegexMatch = true)	
 				}
-			}
-		}
-		let notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(title + " " + keywords);						     // (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
+		}			
+		let notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(title + " " + keywords);						     
+					// (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
 		var duration = document.querySelector('meta[itemprop=duration]')?.content || false; // Example:  PT1H20M30S
 			if(!duration) { itemprops = document.getElementsByTagName('meta'); 
 					for (var i = 0; i < itemprops.length; i++) {
