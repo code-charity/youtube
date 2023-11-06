@@ -60,10 +60,8 @@ ImprovedTube.ytElementsHandler = function (node) {
 	} 
 		else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
 		if (
-			node.parentComponent &&
-			node.parentComponent.nodeName === 'YTD-MENU-RENDERER' &&
-			node.parentComponent.parentComponent &&
-			node.parentComponent.parentComponent.nodeName === 'YTD-PLAYLIST-PANEL-RENDERER'
+			node.closest("YTD-MENU-RENDERER") &&
+			node.closest("YTD-PLAYLIST-PANEL-RENDERER")
 		) {
 			var index = Array.prototype.indexOf.call(node.parentNode.children, node);
 
