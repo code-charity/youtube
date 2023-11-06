@@ -21,7 +21,7 @@ assignees: ''
           (A clear and concise description of what you want to happen). 
            Please consider screenshots or sketches if it makes sense)-->
 
-⚬ _BOUNTY_:  <!-- How much are you willing to donate / pay for this? and by what method? (If you are not willing to donate, use the other issue template) -->
+⚬ _BOUNTY_:  <!-- How much are you willing to donate / pay for this? and by what method? -->
 
  ⚬ _ALTERNATIVES_: 
 <!-- (Describe what you've considered: 
