@@ -89,9 +89,8 @@ ImprovedTube.playerPlaybackSpeed = function () {
 				var musicIdentifiersTagsOnly = /, (lyrics|remix|song|music|AMV|theme song|full song),/i; 	
 				var musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + musicIdentifiers.source, "i");	
 				var keywordsAmount = 1 + ((keywords || '').match(/,/) || []).length;
-				if ( ((keywords || '').match(musicIdentifiersTags) || []).length / keywordsAmount > 0.08 {
-					musicRegexMatch = true)	
-				}
+				if ( ((keywords || '').match(musicIdentifiersTags) || []).length / keywordsAmount > 0.08) {
+				musicRegexMatch = true}
 		}			
 		let notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(title + " " + keywords);						     
 					// (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
