@@ -133,12 +133,13 @@ ImprovedTube.shortcuts = function () {
 	});
 
 	document.addEventListener('improvedtube-player-loaded', function () {
-		ImprovedTube.elements.player.parentNode.addEventListener('mouseover', function () {
+	//Please Fix: November2023: this parentNode doesnt exist on youtube.com/shorts
+		ImprovedTube.elements.player.parentNode?.addEventListener('mouseover', function () {
 			mouse.player = true;
 			mouse.wheel = 0;
 		}, true);
 
-		ImprovedTube.elements.player.parentNode.addEventListener('mouseout', function () {
+		ImprovedTube.elements.player.parentNode?.addEventListener('mouseout', function () {
 			mouse.player = false;
 			mouse.wheel = 0;
 		}, true);
