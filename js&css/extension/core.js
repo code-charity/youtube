@@ -323,17 +323,3 @@ extension.storage.load = function (callback) {
 		}
 	});
 };
-
-/*--------------------------------------------------------------
-# Experimental remedy for many uninstalls since October 18, for no apparent reason  (unrelated to us)
-from @dodieboy's UO rules https://github.com/code-charity/youtube/issues/1809#issuecomment-1783983060
---------------------------------------------------------------*/
-
-window.addEventListener('load', function () {
-  if (window.location.hostname === 'www.youtube.com') {
-    yt.config_.openPopupConfig.supportedPopups.adBlockMessageViewModel = false;
-    Object.prototype.adBlocksFound = 0;
-    ytplayer.config.args.raw_player_response.adPlacements = [];
-    Object.prototype.hasAllowedInstreamAd = true;
-  }
-});
