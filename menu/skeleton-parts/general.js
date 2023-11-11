@@ -1093,6 +1093,15 @@ extension.skeleton.main.layers.section.general = {
 				remove_home_page_shorts: {
 					component: 'switch',
 					text: 'removeHomePageShorts'
+				}
+			},
+			search: {
+				component: 'section',
+				variant: 'card',
+				title: 'Youtube\'s Search',
+				open_new_tab: {
+					component: "switch",
+					text: "openNewTab",
 				},
 				remove_related_search_results: {
 					component: 'switch',
@@ -1319,10 +1328,6 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'confirmationBeforeClosing',
 					tags: 'random prevent close exit'
-				},
-				open_new_tab: {
-					component: "switch",
-					text: "openNewTab",
 				},
 			}
 		}

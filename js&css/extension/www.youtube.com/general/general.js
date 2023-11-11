@@ -563,27 +563,45 @@ extension.features.openNewTab = function (){
 		const searchButton = document.querySelector("button#search-icon-legacy");
 		const inputField = document.querySelector("input#search");
 
-		searchButton.addEventListener("click", (event) => {
-			
-			  performSearchNewTab(event);
-			
+		searchButton.addEventListener("mousedown", (event) => {
+			  performSearchNewTab(inputField.value);
 		  });
 		inputField.addEventListener("keydown", function (event) {
 			if (event.key === "Enter") {
-				performSearchNewTab(event);
+				performSearchNewTab(inputField.value);
 			}
 		});
 
-		function performSearchNewTab(e) {
-		  e.stopImmediatePropagation();
-	  
-		  const newTabURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(
-			inputField.value
-		  )}`;
-		  chrome.runtime.sendMessage({ action: "createNewTab", url: newTabURL });
-	  
-		  inputField.value = "";
-		  inputField.focus();
+
+		let searchedAlready = false;
+		inputField.addEventListener("focus", function () {
+			searchedAlready = false;
+			const observer = new MutationObserver(applySuggestionListeners);
+			const container = document.querySelector("div[style*='position: fixed'] ul[role='listbox']");
+			if (container) observer.observe(container, { attributes: true, childList: true, subtree: true });
+});
+
+		inputField.addEventListener("input", () => searchedAlready = false);
+
+	function applySuggestionListeners() {
+		const suggestionContainers = document.querySelectorAll("div[class^='sbqs'], div[class^='sbpqs']");
+		suggestionContainers.forEach((suggestionsContainer) => {
+			suggestionsContainer.addEventListener("mousedown", (event) => {
+			const suggestionListItem = event.target.closest("li[role='presentation']");
+			if (suggestionListItem && !searchedAlready) {
+				const query = suggestionListItem.querySelector("b").textContent
+				performSearchNewTab(inputField.value + query);
+				searchedAlready = true; 
+      }
+    });
+  });
+}
+
+	function performSearchNewTab(query) {
+	inputField.value = "";
+    inputField.focus();		   
+    const newTabURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+    window.open(newTabURL, '_blank');
 		}
 	}
 	}

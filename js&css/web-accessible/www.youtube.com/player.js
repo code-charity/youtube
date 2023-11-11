@@ -118,10 +118,10 @@ ImprovedTube.playerPlaybackSpeed = function () {
  // check if the video is PROBABLY MUSIC:
 	if  ( 		( category === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))
 			||  ( musicRegexMatch && !notMusicRegexMatch && typeof songDurationType !== 'undefined' 
-						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|\b(live|cd|vinyl|lp|ep)\b/i.test(title + " " + keywords) 
+						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(title + " " + keywords) 
 							&& 1150 <= durationInSeconds && durationInSeconds <= 5000) )
 			||	( category === 'Music' && musicRegexMatch && typeof songDurationType !== 'undefined'  
-						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|\b(live|cd|vinyl|lp|ep)\b/i.test(title + " " + keywords) 
+						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(title + " " + keywords) 
 							&& 1150 <= durationInSeconds && durationInSeconds <= 5000) )
 		  //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
 		)	{ } //music player.setPlaybackRate(1); video.playbackRate = 1;				 				

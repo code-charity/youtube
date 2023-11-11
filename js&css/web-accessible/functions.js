@@ -413,7 +413,8 @@ ImprovedTube.playerOnEnded = function (event) {
 
 	ImprovedTube.messages.send({
 		action: 'analyzer',
-		name: ImprovedTube.elements.yt_channel_name.__data.tooltipText,
+		//adding "?" (not a fix)
+		name: ImprovedTube.elements.yt_channel_name?.__data.tooltipText,
 		time: ImprovedTube.played_time
 	});
 
