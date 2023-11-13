@@ -103,13 +103,12 @@ ImprovedTube.playerPlaybackSpeed = function () {
 				function parseDuration(duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0); 
 				return h * 3600 + m * 60 + s; } 
 		var durationInSeconds = parseDuration(duration); 
-				function testSongDuration(s) { 
+				function testSongDuration(s, ytMusic) { 
 				if (135 <= s && s <= 260) {return 'veryCommon';}
 				if (105 <= s && s <= 420) {return 'common';}
 				if (420 <= s && s <= 720) {return 'long';}	
 				if  (45 <= s && s <= 105) {return 'short';}	  
-				let musicSectionLength = document.querySelector('div#items[class*="music-section"]')?.children?.length;
-				if (musicSectionLength && (85 <= s / musicSectionLength && s / musicSectionLength<= 355)) {return 'multiple';}
+				if (ytMusic && ytMusic > 1 && (85 <= s / ytMusic && s / ytMusic <= 355)) {return 'multiple';}
 			}				
 		var songDurationType = testSongDuration(durationInSeconds); 
 		console.log("category: " + category + "//title: " +  title + "//keywords: " + keywords + "//music word match: " +  musicRegexMatch + "// not music word match:" + notMusicRegexMatch + "//duration: " + duration + "//song duration type: " +  songDurationType);
@@ -128,18 +127,16 @@ ImprovedTube.playerPlaybackSpeed = function () {
 			else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);	//  #1729 question2		 
 				// Now this video might rarely be music 
 				// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
-					var tries = 0; 	var intervalMs = 150;  	if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 1;}  	
+					var tries = 0; 	var intervalMs = 150;  	if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}  	
 														// ...except when it is an embedded player?
-		
 					var waitForDescription = setInterval(() => { 	
-					if ((++tries >= maxTries) || document.querySelector('div#description')) { 
-					if (document.querySelector('h3#title[class*="music-section"]')   // indicates buyable/registered music
-						&& typeof testSongDuration(parseDuration(document.querySelector('meta[itemprop=duration]')?.content)) !== 'undefined' ) // resonable duration
-							{player.setPlaybackRate(1); video.playbackRate = 1; } clearInterval(waitForDescription); } 			
-					intervalMs *= 1.4;				
-					}, intervalMs);	   						
-				}
-		}	else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);} // #1729 question2	 
+					if (++tries >= maxTries) {  
+					if (document.querySelector('#title + #subtitle')  // indicates buyable/registered music
+						&& typeof testSongDuration(parseDuration(document.querySelector('meta[itemprop=duration]')?.content), Number(document.querySelector('#title + #subtitle')?.innerHTML?.match(/^\d+/)[0]) || false) !== 'undefined' ) // resonable duration
+							{player.setPlaybackRate(1); video.playbackRate = 1; console.log("Youtube shows music below the description"); clearInterval(waitForDescription); } 			
+					intervalMs *= 1.0;	}}, intervalMs);	   						
+				
+			}}	else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);} // #1729 question2	 
 	} 
 };
 // hi @raszpl  // ImprovedTube.playerForceSpeedOnMusic = function () {  ImprovedTube.playerPlaybackSpeed(); };  
