@@ -181,18 +181,18 @@ html[it-mini-player-cursor='nw-resize']::after {
 /*------------------------------------------------------------------------------
 # 
 ------------------------------------------------------------------------------*/
-.ytp-right-controls{
+html[data-page-type='video'][it-player-fit-to-win-button='true'] .ytp-right-controls{
 	display: flex;
 }
 
-#it-fit-to-win-player-button{
+html[data-page-type='video'][it-player-fit-to-win-button='true'] #it-fit-to-win-player-button{
 	order: 1;
 }
-.ytp-fullscreen-button{
+html[data-page-type='video'][it-player-fit-to-win-button='true'] .ytp-fullscreen-button{
 	order: 2;
 }
 
-#ftw-icon path {
+html[data-page-type='video'][it-player-fit-to-win-button='true'] #ftw-icon path {
 	fill: none;
 }
 .it-player-button {
