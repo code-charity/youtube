@@ -134,44 +134,89 @@ ImprovedTube.playlistShuffle = function () {
 /*------------------------------------------------------------------------------
 4.5.5 POPUP
 ------------------------------------------------------------------------------*/
-ImprovedTube.playlistPopup = function () {
-	if (!(ImprovedTube.storage.playlist_popup ?? false)) return;
-	const shareButtonPlaylist = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-browse>ytd-playlist-header-renderer ytd-button-renderer.ytd-playlist-header-renderer:has(button[aria-label="Share"])'),
-		shuffleButtonMini = document.body.querySelector('ytd-app>ytd-miniplayer ytd-playlist-panel-renderer div#playlist-action-menu ytd-toggle-button-renderer.ytd-menu-renderer:has(button[aria-label="Shuffle playlist"])'),
-		shuffleButtonPanel = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-watch-flexy ytd-playlist-panel-renderer div#playlist-action-menu ytd-toggle-button-renderer.ytd-menu-renderer:has(button[aria-label="Shuffle playlist"])');
-	/* TODO
-		check siblings if there is a button (playlist popup button) → query select with id on parentElement (of the share/shuffle button)
-		→ if not, create one (data-list has the playlist id)
-		? class yt-spec-button-shape-next--tonal should be yt-spec-button-shape-next--text for the mini player and the playlist panel
-		? id must not be different for the 3 different button positions (when using querySelector ↑)
-		! refactor ~ one function to create a button and 3 checks for which variant to create
-	*/
-	if(shareButtonPlaylist != null && !document.getElementById('it-popup-playlist-button')){
-		var button = document.createElement('button'),
-			svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		
-		button.id = 'it-popup-playlist-button';
-		button.className = 'yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--overlay yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button style-scope ytd-playlist-header-renderer';
-		button.title = "Popup playlist";
-		button.style.opacity='0.8';
-		button.dataset.list = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-browse>ytd-playlist-header-renderer div.thumbnail-and-metadata-wrapper>a[href*="list="]').href.match(ImprovedTube.regex.playlist_id)[1];
-		button.addEventListener('click', function (event) {
+/**
+ * ## Creates a playlist popup button (with ID `it-popup-playlist-button`)
+ * - used by/in {@linkcode ImprovedTube.playlistPopupUpdate}
+ * - checks {@linkcode ImprovedTube.storage.player_autoplay} if to autoplay the popuped playlist/video
+ * - checks {@linkcode ImprovedTube.elements.player} to get video ID and current time, if available, otherwise starts first video of playlist
+ * - popup has video players width/height or window (inner) width/height when video player is not available
+ * - the button has the playlist ID as `list` in its dataset and reads from it to open the popup
+ * @param {string | null} playlistID - the playlist ID or `null`
+ * @param {boolean} [altButtonStyle] - [optional] changes styling of the playlist popup button - `true` for minplayer and playlist panel and `false` for the playlist page - default `false`
+ * @param {boolean} [checkVideo] - [optional] if `true` checks the {@linkcode ImprovedTube.elements.player} to get the video ID, time, and size, if available, otherwise starts first video of playlist - default `false` (starts first video of playlist)
+ * @returns {HTMLButtonElement | null} the playlist popup button to insert into the DOM or `null` if the {@linkcode playlistID} is `null`
+ */
+ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, checkVideo) {
+	"use strict";
+	if (playlistID == null) return null;
+	const button = document.createElement('button'),
+		svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+		path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+	button.id = 'it-popup-playlist-button';
+	button.className = `yt-spec-button-shape-next yt-spec-button-shape-next--${(altButtonStyle ?? false) ? 'text' : 'tonal'} yt-spec-button-shape-next--overlay yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button style-scope ytd-playlist-header-renderer`;
+	button.title = 'Popup playlist';
+	button.dataset.list = playlistID;
+	button.style.opacity = '0.8';
+	button.addEventListener(
+		'click',
+		(checkVideo ?? false) ? function (event) {
+			"use strict";
+			const videoURL = ImprovedTube.elements.player?.getVideoUrl();
+			if (videoURL != null && ImprovedTube.regex.video_id.test(videoURL)) {
+				ImprovedTube.elements.player.pauseVideo();
+				window.open(`${location.protocol}//www.youtube.com/embed/${videoURL.match(ImprovedTube.regex.video_id)[1]}?autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}&start=${videoURL.match(ImprovedTube.regex.video_time)?.[1] ?? '0'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${ImprovedTube.elements.player.offsetWidth ?? innerWidth},height=${ImprovedTube.elements.player.offsetHeight ?? innerHeight}`);
+				//! If the video is not in the playlist or not within the first 200 entries, then it automatically selects the first video in the list.
+				//! But this is okay since this button is mainly for the playlist, not the video (see the video popup button in player.js).
+			} else window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${innerWidth},height=${innerHeight}`);
+		} : function (event) {
+			"use strict";
 			window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${innerWidth},height=${innerHeight}`);
-		}, true);
+		},
+		true
+	);
 
-		svg.style.width = '24px';
-		svg.style.height = '24px';
-		svg.style.pointerEvents = 'none';
-		svg.style.fill = 'currentColor';
-		svg.setAttribute('viewBox', '0 0 24 24');
-		path.setAttribute('d', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z');
+	svg.style.width = '24px';
+	svg.style.height = '24px';
+	svg.style.pointerEvents = 'none';
+	svg.style.fill = 'currentColor';
+	svg.setAttribute('viewBox', '0 0 24 24');
+	path.setAttribute('d', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z');
 
-		svg.append(path);
+	svg.append(path);
+	button.append(svg);
 
-		button.append(svg);
+	return button;
+};
+/**
+ * ## Adds a playlist popup button to each playlist panel found or update the links of existing popup buttons
+ * - buttons will be added on the playlist page (next to the share button), in the playlist panel (after the loop and shuffle buttons), and/or the mini playlist section of the mini player (after the loop and shuffle buttons)
+ * - uses {@linkcode ImprovedTube.playlistPopupCreateButton} to create each button
+ * - saves each button in {@linkcode ImprovedTube.elements.buttons} as `it-popup-playlist-button-playlist`, `it-popup-playlist-button-mini`, and `it-popup-playlist-button-panel`
+ * - called from {@linkcode ImprovedTube.ytElementsHandler} and {@linkcode ImprovedTube.hrefObserver} when DOM changes (somewhat related to playlist renderers)
+ */
+ImprovedTube.playlistPopupUpdate = function () {
+	"use strict";
+	if (!(this.storage.playlist_popup ?? false)) return;
 
-		shareButtonPlaylist.insertAdjacentElement('afterend', button);
-		// ImprovedTube.elements.playlist.actions.appendChild(button);
-	}
+	const playlistID = location.search.match(this.regex.playlist_id)?.[1],
+		playlistIDMini = this.elements.player?.getPlaylistId?.();
+
+	if (!document.contains(this.elements.buttons['it-popup-playlist-button-playlist'])) {
+		const playlistShareButton = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-browse>ytd-playlist-header-renderer ytd-button-renderer.ytd-playlist-header-renderer:has(button[title])');
+		if (playlistShareButton == null) this.elements.buttons['it-popup-playlist-button-playlist'] = null;
+		else playlistShareButton.insertAdjacentElement('afterend', this.elements.buttons['it-popup-playlist-button-playlist'] = this.playlistPopupCreateButton(playlistID));
+	} else if (playlistID != null && this.elements.buttons['it-popup-playlist-button-playlist'].dataset.list !== playlistID) this.elements.buttons['it-popup-playlist-button-playlist'].dataset.list = playlistID;
+
+	if (!document.contains(this.elements.buttons['it-popup-playlist-button-mini'])) {
+		const miniItemButtons = document.body.querySelector('ytd-app>ytd-miniplayer ytd-playlist-panel-renderer div#top-level-buttons-computed');
+		if (miniItemButtons == null) this.elements.buttons['it-popup-playlist-button-mini'] = null;
+		else miniItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-mini'] = this.playlistPopupCreateButton(playlistIDMini, true, true));
+	} else if (playlistIDMini != null && this.elements.buttons['it-popup-playlist-button-mini'].dataset.list !== playlistIDMini) this.elements.buttons['it-popup-playlist-button-mini'].dataset.list = playlistIDMini;
+
+	if (!document.contains(this.elements.buttons['it-popup-playlist-button-panel'])) {
+		const panelItemButtons = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-watch-flexy ytd-playlist-panel-renderer div#top-level-buttons-computed');
+		if (panelItemButtons == null) this.elements.buttons['it-popup-playlist-button-panel'] = null;
+		else panelItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-panel'] = this.playlistPopupCreateButton(playlistID, true, true));
+	} else if (playlistID != null && this.elements.buttons['it-popup-playlist-button-panel'].dataset.list !== playlistID) this.elements.buttons['it-popup-playlist-button-panel'].dataset.list = playlistID;
 };
