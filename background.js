@@ -264,7 +264,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 });
 
 
-/*------ search results in new tab --------- */
+/*------ search results in new tab --------- 
 chrome.storage.local.get('open_new_tab', function (result) 
 {if (result.open_new_tab === true){ 
 
@@ -274,8 +274,8 @@ chrome.runtime.onMessage.addListener(function (request) {
   }
 });
 
-}});
-
+}});  */
+ 
 /*--------------------------------------------------------------
 # UNINSTALL URL
 --------------------------------------------------------------*/

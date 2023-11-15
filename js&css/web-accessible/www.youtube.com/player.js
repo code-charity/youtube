@@ -81,15 +81,19 @@ ImprovedTube.playerPlaybackSpeed = function () {
 
 		let title = document.getElementsByTagName('meta')?.title?.content || false;
 		let keywords =	document.getElementsByTagName('meta')?.keywords?.content  || false;
-		var musicIdentifiers = /(official|music|lyrics)[ -]video|(cover|studio|radio|album|alternate)[- ]version|theme song|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
-		var musicRegexMatch = musicIdentifiers.test(title);
-		if (!musicRegexMatch) { musicRegexMatch = /lyrics|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i.test(title); 
-			if (!musicRegexMatch) { musicRegexMatch = musicIdentifiers.test(keywords);
-				if (!musicRegexMatch) { musicRegexMatch = /, (lyrics|remix|song|music|AMV),|\bfull song\b/i.test(keywords);
-				}
-			}
-		}
-		let notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(title + " " + keywords);						     // (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
+		var musicIdentifiers = /(official|music|lyrics)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
+		var musicIdentifiersTitleOnly = /lyrics|theme song|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i;
+		var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + musicIdentifiers.source, "i");		
+		var musicRegexMatch = musicIdentifiersTitle.test(title);
+		if (!musicRegexMatch) { 
+				var musicIdentifiersTagsOnly = /, (lyrics|remix|song|music|AMV|theme song|full song),/i; 	
+				var musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + musicIdentifiers.source, "i");	
+				var keywordsAmount = 1 + ((keywords || '').match(/,/) || []).length;
+				if ( ((keywords || '').match(musicIdentifiersTags) || []).length / keywordsAmount > 0.08) {
+				musicRegexMatch = true}
+		}			
+		let notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(title + " " + keywords);						     
+					// (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
 		var duration = document.querySelector('meta[itemprop=duration]')?.content || false; // Example:  PT1H20M30S
 			if(!duration) { itemprops = document.getElementsByTagName('meta'); 
 					for (var i = 0; i < itemprops.length; i++) {
@@ -99,13 +103,12 @@ ImprovedTube.playerPlaybackSpeed = function () {
 				function parseDuration(duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0); 
 				return h * 3600 + m * 60 + s; } 
 		var durationInSeconds = parseDuration(duration); 
-				function testSongDuration(s) { 
+				function testSongDuration(s, ytMusic) { 
 				if (135 <= s && s <= 260) {return 'veryCommon';}
 				if (105 <= s && s <= 420) {return 'common';}
 				if (420 <= s && s <= 720) {return 'long';}	
 				if  (45 <= s && s <= 105) {return 'short';}	  
-				let musicSectionLength = document.querySelector('div#items[class*="music-section"]')?.children?.length;
-				if (musicSectionLength && (85 <= s / musicSectionLength && s / musicSectionLength<= 355)) {return 'multiple';}
+				if (ytMusic && ytMusic > 1 && (85 <= s / ytMusic && s / ytMusic <= 355)) {return 'multiple';}
 			}				
 		var songDurationType = testSongDuration(durationInSeconds); 
 		console.log("category: " + category + "//title: " +  title + "//keywords: " + keywords + "//music word match: " +  musicRegexMatch + "// not music word match:" + notMusicRegexMatch + "//duration: " + duration + "//song duration type: " +  songDurationType);
@@ -114,28 +117,26 @@ ImprovedTube.playerPlaybackSpeed = function () {
  // check if the video is PROBABLY MUSIC:
 	if  ( 		( category === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))
 			||  ( musicRegexMatch && !notMusicRegexMatch && typeof songDurationType !== 'undefined' 
-						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|\b(live|cd|vinyl|lp|ep)\b/i.test(title + " " + keywords) 
+						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(title + " " + keywords) 
 							&& 1150 <= durationInSeconds && durationInSeconds <= 5000) )
 			||	( category === 'Music' && musicRegexMatch && typeof songDurationType !== 'undefined'  
-						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|\b(live|cd|vinyl|lp|ep)\b/i.test(title + " " + keywords) 
+						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(title + " " + keywords) 
 							&& 1150 <= durationInSeconds && durationInSeconds <= 5000) )
 		  //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
 		)	{ } //music player.setPlaybackRate(1); video.playbackRate = 1;				 				
 			else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);	//  #1729 question2		 
 				// Now this video might rarely be music 
 				// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
-					var tries = 0; 	var intervalMs = 150;  	if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 1;}  	
+					var tries = 0; 	var intervalMs = 150;  	if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}  	
 														// ...except when it is an embedded player?
-		
 					var waitForDescription = setInterval(() => { 	
-					if ((++tries >= maxTries) || document.querySelector('div#description')) { 
-					if (document.querySelector('h3#title[class*="music-section"]')   // indicates buyable/registered music
-						&& typeof testSongDuration(parseDuration(document.querySelector('meta[itemprop=duration]')?.content)) !== 'undefined' ) // resonable duration
-							{player.setPlaybackRate(1); video.playbackRate = 1; } clearInterval(waitForDescription); } 			
-					intervalMs *= 1.4;				
-					}, intervalMs);	   						
-				}
-		}	else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);} // #1729 question2	 
+					if (++tries >= maxTries) {  
+					if (document.querySelector('#title + #subtitle')  // indicates buyable/registered music
+						&& typeof testSongDuration(parseDuration(document.querySelector('meta[itemprop=duration]')?.content), Number(document.querySelector('#title + #subtitle')?.innerHTML?.match(/^\d+/)[0]) || false) !== 'undefined' ) // resonable duration
+							{player.setPlaybackRate(1); video.playbackRate = 1; console.log("Youtube shows music below the description"); clearInterval(waitForDescription); } 			
+					intervalMs *= 1.0;	}}, intervalMs);	   						
+				
+			}}	else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);} // #1729 question2	 
 	} 
 };
 // hi @raszpl  // ImprovedTube.playerForceSpeedOnMusic = function () {  ImprovedTube.playerPlaybackSpeed(); };  
