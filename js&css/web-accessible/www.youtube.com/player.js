@@ -725,15 +725,28 @@ ImprovedTube.playerPopupButton = function () {
 			child: svg,
 			opacity: 0.8,
 			onclick: function () {
-				var player = ImprovedTube.elements.player;
+				"use strict";
+				const ytPlayer = ImprovedTube.elements.player;
 
-				player.pauseVideo();
+				ytPlayer.pauseVideo();
 
-				let urlPopup = `${location.protocol}//www.youtube.com/embed/${location.search.match(ImprovedTube.regex.video_id)[1]}?start=${parseInt(player.getCurrentTime())}&autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}`;
-				const listMatch = location.search.match(ImprovedTube.regex.playlist_id);
-				if (listMatch) urlPopup += `&list=${listMatch[1]}`;
+				const videoID = location.search.match(ImprovedTube.regex.video_id)[1],
+					listMatch = location.search.match(ImprovedTube.regex.playlist_id),
+					popup = window.open(
+						`${location.protocol}//www.youtube.com/embed/${videoID}?start=${parseInt(ytPlayer.getCurrentTime())}&autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}${listMatch?`&list=${listMatch[1]}`:''}`,
+						'_blank',
+						`directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${ytPlayer.offsetWidth},height=${ytPlayer.offsetHeight}`
+					);
 
-				window.open(urlPopup, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${player.offsetWidth},height=${player.offsetHeight}`);
+				if(popup && listMatch){
+					//! If the video is not in the playlist or not within the first 200 entries, then it automatically selects the first video in the list.
+					popup.addEventListener('load', function () {
+						"use strict";
+						//~ check if the video ID in the link of the video title matches the original video ID in the URL and if not remove the playlist from the URL (reloads the page).
+						const videoLink = this.document.querySelector('div#player div.ytp-title-text>a[href]');
+						if (videoLink && videoLink.href.match(ImprovedTube.regex.video_id)[1] !== videoID) this.location.search = this.location.search.replace(/(\?)list=[^&]+&|&list=[^&]+/, '$1');
+					}, {passive: true, once: true});
+				}
 			},
 			title: 'Popup'
 		});
