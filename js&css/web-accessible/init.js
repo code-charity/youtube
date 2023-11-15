@@ -34,6 +34,9 @@ ImprovedTube.observer = new MutationObserver(function (mutationList) {
 			for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
 				ImprovedTube.childHandler(mutation.addedNodes[j]);
 			}
+			for (const node of mutation.removedNodes){
+				if(node.nodeName === 'BUTTON' && node.id === 'it-popup-playlist-button') ImprovedTube.playlistPopupUpdate();
+			}
 		}
 	}
 }).observe(document.documentElement, {
@@ -105,6 +108,7 @@ document.addEventListener('yt-page-data-updated', function (event) {
 		ImprovedTube.playlistShuffle();
 		ImprovedTube.playlistReverse();
 	}
+	ImprovedTube.playlistPopupUpdate();
 });
 
 window.addEventListener('load', function () {
