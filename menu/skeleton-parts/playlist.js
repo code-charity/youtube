@@ -38,15 +38,10 @@ extension.skeleton.main.layers.section.playlist = {
 				playlist_shuffle: {
 					component: 'switch',
 					text: 'shuffle'
-				}
-			},
-			section3: {
-				component: 'section',
-				variant: 'card',
-
+				},
 				playlist_popup: {
 					component: 'switch',
-					text: 'popup'
+					text: 'popupPlayer'
 				}
 			}
 		}
