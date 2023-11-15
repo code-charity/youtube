@@ -725,6 +725,7 @@ ImprovedTube.playerPopupButton = function () {
 			child: svg,
 			opacity: 0.8,
 			onclick: function () {
+				"use strict";
 				const ytPlayer = ImprovedTube.elements.player;
 
 				ytPlayer.pauseVideo();
@@ -740,9 +741,10 @@ ImprovedTube.playerPopupButton = function () {
 				if(popup && listMatch){
 					//! If the video is not in the playlist or not within the first 200 entries, then it automatically selects the first video in the list.
 					popup.addEventListener('load', function () {
-						//~ check if the video ID in the title link matches the original video ID in the URL and if not remove the playlist from the URL (reloads the page).
-						const videoLink = popup.document.querySelector('div#player div.ytp-title-text>a[href]');
-						if (videoLink && videoLink.href.match(ImprovedTube.regex.video_id)[1] !== videoID) popup.location.search = popup.location.search.replace(/(\?)list=[^&]+&|&list=[^&]+/, '$1');
+						"use strict";
+						//~ check if the video ID in the link of the video title matches the original video ID in the URL and if not remove the playlist from the URL (reloads the page).
+						const videoLink = this.document.querySelector('div#player div.ytp-title-text>a[href]');
+						if (videoLink && videoLink.href.match(ImprovedTube.regex.video_id)[1] !== videoID) this.location.search = this.location.search.replace(/(\?)list=[^&]+&|&list=[^&]+/, '$1');
 					}, {passive: true, once: true});
 				}
 			},
