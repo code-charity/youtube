@@ -691,7 +691,7 @@ ImprovedTube.playerFitToWinButton = function () {
 			opacity: 0.85,
 			position: "right",
 			onclick: function () {
-				let previousSize = ImprovedTube.storage.player_size === "fit_to_window" ? "do_not_change" : ImprovedTube.storage.player_size;
+				let previousSize = ImprovedTube.storage.player_size === "fit_to_window" ? "do_not_change" : (ImprovedTube.storage.player_size ?? "do_not_change");
 				let isFTW = document.querySelector("html").getAttribute("it-player-size") === "fit_to_window"
 				if (isFTW) {
 					document.querySelector("html").setAttribute("it-player-size", previousSize);
@@ -702,9 +702,9 @@ ImprovedTube.playerFitToWinButton = function () {
 			},
 			title: 'Fit To Window'
 		});
-	} else if (this.elements.buttons['it-fit-to-win-player-button']) {
+	} else if (!this.storage.player_fit_to_win_button && this.elements.buttons['it-fit-to-win-player-button']) {
 		this.elements.buttons['it-fit-to-win-player-button'].remove();
-		document.querySelector("html").setAttribute("it-player-size", ImprovedTube.storage.player_size);
+		document.querySelector("html").setAttribute("it-player-size", ImprovedTube.storage.player_size ?? "do_not_change");
 	}
 };
 /*------------------------------------------------------------------------------
