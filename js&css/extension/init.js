@@ -147,6 +147,14 @@ document.addEventListener('it-message-from-youtube', function () {
 			chrome.runtime.sendMessage({
 				name: 'only-one-player'
 			});
+		} else if (message.action === 'popup player') {
+			chrome.runtime.sendMessage({   
+			action: 'fixPopup',    
+			url: message.url, 
+			playerSize: { width: message.width, height: message.height   },
+			title: message.title
+			});
+			
 		} else if (message.action === 'analyzer') {
 			if (extension.storage.data.analyzer_activation === true) {
 				var data = message.name,
