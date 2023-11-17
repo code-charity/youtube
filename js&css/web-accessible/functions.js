@@ -95,6 +95,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 				this.playlistReverse();
 			}
 		}
+		this.playlistPopupUpdate();
 	} else if (name === 'YTD-GUIDE-SECTION-RENDERER') {
 		if (!this.elements.sidebar_section) {
 			this.elements.sidebar_section = node;
@@ -120,7 +121,9 @@ ImprovedTube.ytElementsHandler = function (node) {
 		if(document.documentElement.dataset.pageType === 'video'){
             this.hideDetailButton(node.$['flexible-item-buttons'].children);
         }
-	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
+	} else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
+		this.playlistPopupUpdate();
+ 	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
 		if (node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
 			ImprovedTube.blacklist('channel', node);
 		}
