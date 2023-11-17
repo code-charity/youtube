@@ -86,7 +86,7 @@ ImprovedTube.playerPlaybackSpeed = function () {
 		var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + musicIdentifiers.source, "i");		
 		var musicRegexMatch = musicIdentifiersTitle.test(title);
 		if (!musicRegexMatch) { 
-				var musicIdentifiersTagsOnly = /, (lyrics|remix|song|music|AMV|theme song|full song),/i; 	
+				var musicIdentifiersTagsOnly = /, (lyrics|remix|song|music|AMV|theme song|full song),|\(Musical Genre\)|, jazz|, reggae/i; 	
 				var musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + musicIdentifiers.source, "i");	
 				var keywordsAmount = 1 + ((keywords || '').match(/,/) || []).length;
 				if ( ((keywords || '').match(musicIdentifiersTags) || []).length / keywordsAmount > 0.08) {
@@ -108,7 +108,8 @@ ImprovedTube.playerPlaybackSpeed = function () {
 				if (105 <= s && s <= 420) {return 'common';}
 				if (420 <= s && s <= 720) {return 'long';}	
 				if  (45 <= s && s <= 105) {return 'short';}	  
-				if (ytMusic && ytMusic > 1 && (85 <= s / ytMusic && s / ytMusic <= 355)) {return 'multiple';}
+				if (ytMusic && ytMusic > 1 && (85 <= s / ytMusic && (s / ytMusic <= 375 || ytMusic == 10))) {return 'multiple';}
+				//does Youtube ever show more than 10 songs below the description?
 			}				
 		var songDurationType = testSongDuration(durationInSeconds); 
 		console.log("category: " + category + "//title: " +  title + "//keywords: " + keywords + "//music word match: " +  musicRegexMatch + "// not music word match:" + notMusicRegexMatch + "//duration: " + duration + "//song duration type: " +  songDurationType);
@@ -132,7 +133,7 @@ ImprovedTube.playerPlaybackSpeed = function () {
 					var waitForDescription = setInterval(() => { 	
 					if (++tries >= maxTries) {  
 					if (document.querySelector('#title + #subtitle')  // indicates buyable/registered music
-						&& typeof testSongDuration(parseDuration(document.querySelector('meta[itemprop=duration]')?.content), Number(document.querySelector('#title + #subtitle')?.innerHTML?.match(/^\d+/)[0]) || false) !== 'undefined' ) // resonable duration
+						&& typeof testSongDuration(parseDuration(document.querySelector('meta[itemprop=duration]')?.content), Number((document.querySelector('#title + #subtitle')?.innerHTML?.match(/^\d+/) || [])[0])) !== 'undefined' ) // resonable duration
 							{player.setPlaybackRate(1); video.playbackRate = 1; console.log("Youtube shows music below the description"); clearInterval(waitForDescription); } 			
 					intervalMs *= 1.0;	}}, intervalMs);	   						
 				
@@ -711,7 +712,7 @@ ImprovedTube.playerFitToWinButton = function () {
 POPUP PLAYER
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPopupButton = function () {
-	if (this.storage.player_popup_button === true) {
+	if (this.storage.player_popup_button === true && location.href.indexOf('youtube.com/embed') === -1 ){
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -732,8 +733,14 @@ ImprovedTube.playerPopupButton = function () {
 				let urlPopup = `${location.protocol}//www.youtube.com/embed/${location.search.match(ImprovedTube.regex.video_id)[1]}?start=${parseInt(player.getCurrentTime())}&autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}`;
 				const listMatch = location.search.match(ImprovedTube.regex.playlist_id);
 				if (listMatch) urlPopup += `&list=${listMatch[1]}`;
-
 				window.open(urlPopup, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${player.offsetWidth},height=${player.offsetHeight}`);
+				ImprovedTube.messages.send({
+					action: 'popup player',
+					url: urlPopup,
+					width: player.offsetWidth,
+					height: player.offsetHeight,
+					title: document.title
+				});
 			},
 			title: 'Popup'
 		});
