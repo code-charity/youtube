@@ -255,35 +255,38 @@ extension.features.popupWindowButtons = function (event) {
 						target.className.indexOf('thumb-link') !== -1
 					) {
 						if (!target.itPopupWindowButton) {
-							target.itPopupWindowButton = satus.render({
-								component: 'button',
-								class: 'it-popup-window',
-								data: {
-									id: extension.functions.getUrlParameter(target.href, 'v')
-								},
-								on: {
-									click: function (event) {
-										event.preventDefault();
-										event.stopPropagation();
+							// Use setTimeout to delay the creation of the popup
+                            setTimeout(function () {
+                                target.itPopupWindowButton = satus.render({
+									component: 'button',
+									class: 'it-popup-window',
+									data: {
+										id: extension.functions.getUrlParameter(target.href, 'v')
+									},
+									on: {
+										click: function (event) {
+											event.preventDefault();
+											event.stopPropagation();
 
-										window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay') == false ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no');
-									}
-								},
-
-								svg: {
-									component: 'svg',
-									attr: {
-										'viewBox': '0 0 24 24'
+											window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay') == false ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no');
+										}
 									},
 
-									path: {
-										component: 'path',
+									svg: {
+										component: 'svg',
 										attr: {
-											'd': 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z'
+											'viewBox': '0 0 24 24'
+										},
+
+										path: {
+											component: 'path',
+											attr: {
+												'd': 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z'
+											}
 										}
 									}
-								}
-							}, target);
+								}, target);
+							}, 30000); // 30000 milliseconds (30 seconds) delay
 						}
 
 						detected = true;
