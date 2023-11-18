@@ -305,6 +305,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
 		ImprovedTube.playerFitToWinButton();
+		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
 	}
 };
@@ -360,6 +361,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
 		ImprovedTube.playerFitToWinButton();
+		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
 
 		setTimeout(function () {
