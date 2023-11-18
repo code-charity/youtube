@@ -708,7 +708,7 @@ ImprovedTube.playerFitToWinButton = function () {
 /*------------------------------------------------------------------------------
 HAMBURGER MENU
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerHamburgerButton = function () {
+ImprovedTube.playerHamburgerButton = function () { if(this.storage.player_hamburger_button === true){
     const videoPlayer = document.querySelector('.html5-video-player');
 
     if (!videoPlayer) {
@@ -722,8 +722,6 @@ ImprovedTube.playerHamburgerButton = function () {
     }
 
 	let hamburgerMenu = document.querySelector('.custom-hamburger-menu');
-
-	if(this.storage.player_hamburger_button === true){
 		if (!hamburgerMenu) {
 			hamburgerMenu = document.createElement('div');
 			hamburgerMenu.className = 'custom-hamburger-menu';
@@ -758,16 +756,8 @@ ImprovedTube.playerHamburgerButton = function () {
 				hamburgerMenu.style.opacity = controlsVisible ? '0.65' : '1';
 			});
 		} 
-	}else if (!this.storage.player_hamburger_button) {
-        // Remove the hamburger menu and restore the original padding of .ytp-right-controls
-        if(hamburgerMenu)
-			hamburgerMenu.remove();
-        controlsContainer.style.paddingRight = '0';
-    }
+	} 
 };
-
-
-
 /*------------------------------------------------------------------------------
 POPUP PLAYER
 ------------------------------------------------------------------------------*/
