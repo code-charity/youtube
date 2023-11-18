@@ -261,6 +261,14 @@ document.addEventListener('it-message-from-extension', function () {
 			if (iframe) {
 				iframe.src = message.responseOptionsUrl;
 			}
+		} else if (camelized_key === 'playerScreenshotButton') { if (ImprovedTube.storage.player_screenshot_button === false) {
+			if (ImprovedTube.elements.buttons['it-screenshot-button']) {
+			ImprovedTube.elements.buttons['it-screenshot-button'].remove();
+			ImprovedTube.elements.buttons['it-screenshot-styles'].remove();}		 }
+		} else if (camelized_key === 'playerRepeatButton') { if (ImprovedTube.storage.player_repeat_button === false) {
+			if (ImprovedTube.elements.buttons['it-repeat-button']) {
+			ImprovedTube.elements.buttons['it-repeat-button'].remove();
+			ImprovedTube.elements.buttons['it-repeat-styles'].remove();}  		 }
 		} /* else if (message.hasOwnProperty('mixer')) {
 			if (ImprovedTube.elements.player) {
 				  document.documentElement.setAttribute('it-response', JSON.stringify({
