@@ -571,10 +571,7 @@ ImprovedTube.playerScreenshotButton = function () {
 			onclick: this.screenshot,
 			title: 'Screenshot'
 		});
-	} else if (this.elements.buttons['it-screenshot-button']) {
-		this.elements.buttons['it-screenshot-button'].remove();
-		this.elements.buttons['it-screenshot-styles'].remove();
-	}
+	} 
 };
 /*------------------------------------------------------------------------------
 REPEAT
@@ -615,10 +612,7 @@ ImprovedTube.playerRepeatButton = function (node) {
 				ImprovedTube.elements.buttons['it-repeat-styles'].style.opacity = '1';
 			}, 100);
 		}
-	}  else if (this.elements.buttons['it-repeat-button']) {
-		this.elements.buttons['it-repeat-button'].remove();
-		this.elements.buttons['it-repeat-styles'].remove();
-	}
+	}  
 };
 /*------------------------------------------------------------------------------
 ROTATE
