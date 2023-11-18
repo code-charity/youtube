@@ -704,6 +704,70 @@ ImprovedTube.playerFitToWinButton = function () {
 		document.querySelector("html").setAttribute("it-player-size", ImprovedTube.storage.player_size ?? "do_not_change");
 	}
 };
+
+/*------------------------------------------------------------------------------
+HAMBURGER MENU
+------------------------------------------------------------------------------*/
+ImprovedTube.playerHamburgerButton = function () {
+    const videoPlayer = document.querySelector('.html5-video-player');
+
+    if (!videoPlayer) {
+        return;
+    }
+
+    const controlsContainer = videoPlayer.querySelector('.ytp-right-controls');
+
+    if (!controlsContainer) {
+        return;
+    }
+
+	let hamburgerMenu = document.querySelector('.custom-hamburger-menu');
+
+	if(this.storage.player_hamburger_button === true){
+		if (!hamburgerMenu) {
+			hamburgerMenu = document.createElement('div');
+			hamburgerMenu.className = 'custom-hamburger-menu';
+			hamburgerMenu.style.position = 'absolute';
+			hamburgerMenu.style.right = '0';
+			hamburgerMenu.style.marginTop = '8px';
+			hamburgerMenu.style.cursor = 'pointer';
+
+			const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+			svg.setAttribute('style', 'width: 32px; height: 32px;');
+
+			const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+			path.setAttributeNS(null, 'd', 'M3 18h18v-2H3v2zM3 13h18v-2H3v2zM3 6v2h18V6H3z');
+			path.setAttributeNS(null, 'fill', 'white');
+
+			svg.appendChild(path);
+			hamburgerMenu.appendChild(svg);
+
+			controlsContainer.style.paddingRight = '40px';
+			controlsContainer.parentNode.appendChild(hamburgerMenu);
+
+			let controlsVisible = true;
+			controlsContainer.style.display = controlsVisible ? 'none' : 'flex';
+			controlsVisible = false;
+			
+			hamburgerMenu.addEventListener('click', function () {
+				controlsContainer.style.display = controlsVisible ? 'none' : 'flex';
+				controlsVisible = !controlsVisible;
+
+				// Change the opacity of hamburgerMenu based on controls visibility
+				hamburgerMenu.style.opacity = controlsVisible ? '0.65' : '1';
+			});
+		} 
+	}else if (!this.storage.player_hamburger_button) {
+        // Remove the hamburger menu and restore the original padding of .ytp-right-controls
+        if(hamburgerMenu)
+			hamburgerMenu.remove();
+        controlsContainer.style.paddingRight = '0';
+    }
+};
+
+
+
 /*------------------------------------------------------------------------------
 POPUP PLAYER
 ------------------------------------------------------------------------------*/
