@@ -1031,6 +1031,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'Fit to Window'
 		},
+		player_hamburger_button: {
+			component: 'switch',
+			text: 'Hamburger Menu'
+		},
 		player_popup_button: {
 			component: 'switch',
 			text: 'popupPlayer'
