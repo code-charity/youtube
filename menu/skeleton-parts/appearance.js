@@ -491,6 +491,9 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 									text: "normal",
 									value: "normal"
 								}, {
+									text: "remove name",
+									value: "remove_label"
+								}, {
 									text: "grey",
 									value: "grey"
 								}, {

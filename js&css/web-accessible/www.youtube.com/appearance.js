@@ -280,16 +280,12 @@ ImprovedTube.commentsSidebar = function() {
  TRANSCRIPT
 --------------------------------------------------------------*/
 ImprovedTube.transcript = function (el){ if (ImprovedTube.storage.transcript === true){
-try{el.querySelector('*[target-id*=transcript]').removeAttribute('visibility');}
-catch{}}
-}
+el.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');} }
 /*----------------------------------------------------------------
  CHAPTERS
 --------------------------------------------------------------*/
 ImprovedTube.chapters = function (el){ if (ImprovedTube.storage.chapters === true){
-try{el.querySelector('*[target-id*=chapters]').removeAttribute('visibility');} 
-catch{}}
-}
+el.querySelector('*[target-id*=chapters]')?.removeAttribute('visibility');} }
 /*------------------------------------------------------------------------------
  LIVECHAT
 ------------------------------------------------------------------------------*/
