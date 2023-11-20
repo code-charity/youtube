@@ -797,11 +797,11 @@ ImprovedTube.playerPopupButton = function () {
 						if (videoLink && videoLink.href.match(ImprovedTube.regex.video_id)[1] !== videoID) this.location.search = this.location.search.replace(/(\?)list=[^&]+&|&list=[^&]+/, '$1');
 					}, {passive: true, once: true});
 				}
+				//~ change focused tab to URL-less popup
 				ImprovedTube.messages.send({
 					action: 'popup player',
-					width: player.offsetWidth,
-					height: player.offsetHeight,
-					title: document.title
+					width: ytPlayer.offsetWidth,
+					height: ytPlayer.offsetHeight
 				});
 			},
 			title: 'Popup'

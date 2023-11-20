@@ -261,29 +261,26 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 			hostname: new URL(sender.url).hostname,
 			tabId: sender.tab.id
 		 });
-	} else  if (action === 'fixPopup') {
-		//no URL-bar
+	} else if (action === 'fixPopup') {
+		//~ get the current focused tab and convert it to a URL-less popup (with same state and size)
 		chrome.windows.getLastFocused(w => {
-		chrome.tabs.query({ windowId: w.id, active: true }, ts => {
-		const t = ts[0];
-		const data = { type: "popup"  };
-		if (t) { data.tabId = t.id;  }
-		chrome.windows.create(data, pw => { chrome.windows.update(pw.id, { state: w.state
-		, width: message.playerSize.width, 
-		  height: message.playerSize.height});
-				}); 
-	    //title
-		chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {
-          if (tabId === t.id && changeInfo.status === 'complete') {
-            chrome.tabs.executeScript(t.id, {
-              code: `document.title = "ImprovedTube Popup Player: ${message.title}";`
-            });
-            chrome.tabs.onUpdated.removeListener(listener);
-          }
-        });				
-			});		  
-		  });
-	};	  
+			chrome.tabs.query({
+				windowId: w.id,
+				active: true
+			}, ts => {
+				const tID = ts[0]?.id,
+					data = { type: 'popup' };
+				if (tID) data.tabId = tID;
+				chrome.windows.create(data, pw => {
+					chrome.windows.update(pw.id, {
+						state: w.state,
+						width: message.playerSize.width,
+						height: message.playerSize.height
+					});
+				});
+			});
+		});
+	};
 });
 
 // Create the frameless window with no URL

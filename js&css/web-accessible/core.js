@@ -270,9 +270,10 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.elements.buttons['it-repeat-button'].remove();
 			ImprovedTube.elements.buttons['it-repeat-styles'].remove();}  		 }
 		} else if (camelized_key === 'playerHamburgerButton') { if(ImprovedTube.storage.player_hamburger_button == false) {
-			document.querySelector('.custom-hamburger-menu')?.remove(); 
+			document.querySelector('.custom-hamburger-menu')?.remove?.(); 
 			// Restoring the original padding:
-			document.querySelector('.html5-video-player')?.querySelector('.ytp-right-controls')?.style.paddingRight = '0';	}
+			const rightControls = document.querySelector('.html5-video-player')?.querySelector?.('.ytp-right-controls');
+			if (rightControls != null) rightControls.style.paddingRight = '0';	}
 		} /* else if (message.hasOwnProperty('mixer')) {
 			if (ImprovedTube.elements.player) {
 				  document.documentElement.setAttribute('it-response', JSON.stringify({
