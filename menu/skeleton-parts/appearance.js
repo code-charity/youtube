@@ -412,6 +412,9 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 					text: "expanded",
 					value: "expanded"
 				}, {
+					text: "hidden",
+					value: "hidden"
+				}/*, {
 					text: "Classic",
 					value: "classic"
 				}, {
@@ -420,10 +423,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 				}, {
 					text: "Classic hidden",
 					value: "classic_hidden"
-				}, {
-					text: "hidden",
-					value: "hidden"
-				}],
+				}*/],
 				tags: "hide,remove"
 			},
 			hide_detail_button: {

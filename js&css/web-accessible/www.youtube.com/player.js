@@ -665,10 +665,7 @@ ImprovedTube.playerRotateButton = function () {
 			},
 			title: 'Rotate'
 		});
-	} else if (this.elements.buttons['it-rotate-button']) {
-		this.elements.buttons['it-rotate-button'].remove();
-		this.elements.buttons['it-rotate-styles'].remove();
-	}
+	} 
 };
 
 /*------------------------------------------------------------------------------
@@ -699,12 +696,8 @@ ImprovedTube.playerFitToWinButton = function () {
 			},
 			title: 'Fit To Window'
 		});
-	} else if (!this.storage.player_fit_to_win_button && this.elements.buttons['it-fit-to-win-player-button']) {
-		this.elements.buttons['it-fit-to-win-player-button'].remove();
-		document.querySelector("html").setAttribute("it-player-size", ImprovedTube.storage.player_size ?? "do_not_change");
-	}
+	} 
 };
-
 /*------------------------------------------------------------------------------
 HAMBURGER MENU
 ------------------------------------------------------------------------------*/
@@ -753,7 +746,7 @@ ImprovedTube.playerHamburgerButton = function () { if(this.storage.player_hambur
 				controlsVisible = !controlsVisible;
 
 				// Change the opacity of hamburgerMenu based on controls visibility
-				hamburgerMenu.style.opacity = controlsVisible ? '0.65' : '1';
+				hamburgerMenu.style.opacity = controlsVisible ? '0.85' : '0.65';
 			});
 		} 
 	} 
@@ -807,9 +800,7 @@ ImprovedTube.playerPopupButton = function () {
 			},
 			title: 'Popup'
 		});
-	} else if (this.elements.buttons['it-popup-player-button']) {
-		this.elements.buttons['it-popup-player-button'].remove();
-	}
+	} 
 };
 /*------------------------------------------------------------------------------
 Force SDR
