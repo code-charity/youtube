@@ -181,7 +181,8 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 			ImprovedTube.messages.send({
 				action: 'popup player',
 				width: ImprovedTube.elements.player?.offsetWidth ?? innerWidth,
-				height: ImprovedTube.elements.player?.offsetHeight ?? innerHeight
+				height: ImprovedTube.elements.player?.offsetHeight ?? innerHeight,
+				title: document.title
 			});
 		} : function (event) {
 			"use strict";
@@ -190,7 +191,8 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 			ImprovedTube.messages.send({
 				action: 'popup player',
 				width: window.innerWidth,
-				height: window.innerHeight
+				height: window.innerHeight,
+				title: document.title
 			});
 		},
 		true

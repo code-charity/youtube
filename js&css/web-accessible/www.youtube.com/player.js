@@ -801,7 +801,8 @@ ImprovedTube.playerPopupButton = function () {
 				ImprovedTube.messages.send({
 					action: 'popup player',
 					width: ytPlayer.offsetWidth,
-					height: ytPlayer.offsetHeight
+					height: ytPlayer.offsetHeight,
+					title: document.title
 				});
 			},
 			title: 'Popup'
