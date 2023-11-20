@@ -154,7 +154,8 @@ document.addEventListener('it-message-from-youtube', function () {
 				playerSize: {
 					width: message.width,
 					height: message.height
-				}
+				},
+				title: message.title
 			});
 		} else if (message.action === 'analyzer') {
 			if (extension.storage.data.analyzer_activation === true) {

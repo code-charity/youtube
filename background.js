@@ -278,13 +278,19 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 						height: message.playerSize.height
 					});
 				});
+				//append to title 
+				chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {	 
+				if (tabId === t.id && changeInfo.status === 'complete') {
+				chrome.tabs.executeScript(t.id, {
+				code: `document.title = "${message.title} - ImprovedTube";`
+				});
+				chrome.tabs.onUpdated.removeListener(listener);
+				}  
+			});		
 			});
 		});
 	};
 });
-
-// Create the frameless window with no URL
-
 
 /*------ search results in new tab --------- 
 chrome.storage.local.get('open_new_tab', function (result) 
