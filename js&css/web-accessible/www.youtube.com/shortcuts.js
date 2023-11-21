@@ -706,7 +706,19 @@ ImprovedTube.shortcutStatsForNerds = function () {
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.shortcutToggleCards = function () {
-	document.documentElement.toggleAttribute('it-player-hide-cards');
+    // console.log('Shortcut pressed'); // Check if the shortcut is triggered
+    
+    // Get the end screen div
+    var endScreenDiv = document.querySelector('.html5-endscreen');
+    
+    // Check if the end screen div exists
+    if (endScreenDiv) {
+        // Toggle the visibility of the end screen div
+        endScreenDiv.style.display = (endScreenDiv.style.display !== 'none') ? 'none' : 'block';
+        // console.log('Toggled'); // Check if the end screen is toggled
+    } else {
+        console.log('End screen div not found');
+    }
 };
 
 
