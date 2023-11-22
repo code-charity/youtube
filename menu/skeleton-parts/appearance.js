@@ -384,6 +384,10 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "hideScrollForDetails",
 				tags: "remove,hide"
+			},
+			hide_video_title_fullScreen: {
+				component: "switch",
+				text: "hideVideoTitleFullScreen",
 			}
 		}
 	}
