@@ -705,8 +705,49 @@ ImprovedTube.shortcutStatsForNerds = function () {
 4.7.28 TOGGLE CARDS
 ------------------------------------------------------------------------------*/
 
+var removedElements = [];
+
+// Function to recreate or reattach elements with the class 'ytp-ce-element'
+function recreateElements() {
+    // Iterate through the removed elements and recreate or reattach them
+    removedElements.forEach(function (elementInfo) {
+        var element = elementInfo.element;
+
+        // Append the element back to its original parent
+        elementInfo.parent.appendChild(element);
+    });
+
+    // Clear the array after recreating or reattaching the elements
+    removedElements = [];
+}
+
 ImprovedTube.shortcutToggleCards = function () {
-	document.documentElement.toggleAttribute('it-player-hide-cards');
+    // console.log("shortcut pressed");
+
+    // Get all elements with class 'ytp-ce-element'
+    var elements = document.querySelectorAll('.ytp-ce-element');
+
+    // Check if elements are currently visible
+    var areElementsVisible = elements.length > 0 && elements[0].offsetParent !== null;
+
+    // If elements are visible, remove them and store parent; otherwise, recreate or reattach them
+    if (areElementsVisible) {
+        elements.forEach(function (element) {
+            // Store a reference to the removed element and its parent
+            removedElements.push({
+                element: element,
+                parent: element.parentNode
+            });
+
+            // Remove the element
+            element.remove();
+        });
+        // console.log("Elements removed");
+    } else {
+        // Restore the elements by recreating or reattaching them
+        recreateElements();
+        // console.log("Elements brought back");
+    }
 };
 
 
