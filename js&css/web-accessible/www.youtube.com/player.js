@@ -117,12 +117,12 @@ ImprovedTube.playerPlaybackSpeed = function () {
 		
  // check if the video is PROBABLY MUSIC:
 	if  ( 		( category === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))
-			||  ( musicRegexMatch && !notMusicRegexMatch && typeof songDurationType !== 'undefined' 
+			||  ( musicRegexMatch && !notMusicRegexMatch && (typeof songDurationType !== 'undefined' 
 						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(title + " " + keywords) 
-							&& 1150 <= durationInSeconds && durationInSeconds <= 5000) )
-			||	( category === 'Music' && musicRegexMatch && typeof songDurationType !== 'undefined'  
+							&& 1150 <= durationInSeconds && durationInSeconds <= 5000)) )
+			||	( category === 'Music' && musicRegexMatch && (typeof songDurationType !== 'undefined'  
 						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(title + " " + keywords) 
-							&& 1150 <= durationInSeconds && durationInSeconds <= 5000) )
+							&& 1150 <= durationInSeconds && durationInSeconds <= 5000)) )
 		  //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
 		)	{ } //music player.setPlaybackRate(1); video.playbackRate = 1;				 				
 			else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);	//  #1729 question2		 
@@ -135,7 +135,7 @@ ImprovedTube.playerPlaybackSpeed = function () {
 					if (document.querySelector('#title + #subtitle')  // indicates buyable/registered music
 						&& typeof testSongDuration(parseDuration(document.querySelector('meta[itemprop=duration]')?.content), Number((document.querySelector('#title + #subtitle')?.innerHTML?.match(/^\d+/) || [])[0])) !== 'undefined' ) // resonable duration
 							{player.setPlaybackRate(1); video.playbackRate = 1; console.log("Youtube shows music below the description"); clearInterval(waitForDescription); } 			
-					intervalMs *= 1.0;	}}, intervalMs);	   						
+					intervalMs *= 1.0;	}}, intervalMs);   						
 				
 			}}	else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);} // #1729 question2	 
 	} 
