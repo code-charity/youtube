@@ -705,10 +705,14 @@ ImprovedTube.shortcutStatsForNerds = function () {
 4.7.28 TOGGLE CARDS
 ------------------------------------------------------------------------------*/
 
-ImprovedTube.shortcutToggleCards = function () {
+ImprovedTube.shortcutToggleCards = function () {  function toggleVideoOverlays() {
 	document.documentElement.toggleAttribute('it-player-hide-cards');
+	
+	document.documentElement.toggleAttribute('it-player-hide-endcards');
+	document.documentElement.toggleAttribute('it-hide-video-title-fullScreen');} 	
+	
+	toggleVideoOverlays(); window.removeEventListener('hashchange', toggleVideoOverlays);  window.addEventListener('hashchange', toggleVideoOverlays);
 };
-
 
 /*------------------------------------------------------------------------------
 4.7.29 POPUP PLAYER

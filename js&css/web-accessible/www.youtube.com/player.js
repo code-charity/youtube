@@ -848,13 +848,6 @@ ImprovedTube.playerControls = function (pause=false) {
 	   }} else { player.showControls();  }
 }
 };
-/*--------------------------------------------------------------
-#  HIDE VIDEO TITLE IN FULLSCREEN
---------------------------------------------------------------*/
-ImprovedTube.hideVideoTitleFullScreen = function (){ if (ImprovedTube.storage.hide_video_title_fullScreen === true) {
-    document.addEventListener('fullscreenchange', function (){ document.querySelector(".ytp-title-text > a")?.style.setProperty('display', 'none');
-    }) 
-}};	
 /*------------------------------------------------------------------------------
 CUSTOM MINI-PLAYER
 ------------------------------------------------------------------------------*/
