@@ -259,6 +259,9 @@ document.addEventListener('it-message-from-extension', function () {
 			} else if ( camelized_key === 'playerRemainingDuration' ) {
 				if (ImprovedTube.storage.player_remaining_duration === false) {document.querySelector(".ytp-time-remaining-duration")?.remove();}
 				if (ImprovedTube.storage.player_remaining_duration === true) { ImprovedTube.playerRemainingDuration(); }
+			} else if ( camelized_key === 'hideVideoTitleFullScreen' ) { 
+				if (ImprovedTube.storage.hide_video_title_fullScreen === false) {document.querySelector(".ytp-title-text > a")?.style.setProperty('display', 'block');}
+				if (ImprovedTube.storage.hide_video_title_fullScreen === true) {document.querySelector(".ytp-title-text > a")?.style.setProperty('display', 'none'); }
 			}
 			if (ImprovedTube[camelized_key]) {
 				try{ImprovedTube[camelized_key]()}catch{};
