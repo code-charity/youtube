@@ -578,3 +578,9 @@ html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui, .ytp-doubletap-ui-lega
 {
     visibility: hidden;
 }
+/*--------------------------------------------------------------
+# HIDE VIDEO TITLE IN FULLSCREEN
+--------------------------------------------------------------*/
+html[it-hide-video-title-fullScreen='true'] .ytp-title-text > a {
+	display: none !important;
+}
