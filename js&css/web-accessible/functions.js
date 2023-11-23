@@ -363,6 +363,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerFitToWinButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
+		ImprovedTube.hideVideoTitleFullScreen();
 
 		setTimeout(function () {
             ImprovedTube.forcedTheaterMode();

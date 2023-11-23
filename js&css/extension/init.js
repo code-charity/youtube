@@ -44,7 +44,6 @@ extension.events.on('init', function () {
 	extension.features.relatedVideos();
 	extension.features.comments();
 	extension.features.openNewTab();
-	extension.features.hideVideoTitleFullScreen();
 	bodyReady();
 });
 
