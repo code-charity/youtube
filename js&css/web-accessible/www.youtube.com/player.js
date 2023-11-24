@@ -69,78 +69,121 @@ ImprovedTube.playerPlaybackSpeed = function () {
 		var player = this.elements.player,
 		video = player.querySelector('video'),
 		option = this.storage.player_playback_speed;
-		if (this.isset(option) === false) {	option = 1; }
-	
+		if (this.isset(option) === false) {	option = 1; }	
 		if (player.getVideoData().isLive === false
-			&& this.storage.player_force_speed_on_music !== true 
-			|| this.storage.player_dont_speed_education === true) {
-	// Data: 
-		let category = document.querySelector('meta[itemprop=genre]')?.content || false;
-			if (this.storage.player_dont_speed_education === true && category === 'Education') {return;} 
-			if (this.storage.player_force_speed_on_music === true) {player.setPlaybackRate(Number(option));	video.playbackRate = Number(option); return;} 
+			&& (this.storage.player_force_speed_on_music !== true 
+			|| this.storage.player_dont_speed_education === true) && option !== 1) {
 
-		let title = document.getElementsByTagName('meta')?.title?.content || false;
-		let keywords =	document.getElementsByTagName('meta')?.keywords?.content  || false;
-		var musicIdentifiers = /(official|music|lyrics)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
-		var musicIdentifiersTitleOnly = /lyrics|theme song|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i;
-		var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + musicIdentifiers.source, "i");		
-		var musicRegexMatch = musicIdentifiersTitle.test(title);
-		if (!musicRegexMatch) { 
-				var musicIdentifiersTagsOnly = /, (lyrics|remix|song|music|AMV|theme song|full song),|\(Musical Genre\)|, jazz|, reggae/i; 	
-				var musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + musicIdentifiers.source, "i");	
-				var keywordsAmount = 1 + ((keywords || '').match(/,/) || []).length;
-				if ( ((keywords || '').match(musicIdentifiersTags) || []).length / keywordsAmount > 0.08) {
-				musicRegexMatch = true}
-		}			
-		let notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(title + " " + keywords);						     
+ImprovedTube.speedException = function () { 
+if (this.storage.player_dont_speed_education === true && DATA.genre === 'Education') {return;} 
+if (this.storage.player_force_speed_on_music === true) {player.setPlaybackRate(Number(option));	video.playbackRate = Number(option); return;}
+if (DATA.keywords && !keywords) { keywords = DATA.keywords.join(', ') || ''; }
+if (keywords === 'video, sharing, camera phone, video phone, free, upload') { keywords = ''; }
+var musicIdentifiers = /(official|music|lyrics)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
+var musicIdentifiersTitleOnly = /lyrics|theme song|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i;
+var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + musicIdentifiers.source, "i");		
+var musicRegexMatch = musicIdentifiersTitle.test(DATA.title);
+	if (!musicRegexMatch) { 
+		var musicIdentifiersTagsOnly = /, (lyrics|remix|song|music|AMV|theme song|full song),|\(Musical Genre\)|, jazz|, reggae/i; 	
+		var musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + musicIdentifiers.source, "i");	
+				  keywordsAmount = 1 + ((keywords || '').match(/,/) || []).length;
+		if ( ((keywords || '').match(musicIdentifiersTags) || []).length / keywordsAmount > 0.08) {
+	musicRegexMatch = true}}			
+notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(DATA.title + " " + keywords);						     
 					// (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
-		var duration = document.querySelector('meta[itemprop=duration]')?.content || false; // Example:  PT1H20M30S
-			if(!duration) { itemprops = document.getElementsByTagName('meta'); 
-					for (var i = 0; i < itemprops.length; i++) {
-						if (itemprops[i].getAttribute('itemprop') === 'duration') {
-						duration = itemprops[i].getAttribute('content') || false; break;}}}
-		if (duration) {
-				function parseDuration(duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0); 
-				return h * 3600 + m * 60 + s; } 
-		var durationInSeconds = parseDuration(duration); 
-				function testSongDuration(s, ytMusic) { 
+ if (DATA.duration) { 
+	function parseDuration(duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0); 
+			return h * 3600 + m * 60 + s; } 			
+	DATA.lengthSeconds = parseDuration(DATA.duration); 	}
+	function testSongDuration(s, ytMusic) { 
 				if (135 <= s && s <= 260) {return 'veryCommon';}
 				if (105 <= s && s <= 420) {return 'common';}
 				if (420 <= s && s <= 720) {return 'long';}	
 				if  (45 <= s && s <= 105) {return 'short';}	  
 				if (ytMusic && ytMusic > 1 && (85 <= s / ytMusic && (s / ytMusic <= 375 || ytMusic == 10))) {return 'multiple';}
 				//does Youtube ever show more than 10 songs below the description?
-			}				
-		var songDurationType = testSongDuration(durationInSeconds); 
-		console.log("category: " + category + "//title: " +  title + "//keywords: " + keywords + "//music word match: " +  musicRegexMatch + "// not music word match:" + notMusicRegexMatch + "//duration: " + duration + "//song duration type: " +  songDurationType);
-		}	
-		
+				}				
+var songDurationType = testSongDuration(DATA.lengthSeconds); 
+console.log("genre: " + DATA.genre + "//title: " +  DATA.title + "//keywords: " + keywords + "//music word match: " +  musicRegexMatch + "// not music word match:" + notMusicRegexMatch + "//duration: " + DATA.lengthSeconds + "//song duration type: " +  songDurationType);
+			
  // check if the video is PROBABLY MUSIC:
-	if  ( 		( category === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))
+	if  ( 		( DATA.genre === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))  
 			||  ( musicRegexMatch && !notMusicRegexMatch && (typeof songDurationType !== 'undefined' 
-						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(title + " " + keywords) 
-							&& 1150 <= durationInSeconds && durationInSeconds <= 5000)) )
-			||	( category === 'Music' && musicRegexMatch && (typeof songDurationType !== 'undefined'  
-						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(title + " " + keywords) 
-							&& 1150 <= durationInSeconds && durationInSeconds <= 5000)) )
-		  //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
+						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(DATA.title + " " + keywords) 
+							&& 1150 <= DATA.lengthSeconds && DATA.lengthSeconds <= 5000)) )
+			||	( DATA.genre === 'Music' && musicRegexMatch && (typeof songDurationType !== 'undefined'  
+						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(DATA.title + " " + keywords) 
+							&& 1150 <= DATA.lengthSeconds && DATA.lengthSeconds <= 5000)) )
+			||  (amountOfSongs && testSongDuration(DATA.lengthSeconds, amountOfSongs ) !== 'undefined') 				
+		 //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
 		)	{ } //music player.setPlaybackRate(1); video.playbackRate = 1;				 				
 			else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);	//  #1729 question2		 
 				// Now this video might rarely be music 
-				// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
-					var tries = 0; 	var intervalMs = 150;  	if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}  	
+			    	// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
+					var tries = 0; 	var intervalMs = 210;  	if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}  	
 														// ...except when it is an embedded player?
 					var waitForDescription = setInterval(() => { 	
 					if (++tries >= maxTries) {  
-					if (document.querySelector('#title + #subtitle')  // indicates buyable/registered music
-						&& typeof testSongDuration(parseDuration(document.querySelector('meta[itemprop=duration]')?.content), Number((document.querySelector('#title + #subtitle')?.innerHTML?.match(/^\d+/) || [])[0])) !== 'undefined' ) // resonable duration
+					subtitle = document.querySelector('#title + #subtitle:last-of-type')
+					if ( subtitle && 1 <= Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0])    // indicates buyable/registered music (amount of songs)
+						 && typeof testSongDuration(DATA.lengthSeconds, Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0]) ) !== 'undefined' ) // resonable duration
 							{player.setPlaybackRate(1); video.playbackRate = 1; console.log("Youtube shows music below the description"); clearInterval(waitForDescription); } 			
-					intervalMs *= 1.0;	}}, intervalMs);   						
-				
-			}}	else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);} // #1729 question2	 
-	} 
-};
-// hi @raszpl  // ImprovedTube.playerForceSpeedOnMusic = function () {  ImprovedTube.playerPlaybackSpeed(); };  
+					intervalMs *= 1.11;	}}, intervalMs);   		
+					
+					window.addEventListener('load', () => { setTimeout(() => { clearInterval(waitForDescription);  }, 1234); });						
+				}	
+		}				
+					
+//DATA  (TO-DO: make the Data available to more/all features? #1452  #1763  (Then can replace ImprovedTube.elements.category === 'music', VideoID is also used elsewhere)
+DATA = {}; 
+defaultKeywords = "video,sharing,camera,phone,video phone,free,upload";
+DATA.keywords = false; keywords = false;  amountOfSongs = false;
+DATA.videoID = location.href.match(/(\?|\&)v=[^&]+/)?.[0].substr(3) || location.href.match(/()embed\/[^&]+/)?.[0].substr(3) || improvedTube.videoID || false;
+	ImprovedTube.fetchDOMData = function () { 
+			try { DATA = JSON.parse(document.getElementById('scriptTag')?.textContent) ?? false;  DATA.title = DATA.name;} 
+			 catch (error) {
+                console.error('Error parsing id="scriptTag"\'s JSON:', error);
+                DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false;
+                DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
+                DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
+                DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
+				} if ( false )
+                { keywords = document.getElementsByTagName('meta')?.keywords?.content || false; if(!keywords){keyword=''} ImprovedTube.speedException(); }
+				else { keywords = ''; (async function () {  try {   const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
+						
+						const htmlContent = await response.text();
+						const metaRegex = /<meta[^>]+name=["'](keywords|genre|duration)["'][^>]+content=["']([^"']+)["'][^>]*>/gi;
+						let match; while ((match = metaRegex.exec(htmlContent)) !== null) {
+							const [, property, value] = match;
+							if (property === 'keywords') {  keywords = value;} else {DATA[property] = value;}
+							}   
+							amountOfSongs = (htmlContent.slice(-80000).match(/},"subtitle":{"simpleText":"(\d*)\s/) || [])[1] || false;  				
+						if (keywords) {  ImprovedTube.speedException(); }
+						} catch (error) { console.error('Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}', error);   keywords = '';  }
+						})();
+						}							
+  };				
+//Invidious instances (Nov2023)
+const invidiousInstances = ['iv.datura.network', 'vid.puffyan.us', 'invidious.perennialte.ch', 'iv.melmac.space', 'inv.in.projectsegfau.lt', 'invidious.asir.dev', 'inv.zzls.xyz', 'invidious.io.lol', 'onion.tube', 'yewtu.be', 'invidious.protokolla.fi', 'inv.citw.lgbt', 'anontube.lvkaszus.pl', 'iv.nboeck.de', 'invidious.no-logs.com', 'vid.priv.au', 'yt.cdaut.de', 'invidious.slipfox.xyz', 'yt.artemislena.eu', 'invidious.drgns.space', 'invidious.einfachzocken.eu', 'invidious.projectsegfau.lt', 'invidious.nerdvpn.de', 'invidious.private.coffee', 'invidious.lunar.icu', 'invidious.privacydev.net', 'invidious.fdn.fr', 'yt.oelrichsgarcia.de', 'iv.ggtyler.dev', 'inv.tux.pizza', 'yt.drgnz.club', 'inv.us.projectsegfau.lt'];
+function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
+
+(async function () {     let retries = 5;    let invidiousFetched = false;
+    async function fetchInvidiousData() { 
+        try {const response = await fetch(`https://${getRandomInvidiousInstance()}/api/v1/videos/${DATA.videoID}?fields=genre,title,lengthSeconds,keywords`);
+             DATA = await response.json(); 
+             if (DATA.genre && DATA.title && DATA.keywords && DATA.lengthSeconds) { if (DATA.keywords.toString() === defaultKeywords ) {DATA.keywords = ''}
+                 ImprovedTube.speedException(); invidiousFetched = true;    }
+        } catch (error) { console.error('Error: Invidious API: ', error);  }
+    }
+    while (retries > 0 && !invidiousFetched) {  await fetchInvidiousData();
+		if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 5 ? 1234 : 432));  retries--; }    }
+	if(!invidiousFetched){ if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())} 
+							else { ImprovedTube.fetchDOMData();} }  
+})();
+
+	}	else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);} // #1729 q2	// hi! @raszpl  
+ }        
+} 
 /*------------------------------------------------------------------------------
 SUBTITLES
 ------------------------------------------------------------------------------*/
@@ -848,6 +891,10 @@ ImprovedTube.playerControls = function (pause=false) {
 	   }} else { player.showControls();  }
 }
 };
+/*#  HIDE VIDEO TITLE IN FULLSCREEN    */              // Easier with CSS only (see player.css)
+//ImprovedTube.hideVideoTitleFullScreen = function (){ if (ImprovedTube.storage.hide_video_title_fullScreen === true) {
+//document.addEventListener('fullscreenchange', function (){ document.querySelector(".ytp-title-text > a")?.style.setProperty('display', 'none');   }) }};	
+
 /*------------------------------------------------------------------------------
 CUSTOM MINI-PLAYER
 ------------------------------------------------------------------------------*/
