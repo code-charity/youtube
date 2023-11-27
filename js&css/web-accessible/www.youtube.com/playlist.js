@@ -9,14 +9,14 @@ ImprovedTube.playlistUpNextAutoplay = function (event) {
 		ImprovedTube.getParam(location.href, 'list') &&
 		ImprovedTube.storage.playlist_up_next_autoplay === false
 	) {
-		if (this.elements.ytd_watch.playlistData)
+	try {	if (this.elements.ytd_watch.playlistData)
 		{this.elements.ytd_watch.playlistData.currentIndex = this.elements.ytd_watch.playlistData.totalVideos}
-			else {var tries = 0; 	var intervalMs = 300;  var maxTries = 5; 		
+			else {var tries = 0; 	var intervalMs = 300;  var maxTries = 6; 		
 					var waitForPlaylist = setInterval(() => { 	
 					if (this.elements.ytd_watch.playlistData || (++tries >= maxTries) ) {
 					this.elements.ytd_watch.playlistData.currentIndex = this.elements.ytd_watch.playlistData.totalVideos; clearInterval(waitForPlaylist );}			
 					intervalMs *= 1.4;}, intervalMs);
-					}
+	} } catch (error) {    console.error("Waiting for playlist", error);}
 	}
 };    		
 /*------------------------------------------------------------------------------
@@ -192,7 +192,7 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 				action: 'popup player',
 				width: window.innerWidth,
 				height: window.innerHeight,
-				title: document.title
+				title: document.title,
 			});
 		},
 		true
@@ -219,7 +219,7 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
  */
 ImprovedTube.playlistPopupUpdate = function () {
 	"use strict";
-	if (!(this.storage.playlist_popup ?? false)) return;
+	if (this.storage.playlist_popup === true){
 
 	const playlistID = location.search.match(this.regex.playlist_id)?.[1],
 		playlistIDMini = this.elements.player?.getPlaylistId?.();
@@ -235,10 +235,11 @@ ImprovedTube.playlistPopupUpdate = function () {
 		if (miniItemButtons == null) this.elements.buttons['it-popup-playlist-button-mini'] = null;
 		else miniItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-mini'] = this.playlistPopupCreateButton(playlistIDMini, true, true));
 	} else if (playlistIDMini != null && this.elements.buttons['it-popup-playlist-button-mini'].dataset.list !== playlistIDMini) this.elements.buttons['it-popup-playlist-button-mini'].dataset.list = playlistIDMini;
-
+try {
 	if (!document.contains(this.elements.buttons['it-popup-playlist-button-panel'])) {
 		const panelItemButtons = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-watch-flexy ytd-playlist-panel-renderer div#top-level-buttons-computed');
 		if (panelItemButtons == null) this.elements.buttons['it-popup-playlist-button-panel'] = null;
 		else panelItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-panel'] = this.playlistPopupCreateButton(playlistID, true, true));
 	} else if (playlistID != null && this.elements.buttons['it-popup-playlist-button-panel'].dataset.list !== playlistID) this.elements.buttons['it-popup-playlist-button-panel'].dataset.list = playlistID;
-};
+} catch (error) {    console.error("Error appending playlist button panel:", error);}
+}};

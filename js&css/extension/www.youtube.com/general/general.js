@@ -151,55 +151,41 @@ extension.features.onlyOnePlayerInstancePlaying = function () {
 		}
 	}
 };
-
-
 /*--------------------------------------------------------------
 # ADD "SCROLL TO TOP"
 --------------------------------------------------------------*/
-
 extension.features.addScrollToTop = function (event) {
-	if (event instanceof Event) {
-		if (window.scrollY > window.innerHeight / 2) {
-			document.documentElement.setAttribute('it-scroll-to-top', 'true');
-		} else {
-			document.documentElement.removeAttribute('it-scroll-to-top');
-		}
-	} else {
-		if (extension.storage.get('add_scroll_to_top') === true) {
-			this.addScrollToTop.button = satus.render({
-				component: 'div',
-				id: 'it-scroll-to-top',
-				on: {
-					click: function () {
-						window.scrollTo(0, 0);
-					}
-				},
-
-				svg: {
-					component: 'svg',
-					attr: {
-						'viewBox': '0 0 24 24'
-					},
-
-					path: {
-						component: 'path',
-						attr: {
-							'd': 'M13 19V7.8l4.9 5c.4.3 1 .3 1.4 0 .4-.5.4-1.1 0-1.5l-6.6-6.6a1 1 0 0 0-1.4 0l-6.6 6.6a1 1 0 1 0 1.4 1.4L11 7.8V19c0 .6.5 1 1 1s1-.5 1-1z'
-						}
-					}
-				}
-			});
-
-			window.addEventListener('scroll', this.addScrollToTop);
-		} else if (this.addScrollToTop.button) {
-			window.removeEventListener('scroll', this.addScrollToTop);
-
-			this.addScrollToTop.button.remove();
-		}
-	}
+    if (event instanceof Event) {
+        if (window.scrollY > window.innerHeight / 2) {
+            document.documentElement.setAttribute('it-scroll-to-top', 'true');
+        } else {
+            document.documentElement.removeAttribute('it-scroll-to-top');
+        }
+    } else {
+        if (extension.storage.get('add_scroll_to_top') === true) {
+            this.addScrollToTop.button = document.createElement('div');
+            this.addScrollToTop.button.id = 'it-scroll-to-top';
+            this.addScrollToTop.button.className = 'satus-div';
+            var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('viewBox', '0 0 24 24');
+            var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', 'M13 19V7.8l4.9 5c.4.3 1 .3 1.4 0 .4-.5.4-1.1 0-1.5l-6.6-6.6a1 1 0 0 0-1.4 0l-6.6 6.6a1 1 0 1 0 1.4 1.4L11 7.8V19c0 .6.5 1 1 1s1-.5 1-1z');
+            svg.appendChild(path);
+            this.addScrollToTop.button.appendChild(svg);
+            window.addEventListener('scroll', function () { document.body.appendChild(extension.features.addScrollToTop.button); });
+            this.addScrollToTop.button.addEventListener('click', function () {
+                window.scrollTo(0, 0);
+                document.getElementById('it-scroll-to-top')?.remove();
+            });
+        }
+        if (extension.storage.get('add_scroll_to_top') === true) {
+            window.addEventListener('scroll', extension.features.addScrollToTop);
+        } else if (this.addScrollToTop.button) {
+            window.removeEventListener('scroll', extension.features.addScrollToTop);
+            this.addScrollToTop.button.remove();
+        }
+    }
 };
-
-
 /*--------------------------------------------------------------
 # CONFIRMATION BEFORE CLOSING
 --------------------------------------------------------------*/
@@ -220,7 +206,7 @@ extension.features.confirmationBeforeClosing = function () {
 extension.features.defaultContentCountry = function (changed) {
 	var value = extension.storage.get('default_content_country');
 
-	if (satus.isset(value)) {
+	if (value) {
 		if (value !== 'default') {
 			var date = new Date();
 
@@ -241,7 +227,6 @@ extension.features.defaultContentCountry = function (changed) {
 /*--------------------------------------------------------------
 # ADD "POPUP WINDOW" BUTTONS
 --------------------------------------------------------------*/
-
 extension.features.popupWindowButtons = function (event) {
 	if (event instanceof Event) {
 		if (event.type === 'mouseover') {
@@ -250,45 +235,40 @@ extension.features.popupWindowButtons = function (event) {
 					detected = false;
 
 				while (detected === false && target.parentNode) {
+					var targetClassList = target.classList || '';
 					if (
-						target.id === 'thumbnail' && target.className.indexOf('ytd-thumbnail') !== -1 ||
-						target.className.indexOf('thumb-link') !== -1
+						target.id === 'thumbnail' && targetClassList.contains('ytd-thumbnail') || targetClassList.contains('thumb-link') 
 					) {
 						if (!target.itPopupWindowButton) {
-							target.itPopupWindowButton = satus.render({
-								component: 'button',
-								class: 'it-popup-window',
-								data: {
-									id: extension.functions.getUrlParameter(target.href, 'v')
-								},
-								on: {
-									click: function (event) {
-										event.preventDefault();
-										event.stopPropagation();
+target.itPopupWindowButton = document.createElement('button');
+target.itPopupWindowButton.className = 'satus-button it-popup-window';
+target.itPopupWindowButton.dataset.id = extension.functions.getUrlParameter(target.href, 'v');
 
-										window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay') == false ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no');
-									}
-								},
+var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+svg.setAttribute('viewBox', '0 0 24 24');
+var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+path.setAttribute('d', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z');
+svg.appendChild(path);
+target.itPopupWindowButton.appendChild(svg);
+target.appendChild(target.itPopupWindowButton);
 
-								svg: {
-									component: 'svg',
-									attr: {
-										'viewBox': '0 0 24 24'
-									},
 
-									path: {
-										component: 'path',
-										attr: {
-											'd': 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z'
-										}
-									}
-								}
-							}, target);
+target.itPopupWindowButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay') == false ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no');
+	chrome.runtime.sendMessage({
+				action: 'fixPopup',
+				width: document.querySelector("video")?.offsetWidth,
+				height: document.querySelector("video")?.offsetHeight,
+				title: target.closest('dismissible')?.querySelector('*[id="video-title"]')?.textContent + " - Youtube" 
+				//title doesnt work
+				}) 
+});
 						}
-
+						
 						detected = true;
 					}
-
 					target = target.parentNode;
 				}
 			}
@@ -301,8 +281,6 @@ extension.features.popupWindowButtons = function (event) {
 		}
 	}
 };
-
-
 /*--------------------------------------------------------------
 # FONT
 --------------------------------------------------------------*/
@@ -310,7 +288,7 @@ extension.features.popupWindowButtons = function (event) {
 extension.features.font = function (changed) {
 	var option = extension.storage.get('font');
 
-	if (satus.isString(option) && option !== 'Default') {
+	if (option && option !== 'Default') {
 		var link = this.font.link || document.createElement('link'),
 			style = this.font.style || document.createElement('style');
 
@@ -361,14 +339,25 @@ extension.features.markWatchedVideos = function (anything) {
 						)
 					) {
 						if (!target.itMarkWatchedVideosButton) {
-							target.itMarkWatchedVideosButton = satus.render({
-								component: 'button',
-								class: 'it-mark-watched-videos',
-								data: {
-									id: extension.functions.getUrlParameter(target.href, 'v')
-								},
-								on: {
-									click: function (event) {
+    target.itMarkWatchedVideosButton = document.createElement('button');
+    target.itMarkWatchedVideosButton.className = 'satus-button it-mark-watched-videos';
+    target.itMarkWatchedVideosButton.dataset.id = extension.functions.getUrlParameter(target.href, 'v');
+    var id = target.itMarkWatchedVideosButton.dataset.id;
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');    svg.setAttribute('viewBox', '0 0 24 24');
+    var pathData = 'M12 15.15q1.525 0 2.588-1.063 1.062-1.062 1.062-2.587 0-1.525-1.062-2.588Q13.525 7.85 12 7.85q-1.525 0-2.587 1.062Q8.35 9.975 8.35 11.5q0 1.525 1.063 2.587Q10.475 15.15 12 15.15Zm0-.95q-1.125 0-1.912-.788Q9.3 12.625 9.3 11.5t.788-1.913Q10.875 8.8 12 8.8t1.913.787q.787.788.787 1.913t-.787 1.912q-.788.788-1.913.788Zm0 3.8q-3.1 0-5.688-1.613Q3.725 14.775 2.325 12q-.05-.1-.075-.225-.025-.125-.025-.275 0-.15.025-.275.025-.125.075-.225 1.4-2.775 3.987-4.388Q8.9 5 12 5q3.1 0 5.688 1.612Q20.275 8.225 21.675 11q.05.1.075.225.025.125.025.275 0 .15-.025.275-.025.125-.075.225-1.4 2.775-3.987 4.387Q15.1 18 12 18Z';
+    var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', pathData + 'm0-6.5Zm0 5.5q2.825 0 5.188-1.488Q19.55 14.025 20.8 11.5q-1.25-2.525-3.612-4.013Q14.825 6 12 6 9.175 6 6.812 7.487 4.45 8.975 3.2 11.5q1.25 2.525 3.612 4.012Q9.175 17 12 17Z');  
+	svg.appendChild(path);
+    var svg2 = document.createElementNS('http://www.w3.org/2000/svg', 'svg');    svg2.setAttribute('viewBox', '0 0 24 24');
+    var extraPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    extraPath.setAttribute('d', pathData);
+    svg2.appendChild(extraPath);
+    target.itMarkWatchedVideosButton.appendChild(svg);
+    target.itMarkWatchedVideosButton.appendChild(svg2);
+	if (extension.storage.get('watched') && extension.storage.get('watched')[id]) {
+	target.itMarkWatchedVideosButton.setAttribute('watched', '')};
+	target.appendChild(target.itMarkWatchedVideosButton); 
+    target.itMarkWatchedVideosButton.addEventListener('click', function (event) {
 										var id = this.dataset.id,
 											value = this.toggleAttribute('watched');
 
@@ -389,42 +378,8 @@ extension.features.markWatchedVideos = function (anything) {
 
 										chrome.storage.local.set({
 											watched: extension.storage.get('watched')
-										});
-									},
-									render: function () {
-										if (extension.storage.get('watched') && extension.storage.get('watched')[this.dataset.id]) {
-											this.setAttribute('watched', '');
-										}
-									}
-								},
+	});});
 
-								svg: {
-									component: 'svg',
-									attr: {
-										'viewBox': '0 0 24 24'
-									},
-
-									path: {
-										component: 'path',
-										attr: {
-											'd': 'M12 15.15q1.525 0 2.588-1.063 1.062-1.062 1.062-2.587 0-1.525-1.062-2.588Q13.525 7.85 12 7.85q-1.525 0-2.587 1.062Q8.35 9.975 8.35 11.5q0 1.525 1.063 2.587Q10.475 15.15 12 15.15Zm0-.95q-1.125 0-1.912-.788Q9.3 12.625 9.3 11.5t.788-1.913Q10.875 8.8 12 8.8t1.913.787q.787.788.787 1.913t-.787 1.912q-.788.788-1.913.788Zm0 3.8q-3.1 0-5.688-1.613Q3.725 14.775 2.325 12q-.05-.1-.075-.225-.025-.125-.025-.275 0-.15.025-.275.025-.125.075-.225 1.4-2.775 3.987-4.388Q8.9 5 12 5q3.1 0 5.688 1.612Q20.275 8.225 21.675 11q.05.1.075.225.025.125.025.275 0 .15-.025.275-.025.125-.075.225-1.4 2.775-3.987 4.387Q15.1 18 12 18Zm0-6.5Zm0 5.5q2.825 0 5.188-1.488Q19.55 14.025 20.8 11.5q-1.25-2.525-3.612-4.013Q14.825 6 12 6 9.175 6 6.812 7.487 4.45 8.975 3.2 11.5q1.25 2.525 3.612 4.012Q9.175 17 12 17Z'
-										}
-									}
-								},
-								svg2: {
-									component: 'svg',
-									attr: {
-										'viewBox': '0 0 24 24'
-									},
-
-									path: {
-										component: 'path',
-										attr: {
-											'd': 'M12 15.15q1.525 0 2.588-1.063 1.062-1.062 1.062-2.587 0-1.525-1.062-2.588Q13.525 7.85 12 7.85q-1.525 0-2.587 1.062Q8.35 9.975 8.35 11.5q0 1.525 1.063 2.587Q10.475 15.15 12 15.15Zm0-.95q-1.125 0-1.912-.788Q9.3 12.625 9.3 11.5t.788-1.913Q10.875 8.8 12 8.8t1.913.787q.787.788.787 1.913t-.787 1.912q-.788.788-1.913.788Zm0 3.8q-3.1 0-5.688-1.613Q3.725 14.775 2.325 12q-.05-.1-.075-.225-.025-.125-.025-.275 0-.15.025-.275.025-.125.075-.225 1.4-2.775 3.987-4.388Q8.9 5 12 5q3.1 0 5.688 1.612Q20.275 8.225 21.675 11q.05.1.075.225.025.125.025.275 0 .15-.025.275-.025.125-.075.225-1.4 2.775-3.987 4.387Q15.1 18 12 18Z'
-										}
-									}
-								}
-							}, target);
 						} else {
 							var button = target.itMarkWatchedVideosButton;
 

@@ -3,7 +3,7 @@
 	"short_name" : "ImprovedTube",
 	"name": "'Improve YouTube!' 🎧 (for YouTube & Videos)",
 	"description": "__MSG_description_ext__",
-	"version": "4.408",
+	"version": "4.443",
 	"default_locale": "en",
 	"icons": {							
 		"16": "stuff/icons/16.png",
@@ -38,8 +38,7 @@
 				"https://www.youtube.com/audiolibrary/*",
 				"https://www.youtube.com/tv*"
 			],
-			"js": [
-				"js&css/satus.js",
+			"js": [		
 				"js&css/extension/core.js",
 				"js&css/extension/functions.js",
 				"js&css/extension/www.youtube.com/night-mode/night-mode.js",
@@ -69,8 +68,8 @@
 			"js&css/web-accessible/core.js",
 			"js&css/web-accessible/functions.js",
 			"js&css/web-accessible/www.youtube.com/appearance.js",
-			"js&css/web-accessible/www.youtube.com/themes.js",
 			"js&css/web-accessible/www.youtube.com/player.js",
+			"js&css/web-accessible/www.youtube.com/themes.js",
 			"js&css/web-accessible/www.youtube.com/playlist.js",
 			"js&css/web-accessible/www.youtube.com/channel.js",
 			"js&css/web-accessible/www.youtube.com/shortcuts.js",
