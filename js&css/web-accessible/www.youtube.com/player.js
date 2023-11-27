@@ -135,7 +135,7 @@ console.log("genre: " + DATA.genre + "//title: " +  DATA.title + "//keywords: " 
 		}				
 					
 //DATA  (TO-DO: make the Data available to more/all features? #1452  #1763  (Then can replace ImprovedTube.elements.category === 'music', VideoID is also used elsewhere)
-DATA = {}; 
+DATA = {};
 defaultKeywords = "video,sharing,camera,phone,video phone,free,upload";
 DATA.keywords = false; keywords = false;  amountOfSongs = false;
 DATA.videoID = location.href.match(/(\?|\&)v=[^&]+/)?.[0].substr(3) || location.href.match(/()embed\/[^&]+/)?.[0].substr(3) || improvedTube.videoID || false;
@@ -814,9 +814,7 @@ ImprovedTube.playerPopupButton = function () {
 			onclick: function () {
 				"use strict";
 				const ytPlayer = ImprovedTube.elements.player;
-
 				ytPlayer.pauseVideo();
-
 				const videoID = location.search.match(ImprovedTube.regex.video_id)[1],
 					listMatch = location.search.match(ImprovedTube.regex.playlist_id),
 					popup = window.open(
@@ -836,6 +834,7 @@ ImprovedTube.playerPopupButton = function () {
 				//~ change focused tab to URL-less popup
 				ImprovedTube.messages.send({
 					action: 'popup player',
+					
 					width: ytPlayer.offsetWidth,
 					height: ytPlayer.offsetHeight,
 					title: document.title

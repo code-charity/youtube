@@ -256,32 +256,33 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 		sendResponse({
 			isTab: sender.hasOwnProperty('tab')
 		 });
-	} else if (action === 'tab-connected') {
-		sendResponse({
+	} else if (action === 'tab-connected') { 
+try{		sendResponse({
 			hostname: new URL(sender.url).hostname,
 			tabId: sender.tab.id
-		 });
-	} else if (action === 'fixPopup') {
+}); }  catch (error) {    console.error("invalid url?", error);}
+	} else if (action === 'fixPopup') 
+	{
 		//~ get the current focused tab and convert it to a URL-less popup (with same state and size)
 		chrome.windows.getLastFocused(w => {
 			chrome.tabs.query({
 				windowId: w.id,
 				active: true
 			}, ts => {
-				const tID = ts[0]?.id,
+				 tID = ts[0]?.id,
 					data = { type: 'popup' };
 				if (tID) data.tabId = tID;
 				chrome.windows.create(data, pw => {
 					chrome.windows.update(pw.id, {
 						state: w.state,
-						width: message.playerSize.width,
-						height: message.playerSize.height
+						width: message.width,
+						height: message.height
 					});
 				});
 				//append to title 
 				chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {	 
-				if (tabId === t.id && changeInfo.status === 'complete') {
-				chrome.tabs.executeScript(t.id, {
+				if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")) {
+				chrome.tabs.executeScript(tID, {
 				code: `document.title = "${message.title} - ImprovedTube";`
 				});
 				chrome.tabs.onUpdated.removeListener(listener);
@@ -309,3 +310,5 @@ chrome.runtime.onMessage.addListener(function (request) {
 --------------------------------------------------------------*/
 
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
+
+
