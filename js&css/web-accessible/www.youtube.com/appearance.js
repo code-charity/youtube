@@ -148,10 +148,9 @@ ImprovedTube.commentsSidebarSimple = function() { if(ImprovedTube.storage.commen
 /*------------------------------------------------------------------------------
  Comments Sidebar
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebar = function() {
+ImprovedTube.commentsSidebar = function() {	if(ImprovedTube.storage.comments_sidebar === true){
     const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
 	let hasApplied = 0;
-	if(ImprovedTube.storage.comments_sidebar === true){
         if(/watch\?/.test(location.href)) {
             sidebar();
             styleScrollbars();
@@ -159,7 +158,7 @@ ImprovedTube.commentsSidebar = function() {
             applyObserver();
             window.addEventListener("resize", sidebar)
         }
-    }
+
 	function sidebar(){
         resizePlayer();
 		if(window.matchMedia("(min-width: 1952px)").matches) {
@@ -232,6 +231,7 @@ ImprovedTube.commentsSidebar = function() {
             if(isDarkMode) [color,colorHover] = ["#616161", "#909090"];
             else [color,colorHover] = ["#aaaaaa", "#717171"];
             const style = document.createElement("style");
+			if(ImprovedTube.storage.comments_sidebar_scrollbars === true){
             const cssRule = `
             #primary, #secondary {
                 overflow: overlay !important;
@@ -253,7 +253,19 @@ ImprovedTube.commentsSidebar = function() {
             ::-webkit-scrollbar-thumb:hover{
                 background-color: ${colorHover};
             }`;
-            style.appendChild(document.createTextNode(cssRule));
+			style.appendChild(document.createTextNode(cssRule));
+			}  
+			else {	const cssRule = `
+            #primary, #secondary {
+                overflow: overlay !important;
+            }            
+            ::-webkit-scrollbar
+            {
+                width: 0px;
+                height: 0px;
+            }`; 			
+			style.appendChild(document.createTextNode(cssRule));
+			} 
             document.head.appendChild(style);
         }
     }
@@ -271,7 +283,7 @@ ImprovedTube.commentsSidebar = function() {
             }, delay);
         };
     }
-      
+  }     
 }
 /*------------------------------------------------------------------------------
  SIDEBAR

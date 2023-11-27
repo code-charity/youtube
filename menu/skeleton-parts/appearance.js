@@ -384,10 +384,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "hideScrollForDetails",
 				tags: "remove,hide"
-			},
-			hide_video_title_fullScreen: {
-				component: "switch",
-				text: "hideVideoTitleFullScreen",
 			}
 		}
 	}
@@ -702,9 +698,13 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 				component: "switch",
 				text: "sidebar"
 			},
+			comments_sidebar_scrollbars: {
+				component: "switch",
+				text: "with scrollbars?"
+			},
 			comments_sidebar_simple: {
 				component: "switch",
-				text: "Sidebar simple"
+				text: "Sidebar (simple alternative)", 
 			},
 			squared_user_images: {
 				component: 'switch',
