@@ -60,10 +60,8 @@ min-width: min(calc(100vw - 1000px), 1260px) !important; max-width: 1260px !impo
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy[theater] #columns,
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy[fullscreen] #columns {height: auto}
 	html[data-page-type=video][it-comments-sidebar='true'][it-sidebar-left='true'] ytd-watch-flexy #secondary{border-left: 1px solid var(--yt-spec-10-percent-layer)}
-}
 
-@media screen and (min-width: 1952px) {
-/* or unset */
+	/* or unset */
 	html[data-page-type=video][it-comments-sidebar='true'] #columns {max-width: 2400px !important; }
 } 
 
