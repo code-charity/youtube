@@ -207,6 +207,8 @@ html[it-hide-scroll-for-details='true'] ytd-app[scrolling_] {
 /*--------------------------------------------------------------
 # Player Size
 --------------------------------------------------------------*/
+/*required for firefox'  autoplay:off only: */
+html[data-page-type="video"][it-player-size]:not([it-player-size='do_not_change'])  #movie-player .ytp-cued-thumbnail-overlay { z-index:10 }
 
  /*--------------------------------------------------------------
 # NORMAL
@@ -441,7 +443,7 @@ html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change'
 	max-height: none !important;
 }
 
-html[data-page-type='video'][it-player-size]:not([it-player-size='do_not_change']):not([it-player-size='custom']):not([it-player-size='normal']):not([it-player-size='fit_to_window']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player {
+html[data-page-type='video'][it-player-size]:not([it-player-size='do_not']):not([it-player-size='custom']):not([it-player-size='normal']):not([it-player-size='fit_to_window']) ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) .html5-video-player {
 	background: #000 !important;
 }
 
