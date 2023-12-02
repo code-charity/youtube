@@ -587,28 +587,20 @@ ImprovedTube.shortcutTranscript = function () {
 /*------------------------------------------------------------------------------
 4.7.22 LIKE
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutLike = function () {
-	var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer button')[0]);
-	if (like) {
-		like.click();
-	}
+	var like = document.querySelector('#menu #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer button');
+	if (like) {like.click();} 
 };
-
 
 /*------------------------------------------------------------------------------
 4.7.23 DISLIKE
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutDislike = function () {
-	var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer button')[1]);
-	if (like) {
-		like.click();
-	}
+	var dislike = document.querySelector('#menu #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer button');
+	if (dislike) {	dislike.click();}
 };
 
 /*------Report------*/
-
 ImprovedTube.shortcutReport = function () {
 try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); 
     document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
