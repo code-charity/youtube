@@ -596,7 +596,7 @@ ImprovedTube.shortcutLike = function () {
 4.7.23 DISLIKE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDislike = function () {
-	var dislike = document.querySelector('#menu #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer button');
+	var dislike = document.querySelector('#menu #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer button');
 	if (dislike) {	dislike.click();}
 };
 
