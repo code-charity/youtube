@@ -41,7 +41,7 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
  - [ ] Documentation, tooltips 
  - [ ] Full-page GUI, watch-history, dashboard 
  - [ ] Clean YT's DOM & avoid CPU-rendering
- - [ ] Smart [filtering /discovery](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1451), [tl](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1463), [md](https://github.com/code-charity/youtube/issues?q=is%3Aopen+sort%3Aupdated-desc+label%3A%22%3Cmeta%3E+data%22)
+ - [ ] Smart [filtering /discovery](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1451), [YT.js](https://github.com/LuanRT/YouTube.js), [M](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1463), [D](https://github.com/code-charity/youtube/issues?q=is%3Aopen+sort%3Aupdated-desc+label%3A%22%3Cmeta%3E+data%22)
  - [ ] Smart Player-[buttons](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1445) for all \<video\>
  - [ ] Continuously include awesome code: [YCS](https://github.com/sonigy/YCS)<br>[Yr](https://github.com/MarcGuiselin/youtube-refined)filters, UserScripts, [n](https://github.com/raingart/Nova-YouTube-extension) & **([i](https://github.com/ThomasTavernier/Improve-Crunchyroll)**, [p](https://github.com/ppixiv/ppixiv), [r](https://github.com/refined-github/refined-github) [o](https://github.com/ovity/octotree), ..) 
  - [ ] Run on m.youtube.com (grey-out some) 
