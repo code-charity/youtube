@@ -60,14 +60,14 @@ ImprovedTube.ytElementsHandler = function (node) {
 	} 
 		else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
 		if (
-			node.closest("YTD-MENU-RENDERER") &&
-			node.closest("YTD-PLAYLIST-PANEL-RENDERER")
-		) {
-			var index = Array.prototype.indexOf.call(node.parentNode.children, node);
-
+//can be precise   previously  node.parentComponent  & node.parentComponent.parentComponent
+			node.closest("YTD-MENU-RENDERER") &&   
+			node.closest("YTD-PLAYLIST-PANEL-RENDERER")  
+		) { var index = Array.prototype.indexOf.call(node.parentNode.children, node);
 			if (index === 0) {
-				if (this.storage.playlist_reverse === true) {
-					try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
+				if (this.storage.playlist_reverse === true) {   
+//can be precise:
+					try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;} 
 					catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
 						catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
 							catch{try{this.elements.playlist.actions = node.parentNode;}
@@ -83,6 +83,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 				this.playlistShuffle();
 
 				if (this.storage.playlist_reverse === true) {
+//can be precise:
 					try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
 					catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
 						catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}

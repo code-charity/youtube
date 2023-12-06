@@ -207,6 +207,8 @@ html[it-hide-scroll-for-details='true'] ytd-app[scrolling_] {
 /*--------------------------------------------------------------
 # Player Size
 --------------------------------------------------------------*/
+/*required for firefox'  autoplay:off only: */
+html[data-page-type="video"][it-player-size]:not([it-player-size='do_not_change'])  #movie-player .ytp-cued-thumbnail-overlay { z-index:10 }
 
  /*--------------------------------------------------------------
 # NORMAL
@@ -386,7 +388,7 @@ html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([full
     justify-content: center !important}
 	
 html[data-page-type=video][it-player-size='max_width'] {
-	--it-player-size: 100vh;}
+	--it-player-size: 86vh;}
 
 html[data-page-type=video][it-player-size='max_width'] .ytp-fit-cover-video .html5-main-video {
 	object-fit: contain !important;}

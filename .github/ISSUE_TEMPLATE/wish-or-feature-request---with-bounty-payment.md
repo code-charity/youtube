@@ -2,7 +2,7 @@
 name: Wish or Feature request,  with BOUNTY PAYMENT
 about: Wish or Feature request,  with BOUNTY PAYMENT
 title: ''
-labels: Bounty!, Feature request, good first issue, help wanted
+labels: Feature request, good first issue, help wanted
 assignees: ''
 
 ---

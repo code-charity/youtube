@@ -21,8 +21,7 @@ assignees: ''
       - ..deactivate other extensions running on YouTube? (or use an incognito window after activating this extension to run there  / _chrome://extensions `details`    chrome://extensions/?id=bnomihfieiccainjcjblhegjgglakjdd_ )
         -  ..open the Browser-console, with the `F12`-Key, before/when the error occures?  (then hopefully you'll see an error message in the console). 
        -  ...copy the YouTube-DOM shown above the console  (`F12`) in case YouTube is giving you a new verson.  You can copying the root element `<html>` in the top after the bug happened: 
-![chrome](https://github.com/code-charity/youtube/assets/25022245/ab976601-516a-40ad-970a-a5dbfc490c06) 
- ![Firefox](https://github.com/code-charity/youtube/assets/25022245/d5c2cd43-b77c-4c65-b9ba-cb6e85a18d9c)
+<img src="https://github.com/code-charity/youtube/assets/25022245/ab976601-516a-40ad-970a-a5dbfc490c06" height="90px">  (FireFox:) <img src="https://github.com/code-charity/youtube/assets/25022245/d5c2cd43-b77c-4c65-b9ba-cb6e85a18d9c" align="centered">
     - There are 2-3 different versions depending if you open a new window or clicked a link on youtube
 
 ---
