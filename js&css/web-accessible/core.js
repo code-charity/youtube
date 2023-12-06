@@ -30,14 +30,14 @@ var ImprovedTube = {
 		blacklist_buttons: []
 	},
 	regex: {
-		channel: new RegExp('\/(@|c\/@?|channel\/|user\/)(?<name>[^/]+)'),
-		channel_home_page: new RegExp('\/@|((channel|user|c)\/)[^/]+(\/featured)?\/?$'),
-		channel_home_page_postfix: new RegExp('\/(featured)?\/?$'),
-		thumbnail_quality: new RegExp('(default\.jpg|mqdefault\.jpg|hqdefault\.jpg|hq720\.jpg|sddefault\.jpg|maxresdefault\.jpg)+'),
-		video_id: new RegExp('[?&]v=([^&]+)'),
-		video_time: new RegExp('[?&](?:t|start)=([^&]+)'),
-		playlist_id: new RegExp('[?&]list=([^&]+)'),
-		channel_link: new RegExp('https:\/\/www.youtube.com\/@|((channel|user|c)\/)')
+		channel: /\/(@|c\/@?|channel\/|user\/)(?<name>[^/]+)/,
+		channel_home_page: /\/@|((channel|user|c)\/)[^/]+(\/featured)?\/?$/,
+		channel_home_page_postfix: /\/(featured)?\/?$/,
+		thumbnail_quality: /(default\.jpg|mqdefault\.jpg|hqdefault\.jpg|hq720\.jpg|sddefault\.jpg|maxresdefault\.jpg)+/,
+		video_id: /(?:[?&]v=|embed\/)([^&?]+)/,
+		video_time: /[?&](?:t|start)=([^&]+)/,
+		playlist_id: /[?&]list=([^&]+)/,
+		channel_link: /https:\/\/www.youtube.com\/@|((channel|user|c)\/)/
 	},
 	video_src: false,
 	initialVideoUpdateDone: false,

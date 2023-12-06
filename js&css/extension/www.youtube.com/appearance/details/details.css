@@ -96,6 +96,7 @@ html[it-hide-views-count='true'] ytd-watch-metadata #info>span:first-child,
 	/*------# HIDE COMMENTS COUNT---*/
 html[it-hide-comments-count='true'] #comments #count,
 	/*------# HIDE DATE-------------*/
+html[it-hide-date='true'] #info span:nth-child(3),
 html[it-hide-date='true'] #info #count + #info-strings>yt-formatted-string,
 html[it-hide-date='true'] #info #count + #info-strings>#dot,
 html[it-hide-date='true'] ytd-watch-metadata #info>span:last-child,

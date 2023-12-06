@@ -138,16 +138,16 @@ console.log("genre: " + DATA.genre + "//title: " +  DATA.title + "//keywords: " 
 DATA = {};
 defaultKeywords = "video,sharing,camera,phone,video phone,free,upload";
 DATA.keywords = false; keywords = false;  amountOfSongs = false;
-DATA.videoID = location.href.match(/(\?|\&)v=[^&]+/)?.[0].substr(3) || location.href.match(/()embed\/[^&]+/)?.[0].substr(3) || improvedTube.videoID || false;
-	ImprovedTube.fetchDOMData = function () { 
-			try { DATA = JSON.parse(document.getElementById('scriptTag')?.textContent) ?? false;  DATA.title = DATA.name;} 
-			 catch (error) {
-                console.error('Error parsing id="scriptTag"\'s JSON:', error);
-                DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false;
+DATA.videoID = improvedTube.videoId() || false;
+	ImprovedTube.fetchDOMData = function () {  
+			// if (history.length > 1 &&  history.state.endpoint.watchEndpoint) {
+			try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false;  DATA.title = DATA.name;} 
+			 catch { DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false; 
+				try {                
                 DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
                 DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
                 DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
-				} if ( false )
+			 } catch {}} if ( DATA.title === ImprovedTube.videoTitle() ) 
                 { keywords = document.getElementsByTagName('meta')?.keywords?.content || false; if(!keywords){keyword=''} ImprovedTube.speedException(); }
 				else { keywords = ''; (async function () {  try {   const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
 						
@@ -581,7 +581,7 @@ ImprovedTube.screenshot = function () {
 				var a = document.createElement('a');
 				a.href = URL.createObjectURL(blob); console.log("screeeeeeenshot tada!");
 
-				a.download = location.href.match(/(\?|\&)v=[^&]+/)[0].substr(3) || location.href.match(/()embed\/[^&]+/)[0].substr(3) || improvedTube.videoID || location.href.match + '-' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + '.png';
+				a.download = (ImprovedTube.videoId() || location.href.match) + '-' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + '-' + ImprovedTube.videoTitle() + '.png';
 
 				a.click();
 			} else {
