@@ -564,21 +564,9 @@ ImprovedTube.createPlayerButton = function (options) {
 		controls.insertBefore(button, controls.childNodes[3]);
 	}
 };
-
-ImprovedTube.empty = function (element) {
-	for (var i = element.childNodes.length - 1; i > -1; i--) {
-		element.childNodes[i].remove();
-	}
-};
-
-ImprovedTube.isset = function (variable) {
-	return !(typeof variable === 'undefined' || variable === null || variable === 'null');
-};
-
-ImprovedTube.stopPropagation = function (event) {
-	event.stopPropagation();
-};
-
+ImprovedTube.empty = function (element) {for (var i = element.childNodes.length - 1; i > -1; i--) { element.childNodes[i].remove();	}};
+ImprovedTube.isset = function (variable) { 	return !(typeof variable === 'undefined' || variable === null || variable === 'null');};
+ImprovedTube.stopPropagation = function (event) { event.stopPropagation(); };
 ImprovedTube.showStatus = function (value) {
 	if (!this.elements.status) {
 		this.elements.status = document.createElement('div');
@@ -602,3 +590,6 @@ ImprovedTube.showStatus = function (value) {
 
 	this.elements.player.appendChild(this.elements.status);
 };
+
+ImprovedTube.videoId =  function (url = document.URL) { return url.match(ImprovedTube.regex.video_id)[1] ||  new URL(url).searchParams.get('v') || movie_player.getVideoData().video_id }
+ImprovedTube.videoTitle =  function () {  return document.title?.replace(/\s*-\s*YouTube$/, '') || movie_player.getVideoData().title || document.querySelector('#title > h1 > *')?.textContent  }

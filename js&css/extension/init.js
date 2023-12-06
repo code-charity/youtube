@@ -240,5 +240,5 @@ document.addEventListener('it-message-from-youtube', function () {
 document.addEventListener('it-play', function (event) {
 	var videos = document.querySelectorAll('video');
 	 try {chrome.runtime.sendMessage({action: 'play'})} 
-       catch(error){console.log(error); chrome.runtime.sendMessage({action: 'play'}, function (response) { } ); }
+       catch(error){console.log(error); setTimeout(function () { try { chrome.runtime.sendMessage({action: 'play'}, function (response) { console.log(response) } );  } catch { } }, 321) }
 	   });

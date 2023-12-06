@@ -428,18 +428,18 @@ ImprovedTube.hideDetailButton = function (el) {
 ImprovedTube.dayOfWeek = function () {  if (this.storage.day_of_week === true) {
         var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         setTimeout(function () {
-            var videoDate = document.querySelector("[itemprop=datePublished]").content;
+            var videoDate;  try { videoDate = JSON.parse(document.querySelector('#microformat script')?.textContent)?.uploadDate }  //YouTube related video or internal link?
+								catch { try { videoDate = document.querySelector("[itemprop=datePublished]").content;} catch { } }  //..no? must be new session?  
             var tempDate = new Date(videoDate);
 			var element = document.querySelector(".ytd-day-of-week");
             if (!element) {
                 var label = document.createElement("span");
-                label.textContent = " , " + days[tempDate.getDay() + 1];
+                label.textContent = days[tempDate.getDay() + 1] + '  ';
                 label.className = "ytd-day-of-week";
-                document.querySelector("ytd-video-primary-info-renderer #info #info-strings yt-formatted-string").append(label);
-            } else {
-                element.textContent = days[tempDate.getDay() + 1] + ", ";
-            }
-        }, 25);
+				//update please:
+                try {document.querySelector("#info span:nth-child(2)")?.append(label);} catch { try {document.querySelector("#info #info-strings yt-formatted-string")?.append(label);}catch {}}
+            } // else { element.textContent = days[tempDate.getDay() + 1] + ", "; }
+        }, 4321);
     } 
 };
 /*------------------------------------------------------------------------------
