@@ -406,8 +406,9 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.expandDescription = function (el) {
     if (this.storage.description === "expanded" || this.storage.description === "classic_expanded" ) 
-	   if(el)try{el.click()}catch{setTimeout(function(){el.click();},1000);}
-};	
+	   if(el){ try{el.click()}catch{try{setTimeout(function(){el.click();},3000);}catch{}};  setTimeout(function(){el.click();},7000)   }
+		
+}
 /*------------------------------------------------------------------------------
  HIDE DETAIL BUTTON
 ------------------------------------------------------------------------------*/
