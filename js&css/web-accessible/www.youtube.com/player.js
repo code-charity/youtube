@@ -138,7 +138,7 @@ console.log("genre: " + DATA.genre + "//title: " +  DATA.title + "//keywords: " 
 DATA = {};
 defaultKeywords = "video,sharing,camera,phone,video phone,free,upload";
 DATA.keywords = false; keywords = false;  amountOfSongs = false;
-DATA.videoID = improvedTube.videoId() || false;
+DATA.videoID = ImprovedTube.videoId() || false;
 	ImprovedTube.fetchDOMData = function () {  
 			// if (history.length > 1 &&  history.state.endpoint.watchEndpoint) {
 			try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false;  DATA.title = DATA.name;} 
@@ -163,6 +163,8 @@ DATA.videoID = improvedTube.videoId() || false;
 						})();
 						}							
   };				
+if (history && history.length === 1 || !history.state.endpoint.watchEndpoint) { ImprovedTube.fetchDOMData();}  
+else {   
 //Invidious instances (Nov2023)
 const invidiousInstances = ['iv.datura.network', 'vid.puffyan.us', 'invidious.perennialte.ch', 'iv.melmac.space', 'inv.in.projectsegfau.lt', 'invidious.asir.dev', 'inv.zzls.xyz', 'invidious.io.lol', 'onion.tube', 'yewtu.be', 'invidious.protokolla.fi', 'inv.citw.lgbt', 'anontube.lvkaszus.pl', 'iv.nboeck.de', 'invidious.no-logs.com', 'vid.priv.au', 'yt.cdaut.de', 'invidious.slipfox.xyz', 'yt.artemislena.eu', 'invidious.drgns.space', 'invidious.einfachzocken.eu', 'invidious.projectsegfau.lt', 'invidious.nerdvpn.de', 'invidious.private.coffee', 'invidious.lunar.icu', 'invidious.privacydev.net', 'invidious.fdn.fr', 'yt.oelrichsgarcia.de', 'iv.ggtyler.dev', 'inv.tux.pizza', 'yt.drgnz.club', 'inv.us.projectsegfau.lt'];
 function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
@@ -180,7 +182,7 @@ function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Mat
 	if(!invidiousFetched){ if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())} 
 							else { ImprovedTube.fetchDOMData();} }  
 })();
-
+}
 	}	else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);} // #1729 q2	// hi! @raszpl  
  }        
 } 
