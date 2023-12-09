@@ -81,7 +81,7 @@
 .satus-base[home-style='list'] .satus-button--playlist > span:first-child,
 .satus-base[home-style='list'] .satus-button--channel > span:first-child,
 .satus-base[home-style='list'] .satus-button--shortcuts > span:first-child,
-.satus-base[home-style='list'] .satus-button--blacklist > span:first-child,
+.satus-base[home-style='list'] .satus-button--blocklist > span:first-child,
 .satus-base[home-style='list'] .satus-button--analyzer > span:first-child {
 	display: block;
     height: 20px;
@@ -97,7 +97,7 @@
 .satus-base[playlist='true'] .satus-button--playlist,
 .satus-base[channel='true'] .satus-button--channel,
 .satus-base[shortcuts='true'] .satus-button--shortcuts,
-.satus-base[blacklist='true'] .satus-button--blacklist,
+.satus-base[blocklist='true'] .satus-button--blocklist,
 .satus-base[analyzer='true'] .satus-button--analyzer {
 	display: none !important;
 }

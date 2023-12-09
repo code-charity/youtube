@@ -653,7 +653,6 @@ ImprovedTube.playerRepeatButton = function (node) {
 		if (this.storage.player_always_repeat === true) {
 			setTimeout(function () {
 				ImprovedTube.elements.video.setAttribute('loop', '');
-
 				ImprovedTube.elements.buttons['it-repeat-styles'].style.opacity = '1';
 			}, 100);
 		}
@@ -718,11 +717,9 @@ FIT-TO-WIN BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerFitToWinButton = function () {
 	if (this.storage.player_fit_to_win_button === true && (/watch\?/.test(location.href))) {
-		const svgMarkup = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon">
-		<path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>`;
-
     let tempContainer = document.createElement("div");
-    tempContainer.innerHTML = svgMarkup;
+    tempContainer.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon">
+		<path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>`;
     const svg = tempContainer.firstChild;
 		this.createPlayerButton({
 			id: 'it-fit-to-win-player-button',
@@ -835,10 +832,10 @@ ImprovedTube.playerPopupButton = function () {
 				}
 				//~ change focused tab to URL-less popup
 				ImprovedTube.messages.send({
-					action: 'popup player',
+					action: 'fixPopup',
 					
-					width: ytPlayer.offsetWidth,
-					height: ytPlayer.offsetHeight,
+					width: ytPlayer.offsetWidth * .8 ,
+					height: ytPlayer.offsetHeight * .8 ,
 					title: document.title
 				});
 			},

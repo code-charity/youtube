@@ -125,7 +125,7 @@
     "black": {
         "message": "검정"
     },
-    "blacklist": {
+    "blocklist": {
         "message": "블랙리스트"
     },
     "blockAll": {
@@ -282,7 +282,7 @@
         "message": "영상 설명란"
     },
     "description_ext": {
-        "message": "유튜브를 깔끔하고 스마트하게 만들어줍니다! 유튜브 비디오의 색상, 광고 제거, 음량, 배속, 채널 툴, 스타일, HD, 광고 차단, 태그, 키워드, 재생목록"
+        "message": "YouTube, YouTube, YouTube: 유튜브를 깔끔하고 스마트하게 만들어줍니다! 유튜브 비디오의 색상, 광고 제거, 음량, 배속, 채널 툴, 스타일, HD, 광고 차단, 태그, 키워드, 재생목록"
     },
     "desert": {
         "message": "사막"

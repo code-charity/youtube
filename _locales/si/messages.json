@@ -122,8 +122,8 @@
     "black": {
         "message": "Black"
     },
-    "blacklist": {
-        "message": "Blacklist එක"
+    "blocklist": {
+        "message": "Blocklist එක"
     },
     "blockAll": {
         "message": "සියල්ල Block කරන්න"
@@ -279,7 +279,7 @@
         "message": "Description එක"
     },
     "description_ext": {
-        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+        "message": "YouTube, tidy + smart? Youtube video youtube player size youtube color ad skip speed volume channel skipper tags playlist hide"
     },
     "desert": {
         "message": "අතුරුපස"

@@ -82,6 +82,8 @@ document.addEventListener('yt-navigate-finish', function () {
 	}
 
 	ImprovedTube.channelPlayAllButton();
+	if (document.documentElement.dataset.pageType === 'home' &&  ImprovedTube.storage.youtube_home_page === 'search' )
+		{ document.querySelector('body').style.setProperty('visibility', 'visible', 'important');ImprovedTube.shortcutGoToSearchBox(); document.querySelector('#search').click(); }
 });
 
 document.addEventListener('yt-page-data-updated', function (event) {
@@ -91,6 +93,7 @@ document.addEventListener('yt-page-data-updated', function (event) {
 		ImprovedTube.playlistReverse();
 	}
 	ImprovedTube.playlistPopupUpdate();
+	
 });
 
 window.addEventListener('load', function () {
@@ -106,5 +109,6 @@ window.addEventListener('load', function () {
 	};
 	ImprovedTube.improvedtubeYoutubeIcon(); 	
 		if (document.documentElement.dataset.pageType === 'home' &&  ImprovedTube.storage.youtube_home_page === 'search' )
-		{ImprovedTube.shortcutGoToSearchBox(); document.querySelector('body').style.visiblity="visible"; }//document.querySelector('#content, #guide[opened]').remove() }  
+		{ document.querySelector('body').style.setProperty('visibility', 'visible', 'important');ImprovedTube.shortcutGoToSearchBox(); document.querySelector('#search').click(); }
+		//document.querySelector('#content, #guide[opened]').remove() }  
 });

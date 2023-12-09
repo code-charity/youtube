@@ -22,7 +22,7 @@ extension.attributes = function () {
 		it_playlist: true,
 		it_channel: true,
 		it_shortcuts: true,
-		it_blacklist: true,
+		it_blocklist: true,
 		it_analyzer: true,
 		layer_animation_scale: false
 	};

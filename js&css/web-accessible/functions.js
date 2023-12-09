@@ -26,10 +26,10 @@ ImprovedTube.ytElementsHandler = function (node) {
 			this.channelDefaultTab(node);
 
 			if (node.className.indexOf('ytd-thumbnail') !== -1) {
-				this.blacklist('video', node);
+				this.blocklist('video', node);
 			}
 			if (node.href.match(/@|((channel|user|c)\/)([^/]+)/)) {
-				this.blacklist('channel', node);
+				this.blocklist('channel', node);
 			}
 		}
 	}  else if (name === 'META') {
@@ -126,7 +126,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 		this.playlistPopupUpdate();
  	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
 		if (node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
-			ImprovedTube.blacklist('channel', node);
+			ImprovedTube.blocklist('channel', node);
 		}
 
 		ImprovedTube.elements.subscribe_button = node;
@@ -592,5 +592,5 @@ ImprovedTube.showStatus = function (value) {
 	this.elements.player.appendChild(this.elements.status);
 };
 
-ImprovedTube.videoId =  function (url = document.URL) { return url.match(ImprovedTube.regex.video_id)[1] ||  new URL(url).searchParams.get('v') || movie_player.getVideoData().video_id }
+ImprovedTube.videoId =  function (url = document.URL) { return  new URL(url).match(ImprovedTube.regex.video_id)[1] ||  url.searchParams.get('v') || movie_player.getVideoData().video_id }
 ImprovedTube.videoTitle =  function () {  return document.title?.replace(/\s*-\s*YouTube$/, '') || movie_player.getVideoData().title || document.querySelector('#title > h1 > *')?.textContent  }

@@ -74,7 +74,7 @@
 				"js&css/web-accessible/www.youtube.com/playlist.js",
 				"js&css/web-accessible/www.youtube.com/channel.js",
 				"js&css/web-accessible/www.youtube.com/shortcuts.js",
-				"js&css/web-accessible/www.youtube.com/blacklist.js",
+				"js&css/web-accessible/www.youtube.com/blocklist.js",
 				"js&css/web-accessible/www.youtube.com/settings.js",
 				"js&css/web-accessible/init.js",
 				"js&css/web-accessible/mutations.js"

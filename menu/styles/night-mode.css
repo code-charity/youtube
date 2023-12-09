@@ -1,8 +1,0 @@
-/*--------------------------------------------------------------
->>> NIGHT MODE
---------------------------------------------------------------*/
-
-:not([data-value='sunset_to_sunrise']) + .satus-time--from,
-:not([data-value='sunset_to_sunrise']) + * + .satus-time--to {
-	display: none !important
-}

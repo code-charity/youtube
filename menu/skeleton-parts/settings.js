@@ -158,9 +158,9 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.firstSectio
 									component: 'checkbox',
 									text: 'analyzer'
 								},
-								it_blacklist: {
+								it_blocklist: {
 									component: 'checkbox',
-									text: 'blacklist'
+									text: 'blocklist'
 								}
 							}
 						}

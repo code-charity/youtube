@@ -125,8 +125,8 @@
     "black": {
         "message": "Čierna"
     },
-    "blacklist": {
-        "message": "Blacklist"
+    "blocklist": {
+        "message": "Blocklist"
     },
     "blockAll": {
         "message": "Zablokovať všetko"
@@ -282,7 +282,7 @@
         "message": "Description"
     },
     "description_ext": {
-        "message": "Make YouTube tidy+smart! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+        "message": "YouTube, tidy + smart? Youtube video youtube player size youtube color ad skip speed volume channel skipper tags playlist hide"
     },
     "desert": {
         "message": "Púšť"

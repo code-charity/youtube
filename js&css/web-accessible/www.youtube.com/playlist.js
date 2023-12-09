@@ -179,7 +179,7 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 			} else window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${innerWidth},height=${innerHeight}`);
 			//~ change focused tab to URL-less popup
 			ImprovedTube.messages.send({
-				action: 'popup player',
+				action: 'fixPopup',
 				width: ImprovedTube.elements.player?.offsetWidth ?? innerWidth,
 				height: ImprovedTube.elements.player?.offsetHeight ?? innerHeight,
 				title: document.title
@@ -189,9 +189,9 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 			window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${innerWidth},height=${innerHeight}`);
 			//~ change focused tab to URL-less popup
 			ImprovedTube.messages.send({
-				action: 'popup player',
-				width: window.innerWidth,
-				height: window.innerHeight,
+				action: 'fixPopup',
+				width: window.innerWidth/1.3,
+				height: window.innerHeight/1.3,
 				title: document.title,
 			});
 		},
