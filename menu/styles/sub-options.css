@@ -1,0 +1,35 @@
+/*-----------------
+NESTED (CONDITIONAL) SWITCHES
+-----------------*/
+#remove-home-page-shorts:not([data-value='true']) + .satus-switch,
+#remove-home-page-shorts:not([data-value='true']) + .satus-switch + .satus-switch,
+#remove-home-page-shorts:not([data-value='true']) + .satus-switch + .satus-switch + .satus-switch,
+/*-----------------
+>>> Appearance
+-----------------*/
+/*-transcript compact spacing-*/
+#transcript:not([data-value='true']) + .satus-switch,
+ /*-DURATION WITH SPEED-*/
+#show-remaining-duration:not([data-value='true']) + .satus-switch,
+ /*-comment sidebar scrollbars-*/
+#comments-sidebar:not([data-value='true']) + .satus-switch,
+/*--------------------------------------------------------------
+>>> PLAYER
+--------------------------------------------------------------*/
+#forced-volume:not([data-value='true']) + .satus-slider,
+#forced-playback-speed:not([data-value='true']) + .satus-switch,
+#forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch,
+#forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch + .satus-slider, 
+ /*--------------------------------------------------------------
+	SUBTITLES
+--------------------------------------------------------------*/
+#subtitles-language[data-value='default'] + .satus-switch,
+/*--------------------------------------------------------------
+NIGHT MODE
+--------------------------------------------------------------*/
+:not([data-value='sunset_to_sunrise']) + .satus-time--from,
+:not([data-value='sunset_to_sunrise']) + * + .satus-time--to 
+/*====================================*/
+	{display: none !important}
+	
+	

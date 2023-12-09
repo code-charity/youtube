@@ -3,7 +3,7 @@ html {overflow-x: hidden !important; }
 /* html {overflow-x: hidden !important; }  
 /* Fix to tame Youtube's page-load / make it more calm  -  the player wont annoyingly slide in from the right anymore */
 									/* previously also: html[it-transcript='true'] {overflow-x: hidden !important; }*/
-@-moz-document url-prefix() { overflow-x: visible !important; } /* REMOVE ME SOON https://github.com/code-charity/youtube/issues/1649 
+ @-moz-document url-prefix() { overflow-x: visible !important; } /* REMOVE ME SOON https://github.com/code-charity/youtube/issues/1649 
 /*------------------------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 --------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ html {overflow-x: hidden !important; }
 7.0 Shortcuts
 8.0 Settings
   8.1 ImprovedTube icon on YouTube
-9.0 Blacklist
+9.0 Blocklist
 3.0 Themes
   3.1 Bluelight
   3.2 Dim
@@ -447,7 +447,7 @@ ytd-guide-section-renderer .it-button::after {
 /*------------------------------------------------------------------------------
 9.0 BLACKLIST
 ------------------------------------------------------------------------------*/
-.it-add-to-blacklist {
+.it-add-to-blocklist {
 	position: absolute;
 	top: 4px;
 	left: 4px;
@@ -465,10 +465,10 @@ ytd-guide-section-renderer .it-button::after {
 	font-family: inherit;
 }
 
-.it-add-to-blacklist::after {
+.it-add-to-blocklist::after {
 	display: flex;
 	align-items: center;
-	content: 'Blacklist';
+	content: 'Blocklist';
 	text-transform: uppercase;
 	color: var(--yt-spec-icon-active-other, #fff);
 	position: absolute;
@@ -485,11 +485,11 @@ ytd-guide-section-renderer .it-button::after {
 	border-bottom-right-radius: 2px;
 }
 
-.it-add-to-blacklist:hover::after {
+.it-add-to-blocklist:hover::after {
 	width: 96px;
 }
 
-.it-add-to-blacklist svg {
+.it-add-to-blocklist svg {
 	position: absolute;
 	top: 4px;
 	left: 4px;
@@ -499,7 +499,7 @@ ytd-guide-section-renderer .it-button::after {
 	pointer-events: none;
 }
 
-.it-add-channel-to-blacklist {
+.it-add-channel-to-blocklist {
 	background-color: var(--yt-spec-badge-chip-background);
 	color: var(--yt-spec-text-secondary);
 	border-radius: 2px;
@@ -518,15 +518,15 @@ ytd-guide-section-renderer .it-button::after {
 	cursor: pointer;
 }
 
-*:hover>.it-add-to-blacklist {
+*:hover>.it-add-to-blocklist {
 	visibility: visible;
 }
-.it-blacklisted-video { opacity: .15;  max-height:14px; overflow:hidden; margin-top:-3px;  transition: max-height 0.4s ease 0.1s;}
-.it-blacklisted-video ytd-thumbnail { visibility:hidden; max-width: 0px; transition: max-width 0.4s ease 0.1s;}
-.it-blacklisted-video:hover { opacity: 1; overflow:visible; max-height: 85px; transition: max-height 0.4s ease 1.1s; margin-left: 0x !important }
-.it-blacklisted-video:hover ytd-thumbnail { visibility:visible; max-width: 170px; transition: max-width 0.4s ease 1.1s; }
-/* .it-blacklisted-video #metadata-line { display:none !important}  
-   .it-blacklisted-video div {display: inline-block !important}  */
+.it-blocklisted-video { opacity: .15;  max-height:19px; overflow:hidden; margin-top:-5px !important;  transition: max-height 0.4s ease 0.1s;}
+.it-blocklisted-video ytd-thumbnail { visibility:hidden; max-width: 0px; transition: max-width 0.4s ease 0.1s;}
+.it-blocklisted-video:hover { opacity: 1; overflow:visible; max-height: 120px; transition: max-height 0.4s ease 1.1s; }
+.it-blocklisted-video:hover ytd-thumbnail { visibility:visible; max-width: 220px; transition: max-width 0.4s ease 1.1s;  margin-top:-7px !important;  margin-bottom:4px !important; margin-left: 5x !important }
+/* .it-blocklisted-video #metadata-line { display:none !important}  
+   .it-blocklisted-video div {display: inline-block !important}  */
  
 html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer 
 /*------------NEW---------------*/

@@ -9,14 +9,9 @@
 # Message listener
 # Uninstall URL
 --------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# LOCALE
---------------------------------------------------------------*/
 /*---------------------------
 # IMPORTING OLD SETTINGS
------------------------------*/	
-										
+-----------------------------*/										
 
 chrome.runtime.onInstalled.addListener(function (installed){
     if(installed.reason == 'update'){
@@ -44,11 +39,10 @@ if(navigator.userAgent.indexOf("Safari") != -1){chrome.storage.local.set({below_
 // console.log('Thanks for installing!');
 };
 }
-
-
 );  
-
-
+/*--------------------------------------------------------------
+# LOCALE
+--------------------------------------------------------------*/
 function getLocale(language, callback) {
 	language = language.replace('-', '_');
 
@@ -62,12 +56,9 @@ function getLocale(language, callback) {
 		getLocale('en', callback);
 	});
 }
-
-
 /*--------------------------------------------------------------
 # CONTEXT MENU
 --------------------------------------------------------------*/
-
 function updateContextMenu(language) {
 	if (!language) {
 		language = chrome.i18n.getUILanguage();
@@ -310,5 +301,3 @@ chrome.runtime.onMessage.addListener(function (request) {
 --------------------------------------------------------------*/
 
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
-
-

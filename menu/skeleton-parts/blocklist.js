@@ -1,14 +1,14 @@
 /*--------------------------------------------------------------
->>> BLACKLIST
+>>> BLOCKLIST
 --------------------------------------------------------------*/
 
-extension.skeleton.main.layers.section.blacklist = {
+extension.skeleton.main.layers.section.blocklist = {
 	component: 'button',
-	variant: 'blacklist',
+	variant: 'blocklist',
 	category: true,
 	on: {
 		click: {
-			blacklist_activate: {
+			blocklist_activate: {
 				component: 'switch',
 				variant: 'activation',
 				text: 'activate'
@@ -27,16 +27,16 @@ extension.skeleton.main.layers.section.blacklist = {
 							on: {
 								render: function () {
 									var skeleton = {},
-										blacklist = satus.storage.get('blacklist');
+										blocklist = satus.storage.get('blocklist');
 
-									if (blacklist && blacklist.channels) {
-										for (var key in blacklist.channels) {
-											var channel = blacklist.channels[key];
+									if (blocklist && blocklist.channels) {
+										for (var key in blocklist.channels) {
+											var channel = blocklist.channels[key];
 
 											if (channel !== false) {
 												skeleton[key] = {
 													component: 'div',
-													variant: 'blacklist',
+													variant: 'blocklist',
 													data: {
 														id: key
 													},
@@ -49,13 +49,13 @@ extension.skeleton.main.layers.section.blacklist = {
 														component: 'button',
 														on: {
 															click: function () {
-																var blacklist = satus.storage.get('blacklist'),
+																var blocklist = satus.storage.get('blocklist'),
 																	component = this.parentNode;
 
-																if (blacklist && blacklist.channels) {
-																	delete blacklist.channels[component.dataset.id];
+																if (blocklist && blocklist.channels) {
+																	delete blocklist.channels[component.dataset.id];
 
-																	satus.storage.set('blacklist', blacklist, function () {
+																	satus.storage.set('blocklist', blocklist, function () {
 																		component.remove();
 																	});
 																}
@@ -105,16 +105,16 @@ extension.skeleton.main.layers.section.blacklist = {
 							on: {
 								render: function () {
 									var skeleton = {},
-										blacklist = satus.storage.get('blacklist');
+										blocklist = satus.storage.get('blocklist');
 
-									if (blacklist && blacklist.videos) {
-										for (var key in blacklist.videos) {
-											var video = blacklist.videos[key];
+									if (blocklist && blocklist.videos) {
+										for (var key in blocklist.videos) {
+											var video = blocklist.videos[key];
 
 											if (video !== false) {
 												skeleton[key] = {
 													component: 'div',
-													variant: 'blacklist',
+													variant: 'blocklist',
 													data: {
 														id: key
 													},
@@ -127,13 +127,13 @@ extension.skeleton.main.layers.section.blacklist = {
 														component: 'button',
 														on: {
 															click: function () {
-																var blacklist = satus.storage.get('blacklist'),
+																var blocklist = satus.storage.get('blocklist'),
 																	component = this.parentNode;
 
-																if (blacklist && blacklist.videos) {
-																	delete blacklist.videos[component.dataset.id];
+																if (blocklist && blocklist.videos) {
+																	delete blocklist.videos[component.dataset.id];
 
-																	satus.storage.set('blacklist', blacklist, function () {
+																	satus.storage.set('blocklist', blocklist, function () {
 																		component.remove();
 																	});
 																}
@@ -208,6 +208,6 @@ extension.skeleton.main.layers.section.blacklist = {
 	},
 	label: {
 		component: 'span',
-		text: 'blacklist'
+		text: 'blocklist'
 	}
 };

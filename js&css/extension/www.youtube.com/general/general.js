@@ -86,7 +86,6 @@ extension.features.youtubeHomePage = function (anything) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # COLLAPSE OF SUBSCRIPTION SECTIONS
 --------------------------------------------------------------*/
@@ -233,16 +232,14 @@ extension.features.popupWindowButtons = function (event) {
 			if (event.target) {
 				var target = event.target,
 					detected = false;
-
 				while (detected === false && target.parentNode) {
-					var targetClassList = target.classList || '';
-					if (
-						target.id === 'thumbnail' && targetClassList.contains('ytd-thumbnail') || targetClassList.contains('thumb-link') 
-					) {
+					if ( target.className && typeof target.className === 'string' && ((
+						target.id === 'thumbnail' && target.className.indexOf('ytd-thumbnail') !== -1 || target.className.indexOf('thumb-link') !== -1 )
+						|| (target.className.indexOf('video-preview') !== -1 || target.className.indexOf('ytp-inline-preview-scrim') !== -1  || target.className.indexOf('ytp-inline-preview-ui') !== -1)
+					)) {
 						if (!target.itPopupWindowButton) {
 target.itPopupWindowButton = document.createElement('button');
-target.itPopupWindowButton.className = 'satus-button it-popup-window';
-target.itPopupWindowButton.dataset.id = extension.functions.getUrlParameter(target.href, 'v');
+target.itPopupWindowButton.className = 'it-popup-window';
 
 var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 svg.setAttribute('viewBox', '0 0 24 24');
@@ -251,18 +248,26 @@ path.setAttribute('d', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 
 svg.appendChild(path);
 target.itPopupWindowButton.appendChild(svg);
 target.appendChild(target.itPopupWindowButton);
-
-
+	try { target.itPopupWindowButton.dataset.id = target.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1]  } catch(error) { console.log(error)}
+	shorts = /short/.test(target.href); 
+	vertical = false; 	let width, height;
+	if (  window.innerWidth / window.innerHeight  < 1 ) { vertical = true } 
+	if ( !vertical &&  shorts ){ height = window.innerHeight * 0.7}
+   	if (  vertical && !shorts ){  width = window.innerWidth * 0.65 }
+    if ( !vertical && !shorts ){ height = window.innerHeight *0.47 }
+	if (  vertical &&  shorts ){ width = window.innerWidth *0.38 }
+	if ( !vertical ) { width = height * 0.5625;} else { height = width * 0.5625}  
+	console.log(shorts + "v:" + vertical  + "w:" + width + "h:" + height);
 target.itPopupWindowButton.addEventListener('click', function (event) {
     event.preventDefault();
     event.stopPropagation();
-    window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay') == false ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no');
-	chrome.runtime.sendMessage({
+
+window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay') == false ? '0' : '1'), '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width},height=${height}`);
+chrome.runtime.sendMessage({
 				action: 'fixPopup',
-				width: document.querySelector("video")?.offsetWidth,
-				height: document.querySelector("video")?.offsetHeight,
-				title: target.closest('dismissible')?.querySelector('*[id="video-title"]')?.textContent + " - Youtube" 
-				//title doesnt work
+				width: width,
+				height: height,
+				title: target.closest('*[id="video-title"]')?.textContent + " - Youtube" 
 				}) 
 });
 						}
@@ -340,7 +345,7 @@ extension.features.markWatchedVideos = function (anything) {
 					) {
 						if (!target.itMarkWatchedVideosButton) {
     target.itMarkWatchedVideosButton = document.createElement('button');
-    target.itMarkWatchedVideosButton.className = 'satus-button it-mark-watched-videos';
+    target.itMarkWatchedVideosButton.className = 'it-mark-watched-videos';
     target.itMarkWatchedVideosButton.dataset.id = extension.functions.getUrlParameter(target.href, 'v');
     var id = target.itMarkWatchedVideosButton.dataset.id;
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');    svg.setAttribute('viewBox', '0 0 24 24');

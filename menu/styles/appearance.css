@@ -1,17 +1,6 @@
 /*--------------------------------------------------------------
 >>> APPEARANCE:
 ----------------------------------------------------------------
-
-/*-----------------
-NESTED (CONDITIONAL) SWITCHES
------------------*/
-/*-transcript compact spacing-*/
-#transcript:not([data-value='true']) + .satus-switch,
- /*-DURATION WITH SPEED-*/
-#show-remaining-duration:not([data-value='true']) + .satus-switch,
- /*-comment sidebar scrollbars-*/
-#comments-sidebar:not([data-value='true']) + .satus-switch 
-{display:none;}
 /*--------------------------------------------------------------
 # BUTTONS
 --------------------------------------------------------------*/

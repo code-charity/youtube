@@ -1,8 +1,8 @@
 /*--------------------------------------------------------------
->>> BLACKLIST
+>>> BLOCKLIST
 --------------------------------------------------------------*/
 
-.satus-div--blacklist> :first-child {
+.satus-div--blocklist> :first-child {
 	overflow: hidden;
 
 	white-space: nowrap;
@@ -11,12 +11,12 @@
 	flex: 1;
 }
 
-.satus-div--blacklist>button {
+.satus-div--blocklist>button {
 	height: 32px;
 	margin: 0 0 0 12px;
 	padding: 6px;
 }
 
-.satus-div--blacklist:not(:hover)>button {
+.satus-div--blocklist:not(:hover)>button {
 	display: none;
 }

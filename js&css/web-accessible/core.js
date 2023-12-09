@@ -11,7 +11,7 @@
 /*--------------------------------------------------------------
 # GLOBAL VARIABLE
 --------------------------------------------------------------*/
-
+	
 var ImprovedTube = {
 	messages: {
 		queue: []
@@ -27,14 +27,14 @@ var ImprovedTube = {
 		comments: {},
 		collapse_of_subscription_sections: [],
 		mark_watched_videos: [],
-		blacklist_buttons: []
+		blocklist_buttons: []
 	},
 	regex: {
 		channel: /\/(@|c\/@?|channel\/|user\/)(?<name>[^/]+)/,
 		channel_home_page: /\/@|((channel|user|c)\/)[^/]+(\/featured)?\/?$/,
 		channel_home_page_postfix: /\/(featured)?\/?$/,
 		thumbnail_quality: /(default\.jpg|mqdefault\.jpg|hqdefault\.jpg|hq720\.jpg|sddefault\.jpg|maxresdefault\.jpg)+/,
-		video_id: /(?:[?&]v=|embed\/)([^&?]+)/,
+		video_id: /(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/,
 		video_time: /[?&](?:t|start)=([^&]+)/,
 		playlist_id: /[?&]list=([^&]+)/,
 		channel_link: /https:\/\/www.youtube.com\/@|((channel|user|c)\/)/
@@ -191,8 +191,8 @@ document.addEventListener('it-message-from-extension', function () {
 			if(ImprovedTube.storage[message.key]==="when_paused"){
 				ImprovedTube.whenPaused();
 			};
-			if (camelized_key === 'blacklistActivate') {
-				camelized_key = 'blacklist';
+			if (camelized_key === 'blocklistActivate') {
+				camelized_key = 'blocklist';
 			} else if (camelized_key === 'playerForcedPlaybackSpeed') {
 				camelized_key = 'playerPlaybackSpeed';
 			} else if (camelized_key === 'theme') {
@@ -259,7 +259,9 @@ document.addEventListener('it-message-from-extension', function () {
 			} else if ( camelized_key === 'playerRemainingDuration' ) {
 				if (ImprovedTube.storage.player_remaining_duration === false) {document.querySelector(".ytp-time-remaining-duration")?.remove();}
 				if (ImprovedTube.storage.player_remaining_duration === true) { ImprovedTube.playerRemainingDuration(); }
-	//We do this type automatically:  //} else if ( camelized_key === 'hideVideoTitleFullScreen' ) { 
+			} else if (camelized_key === 'blocklistActivate' ) {
+					if (ImprovedTube.storage.blocklist_activate === true) {document.querySelectorAll('.it-add-to-blocklist').forEach(e => e.remove());}
+			//We do this type automatically:  //} else if ( camelized_key === 'hideVideoTitleFullScreen' ) { 
 				//if (ImprovedTube.storage.hide_video_title_fullScreen === false) {document.querySelector(".ytp-title-text > a")?.style.setProperty('display', 'block');}
 				//if (ImprovedTube.storage.hide_video_title_fullScreen === true) {document.querySelector(".ytp-title-text > a")?.style.setProperty('display', 'none'); }
 			}

@@ -1,7 +1,6 @@
 /*--------------------------------------------------------------
 >>> INITIALIZATION
 --------------------------------------------------------------*/
-
 extension.features.youtubeHomePage('init');
 
 document.documentElement.setAttribute('it-pathname', location.pathname);
@@ -64,7 +63,7 @@ extension.inject([
 	'/js&css/web-accessible/www.youtube.com/playlist.js',
 	'/js&css/web-accessible/www.youtube.com/channel.js',
 	'/js&css/web-accessible/www.youtube.com/shortcuts.js',
-	'/js&css/web-accessible/www.youtube.com/blacklist.js',
+	'/js&css/web-accessible/www.youtube.com/blocklist.js',
 	'/js&css/web-accessible/www.youtube.com/settings.js',
 	'/js&css/web-accessible/init.js',
 	'/js&css/web-accessible/mutations.js'
@@ -147,7 +146,7 @@ document.addEventListener('it-message-from-youtube', function () {
 			chrome.runtime.sendMessage({
 				name: 'only-one-player'
 			});
-		} else if (message.action === 'popup player') {
+		} else if (message.action === 'fixPopup') {
 			chrome.runtime.sendMessage({
 				action: 'fixPopup',
 				width: message.width,
@@ -182,38 +181,38 @@ document.addEventListener('it-message-from-youtube', function () {
 					analyzer: extension.storage.data.analyzer
 				});
 			}
-		} else if (message.action === 'blacklist') {
+		} else if (message.action === 'blocklist') {
 			var type = message.type,
 				id = message.id,
 				title = message.title;
 
-			if (!extension.storage.data.blacklist || typeof extension.storage.data.blacklist !== 'object') {
-				extension.storage.data.blacklist = {};
+			if (!extension.storage.data.blocklist || typeof extension.storage.data.blocklist !== 'object') {
+				extension.storage.data.blocklist = {};
 			}
 
 			if (type === 'channel') {
-				if (!extension.storage.data.blacklist.channels) {
-					extension.storage.data.blacklist.channels = {};
+				if (!extension.storage.data.blocklist.channels) {
+					extension.storage.data.blocklist.channels = {};
 				}
 
-				extension.storage.data.blacklist.channels[id] = {
+				extension.storage.data.blocklist.channels[id] = {
 					title: title,
 					preview: message.preview
 				};
 			}
 
 			if (type === 'video') {
-				if (!extension.storage.data.blacklist.videos) {
-					extension.storage.data.blacklist.videos = {};
+				if (!extension.storage.data.blocklist.videos) {
+					extension.storage.data.blocklist.videos = {};
 				}
 
-				extension.storage.data.blacklist.videos[id] = {
+				extension.storage.data.blocklist.videos[id] = {
 					title: title
 				};
 			}
 
 			chrome.storage.local.set({
-				blacklist: extension.storage.data.blacklist
+				blocklist: extension.storage.data.blocklist
 			});
 		} else if (message.action === 'watched') {
 			if (!extension.storage.data.watched || typeof extension.storage.data.watched !== 'object') {

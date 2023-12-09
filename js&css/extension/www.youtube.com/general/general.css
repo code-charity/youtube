@@ -12,18 +12,67 @@
 # Hide aniamted thubmnails
 # Hide buttons on thumbnails
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# REMOVE RELATED SEARCH RESULTS
+--------------------------------------------------------------*/
+html[it-pathname='/results'][it-remove-related-search-results='true'] ytd-shelf-renderer>#dismissible>.grid-subheader,
+html[it-pathname='/results'][it-remove-related-search-results='true'] ytd-shelf-renderer>#dismissible>.grid-subheader+#contents, 
+/*--------------------------------------------------------------
+# REMOVE SHOTS RELATED SEARCH RESULTS
+--------------------------------------------------------------*/
+html[it-pathname='/results'][it-remove-shorts-reel-search-results="true"] ytd-reel-shelf-renderer, 
+/*--------------------------------------------------------------
+# HIDE ANIMATED THUMBNAILS
+--------------------------------------------------------------*/
+html[it-hide-animated-thumbnails='true'] #mouseover-overlay,
+html[it-hide-animated-thumbnails='true'] .mouseover-play,
+html[it-hide-animated-thumbnails='true'] .mouseover-img,
+html[it-hide-animated-thumbnails='true'] #preview>ytd-video-preview,
+/*--------------------------------------------------------------
+# HIDE BUTTONS ON THUMBNAILS
+--------------------------------------------------------------*/
+html[it-hide-thumbnail-overlay='true'] #hover-overlays,
+/*--------------------------------------------------------------
+# EMBEDDED VIDEOS
+ --------------------------------------------------------------*/
+html[it-embeddedHidePauseOverlay='true'] .ytp-pause-overlay,
+html[it-embeddedHideYoutubeLogo='true'] a.ytp-youtube-button svg path,
+html[it-embeddedHideShare='true'] .ytp-share-button-visible:has(.ytp-share-icon),
+/*--------------------------------------------------------------
+# REMOVE HOMEPAGE SHORTS
+--------------------------------------------------------------*/
+html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]), 
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
+html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer,
+html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-reel-shelf-renderer
+{display: none !important }
+	@supports not selector(:has(a, b)) {
+	html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-shelf-renderer[is-shorts],
+	html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] ytd-rich-shelf-renderer[is-shorts],
+	{display: none !important	}
+	}
+/*
+html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
+html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short])
 
+html[it-pathnam='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer span#title:contains("Shorts"),
+html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer path[d^="M17.77,10.32l-1.2-.5L18,9.06a3.74,3.74"],
+html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer span#title:contains('Trending Shorts'),
+html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer yt-horizontal-list-renderer,
+
+html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] #contents.ytd-item-section-renderer:has(ytd-reel-shelf-renderer:has(span#title:contains("Shorts"))),
+html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] #contents.ytd-item-section-renderer:has(ytd-reel-shelf-renderer:has(yt-horizontal-list-renderer)),
+html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"]  ytd-reel-shelf-renderer:has(yt-horizontal-list-renderer)
+{display: none !important	}  */
 /*--------------------------------------------------------------
 # YOUTUBE HOME PAGE
 --------------------------------------------------------------*/
-
 html[it-pathname='/'][it-youtube-home-page='search'] #body,
 html[it-pathname='/'][it-youtube-home-page='search'] #content,
 html[it-pathname='/'][it-youtube-home-page='search'] #guide[opened] {
 	visibility: hidden !important; 
 	pointer-events: none !important;
 }
-
 html[it-pathname='/'][it-youtube-home-page='search'] body::-webkit-scrollbar {
   width: 0 !important;
 }
@@ -32,7 +81,6 @@ html[it-pathname='/'][it-youtube-home-page='search']>body {
 	width: 100vw !important;
 	height: 100vh !important;
 }
-
 html[it-pathname='/'][it-youtube-home-page='search'] ytd-searchbox,
 html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox {
 	position: fixed !important;
@@ -60,37 +108,21 @@ html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox>form {
 	width: 100% !important;
 	max-width: 768px !important;
 }
-
 html[it-pathname='/'][it-youtube-home-page='search'] #search 
    {height: calc(17px + 0.4vh + 0.4vw); font-size: calc(15px + 0.4vh + 0.4vw); }
 
 /*--------------------------------------------------------------
-# REMOVE HOMEPAGE SHORTS
---------------------------------------------------------------*/
-html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]) {
-	display: none !important
-}
-@supports not selector(:has(a, b)) {
-		html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-shelf-renderer[is-shorts] {
-		display: none !important
-	}
-}
-/*--------------------------------------------------------------
 # COLLAPSE OF SUBSCRIPTION SECTIONS
---------------------------------------------------------------*/
-
+-------------------------------------------------------------*/
 html[it-pathname='/feed/subscriptions'][it-collapse-of-subscription-sections='true'] ytd-item-section-renderer h2 #title {
 	overflow: visible !important;
-
 	cursor: pointer !important;
 }
-
 html[it-pathname='/feed/subscriptions'][it-collapse-of-subscription-sections='true'] ytd-item-section-renderer h2 #title::after {
 	position: relative !important;
 	top: 2px !important;
 
 	display: inline-block !important;
-
 	width: 6px !important;
 	height: 6px !important;
 	margin: 0 0 0 12px !important;
@@ -105,7 +137,6 @@ html[it-pathname='/feed/subscriptions'][it-collapse-of-subscription-sections='tr
 
 html[it-pathname='/feed/subscriptions'][it-collapse-of-subscription-sections='true'] ytd-item-section-renderer.it-section-collapsed h2 #title::after {
 	top: -3px !important;
-
 	transform: rotate(-135deg) !important;
 }
 
@@ -117,42 +148,14 @@ html[it-pathname='/feed/subscriptions'][it-collapse-of-subscription-sections='tr
 	height: 0 !important;
 }
 
-
-/*--------------------------------------------------------------
-# REMOVE RELATED SEARCH RESULTS
---------------------------------------------------------------*/
-
-html[it-pathname='/results'][it-remove-related-search-results='true'] ytd-shelf-renderer>#dismissible>.grid-subheader,
-html[it-pathname='/results'][it-remove-related-search-results='true'] ytd-shelf-renderer>#dismissible>.grid-subheader+#contents {
-	display: none !important;
-}
-
-
-/*--------------------------------------------------------------
-# REMOVE SHOTS RELATED SEARCH RESULTS
---------------------------------------------------------------*/
-
-html[it-pathname='/results'][it-remove-shorts-reel-search-results="true"] ytd-reel-shelf-renderer {
-	display: none !important
-}
-
 /*--------------------------------------------------------------
 # SCROLL BAR
 --------------------------------------------------------------*/
-
-html[it-scroll-bar=hidden] body {
-	overflow-y: overlay;
-}
-
-html[it-scroll-bar=hidden] ::-webkit-scrollbar {
-	display: none;
-}
-
-
+html[it-scroll-bar=hidden] body {overflow-y: overlay;}
+html[it-scroll-bar=hidden] ::-webkit-scrollbar {display: none;}
 /*--------------------------------------------------------------
 # ADD "SCROLL TO TOP"
 --------------------------------------------------------------*/
-
 #it-scroll-to-top {
 	position: fixed !important;
 	z-index: 999 !important;
@@ -182,30 +185,25 @@ html[it-scroll-bar=hidden] ::-webkit-scrollbar {
 
 #it-scroll-to-top>svg {
 	width: 24px !important;
-
 	fill: #fff !important;
 }
 
 html[it-scroll-to-top='true'] #it-scroll-to-top {
 	visibility: visible !important;
+	opacity: 1 !important;
 
 	transform: translateY(0px) !important;
-	pointer-events: all !important;
-
-	opacity: 1 !important;
-}
+	pointer-events: all !important;}
 
 html[it-scroll-to-top='true'] #it-scroll-to-top:focus,
 html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 	transition: background 250ms 125ms, transform 250ms, box-shadow 275ms !important;
 	transform: translateY(4px) scale(.975) !important;
+	box-shadow: 0 1px 1px 0 #d60024, 0 1px 2px rgb(82, 0, 14, .32) !important; }
 
-	box-shadow: 0 1px 1px 0 #d60024, 0 1px 2px rgb(82, 0, 14, .32) !important;
-}
 /*--------------------------------------------------------------
 # Popup Window Button
 --------------------------------------------------------------*/
-
 .it-popup-window {
 	font-family: inherit;
 
@@ -245,12 +243,9 @@ html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 	opacity: 1 !important;
 	transition: opacity 0s;
 }
-
-
 /*--------------------------------------------------------------
 # MARK WATCHED VIDEOS
 --------------------------------------------------------------*/
-
 .it-mark-watched-videos {
 	font-family: inherit !important;
 	font-size: inherit !important;
@@ -326,34 +321,6 @@ html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 .it-mark-watched-videos:hover::after {
 	width: 96px !important;
 }
-
-
-/*--------------------------------------------------------------
-# HIDE ANIMATED THUMBNAILS
---------------------------------------------------------------*/
-
-html[it-hide-animated-thumbnails='true'] #mouseover-overlay,
-html[it-hide-animated-thumbnails='true'] .mouseover-play,
-html[it-hide-animated-thumbnails='true'] .mouseover-img,
-html[it-hide-animated-thumbnails='true'] #preview>ytd-video-preview {
-	display: none !important;
-}
-
-
-/*--------------------------------------------------------------
-# HIDE BUTTONS ON THUMBNAILS
---------------------------------------------------------------*/
-
-html[it-hide-thumbnail-overlay='true'] #hover-overlays {
-	display: none !important;
-}
-
-
-html[it-embeddedHidePauseOverlay='true'] .ytp-pause-overlay {display:none !important}
-html[it-embeddedHideYoutubeLogo='true'] a.ytp-youtube-button svg path {display:none !important}
-html[it-embeddedHideShare='true'] .ytp-share-button-visible:has(.ytp-share-icon) {display:none !important}
-
-
 /*--------------------------------------------------------------
 # COMPACT THEME
 --------------------------------------------------------------*/
@@ -368,13 +335,11 @@ html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth
 	align-items: center;
 	user-select: none;
 }
-
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(2) > h3:hover,
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(3) > h3:hover,
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(4) > h3:hover {
 	background-color: var(--yt-spec-badge-chip-background);
 }
-
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(2) > h3:active,
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(3) > h3:active,
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(4) > h3:active {

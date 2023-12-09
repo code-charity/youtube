@@ -125,7 +125,7 @@
     "black": {
         "message": "Черный"
     },
-    "blacklist": {
+    "blocklist": {
         "message": "Черный список"
     },
     "blockAll": {
