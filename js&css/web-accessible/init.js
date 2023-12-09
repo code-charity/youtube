@@ -104,6 +104,7 @@ window.addEventListener('load', function () {
 		start: document.querySelector('tp-yt-app-drawer #header'),
 		logo: document.querySelector('tp-yt-app-drawer a#logo')
 	};
-
-	ImprovedTube.improvedtubeYoutubeIcon();
+	ImprovedTube.improvedtubeYoutubeIcon(); 	
+		if (document.documentElement.dataset.pageType === 'home' &&  ImprovedTube.storage.youtube_home_page === 'search' )
+		{ImprovedTube.shortcutGoToSearchBox(); document.querySelector('body').style.visiblity="visible"; }//document.querySelector('#content, #guide[opened]').remove() }  
 });
