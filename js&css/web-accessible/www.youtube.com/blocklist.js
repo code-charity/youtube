@@ -42,15 +42,28 @@ ImprovedTube.blocklist = function (type, node) {
 	}
 
 	if (type === 'video') {
+		var id = node.href.match(ImprovedTube.regex.video_id);
+		// Hide blocklisted videos:
+		if (id && id[1] && ImprovedTube.storage.blocklist.videos[id[1]]) {
+			//node.__dataHost.classList.add('it-blocklisted-video'); // this only affects the thumbnail
+			const dismissibleElement = node.parentNode.__dataHost.$.dismissible;
+			if (dismissibleElement) { dismissibleElement.classList.add('it-blocklisted-video'); } // this affects the title and co. as well
+		//	node.parentNode.parentNode.__dataHost.$.ytd-compact-video-renderer.classList.add('it-blocklisted-video');
+		}
+
+		// skip blocklist button creation, if it exists already:
+		if(node.getElementsByClassName("it-add-to-blocklist").length > 0){
+			return
+		}
+		
 		var button = document.createElement('button'),
 			svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-			path = document.createElementNS('http://www.w3.org/2000/svg', 'path'),
-			id = node.href.match(ImprovedTube.regex.video_id);
+			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 		button.className = 'it-add-to-blocklist';
 		button.addEventListener('click', function (event) {
 			if (this.parentNode.href) {
-				var data = this.parentNode.parentNode.__data,
+				var data = this.parentNode.__dataHost.__data,
 					id = this.parentNode.href.match(ImprovedTube.regex.video_id),
 					title = '';
 
@@ -70,8 +83,6 @@ ImprovedTube.blocklist = function (type, node) {
 				) {
 					title = data.data.title.simpleText;
 				}
-				if  (!title) {title = this.closest('*[id="video-title"]')?.textContent}
-				if  (!title && id ) {title = id}
 
 				if (id && id[1]) {
 					ImprovedTube.messages.send({
@@ -100,15 +111,9 @@ ImprovedTube.blocklist = function (type, node) {
 		button.appendChild(svg);
 
 		node.appendChild(button);
-		
-if (this.elements && this.elements.blocklist_buttons && Array.isArray(this.elements.blocklist_buttons))
- 	{   this.elements.blocklist_buttons.push(button); }
 
-		if (id && id[1] && ImprovedTube.storage.blocklist.videos[id[1]]) {
-			//node.__dataHost.classList.add('it-blocklisted-video'); // this only affects the thumbnail
-			const dismissibleElement = node.parentNode.__dataHost.$.dismissible;
-			if (dismissibleElement) { dismissibleElement.classList.add('it-blocklisted-video'); } // this affects the title and co. as well
-		//	node.parentNode.parentNode.__dataHost.$.ytd-compact-video-renderer.classList.add('it-blocklisted-video');
+		if (this.elements && this.elements.blocklist_buttons && Array.isArray(this.elements.blocklist_buttons)){  
+				this.elements.blocklist_buttons.push(button); 
 		}
 	} else if (type === 'channel') {
 		if (node.nodeName === 'A') {
@@ -116,11 +121,11 @@ if (this.elements && this.elements.blocklist_buttons && Array.isArray(this.eleme
 				var id = node.href.match(ImprovedTube.regex.channel).groups.name;
 
 				if (this.storage.blocklist.channels[id]) {
-					var parent = node.parentNode.__dataHost.__dataHost;
+					var parent = node.parentNode//.__dataHost.__dataHost;
 
-					if (
-						parent.nodeName === 'YTD-GRID-VIDEO-RENDERER' ||
-						parent.nodeName === 'YTD-VIDEO-META-BLOCK'
+					if ( parent.__dataHost.$.dismissible
+						//parent.nodeName === 'YTD-GRID-VIDEO-RENDERER' ||
+						//parent.nodeName === 'YTD-VIDEO-META-BLOCK'
 					) {
 						parent.__dataHost.$.dismissible.classList.add('it-blocklisted-video'); // this affects the title and co. as well
 					//	parent.__dataHost.$.ytd-compact-video-renderer.classList.add('it-blocklisted-video');
