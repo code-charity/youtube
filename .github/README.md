@@ -40,7 +40,7 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
  - - [ ] All [bugs](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+), many [wishes](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)
  - [ ] Documentation, tooltips
  - - [ ] Tags for our search (multilanguage)
- - [ ] Continuously include awesome code: [YCS](https://github.com/sonigy/YCS)<br>[MIT Userscripts](https://greasyfork.org/en/scripts?sort=total_installs#:~:text=HTML5%20Video), [n](https://github.com/raingart/Nova-YouTube-extension), [yr](https://github.com/MarcGuiselin/youtube-refined)filters, **([i](https://github.com/ThomasTavernier/Improve-Crunchyroll)**, [p](https://github.com/ppixiv/ppixiv), [r](https://github.com/refined-github/refined-github) [o](https://github.com/ovity/octotree), ..) 
+ - [ ] Continuously include awesome code: [YCS](https://github.com/sonigy/YCS)<br>[MIT Userscripts](https://greasyfork.org/en/scripts?sort=total_installs#:~:text=HTML5%20Video), [nova](https://github.com/raingart/Nova-YouTube-extension), [yr](https://github.com/MarcGuiselin/youtube-refined)filters, **([i](https://github.com/ThomasTavernier/Improve-Crunchyroll)**, [p](https://github.com/ppixiv/ppixiv), [r](https://github.com/refined-github/refined-github) [o](https://github.com/ovity/octotree), ..) 
  - - [ ] Smart Player-[buttons](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1445) for all \<video\> 
  - [ ] Clean YT's DOM? (+avoid CPU-rendering)
  - [ ] Full-page GUI: History & Dashboard  
