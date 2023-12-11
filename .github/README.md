@@ -65,6 +65,7 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 <a href="https://github.com/Kioraga"><code>Kioraga</code></a> 
 <a href="https://github.com/Compvictor"><code>Compvictor</code></a> 
 <a href="https://github.com/dimateos"><code>dimateos</code></a><br>
+<a href="https://github.com/DMCS20"><code>DMCS20</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/hi/messages.json" title="हिन्दी">HI</a></code> :
 <a href="https://github.com/monishamandal02"><code>monishamandal02</code></a> 
 <a href="https://github.com/BRAVO68WEB"><code>BRAVO68WEB</code></a><br>
