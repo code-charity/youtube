@@ -36,16 +36,16 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 
 <br><table  align="right"><tr><td><h3><a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code></a>Roadmap</h3> <!-- The list below only stays formatted when there is a line break above --> 
 
- - [ ] Find developers, patreons 
- - - [ ] All [bugs](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+), many [wishes](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)
- - [ ] Documentation, tooltips
- - - [ ] Tags for our search (multilanguage)
+ - [ ] _Find developers, patreons_ 
+ - - [ ] _All [bugs](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+), many [wishes](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)_
+ - [ ] _Documentation, tooltips_
+ - - [ ] _Tags for our search (multilanguage)_  </i>
  - [ ] Continuously integrate awesome code: [YCS](https://github.com/sonigy/YCS)<br>[Userscripts](https://greasyfork.org/en/scripts?sort=total_installs#:~:text=HTML5%20Video), [Nova](https://github.com/raingart/Nova-YouTube-extension)?, [yr](https://github.com/MarcGuiselin/youtube-refined)filters or more([i](https://github.com/ThomasTavernier/Improve-Crunchyroll) [p](https://github.com/ppixiv/ppixiv) [r](https://github.com/refined-github/refined-github) [o](https://github.com/ovity/octotree),..) 
  - - [ ] Smart Player-[buttons](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1445) for all \<video\> 
  - [ ] Clean YT's DOM? (+avoid CPU-rendering)
- - [ ] Full-page GUI: History & Dashboard  
  - [ ] Smart [filtering /discovery](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1451), [YT.js](https://github.com/LuanRT/YouTube.js), [M](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1463), [D](https://github.com/code-charity/youtube/issues?q=is%3Aopen+sort%3Aupdated-desc+label%3A%22%3Cmeta%3E+data%22)
- - - [ ] Integrate other data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.
+ - - [ ] Integrate data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.
+ - [ ] Full-page GUI: History & Dashboard  
  - [ ] Consider m.youtube.com (grey-out some) 
    - [ ] Ask Samsung Browser to list us
 
