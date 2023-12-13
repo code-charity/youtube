@@ -260,27 +260,30 @@ try{		sendResponse({
 				windowId: w.id,
 				active: true
 			}, ts => {
-				 tID = ts[0]?.id,
-					data = { type: 'popup' };
-				if (tID) data.tabId = tID;
-				chrome.windows.create(data, pw => {
-					chrome.windows.update(pw.id, {
-						state: w.state,
-						width: message.width,
-						height: message.height
-					});
-				});
-				//append to title 
-				chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {	 
-				if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")) {
-				chrome.tabs.executeScript(tID, {
-				code: `document.title = "${message.title} - ImprovedTube";`
-				});
-				chrome.tabs.onUpdated.removeListener(listener);
-				}  
-			});		
+					const tID = ts[0]?.id,
+						data = { type: 'popup',
+								state: w.state,
+								width: parseInt(message.width, 10),
+							   height: parseInt(message.height, 10),
+							     left: -3,
+								  top: 3
+						};
+							
+					 	if (tID) {data.tabId = tID;}
+						chrome.windows.create(data, pw => {	});
+						
+				//append to title 	
+		
+				chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {	
+				if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")){						
+				chrome.tabs.onUpdated.removeListener(listener);					
+				chrome.tabs.executeScript(tID, {code: `document.title = "${message.title} - ImprovedTube";`});
+				}});
+		
 			});
 		});
+		
+
 	};
 });
 
