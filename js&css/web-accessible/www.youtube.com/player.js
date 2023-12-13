@@ -819,7 +819,7 @@ ImprovedTube.playerPopupButton = function () {
 					popup = window.open(
 						`${location.protocol}//www.youtube.com/embed/${videoID}?start=${parseInt(ytPlayer.getCurrentTime())}&autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}${listMatch?`&list=${listMatch[1]}`:''}`,
 						'_blank',
-						`directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${ytPlayer.offsetWidth},height=${ytPlayer.offsetHeight}`
+						`directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${ytPlayer.offsetWidth / 3},height=${ytPlayer.offsetHeight / 3}`
 					);
 				if(popup && listMatch){
 					//! If the video is not in the playlist or not within the first 200 entries, then it automatically selects the first video in the list.
@@ -832,10 +832,9 @@ ImprovedTube.playerPopupButton = function () {
 				}
 				//~ change focused tab to URL-less popup
 				ImprovedTube.messages.send({
-					action: 'fixPopup',
-					
-					width: ytPlayer.offsetWidth * .8 ,
-					height: ytPlayer.offsetHeight * .8 ,
+					action: 'fixPopup',					
+					width: ytPlayer.offsetWidth * 0.75,
+					height: ytPlayer.offsetHeight * 0.75,
 					title: document.title
 				});
 			},
