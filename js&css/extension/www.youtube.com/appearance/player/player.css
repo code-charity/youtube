@@ -5,20 +5,12 @@
 # Always show progress bar
 # Transparent background
 # Hide annotations
+# Hide endscreen
 # Hide cards
 # Show cards on mouse hover
-# Hide endscreen
 # Hide "Scroll for details"
 # Player Size
 --------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# HIDE SHADOW AROUND PLAYER BAR
---------------------------------------------------------------*/
-
-html[it-hide-gradient-bottom='true'] .ytp-gradient-bottom {
-	display: none;
-}
 
 
 /*--------------------------------------------------------------
@@ -142,32 +134,47 @@ html[it-player-transparent-background='true'] #movie_player video {
 
 
 /*--------------------------------------------------------------
+# VIDEO TITLE IN FULLSCREEN
+--------------------------------------------------------------*/
+html[it-hide-video-title-fullScreen='true'] .ytp-title-text > a,
+/*--------------------------------------------------------------
+# SHADOW AROUND PLAYER BAR
+--------------------------------------------------------------*/
+html[it-hide-gradient-bottom='true'] .ytp-gradient-bottom,
+/*------------------------------------------------------------------------------
+# CONTROLS 
+------------------------------------------------------------------------------*/
+html[it-player-play-button=true] .ytp-play-button,
+html[it-player-previous-button=true] .ytp-prev-button,
+html[it-player-next-button=true] .ytp-next-button,
+html[it-player-volume-button=true] .ytp-volume-area,
+html[it-player-autoplay-button=true] .ytp-right-controls .ytp-button[data-tooltip-target-id = ytp-autonav-toggle-button],
+html[it-player-settings-button=true] .ytp-settings-button,
+html[it-player-subtitles-button=true] .ytp-subtitles-button,
+html[it-player-miniplayer-button=true] .ytp-miniplayer-button,
+html[it-player-view-button=true] .ytp-size-button,
+html[it-player-screen-button=true] .ytp-fullscreen-button,
+html[it-player-remote-button=true] .ytp-remote-button,
+/*--------------------------------------------------------------
 # HIDE ANNOTATIONS
 --------------------------------------------------------------*/
-
 html[it-player-hide-annotations='true'] .annotation,
 html[it-player-hide-annotations='true'] .annotation-type-text,
-html[it-player-hide-annotations='true'] .annotation-shape {
-	display: none !important;
-}
-
-
+html[it-player-hide-annotations='true'] .annotation-shape,
+/*--------------------------------------------------------------
+# HIDE ENDSCREEN
+--------------------------------------------------------------*/
+html[it-player-hide-endscreen='true'] .html5-endscreen,
 /*--------------------------------------------------------------
 # HIDE CARDS
 --------------------------------------------------------------*/
-
 html[it-player-hide-cards='true'] .ytp-ce-element,
 html[it-player-hide-cards='true'] .ytp-ce-video,
 html[it-player-hide-cards='true'] .ytp-cards-button,
-html[it-player-hide-cards='true'] .ytp-cards-teaser {
-	display: none !important;
-}
-
-
+html[it-player-hide-cards='true'] .ytp-cards-teaser,
 /*--------------------------------------------------------------
 # SHOW CARDS ON MOUSE HOVER
 --------------------------------------------------------------*/
-
 html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:not(:hover) .ytp-ce-element,
 html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:not(:hover) .ytp-ce-video,
 html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:not(:hover) .ytp-cards-button,
@@ -181,16 +188,6 @@ html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:hover .ytp-
 html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:hover .ytp-cards-teaser {
 	display: block !important;
 }
-
-
-/*--------------------------------------------------------------
-# HIDE ENDSCREEN
---------------------------------------------------------------*/
-
-html[it-player-hide-endscreen='true'] .html5-endscreen {
-	display: none !important;
-}
-
 
 /*--------------------------------------------------------------
 # HIDE "SCROLL FOR DETAILS"
@@ -555,23 +552,6 @@ html[data-page-type='video'][it-player-size='custom'] ytd-app:not([player-fullsc
 	padding-top: var(--it-player-height) !important;
 }
 
-/*------------------------------------------------------------------------------
-HIDE CONTROLS OPTIONS
-------------------------------------------------------------------------------*/
-html[it-player-play-button=true] .ytp-play-button,
-html[it-player-previous-button=true] .ytp-prev-button,
-html[it-player-next-button=true] .ytp-next-button,
-html[it-player-volume-button=true] .ytp-volume-area,
-html[it-player-autoplay-button=true] .ytp-right-controls .ytp-button[data-tooltip-target-id = ytp-autonav-toggle-button],
-html[it-player-settings-button=true] .ytp-settings-button,
-html[it-player-subtitles-button=true] .ytp-subtitles-button,
-html[it-player-miniplayer-button=true] .ytp-miniplayer-button,
-html[it-player-view-button=true] .ytp-size-button,
-html[it-player-screen-button=true] .ytp-fullscreen-button,
-html[it-player-remote-button=true] .ytp-remote-button {
-	display: none !important;
-}
-
 /*--------------------------------------------------------------
 # SKIP OVERLAY
 --------------------------------------------------------------*/
@@ -580,9 +560,4 @@ html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui, .ytp-doubletap-ui-lega
 {
     visibility: hidden;
 }
-/*--------------------------------------------------------------
-# HIDE VIDEO TITLE IN FULLSCREEN
---------------------------------------------------------------*/
-html[it-hide-video-title-fullScreen='true'] .ytp-title-text > a {
-	display: none !important;
-}
+

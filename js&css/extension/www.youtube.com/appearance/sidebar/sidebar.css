@@ -2,11 +2,13 @@
 >>> SIDEBAR
 ----------------------------------------------------------------
 # Related videos
-# Move sidebar left
-# Move thumbnails right
 # Hide thumbnails
 # Livechat
 # Hide playlist
+# Hide Related videos
+# Move sidebar left
+# Move thumbnails right
+
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # SIDEBAR AUTO SIZING
@@ -74,7 +76,7 @@ html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'] 
 	{ max-height: 69vh !important; margin-top:40px !important; }
 
 /*--------------------------------------------------------------
-# RELATED VIDEOS
+# RELATED VIDEO STYLES
 --------------------------------------------------------------*/
 html[it-related-videos='Focus'] #related #dismissible:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) { opacity:0.8;  max-height:60px; overflow:hidden; margin-top:-1px;  transition: max-height 0.2s ease 0.15s;}
 html[it-related-videos='Focus'] #related #dismissible:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) ytd-thumbnail {transform:scale(0.7); transform-origin: top; transition: all 0.2s ease 0.15s;}
@@ -93,15 +95,31 @@ html[it-related-videos='Titles'] #related #dismissible #metadata { margin-top:-3
 /* html[it-related-videos='Titles'] #related #dismissible #metadata * {display: inline-block !important}
 */
 
+/*--------------------------------------------------------------
+# SHORTS REMIXING THIS VIDEO
+--------------------------------------------------------------*/
+html[it-hide-shorts-remixing='true'] #related ytd-reel-shelf-renderer,
+/*--------------------------------------------------------------
+# HIDE THUMBNAILS
+--------------------------------------------------------------*/
+html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail,
+html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail,
+/*--------------------------------------------------------------
+# LIVECHAT
+--------------------------------------------------------------*/
+html[it-livechat='hidden'] ytd-live-chat-frame#chat,
+/*--------------------------------------------------------------
+# HIDE PLAYLIST
+--------------------------------------------------------------*/
+html[it-hide-playlist='true'] ytd-playlist-panel-renderer#playlist,
+/*--------------------------------------------------------------
+# HIDE RELATED VIDEOS
+--------------------------------------------------------------*/
 html[it-related-videos='hidden'] #related #contents,
 html[it-related-videos='hidden'] #related #dismissible,
 html[it-related-videos='hidden'] #related > ytd-watch-next-secondary-results-renderer > #items,
-html[data-page-type=video][it-related-videos='hidden'] ytd-compact-video-renderer
-	{display: none !important}
-
-html[data-page-type=video][it-related-videos='hidetabs'] #related #chips 
-	{display: none !important}
-
+html[data-page-type=video][it-related-videos='hidden'] ytd-compact-video-renderer,
+html[data-page-type=video][it-related-videos='hidetabs'] #related #chips, 
 html[it-hide-sidebar='true'] #related > ytd-watch-next-secondary-results-renderer > #items,
 html[it-hide-sidebar='true'] div#secondary div#panels,
 html[it-hide-sidebar='true'] div#secondary div#donation-shelf 
@@ -193,28 +211,4 @@ html[it-thumbnails-right='true'] #related .modern-collection-parent,
 html[it-thumbnails-right='true'] #related ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
 	order: 5 !important;
 }
-/*--------------------------------------------------------------
-# SHORTS REMIXING THIS VIDEO
---------------------------------------------------------------*/
-html[it-hide-shorts-remixing='true'] #related ytd-reel-shelf-renderer{
-	display: none !important;
-}
-/*--------------------------------------------------------------
-# HIDE THUMBNAILS
---------------------------------------------------------------*/
-html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail,
-html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
-	display: none !important;
-}
-/*--------------------------------------------------------------
-# LIVECHAT
---------------------------------------------------------------*/
-html[it-livechat='hidden'] ytd-live-chat-frame#chat {
-	display: none !important;
-}
-/*--------------------------------------------------------------
-# HIDE PLAYLIST
---------------------------------------------------------------*/
-html[it-hide-playlist='true'] ytd-playlist-panel-renderer#playlist {
-	display: none !important;
-}
+

@@ -1,13 +1,68 @@
 /*--------------------------------------------------------------
 >>> COMMENTS:
 ----------------------------------------------------------------
-# Sidebar
 # Comments
-	# Collapsed
 	# Hidden
+	# Collapsed
 # Squared User Images
 # Hide avatars
+# Sidebar
 --------------------------------------------------------------*/
+/*Comments*/ 
+html[it-comments='hidden'] ytd-comments,
+/*AVATARS-*/ 
+html[it-hide-author-avatars='true'] ytd-comments #author-thumbnail,
+html[it-hide-author-avatars='true'] ytd-comments #creator-thumbnail,
+html[it-hide-author-avatars='true'] ytd-comments #hearted-thumbnail 
+{display: none !important;}
+/*--------------------------------------------------------------
+# SQUARED USER IMAGES
+--------------------------------------------------------------*/
+html[it-squared-user-images='true'] #avatar.ytd-shelf-renderer,
+html[it-squared-user-images='true'] yt-img-shadow,
+html[it-squared-user-images='true'] #yt-masthead-user .yt-masthead-user-icon {
+	border-radius: unset !important;
+}
+
+/*--------------------------------------------------------------
+# COLLAPSED
+--------------------------------------------------------------*/
+html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-comments-header-renderer::after {
+	content: 'Show more' !important;
+}
+
+html[it-comments='collapsed'][data-page-type=video] ytd-comments[it-activated] ytd-comments-header-renderer::after {
+	content: 'Show less' !important;
+}
+
+html[it-comments='collapsed'][data-page-type=video] ytd-comments ytd-comments-header-renderer::after {
+	font-family: inherit !important;
+	font-size: 1.6rem !important;
+	font-weight: 400 !important;
+
+	display: flex !important;
+
+	width: 100% !important;
+	height: 48px !important;
+	margin: 16px 0 0 !important;
+
+	color: var(--yt-spec-text-primary) !important;
+	border-bottom: 1px solid var(--yt-spec-10-percent-layer) !important;
+
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-item-section-renderer>#spinner-container,
+html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-item-section-renderer>#contents,
+html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-item-section-renderer>#continuations {
+	visibility: hidden !important;
+
+	pointer-events: none !important;
+}
+
+
+
 
 @media screen and (min-width: 1599px) {	
 html[data-page-type=video][it-comments-sidebar-simple='true'] #player {   margin-left: -20px !important;}
@@ -150,64 +205,3 @@ html[data-page-type=video][it-comments-sidebar='true'] #playlist #items
 html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #chat > tp-yt-paper-button#label { width:calc(100% - 40px); }
 html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #right-arrow-container.ytd-merch-shelf-renderer { right: 44px !important; }
 
-
-/*--------------------------------------------------------------
-# COLLAPSED
---------------------------------------------------------------*/
-html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-comments-header-renderer::after {
-	content: 'Show more' !important;
-}
-
-html[it-comments='collapsed'][data-page-type=video] ytd-comments[it-activated] ytd-comments-header-renderer::after {
-	content: 'Show less' !important;
-}
-
-html[it-comments='collapsed'][data-page-type=video] ytd-comments ytd-comments-header-renderer::after {
-	font-family: inherit !important;
-	font-size: 1.6rem !important;
-	font-weight: 400 !important;
-
-	display: flex !important;
-
-	width: 100% !important;
-	height: 48px !important;
-	margin: 16px 0 0 !important;
-
-	color: var(--yt-spec-text-primary) !important;
-	border-bottom: 1px solid var(--yt-spec-10-percent-layer) !important;
-
-	justify-content: center !important;
-	align-items: center !important;
-}
-
-html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-item-section-renderer>#spinner-container,
-html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-item-section-renderer>#contents,
-html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-item-section-renderer>#continuations {
-	visibility: hidden !important;
-
-	pointer-events: none !important;
-}
-
-/*--------------------------------------------------------------
-# HIDDEN
---------------------------------------------------------------*/
-html[it-comments='hidden'] ytd-comments {
-	display: none !important;
-}
-
-/*--------------------------------------------------------------
-# HIDE AVATARS
---------------------------------------------------------------*/
-html[it-hide-author-avatars='true'] ytd-comments #author-thumbnail,
-html[it-hide-author-avatars='true'] ytd-comments #creator-thumbnail,
-html[it-hide-author-avatars='true'] ytd-comments #hearted-thumbnail {
-	display: none !important;
-}
-/*--------------------------------------------------------------
-# SQUARED USER IMAGES
---------------------------------------------------------------*/
-html[it-squared-user-images='true'] #avatar.ytd-shelf-renderer,
-html[it-squared-user-images='true'] yt-img-shadow,
-html[it-squared-user-images='true'] #yt-masthead-user .yt-masthead-user-icon {
-	border-radius: unset !important;
-}

@@ -111,46 +111,25 @@ html[it-header-position=hidden] #chips-wrapper.ytd-feed-filter-chip-bar-renderer
 html[it-header-position=static] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
 	position: inherit;
 }
-
-
 /*--------------------------------------------------------------
 # IMPROVE LOGO
 --------------------------------------------------------------*/
-
 html[it-header-improve-logo='true'] ytd-topbar-logo-renderer path[fill='#FF0000'],
 html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'] {
-	fill: rgb(40, 40, 40) !important;
-}
-
+	fill: rgb(40, 40, 40) !important;}
 html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'] {
-	fill: rgb(66, 66, 66) !important;
-}
-
-
+	fill: rgb(66, 66, 66) !important;}
 /*--------------------------------------------------------------
 # HIDE RIGHT BUTTONS
 --------------------------------------------------------------*/
-
-html[it-header-hide-right-buttons='true'] #masthead #container #end {
-	visibility: hidden !important;
-
-	pointer-events: none !important;
-}
-
-
+html[it-header-hide-right-buttons='true'] #masthead #container #end 
+{visibility: hidden !important; 	pointer-events: none !important;}
 /*--------------------------------------------------------------
 # HIDE COUNTRY CODE
 --------------------------------------------------------------*/
-
-html[it-header-hide-country-code='true'] #logo #country-code {
-	display: none !important;
-}
-
-
+html[it-header-hide-country-code='true'] #logo #country-code,
 /*--------------------------------------------------------------
 # HIDE VOICE SEARCH BUTTON
 --------------------------------------------------------------*/
-
-html[it-hide-voice-search-button='true'] #voice-search-button {
-	display: none !important;
-}
+html[it-hide-voice-search-button='true'] #voice-search-button 
+{display: none !important;}
