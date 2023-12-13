@@ -39,7 +39,7 @@
         "message": "Añadir «Volver arriba»"
     },
     "ads": {
-        "message": "Ads"
+        "message": "Anuncios"
     },
     "all": {
         "message": "Todo"
@@ -219,7 +219,7 @@
         "message": "Recortar título de capítulos"
     },
     "custom": {
-        "message": "Custom"
+        "message": "Personalizado"
     },
     "customCss": {
         "message": "CSS personalizado"
@@ -258,7 +258,7 @@
         "message": "Violeta profundo"
     },
     "default": {
-        "message": "Default"
+        "message": "Por defecto"
     },
     "defaultChannelTab": {
         "message": "Pestaña del canal por defecto"
@@ -300,7 +300,7 @@
         "message": "Desactivado"
     },
     "dislike": {
-        "message": "Dislike"
+        "message": "No me gusta"
     },
     "displayDayOfTheWeak": {
         "message": "Display day of the week"
@@ -464,6 +464,9 @@
     "hideFeaturedContent": {
         "message": "Ocultar contenido destacado"
     },
+    "compactTheme": {
+        "message": "Tema compacto"
+    },
     "hideFooter": {
         "message": "Ocultar pie de página"
     },
@@ -489,10 +492,10 @@
         "message": "Ocultar «Desliza hacia abajo para ver más detalles»"
     },
     "hideSkipOverlay": {
-        "message": "Hide Skip Overlay"
+        "message": "Ocultar superposición de saltar"
     },
     "hideThumbnailOverlay": {
-        "message": "Hide thumbnail overlay"
+        "message": "Ocultar la superposición de miniaturas"
     },
     "hideThumbnails": {
         "message": "Ocultar miniaturas"
@@ -621,7 +624,7 @@
         "message": "Mezclador"
     },
     "more": {
-        "message": "More"
+        "message": "Más"
     },
     "moveSidebarLeft": {
         "message": "Mover barra lateral a la izquierda"
@@ -741,7 +744,7 @@
         "message": "Reproductor emergente"
     },
     "popupWindowButtons": {
-        "message": "popup_window_buttons"
+        "message": "Añade un botón de reproductor emergente a cada miniatura"
     },
     "position": {
         "message": "Posición"
@@ -801,7 +804,7 @@
         "message": "Repetir"
     },
     "report": {
-        "message": "Report"
+        "message": "Reportar"
     },
     "reset": {
         "message": "Reiniciar"
@@ -852,10 +855,10 @@
         "message": "Adelantar 10 segundos"
     },
     "seekNextChapter": {
-        "message": "Saltar al siguente capitulo"
+        "message": "Saltar al siguiente capítulo"
     },
     "seekPreviousChapter": {
-        "message": "Saltar al capitulo anterior"
+        "message": "Saltar al capítulo anterior"
     },
     "settings": {
         "message": "Ajustes"
@@ -906,7 +909,7 @@
         "message": "Paso"
     },
     "stop": {
-        "message": "Stop"
+        "message": "Detener"
     },
     "style": {
         "message": "Estilo"
@@ -915,7 +918,7 @@
         "message": "Estilos"
     },
     "subscribe": {
-        "message": "Subscribe"
+        "message": "Suscribirse"
     },
     "subscriptions": {
         "message": "Suscripciones"
@@ -951,7 +954,7 @@
         "message": "Esto borrará todas las cookies."
     },
     "thisWillRemoveAllWatchedVideos": {
-        "message": "This will remove all watched videos."
+        "message": "Esto borrará todos los videos vistos."
     },
     "thisWillRemoveAllYouTubeCookies": {
         "message": "Esto borrará todas las cookies de YouTube"
@@ -978,19 +981,19 @@
         "message": "Hoy a las"
     },
     "toggleAutoplay": {
-        "message": "Toggle autoplay"
+        "message": "Activar/Desactivar reproducción automática"
     },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "Activar/Desactivar tarjetas"
     },
     "toggleControls": {
-        "message": "Toggle controls"
+        "message": "Activar/Desactivar controles"
     },
     "topChat": {
         "message": "Top chat"
     },
     "trackWatchedVideos": {
-        "message": "Track watched videos"
+        "message": "Seguimiento de videos vistos"
     },
     "trailerAutoplay": {
         "message": "Reproducción automática de trailer"
@@ -1075,5 +1078,8 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube limita calidad de video a 1080p para el codec h.264"
+    },
+    "openNewTab": {
+        "message": "Abrir en una pestaña nueva"
     }
 }
