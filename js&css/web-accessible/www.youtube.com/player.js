@@ -577,6 +577,7 @@ ImprovedTube.screenshot = function () {
 
 	setTimeout(function () {
 		ctx.drawImage(video, 0, 0, cvs.width, cvs.height);
+		ImprovedTube.currentSubtitle(ctx);
 
 		cvs.toBlob(function (blob) {
 			if (ImprovedTube.storage.player_screenshot_save_as !== 'clipboard') {
@@ -597,6 +598,33 @@ ImprovedTube.screenshot = function () {
 
 		style.remove();
 	});
+};
+
+
+ImprovedTube.currentSubtitle = function (ctx) {
+    var captionElements = document.querySelectorAll('.captions-text .ytp-caption-segment');
+
+    captionElements.forEach(function (captionElement, index) {
+        var captionText = captionElement.textContent.trim();
+        var captionStyles = window.getComputedStyle(captionElement);
+
+        ctx.fillStyle = captionStyles.color;
+        ctx.font = captionStyles.font;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+        var txtWidth = ctx.measureText(captionText).width;
+        var txtHeight = parseFloat(captionStyles.fontSize);
+
+        var xOfset = (ctx.canvas.width - txtWidth) / 2;
+
+        var padding = 5; // Adjust the padding as needed
+        var yofset = ctx.canvas.height - (captionElements.length - index) * (txtHeight + 2 * padding);
+
+        ctx.fillStyle = captionStyles.backgroundColor;
+        ctx.fillRect(xOfset - padding, yofset - txtHeight - padding, txtWidth + 2 * padding, txtHeight + 2 * padding);
+        ctx.fillStyle = captionStyles.color;
+        ctx.fillText(captionText, xOfset + txtWidth / 2, yofset);
+    });
 };
 
 ImprovedTube.playerScreenshotButton = function () {
