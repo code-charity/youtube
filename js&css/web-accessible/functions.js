@@ -238,7 +238,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 				}
 
 				return {
-					width: NaN,
+					width: NaN,   
 					height: NaN
 				};
 			};
@@ -592,5 +592,5 @@ ImprovedTube.showStatus = function (value) {
 	this.elements.player.appendChild(this.elements.status);
 };
 
-ImprovedTube.videoId =  function (url = document.URL) { return  new URL(url).match(ImprovedTube.regex.video_id)[1] ||  url.searchParams.get('v') || movie_player.getVideoData().video_id }
+ImprovedTube.videoId =  function (url = document.URL) { return url.match(ImprovedTube.regex.video_id)[1] ||  url.searchParams.get('v') || movie_player.getVideoData().video_id }
 ImprovedTube.videoTitle =  function () {  return document.title?.replace(/\s*-\s*YouTube$/, '') || movie_player.getVideoData().title || document.querySelector('#title > h1 > *')?.textContent  }
