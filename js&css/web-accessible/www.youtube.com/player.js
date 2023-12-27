@@ -577,14 +577,21 @@ ImprovedTube.screenshot = function () {
 
 	setTimeout(function () {
 		ctx.drawImage(video, 0, 0, cvs.width, cvs.height);
-		ImprovedTube.currentSubtitle(ctx);
+		if(ImprovedTube.storage.embed_subtitle === true){ImprovedTube.currentSubtitle(ctx);}
 
 		cvs.toBlob(function (blob) {
 			if (ImprovedTube.storage.player_screenshot_save_as !== 'clipboard') {
 				var a = document.createElement('a');
 				a.href = URL.createObjectURL(blob); console.log("screeeeeeenshot tada!");
+				var subText = '';
+				if (ImprovedTube.storage.embed_subtitle === true) {
+					var captionElement = document.querySelectorAll('.captions-text .ytp-caption-segment');
+					captionElement.forEach(function (caption) {
+						subText += caption.textContent.trim() + ' ';
+					});
+				}
 
-				a.download = (ImprovedTube.videoId() || location.href.match) + '-' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + '-' + ImprovedTube.videoTitle() + '.png';
+                a.download = (ImprovedTube.videoId() || location.href.match) + '-' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + '-' + ImprovedTube.videoTitle() + (subText ? '-' + subText.trim() : '') + '.png';
 
 				a.click();
 			} else {
