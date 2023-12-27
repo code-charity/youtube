@@ -158,6 +158,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 						component: 'switch',
 						text: 'subtitles'
 					},
+					embed_subtitle: {
+						component: 'switch',
+						text: 'Embed subtitle on screenshots',
+						value:true,
+					  },
 					subtitles_language: {
 						component: 'select',
 						text: 'language',
