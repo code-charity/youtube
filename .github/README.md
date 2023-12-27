@@ -52,7 +52,7 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 <h3>Translators&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<a href="https://github.com/code-for-charity/YouTube-Extension#--translators-" title="💕">♡</a>&nbsp;&nbsp;🌎</h3> 
 <code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en/messages.json" title="English">EN</a></code>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/uk/messages.json" title="English (UK)">en_GB</a></code> :
-<a href="https://github.com/KorbinCode" title="✨🏆"><code>KorbinCode</code></a>
+<a href="https://github.com/Korbough" title="✨🏆"><code>Korbough</code></a>
 <br>Proofreaders:<code><a href="https://github.com/????????">___</a></code> (You?) </code><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json" title="中文 (简体)">CN(zh_CN)</a></code> :
 <a href="https://github.com/niceRAM" title="✨🏆"><code>niceRAM</code></a> 
