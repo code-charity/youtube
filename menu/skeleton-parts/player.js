@@ -158,11 +158,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 						component: 'switch',
 						text: 'subtitles'
 					},
-					embed_subtitle: {
-						component: 'switch',
-						text: 'Embed subtitle on screenshots',
-						value:true,
-					  },
 					subtitles_language: {
 						component: 'select',
 						text: 'language',
@@ -983,17 +978,15 @@ extension.skeleton.main.layers.section.player.on.click = {
 		variant: 'card',
 		title: 'buttons',
 
-		player_screenshot: {
-			component: 'button',
-			text: 'screenshot',
-			on: {
-				click: {
-					component: 'section',
-					variant: 'card',
-
 					player_screenshot_button: {
 						component: 'switch',
-						text: 'activate'
+						text: 'Screenshot',
+						id: 'player_screenshot_button'
+					},
+					embed_subtitle: {
+						component: 'switch',
+						text: 'Subtitle (Capture including the current words)',
+						value: true
 					},
 					player_screenshot_save_as: {
 						component: 'select',
@@ -1005,44 +998,31 @@ extension.skeleton.main.layers.section.player.on.click = {
 							text: 'clipboard',
 							value: 'clipboard'
 						}]
-					}
-				}
-			}
+					},
+		player_popup_button: {
+			component: 'switch',
+			text: 'popupPlayer'
 		},
-		player_repeat: {
-			component: 'button',
-			text: 'repeat',
-			on: {
-				click: {
-					component: 'section',
-					variant: 'card',
-
 					player_repeat_button: {
 						component: 'switch',
-						text: 'activate'
+						text: 'repeat',
+						id: 'player_repeat_button'
 					},
 					player_always_repeat: {
 						component: 'switch',
 						text: 'alwaysActive'
-					}
-				}
-			}
+					},
+		player_fit_to_win_button: {
+			component: 'switch',
+			text: 'Fit to Window'
 		},
 		player_rotate_button: {
 			component: 'switch',
 			text: 'rotate'
 		},
-		player_fit_to_win_button: {
-			component: 'switch',
-			text: 'Fit to Window'
-		},
 		player_hamburger_button: {
 			component: 'switch',
 			text: 'Hamburger Menu'
-		},
-		player_popup_button: {
-			component: 'switch',
-			text: 'popupPlayer'
 		}
 	}
 };

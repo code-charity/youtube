@@ -9,10 +9,10 @@
 --------------------------------------------------------------*/
 
 .satus-base {
-	--satus-bubble-foreground: rgba(255, 255, 255, .75);
-	--satus-bubble-background: linear-gradient(135deg, #ff4766, #f50029);
-	--satus-bubble-shadow-raised: 0 2px 1px 1px #d60024, 0 4px 4px rgb(82, 0, 14, .32);
-	--satus-bubble-shadow-unelevated: 0 1px 1px 0 #d60024, 0 1px 2px rgb(82, 0, 14, .32);
+	--satus-bubble-foreground: rgba(255, 255, 255, .80);
+	--satus-bubble-background: linear-gradient(135deg, #FE4A44, #c04040 );
+	--satus-bubble-shadow-raised: 0 2px 1px 2px #EED, 0 7px 7px 1px rgb(41, 152, 225, .35);
+	--satus-bubble-shadow-unelevated: 0px 0px 2px 3px #FFB, 0 0px 4px 5px rgb(41, 152, 225, .35);
 	--it-appearance-shadow-color: #dfdfdf;
 }
 
@@ -45,7 +45,7 @@
 	--satus-bubble-shadow-unelevated: 0 1px 1px 0 #2f3b92, 0 1px 2px rgb(82, 0, 14, .32);
 	--it-appearance-shadow-color: #dfdfdf;
 	--satus-light: 255, 255, 255;
-	--satus-primary: #f5f5f5;
+/*	--satus-primary: #f5f5f5; */  --satus-primary: #fc4;
 	--satus-base-background: #191f4d;
 	--satus-base-foreground: #f5f5f5;
 	--satus-header-background: #3a48b4;
@@ -73,7 +73,7 @@
 	--satus-bubble-shadow-unelevated: 0 1px 1px 0 #de357c, 0 1px 2px rgb(82, 0, 14, .32);
 	--it-appearance-shadow-color: #dfdfdf;
 	--satus-light: 255, 255, 255;
-	--satus-primary: #f5f5f5;
+/*	--satus-primary: #f5f5f5; */ --satus-primary: #fc4;
 	--satus-base-background: linear-gradient(345deg, #ffa77a, #de357c 70%);
 	--satus-base-foreground: #f5f5f5;
 	--satus-header-background: #e45892;
@@ -100,7 +100,7 @@
 	--satus-bubble-shadow-unelevated: 0 1px 1px 0 #e14749, 0 1px 2px rgb(82, 0, 14, .32);
 	--it-appearance-shadow-color: #dfdfdf;
 	--satus-light: 255, 255, 255;
-	--satus-primary: #f5f5f5;
+/*	--satus-primary: #f5f5f5; */ --satus-primary: #fc4;
 	--satus-base-background: linear-gradient(345deg, #a96165, #2f3364 70%);
 	--satus-base-foreground: #f5f5f5;
 	--satus-header-background: #313668;
@@ -155,7 +155,7 @@
 	--satus-bubble-shadow-unelevated: 0 1px 1px 0 #4c946b, 0 1px 2px rgb(82, 0, 14, .32);
 	--it-appearance-shadow-color: #dfdfdf;
 	--satus-light: 0, 0, 0;
-	--satus-primary: #fff;
+/*	--satus-primary: #fff; */ --satus-primary: #fc4;
 	--satus-base-background: #8db9a0;
 	--satus-base-foreground: #fff;
 	--satus-header-background: #57a87a;
