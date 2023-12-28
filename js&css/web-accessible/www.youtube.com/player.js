@@ -577,21 +577,19 @@ ImprovedTube.screenshot = function () {
 
 	setTimeout(function () {
 		ctx.drawImage(video, 0, 0, cvs.width, cvs.height);
-		if(ImprovedTube.storage.embed_subtitle === true){ImprovedTube.currentSubtitle(ctx);}
+		var subText = '';
+		var captionElements = document.querySelectorAll('.captions-text .ytp-caption-segment');
+			captionElements.forEach(function (caption) {subText += caption.textContent.trim() + ' ';});	
+			
+		if(ImprovedTube.storage.embed_subtitle === true){ImprovedTube.renderSubtitle(ctx,captionElements);}
 
 		cvs.toBlob(function (blob) {
 			if (ImprovedTube.storage.player_screenshot_save_as !== 'clipboard') {
 				var a = document.createElement('a');
 				a.href = URL.createObjectURL(blob); console.log("screeeeeeenshot tada!");
-				var subText = '';
-				if (ImprovedTube.storage.embed_subtitle === true) {
-					var captionElement = document.querySelectorAll('.captions-text .ytp-caption-segment');
-					captionElement.forEach(function (caption) {
-						subText += caption.textContent.trim() + ' ';
-					});
-				}
 
-                a.download = (ImprovedTube.videoId() || location.href.match) + '-' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + '-' + ImprovedTube.videoTitle() + (subText ? '-' + subText.trim() : '') + '.png';
+
+                a.download = (ImprovedTube.videoId() || location.href.match) + ' ' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + ' ' + ImprovedTube.videoTitle() + (subText ? ' - ' + subText.trim() : '') + '.png';
 
 				a.click();
 			} else {
@@ -607,10 +605,8 @@ ImprovedTube.screenshot = function () {
 	});
 };
 
-
-ImprovedTube.currentSubtitle = function (ctx) {
-    var captionElements = document.querySelectorAll('.captions-text .ytp-caption-segment');
-
+ImprovedTube.renderSubtitle = function (ctx,captionElements) {
+    if (ctx && captionElements) {
     captionElements.forEach(function (captionElement, index) {
         var captionText = captionElement.textContent.trim();
         var captionStyles = window.getComputedStyle(captionElement);
@@ -632,6 +628,7 @@ ImprovedTube.currentSubtitle = function (ctx) {
         ctx.fillStyle = captionStyles.color;
         ctx.fillText(captionText, xOfset + txtWidth / 2, yofset);
     });
+	}
 };
 
 ImprovedTube.playerScreenshotButton = function () {

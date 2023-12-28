@@ -37,6 +37,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.nightMode = {
 				schedule: {
 					component: 'select',
 					text: 'activate',
+					id: 'activate',
 
 					options: [{
 						text: 'disabled',

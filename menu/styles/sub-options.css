@@ -20,6 +20,9 @@ NESTED (CONDITIONAL) SWITCHES
 #forced-playback-speed:not([data-value='true']) + .satus-switch,
 #forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch,
 #forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch + .satus-slider, 
+#player_repeat_button:not([data-value='true']) + .satus-switch,
+#player_screenshot_button:not([data-value='true'])  + .satus-switch,
+#player_screenshot_button:not([data-value='true'])  + .satus-switch + .satus-select,
  /*--------------------------------------------------------------
 	SUBTITLES
 --------------------------------------------------------------*/
@@ -27,9 +30,78 @@ NESTED (CONDITIONAL) SWITCHES
 /*--------------------------------------------------------------
 NIGHT MODE
 --------------------------------------------------------------*/
-:not([data-value='sunset_to_sunrise']) + .satus-time--from,
-:not([data-value='sunset_to_sunrise']) + * + .satus-time--to 
+#activate:not([data-value='sunset_to_sunrise']) + .satus-time--from,
+#activate:not([data-value='sunset_to_sunrise']) + * + .satus-time--to 
 /*====================================*/
 	{display: none !important}
 	
-	
+
+
+#remove-home-page-shorts[data-value='true'] + .satus-switch,
+#remove-home-page-shorts[data-value='true'] + .satus-switch + .satus-switch,
+#remove-home-page-shorts[data-value='true'] + .satus-switch + .satus-switch + .satus-switch,
+/*-----------------
+>>> Appearance
+-----------------*/
+/*-transcript compact spacing-*/
+#transcript[data-value='true'] + .satus-switch,
+ /*-DURATION WITH SPEED-*/
+#show-remaining-duration[data-value='true'] + .satus-switch,
+ /*-comment sidebar scrollbars-*/
+#comments-sidebar[data-value='true'] + .satus-switch,
+/*--------------------------------------------------------------
+>>> PLAYER
+--------------------------------------------------------------*/
+#forced-volume[data-value='true'] + .satus-slider, 
+#forced-playback-speed[data-value='true'] + .satus-switch,
+#forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch,
+#forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch + .satus-slider, 
+#player_repeat_button[data-value='true'] + .satus-switch,
+#player_screenshot_button[data-value='true']  + .satus-switch,
+#player_screenshot_button[data-value='true']  + .satus-switch + .satus-select,
+ /*--------------------------------------------------------------
+	SUBTITLES
+--------------------------------------------------------------*/
+#subtitles-language:not([data-value='default']) + .satus-switch,
+/*--------------------------------------------------------------
+NIGHT MODE
+--------------------------------------------------------------*/
+#activate[data-value='sunset_to_sunrise'] + .satus-time--from,
+#activate[data-value='sunset_to_sunrise'] + * + .satus-time--to 
+/*====================================*/
+	{margin-left:20px; margin-top:-4px; margin-bottom:2px; max-width: calc( 100% - 22px ) !important;   border-radius: 2px;  border-left: 1px inset; }
+
+#remove-home-page-shorts[data-value='true'] + .satus-switch:not(:hover),
+#remove-home-page-shorts[data-value='true'] + .satus-switch + .satus-switch:not(:hover),
+#remove-home-page-shorts[data-value='true'] + .satus-switch + .satus-switch + .satus-switch:not(:hover),
+/*-----------------
+>>> Appearance
+-----------------*/
+/*-transcript compact spacing-*/
+#transcript[data-value='true'] + .satus-switch:not(:hover),
+ /*-DURATION WITH SPEED-*/
+#show-remaining-duration[data-value='true'] + .satus-switch:not(:hover),
+ /*-comment sidebar scrollbars-*/
+#comments-sidebar[data-value='true'] + .satus-switch:not(:hover),
+/*--------------------------------------------------------------
+>>> PLAYER
+--------------------------------------------------------------*/
+#forced-volume[data-value='true'] + .satus-slider:not(:hover), 
+#forced-playback-speed[data-value='true'] + .satus-switch:not(:hover),
+#forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch:not(:hover),
+#forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch + .satus-slider:not(:hover), 
+#player_screenshot_button[data-value='true']  + .satus-switch:not(:hover),
+#player_screenshot_button[data-value='true']  + .satus-switch + .satus-select:not(:hover),
+ /*--------------------------------------------------------------
+	SUBTITLES
+--------------------------------------------------------------*/
+#subtitles-language:not([data-value='default']) + .satus-switch:not(:hover),
+/*--------------------------------------------------------------
+NIGHT MODE
+--------------------------------------------------------------*/
+#activate[data-value='sunset_to_sunrise'] + .satus-time--from:not(:hover),
+#activate[data-value='sunset_to_sunrise'] + * + .satus-time--to:not(:hover) 
+/*====================================*/
+ { background-color:rgb(77,200,232,0.09); }
+ 
+ 

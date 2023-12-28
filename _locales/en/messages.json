@@ -1128,7 +1128,7 @@
         "message": "YouTube limits video quality to 1080p for h.264 codec"
     },
     "openNewTab": {
-        "message": "Open in new tab"
+        "message": "Open in a new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"

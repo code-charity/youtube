@@ -763,7 +763,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 
 extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.about = {
 	component: 'button',
-	text: 'Specs',
+	text: 'My specs',
 	before: {
 		svg: {
 			component: 'svg',

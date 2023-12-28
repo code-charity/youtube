@@ -460,7 +460,6 @@ satus.decrypt = async function(text, password) {
 /*--------------------------------------------------------------
 # ENCRYPTION
 --------------------------------------------------------------*/
-
 satus.encrypt = async function(text, password) {
 	var iv = crypto.getRandomValues(new Uint8Array(12)),
 		algorithm = {
@@ -474,10 +473,7 @@ satus.encrypt = async function(text, password) {
 		new TextEncoder().encode(text)
 	))).map(byte => String.fromCharCode(byte)).join(''));
 };
-
 /*--------------------------------------------------------------
-
-
 # EVENTS
 
 
@@ -490,7 +486,6 @@ satus.events.on = function(type, handler) {
 
 	this.data[type].push(handler);
 };
-
 /*-- TRIGGER ------------------------------------------------*/
 satus.events.trigger = function(type, data) {
 	var handlers = this.data[type];
@@ -903,29 +898,25 @@ satus.storage.get = function(key, callback) {
 # IMPORT
 --------------------------------------------------------------*/
 satus.storage.import = function(keys, callback) {
-	var self = this;
-
-	if (typeof keys === 'function') {
-		callback = keys;
-
-		keys = undefined;
-	}
-
-	chrome.storage.local.get(keys, function(items) {
-		for (var key in items) {
-			self.data[key] = items[key];
-		}
-
-		satus.log('STORAGE: data was successfully imported');
-
-		satus.events.trigger('storage-import');
-
-		if (callback) {
-			callback(items);
-		}
-	});
+    var self = this;
+    if (typeof keys === 'function') {
+        callback = keys;
+        keys = undefined;
+    }
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'animation: fadeIn 4s linear; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 3px solid rgba(182, 233, 255, 1); border-radius: 80px; padding: 37px; color: rgba(120, 147, 161, 1);';
+    overlay.textContent = '...asking your browser what settings you made here before...';
+    (document.body || document.documentElement).appendChild(overlay);
+    chrome.storage.local.get(keys || null, function(items) {
+        for (var key in items) {
+            self.data[key] = items[key];
+        } 
+			// satus.log('STORAGE: data was successfully imported');
+        satus.events.trigger('storage-import');
+        if (callback) { callback(items); }
+				overlay.style.display = 'none';
+    });
 };
-
 /*--------------------------------------------------------------
 # REMOVE
 --------------------------------------------------------------*/
@@ -1053,9 +1044,9 @@ satus.locale.get = function(string) {
 ----------------------------------------------------------------
 satus.locale.import(url, onload, onsuccess);
 --------------------------------------------------------------*/
-
 satus.locale.import = function(code, callback, path) {
 	var language = code || window.navigator.language;
+	
 
 	if (language.indexOf('en') === 0) {
 		language = 'en';
@@ -1078,13 +1069,13 @@ satus.locale.import = function(code, callback, path) {
 			callback();
 		}
 	}, function(success) {
-		satus.fetch(chrome.runtime.getURL(path + 'en/messages.json'), success, function() {
-			success();
-		});
-	});
+			satus.fetch(chrome.runtime.getURL(path + language.substring(0, 2) + '/messages.json'), success, function() {
+            satus.fetch(chrome.runtime.getURL(path + 'en/messages.json'), success, function() {
+                success();
+            });
+        });
+    });
 };
-
-
 /*--------------------------------------------------------------
 # TEXT
 --------------------------------------------------------------*/
@@ -1692,14 +1683,14 @@ satus.components.layers = function(component, skeleton) {
 
 		if (history !== false) {
 			if (previous_layer) {
-				previous_layer.style.animation = 'fadeOutLeft 100ms linear forwards';
-				layer.style.animation = 'fadeInRight 100ms linear forwards';
+				previous_layer.style.animation = 'fadeOut 100ms ease forwards';
+				layer.style.animation = 'fadeInLeft 300ms ease forwards';
 			}
 
 			this.path.push(skeleton);
 		} else {
-			previous_layer.style.animation = 'fadeOutRight 100ms linear forwards';
-			layer.style.animation = 'fadeInLeft 100ms linear forwards';
+			previous_layer.style.animation = 'fadeOut 100ms ease forwards';
+			layer.style.animation = 'fadeInRight 150ms ease forwards';
 		}
 
 		if (previous_layer) {
