@@ -9,10 +9,25 @@
 # Message listener
 # Uninstall URL
 --------------------------------------------------------------*/
+/*
+// For Manifest3:
+/*-----# Persistent Serviceworker:
+		"Manifest2 Background.js"-----*/
+		// Periodic "keep-alive" message every 29.5 seconds
+// const keepAliveInterval = setInterval(() => chrome.runtime.sendMessage({ status: 'keep-alive' }), 29.5 * 1000);
+
+/* Sidepanel Option */ 
+/*
+  chrome.storage.local.get('improvedTubeSidebar', function (result) {
+    if ( result.improvedTubeSidebar) { if ( result.ImprovedTubeSidebar === true) {
+      chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true })
+    } } else {chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: false }) }
+  });
+  
+*/  
 /*---------------------------
 # IMPORTING OLD SETTINGS
------------------------------*/										
-
+-----------------------------*/								
 chrome.runtime.onInstalled.addListener(function (installed){
     if(installed.reason == 'update'){
 //	    var thisVersion = chrome.runtime.getManifest().version;
@@ -29,7 +44,7 @@ chrome.storage.local.get('limit_page_width', function (result) {
 								}});
 								}											
                             });	 
-}
+    }						
 	else if(installed.reason == 'install'){
 if(navigator.userAgent.indexOf("Firefox") != -1){chrome.storage.local.set({below_player_pip: false})};
 if(navigator.userAgent.indexOf("Safari") != -1){chrome.storage.local.set({below_player_pip: false})};	
@@ -45,11 +60,13 @@ if(navigator.userAgent.indexOf("Safari") != -1){chrome.storage.local.set({below_
 --------------------------------------------------------------*/
 function getLocale(language, callback) {
 	language = language.replace('-', '_');
-
-	fetch('_locales/' + language + '/messages.json').then(function (response) {
-		if (response.ok) {
-			response.json().then(callback);
-		} else {
+	fetch('_locales/' + language.substring(0,2) + '/messages.json').then(function (response) {
+		if (response.ok) {response.json().then(callback);
+		} else { 
+				fetch('_locales/' + language.substring(0,2) + '/messages.json').then(function (response) {
+					if (response.ok) {	response.json().then(callback);
+					} else {  getLocale('en', callback); } }).catch(function (){getLocale('en', callback);
+					});		
 			getLocale('en', callback);
 		}
 	}).catch(function () {
@@ -63,14 +80,12 @@ function updateContextMenu(language) {
 	if (!language) {
 		language = chrome.i18n.getUILanguage();
 	}
-
 	getLocale(language, function (response) {
 		var items = [
 			'donate',
 			'rateMe',
 			'GitHub'
 		];
-
 		chrome.contextMenus.removeAll();
 
 		for (var i = 0; i < 3; i++) {
@@ -86,10 +101,10 @@ function updateContextMenu(language) {
 			chrome.contextMenus.create({
 				id: String(i),
 				title: text,
-				contexts: ['browser_action']  //manifest3 : 'action'
+			//	contexts: ['action']  //manifest3 
+				contexts: ['browser_action'] //manifest2
 			});
 		}
-
 		chrome.contextMenus.onClicked.addListener(function (info) {
 			var links = [
 				'https://www.improvedtube.com/donate',
@@ -101,28 +116,22 @@ function updateContextMenu(language) {
 		});
 	});
 }
-
 chrome.runtime.onInstalled.addListener(function (details) {
 	chrome.storage.local.get(function (items) {
 		var language = items.language;
-
 		updateContextMenu(language);
 	});
 });
 
 chrome.storage.onChanged.addListener(function (changes) {
 	for (var key in changes) {
-		if (key === 'language') {
-			updateContextMenu(changes[key].newValue);
-		}
+		if (key === 'language') {updateContextMenu(changes[key].newValue);}
+		if (key === 'improvedTubeSidebar') { chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: changes[key].newValue });	 }
 	}
 });
-
-
 /*--------------------------------------------------------------
 # TAB FOCUS/BLUR
 --------------------------------------------------------------*/
-
 chrome.tabs.onActivated.addListener(function (activeInfo) {
 	chrome.tabs.sendMessage(activeInfo.tabId, {
 		action: 'focus'
@@ -142,7 +151,6 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
 		}
 	});
 });
-
 chrome.windows.onFocusChanged.addListener(function (windowId) {
 	chrome.windows.getAll(function (windows) {
 		for (var i = 0, l = windows.length; i < l; i++) {
@@ -180,12 +188,9 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
 		}
 	});
 });
-
-
 /*--------------------------------------------------------------
 # MESSAGE LISTENER
 --------------------------------------------------------------*/
-
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	var name = request.name;
 
@@ -216,7 +221,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 });
 
 let prevTabsLength = 0;
-
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   var action = message.action || message;
 
@@ -252,8 +256,7 @@ try{		sendResponse({
 			hostname: new URL(sender.url).hostname,
 			tabId: sender.tab.id
 }); }  catch (error) {    console.error("invalid url?", error);}
-	} else if (action === 'fixPopup') 
-	{
+	} else if (action === 'fixPopup') 	{
 		//~ get the current focused tab and convert it to a URL-less popup (with same state and size)
 		chrome.windows.getLastFocused(w => {
 			chrome.tabs.query({
@@ -265,15 +268,14 @@ try{		sendResponse({
 								state: w.state,
 								width: parseInt(message.width, 10),
 							   height: parseInt(message.height, 10),
-							     left: -3,
-								  top: 3
+							     left: 0,
+								  top: 20
 						};
 							
 					 	if (tID) {data.tabId = tID;}
-						chrome.windows.create(data, pw => {	});
+						chrome.windows.create(data, pw => {	});		
 						
-				//append to title 	
-		
+				//append to title? 			
 				chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {	
 				if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")){						
 				chrome.tabs.onUpdated.removeListener(listener);					
@@ -286,7 +288,6 @@ try{		sendResponse({
 
 	};
 });
-
 /*------ search results in new tab --------- 
 chrome.storage.local.get('open_new_tab', function (result) 
 {if (result.open_new_tab === true){ 
@@ -299,8 +300,5 @@ chrome.runtime.onMessage.addListener(function (request) {
 
 }});  */
  
-/*--------------------------------------------------------------
-# UNINSTALL URL
---------------------------------------------------------------*/
-
+/*-----# UNINSTALL URL-----------------------------------*/
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');

@@ -46,17 +46,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 		component: 'section',
 		variant: 'card',
 
-		autoplay: {
-			component: 'switch',
-			text: 'autoplay',
-			value: true,
-			storage: 'player_autoplay'
-		},
-		up_next_autoplay: {
-			component: 'switch',
-			text: 'upNextAutoplay',
-			value: true
-		},
 		autopause_when_switching_tabs: {
 			component: 'switch',
 			text: 'autopauseWhenSwitchingTabs',
@@ -136,6 +125,17 @@ extension.skeleton.main.layers.section.player.on.click = {
 			min: .1,
 			max: 4,
 			step: .05
+		},
+		autoplay: {
+			component: 'switch',
+			text: 'autoplay',
+			value: true,
+			storage: 'player_autoplay'
+		},
+		up_next_autoplay: {
+			component: 'switch',
+			text: 'upNextAutoplay',
+			value: true
 		},
 		forced_play_video_from_the_beginning: {
 			component: 'switch',
