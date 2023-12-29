@@ -3,7 +3,7 @@
 	"short_name" : "ImprovedTube",
 	"name": "'Improve YouTube!' 🎧 (for YouTube & Videos)",
 	"description": "__MSG_description_ext__",
-	"version": "4.506",
+	"version": "4.580",
 	"default_locale": "en",
 	"icons": {							
 		"16": "stuff/icons/16.png",
@@ -83,3 +83,4 @@
 			"js&css/web-accessible/mutations.js"
 			]
 }
+

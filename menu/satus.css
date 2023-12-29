@@ -1,16 +1,15 @@
 *[data-value][data-value="false"] { margin-bottom: 0;  margin-top: 0;  transition: margin 0.14s linear !important; }  
 *[data-value][data-value="true"]  {margin-bottom: -3px;   margin-top: -1px; transition: margin 0.18s linear !important; }
-
 .satus-button--general,  .satus-button--appearance, .satus-button--player {    margin-left: 9px !important; margin-right: -18px !important;}
-.satus-button--themes, .satus-button--playlist,  .satus-button--channel, .satus-button--shortcuts  {  transform: scale(0.84); margin-top: -9px !important;  margin-left: -5px !important; margin-right: -27px !important;}
-.satus-button--blocklist, .satus-button--analyzer   { transform: scale(0.70); margin-top: -20px !important;  margin-left: 75px !important; margin-right: -115px !important; }
+.satus-button--themes, .satus-button--playlist,  .satus-button--channel, .satus-button--shortcuts  {  transform: scale(0.91); margin-top: -10px !important;  margin-left: -5px !important; margin-right: -28px !important;}
+.satus-button--blocklist, .satus-button--analyzer   { transform: scale(0.78); margin-top: -22px !important;  margin-left: 110px !important; margin-right: -150px !important; }
 /*--------------------------------------------------------------
 # SCROLLBAR
 --------------------------------------------------------------*/
-:where([class^='satus'])::-webkit-scrollbar { width: 4px; }
-:where([class^='satus'])::-webkit-scrollbar:hover {	width: 8px; }
+:where([class^='satus'])::-webkit-scrollbar { width: 5px; }
+/* :where([class^='satus']):hover {	scrollbar-width: 9px; }  :where([class^='satus'])::-webkit-scrollbar:hover {	width: 9px; }  */
 :where([class^='satus'])::-webkit-scrollbar-thumb { 	background: rgba(var(--satus-light), .2); }
-:where([class^='satus'])::-webkit-scrollbar-thumb:hover { 	background: rgba(var(--satus-light), .3); }
+:where([class^='satus'])::-webkit-scrollbar-thumb:hover { 	background: rgba(var(--satus-light), .4); }
 /*--------------------------------------------------------------
 # ANIMATIONS
 --------------------------------------------------------------*/
@@ -28,14 +27,14 @@
 --------------------------------------------------------------*/
 .satus-base {
 	--satus-light: 0, 20, 82;
-	--satus-primary: #EE5438;
+	--satus-primary: #ff4148; 
 	--satus-alert-background--error: #501616;
 	--satus-alert-border--error: 1px solid #6f1f1f;
 	--satus-alert-foreground--error: #d77070;
 	--satus-alert-background--success: rgb(246, 180, 101, .32);
 	--satus-alert-border--success: 1px solid rgb(246, 180, 101, .6);
 	--satus-alert-foreground--success: rgb(184, 115, 30);
-	--satus-base-background: #EFEEED;
+	--satus-base-background: #F4F3F2;
 	--satus-base-foreground: #565e76;
 	--satus-checkbox-background: #f3f4f6;
 	--satus-checkbox-border: #dcdfe5;
@@ -93,18 +92,9 @@
 /*--------------------------------------------------------------
 >>> NORMALIZE
 --------------------------------------------------------------*/
-
-:where([class^='satus']) {
-	box-sizing: border-box;
-}
-
-:where([class^='satus'])[hidden]:not([hidden='false']) {
-	display: none;
-}
-
-:where([class^='satus'])[transparent] {
-	opacity: 0;
-}
+:where([class^='satus']){box-sizing: border-box;}
+:where([class^='satus'])[hidden]:not([hidden='false']) {display: none;}
+:where([class^='satus'])[transparent]{opacity:0;}
 /*--------------------------------------------------------------
 >>> MODAL
 ----------------------------------------------------------------
@@ -114,12 +104,9 @@
 # Variants
 	# Vertical menu
 --------------------------------------------------------------*/
-
-
 /*--------------------------------------------------------------
 # CONTAINER
 --------------------------------------------------------------*/
-
 .satus-modal {
 	position: fixed;
 	z-index: 9;
@@ -133,11 +120,9 @@
 	cursor: default;
 }
 
-
 /*--------------------------------------------------------------
 # SCRIM
 --------------------------------------------------------------*/
-
 .satus-modal__scrim {
 	position: absolute;
 	top: 0;
@@ -154,11 +139,9 @@
 	animation: fadeOut 70ms linear forwards;
 }
 
-
 /*--------------------------------------------------------------
 # SURFACE
 --------------------------------------------------------------*/
-
 .satus-modal__surface {
 	display: flex;
 	overflow-y: auto;
@@ -195,11 +178,9 @@
 	margin-left: 8px;
 }
 
-
 /*--------------------------------------------------------------
 # VARIANTS
 --------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 # VERTICAL MENU
 --------------------------------------------------------------*/
@@ -447,11 +428,9 @@ As our Syntax markup isnt read for <textarea>, is it?
 	}
 }
 
-
 /*--------------------------------------------------------------
 # MULTILINE: FALSE
 --------------------------------------------------------------*/
-
 .satus-text-field[multiline=false] .satus-text-field__pre {
 	align-items: center;
 }
@@ -460,11 +439,9 @@ As our Syntax markup isnt read for <textarea>, is it?
 	top: calc(50% - 9px);
 }
 
-
 /*--------------------------------------------------------------
 # SYNTAX HIGHLIGHTING
 --------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 # REGULAR EXPRESSION
 --------------------------------------------------------------*/

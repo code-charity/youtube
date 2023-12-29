@@ -2458,7 +2458,6 @@ satus.components.switch.flip = function(val) {
 /*--------------------------------------------------------------
 >>> CONTEXT MENU
 --------------------------------------------------------------*/
-
 satus.events.on('render', function(component) {
 	if (component.skeleton.contextMenu) {
 		component.addEventListener('contextmenu', function(event) {
