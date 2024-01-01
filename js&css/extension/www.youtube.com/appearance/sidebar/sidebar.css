@@ -26,9 +26,6 @@ div#secondary #playlist {
 	width: var(--ytd-watch-flexy-sidebar-width);
 	min-width: var(--ytd-watch-flexy-sidebar-min-width);
 }
-div#primary ytd-live-chat-frame {
-	width: auto !important;
-}
 /*--------------------------------------------------------------
 # TRANSCRIPT
 --------------------------------------------------------------*/
