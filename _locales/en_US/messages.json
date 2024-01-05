@@ -17,11 +17,20 @@
     "accept": {
         "message": "Accept"
     },
+    "hideFeaturedContent": {
+        "message": "Hide featured content"
+    },
+    "compactTheme": {
+        "message": "Compact Theme"
+    },
     "activate": {
         "message": "Activate"
     },
     "activateCaptions": {
         "message": "Activate captions"
+    },
+    "Buttons": {
+        "message": "Activate fullscreen"
     },
     "activateFullscreen": {
         "message": "Activate fullscreen"
@@ -484,9 +493,6 @@
     },
     "hideEndscreen": {
         "message": "Hide endscreen"
-    },
-    "hideFeaturedContent": {
-        "message": "Hide featured content"
     },
     "hideFooter": {
         "message": "Hide footer"

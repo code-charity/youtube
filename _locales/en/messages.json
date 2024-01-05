@@ -17,7 +17,7 @@
     "accept": {
         "message": "Accept"
     },
-    "hideFeaturedContent": {
+    "CompactTheme": {
         "message": "Compact Theme"
     },
 
@@ -32,9 +32,8 @@
     },
    
     "Buttons": {
-        "message": "Activate fullscreen"
-    }
-,
+        "message": "Buttons"
+    },
 
     "activateFullscreen": {
         "message": "Activate fullscreen"
@@ -490,7 +489,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "hide Detail Button"
     },
     "hideDetails": {
         "message": "Hide details"
@@ -511,7 +510,7 @@
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls     buttons"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
