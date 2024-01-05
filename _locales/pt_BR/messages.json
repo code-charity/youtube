@@ -321,7 +321,7 @@
         "message": "Não Gostei."
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the week"
+        "message": "Mostrar dia da Semana"
     },
     "doNotChange": {
         "message": "Não Alterar"
@@ -339,7 +339,7 @@
         "message": "Sombra projetada"
     },
     "durationWithSpeed": {
-        "message": "Show time remaining with reference to playback speed"
+        "message": "Mostrar tempo restante com referência a velocidade de reprodução"
     },
     "email": {
         "message": "Email"
@@ -465,10 +465,10 @@
         "message": "Ocultar cards"
     },
     "hideCategories": {
-        "message": "Hide categories"
+        "message": "Ocultar categorias"
     },
     "hideCommentsCount": {
-        "message": "Hide comments count"
+        "message": "Ocultar contagens de Comentários"
     },
     "hideCountryCode": {
         "message": "Ocultar código do país"
@@ -513,7 +513,7 @@
         "message": "Ocultar «Rolar para ver detalhes»"
     },
     "hideSkipOverlay": {
-        "message": "Hide 5 second skip animation"
+        "message": "Esconder animação de salto de 5 segundos"
     },
     "hideThumbnailOverlay": {
         "message": "Ocultar botões nas miniaturas"
@@ -687,7 +687,7 @@
         "message": "Noite"
     },
     "nightMode": {
-        "message": "Night mode"
+        "message": "Modo noturno"
     },
     "noActiveFeatures": {
         "message": "Sem recursos ativos"
@@ -750,7 +750,7 @@
         "message": "Rosa"
     },
     "plain": {
-        "message": "Panície"
+        "message": "Planície"
     },
     "platform": {
         "message": "Plataforma"
@@ -1095,7 +1095,7 @@
         "message": "Vídeos assistidos"
     },
     "whenPaused": {
-        "message": "When paused"
+        "message": "Quando pausado"
     },
     "whenTabIsChanged": {
         "message": "Quando a aba é alterada"
