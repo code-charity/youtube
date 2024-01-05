@@ -20,9 +20,6 @@
     "compact_spacing": {
         "message": "Espaçamento compacto"
     },
-    "CompactTheme": {
-        "message": "Compactar Tema"
-    },
     "Hide_Pause_Overlay": {
         "message": "Hide Pause Overlay"
     },
@@ -922,6 +919,12 @@
     },
     "share": {
         "message": "Share"
+    },
+    "Transcript": {
+        "message": "Transcrição"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtítulo (Captura incluindo as palavras atuais)"
     },
     "Embedded_YouTube": {
         "message": "incorporado YouTube"
