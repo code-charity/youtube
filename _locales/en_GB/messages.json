@@ -920,6 +920,9 @@
     "share": {
         "message": "Share"
     },
+    "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
+    },
     "Transcript": {
         "message": "Transcript"
     },
@@ -927,7 +930,7 @@
         "message": "Subtitle (Capture including the current words)"
     },
     "Embedded_YouTube": {
-        "message": "Embedded_YouTube"
+        "message": "Embedded YouTube"
     },
     "Hide_YouTube_Logo": {
         "message": "Hide YouTube Logo"
