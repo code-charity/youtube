@@ -17,8 +17,8 @@
     "accept": {
         "message": "Принять"
     },
-    "hideFeaturedContent": {
-        "message": "Скрывать рекомендации"
+    "CompactTheme": {
+        "message": "Compact Theme"
     },
     "compactTheme": {
         "message": "Compact Theme"
@@ -493,6 +493,9 @@
     },
     "hideEndscreen": {
         "message": "Скрывать экран после видео"
+    },
+    "hideFeaturedContent": {
+        "message": "Скрывать рекомендации"
     },
     "hideFooter": {
         "message": "Скрывать нижний колонтитул"

@@ -17,8 +17,8 @@
     "accept": {
         "message": "Aceitar"
     },
-    "hideFeaturedContent": {
-        "message": "Ocultar conteúdo em destaque"
+    "CompactTheme": {
+        "message": "Compactar Tema"
     },
     "compactTheme": {
         "message": "Tema compacto"
@@ -486,13 +486,16 @@
         "message": "Ocultar data"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "Ocultar botão de detalhes"
     },
     "hideDetails": {
         "message": "Ocultar detalhes"
     },
     "hideEndscreen": {
         "message": "Ocultar tela final"
+    },
+    "hideFeaturedContent": {
+        "message": "Ocultar conteúdo em destaque"
     },
     "hideFooter": {
         "message": "Ocultar rodapé"
