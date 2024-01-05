@@ -65,7 +65,7 @@ function getLocale(language, callback) {
 		} else { 
 				fetch('_locales/' + language.substring(0,2) + '/messages.json').then(function (response) {
 					if (response.ok) {	response.json().then(callback);
-					} else {  getLocale('en', callback); } }).catch(function (){getLocale('en', callback);
+					} else {getLocale('en', callback); } }).catch(function (){getLocale('en', callback);
 					});		
 			getLocale('en', callback);
 		}
