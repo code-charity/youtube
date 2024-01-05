@@ -17,11 +17,20 @@
     "accept": {
         "message": "Принять"
     },
+    "hideFeaturedContent": {
+        "message": "Скрывать рекомендации"
+    },
+    "compactTheme": {
+        "message": "Compact Theme"
+    },
     "activate": {
         "message": "Включить"
     },
     "activateCaptions": {
         "message": "Включить субтитры"
+    },
+    "Buttons": {
+        "message": "Activate fullscreen"
     },
     "activateFullscreen": {
         "message": "Перейти в полноэкранный режим"
@@ -484,9 +493,6 @@
     },
     "hideEndscreen": {
         "message": "Скрывать экран после видео"
-    },
-    "hideFeaturedContent": {
-        "message": "Скрывать рекомендации"
     },
     "hideFooter": {
         "message": "Скрывать нижний колонтитул"

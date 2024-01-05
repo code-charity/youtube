@@ -17,11 +17,20 @@
     "accept": {
         "message": "Aceitar"
     },
+    "hideFeaturedContent": {
+        "message": "Esconder conteúdo"
+    },
+    "compactTheme": {
+        "message": "Compact Theme"
+    },
     "activate": {
         "message": "Ativar"
     },
     "activateCaptions": {
         "message": "Ativar legendas"
+    },
+    "Buttons": {
+        "message": "Activate fullscreen"
     },
     "activateFullscreen": {
         "message": "Ativar ecrã completo"
@@ -484,9 +493,6 @@
     },
     "hideEndscreen": {
         "message": "Esconder ecãn final"
-    },
-    "hideFeaturedContent": {
-        "message": "Esconder conteúdo"
     },
     "hideFooter": {
         "message": "Esconder rodapé"
