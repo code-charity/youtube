@@ -18,12 +18,10 @@
         "message": "Aceitar"
     },
     "compact_spacing": {
-
         "message": "Espaçamento compacto"
-
     },
     "Hide_Pause_Overlay": {
-        "message": "Hide Pause Overlay"
+        "message": "Ocultar Sobreposição de pausa"
     },
     "compactTheme": {
         "message": "Tema compacto"
@@ -469,6 +467,9 @@
     "hiddenOnVideoPage": {
         "message": "Oculto na página do vídeo"
     },
+    "embedded_Hide_Share": {
+        "message": "Ocultar compartilhamento do video incorporado"
+    },
     "hideAnimatedThumbnails": {
         "message": "Desativar miniaturas animadas"
     },
@@ -554,7 +555,7 @@
         "message": "Tela inicial"
     },
     "hover": {
-        "message": "Passar"
+        "message": "Passar o Ponteiro"
     },
     "hoverOnVideoPage": {
         "message": "Passe o mouse na página do vídeo"
@@ -920,7 +921,7 @@
         "message": "Configurações importadas com sucesso"
     },
     "share": {
-        "message": "Share"
+        "message": "Compartilhar"
     },
     "Transcript": {
         "message": "Transcrição"
@@ -929,7 +930,7 @@
         "message": "Subtítulo (Captura incluindo as palavras atuais)"
     },
     "Embedded_YouTube": {
-        "message": "Embedded YouTube"
+        "message": "incorporado YouTube"
     },
     "Hide_YouTube_Logo": {
         "message": "Ocultar Logo do YouTube"

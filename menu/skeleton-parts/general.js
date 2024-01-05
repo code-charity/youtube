@@ -142,7 +142,7 @@ extension.skeleton.main.layers.section.general = {
 				},
 				embeddedHideShare: {
 					component: 'switch',
-					text: "Hide_Share"
+					text: 'embedded_Hide_Share'
 				}
 			},
 			section_3: {
