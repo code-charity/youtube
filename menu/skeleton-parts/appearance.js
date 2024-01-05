@@ -713,7 +713,7 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 			},
 			hide_author_avatars: {
 				component: "switch",
-				text: "Hide avatars"
+				text: 'hide_author_avatars'
 			},
 			hide_comments_count: {
 				component: "switch",
@@ -820,7 +820,7 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			},
 			compact_spacing: {
 				component: "switch",
-				text: 'Compact_Spacing',
+				text: 'compact_Spacing',
 				storage: 'compactSpacing'
 			},
 			no_page_margin: {
