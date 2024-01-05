@@ -3,11 +3,12 @@ html {overflow-x: hidden !important; }
 /* html {overflow-x: hidden !important; }  
 /* Fix to tame Youtube's page-load / make it more calm  -  the player wont annoyingly slide in from the right anymore */
 									/* previously also: html[it-transcript='true'] {overflow-x: hidden !important; }*/
- @-moz-document url-prefix() { overflow-x: visible !important; } /* REMOVE ME SOON https://github.com/code-charity/youtube/issues/1649 */ 
+ @-moz-document url-prefix() {overflow-x: visible !important; } /* REMOVE ME SOON https://github.com/code-charity/youtube/issues/1649 */ 
 
 @media screen and (max-width: 1023px) {   
 div#primary ytd-live-chat-frame { width: auto !important; } 
-html[it-pathname*="/shorts/"]  #header.style-scope ytd-engagement-panel-title-header-renderer  {max-width: 40vw !important;) }
+html[it-pathname*="/shorts/"] 
+#header.style-scope ytd-engagement-panel-title-header-renderer  {max-width: 40vw !important; }
 /* or maybe something like : html[it-pathname*="/shorts/"]  #header.style-scope ytd-engagement-panel-title-header-renderer  "visibility-button" */ }
 
 /*------------------------------------------------------------------------------
