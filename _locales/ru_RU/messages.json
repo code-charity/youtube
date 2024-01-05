@@ -920,6 +920,9 @@
     "share": {
         "message": "Поделиться"
     },
+    "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
+    },
     "Transcript": {
         "message": "Transcript"
     },
