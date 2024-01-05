@@ -134,7 +134,7 @@ extension.skeleton.main.layers.section.general = {
 
 				embeddedHidePauseOverlay: {
 					component: 'switch',
-					text: 'Hide Pause Overlay',
+					text: 'Hide_Pause_Overlay',
 				},
 				embeddedHideYoutubeLogo: {
 					component: 'switch',
