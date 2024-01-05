@@ -926,6 +926,10 @@
     "share": {
         "message": "Share"
     },
+
+   "Hide_Share": {
+        "message": "Hide Share"
+    },
     
      "Transcript": {
         "message": "Transcript"},
