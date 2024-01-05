@@ -18,7 +18,7 @@
         "message": "Accept"
     },
     "compact_spacing": {
-        "message": "compact spacing"
+        "message": "Tema compacto"
     },
     "Hide_Pause_Overlay": {
         "message": "Hide Pause Overlay"
@@ -919,6 +919,9 @@
     },
     "share": {
         "message": "Share"
+    },
+    "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
     },
     "Transcript": {
         "message": "Transcript"
