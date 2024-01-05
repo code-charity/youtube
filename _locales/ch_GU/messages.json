@@ -17,8 +17,8 @@
     "accept": {
         "message": "Accept"
     },
-    "hideFeaturedContent": {
-        "message": "Hide featured content"
+    "CompactTheme": {
+        "message": "Compact Theme"
     },
     "compactTheme": {
         "message": "Compact Theme"
@@ -493,6 +493,9 @@
     },
     "hideEndscreen": {
         "message": "Hide endscreen"
+    },
+    "hideFeaturedContent": {
+        "message": "Hide featured content"
     },
     "hideFooter": {
         "message": "Hide footer"

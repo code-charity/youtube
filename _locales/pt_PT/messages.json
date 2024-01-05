@@ -17,11 +17,11 @@
     "accept": {
         "message": "Aceitar"
     },
-    "hideFeaturedContent": {
-        "message": "Esconder conteúdo"
+    "CompactTheme": {
+        "message": "Tema compacto"
     },
     "compactTheme": {
-        "message": "Compact Theme"
+        "message": "Tema compacto"
     },
     "activate": {
         "message": "Ativar"
@@ -54,7 +54,7 @@
         "message": "Todas"
     },
     "allYourSettingsWillBeErasedAndCanTBeRecovered": {
-        "message": "All your settings will be erased and can't be recovered"
+        "message": "Todas as suas configurações serão apagadas e não poderão ser recuperadas"
     },
     "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
         "message": "All your shortcuts will be erased and can't be recovered"
@@ -174,7 +174,7 @@
         "message": "Azul claro"
     },
     "brightness": {
-        "message": "Brightness"
+        "message": "Luminosidade"
     },
     "brown": {
         "message": "Castanho"
@@ -494,6 +494,9 @@
     "hideEndscreen": {
         "message": "Esconder ecãn final"
     },
+    "hideFeaturedContent": {
+        "message": "Esconder conteúdo"
+    },
     "hideFooter": {
         "message": "Esconder rodapé"
     },
@@ -543,7 +546,7 @@
         "message": "Casa"
     },
     "homeScreen": {
-        "message": "Home screen"
+        "message": "Ecrã inicial"
     },
     "hover": {
         "message": "Aponta"
@@ -1098,7 +1101,7 @@
         "message": "Tempo de visualização"
     },
     "watchedVideos": {
-        "message": "Watched videos"
+        "message": "Vídeos visualizados"
     },
     "whenPaused": {
         "message": "When paused"
@@ -1134,9 +1137,9 @@
         "message": "O YouTube limita a qualidade do video em 1080p para o codec h.264"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Abrir em uma nova aba"
     },
     "hideVideoTitleFullScreen": {
-        "message": "Hide video title in fullscreen"
+        "message": "Ocultar o título do vídeo em tela cheia"
     }
 }
