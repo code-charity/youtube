@@ -44,6 +44,12 @@
     "all": {
         "message": "All"
     },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your settings will be erased and can't be recovered"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your shortcuts will be erased and can't be recovered"
+    },
     "allow": {
         "message": "Allow"
     },
@@ -64,6 +70,9 @@
     },
     "analyzer": {
         "message": "Analyzer"
+    },
+    "animations": {
+        "message": "Animations"
     },
     "appearance": {
         "message": "Appearance"
@@ -119,6 +128,9 @@
     "belowPlayer": {
         "message": "Below player"
     },
+    "bitness": {
+        "message": "Bitness"
+    },
     "black": {
         "message": "Black"
     },
@@ -151,6 +163,9 @@
     },
     "bluelight": {
         "message": "Bluelight"
+    },
+    "brightness": {
+        "message": "Brightness"
     },
     "brown": {
         "message": "Brown"
@@ -265,6 +280,9 @@
     },
     "defaultContentCountry": {
         "message": "Country (virtual travel)"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
     },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
@@ -419,6 +437,9 @@
     "green": {
         "message": "Green"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -442,6 +463,9 @@
     },
     "hideCards": {
         "message": "Hide cards"
+    },
+    "hideCategories": {
+        "message": "Hide categories"
     },
     "hideCommentsCount": {
         "message": "Hide comments count"
@@ -512,6 +536,9 @@
     "home": {
         "message": "Home"
     },
+    "homeScreen": {
+        "message": "Home screen"
+    },
     "hover": {
         "message": "Hover"
     },
@@ -563,6 +590,12 @@
     "languages": {
         "message": "Languages"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": "Legacy YouTube"
     },
@@ -583,6 +616,9 @@
     },
     "liked": {
         "message": "Liked"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "Lime"
@@ -623,6 +659,9 @@
     "more": {
         "message": "More"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "To the left!"
     },
@@ -646,6 +685,9 @@
     },
     "night": {
         "message": "Night"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "No active features"
@@ -794,6 +836,9 @@
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },
+    "removeShortsReelSearchResults": {
+        "message": "Remove Shorts reel from search results"
+    },
     "repeat": {
         "message": "Repeat"
     },
@@ -881,11 +926,17 @@
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
+    "showVersion": {
+        "message": "Show version"
+    },
     "shuffle": {
         "message": "Shuffle"
     },
     "sidebar": {
         "message": "Sidebar"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "Spacebar"
@@ -1040,6 +1091,9 @@
     "watchTime": {
         "message": "Watch time"
     },
+    "watchedVideos": {
+        "message": "Watched videos"
+    },
     "whenPaused": {
         "message": "When paused"
     },
@@ -1075,5 +1129,8 @@
     },
     "openNewTab": {
         "message": "Open in new tab"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Hide video title in fullscreen"
     }
 }
