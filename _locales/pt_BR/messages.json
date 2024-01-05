@@ -18,7 +18,7 @@
         "message": "Aceitar"
     },
     "CompactTheme": {
-        "message": "Compact Theme"
+        "message": "Compactar Tema"
     },
     "compactTheme": {
         "message": "Tema compacto"
@@ -486,7 +486,7 @@
         "message": "Ocultar data"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "Ocultar botão de detalhes"
     },
     "hideDetails": {
         "message": "Ocultar detalhes"
