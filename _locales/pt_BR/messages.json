@@ -467,6 +467,9 @@
     "hiddenOnVideoPage": {
         "message": "Oculto na página do vídeo"
     },
+    "embedded_Hide_Share": {
+        "message": "Ocultar compartilhamento do video incorporado"
+    },
     "hideAnimatedThumbnails": {
         "message": "Desativar miniaturas animadas"
     },
