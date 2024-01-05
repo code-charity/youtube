@@ -17,6 +17,9 @@
     "accept": {
         "message": "Accept"
     },
+    "compact_spacing": {
+        "message": "Tema compacto"},
+
     "CompactTheme": {
         "message": "Compact Theme"
     },
