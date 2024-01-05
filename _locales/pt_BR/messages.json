@@ -17,8 +17,14 @@
     "accept": {
         "message": "Aceitar"
     },
+    "compact_spacing": {
+        "message": "Espaçamento compacto"
+    },
     "CompactTheme": {
         "message": "Compactar Tema"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
     },
     "compactTheme": {
         "message": "Tema compacto"
@@ -486,7 +492,7 @@
         "message": "Ocultar data"
     },
     "hideDetailButton": {
-        "message": "Ocultar botão de detalhes"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "Ocultar detalhes"
@@ -916,6 +922,12 @@
     },
     "share": {
         "message": "Share"
+    },
+    "Embedded_YouTube": {
+        "message": "incorporado YouTube"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Ocultar Logo do YouTube"
     },
     "shortcuts": {
         "message": "Atalhos"
