@@ -18,11 +18,7 @@
         "message": "Accept"
     },
     "compact_spacing": {
-        "message": "Tema compacto"},
-
-    "CompactTheme": {
-        "message": "Compact Theme"
-    },
+        "message": "compact spacing"},
    
     "Hide_Pause_Overlay": {
         "message": "Hide Pause Overlay"
@@ -59,6 +55,11 @@
     "ads": {
         "message": "Ads"
     },
+ 
+"Hide_Share": {
+        "message": "Hide Share"
+    },
+
     "all": {
         "message": "All"
     },
@@ -931,7 +932,9 @@
         "message": "Hide Share"
     },
     
-     "Transcript": {
+
+ "Transcript": {
+
         "message": "Transcript"},
 
      "Subtitle_Capture_including_the_current_words": {
@@ -945,6 +948,15 @@
         "message": "Hide YouTube Logo"
     },
     "shortcuts": {
+
+"Embedded_YouTube": {
+        "message": "Embedded YouTube"},
+ 
+ "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"},
+
+ "shortcuts": {
+
         "message": "Shortcuts"
     },
     "showCardsOnMouseHover": {
