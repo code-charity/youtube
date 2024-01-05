@@ -783,7 +783,7 @@
         "message": "Player externo"
     },
     "popupWindowButtons": {
-        "message": "popup_window_buttons"
+        "message": "Adicione um botão Popup-player para cada miniatura"
     },
     "position": {
         "message": "Posição"
