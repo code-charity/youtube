@@ -44,6 +44,12 @@
     "all": {
         "message": "Todas"
     },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your settings will be erased and can't be recovered"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your shortcuts will be erased and can't be recovered"
+    },
     "allow": {
         "message": "Permitir"
     },
@@ -122,6 +128,9 @@
     "belowPlayer": {
         "message": "Reprodutor abaixo"
     },
+    "bitness": {
+        "message": "Bitness"
+    },
     "black": {
         "message": "Preto"
     },
@@ -154,6 +163,9 @@
     },
     "bluelight": {
         "message": "Azul claro"
+    },
+    "brightness": {
+        "message": "Brightness"
     },
     "brown": {
         "message": "Castanho"
@@ -268,6 +280,9 @@
     },
     "defaultContentCountry": {
         "message": "Country (virtual travel)"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
     },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
@@ -520,6 +535,9 @@
     },
     "home": {
         "message": "Casa"
+    },
+    "homeScreen": {
+        "message": "Home screen"
     },
     "hover": {
         "message": "Aponta"
@@ -1073,6 +1091,9 @@
     "watchTime": {
         "message": "Tempo de visualização"
     },
+    "watchedVideos": {
+        "message": "Watched videos"
+    },
     "whenPaused": {
         "message": "When paused"
     },
@@ -1105,5 +1126,11 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "O YouTube limita a qualidade do video em 1080p para o codec h.264"
+    },
+    "openNewTab": {
+        "message": "Open in a new tab"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Hide video title in fullscreen"
     }
 }
