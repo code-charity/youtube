@@ -18,13 +18,13 @@
         "message": "Accepter"
     },
     "compact_spacing": {
-        "message": "compact spacing"
+        "message": "espacement compact"
     },
     "Hide_Pause_Overlay": {
         "message": "Hide Pause Overlay"
     },
     "compactTheme": {
-        "message": "Compact Theme"
+        "message": "Thème compact"
     },
     "activate": {
         "message": "Activer"
@@ -33,7 +33,7 @@
         "message": "Activer les sous-titres"
     },
     "Buttons": {
-        "message": "Buttons"
+        "message": "Boutons"
     },
     "activateFullscreen": {
         "message": "Activer le plein écran"
@@ -57,10 +57,10 @@
         "message": "Voir tout"
     },
     "allYourSettingsWillBeErasedAndCanTBeRecovered": {
-        "message": "All your settings will be erased and can't be recovered"
+        "message": "Tous vos paramètres seront effacés et ne pourront pas être récupérés"
     },
     "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
-        "message": "All your shortcuts will be erased and can't be recovered"
+        "message": "Tous vos raccourcis seront effacés et ne pourront pas être récupérés"
     },
     "allow": {
         "message": "Permettre"
@@ -177,7 +177,7 @@
         "message": "Bleu pâle"
     },
     "brightness": {
-        "message": "Brightness"
+        "message": "Luminosité"
     },
     "brown": {
         "message": "Brun"
@@ -294,7 +294,7 @@
         "message": "Country (virtual travel)"
     },
     "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
+        "message": "Vitesse de lecture par défaut"
     },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
@@ -549,7 +549,7 @@
         "message": "Accueil"
     },
     "homeScreen": {
-        "message": "Home screen"
+        "message": "Ecran d'accueil"
     },
     "hover": {
         "message": "Survoler"
@@ -921,16 +921,16 @@
         "message": "Share"
     },
     "Transcript": {
-        "message": "Transcript"
+        "message": "Transcription"
     },
     "Subtitle_Capture_including_the_current_words": {
-        "message": "Subtitle (Capture including the current words)"
+        "message": "Sous-titre (Capture incluant les mots actuels)"
     },
     "Embedded_YouTube": {
-        "message": "Embedded YouTube"
+        "message": "YouTube embarqué"
     },
     "Hide_YouTube_Logo": {
-        "message": "Hide YouTube Logo"
+        "message": "Masquer le logo YouTube"
     },
     "shortcuts": {
         "message": "Raccourcis"
@@ -1116,10 +1116,10 @@
         "message": "Temps de visionnage"
     },
     "watchedVideos": {
-        "message": "Watched videos"
+        "message": "Vidéos visionnées"
     },
     "whenPaused": {
-        "message": "When paused"
+        "message": "En pause"
     },
     "whenTabIsChanged": {
         "message": "Quand l'onglet change"
@@ -1152,9 +1152,9 @@
         "message": "YouTube limite la qualité vidéo à 1080p pour le codec h.264"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Ouvrir dans un nouvel onglet"
     },
     "hideVideoTitleFullScreen": {
-        "message": "Hide video title in fullscreen"
+        "message": "Masquer le titre de la vidéo en plein écran"
     }
 }
