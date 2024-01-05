@@ -18,9 +18,10 @@
         "message": "Accept"
     },
     "compact_spacing": {
-        "message": "compact spacing"}
 
-,
+        "message": "compact_spacing"
+    },
+
     "Hide_Pause_Overlay": {
         "message": "Hide Pause Overlay"
     },

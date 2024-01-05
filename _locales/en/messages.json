@@ -56,9 +56,6 @@
         "message": "Ads"
     },
  
-"Hide_Share": {
-        "message": "Hide Share"
-    },
 
     "all": {
         "message": "All"
@@ -928,11 +925,10 @@
         "message": "Share"
     },
 
-   "Hide_Share": {
-        "message": "Hide Share"
+   "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
     },
     
-
  "Transcript": {
 
         "message": "Transcript"},
@@ -947,16 +943,8 @@
      "Hide_YouTube_Logo": {
         "message": "Hide YouTube Logo"
     },
+
     "shortcuts": {
-
-"Embedded_YouTube": {
-        "message": "Embedded YouTube"},
- 
- "Hide_YouTube_Logo": {
-        "message": "Hide YouTube Logo"},
-
- "shortcuts": {
-
         "message": "Shortcuts"
     },
     "showCardsOnMouseHover": {
