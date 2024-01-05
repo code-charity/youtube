@@ -18,8 +18,10 @@
         "message": "Accept"
     },
     "compact_spacing": {
-        "message": "Tema compacto"
-    },
+
+        "message": "compact spacing"
+
+  },
     "Hide_Pause_Overlay": {
         "message": "Hide Pause Overlay"
     },
@@ -927,7 +929,7 @@
         "message": "Subtitle (Capture including the current words)"
     },
     "Embedded_YouTube": {
-        "message": "Embedded_YouTube"
+        "message": "Embedded YouTube"
     },
     "Hide_YouTube_Logo": {
         "message": "Hide YouTube Logo"

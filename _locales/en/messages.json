@@ -927,11 +927,27 @@
     "share": {
         "message": "Share"
     },
+
+   "Hide_Share": {
+        "message": "Hide Share"
+    },
+    
+
  "Transcript": {
+
         "message": "Transcript"},
 
-"Subtitle_Capture_including_the_current_words": {
+     "Subtitle_Capture_including_the_current_words": {
         "message": "Subtitle (Capture including the current words)"},
+
+     "Embedded_YouTube": {
+        "message": "Embedded_YouTube"
+    },
+ 
+     "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"
+    },
+    "shortcuts": {
 
 "Embedded_YouTube": {
         "message": "Embedded YouTube"},
@@ -940,6 +956,7 @@
         "message": "Hide YouTube Logo"},
 
  "shortcuts": {
+
         "message": "Shortcuts"
     },
     "showCardsOnMouseHover": {
