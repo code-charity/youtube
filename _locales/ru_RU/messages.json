@@ -17,8 +17,14 @@
     "accept": {
         "message": "Принять"
     },
+    "compact_spacing": {
+        "message": "Tema compacto"
+    },
     "CompactTheme": {
         "message": "Compact Theme"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
     },
     "compactTheme": {
         "message": "Compact Theme"
@@ -916,6 +922,12 @@
     },
     "share": {
         "message": "Поделиться"
+    },
+    "Embedded_YouTube": {
+        "message": "Embedded_YouTube"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"
     },
     "shortcuts": {
         "message": "Горячие клавиши"
