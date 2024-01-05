@@ -985,7 +985,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 					},
 					embed_subtitle: {
 						component: 'switch',
-						text: 'Subtitle (Capture including the current words)',
+						text: 'Subtitle_Capture_including_the_current_words',
 						value: true
 					},
 					player_screenshot_save_as: {
