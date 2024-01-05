@@ -18,11 +18,7 @@
         "message": "Accept"
     },
     "compact_spacing": {
-        "message": "Tema compacto"},
-
-    "CompactTheme": {
-        "message": "Compact Theme"
-    },
+        "message": "compact spacing"},
    
     "Hide_Pause_Overlay": {
         "message": "Hide Pause Overlay"
@@ -926,7 +922,6 @@
     "share": {
         "message": "Share"
     },
-    
  "Transcript": {
         "message": "Transcript"},
 
@@ -934,13 +929,12 @@
         "message": "Subtitle (Capture including the current words)"},
 
 "Embedded_YouTube": {
-        "message": "Embedded_YouTube"
-    },
+        "message": "Embedded YouTube"},
  
  "Hide_YouTube_Logo": {
-        "message": "Hide YouTube Logo"
-    },
-    "shortcuts": {
+        "message": "Hide YouTube Logo"},
+
+ "shortcuts": {
         "message": "Shortcuts"
     },
     "showCardsOnMouseHover": {
