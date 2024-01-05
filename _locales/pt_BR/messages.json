@@ -950,6 +950,9 @@
     "showMore": {
         "message": "Mostre mais"
     },
+    "Hamburger_Menu": {
+        "message": "Menu hamburguer"
+    },
     "showRemainingDuration": {
         "message": "Mostrar duração restante do vídeo"
     },
@@ -958,6 +961,15 @@
     },
     "shuffle": {
         "message": "Aleatório"
+    },
+    "player_fit_to_win_button": {
+        "message": "jogador se encaixa no botão ganhar"
+    },
+    "hide_author_avatars": {
+        "message": "Ocultar avatares de autores"
+    },
+    "player_rotate_button": {
+        "message": "Botão de rotação do player"
     },
     "sidebar": {
         "message": "Painel Lateral"
