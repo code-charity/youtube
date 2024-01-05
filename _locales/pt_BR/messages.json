@@ -18,10 +18,7 @@
         "message": "Aceitar"
     },
     "compact_spacing": {
-        "message": "Espaçamento compacto"
-    },
-    "CompactTheme": {
-        "message": "Compactar Tema"
+        "message": "compact spacing"
     },
     "Hide_Pause_Overlay": {
         "message": "Hide Pause Overlay"
@@ -924,13 +921,13 @@
         "message": "Share"
     },
     "Transcript": {
-        "message": "Transcript"
+        "message": "Transcrição"
     },
     "Subtitle_Capture_including_the_current_words": {
-        "message": "Subtitle (Capture including the current words)"
+        "message": "Subtítulo (Captura incluindo as palavras atuais)"
     },
     "Embedded_YouTube": {
-        "message": "incorporado YouTube"
+        "message": "Embedded YouTube"
     },
     "Hide_YouTube_Logo": {
         "message": "Ocultar Logo do YouTube"
