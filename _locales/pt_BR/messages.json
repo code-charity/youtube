@@ -44,6 +44,12 @@
     "all": {
         "message": "Todos"
     },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "Todas as suas configurações serão apagadas e não poderão ser recuperadas"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "Todos os seus atalhos serão apagados e não poderão ser recuperados"
+    },
     "allow": {
         "message": "Permitir"
     },
@@ -122,6 +128,9 @@
     "belowPlayer": {
         "message": "Abaixo do player"
     },
+    "bitness": {
+        "message": "Diminuir Bits"
+    },
     "black": {
         "message": "Preto"
     },
@@ -154,6 +163,9 @@
     },
     "bluelight": {
         "message": "Filtrar luz azul"
+    },
+    "brightness": {
+        "message": "Luminosidade"
     },
     "brown": {
         "message": "Marrom"
@@ -268,6 +280,9 @@
     },
     "defaultContentCountry": {
         "message": "Conteúdo padrão do país "
+    },
+    "defaultPlaybackSpeed": {
+        "message": "Velocidade padrão de reprodução"
     },
     "deleteWatchedVideos": {
         "message": "Excluir vídeos assistidos"
@@ -520,6 +535,9 @@
     },
     "home": {
         "message": "Início"
+    },
+    "homeScreen": {
+        "message": "Tela inicial"
     },
     "hover": {
         "message": "Passar"
@@ -818,11 +836,14 @@
     "removeRelatedSearchResults": {
         "message": "Remover os respectivos resultados de pesquisa"
     },
+    "removeShortsReelSearchResults": {
+        "message": "Remover fileiras de Shorts dos resultados de pesquisa"
+    },
     "repeat": {
         "message": "Repetir"
     },
     "report": {
-        "message": "Report"
+        "message": "Reportar"
     },
     "reset": {
         "message": "Restaurar"
@@ -1070,6 +1091,9 @@
     "watchTime": {
         "message": "Tempo de exibição"
     },
+    "watchedVideos": {
+        "message": "Vídeos assistidos"
+    },
     "whenPaused": {
         "message": "When paused"
     },
@@ -1102,5 +1126,11 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "O YouTube limita o codec h.264 à resolução de 1080p"
+    },
+    "openNewTab": {
+        "message": "Abrir numa nova aba"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Ocultar o título do vídeo em tela cheia"
     }
 }
