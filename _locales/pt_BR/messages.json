@@ -923,6 +923,12 @@
     "share": {
         "message": "Share"
     },
+    "Transcript": {
+        "message": "Transcript"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtitle (Capture including the current words)"
+    },
     "Embedded_YouTube": {
         "message": "incorporado YouTube"
     },
