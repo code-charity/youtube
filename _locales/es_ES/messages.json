@@ -930,7 +930,7 @@
         "message": "Subtítulo (Captura incluyendo las palabras actuales)"
     },
     "Embedded_YouTube": {
-        "message": "Embedded_YouTube"
+        "message": "Embedded YouTube"
     },
     "Hide_YouTube_Logo": {
         "message": "Hide YouTube Logo"
@@ -950,6 +950,9 @@
     "showMore": {
         "message": "Mostrar mas"
     },
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
     "showRemainingDuration": {
         "message": "Mostrar la duración restante del video"
     },
@@ -958,6 +961,15 @@
     },
     "shuffle": {
         "message": "Aleatorio"
+    },
+    "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+    "hide_author_avatars": {
+        "message": "Hide author avatars"
+    },
+    "player_rotate_button": {
+        "message": "player rotate button"
     },
     "sidebar": {
         "message": "Barra lateral"
