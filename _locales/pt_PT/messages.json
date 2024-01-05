@@ -924,7 +924,7 @@
         "message": "Embedded Hide Share"
     },
     "Transcript": {
-        "message": "Transcript"
+        "message": "Transcrição"
     },
     "Subtitle_Capture_including_the_current_words": {
         "message": "Subtitle (Capture including the current words)"
@@ -950,6 +950,9 @@
     "showMore": {
         "message": "Show more"
     },
+    "Hamburger_Menu": {
+        "message": "Menu Hamburger"
+    },
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
@@ -958,6 +961,15 @@
     },
     "shuffle": {
         "message": "Misturar"
+    },
+    "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+    "hide_author_avatars": {
+        "message": "Ocultar avatar de autor"
+    },
+    "player_rotate_button": {
+        "message": "botão de rotação do jogador"
     },
     "sidebar": {
         "message": "Barra lateral"
