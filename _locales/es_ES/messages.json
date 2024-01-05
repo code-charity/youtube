@@ -17,8 +17,8 @@
     "accept": {
         "message": "Aceptar"
     },
-    "hideFeaturedContent": {
-        "message": "Ocultar contenido destacado"
+    "CompactTheme": {
+        "message": "Compact Theme"
     },
     "compactTheme": {
         "message": "Compact Theme"
@@ -493,6 +493,9 @@
     },
     "hideEndscreen": {
         "message": "Ocultar pantalla final"
+    },
+    "hideFeaturedContent": {
+        "message": "Ocultar contenido destacado"
     },
     "hideFooter": {
         "message": "Ocultar pie de página"
