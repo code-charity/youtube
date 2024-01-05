@@ -18,7 +18,9 @@
         "message": "Aceitar"
     },
     "compact_spacing": {
-        "message": "compact spacing"
+
+        "message": "Espaçamento compacto"
+
     },
     "Hide_Pause_Overlay": {
         "message": "Hide Pause Overlay"
