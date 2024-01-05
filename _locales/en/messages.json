@@ -55,6 +55,11 @@
     "ads": {
         "message": "Ads"
     },
+ 
+"Hide_Share": {
+        "message": "Hide Share"
+    },
+
     "all": {
         "message": "All"
     },
