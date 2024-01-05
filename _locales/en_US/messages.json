@@ -950,6 +950,9 @@
     "showMore": {
         "message": "Show more"
     },
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
@@ -958,6 +961,15 @@
     },
     "shuffle": {
         "message": "Shuffle"
+    },
+    "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+    "hide_author_avatars": {
+        "message": "Hide author avatars"
+    },
+    "player_rotate_button": {
+        "message": "player rotate button"
     },
     "sidebar": {
         "message": "Sidebar"

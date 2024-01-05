@@ -26,11 +26,23 @@
     "compactTheme": {
         "message": "Compact Theme"
     },
+    "compact_spacing": {
+        "message": "compact spacing"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
+    },
+    "compactTheme": {
+        "message": "Compact Theme"
+    },
     "activate": {
         "message": "Activate"
     },
     "activateCaptions": {
         "message": "Activate captions"
+    },
+    "Buttons": {
+        "message": "Buttons"
     },
     "Buttons": {
         "message": "Buttons"
@@ -55,6 +67,12 @@
     },
     "all": {
         "message": "All"
+    },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your settings will be erased and can't be recovered"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your shortcuts will be erased and can't be recovered"
     },
     "allYourSettingsWillBeErasedAndCanTBeRecovered": {
         "message": "All your settings will be erased and can't be recovered"
@@ -143,6 +161,9 @@
     "bitness": {
         "message": "Bitness"
     },
+    "bitness": {
+        "message": "Bitness"
+    },
     "black": {
         "message": "Black"
     },
@@ -175,6 +196,9 @@
     },
     "bluelight": {
         "message": "Bluelight"
+    },
+    "brightness": {
+        "message": "Brightness"
     },
     "brightness": {
         "message": "Brightness"
@@ -292,6 +316,9 @@
     },
     "defaultContentCountry": {
         "message": "Country (virtual travel)"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
     },
     "defaultPlaybackSpeed": {
         "message": "Default Playback Speed"
@@ -471,7 +498,7 @@
         "message": "Hide animated thumbnails"
     },
     "hideAnnotations": {
-        "message": "Hide annotations"
+        "message": "설명 숨기기"
     },
     "hideCards": {
         "message": "Hide cards"
@@ -547,6 +574,9 @@
     },
     "home": {
         "message": "Home"
+    },
+    "homeScreen": {
+        "message": "Home screen"
     },
     "homeScreen": {
         "message": "Home screen"
@@ -950,6 +980,9 @@
     "showMore": {
         "message": "Show more"
     },
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
@@ -958,6 +991,15 @@
     },
     "shuffle": {
         "message": "Shuffle"
+    },
+    "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+    "hide_author_avatars": {
+        "message": "Hide author avatars"
+    },
+    "player_rotate_button": {
+        "message": "player rotate button"
     },
     "sidebar": {
         "message": "Sidebar"
@@ -1121,6 +1163,9 @@
     "watchedVideos": {
         "message": "Watched videos"
     },
+    "watchedVideos": {
+        "message": "Watched videos"
+    },
     "whenPaused": {
         "message": "When paused"
     },
@@ -1153,6 +1198,7 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube limits video quality to 1080p for h.264 codec"
+
     },
     "openNewTab": {
         "message": "Open in a new tab"
