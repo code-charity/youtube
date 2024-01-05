@@ -180,7 +180,7 @@ Chinese + Hindi + Spanish. <br>
 
 (And there are so many more.)
 <div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo">Help us Translate </a>]
-<h2>or some languages ​​are available here  <a href="https://crowdin.com/project/1655556"></a></h2></div>
+<h2>or some languages ​​are available here  <a href="https://crowdin.com/project/1655556">Crowdim.</a></h2></div>
 
 </td></tr></table>  
 
