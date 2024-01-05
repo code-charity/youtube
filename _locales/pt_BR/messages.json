@@ -451,6 +451,9 @@
     },
     "hd": {
         "message": "HD"
+    }, 
+    "Hide_Share": {
+        "message": "Miniatura em HD"
     },
     "hdThumbnail": {
         "message": "Miniatura em HD"
