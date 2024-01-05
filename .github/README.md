@@ -179,7 +179,9 @@ Chinese + Hindi + Spanish. <br>
 </i></div>
 
 (And there are so many more.)
-<div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo">Help us Translate or use Crowdim <3 [![Crowdin](https://badges.crowdin.net/1655556/localized.svg)](https://crowdin.com/project/1655556)</a></a>]</div>
+<div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo">Help us Translate or use Crowdim <3 
+<sv></sv> <svg>https://badges.crowdin.net/1655556/localized.svg</svg>
+[![Crowdin](https://badges.crowdin.net/1655556/localized.svg)](https://crowdin.com/project/1655556)]</div>
 </td></tr></table>  
 
 <h2>Contributing</h2>
