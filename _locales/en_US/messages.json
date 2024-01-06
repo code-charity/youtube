@@ -18,7 +18,7 @@
         "message": "Accept"
     },
     "compact_spacing": {
-        "message": "compact spacing"
+        "message": "compact_spacing"
     },
     "Hide_Pause_Overlay": {
         "message": "Hide Pause Overlay"
@@ -33,7 +33,7 @@
         "message": "Activate captions"
     },
     "Buttons": {
-        "message": "Buttons"
+        "message": "Activate fullscreen"
     },
     "activateFullscreen": {
         "message": "Activate fullscreen"
@@ -489,7 +489,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "Hide details"
@@ -510,7 +510,7 @@
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "Hide player controls     buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
