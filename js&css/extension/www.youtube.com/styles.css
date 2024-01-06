@@ -7,7 +7,8 @@ html {overflow-x: hidden !important; }
 
 @media screen and (max-width: 1023px) {   
 div#primary ytd-live-chat-frame { width: auto !important; } 
-html[it-pathname*="/shorts/"]  #header.style-scope ytd-engagement-panel-title-header-renderer  {max-width: 40vw !important;) }
+html[it-pathname*="/shorts/"]  #header.style-scope ytd-engagement-panel-title-header-renderer  {max-width: 42vw !important;) }
+html[it-pathname*="/shorts/"]  #content.style-scope ytd-engagement-panel-title-header-renderer  {max-width: 42vw !important;) }
 /* or maybe something like : html[it-pathname*="/shorts/"]  #header.style-scope ytd-engagement-panel-title-header-renderer  "visibility-button" */ }
 
 /*------------------------------------------------------------------------------
@@ -606,7 +607,6 @@ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer
 /*------------------------------------------------------------------------------
 3.0 THEMES
 ------------------------------------------------------------------------------*/
-
 /*update: cinematics */
 [it-theme=black] #cinematics, 
 [it-theme=desert] #cinematics {display:none !important}
@@ -615,8 +615,14 @@ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer
 [it-theme=night] #cinematics { mix-blend-mode: lighten !important}
 [it-theme=plain] #cinematics { filter:invert(100%) !important; mix-blend-mode: darken !important}
 
-/*video detail text color. Fix. video detail text color was wrong in black theme*/
-[it-theme=black] .yt-core-attributed-string--link-inherit-color:not(a) {color: var(--yt-spec-text-primary) !important}
+/*video detail text color. Fix. Themes didnt apply video description text color*/
+[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary)  !important}
+[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string__link--call-to-action-color {color: var(--yt-spec-call-to-action);}
+	/*The next two lines below can be removed if exact theming consistency isn't the goal and we just want to keep it simple.*/
+	[it-theme]:not([it-theme=default]):not([it-theme=dark]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-call-to-action) !important;}
+	/* Actually this above line is wrong. Default behavior is to have #tags near the views and upload date have two different colors depending if the video detail is expanded or not, but I don't know how to replicate that.*/
+	[it-theme]:not([it-theme=default]):not([it-theme=dark]) yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-text-primary) !important;}
+[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--highlight-text-decorator .yt-core-attributed-string__link--display-type {color: var(--yt-spec-text-primary)}
 
 /*BLACK*/
 
@@ -647,7 +653,7 @@ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer
 	--yt-spec-text-primary-inverse: #003459 !important;
 	--yt-spec-text-secondary: #aaa !important;
 	--yt-spec-text-disabled: #aaa !important;
-	--yt-spec-call-to-action: #065fd4 !important;
+	--yt-spec-call-to-action: #0073e6 !important;
 	--yt-spec-icon-active-other: #aaa !important;
 	--yt-spec-icon-inactive: #aaa !important;
 	--yt-spec-icon-disabled: #aaa !important;
@@ -878,7 +884,7 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-text-primary-inverse: #003459 !important;
 	--yt-spec-text-secondary: rgb(255, 255, 255) !important;
 	--yt-spec-text-disabled: rgb(255, 255, 255) !important;
-	--yt-spec-call-to-action: #065fd4 !important;
+	--yt-spec-call-to-action: #0073e6 !important;
 	--yt-spec-icon-active-other: rgb(255, 255, 255) !important;
 	--yt-spec-icon-inactive: rgb(255, 255, 255) !important;
 	--yt-spec-icon-disabled: rgb(255, 255, 255) !important;
@@ -1113,7 +1119,7 @@ html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=sy
 	--yt-spec-text-primary-inverse: #003459 !important;
 	--yt-spec-text-secondary: #555 !important;
 	--yt-spec-text-disabled: #555 !important;
-	--yt-spec-call-to-action: #065fd4 !important;
+	--yt-spec-call-to-action: #0073e6 !important;
 	--yt-spec-icon-active-other: #555 !important;
 	--yt-spec-icon-inactive: #555 !important;
 	--yt-spec-icon-disabled: #555 !important;
@@ -1332,7 +1338,7 @@ html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=
 	--yt-spec-text-primary-inverse: #003459 !important;
 	--yt-spec-text-secondary: #fff !important;
 	--yt-spec-text-disabled: #fff !important;
-	--yt-spec-call-to-action: #065fd4 !important;
+	--yt-spec-call-to-action: #0073e6 !important;
 	--yt-spec-icon-active-other: #fff !important;
 	--yt-spec-icon-inactive: #fff !important;
 	--yt-spec-icon-disabled: #fff !important;
@@ -1566,7 +1572,7 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-text-primary-inverse: #003459 !important;
 	--yt-spec-text-secondary: #666 !important;
 	--yt-spec-text-disabled: #666 !important;
-	--yt-spec-call-to-action: #065fd4 !important;
+	--yt-spec-call-to-action: #0073e6 !important;
 	--yt-spec-icon-active-other: #666 !important;
 	--yt-spec-icon-inactive: #666 !important;
 	--yt-spec-icon-disabled: #666 !important;
@@ -1795,7 +1801,7 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-text-primary-inverse: #003459 !important;
 	--yt-spec-text-secondary: #fff !important;
 	--yt-spec-text-disabled: #fff !important;
-	--yt-spec-call-to-action: #065fd4 !important;
+	--yt-spec-call-to-action: #0073e6 !important;
 	--yt-spec-icon-active-other: #fff !important;
 	--yt-spec-icon-inactive: #fff !important;
 	--yt-spec-icon-disabled: #fff !important;

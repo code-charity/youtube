@@ -1,13 +1,29 @@
+.satus-section--card, .satus-select, .satus-switch, .satus-switch__content {transition: background-color 0.8s ease-out !important;}
+.satus-section--card:hover, .satus-select:hover, .satus-switch:hover,  .satus-switch__content:hover  {transition: background-color 0.08s ease-out !important;}
+
 *[data-value][data-value="false"] { margin-bottom: 0;  margin-top: 0;  transition: margin 0.14s linear !important; }  
-*[data-value][data-value="true"]  {margin-bottom: -3px;   margin-top: -1px; transition: margin 0.18s linear !important; }
-.satus-button--general,  .satus-button--appearance, .satus-button--player {    margin-left: 9px !important; margin-right: -18px !important;}
-.satus-button--themes, .satus-button--playlist,  .satus-button--channel, .satus-button--shortcuts  {  transform: scale(0.91); margin-top: -10px !important;  margin-left: -5px !important; margin-right: -28px !important;}
-.satus-button--blocklist, .satus-button--analyzer   { transform: scale(0.78); margin-top: -22px !important;  margin-left: 110px !important; margin-right: -150px !important; }
+*[data-value][data-value="true"]  {margin-bottom: -4.5px !important;   margin-top: -3.5px; transition: margin 0.2s linear !important; }
+
+.satus-button--general, .satus-button--appearance, .satus-button--player
+ {    margin-left: 9px !important; margin-right: -18px !important; max-width: 272px !important;}
+div:not([home-style="list"]) .satus-button--themes, div:not([home-style="list"]) .satus-button--playlist,div:not([home-style="list"])  .satus-button--channel, div:not([home-style="list"]) .satus-button--shortcuts  
+ {  transform: scale(0.91); margin-top: -10px !important;  margin-left: -5px !important; margin-right: -28px !important;  }
+div:not([home-style="list"]) .satus-button--blocklist, div:not([home-style="list"]) .satus-button--analyzer   
+ { transform: scale(0.78); margin-top: -22px !important;  margin-left: 110px !important; margin-right: -150px !important; }
+
+div[home-style="list"] .satus-button--themes, div[home-style="list"] .satus-button--playlist,div[home-style="list"]  .satus-button--channel, div[home-style="list"] .satus-button--shortcuts  
+ {  transform: scale(0.91); margin-bottom: -11px !important; }
+div[home-style="list"] .satus-button--blocklist, div[home-style="list"] .satus-button--analyzer   
+ { transform: scale(0.78); margin-left: 150px !important; max-width: 160px !important;  margin-top: -78px !important; }
+div[home-style="list"] .satus-button--analyzer   
+{ margin-top: -14px !important; }
+
+
 /*--------------------------------------------------------------
 # SCROLLBAR
 --------------------------------------------------------------*/
 :where([class^='satus'])::-webkit-scrollbar { width: 5px; }
-/* :where([class^='satus']):hover {	scrollbar-width: 9px; }  :where([class^='satus'])::-webkit-scrollbar:hover {	width: 9px; }  */
+:where([class^='satus']):hover {	scrollbar-width: 9px; }  :where([class^='satus'])::-webkit-scrollbar:hover {	width: 9px; }  
 :where([class^='satus'])::-webkit-scrollbar-thumb { 	background: rgba(var(--satus-light), .2); }
 :where([class^='satus'])::-webkit-scrollbar-thumb:hover { 	background: rgba(var(--satus-light), .4); }
 /*--------------------------------------------------------------
@@ -45,7 +61,7 @@
 	--satus-header-shadow: 0 1px 0 #dcdee5;
 	--satus-layers-background: var(--satus-base-background);
 	--satus-layers-foreground: inherit;
-	--satus-section-background: #fff;
+	--satus-section-background: #FEfEfE;
 	--satus-section-border: #dcdee5;
 	--satus-section-foreground:  inherit;
 	--satus-sidebar-background: #fff;
