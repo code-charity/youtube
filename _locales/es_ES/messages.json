@@ -921,7 +921,7 @@
         "message": "Compartir"
     },
     "embedded_Hide_Share": {
-        "message": "Embedded Hide Share"
+        "message": "Ocultar compartimiento incrustado"
     },
     "Transcript": {
         "message": "Transcripción"
@@ -930,7 +930,7 @@
         "message": "Subtítulo (Captura incluyendo las palabras actuales)"
     },
     "Embedded_YouTube": {
-        "message": "Embedded YouTube"
+        "message": "YouTube incrustado"
     },
     "Hide_YouTube_Logo": {
         "message": "Hide YouTube Logo"
@@ -951,7 +951,7 @@
         "message": "Mostrar mas"
     },
     "Hamburger_Menu": {
-        "message": "Hamburger Menu"
+        "message": "Menú hamburguesa"
     },
     "showRemainingDuration": {
         "message": "Mostrar la duración restante del video"
@@ -966,10 +966,10 @@
         "message": "player fit to win button"
     },
     "hide_author_avatars": {
-        "message": "Hide author avatars"
+        "message": "Ocultar avatares del autor"
     },
     "player_rotate_button": {
-        "message": "player rotate button"
+        "message": "botón de rotación del jugador"
     },
     "sidebar": {
         "message": "Barra lateral"
