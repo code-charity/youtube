@@ -143,19 +143,22 @@ def decodeCharacters(allFiles):
 
 def upgrade():
     locales = [
-        'ar',
+        'ar', # Arabic
+        'ar-SA', # Arabic
         'am',
         'bg',
         'bn',
         'ca',
         'cs',
         'da',
-        'de',
+        'de', # Germany
+        'de-GU',
         'el',
-        'en',
-        'en_GB',
-        'en_US',
+        'en', # English (Main Language in Crowdim)
+        'en_GB', # English (United Kingdom)
+        'en_US', # English (United States)
         'es',
+        'es-ES',
         'es_419',
         'et',
         'fa',
@@ -168,10 +171,12 @@ def upgrade():
         'hr',
         'hu',
         'id',
-        'it',
-        'ja',
+        'it', # Italian
+        'ja', # Japonese
+        'ja-JP', # Japonese
         'kn',
-        'ko',
+        'ko',  # korean
+        'ko-KR',  # korean
         'lt',
         'lv',
         'ml',
@@ -180,9 +185,10 @@ def upgrade():
         'nl',
         'no',
         'pl',
-        'pt_BR',
-        'pt_PT',
+        'pt_BR', # Brazillian Portuguese
+        'pt_PT', # European Portuguese
         'ro',
+        'ro-RO',
         'ru',
         'sk',
         'sl',
@@ -195,8 +201,8 @@ def upgrade():
         'tr',
         'uk',
         'vi',
-        'zh_CN',
-        'zh_TW'
+        'zh_CN', # Chinese
+        'zh_TW'  # Chinese taiwan
     ]
 
     if os.path.exists('../_locales/en/messages.json'):
