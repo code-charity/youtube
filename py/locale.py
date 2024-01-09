@@ -268,7 +268,7 @@ def upgrade():
 'ta',
 'te',
 'th',
-'tr,
+'tr',
 'tr_TR',
 'uk',
 'uk_UA',
