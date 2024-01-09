@@ -230,250 +230,95 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 			section: {
 				component: 'section',
 				variant: 'card',
-				languages: [{
-					value: 'default',
-					text: 'default'
-				}, {
-					value: "en",
-					text: "English"
-				}, {
-					value: "ko",
-					text: "한국어"
-				}, {
-					value: "es",
-					text: "Español (España)"
-				}, {
-					value: "es-419",
-					text: "Español (Latinoamérica)"
-				}, {
-					value: "es-US",
-					text: "Español (US)"
-				}, {
-					value: "ru",
-					text: "Русский"
-				}, {
-					value: "de",
-					text: "Deutsch"
-				}, {
-					value: "pt-PT",
-					text: "Português"
-				}, {
-					value: "pt",
-					text: "Português (Brasil)"
-				}, {
-					value: "fr",
-					text: "Français"
-				}, {
-					value: "pl",
-					text: "Polski"
-				}, {
-					value: "ja",
-					text: "日本語"
-				}, {
-					value: "af",
-					text: "Afrikaans"
-				}, {
-					value: "az",
-					text: "Azərbaycan"
-				}, {
-					value: "id",
-					text: "Bahasa Indonesia"
-				}, {
-					value: "ms",
-					text: "Bahasa Malaysia"
-				}, {
-					value: "bs",
-					text: "Bosanski"
-				}, {
-					value: "ca",
-					text: "Català"
-				}, {
-					value: "cs",
-					text: "Čeština"
-				}, {
-					value: "da",
-					text: "Dansk"
-				}, {
-					value: "et",
-					text: "Eesti"
-				}, {
-					value: "eu",
-					text: "Euskara"
-				}, {
-					value: "fil",
-					text: "Filipino"
-				}, {
-					value: "fr-CA",
-					text: "Français (Canada)"
-				}, {
-					value: "gl",
-					text: "Galego"
-				}, {
-					value: "hr",
-					text: "Hrvatski"
-				}, {
-					value: "zu",
-					text: "IsiZulu"
-				}, {
-					value: "is",
-					text: "Íslenska"
-				}, {
-					value: "it",
-					text: "Italiano"
-				}, {
-					value: "sw",
-					text: "Kiswahili"
-				}, {
-					value: "lv",
-					text: "Latviešu valoda"
-				}, {
-					value: "lt",
-					text: "Lietuvių"
-				}, {
-					value: "hu",
-					text: "Magyar"
-				}, {
-					value: "nl",
-					text: "Nederlands"
-				}, {
-					value: "no",
-					text: "Norsk"
-				}, {
-					value: "uz",
-					text: "O‘zbek"
-				}, {
-					value: "ro",
-					text: "Română"
-				}, {
-					value: "sq",
-					text: "Shqip"
-				}, {
-					value: "sk",
-					text: "Slovenčina"
-				}, {
-					value: "sl",
-					text: "Slovenščina"
-				}, {
-					value: "sr-Latn",
-					text: "Srpski"
-				}, {
-					value: "fi",
-					text: "Suomi"
-				}, {
-					value: "sv",
-					text: "Svenska"
-				}, {
-					value: "vi",
-					text: "Tiếng Việt"
-				}, {
-					value: "tr",
-					text: "Türkçe"
-				}, {
-					value: "be",
-					text: "Беларуская"
-				}, {
-					value: "bg",
-					text: "Български"
-				}, {
-					value: "ky",
-					text: "Кыргызча"
-				}, {
-					value: "kk",
-					text: "Қазақ Тілі"
-				}, {
-					value: "mk",
-					text: "Македонски"
-				}, {
-					value: "mn",
-					text: "Монгол"
-				}, {
-					value: "sr",
-					text: "Српски"
-				}, {
-					value: "uk",
-					text: "Українська"
-				}, {
-					value: "el",
-					text: "Ελληνικά"
-				}, {
-					value: "hy",
-					text: "Հայերեն"
-				}, {
-					value: "iw",
-					text: "עברית"
-				}, {
-					value: "ur",
-					text: "اردو"
-				}, {
-					value: "ar",
-					text: "العربية"
-				}, {
-					value: "fa",
-					text: "فارسی"
-				}, {
-					value: "ne",
-					text: "नेपाली"
-				}, {
-					value: "mr",
-					text: "मराठी"
-				}, {
-					value: "hi",
-					text: "हिन्दी"
-				}, {
-					value: "bn",
-					text: "বাংলা"
-				}, {
-					value: "pa",
-					text: "ਪੰਜਾਬੀ"
-				}, {
-					value: "gu",
-					text: "ગુજરાતી"
-				}, {
-					value: "ta",
-					text: "தமிழ்"
-				}, {
-					value: "te",
-					text: "తెలుగు"
-				}, {
-					value: "kn",
-					text: "ಕನ್ನಡ"
-				}, {
-					value: "ml",
-					text: "മലയാളം"
-				}, {
-					value: "si",
-					text: "සිංහල"
-				}, {
-					value: "th",
-					text: "ภาษาไทย"
-				}, {
-					value: "lo",
-					text: "ລາວ"
-				}, {
-					value: "my",
-					text: "ဗမာ"
-				}, {
-					value: "ka",
-					text: "ქართული"
-				}, {
-					value: "am",
-					text: "አማርኛ"
-				}, {
-					value: "km",
-					text: "ខ្មែរ"
-				}, {
-					value: "zh-CN",
-					text: "中文 (简体)"
-				}, {
-					value: "zh-TW",
-					text: "中文 (繁體)"
-				}, {
-					value: "zh-HK",
-					text: "中文 (香港)"
-				}, {
-					value: "ko",
-					text: "한국어"
-				}],
+				languages: [
+{value: 'default', 	text: 'default'},
+{value: "ko", text: "한국어"},
+{value: "fil", text: "Filipino"},
+{value: "en", text: "English"},
+{value: "en-IN", text: "English (India)"},
+{value: "en-GB", text: "English (UK)"},
+{value: "en-US", text: "English (US)"},
+{value: "es-419", text: "Español (Latinoamérica)"},
+{value: "es", text: "Español (España)"},
+{value: "es-US", text: "Español (US)"},
+{value: "zh-CN", text: "中文 (简体)"},
+{value: "zh-TW", text: "中文 (繁體)"},
+{value: "zh-HK", text: "中文 (香港)"},
+{value: "ru", text: "Русский"},
+{value: "pt", text: "Português (Brasil)"},
+{value: "pt-PT", text: "Português"},
+{value: "fr", text: "Français"},
+{value: "fr-CA", text: "Français (Canada)"},
+{value: "ja", text: "日本語"},
+{value: "de", text: "Deutsch"},
+{value: "pl", text: "Polski"},
+{value: "af", text: "Afrikaans"},
+{value: "az", text: "Azərbaycan"},
+{value: "id", text: "Bahasa Indonesia"},
+{value: "ms", text: "Bahasa Malaysia"},
+{value: "bs", text: "Bosanski"},
+{value: "ca", text: "Català"},
+{value: "cs", text: "Čeština"},
+{value: "da", text: "Dansk"},
+{value: "et", text: "Eesti"},
+{value: "eu", text: "Euskara"},
+{value: "gl", text: "Galego"},
+{value: "hr", text: "Hrvatski"},
+{value: "zu", text: "IsiZulu"},
+{value: "is", text: "Íslenska"},
+{value: "it", text: "Italiano"},
+{value: "sw", text: "Kiswahili"},
+{value: "lv", text: "Latviešu valoda"},
+{value: "lt", text: "Lietuvių"},
+{value: "hu", text: "Magyar"},
+{value: "nl", text: "Nederlands"},
+{value: "no", text: "Norsk"},
+{value: "uz", text: "O‘zbek"},
+{value: "ro", text: "Română"},
+{value: "sq", text: "Shqip"},
+{value: "sk", text: "Slovenčina"},
+{value: "sl", text: "Slovenščina"},
+{value: "sr-Latn", text: "Srpski"},
+{value: "fi", text: "Suomi"},
+{value: "sv", text: "Svenska"},
+{value: "vi", text: "Tiếng Việt"},
+{value: "tr", text: "Türkçe"},
+{value: "be", text: "Беларуская"},
+{value: "bg", text: "Български"},
+{value: "ky", text: "Кыргызча"},
+{value: "kk", text: "Қазақ Тілі"},
+{value: "mk", text: "Македонски"},
+{value: "mn", text: "Монгол"},
+{value: "sr", text: "Српски"},
+{value: "uk", text: "Українська"},
+{value: "el", text: "Ελληνικά"},
+{value: "hy", text: "Հայերեն"},
+{value: "iw", text: "עברית"},
+{value: "ur", text: "اردو"},
+{value: "ar", text: "العربية"},
+{value: "fa", text: "فارسی"},
+{value: "ne", text: "नेपाली"},
+{value: "mr", text: "मराठी"},
+{value: "hi", text: "हिन्दी"},
+{value: "bn", text: "বাংলা"},
+{value: "pa", text: "ਪੰਜਾਬੀ"},
+{value: "gu", text: "ગુજરાતી"},
+{value: "ta", text: "தமிழ்"},
+{value: "te", text: "తెలుగు"},
+{value: "kn", text: "ಕನ್ನಡ"},
+{value: "ml", text: "മലയാളം"},
+{value: "si", text: "සිංහල"},
+{value: "th", text: "ภาษาไทย"},
+{value: "lo", text: "ລາວ"},
+{value: "my", text: "ဗမာ"},
+{value: "ka", text: "ქართული"},
+{value: "am", text: "አማርኛ"},
+{value: "km", text: "ខ្មែរ"},
+{value: "zh-CN", text: "中文 (简体)"},
+{value: "zh-TW", text: "中文 (繁體)"},
+{value: "zh-HK", text: "中文 (香港)"},
+{value: "ko", text: "한국어"}
+],
 				improvedtube: {
 					component: 'select',
 					text: 'ImprovedTube',
