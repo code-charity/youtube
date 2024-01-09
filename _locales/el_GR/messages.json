@@ -255,40 +255,40 @@
         "message": "Εξατομίκευση JS"
     },
     "customMiniPlayer": {
-        "message": "Custom Mini-Player"
+        "message": "Εξατομικευμένο Mini-Player"
     },
     "cyan": {
-        "message": "Cyan"
+        "message": "Κυανό"
     },
     "dark": {
-        "message": "Dark"
+        "message": "Σκούρο"
     },
     "darkTheme": {
-        "message": "Dark theme"
+        "message": "Σκούρο θέμα"
     },
     "dateAndTime": {
-        "message": "Date & time"
+        "message": "Ημερομηνία & ώρα"
     },
     "dawn": {
-        "message": "Dawn"
+        "message": "Αυγή"
     },
     "decreasePlaybackSpeed": {
-        "message": "Decrease playback speed"
+        "message": "Μείωσε ταχύτητα αναπαραγωγής"
     },
     "decreaseVolume": {
-        "message": "Decrease volume"
+        "message": "Μειώστε ένταση"
     },
     "deepOrange": {
-        "message": "Deep orange"
+        "message": "Βαθύ πορτοκαλί"
     },
     "deepPurple": {
-        "message": "Deep purple"
+        "message": "Βαθύ μοβ"
     },
     "default": {
         "message": "Default"
     },
     "defaultChannelTab": {
-        "message": "Default channel tab"
+        "message": "Προεπιλεγμένη καρτέλα καναλιού"
     },
     "defaultContentCountry": {
         "message": "Country (virtual travel)"
@@ -300,7 +300,7 @@
         "message": "Delete watched videos"
     },
     "deleteYoutubeCookies": {
-        "message": "Delete YouTube cookies"
+        "message": "Κατάργησε τα cookies του YouTube"
     },
     "depressed": {
         "message": "Depressed"
@@ -312,31 +312,31 @@
         "message": "YouTube, tidy + smart? Youtube video youtube player size youtube color ad skip speed volume channel skipper tags playlist hide"
     },
     "desert": {
-        "message": "Desert"
+        "message": "Έρημος"
     },
     "details": {
-        "message": "Details"
+        "message": "Λεπτομέρειες"
     },
     "developerOptions": {
-        "message": "Developer options"
+        "message": "Επιλογές για προγραμματιστές"
     },
     "device": {
-        "message": "Device"
+        "message": "Συσκευή"
     },
     "dim": {
-        "message": "Dim"
+        "message": "Σκοτεινό"
     },
     "disabled": {
-        "message": "Disabled"
+        "message": "Απενεργοποιημένο"
     },
     "dislike": {
-        "message": "Dislike"
+        "message": "Δε μου αρέσει"
     },
     "displayDayOfTheWeak": {
         "message": "Display day of the week"
     },
     "doNotChange": {
-        "message": "Don't change"
+        "message": "Να μην αλλάξει"
     },
     "donate": {
         "message": "Donate"
@@ -345,7 +345,7 @@
         "message": "Download"
     },
     "draggable": {
-        "message": "Draggable"
+        "message": "Μετακινήσιμο με σύρση"
     },
     "dropShadow": {
         "message": "Drop shadow"
@@ -357,37 +357,37 @@
         "message": "Email"
     },
     "empty": {
-        "message": "Empty"
+        "message": "Κενό"
     },
     "enabled": {
-        "message": "Enabled"
+        "message": "Ενεργοποιημένο"
     },
     "enabledForced": {
-        "message": "Enabled (forced)"
+        "message": "Ενεργοποιημένο (Υποχρεωτικά)"
     },
     "expanded": {
-        "message": "Expanded"
+        "message": "Ανοικτό"
     },
     "exportSettings": {
-        "message": "Export settings"
+        "message": "Εξαγωγή ρυθμίσεων"
     },
     "extension": {
-        "message": "Extension"
+        "message": "Επέκταση"
     },
     "file": {
-        "message": "File"
+        "message": "Αρχείο"
     },
     "filters": {
-        "message": "Filters"
+        "message": "Φίλτρα"
     },
     "fitToWindow": {
-        "message": "Old alternative ('Fit to window')"
+        "message": "Να χωράει στο παράθυρο"
     },
     "flash": {
         "message": "Flash"
     },
     "font": {
-        "message": "Font"
+        "message": "Γραμματοσειρά"
     },
     "fontColor": {
         "message": "Font color"
@@ -402,34 +402,34 @@
         "message": "Font size"
     },
     "footer": {
-        "message": "Footer"
+        "message": "Υποσέλιδο"
     },
     "forceSDR": {
         "message": "Avoid HDR, keep SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Force video to play from the beginning"
+        "message": "Forced play video from the beginning"
     },
     "forcedPlaybackSpeed": {
-        "message": "Speed-watching: Permanent speed"
+        "message": "Υποχρεωτική ταχύτητα αναπαραγωγής"
     },
     "forcedPlaybackSpeedMusic": {
         "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
-        "message": "Forced theater mode"
+        "message": "Υποχρεωτική λειτουργία κινηματογράφου"
     },
     "forcedVolume": {
-        "message": "Forced volume"
+        "message": "Υποχρεωτική ένταση"
     },
     "foundABug": {
-        "message": "Found a bug?"
+        "message": "Εντοπίσατε κάποιο σφάλμα;"
     },
     "fullWindow": {
-        "message": "Full height"
+        "message": "Πλήρες παράθυρο"
     },
     "general": {
-        "message": "General"
+        "message": "Γενικά"
     },
     "geoPreference": {
         "message": "Geo Preference"
@@ -438,7 +438,7 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Go to search box"
+        "message": "Πήγαινε στο πεδίο αναζήτησης"
     },
     "googleApiKey": {
         "message": "Google API key"
@@ -447,7 +447,7 @@
         "message": "GPU"
     },
     "green": {
-        "message": "Green"
+        "message": "Πράσινο"
     },
     "hardwareInformation": {
         "message": "Hardware information"
@@ -456,25 +456,25 @@
         "message": "HD"
     },
     "hdThumbnail": {
-        "message": "HD thumbnail"
+        "message": "HD Εικονίδιο βίντεο"
     },
     "header": {
-        "message": "Header"
+        "message": "Κεφαλίδα"
     },
     "hidden": {
-        "message": "Hidden"
+        "message": "Κρυμμένο"
     },
     "hiddenOnVideoPage": {
-        "message": "Hidden on video page"
+        "message": "Κρυμμένο στη σελίδα βίντεο"
     },
     "hideAnimatedThumbnails": {
-        "message": "Hide animated thumbnails"
+        "message": "Απόκρυψε τα κινούμενα εικονίδια βίντεο"
     },
     "hideAnnotations": {
-        "message": "Hide annotations"
+        "message": "Απόκρυψε τα annotations"
     },
     "hideCards": {
-        "message": "Hide cards"
+        "message": "Απόκρυψε τις κάρτες"
     },
     "hideCategories": {
         "message": "Hide categories"
@@ -489,52 +489,52 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
-        "message": "Hide details"
+        "message": "Απόκρυψε τις λεπτομέρειες"
     },
     "hideEndscreen": {
-        "message": "Hide endscreen"
+        "message": "Απόκρυψε την κάρτα τέλους"
     },
     "hideFeaturedContent": {
-        "message": "Hide featured content"
+        "message": "Απόκρυψε το προτεινόμενο περιεχόμενο"
     },
     "hideFooter": {
-        "message": "Hide footer"
+        "message": "Απόκρυψε το υποσέλιδο"
     },
     "hideGradientBottom": {
-        "message": "Hide shadow around player-bar"
+        "message": "Απόκρυψε το κάτω μέρος της χρωματικής διαβάθμισης"
     },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "Hide player controls bar buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
     },
     "hidePlaylist": {
-        "message": "Hide playlist"
+        "message": "Απόκρυψε τα playlists"
     },
     "hideRightButtons": {
-        "message": "Hide right buttons"
+        "message": "Απόκρυψε τα κουμπιά στα δεξιά"
     },
     "hideScrollForDetails": {
-        "message": "Hide «Scroll for details»"
+        "message": "Απόκρυψε το «Scroll for details»"
     },
     "hideSkipOverlay": {
-        "message": "Hide 5 second skip animation"
+        "message": "Hide Skip Overlay"
     },
     "hideThumbnailOverlay": {
-        "message": "Hide buttons on thumbnails"
+        "message": "Hide thumbnail overlay"
     },
     "hideThumbnails": {
         "message": "Hide thumbnails"
     },
     "hideViewsCount": {
-        "message": "Hide views count"
+        "message": "Απόκρυψε τον αριθμό προβολών"
     },
     "hideVoiceSearchButton": {
         "message": "Hide voice search button"
@@ -543,64 +543,64 @@
         "message": "High"
     },
     "history": {
-        "message": "History"
+        "message": "Ιστορικό"
     },
     "home": {
-        "message": "Home"
+        "message": "Αρχική σελίδα"
     },
     "homeScreen": {
         "message": "Home screen"
     },
     "hover": {
-        "message": "Hover"
+        "message": "Κέρσορας από πάνω"
     },
     "hoverOnVideoPage": {
-        "message": "Hover on video page"
+        "message": "Κέρσορας πάνω στη σελίδα βίντεο"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Show video's age (how long ago it was uploaded)"
+        "message": "Πριν από πόσο ανέβηκε το βίντεο"
     },
     "icons": {
-        "message": "Icons"
+        "message": "Εικονίδια"
     },
     "iconsOnly": {
-        "message": "Icon only"
+        "message": "Εικονίδια μόνο"
     },
     "importSettings": {
-        "message": "Import settings"
+        "message": "Εισαγωγή ρυθμίσεων"
     },
     "improveLogo": {
-        "message": "Improve logo"
+        "message": "Λογότυπο Improve"
     },
     "improvedtubeButtons": {
         "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "ImprovedTube icon on YouTube"
+        "message": "Εικονίδιο ImprovedTube στο YouTube"
     },
     "improvedtubeLanguage": {
-        "message": "ImprovedTube language"
+        "message": "Γλώσσα ImprovedTube"
     },
     "improvedtubeVersion": {
-        "message": "ImprovedTube version"
+        "message": "Έκδοση ImprovedTube"
     },
     "increasePlaybackSpeed": {
-        "message": "Increase playback speed"
+        "message": "Αύξησε την ταχύτητα αναπαραγωγής"
     },
     "increaseVolume": {
-        "message": "Increase volume"
+        "message": "Αύξησε την ένταση"
     },
     "indigo": {
         "message": "Indigo"
     },
     "items": {
-        "message": "Items"
+        "message": "Αντικείμενα"
     },
     "language": {
         "message": "Language"
     },
     "languages": {
-        "message": "Languages"
+        "message": "Γλώσσες"
     },
     "layerAnimationScale": {
         "message": "Layer animation scale"
@@ -609,22 +609,22 @@
         "message": "Layout"
     },
     "legacyYoutube": {
-        "message": "Legacy YouTube"
+        "message": "Παλιά έκδοση YouTube"
     },
     "library": {
         "message": "Library"
     },
     "light": {
-        "message": "Light"
+        "message": "Ανοιχτόχρωμο"
     },
     "lightBlue": {
-        "message": "Light blue"
+        "message": "Ανοικτό μπλε"
     },
     "lightGreen": {
-        "message": "Light green"
+        "message": "Ανοικτό πράσινο"
     },
     "like": {
-        "message": "Like"
+        "message": "Μου αρέσει"
     },
     "liked": {
         "message": "Liked"
@@ -633,19 +633,19 @@
         "message": "Likes"
     },
     "lime": {
-        "message": "Lime"
+        "message": "Μοσχολέμονο"
     },
     "limitPageWidth": {
         "message": "Limit page width"
     },
     "list": {
-        "message": "List"
+        "message": "Λίστα"
     },
     "liveChat": {
         "message": "Live chat"
     },
     "liveChatType": {
-        "message": "Live chat type"
+        "message": "Τύπος live chat"
     },
     "location": {
         "message": "Location"
@@ -654,13 +654,13 @@
         "message": "Loop"
     },
     "loudnessNormalization": {
-        "message": "Loudness normalization"
+        "message": "Κανονικοποίηση έντασης"
     },
     "low": {
         "message": "Low"
     },
     "markWatchedVideos": {
-        "message": "Mark watched videos"
+        "message": "Επισήμανση βίντεο που προβλήθηκαν"
     },
     "medium": {
         "message": "Medium"
@@ -681,37 +681,37 @@
         "message": "Thumbnails to the right!"
     },
     "myColors": {
-        "message": "My colors"
+        "message": "Τα χρώματά μου"
     },
     "name": {
-        "message": "Name"
+        "message": "Όνομα"
     },
     "nativeMiniPlayer": {
-        "message": "Native mini player"
+        "message": "Mini player συστήματος"
     },
     "new": {
-        "message": "New"
+        "message": "Νέο"
     },
     "nextVideo": {
-        "message": "Next video"
+        "message": "Επόμενο βίντεο"
     },
     "night": {
-        "message": "Night"
+        "message": "Νύχτα"
     },
     "nightMode": {
         "message": "Night mode"
     },
     "noActiveFeatures": {
-        "message": "No active features"
+        "message": "Καμία λειτουργία ενεργή"
     },
     "noOpenVideoTabs": {
-        "message": "No open video tabs"
+        "message": "Καμία καρτέλα βίντεο ανοικτή"
     },
     "none": {
-        "message": "None"
+        "message": "Κανένα"
     },
     "normal": {
-        "message": "Normal"
+        "message": "Κανονικό"
     },
     "off": {
         "message": "Off"
@@ -720,31 +720,31 @@
         "message": "Ok"
     },
     "old": {
-        "message": "Old"
+        "message": "Παλιό"
     },
     "onAllVideos": {
-        "message": "On"
+        "message": "Σε όλα τα βίντεο"
     },
     "onSubscribedChannels": {
-        "message": "Off, except on my subscribed channels"
+        "message": "Σε κανάλια που έχει γίνει συνδρομή"
     },
     "onlyActiveOnYoutube": {
-        "message": "Only active on YouTube"
+        "message": "Μόνο ενεργό στο YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Pause while I watch a 2nd video"
+        "message": "Μόνο ένα player λειτουργεί"
     },
     "openPopupPlayer": {
         "message": "Open video/playlist in a new window"
     },
     "orange": {
-        "message": "Orange"
+        "message": "Πορτοκαλί"
     },
     "os": {
         "message": "OS"
     },
     "other": {
-        "message": "Other"
+        "message": "Άλλο"
     },
     "outline": {
         "message": "Outline"
@@ -753,19 +753,19 @@
         "message": "Overlay"
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Άδεια"
     },
     "pictureInPicture": {
         "message": "Picture-in-Picture"
     },
     "pink": {
-        "message": "Pink"
+        "message": "Ροζ"
     },
     "plain": {
-        "message": "Plain"
+        "message": "Σκέτο"
     },
     "platform": {
-        "message": "Platform"
+        "message": "Πλατφόρμα"
     },
     "playAllButton": {
         "message": "\"Play all\" button"
@@ -774,16 +774,16 @@
         "message": "Play / Pause"
     },
     "playbackSpeed": {
-        "message": "Playback speed"
+        "message": "Ταχύτητα αναπαραγωγής"
     },
     "player": {
         "message": "Player"
     },
     "playerColor": {
-        "message": "Progress bar color"
+        "message": "Χρώμσ player"
     },
     "playerSize": {
-        "message": "Player size"
+        "message": "Μέγεθος player"
     },
     "playlist": {
         "message": "Playlist"
@@ -795,28 +795,28 @@
         "message": "Popup player"
     },
     "popupWindowButtons": {
-        "message": "Add a popup-player-button to each thumbnail"
+        "message": "popup_window_buttons"
     },
     "position": {
-        "message": "Position"
+        "message": "Θέση"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Press any key or use mouse wheel."
+        "message": "Πίεσε οποιοδήποτε πλήκτρο ή χρησιμοποίησε τη ροδέλα στο ποντίκι."
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Press any key or use mouse wheel"
+        "message": "Πίεσε οποιοδήποτε πλήκτρο ή χρησιμοποίησε τη ροδέλα στο ποντίκι."
     },
     "previousVideo": {
-        "message": "Previous video"
+        "message": "Προηγούμενο βίντεο"
     },
     "primaryColor": {
-        "message": "Primary color"
+        "message": "Πρωτεύον χρώμα"
     },
     "purple": {
-        "message": "Purple"
+        "message": "Μοβ"
     },
     "quality": {
-        "message": "Quality"
+        "message": "Ποιότητα"
     },
     "raised": {
         "message": "Raised"
@@ -828,64 +828,64 @@
         "message": "Rate me"
     },
     "rateUs": {
-        "message": "Rate us"
+        "message": "Αξιολόγησέ μας"
     },
     "red": {
-        "message": "Red"
+        "message": "Κόκκινο"
     },
     "redDislikeButton": {
-        "message": "Red when disliked"
+        "message": "Δείξτε το πλήκτρο «Δε μου αρέσει» σε κόκκινο"
     },
     "relatedVideos": {
-        "message": "Related videos"
+        "message": "Σχετικά videos"
     },
     "remote": {
         "message": "Play on TV"
     },
     "removeHomePageShorts": {
-        "message": "Remove home page's Shorts"
+        "message": "Κατάργηση Shorts από την αρχική σελίδα"
     },
     "removeRelatedSearchResults": {
-        "message": "Remove related search results"
+        "message": "Αφαίρεσε σχετικά αποτελέσματα αναζήτησης"
     },
     "removeShortsReelSearchResults": {
-        "message": "Remove Shorts reel from search results"
+        "message": "Αφαιρέστε τη λίστα Shorts από τα αποτελέσματα αναζήτησης"
     },
     "repeat": {
-        "message": "Repeat"
+        "message": "Επανάληψη"
     },
     "report": {
         "message": "Report"
     },
     "reset": {
-        "message": "Reset"
+        "message": "Επαναφορά"
     },
     "resetAllSettings": {
-        "message": "Reset all settings"
+        "message": "Επαναφορά όλων των ρυθμίσεων"
     },
     "resetAllShortcuts": {
-        "message": "Reset all shortcuts"
+        "message": "Επαναφορά όλων των συντομεύσεων"
     },
     "reverse": {
-        "message": "Reverse"
+        "message": "Ανάποδα"
     },
     "rotate": {
-        "message": "Rotate"
+        "message": "Περιστροφή"
     },
     "save": {
-        "message": "Save"
+        "message": "Αποθήκευση"
     },
     "saveAs": {
-        "message": "Save as"
+        "message": "Αποθήκευση ως"
     },
     "schedule": {
-        "message": "Schedule"
+        "message": "Πρόγραμμα"
     },
     "screen": {
-        "message": "Screen"
+        "message": "Οθόνη"
     },
     "screenshot": {
-        "message": "Screenshot"
+        "message": "Στιγμιότυπο"
     },
     "scrollBar": {
         "message": "Scroll Bar"
@@ -894,28 +894,28 @@
         "message": "SD"
     },
     "search": {
-        "message": "Search"
+        "message": "Αναζήτηση"
     },
     "searchBarOnly": {
-        "message": "Search bar only"
+        "message": "Πεδίο αναζήτησης μόνο"
     },
     "seekBackward10Seconds": {
-        "message": "Seek backward 10 seconds"
+        "message": "Πίσω 10 δευτερόλεπτα"
     },
     "seekForward10Seconds": {
-        "message": "Seek forward 10 seconds"
+        "message": "Μπροστά 10 δευτερόλεπτα"
     },
     "seekNextChapter": {
-        "message": "Seek Next Chapter"
+        "message": "seekNextChapter"
     },
     "seekPreviousChapter": {
-        "message": "Seek Previous Chapter"
+        "message": "seekPreviousChapter"
     },
     "settings": {
-        "message": "Settings"
+        "message": "Ρυθμίσεις"
     },
     "settingsSuccessfullyImported": {
-        "message": "Settings successfully imported"
+        "message": "Επιτυχής εισαγωγή ρυθμίσεων"
     },
     "share": {
         "message": "Share"
@@ -936,13 +936,13 @@
         "message": "Hide YouTube Logo"
     },
     "shortcuts": {
-        "message": "Shortcuts"
+        "message": "Συντομεύσεις"
     },
     "showCardsOnMouseHover": {
-        "message": "Show cards on mouse hover"
+        "message": "Δείξε τις κάρτες όταν ο κέρσορας είναι από πάνω"
     },
     "showChannelVideosCount": {
-        "message": "Show channel videos count"
+        "message": "Δείξε τις συνολικές προβολές του καναλιού"
     },
     "showLess": {
         "message": "Show less"
@@ -960,7 +960,7 @@
         "message": "Show version"
     },
     "shuffle": {
-        "message": "Shuffle"
+        "message": "Τυχαία αναπαραγωγή"
     },
     "player_fit_to_win_button": {
         "message": "player fit to win button"
@@ -981,88 +981,88 @@
         "message": "Spacebar"
     },
     "squaredUserImages": {
-        "message": "Squared user images"
+        "message": "Τετράγωνες εικόνες χρήστη"
     },
     "static": {
-        "message": "Static"
+        "message": "Στατικό"
     },
     "statsForNerds": {
-        "message": "Show Stats for Nerds"
+        "message": "Δείξε τα Στατιστικά για Σπασίκλες"
     },
     "step": {
-        "message": "Step"
+        "message": "Βήμα"
     },
     "stop": {
-        "message": "Stop"
+        "message": "Στοπ"
     },
     "style": {
-        "message": "Style"
+        "message": "Στυλ"
     },
     "styles": {
-        "message": "Styles"
+        "message": "Στυλ"
     },
     "subscribe": {
         "message": "Subscribe"
     },
     "subscriptions": {
-        "message": "Subscriptions"
+        "message": "Συνδρομές"
     },
     "subtitles": {
-        "message": "Subtitles"
+        "message": "Υπότιτλοι"
     },
     "sunset": {
-        "message": "Sunset"
+        "message": "Ηλιοβασίλεμα"
     },
     "sunsetToSunrise": {
-        "message": "Sunset to sunrise"
+        "message": "Από δύση έως ανατολή"
     },
     "systemPeferenceDark": {
-        "message": "System preference: dark"
+        "message": "Προτίμηση συστήματος: Σκούρο"
     },
     "systemPeferenceLight": {
-        "message": "System preference: light"
+        "message": "Προτίμηση συστήματος: Ανοικτόχρωμο"
     },
     "teal": {
-        "message": "Teal"
+        "message": "Γαλαζιοπράσινο"
     },
     "textColor": {
-        "message": "Text color"
+        "message": "Χρώμα κειμένου"
     },
     "thanks": {
         "message": "Thanks"
     },
     "themes": {
-        "message": "Themes"
+        "message": "Θέματα"
     },
     "thisWillRemoveAllCookies": {
-        "message": "This will remove all cookies."
+        "message": "Αυτό αφαιρεί όλα τα cookies."
     },
     "thisWillRemoveAllWatchedVideos": {
         "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "This will remove all YouTube cookies"
+        "message": "Αυτό αφαιρεί όλα τα cookies του YouTube."
     },
     "thisWillResetAllSettings": {
-        "message": "This will reset all settings."
+        "message": "Αυτό επαναφέρει όλες τις ρυθμίσεις."
     },
     "thisWillResetAllShortcuts": {
-        "message": "This will reset all shortcuts"
+        "message": "Αυτό επαναφέρει όλες τις συντομεύσεις."
     },
     "thumbnails": {
-        "message": "Thumbnails"
+        "message": "Εικονίδια"
     },
     "thumbnailsQuality": {
         "message": "Thumbnails Quality"
     },
     "timeFrom": {
-        "message": "Time from"
+        "message": "Χρόνος από"
     },
     "timeTo": {
-        "message": "Time to"
+        "message": "Χρόνος έως"
     },
     "todayAt": {
-        "message": "Today at"
+        "message": "Σήμερα στις"
     },
     "toggleAutoplay": {
         "message": "Toggle autoplay"
@@ -1071,7 +1071,7 @@
         "message": "Toggle cards"
     },
     "toggleControls": {
-        "message": "Toggle player controls"
+        "message": "Toggle controls"
     },
     "topChat": {
         "message": "Top chat"
@@ -1083,52 +1083,52 @@
         "message": "Trailer autoplay"
     },
     "translations": {
-        "message": "Translations"
+        "message": "Μεταφράσεις"
     },
     "transparentBackground": {
-        "message": "Transparent background"
+        "message": "Διαφανές υπόβαθρο"
     },
     "trending": {
-        "message": "Trending"
+        "message": "Τάσεις"
     },
     "tryToReloadThePage": {
-        "message": "Try to reload the page"
+        "message": "Προσπάθησε να επαναφορτώσεις τη σελίδα"
     },
     "type": {
-        "message": "Type"
+        "message": "Τύπος"
     },
     "upNextAutoplay": {
-        "message": "Up next autoplay"
+        "message": "Επόμενο στο autoplay"
     },
     "use24HourFormat": {
-        "message": "Use 24-hour format"
+        "message": "Χρησιμοποίησε 24ωρη μορφή ώρας"
     },
     "version": {
-        "message": "Version"
+        "message": "Έκδοση"
     },
     "video": {
-        "message": "Video"
+        "message": "Βίντεο"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "The video description will be expanded to get the name of the category"
+        "message": "Η περιγραφή του βίντεο θα επεκταθεί ωστε να συμπεριληφθεί το όνομα της κατηγορίας."
     },
     "videoFormats": {
-        "message": "Video formats"
+        "message": "Μορφές βίντεο"
     },
     "videos": {
-        "message": "Videos"
+        "message": "Βίντεο"
     },
     "viewMode": {
         "message": "View Mode"
     },
     "volume": {
-        "message": "Volume"
+        "message": "Ένταση"
     },
     "watchLater": {
-        "message": "Watch later"
+        "message": "Δες αργότερα"
     },
     "watchTime": {
-        "message": "Watch time"
+        "message": "Χρόνος προβολής"
     },
     "watchedVideos": {
         "message": "Watched videos"
@@ -1137,10 +1137,10 @@
         "message": "When paused"
     },
     "whenTabIsChanged": {
-        "message": "When tab is changed"
+        "message": "Όταν αλλάζεις καρτέλα"
     },
     "white": {
-        "message": "White"
+        "message": "Λευκό"
     },
     "windowColor": {
         "message": "Window color"
@@ -1149,22 +1149,22 @@
         "message": "Window opacity"
     },
     "yellow": {
-        "message": "Yellow"
+        "message": "Κίτρινο"
     },
     "youtubeHeaderLeft": {
-        "message": "YouTube Header (left)"
+        "message": "Κεφαλίδα YouTube (αριστερά)"
     },
     "youtubeHeaderRight": {
-        "message": "YouTube Header (right)"
+        "message": "Κεφαλίδα YouTube (δεξιά)"
     },
     "youtubeHomePage": {
-        "message": "YouTube home page"
+        "message": "Αρχική σελίδα YouTube"
     },
     "youtubeLanguage": {
-        "message": "YouTube language"
+        "message": "Γλώσσα YouTube"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
+        "message": "Το YouTube περιορίζει την ποιότητα σε 1080p για το h.264 codec"
     },
     "openNewTab": {
         "message": "Open in a new tab"
