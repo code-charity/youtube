@@ -489,7 +489,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "Hide details"
@@ -510,7 +510,7 @@
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "Hide player controls     buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
@@ -1171,5 +1171,8 @@
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "To the side! (No page margin)"
     }
 }
