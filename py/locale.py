@@ -162,6 +162,7 @@ def upgrade():
         'es_419',
         'et',
         'fa',
+		'fa_IR',
         'fi',
         'fil',
         'fr',
@@ -184,12 +185,14 @@ def upgrade():
         'ms',
         'nl',
         'no',
+		'nb_NO',
         'pl',
         'pt_BR', # Brazillian Portuguese
         'pt_PT', # European Portuguese
         'ro',
         'ro-RO',
         'ru',
+		'si',
         'sk',
         'sl',
         'sr',
