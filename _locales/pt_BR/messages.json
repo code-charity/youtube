@@ -1171,5 +1171,8 @@
     },
     "hideVideoTitleFullScreen": {
         "message": "Ocultar o título do vídeo em tela cheia"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "Ao lado! (Sem margem de página)"
     }
 }
