@@ -31,15 +31,21 @@ html[it-youtubeDetailButtons='remove'] #menu button,
 html[it-youtubeDetailButtons='remove'] #subscribe-button button,
 html[it-youtubeDetailButtons='remove_icons']  #menu button div:first-child,
 	/*------HIDE LIKE BUTTON------*/
+html[it-likes='hidden']	like-button-view-model,
+html[it-likes='icons_only'] like-button-view-model .yt-spec-button-shape-next__button-text-content,
+	/*------HIDE DISLIKE BUTTON------*/
+html[it-hide-dislike-button='hidden']	dislike-button-view-model,
+html[it-hide-dislike-button='icons_only'] dislike-button-view-model .yt-spec-button-shape-next__button-text-content,
+/*previous:*/
 html[it-likes='hidden'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer,
 html[it-likes='icons_only'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer div.cbox,
 html[it-likes='icons_only'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer yt-animated-rolling-number,
 html[it-likes='icons_only'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer .yt-spec-button-shape-next__button-text-content,
-	/*------HIDE DISLIKE BUTTON------*/
 html[it-hide-dislike-button='hidden'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer,
 html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer div.cbox,
 html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer yt-animated-rolling-number,
 html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer .yt-spec-button-shape-next__button-text-content,
+
 	/*------# HIDE SHARE BUTTON------*/
 html[it-hide-share-button='hidden'] #menu button:has(svg path[d^="M15 5.63 20.66"]),
 html[it-hide-share-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M15 5.63 20.66"]),
