@@ -824,7 +824,8 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			},
 			no_page_margin: {
 				component: 'switch',
-				text: 'To the side! (No page margin)',
+				text: 'To_the_side_No_page_margin',
+				
 				value: false,
 				on: {
 					click: function () {  setTimeout(() => {

@@ -253,7 +253,7 @@ def upgrade():
 'pt_BR',
 'pt_PT',
 'ro',
-'ro_RO'',
+'ro_RO',
 'ru',
 'ru_RU',
 'si',
