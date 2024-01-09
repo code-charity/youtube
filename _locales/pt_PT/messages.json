@@ -17,11 +17,23 @@
     "accept": {
         "message": "Aceitar"
     },
+    "compact_spacing": {
+        "message": "Tema compacto"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
+    },
+    "compactTheme": {
+        "message": "Tema compacto"
+    },
     "activate": {
         "message": "Ativar"
     },
     "activateCaptions": {
         "message": "Ativar legendas"
+    },
+    "Buttons": {
+        "message": "Activate fullscreen"
     },
     "activateFullscreen": {
         "message": "Ativar ecrã completo"
@@ -43,6 +55,12 @@
     },
     "all": {
         "message": "Todas"
+    },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "Todas as suas configurações serão apagadas e não poderão ser recuperadas"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your shortcuts will be erased and can't be recovered"
     },
     "allow": {
         "message": "Permitir"
@@ -122,6 +140,9 @@
     "belowPlayer": {
         "message": "Reprodutor abaixo"
     },
+    "bitness": {
+        "message": "Bitness"
+    },
     "black": {
         "message": "Preto"
     },
@@ -154,6 +175,9 @@
     },
     "bluelight": {
         "message": "Azul claro"
+    },
+    "brightness": {
+        "message": "Luminosidade"
     },
     "brown": {
         "message": "Castanho"
@@ -268,6 +292,9 @@
     },
     "defaultContentCountry": {
         "message": "Country (virtual travel)"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
     },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
@@ -520,6 +547,9 @@
     },
     "home": {
         "message": "Casa"
+    },
+    "homeScreen": {
+        "message": "Ecrã inicial"
     },
     "hover": {
         "message": "Aponta"
@@ -890,6 +920,21 @@
     "share": {
         "message": "Share"
     },
+    "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
+    },
+    "Transcript": {
+        "message": "Transcrição"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtitle (Capture including the current words)"
+    },
+    "Embedded_YouTube": {
+        "message": "Embedded_YouTube"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"
+    },
     "shortcuts": {
         "message": "Atalhos"
     },
@@ -905,6 +950,9 @@
     "showMore": {
         "message": "Show more"
     },
+    "Hamburger_Menu": {
+        "message": "Menu Hamburger"
+    },
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
@@ -913,6 +961,15 @@
     },
     "shuffle": {
         "message": "Misturar"
+    },
+    "player_fit_to_win_button": {
+        "message": "jogador se encaixa no botão ganhar"
+    },
+    "hide_author_avatars": {
+        "message": "Ocultar avatar de autor"
+    },
+    "player_rotate_button": {
+        "message": "botão de rotação do jogador"
     },
     "sidebar": {
         "message": "Barra lateral"
@@ -1073,6 +1130,9 @@
     "watchTime": {
         "message": "Tempo de visualização"
     },
+    "watchedVideos": {
+        "message": "Vídeos visualizados"
+    },
     "whenPaused": {
         "message": "When paused"
     },
@@ -1105,5 +1165,11 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "O YouTube limita a qualidade do video em 1080p para o codec h.264"
+    },
+    "openNewTab": {
+        "message": "Abrir em uma nova aba"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Ocultar o título do vídeo em tela cheia"
     }
 }
