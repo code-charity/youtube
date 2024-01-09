@@ -122,7 +122,11 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 		click: {
 			component: "section",
 			variant: "card",
-
+			forced_theater_mode: {
+				component: "switch",
+				text: "forcedTheaterMode",
+				tags: "wide",
+			},
 			player_size: {
 				component: "select",
 				variant: "player-size",
@@ -258,11 +262,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 						}
 					}
 				}
-			},
-			forced_theater_mode: {
-				component: "switch",
-				text: "forcedTheaterMode",
-				tags: "wide"
 			},
 			hide_gradient_bottom: {
 				component: "switch",
