@@ -12,10 +12,10 @@
         "message": "⇧"
     },
     "about": {
-        "message": "关于"
+        "message": "Σχετικά"
     },
     "accept": {
-        "message": "接受"
+        "message": "Αποδοχή"
     },
     "compact_spacing": {
         "message": "compact spacing"
@@ -27,34 +27,34 @@
         "message": "Compact Theme"
     },
     "activate": {
-        "message": "启用"
+        "message": "Ενεργοποίηση"
     },
     "activateCaptions": {
-        "message": "启用字幕"
+        "message": "Ενεργοποίηση Υπότιτλων"
     },
     "Buttons": {
-        "message": "按钮"
+        "message": "Κουμπιά"
     },
     "activateFullscreen": {
-        "message": "启用全屏"
+        "message": "Ενεργοποίηση Πλήρους Οθόνη"
     },
     "activated": {
-        "message": "启用"
+        "message": "Ενεργοποιήθηκε"
     },
     "activatedFeatures": {
-        "message": "已启用功能"
+        "message": "Ενεργοποιημένες Λειτουργίες"
     },
     "activeFeatures": {
-        "message": "启用功能"
+        "message": "Ενεργές λειτουργίες"
     },
     "addScrollToTop": {
-        "message": "增加【返回顶部】按钮"
+        "message": "Πρόσθεσε συντόμευση για την κορυφή της σελίδας"
     },
     "ads": {
-        "message": "广告"
+        "message": "Διαφημίσεις"
     },
     "all": {
-        "message": "所有"
+        "message": "Όλα"
     },
     "allYourSettingsWillBeErasedAndCanTBeRecovered": {
         "message": "All your settings will be erased and can't be recovered"
@@ -63,55 +63,55 @@
         "message": "All your shortcuts will be erased and can't be recovered"
     },
     "allow": {
-        "message": "允许"
+        "message": "Αποδοχή"
     },
     "allow60fps": {
-        "message": "允许60FPS"
+        "message": "Επίτρεψε 60fps"
     },
     "always": {
         "message": "Always"
     },
     "alwaysActive": {
-        "message": "始终启用"
+        "message": "Πάντοτε ενεργό"
     },
     "alwaysShowProgressBar": {
-        "message": "始终显示进度条"
+        "message": "Πάντα ορατός ο ενδείκτης προόδου"
     },
     "amber": {
-        "message": "琥珀色"
+        "message": "Κεχρί"
     },
     "analyzer": {
-        "message": "分析仪"
+        "message": "Αναλυτής"
     },
     "animations": {
         "message": "Animations"
     },
     "appearance": {
-        "message": "外观"
+        "message": "Εμφάνιση"
     },
     "areYouSureYouWantToExportTheData": {
-        "message": "你确定想要导出数据吗?"
+        "message": "Are you sure you want to export the data?"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "你确定想要导入数据吗?"
+        "message": "Are you sure you want to import the data?"
     },
     "audio": {
-        "message": "音频"
+        "message": "Ήχος"
     },
     "audioFormats": {
-        "message": "音频格式"
+        "message": "Μορφές ήχου"
     },
     "auto": {
-        "message": "自动"
+        "message": "Αυτόματο"
     },
     "autoFullscreen": {
-        "message": "自动全屏"
+        "message": "Αυτόματη Πλήρης Οθόνη"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "切换标签时暂停播放"
+        "message": "Αυτόματη παύση όταν αλλάζετε καρτέλα"
     },
     "autoplay": {
-        "message": "自动播放"
+        "message": "Αυτόματη αναπαραγωγή"
     },
     "avoidAv1": {
         "message": "Avoid AV1"
@@ -126,31 +126,31 @@
         "message": "Avoid CPU rendering when possible"
     },
     "backgroundColor": {
-        "message": "背景颜色"
+        "message": "Background color"
     },
     "backgroundOpacity": {
-        "message": "背景透明度"
+        "message": "Background opacity"
     },
     "backupAndReset": {
-        "message": "备份与恢复"
+        "message": "Αντίγραφα ασφαλείας & reset"
     },
     "baseOnSystemColorScheme": {
-        "message": "使用系统配色"
+        "message": "Με βάση τις ρυθμίσεις χρώματος του συστήματος"
     },
     "belowPlayer": {
-        "message": "在播放器下方"
+        "message": "Κάτω από το Player"
     },
     "bitness": {
         "message": "Bitness"
     },
     "black": {
-        "message": "纯黑"
+        "message": "Μαύρο"
     },
     "blocklist": {
-        "message": "黑名单"
+        "message": "Λίστα αποκλεισμού"
     },
     "blockAll": {
-        "message": "拦截所有"
+        "message": "Αποκλείστε όλα"
     },
     "blockAv1": {
         "message": "Block AV1"
@@ -168,130 +168,130 @@
         "message": "Block VP9"
     },
     "blue": {
-        "message": "蓝色"
+        "message": "Μπλε"
     },
     "blueGray": {
-        "message": "蓝灰色"
+        "message": "Μπλε γκρίζο"
     },
     "bluelight": {
-        "message": "色彩柔和度"
+        "message": "Μπλε φως"
     },
     "brightness": {
         "message": "Brightness"
     },
     "brown": {
-        "message": "棕色"
+        "message": "Καφέ"
     },
     "browser": {
-        "message": "浏览器"
+        "message": "Browser"
     },
     "browserVersion": {
-        "message": "浏览器版本"
+        "message": "Έκδοση browser"
     },
     "bubbles": {
-        "message": "网格"
+        "message": "Φούσκες"
     },
     "bug": {
-        "message": "Bug"
+        "message": "Σφάλμα κώδικα"
     },
     "buttons": {
-        "message": "按钮"
+        "message": "Κουμπιά"
     },
     "cancel": {
-        "message": "取消"
+        "message": "Ακύρωση"
     },
     "categories": {
-        "message": "分类"
+        "message": "Κατηγορίες"
     },
     "channel": {
-        "message": "频道"
+        "message": "Κανάλι"
     },
     "channels": {
-        "message": "频道"
+        "message": "Κανάλια"
     },
     "characterEdgeStyle": {
-        "message": "文字阴影风格"
+        "message": "Character edge style"
     },
     "clip": {
         "message": "Clip"
     },
     "clipboard": {
-        "message": "粘贴板"
+        "message": "Clipboard"
     },
     "codecH264": {
-        "message": "采用 h.264 编码"
+        "message": "Codec h.264"
     },
     "codecs": {
         "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
-        "message": "订阅区域显示展开/收起按钮"
+        "message": "Κλείσε το μενού συνδρομών"
     },
     "collapsed": {
-        "message": "收起"
+        "message": "Κλειστό"
     },
     "comments": {
-        "message": "评论"
+        "message": "Σχόλιο"
     },
     "confirmationBeforeClosing": {
-        "message": "页面关闭确认"
+        "message": "Επιβεβαίωση πρωτού κλείσεις"
     },
     "cookies": {
         "message": "Cookies"
     },
     "cores": {
-        "message": "核心"
+        "message": "Πυρήνες"
     },
     "cropChapterTitles": {
-        "message": "裁剪章节标题"
+        "message": "Περίκοψε τους τίτλους των κεφαλαίων"
     },
     "custom": {
         "message": "Custom"
     },
     "customCss": {
-        "message": "自定义CSS"
+        "message": "Εξατομίκευση CSS"
     },
     "customJs": {
-        "message": "自定义JS"
+        "message": "Εξατομίκευση JS"
     },
     "customMiniPlayer": {
-        "message": "自定义迷你播放器"
+        "message": "Εξατομικευμένο Mini-Player"
     },
     "cyan": {
-        "message": "青色"
+        "message": "Κυανό"
     },
     "dark": {
-        "message": "黑暗"
+        "message": "Σκούρο"
     },
     "darkTheme": {
-        "message": "夜间模式"
+        "message": "Σκούρο θέμα"
     },
     "dateAndTime": {
-        "message": "时间与日期"
+        "message": "Ημερομηνία & ώρα"
     },
     "dawn": {
-        "message": "黎明"
+        "message": "Αυγή"
     },
     "decreasePlaybackSpeed": {
-        "message": "视频减速"
+        "message": "Μείωσε ταχύτητα αναπαραγωγής"
     },
     "decreaseVolume": {
-        "message": "降低音量"
+        "message": "Μειώστε ένταση"
     },
     "deepOrange": {
-        "message": "深橙色"
+        "message": "Βαθύ πορτοκαλί"
     },
     "deepPurple": {
-        "message": "深紫色"
+        "message": "Βαθύ μοβ"
     },
     "default": {
-        "message": "默认"
+        "message": "Default"
     },
     "defaultChannelTab": {
-        "message": "默认频道页"
+        "message": "Προεπιλεγμένη καρτέλα καναλιού"
     },
     "defaultContentCountry": {
-        "message": "默认内容国家"
+        "message": "Country (virtual travel)"
     },
     "defaultPlaybackSpeed": {
         "message": "Default Playback Speed"
@@ -300,7 +300,7 @@
         "message": "Delete watched videos"
     },
     "deleteYoutubeCookies": {
-        "message": "清空 YouTube cookies"
+        "message": "Κατάργησε τα cookies του YouTube"
     },
     "depressed": {
         "message": "Depressed"
@@ -312,40 +312,40 @@
         "message": "YouTube, tidy + smart? Youtube video youtube player size youtube color ad skip speed volume channel skipper tags playlist hide"
     },
     "desert": {
-        "message": "沙漠"
+        "message": "Έρημος"
     },
     "details": {
-        "message": "细节信息"
+        "message": "Λεπτομέρειες"
     },
     "developerOptions": {
-        "message": "开发者选项"
+        "message": "Επιλογές για προγραμματιστές"
     },
     "device": {
-        "message": "设备"
+        "message": "Συσκευή"
     },
     "dim": {
-        "message": "遮罩层厚度"
+        "message": "Σκοτεινό"
     },
     "disabled": {
-        "message": "停用"
+        "message": "Απενεργοποιημένο"
     },
     "dislike": {
-        "message": "踩一下"
+        "message": "Δε μου αρέσει"
     },
     "displayDayOfTheWeak": {
         "message": "Display day of the week"
     },
     "doNotChange": {
-        "message": "不做改变"
+        "message": "Να μην αλλάξει"
     },
     "donate": {
-        "message": "支持"
+        "message": "Donate"
     },
     "download": {
         "message": "Download"
     },
     "draggable": {
-        "message": "可拖动"
+        "message": "Μετακινήσιμο με σύρση"
     },
     "dropShadow": {
         "message": "Drop shadow"
@@ -357,52 +357,52 @@
         "message": "Email"
     },
     "empty": {
-        "message": "暂无"
+        "message": "Κενό"
     },
     "enabled": {
-        "message": "启用"
+        "message": "Ενεργοποιημένο"
     },
     "enabledForced": {
-        "message": "强制启用"
+        "message": "Ενεργοποιημένο (Υποχρεωτικά)"
     },
     "expanded": {
-        "message": "展开"
+        "message": "Ανοικτό"
     },
     "exportSettings": {
-        "message": "导出设置"
+        "message": "Εξαγωγή ρυθμίσεων"
     },
     "extension": {
-        "message": "扩展"
+        "message": "Επέκταση"
     },
     "file": {
-        "message": "文件"
+        "message": "Αρχείο"
     },
     "filters": {
-        "message": "滤镜"
+        "message": "Φίλτρα"
     },
     "fitToWindow": {
-        "message": "窗口自适应"
+        "message": "Να χωράει στο παράθυρο"
     },
     "flash": {
-        "message": "闪光"
+        "message": "Flash"
     },
     "font": {
-        "message": "字体"
+        "message": "Γραμματοσειρά"
     },
     "fontColor": {
-        "message": "字体颜色"
+        "message": "Font color"
     },
     "fontFamily": {
-        "message": "字体"
+        "message": "Font family"
     },
     "fontOpacity": {
-        "message": "字体透明度"
+        "message": "Font opacity"
     },
     "fontSize": {
-        "message": "字体大小"
+        "message": "Font size"
     },
     "footer": {
-        "message": "底部栏"
+        "message": "Υποσέλιδο"
     },
     "forceSDR": {
         "message": "Avoid HDR, keep SDR"
@@ -411,34 +411,34 @@
         "message": "Forced play video from the beginning"
     },
     "forcedPlaybackSpeed": {
-        "message": "强制设置播放速度"
+        "message": "Υποχρεωτική ταχύτητα αναπαραγωγής"
     },
     "forcedPlaybackSpeedMusic": {
         "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
-        "message": "强制设置剧场模式"
+        "message": "Υποχρεωτική λειτουργία κινηματογράφου"
     },
     "forcedVolume": {
-        "message": "强制修改音量"
+        "message": "Υποχρεωτική ένταση"
     },
     "foundABug": {
-        "message": "遇到了Bug?"
+        "message": "Εντοπίσατε κάποιο σφάλμα;"
     },
     "fullWindow": {
-        "message": "全屏"
+        "message": "Πλήρες παράθυρο"
     },
     "general": {
-        "message": "一般设置"
+        "message": "Γενικά"
     },
     "geoPreference": {
-        "message": "地理偏好"
+        "message": "Geo Preference"
     },
     "github": {
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "转到搜索框"
+        "message": "Πήγαινε στο πεδίο αναζήτησης"
     },
     "googleApiKey": {
         "message": "Google API key"
@@ -447,7 +447,7 @@
         "message": "GPU"
     },
     "green": {
-        "message": "绿色"
+        "message": "Πράσινο"
     },
     "hardwareInformation": {
         "message": "Hardware information"
@@ -456,25 +456,25 @@
         "message": "HD"
     },
     "hdThumbnail": {
-        "message": "高清缩略图"
+        "message": "HD Εικονίδιο βίντεο"
     },
     "header": {
-        "message": "顶部栏"
+        "message": "Κεφαλίδα"
     },
     "hidden": {
-        "message": "隐藏"
+        "message": "Κρυμμένο"
     },
     "hiddenOnVideoPage": {
-        "message": "在视频播放页面时隐藏"
+        "message": "Κρυμμένο στη σελίδα βίντεο"
     },
     "hideAnimatedThumbnails": {
-        "message": "隐藏动态缩略图"
+        "message": "Απόκρυψε τα κινούμενα εικονίδια βίντεο"
     },
     "hideAnnotations": {
-        "message": "隐藏预览图"
+        "message": "Απόκρυψε τα annotations"
     },
     "hideCards": {
-        "message": "隐藏信息卡片"
+        "message": "Απόκρυψε τις κάρτες"
     },
     "hideCategories": {
         "message": "Hide categories"
@@ -483,31 +483,31 @@
         "message": "Hide comments count"
     },
     "hideCountryCode": {
-        "message": "隐藏国家代码"
+        "message": "Hide country code"
     },
     "hideDate": {
-        "message": "隐藏日期"
+        "message": "Hide date"
     },
     "hideDetailButton": {
         "message": "Buttons"
     },
     "hideDetails": {
-        "message": "隐藏详细信息"
+        "message": "Απόκρυψε τις λεπτομέρειες"
     },
     "hideEndscreen": {
-        "message": "隐藏结束画面"
+        "message": "Απόκρυψε την κάρτα τέλους"
     },
     "hideFeaturedContent": {
-        "message": "隐藏精选频道"
+        "message": "Απόκρυψε το προτεινόμενο περιεχόμενο"
     },
     "hideFooter": {
-        "message": "隐藏底部栏"
+        "message": "Απόκρυψε το υποσέλιδο"
     },
     "hideGradientBottom": {
-        "message": "隐藏底部渐变层"
+        "message": "Απόκρυψε το κάτω μέρος της χρωματικής διαβάθμισης"
     },
     "hidePlayerControlsBar": {
-        "message": "隐藏播放器控制栏"
+        "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
         "message": "Hide player controls bar buttons"
@@ -516,25 +516,25 @@
         "message": "Hide player controls options"
     },
     "hidePlaylist": {
-        "message": "隐藏播放列表"
+        "message": "Απόκρυψε τα playlists"
     },
     "hideRightButtons": {
-        "message": "隐藏右侧按钮"
+        "message": "Απόκρυψε τα κουμπιά στα δεξιά"
     },
     "hideScrollForDetails": {
-        "message": "隐藏 «滚动至详细信息»"
+        "message": "Απόκρυψε το «Scroll for details»"
     },
     "hideSkipOverlay": {
-        "message": "隐藏跳过叠加"
+        "message": "Hide Skip Overlay"
     },
     "hideThumbnailOverlay": {
-        "message": "隐藏缩略图上的按钮"
+        "message": "Hide thumbnail overlay"
     },
     "hideThumbnails": {
         "message": "Hide thumbnails"
     },
     "hideViewsCount": {
-        "message": "隐藏观看量"
+        "message": "Απόκρυψε τον αριθμό προβολών"
     },
     "hideVoiceSearchButton": {
         "message": "Hide voice search button"
@@ -543,64 +543,64 @@
         "message": "High"
     },
     "history": {
-        "message": "历史记录"
+        "message": "Ιστορικό"
     },
     "home": {
-        "message": "首页"
+        "message": "Αρχική σελίδα"
     },
     "homeScreen": {
         "message": "Home screen"
     },
     "hover": {
-        "message": "悬浮"
+        "message": "Κέρσορας από πάνω"
     },
     "hoverOnVideoPage": {
-        "message": "在视频播放页面时悬浮显示"
+        "message": "Κέρσορας πάνω στη σελίδα βίντεο"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "投稿于多久之前"
+        "message": "Πριν από πόσο ανέβηκε το βίντεο"
     },
     "icons": {
-        "message": "图标"
+        "message": "Εικονίδια"
     },
     "iconsOnly": {
-        "message": "仅显示图标"
+        "message": "Εικονίδια μόνο"
     },
     "importSettings": {
-        "message": "导入设置"
+        "message": "Εισαγωγή ρυθμίσεων"
     },
     "improveLogo": {
-        "message": "优化图标"
+        "message": "Λογότυπο Improve"
     },
     "improvedtubeButtons": {
         "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "在 YouTube 显示 ImprovedTube 图标"
+        "message": "Εικονίδιο ImprovedTube στο YouTube"
     },
     "improvedtubeLanguage": {
-        "message": "ImprovedTube 语言"
+        "message": "Γλώσσα ImprovedTube"
     },
     "improvedtubeVersion": {
-        "message": "ImprovedTube 版本"
+        "message": "Έκδοση ImprovedTube"
     },
     "increasePlaybackSpeed": {
-        "message": "视频加速"
+        "message": "Αύξησε την ταχύτητα αναπαραγωγής"
     },
     "increaseVolume": {
-        "message": "增加音量"
+        "message": "Αύξησε την ένταση"
     },
     "indigo": {
-        "message": "靛青色"
+        "message": "Indigo"
     },
     "items": {
-        "message": "项目"
+        "message": "Αντικείμενα"
     },
     "language": {
-        "message": "语言"
+        "message": "Language"
     },
     "languages": {
-        "message": "语言"
+        "message": "Γλώσσες"
     },
     "layerAnimationScale": {
         "message": "Layer animation scale"
@@ -609,22 +609,22 @@
         "message": "Layout"
     },
     "legacyYoutube": {
-        "message": "旧版 YouTube"
+        "message": "Παλιά έκδοση YouTube"
     },
     "library": {
         "message": "Library"
     },
     "light": {
-        "message": "明亮"
+        "message": "Ανοιχτόχρωμο"
     },
     "lightBlue": {
-        "message": "浅蓝色"
+        "message": "Ανοικτό μπλε"
     },
     "lightGreen": {
-        "message": "浅绿色"
+        "message": "Ανοικτό πράσινο"
     },
     "like": {
-        "message": "顶一下"
+        "message": "Μου αρέσει"
     },
     "liked": {
         "message": "Liked"
@@ -633,40 +633,40 @@
         "message": "Likes"
     },
     "lime": {
-        "message": "石灰色"
+        "message": "Μοσχολέμονο"
     },
     "limitPageWidth": {
         "message": "Limit page width"
     },
     "list": {
-        "message": "列表"
+        "message": "Λίστα"
     },
     "liveChat": {
-        "message": "实时聊天窗"
+        "message": "Live chat"
     },
     "liveChatType": {
-        "message": "实时聊天窗类型"
+        "message": "Τύπος live chat"
     },
     "location": {
-        "message": "地点"
+        "message": "Location"
     },
     "loop": {
         "message": "Loop"
     },
     "loudnessNormalization": {
-        "message": "音量标准化"
+        "message": "Κανονικοποίηση έντασης"
     },
     "low": {
         "message": "Low"
     },
     "markWatchedVideos": {
-        "message": "标记为已观看"
+        "message": "Επισήμανση βίντεο που προβλήθηκαν"
     },
     "medium": {
         "message": "Medium"
     },
     "mixer": {
-        "message": "混音器"
+        "message": "Mixer"
     },
     "more": {
         "message": "More"
@@ -681,37 +681,37 @@
         "message": "Thumbnails to the right!"
     },
     "myColors": {
-        "message": "自定义颜色"
+        "message": "Τα χρώματά μου"
     },
     "name": {
-        "message": "名字"
+        "message": "Όνομα"
     },
     "nativeMiniPlayer": {
-        "message": "原版迷你播放器"
+        "message": "Mini player συστήματος"
     },
     "new": {
-        "message": "新的"
+        "message": "Νέο"
     },
     "nextVideo": {
-        "message": "上一个视频"
+        "message": "Επόμενο βίντεο"
     },
     "night": {
-        "message": "夜色"
+        "message": "Νύχτα"
     },
     "nightMode": {
         "message": "Night mode"
     },
     "noActiveFeatures": {
-        "message": "没有已启用的功能"
+        "message": "Καμία λειτουργία ενεργή"
     },
     "noOpenVideoTabs": {
-        "message": "没有已打开的视频标签"
+        "message": "Καμία καρτέλα βίντεο ανοικτή"
     },
     "none": {
-        "message": "无"
+        "message": "Κανένα"
     },
     "normal": {
-        "message": "正常"
+        "message": "Κανονικό"
     },
     "off": {
         "message": "Off"
@@ -720,31 +720,31 @@
         "message": "Ok"
     },
     "old": {
-        "message": "旧版"
+        "message": "Παλιό"
     },
     "onAllVideos": {
-        "message": "在所有视频"
+        "message": "Σε όλα τα βίντεο"
     },
     "onSubscribedChannels": {
-        "message": "在订阅频道"
+        "message": "Σε κανάλια που έχει γίνει συνδρομή"
     },
     "onlyActiveOnYoutube": {
-        "message": "仅在 YouTube 上启用"
+        "message": "Μόνο ενεργό στο YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "同时仅播放一个"
+        "message": "Μόνο ένα player λειτουργεί"
     },
     "openPopupPlayer": {
-        "message": "在新窗口打开视频/播放列表"
+        "message": "Open video/playlist in a new window"
     },
     "orange": {
-        "message": "橙色"
+        "message": "Πορτοκαλί"
     },
     "os": {
-        "message": "操作系统"
+        "message": "OS"
     },
     "other": {
-        "message": "其他"
+        "message": "Άλλο"
     },
     "outline": {
         "message": "Outline"
@@ -753,70 +753,70 @@
         "message": "Overlay"
     },
     "permissions": {
-        "message": "许可"
+        "message": "Άδεια"
     },
     "pictureInPicture": {
-        "message": "画中画"
+        "message": "Picture-in-Picture"
     },
     "pink": {
-        "message": "粉色"
+        "message": "Ροζ"
     },
     "plain": {
-        "message": "野外"
+        "message": "Σκέτο"
     },
     "platform": {
-        "message": "平台"
+        "message": "Πλατφόρμα"
     },
     "playAllButton": {
         "message": "\"Play all\" button"
     },
     "playPause": {
-        "message": "播放/暂停"
+        "message": "Play / Pause"
     },
     "playbackSpeed": {
-        "message": "播放速度"
+        "message": "Ταχύτητα αναπαραγωγής"
     },
     "player": {
-        "message": "播放器"
+        "message": "Player"
     },
     "playerColor": {
-        "message": "播放器颜色"
+        "message": "Χρώμσ player"
     },
     "playerSize": {
-        "message": "播放器大小"
+        "message": "Μέγεθος player"
     },
     "playlist": {
-        "message": "播放列表"
+        "message": "Playlist"
     },
     "playlists": {
-        "message": "稍后观看"
+        "message": "Playlists"
     },
     "popupPlayer": {
-        "message": "弹出播放器"
+        "message": "Popup player"
     },
     "popupWindowButtons": {
-        "message": "添加弹出播放器按钮"
+        "message": "popup_window_buttons"
     },
     "position": {
-        "message": "位置"
+        "message": "Θέση"
     },
     "pressAnyKeyOrScroll": {
-        "message": "按下任意键或滚动鼠标滚轴."
+        "message": "Πίεσε οποιοδήποτε πλήκτρο ή χρησιμοποίησε τη ροδέλα στο ποντίκι."
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "按下任意键或鼠标滚轴."
+        "message": "Πίεσε οποιοδήποτε πλήκτρο ή χρησιμοποίησε τη ροδέλα στο ποντίκι."
     },
     "previousVideo": {
-        "message": "下一个视频"
+        "message": "Προηγούμενο βίντεο"
     },
     "primaryColor": {
-        "message": "主色调"
+        "message": "Πρωτεύον χρώμα"
     },
     "purple": {
-        "message": "紫色"
+        "message": "Μοβ"
     },
     "quality": {
-        "message": "画质"
+        "message": "Ποιότητα"
     },
     "raised": {
         "message": "Raised"
@@ -828,64 +828,64 @@
         "message": "Rate me"
     },
     "rateUs": {
-        "message": "给我们评价"
+        "message": "Αξιολόγησέ μας"
     },
     "red": {
-        "message": "红色"
+        "message": "Κόκκινο"
     },
     "redDislikeButton": {
-        "message": "将【踩一下】设置为红色"
+        "message": "Δείξτε το πλήκτρο «Δε μου αρέσει» σε κόκκινο"
     },
     "relatedVideos": {
-        "message": "相关视频"
+        "message": "Σχετικά videos"
     },
     "remote": {
         "message": "Play on TV"
     },
     "removeHomePageShorts": {
-        "message": "移除主页的 Shorts"
+        "message": "Κατάργηση Shorts από την αρχική σελίδα"
     },
     "removeRelatedSearchResults": {
-        "message": "隐藏搜索相关结果"
+        "message": "Αφαίρεσε σχετικά αποτελέσματα αναζήτησης"
     },
     "removeShortsReelSearchResults": {
-        "message": "删除搜索结果中的 Shorts 轮播"
+        "message": "Αφαιρέστε τη λίστα Shorts από τα αποτελέσματα αναζήτησης"
     },
     "repeat": {
-        "message": "循环"
+        "message": "Επανάληψη"
     },
     "report": {
         "message": "Report"
     },
     "reset": {
-        "message": "重置"
+        "message": "Επαναφορά"
     },
     "resetAllSettings": {
-        "message": "重置所有设置"
+        "message": "Επαναφορά όλων των ρυθμίσεων"
     },
     "resetAllShortcuts": {
-        "message": "重置所有快捷键"
+        "message": "Επαναφορά όλων των συντομεύσεων"
     },
     "reverse": {
-        "message": "逆序"
+        "message": "Ανάποδα"
     },
     "rotate": {
-        "message": "旋转"
+        "message": "Περιστροφή"
     },
     "save": {
-        "message": "保存"
+        "message": "Αποθήκευση"
     },
     "saveAs": {
-        "message": "另存为"
+        "message": "Αποθήκευση ως"
     },
     "schedule": {
-        "message": "定时开/关"
+        "message": "Πρόγραμμα"
     },
     "screen": {
-        "message": "屏幕"
+        "message": "Οθόνη"
     },
     "screenshot": {
-        "message": "截图"
+        "message": "Στιγμιότυπο"
     },
     "scrollBar": {
         "message": "Scroll Bar"
@@ -894,28 +894,28 @@
         "message": "SD"
     },
     "search": {
-        "message": "搜索"
+        "message": "Αναζήτηση"
     },
     "searchBarOnly": {
-        "message": "仅搜索栏"
+        "message": "Πεδίο αναζήτησης μόνο"
     },
     "seekBackward10Seconds": {
-        "message": "倒退10秒"
+        "message": "Πίσω 10 δευτερόλεπτα"
     },
     "seekForward10Seconds": {
-        "message": "快进10秒"
+        "message": "Μπροστά 10 δευτερόλεπτα"
     },
     "seekNextChapter": {
-        "message": "寻找下一章"
+        "message": "seekNextChapter"
     },
     "seekPreviousChapter": {
-        "message": "寻找上一章"
+        "message": "seekPreviousChapter"
     },
     "settings": {
-        "message": "ImprovedTube 设置"
+        "message": "Ρυθμίσεις"
     },
     "settingsSuccessfullyImported": {
-        "message": "设置导入成功"
+        "message": "Επιτυχής εισαγωγή ρυθμίσεων"
     },
     "share": {
         "message": "Share"
@@ -936,19 +936,19 @@
         "message": "Hide YouTube Logo"
     },
     "shortcuts": {
-        "message": "快捷键"
+        "message": "Συντομεύσεις"
     },
     "showCardsOnMouseHover": {
-        "message": "鼠标悬浮时显示信息卡片"
+        "message": "Δείξε τις κάρτες όταν ο κέρσορας είναι από πάνω"
     },
     "showChannelVideosCount": {
-        "message": "显示频道内视频数"
+        "message": "Δείξε τις συνολικές προβολές του καναλιού"
     },
     "showLess": {
-        "message": "显示较少"
+        "message": "Show less"
     },
     "showMore": {
-        "message": "展示更多"
+        "message": "Show more"
     },
     "Hamburger_Menu": {
         "message": "Hamburger Menu"
@@ -960,7 +960,7 @@
         "message": "Show version"
     },
     "shuffle": {
-        "message": "随机"
+        "message": "Τυχαία αναπαραγωγή"
     },
     "player_fit_to_win_button": {
         "message": "player fit to win button"
@@ -972,163 +972,163 @@
         "message": "player rotate button"
     },
     "sidebar": {
-        "message": "侧边栏"
+        "message": "Sidebar"
     },
     "softwareInformation": {
         "message": "Software information"
     },
     "spacebar": {
-        "message": "空格"
+        "message": "Spacebar"
     },
     "squaredUserImages": {
-        "message": "方形用户头像"
+        "message": "Τετράγωνες εικόνες χρήστη"
     },
     "static": {
-        "message": "静态"
+        "message": "Στατικό"
     },
     "statsForNerds": {
-        "message": "显示专业信息"
+        "message": "Δείξε τα Στατιστικά για Σπασίκλες"
     },
     "step": {
-        "message": "Step"
+        "message": "Βήμα"
     },
     "stop": {
-        "message": "停止"
+        "message": "Στοπ"
     },
     "style": {
-        "message": "样式"
+        "message": "Στυλ"
     },
     "styles": {
-        "message": "样式"
+        "message": "Στυλ"
     },
     "subscribe": {
         "message": "Subscribe"
     },
     "subscriptions": {
-        "message": "订阅内容"
+        "message": "Συνδρομές"
     },
     "subtitles": {
-        "message": "字幕"
+        "message": "Υπότιτλοι"
     },
     "sunset": {
-        "message": "晚霞"
+        "message": "Ηλιοβασίλεμα"
     },
     "sunsetToSunrise": {
-        "message": "日落到日出"
+        "message": "Από δύση έως ανατολή"
     },
     "systemPeferenceDark": {
-        "message": "系统偏好: 深色"
+        "message": "Προτίμηση συστήματος: Σκούρο"
     },
     "systemPeferenceLight": {
-        "message": "系统偏好: 浅色"
+        "message": "Προτίμηση συστήματος: Ανοικτόχρωμο"
     },
     "teal": {
-        "message": "蓝绿色"
+        "message": "Γαλαζιοπράσινο"
     },
     "textColor": {
-        "message": "文字颜色"
+        "message": "Χρώμα κειμένου"
     },
     "thanks": {
         "message": "Thanks"
     },
     "themes": {
-        "message": "主题"
+        "message": "Θέματα"
     },
     "thisWillRemoveAllCookies": {
-        "message": "将清空所有 cookies."
+        "message": "Αυτό αφαιρεί όλα τα cookies."
     },
     "thisWillRemoveAllWatchedVideos": {
         "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "将清空所有 YouTube cookies"
+        "message": "Αυτό αφαιρεί όλα τα cookies του YouTube."
     },
     "thisWillResetAllSettings": {
-        "message": "将重置所有设置."
+        "message": "Αυτό επαναφέρει όλες τις ρυθμίσεις."
     },
     "thisWillResetAllShortcuts": {
-        "message": "将会重置所有快捷键"
+        "message": "Αυτό επαναφέρει όλες τις συντομεύσεις."
     },
     "thumbnails": {
-        "message": "缩略图"
+        "message": "Εικονίδια"
     },
     "thumbnailsQuality": {
         "message": "Thumbnails Quality"
     },
     "timeFrom": {
-        "message": "开始时间"
+        "message": "Χρόνος από"
     },
     "timeTo": {
-        "message": "结束时间"
+        "message": "Χρόνος έως"
     },
     "todayAt": {
-        "message": "截止今天"
+        "message": "Σήμερα στις"
     },
     "toggleAutoplay": {
         "message": "Toggle autoplay"
     },
     "toggleCards": {
-        "message": "切换卡片"
+        "message": "Toggle cards"
     },
     "toggleControls": {
         "message": "Toggle controls"
     },
     "topChat": {
-        "message": "热门聊天"
+        "message": "Top chat"
     },
     "trackWatchedVideos": {
         "message": "Track watched videos"
     },
     "trailerAutoplay": {
-        "message": "自动播放预告片"
+        "message": "Trailer autoplay"
     },
     "translations": {
-        "message": "翻译"
+        "message": "Μεταφράσεις"
     },
     "transparentBackground": {
-        "message": "透明背景"
+        "message": "Διαφανές υπόβαθρο"
     },
     "trending": {
-        "message": "时下流行"
+        "message": "Τάσεις"
     },
     "tryToReloadThePage": {
-        "message": "尝试刷新页面"
+        "message": "Προσπάθησε να επαναφορτώσεις τη σελίδα"
     },
     "type": {
-        "message": "类型"
+        "message": "Τύπος"
     },
     "upNextAutoplay": {
-        "message": "自动播放下一视频"
+        "message": "Επόμενο στο autoplay"
     },
     "use24HourFormat": {
-        "message": "使用24小时制"
+        "message": "Χρησιμοποίησε 24ωρη μορφή ώρας"
     },
     "version": {
-        "message": "版本"
+        "message": "Έκδοση"
     },
     "video": {
-        "message": "视频"
+        "message": "Βίντεο"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "扩展视频简介到分类"
+        "message": "Η περιγραφή του βίντεο θα επεκταθεί ωστε να συμπεριληφθεί το όνομα της κατηγορίας."
     },
     "videoFormats": {
-        "message": "视频格式"
+        "message": "Μορφές βίντεο"
     },
     "videos": {
-        "message": "视频"
+        "message": "Βίντεο"
     },
     "viewMode": {
         "message": "View Mode"
     },
     "volume": {
-        "message": "音量"
+        "message": "Ένταση"
     },
     "watchLater": {
-        "message": "稍后观看"
+        "message": "Δες αργότερα"
     },
     "watchTime": {
-        "message": "观看时间"
+        "message": "Χρόνος προβολής"
     },
     "watchedVideos": {
         "message": "Watched videos"
@@ -1137,34 +1137,34 @@
         "message": "When paused"
     },
     "whenTabIsChanged": {
-        "message": "切换标签时"
+        "message": "Όταν αλλάζεις καρτέλα"
     },
     "white": {
-        "message": "白色"
+        "message": "Λευκό"
     },
     "windowColor": {
-        "message": "窗口颜色"
+        "message": "Window color"
     },
     "windowOpacity": {
-        "message": "窗口透明度"
+        "message": "Window opacity"
     },
     "yellow": {
-        "message": "黄色"
+        "message": "Κίτρινο"
     },
     "youtubeHeaderLeft": {
-        "message": "Youtube标题（左）"
+        "message": "Κεφαλίδα YouTube (αριστερά)"
     },
     "youtubeHeaderRight": {
-        "message": "Youtube标题（右）"
+        "message": "Κεφαλίδα YouTube (δεξιά)"
     },
     "youtubeHomePage": {
-        "message": "YouTube默认主页"
+        "message": "Αρχική σελίδα YouTube"
     },
     "youtubeLanguage": {
-        "message": "YouTube 语言"
+        "message": "Γλώσσα YouTube"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "采用 H.264 编解码时，YouTube 会将视频画质设为 1080p"
+        "message": "Το YouTube περιορίζει την ποιότητα σε 1080p για το h.264 codec"
     },
     "openNewTab": {
         "message": "Open in a new tab"
