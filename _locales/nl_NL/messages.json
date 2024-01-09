@@ -12,10 +12,10 @@
         "message": "⇧"
     },
     "about": {
-        "message": "Despre"
+        "message": "Over"
     },
     "accept": {
-        "message": "Acceptă"
+        "message": "Accepteren"
     },
     "compact_spacing": {
         "message": "compact spacing"
@@ -27,34 +27,34 @@
         "message": "Compact Theme"
     },
     "activate": {
-        "message": "Activează"
+        "message": "Activeren"
     },
     "activateCaptions": {
-        "message": "Activează subtitrările"
+        "message": "Activeer bijschriften"
     },
     "Buttons": {
-        "message": "Butoane"
+        "message": "Knoppen"
     },
     "activateFullscreen": {
-        "message": "Activează ecran complet"
+        "message": "Activeer volledig scherm"
     },
     "activated": {
-        "message": "Activat"
+        "message": "Geactiveerd"
     },
     "activatedFeatures": {
-        "message": "Caracteristici activate"
+        "message": "Geactiveerde features"
     },
     "activeFeatures": {
-        "message": "Caracteristici active"
+        "message": "Actieve features"
     },
     "addScrollToTop": {
-        "message": "Adaugă «Derulează la început»"
+        "message": "Voeg «Scroll to top» toe"
     },
     "ads": {
-        "message": "Reclame"
+        "message": "Reclames"
     },
     "all": {
-        "message": "Tot"
+        "message": "Alles"
     },
     "allYourSettingsWillBeErasedAndCanTBeRecovered": {
         "message": "All your settings will be erased and can't be recovered"
@@ -63,55 +63,55 @@
         "message": "All your shortcuts will be erased and can't be recovered"
     },
     "allow": {
-        "message": "Permite"
+        "message": "Toestaan"
     },
     "allow60fps": {
-        "message": "Permite 60fps"
+        "message": "60fps toestaan"
     },
     "always": {
         "message": "Always"
     },
     "alwaysActive": {
-        "message": "Mereu activ"
+        "message": "Altijd actief"
     },
     "alwaysShowProgressBar": {
-        "message": "Arată mereu bara de progres"
+        "message": "Altijd voortgangsbalk laten zien"
     },
     "amber": {
-        "message": "Chihlimbar"
+        "message": "Amber"
     },
     "analyzer": {
-        "message": "Analizator"
+        "message": "Analyse"
     },
     "animations": {
         "message": "Animations"
     },
     "appearance": {
-        "message": "Aparențe"
+        "message": "Uiterlijk"
     },
     "areYouSureYouWantToExportTheData": {
-        "message": "Sigur doriți să exportați datele?"
+        "message": "Weet je zeker dat je deze data wilt exporteren?"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Sigur doriți să importați datele?"
+        "message": "Weet je zeker dat je deze wilt importeren? "
     },
     "audio": {
-        "message": "Audio"
+        "message": "Geluid"
     },
     "audioFormats": {
-        "message": "Formaturi audio"
+        "message": "Geluidsformaten"
     },
     "auto": {
-        "message": "Auto"
+        "message": "Automatisch"
     },
     "autoFullscreen": {
-        "message": "ecran complet automat"
+        "message": "Automatisch naar volledig scherm"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Pauzează automat la schimbarea tab-ului"
+        "message": "Automatisch pauzeren bij het wisselen van tabbladen"
     },
     "autoplay": {
-        "message": "Pornește automat"
+        "message": "Automatisch afspelen"
     },
     "avoidAv1": {
         "message": "Avoid AV1"
@@ -126,31 +126,31 @@
         "message": "Avoid CPU rendering when possible"
     },
     "backgroundColor": {
-        "message": "Culoare de fundal"
+        "message": "Achtergrondkleur"
     },
     "backgroundOpacity": {
-        "message": "Opacitatea fundalului"
+        "message": "Doorzichtigheid achtergrond"
     },
     "backupAndReset": {
-        "message": "Salvează & resetează"
+        "message": "Backup maken & resetten"
     },
     "baseOnSystemColorScheme": {
-        "message": "Bazat pe schema de culori a sistemului"
+        "message": "Baseer op kleurenschema van systeem"
     },
     "belowPlayer": {
-        "message": "Below player"
+        "message": "Onder de speler"
     },
     "bitness": {
         "message": "Bitness"
     },
     "black": {
-        "message": "Înapoi"
+        "message": "Zwart"
     },
     "blocklist": {
-        "message": "Lista neagră"
+        "message": "Zwarte lijst"
     },
     "blockAll": {
-        "message": "Blochează tot"
+        "message": "Alles blokkeren"
     },
     "blockAv1": {
         "message": "Block AV1"
@@ -159,7 +159,7 @@
         "message": "Block H.264"
     },
     "blockMusic": {
-        "message": "Interzice muzica"
+        "message": "Blokkeer muziek"
     },
     "blockVp8": {
         "message": "Block VP8"
@@ -168,286 +168,286 @@
         "message": "Block VP9"
     },
     "blue": {
-        "message": "Albastru"
+        "message": "Blauw"
     },
     "blueGray": {
-        "message": "Gri albastru"
+        "message": "Blauwgrijs"
     },
     "bluelight": {
-        "message": "Lumină albastră"
+        "message": "Lichtblauw"
     },
     "brightness": {
         "message": "Brightness"
     },
     "brown": {
-        "message": "Maro"
+        "message": "Bruin"
     },
     "browser": {
         "message": "Browser"
     },
     "browserVersion": {
-        "message": "Versiunea browserului"
+        "message": "Browserversie"
     },
     "bubbles": {
-        "message": "Bule"
+        "message": "Bubbels"
     },
     "bug": {
         "message": "Bug"
     },
     "buttons": {
-        "message": "Butoane"
+        "message": "Knoppen"
     },
     "cancel": {
-        "message": "Anulează"
+        "message": "Annuleren"
     },
     "categories": {
-        "message": "Categorii"
+        "message": "Categorieën"
     },
     "channel": {
-        "message": "Canal"
+        "message": "Kanaal"
     },
     "channels": {
-        "message": "Canale"
+        "message": "Kanalen"
     },
     "characterEdgeStyle": {
-        "message": "Character edge style"
+        "message": "Stijl omlijning letters"
     },
     "clip": {
         "message": "Clip"
     },
     "clipboard": {
-        "message": "Clipboard"
+        "message": "Klembord"
     },
     "codecH264": {
-        "message": "Codec h.264"
+        "message": "Encoderen in H.264"
     },
     "codecs": {
         "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
-        "message": "Închide secțiunea de subscripții"
+        "message": "Uitklappen van abonneesecties"
     },
     "collapsed": {
-        "message": "Închis"
+        "message": "Ingeklapt"
     },
     "comments": {
-        "message": "Comentarii"
+        "message": "Reacties"
     },
     "confirmationBeforeClosing": {
-        "message": "Confirmă înainte să închizi"
+        "message": "Bevestiging voor sluiten"
     },
     "cookies": {
         "message": "Cookies"
     },
     "cores": {
-        "message": "Nuclee"
+        "message": "Kernen"
     },
     "cropChapterTitles": {
-        "message": "Taie titlurile capitolelor"
+        "message": "Schrap hoofdstuktitels"
     },
     "custom": {
-        "message": "Personalizat"
+        "message": "Aangepast"
     },
     "customCss": {
-        "message": "CSS Personalizat"
+        "message": "Aangepaste CSS"
     },
     "customJs": {
-        "message": "JS Personalizat"
+        "message": "Aangepaste JS"
     },
     "customMiniPlayer": {
-        "message": "Mini-Player Personalizat"
+        "message": "Aangepaste MiniPlayer"
     },
     "cyan": {
-        "message": "Cyan"
+        "message": "Cyaan"
     },
     "dark": {
-        "message": "Închis"
+        "message": "Donker"
     },
     "darkTheme": {
-        "message": "Temă închisă"
+        "message": "Donker thema"
     },
     "dateAndTime": {
-        "message": "Data & timpul"
+        "message": "Datum & tijd"
     },
     "dawn": {
-        "message": "Răsărit"
+        "message": "Morgenrood"
     },
     "decreasePlaybackSpeed": {
-        "message": "Scade viteza playback-ului"
+        "message": "Verminder afspeelsnelheid"
     },
     "decreaseVolume": {
-        "message": "Scade volumul"
+        "message": "Verminder volume"
     },
     "deepOrange": {
-        "message": "Portocaliu închis"
+        "message": "Donkeroranje"
     },
     "deepPurple": {
-        "message": "Mov închis"
+        "message": "Donkerpaars"
     },
     "default": {
-        "message": "Default"
+        "message": "Standaard"
     },
     "defaultChannelTab": {
-        "message": "Tab-ul implicit al canalului"
+        "message": "Standaard kanaaltabblad"
     },
     "defaultContentCountry": {
-        "message": "Country (virtual travel)"
+        "message": "Standaardland voor inhoud"
     },
     "defaultPlaybackSpeed": {
         "message": "Default Playback Speed"
     },
     "deleteWatchedVideos": {
-        "message": "Delete watched videos"
+        "message": "Verwijder bekeken video's"
     },
     "deleteYoutubeCookies": {
-        "message": "Șterge cookie-urile YouTube"
+        "message": "YouTube-cookies verwijderen"
     },
     "depressed": {
-        "message": "Depressed"
+        "message": "Uitgedrukt"
     },
     "description": {
         "message": "Description"
     },
     "description_ext": {
-        "message": "YouTube, tidy + smart? Youtube video youtube player size youtube color ad skip speed volume channel skipper tags playlist hide"
+        "message": "Maak YouTube opgeruimd+slim! YouTube video kleur advertentie skippen overslaan volume snelheid kanaal gereedschap stijl HD advertenties adblock adblocker tags zoektermen afspeelijsten"
     },
     "desert": {
-        "message": "Deșert"
+        "message": "Woestijn"
     },
     "details": {
-        "message": "Detalii"
+        "message": "Details"
     },
     "developerOptions": {
-        "message": "Opțiunile dezvoltatorului"
+        "message": "Ontwikkelaarsopties"
     },
     "device": {
-        "message": "Dispozitiv"
+        "message": "Apparaat"
     },
     "dim": {
-        "message": "Întunecă"
+        "message": "Dimmen"
     },
     "disabled": {
-        "message": "Dezactivat"
+        "message": "Uitgeschakeld"
     },
     "dislike": {
-        "message": "Nu îmi place"
+        "message": "Niet leuk vinden"
     },
     "displayDayOfTheWeak": {
         "message": "Display day of the week"
     },
     "doNotChange": {
-        "message": "Nu schimba"
+        "message": "Niet aanpassen"
     },
     "donate": {
-        "message": "Donează"
+        "message": "Doneer"
     },
     "download": {
         "message": "Download"
     },
     "draggable": {
-        "message": "Poate fi tras"
+        "message": "Sleepbaar"
     },
     "dropShadow": {
-        "message": "Drop shadow"
+        "message": "Toon Schaduw"
     },
     "durationWithSpeed": {
         "message": "Show time remaining with reference to playback speed"
     },
     "email": {
-        "message": "Email"
+        "message": "E-mailadres"
     },
     "empty": {
-        "message": "Gol"
+        "message": "Leeg"
     },
     "enabled": {
-        "message": "Activat"
+        "message": "Ingeschakeld"
     },
     "enabledForced": {
-        "message": "Activat (forțat)"
+        "message": "Ingeschakeld (geforceerd)"
     },
     "expanded": {
-        "message": "Deschis"
+        "message": "Uitgeklapt"
     },
     "exportSettings": {
-        "message": "Exportă setările"
+        "message": "Instellingen exporteren"
     },
     "extension": {
         "message": "Extensie"
     },
     "file": {
-        "message": "Fișier"
+        "message": "Bestand"
     },
     "filters": {
-        "message": "Filtre"
+        "message": "Filters"
     },
     "fitToWindow": {
-        "message": "Potrivește în fereastră"
+        "message": "Aanpassen aan vensterbreedte"
     },
     "flash": {
-        "message": "Flash"
+        "message": "Flits"
     },
     "font": {
-        "message": "Font"
+        "message": "Lettertype"
     },
     "fontColor": {
-        "message": "Font color"
+        "message": "Kleur lettertype"
     },
     "fontFamily": {
-        "message": "Font family"
+        "message": "Lettertype-familie"
     },
     "fontOpacity": {
-        "message": "Font opacity"
+        "message": "Doorzichtigheid lettertype"
     },
     "fontSize": {
-        "message": "Font size"
+        "message": "Lettergrootte"
     },
     "footer": {
-        "message": "Subsol"
+        "message": "Voettekst"
     },
     "forceSDR": {
-        "message": "Forțează SDR"
+        "message": "Forceer SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Forced play video from the beginning"
+        "message": "Forceer video's af te spelen vanaf het begin"
     },
     "forcedPlaybackSpeed": {
-        "message": "Viteză de playback forțată"
+        "message": "Forceer afspeelsnelheid"
     },
     "forcedPlaybackSpeedMusic": {
         "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
-        "message": "Modul teatru forțat"
+        "message": "Forceer Theatermodus"
     },
     "forcedVolume": {
-        "message": "Volum forțat"
+        "message": "Forceer volume"
     },
     "foundABug": {
-        "message": "Ai găsit un bug?"
+        "message": "Heb je een bug gevonden?"
     },
     "fullWindow": {
-        "message": "Ecran complet"
+        "message": "Volledig scherm"
     },
     "general": {
-        "message": "General"
+        "message": "Algemeen"
     },
     "geoPreference": {
-        "message": "Preferințe Geo"
+        "message": "Geo Preference"
     },
     "github": {
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Du-te la casuța de căutare"
+        "message": "Ga naar de zoekbalk"
     },
     "googleApiKey": {
-        "message": "Google API key"
+        "message": "Google API-key"
     },
     "gpu": {
         "message": "GPU"
     },
     "green": {
-        "message": "Verde"
+        "message": "Groen"
     },
     "hardwareInformation": {
         "message": "Hardware information"
@@ -456,25 +456,25 @@
         "message": "HD"
     },
     "hdThumbnail": {
-        "message": "Miniatură HD"
+        "message": "HD-miniatuurvoorbeeld"
     },
     "header": {
-        "message": "Antet"
+        "message": "Kop"
     },
     "hidden": {
-        "message": "Ascuns"
+        "message": "Verborgen"
     },
     "hiddenOnVideoPage": {
-        "message": "Ascuns pe pagina video"
+        "message": "Verborgen op videopagina"
     },
     "hideAnimatedThumbnails": {
-        "message": "Ascunde miniaturile animate"
+        "message": "Verberg geanimeerde miniatuurvoorbeelden"
     },
     "hideAnnotations": {
-        "message": "Ascunde adnotările"
+        "message": "Verberg annotaties"
     },
     "hideCards": {
-        "message": "Ascunde cardurile"
+        "message": "Verberg kaarten"
     },
     "hideCategories": {
         "message": "Hide categories"
@@ -483,124 +483,124 @@
         "message": "Hide comments count"
     },
     "hideCountryCode": {
-        "message": "Hide country code"
+        "message": "Verberg landcode"
     },
     "hideDate": {
-        "message": "Hide date"
+        "message": "Verberg datum"
     },
     "hideDetailButton": {
         "message": "Buttons"
     },
     "hideDetails": {
-        "message": "Ascunde detaliile"
+        "message": "Verberg details"
     },
     "hideEndscreen": {
-        "message": "Ascunde ecranul de final"
+        "message": "Verberg eindscherm"
     },
     "hideFeaturedContent": {
-        "message": "Ascunde conținutul prezentat"
+        "message": "Verberg uitgelichte inhoud"
     },
     "hideFooter": {
-        "message": "Ascunde subsolul"
+        "message": "Verberg voettekst"
     },
     "hideGradientBottom": {
-        "message": "Ascunde Gradient Bottom"
+        "message": "Verberg Gradient Onderkant"
     },
     "hidePlayerControlsBar": {
-        "message": "Ascundeți bara de control al jucătorului"
+        "message": "Verberg afspeelbalk"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Ascunde butoanele din bara de control al jucătorului"
+        "message": "Verberg knoppen voor afspeelcontrole"
     },
     "hidePlayerControlsBarOptions": {
-        "message": "Hide player controls options"
+        "message": "Verberg opties voor afspeelbalk"
     },
     "hidePlaylist": {
-        "message": "Ascunde playlistul"
+        "message": "Verberg afspeellijst"
     },
     "hideRightButtons": {
-        "message": "Ascunde butoanele din dreapta"
+        "message": "Verberg knoppen rechterkant"
     },
     "hideScrollForDetails": {
-        "message": "Ascunde «Derulează pentru detalii»"
+        "message": "Verberg «Scrollen voor meer details»"
     },
     "hideSkipOverlay": {
-        "message": "Hide Skip Overlay"
+        "message": "Verberg knop voor overslaan omslag"
     },
     "hideThumbnailOverlay": {
-        "message": "Hide thumbnail overlay"
+        "message": "Verberg miniatuurafbeeldingen omslag"
     },
     "hideThumbnails": {
-        "message": "Hide thumbnails"
+        "message": "Verberg miniatuurafbeeldingen"
     },
     "hideViewsCount": {
-        "message": "Ascunde numărul vizualizărilor"
+        "message": "Verberg aantal afgespeeld"
     },
     "hideVoiceSearchButton": {
-        "message": "Hide voice search button"
+        "message": "Verberg zoekknop via stem"
     },
     "high": {
-        "message": "High"
+        "message": "Hoog"
     },
     "history": {
-        "message": "Istoric"
+        "message": "Geschiedenis"
     },
     "home": {
-        "message": "Acasă"
+        "message": "Thuis"
     },
     "homeScreen": {
         "message": "Home screen"
     },
     "hover": {
-        "message": "Hover"
+        "message": "Overzweven met cursor"
     },
     "hoverOnVideoPage": {
-        "message": "Hover pe pagina video"
+        "message": "Overzweven met cursor op videopagina"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Acum cât timp a fost încărcat videoclipul"
+        "message": "Toon uploaddatum"
     },
     "icons": {
-        "message": "Iconițe"
+        "message": "Pictogrammen"
     },
     "iconsOnly": {
-        "message": "Doar iconițe"
+        "message": "Alleen pictogrammen"
     },
     "importSettings": {
-        "message": "Importă setările"
+        "message": "Importeer instellingen"
     },
     "improveLogo": {
-        "message": "Îmbunătățește sigla"
+        "message": "YouTube-logo verbeteren"
     },
     "improvedtubeButtons": {
         "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "Iconița ImprovedTube pe YouTube"
+        "message": "ImprovedTube-icoon instellen voor YouTube"
     },
     "improvedtubeLanguage": {
-        "message": "Limba ImprovedTube"
+        "message": "Taal voor ImprovedTube"
     },
     "improvedtubeVersion": {
-        "message": "Versiunea ImprovedTube"
+        "message": "ImprovedTube-versie"
     },
     "increasePlaybackSpeed": {
-        "message": "Crește viteza de playback"
+        "message": "Verhoog afspeelsnelheid"
     },
     "increaseVolume": {
-        "message": "Crește volumul"
+        "message": "Verhoog volume"
     },
     "indigo": {
         "message": "Indigo"
     },
     "items": {
-        "message": "Obiecte"
+        "message": "Items"
     },
     "language": {
-        "message": "Language"
+        "message": "Taal"
     },
     "languages": {
-        "message": "Limbi"
+        "message": "Talen"
     },
     "layerAnimationScale": {
         "message": "Layer animation scale"
@@ -609,58 +609,58 @@
         "message": "Layout"
     },
     "legacyYoutube": {
-        "message": "YouTube vechi"
+        "message": "Klassieke YouTube-uiterlijk"
     },
     "library": {
-        "message": "Library"
+        "message": "Bibliotheek"
     },
     "light": {
-        "message": "Deschis"
+        "message": "Licht"
     },
     "lightBlue": {
-        "message": "Albastru deschis"
+        "message": "Lichtblauw"
     },
     "lightGreen": {
-        "message": "Verde deschis"
+        "message": "Lichtgroen"
     },
     "like": {
-        "message": "Îmi place"
+        "message": "Vind ik leuk"
     },
     "liked": {
-        "message": "Liked"
+        "message": "Leuk gevonden"
     },
     "likes": {
         "message": "Likes"
     },
     "lime": {
-        "message": "Lime"
+        "message": "Limoen"
     },
     "limitPageWidth": {
-        "message": "Limit page width"
+        "message": "Limiteer paginabreedte"
     },
     "list": {
-        "message": "Listă"
+        "message": "Lijst"
     },
     "liveChat": {
-        "message": "Chat live"
+        "message": "Live Chat"
     },
     "liveChatType": {
-        "message": "Chat live scrie"
+        "message": "Type Live Chat"
     },
     "location": {
-        "message": "Location"
+        "message": "Locatie"
     },
     "loop": {
-        "message": "Loop"
+        "message": "Lus"
     },
     "loudnessNormalization": {
-        "message": "Normalizează zgomotul"
+        "message": "Volume normaliseren"
     },
     "low": {
         "message": "Low"
     },
     "markWatchedVideos": {
-        "message": "Marchează videoclipurile văzute"
+        "message": "Markeer bekeken video's"
     },
     "medium": {
         "message": "Medium"
@@ -675,247 +675,247 @@
         "message": "Most viewed channels"
     },
     "moveSidebarLeft": {
-        "message": "To the left!"
+        "message": "Verplaats zijbalk naar links"
     },
     "moveThumbnailsRight": {
-        "message": "Thumbnails to the right!"
+        "message": "Verplaats miniatuurafbeeldingen naar links"
     },
     "myColors": {
-        "message": "Culorile mele"
+        "message": "Mijn kleuren"
     },
     "name": {
-        "message": "Nume"
+        "message": "Naam"
     },
     "nativeMiniPlayer": {
-        "message": "Mini-Player nativ"
+        "message": "Ingebouwde minispeler"
     },
     "new": {
-        "message": "Nou"
+        "message": "Nieuw"
     },
     "nextVideo": {
-        "message": "Următorul video"
+        "message": "Volgende video afspelen"
     },
     "night": {
-        "message": "Noapte"
+        "message": "Nacht"
     },
     "nightMode": {
         "message": "Night mode"
     },
     "noActiveFeatures": {
-        "message": "Nici o caracteristică activată"
+        "message": "Geen actieve functies"
     },
     "noOpenVideoTabs": {
-        "message": "Niciun tab video deschis"
+        "message": "Geen openstaande videotabbladen"
     },
     "none": {
-        "message": "Nimic"
+        "message": "Geen"
     },
     "normal": {
-        "message": "Normal"
+        "message": "Normaal"
     },
     "off": {
         "message": "Off"
     },
     "ok": {
-        "message": "Ok"
+        "message": "OK"
     },
     "old": {
-        "message": "Vechi"
+        "message": "Oud"
     },
     "onAllVideos": {
-        "message": "Pe toate videoclipurile"
+        "message": "Bij alle videos"
     },
     "onSubscribedChannels": {
-        "message": "Pe canalele abonate"
+        "message": "Op geabonneerde kanalen"
     },
     "onlyActiveOnYoutube": {
-        "message": "Activ doar pe YouTube"
+        "message": "Alleen actief op YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Doar o instanță de player care merge"
+        "message": "Slechts één actieve speler toestaan"
     },
     "openPopupPlayer": {
-        "message": "Deschide videoclipul/playlistul într-o fereastră nouă"
+        "message": "Open video/playlist in a new window"
     },
     "orange": {
-        "message": "Portocaliu"
+        "message": "Oranje"
     },
     "os": {
-        "message": "SO"
+        "message": "Besturingssysteem"
     },
     "other": {
-        "message": "Altele"
+        "message": "Anders"
     },
     "outline": {
-        "message": "Outline"
+        "message": "Uitlijning"
     },
     "overlay": {
-        "message": "Overlay"
+        "message": "Omslag"
     },
     "permissions": {
-        "message": "Permisiuni"
+        "message": "Machtigingen"
     },
     "pictureInPicture": {
         "message": "Picture-in-Picture"
     },
     "pink": {
-        "message": "Roz"
+        "message": "Roze"
     },
     "plain": {
-        "message": "Simplu"
+        "message": "Vlakte"
     },
     "platform": {
-        "message": "Platformă"
+        "message": "Platform"
     },
     "playAllButton": {
-        "message": "\"Play all\" button"
+        "message": "\"Alles afspelen\"-knop"
     },
     "playPause": {
-        "message": "Redă / Pauză"
+        "message": "Video afspelen/pauzeren"
     },
     "playbackSpeed": {
-        "message": "Viteza playbackului"
+        "message": "Afspeelsnelheid"
     },
     "player": {
-        "message": "Player"
+        "message": "Speler"
     },
     "playerColor": {
-        "message": "Culoare player"
+        "message": "Spelerkleur"
     },
     "playerSize": {
-        "message": "Mărime player"
+        "message": "Spelergrootte"
     },
     "playlist": {
-        "message": "Playlist"
+        "message": "Afspeellijst"
     },
     "playlists": {
-        "message": "Playlisturi"
+        "message": "Afspeellijsten"
     },
     "popupPlayer": {
-        "message": "Player popup"
+        "message": "Pop-upspeler"
     },
     "popupWindowButtons": {
         "message": "popup_window_buttons"
     },
     "position": {
-        "message": "Poziție"
+        "message": "Positie"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Apasă orice buton sau folosește rotița mouseului."
+        "message": "Druk op een toets of scroll met muiswiel."
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Apasă orice buton sau folosește rotița mouseului"
+        "message": "Druk op een toets of gebruik muiswiel"
     },
     "previousVideo": {
-        "message": "Videoclipul anterior"
+        "message": "Vorige video afspelen"
     },
     "primaryColor": {
-        "message": "Culoarea primară"
+        "message": "Primaire kleur"
     },
     "purple": {
-        "message": "Mov"
+        "message": "Paars"
     },
     "quality": {
-        "message": "Calitate"
+        "message": "Kwaliteit"
     },
     "raised": {
-        "message": "Raised"
+        "message": "Opgeklapt"
     },
     "ram": {
-        "message": "RAM"
+        "message": "Geheugen (RAM)"
     },
     "rateMe": {
-        "message": "Rate me"
+        "message": "Beoordeel mij"
     },
     "rateUs": {
-        "message": "Dă-ne o notă"
+        "message": "Beoordeel ons"
     },
     "red": {
-        "message": "Roșu"
+        "message": "Rood"
     },
     "redDislikeButton": {
-        "message": "Arată butonul nu îmi place cu culoare roșie"
+        "message": "Laat Vind ik niet leuk-knop zien in het rood"
     },
     "relatedVideos": {
-        "message": "Videoclipuri asemănătoare"
+        "message": "Gerelateerde video's"
     },
     "remote": {
-        "message": "Play on TV"
+        "message": "Speel af op TV"
     },
     "removeHomePageShorts": {
-        "message": "Eliminați Shorts de pe pagina de start"
+        "message": "Verwijder Shorts van de startpagina"
     },
     "removeRelatedSearchResults": {
-        "message": "Elimină rezultatele asemănătoare a căutării"
+        "message": "Verwijder resultaten van gerelateerde videos"
     },
     "removeShortsReelSearchResults": {
-        "message": "Eliminați roata de Shorts din rezultatele căutării"
+        "message": "Verwijder Shorts-reel uit de zoekresultaten"
     },
     "repeat": {
-        "message": "Repetă"
+        "message": "Herhalen"
     },
     "report": {
         "message": "Report"
     },
     "reset": {
-        "message": "Resetează"
+        "message": "Herstel"
     },
     "resetAllSettings": {
-        "message": "Resetează toate setările"
+        "message": "Standaardwaarden herstellen"
     },
     "resetAllShortcuts": {
-        "message": "Resetează toate scurtăturile"
+        "message": "Herstel alle snelkoppelingen"
     },
     "reverse": {
-        "message": "Invers"
+        "message": "Omdraaien"
     },
     "rotate": {
-        "message": "Rotește"
+        "message": "Draaien"
     },
     "save": {
-        "message": "Salvează"
+        "message": "Opslaan"
     },
     "saveAs": {
-        "message": "Salvează ca"
+        "message": "Opslaan als"
     },
     "schedule": {
-        "message": "Program"
+        "message": "Schema"
     },
     "screen": {
-        "message": "Ecran"
+        "message": "Beeldscherm"
     },
     "screenshot": {
-        "message": "Captură de ecran"
+        "message": "Schermafbeelding"
     },
     "scrollBar": {
-        "message": "Scroll Bar"
+        "message": "Scrollbalk"
     },
     "sd": {
         "message": "SD"
     },
     "search": {
-        "message": "Caută"
+        "message": "Zoeken"
     },
     "searchBarOnly": {
-        "message": "Doar bara de căutare"
+        "message": "Alleen zoekbalk"
     },
     "seekBackward10Seconds": {
-        "message": "Sari înapoi 10 secunde"
+        "message": "Ga 10 seconden terug"
     },
     "seekForward10Seconds": {
-        "message": "Sari înainte 10 secunde"
+        "message": "Ga 10 seconden naar voren"
     },
     "seekNextChapter": {
-        "message": "seekNextChapter"
+        "message": "Ga naar volgend hoofdstuk"
     },
     "seekPreviousChapter": {
-        "message": "seekPreviousChapter"
+        "message": "Ga naar vorig hoofdstuk"
     },
     "settings": {
-        "message": "Setări"
+        "message": "Instellingen"
     },
     "settingsSuccessfullyImported": {
-        "message": "Setările au fost importate cu succes"
+        "message": "Instellingen succesvol geïmporteerd"
     },
     "share": {
         "message": "Share"
@@ -936,31 +936,31 @@
         "message": "Hide YouTube Logo"
     },
     "shortcuts": {
-        "message": "Scurtături"
+        "message": "Sneltoetsen"
     },
     "showCardsOnMouseHover": {
-        "message": "Arată cardurile la hover-ul cu mouseul"
+        "message": "Laat infokaarten zien onder muisaanwijzer"
     },
     "showChannelVideosCount": {
-        "message": "Arată numărul de videoclipuri al canalului"
+        "message": "Aantal kanaalvideo's tonen"
     },
     "showLess": {
-        "message": "Show less"
+        "message": "Minder zien"
     },
     "showMore": {
-        "message": "Show more"
+        "message": "Meer zien"
     },
     "Hamburger_Menu": {
         "message": "Hamburger Menu"
     },
     "showRemainingDuration": {
-        "message": "Show video remaining duration"
+        "message": "Laat resterende afspeelduur zien"
     },
     "showVersion": {
         "message": "Show version"
     },
     "shuffle": {
-        "message": "Amestecă"
+        "message": "Willekeurig"
     },
     "player_fit_to_win_button": {
         "message": "player fit to win button"
@@ -972,163 +972,163 @@
         "message": "player rotate button"
     },
     "sidebar": {
-        "message": "Bara laterală"
+        "message": "Zijbalk"
     },
     "softwareInformation": {
         "message": "Software information"
     },
     "spacebar": {
-        "message": "Bara de spațiu"
+        "message": "Spatiebalk"
     },
     "squaredUserImages": {
-        "message": "Avatarele utilizatorului pătrat"
+        "message": "Vierkante profielfoto's"
     },
     "static": {
-        "message": "Static"
+        "message": "Statisch"
     },
     "statsForNerds": {
-        "message": "Arată Statisticile pentru Tocilari"
+        "message": "Toon statistieken voor Nerds"
     },
     "step": {
-        "message": "Pas"
+        "message": "Stap"
     },
     "stop": {
         "message": "Stop"
     },
     "style": {
-        "message": "Stil"
+        "message": "Stijl"
     },
     "styles": {
-        "message": "Stiluri"
+        "message": "Stijlen"
     },
     "subscribe": {
-        "message": "Subscribe"
+        "message": "Abonneer"
     },
     "subscriptions": {
-        "message": "Abonamente"
+        "message": "Abonnementen"
     },
     "subtitles": {
-        "message": "Subtitrări"
+        "message": "Ondertiteling"
     },
     "sunset": {
-        "message": "Apus"
+        "message": "Zonsondergang"
     },
     "sunsetToSunrise": {
-        "message": "De la apus la răsărit"
+        "message": "Zonsondergang tot zonsopkomst"
     },
     "systemPeferenceDark": {
-        "message": "Preferința sitemului: închis"
+        "message": "Systeemvoorkeur: donker"
     },
     "systemPeferenceLight": {
-        "message": "Preferința sitemului: deschis"
+        "message": "Systeemvoorkeur: licht"
     },
     "teal": {
-        "message": "Teal"
+        "message": "Groenblauw"
     },
     "textColor": {
-        "message": "Culoarea textului"
+        "message": "Tekstkleur"
     },
     "thanks": {
         "message": "Thanks"
     },
     "themes": {
-        "message": "Teme"
+        "message": "Thema's"
     },
     "thisWillRemoveAllCookies": {
-        "message": "Asta va șterge toate cookie-urile."
+        "message": "Dit verwijdert alle cookies."
     },
     "thisWillRemoveAllWatchedVideos": {
         "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "Asta va șterge toate cooki-urile YouTube."
+        "message": "Dit verwijdert alle YouTube-cookies"
     },
     "thisWillResetAllSettings": {
-        "message": "Asta va reseta toate setările."
+        "message": "Dit wist alle instellingen."
     },
     "thisWillResetAllShortcuts": {
-        "message": "Asta va șterge toate scurtăturile"
+        "message": "Dit wist alle snelkoppelingen"
     },
     "thumbnails": {
-        "message": "Miniaturi"
+        "message": "Miniatuurvoorbeelden"
     },
     "thumbnailsQuality": {
-        "message": "Thumbnails Quality"
+        "message": "Kwaliteit miniatuurvoorbeelden"
     },
     "timeFrom": {
-        "message": "Timp de la"
+        "message": "Tijd vanaf"
     },
     "timeTo": {
-        "message": "Timp până la"
+        "message": "Tijd tot"
     },
     "todayAt": {
-        "message": "Azi la"
+        "message": "Vandaag om"
     },
     "toggleAutoplay": {
-        "message": "Toggle autoplay"
+        "message": "Automatisch afspelen aanzetten"
     },
     "toggleCards": {
-        "message": "Comută cardurile"
+        "message": "Infokaarten aanzetten"
     },
     "toggleControls": {
-        "message": "Toggle controls"
+        "message": "Controleknoppen aanzetten"
     },
     "topChat": {
-        "message": "Top chat"
+        "message": "Top-chat"
     },
     "trackWatchedVideos": {
-        "message": "Track watched videos"
+        "message": "Houd afgespeelde video's bij"
     },
     "trailerAutoplay": {
-        "message": "Auto-redă trailerul"
+        "message": "Automatisch afspelen van trailers"
     },
     "translations": {
-        "message": "Traduceri"
+        "message": "vertalingen"
     },
     "transparentBackground": {
-        "message": "Fundal Transparent"
+        "message": "Doorzichtige achtergrond"
     },
     "trending": {
-        "message": "Tendințe"
+        "message": "Trending"
     },
     "tryToReloadThePage": {
-        "message": "Încearcă să reîmprospătezi pagina"
+        "message": "Probeer de pagina te herladen"
     },
     "type": {
-        "message": "Scrie"
+        "message": "Soort"
     },
     "upNextAutoplay": {
-        "message": "Urmează"
+        "message": "Volgende in wachtrij automatisch afspelen"
     },
     "use24HourFormat": {
-        "message": "Folosește formatul de 24 de ore"
+        "message": "24-uursnotatie gebruiken"
     },
     "version": {
-        "message": "Versiune"
+        "message": "Versie"
     },
     "video": {
         "message": "Video"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "Descripția videoclipului va fi extinsă pentru a afla numele categoriei"
+        "message": "De video-omschrijving wordt uitgeklapt om de naam van de categorie te verkrijgen"
     },
     "videoFormats": {
-        "message": "Formatul videoclipului"
+        "message": "Videoformaten"
     },
     "videos": {
-        "message": "Videoclipuri"
+        "message": "Video's"
     },
     "viewMode": {
-        "message": "View Mode"
+        "message": "Afspeelmodus"
     },
     "volume": {
-        "message": "Volum"
+        "message": "Volume"
     },
     "watchLater": {
-        "message": "Vezi mai târziu"
+        "message": "Later bekijken"
     },
     "watchTime": {
-        "message": "Timp de vizionare"
+        "message": "Tijd van bekijken"
     },
     "watchedVideos": {
         "message": "Watched videos"
@@ -1137,34 +1137,34 @@
         "message": "When paused"
     },
     "whenTabIsChanged": {
-        "message": "Când tabul este schimbat"
+        "message": "Wanneer het tabblad is veranderd"
     },
     "white": {
-        "message": "Alb"
+        "message": "Wit"
     },
     "windowColor": {
-        "message": "Window color"
+        "message": "Vensterkleur"
     },
     "windowOpacity": {
-        "message": "Window opacity"
+        "message": "Doorzichtigheid venster"
     },
     "yellow": {
-        "message": "Galben"
+        "message": "Geel"
     },
     "youtubeHeaderLeft": {
-        "message": "Antetul YouTube (stânga)"
+        "message": "YouTube-kop (links)"
     },
     "youtubeHeaderRight": {
-        "message": "Antetul YouTube (dreapta)"
+        "message": "YouTube-kop (rechts)"
     },
     "youtubeHomePage": {
-        "message": "Pagina de pornire YouTube"
+        "message": "YouTube-startpagina"
     },
     "youtubeLanguage": {
-        "message": "Limba de afișare YouTube"
+        "message": "Taal van YouTube"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limitează calitatea videoclipului la 1080p pentru codecul h.264"
+        "message": "YouTube limiteert videokwaliteit tot 1080p voor H.264 codec"
     },
     "openNewTab": {
         "message": "Open in a new tab"
