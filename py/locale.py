@@ -250,7 +250,7 @@ def upgrade():
 'pl',
 'pl_PL',
 'ps_AF',
-'pt_BR',
+
 'pt_PT',
 'ro',
 'ro_RO'',
