@@ -1171,5 +1171,8 @@
     },
     "hideVideoTitleFullScreen": {
         "message": "Ocultar título de vídeo en pantalla completa"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "To the side! (No page margin)"
     }
 }
