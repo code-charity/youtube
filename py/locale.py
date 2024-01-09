@@ -157,8 +157,8 @@ def upgrade():
 'ceb_PH',
 'ch_GU',
 'cs',
-'cs_CZ'
-'csb_PL'
+'cs_CZ',
+'csb_PL',
 'cv_CU',
 'da',
 'da_DK',
@@ -253,7 +253,7 @@ def upgrade():
 'pt_BR',
 'pt_PT',
 'ro',
-'ro_RO',
+'ro_RO'',
 'ru',
 'ru_RU',
 'si',
@@ -268,7 +268,7 @@ def upgrade():
 'ta',
 'te',
 'th',
-'tr',
+'tr,
 'tr_TR',
 'uk',
 'uk_UA',
@@ -276,7 +276,7 @@ def upgrade():
 'vi_VN',
 'vls_BE',
 'zh_CN',
-'zh_TW''
+'zh_TW',
     ]
 
     if os.path.exists('../_locales/en/messages.json'):
