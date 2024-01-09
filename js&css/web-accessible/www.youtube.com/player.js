@@ -64,19 +64,23 @@ ImprovedTube.playerAutoPip = function () {
 /*------------------------------------------------------------------------------
 FORCED PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerPlaybackSpeed = function () {
-	if (this.storage.player_forced_playback_speed === true) {
+ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed === true) {
 		var player = this.elements.player,
 		video = player.querySelector('video'),
 		option = this.storage.player_playback_speed;
-		if (this.isset(option) === false) {	option = 1; }	
-		if (player.getVideoData().isLive === false
-			&& (this.storage.player_force_speed_on_music !== true 
-			|| this.storage.player_dont_speed_education === true) && option !== 1) {
-
+		if (this.isset(option) === false) { option = 1; }
+		else if ( option !== 1 && (video.playbackRate < 1  ||  video.playbackRate > 1)) 
+		   { console.log("skipping permanent speed, since speed was manually set for this video to:" + video.playbackRate); return; }
+		if ( !player.getVideoData().isLive || player.getVideoData().isLive === false)
+{ player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);  // #1729 q2	// hi! @raszpl
+	if  ( (this.storage.player_force_speed_on_music !== true  || this.storage.player_dont_speed_education === true) 
+	     	&& option !== 1) {
 ImprovedTube.speedException = function () { 
-if (this.storage.player_dont_speed_education === true && DATA.genre === 'Education') {return;} 
-if (this.storage.player_force_speed_on_music === true) {player.setPlaybackRate(Number(option));	video.playbackRate = Number(option); return;}
+if (this.storage.player_dont_speed_education === true && DATA.genre === 'Education') 
+	{player.setPlaybackRate(Number(1));	video.playbackRate = Number(1); return;} 
+if (this.storage.player_force_speed_on_music === true) 
+	{ //player.setPlaybackRate(Number(option));	video.playbackRate = Number(option); 
+	 return;}
 if (DATA.keywords && !keywords) { keywords = DATA.keywords.join(', ') || ''; }
 if (keywords === 'video, sharing, camera phone, video phone, free, upload') { keywords = ''; }
 var musicIdentifiers = /(official|music|lyrics)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
@@ -104,8 +108,7 @@ notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|en
 				//does Youtube ever show more than 10 songs below the description?
 				}				
 var songDurationType = testSongDuration(DATA.lengthSeconds); 
-console.log("genre: " + DATA.genre + "//title: " +  DATA.title + "//keywords: " + keywords + "//music word match: " +  musicRegexMatch + "// not music word match:" + notMusicRegexMatch + "//duration: " + DATA.lengthSeconds + "//song duration type: " +  songDurationType);
-			
+console.log("genre: " + DATA.genre + "//title: " +  DATA.title + "//keywords: " + keywords + "//music word match: " +  musicRegexMatch + "// not music word match:" + notMusicRegexMatch + "//duration: " + DATA.lengthSeconds + "//song duration type: " +  songDurationType);			
  // check if the video is PROBABLY MUSIC:
 	if  ( 		( DATA.genre === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))  
 			||  ( musicRegexMatch && !notMusicRegexMatch && (typeof songDurationType !== 'undefined' 
@@ -116,9 +119,8 @@ console.log("genre: " + DATA.genre + "//title: " +  DATA.title + "//keywords: " 
 							&& 1150 <= DATA.lengthSeconds && DATA.lengthSeconds <= 5000)) )
 			||  (amountOfSongs && testSongDuration(DATA.lengthSeconds, amountOfSongs ) !== 'undefined') 				
 		 //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
-		)	{ } //music player.setPlaybackRate(1); video.playbackRate = 1;				 				
-			else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);	//  #1729 question2		 
-				// Now this video might rarely be music 
+		)	{ player.setPlaybackRate(1); video.playbackRate = 1; console.log ("...,thus must be music?"); }		 				
+			else { 	// Now this video might rarely be music 
 			    	// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
 					var tries = 0; 	var intervalMs = 210;  	if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}  	
 														// ...except when it is an embedded player?
@@ -127,13 +129,11 @@ console.log("genre: " + DATA.genre + "//title: " +  DATA.title + "//keywords: " 
 					subtitle = document.querySelector('#title + #subtitle:last-of-type')
 					if ( subtitle && 1 <= Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0])    // indicates buyable/registered music (amount of songs)
 						 && typeof testSongDuration(DATA.lengthSeconds, Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0]) ) !== 'undefined' ) // resonable duration
-							{player.setPlaybackRate(1); video.playbackRate = 1; console.log("Youtube shows music below the description"); clearInterval(waitForDescription); } 			
-					intervalMs *= 1.11;	}}, intervalMs);   		
-					
+							{player.setPlaybackRate(1); video.playbackRate = 1; console.log("...but YouTube shows music below the description!"); clearInterval(waitForDescription); } 			
+					intervalMs *= 1.11;	}}, intervalMs);   							
 					window.addEventListener('load', () => { setTimeout(() => { clearInterval(waitForDescription);  }, 1234); });						
 				}	
 		}				
-					
 //DATA  (TO-DO: make the Data available to more/all features? #1452  #1763  (Then can replace ImprovedTube.elements.category === 'music', VideoID is also used elsewhere)
 DATA = {};
 defaultKeywords = "video,sharing,camera,phone,video phone,free,upload";
@@ -183,8 +183,9 @@ function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Mat
 							else { ImprovedTube.fetchDOMData();} }  
 })();
 }
-	}	else { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);} // #1729 q2	// hi! @raszpl  
- }        
+    }    // else { }  
+  }        
+ }
 } 
 /*------------------------------------------------------------------------------
 SUBTITLES
