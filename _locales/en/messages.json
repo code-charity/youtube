@@ -17,12 +17,26 @@
     "accept": {
         "message": "Accept"
     },
+    "compact_spacing": {
+        "message": "compact spacing"},
+   
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
+    },
+    "compactTheme": {
+        "message": "Compact Theme"
+    },
     "activate": {
         "message": "Activate"
     },
     "activateCaptions": {
         "message": "Activate captions"
     },
+   
+    "Buttons": {
+        "message": "Buttons"
+    },
+
     "activateFullscreen": {
         "message": "Activate fullscreen"
     },
@@ -38,9 +52,11 @@
     "addScrollToTop": {
         "message": "Add «Scroll to top»"
     },
+
     "ads": {
         "message": "Ads"
-    },
+    }, 
+
     "all": {
         "message": "All"
     },
@@ -477,7 +493,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "hide Detail Button"
     },
     "hideDetails": {
         "message": "Hide details"
@@ -498,7 +514,7 @@
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls     buttons"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
@@ -908,6 +924,25 @@
     "share": {
         "message": "Share"
     },
+
+   "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
+    },
+    
+ "Transcript": {
+        "message": "Transcript"},
+
+     "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtitle (Capture including the current words)"},
+
+     "Embedded_YouTube": {
+        "message": "Embedded YouTube"
+    },
+ 
+     "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"
+    },
+
     "shortcuts": {
         "message": "Shortcuts"
     },
@@ -923,6 +958,11 @@
     "showMore": {
         "message": "Show more"
     },
+
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
+
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
@@ -932,6 +972,19 @@
     "shuffle": {
         "message": "Shuffle"
     },
+
+   "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+
+  "hide_author_avatars": {
+        "message": "Hide author avatars"
+    },
+ 
+   "player_rotate_button": {
+        "message": "player rotate button"
+    },
+    
     "sidebar": {
         "message": "Sidebar"
     },
@@ -1132,5 +1185,7 @@
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
-    }
+    },
+    "To_the_side_No_page_margin": {
+               "message": "To the side! (No page margin)"}
 }
