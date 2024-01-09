@@ -985,7 +985,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 					},
 					embed_subtitle: {
 						component: 'switch',
-						text: 'Subtitle (Capture including the current words)',
+						text: 'Subtitle_Capture_including_the_current_words',
 						value: true
 					},
 					player_screenshot_save_as: {
@@ -1014,15 +1014,16 @@ extension.skeleton.main.layers.section.player.on.click = {
 					},
 		player_fit_to_win_button: {
 			component: 'switch',
-			text: 'Fit to Window'
+			text: 'player_fit_to_win_button'
 		},
 		player_rotate_button: {
 			component: 'switch',
-			text: 'rotate'
+			text: 'player_rotate_button'
 		},
+
 		player_hamburger_button: {
 			component: 'switch',
-			text: 'Hamburger Menu'
+			text: 'Hamburger_Menu'
 		}
 	}
 };

@@ -473,6 +473,9 @@
     "hideFeaturedContent": {
         "message": "Ocultar contenido destacado"
     },
+   "compact_spacing": {
+        "message": "Tema compacto"},
+        
     "compactTheme": {
         "message": "Tema compacto"
     },

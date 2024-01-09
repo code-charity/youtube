@@ -17,11 +17,23 @@
     "accept": {
         "message": "接受"
     },
+    "compact_spacing": {
+        "message": "compact spacing"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
+    },
+    "compactTheme": {
+        "message": "Compact Theme"
+    },
     "activate": {
         "message": "啟用"
     },
     "activateCaptions": {
         "message": "開啟字幕"
+    },
+    "Buttons": {
+        "message": "按鈕"
     },
     "activateFullscreen": {
         "message": "開啟全螢幕"
@@ -43,6 +55,12 @@
     },
     "all": {
         "message": "所有"
+    },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your settings will be erased and can't be recovered"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your shortcuts will be erased and can't be recovered"
     },
     "allow": {
         "message": "允許"
@@ -122,6 +140,9 @@
     "belowPlayer": {
         "message": "於播放器底下"
     },
+    "bitness": {
+        "message": "Bitness"
+    },
     "black": {
         "message": "黑色"
     },
@@ -154,6 +175,9 @@
     },
     "bluelight": {
         "message": "藍光"
+    },
+    "brightness": {
+        "message": "Brightness"
     },
     "brown": {
         "message": "棕色"
@@ -268,6 +292,9 @@
     },
     "defaultContentCountry": {
         "message": "預設國家"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
     },
     "deleteWatchedVideos": {
         "message": "刪除已觀看的影片"
@@ -520,6 +547,9 @@
     },
     "home": {
         "message": "首頁"
+    },
+    "homeScreen": {
+        "message": "Home screen"
     },
     "hover": {
         "message": "滑鼠暫留時顯示"
@@ -890,6 +920,21 @@
     "share": {
         "message": "分享"
     },
+    "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
+    },
+    "Transcript": {
+        "message": "Transcript"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtitle (Capture including the current words)"
+    },
+    "Embedded_YouTube": {
+        "message": "Embedded YouTube"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"
+    },
     "shortcuts": {
         "message": "快捷鍵"
     },
@@ -905,6 +950,9 @@
     "showMore": {
         "message": "顯示更多"
     },
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
     "showRemainingDuration": {
         "message": "顯示影片剩餘時間"
     },
@@ -913,6 +961,15 @@
     },
     "shuffle": {
         "message": "隨機播放"
+    },
+    "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+    "hide_author_avatars": {
+        "message": "Hide author avatars"
+    },
+    "player_rotate_button": {
+        "message": "player rotate button"
     },
     "sidebar": {
         "message": "側邊欄"
@@ -1073,6 +1130,9 @@
     "watchTime": {
         "message": "已觀看時間"
     },
+    "watchedVideos": {
+        "message": "Watched videos"
+    },
     "whenPaused": {
         "message": "當暫停播放時"
     },
@@ -1105,5 +1165,14 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "使用 H.264 編碼時，YouTube 會將畫質限制為 1080p 內。"
+    },
+    "openNewTab": {
+        "message": "Open in a new tab"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Hide video title in fullscreen"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "To the side! (No page margin)"
     }
 }

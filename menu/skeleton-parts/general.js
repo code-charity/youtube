@@ -130,19 +130,19 @@ extension.skeleton.main.layers.section.general = {
 			embed: {
 				component: 'section',
 				variant: 'card',
-				title: 'Embedded YouTube',
+				title: 'Embedded_YouTube',
 
 				embeddedHidePauseOverlay: {
 					component: 'switch',
-					text: 'Hide Pause Overlay',
+					text: 'Hide_Pause_Overlay',
 				},
 				embeddedHideYoutubeLogo: {
 					component: 'switch',
-					text: 'Hide YouTube Logo'
+					text: 'Hide_YouTube_Logo'
 				},
 				embeddedHideShare: {
 					component: 'switch',
-					text: "Hide 'Share'"
+					text: 'embedded_Hide_Share'
 				}
 			},
 			section_3: {

@@ -17,11 +17,23 @@
     "accept": {
         "message": "Aceitar"
     },
+    "compact_spacing": {
+        "message": "Espaçamento compacto"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Ocultar Sobreposição de pausa"
+    },
+    "compactTheme": {
+        "message": "Tema compacto"
+    },
     "activate": {
         "message": "Ativar"
     },
     "activateCaptions": {
         "message": "Ativar legendas"
+    },
+    "Buttons": {
+        "message": "Botões"
     },
     "activateFullscreen": {
         "message": "Ativar tela cheia"
@@ -43,6 +55,12 @@
     },
     "all": {
         "message": "Todos"
+    },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "Todas as suas configurações serão apagadas e não poderão ser recuperadas"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "Todos os seus atalhos serão apagados e não poderão ser recuperados"
     },
     "allow": {
         "message": "Permitir"
@@ -122,6 +140,9 @@
     "belowPlayer": {
         "message": "Abaixo do player"
     },
+    "bitness": {
+        "message": "Diminuir Bits"
+    },
     "black": {
         "message": "Preto"
     },
@@ -154,6 +175,9 @@
     },
     "bluelight": {
         "message": "Filtrar luz azul"
+    },
+    "brightness": {
+        "message": "Luminosidade"
     },
     "brown": {
         "message": "Marrom"
@@ -269,6 +293,9 @@
     "defaultContentCountry": {
         "message": "Conteúdo padrão do país "
     },
+    "defaultPlaybackSpeed": {
+        "message": "Velocidade padrão de reprodução"
+    },
     "deleteWatchedVideos": {
         "message": "Excluir vídeos assistidos"
     },
@@ -306,7 +333,7 @@
         "message": "Não Gostei."
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the week"
+        "message": "Mostrar dia da Semana"
     },
     "doNotChange": {
         "message": "Não Alterar"
@@ -324,7 +351,7 @@
         "message": "Sombra projetada"
     },
     "durationWithSpeed": {
-        "message": "Show time remaining with reference to playback speed"
+        "message": "Mostrar tempo restante com referência a velocidade de reprodução"
     },
     "email": {
         "message": "Email"
@@ -450,10 +477,10 @@
         "message": "Ocultar cards"
     },
     "hideCategories": {
-        "message": "Hide categories"
+        "message": "Ocultar categorias"
     },
     "hideCommentsCount": {
-        "message": "Hide comments count"
+        "message": "Ocultar contagens de Comentários"
     },
     "hideCountryCode": {
         "message": "Ocultar código do país"
@@ -498,7 +525,7 @@
         "message": "Ocultar «Rolar para ver detalhes»"
     },
     "hideSkipOverlay": {
-        "message": "Hide 5 second skip animation"
+        "message": "Esconder animação de salto de 5 segundos"
     },
     "hideThumbnailOverlay": {
         "message": "Ocultar botões nas miniaturas"
@@ -521,8 +548,11 @@
     "home": {
         "message": "Início"
     },
+    "homeScreen": {
+        "message": "Tela inicial"
+    },
     "hover": {
-        "message": "Passar"
+        "message": "Passar o Ponteiro"
     },
     "hoverOnVideoPage": {
         "message": "Passe o mouse na página do vídeo"
@@ -669,7 +699,7 @@
         "message": "Noite"
     },
     "nightMode": {
-        "message": "Night mode"
+        "message": "Modo noturno"
     },
     "noActiveFeatures": {
         "message": "Sem recursos ativos"
@@ -732,7 +762,7 @@
         "message": "Rosa"
     },
     "plain": {
-        "message": "Panície"
+        "message": "Planície"
     },
     "platform": {
         "message": "Plataforma"
@@ -765,7 +795,7 @@
         "message": "Player externo"
     },
     "popupWindowButtons": {
-        "message": "popup_window_buttons"
+        "message": "Adicione um botão Popup-player para cada miniatura"
     },
     "position": {
         "message": "Posição"
@@ -818,11 +848,14 @@
     "removeRelatedSearchResults": {
         "message": "Remover os respectivos resultados de pesquisa"
     },
+    "removeShortsReelSearchResults": {
+        "message": "Remover fileiras de Shorts dos resultados de pesquisa"
+    },
     "repeat": {
         "message": "Repetir"
     },
     "report": {
-        "message": "Report"
+        "message": "Reportar"
     },
     "reset": {
         "message": "Restaurar"
@@ -885,7 +918,22 @@
         "message": "Configurações importadas com sucesso"
     },
     "share": {
-        "message": "Share"
+        "message": "Compartilhar"
+    },
+    "embedded_Hide_Share": {
+        "message": "Ocultar compartilhamento do video incorporado"
+    },
+    "Transcript": {
+        "message": "Transcrição"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtítulo (Captura incluindo as palavras atuais)"
+    },
+    "Embedded_YouTube": {
+        "message": "Vídeos Incorporados"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Ocultar Logo do YouTube"
     },
     "shortcuts": {
         "message": "Atalhos"
@@ -902,6 +950,9 @@
     "showMore": {
         "message": "Mostre mais"
     },
+    "Hamburger_Menu": {
+        "message": "Menu hamburguer"
+    },
     "showRemainingDuration": {
         "message": "Mostrar duração restante do vídeo"
     },
@@ -910,6 +961,15 @@
     },
     "shuffle": {
         "message": "Aleatório"
+    },
+    "player_fit_to_win_button": {
+        "message": "jogador se encaixa no botão ganhar"
+    },
+    "hide_author_avatars": {
+        "message": "Ocultar avatares de autores"
+    },
+    "player_rotate_button": {
+        "message": "Botão de rotação do player"
     },
     "sidebar": {
         "message": "Painel Lateral"
@@ -1070,8 +1130,11 @@
     "watchTime": {
         "message": "Tempo de exibição"
     },
+    "watchedVideos": {
+        "message": "Vídeos assistidos"
+    },
     "whenPaused": {
-        "message": "When paused"
+        "message": "Quando pausado"
     },
     "whenTabIsChanged": {
         "message": "Quando a aba é alterada"
@@ -1102,5 +1165,14 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "O YouTube limita o codec h.264 à resolução de 1080p"
+    },
+    "openNewTab": {
+        "message": "Abrir numa nova aba"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Ocultar o título do vídeo em tela cheia"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "Ao lado! (Sem margem de página)"
     }
 }
