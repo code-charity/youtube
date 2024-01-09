@@ -52,6 +52,7 @@
     "addScrollToTop": {
         "message": "Add «Scroll to top»"
     },
+
     "ads": {
         "message": "Ads"
     }, 
@@ -1184,5 +1185,7 @@
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
-    }
+    },
+    "To_the_side_No_page_margin": {
+               "message": "To the side! (No page margin)"}
 }
