@@ -33,7 +33,7 @@ NIGHT MODE
 #activate:not([data-value='sunset_to_sunrise']) + .satus-time--from,
 #activate:not([data-value='sunset_to_sunrise']) + * + .satus-time--to 
 /*====================================*/
-	{display: none !important}
+	{display: none !important;}
 	
 
 
@@ -69,7 +69,7 @@ NIGHT MODE
 #activate[data-value='sunset_to_sunrise'] + .satus-time--from,
 #activate[data-value='sunset_to_sunrise'] + * + .satus-time--to 
 /*====================================*/
-	{margin-left:20px; margin-top:-4px; margin-bottom:2px; max-width: calc( 100% - 22px ) !important;   border-radius: 2px;  border-left: 1px inset; }
+	{margin-left:20px; margin-top:-4px; margin-bottom:2px; max-width: calc( 100% - 22px ) !important;   border-radius: 2px;  border-left: 1px inset;  }
 
 #remove-home-page-shorts[data-value='true'] + .satus-switch:not(:hover),
 #remove-home-page-shorts[data-value='true'] + .satus-switch + .satus-switch:not(:hover),
@@ -102,6 +102,6 @@ NIGHT MODE
 #activate[data-value='sunset_to_sunrise'] + .satus-time--from:not(:hover),
 #activate[data-value='sunset_to_sunrise'] + * + .satus-time--to:not(:hover) 
 /*====================================*/
- { background-color:rgb(77,200,232,0.09); }
+ { background-color:rgb(69,180,210,0.09); }
  
  
