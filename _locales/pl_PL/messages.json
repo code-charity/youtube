@@ -489,7 +489,7 @@
         "message": "Ukryj datę"
     },
     "hideDetailButton": {
-        "message": "hide Detail Button"
+        "message": "Ukryj przycisk Szczegóły"
     },
     "hideDetails": {
         "message": "Ukryj szczegóły"
@@ -510,7 +510,7 @@
         "message": "Ukryj pasek sterowania odtwarzaczem"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "Ukryj przyciski paska sterowania odtwarzaczem"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Ukryj przyciski paska sterowania odtwarzaczem - ustawienia"
