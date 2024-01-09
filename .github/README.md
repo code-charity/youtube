@@ -155,8 +155,11 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 <a href="https://github.com/_____">(You?)</a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Estonian">Estonian</a></code> :
 <a href="https://github.com/_____">(You?)</a><br> </td></tr><tr><td> 
-...While the following popular languages are<br>
-spoken mainly. But dont hesitate to add<br> one of them. (Even if just for fun)</i> <br>
+<div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translations">Help us Translate</a>]
+<br> (=here), or on ​<a href="https://crowdin.com/project/1655556">Crowdin</a></div>
+
+...the following popular languages<br>
+spoken more / written less. But dont hesitate to add<br> one of them. (Even if just for fun!)</i> <br>
 <code>Urdu</code>
 <code>Nigerian Pidgin (English Creole)</code><br>
 <code>Western-&Eastern-Punjabi</code><br>
@@ -179,9 +182,8 @@ Chinese + Hindi + Spanish. <br>
 </i></div>
 
 (And there are so many more.)
-<div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translation-HowTo">Help us Translate </a>]
-<p>or some languages ​​are available here  <a href="https://crowdin.com/project/1655556">Crowdim.</a></p></div>
-
+<div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translations">Help us Translate</a>]
+<br> (=here), or on ​<a href="https://crowdin.com/project/1655556">Crowdin</a></div>
 </td></tr></table>  
 
 <h2>Contributing</h2>
