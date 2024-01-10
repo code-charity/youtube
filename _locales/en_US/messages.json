@@ -489,7 +489,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Buttons"
     },
     "hideDetails": {
         "message": "Hide details"
@@ -834,7 +834,7 @@
         "message": "Red"
     },
     "redDislikeButton": {
-        "message": "Red when disliked"
+        "message": "Red DisLiked-button"
     },
     "relatedVideos": {
         "message": "Related videos"
