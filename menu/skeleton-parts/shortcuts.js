@@ -331,7 +331,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 				},
 				shortcut_chapters: {
 					component: 'shortcut',
-					text: 'chapters'
+					text: 'shortcut_chapters'
 				},
 				shortcut_transcript: {
 					component: 'shortcut',
