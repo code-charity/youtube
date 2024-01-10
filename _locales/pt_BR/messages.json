@@ -234,7 +234,7 @@
         "message": "Comentários"
     },
     "confirmationBeforeClosing": {
-        "message": "Alerta ao fechar a página"
+        "message": "Habilitar alerta para casos de fechamento acidental?"
     },
     "cookies": {
         "message": "Cookies"
