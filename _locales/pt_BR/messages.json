@@ -69,7 +69,7 @@
         "message": "Permitir 60fps"
     },
     "always": {
-        "message": "Always"
+        "message": "Sempre"
     },
     "alwaysActive": {
         "message": "Sempre ativo"
@@ -141,7 +141,7 @@
         "message": "Abaixo do player"
     },
     "bitness": {
-        "message": "Diminuir Bits"
+        "message": "Taxa de bits do Sistema"
     },
     "black": {
         "message": "Preto"
@@ -234,7 +234,7 @@
         "message": "Comentários"
     },
     "confirmationBeforeClosing": {
-        "message": "Alerta ao fechar a página"
+        "message": "Habilitar alerta para casos de fechamento acidental?"
     },
     "cookies": {
         "message": "Cookies"
@@ -927,7 +927,7 @@
         "message": "Transcrição"
     },
     "Subtitle_Capture_including_the_current_words": {
-        "message": "Subtítulo (Captura incluindo as palavras atuais)"
+        "message": "Legenda (Captura incluindo as palavras atuais)"
     },
     "Embedded_YouTube": {
         "message": "Vídeos Incorporados"
@@ -963,7 +963,7 @@
         "message": "Aleatório"
     },
     "player_fit_to_win_button": {
-        "message": "jogador se encaixa no botão ganhar"
+        "message": "Botão para ganhar espaço na área de visualização"
     },
     "hide_author_avatars": {
         "message": "Ocultar avatares de autores"
@@ -1174,5 +1174,38 @@
     },
     "To_the_side_No_page_margin": {
         "message": "Ao lado! (Sem margem de página)"
+    },
+    "Hide_sidebar": {
+        "message": "Ocultar barra lateral de recomendações "
+    },
+    "chapters": {
+        "message": "Capítulos"
+    },
+    "Hide_Shorts_remixing_this_video": {
+        "message": "Ocultar Shorts remixando alguns videos"
+    },
+    "Sidebar_simple_alternative": {
+        "message": "Barra lateral (alternativa simples)"
+    },
+    "with_scrollbars": {
+        "message": "Com barras de rolagem?"
+    },
+    "autoPictureInPicture": {
+        "message": "Auto Picture-In-Picture"
+    },
+    "Allow_auto_generate": {
+        "message": "Permitir geração automática"
+    },
+    "Currently_requiring_a_YouTube_API_key": {
+        "message": "(Necessário uma chave do YouTube-API: )"
+    },
+    "shortcut_chapters": {
+        "message": "Mostrar barra lateral de capítulos"
+    },
+    "Auto_PiP_picture_in_picture": {
+        "message": "Auto-PiP (Picture in picture)"
+    },
+    "Hide_the_tabs_only": {
+        "message": "Ocultar somente as abas"
     }
 }
