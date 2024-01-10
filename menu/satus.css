@@ -12,11 +12,11 @@ div:not([home-style="list"]) .satus-button--blocklist, div:not([home-style="list
  { transform: scale(0.78); margin-top: -22px !important;  margin-left: 110px !important; margin-right: -150px !important; }
 
 div[home-style="list"] .satus-button--themes, div[home-style="list"] .satus-button--playlist,div[home-style="list"]  .satus-button--channel, div[home-style="list"] .satus-button--shortcuts  
- {  transform: scale(0.91); margin-bottom: -11px !important; }
+ {  transform: scale(0.92); margin-bottom: -17px !important; margin-left:3px !important;  margin-top:2px !important;}
 div[home-style="list"] .satus-button--blocklist, div[home-style="list"] .satus-button--analyzer   
- { transform: scale(0.78); margin-left: 150px !important; max-width: 160px !important;  margin-top: -78px !important; }
+ { transform: scale(0.75); margin-left: 150px !important; max-width: 160px !important;  margin-top: -72px !important; }
 div[home-style="list"] .satus-button--analyzer   
-{ margin-top: -14px !important; }
+{ margin-top: -16px !important; }
 
 
 /*--------------------------------------------------------------
