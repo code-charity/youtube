@@ -20,11 +20,7 @@ var extension = {
 
 satus.storage.import(function (items) {
 	var language = items.language;
-
-	if (!language || language === 'default') {
-		language = window.navigator.language;
-	}
-
+    if (!language || language === 'default') {	language = false;}
 	satus.locale.import(language, function () {
 		satus.render(extension.skeleton);
 
