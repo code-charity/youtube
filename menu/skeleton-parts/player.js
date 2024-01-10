@@ -76,7 +76,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_autoPip: {
 			component: 'switch',
-			text: 'Auto-PiP (picture in picture)',
+			text: 'Auto_PiP_picture_in_picture',	
+
 			id: 'player_autoPip',
 			on: {
 				click: function () {
@@ -496,7 +497,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 					},
 					auto_generate: {
 						component: 'switch',
-						text: 'Allow auto generate'
+						text: 'Allow_auto_generate'
 					},
 					subtitles_font_family: {
 						component: 'select',

@@ -650,8 +650,8 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 			api: {
 				component: 'section',
 				variant: 'card',
-				title: "(Currently requiring a YouTube-API-key: )",
-
+				title: 'Currently_requiring_a_YouTube_API_key',
+    
 				how_long_ago_the_video_was_uploaded: {
 					component: "switch",
 					text: "howLongAgoTheVideoWasUploaded"
@@ -699,11 +699,11 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 			},
 			comments_sidebar_scrollbars: {
 				component: "switch",
-				text: "with scrollbars?"
+				text: 'with_scrollbars'
 			},
 			comments_sidebar_simple: {
 				component: "switch",
-				text: "Sidebar (simple alternative)", 
+				text: 'Sidebar_simple_alternative',
 			},
 			squared_user_images: {
 				component: 'switch',
@@ -776,8 +776,8 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 					text: "collapsed",
 					value: "collapsed"
 				}, {
-					text: "Hide the tabs only",
-					value: "hidetabs"
+                	text: 'Hide_the_tabs_only',
+		           			value: "hidetabs"
 				}],
 				tags: "right",
 				on: {
@@ -843,7 +843,7 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			},
 			hide_shorts_remixing: {
 				component: "switch",
-				text: "Hide \'Shorts remixing this video\'"
+				text: 'Hide_Shorts_remixing_this_video'
 			},			
 			livechat: {
 				component: "select",
@@ -866,7 +866,7 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			},
 			hide_sidebar: {
 				component: "switch",
-				text: "Hide sidebar"
+				text: "Hide_sidebar"
 			}
 		}
 	}
