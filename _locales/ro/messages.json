@@ -765,7 +765,7 @@
         "message": "Player popup"
     },
     "popupWindowButtons": {
-        "message": "popup_window_buttons"
+        "message": "Add a popup-player-button to each thumbnail"
     },
     "position": {
         "message": "Poziție"
