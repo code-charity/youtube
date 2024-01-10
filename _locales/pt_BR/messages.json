@@ -234,7 +234,7 @@
         "message": "Comentários"
     },
     "confirmationBeforeClosing": {
-        "message": "Alerta ao fechar a página"
+        "message": "Habilitar alerta para casos de fechamento acidental?"
     },
     "cookies": {
         "message": "Cookies"
@@ -963,7 +963,7 @@
         "message": "Aleatório"
     },
     "player_fit_to_win_button": {
-        "message": "jogador se encaixa no botão ganhar"
+        "message": "Botão para ganhar espaço na área de visualização"
     },
     "hide_author_avatars": {
         "message": "Ocultar avatares de autores"
