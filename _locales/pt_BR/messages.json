@@ -141,7 +141,7 @@
         "message": "Abaixo do player"
     },
     "bitness": {
-        "message": "Taxa de bits do Sistema"
+        "message": "Diminuir Bits"
     },
     "black": {
         "message": "Preto"
@@ -234,7 +234,7 @@
         "message": "Comentários"
     },
     "confirmationBeforeClosing": {
-        "message": "Habilitar alerta para casos de fechamento acidental?"
+        "message": "Alerta ao fechar a página"
     },
     "cookies": {
         "message": "Cookies"
