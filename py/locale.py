@@ -200,7 +200,7 @@ def upgrade():
 'uk',
 'vi',
 'zh_CN',
-'zh_TW'',
+'zh_TW'
     ]
 
     if os.path.exists('../_locales/en/messages.json'):
