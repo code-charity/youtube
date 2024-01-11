@@ -1034,47 +1034,76 @@ satus.last = function(variable) {
 /*--------------------------------------------------------------
 # GET
 --------------------------------------------------------------*/
-
 satus.locale.get = function(string) {
 	return this.data[string] || string;
 };
-
 /*--------------------------------------------------------------
-# IMPORT
-----------------------------------------------------------------
-satus.locale.import(url, onload, onsuccess);
+# IMPORT            								// old:  satus.locale.import(url, onload, onsuccess);
 --------------------------------------------------------------*/
 satus.locale.import = function(code, callback, path) {
-	var language = code || window.navigator.language;
-	
-
-	if (language.indexOf('en') === 0) {
-		language = 'en';
-	}
-
-	language = language.replace('-', '_');
-
-	if (!path) {
-		path = '_locales/';
-	}
-
-	satus.fetch(chrome.runtime.getURL(path + language + '/messages.json'), function(response) {
-		for (var key in response) {
-			satus.locale.data[key] = response[key].message;
-		}
-
-		//satus.log('LOCALE: data was successfully imported');
-
-		if (callback) {
-			callback();
-		}
-	}, function(success) {
-			satus.fetch(chrome.runtime.getURL(path + language.substring(0, 2) + '/messages.json'), success, function() {
-            satus.fetch(chrome.runtime.getURL(path + 'en/messages.json'), success, function() {
-                success();
+// if (!path) {  path = '_locales/';   }
+  function importLocale(locale, successCallback) {
+       var url = chrome.runtime.getURL(path + locale + '/messages.json');
+       fetch(url)
+            .then(response => response.ok ? response.json() : {})
+            .then(data => {
+                for (var key in data) {
+                    if (!satus.locale.data[key]) {
+                        satus.locale.data[key] = data[key].message;
+                    }
+                }
+            })
+            .catch(() => {})
+            .finally(() => successCallback && successCallback());
+    }
+if (code) { var language = code.replace('-', '_');
+    if (language.indexOf('_') !== -1) {
+        importLocale(language, () => importLocale(language.split('_')[0], () => importLocale('en', callback)));
+    } else {
+        importLocale(language, () => importLocale('en', callback));
+}} 
+else {  //if chrome://settings/languages is set:  
+  chrome.i18n.getAcceptLanguages().then(function (languages) {
+    let englishImported = false;
+    for (let i = 0; i < languages.length; i++) {
+        let currentLanguage = languages[i].replace('-', '_');
+        if (currentLanguage.indexOf('_') !== -1) {
+            importLocale(currentLanguage, () => {
+                for (let j = 0; j <= i; j++) {
+                    let userPreferredLanguage = languages[j].replace('-', '_');
+                    importLocale(userPreferredLanguage, () => {
+                        if (!englishImported) {
+                            importLocale('en', callback);
+                            englishImported = true;
+                        }
+                    });
+                }
             });
-        });
-    });
+        } else {
+            importLocale(currentLanguage, () => {
+                if (!englishImported) {
+                    importLocale('en', callback);
+                    englishImported = true;
+                }
+            });
+        }
+        if (englishImported || i === languages.length - 1) {
+            // Exit if English is imported or the last language is reached.
+            break;
+        }
+    }
+}).catch(() => {  
+	// Finally, if code nor chrome://settings/languages are set, use window.navigator.language
+	var language = window.navigator.language.replace('-', '_');
+    if (language.indexOf('_') !== -1) {
+        importLocale(language, () => importLocale(language.split('_')[0], () => importLocale('en', callback)));
+    } else {
+        importLocale(language, () => importLocale('en', callback));
+    }
+});
+
+} 
+
 };
 /*--------------------------------------------------------------
 # TEXT

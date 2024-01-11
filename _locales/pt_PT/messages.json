@@ -795,7 +795,7 @@
         "message": "Leitor em janela"
     },
     "popupWindowButtons": {
-        "message": "popup_window_buttons"
+        "message": "Add a popup-player-button to each thumbnail"
     },
     "position": {
         "message": "Posição"
@@ -1176,7 +1176,7 @@
         "message": "To the side! (No page margin)"
     },
     "Hide_sidebar": {
-        "message": "Hide recomendations sidebar "
+        "message": "Hide sidebar "
     },
     "chapters": {
         "message": "chapters"
