@@ -141,7 +141,7 @@
         "message": "Below player"
     },
     "bitness": {
-        "message": "Bitness"
+        "message": "bitness"
     },
     "black": {
         "message": "Black"
@@ -489,7 +489,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "hide Detail Button"
     },
     "hideDetails": {
         "message": "Hide details"
@@ -510,7 +510,7 @@
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "Hide player controls     buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
@@ -1167,7 +1167,7 @@
         "message": "YouTube limits video quality to 1080p for h.264 codec"
     },
     "openNewTab": {
-        "message": "Open in new tab"
+        "message": "Open in a new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"

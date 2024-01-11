@@ -36,13 +36,13 @@
         "message": "Botões"
     },
     "activateFullscreen": {
-        "message": "Ativar ecrã completo"
+        "message": "Ativar tela cheia"
     },
     "activated": {
         "message": "Ativado"
     },
     "activatedFeatures": {
-        "message": "Opções ativadas"
+        "message": "Recursos ativados"
     },
     "activeFeatures": {
         "message": "Opções ativas"
@@ -135,7 +135,7 @@
         "message": "Cópia de segurança e repor"
     },
     "baseOnSystemColorScheme": {
-        "message": "Baseado no esquema de cores do sistema"
+        "message": "Baseado nas cores do sistema"
     },
     "belowPlayer": {
         "message": "Reprodutor abaixo"
@@ -150,7 +150,7 @@
         "message": "Lista negra"
     },
     "blockAll": {
-        "message": "Bloquear todos"
+        "message": "Desativado (bloquear ou ignorar)"
     },
     "blockAv1": {
         "message": "Bloquear AV1"
@@ -192,7 +192,7 @@
         "message": "Bolhas"
     },
     "bug": {
-        "message": "Erro"
+        "message": "Bug"
     },
     "buttons": {
         "message": "Botões"
@@ -216,7 +216,7 @@
         "message": "Clip"
     },
     "clipboard": {
-        "message": "Area de transferência"
+        "message": "Àrea de transferência"
     },
     "codecH264": {
         "message": "Codec h.264"
@@ -273,13 +273,13 @@
         "message": "Escurecer"
     },
     "decreasePlaybackSpeed": {
-        "message": "Diminuir velocidade de leitura"
+        "message": "Diminuir velocidade de reprodução"
     },
     "decreaseVolume": {
         "message": "Diminuir volume"
     },
     "deepOrange": {
-        "message": "Laranja forte"
+        "message": "Laranja Escuro"
     },
     "deepPurple": {
         "message": "Lilás forte"
@@ -291,7 +291,7 @@
         "message": "Aba padrão do canal "
     },
     "defaultContentCountry": {
-        "message": "Conteúdo padrão do país "
+        "message": "País (viagem virtual)"
     },
     "defaultPlaybackSpeed": {
         "message": "Velocidade padrão de reprodução"
@@ -309,7 +309,7 @@
         "message": "Descrição"
     },
     "description_ext": {
-        "message": "Torne o YouTube organizado e inteligente! Pular Anúncio, colorir YouTube, volume, velocidade, canal, ferramenta, estilo, HD, adblock, adblocker, tags, playlist ,palavras-chave"
+        "message": "Torne o YouTube organizado e inteligente! Pule Anúncio, colorir YouTube, volume, velocidade, canal, ferramenta, estilo, HD, adblock, adblocker, tags, playlist ,palavras-chave"
     },
     "desert": {
         "message": "Deserto"
@@ -327,7 +327,7 @@
         "message": "Escurecer"
     },
     "disabled": {
-        "message": "Desabilitado"
+        "message": "Desativado"
     },
     "dislike": {
         "message": "Não gostar"
@@ -336,7 +336,7 @@
         "message": "Mostrar dia da Semana"
     },
     "doNotChange": {
-        "message": "Não mudes"
+        "message": "Não Alterar"
     },
     "donate": {
         "message": "Doar"
@@ -345,7 +345,7 @@
         "message": "Download"
     },
     "draggable": {
-        "message": "Podes arrastar"
+        "message": "Arrastável"
     },
     "dropShadow": {
         "message": "Sombra projetada"
@@ -366,7 +366,7 @@
         "message": "Ativado (forçado)"
     },
     "expanded": {
-        "message": "Expandir"
+        "message": "Expandido"
     },
     "exportSettings": {
         "message": "Exportar definições"
@@ -549,7 +549,7 @@
         "message": "Casa"
     },
     "homeScreen": {
-        "message": "Ecrã inicial"
+        "message": "Tela inicial"
     },
     "hover": {
         "message": "Aponta"
