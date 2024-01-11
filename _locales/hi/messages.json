@@ -17,11 +17,23 @@
     "accept": {
         "message": "स्वीकार"
     },
+    "compact_spacing": {
+        "message": "compact spacing"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
+    },
+    "compactTheme": {
+        "message": "Compact Theme"
+    },
     "activate": {
         "message": "सक्रिय"
     },
     "activateCaptions": {
         "message": "कैप्शन सक्रिय करें"
+    },
+    "Buttons": {
+        "message": "बटन"
     },
     "activateFullscreen": {
         "message": "पूर्णस्क्रीन सक्रिय करें"
@@ -44,11 +56,20 @@
     "all": {
         "message": "सब"
     },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your settings will be erased and can't be recovered"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your shortcuts will be erased and can't be recovered"
+    },
     "allow": {
         "message": "अनुमति"
     },
     "allow60fps": {
         "message": "60fps की अनुमति दें"
+    },
+    "always": {
+        "message": "Always"
     },
     "alwaysActive": {
         "message": "हमेशा सक्रिय"
@@ -119,6 +140,9 @@
     "belowPlayer": {
         "message": "प्लेयर के नीचे"
     },
+    "bitness": {
+        "message": "Bitness"
+    },
     "black": {
         "message": "काला"
     },
@@ -151,6 +175,9 @@
     },
     "bluelight": {
         "message": "नीली बत्ती"
+    },
+    "brightness": {
+        "message": "Brightness"
     },
     "brown": {
         "message": "भूरा"
@@ -265,6 +292,9 @@
     },
     "defaultContentCountry": {
         "message": "डिफॉल्ट विषय देश"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
     },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
@@ -518,6 +548,9 @@
     "home": {
         "message": "घर"
     },
+    "homeScreen": {
+        "message": "Home screen"
+    },
     "hover": {
         "message": "होवर"
     },
@@ -679,6 +712,9 @@
     },
     "normal": {
         "message": "साधारण"
+    },
+    "off": {
+        "message": "Off"
     },
     "ok": {
         "message": "Ok"
@@ -884,6 +920,21 @@
     "share": {
         "message": "Share"
     },
+    "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
+    },
+    "Transcript": {
+        "message": "Transcript"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtitle (Capture including the current words)"
+    },
+    "Embedded_YouTube": {
+        "message": "Embedded YouTube"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"
+    },
     "shortcuts": {
         "message": "शॉर्टकट"
     },
@@ -899,6 +950,9 @@
     "showMore": {
         "message": "और दिखाएं"
     },
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
     "showRemainingDuration": {
         "message": "वीडियो की बची हुई अवधि दिखाएं"
     },
@@ -907,6 +961,15 @@
     },
     "shuffle": {
         "message": "मिश्रण"
+    },
+    "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+    "hide_author_avatars": {
+        "message": "Hide author avatars"
+    },
+    "player_rotate_button": {
+        "message": "player rotate button"
     },
     "sidebar": {
         "message": "साइडबार"
@@ -1067,6 +1130,12 @@
     "watchTime": {
         "message": "समय देखें"
     },
+    "watchedVideos": {
+        "message": "Watched videos"
+    },
+    "whenPaused": {
+        "message": "When paused"
+    },
     "whenTabIsChanged": {
         "message": "जब टैब बदला जाता है"
     },
@@ -1096,5 +1165,47 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "यूट्यूब h.264 कोडेक के लिए वीडियो की गुणवत्ता 1080 पी तक सीमित है"
+    },
+    "openNewTab": {
+        "message": "Open in a new tab"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Hide video title in fullscreen"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "To the side! (No page margin)"
+    },
+    "Hide_sidebar": {
+        "message": "Hide sidebar "
+    },
+    "chapters": {
+        "message": "chapters"
+    },
+    "Hide_Shorts_remixing_this_video": {
+        "message": "Hide Shorts remixing this video"
+    },
+    "Sidebar_simple_alternative": {
+        "message": "Sidebar (simple alternative)"
+    },
+    "with_scrollbars": {
+        "message": "with scrollbars?"
+    },
+    "autoPictureInPicture": {
+        "message": "Auto Picture-In-Picture"
+    },
+    "Allow_auto_generate": {
+        "message": "Allow auto generate"
+    },
+    "Currently_requiring_a_YouTube_API_key": {
+        "message": "(Currently requiring a YouTube-API-key: )"
+    },
+    "shortcut_chapters": {
+        "message": "Show chapters Sidebar"
+    },
+    "Auto_PiP_picture_in_picture": {
+        "message": "Auto-PiP (picture in picture)"
+    },
+    "Hide_the_tabs_only": {
+        "message": "Hide the tabs only"
     }
 }
