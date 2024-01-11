@@ -69,8 +69,8 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 		video = player.querySelector('video'),
 		option = this.storage.player_playback_speed;
 		if (this.isset(option) === false) { option = 1; }
-		else if ( option !== 1 && (video.playbackRate < 1  ||  video.playbackRate > 1)) 
-		   { console.log("skipping permanent speed, since speed was manually set for this video to:" + video.playbackRate); return; }
+		else if ( option !== 1 && video.playbackRate !== option && (video.playbackRate > 1  ||  video.playbackRate < 1) ) 
+		   { console.log("skipping permanent speed, since speed was manually set differently for this video to:" + video.playbackRate); return; }
 		if ( !player.getVideoData().isLive || player.getVideoData().isLive === false)
 { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);  // #1729 q2	// hi! @raszpl
 	if  ( (this.storage.player_force_speed_on_music !== true  || this.storage.player_dont_speed_education === true) 
