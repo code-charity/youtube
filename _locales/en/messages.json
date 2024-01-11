@@ -33,7 +33,7 @@
         "message": "Activate captions"
     },
     "Buttons": {
-        "message": "Activate fullscreen"
+        "message": "Buttons"
     },
     "activateFullscreen": {
         "message": "Activate fullscreen"
@@ -489,7 +489,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "hide Detail Button"
     },
     "hideDetails": {
         "message": "Hide details"
@@ -834,7 +834,7 @@
         "message": "Red"
     },
     "redDislikeButton": {
-        "message": "Red DisLiked-button"
+        "message": "Red when disliked"
     },
     "relatedVideos": {
         "message": "Related videos"
