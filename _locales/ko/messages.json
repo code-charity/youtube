@@ -17,11 +17,23 @@
     "accept": {
         "message": "동의"
     },
+    "compact_spacing": {
+        "message": "compact spacing"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
+    },
+    "compactTheme": {
+        "message": "Compact Theme"
+    },
     "activate": {
         "message": "활성화"
     },
     "activateCaptions": {
         "message": "자막 활성화"
+    },
+    "Buttons": {
+        "message": "버튼"
     },
     "activateFullscreen": {
         "message": "전체화면 활성화"
@@ -43,6 +55,12 @@
     },
     "all": {
         "message": "모두"
+    },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your settings will be erased and can't be recovered"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your shortcuts will be erased and can't be recovered"
     },
     "allow": {
         "message": "허용"
@@ -122,6 +140,9 @@
     "belowPlayer": {
         "message": "플레이어 아래"
     },
+    "bitness": {
+        "message": "Bitness"
+    },
     "black": {
         "message": "검정"
     },
@@ -154,6 +175,9 @@
     },
     "bluelight": {
         "message": "블루라이트"
+    },
+    "brightness": {
+        "message": "Brightness"
     },
     "brown": {
         "message": "갈색"
@@ -268,6 +292,9 @@
     },
     "defaultContentCountry": {
         "message": "기본 콘텐츠 지역"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
     },
     "deleteWatchedVideos": {
         "message": "시청한 영상 삭제"
@@ -446,9 +473,6 @@
     "hideAnnotations": {
         "message": "설명 숨기기"
     },
-    "hideAvatars": {
-        "message": "사용자 사진 숨기기"
-    },
     "hideCards": {
         "message": "카드 숨기기"
     },
@@ -523,6 +547,9 @@
     },
     "home": {
         "message": "홈"
+    },
+    "homeScreen": {
+        "message": "Home screen"
     },
     "hover": {
         "message": "마우스를 올리면 띄우기"
@@ -893,6 +920,21 @@
     "share": {
         "message": "Share"
     },
+    "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
+    },
+    "Transcript": {
+        "message": "Transcript"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtitle (Capture including the current words)"
+    },
+    "Embedded_YouTube": {
+        "message": "Embedded_YouTube"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"
+    },
     "shortcuts": {
         "message": "단축키"
     },
@@ -908,6 +950,9 @@
     "showMore": {
         "message": "더보기"
     },
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
     "showRemainingDuration": {
         "message": "동영상 남은 시간 표시"
     },
@@ -916,6 +961,15 @@
     },
     "shuffle": {
         "message": "셔플"
+    },
+    "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+    "hide_author_avatars": {
+        "message": "Hide author avatars"
+    },
+    "player_rotate_button": {
+        "message": "player rotate button"
     },
     "sidebar": {
         "message": "사이드바"
@@ -1076,6 +1130,9 @@
     "watchTime": {
         "message": "시간 보기"
     },
+    "watchedVideos": {
+        "message": "Watched videos"
+    },
     "whenPaused": {
         "message": "일시중지 중에"
     },
@@ -1108,5 +1165,47 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "유튜브는 h.264 코덱에서 비디오 품질을 1080p로 제한합니다."
+    },
+    "openNewTab": {
+        "message": "Open in a new tab"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Hide video title in fullscreen"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "To the side! (No page margin)"
+    },
+    "Hide_sidebar": {
+        "message": "Hide sidebar "
+    },
+    "chapters": {
+        "message": "chapters"
+    },
+    "Hide_Shorts_remixing_this_video": {
+        "message": "Hide Shorts remixing this video"
+    },
+    "Sidebar_simple_alternative": {
+        "message": "Sidebar (simple alternative)"
+    },
+    "with_scrollbars": {
+        "message": "with scrollbars?"
+    },
+    "autoPictureInPicture": {
+        "message": "Auto Picture-In-Picture"
+    },
+    "Allow_auto_generate": {
+        "message": "Allow auto generate"
+    },
+    "Currently_requiring_a_YouTube_API_key": {
+        "message": "(Currently requiring a YouTube-API-key: )"
+    },
+    "shortcut_chapters": {
+        "message": "Show chapters Sidebar"
+    },
+    "Auto_PiP_picture_in_picture": {
+        "message": "Auto-PiP (picture in picture)"
+    },
+    "Hide_the_tabs_only": {
+        "message": "Hide the tabs only"
     }
 }
