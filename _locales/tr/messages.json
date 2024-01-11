@@ -17,11 +17,23 @@
     "accept": {
         "message": "Onayla"
     },
+    "compact_spacing": {
+        "message": "compact spacing"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
+    },
+    "compactTheme": {
+        "message": "Compact Theme"
+    },
     "activate": {
         "message": "Aktifleştir"
     },
     "activateCaptions": {
         "message": "Altyazıları Aktifleştir"
+    },
+    "Buttons": {
+        "message": "Butonlar"
     },
     "activateFullscreen": {
         "message": "Tam ekranı Aktifleştir"
@@ -128,7 +140,7 @@
     "belowPlayer": {
         "message": "Oynatıcının altında"
     },
-	    "bitness": {
+    "bitness": {
         "message": "Bitness"
     },
     "black": {
@@ -164,9 +176,9 @@
     "bluelight": {
         "message": "Mavi Işık"
     },
-	    "brightness": {
+    "brightness": {
         "message": "Parlaklık"
-    },	  
+    },
     "brown": {
         "message": "Kahverengi"
     },
@@ -281,7 +293,7 @@
     "defaultContentCountry": {
         "message": "Varsayılan içerik ülkesi"
     },
-	    "defaultPlaybackSpeed": {
+    "defaultPlaybackSpeed": {
         "message": "Varsayılan Oynatma Hızı"
     },
     "deleteWatchedVideos": {
@@ -538,7 +550,7 @@
     },
     "homeScreen": {
         "message": "Ana Sayfa Ekranı"
-    },	  
+    },
     "hover": {
         "message": "Gölge"
     },
@@ -908,6 +920,21 @@
     "share": {
         "message": "Paylaş"
     },
+    "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
+    },
+    "Transcript": {
+        "message": "Transcript"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtitle (Capture including the current words)"
+    },
+    "Embedded_YouTube": {
+        "message": "Embedded YouTube"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"
+    },
     "shortcuts": {
         "message": "Kısayollar"
     },
@@ -923,6 +950,9 @@
     "showMore": {
         "message": "Daha fazla göster"
     },
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
     "showRemainingDuration": {
         "message": "Videonun kalan süresini göster"
     },
@@ -931,6 +961,15 @@
     },
     "shuffle": {
         "message": "Karıştır"
+    },
+    "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+    "hide_author_avatars": {
+        "message": "Hide author avatars"
+    },
+    "player_rotate_button": {
+        "message": "player rotate button"
     },
     "sidebar": {
         "message": "Kenar çubuğu"
@@ -1091,9 +1130,9 @@
     "watchTime": {
         "message": "İzleme zamanı"
     },
-	"watchedVideos": {
+    "watchedVideos": {
         "message": "İzlenen videolar"
-    },	
+    },
     "whenPaused": {
         "message": "Duraklatıldığında"
     },
@@ -1127,7 +1166,46 @@
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube, h.264 codec bileşeni için video kalitesini 1080p ile sınırlar"
     },
-	    "openNewTab": {
+    "openNewTab": {
         "message": "Yeni sekmede aç"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Hide video title in fullscreen"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "To the side! (No page margin)"
+    },
+    "Hide_sidebar": {
+        "message": "Hide sidebar "
+    },
+    "chapters": {
+        "message": "chapters"
+    },
+    "Hide_Shorts_remixing_this_video": {
+        "message": "Hide Shorts remixing this video"
+    },
+    "Sidebar_simple_alternative": {
+        "message": "Sidebar (simple alternative)"
+    },
+    "with_scrollbars": {
+        "message": "with scrollbars?"
+    },
+    "autoPictureInPicture": {
+        "message": "Auto Picture-In-Picture"
+    },
+    "Allow_auto_generate": {
+        "message": "Allow auto generate"
+    },
+    "Currently_requiring_a_YouTube_API_key": {
+        "message": "(Currently requiring a YouTube-API-key: )"
+    },
+    "shortcut_chapters": {
+        "message": "Show chapters Sidebar"
+    },
+    "Auto_PiP_picture_in_picture": {
+        "message": "Auto-PiP (picture in picture)"
+    },
+    "Hide_the_tabs_only": {
+        "message": "Hide the tabs only"
     }
 }

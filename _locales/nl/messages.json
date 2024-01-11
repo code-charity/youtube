@@ -17,11 +17,23 @@
     "accept": {
         "message": "Accepteren"
     },
+    "compact_spacing": {
+        "message": "compact spacing"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
+    },
+    "compactTheme": {
+        "message": "Compact Theme"
+    },
     "activate": {
         "message": "Activeren"
     },
     "activateCaptions": {
         "message": "Activeer bijschriften"
+    },
+    "Buttons": {
+        "message": "Knoppen"
     },
     "activateFullscreen": {
         "message": "Activeer volledig scherm"
@@ -43,6 +55,12 @@
     },
     "all": {
         "message": "Alles"
+    },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your settings will be erased and can't be recovered"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your shortcuts will be erased and can't be recovered"
     },
     "allow": {
         "message": "Toestaan"
@@ -122,6 +140,9 @@
     "belowPlayer": {
         "message": "Onder de speler"
     },
+    "bitness": {
+        "message": "Bitness"
+    },
     "black": {
         "message": "Zwart"
     },
@@ -154,6 +175,9 @@
     },
     "bluelight": {
         "message": "Lichtblauw"
+    },
+    "brightness": {
+        "message": "Brightness"
     },
     "brown": {
         "message": "Bruin"
@@ -268,6 +292,9 @@
     },
     "defaultContentCountry": {
         "message": "Standaardland voor inhoud"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
     },
     "deleteWatchedVideos": {
         "message": "Verwijder bekeken video's"
@@ -520,6 +547,9 @@
     },
     "home": {
         "message": "Thuis"
+    },
+    "homeScreen": {
+        "message": "Home screen"
     },
     "hover": {
         "message": "Overzweven met cursor"
@@ -890,6 +920,21 @@
     "share": {
         "message": "Share"
     },
+    "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
+    },
+    "Transcript": {
+        "message": "Transcript"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtitle (Capture including the current words)"
+    },
+    "Embedded_YouTube": {
+        "message": "Embedded YouTube"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"
+    },
     "shortcuts": {
         "message": "Sneltoetsen"
     },
@@ -905,6 +950,9 @@
     "showMore": {
         "message": "Meer zien"
     },
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
     "showRemainingDuration": {
         "message": "Laat resterende afspeelduur zien"
     },
@@ -913,6 +961,15 @@
     },
     "shuffle": {
         "message": "Willekeurig"
+    },
+    "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+    "hide_author_avatars": {
+        "message": "Hide author avatars"
+    },
+    "player_rotate_button": {
+        "message": "player rotate button"
     },
     "sidebar": {
         "message": "Zijbalk"
@@ -1073,6 +1130,9 @@
     "watchTime": {
         "message": "Tijd van bekijken"
     },
+    "watchedVideos": {
+        "message": "Watched videos"
+    },
     "whenPaused": {
         "message": "When paused"
     },
@@ -1105,5 +1165,47 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube limiteert videokwaliteit tot 1080p voor H.264 codec"
+    },
+    "openNewTab": {
+        "message": "Open in a new tab"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Hide video title in fullscreen"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "To the side! (No page margin)"
+    },
+    "Hide_sidebar": {
+        "message": "Hide sidebar "
+    },
+    "chapters": {
+        "message": "chapters"
+    },
+    "Hide_Shorts_remixing_this_video": {
+        "message": "Hide Shorts remixing this video"
+    },
+    "Sidebar_simple_alternative": {
+        "message": "Sidebar (simple alternative)"
+    },
+    "with_scrollbars": {
+        "message": "with scrollbars?"
+    },
+    "autoPictureInPicture": {
+        "message": "Auto Picture-In-Picture"
+    },
+    "Allow_auto_generate": {
+        "message": "Allow auto generate"
+    },
+    "Currently_requiring_a_YouTube_API_key": {
+        "message": "(Currently requiring a YouTube-API-key: )"
+    },
+    "shortcut_chapters": {
+        "message": "Show chapters Sidebar"
+    },
+    "Auto_PiP_picture_in_picture": {
+        "message": "Auto-PiP (picture in picture)"
+    },
+    "Hide_the_tabs_only": {
+        "message": "Hide the tabs only"
     }
 }

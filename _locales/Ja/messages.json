@@ -12,13 +12,13 @@
         "message": "⇧"
     },
     "about": {
-        "message": "Info"
+        "message": "このソフトについて"
     },
     "accept": {
-        "message": "Akzeptieren"
+        "message": "了解"
     },
     "compact_spacing": {
-        "message": "compact spacing"
+        "message": "Tema compacto"
     },
     "Hide_Pause_Overlay": {
         "message": "Hide Pause Overlay"
@@ -27,34 +27,34 @@
         "message": "Compact Theme"
     },
     "activate": {
-        "message": "Aktivieren"
+        "message": "有効にする"
     },
     "activateCaptions": {
-        "message": "Untertitel aktivieren"
+        "message": "キャプションを有効にする"
     },
     "Buttons": {
-        "message": "Buttons"
+        "message": "Activate fullscreen"
     },
     "activateFullscreen": {
-        "message": "Vollbild aktivieren"
+        "message": "全画面にする"
     },
     "activated": {
-        "message": "Aktiviert"
+        "message": "有効化"
     },
     "activatedFeatures": {
-        "message": "Aktivierte Features"
+        "message": "有効化された機能"
     },
     "activeFeatures": {
-        "message": "Aktive Funktionen"
+        "message": "機能の切り替え"
     },
     "addScrollToTop": {
-        "message": "„Nach Oben“-Button"
+        "message": "\"一番上にスクロール\" ボタンを追加する"
     },
     "ads": {
-        "message": "Werbung"
+        "message": "広告"
     },
     "all": {
-        "message": "Alles"
+        "message": "すべて"
     },
     "allYourSettingsWillBeErasedAndCanTBeRecovered": {
         "message": "All your settings will be erased and can't be recovered"
@@ -63,55 +63,55 @@
         "message": "All your shortcuts will be erased and can't be recovered"
     },
     "allow": {
-        "message": "zulassen"
+        "message": "許可"
     },
     "allow60fps": {
-        "message": "60fps zulassen"
+        "message": "60fps を許可する"
     },
     "always": {
         "message": "Always"
     },
     "alwaysActive": {
-        "message": "Immer aktiv"
+        "message": "常に有効"
     },
     "alwaysShowProgressBar": {
-        "message": "Zeitleiste immer anzeigen"
+        "message": "常にプログレスバーを表示する"
     },
     "amber": {
-        "message": "Bernstein"
+        "message": "アンバー"
     },
     "analyzer": {
-        "message": "Analyse"
+        "message": "分析"
     },
     "animations": {
         "message": "Animations"
     },
     "appearance": {
-        "message": "Aussehen"
+        "message": "外観"
     },
     "areYouSureYouWantToExportTheData": {
-        "message": "Daten wirklich exportieren?"
+        "message": "データをエクスポートしてもよろしいですか？"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Daten wirklich importieren?"
+        "message": "データをインポートしてもよろしいですか？"
     },
     "audio": {
-        "message": "Audio"
+        "message": "音声"
     },
     "audioFormats": {
-        "message": "Audio-Formate"
+        "message": "音声形式"
     },
     "auto": {
-        "message": "Auto"
+        "message": "自動"
     },
     "autoFullscreen": {
-        "message": "Auto-Vollbild"
+        "message": "自動的に全画面にする"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Video pausieren beim Tab-Wechsel"
+        "message": "タブ切り替えで自動的に一時停止"
     },
     "autoplay": {
-        "message": "Autoplay"
+        "message": "自動再生"
     },
     "avoidAv1": {
         "message": "Avoid AV1"
@@ -126,31 +126,31 @@
         "message": "Avoid CPU rendering when possible"
     },
     "backgroundColor": {
-        "message": "Hintergrundfarbe"
+        "message": "背景色"
     },
     "backgroundOpacity": {
-        "message": "Hintergrunddeckkraft"
+        "message": "背景の不透明度"
     },
     "backupAndReset": {
-        "message": "Sichern oder zurücksetzen"
+        "message": "バックアップとリセット"
     },
     "baseOnSystemColorScheme": {
-        "message": "Basierend auf Systemfarben"
+        "message": "システムの色に合わせる"
     },
     "belowPlayer": {
-        "message": "Unter dem Player"
+        "message": "プレーヤーの下"
     },
     "bitness": {
         "message": "Bitness"
     },
     "black": {
-        "message": "Schwarz"
+        "message": "黒"
     },
     "blocklist": {
-        "message": "Blocklist"
+        "message": "ブラックリスト"
     },
     "blockAll": {
-        "message": "immer blockieren"
+        "message": "すべてブロックする"
     },
     "blockAv1": {
         "message": "Block AV1"
@@ -159,7 +159,7 @@
         "message": "Block H.264"
     },
     "blockMusic": {
-        "message": "Musik blockieren"
+        "message": "音楽をブロックする"
     },
     "blockVp8": {
         "message": "Block VP8"
@@ -168,139 +168,139 @@
         "message": "Block VP9"
     },
     "blue": {
-        "message": "Blau"
+        "message": "青"
     },
     "blueGray": {
-        "message": "Blau grau"
+        "message": "青みがかった灰"
     },
     "bluelight": {
-        "message": "Blaues Licht"
+        "message": "ブルーライト"
     },
     "brightness": {
         "message": "Brightness"
     },
     "brown": {
-        "message": "Braun"
+        "message": "茶"
     },
     "browser": {
-        "message": "Browser"
+        "message": "ブラウザー"
     },
     "browserVersion": {
-        "message": "Browser-Version"
+        "message": "ブラウザーのバージョン"
     },
     "bubbles": {
-        "message": "Blasen"
+        "message": "バブル"
     },
     "bug": {
-        "message": "Bug"
+        "message": "バグ"
     },
     "buttons": {
-        "message": "Buttons"
+        "message": "ボタン"
     },
     "cancel": {
-        "message": "Abbrechen"
+        "message": "キャンセル"
     },
     "categories": {
-        "message": "Kategorien"
+        "message": "カテゴリー"
     },
     "channel": {
-        "message": "Kanal"
+        "message": "チャンネル"
     },
     "channels": {
-        "message": "Kanäle"
+        "message": "チャンネル"
     },
     "characterEdgeStyle": {
-        "message": "Zeichenumrandung"
+        "message": "文字の縁のスタイル"
     },
     "clip": {
         "message": "Clip"
     },
     "clipboard": {
-        "message": "Zwischenablage"
+        "message": "クリップボード"
     },
     "codecH264": {
-        "message": "Codec h.264"
+        "message": "H.264 コーデック"
     },
     "codecs": {
         "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
-        "message": "Abos einklappen"
+        "message": "サブスクリプション部分を畳む"
     },
     "collapsed": {
-        "message": "Eingeklappt"
+        "message": "畳む"
     },
     "comments": {
-        "message": "Kommentare"
+        "message": "コメント"
     },
     "confirmationBeforeClosing": {
-        "message": "Bestätigung beim Schließen"
+        "message": "閉じる前に確認する"
     },
     "cookies": {
-        "message": "Cookies"
+        "message": "Cookie"
     },
     "cores": {
-        "message": "Kerne"
+        "message": "コア数"
     },
     "cropChapterTitles": {
-        "message": "Kapitel abschneiden"
+        "message": "チャプターのタイトルをトリミングする"
     },
     "custom": {
         "message": "Custom"
     },
     "customCss": {
-        "message": "CSS hinzufügen"
+        "message": "カスタム CSS"
     },
     "customJs": {
-        "message": "JS hinzufügen"
+        "message": "カスタム JS"
     },
     "customMiniPlayer": {
-        "message": "Benutzerdefinierter Mini-Player"
+        "message": "カスタムミニプレーヤー"
     },
     "cyan": {
-        "message": "Cyan"
+        "message": "シアン"
     },
     "dark": {
-        "message": "Dunkel"
+        "message": "ダーク"
     },
     "darkTheme": {
-        "message": "Dark-Theme"
+        "message": "ダークテーマ"
     },
     "dateAndTime": {
-        "message": "Datum & Uhrzeit"
+        "message": "日付と時刻"
     },
     "dawn": {
-        "message": "Morgendämmerung"
+        "message": "夜明け"
     },
     "decreasePlaybackSpeed": {
-        "message": "Abspielgeschwindigkeit verringern"
+        "message": "再生速度を下げる"
     },
     "decreaseVolume": {
-        "message": "Lautstärke reduzieren"
+        "message": "音量を下げる"
     },
     "deepOrange": {
-        "message": "Dunkel-Orange"
+        "message": "深いオレンジ"
     },
     "deepPurple": {
-        "message": "Dunkel-Lila"
+        "message": "深い紫"
     },
     "default": {
-        "message": "Default"
+        "message": "デフォルト"
     },
     "defaultChannelTab": {
-        "message": "Standard-Kanal-Tab"
+        "message": "デフォルトのチャンネルタブ"
     },
     "defaultContentCountry": {
-        "message": "Standard-Land für Inhalte"
+        "message": "デフォルトのコンテンツの地域"
     },
     "defaultPlaybackSpeed": {
         "message": "Default Playback Speed"
     },
     "deleteWatchedVideos": {
-        "message": "Gesehene Videos entfernen"
+        "message": "視聴した動画を削除する"
     },
     "deleteYoutubeCookies": {
-        "message": "YouTube-Cookies löschen"
+        "message": "YouTube の Cookie を削除する"
     },
     "depressed": {
         "message": "Depressed"
@@ -309,127 +309,127 @@
         "message": "Description"
     },
     "description_ext": {
-        "message": "YouTube, tidy + smart? Youtube video youtube player size youtube color ad skip speed volume channel skipper tags playlist hide"
+        "message": "YouTube をスマートに整理しましょう！ YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
     },
     "desert": {
-        "message": "Wüste"
+        "message": "砂漠"
     },
     "details": {
-        "message": "Details"
+        "message": "詳細"
     },
     "developerOptions": {
-        "message": "Entwickleroptionen"
+        "message": "開発者向けオプション"
     },
     "device": {
-        "message": "Gerät"
+        "message": "デバイス"
     },
     "dim": {
-        "message": "dimmen"
+        "message": "暗さ"
     },
     "disabled": {
-        "message": "ausgeschaltet"
+        "message": "無効"
     },
     "dislike": {
-        "message": "'Mag ich nicht'"
+        "message": "低評価"
     },
     "displayDayOfTheWeak": {
         "message": "Display day of the week"
     },
     "doNotChange": {
-        "message": "Nicht ändern"
+        "message": "変更しない"
     },
     "donate": {
-        "message": "Spenden"
+        "message": "寄付する"
     },
     "download": {
         "message": "Download"
     },
     "draggable": {
-        "message": "Verschiebbar"
+        "message": "ドラッグ可能にする"
     },
     "dropShadow": {
-        "message": "Schlagschatten"
+        "message": "Drop shadow"
     },
     "durationWithSpeed": {
         "message": "Show time remaining with reference to playback speed"
     },
     "email": {
-        "message": "E-Mail"
+        "message": "Email"
     },
     "empty": {
-        "message": "leer"
+        "message": "なし"
     },
     "enabled": {
-        "message": "aktiviert"
+        "message": "有効"
     },
     "enabledForced": {
-        "message": "aktiviert (erzwungen)"
+        "message": "有効 (強制)"
     },
     "expanded": {
-        "message": "ausgeklappt"
+        "message": "広げる"
     },
     "exportSettings": {
-        "message": "Einstellungen als Datei exportieren"
+        "message": "設定をエクスポートする"
     },
     "extension": {
-        "message": "Erweiterung"
+        "message": "拡張"
     },
     "file": {
-        "message": "Datei"
+        "message": "ファイル"
     },
     "filters": {
-        "message": "Filter"
+        "message": "フィルター"
     },
     "fitToWindow": {
-        "message": "Ans Fenster anpassen"
+        "message": "ウィンドウに合わせる"
     },
     "flash": {
         "message": "Flash"
     },
     "font": {
-        "message": "Schriftart"
+        "message": "フォント"
     },
     "fontColor": {
-        "message": "Schriftfarbe"
+        "message": "フォントの色"
     },
     "fontFamily": {
-        "message": "Schriftart Familie"
+        "message": "フォントファミリー"
     },
     "fontOpacity": {
-        "message": "Schriftdeckkraft"
+        "message": "フォントの不透明度"
     },
     "fontSize": {
-        "message": "Schriftgröße"
+        "message": "Font size"
     },
     "footer": {
-        "message": "Fußzeile"
+        "message": "フッター"
     },
     "forceSDR": {
-        "message": "SDR erzwingen"
+        "message": "SDR を強制する"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Spiele Video erzwungen von Beginn ab"
+        "message": "強制的に動画を最初から再生する"
     },
     "forcedPlaybackSpeed": {
-        "message": "erzwungene Abspielgeschwindigkeit"
+        "message": "再生速度を指定する"
     },
     "forcedPlaybackSpeedMusic": {
         "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
-        "message": "Kinomodus erzwingen"
+        "message": "シアターモードにする"
     },
     "forcedVolume": {
-        "message": "Fixe Lautstärke"
+        "message": "音量を指定する"
     },
     "foundABug": {
-        "message": "Fehler gefunden?"
+        "message": "バグ報告"
     },
     "fullWindow": {
-        "message": "Ganzes Fenster"
+        "message": "フルウィンドウ"
     },
     "general": {
-        "message": "Allgemein"
+        "message": "一般"
     },
     "geoPreference": {
         "message": "Geo Preference"
@@ -438,7 +438,7 @@
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "YouTube Suche"
+        "message": "検索ボックスに行く"
     },
     "googleApiKey": {
         "message": "Google API key"
@@ -447,7 +447,7 @@
         "message": "GPU"
     },
     "green": {
-        "message": "Grün"
+        "message": "緑"
     },
     "hardwareInformation": {
         "message": "Hardware information"
@@ -456,25 +456,25 @@
         "message": "HD"
     },
     "hdThumbnail": {
-        "message": "HD-Vorschaubild"
+        "message": "HDサムネイル"
     },
     "header": {
-        "message": "Header / 'Kopfzeile'"
+        "message": "ヘッダー"
     },
     "hidden": {
-        "message": "Ausblenden"
+        "message": "隠す"
     },
     "hiddenOnVideoPage": {
-        "message": "Auf Videoseiten ausblenden"
+        "message": "動画ページでは隠す"
     },
     "hideAnimatedThumbnails": {
-        "message": "Keine animierten Vorschaubilder"
+        "message": "サムネイルのアニメーションを行わない"
     },
     "hideAnnotations": {
-        "message": "Anmerkungen ausblenden"
+        "message": "アノテーションを隠す"
     },
     "hideCards": {
-        "message": "Karten ausblenden"
+        "message": "カードを隠す"
     },
     "hideCategories": {
         "message": "Hide categories"
@@ -483,124 +483,124 @@
         "message": "Hide comments count"
     },
     "hideCountryCode": {
-        "message": "Ländercode ausblenden"
+        "message": "地域コードを隠す"
     },
     "hideDate": {
-        "message": "Datum ausblenden"
+        "message": "日付を隠す"
     },
     "hideDetailButton": {
         "message": "Buttons"
     },
     "hideDetails": {
-        "message": "Details ausblenden"
+        "message": "詳細を隠す"
     },
     "hideEndscreen": {
-        "message": "Endkarten ausblenden (Schlussbildschirme)"
+        "message": "再生終了時の画面を隠す"
     },
     "hideFeaturedContent": {
-        "message": "'Empfohlene Inhalte' ausblenden"
+        "message": "おすすめチャンネルを隠す"
     },
     "hideFooter": {
-        "message": "Fußzeile ausblenden"
+        "message": "フッターを隠す"
     },
     "hideGradientBottom": {
-        "message": "Farbverlauf ausblenden"
+        "message": "グラデーションの下部を隠す"
     },
     "hidePlayerControlsBar": {
-        "message": "Kontrolleiste ausblenden"
+        "message": "プレーヤーのコントロールバーを隠す"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Player-Kontrollen ausblenden"
+        "message": "プレーヤーのコントロールバーボタンを隠す"
     },
     "hidePlayerControlsBarOptions": {
-        "message": "Kontrollleistenoptionen ausblenden"
+        "message": "プレーヤーのコントロールオプションを隠す"
     },
     "hidePlaylist": {
-        "message": "Playlists ausblenden"
+        "message": "再生リストを隠す"
     },
     "hideRightButtons": {
-        "message": "Rechte Buttons ausblenden"
+        "message": "右ボタンを隠す"
     },
     "hideScrollForDetails": {
-        "message": "„Für Details scrollen“ ausblenden"
+        "message": "\"スクロールして詳細を表示\" を隠す"
     },
     "hideSkipOverlay": {
-        "message": "Überspringen Overlay ausblenden"
+        "message": "スキップオーバーレイを隠す"
     },
     "hideThumbnailOverlay": {
-        "message": "Thumbnail Overlay ausblenden"
+        "message": "サムネイルオーバーレイを隠す"
     },
     "hideThumbnails": {
-        "message": "Thumbnails ausblenden"
+        "message": "サムネイルを隠す"
     },
     "hideViewsCount": {
-        "message": "Videoaufrufe ausblenden"
+        "message": "視聴数を隠す"
     },
     "hideVoiceSearchButton": {
-        "message": "Sprachsuche ausblenden"
+        "message": "音声検索ボタンを隠す"
     },
     "high": {
-        "message": "Hoch"
+        "message": "高"
     },
     "history": {
-        "message": "Verlauf"
+        "message": "履歴"
     },
     "home": {
-        "message": "Standard"
+        "message": "ホーム"
     },
     "homeScreen": {
         "message": "Home screen"
     },
     "hover": {
-        "message": "Nur anzeigen bei Mausover"
+        "message": "ホバー"
     },
     "hoverOnVideoPage": {
-        "message": "auf Video-Seiten bei Mausover"
+        "message": "動画ページではホバー"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Alter des Videos (seit Hochlade-Datum)"
+        "message": "動画がアップロードされてからの時間"
     },
     "icons": {
-        "message": "Icons"
+        "message": "アイコン"
     },
     "iconsOnly": {
-        "message": "nur Icons"
+        "message": "アイコンのみ"
     },
     "importSettings": {
-        "message": "Einstellungen importieren"
+        "message": "設定をインポートする"
     },
     "improveLogo": {
-        "message": "Logo verbessern"
+        "message": "ロゴを改善する"
     },
     "improvedtubeButtons": {
         "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "ImprovedTube Icon auf YouTube"
+        "message": "ImprovedTube アイコンを YouTube に表示する"
     },
     "improvedtubeLanguage": {
-        "message": "ImprovedTube Sprache"
+        "message": "ImprovedTube の言語"
     },
     "improvedtubeVersion": {
-        "message": "ImprovedTube Version"
+        "message": "ImprovedTube のバージョン"
     },
     "increasePlaybackSpeed": {
-        "message": "Abspielgeschwingkeit erhöhen"
+        "message": "再生速度を上げる"
     },
     "increaseVolume": {
-        "message": "Lautstärke erhöhen"
+        "message": "音量を上げる"
     },
     "indigo": {
-        "message": "Indigo"
+        "message": "インディゴ"
     },
     "items": {
-        "message": "Items"
+        "message": "アイテム"
     },
     "language": {
-        "message": "Sprache"
+        "message": "言語"
     },
     "languages": {
-        "message": "Sprachen"
+        "message": "言語"
     },
     "layerAnimationScale": {
         "message": "Layer animation scale"
@@ -609,22 +609,22 @@
         "message": "Layout"
     },
     "legacyYoutube": {
-        "message": "Klassiches YouTube"
+        "message": "古い YouTube にする"
     },
     "library": {
-        "message": "Bibliothek"
+        "message": "ライブラリー"
     },
     "light": {
-        "message": "Hell"
+        "message": "ライト"
     },
     "lightBlue": {
-        "message": "Hellblau"
+        "message": "薄い青"
     },
     "lightGreen": {
-        "message": "Hellgrün"
+        "message": "薄い緑"
     },
     "like": {
-        "message": "Like"
+        "message": "高評価"
     },
     "liked": {
         "message": "Liked"
@@ -633,40 +633,40 @@
         "message": "Likes"
     },
     "lime": {
-        "message": "Limette"
+        "message": "ライム"
     },
     "limitPageWidth": {
-        "message": "Seitenbreite limitieren"
+        "message": "ページ幅を制限する"
     },
     "list": {
-        "message": "Liste"
+        "message": "リスト"
     },
     "liveChat": {
-        "message": "Live-Chat"
+        "message": "ライブチャット"
     },
     "liveChatType": {
-        "message": "Live-Chat Typ"
+        "message": "ライブチャットの種類"
     },
     "location": {
-        "message": "Standort"
+        "message": "地域"
     },
     "loop": {
         "message": "Loop"
     },
     "loudnessNormalization": {
-        "message": "Lautstärke normalisieren"
+        "message": "音量のノーマリゼーション"
     },
     "low": {
-        "message": "Niedrig"
+        "message": "低"
     },
     "markWatchedVideos": {
-        "message": "gesehene Videos markieren"
+        "message": "視聴した動画にマークを付ける"
     },
     "medium": {
-        "message": "Medium"
+        "message": "中"
     },
     "mixer": {
-        "message": "Mischpult"
+        "message": "ミキサー"
     },
     "more": {
         "message": "More"
@@ -675,247 +675,247 @@
         "message": "Most viewed channels"
     },
     "moveSidebarLeft": {
-        "message": "Seitenleiste nach links verschieben"
+        "message": "サイドバーを左に移動"
     },
     "moveThumbnailsRight": {
-        "message": "Thumbnails nach rechts verschieben"
+        "message": "サイドバーを右に移動"
     },
     "myColors": {
-        "message": "Meine Farben"
+        "message": "色設定"
     },
     "name": {
-        "message": "Name"
+        "message": "名前"
     },
     "nativeMiniPlayer": {
-        "message": "Standard Mini-Player"
+        "message": "ネイティブミニプレーヤー"
     },
     "new": {
-        "message": "Neu"
+        "message": "新規"
     },
     "nextVideo": {
-        "message": "Nächstes Video"
+        "message": "次の動画"
     },
     "night": {
-        "message": "Nacht"
+        "message": "夜"
     },
     "nightMode": {
         "message": "Night mode"
     },
     "noActiveFeatures": {
-        "message": "Keine aktiven Features"
+        "message": "有効化された機能がありません"
     },
     "noOpenVideoTabs": {
-        "message": "Keine YouTube Videos geöffnet"
+        "message": "開いている動画タブがありません"
     },
     "none": {
-        "message": "Keine"
+        "message": "なし"
     },
     "normal": {
-        "message": "Normal"
+        "message": "標準"
     },
     "off": {
         "message": "Off"
     },
     "ok": {
-        "message": "Ok"
+        "message": "OK"
     },
     "old": {
-        "message": "Alt"
+        "message": "Old"
     },
     "onAllVideos": {
-        "message": "in allen Videos"
+        "message": "すべて許可する"
     },
     "onSubscribedChannels": {
-        "message": "nur in abonnierten Kanälen"
+        "message": "登録したチャンネルでは許可する"
     },
     "onlyActiveOnYoutube": {
-        "message": "nur auf YouTube rot färben"
+        "message": "YouTube で有効"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Nur ein Video gleichzeitig"
+        "message": "1つのプレーヤーインスタンスのみにする"
     },
     "openPopupPlayer": {
         "message": "Open video/playlist in a new window"
     },
     "orange": {
-        "message": "Orange"
+        "message": "オレンジ"
     },
     "os": {
-        "message": "Betriebsystem"
+        "message": "OS"
     },
     "other": {
-        "message": "Andere"
+        "message": "その他"
     },
     "outline": {
-        "message": "Umrandung"
+        "message": "Outline"
     },
     "overlay": {
-        "message": "Overlay"
+        "message": "オーバーレイ"
     },
     "permissions": {
-        "message": "Berechtigungen"
+        "message": "権限"
     },
     "pictureInPicture": {
-        "message": "Bild-in-Bild"
+        "message": "ピクチャーインピクチャー"
     },
     "pink": {
-        "message": "Pink"
+        "message": "ピンク"
     },
     "plain": {
-        "message": "Schlicht"
+        "message": "プレーン"
     },
     "platform": {
-        "message": "Plattform"
+        "message": "プラットフォーム"
     },
     "playAllButton": {
         "message": "\"Play all\" button"
     },
     "playPause": {
-        "message": "Play / Pause"
+        "message": "再生/一時停止"
     },
     "playbackSpeed": {
-        "message": "Abspielgeschwindigkeit"
+        "message": "再生速度"
     },
     "player": {
-        "message": "Player"
+        "message": "プレーヤー"
     },
     "playerColor": {
-        "message": "Playerfarbe"
+        "message": "プレーヤーの色"
     },
     "playerSize": {
-        "message": "Playergröße"
+        "message": "プレーヤーのサイズ"
     },
     "playlist": {
-        "message": "Playlist"
+        "message": "再生リスト"
     },
     "playlists": {
-        "message": "Playlists"
+        "message": "再生リスト"
     },
     "popupPlayer": {
-        "message": "Player in eigenem Fenster"
+        "message": "ポップアッププレーヤー"
     },
     "popupWindowButtons": {
-        "message": "Add a popup-player-button to each thumbnail"
+        "message": "popup_window_buttons"
     },
     "position": {
-        "message": "Position"
+        "message": "位置"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Eine Taste drücken oder scrollen!"
+        "message": "任意のキーを押すか、マウスホイールを使用してください"
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Eine Taste drücken oder scrollen!"
+        "message": "任意のキーを押すか、マウスホイールを使用してください"
     },
     "previousVideo": {
-        "message": "Letztes Video"
+        "message": "前の動画"
     },
     "primaryColor": {
-        "message": "Primäre Farbe"
+        "message": "全体の色"
     },
     "purple": {
-        "message": "Lila"
+        "message": "紫"
     },
     "quality": {
-        "message": "Qualität"
+        "message": "画質"
     },
     "raised": {
-        "message": "Erhöht"
+        "message": "Raised"
     },
     "ram": {
         "message": "RAM"
     },
     "rateMe": {
-        "message": "Bewerte mich"
+        "message": "Rate me"
     },
     "rateUs": {
-        "message": "Bewerte uns!"
+        "message": "評価する"
     },
     "red": {
-        "message": "Rot"
+        "message": "赤"
     },
     "redDislikeButton": {
-        "message": "Zeige 'Mag ich nicht' Button rot"
+        "message": "低評価ボタンを赤色で表示する"
     },
     "relatedVideos": {
-        "message": "Ähnliche Videos"
+        "message": "関連動画"
     },
     "remote": {
-        "message": "Auf TV abspielen"
+        "message": "Play on TV"
     },
     "removeHomePageShorts": {
-        "message": "Startseite Shorts entfernen"
+        "message": "ホームページのショートを削除"
     },
     "removeRelatedSearchResults": {
-        "message": "Ähnliche Suchergebnisse entfernen"
+        "message": "関連動画を検索結果から削除する"
     },
     "removeShortsReelSearchResults": {
-        "message": "Shorts-Reel aus den Suchergebnissen entfernen"
+        "message": "検索結果からショートリールを削除"
     },
     "repeat": {
-        "message": "Repeat (Wiederholen)"
+        "message": "リピート"
     },
     "report": {
         "message": "Report"
     },
     "reset": {
-        "message": "Zurücksetzen"
+        "message": "リセット"
     },
     "resetAllSettings": {
-        "message": "Alle Einstellungen zurücksetzen"
+        "message": "すべての設定をリセットする"
     },
     "resetAllShortcuts": {
-        "message": "Alle Shortcuts zurücksetzen"
+        "message": "すべてのショートカットをリセットする"
     },
     "reverse": {
-        "message": "Rückwärts"
+        "message": "逆順にする"
     },
     "rotate": {
-        "message": "Drehen"
+        "message": "回転"
     },
     "save": {
-        "message": "Speichern"
+        "message": "保存"
     },
     "saveAs": {
-        "message": "Speichern als"
+        "message": "別名で保存する"
     },
     "schedule": {
-        "message": "Zeitplan"
+        "message": "スケジュール"
     },
     "screen": {
-        "message": "Bildschirm"
+        "message": "スクリーン"
     },
     "screenshot": {
-        "message": "Screenshot"
+        "message": "スクリーンショット"
     },
     "scrollBar": {
-        "message": "Scroll Bar"
+        "message": "スクロールバー"
     },
     "sd": {
         "message": "SD"
     },
     "search": {
-        "message": "Suche"
+        "message": "検索"
     },
     "searchBarOnly": {
-        "message": "Nur die Suchleiste"
+        "message": "検索バーのみ"
     },
     "seekBackward10Seconds": {
-        "message": "10 Sekunden zurück"
+        "message": "10秒戻る"
     },
     "seekForward10Seconds": {
-        "message": "10 Sekunden überspringen"
+        "message": "10秒進む"
     },
     "seekNextChapter": {
-        "message": "Nächstes Kapitel"
+        "message": "次のチャプターへ進む"
     },
     "seekPreviousChapter": {
-        "message": "Vorheriges Kapitel"
+        "message": "前のチャプターへ戻る"
     },
     "settings": {
-        "message": "Einstellungen"
+        "message": "設定"
     },
     "settingsSuccessfullyImported": {
-        "message": "Einstellungen erfolgreich importiert!"
+        "message": "設定を正常にインポートしました"
     },
     "share": {
         "message": "Share"
@@ -936,31 +936,31 @@
         "message": "Hide YouTube Logo"
     },
     "shortcuts": {
-        "message": "Hotkeys"
+        "message": "ショートカット"
     },
     "showCardsOnMouseHover": {
-        "message": "Infokarten bei Mausover anzeigen"
+        "message": "マウスオーバーでカードを表示する"
     },
     "showChannelVideosCount": {
-        "message": "Anzahl Videos je Channel anzeigen"
+        "message": "チャンネルの動画数を表示する"
     },
     "showLess": {
-        "message": "Weniger zeigen"
+        "message": "一部を表示"
     },
     "showMore": {
-        "message": "Mehr zeigen"
+        "message": "もっと見る"
     },
     "Hamburger_Menu": {
         "message": "Hamburger Menu"
     },
     "showRemainingDuration": {
-        "message": "Verbleibende Laufzeit anzeigen"
+        "message": "動画の残り時間を表示する"
     },
     "showVersion": {
         "message": "Show version"
     },
     "shuffle": {
-        "message": "Zufallswiedergabe"
+        "message": "シャッフル"
     },
     "player_fit_to_win_button": {
         "message": "player fit to win button"
@@ -972,163 +972,163 @@
         "message": "player rotate button"
     },
     "sidebar": {
-        "message": "Seitenleiste"
+        "message": "サイドバー"
     },
     "softwareInformation": {
         "message": "Software information"
     },
     "spacebar": {
-        "message": "Leertaste"
+        "message": "スペースキー"
     },
     "squaredUserImages": {
-        "message": "Quadratische Profilbilder"
+        "message": "ユーザー画像を四角にする"
     },
     "static": {
-        "message": "Statisch"
+        "message": "スタティック"
     },
     "statsForNerds": {
-        "message": "Statistiken für Nerds"
+        "message": "マニア向けの統計を表示する"
     },
     "step": {
-        "message": "Schritt"
+        "message": "ステップ"
     },
     "stop": {
-        "message": "Stopp"
+        "message": "停止"
     },
     "style": {
-        "message": "Stil"
+        "message": "スタイル"
     },
     "styles": {
-        "message": "Stile"
+        "message": "スタイル"
     },
     "subscribe": {
-        "message": "Abonnieren"
+        "message": "登録"
     },
     "subscriptions": {
-        "message": "Abos"
+        "message": "登録チャンネル"
     },
     "subtitles": {
-        "message": "Untertitel"
+        "message": "サブタイトル"
     },
     "sunset": {
-        "message": "Sonnenuntergang"
+        "message": "夕焼け"
     },
     "sunsetToSunrise": {
-        "message": "Abends bis Morgens"
+        "message": "夕焼けから日の出へ"
     },
     "systemPeferenceDark": {
-        "message": "System Einstellungen: dunkel"
+        "message": "システム設定: ダーク"
     },
     "systemPeferenceLight": {
-        "message": "System Einstellungen: hell"
+        "message": "システム設定: ライト"
     },
     "teal": {
-        "message": "Blaugrün"
+        "message": "ティール"
     },
     "textColor": {
-        "message": "Textfarbe"
+        "message": "文字の色"
     },
     "thanks": {
         "message": "Thanks"
     },
     "themes": {
-        "message": "Farbschemen"
+        "message": "テーマ"
     },
     "thisWillRemoveAllCookies": {
-        "message": "Alle Cookies werden gelöscht"
+        "message": "これはすべての Cookie を削除します。"
     },
     "thisWillRemoveAllWatchedVideos": {
         "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "Alle YouTube Cookies werden gelöscht"
+        "message": "YouTube のすべての Cookie を削除します"
     },
     "thisWillResetAllSettings": {
-        "message": "Alle Einstellungen werden entfernt"
+        "message": "すべての設定をリセットします。"
     },
     "thisWillResetAllShortcuts": {
-        "message": "Alle Shortcuts werden zurückgesetzt"
+        "message": "すべてのショートカットをリセットします"
     },
     "thumbnails": {
-        "message": "Vorschaubilder"
+        "message": "サムネイル"
     },
     "thumbnailsQuality": {
-        "message": "Thumbnailqualität"
+        "message": "サムネイルの品質"
     },
     "timeFrom": {
-        "message": "Start"
+        "message": "この時間から"
     },
     "timeTo": {
-        "message": "Ende"
+        "message": "この時間まで"
     },
     "todayAt": {
-        "message": "Heute um"
+        "message": "測定時刻"
     },
     "toggleAutoplay": {
-        "message": "Autoplay umschalten"
+        "message": "自動再生を切り替える"
     },
     "toggleCards": {
-        "message": "Karten ausblenden"
+        "message": "カードを切り替える"
     },
     "toggleControls": {
-        "message": "Kontrollen umschalten"
+        "message": "コントロールを切り替える"
     },
     "topChat": {
-        "message": "Top Chat"
+        "message": "上位チャット"
     },
     "trackWatchedVideos": {
-        "message": "Gesehene Videos protokollieren"
+        "message": "視聴した動画を記録する"
     },
     "trailerAutoplay": {
-        "message": "Kanal-Intro automatisch abspielen"
+        "message": "トレーラーを自動再生する"
     },
     "translations": {
-        "message": "Übersetzungen"
+        "message": "翻訳"
     },
     "transparentBackground": {
-        "message": "Transparenter Hintergrund"
+        "message": "透明な背景"
     },
     "trending": {
-        "message": "Trends"
+        "message": "急上昇"
     },
     "tryToReloadThePage": {
-        "message": "Versuche, die Seite neu zu laden"
+        "message": "ページをリロードしてみてください"
     },
     "type": {
-        "message": "Typ"
+        "message": "種類"
     },
     "upNextAutoplay": {
-        "message": "Nächstes Video automatisch abspielen"
+        "message": "次の動画を自動再生する"
     },
     "use24HourFormat": {
-        "message": "24-Stunden Format"
+        "message": "24時間表示にする"
     },
     "version": {
-        "message": "Version"
+        "message": "バージョン"
     },
     "video": {
-        "message": "Video"
+        "message": "動画"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "Die Video-Beschreibung wird um den Kategorienamen erweitert"
+        "message": "動画の説明はカテゴリ名を取得するために広げられます"
     },
     "videoFormats": {
-        "message": "Videoformate"
+        "message": "動画形式"
     },
     "videos": {
-        "message": "Videos"
+        "message": "動画"
     },
     "viewMode": {
-        "message": "Darstellungsmodus"
+        "message": "View Mode"
     },
     "volume": {
-        "message": "Lautstärke"
+        "message": "音量"
     },
     "watchLater": {
-        "message": "Später ansehen"
+        "message": "後で見る"
     },
     "watchTime": {
-        "message": "Verbrauchte Zeit"
+        "message": "視聴時間"
     },
     "watchedVideos": {
         "message": "Watched videos"
@@ -1137,34 +1137,34 @@
         "message": "When paused"
     },
     "whenTabIsChanged": {
-        "message": "Beim Tab-Wechsel"
+        "message": "タブを変更したとき"
     },
     "white": {
-        "message": "Weiß"
+        "message": "白"
     },
     "windowColor": {
-        "message": "Fensterfarbe"
+        "message": "ウィンドウの色"
     },
     "windowOpacity": {
-        "message": "Fensterdeckkraft"
+        "message": "ウィンドウの不透明度"
     },
     "yellow": {
-        "message": "Gelb"
+        "message": "黄"
     },
     "youtubeHeaderLeft": {
-        "message": "YouTube Kopfzeile (Links)"
+        "message": "YouTube のヘッダー左"
     },
     "youtubeHeaderRight": {
-        "message": "YouTube Kopfzeile (Rechts)"
+        "message": "YouTube のヘッダー右"
     },
     "youtubeHomePage": {
-        "message": "YouTube Startseite"
+        "message": "YouTube のホームページ"
     },
     "youtubeLanguage": {
-        "message": "YouTube Sprache"
+        "message": "YouTube の言語"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube begrenzt die Qualität auf 1080p für den h.264 Codec"
+        "message": "YouTube は H.264 コーデックの画質を 1080p に制限しています"
     },
     "openNewTab": {
         "message": "Open in a new tab"

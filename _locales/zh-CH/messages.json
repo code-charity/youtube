@@ -12,10 +12,10 @@
         "message": "⇧"
     },
     "about": {
-        "message": "Informacje"
+        "message": "关于"
     },
     "accept": {
-        "message": "Akceptuj"
+        "message": "接受"
     },
     "compact_spacing": {
         "message": "compact spacing"
@@ -27,34 +27,34 @@
         "message": "Compact Theme"
     },
     "activate": {
-        "message": "Aktywuj"
+        "message": "启用"
     },
     "activateCaptions": {
-        "message": "Aktywuj napisy"
+        "message": "启用字幕"
     },
     "Buttons": {
-        "message": "Przyciski"
+        "message": "按钮"
     },
     "activateFullscreen": {
-        "message": "Aktywuj tryb pełnoekranowy"
+        "message": "启用全屏"
     },
     "activated": {
-        "message": "Aktywowane"
+        "message": "启用"
     },
     "activatedFeatures": {
-        "message": "Aktywowane funkcje"
+        "message": "已启用功能"
     },
     "activeFeatures": {
-        "message": "Aktywne funkcje"
+        "message": "启用功能"
     },
     "addScrollToTop": {
-        "message": "Dodaj «Przewiń do góry»"
+        "message": "增加【返回顶部】按钮"
     },
     "ads": {
-        "message": "Reklamy"
+        "message": "广告"
     },
     "all": {
-        "message": "Wszystkie"
+        "message": "所有"
     },
     "allYourSettingsWillBeErasedAndCanTBeRecovered": {
         "message": "All your settings will be erased and can't be recovered"
@@ -63,292 +63,292 @@
         "message": "All your shortcuts will be erased and can't be recovered"
     },
     "allow": {
-        "message": "Zezwól"
+        "message": "允许"
     },
     "allow60fps": {
-        "message": "Zezwól na 60fps"
+        "message": "允许60FPS"
     },
     "always": {
-        "message": "Zawsze"
+        "message": "Always"
     },
     "alwaysActive": {
-        "message": "Zawsze aktywne"
+        "message": "始终启用"
     },
     "alwaysShowProgressBar": {
-        "message": "Zawsze pokazuj pasek postępu"
+        "message": "始终显示进度条"
     },
     "amber": {
-        "message": "Bursztynowy"
+        "message": "琥珀色"
     },
     "analyzer": {
-        "message": "Analizator"
+        "message": "分析仪"
     },
     "animations": {
         "message": "Animations"
     },
     "appearance": {
-        "message": "Wygląd"
+        "message": "外观"
     },
     "areYouSureYouWantToExportTheData": {
-        "message": "Jesteś pewien że chcesz wyeksportować dane?"
+        "message": "你确定想要导出数据吗?"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Jesteś pewien że chcesz zaimportować dane?"
+        "message": "你确定想要导入数据吗?"
     },
     "audio": {
-        "message": "Audio"
+        "message": "音频"
     },
     "audioFormats": {
-        "message": "Formaty audio"
+        "message": "音频格式"
     },
     "auto": {
-        "message": "Auto"
+        "message": "自动"
     },
     "autoFullscreen": {
-        "message": "Automatyczny tryb pełnoekranowy"
+        "message": "自动全屏"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Automatyczna pauza przy zmianie kart"
+        "message": "切换标签时暂停播放"
     },
     "autoplay": {
-        "message": "Autoodtwarzanie"
+        "message": "自动播放"
     },
     "avoidAv1": {
-        "message": "Unikaj AV1"
+        "message": "Avoid AV1"
     },
     "avoidAv1Vp8Vp9": {
-        "message": "Unikaj AV1, VP8, VP9"
+        "message": "Avoid AV1, VP8, VP9"
     },
     "avoidAv1Vp9": {
-        "message": "Unikaj AV1, VP9"
+        "message": "Avoid AV1, VP9"
     },
     "avoidCpuRenderingWhenPossible": {
-        "message": "Unikaj renderowania CPU gdy tylko możliwe"
+        "message": "Avoid CPU rendering when possible"
     },
     "backgroundColor": {
-        "message": "Kolor tła"
+        "message": "背景颜色"
     },
     "backgroundOpacity": {
-        "message": "Przezroczystość tła"
+        "message": "背景透明度"
     },
     "backupAndReset": {
-        "message": "Kopia zapasowa i reset"
+        "message": "备份与恢复"
     },
     "baseOnSystemColorScheme": {
-        "message": "Bazuj na systemowym schemacie kolorów"
+        "message": "使用系统配色"
     },
     "belowPlayer": {
-        "message": "Pod odtwarzaczem"
+        "message": "在播放器下方"
     },
     "bitness": {
         "message": "Bitness"
     },
     "black": {
-        "message": "Czarny"
+        "message": "纯黑"
     },
     "blocklist": {
-        "message": "Czarna lista"
+        "message": "黑名单"
     },
     "blockAll": {
-        "message": "Blokuj wszystkie"
+        "message": "拦截所有"
     },
     "blockAv1": {
-        "message": "Blokuj AV1"
+        "message": "Block AV1"
     },
     "blockH264": {
-        "message": "Blokuj H.264"
+        "message": "Block H.264"
     },
     "blockMusic": {
-        "message": "Blokuj muzykę"
+        "message": "Skip ads while I play music"
     },
     "blockVp8": {
-        "message": "Blokuj VP8"
+        "message": "Block VP8"
     },
     "blockVp9": {
-        "message": "Blokuj VP9"
+        "message": "Block VP9"
     },
     "blue": {
-        "message": "Niebieski"
+        "message": "蓝色"
     },
     "blueGray": {
-        "message": "Szaroniebieski"
+        "message": "蓝灰色"
     },
     "bluelight": {
-        "message": "Niebieskie światło"
+        "message": "色彩柔和度"
     },
     "brightness": {
         "message": "Brightness"
     },
     "brown": {
-        "message": "Brązowy"
+        "message": "棕色"
     },
     "browser": {
-        "message": "Przeglądarka"
+        "message": "浏览器"
     },
     "browserVersion": {
-        "message": "Wersja przeglądarki"
+        "message": "浏览器版本"
     },
     "bubbles": {
-        "message": "Dymki"
+        "message": "网格"
     },
     "bug": {
         "message": "Bug"
     },
     "buttons": {
-        "message": "Przyciski"
+        "message": "按钮"
     },
     "cancel": {
-        "message": "Anuluj"
+        "message": "取消"
     },
     "categories": {
-        "message": "Kategorie"
+        "message": "分类"
     },
     "channel": {
-        "message": "Kanał"
+        "message": "频道"
     },
     "channels": {
-        "message": "Kanały"
+        "message": "频道"
     },
     "characterEdgeStyle": {
-        "message": "Styl krawędzi znaków"
+        "message": "文字阴影风格"
     },
     "clip": {
         "message": "Clip"
     },
     "clipboard": {
-        "message": "Schowek"
+        "message": "粘贴板"
     },
     "codecH264": {
-        "message": "Kodek h.264"
+        "message": "采用 h.264 编码"
     },
     "codecs": {
-        "message": "Kodeki"
+        "message": "Codecs"
     },
     "collapseOfSubscriptionSections": {
-        "message": "Zwinięcie sekcji subskrypcji"
+        "message": "订阅区域显示展开/收起按钮"
     },
     "collapsed": {
-        "message": "Zwinięte"
+        "message": "收起"
     },
     "comments": {
-        "message": "Komentarze"
+        "message": "评论"
     },
     "confirmationBeforeClosing": {
-        "message": "Potwierdzenie przy zamknięciu"
+        "message": "页面关闭确认"
     },
     "cookies": {
-        "message": "Ciasteczka"
+        "message": "Cookies"
     },
     "cores": {
-        "message": "Rdzenie"
+        "message": "核心"
     },
     "cropChapterTitles": {
-        "message": "Przycinaj tytuły rozdziałów"
+        "message": "裁剪章节标题"
     },
     "custom": {
-        "message": "Niestandardowy"
+        "message": "Custom"
     },
     "customCss": {
-        "message": "Niestandardowy CSS"
+        "message": "自定义CSS"
     },
     "customJs": {
-        "message": "Niestandardowy JS"
+        "message": "自定义JS"
     },
     "customMiniPlayer": {
-        "message": "Niestandardowy Mini-Odtwarzacz"
+        "message": "自定义迷你播放器"
     },
     "cyan": {
-        "message": "Cyjan"
+        "message": "青色"
     },
     "dark": {
-        "message": "Ciemny"
+        "message": "黑暗"
     },
     "darkTheme": {
-        "message": "Ciemny motyw"
+        "message": "夜间模式"
     },
     "dateAndTime": {
-        "message": "Data i godzina"
+        "message": "时间与日期"
     },
     "dawn": {
-        "message": "Świt"
+        "message": "黎明"
     },
     "decreasePlaybackSpeed": {
-        "message": "Zmniejsz prędkość odtwarzania"
+        "message": "视频减速"
     },
     "decreaseVolume": {
-        "message": "Zmniejsz głośność"
+        "message": "降低音量"
     },
     "deepOrange": {
-        "message": "Głęboki pomarańczowy"
+        "message": "深橙色"
     },
     "deepPurple": {
-        "message": "Głęboki fioletowy"
+        "message": "深紫色"
     },
     "default": {
-        "message": "Domyślna"
+        "message": "默认"
     },
     "defaultChannelTab": {
-        "message": "Domyślna zakładka na kanałach"
+        "message": "默认频道页"
     },
     "defaultContentCountry": {
-        "message": "Domyślny kraj zawartości"
+        "message": "默认内容国家"
     },
     "defaultPlaybackSpeed": {
         "message": "Default Playback Speed"
     },
     "deleteWatchedVideos": {
-        "message": "Usuń obejrzane wideo"
+        "message": "Delete watched videos"
     },
     "deleteYoutubeCookies": {
-        "message": "Usuń ciasteczka YouTube"
+        "message": "清空 YouTube cookies"
     },
     "depressed": {
-        "message": "Wklęsłe"
+        "message": "Depressed"
     },
     "description": {
-        "message": "Opis"
+        "message": "Description"
     },
     "description_ext": {
-        "message": "Spraw, aby YouTube był uporządkowany i inteligentny! YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+        "message": "YouTube, tidy + smart? Youtube video youtube player size youtube color ad skip speed volume channel skipper tags playlist hide"
     },
     "desert": {
-        "message": "Pustynia"
+        "message": "沙漠"
     },
     "details": {
-        "message": "Szczegóły"
+        "message": "细节信息"
     },
     "developerOptions": {
-        "message": "Ustawienia deweloperskie"
+        "message": "开发者选项"
     },
     "device": {
-        "message": "Urządzenie"
+        "message": "设备"
     },
     "dim": {
-        "message": "Przyciemnij"
+        "message": "遮罩层厚度"
     },
     "disabled": {
-        "message": "Wyłączony"
+        "message": "停用"
     },
     "dislike": {
-        "message": "Nie podoba mi się"
+        "message": "踩一下"
     },
     "displayDayOfTheWeak": {
         "message": "Display day of the week"
     },
     "doNotChange": {
-        "message": "Nie zmieniaj"
+        "message": "不做改变"
     },
     "donate": {
-        "message": "Dotacja"
+        "message": "支持"
     },
     "download": {
         "message": "Download"
     },
     "draggable": {
-        "message": "Przeciągalne"
+        "message": "可拖动"
     },
     "dropShadow": {
-        "message": "Cień"
+        "message": "Drop shadow"
     },
     "durationWithSpeed": {
         "message": "Show time remaining with reference to playback speed"
@@ -357,97 +357,97 @@
         "message": "Email"
     },
     "empty": {
-        "message": "Pusty"
+        "message": "暂无"
     },
     "enabled": {
-        "message": "Włączony"
+        "message": "启用"
     },
     "enabledForced": {
-        "message": "Włączony (wymuszony)"
+        "message": "强制启用"
     },
     "expanded": {
-        "message": "Rozwinięty"
+        "message": "展开"
     },
     "exportSettings": {
-        "message": "Eksport ustawień"
+        "message": "导出设置"
     },
     "extension": {
-        "message": "Rozszerzenie"
+        "message": "扩展"
     },
     "file": {
-        "message": "Plik"
+        "message": "文件"
     },
     "filters": {
-        "message": "Filtry"
+        "message": "滤镜"
     },
     "fitToWindow": {
-        "message": "Dopasuj do okna"
+        "message": "窗口自适应"
     },
     "flash": {
-        "message": "Błysk"
+        "message": "闪光"
     },
     "font": {
-        "message": "Czcionka"
+        "message": "字体"
     },
     "fontColor": {
-        "message": "Kolor czcionki"
+        "message": "字体颜色"
     },
     "fontFamily": {
-        "message": "Rodzaj czcionki"
+        "message": "字体"
     },
     "fontOpacity": {
-        "message": "Przezroczystość czcionki"
+        "message": "字体透明度"
     },
     "fontSize": {
-        "message": "Rozmiar czcionki"
+        "message": "字体大小"
     },
     "footer": {
-        "message": "Stopka"
+        "message": "底部栏"
     },
     "forceSDR": {
-        "message": "Wymuś SDR"
+        "message": "Avoid HDR, keep SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Wymuś odtwarzanie wideo od początku"
+        "message": "Forced play video from the beginning"
     },
     "forcedPlaybackSpeed": {
-        "message": "Wymuś prędkość odtwarzania"
+        "message": "强制设置播放速度"
     },
     "forcedPlaybackSpeedMusic": {
         "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
-        "message": "Wymuś tryb kinowy"
+        "message": "强制设置剧场模式"
     },
     "forcedVolume": {
-        "message": "Wymuś poziom głośności"
+        "message": "强制修改音量"
     },
     "foundABug": {
-        "message": "Znalazłeś błąd?"
+        "message": "遇到了Bug?"
     },
     "fullWindow": {
-        "message": "Pełne okno"
+        "message": "全屏"
     },
     "general": {
-        "message": "Ogólne"
+        "message": "一般设置"
     },
     "geoPreference": {
-        "message": "Geo preferencja"
+        "message": "地理偏好"
     },
     "github": {
         "message": "GitHub"
     },
     "goToSearchBox": {
-        "message": "Idź do paska wyszukiwania"
+        "message": "转到搜索框"
     },
     "googleApiKey": {
-        "message": "Klucz Google API"
+        "message": "Google API key"
     },
     "gpu": {
         "message": "GPU"
     },
     "green": {
-        "message": "Zielony"
+        "message": "绿色"
     },
     "hardwareInformation": {
         "message": "Hardware information"
@@ -456,25 +456,25 @@
         "message": "HD"
     },
     "hdThumbnail": {
-        "message": "Miniatura HD"
+        "message": "高清缩略图"
     },
     "header": {
-        "message": "Nagłówek"
+        "message": "顶部栏"
     },
     "hidden": {
-        "message": "Ukryty"
+        "message": "隐藏"
     },
     "hiddenOnVideoPage": {
-        "message": "Ukryty na stronie z wideo"
+        "message": "在视频播放页面时隐藏"
     },
     "hideAnimatedThumbnails": {
-        "message": "Ukryj animowane miniatury"
+        "message": "隐藏动态缩略图"
     },
     "hideAnnotations": {
-        "message": "Ukryj adnotacje"
+        "message": "隐藏预览图"
     },
     "hideCards": {
-        "message": "Ukryj karty"
+        "message": "隐藏信息卡片"
     },
     "hideCategories": {
         "message": "Hide categories"
@@ -483,124 +483,124 @@
         "message": "Hide comments count"
     },
     "hideCountryCode": {
-        "message": "Ukryj kod kraju"
+        "message": "隐藏国家代码"
     },
     "hideDate": {
-        "message": "Ukryj datę"
+        "message": "隐藏日期"
     },
     "hideDetailButton": {
-        "message": "Ukryj przycisk Szczegóły"
+        "message": "Buttons"
     },
     "hideDetails": {
-        "message": "Ukryj szczegóły"
+        "message": "隐藏详细信息"
     },
     "hideEndscreen": {
-        "message": "Ukryj ekran końcowy"
+        "message": "隐藏结束画面"
     },
     "hideFeaturedContent": {
-        "message": "Ukryj wyróżnioną zawartość"
+        "message": "隐藏精选频道"
     },
     "hideFooter": {
-        "message": "Ukryj stopkę"
+        "message": "隐藏底部栏"
     },
     "hideGradientBottom": {
-        "message": "Ukryj cień dookoła paska odtwarzania"
+        "message": "隐藏底部渐变层"
     },
     "hidePlayerControlsBar": {
-        "message": "Ukryj pasek sterowania odtwarzaczem"
+        "message": "隐藏播放器控制栏"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Ukryj przyciski paska sterowania odtwarzaczem"
+        "message": "Hide player controls bar buttons"
     },
     "hidePlayerControlsBarOptions": {
-        "message": "Ukryj przyciski paska sterowania odtwarzaczem - ustawienia"
+        "message": "Hide player controls options"
     },
     "hidePlaylist": {
-        "message": "Ukryj playliste"
+        "message": "隐藏播放列表"
     },
     "hideRightButtons": {
-        "message": "Ukryj przyciski po prawej"
+        "message": "隐藏右侧按钮"
     },
     "hideScrollForDetails": {
-        "message": "Ukryj «Przewiń do szczegółów»"
+        "message": "隐藏 «滚动至详细信息»"
     },
     "hideSkipOverlay": {
-        "message": "Ukryj nakładkę pomijania"
+        "message": "隐藏跳过叠加"
     },
     "hideThumbnailOverlay": {
-        "message": "Ukryj przyciski na miniaturach"
+        "message": "隐藏缩略图上的按钮"
     },
     "hideThumbnails": {
-        "message": "Ukryj miniatury"
+        "message": "Hide thumbnails"
     },
     "hideViewsCount": {
-        "message": "Ukryj ilość wyświetleń"
+        "message": "隐藏观看量"
     },
     "hideVoiceSearchButton": {
-        "message": "Ukryj przycisk wyszukiwania głosowego"
+        "message": "Hide voice search button"
     },
     "high": {
-        "message": "Wysoka"
+        "message": "High"
     },
     "history": {
-        "message": "Historia"
+        "message": "历史记录"
     },
     "home": {
-        "message": "Strona główna"
+        "message": "首页"
     },
     "homeScreen": {
         "message": "Home screen"
     },
     "hover": {
-        "message": "Najedź"
+        "message": "悬浮"
     },
     "hoverOnVideoPage": {
-        "message": "Najedź na stronie wideo"
+        "message": "在视频播放页面时悬浮显示"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Jak dawno wideo zostało przesłane"
+        "message": "投稿于多久之前"
     },
     "icons": {
-        "message": "Ikony"
+        "message": "图标"
     },
     "iconsOnly": {
-        "message": "Tylko ikony"
+        "message": "仅显示图标"
     },
     "importSettings": {
-        "message": "Import ustawień"
+        "message": "导入设置"
     },
     "improveLogo": {
-        "message": "Ulepsz logo"
+        "message": "优化图标"
     },
     "improvedtubeButtons": {
-        "message": "Przyciski ImprovedTube"
+        "message": "ImprovedTube buttons"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "Ikona ImprovedTube na YouTube"
+        "message": "在 YouTube 显示 ImprovedTube 图标"
     },
     "improvedtubeLanguage": {
-        "message": "Język ImprovedTube"
+        "message": "ImprovedTube 语言"
     },
     "improvedtubeVersion": {
-        "message": "Wersja ImprovedTube"
+        "message": "ImprovedTube 版本"
     },
     "increasePlaybackSpeed": {
-        "message": "Zwiększ prędkość odtwarzania"
+        "message": "视频加速"
     },
     "increaseVolume": {
-        "message": "Zwiększ głośność"
+        "message": "增加音量"
     },
     "indigo": {
-        "message": "Indygo"
+        "message": "靛青色"
     },
     "items": {
-        "message": "Przedmioty"
+        "message": "项目"
     },
     "language": {
-        "message": "Język"
+        "message": "语言"
     },
     "languages": {
-        "message": "Języki"
+        "message": "语言"
     },
     "layerAnimationScale": {
         "message": "Layer animation scale"
@@ -609,64 +609,64 @@
         "message": "Layout"
     },
     "legacyYoutube": {
-        "message": "Stara wersja YouTube"
+        "message": "旧版 YouTube"
     },
     "library": {
-        "message": "Biblioteka"
+        "message": "Library"
     },
     "light": {
-        "message": "Jasny"
+        "message": "明亮"
     },
     "lightBlue": {
-        "message": "Jasnoniebieski"
+        "message": "浅蓝色"
     },
     "lightGreen": {
-        "message": "Jasnozielony"
+        "message": "浅绿色"
     },
     "like": {
-        "message": "Polub"
+        "message": "顶一下"
     },
     "liked": {
-        "message": "Polubione"
+        "message": "Liked"
     },
     "likes": {
         "message": "Likes"
     },
     "lime": {
-        "message": "Limonkowy"
+        "message": "石灰色"
     },
     "limitPageWidth": {
-        "message": "Ogranicz szerokość strony"
+        "message": "Limit page width"
     },
     "list": {
-        "message": "Lista"
+        "message": "列表"
     },
     "liveChat": {
-        "message": "Czat na żywo"
+        "message": "实时聊天窗"
     },
     "liveChatType": {
-        "message": "Rodzaj czatu na żywo"
+        "message": "实时聊天窗类型"
     },
     "location": {
-        "message": "Położenie"
+        "message": "地点"
     },
     "loop": {
-        "message": "Pętla"
+        "message": "Loop"
     },
     "loudnessNormalization": {
-        "message": "Normalizacja głośności"
+        "message": "音量标准化"
     },
     "low": {
-        "message": "Niska"
+        "message": "Low"
     },
     "markWatchedVideos": {
-        "message": "Oznacz obejrzane wideo"
+        "message": "标记为已观看"
     },
     "medium": {
-        "message": "Średnia"
+        "message": "Medium"
     },
     "mixer": {
-        "message": "Mikser"
+        "message": "混音器"
     },
     "more": {
         "message": "More"
@@ -675,250 +675,250 @@
         "message": "Most viewed channels"
     },
     "moveSidebarLeft": {
-        "message": "Przenieś panel boczny na lewo"
+        "message": "To the left!"
     },
     "moveThumbnailsRight": {
-        "message": "Przenieś miniatury na prawo"
+        "message": "Thumbnails to the right!"
     },
     "myColors": {
-        "message": "Moje kolory"
+        "message": "自定义颜色"
     },
     "name": {
-        "message": "Nazwa"
+        "message": "名字"
     },
     "nativeMiniPlayer": {
-        "message": "Natywny mini-odtwarzacz"
+        "message": "原版迷你播放器"
     },
     "new": {
-        "message": "Nowe"
+        "message": "新的"
     },
     "nextVideo": {
-        "message": "Następne wideo"
+        "message": "上一个视频"
     },
     "night": {
-        "message": "Noc"
+        "message": "夜色"
     },
     "nightMode": {
         "message": "Night mode"
     },
     "noActiveFeatures": {
-        "message": "Brak aktywnych funkcji"
+        "message": "没有已启用的功能"
     },
     "noOpenVideoTabs": {
-        "message": "Brak otwartych kart wideo"
+        "message": "没有已打开的视频标签"
     },
     "none": {
-        "message": "Brak"
+        "message": "无"
     },
     "normal": {
-        "message": "Normalny"
+        "message": "正常"
     },
     "off": {
-        "message": "Wyłączone"
+        "message": "Off"
     },
     "ok": {
         "message": "Ok"
     },
     "old": {
-        "message": "Stary"
+        "message": "旧版"
     },
     "onAllVideos": {
-        "message": "Na wszystkich wideo"
+        "message": "在所有视频"
     },
     "onSubscribedChannels": {
-        "message": "Na subskrybowanych kanałach"
+        "message": "在订阅频道"
     },
     "onlyActiveOnYoutube": {
-        "message": "Aktywny tylko na YouTube"
+        "message": "仅在 YouTube 上启用"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Odtwarzanie tylko w jednej instancji odtwarzacza"
+        "message": "同时仅播放一个"
     },
     "openPopupPlayer": {
-        "message": "Otwórz wideo/playliste w nowym oknie"
+        "message": "在新窗口打开视频/播放列表"
     },
     "orange": {
-        "message": "Pomarańczowy"
+        "message": "橙色"
     },
     "os": {
-        "message": "OS"
+        "message": "操作系统"
     },
     "other": {
-        "message": "Inne"
+        "message": "其他"
     },
     "outline": {
-        "message": "Kontur"
+        "message": "Outline"
     },
     "overlay": {
-        "message": "Nakładka"
+        "message": "Overlay"
     },
     "permissions": {
-        "message": "Uprawnienia"
+        "message": "许可"
     },
     "pictureInPicture": {
-        "message": "Obraz w Obrazie"
+        "message": "画中画"
     },
     "pink": {
-        "message": "Różowy"
+        "message": "粉色"
     },
     "plain": {
-        "message": "Zwykły"
+        "message": "野外"
     },
     "platform": {
-        "message": "Platforma"
+        "message": "平台"
     },
     "playAllButton": {
-        "message": "Przycisk \"Odtwórz wszystko\""
+        "message": "\"Play all\" button"
     },
     "playPause": {
-        "message": "Odtwarzanie / Pauza"
+        "message": "播放/暂停"
     },
     "playbackSpeed": {
-        "message": "Prędkość odtwarzania"
+        "message": "播放速度"
     },
     "player": {
-        "message": "Odtwarzacz"
+        "message": "播放器"
     },
     "playerColor": {
-        "message": "Kolor odtwarzacza"
+        "message": "播放器颜色"
     },
     "playerSize": {
-        "message": "Rozmiar odtwarzacza"
+        "message": "播放器大小"
     },
     "playlist": {
-        "message": "Lista odtwarzania"
+        "message": "播放列表"
     },
     "playlists": {
-        "message": "Listy odtwarzania"
+        "message": "稍后观看"
     },
     "popupPlayer": {
-        "message": "Odtwarzacz popout"
+        "message": "弹出播放器"
     },
     "popupWindowButtons": {
-        "message": "Add a popup-player-button to each thumbnail"
+        "message": "添加弹出播放器按钮"
     },
     "position": {
-        "message": "Pozycja"
+        "message": "位置"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Wciśnij dowolny przycisk lub użyj kółka myszy."
+        "message": "按下任意键或滚动鼠标滚轴."
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Wciśnij dowolny przycisk lub użyj kółka myszy"
+        "message": "按下任意键或鼠标滚轴."
     },
     "previousVideo": {
-        "message": "Poprzednie wideo"
+        "message": "下一个视频"
     },
     "primaryColor": {
-        "message": "Kolor główny"
+        "message": "主色调"
     },
     "purple": {
-        "message": "Fioletowy"
+        "message": "紫色"
     },
     "quality": {
-        "message": "Jakość"
+        "message": "画质"
     },
     "raised": {
-        "message": "Podniesione"
+        "message": "Raised"
     },
     "ram": {
         "message": "RAM"
     },
     "rateMe": {
-        "message": "Oceń mnie"
+        "message": "Rate me"
     },
     "rateUs": {
-        "message": "Oceń nas"
+        "message": "给我们评价"
     },
     "red": {
-        "message": "Czerwony"
+        "message": "红色"
     },
     "redDislikeButton": {
-        "message": "Koloruj przycisk 'Nie lubię' na czerwono"
+        "message": "将【踩一下】设置为红色"
     },
     "relatedVideos": {
-        "message": "Powiązane filmy"
+        "message": "相关视频"
     },
     "remote": {
-        "message": "Odtwarzaj na telewizorze"
+        "message": "Play on TV"
     },
     "removeHomePageShorts": {
-        "message": "Usuń Shorts z głównej strony"
+        "message": "移除主页的 Shorts"
     },
     "removeRelatedSearchResults": {
-        "message": "Usuń powiązane wyniki wyszukiwania"
+        "message": "隐藏搜索相关结果"
     },
     "removeShortsReelSearchResults": {
-        "message": "Usuń karuzelę Shorts z wyników wyszukiwania"
+        "message": "删除搜索结果中的 Shorts 轮播"
     },
     "repeat": {
-        "message": "Powtarzaj"
+        "message": "循环"
     },
     "report": {
         "message": "Report"
     },
     "reset": {
-        "message": "Reset"
+        "message": "重置"
     },
     "resetAllSettings": {
-        "message": "Resetuj wszystkie ustawienia"
+        "message": "重置所有设置"
     },
     "resetAllShortcuts": {
-        "message": "Resetuj wszystkie skróty"
+        "message": "重置所有快捷键"
     },
     "reverse": {
-        "message": "Odwróć"
+        "message": "逆序"
     },
     "rotate": {
-        "message": "Obróć"
+        "message": "旋转"
     },
     "save": {
-        "message": "Zapisz"
+        "message": "保存"
     },
     "saveAs": {
-        "message": "Zapisz jako"
+        "message": "另存为"
     },
     "schedule": {
-        "message": "Harmonogram"
+        "message": "定时开/关"
     },
     "screen": {
-        "message": "Ekran"
+        "message": "屏幕"
     },
     "screenshot": {
-        "message": "Zrzut ekranu"
+        "message": "截图"
     },
     "scrollBar": {
-        "message": "Pasek przewijania"
+        "message": "Scroll Bar"
     },
     "sd": {
         "message": "SD"
     },
     "search": {
-        "message": "Wyszukaj"
+        "message": "搜索"
     },
     "searchBarOnly": {
-        "message": "Tylko pasek wyszukiwania"
+        "message": "仅搜索栏"
     },
     "seekBackward10Seconds": {
-        "message": "Przewiń 10 sekund do tyłu"
+        "message": "倒退10秒"
     },
     "seekForward10Seconds": {
-        "message": "Przewiń 10 sekund do przodu"
+        "message": "快进10秒"
     },
     "seekNextChapter": {
-        "message": "Przewiń do następnego rozdziału"
+        "message": "寻找下一章"
     },
     "seekPreviousChapter": {
-        "message": "Przewiń do poprzedniego rozdziału"
+        "message": "寻找上一章"
     },
     "settings": {
-        "message": "Ustawienia"
+        "message": "ImprovedTube 设置"
     },
     "settingsSuccessfullyImported": {
-        "message": "Ustawienia pomyślnie zaimportowane"
+        "message": "设置导入成功"
     },
     "share": {
-        "message": "Udostępnij"
+        "message": "Share"
     },
     "embedded_Hide_Share": {
         "message": "Embedded Hide Share"
@@ -936,31 +936,31 @@
         "message": "Hide YouTube Logo"
     },
     "shortcuts": {
-        "message": "Skróty"
+        "message": "快捷键"
     },
     "showCardsOnMouseHover": {
-        "message": "Pokaż karty po najechaniu myszą"
+        "message": "鼠标悬浮时显示信息卡片"
     },
     "showChannelVideosCount": {
-        "message": "Pokaż ilość wideo na kanale"
+        "message": "显示频道内视频数"
     },
     "showLess": {
-        "message": "Pokaż mniej"
+        "message": "显示较少"
     },
     "showMore": {
-        "message": "Pokaż więcej"
+        "message": "展示更多"
     },
     "Hamburger_Menu": {
         "message": "Hamburger Menu"
     },
     "showRemainingDuration": {
-        "message": "Pokaż pozostały czas trwania filmu"
+        "message": "Show video remaining duration"
     },
     "showVersion": {
         "message": "Show version"
     },
     "shuffle": {
-        "message": "Losowo"
+        "message": "随机"
     },
     "player_fit_to_win_button": {
         "message": "player fit to win button"
@@ -972,199 +972,199 @@
         "message": "player rotate button"
     },
     "sidebar": {
-        "message": "Panel boczny"
+        "message": "侧边栏"
     },
     "softwareInformation": {
         "message": "Software information"
     },
     "spacebar": {
-        "message": "Spacja"
+        "message": "空格"
     },
     "squaredUserImages": {
-        "message": "Kwadratowe avatary użytkowników"
+        "message": "方形用户头像"
     },
     "static": {
-        "message": "Statyczne"
+        "message": "静态"
     },
     "statsForNerds": {
-        "message": "Statystyki dla nerdów"
+        "message": "显示专业信息"
     },
     "step": {
-        "message": "Stopień"
+        "message": "Step"
     },
     "stop": {
-        "message": "Stop"
+        "message": "停止"
     },
     "style": {
-        "message": "Styl"
+        "message": "样式"
     },
     "styles": {
-        "message": "Style"
+        "message": "样式"
     },
     "subscribe": {
-        "message": "Subskrybuj"
+        "message": "Subscribe"
     },
     "subscriptions": {
-        "message": "Subskrypcje"
+        "message": "订阅内容"
     },
     "subtitles": {
-        "message": "Napisy"
+        "message": "字幕"
     },
     "sunset": {
-        "message": "Zachód"
+        "message": "晚霞"
     },
     "sunsetToSunrise": {
-        "message": "Od zachodu do wschodu słońca"
+        "message": "日落到日出"
     },
     "systemPeferenceDark": {
-        "message": "Preferencja systemowa: ciemne"
+        "message": "系统偏好: 深色"
     },
     "systemPeferenceLight": {
-        "message": "Preferencja systemowa: jasne"
+        "message": "系统偏好: 浅色"
     },
     "teal": {
-        "message": "Morski"
+        "message": "蓝绿色"
     },
     "textColor": {
-        "message": "Kolor tekstu"
+        "message": "文字颜色"
     },
     "thanks": {
         "message": "Thanks"
     },
     "themes": {
-        "message": "Motywy"
+        "message": "主题"
     },
     "thisWillRemoveAllCookies": {
-        "message": "To usunie wszystkie ciasteczka."
+        "message": "将清空所有 cookies."
     },
     "thisWillRemoveAllWatchedVideos": {
-        "message": "To usunie wszystkie obejrzane wideo."
+        "message": "This will remove all watched videos."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "To usunie wszystkie ciasteczka YouTube."
+        "message": "将清空所有 YouTube cookies"
     },
     "thisWillResetAllSettings": {
-        "message": "To zresetuje wszystkie ustawienia."
+        "message": "将重置所有设置."
     },
     "thisWillResetAllShortcuts": {
-        "message": "To zresetuje wszystkie skróty"
+        "message": "将会重置所有快捷键"
     },
     "thumbnails": {
-        "message": "Miniatury"
+        "message": "缩略图"
     },
     "thumbnailsQuality": {
-        "message": "Jakość miniatur"
+        "message": "Thumbnails Quality"
     },
     "timeFrom": {
-        "message": "Od"
+        "message": "开始时间"
     },
     "timeTo": {
-        "message": "Do"
+        "message": "结束时间"
     },
     "todayAt": {
-        "message": "Dzisiaj o"
+        "message": "截止今天"
     },
     "toggleAutoplay": {
-        "message": "Przełącz autoodtwarzanie"
+        "message": "Toggle autoplay"
     },
     "toggleCards": {
-        "message": "Przełącz karty"
+        "message": "切换卡片"
     },
     "toggleControls": {
-        "message": "Przełącz widoczność sterowania odtwarzaczew"
+        "message": "Toggle controls"
     },
     "topChat": {
-        "message": "Czat na górze"
+        "message": "热门聊天"
     },
     "trackWatchedVideos": {
-        "message": "Śledź obejrzane wideo"
+        "message": "Track watched videos"
     },
     "trailerAutoplay": {
-        "message": "Autoodtwarzanie zwiastunów"
+        "message": "自动播放预告片"
     },
     "translations": {
-        "message": "Tłumaczenia"
+        "message": "翻译"
     },
     "transparentBackground": {
-        "message": "Przezroczyste tło"
+        "message": "透明背景"
     },
     "trending": {
-        "message": "Na czasie"
+        "message": "时下流行"
     },
     "tryToReloadThePage": {
-        "message": "Spróbuj odświeżyć stronę"
+        "message": "尝试刷新页面"
     },
     "type": {
-        "message": "Typ"
+        "message": "类型"
     },
     "upNextAutoplay": {
-        "message": "Autoodwarzanie następnego wideo"
+        "message": "自动播放下一视频"
     },
     "use24HourFormat": {
-        "message": "Używaj 24-godzinnego formatu czasu"
+        "message": "使用24小时制"
     },
     "version": {
-        "message": "Wersja"
+        "message": "版本"
     },
     "video": {
-        "message": "Wideo"
+        "message": "视频"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "Opis wideo zostanie rozwinięty aby pozyskać nazwę kategorii"
+        "message": "扩展视频简介到分类"
     },
     "videoFormats": {
-        "message": "Formaty wideo"
+        "message": "视频格式"
     },
     "videos": {
-        "message": "Wideo"
+        "message": "视频"
     },
     "viewMode": {
-        "message": "Tryb widoku"
+        "message": "View Mode"
     },
     "volume": {
-        "message": "Głośność"
+        "message": "音量"
     },
     "watchLater": {
-        "message": "Obejrzyj później"
+        "message": "稍后观看"
     },
     "watchTime": {
-        "message": "Czas oglądania"
+        "message": "观看时间"
     },
     "watchedVideos": {
         "message": "Watched videos"
     },
     "whenPaused": {
-        "message": "Kiedy wideo jest zatrzymane"
+        "message": "When paused"
     },
     "whenTabIsChanged": {
-        "message": "Kiedy zostaje zmieniona karta"
+        "message": "切换标签时"
     },
     "white": {
-        "message": "Biały"
+        "message": "白色"
     },
     "windowColor": {
-        "message": "Kolor okna"
+        "message": "窗口颜色"
     },
     "windowOpacity": {
-        "message": "Przezroczystość okna"
+        "message": "窗口透明度"
     },
     "yellow": {
-        "message": "Żółty"
+        "message": "黄色"
     },
     "youtubeHeaderLeft": {
-        "message": "Nagłówek YouTube (lewy)"
+        "message": "Youtube标题（左）"
     },
     "youtubeHeaderRight": {
-        "message": "Nagłówek YouTube (prawy)"
+        "message": "Youtube标题（右）"
     },
     "youtubeHomePage": {
-        "message": "Strona główna YouTube"
+        "message": "YouTube默认主页"
     },
     "youtubeLanguage": {
-        "message": "Język YouTube"
+        "message": "YouTube 语言"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube ogranicza jakość wideo do 1080p przy kodeku h.264"
+        "message": "采用 H.264 编解码时，YouTube 会将视频画质设为 1080p"
     },
     "openNewTab": {
         "message": "Open in a new tab"
