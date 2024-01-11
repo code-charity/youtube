@@ -17,23 +17,11 @@
     "accept": {
         "message": "接受"
     },
-    "compact_spacing": {
-        "message": "compact spacing"
-    },
-    "Hide_Pause_Overlay": {
-        "message": "Hide Pause Overlay"
-    },
-    "compactTheme": {
-        "message": "Compact Theme"
-    },
     "activate": {
         "message": "启用"
     },
     "activateCaptions": {
         "message": "启用字幕"
-    },
-    "Buttons": {
-        "message": "按钮"
     },
     "activateFullscreen": {
         "message": "启用全屏"
@@ -55,12 +43,6 @@
     },
     "all": {
         "message": "所有"
-    },
-    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
-        "message": "All your settings will be erased and can't be recovered"
-    },
-    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
-        "message": "All your shortcuts will be erased and can't be recovered"
     },
     "allow": {
         "message": "允许"
@@ -140,9 +122,6 @@
     "belowPlayer": {
         "message": "在播放器下方"
     },
-    "bitness": {
-        "message": "Bitness"
-    },
     "black": {
         "message": "纯黑"
     },
@@ -175,9 +154,6 @@
     },
     "bluelight": {
         "message": "色彩柔和度"
-    },
-    "brightness": {
-        "message": "Brightness"
     },
     "brown": {
         "message": "棕色"
@@ -292,9 +268,6 @@
     },
     "defaultContentCountry": {
         "message": "默认内容国家"
-    },
-    "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
     },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
@@ -547,9 +520,6 @@
     },
     "home": {
         "message": "首页"
-    },
-    "homeScreen": {
-        "message": "Home screen"
     },
     "hover": {
         "message": "悬浮"
@@ -920,21 +890,6 @@
     "share": {
         "message": "Share"
     },
-    "embedded_Hide_Share": {
-        "message": "Embedded Hide Share"
-    },
-    "Transcript": {
-        "message": "Transcript"
-    },
-    "Subtitle_Capture_including_the_current_words": {
-        "message": "Subtitle (Capture including the current words)"
-    },
-    "Embedded_YouTube": {
-        "message": "Embedded YouTube"
-    },
-    "Hide_YouTube_Logo": {
-        "message": "Hide YouTube Logo"
-    },
     "shortcuts": {
         "message": "快捷键"
     },
@@ -950,9 +905,6 @@
     "showMore": {
         "message": "展示更多"
     },
-    "Hamburger_Menu": {
-        "message": "Hamburger Menu"
-    },
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
@@ -961,15 +913,6 @@
     },
     "shuffle": {
         "message": "随机"
-    },
-    "player_fit_to_win_button": {
-        "message": "player fit to win button"
-    },
-    "hide_author_avatars": {
-        "message": "Hide author avatars"
-    },
-    "player_rotate_button": {
-        "message": "player rotate button"
     },
     "sidebar": {
         "message": "侧边栏"
@@ -1094,6 +1037,12 @@
     "tryToReloadThePage": {
         "message": "尝试刷新页面"
     },
+    "turnOff": {
+        "message": "关闭时间"
+    },
+    "turnOn": {
+        "message": "开启时间"
+    },
     "type": {
         "message": "类型"
     },
@@ -1130,9 +1079,6 @@
     "watchTime": {
         "message": "观看时间"
     },
-    "watchedVideos": {
-        "message": "Watched videos"
-    },
     "whenPaused": {
         "message": "When paused"
     },
@@ -1165,47 +1111,5 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "采用 H.264 编解码时，YouTube 会将视频画质设为 1080p"
-    },
-    "openNewTab": {
-        "message": "Open in a new tab"
-    },
-    "hideVideoTitleFullScreen": {
-        "message": "Hide video title in fullscreen"
-    },
-    "To_the_side_No_page_margin": {
-        "message": "To the side! (No page margin)"
-    },
-    "Hide_sidebar": {
-        "message": "Hide sidebar "
-    },
-    "chapters": {
-        "message": "chapters"
-    },
-    "Hide_Shorts_remixing_this_video": {
-        "message": "Hide Shorts remixing this video"
-    },
-    "Sidebar_simple_alternative": {
-        "message": "Sidebar (simple alternative)"
-    },
-    "with_scrollbars": {
-        "message": "with scrollbars?"
-    },
-    "autoPictureInPicture": {
-        "message": "Auto Picture-In-Picture"
-    },
-    "Allow_auto_generate": {
-        "message": "Allow auto generate"
-    },
-    "Currently_requiring_a_YouTube_API_key": {
-        "message": "(Currently requiring a YouTube-API-key: )"
-    },
-    "shortcut_chapters": {
-        "message": "Show chapters Sidebar"
-    },
-    "Auto_PiP_picture_in_picture": {
-        "message": "Auto-PiP (picture in picture)"
-    },
-    "Hide_the_tabs_only": {
-        "message": "Hide the tabs only"
     }
 }
