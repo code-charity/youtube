@@ -141,7 +141,7 @@
         "message": "Below player"
     },
     "bitness": {
-        "message": "bitness"
+        "message": "Bitness"
     },
     "black": {
         "message": "Black"
@@ -510,7 +510,7 @@
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls     buttons"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
