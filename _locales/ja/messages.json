@@ -489,7 +489,7 @@
         "message": "日付を隠す"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "詳細を隠す"
@@ -510,7 +510,7 @@
         "message": "プレーヤーのコントロールバーを隠す"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "プレーヤーのコントロールバーボタンを隠す"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "プレーヤーのコントロールオプションを隠す"
@@ -1167,7 +1167,7 @@
         "message": "YouTube は H.264 コーデックの画質を 1080p に制限しています"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
