@@ -42,7 +42,7 @@
       "message": "按鈕"
    },
    "shortcut_screenshot": {
-      "message": "Screenshot"
+      "message": "截圖"
    },
    "activateFullscreen": {
       "message": "開啟全螢幕"
@@ -51,7 +51,7 @@
       "message": "Language Default - Closed Captions"
    },
    "default_CC": {
-      "message": "Default"
+      "message": "預設"
    },
    "activated": {
       "message": "已啟用"
@@ -504,7 +504,7 @@
       "message": "隱藏日期"
    },
    "hideDetailButton": {
-      "message": "Hide Detail Button"
+      "message": "隱藏詳細資訊按鈕"
    },
    "hideDetails": {
       "message": "隱藏詳細資訊"
@@ -525,7 +525,7 @@
       "message": "隱藏播放器控制欄"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls buttons"
+      "message": "隱藏播放列按鈕"
    },
    "hidePlayerControlsBarOptions": {
       "message": "隱藏播放選項"
