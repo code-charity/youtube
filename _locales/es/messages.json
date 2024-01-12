@@ -11,6 +11,9 @@
     "ARROWUP": {
         "message": "⇧"
     },
+    "ImprovedTube": {
+        "message": "ImprovedTube Language"
+    },
     "about": {
         "message": "Acerca de"
     },
@@ -453,7 +456,7 @@
         "message": "Ocultar fecha"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "Ocultar detalles"
@@ -477,7 +480,7 @@
         "message": "Ocultar la barra del reproductor"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Ocultar los controles de la barra del reproductor"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Ocultar opciones de control del reproductor"
@@ -1080,6 +1083,47 @@
         "message": "YouTube limita calidad de video a 1080p para el codec h.264"
     },
     "openNewTab": {
+
         "message": "Abrir en una pestaña nueva"
+
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Ocultar título de vídeo en pantalla completa"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "To the side! (No page margin)"
+    },
+    "Hide_sidebar": {
+        "message": "Hide sidebar "
+    },
+    "chapters": {
+        "message": "chapters"
+    },
+    "Hide_Shorts_remixing_this_video": {
+        "message": "Hide Shorts remixing this video"
+    },
+    "Sidebar_simple_alternative": {
+        "message": "Sidebar (simple alternative)"
+    },
+    "with_scrollbars": {
+        "message": "with scrollbars?"
+    },
+    "autoPictureInPicture": {
+        "message": "Auto Picture-In-Picture"
+    },
+    "Allow_auto_generate": {
+        "message": "Allow auto generate"
+    },
+    "Currently_requiring_a_YouTube_API_key": {
+        "message": "(Currently requiring a YouTube-API-key: )"
+    },
+    "shortcut_chapters": {
+        "message": "Show chapters Sidebar"
+    },
+    "Auto_PiP_picture_in_picture": {
+        "message": "Auto-PiP (picture in picture)"
+    },
+    "Hide_the_tabs_only": {
+        "message": "Hide the tabs only"
     }
 }
