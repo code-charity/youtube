@@ -1,5 +1,5 @@
 {
-    "ARROWDOWN": {
+   "ARROWDOWN": {
       "message": "⇩"
    },
    "ARROWLEFT": {
@@ -12,7 +12,7 @@
       "message": "⇧"
    },
    "ImprovedTube": {
-      "message": "ImprovedTube Language"
+      "message": "ImprovedTube"
    },
    "about": {
       "message": "حول"
