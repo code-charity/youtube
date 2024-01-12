@@ -42,7 +42,7 @@
       "message": "Activate fullscreen"
    },
    "shortcut_screenshot": {
-      "message": "Screenshot"
+      "message": "スクリーンショット"
    },
    "activateFullscreen": {
       "message": "全画面にする"
@@ -51,7 +51,7 @@
       "message": "Language Default - Closed Captions"
    },
    "default_CC": {
-      "message": "Default"
+      "message": "デフォルト"
    },
    "activated": {
       "message": "有効化"
@@ -504,7 +504,7 @@
       "message": "日付を隠す"
    },
    "hideDetailButton": {
-      "message": "Hide Detail Button"
+      "message": "Buttons"
    },
    "hideDetails": {
       "message": "詳細を隠す"
@@ -525,7 +525,7 @@
       "message": "プレーヤーのコントロールバーを隠す"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls buttons"
+      "message": "プレーヤーのコントロールバーボタンを隠す"
    },
    "hidePlayerControlsBarOptions": {
       "message": "プレーヤーのコントロールオプションを隠す"
