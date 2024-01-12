@@ -820,7 +820,7 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			},
 			compact_spacing: {
 				component: "switch",
-				text: 'compact_Spacing',
+				text: 'compact_spacing',
 				storage: 'compactSpacing'
 			},
 			no_page_margin: {
