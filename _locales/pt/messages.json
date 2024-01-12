@@ -12,7 +12,7 @@
         "message": "⇧"
     },
     "ImprovedTube": {
-        "message": "ImprovedTube Language"
+        "message": "Linguagem de Improved YouTube"
     },
     "about": {
         "message": "Sobre"
@@ -21,7 +21,7 @@
         "message": "Aceitar"
     },
     "transparent_color": {
-        "message": "Transparent"
+        "message": "Transparente"
     },
     "compact_spacing": {
         "message": "Tema compacto"
@@ -42,16 +42,16 @@
         "message": "Botões"
     },
     "shortcut_screenshot": {
-        "message": "Screenshot"
+        "message": "Captura de tela"
     },
     "activateFullscreen": {
         "message": "Ativar tela cheia"
     },
     "language_closed_caption": {
-        "message": "Language Default - Closed Captions"
+        "message": "Padrão de Idioma - Legendas de Idioma"
     },
     "default_CC": {
-        "message": "Default"
+        "message": "Padrão"
     },
     "activated": {
         "message": "Ativado"
@@ -156,7 +156,7 @@
         "message": "Reprodutor abaixo"
     },
     "bitness": {
-        "message": "Bitness"
+        "message": "Taxa de bits do Sistema"
     },
     "black": {
         "message": "Preto"
@@ -504,7 +504,7 @@
         "message": "Ocultar data"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Ocultar botão de detalhe"
     },
     "hideDetails": {
         "message": "Esconder detalhes"
@@ -525,7 +525,7 @@
         "message": "Ocultar a barra de controles do player"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "Ocultar os botões da barra de controles do player"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Ocultar opções de controles do player"
@@ -861,7 +861,7 @@
         "message": "Remover Shorts da página inicial"
     },
     "YouTube_is_buttons": {
-        "message": "YouTube's buttons"
+        "message": "Botões do YouTube"
     },
     "removeRelatedSearchResults": {
         "message": "Remove resultados relacionado com a pesquisa"
@@ -1185,7 +1185,7 @@
         "message": "O YouTube limita a qualidade do video em 1080p para o codec h.264"
     },
     "openNewTab": {
-        "message": "Open in new tab"
+        "message": "Abrir em uma nova aba"
     },
     "hideVideoTitleFullScreen": {
         "message": "Ocultar o título do vídeo em tela cheia"
