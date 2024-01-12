@@ -489,7 +489,7 @@
         "message": "隱藏日期"
     },
     "hideDetailButton": {
-        "message": "隱藏詳細資訊按鈕"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "隱藏詳細資訊"
@@ -510,7 +510,7 @@
         "message": "隱藏播放器控制欄"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "隱藏播放列按鈕"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "隱藏播放選項"
@@ -1167,7 +1167,7 @@
         "message": "使用 H.264 編碼時，YouTube 會將畫質限制為 1080p 內。"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
