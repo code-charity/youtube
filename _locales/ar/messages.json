@@ -504,7 +504,7 @@
       "message": "Hide date"
    },
    "hideDetailButton": {
-      "message": "Hide Detail Button"
+      "message": "Buttons"
    },
    "hideDetails": {
       "message": "إخفاء التفاصيل"
@@ -525,7 +525,7 @@
       "message": "Hide player controls bar"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls buttons"
+      "message": "Hide player controls bar buttons"
    },
    "hidePlayerControlsBarOptions": {
       "message": "Hide player controls options"
