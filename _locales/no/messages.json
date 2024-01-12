@@ -42,7 +42,7 @@
       "message": "Knapper"
    },
    "shortcut_screenshot": {
-      "message": "Screenshot"
+      "message": "Skjermbilde"
    },
    "activateFullscreen": {
       "message": "Aktiver fullskjerm"
@@ -504,7 +504,7 @@
       "message": "Hide date"
    },
    "hideDetailButton": {
-      "message": "Hide Detail Button"
+      "message": "Buttons"
    },
    "hideDetails": {
       "message": "Skjul detaljer"
@@ -525,7 +525,7 @@
       "message": "Hide player controls bar"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls buttons"
+      "message": "Hide player controls bar buttons"
    },
    "hidePlayerControlsBarOptions": {
       "message": "Hide player controls options"
