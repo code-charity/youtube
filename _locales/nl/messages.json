@@ -42,7 +42,7 @@
       "message": "Knoppen"
    },
    "shortcut_screenshot": {
-      "message": "Screenshot"
+      "message": "Schermafbeelding"
    },
    "activateFullscreen": {
       "message": "Activeer volledig scherm"
@@ -51,7 +51,7 @@
       "message": "Language Default - Closed Captions"
    },
    "default_CC": {
-      "message": "Default"
+      "message": "Standaard"
    },
    "activated": {
       "message": "Geactiveerd"
@@ -504,7 +504,7 @@
       "message": "Verberg datum"
    },
    "hideDetailButton": {
-      "message": "Hide Detail Button"
+      "message": "Buttons"
    },
    "hideDetails": {
       "message": "Verberg details"
@@ -525,7 +525,7 @@
       "message": "Verberg afspeelbalk"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls buttons"
+      "message": "Verberg knoppen voor afspeelcontrole"
    },
    "hidePlayerControlsBarOptions": {
       "message": "Verberg opties voor afspeelbalk"
