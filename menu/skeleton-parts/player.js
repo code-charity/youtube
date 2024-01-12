@@ -124,7 +124,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			textarea: true,
 			value: 1,
 			min: .1,
-			max: 4,
+			max: 2.8,
 			step: .05
 		},
 		autoplay: {
