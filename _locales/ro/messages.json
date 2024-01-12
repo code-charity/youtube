@@ -20,6 +20,9 @@
     "accept": {
         "message": "Acceptă"
     },
+    "transparent_color": {
+        "message": "Transparent"
+    },
     "compact_spacing": {
         "message": "compact spacing"
     },
@@ -38,8 +41,17 @@
     "Buttons": {
         "message": "Butoane"
     },
+    "shortcut_screenshot": {
+        "message": "Screenshot"
+    },
     "activateFullscreen": {
         "message": "Activează ecran complet"
+    },
+    "language_closed_caption": {
+        "message": "Language Default - Closed Captions"
+    },
+    "default_CC": {
+        "message": "Default"
     },
     "activated": {
         "message": "Activat"
@@ -847,6 +859,9 @@
     },
     "removeHomePageShorts": {
         "message": "Eliminați Shorts de pe pagina de start"
+    },
+    "YouTube_is_buttons": {
+        "message": " YouTube's_buttons"
     },
     "removeRelatedSearchResults": {
         "message": "Elimină rezultatele asemănătoare a căutării"
