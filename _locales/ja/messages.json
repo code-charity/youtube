@@ -20,6 +20,9 @@
     "accept": {
         "message": "了解"
     },
+    "transparent_color": {
+        "message": "Transparent"
+    },
     "compact_spacing": {
         "message": "Tema compacto"
     },
@@ -38,8 +41,17 @@
     "Buttons": {
         "message": "Activate fullscreen"
     },
+    "shortcut_screenshot": {
+        "message": "Screenshot"
+    },
     "activateFullscreen": {
         "message": "全画面にする"
+    },
+    "language_closed_caption": {
+        "message": "Language Default - Closed Captions"
+    },
+    "default_CC": {
+        "message": "Default"
     },
     "activated": {
         "message": "有効化"
@@ -847,6 +859,9 @@
     },
     "removeHomePageShorts": {
         "message": "ホームページのショートを削除"
+    },
+    "YouTube_is_buttons": {
+        "message": " YouTube's_buttons"
     },
     "removeRelatedSearchResults": {
         "message": "関連動画を検索結果から削除する"
