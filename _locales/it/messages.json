@@ -489,7 +489,7 @@
         "message": "Nascondi data"
     },
     "hideDetailButton": {
-        "message": "Nascondi il pulsante dei dettagli"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "Nascondi dettagli"
@@ -510,7 +510,7 @@
         "message": "Nascondi barra dei controlli del lettore"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Nascondi pulsanti della barra dei controlli del lettore"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Nascondi opzioni di controllo del lettore"
@@ -1167,7 +1167,7 @@
         "message": "YouTube limita la qualità video a 1080p per il codec h.264"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
