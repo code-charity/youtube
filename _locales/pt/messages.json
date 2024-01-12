@@ -11,6 +11,9 @@
     "ARROWUP": {
         "message": "⇧"
     },
+    "ImprovedTube": {
+        "message": "ImprovedTube Language"
+    },
     "about": {
         "message": "Sobre"
     },
@@ -84,7 +87,7 @@
         "message": "Analisador"
     },
     "animations": {
-        "message": "Animations"
+        "message": "Animações"
     },
     "appearance": {
         "message": "Aparência"
@@ -141,7 +144,7 @@
         "message": "Reprodutor abaixo"
     },
     "bitness": {
-        "message": "Bitness"
+        "message": "Processor Bits"
     },
     "black": {
         "message": "Preto"
@@ -414,7 +417,7 @@
         "message": "Forçar velocidade de leitura"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "(Force playback speed even for music?)"
+        "message": "(Forçar velocidade de reprodução mesmo para música?)"
     },
     "forcedTheaterMode": {
         "message": "Forçar modo de cinema"
@@ -450,7 +453,7 @@
         "message": "Verde"
     },
     "hardwareInformation": {
-        "message": "Hardware information"
+        "message": "Informações do hardware"
     },
     "hd": {
         "message": "HD"
@@ -489,7 +492,7 @@
         "message": "Ocultar data"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Ocultar botão de detalhe"
     },
     "hideDetails": {
         "message": "Esconder detalhes"
@@ -510,7 +513,7 @@
         "message": "Ocultar a barra de controles do player"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "Ocultar botões de controles do player"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Ocultar opções de controles do player"
@@ -603,7 +606,7 @@
         "message": "Linguagens"
     },
     "layerAnimationScale": {
-        "message": "Layer animation scale"
+        "message": "Escala de animação"
     },
     "layout": {
         "message": "Layout"
@@ -672,7 +675,7 @@
         "message": "More"
     },
     "mostViewedChannels": {
-        "message": "Most viewed channels"
+        "message": "Canais mais vistos"
     },
     "moveSidebarLeft": {
         "message": "Mover barra lateral para esquerda"
@@ -957,7 +960,7 @@
         "message": "Mostrar duração restante do vídeo"
     },
     "showVersion": {
-        "message": "Show version"
+        "message": "Mostrar versão"
     },
     "shuffle": {
         "message": "Misturar"
@@ -975,7 +978,7 @@
         "message": "Barra lateral"
     },
     "softwareInformation": {
-        "message": "Software information"
+        "message": "Informação do Software"
     },
     "spacebar": {
         "message": "Barra de espaços"
@@ -1167,7 +1170,7 @@
         "message": "O YouTube limita a qualidade do video em 1080p para o codec h.264"
     },
     "openNewTab": {
-        "message": "Open in new tab"
+        "message": "Abrir em uma nova guia"
     },
     "hideVideoTitleFullScreen": {
         "message": "Ocultar o título do vídeo em tela cheia"
