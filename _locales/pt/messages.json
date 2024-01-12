@@ -20,6 +20,9 @@
     "accept": {
         "message": "Aceitar"
     },
+    "transparent_color": {
+        "message": "Transparent"
+    },
     "compact_spacing": {
         "message": "Tema compacto"
     },
@@ -38,8 +41,17 @@
     "Buttons": {
         "message": "Botões"
     },
+    "shortcut_screenshot": {
+        "message": "Screenshot"
+    },
     "activateFullscreen": {
         "message": "Ativar tela cheia"
+    },
+    "language_closed_caption": {
+        "message": "Language Default - Closed Captions"
+    },
+    "default_CC": {
+        "message": "Default"
     },
     "activated": {
         "message": "Ativado"
@@ -549,7 +561,7 @@
         "message": "História"
     },
     "home": {
-        "message": "Casa"
+        "message": "Home"
     },
     "homeScreen": {
         "message": "Tela inicial"
@@ -848,6 +860,9 @@
     "removeHomePageShorts": {
         "message": "Remover Shorts da página inicial"
     },
+    "YouTube_is_buttons": {
+        "message": " YouTube's_buttons"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove resultados relacionado com a pesquisa"
     },
@@ -1128,7 +1143,7 @@
         "message": "Volume"
     },
     "watchLater": {
-        "message": "Vêr mais tarde"
+        "message": "Watch later"
     },
     "watchTime": {
         "message": "Tempo de visualização"
