@@ -501,17 +501,10 @@ satus.events.trigger = function(type, data) {
 # FETCH
 --------------------------------------------------------------*/
 satus.fetch = function(url, success, error, type) {
-	fetch(url).then(function(response) {
-		if (response.ok) {
-			response[type || 'json']().then(success);
-		} else {
-			error();
-		}
-	}).catch(function() {
-		error(success);
-	});
+    fetch(url)
+        .then(response => response.ok ? response[type || 'json']().then(success) : error())
+        .catch(() => error(success));
 };
-
 /*--------------------------------------------------------------
 # GET PROPERTY
 --------------------------------------------------------------*/
@@ -1062,48 +1055,39 @@ if (code) { var language = code.replace('-', '_');
     } else {
         importLocale(language, () => importLocale('en', callback));
 }} 
-else {  //if chrome://settings/languages is set:  
-  chrome.i18n.getAcceptLanguages().then(function (languages) {
-    let englishImported = false;
-    for (let i = 0; i < languages.length; i++) {
-        let currentLanguage = languages[i].replace('-', '_');
-        if (currentLanguage.indexOf('_') !== -1) {
-            importLocale(currentLanguage, () => {
-                for (let j = 0; j <= i; j++) {
-                    let userPreferredLanguage = languages[j].replace('-', '_');
-                    importLocale(userPreferredLanguage, () => {
-                        if (!englishImported) {
-                            importLocale('en', callback);
-                            englishImported = true;
-                        }
-                    });
-                }
-            });
-        } else {
-            importLocale(currentLanguage, () => {
-                if (!englishImported) {
-                    importLocale('en', callback);
-                    englishImported = true;
-                }
-            });
-        }
-        if (englishImported || i === languages.length - 1) {
-            // Exit if English is imported or the last language is reached.
-            break;
+else {  // try chrome://settings/languages:  
+try{chrome.i18n.getAcceptLanguages(function (languages) {
+    languages = languages.map(language => language.replace('-', '_'));
+	for (let i = languages.length - 1; i >= 0; i--) { 
+    if (languages[i].includes('_')) {
+        let languageWithoutCountryCode = languages[i].substring(0, 2);
+        
+        if (!languages.includes(languageWithoutCountryCode)) {
+            languages.splice(i + 1, 0, languageWithoutCountryCode);
         }
     }
-}).catch(() => {  
-	// Finally, if code nor chrome://settings/languages are set, use window.navigator.language
+	}
+	languages.includes("en") || languages.push("en");
+	
+languages.forEach((language, index) => index === languages.length - 1 ? importLocale(language, callback) : importLocale(language, () => {}));
+/* equals:
+   languages.length === 1 && importLocale(languages[0], callback);
+   languages.length === 2 && importLocale(languages[0], () => importLocale(languages[1], callback));
+   languages.length === 3 && importLocale(languages[0], () => importLocale(languages[1], () => importLocale(languages[2], callback)));
+   ...  */
+// console.log(languages);
+});} catch(error) { 
+// Finally, if code nor chrome://settings/languages are available, use window.navigator.language:
+ 	
 	var language = window.navigator.language.replace('-', '_');
     if (language.indexOf('_') !== -1) {
         importLocale(language, () => importLocale(language.split('_')[0], () => importLocale('en', callback)));
     } else {
         importLocale(language, () => importLocale('en', callback));
-    }
-});
-
+    } 
+console.log(error);
+};
 } 
-
 };
 /*--------------------------------------------------------------
 # TEXT
