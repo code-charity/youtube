@@ -462,7 +462,7 @@
       "message": "Verde"
    },
    "hardwareInformation": {
-      "message": "Hardware information"
+      "message": "Información de hardware"
    },
    "hd": {
       "message": "HD"
@@ -858,7 +858,7 @@
       "message": "Eliminar Shorts de la página de inicio"
    },
    "YouTube_is_buttons": {
-      "message": "YouTube's buttons"
+      "message": "Botones de Youtube"
    },
    "removeRelatedSearchResults": {
       "message": "Quitar resultados relacionados"
@@ -1149,7 +1149,7 @@
       "message": "Vídeos vistos"
    },
    "whenPaused": {
-      "message": "When paused"
+      "message": "Cuando se pausa"
    },
    "whenTabIsChanged": {
       "message": "Al cambiar de pestaña"
@@ -1212,7 +1212,7 @@
       "message": "Allow auto generate"
    },
    "Currently_requiring_a_YouTube_API_key": {
-      "message": "(Currently requiring a YouTube-API-key: )"
+      "message": "(Actualmente requiere una clave de API de YouTube: )"
    },
    "shortcut_chapters": {
       "message": "Show chapters Sidebar"
