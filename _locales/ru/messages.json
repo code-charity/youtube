@@ -42,7 +42,7 @@
       "message": "Activate fullscreen"
    },
    "shortcut_screenshot": {
-      "message": "Скриншот"
+      "message": "Screenshot"
    },
    "activateFullscreen": {
       "message": "Перейти в полноэкранный режим"
@@ -51,7 +51,7 @@
       "message": "Language Default - Closed Captions"
    },
    "default_CC": {
-      "message": "По умолчанию"
+      "message": "Default"
    },
    "activated": {
       "message": "Включено"
@@ -504,7 +504,7 @@
       "message": "Скрывать дату видео"
    },
    "hideDetailButton": {
-      "message": "Скрывать кнопку «Ещё»"
+      "message": "Hide Detail Button"
    },
    "hideDetails": {
       "message": "Скрывать подробную информацию"
@@ -525,7 +525,7 @@
       "message": "Скрывать панель управления плеером"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Скрывать кнопки панели управления плеером"
+      "message": "Hide player controls buttons"
    },
    "hidePlayerControlsBarOptions": {
       "message": "Скрывать настройки панели управления пЛеера"
