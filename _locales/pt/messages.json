@@ -24,7 +24,7 @@
       "message": "Transparente"
    },
    "compact_spacing": {
-      "message": "Tema compacto"
+      "message": "Espaçamento compacto"
    },
    "Hide_Pause_Overlay": {
       "message": "Ocultar Sobreposição de pausa"
@@ -1194,7 +1194,7 @@
       "message": "Ao lado! (Sem margem de página)"
    },
    "Hide_sidebar": {
-      "message": "Hide sidebar "
+      "message": "Ocultar barra lateral de comentários"
    },
    "chapters": {
       "message": "Capítulos"
