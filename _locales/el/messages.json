@@ -20,6 +20,9 @@
     "accept": {
         "message": "Αποδοχή"
     },
+    "transparent_color": {
+        "message": "Transparent"
+    },
     "compact_spacing": {
         "message": "compact spacing"
     },
@@ -38,8 +41,17 @@
     "Buttons": {
         "message": "Κουμπιά"
     },
+    "shortcut_screenshot": {
+        "message": "Screenshot"
+    },
     "activateFullscreen": {
         "message": "Ενεργοποίηση Πλήρους Οθόνη"
+    },
+    "language_closed_caption": {
+        "message": "Language Default - Closed Captions"
+    },
+    "default_CC": {
+        "message": "Default"
     },
     "activated": {
         "message": "Ενεργοποιήθηκε"
@@ -847,6 +859,9 @@
     },
     "removeHomePageShorts": {
         "message": "Κατάργηση Shorts από την αρχική σελίδα"
+    },
+    "YouTube_is_buttons": {
+        "message": " YouTube's_buttons"
     },
     "removeRelatedSearchResults": {
         "message": "Αφαίρεσε σχετικά αποτελέσματα αναζήτησης"
