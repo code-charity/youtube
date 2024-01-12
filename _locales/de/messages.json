@@ -504,7 +504,7 @@
       "message": "Datum ausblenden"
    },
    "hideDetailButton": {
-      "message": "Hide Detail Button"
+      "message": "Buttons"
    },
    "hideDetails": {
       "message": "Details ausblenden"
@@ -525,7 +525,7 @@
       "message": "Kontrolleiste ausblenden"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls buttons"
+      "message": "Player-Kontrollen ausblenden"
    },
    "hidePlayerControlsBarOptions": {
       "message": "Kontrollleistenoptionen ausblenden"
