@@ -209,9 +209,6 @@
    "bug": {
       "message": "Ошибка"
    },
-   "buttons": {
-      "message": "Кнопки"
-   },
    "cancel": {
       "message": "Отмена"
    },

@@ -12,7 +12,7 @@
       "message": "⇧"
    },
    "ImprovedTube": {
-      "message": "ImprovedTube"
+     "message": "ImprovedTube"
    },
    "about": {
       "message": "Om"
@@ -208,9 +208,6 @@
    },
    "bug": {
       "message": "Bug"
-   },
-   "buttons": {
-      "message": "Knapper"
    },
    "cancel": {
       "message": "Avbryt"
