@@ -17,11 +17,23 @@
     "accept": {
         "message": "Accept"
     },
+    "compact_spacing": {
+        "message": "compact spacing"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
+    },
+    "compactTheme": {
+        "message": "Compact Theme"
+    },
     "activate": {
         "message": "Activate"
     },
     "activateCaptions": {
         "message": "Activate captions"
+    },
+    "Buttons": {
+        "message": "Buttons"
     },
     "activateFullscreen": {
         "message": "Activate fullscreen"
@@ -43,6 +55,12 @@
     },
     "all": {
         "message": "All"
+    },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your settings will be erased and can't be recovered"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "All your shortcuts will be erased and can't be recovered"
     },
     "allow": {
         "message": "Allow"
@@ -75,7 +93,7 @@
         "message": "Are you sure you want to export the data?"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Are you sure you want to import the data?"
+        "message": "Are you sure you want to import this data?"
     },
     "audio": {
         "message": "Audio"
@@ -122,6 +140,9 @@
     "belowPlayer": {
         "message": "Below player"
     },
+    "bitness": {
+        "message": "Bitness"
+    },
     "black": {
         "message": "Black"
     },
@@ -154,6 +175,9 @@
     },
     "bluelight": {
         "message": "Bluelight"
+    },
+    "brightness": {
+        "message": "Brightness"
     },
     "brown": {
         "message": "Brown"
@@ -269,6 +293,9 @@
     "defaultContentCountry": {
         "message": "Country (virtual travel)"
     },
+    "defaultPlaybackSpeed": {
+        "message": "Default Playback Speed"
+    },
     "deleteWatchedVideos": {
         "message": "Delete watched videos"
     },
@@ -381,7 +408,7 @@
         "message": "Avoid HDR, keep SDR"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Forced play video from the beginning"
+        "message": "Force video to play from the beginning"
     },
     "forcedPlaybackSpeed": {
         "message": "Speed-watching: Permanent speed"
@@ -462,7 +489,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "hide Detail Button"
     },
     "hideDetails": {
         "message": "Hide details"
@@ -483,7 +510,7 @@
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
@@ -498,7 +525,7 @@
         "message": "Hide «Scroll for details»"
     },
     "hideSkipOverlay": {
-        "message": "Hide 5 seconds skip animation"
+        "message": "Hide 5 second skip animation"
     },
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
@@ -520,6 +547,9 @@
     },
     "home": {
         "message": "Home"
+    },
+    "homeScreen": {
+        "message": "Home screen"
     },
     "hover": {
         "message": "Hover"
@@ -804,7 +834,7 @@
         "message": "Red"
     },
     "redDislikeButton": {
-        "message": "Red DisLiked-button"
+        "message": "Red when disliked"
     },
     "relatedVideos": {
         "message": "Related videos"
@@ -813,13 +843,13 @@
         "message": "Play on TV"
     },
     "removeHomePageShorts": {
-        "message": "حذف کردن شورت‌های صفحه اصلی"
+        "message": "Remove home page's Shorts"
     },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },
     "removeShortsReelSearchResults": {
-        "message": "حذف کردن ریل Shorts از نتایج جستجو"
+        "message": "Remove Shorts reel from search results"
     },
     "repeat": {
         "message": "Repeat"
@@ -890,6 +920,21 @@
     "share": {
         "message": "Share"
     },
+    "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
+    },
+    "Transcript": {
+        "message": "Transcript"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtitle (Capture including the current words)"
+    },
+    "Embedded_YouTube": {
+        "message": "Embedded YouTube"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"
+    },
     "shortcuts": {
         "message": "Shortcuts"
     },
@@ -905,6 +950,9 @@
     "showMore": {
         "message": "Show more"
     },
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
@@ -913,6 +961,15 @@
     },
     "shuffle": {
         "message": "Shuffle"
+    },
+    "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+    "hide_author_avatars": {
+        "message": "Hide author avatars"
+    },
+    "player_rotate_button": {
+        "message": "player rotate button"
     },
     "sidebar": {
         "message": "Sidebar"
@@ -960,10 +1017,10 @@
         "message": "Sunset to sunrise"
     },
     "systemPeferenceDark": {
-        "message": "System peference: dark"
+        "message": "System preference: dark"
     },
     "systemPeferenceLight": {
-        "message": "System peference: light"
+        "message": "System preference: light"
     },
     "teal": {
         "message": "Teal"
@@ -1073,6 +1130,9 @@
     "watchTime": {
         "message": "Watch time"
     },
+    "watchedVideos": {
+        "message": "Watched videos"
+    },
     "whenPaused": {
         "message": "When paused"
     },
@@ -1105,5 +1165,11 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube limits video quality to 1080p for h.264 codec"
+    },
+    "openNewTab": {
+        "message": "Open in a new tab"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Hide video title in fullscreen"
     }
 }
