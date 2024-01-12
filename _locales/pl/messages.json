@@ -42,7 +42,7 @@
       "message": "Przyciski"
    },
    "shortcut_screenshot": {
-      "message": "Screenshot"
+      "message": "Zrzut ekranu"
    },
    "activateFullscreen": {
       "message": "Aktywuj tryb pełnoekranowy"
@@ -51,7 +51,7 @@
       "message": "Language Default - Closed Captions"
    },
    "default_CC": {
-      "message": "Default"
+      "message": "Domyślna"
    },
    "activated": {
       "message": "Aktywowane"
@@ -504,7 +504,7 @@
       "message": "Ukryj datę"
    },
    "hideDetailButton": {
-      "message": "Hide Detail Button"
+      "message": "Ukryj przycisk Szczegóły"
    },
    "hideDetails": {
       "message": "Ukryj szczegóły"
@@ -525,7 +525,7 @@
       "message": "Ukryj pasek sterowania odtwarzaczem"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls buttons"
+      "message": "Ukryj przyciski paska sterowania odtwarzaczem"
    },
    "hidePlayerControlsBarOptions": {
       "message": "Ukryj przyciski paska sterowania odtwarzaczem - ustawienia"
