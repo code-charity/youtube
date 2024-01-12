@@ -492,7 +492,7 @@
         "message": "Ẩn ngày"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Ẩn nút chi tiết"
     },
     "hideDetails": {
         "message": "Ẩn chi tiết"
@@ -513,7 +513,7 @@
         "message": "Ẩn thanh điều khiển trình phát"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "Ẩn các nút trên thanh điều khiển trình phá"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Ẩn các tùy chọn điều khiển trình phát"
