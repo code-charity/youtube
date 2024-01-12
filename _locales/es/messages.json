@@ -504,7 +504,7 @@
       "message": "Ocultar fecha"
    },
    "hideDetailButton": {
-      "message": "Hide Detail Button"
+      "message": "Buttons"
    },
    "hideDetails": {
       "message": "Ocultar detalles"
@@ -525,7 +525,7 @@
       "message": "Ocultar la barra del reproductor"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls buttons"
+      "message": "Ocultar los controles de la barra del reproductor"
    },
    "hidePlayerControlsBarOptions": {
       "message": "Ocultar opciones de control del reproductor"
