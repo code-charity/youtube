@@ -161,11 +161,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 					},
 					subtitles_language: {
 						component: 'select',
-						text: 'language',
+						text: 'language_closed_caption',
 						id: 'subtitles-language',
 						options: [{
 							value: 'default',
-							text: 'default'
+							text: 'default_CC'
 						}, {
 							value: 'af',
 							text: 'Afrikaans'

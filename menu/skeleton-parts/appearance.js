@@ -455,7 +455,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 						},
 						youtubeDetailButtons: {
 							component: "select",
-							text: "YouTube's buttons",
+							text: 'YouTube_is_buttons',
 							options: [{
 								text: "normal",
 								value: "normal"
@@ -496,7 +496,8 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 									text: "grey",
 									value: "grey"
 								}, {
-									text: "transparent",
+									text: 'transparent_color',
+
 									value: "transparent"
 								}, {
 									text: "hidden",

@@ -297,7 +297,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 				},
 				shortcut_screenshot: {
 					component: 'shortcut',
-					text: 'screenshot'
+					text: 'shortcut_screenshot'
 				},
 				shortcut_toggle_controls: {
 					component: 'shortcut',
