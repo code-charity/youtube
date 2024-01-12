@@ -11,6 +11,9 @@
     "ARROWUP": {
         "message": "⇧"
     },
+    "ImprovedTube": {
+        "message": "ImprovedTube Language"
+    },
     "about": {
         "message": "Over"
     },
@@ -489,7 +492,7 @@
         "message": "Verberg datum"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "Verberg details"
@@ -510,7 +513,7 @@
         "message": "Verberg afspeelbalk"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Verberg knoppen voor afspeelcontrole"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Verberg opties voor afspeelbalk"
@@ -1167,7 +1170,7 @@
         "message": "YouTube limiteert videokwaliteit tot 1080p voor H.264 codec"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"

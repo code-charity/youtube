@@ -11,6 +11,9 @@
     "ARROWUP": {
         "message": "⇧"
     },
+    "ImprovedTube": {
+        "message": "ImprovedTube Language"
+    },
     "about": {
         "message": "Om"
     },
@@ -489,7 +492,7 @@
         "message": "Dölj datum"
     },
     "hideDetailButton": {
-        "message": "Knappar"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "Dölj detaljer"
@@ -510,7 +513,7 @@
         "message": "Dölj kontrollfältet för spelare"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Dölj knappar i fältet för spelarkontroller"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Dölj alternativ för spelarkontroll"
@@ -1167,7 +1170,7 @@
         "message": "YouTube begränsar videokvaliteten till 1080p för h.264-codec."
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
