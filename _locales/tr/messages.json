@@ -20,6 +20,9 @@
     "accept": {
         "message": "Onayla"
     },
+    "transparent_color": {
+        "message": "Transparent"
+    },
     "compact_spacing": {
         "message": "compact spacing"
     },
@@ -38,8 +41,17 @@
     "Buttons": {
         "message": "Butonlar"
     },
+    "shortcut_screenshot": {
+        "message": "Screenshot"
+    },
     "activateFullscreen": {
         "message": "Tam ekranı Aktifleştir"
+    },
+    "language_closed_caption": {
+        "message": "Language Default - Closed Captions"
+    },
+    "default_CC": {
+        "message": "Default"
     },
     "activated": {
         "message": "Aktifleştirilmiş"
@@ -847,6 +859,9 @@
     },
     "removeHomePageShorts": {
         "message": "Ana sayfa Shorts'ları kaldır"
+    },
+    "YouTube_is_buttons": {
+        "message": " YouTube's_buttons"
     },
     "removeRelatedSearchResults": {
         "message": "İlgili arama sonuçlarını kaldır"
