@@ -489,7 +489,7 @@
         "message": "隐藏日期"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "隐藏详细信息"
@@ -510,7 +510,7 @@
         "message": "隐藏播放器控制栏"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
@@ -1167,7 +1167,7 @@
         "message": "采用 H.264 编解码时，YouTube 会将视频画质设为 1080p"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
