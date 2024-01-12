@@ -21,7 +21,7 @@
         "message": "Aceptar"
     },
     "transparent_color": {
-        "message": "Transparent"
+        "message": "Transparente"
     },
     "compact_spacing": {
         "message": "Tema compacto"
@@ -42,16 +42,16 @@
         "message": "Activate fullscreen"
     },
     "shortcut_screenshot": {
-        "message": "Screenshot"
+        "message": "Captura de pantalla"
     },
     "activateFullscreen": {
         "message": "Activar pantalla completa"
     },
     "language_closed_caption": {
-        "message": "Language Default - Closed Captions"
+        "message": "Idioma predeterminado - Closed Captions"
     },
     "default_CC": {
-        "message": "Default"
+        "message": "Predeterminado"
     },
     "activated": {
         "message": "Activado"
@@ -156,7 +156,7 @@
         "message": "Debajo del reproductor"
     },
     "bitness": {
-        "message": "Bitness"
+        "message": "Bit"
     },
     "black": {
         "message": "Negro"
@@ -1225,5 +1225,8 @@
     },
     "Hide_the_tabs_only": {
         "message": "Hide the tabs only"
+    },
+    "My_specs": {
+        "message": "My specs"
     }
 }
