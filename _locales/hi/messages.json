@@ -20,6 +20,9 @@
     "accept": {
         "message": "स्वीकार"
     },
+    "transparent_color": {
+        "message": "Transparent"
+    },
     "compact_spacing": {
         "message": "compact spacing"
     },
@@ -38,8 +41,17 @@
     "Buttons": {
         "message": "बटन"
     },
+    "shortcut_screenshot": {
+        "message": "Screenshot"
+    },
     "activateFullscreen": {
         "message": "पूर्णस्क्रीन सक्रिय करें"
+    },
+    "language_closed_caption": {
+        "message": "Language Default - Closed Captions"
+    },
+    "default_CC": {
+        "message": "Default"
     },
     "activated": {
         "message": "सक्रिय"
@@ -847,6 +859,9 @@
     },
     "removeHomePageShorts": {
         "message": "मुखपृष्ठ के शॉर्ट्स हटाएं"
+    },
+    "YouTube_is_buttons": {
+        "message": " YouTube's_buttons"
     },
     "removeRelatedSearchResults": {
         "message": "संबंधित खोज परिणाम निकालें"

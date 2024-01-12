@@ -20,6 +20,9 @@
     "accept": {
         "message": "Accetta"
     },
+    "transparent_color": {
+        "message": "Transparent"
+    },
     "compact_spacing": {
         "message": "compact spacing"
     },
@@ -38,8 +41,17 @@
     "Buttons": {
         "message": "Pulsanti"
     },
+    "shortcut_screenshot": {
+        "message": "Screenshot"
+    },
     "activateFullscreen": {
         "message": "Attiva schermo intero"
+    },
+    "language_closed_caption": {
+        "message": "Language Default - Closed Captions"
+    },
+    "default_CC": {
+        "message": "Default"
     },
     "activated": {
         "message": "Attivato/a"
@@ -847,6 +859,9 @@
     },
     "removeHomePageShorts": {
         "message": "Rimuovi Shorts dalla pagina iniziale"
+    },
+    "YouTube_is_buttons": {
+        "message": " YouTube's_buttons"
     },
     "removeRelatedSearchResults": {
         "message": "Rimuovi risultati di ricerca correlati"

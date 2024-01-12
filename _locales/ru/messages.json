@@ -20,6 +20,9 @@
     "accept": {
         "message": "Принять"
     },
+    "transparent_color": {
+        "message": "Transparent"
+    },
     "compact_spacing": {
         "message": "Tema compacto"
     },
@@ -38,8 +41,17 @@
     "Buttons": {
         "message": "Activate fullscreen"
     },
+    "shortcut_screenshot": {
+        "message": "Screenshot"
+    },
     "activateFullscreen": {
         "message": "Перейти в полноэкранный режим"
+    },
+    "language_closed_caption": {
+        "message": "Language Default - Closed Captions"
+    },
+    "default_CC": {
+        "message": "Default"
     },
     "activated": {
         "message": "Включено"
@@ -847,6 +859,9 @@
     },
     "removeHomePageShorts": {
         "message": "Удалить Shorts с главной страницы"
+    },
+    "YouTube_is_buttons": {
+        "message": " YouTube's_buttons"
     },
     "removeRelatedSearchResults": {
         "message": "Удалять связанные результаты поиска"

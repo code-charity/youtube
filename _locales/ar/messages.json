@@ -20,6 +20,9 @@
     "accept": {
         "message": "قبول"
     },
+    "transparent_color": {
+        "message": "Transparent"
+    },
     "compact_spacing": {
         "message": "compact spacing"
     },
@@ -38,8 +41,17 @@
     "Buttons": {
         "message": "أزرار"
     },
+    "shortcut_screenshot": {
+        "message": "Screenshot"
+    },
     "activateFullscreen": {
         "message": "تفعيل ملء الشاشة"
+    },
+    "language_closed_caption": {
+        "message": "Language Default - Closed Captions"
+    },
+    "default_CC": {
+        "message": "Default"
     },
     "activated": {
         "message": "مفعل"
@@ -847,6 +859,9 @@
     },
     "removeHomePageShorts": {
         "message": "إزالة الشورت من الصفحة الرئيسية"
+    },
+    "YouTube_is_buttons": {
+        "message": " YouTube's_buttons"
     },
     "removeRelatedSearchResults": {
         "message": "إزالة عمليات بحث مرتبطة بـ"
