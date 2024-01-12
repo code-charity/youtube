@@ -20,6 +20,9 @@
     "accept": {
         "message": "Chấp nhận"
     },
+    "transparent_color": {
+        "message": "Transparent"
+    },
     "compact_spacing": {
         "message": "compact spacing"
     },
@@ -38,8 +41,17 @@
     "Buttons": {
         "message": "Nút"
     },
+    "shortcut_screenshot": {
+        "message": "Screenshot"
+    },
     "activateFullscreen": {
         "message": "Kích hoạt toàn màn hình"
+    },
+    "language_closed_caption": {
+        "message": "Language Default - Closed Captions"
+    },
+    "default_CC": {
+        "message": "Default"
     },
     "activated": {
         "message": "Đã kích hoạt"
@@ -847,6 +859,9 @@
     },
     "removeHomePageShorts": {
         "message": "Xóa Shorts trên trang chủ"
+    },
+    "YouTube_is_buttons": {
+        "message": " YouTube's_buttons"
     },
     "removeRelatedSearchResults": {
         "message": "Xóa kết quả tìm kiếm có liên quan"
