@@ -42,7 +42,7 @@
       "message": "按钮"
    },
    "shortcut_screenshot": {
-      "message": "Screenshot"
+      "message": "截图"
    },
    "activateFullscreen": {
       "message": "启用全屏"
@@ -51,7 +51,7 @@
       "message": "Language Default - Closed Captions"
    },
    "default_CC": {
-      "message": "Default"
+      "message": "默认"
    },
    "activated": {
       "message": "启用"
@@ -504,7 +504,7 @@
       "message": "隐藏日期"
    },
    "hideDetailButton": {
-      "message": "Hide Detail Button"
+      "message": "Buttons"
    },
    "hideDetails": {
       "message": "隐藏详细信息"
@@ -525,7 +525,7 @@
       "message": "隐藏播放器控制栏"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls buttons"
+      "message": "Hide player controls bar buttons"
    },
    "hidePlayerControlsBarOptions": {
       "message": "Hide player controls options"
