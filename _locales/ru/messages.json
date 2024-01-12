@@ -11,9 +11,6 @@
     "ARROWUP": {
         "message": "⇧"
     },
-    "ImprovedTube": {
-        "message": "ImprovedTube Language"
-    },
     "about": {
         "message": "Об ImprovedTube"
     },
@@ -492,7 +489,7 @@
         "message": "Скрывать дату видео"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Скрывать кнопку «Ещё»"
     },
     "hideDetails": {
         "message": "Скрывать подробную информацию"
@@ -513,7 +510,7 @@
         "message": "Скрывать панель управления плеером"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "Скрывать кнопки панели управления плеером"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Скрывать настройки панели управления пЛеера"
@@ -1170,7 +1167,7 @@
         "message": "YouTube ограничивает качество видео до 1080p для кодека H.264"
     },
     "openNewTab": {
-        "message": "Open in new tab"
+        "message": "Open in a new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"

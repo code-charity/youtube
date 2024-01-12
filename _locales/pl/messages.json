@@ -11,9 +11,6 @@
     "ARROWUP": {
         "message": "⇧"
     },
-    "ImprovedTube": {
-        "message": "ImprovedTube Language"
-    },
     "about": {
         "message": "Informacje"
     },
@@ -492,7 +489,7 @@
         "message": "Ukryj datę"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Ukryj przycisk Szczegóły"
     },
     "hideDetails": {
         "message": "Ukryj szczegóły"
@@ -513,7 +510,7 @@
         "message": "Ukryj pasek sterowania odtwarzaczem"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "Ukryj przyciski paska sterowania odtwarzaczem"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Ukryj przyciski paska sterowania odtwarzaczem - ustawienia"
@@ -1170,7 +1167,7 @@
         "message": "YouTube ogranicza jakość wideo do 1080p przy kodeku h.264"
     },
     "openNewTab": {
-        "message": "Open in new tab"
+        "message": "Open in a new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"

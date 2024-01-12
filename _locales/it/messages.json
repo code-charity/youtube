@@ -11,9 +11,6 @@
     "ARROWUP": {
         "message": "⇧"
     },
-    "ImprovedTube": {
-        "message": "ImprovedTube Language"
-    },
     "about": {
         "message": "Al riguardo"
     },
@@ -492,7 +489,7 @@
         "message": "Nascondi data"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Nascondi il pulsante dei dettagli"
     },
     "hideDetails": {
         "message": "Nascondi dettagli"
@@ -513,7 +510,7 @@
         "message": "Nascondi barra dei controlli del lettore"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "Nascondi pulsanti della barra dei controlli del lettore"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Nascondi opzioni di controllo del lettore"
@@ -1170,7 +1167,7 @@
         "message": "YouTube limita la qualità video a 1080p per il codec h.264"
     },
     "openNewTab": {
-        "message": "Open in new tab"
+        "message": "Open in a new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"

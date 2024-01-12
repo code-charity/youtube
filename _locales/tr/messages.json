@@ -11,9 +11,6 @@
     "ARROWUP": {
         "message": "⇧"
     },
-    "ImprovedTube": {
-        "message": "ImprovedTube Language"
-    },
     "about": {
         "message": "Hakkında"
     },
@@ -492,7 +489,7 @@
         "message": "Tarihi gizle"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "Ayrıntı Düğmesini Gizle"
     },
     "hideDetails": {
         "message": "Detayları gizle"
@@ -513,7 +510,7 @@
         "message": "Oynatıcı kontrol çubuğunu gizle"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "Oynatıcı kontrolleri çubuğu düğmelerini gizle"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Oynatıcı kontrol seçeneklerini gizle"
@@ -1170,7 +1167,7 @@
         "message": "YouTube, h.264 codec bileşeni için video kalitesini 1080p ile sınırlar"
     },
     "openNewTab": {
-        "message": "Open in new tab"
+        "message": "Yeni sekmede aç"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
