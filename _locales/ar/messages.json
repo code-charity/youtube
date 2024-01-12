@@ -11,6 +11,9 @@
     "ARROWUP": {
         "message": "⇧"
     },
+    "ImprovedTube": {
+        "message": "ImprovedTube Language"
+    },
     "about": {
         "message": "حول"
     },
@@ -489,7 +492,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "إخفاء التفاصيل"
@@ -510,7 +513,7 @@
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
@@ -1167,7 +1170,7 @@
         "message": "h.264 يحد اليوتيوب من جودة الفيديو الى ١٠٨٠ لـ الترميز"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"

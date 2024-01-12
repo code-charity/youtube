@@ -11,6 +11,9 @@
     "ARROWUP": {
         "message": "⇧"
     },
+    "ImprovedTube": {
+        "message": "ImprovedTube Language"
+    },
     "about": {
         "message": "정보"
     },
@@ -489,7 +492,7 @@
         "message": "날짜 숨기기"
     },
     "hideDetailButton": {
-        "message": "상세 버튼 숨기기"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "영상 설명란 숨기기"
@@ -510,7 +513,7 @@
         "message": "플레이어 컨트롤 바 숨기기"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "플레이어 컨트롤 버튼 숨기기"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "플레이어 컨트롤 옵션 숨기기"
@@ -1167,7 +1170,7 @@
         "message": "유튜브는 h.264 코덱에서 비디오 품질을 1080p로 제한합니다."
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"

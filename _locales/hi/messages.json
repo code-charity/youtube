@@ -11,6 +11,9 @@
     "ARROWUP": {
         "message": "⇧"
     },
+    "ImprovedTube": {
+        "message": "ImprovedTube Language"
+    },
     "about": {
         "message": "के बारे में"
     },
@@ -489,7 +492,7 @@
         "message": "तारीख छुपाएं"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "जानकारी छिपाएँ"
@@ -510,7 +513,7 @@
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
@@ -1167,7 +1170,7 @@
         "message": "यूट्यूब h.264 कोडेक के लिए वीडियो की गुणवत्ता 1080 पी तक सीमित है"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
