@@ -153,13 +153,9 @@ def upgrade():
 'de',
 'el',
 'en',
-'en_GB',
-'en_US',
 'es',
-'es_419',
 'et',
 'fa',
-'fa_IR',
 'fi',
 'fil',
 'fr',
@@ -183,8 +179,6 @@ def upgrade():
 'no',
 'pl',
 'pt',
-'pt_BR',
-'pt_PT',
 'ro',
 'ru',
 'si',
@@ -199,8 +193,7 @@ def upgrade():
 'tr',
 'uk',
 'vi',
-'zh_CN',
-'zh_TW'
+'zh'',
     ]
 
     if os.path.exists('../_locales/en/messages.json'):
