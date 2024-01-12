@@ -192,7 +192,7 @@
         "message": "Bolhas"
     },
     "bug": {
-        "message": "Bug"
+        "message": "Erro"
     },
     "buttons": {
         "message": "Botões"
@@ -288,7 +288,7 @@
         "message": "Padrão"
     },
     "defaultChannelTab": {
-        "message": "Aba padrão do canal "
+        "message": "Aba padrão do canal"
     },
     "defaultContentCountry": {
         "message": "País (viagem virtual)"
@@ -489,7 +489,7 @@
         "message": "Ocultar data"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "Esconder detalhes"
@@ -510,7 +510,7 @@
         "message": "Ocultar a barra de controles do player"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Ocultar opções de controles do player"
@@ -789,7 +789,7 @@
         "message": "Lista de reprodução"
     },
     "playlists": {
-        "message": "Playlists"
+        "message": "Listas de reprodução"
     },
     "popupPlayer": {
         "message": "Leitor em janela"
@@ -1167,7 +1167,7 @@
         "message": "O YouTube limita a qualidade do video em 1080p para o codec h.264"
     },
     "openNewTab": {
-        "message": "Abrir em uma nova aba"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Ocultar o título do vídeo em tela cheia"
