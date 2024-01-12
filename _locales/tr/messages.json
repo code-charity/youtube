@@ -1,1232 +1,1214 @@
 {
-   "ARROWDOWN": {
-      "message": "⇩"
-   },
-   "ARROWLEFT": {
-      "message": "⇦"
-   },
-   "ARROWRIGHT": {
-      "message": "⇨"
-   },
-   "ARROWUP": {
-      "message": "⇧"
-   },
-   "ImprovedTube": {
-      "message": "ImprovedTube"
-   },
-   "about": {
-      "message": "Hakkında"
-   },
-   "accept": {
-      "message": "Onayla"
-   },
-   "transparent_color": {
-      "message": "Transparent"
-   },
-   "compact_spacing": {
-      "message": "compact spacing"
-   },
-   "Hide_Pause_Overlay": {
-      "message": "Hide Pause Overlay"
-   },
-   "compactTheme": {
-      "message": "Compact Theme"
-   },
-   "activate": {
-      "message": "Aktifleştir"
-   },
-   "activateCaptions": {
-      "message": "Altyazıları Aktifleştir"
-   },
-   "Buttons": {
-      "message": "Butonlar"
-   },
-   "shortcut_screenshot": {
-      "message": "Screenshot"
-   },
-   "activateFullscreen": {
-      "message": "Tam ekranı Aktifleştir"
-   },
-   "language_closed_caption": {
-      "message": "Language Default - Closed Captions"
-   },
-   "default_CC": {
-      "message": "Default"
-   },
-   "activated": {
-      "message": "Aktifleştirilmiş"
-   },
-   "activatedFeatures": {
-      "message": "Aktifleştirilmiş özellikler"
-   },
-   "activeFeatures": {
-      "message": "Etkin özellikler"
-   },
-   "addScrollToTop": {
-      "message": "«Yukarı kaydır» ekle"
-   },
-   "ads": {
-      "message": "Reklamlar"
-   },
-   "all": {
-      "message": "Tümü"
-   },
-   "allYourSettingsWillBeErasedAndCanTBeRecovered": {
-      "message": "Tüm ayarlarınız silinir ve kurtarılamaz"
-   },
-   "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
-      "message": "Tüm kısayollarınız silinir ve kurtarılamaz"
-   },
-   "allow": {
-      "message": "İzin ver"
-   },
-   "allow60fps": {
-      "message": "60fps'e izin ver"
-   },
-   "always": {
-      "message": "Sürekli"
-   },
-   "alwaysActive": {
-      "message": "Sürekli etkin"
-   },
-   "alwaysShowProgressBar": {
-      "message": "İlerleme çubuğunu sürekli göster"
-   },
-   "amber": {
-      "message": "Amber"
-   },
-   "analyzer": {
-      "message": "Analizör"
-   },
-   "animations": {
-      "message": "Animasyonlar"
-   },
-   "appearance": {
-      "message": "Görünüm"
-   },
-   "areYouSureYouWantToExportTheData": {
-      "message": "Verileri dışa aktarmak istediğinizden emin misiniz?"
-   },
-   "areYouSureYouWantToImportTheData": {
-      "message": "Verileri içe aktarmak istediğinizden emin misiniz?"
-   },
-   "audio": {
-      "message": "Ses"
-   },
-   "audioFormats": {
-      "message": "Ses formatları"
-   },
-   "auto": {
-      "message": "Otomatik"
-   },
-   "autoFullscreen": {
-      "message": "Otomatik tam ekran"
-   },
-   "autopauseWhenSwitchingTabs": {
-      "message": "Sekme değiştirildiğinde duraklat"
-   },
-   "autoplay": {
-      "message": "Otomatik oynat"
-   },
-   "avoidAv1": {
-      "message": "Avoid AV1"
-   },
-   "avoidAv1Vp8Vp9": {
-      "message": "Avoid AV1, VP8, VP9"
-   },
-   "avoidAv1Vp9": {
-      "message": "Avoid AV1, VP9"
-   },
-   "avoidCpuRenderingWhenPossible": {
-      "message": "Mümkün olduğunda CPU oluşturma işleminden kaçının"
-   },
-   "backgroundColor": {
-      "message": "Arkaplan rengi"
-   },
-   "backgroundOpacity": {
-      "message": "Arkaplan opaklığı"
-   },
-   "backupAndReset": {
-      "message": "Yedek & sıfırla"
-   },
-   "baseOnSystemColorScheme": {
-      "message": "Sistem renk şeması temelli"
-   },
-   "belowPlayer": {
-      "message": "Oynatıcının altında"
-   },
-   "bitness": {
-      "message": "Bitness"
-   },
-   "black": {
-      "message": "Siyah"
-   },
-   "blocklist": {
-      "message": "Kara Liste"
-   },
-   "blockAll": {
-      "message": "Tümünü engelle"
-   },
-   "blockAv1": {
-      "message": "AV1'i engelle"
-   },
-   "blockH264": {
-      "message": "H.264'ü engelle"
-   },
-   "blockMusic": {
-      "message": "Sesi engelle"
-   },
-   "blockVp8": {
-      "message": "VP8'i engelle"
-   },
-   "blockVp9": {
-      "message": "VP9'u engelle"
-   },
-   "blue": {
-      "message": "Mavi"
-   },
-   "blueGray": {
-      "message": "Mavi gri"
-   },
-   "bluelight": {
-      "message": "Mavi Işık"
-   },
-   "brightness": {
-      "message": "Parlaklık"
-   },
-   "brown": {
-      "message": "Kahverengi"
-   },
-   "browser": {
-      "message": "Tarayıcı"
-   },
-   "browserVersion": {
-      "message": "Tarayıcı Sürümü"
-   },
-   "bubbles": {
-      "message": "Baloncuklar"
-   },
-   "bug": {
-      "message": "Hata"
-   },
-   "buttons": {
-      "message": "Butonlar"
-   },
-   "cancel": {
-      "message": "İptal"
-   },
-   "categories": {
-      "message": "Kategoriler"
-   },
-   "channel": {
-      "message": "Kanal"
-   },
-   "channels": {
-      "message": "Kanallar"
-   },
-   "characterEdgeStyle": {
-      "message": "Karakter kenar stili"
-   },
-   "clip": {
-      "message": "Klip"
-   },
-   "clipboard": {
-      "message": "Pano"
-   },
-   "codecH264": {
-      "message": "Kodek h.264"
-   },
-   "codecs": {
-      "message": "Kodekler"
-   },
-   "collapseOfSubscriptionSections": {
-      "message": "Abonelik bölümlerini daralt"
-   },
-   "collapsed": {
-      "message": "Daraltılmış"
-   },
-   "comments": {
-      "message": "Yorumlar"
-   },
-   "confirmationBeforeClosing": {
-      "message": "Kapatmadan önce uyar"
-   },
-   "cookies": {
-      "message": "Çerezler"
-   },
-   "cores": {
-      "message": "Çekirdekler"
-   },
-   "cropChapterTitles": {
-      "message": "Bölüm başlıklarını kırp"
-   },
-   "custom": {
-      "message": "Özel"
-   },
-   "customCss": {
-      "message": "Özel CSS"
-   },
-   "customJs": {
-      "message": "Özel JS"
-   },
-   "customMiniPlayer": {
-      "message": "Özel Mini Oynatıcı"
-   },
-   "cyan": {
-      "message": "Camgöbeği"
-   },
-   "dark": {
-      "message": "Koyu"
-   },
-   "darkTheme": {
-      "message": "Koyu tema"
-   },
-   "dateAndTime": {
-      "message": "Tarih & zaman"
-   },
-   "dawn": {
-      "message": "Şafak"
-   },
-   "decreasePlaybackSpeed": {
-      "message": "Oynatma hızını azalt"
-   },
-   "decreaseVolume": {
-      "message": "Sesi azalt"
-   },
-   "deepOrange": {
-      "message": "Koyu turuncu"
-   },
-   "deepPurple": {
-      "message": "Koyu mor"
-   },
-   "default": {
-      "message": "Varsayılan"
-   },
-   "defaultChannelTab": {
-      "message": "Varsayılan kanal sekmesi"
-   },
-   "defaultContentCountry": {
-      "message": "Varsayılan içerik ülkesi"
-   },
-   "defaultPlaybackSpeed": {
-      "message": "Varsayılan Oynatma Hızı"
-   },
-   "deleteWatchedVideos": {
-      "message": "İzlenen videoları sil"
-   },
-   "deleteYoutubeCookies": {
-      "message": "YouTube çerezleri sil"
-   },
-   "depressed": {
-      "message": "Bunalımlı"
-   },
-   "description": {
-      "message": "Açıklama"
-   },
-   "description_ext": {
-      "message": "YouTube'u düzenli+akıllı hale getirin! YouTube video renkli reklam hacmi atlama hızı kanal aracı stili HD reklamlar reklam engelleme reklam engelleyici etiketleri anahtar kelime oynatma listesi"
-   },
-   "desert": {
-      "message": "Çöl"
-   },
-   "details": {
-      "message": "Ayrıntılar"
-   },
-   "developerOptions": {
-      "message": "Geliştirici seçenekleri"
-   },
-   "device": {
-      "message": "Cihaz"
-   },
-   "dim": {
-      "message": "Karart"
-   },
-   "disabled": {
-      "message": "Devredışı"
-   },
-   "dislike": {
-      "message": "Beğenmeme"
-   },
-   "displayDayOfTheWeak": {
-      "message": "Zayıfların gününü göster"
-   },
-   "doNotChange": {
-      "message": "Değiştirme"
-   },
-   "donate": {
-      "message": "Bağış"
-   },
-   "download": {
-      "message": "İndir"
-   },
-   "draggable": {
-      "message": "Sürüklenebilir"
-   },
-   "dropShadow": {
-      "message": "Düşen gölge"
-   },
-   "durationWithSpeed": {
-      "message": "Oynatma hızına göre kalan süreyi göster"
-   },
-   "email": {
-      "message": "Eposta"
-   },
-   "empty": {
-      "message": "Boş"
-   },
-   "enabled": {
-      "message": "Etkin"
-   },
-   "enabledForced": {
-      "message": "Etkin (Zorla)"
-   },
-   "expanded": {
-      "message": "Genişletilmiş"
-   },
-   "exportSettings": {
-      "message": "Ayarları dışa aktar"
-   },
-   "extension": {
-      "message": "Uzantı"
-   },
-   "file": {
-      "message": "Dosya"
-   },
-   "filters": {
-      "message": "Filtreler"
-   },
-   "fitToWindow": {
-      "message": "Pencereye sığdır"
-   },
-   "flash": {
-      "message": "Flaş"
-   },
-   "font": {
-      "message": "Yazı Tipi"
-   },
-   "fontColor": {
-      "message": "Yazı rengi"
-   },
-   "fontFamily": {
-      "message": "Font ailesi"
-   },
-   "fontOpacity": {
-      "message": "Yazı tipi opaklığı"
-   },
-   "fontSize": {
-      "message": "Yazı Boyutu"
-   },
-   "footer": {
-      "message": "Altbilgi"
-   },
-   "forceSDR": {
-      "message": "SDR Zorla"
-   },
-   "forcedPlayVideoFromTheBeginning": {
-      "message": "En başından itibaren zorunlu oynatma videosu"
-   },
-   "forcedPlaybackSpeed": {
-      "message": "Oynatma hızını uygulamaya zorla"
-   },
-   "forcedPlaybackSpeedMusic": {
-      "message": "(Müzik için bile oynatma hızını zorla?)"
-   },
-   "forcedTheaterMode": {
-      "message": "Sinema modunu zorla"
-   },
-   "forcedVolume": {
-      "message": "Sesi zorla"
-   },
-   "foundABug": {
-      "message": "Hata mı buldun?"
-   },
-   "fullWindow": {
-      "message": "Tam pencere"
-   },
-   "general": {
-      "message": "Genel"
-   },
-   "geoPreference": {
-      "message": "Coğrafi Tercih"
-   },
-   "github": {
-      "message": "GitHub"
-   },
-   "goToSearchBox": {
-      "message": "Arama kutusuna git"
-   },
-   "googleApiKey": {
-      "message": "Google API key"
-   },
-   "gpu": {
-      "message": "GPU"
-   },
-   "green": {
-      "message": "Yeşil"
-   },
-   "hardwareInformation": {
-      "message": "Donanım Bilgileri"
-   },
-   "hd": {
-      "message": "HD"
-   },
-   "hdThumbnail": {
-      "message": "HD küçük resim"
-   },
-   "header": {
-      "message": "Başlık"
-   },
-   "hidden": {
-      "message": "Gizli"
-   },
-   "hiddenOnVideoPage": {
-      "message": "Video sayfasında gizli"
-   },
-   "hideAnimatedThumbnails": {
-      "message": "Hareketli küçük resimleri gizle"
-   },
-   "hideAnnotations": {
-      "message": "Ek açıklamaları gizle"
-   },
-   "hideCards": {
-      "message": "Kartları gizle"
-   },
-   "hideCategories": {
-      "message": "Kategorileri gizle"
-   },
-   "hideCommentsCount": {
-      "message": "Yorum sayısını gizle"
-   },
-   "hideCountryCode": {
-      "message": "Ülke kodunu gizle"
-   },
-   "hideDate": {
-      "message": "Tarihi gizle"
-   },
-   "hideDetailButton": {
-      "message": "Hide Detail Button"
-   },
-   "hideDetails": {
-      "message": "Detayları gizle"
-   },
-   "hideEndscreen": {
-      "message": "Ekran sonunu gizle"
-   },
-   "hideFeaturedContent": {
-      "message": "Öne çıkan içeriği gizle"
-   },
-   "hideFooter": {
-      "message": "Altbilgiyi gizle"
-   },
-   "hideGradientBottom": {
-      "message": "Oynatıcı çubuğunun etrafındaki gölgeyi gizle"
-   },
-   "hidePlayerControlsBar": {
-      "message": "Oynatıcı kontrol çubuğunu gizle"
-   },
-   "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls buttons"
-   },
-   "hidePlayerControlsBarOptions": {
-      "message": "Oynatıcı kontrol seçeneklerini gizle"
-   },
-   "hidePlaylist": {
-      "message": "Oynatma Listesi'ni gizle"
-   },
-   "hideRightButtons": {
-      "message": "Sağ butonları gizle"
-   },
-   "hideScrollForDetails": {
-      "message": "«Ayrıntılar için kaydır» gizle"
-   },
-   "hideSkipOverlay": {
-      "message": "5 saniyelik atlama animasyonunu gizle"
-   },
-   "hideThumbnailOverlay": {
-      "message": "Küçük resimlerdeki düğmeleri gizle"
-   },
-   "hideThumbnails": {
-      "message": "Küçük resimleri gizle"
-   },
-   "hideViewsCount": {
-      "message": "Görüntüleme sayısını gizle"
-   },
-   "hideVoiceSearchButton": {
-      "message": "Sesli arama düğmesini gizle"
-   },
-   "high": {
-      "message": "Yüksek"
-   },
-   "history": {
-      "message": "Geçmiş"
-   },
-   "home": {
-      "message": "Ana Sayfa"
-   },
-   "homeScreen": {
-      "message": "Ana Sayfa Ekranı"
-   },
-   "hover": {
-      "message": "Gölge"
-   },
-   "hoverOnVideoPage": {
-      "message": "Videonun Üzerinde Hover"
-   },
-   "howLongAgoTheVideoWasUploaded": {
-      "message": "Video ne kadar süre önce yüklendi"
-   },
-   "icons": {
-      "message": "Simgeler"
-   },
-   "iconsOnly": {
-      "message": "Yalnızca simgeler"
-   },
-   "importSettings": {
-      "message": "Ayarları içe aktar"
-   },
-   "improveLogo": {
-      "message": "Logoyu geliştir"
-   },
-   "improvedtubeButtons": {
-      "message": "ImprovedTube butonları"
-   },
-   "improvedtubeIconOnYoutube": {
-      "message": "YouTube'da ImprovedTube Simgesi"
-   },
-   "improvedtubeLanguage": {
-      "message": "ImprovedTube dili"
-   },
-   "improvedtubeVersion": {
-      "message": "ImprovedTube sürümü"
-   },
-   "increasePlaybackSpeed": {
-      "message": "Oynatma hızını artır"
-   },
-   "increaseVolume": {
-      "message": "Sesi artır"
-   },
-   "indigo": {
-      "message": "Çivit"
-   },
-   "items": {
-      "message": "Öğeler"
-   },
-   "language": {
-      "message": "Dil"
-   },
-   "languages": {
-      "message": "Diller"
-   },
-   "layerAnimationScale": {
-      "message": "Katman animasyon ölçeği"
-   },
-   "layout": {
-      "message": "Düzen"
-   },
-   "legacyYoutube": {
-      "message": "Eski YouTube"
-   },
-   "library": {
-      "message": "Kütüphane"
-   },
-   "light": {
-      "message": "Açık"
-   },
-   "lightBlue": {
-      "message": "Açık mavi"
-   },
-   "lightGreen": {
-      "message": "Açık yeşil"
-   },
-   "like": {
-      "message": "Beğen"
-   },
-   "liked": {
-      "message": "Beğenildi"
-   },
-   "likes": {
-      "message": "Beğeniler"
-   },
-   "lime": {
-      "message": "Lime"
-   },
-   "limitPageWidth": {
-      "message": "Sayfa genişliğini sınırla"
-   },
-   "list": {
-      "message": "Liste"
-   },
-   "liveChat": {
-      "message": "Canlı sohbet"
-   },
-   "liveChatType": {
-      "message": "Canlı sohbet türü"
-   },
-   "location": {
-      "message": "Konum"
-   },
-   "loop": {
-      "message": "Döngü"
-   },
-   "loudnessNormalization": {
-      "message": "Gürültü normalleştirme"
-   },
-   "low": {
-      "message": "Düşük"
-   },
-   "markWatchedVideos": {
-      "message": "İzlenen videoları işaretle"
-   },
-   "medium": {
-      "message": "Orta"
-   },
-   "mixer": {
-      "message": "Karıştırıcı"
-   },
-   "more": {
-      "message": "Daha fazla"
-   },
-   "mostViewedChannels": {
-      "message": "En çok izlenen kanallar"
-   },
-   "moveSidebarLeft": {
-      "message": "Kenar çubuğunu sola taşı"
-   },
-   "moveThumbnailsRight": {
-      "message": "Küçük resimleri sağa taşı"
-   },
-   "myColors": {
-      "message": "Renklerim"
-   },
-   "name": {
-      "message": "İsim"
-   },
-   "nativeMiniPlayer": {
-      "message": "Native mini oynatıcı"
-   },
-   "new": {
-      "message": "Yeni"
-   },
-   "nextVideo": {
-      "message": "Sonraki video"
-   },
-   "night": {
-      "message": "Gece"
-   },
-   "nightMode": {
-      "message": "Gece modu"
-   },
-   "noActiveFeatures": {
-      "message": "Aktif özellik yok"
-   },
-   "noOpenVideoTabs": {
-      "message": "Açık video sekmesi yok"
-   },
-   "none": {
-      "message": "Yok"
-   },
-   "normal": {
-      "message": "Normal"
-   },
-   "off": {
-      "message": "Kapalı"
-   },
-   "ok": {
-      "message": "Tamam"
-   },
-   "old": {
-      "message": "Eski"
-   },
-   "onAllVideos": {
-      "message": "Tüm videolarda"
-   },
-   "onSubscribedChannels": {
-      "message": "Kapalı, abone olduğum kanallar hariç"
-   },
-   "onlyActiveOnYoutube": {
-      "message": "Yalnızca YouTube'da etkin"
-   },
-   "onlyOnePlayerInstancePlaying": {
-      "message": "Sadece bir oynatıcı örneği"
-   },
-   "openPopupPlayer": {
-      "message": "Videoyu/oynatma listesini yeni pencerede aç"
-   },
-   "orange": {
-      "message": "Turuncu"
-   },
-   "os": {
-      "message": "OS"
-   },
-   "other": {
-      "message": "Diğer"
-   },
-   "outline": {
-      "message": "Ana hat"
-   },
-   "overlay": {
-      "message": "Arayüz"
-   },
-   "permissions": {
-      "message": "İzinler"
-   },
-   "pictureInPicture": {
-      "message": "Resim içinde resim"
-   },
-   "pink": {
-      "message": "Pembe"
-   },
-   "plain": {
-      "message": "Sade"
-   },
-   "platform": {
-      "message": "Platform"
-   },
-   "playAllButton": {
-      "message": "\"Tümünü oynat\" butonu"
-   },
-   "playPause": {
-      "message": "Oynat / Duraklat"
-   },
-   "playbackSpeed": {
-      "message": "Oynatma hızı"
-   },
-   "player": {
-      "message": "Oynatıcı"
-   },
-   "playerColor": {
-      "message": "İlerleme çubuğu rengi"
-   },
-   "playerSize": {
-      "message": "Oynatıcı boyutu"
-   },
-   "playlist": {
-      "message": "Oynatma Listesi"
-   },
-   "playlists": {
-      "message": "Oynatma Listeleri"
-   },
-   "popupPlayer": {
-      "message": "Açılır pencere oynatıcı"
-   },
-   "popupWindowButtons": {
-      "message": "Her küçük resme bir açılır oynatıcı düğmesi ekleyin"
-   },
-   "position": {
-      "message": "Pozisyon"
-   },
-   "pressAnyKeyOrScroll": {
-      "message": "Herhangi bir tuşa bas veya farenin tekerleğini kullan."
-   },
-   "pressAnyKeyOrUseMouseWheel": {
-      "message": "Herhangi bir tuşa bas veya farenin tekerleğini kullan"
-   },
-   "previousVideo": {
-      "message": "Önceki video"
-   },
-   "primaryColor": {
-      "message": "Birincil renk"
-   },
-   "purple": {
-      "message": "Mor"
-   },
-   "quality": {
-      "message": "Kalite"
-   },
-   "raised": {
-      "message": "Kabarık"
-   },
-   "ram": {
-      "message": "RAM"
-   },
-   "rateMe": {
-      "message": "Beni oyla"
-   },
-   "rateUs": {
-      "message": "Bizi oyla"
-   },
-   "red": {
-      "message": "Kırmızı"
-   },
-   "redDislikeButton": {
-      "message": "Beğenmeme düğmesinini kırmızı renkte göster"
-   },
-   "relatedVideos": {
-      "message": "İlgili videolar"
-   },
-   "remote": {
-      "message": "TV'de oynat"
-   },
-   "removeHomePageShorts": {
-      "message": "Ana sayfa Shorts'ları kaldır"
-   },
-   "YouTube_is_buttons": {
-      "message": "YouTube's buttons"
-   },
-   "removeRelatedSearchResults": {
-      "message": "İlgili arama sonuçlarını kaldır"
-   },
-   "removeShortsReelSearchResults": {
-      "message": "Arama sonuçlarından Shorts reelini kaldır"
-   },
-   "repeat": {
-      "message": "Tekrarla"
-   },
-   "report": {
-      "message": "Raporla"
-   },
-   "reset": {
-      "message": "Sıfırla"
-   },
-   "resetAllSettings": {
-      "message": "Tüm ayarları sıfırla"
-   },
-   "resetAllShortcuts": {
-      "message": "Tüm kısayolları sıfırla"
-   },
-   "reverse": {
-      "message": "Ters"
-   },
-   "rotate": {
-      "message": "Döndür"
-   },
-   "save": {
-      "message": "Kaydet"
-   },
-   "saveAs": {
-      "message": "Farklı kaydet"
-   },
-   "schedule": {
-      "message": "Takvim"
-   },
-   "screen": {
-      "message": "Ekran"
-   },
-   "screenshot": {
-      "message": "Ekran görüntüsü"
-   },
-   "scrollBar": {
-      "message": "Kaydırma çubuğu"
-   },
-   "sd": {
-      "message": "SD"
-   },
-   "search": {
-      "message": "Ara"
-   },
-   "searchBarOnly": {
-      "message": "Yalnızca arama çubuğu"
-   },
-   "seekBackward10Seconds": {
-      "message": "10 saniye geriye git"
-   },
-   "seekForward10Seconds": {
-      "message": "10 saniye ileriye git"
-   },
-   "seekNextChapter": {
-      "message": "Sonraki Bölümü Ara"
-   },
-   "seekPreviousChapter": {
-      "message": "Önceki Bölümü Ara"
-   },
-   "settings": {
-      "message": "Ayarlar"
-   },
-   "settingsSuccessfullyImported": {
-      "message": "Ayarlar başarıyla içe aktarıldı"
-   },
-   "share": {
-      "message": "Paylaş"
-   },
-   "embedded_Hide_Share": {
-      "message": "Embedded Hide Share"
-   },
-   "Transcript": {
-      "message": "Transcript"
-   },
-   "Subtitle_Capture_including_the_current_words": {
-      "message": "Subtitle (Capture including the current words)"
-   },
-   "Embedded_YouTube": {
-      "message": "Embedded YouTube"
-   },
-   "Hide_YouTube_Logo": {
-      "message": "Hide YouTube Logo"
-   },
-   "shortcuts": {
-      "message": "Kısayollar"
-   },
-   "showCardsOnMouseHover": {
-      "message": "Fareyle üzerine gelindiğinde kartları göster"
-   },
-   "showChannelVideosCount": {
-      "message": "Kanalın video sayısını göster"
-   },
-   "showLess": {
-      "message": "Daha az göster"
-   },
-   "showMore": {
-      "message": "Daha fazla göster"
-   },
-   "Hamburger_Menu": {
-      "message": "Hamburger Menu"
-   },
-   "showRemainingDuration": {
-      "message": "Videonun kalan süresini göster"
-   },
-   "showVersion": {
-      "message": "Versionu göster"
-   },
-   "shuffle": {
-      "message": "Karıştır"
-   },
-   "player_fit_to_win_button": {
-      "message": "player fit to win button"
-   },
-   "hide_author_avatars": {
-      "message": "Hide author avatars"
-   },
-   "player_rotate_button": {
-      "message": "player rotate button"
-   },
-   "sidebar": {
-      "message": "Kenar çubuğu"
-   },
-   "softwareInformation": {
-      "message": "Yazılım bilgisi"
-   },
-   "spacebar": {
-      "message": "Boşluk Çubuğu"
-   },
-   "squaredUserImages": {
-      "message": "Kare kullanıcı görüntüleri"
-   },
-   "static": {
-      "message": "Statik"
-   },
-   "statsForNerds": {
-      "message": "Meraklılar için istatistikler"
-   },
-   "step": {
-      "message": "Adım"
-   },
-   "stop": {
-      "message": "Durdur"
-   },
-   "style": {
-      "message": "Stil"
-   },
-   "styles": {
-      "message": "Stiller"
-   },
-   "subscribe": {
-      "message": "Abone Ol"
-   },
-   "subscriptions": {
-      "message": "Abonelikler"
-   },
-   "subtitles": {
-      "message": "Altyazılar"
-   },
-   "sunset": {
-      "message": "Gün batımı"
-   },
-   "sunsetToSunrise": {
-      "message": "Gün batımından gün doğumuna"
-   },
-   "systemPeferenceDark": {
-      "message": "Sistem tercihi: koyu"
-   },
-   "systemPeferenceLight": {
-      "message": "Sistem tercihi: açık"
-   },
-   "teal": {
-      "message": "Teal"
-   },
-   "textColor": {
-      "message": "Yazı rengi"
-   },
-   "thanks": {
-      "message": "Teşekkürler"
-   },
-   "themes": {
-      "message": "Temalar"
-   },
-   "thisWillRemoveAllCookies": {
-      "message": "Bu, tüm çerezleri kaldıracaktır."
-   },
-   "thisWillRemoveAllWatchedVideos": {
-      "message": "Bu, izlenen tüm videoları kaldıracaktır."
-   },
-   "thisWillRemoveAllYouTubeCookies": {
-      "message": "Bu, tüm YouTube çerezlerini kaldıracaktır."
-   },
-   "thisWillResetAllSettings": {
-      "message": "Bu, tüm ayarları sıfırlayacaktır."
-   },
-   "thisWillResetAllShortcuts": {
-      "message": "Bu, tüm kısayolları sıfırlayacaktır."
-   },
-   "thumbnails": {
-      "message": "Küçük resimler"
-   },
-   "thumbnailsQuality": {
-      "message": "Küçük Resim Kalitesi"
-   },
-   "timeFrom": {
-      "message": "Şu zamandan"
-   },
-   "timeTo": {
-      "message": "Şu zamana"
-   },
-   "todayAt": {
-      "message": "Bugün"
-   },
-   "toggleAutoplay": {
-      "message": "Otomatik oynatmayı aç/kapat"
-   },
-   "toggleCards": {
-      "message": "Kartları aç/kapat"
-   },
-   "toggleControls": {
-      "message": "Kontrolleri aç/kapat"
-   },
-   "topChat": {
-      "message": "En İyi Sohbet Mesajları"
-   },
-   "trackWatchedVideos": {
-      "message": "İzlenen videoları takip edin"
-   },
-   "trailerAutoplay": {
-      "message": "Fragman otomatik oynatımı"
-   },
-   "translations": {
-      "message": "Çeviriler"
-   },
-   "transparentBackground": {
-      "message": "Saydam arka plan"
-   },
-   "trending": {
-      "message": "Trendler"
-   },
-   "tryToReloadThePage": {
-      "message": "Sayfayı yeniden yüklemeyi deneyin"
-   },
-   "type": {
-      "message": "Tip"
-   },
-   "upNextAutoplay": {
-      "message": "Sonraki otomatik oynatma"
-   },
-   "use24HourFormat": {
-      "message": "24 saat biçimini kullan"
-   },
-   "version": {
-      "message": "Sürüm"
-   },
-   "video": {
-      "message": "Video"
-   },
-   "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-      "message": "Kategorinin adını almak için video açıklaması genişletilecek"
-   },
-   "videoFormats": {
-      "message": "Video formatları"
-   },
-   "videos": {
-      "message": "Videolar"
-   },
-   "viewMode": {
-      "message": "Görünüm Modu"
-   },
-   "volume": {
-      "message": "Ses"
-   },
-   "watchLater": {
-      "message": "Sonra izle"
-   },
-   "watchTime": {
-      "message": "İzleme zamanı"
-   },
-   "watchedVideos": {
-      "message": "İzlenen videolar"
-   },
-   "whenPaused": {
-      "message": "Duraklatıldığında"
-   },
-   "whenTabIsChanged": {
-      "message": "Sekme değiştirildiğinde"
-   },
-   "white": {
-      "message": "Beyaz"
-   },
-   "windowColor": {
-      "message": "Pencere rengi"
-   },
-   "windowOpacity": {
-      "message": "Pencere opaklığı"
-   },
-   "yellow": {
-      "message": "Sarı"
-   },
-   "youtubeHeaderLeft": {
-      "message": "YouTube Header (sol)"
-   },
-   "youtubeHeaderRight": {
-      "message": "YouTube Header (sağ)"
-   },
-   "youtubeHomePage": {
-      "message": "YouTube ana sayfası"
-   },
-   "youtubeLanguage": {
-      "message": "YouTube dili"
-   },
-   "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-      "message": "YouTube, h.264 codec bileşeni için video kalitesini 1080p ile sınırlar"
-   },
-   "openNewTab": {
-      "message": "Open in new tab"
-   },
-   "hideVideoTitleFullScreen": {
-      "message": "Hide video title in fullscreen"
-   },
-   "To_the_side_No_page_margin": {
-      "message": "To the side! (No page margin)"
-   },
-   "Hide_sidebar": {
-      "message": "Hide sidebar "
-   },
-   "chapters": {
-      "message": "chapters"
-   },
-   "Hide_Shorts_remixing_this_video": {
-      "message": "Hide Shorts remixing this video"
-   },
-   "Sidebar_simple_alternative": {
-      "message": "Sidebar (simple alternative)"
-   },
-   "with_scrollbars": {
-      "message": "with scrollbars?"
-   },
-   "autoPictureInPicture": {
-      "message": "Auto Picture-In-Picture"
-   },
-   "Allow_auto_generate": {
-      "message": "Allow auto generate"
-   },
-   "Currently_requiring_a_YouTube_API_key": {
-      "message": "(Currently requiring a YouTube-API-key: )"
-   },
-   "shortcut_chapters": {
-      "message": "Show chapters Sidebar"
-   },
-   "Auto_PiP_picture_in_picture": {
-      "message": "Auto-PiP (picture in picture)"
-   },
-   "Hide_the_tabs_only": {
-      "message": "Hide the tabs only"
-   },
-   "My_specs": {
-      "message": "My specs"
-   }
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
+    "ImprovedTube": {
+        "message": "ImprovedTube Language"
+    },
+    "about": {
+        "message": "Hakkında"
+    },
+    "accept": {
+        "message": "Onayla"
+    },
+    "compact_spacing": {
+        "message": "compact spacing"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
+    },
+    "compactTheme": {
+        "message": "Compact Theme"
+    },
+    "activate": {
+        "message": "Aktifleştir"
+    },
+    "activateCaptions": {
+        "message": "Altyazıları Aktifleştir"
+    },
+    "Buttons": {
+        "message": "Butonlar"
+    },
+    "activateFullscreen": {
+        "message": "Tam ekranı Aktifleştir"
+    },
+    "activated": {
+        "message": "Aktifleştirilmiş"
+    },
+    "activatedFeatures": {
+        "message": "Aktifleştirilmiş özellikler"
+    },
+    "activeFeatures": {
+        "message": "Etkin özellikler"
+    },
+    "addScrollToTop": {
+        "message": "«Yukarı kaydır» ekle"
+    },
+    "ads": {
+        "message": "Reklamlar"
+    },
+    "all": {
+        "message": "Tümü"
+    },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "Tüm ayarlarınız silinir ve kurtarılamaz"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "Tüm kısayollarınız silinir ve kurtarılamaz"
+    },
+    "allow": {
+        "message": "İzin ver"
+    },
+    "allow60fps": {
+        "message": "60fps'e izin ver"
+    },
+    "always": {
+        "message": "Sürekli"
+    },
+    "alwaysActive": {
+        "message": "Sürekli etkin"
+    },
+    "alwaysShowProgressBar": {
+        "message": "İlerleme çubuğunu sürekli göster"
+    },
+    "amber": {
+        "message": "Amber"
+    },
+    "analyzer": {
+        "message": "Analizör"
+    },
+    "animations": {
+        "message": "Animasyonlar"
+    },
+    "appearance": {
+        "message": "Görünüm"
+    },
+    "areYouSureYouWantToExportTheData": {
+        "message": "Verileri dışa aktarmak istediğinizden emin misiniz?"
+    },
+    "areYouSureYouWantToImportTheData": {
+        "message": "Verileri içe aktarmak istediğinizden emin misiniz?"
+    },
+    "audio": {
+        "message": "Ses"
+    },
+    "audioFormats": {
+        "message": "Ses formatları"
+    },
+    "auto": {
+        "message": "Otomatik"
+    },
+    "autoFullscreen": {
+        "message": "Otomatik tam ekran"
+    },
+    "autopauseWhenSwitchingTabs": {
+        "message": "Sekme değiştirildiğinde duraklat"
+    },
+    "autoplay": {
+        "message": "Otomatik oynat"
+    },
+    "avoidAv1": {
+        "message": "Avoid AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Avoid AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Avoid AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Mümkün olduğunda CPU oluşturma işleminden kaçının"
+    },
+    "backgroundColor": {
+        "message": "Arkaplan rengi"
+    },
+    "backgroundOpacity": {
+        "message": "Arkaplan opaklığı"
+    },
+    "backupAndReset": {
+        "message": "Yedek & sıfırla"
+    },
+    "baseOnSystemColorScheme": {
+        "message": "Sistem renk şeması temelli"
+    },
+    "belowPlayer": {
+        "message": "Oynatıcının altında"
+    },
+    "bitness": {
+        "message": "Bitness"
+    },
+    "black": {
+        "message": "Siyah"
+    },
+    "blocklist": {
+        "message": "Kara Liste"
+    },
+    "blockAll": {
+        "message": "Tümünü engelle"
+    },
+    "blockAv1": {
+        "message": "AV1'i engelle"
+    },
+    "blockH264": {
+        "message": "H.264'ü engelle"
+    },
+    "blockMusic": {
+        "message": "Sesi engelle"
+    },
+    "blockVp8": {
+        "message": "VP8'i engelle"
+    },
+    "blockVp9": {
+        "message": "VP9'u engelle"
+    },
+    "blue": {
+        "message": "Mavi"
+    },
+    "blueGray": {
+        "message": "Mavi gri"
+    },
+    "bluelight": {
+        "message": "Mavi Işık"
+    },
+    "brightness": {
+        "message": "Parlaklık"
+    },
+    "brown": {
+        "message": "Kahverengi"
+    },
+    "browser": {
+        "message": "Tarayıcı"
+    },
+    "browserVersion": {
+        "message": "Tarayıcı Sürümü"
+    },
+    "bubbles": {
+        "message": "Baloncuklar"
+    },
+    "bug": {
+        "message": "Hata"
+    },
+    "buttons": {
+        "message": "Butonlar"
+    },
+    "cancel": {
+        "message": "İptal"
+    },
+    "categories": {
+        "message": "Kategoriler"
+    },
+    "channel": {
+        "message": "Kanal"
+    },
+    "channels": {
+        "message": "Kanallar"
+    },
+    "characterEdgeStyle": {
+        "message": "Karakter kenar stili"
+    },
+    "clip": {
+        "message": "Klip"
+    },
+    "clipboard": {
+        "message": "Pano"
+    },
+    "codecH264": {
+        "message": "Kodek h.264"
+    },
+    "codecs": {
+        "message": "Kodekler"
+    },
+    "collapseOfSubscriptionSections": {
+        "message": "Abonelik bölümlerini daralt"
+    },
+    "collapsed": {
+        "message": "Daraltılmış"
+    },
+    "comments": {
+        "message": "Yorumlar"
+    },
+    "confirmationBeforeClosing": {
+        "message": "Kapatmadan önce uyar"
+    },
+    "cookies": {
+        "message": "Çerezler"
+    },
+    "cores": {
+        "message": "Çekirdekler"
+    },
+    "cropChapterTitles": {
+        "message": "Bölüm başlıklarını kırp"
+    },
+    "custom": {
+        "message": "Özel"
+    },
+    "customCss": {
+        "message": "Özel CSS"
+    },
+    "customJs": {
+        "message": "Özel JS"
+    },
+    "customMiniPlayer": {
+        "message": "Özel Mini Oynatıcı"
+    },
+    "cyan": {
+        "message": "Camgöbeği"
+    },
+    "dark": {
+        "message": "Koyu"
+    },
+    "darkTheme": {
+        "message": "Koyu tema"
+    },
+    "dateAndTime": {
+        "message": "Tarih & zaman"
+    },
+    "dawn": {
+        "message": "Şafak"
+    },
+    "decreasePlaybackSpeed": {
+        "message": "Oynatma hızını azalt"
+    },
+    "decreaseVolume": {
+        "message": "Sesi azalt"
+    },
+    "deepOrange": {
+        "message": "Koyu turuncu"
+    },
+    "deepPurple": {
+        "message": "Koyu mor"
+    },
+    "default": {
+        "message": "Varsayılan"
+    },
+    "defaultChannelTab": {
+        "message": "Varsayılan kanal sekmesi"
+    },
+    "defaultContentCountry": {
+        "message": "Varsayılan içerik ülkesi"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "Varsayılan Oynatma Hızı"
+    },
+    "deleteWatchedVideos": {
+        "message": "İzlenen videoları sil"
+    },
+    "deleteYoutubeCookies": {
+        "message": "YouTube çerezleri sil"
+    },
+    "depressed": {
+        "message": "Bunalımlı"
+    },
+    "description": {
+        "message": "Açıklama"
+    },
+    "description_ext": {
+        "message": "YouTube'u düzenli+akıllı hale getirin! YouTube video renkli reklam hacmi atlama hızı kanal aracı stili HD reklamlar reklam engelleme reklam engelleyici etiketleri anahtar kelime oynatma listesi"
+    },
+    "desert": {
+        "message": "Çöl"
+    },
+    "details": {
+        "message": "Ayrıntılar"
+    },
+    "developerOptions": {
+        "message": "Geliştirici seçenekleri"
+    },
+    "device": {
+        "message": "Cihaz"
+    },
+    "dim": {
+        "message": "Karart"
+    },
+    "disabled": {
+        "message": "Devredışı"
+    },
+    "dislike": {
+        "message": "Beğenmeme"
+    },
+    "displayDayOfTheWeak": {
+        "message": "Zayıfların gününü göster"
+    },
+    "doNotChange": {
+        "message": "Değiştirme"
+    },
+    "donate": {
+        "message": "Bağış"
+    },
+    "download": {
+        "message": "İndir"
+    },
+    "draggable": {
+        "message": "Sürüklenebilir"
+    },
+    "dropShadow": {
+        "message": "Düşen gölge"
+    },
+    "durationWithSpeed": {
+        "message": "Oynatma hızına göre kalan süreyi göster"
+    },
+    "email": {
+        "message": "Eposta"
+    },
+    "empty": {
+        "message": "Boş"
+    },
+    "enabled": {
+        "message": "Etkin"
+    },
+    "enabledForced": {
+        "message": "Etkin (Zorla)"
+    },
+    "expanded": {
+        "message": "Genişletilmiş"
+    },
+    "exportSettings": {
+        "message": "Ayarları dışa aktar"
+    },
+    "extension": {
+        "message": "Uzantı"
+    },
+    "file": {
+        "message": "Dosya"
+    },
+    "filters": {
+        "message": "Filtreler"
+    },
+    "fitToWindow": {
+        "message": "Pencereye sığdır"
+    },
+    "flash": {
+        "message": "Flaş"
+    },
+    "font": {
+        "message": "Yazı Tipi"
+    },
+    "fontColor": {
+        "message": "Yazı rengi"
+    },
+    "fontFamily": {
+        "message": "Font ailesi"
+    },
+    "fontOpacity": {
+        "message": "Yazı tipi opaklığı"
+    },
+    "fontSize": {
+        "message": "Yazı Boyutu"
+    },
+    "footer": {
+        "message": "Altbilgi"
+    },
+    "forceSDR": {
+        "message": "SDR Zorla"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "En başından itibaren zorunlu oynatma videosu"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Oynatma hızını uygulamaya zorla"
+    },
+    "forcedPlaybackSpeedMusic": {
+        "message": "(Müzik için bile oynatma hızını zorla?)"
+    },
+    "forcedTheaterMode": {
+        "message": "Sinema modunu zorla"
+    },
+    "forcedVolume": {
+        "message": "Sesi zorla"
+    },
+    "foundABug": {
+        "message": "Hata mı buldun?"
+    },
+    "fullWindow": {
+        "message": "Tam pencere"
+    },
+    "general": {
+        "message": "Genel"
+    },
+    "geoPreference": {
+        "message": "Coğrafi Tercih"
+    },
+    "github": {
+        "message": "GitHub"
+    },
+    "goToSearchBox": {
+        "message": "Arama kutusuna git"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
+    },
+    "gpu": {
+        "message": "GPU"
+    },
+    "green": {
+        "message": "Yeşil"
+    },
+    "hardwareInformation": {
+        "message": "Donanım Bilgileri"
+    },
+    "hd": {
+        "message": "HD"
+    },
+    "hdThumbnail": {
+        "message": "HD küçük resim"
+    },
+    "header": {
+        "message": "Başlık"
+    },
+    "hidden": {
+        "message": "Gizli"
+    },
+    "hiddenOnVideoPage": {
+        "message": "Video sayfasında gizli"
+    },
+    "hideAnimatedThumbnails": {
+        "message": "Hareketli küçük resimleri gizle"
+    },
+    "hideAnnotations": {
+        "message": "Ek açıklamaları gizle"
+    },
+    "hideCards": {
+        "message": "Kartları gizle"
+    },
+    "hideCategories": {
+        "message": "Kategorileri gizle"
+    },
+    "hideCommentsCount": {
+        "message": "Yorum sayısını gizle"
+    },
+    "hideCountryCode": {
+        "message": "Ülke kodunu gizle"
+    },
+    "hideDate": {
+        "message": "Tarihi gizle"
+    },
+    "hideDetailButton": {
+        "message": "Hide Detail Button"
+    },
+    "hideDetails": {
+        "message": "Detayları gizle"
+    },
+    "hideEndscreen": {
+        "message": "Ekran sonunu gizle"
+    },
+    "hideFeaturedContent": {
+        "message": "Öne çıkan içeriği gizle"
+    },
+    "hideFooter": {
+        "message": "Altbilgiyi gizle"
+    },
+    "hideGradientBottom": {
+        "message": "Oynatıcı çubuğunun etrafındaki gölgeyi gizle"
+    },
+    "hidePlayerControlsBar": {
+        "message": "Oynatıcı kontrol çubuğunu gizle"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls buttons"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Oynatıcı kontrol seçeneklerini gizle"
+    },
+    "hidePlaylist": {
+        "message": "Oynatma Listesi'ni gizle"
+    },
+    "hideRightButtons": {
+        "message": "Sağ butonları gizle"
+    },
+    "hideScrollForDetails": {
+        "message": "«Ayrıntılar için kaydır» gizle"
+    },
+    "hideSkipOverlay": {
+        "message": "5 saniyelik atlama animasyonunu gizle"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Küçük resimlerdeki düğmeleri gizle"
+    },
+    "hideThumbnails": {
+        "message": "Küçük resimleri gizle"
+    },
+    "hideViewsCount": {
+        "message": "Görüntüleme sayısını gizle"
+    },
+    "hideVoiceSearchButton": {
+        "message": "Sesli arama düğmesini gizle"
+    },
+    "high": {
+        "message": "Yüksek"
+    },
+    "history": {
+        "message": "Geçmiş"
+    },
+    "home": {
+        "message": "Ana Sayfa"
+    },
+    "homeScreen": {
+        "message": "Ana Sayfa Ekranı"
+    },
+    "hover": {
+        "message": "Gölge"
+    },
+    "hoverOnVideoPage": {
+        "message": "Videonun Üzerinde Hover"
+    },
+    "howLongAgoTheVideoWasUploaded": {
+        "message": "Video ne kadar süre önce yüklendi"
+    },
+    "icons": {
+        "message": "Simgeler"
+    },
+    "iconsOnly": {
+        "message": "Yalnızca simgeler"
+    },
+    "importSettings": {
+        "message": "Ayarları içe aktar"
+    },
+    "improveLogo": {
+        "message": "Logoyu geliştir"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube butonları"
+    },
+    "improvedtubeIconOnYoutube": {
+        "message": "YouTube'da ImprovedTube Simgesi"
+    },
+    "improvedtubeLanguage": {
+        "message": "ImprovedTube dili"
+    },
+    "improvedtubeVersion": {
+        "message": "ImprovedTube sürümü"
+    },
+    "increasePlaybackSpeed": {
+        "message": "Oynatma hızını artır"
+    },
+    "increaseVolume": {
+        "message": "Sesi artır"
+    },
+    "indigo": {
+        "message": "Çivit"
+    },
+    "items": {
+        "message": "Öğeler"
+    },
+    "language": {
+        "message": "Dil"
+    },
+    "languages": {
+        "message": "Diller"
+    },
+    "layerAnimationScale": {
+        "message": "Katman animasyon ölçeği"
+    },
+    "layout": {
+        "message": "Düzen"
+    },
+    "legacyYoutube": {
+        "message": "Eski YouTube"
+    },
+    "library": {
+        "message": "Kütüphane"
+    },
+    "light": {
+        "message": "Açık"
+    },
+    "lightBlue": {
+        "message": "Açık mavi"
+    },
+    "lightGreen": {
+        "message": "Açık yeşil"
+    },
+    "like": {
+        "message": "Beğen"
+    },
+    "liked": {
+        "message": "Beğenildi"
+    },
+    "likes": {
+        "message": "Beğeniler"
+    },
+    "lime": {
+        "message": "Lime"
+    },
+    "limitPageWidth": {
+        "message": "Sayfa genişliğini sınırla"
+    },
+    "list": {
+        "message": "Liste"
+    },
+    "liveChat": {
+        "message": "Canlı sohbet"
+    },
+    "liveChatType": {
+        "message": "Canlı sohbet türü"
+    },
+    "location": {
+        "message": "Konum"
+    },
+    "loop": {
+        "message": "Döngü"
+    },
+    "loudnessNormalization": {
+        "message": "Gürültü normalleştirme"
+    },
+    "low": {
+        "message": "Düşük"
+    },
+    "markWatchedVideos": {
+        "message": "İzlenen videoları işaretle"
+    },
+    "medium": {
+        "message": "Orta"
+    },
+    "mixer": {
+        "message": "Karıştırıcı"
+    },
+    "more": {
+        "message": "Daha fazla"
+    },
+    "mostViewedChannels": {
+        "message": "En çok izlenen kanallar"
+    },
+    "moveSidebarLeft": {
+        "message": "Kenar çubuğunu sola taşı"
+    },
+    "moveThumbnailsRight": {
+        "message": "Küçük resimleri sağa taşı"
+    },
+    "myColors": {
+        "message": "Renklerim"
+    },
+    "name": {
+        "message": "İsim"
+    },
+    "nativeMiniPlayer": {
+        "message": "Native mini oynatıcı"
+    },
+    "new": {
+        "message": "Yeni"
+    },
+    "nextVideo": {
+        "message": "Sonraki video"
+    },
+    "night": {
+        "message": "Gece"
+    },
+    "nightMode": {
+        "message": "Gece modu"
+    },
+    "noActiveFeatures": {
+        "message": "Aktif özellik yok"
+    },
+    "noOpenVideoTabs": {
+        "message": "Açık video sekmesi yok"
+    },
+    "none": {
+        "message": "Yok"
+    },
+    "normal": {
+        "message": "Normal"
+    },
+    "off": {
+        "message": "Kapalı"
+    },
+    "ok": {
+        "message": "Tamam"
+    },
+    "old": {
+        "message": "Eski"
+    },
+    "onAllVideos": {
+        "message": "Tüm videolarda"
+    },
+    "onSubscribedChannels": {
+        "message": "Kapalı, abone olduğum kanallar hariç"
+    },
+    "onlyActiveOnYoutube": {
+        "message": "Yalnızca YouTube'da etkin"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "Sadece bir oynatıcı örneği"
+    },
+    "openPopupPlayer": {
+        "message": "Videoyu/oynatma listesini yeni pencerede aç"
+    },
+    "orange": {
+        "message": "Turuncu"
+    },
+    "os": {
+        "message": "OS"
+    },
+    "other": {
+        "message": "Diğer"
+    },
+    "outline": {
+        "message": "Ana hat"
+    },
+    "overlay": {
+        "message": "Arayüz"
+    },
+    "permissions": {
+        "message": "İzinler"
+    },
+    "pictureInPicture": {
+        "message": "Resim içinde resim"
+    },
+    "pink": {
+        "message": "Pembe"
+    },
+    "plain": {
+        "message": "Sade"
+    },
+    "platform": {
+        "message": "Platform"
+    },
+    "playAllButton": {
+        "message": "\"Tümünü oynat\" butonu"
+    },
+    "playPause": {
+        "message": "Oynat / Duraklat"
+    },
+    "playbackSpeed": {
+        "message": "Oynatma hızı"
+    },
+    "player": {
+        "message": "Oynatıcı"
+    },
+    "playerColor": {
+        "message": "İlerleme çubuğu rengi"
+    },
+    "playerSize": {
+        "message": "Oynatıcı boyutu"
+    },
+    "playlist": {
+        "message": "Oynatma Listesi"
+    },
+    "playlists": {
+        "message": "Oynatma Listeleri"
+    },
+    "popupPlayer": {
+        "message": "Açılır pencere oynatıcı"
+    },
+    "popupWindowButtons": {
+        "message": "Her küçük resme bir açılır oynatıcı düğmesi ekleyin"
+    },
+    "position": {
+        "message": "Pozisyon"
+    },
+    "pressAnyKeyOrScroll": {
+        "message": "Herhangi bir tuşa bas veya farenin tekerleğini kullan."
+    },
+    "pressAnyKeyOrUseMouseWheel": {
+        "message": "Herhangi bir tuşa bas veya farenin tekerleğini kullan"
+    },
+    "previousVideo": {
+        "message": "Önceki video"
+    },
+    "primaryColor": {
+        "message": "Birincil renk"
+    },
+    "purple": {
+        "message": "Mor"
+    },
+    "quality": {
+        "message": "Kalite"
+    },
+    "raised": {
+        "message": "Kabarık"
+    },
+    "ram": {
+        "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Beni oyla"
+    },
+    "rateUs": {
+        "message": "Bizi oyla"
+    },
+    "red": {
+        "message": "Kırmızı"
+    },
+    "redDislikeButton": {
+        "message": "Beğenmeme düğmesinini kırmızı renkte göster"
+    },
+    "relatedVideos": {
+        "message": "İlgili videolar"
+    },
+    "remote": {
+        "message": "TV'de oynat"
+    },
+    "removeHomePageShorts": {
+        "message": "Ana sayfa Shorts'ları kaldır"
+    },
+    "removeRelatedSearchResults": {
+        "message": "İlgili arama sonuçlarını kaldır"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Arama sonuçlarından Shorts reelini kaldır"
+    },
+    "repeat": {
+        "message": "Tekrarla"
+    },
+    "report": {
+        "message": "Raporla"
+    },
+    "reset": {
+        "message": "Sıfırla"
+    },
+    "resetAllSettings": {
+        "message": "Tüm ayarları sıfırla"
+    },
+    "resetAllShortcuts": {
+        "message": "Tüm kısayolları sıfırla"
+    },
+    "reverse": {
+        "message": "Ters"
+    },
+    "rotate": {
+        "message": "Döndür"
+    },
+    "save": {
+        "message": "Kaydet"
+    },
+    "saveAs": {
+        "message": "Farklı kaydet"
+    },
+    "schedule": {
+        "message": "Takvim"
+    },
+    "screen": {
+        "message": "Ekran"
+    },
+    "screenshot": {
+        "message": "Ekran görüntüsü"
+    },
+    "scrollBar": {
+        "message": "Kaydırma çubuğu"
+    },
+    "sd": {
+        "message": "SD"
+    },
+    "search": {
+        "message": "Ara"
+    },
+    "searchBarOnly": {
+        "message": "Yalnızca arama çubuğu"
+    },
+    "seekBackward10Seconds": {
+        "message": "10 saniye geriye git"
+    },
+    "seekForward10Seconds": {
+        "message": "10 saniye ileriye git"
+    },
+    "seekNextChapter": {
+        "message": "Sonraki Bölümü Ara"
+    },
+    "seekPreviousChapter": {
+        "message": "Önceki Bölümü Ara"
+    },
+    "settings": {
+        "message": "Ayarlar"
+    },
+    "settingsSuccessfullyImported": {
+        "message": "Ayarlar başarıyla içe aktarıldı"
+    },
+    "share": {
+        "message": "Paylaş"
+    },
+    "embedded_Hide_Share": {
+        "message": "Embedded Hide Share"
+    },
+    "Transcript": {
+        "message": "Transcript"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtitle (Capture including the current words)"
+    },
+    "Embedded_YouTube": {
+        "message": "Embedded YouTube"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"
+    },
+    "shortcuts": {
+        "message": "Kısayollar"
+    },
+    "showCardsOnMouseHover": {
+        "message": "Fareyle üzerine gelindiğinde kartları göster"
+    },
+    "showChannelVideosCount": {
+        "message": "Kanalın video sayısını göster"
+    },
+    "showLess": {
+        "message": "Daha az göster"
+    },
+    "showMore": {
+        "message": "Daha fazla göster"
+    },
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
+    "showRemainingDuration": {
+        "message": "Videonun kalan süresini göster"
+    },
+    "showVersion": {
+        "message": "Versionu göster"
+    },
+    "shuffle": {
+        "message": "Karıştır"
+    },
+    "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+    "hide_author_avatars": {
+        "message": "Hide author avatars"
+    },
+    "player_rotate_button": {
+        "message": "player rotate button"
+    },
+    "sidebar": {
+        "message": "Kenar çubuğu"
+    },
+    "softwareInformation": {
+        "message": "Yazılım bilgisi"
+    },
+    "spacebar": {
+        "message": "Boşluk Çubuğu"
+    },
+    "squaredUserImages": {
+        "message": "Kare kullanıcı görüntüleri"
+    },
+    "static": {
+        "message": "Statik"
+    },
+    "statsForNerds": {
+        "message": "Meraklılar için istatistikler"
+    },
+    "step": {
+        "message": "Adım"
+    },
+    "stop": {
+        "message": "Durdur"
+    },
+    "style": {
+        "message": "Stil"
+    },
+    "styles": {
+        "message": "Stiller"
+    },
+    "subscribe": {
+        "message": "Abone Ol"
+    },
+    "subscriptions": {
+        "message": "Abonelikler"
+    },
+    "subtitles": {
+        "message": "Altyazılar"
+    },
+    "sunset": {
+        "message": "Gün batımı"
+    },
+    "sunsetToSunrise": {
+        "message": "Gün batımından gün doğumuna"
+    },
+    "systemPeferenceDark": {
+        "message": "Sistem tercihi: koyu"
+    },
+    "systemPeferenceLight": {
+        "message": "Sistem tercihi: açık"
+    },
+    "teal": {
+        "message": "Teal"
+    },
+    "textColor": {
+        "message": "Yazı rengi"
+    },
+    "thanks": {
+        "message": "Teşekkürler"
+    },
+    "themes": {
+        "message": "Temalar"
+    },
+    "thisWillRemoveAllCookies": {
+        "message": "Bu, tüm çerezleri kaldıracaktır."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "Bu, izlenen tüm videoları kaldıracaktır."
+    },
+    "thisWillRemoveAllYouTubeCookies": {
+        "message": "Bu, tüm YouTube çerezlerini kaldıracaktır."
+    },
+    "thisWillResetAllSettings": {
+        "message": "Bu, tüm ayarları sıfırlayacaktır."
+    },
+    "thisWillResetAllShortcuts": {
+        "message": "Bu, tüm kısayolları sıfırlayacaktır."
+    },
+    "thumbnails": {
+        "message": "Küçük resimler"
+    },
+    "thumbnailsQuality": {
+        "message": "Küçük Resim Kalitesi"
+    },
+    "timeFrom": {
+        "message": "Şu zamandan"
+    },
+    "timeTo": {
+        "message": "Şu zamana"
+    },
+    "todayAt": {
+        "message": "Bugün"
+    },
+    "toggleAutoplay": {
+        "message": "Otomatik oynatmayı aç/kapat"
+    },
+    "toggleCards": {
+        "message": "Kartları aç/kapat"
+    },
+    "toggleControls": {
+        "message": "Kontrolleri aç/kapat"
+    },
+    "topChat": {
+        "message": "En İyi Sohbet Mesajları"
+    },
+    "trackWatchedVideos": {
+        "message": "İzlenen videoları takip edin"
+    },
+    "trailerAutoplay": {
+        "message": "Fragman otomatik oynatımı"
+    },
+    "translations": {
+        "message": "Çeviriler"
+    },
+    "transparentBackground": {
+        "message": "Saydam arka plan"
+    },
+    "trending": {
+        "message": "Trendler"
+    },
+    "tryToReloadThePage": {
+        "message": "Sayfayı yeniden yüklemeyi deneyin"
+    },
+    "type": {
+        "message": "Tip"
+    },
+    "upNextAutoplay": {
+        "message": "Sonraki otomatik oynatma"
+    },
+    "use24HourFormat": {
+        "message": "24 saat biçimini kullan"
+    },
+    "version": {
+        "message": "Sürüm"
+    },
+    "video": {
+        "message": "Video"
+    },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "Kategorinin adını almak için video açıklaması genişletilecek"
+    },
+    "videoFormats": {
+        "message": "Video formatları"
+    },
+    "videos": {
+        "message": "Videolar"
+    },
+    "viewMode": {
+        "message": "Görünüm Modu"
+    },
+    "volume": {
+        "message": "Ses"
+    },
+    "watchLater": {
+        "message": "Sonra izle"
+    },
+    "watchTime": {
+        "message": "İzleme zamanı"
+    },
+    "watchedVideos": {
+        "message": "İzlenen videolar"
+    },
+    "whenPaused": {
+        "message": "Duraklatıldığında"
+    },
+    "whenTabIsChanged": {
+        "message": "Sekme değiştirildiğinde"
+    },
+    "white": {
+        "message": "Beyaz"
+    },
+    "windowColor": {
+        "message": "Pencere rengi"
+    },
+    "windowOpacity": {
+        "message": "Pencere opaklığı"
+    },
+    "yellow": {
+        "message": "Sarı"
+    },
+    "youtubeHeaderLeft": {
+        "message": "YouTube Header (sol)"
+    },
+    "youtubeHeaderRight": {
+        "message": "YouTube Header (sağ)"
+    },
+    "youtubeHomePage": {
+        "message": "YouTube ana sayfası"
+    },
+    "youtubeLanguage": {
+        "message": "YouTube dili"
+    },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "YouTube, h.264 codec bileşeni için video kalitesini 1080p ile sınırlar"
+    },
+    "openNewTab": {
+        "message": "Open in new tab"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Hide video title in fullscreen"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "To the side! (No page margin)"
+    },
+    "Hide_sidebar": {
+        "message": "Hide sidebar "
+    },
+    "chapters": {
+        "message": "chapters"
+    },
+    "Hide_Shorts_remixing_this_video": {
+        "message": "Hide Shorts remixing this video"
+    },
+    "Sidebar_simple_alternative": {
+        "message": "Sidebar (simple alternative)"
+    },
+    "with_scrollbars": {
+        "message": "with scrollbars?"
+    },
+    "autoPictureInPicture": {
+        "message": "Auto Picture-In-Picture"
+    },
+    "Allow_auto_generate": {
+        "message": "Allow auto generate"
+    },
+    "Currently_requiring_a_YouTube_API_key": {
+        "message": "(Currently requiring a YouTube-API-key: )"
+    },
+    "shortcut_chapters": {
+        "message": "Show chapters Sidebar"
+    },
+    "Auto_PiP_picture_in_picture": {
+        "message": "Auto-PiP (picture in picture)"
+    },
+    "Hide_the_tabs_only": {
+        "message": "Hide the tabs only"
+    }
 }
