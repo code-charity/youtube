@@ -489,7 +489,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Buttons"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "Skjul detaljer"
@@ -510,7 +510,7 @@
         "message": "Hide player controls bar"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Hide player controls options"
@@ -1167,7 +1167,7 @@
         "message": "YouTube begrenser videokvaliteten til 1080p for h.264-kodeken"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
