@@ -42,7 +42,7 @@
       "message": "बटन"
    },
    "shortcut_screenshot": {
-      "message": "स्क्रीनशॉट"
+      "message": "Screenshot"
    },
    "activateFullscreen": {
       "message": "पूर्णस्क्रीन सक्रिय करें"
@@ -51,7 +51,7 @@
       "message": "Language Default - Closed Captions"
    },
    "default_CC": {
-      "message": "डिफ़ॉल्ट"
+      "message": "Default"
    },
    "activated": {
       "message": "सक्रिय"
@@ -504,7 +504,7 @@
       "message": "तारीख छुपाएं"
    },
    "hideDetailButton": {
-      "message": "Buttons"
+      "message": "Hide Detail Button"
    },
    "hideDetails": {
       "message": "जानकारी छिपाएँ"
@@ -525,7 +525,7 @@
       "message": "Hide player controls bar"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls bar buttons"
+      "message": "Hide player controls buttons"
    },
    "hidePlayerControlsBarOptions": {
       "message": "Hide player controls options"

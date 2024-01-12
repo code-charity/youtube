@@ -42,7 +42,7 @@
       "message": "Butoane"
    },
    "shortcut_screenshot": {
-      "message": "Captură de ecran"
+      "message": "Screenshot"
    },
    "activateFullscreen": {
       "message": "Activează ecran complet"
@@ -504,7 +504,7 @@
       "message": "Hide date"
    },
    "hideDetailButton": {
-      "message": "Buttons"
+      "message": "Hide Detail Button"
    },
    "hideDetails": {
       "message": "Ascunde detaliile"
@@ -525,7 +525,7 @@
       "message": "Ascundeți bara de control al jucătorului"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Ascunde butoanele din bara de control al jucătorului"
+      "message": "Hide player controls buttons"
    },
    "hidePlayerControlsBarOptions": {
       "message": "Hide player controls options"
