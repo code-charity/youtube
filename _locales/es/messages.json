@@ -20,11 +20,23 @@
     "accept": {
         "message": "Aceptar"
     },
+    "compact_spacing": {
+        "message": "Tema compacto"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Hide Pause Overlay"
+    },
+    "compactTheme": {
+        "message": "Tema compacto"
+    },
     "activate": {
         "message": "Activar"
     },
     "activateCaptions": {
         "message": "Activar subtítulos"
+    },
+    "Buttons": {
+        "message": "Activate fullscreen"
     },
     "activateFullscreen": {
         "message": "Activar pantalla completa"
@@ -47,6 +59,12 @@
     "all": {
         "message": "Todo"
     },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "Todos sus ajustes serán borrados y no podrán ser recuperados"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "Todos tus atajos serán borrados y no podrán ser recuperados"
+    },
     "allow": {
         "message": "Permitir"
     },
@@ -67,6 +85,9 @@
     },
     "analyzer": {
         "message": "Analizador"
+    },
+    "animations": {
+        "message": "Animations"
     },
     "appearance": {
         "message": "Apariencia"
@@ -122,6 +143,9 @@
     "belowPlayer": {
         "message": "Debajo del reproductor"
     },
+    "bitness": {
+        "message": "Bitness"
+    },
     "black": {
         "message": "Negro"
     },
@@ -154,6 +178,9 @@
     },
     "bluelight": {
         "message": "Luz azul"
+    },
+    "brightness": {
+        "message": "Luminosidad"
     },
     "brown": {
         "message": "Marrón"
@@ -268,6 +295,9 @@
     },
     "defaultContentCountry": {
         "message": "Contenido del pais por defecto"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "Velocidad de reproducción predeterminada"
     },
     "deleteWatchedVideos": {
         "message": "Eliminar videos vistos"
@@ -422,6 +452,9 @@
     "green": {
         "message": "Verde"
     },
+    "hardwareInformation": {
+        "message": "Hardware information"
+    },
     "hd": {
         "message": "HD"
     },
@@ -446,6 +479,9 @@
     "hideCards": {
         "message": "Ocultar tarjetas"
     },
+    "hideCategories": {
+        "message": "Hide categories"
+    },
     "hideCommentsCount": {
         "message": "Hide comments count"
     },
@@ -466,9 +502,6 @@
     },
     "hideFeaturedContent": {
         "message": "Ocultar contenido destacado"
-    },
-    "compactTheme": {
-        "message": "Tema compacto"
     },
     "hideFooter": {
         "message": "Ocultar pie de página"
@@ -517,6 +550,9 @@
     },
     "home": {
         "message": "Inicio"
+    },
+    "homeScreen": {
+        "message": "Pantalla de inicio"
     },
     "hover": {
         "message": "Cursor sobre (hover)"
@@ -569,6 +605,12 @@
     "languages": {
         "message": "Idiomas"
     },
+    "layerAnimationScale": {
+        "message": "Layer animation scale"
+    },
+    "layout": {
+        "message": "Layout"
+    },
     "legacyYoutube": {
         "message": " YouTube antiguo"
     },
@@ -589,6 +631,9 @@
     },
     "liked": {
         "message": "Me gusta"
+    },
+    "likes": {
+        "message": "Likes"
     },
     "lime": {
         "message": "Lima"
@@ -629,6 +674,9 @@
     "more": {
         "message": "Más"
     },
+    "mostViewedChannels": {
+        "message": "Most viewed channels"
+    },
     "moveSidebarLeft": {
         "message": "Mover barra lateral a la izquierda"
     },
@@ -652,6 +700,9 @@
     },
     "night": {
         "message": "Noche"
+    },
+    "nightMode": {
+        "message": "Night mode"
     },
     "noActiveFeatures": {
         "message": "Sin características activas"
@@ -801,7 +852,7 @@
         "message": "Quitar resultados relacionados"
     },
     "removeShortsReelSearchResults": {
-        "message": "Eliminar el carrusel de Shorts de los resultados de búsqueda"
+        "message": "Quitar cortos rodillos de los resultados de la búsqueda"
     },
     "repeat": {
         "message": "Repetir"
@@ -872,6 +923,21 @@
     "share": {
         "message": "Share"
     },
+    "embedded_Hide_Share": {
+        "message": "Ocultar compartimiento incrustado"
+    },
+    "Transcript": {
+        "message": "Transcripción"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtítulo (Captura incluyendo las palabras actuales)"
+    },
+    "Embedded_YouTube": {
+        "message": "YouTube incrustado"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Hide YouTube Logo"
+    },
     "shortcuts": {
         "message": "Atajos"
     },
@@ -887,14 +953,32 @@
     "showMore": {
         "message": "Mostrar mas"
     },
+    "Hamburger_Menu": {
+        "message": "Menú hamburguesa"
+    },
     "showRemainingDuration": {
         "message": "Mostrar la duración restante del video"
+    },
+    "showVersion": {
+        "message": "Show version"
     },
     "shuffle": {
         "message": "Aleatorio"
     },
+    "player_fit_to_win_button": {
+        "message": "player fit to win button"
+    },
+    "hide_author_avatars": {
+        "message": "Ocultar avatares del autor"
+    },
+    "player_rotate_button": {
+        "message": "botón de rotación del jugador"
+    },
     "sidebar": {
         "message": "Barra lateral"
+    },
+    "softwareInformation": {
+        "message": "Software information"
     },
     "spacebar": {
         "message": "Espacio"
@@ -1049,6 +1133,9 @@
     "watchTime": {
         "message": "Visualizaciones"
     },
+    "watchedVideos": {
+        "message": "Vídeos vistos"
+    },
     "whenPaused": {
         "message": "When paused"
     },
@@ -1083,9 +1170,7 @@
         "message": "YouTube limita calidad de video a 1080p para el codec h.264"
     },
     "openNewTab": {
-
-        "message": "Abrir en una pestaña nueva"
-
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Ocultar título de vídeo en pantalla completa"
