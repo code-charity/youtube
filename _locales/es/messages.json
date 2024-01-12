@@ -20,6 +20,9 @@
     "accept": {
         "message": "Aceptar"
     },
+    "transparent_color": {
+        "message": "Transparent"
+    },
     "compact_spacing": {
         "message": "Tema compacto"
     },
@@ -38,8 +41,17 @@
     "Buttons": {
         "message": "Activate fullscreen"
     },
+    "shortcut_screenshot": {
+        "message": "Screenshot"
+    },
     "activateFullscreen": {
         "message": "Activar pantalla completa"
+    },
+    "language_closed_caption": {
+        "message": "Language Default - Closed Captions"
+    },
+    "default_CC": {
+        "message": "Default"
     },
     "activated": {
         "message": "Activado"
@@ -99,7 +111,7 @@
         "message": "¿Estas seguro que deseas importar la informacion?"
     },
     "audio": {
-        "message": "Audio"
+        "message": "Sonido"
     },
     "audioFormats": {
         "message": "Formatos de audio"
@@ -847,6 +859,9 @@
     },
     "removeHomePageShorts": {
         "message": "Eliminar Shorts de la página de inicio"
+    },
+    "YouTube_is_buttons": {
+        "message": " YouTube's_buttons"
     },
     "removeRelatedSearchResults": {
         "message": "Quitar resultados relacionados"
