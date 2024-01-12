@@ -975,7 +975,7 @@
         "message": "Mostrar duração restante do vídeo"
     },
     "showVersion": {
-        "message": "Show version"
+        "message": "Mostrar versão"
     },
     "shuffle": {
         "message": "Misturar"
@@ -1227,6 +1227,6 @@
         "message": "Ocultar somente as abas"
     },
     "My_specs": {
-        "message": "My_specs"
+        "message": "Minhas especificações"
     }
 }
