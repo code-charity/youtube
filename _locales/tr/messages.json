@@ -42,7 +42,7 @@
       "message": "Butonlar"
    },
    "shortcut_screenshot": {
-      "message": "Screenshot"
+      "message": "Ekran görüntüsü"
    },
    "activateFullscreen": {
       "message": "Tam ekranı Aktifleştir"
@@ -51,7 +51,7 @@
       "message": "Language Default - Closed Captions"
    },
    "default_CC": {
-      "message": "Default"
+      "message": "Varsayılan"
    },
    "activated": {
       "message": "Aktifleştirilmiş"
@@ -504,7 +504,7 @@
       "message": "Tarihi gizle"
    },
    "hideDetailButton": {
-      "message": "Hide Detail Button"
+      "message": "Ayrıntı Düğmesini Gizle"
    },
    "hideDetails": {
       "message": "Detayları gizle"
@@ -525,7 +525,7 @@
       "message": "Oynatıcı kontrol çubuğunu gizle"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls buttons"
+      "message": "Oynatıcı kontrolleri çubuğu düğmelerini gizle"
    },
    "hidePlayerControlsBarOptions": {
       "message": "Oynatıcı kontrol seçeneklerini gizle"
