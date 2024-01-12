@@ -143,6 +143,9 @@ def decodeCharacters(allFiles):
 
 def upgrade():
     locales = [
+'en',
+'en_GB',
+'en_US',
 'am',
 'ar',
 'bg',
@@ -152,9 +155,6 @@ def upgrade():
 'da',
 'de',
 'el',
-'en',
-'en_GB',
-'en_US',
 'es',
 'es_419',
 'et',
@@ -182,8 +182,8 @@ def upgrade():
 'nl',
 'no',
 'pl',
-'pt',
 'pt_BR',
+'pt',
 'pt_PT',
 'ro',
 'ru',
