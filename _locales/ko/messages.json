@@ -504,7 +504,7 @@
       "message": "날짜 숨기기"
    },
    "hideDetailButton": {
-      "message": "Hide Detail Button"
+      "message": "상세 버튼 숨기기"
    },
    "hideDetails": {
       "message": "영상 설명란 숨기기"
@@ -525,7 +525,7 @@
       "message": "플레이어 컨트롤 바 숨기기"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Hide player controls buttons"
+      "message": "플레이어 컨트롤 버튼 숨기기"
    },
    "hidePlayerControlsBarOptions": {
       "message": "플레이어 컨트롤 옵션 숨기기"
