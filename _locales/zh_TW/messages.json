@@ -11,11 +11,17 @@
     "ARROWUP": {
         "message": "⇧"
     },
+    "ImprovedTube": {
+        "message": "ImprovedTube Language"
+    },
     "about": {
         "message": "關於"
     },
     "accept": {
         "message": "接受"
+    },
+    "transparent_color": {
+        "message": "Transparent"
     },
     "compact_spacing": {
         "message": "compact spacing"
@@ -35,8 +41,17 @@
     "Buttons": {
         "message": "按鈕"
     },
+    "shortcut_screenshot": {
+        "message": "Screenshot"
+    },
     "activateFullscreen": {
         "message": "開啟全螢幕"
+    },
+    "language_closed_caption": {
+        "message": "Language Default - Closed Captions"
+    },
+    "default_CC": {
+        "message": "Default"
     },
     "activated": {
         "message": "已啟用"
@@ -489,7 +504,7 @@
         "message": "隱藏日期"
     },
     "hideDetailButton": {
-        "message": "隱藏詳細資訊按鈕"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "隱藏詳細資訊"
@@ -510,7 +525,7 @@
         "message": "隱藏播放器控制欄"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "隱藏播放列按鈕"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "隱藏播放選項"
@@ -845,6 +860,9 @@
     "removeHomePageShorts": {
         "message": "移除主頁的 Shorts"
     },
+    "YouTube_is_buttons": {
+        "message": "YouTube's buttons"
+    },
     "removeRelatedSearchResults": {
         "message": "移除搜尋相關結果"
     },
@@ -1167,7 +1185,7 @@
         "message": "使用 H.264 編碼時，YouTube 會將畫質限制為 1080p 內。"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
