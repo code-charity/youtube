@@ -42,7 +42,7 @@
       "message": "Knappar"
    },
    "shortcut_screenshot": {
-      "message": "Skärmdump"
+      "message": "Screenshot"
    },
    "activateFullscreen": {
       "message": "Aktivera helskärm"
@@ -51,7 +51,7 @@
       "message": "Language Default - Closed Captions"
    },
    "default_CC": {
-      "message": "Standard"
+      "message": "Default"
    },
    "activated": {
       "message": "Aktiverad"
@@ -504,7 +504,7 @@
       "message": "Dölj datum"
    },
    "hideDetailButton": {
-      "message": "Knappar"
+      "message": "Hide Detail Button"
    },
    "hideDetails": {
       "message": "Dölj detaljer"
@@ -525,7 +525,7 @@
       "message": "Dölj kontrollfältet för spelare"
    },
    "hidePlayerControlsBarButtons": {
-      "message": "Dölj knappar i fältet för spelarkontroller"
+      "message": "Hide player controls buttons"
    },
    "hidePlayerControlsBarOptions": {
       "message": "Dölj alternativ för spelarkontroll"
