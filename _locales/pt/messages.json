@@ -465,7 +465,7 @@
         "message": "Verde"
     },
     "hardwareInformation": {
-        "message": "Hardware information"
+        "message": "Informação de hardware"
     },
     "hd": {
         "message": "HD"
@@ -510,7 +510,7 @@
         "message": "Esconder detalhes"
     },
     "hideEndscreen": {
-        "message": "Esconder ecãn final"
+        "message": "Ocultar tela final"
     },
     "hideFeaturedContent": {
         "message": "Esconder conteúdo"
@@ -591,7 +591,7 @@
         "message": "Botões do ImprovedTube"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "Ícon do ImprovedTube no YouTube"
+        "message": "Ícone do ImprovedTube no YouTube"
     },
     "improvedtubeLanguage": {
         "message": "Linguagem do ImprovedTube"
@@ -900,10 +900,10 @@
         "message": "Agendar"
     },
     "screen": {
-        "message": "Ecrân"
+        "message": "Tela"
     },
     "screenshot": {
-        "message": "Foto do ecrân"
+        "message": "Captura de tela"
     },
     "scrollBar": {
         "message": "Barra De rolagem"
@@ -993,7 +993,7 @@
         "message": "Barra lateral"
     },
     "softwareInformation": {
-        "message": "Software information"
+        "message": "Informações sobre software"
     },
     "spacebar": {
         "message": "Barra de espaços"
@@ -1225,5 +1225,8 @@
     },
     "Hide_the_tabs_only": {
         "message": "Ocultar somente as abas"
+    },
+    "My_specs": {
+        "message": "My_specs"
     }
 }
