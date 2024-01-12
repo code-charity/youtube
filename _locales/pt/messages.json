@@ -12,7 +12,7 @@
         "message": "⇧"
     },
     "ImprovedTube": {
-        "message": "Idioma de ImprovedTube"
+        "message": "ImprovedTube Language"
     },
     "about": {
         "message": "Sobre"
@@ -99,7 +99,7 @@
         "message": "Analisador"
     },
     "animations": {
-        "message": "Animações"
+        "message": "Animations"
     },
     "appearance": {
         "message": "Aparência"
@@ -156,7 +156,7 @@
         "message": "Reprodutor abaixo"
     },
     "bitness": {
-        "message": "Processor Bits"
+        "message": "Bitness"
     },
     "black": {
         "message": "Preto"
@@ -207,7 +207,7 @@
         "message": "Bolhas"
     },
     "bug": {
-        "message": "Erro"
+        "message": "Bug"
     },
     "buttons": {
         "message": "Botões"
@@ -303,7 +303,7 @@
         "message": "Padrão"
     },
     "defaultChannelTab": {
-        "message": "Aba padrão do canal"
+        "message": "Aba padrão do canal "
     },
     "defaultContentCountry": {
         "message": "País (viagem virtual)"
@@ -429,7 +429,7 @@
         "message": "Forçar velocidade de leitura"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "(Forçar velocidade de reprodução mesmo para música?)"
+        "message": "(Force playback speed even for music?)"
     },
     "forcedTheaterMode": {
         "message": "Forçar modo de cinema"
@@ -465,7 +465,7 @@
         "message": "Verde"
     },
     "hardwareInformation": {
-        "message": "Informações do hardware"
+        "message": "Hardware information"
     },
     "hd": {
         "message": "HD"
@@ -504,7 +504,7 @@
         "message": "Ocultar data"
     },
     "hideDetailButton": {
-        "message": "Ocultar botão de detalhe"
+        "message": "Hide Detail Button"
     },
     "hideDetails": {
         "message": "Esconder detalhes"
@@ -525,7 +525,7 @@
         "message": "Ocultar a barra de controles do player"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Ocultar botões de controles do player"
+        "message": "Hide player controls buttons"
     },
     "hidePlayerControlsBarOptions": {
         "message": "Ocultar opções de controles do player"
@@ -561,7 +561,7 @@
         "message": "História"
     },
     "home": {
-        "message": "Home"
+        "message": "Casa"
     },
     "homeScreen": {
         "message": "Tela inicial"
@@ -585,7 +585,7 @@
         "message": "Importar definições"
     },
     "improveLogo": {
-        "message": "Improved Logo"
+        "message": "Melhorar logotipo"
     },
     "improvedtubeButtons": {
         "message": "Botões do ImprovedTube"
@@ -618,7 +618,7 @@
         "message": "Linguagens"
     },
     "layerAnimationScale": {
-        "message": "Escala de animação"
+        "message": "Layer animation scale"
     },
     "layout": {
         "message": "Layout"
@@ -687,7 +687,7 @@
         "message": "More"
     },
     "mostViewedChannels": {
-        "message": "Canais mais vistos"
+        "message": "Most viewed channels"
     },
     "moveSidebarLeft": {
         "message": "Mover barra lateral para esquerda"
@@ -804,7 +804,7 @@
         "message": "Lista de reprodução"
     },
     "playlists": {
-        "message": "Listas de reprodução"
+        "message": "Playlists"
     },
     "popupPlayer": {
         "message": "Leitor em janela"
@@ -861,7 +861,7 @@
         "message": "Remover Shorts da página inicial"
     },
     "YouTube_is_buttons": {
-        "message": " YouTube's_buttons"
+        "message": "YouTube's buttons"
     },
     "removeRelatedSearchResults": {
         "message": "Remove resultados relacionado com a pesquisa"
@@ -975,7 +975,7 @@
         "message": "Mostrar duração restante do vídeo"
     },
     "showVersion": {
-        "message": "Mostrar versão"
+        "message": "Show version"
     },
     "shuffle": {
         "message": "Misturar"
@@ -993,7 +993,7 @@
         "message": "Barra lateral"
     },
     "softwareInformation": {
-        "message": "Informação do Software"
+        "message": "Software information"
     },
     "spacebar": {
         "message": "Barra de espaços"
@@ -1143,7 +1143,7 @@
         "message": "Volume"
     },
     "watchLater": {
-        "message": "Watch later"
+        "message": "Vêr mais tarde"
     },
     "watchTime": {
         "message": "Tempo de visualização"
@@ -1185,7 +1185,7 @@
         "message": "O YouTube limita a qualidade do video em 1080p para o codec h.264"
     },
     "openNewTab": {
-        "message": "Abrir em uma nova guia"
+        "message": "Open in new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Ocultar o título do vídeo em tela cheia"
