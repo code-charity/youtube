@@ -497,7 +497,6 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 									value: "grey"
 								}, {
 									text: 'transparent_color',
-
 									value: "transparent"
 								}, {
 									text: "hidden",
@@ -820,7 +819,7 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			},
 			compact_spacing: {
 				component: "switch",
-				text: 'compact_spacing',
+				text: 'compact_Spacing',
 				storage: 'compactSpacing'
 			},
 			no_page_margin: {
