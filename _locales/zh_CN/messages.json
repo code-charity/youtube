@@ -32,6 +32,9 @@
     "activateCaptions": {
         "message": "启用字幕"
     },
+    "Buttons": {
+        "message": "按钮"
+    },
     "activateFullscreen": {
         "message": "启用全屏"
     },

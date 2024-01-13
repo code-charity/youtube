@@ -1,5 +1,5 @@
 {
-   "ARROWDOWN": {
+    "ARROWDOWN": {
         "message": "⇩"
     },
     "ARROWLEFT": {
@@ -11,21 +11,15 @@
     "ARROWUP": {
         "message": "⇧"
     },
-    "ImprovedTube": {
-        "message": "ImprovedTube"
-      },
     "about": {
         "message": "About"
     },
     "accept": {
         "message": "Accept"
     },
-    "transparent_color": {
-        "message": "Transparent"
-    },    
     "compact_spacing": {
-        "message": "Compact Spacing"
-    },
+        "message": "compact spacing"},
+   
     "Hide_Pause_Overlay": {
         "message": "Hide Pause Overlay"
     },
@@ -38,21 +32,14 @@
     "activateCaptions": {
         "message": "Activate captions"
     },
+   
     "Buttons": {
         "message": "Buttons"
     },
-     "shortcut_screenshot": {
-            "message": "Screenshot" 
-    },
+
     "activateFullscreen": {
         "message": "Activate fullscreen"
     },
-    "language_closed_caption": {
-        "message": "Language Default - Closed Captions"
-    },
-    "default_CC": {
-        "message": "Default"
-    }, 
     "activated": {
         "message": "Activated"
     },
@@ -65,9 +52,11 @@
     "addScrollToTop": {
         "message": "Add «Scroll to top»"
     },
+
     "ads": {
         "message": "Ads"
-    },
+    }, 
+
     "all": {
         "message": "All"
     },
@@ -77,7 +66,7 @@
     "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
         "message": "All your shortcuts will be erased and can't be recovered"
     },
-    "allow": {
+	"allow": {
         "message": "Allow"
     },
     "allow60fps": {
@@ -157,7 +146,7 @@
     },
     "bitness": {
         "message": "Bitness"
-    },
+    },										  
     "black": {
         "message": "Black"
     },
@@ -193,7 +182,7 @@
     },
     "brightness": {
         "message": "Brightness"
-    },
+    },	  
     "brown": {
         "message": "Brown"
     },
@@ -208,6 +197,9 @@
     },
     "bug": {
         "message": "Bug"
+    },
+    "buttons": {
+        "message": "Buttons"
     },
     "cancel": {
         "message": "Cancel"
@@ -501,11 +493,11 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Hide Detail Button"
+        "message": "hide Detail Button"
     },
     "hideDetails": {
         "message": "Hide details"
-    },
+    }, 
     "hideEndscreen": {
         "message": "Hide endscreen"
     },
@@ -517,7 +509,7 @@
     },
     "hideGradientBottom": {
         "message": "Hide shadow around player-bar"
-    },
+    },  
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
     },
@@ -529,16 +521,16 @@
     },
     "hidePlaylist": {
         "message": "Hide playlist"
-    },
+    },  
     "hideRightButtons": {
         "message": "Hide right buttons"
-    },
+    },  
     "hideScrollForDetails": {
         "message": "Hide «Scroll for details»"
-    },
+    },  
     "hideSkipOverlay": {
         "message": "Hide 5 second skip animation"
-    },
+    },  
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
     },
@@ -562,7 +554,7 @@
     },
     "homeScreen": {
         "message": "Home screen"
-    },
+    },	  
     "hover": {
         "message": "Hover"
     },
@@ -591,7 +583,7 @@
         "message": "ImprovedTube icon on YouTube"
     },
     "improvedtubeLanguage": {
-        "message": "ImprovedTube"
+        "message": "ImprovedTube language"
     },
     "improvedtubeVersion": {
         "message": "ImprovedTube version"
@@ -857,9 +849,6 @@
     "removeHomePageShorts": {
         "message": "Remove home page's Shorts"
     },
-    "YouTube_is_buttons": {
-        "message": "YouTube's buttons"
-    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },
@@ -935,21 +924,25 @@
     "share": {
         "message": "Share"
     },
-    "embedded_Hide_Share": {
+
+   "embedded_Hide_Share": {
         "message": "Embedded Hide Share"
     },
-    "Transcript": {
-        "message": "Transcript"
-    },
-    "Subtitle_Capture_including_the_current_words": {
-        "message": "Subtitle (Capture including the current words)"
-    },
-    "Embedded_YouTube": {
+    
+ "Transcript": {
+        "message": "Transcript"},
+
+     "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtitle (Capture including the current words)"},
+
+     "Embedded_YouTube": {
         "message": "Embedded YouTube"
     },
-    "Hide_YouTube_Logo": {
+ 
+     "Hide_YouTube_Logo": {
         "message": "Hide YouTube Logo"
     },
+
     "shortcuts": {
         "message": "Shortcuts"
     },
@@ -965,9 +958,11 @@
     "showMore": {
         "message": "Show more"
     },
+
     "Hamburger_Menu": {
         "message": "Hamburger Menu"
     },
+
     "showRemainingDuration": {
         "message": "Show video remaining duration"
     },
@@ -977,19 +972,26 @@
     "shuffle": {
         "message": "Shuffle"
     },
-    "player_fit_to_win_button": {
-        "message": "4x3 Proportion"
+
+   "player_fit_to_win_button": {
+        "message": "player fit to win button"
     },
-    "hide_author_avatars": {
+
+  "hide_author_avatars": {
         "message": "Hide author avatars"
     },
-    "player_rotate_button": {
-        "message": "Rotate video"
+ 
+   "player_rotate_button": {
+        "message": "player rotate button"
     },
+    
     "sidebar": {
         "message": "Sidebar"
     },
-      "spacebar": {
+    "softwareInformation": {
+        "message": "Software information"
+    },
+    "spacebar": {
         "message": "Spacebar"
     },
     "squaredUserImages": {
@@ -1144,7 +1146,7 @@
     },
     "watchedVideos": {
         "message": "Watched videos"
-    },
+    },	  
     "whenPaused": {
         "message": "When paused"
     },
@@ -1179,62 +1181,34 @@
         "message": "YouTube limits video quality to 1080p for h.264 codec"
     },
     "openNewTab": {
-        "message": "Open in new tab"
+        "message": "Open in a new tab"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
     },
     "To_the_side_No_page_margin": {
-        "message": "To the side! (No page margin)"
-    },
+               "message": "To the side! (No page margin)"
+        } ,
     "Hide_sidebar": {
-        "message": "Hide sidebar "
-    },
-    "chapters": {
-        "message": "chapters"
-    },
-    "Hide_Shorts_remixing_this_video": {
-        "message": "Hide Shorts remixing this video"
-    },
-    "Sidebar_simple_alternative": {
-        "message": "Sidebar (simple alternative)"
-    },
-    "with_scrollbars": {
-        "message": "with scrollbars?"
-    },
-    "autoPictureInPicture": {
-        "message": "Auto Picture-In-Picture"
-    },
-    "Allow_auto_generate": {
-        "message": "Allow auto generate"
-    },
-    "Currently_requiring_a_YouTube_API_key": {
-        "message": "(Currently requiring a YouTube-API-key: )"
-    },
-    "shortcut_chapters": {
-        "message": "Show chapters Sidebar"
-    },
-    "Auto_PiP_picture_in_picture": {
-        "message": "Auto-PiP (picture in picture)"
-    },
-    "Hide_the_tabs_only": {
-        "message": "Hide the tabs only"
-     },
-   "My_specs": {
-      "message": "My specs"
-    },
-    "softwareInformation": {
-        "message": "Software information" 
-    },
-    "optimizeCodecForHardwareAcceleration": {
-        "message": "Optimize Codec for hardware acceleration"
-    },
-    "Not_optimal": {
-    "message": "Not optimal"
-    },
-    "GPUnotindatabase": {
-    "message": "GPU not in database"
-    },
-    "Feature_not_yet_available": {
-    "message": "Feature not yet available"
-}}
+                "message": "Hide sidebar "},
+                
+    "chapters": {"message": "chapters"}
+,
+    "Hide_Shorts_remixing_this_video": {"message": "Hide Shorts remixing this video"}
+,
+    "Sidebar_simple_alternative": {"message": "Sidebar (simple alternative)"}
+,
+   "with_scrollbars": {"message": "with scrollbars?"}
+,
+   "autoPictureInPicture": {"message": "Auto Picture-In-Picture"}
+    ,
+   "Allow_auto_generate": {"message": "Allow auto generate"}
+,
+   "Currently_requiring_a_YouTube_API_key": {"message": "(Currently requiring a YouTube-API-key: )"}
+   ,
+   "shortcut_chapters": {"message": "Show chapters Sidebar"}
+,
+   "Auto_PiP_picture_in_picture": {"message": "Auto-PiP (picture in picture)"}
+  ,
+   "Hide_the_tabs_only": {"message": "Hide the tabs only"}
+			}
