@@ -24,7 +24,7 @@
       "message": "Transparent"
    },
    "compact_spacing": {
-      "message": "compact spacing"
+      "message": "Compact Spacing"
    },
    "Hide_Pause_Overlay": {
       "message": "Hide Pause Overlay"
@@ -978,19 +978,16 @@
       "message": "셔플"
    },
    "player_fit_to_win_button": {
-      "message": "player fit to win button"
+      "message": "4x3 Proportion"
    },
    "hide_author_avatars": {
       "message": "Hide author avatars"
    },
    "player_rotate_button": {
-      "message": "player rotate button"
+      "message": "Rotate video"
    },
    "sidebar": {
       "message": "사이드바"
-   },
-   "softwareInformation": {
-      "message": "소프트웨어 정보"
    },
    "spacebar": {
       "message": "스페이스바"
@@ -1225,5 +1222,20 @@
    },
    "My_specs": {
       "message": "My specs"
+   },
+   "softwareInformation": {
+      "message": "소프트웨어 정보"
+   },
+   "optimizeCodecForHardwareAcceleration": {
+      "message": "Optimize Codec for hardware acceleration"
+   },
+   "Not_optimal": {
+      "message": "Not optimal"
+   },
+   "GPUnotindatabase": {
+      "message": "GPU not in database"
+   },
+   "Feature_not_yet_available": {
+      "message": "Feature not yet available"
    }
 }
