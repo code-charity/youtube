@@ -24,7 +24,7 @@
       "message": "Transparente"
    },
    "compact_spacing": {
-      "message": "Compact Spacing"
+      "message": "Espaçamento compacto"
    },
    "Hide_Pause_Overlay": {
       "message": "Ocultar Sobreposição de pausa"
@@ -978,13 +978,13 @@
       "message": "Misturar"
    },
    "player_fit_to_win_button": {
-      "message": "4x3 Proportion"
+      "message": "Proporção 4x3: *Velha tela Quadrada \nou ganho de área de visualização quando estiver em modo Teatro"
    },
    "hide_author_avatars": {
       "message": "Ocultar avatar de autor"
    },
    "player_rotate_button": {
-      "message": "Rotate video"
+      "message": "Botão pra girar em 90º graus"
    },
    "sidebar": {
       "message": "Barra lateral"
@@ -1227,15 +1227,15 @@
       "message": "Informação do Software"
    },
    "optimizeCodecForHardwareAcceleration": {
-      "message": "Optimize Codec for hardware acceleration"
+      "message": "Otimizar o Codec para aceleração de hardware"
    },
    "Not_optimal": {
       "message": "Sem otimização"
    },
    "GPUnotindatabase": {
-      "message": "GPU not in database"
+      "message": "Não tenho sua GPU nos meus Dados :¬("
    },
    "Feature_not_yet_available": {
-      "message": "Feature not yet available"
+      "message": "Recurso não está presente no momento"
    }
 }
