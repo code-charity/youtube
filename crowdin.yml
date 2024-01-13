@@ -1,7 +1,5 @@
 files:
   - source: /_locales/en/*
-    translation: /Twocodes/_locales/ %two_letters_code%/%original_file_name%
-  - source: /_locales/en/*
-    translation: /Twocodes-undercode/_locales/%locale_with_underscore%/%original_file_name%
+    translation: _locales/ %two_letters_code%/%original_file_name%
 bundles:
   - 2
