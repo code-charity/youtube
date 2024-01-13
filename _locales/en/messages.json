@@ -40,8 +40,8 @@
     },
     "Buttons": {
         "message": "Buttons"
-    }    
-     ,"shortcut_screenshot": {
+    },
+     "shortcut_screenshot": {
             "message": "Screenshot" 
     },
     "activateFullscreen": {
