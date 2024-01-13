@@ -24,7 +24,7 @@
       "message": "Transparente"
    },
    "compact_spacing": {
-      "message": "Tema compacto"
+      "message": "Compact Spacing"
    },
    "Hide_Pause_Overlay": {
       "message": "Ocultar Sobreposição de pausa"
@@ -978,19 +978,16 @@
       "message": "Misturar"
    },
    "player_fit_to_win_button": {
-      "message": "Botão para ganhar espaço na área de visualização"
+      "message": "4x3 Proportion"
    },
    "hide_author_avatars": {
       "message": "Ocultar avatar de autor"
    },
    "player_rotate_button": {
-      "message": "botão de rotação do jogador"
+      "message": "Rotate video"
    },
    "sidebar": {
       "message": "Barra lateral"
-   },
-   "softwareInformation": {
-      "message": "Informação do Software"
    },
    "spacebar": {
       "message": "Barra de espaços"
@@ -1225,5 +1222,20 @@
    },
    "My_specs": {
       "message": "Minhas especificações"
+   },
+   "softwareInformation": {
+      "message": "Informação do Software"
+   },
+   "optimizeCodecForHardwareAcceleration": {
+      "message": "Optimize Codec for hardware acceleration"
+   },
+   "Not_optimal": {
+      "message": "Sem otimização"
+   },
+   "GPUnotindatabase": {
+      "message": "GPU not in database"
+   },
+   "Feature_not_yet_available": {
+      "message": "Feature not yet available"
    }
 }
