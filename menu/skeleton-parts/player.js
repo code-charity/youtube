@@ -926,7 +926,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		optimize_codec_for_hardware_acceleration: {
 			component: 'button',
-			text: 'Optimize_Codec_for_hardware_acceleration',
+			text: 'optimizeCodecForHardwareAcceleration',
 			style: {
 				justifyContent: 'space-between'
 			},
@@ -936,8 +936,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			},
 			list: {
-				component: 'span',
-				id: 'optimizeCodecForHardwareAcceleration',
+         			component: 'span',
+					id: 'Optimize_Codec_for_hardware_acceleration',
 				style: {
 					opacity: .64
 				},
@@ -948,16 +948,16 @@ extension.skeleton.main.layers.section.player.on.click = {
 
 						if (1) { // todo
 							this.style = '';
-							this.textContent = 'Feature_not_yet_available';
+							this.textContent = 'Feature not yet available';
 						} else if (2) { // todo
 							this.style = '';
-							this.textContent = 'GPUnotindatabase';
+							this.textContent = 'GPU not in data base';
 						} else if (codecs) {
 							this.style = 'color: green!important; font-weight: bold;';
 							this.textContent = 'Optimal';
 						} else {
 							this.style = 'color: red!important; font-weight: bold;';
-							this.textContent = 'Not_optimal';
+							this.textContent = 'Not optimal';
 						} 
 						
 						// Optimal

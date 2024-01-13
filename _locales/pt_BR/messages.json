@@ -1204,5 +1204,18 @@
     },
     "Hide_the_tabs_only": {
         "message": "Ocultar somente as abas"
-    }
-}
+    },
+    "optimizeCodecForHardwareAcceleration": {
+        "message": "Otimizar o Codec para aceleração de hardware"
+     },
+     "Not_optimal": {
+        "message": "Sem otimização"
+     },
+     "GPUnotindatabase": {
+        "message": "Não tenho sua GPU nos meus Dados :¬("
+     },
+     "Feature_not_yet_available": {
+        "message": "Recurso não está presente no momento"
+     }
+  }
+
