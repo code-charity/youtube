@@ -24,7 +24,7 @@
       "message": "Transparent"
    },
    "compact_spacing": {
-      "message": "espacement compact"
+      "message": "Compact Spacing"
    },
    "Hide_Pause_Overlay": {
       "message": "Hide Pause Overlay"
@@ -978,19 +978,16 @@
       "message": "Aléatoire"
    },
    "player_fit_to_win_button": {
-      "message": "player fit to win button"
+      "message": "4x3 Proportion"
    },
    "hide_author_avatars": {
       "message": "Hide author avatars"
    },
    "player_rotate_button": {
-      "message": "player rotate button"
+      "message": "Rotate video"
    },
    "sidebar": {
       "message": "Barre latérale"
-   },
-   "softwareInformation": {
-      "message": "Software information"
    },
    "spacebar": {
       "message": "Barre d'espace"
@@ -1225,5 +1222,20 @@
    },
    "My_specs": {
       "message": "My specs"
+   },
+   "softwareInformation": {
+      "message": "Software information"
+   },
+   "optimizeCodecForHardwareAcceleration": {
+      "message": "Optimize Codec for hardware acceleration"
+   },
+   "Not_optimal": {
+      "message": "Not optimal"
+   },
+   "GPUnotindatabase": {
+      "message": "GPU not in database"
+   },
+   "Feature_not_yet_available": {
+      "message": "Feature not yet available"
    }
 }
