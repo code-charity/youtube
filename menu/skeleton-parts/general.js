@@ -61,7 +61,7 @@ extension.skeleton.main.layers.section.general = {
 				search: {
 				component: 'section',
 				variant: 'card',
-				title: 'Youtube\'s Search',
+				text: 'Youtube_Is_Search',
 				remove_related_search_results: {
 					component: 'switch',
 					text: 'removeRelatedSearchResults'
@@ -82,15 +82,15 @@ extension.skeleton.main.layers.section.general = {
 				},
 				remove_subscriptions_shorts: {
 					component: 'switch',
-					text: 'Hide subscriptions\' Shorts'
+					text: 'Hide_subscriptionsShorts'
 				},
 				remove_trending_shorts: {
 					component: 'switch',
-					text: 'Hide trending\'s Shorts'
+					text: 'Hide_trendingThis_Shorts'
 				},
 				remove_history_shorts: {
 					component: 'switch',
-					text: 'Hide history\'s Shorts'
+					text: 'HidehistoryThisShorts'
 				},
 				collapse_of_subscription_sections: {
 					component: 'switch',

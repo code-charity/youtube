@@ -87,8 +87,7 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 	default: {
 		component: 'label',
 		variant: 'default-theme',
-		text: 'default',
-
+		text: 'default_theme',
 		radio: {
 			component: 'radio',
 			group: 'theme',
@@ -100,7 +99,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'dark-theme',
 		text: 'dark',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
@@ -118,6 +116,17 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			value: 'night'
 		}
 	},
+	black: {
+		component: 'label',
+		variant: 'black-theme',
+		text: 'black',
+
+		radio: {
+			component: 'radio',
+			group: 'theme',
+			value: 'black'
+		}
+	},
 	dawn: {
 		component: 'label',
 		variant: 'dawn-theme',
@@ -133,7 +142,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'sunset-theme',
 		text: 'sunset',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
@@ -144,7 +152,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'desert-theme',
 		text: 'desert',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
@@ -162,15 +169,4 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			value: 'plain'
 		}
 	},
-	black: {
-		component: 'label',
-		variant: 'black-theme',
-		text: 'black',
-
-		radio: {
-			component: 'radio',
-			group: 'theme',
-			value: 'black'
-		}
-	}
 };

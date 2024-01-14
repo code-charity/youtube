@@ -323,7 +323,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 ],
 				improvedtube: {
 					component: 'select',
-					text: 'ImprovedTube',
+					text: 'improvedtubeLanguage',
 					storage: 'language',
 					options: function () {
 						return extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.language.on.click.section.languages;
@@ -331,7 +331,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 				},
 				youtube: {
 					component: 'select',
-					text: 'YouTube',
+					text: 'youtubeLanguage',
 					storage: 'youtube_language',
 					options: function () {
 						return extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.language.on.click.section.languages;
@@ -553,7 +553,6 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 		click: {
 			component: 'section',
 			variant: 'card',
-
 			api: {
 				component: 'button',
 				text: 'API',
@@ -562,7 +561,6 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 						component: 'section',
 						variant: 'transparent-card',
 						title: 'YouTube API',
-
 						textField: {
 							component: 'text-field',
 							storage: 'google-api-key',
@@ -610,7 +608,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 
 extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.about = {
 	component: 'button',
-	text: 'My specs',
+	text: 'My_specs',
 	before: {
 		svg: {
 			component: 'svg',
