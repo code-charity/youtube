@@ -30,7 +30,7 @@
       "message": "Remover nomes"
    },
    "halfTransparent": {
-      "message": "Faint/half-transparent"
+      "message": "Meio Transparente"
    },
    "hide_labels": {
       "message": "Ocultar nomes"
@@ -42,7 +42,7 @@
       "message": "Ocultar report"
    },
    "hideMore": {
-      "message": "hide 'more"
+      "message": "Ocultar Ver mais (...) "
    },
    "Youtube_Is_Search": {
       "message": "Pesquisar do Youtube"
@@ -789,7 +789,7 @@
       "message": "Ativo apenas no YouTube"
    },
    "onlyOnePlayerInstancePlaying": {
-      "message": "Apenas player tocando"
+      "message": "Pausa enquanto assisto a um segundo vídeo"
    },
    "openPopupPlayer": {
       "message": "Abra vídeos/playlist em uma nova janela"
@@ -1086,7 +1086,7 @@
       "message": "Cor do texto"
    },
    "thanks": {
-      "message": "Obrigado"
+      "message": "Valeu Demais"
    },
    "themes": {
       "message": "Temas"
