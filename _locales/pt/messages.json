@@ -38,7 +38,7 @@
    "activateCaptions": {
       "message": "Ativar legendas"
    },
-   "Buttons": {
+   "buttons": {
       "message": "Botões"
    },
    "shortcut_screenshot": {
@@ -978,7 +978,7 @@
       "message": "Aleatório"
    },
    "player_fit_to_win_button": {
-      "message": "4x3 Proportion"
+      "message": "Fit to window"
    },
    "hide_author_avatars": {
       "message": "Ocultar avatares de autores"

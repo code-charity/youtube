@@ -1019,12 +1019,34 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_rotate_button: {
 			component: 'switch',
-			text: 'player_rotate_button'
+			text: 'rotate'
 		},
 
 		player_hamburger_button: {
 			component: 'switch',
 			text: 'Hamburger_Menu'
-		}
-	}
+		},
+						extraButtons: {
+							component: 'section',
+							variant: 'card',
+							title: 'Extra buttons below the player',
+
+							below_player_screenshot: {
+								component: 'switch',
+								text: 'screenshot',
+								value: true
+							},
+							below_player_pip: {
+								component: 'switch',
+								text: 'pictureInPicture',
+								value: true
+							},
+							below_player_loop: {
+								component: 'switch',
+								text: 'loop',
+								value: true
+							}
+						},
+	}	
+	
 };
