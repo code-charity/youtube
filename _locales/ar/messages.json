@@ -38,7 +38,7 @@
    "activateCaptions": {
       "message": "تفعيل الترجمة"
    },
-   "Buttons": {
+   "buttons": {
       "message": "Buttons"
    },
    "shortcut_screenshot": {
@@ -288,7 +288,7 @@
       "message": "تقليل سرعة التشغيل"
    },
    "decreaseVolume": {
-      "message": "Decrease volume"
+      "message": "خفض الصوت"
    },
    "deepOrange": {
       "message": "برتقالي داكن"
@@ -600,7 +600,7 @@
       "message": "زيادة سرعة التشغيل"
    },
    "increaseVolume": {
-      "message": "Increase volume"
+      "message": "زيادة الصوت"
    },
    "indigo": {
       "message": "نيلي"
@@ -978,7 +978,7 @@
       "message": "عشوائي"
    },
    "player_fit_to_win_button": {
-      "message": "4x3 Proportion"
+      "message": "Fit to window"
    },
    "hide_author_avatars": {
       "message": "Hide author avatars"

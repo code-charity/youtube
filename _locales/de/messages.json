@@ -38,7 +38,7 @@
    "activateCaptions": {
       "message": "Untertitel aktivieren"
    },
-   "Buttons": {
+   "buttons": {
       "message": "Buttons"
    },
    "shortcut_screenshot": {
@@ -978,7 +978,7 @@
       "message": "Zufallswiedergabe"
    },
    "player_fit_to_win_button": {
-      "message": "4x3 Proportion"
+      "message": "Fit to window"
    },
    "hide_author_avatars": {
       "message": "Hide author avatars"
