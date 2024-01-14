@@ -77,7 +77,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_autoPip: {
 			component: 'switch',
 			text: 'Auto_PiP_picture_in_picture',	
-
 			id: 'player_autoPip',
 			on: {
 				click: function () {
@@ -116,7 +115,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},	
 		player_dont_speed_education: {
 			component: 'switch',
-			text: 'Don\'t speed up the (rare) category: Education',
+			text: 'player_dont_speed_education',
 		},
 		player_playback_speed: {
 			component: 'slider',
@@ -162,10 +161,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 					subtitles_language: {
 						component: 'select',
 						text: 'language',
-						id: 'subtitles-language',
+						id: 'language_closed_caption',
 						options: [{
 							value: 'default',
-							text: 'default'
+							text: 'default_CC'
 						}, {
 							value: 'af',
 							text: 'Afrikaans'
@@ -791,7 +790,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 											satus.render({
 												component: 'modal',
 												variant: 'confirm',
-												content: 'You need either VP9 or H.264 enabled for Youtube to work. Disabling both will break Video.',
+							            	// can how i can take the key to translater this message?
+												content: 'block_Codec_h264Alert',
 												ok: function () {
 													where.flip(true);
 													where.parentElement.skeleton.sanitize();
@@ -823,7 +823,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 											satus.render({
 												component: 'modal',
 												variant: 'confirm',
-												content: 'You need either VP9 or H.264 enabled for Youtube to work. Disabling both will break Video.',
+												 	// can how i can take the key to translater this message?
+												content: 'block_Codec_VP9Alert',
 												ok: function () {
 													where.flip(true);
 													where.parentElement.skeleton.sanitize();

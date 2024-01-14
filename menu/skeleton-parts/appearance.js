@@ -435,7 +435,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 						extraButtons: {
 							component: 'section',
 							variant: 'card',
-							title: 'Extra buttons',
+							title: 'ExtraButtons',
 
 							below_player_screenshot: {
 								component: 'switch',
@@ -455,27 +455,27 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 						},
 						youtubeDetailButtons: {
 							component: "select",
-							text: "YouTube's buttons",
+							text: "YouTube_is_buttons",
 							options: [{
 								text: "normal",
 								value: "normal"
 							}, {
-								text: "Remove names",
+								text: 'Remove_names',
 								value: "remove_labels"
 							}, {
-								text: "Faint/half-transparent",
+								text: 'halfTransparent',
 								value: "half_transparent"
 							}, {
-								text: "Remove",
+								text: 'Remove',
 								value: "remove"
 							}, {
-								text: "Transparent background",
+								text: 'TransparentBackground',
 								value: "transparent_background"
 							}, {
-								text: "Hide names",
+								text: "hide_Labels",
 								value: "hide_labels"
 							}, {
-								text: "Remove icons",
+								text: 'remove_icons',
 								value: "remove_icons"
 							}],
 							tags: "hide,remove"
@@ -521,21 +521,21 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 							},
 							hide_dislike_button: {
 								component: "select",
-								text: "'dislike'",
+								text: 'dislike',
 								options: [{
-									text: "normal",
+									text: 'normal',
 									value: "normal"
 								}, {
-									text: "iconsOnly",
+									text: 'iconsOnly',
 									value: "icons_only"
 								}, {
-									text: "hidden",
+									text: 'hidden',
 									value: "hidden"
 								}],
 								tags: "hide,remove"
 							},
 							red_dislike_button: {
-								component: "switch",
+								component: 'switch',
 								text: "redDislikeButton"
 							},
 							hide_share_button: {
@@ -555,7 +555,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 							},
 							hide_download_button: {
 								component: "select",
-								text: "'download'",
+								text: 'Download',
 								options: [{
 									text: "normal",
 									value: "normal"
@@ -570,12 +570,12 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 							},
 							hide_thanks_button: {
 								component: "select",
-								text: "'thanks'",
+								text: 'thanks',
 								options: [{
-									text: "normal",
+									text: 'normal',
 									value: "normal"
 								}, {
-									text: "iconsOnly",
+									text: 'iconsOnly',
 									value: "icons_only"
 								}, {
 									text: "hidden",
@@ -585,12 +585,12 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 							},
 							hide_clip_button: {
 								component: "select",
-								text: "'clip'",
+								text: 'clip',
 								options: [{
-									text: "normal",
+									text: 'normal',
 									value: "normal"
 								}, {
-									text: "iconsOnly",
+									text: 'iconsOnly',
 									value: "icons_only"
 								}, {
 									text: "hidden",
@@ -600,27 +600,27 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 							},
 							hide_save_button: {
 								component: "select",
-								text: "'save'",
+								text: 'save',
 								options: [{
-									text: "normal",
+									text: 'normal',
 									value: "normal"
 								}, {
-									text: "iconsOnly",
+									text: 'iconsOnly',
 									value: "icons_only"
 								}, {
-									text: "hidden",
+									text: 'hidden',
 									value: "hidden"
 								}],
 								tags: "hide,remove"
 							},
 							hide_report_button: {
 								component: "switch",
-								text: "hide 'report'",
+								text: 'hideReport',
 								tags: "hide,remove"
 							},
 							hide_more_button: {
 								component: "switch",
-								text: "hide 'more'",
+								text: 'hideMore',
 								tags: "hide,remove"
 							}
 						}
@@ -847,26 +847,26 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			},			
 			livechat: {
 				component: "select",
-				text: "liveChat",
+				text: 'liveChat',
 
 				options: [{
-					text: "normal",
+					text: 'normal',
 					value: "normal"
 				}, {
-					text: "collapsed",
+					text: 'collapsed',
 					value: "collapsed"
 				}, {
 					text: "hidden",
-					value: "hidden"
+					value: 'hidden'
 				}],
 			},
 			hide_playlist: {
 				component: "switch",
-				text: "hidePlaylist"
+				text: 'hidePlaylist'
 			},
 			hide_sidebar: {
 				component: "switch",
-				text: "Hide_sidebar"
+				text: 'Hide_sidebar'
 			}
 		}
 	}
