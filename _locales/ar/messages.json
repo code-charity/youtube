@@ -23,6 +23,51 @@
    "transparent_color": {
       "message": "Transparent"
    },
+   "ExtraButtons": {
+      "message": "Extra buttons"
+   },
+   "Remove_names": {
+      "message": "Remove names"
+   },
+   "halfTransparent": {
+      "message": " Faint/half-transparent"
+   },
+   "hide_labels": {
+      "message": "Hide names"
+   },
+   "remove_icons": {
+      "message": "Remove icons"
+   },
+   "hideReport": {
+      "message": "Hide report"
+   },
+   "hideMore": {
+      "message": " hide 'more"
+   },
+   "Youtube_Is_Search": {
+      "message": "Youtube's Search"
+   },
+   "Hide_trendingThis_Shorts": {
+      "message": "Hide trending's Shorts"
+   },
+   "Hide_subscriptionsShorts": {
+      "message": "Hide subscriptions' Shorts"
+   },
+   "player_dont_speed_educatione": {
+      "message": "Don't speed up the (rare) category: Education"
+   },
+   "default_theme": {
+      "message": "default"
+   },
+   "2160p": {
+      "message": "2160p - 4K"
+   },
+   "block_Codec_h264Alert": {
+      "message": "You need either VP9 or H.264 enabled for Youtube to work. Disabling both will break Video."
+   },
+   "block_Codec_VP9Alert": {
+      "message": "You need either VP9 or H.264 enabled for Youtube to work. Disabling both will break Video."
+   },
    "compact_spacing": {
       "message": "Compact Spacing"
    },
@@ -288,7 +333,7 @@
       "message": "تقليل سرعة التشغيل"
    },
    "decreaseVolume": {
-      "message": "خفض الصوت"
+      "message": "Decrease volume"
    },
    "deepOrange": {
       "message": "برتقالي داكن"
@@ -600,7 +645,7 @@
       "message": "زيادة سرعة التشغيل"
    },
    "increaseVolume": {
-      "message": "زيادة الصوت"
+      "message": "Increase volume"
    },
    "indigo": {
       "message": "نيلي"
@@ -1237,5 +1282,16 @@
    },
    "Feature_not_yet_available": {
       "message": "Feature not yet available"
+   },
+   "Grey": {
+      "message": "Grey"
+   },
+   "Remove": {
+      "message": "Remove"
+   },
+   "Extra_Buttons_below_The_Player": {
+      "message": "Extra buttons below the player"
    }
 }
+
+
