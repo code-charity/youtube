@@ -57,16 +57,16 @@
       "message": "Don't speed up the (rare) category: Education"
    },
    "default_theme": {
-      "message": "default"
+      "message": "predeterminado"
    },
    "2160p": {
       "message": "2160p - 4K"
    },
    "block_Codec_h264Alert": {
-      "message": "You need either VP9 or H.264 enabled for Youtube to work. Disabling both will break Video."
+      "message": "Necesita activar VP9 o H.264 para que Youtube funcione. Deshabilitar ambos romperá Video."
    },
    "block_Codec_VP9Alert": {
-      "message": "You need either VP9 or H.264 enabled for Youtube to work. Disabling both will break Video."
+      "message": "Necesita activar VP9 o H.264 para que Youtube funcione. Deshabilitar ambos romperá Video."
    },
    "compact_spacing": {
       "message": "Tema compacto"
@@ -87,13 +87,13 @@
       "message": "Buttons"
    },
    "shortcut_screenshot": {
-      "message": "Screenshot"
+      "message": "Captura de pantalla"
    },
    "activateFullscreen": {
       "message": "Activar pantalla completa"
    },
    "language_closed_caption": {
-      "message": "Language Default - Closed Captions"
+      "message": "Idioma predeterminado - Closed Captions"
    },
    "default_CC": {
       "message": "Default"
@@ -351,7 +351,7 @@
       "message": "Contenido del pais por defecto"
    },
    "defaultPlaybackSpeed": {
-      "message": "Default Playback Speed"
+      "message": "Velocidad de reproducción predeterminada"
    },
    "deleteWatchedVideos": {
       "message": "Eliminar videos vistos"
@@ -399,7 +399,7 @@
       "message": "Donar"
    },
    "download": {
-      "message": "Download"
+      "message": "Descargar"
    },
    "draggable": {
       "message": "Arrastrable"
@@ -411,7 +411,7 @@
       "message": "Show time remaining with reference to playback speed"
    },
    "email": {
-      "message": "Email"
+      "message": "Correo electrónico"
    },
    "empty": {
       "message": "Vacío"
@@ -471,7 +471,7 @@
       "message": "Forzar velocidad de reproducción"
    },
    "forcedPlaybackSpeedMusic": {
-      "message": "(Force playback speed even for music?)"
+      "message": "(¿Forzar velocidad de reproducción incluso para la música?)"
    },
    "forcedTheaterMode": {
       "message": "Forzar modo teatro"
@@ -489,7 +489,7 @@
       "message": "General"
    },
    "geoPreference": {
-      "message": "Geo Preference"
+      "message": "Preferencia de Geo"
    },
    "github": {
       "message": "GitHub"
@@ -771,7 +771,7 @@
       "message": "Normal"
    },
    "off": {
-      "message": "Off"
+      "message": "Desactivado"
    },
    "ok": {
       "message": "Ok"
@@ -951,7 +951,7 @@
       "message": "Barra de desplazamiento"
    },
    "sd": {
-      "message": "SD"
+      "message": "SD - baja Qualidade"
    },
    "search": {
       "message": "Búsqueda"
@@ -978,13 +978,13 @@
       "message": "Ajustes importados correctamente"
    },
    "share": {
-      "message": "Share"
+      "message": "Compartir"
    },
    "embedded_Hide_Share": {
-      "message": "Embedded Hide Share"
+      "message": "Ocultar compartimiento incrustado"
    },
    "Transcript": {
-      "message": "Transcript"
+      "message": "Transcripción"
    },
    "Subtitle_Capture_including_the_current_words": {
       "message": "Subtitle (Capture including the current words)"
