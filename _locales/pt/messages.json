@@ -24,49 +24,49 @@
       "message": "Transparente"
    },
    "ExtraButtons": {
-      "message": "Extra buttons"
+      "message": "Botões extras"
    },
    "Remove_names": {
-      "message": "Remove names"
+      "message": "Remover nomes"
    },
    "halfTransparent": {
-      "message": " Faint/half-transparent"
+      "message": "Faint/half-transparent"
    },
    "hide_labels": {
-      "message": "Hide names"
+      "message": "Ocultar nomes"
    },
    "remove_icons": {
-      "message": "Remove icons"
+      "message": "Remover ícones"
    },
    "hideReport": {
-      "message": "Hide report"
+      "message": "Ocultar report"
    },
    "hideMore": {
-      "message": " hide 'more"
+      "message": "hide 'more"
    },
    "Youtube_Is_Search": {
-      "message": "Youtube's Search"
+      "message": "Pesquisar do Youtube"
    },
    "Hide_trendingThis_Shorts": {
-      "message": "Hide trending's Shorts"
+      "message": "Ocultar Shorts do Em alta"
    },
    "Hide_subscriptionsShorts": {
-      "message": "Hide subscriptions' Shorts"
+      "message": "Ocultar Shorts das inscrições"
    },
    "player_dont_speed_educatione": {
-      "message": "Don't speed up the (rare) category: Education"
+      "message": "Não acelere na categoria (Rara): Educação"
    },
    "default_theme": {
-      "message": "default"
+      "message": "padrão"
    },
    "2160p": {
       "message": "2160p - 4K"
    },
    "block_Codec_h264Alert": {
-      "message": "You need either VP9 or H.264 enabled for Youtube to work. Disabling both will break Video."
+      "message": "Você precisa ativar o VP9 ou H.264 para o Youtube funcionar. Desabilitar ambos irá quebrar o Vídeo."
    },
    "block_Codec_VP9Alert": {
-      "message": "You need either VP9 or H.264 enabled for Youtube to work. Disabling both will break Video."
+      "message": "Você precisa ativar o VP9 ou H.264 para o Youtube funcionar. Desabilitar ambos irá quebrar o Vídeo."
    },
    "compact_spacing": {
       "message": "Espaçamento compacto"
@@ -84,7 +84,7 @@
       "message": "Ativar legendas"
    },
    "buttons": {
-      "message": "Buttons"
+      "message": "Botões"
    },
    "shortcut_screenshot": {
       "message": "Captura de tela"
@@ -267,7 +267,7 @@
       "message": "Canais"
    },
    "characterEdgeStyle": {
-      "message": "Estilo da borda de personagem"
+      "message": "Estilo da borda"
    },
    "clip": {
       "message": "Clip"
@@ -636,7 +636,7 @@
       "message": "Ícone do ImprovedTube"
    },
    "improvedtubeLanguage": {
-      "message": "ImprovedTube"
+      "message": "Idioma do ImprovedTube"
    },
    "improvedtubeVersion": {
       "message": "Versão do ImprovedTube"
@@ -663,7 +663,7 @@
       "message": "Escala de animação"
    },
    "layout": {
-      "message": "Layout"
+      "message": "Aparência"
    },
    "legacyYoutube": {
       "message": "YouTube Antigo"
@@ -687,7 +687,7 @@
       "message": "Avaliado"
    },
    "likes": {
-      "message": "Likes"
+      "message": "Curtidas"
    },
    "lime": {
       "message": "Verde Limão"
@@ -771,10 +771,10 @@
       "message": "Normal"
    },
    "off": {
-      "message": "Off"
+      "message": "Desativado"
    },
    "ok": {
-      "message": "Ok"
+      "message": "OK"
    },
    "old": {
       "message": "Antigo"
@@ -1023,7 +1023,7 @@
       "message": "Aleatório"
    },
    "player_fit_to_win_button": {
-      "message": "Fit to window"
+      "message": "Proporção 4x3: *Velha tela Quadrada \nou ganho de área de visualização quando estiver em modo Teatro"
    },
    "hide_author_avatars": {
       "message": "Ocultar avatares de autores"
@@ -1284,13 +1284,13 @@
       "message": "Recurso não está presente no momento"
    },
    "Grey": {
-      "message": "Grey"
+      "message": "Cinza"
    },
    "Remove": {
-      "message": "Remove"
+      "message": "Remover"
    },
    "Extra_Buttons_below_The_Player": {
-      "message": "Extra buttons below the player"
+      "message": "Botões extra abaixo do Player"
    }
 }
 
