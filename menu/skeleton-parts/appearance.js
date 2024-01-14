@@ -455,7 +455,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 						},
 						youtubeDetailButtons: {
 							component: "select",
-							text: "YouTube_is_buttons",
+							text: "youTubeButtons",
 							options: [{
 								text: "normal",
 								value: "normal"
@@ -839,7 +839,7 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			},
 			chapters: {
 				component: 'switch',
-				text: 'Chapters'
+				text: 'chapters'
 			},
 			hide_shorts_remixing: {
 				component: "switch",

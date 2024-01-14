@@ -790,8 +790,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 											satus.render({
 												component: 'modal',
 												variant: 'confirm',
-							            	// can how i can take the key to translater this message?
-												content: 'block_Codec_h264Alert',
+												content: 'block_Codec_Alert_VP9',
 												ok: function () {
 													where.flip(true);
 													where.parentElement.skeleton.sanitize();
@@ -823,8 +822,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 											satus.render({
 												component: 'modal',
 												variant: 'confirm',
-												 	// can how i can take the key to translater this message?
-												content: 'block_Codec_VP9Alert',
+												content: 'block_Codec_Alert_h264',
 												ok: function () {
 													where.flip(true);
 													where.parentElement.skeleton.sanitize();
@@ -1014,9 +1012,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 						component: 'switch',
 						text: 'alwaysActive'
 					},
-		player_fit_to_win_button: {
+		player_fit_to_window_button: {
 			component: 'switch',
-			text: 'player_fit_to_win_button'
+			text: 'player_fit_to_window_button'
 		},
 		player_rotate_button: {
 			component: 'switch',
