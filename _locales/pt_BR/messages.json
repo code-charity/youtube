@@ -23,6 +23,51 @@
    "transparent_color": {
       "message": "Transparente"
    },
+   "ExtraButtons": {
+      "message": "Botões extras"
+   },
+   "Remove_names": {
+      "message": "Remover nomes"
+   },
+   "halfTransparent": {
+      "message": " Faint/half-transparent"
+   },
+   "hide_labels": {
+      "message": "Ocultar nomes"
+   },
+   "remove_icons": {
+      "message": "Remover ícones"
+   },
+   "hideReport": {
+      "message": "Ocultar report"
+   },
+   "hideMore": {
+      "message": "Ocultar mais"
+   },
+   "Youtube_Is_Search": {
+      "message": "Pesquisar do Youtube"
+   },
+   "Hide_trendingThis_Shorts": {
+      "message": "Ocultar Shorts do Em alta"
+   },
+   "Hide_subscriptionsShorts": {
+      "message": "Ocultar Shorts das inscrições"
+   },
+   "player_dont_speed_educatione": {
+      "message": "Não acelere na categoria (Rara): Educação"
+   },
+   "default_theme": {
+      "message": "padrão"
+   },
+   "2160p": {
+      "message": "2160p - 4K"
+   },
+   "block_Codec_h264Alert": {
+      "message": "Você precisa ativar o VP9 ou H.264 para o Youtube funcionar. Desabilitar ambos irá quebrar o Vídeo."
+   },
+   "block_Codec_VP9Alert": {
+      "message": "Você precisa ativar o VP9 ou H.264 para o Youtube funcionar. Desabilitar ambos irá quebrar o Vídeo."
+   },
    "compact_spacing": {
       "message": "Espaçamento compacto"
    },
@@ -222,7 +267,7 @@
       "message": "Canais"
    },
    "characterEdgeStyle": {
-      "message": "Estilo da borda de personagem"
+      "message": "Estilo da borda"
    },
    "clip": {
       "message": "Clip"
@@ -591,7 +636,7 @@
       "message": "Ícone do ImprovedTube"
    },
    "improvedtubeLanguage": {
-      "message": "ImprovedTube"
+      "message": "Idioma do ImprovedTube"
    },
    "improvedtubeVersion": {
       "message": "Versão do ImprovedTube"
@@ -618,7 +663,7 @@
       "message": "Escala de animação"
    },
    "layout": {
-      "message": "Layout"
+      "message": "Aparência"
    },
    "legacyYoutube": {
       "message": "YouTube Antigo"
@@ -642,7 +687,7 @@
       "message": "Avaliado"
    },
    "likes": {
-      "message": "Likes"
+      "message": "Curtidas"
    },
    "lime": {
       "message": "Verde Limão"
@@ -726,10 +771,10 @@
       "message": "Normal"
    },
    "off": {
-      "message": "Off"
+      "message": "Desativado"
    },
    "ok": {
-      "message": "Ok"
+      "message": "OK"
    },
    "old": {
       "message": "Antigo"
@@ -858,7 +903,7 @@
       "message": "Remover Shorts da página inicial"
    },
    "YouTube_is_buttons": {
-      "message": "YouTube's buttons"
+      "message": "Botões do YouTube"
    },
    "removeRelatedSearchResults": {
       "message": "Remover os respectivos resultados de pesquisa"
@@ -978,13 +1023,13 @@
       "message": "Aleatório"
    },
    "player_fit_to_win_button": {
-      "message": "4x3 Proportion"
+      "message": "Proporção 4x3: *Velha tela Quadrada \nou ganho de área de visualização quando estiver em modo Teatro"
    },
    "hide_author_avatars": {
       "message": "Ocultar avatares de autores"
    },
    "player_rotate_button": {
-      "message": "Rotate video"
+      "message": "Botão pra girar em 90º graus"
    },
    "sidebar": {
       "message": "Painel Lateral"
@@ -1179,7 +1224,7 @@
       "message": "O YouTube limita o codec h.264 à resolução de 1080p"
    },
    "openNewTab": {
-      "message": "Open in new tab"
+      "message": "Abrir em uma nova aba"
    },
    "hideVideoTitleFullScreen": {
       "message": "Ocultar o título do vídeo em tela cheia"
@@ -1236,6 +1281,12 @@
       "message": "Não tenho sua GPU nos meus Dados :¬("
    },
    "Feature_not_yet_available": {
-      "message": "Feature not yet available"
+      "message": "Recurso não está presente no momento"
+   },
+   "Grey": {
+      "message": "Cinza"
+   },
+   "Remove": {
+      "message": "Remover"
    }
 }
