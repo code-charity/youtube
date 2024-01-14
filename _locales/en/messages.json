@@ -69,7 +69,7 @@
     "activateCaptions": {
         "message": "Activate captions"
     },
-    "Buttons": {
+    "buttons": {
         "message": "Buttons"
     },
      "shortcut_screenshot": {
@@ -1009,7 +1009,7 @@
         "message": "Shuffle"
     },
     "player_fit_to_win_button": {
-        "message": "4x3 Proportion"
+        "message": "Fit to window"
     },
     "hide_author_avatars": {
         "message": "Hide author avatars"
@@ -1274,4 +1274,9 @@
     },
     "Remove": {
         "message": "Remove"
+    },
+    "Extra_Buttons_below_The_Player": {
+        "message": "Extra buttons below the player
     }}
+
+
