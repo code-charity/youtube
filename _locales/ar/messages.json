@@ -333,7 +333,7 @@
       "message": "تقليل سرعة التشغيل"
    },
    "decreaseVolume": {
-      "message": "Decrease volume"
+      "message": "خفض الصوت"
    },
    "deepOrange": {
       "message": "برتقالي داكن"
@@ -645,7 +645,7 @@
       "message": "زيادة سرعة التشغيل"
    },
    "increaseVolume": {
-      "message": "Increase volume"
+      "message": "زيادة الصوت"
    },
    "indigo": {
       "message": "نيلي"
