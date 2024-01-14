@@ -301,19 +301,19 @@ el.querySelector('*[target-id*=chapters]')?.removeAttribute('visibility');} }
 /*------------------------------------------------------------------------------
  LIVECHAT
 ------------------------------------------------------------------------------*/
-let isCollapsed = false
 ImprovedTube.livechat = function () {
     if (this.storage.livechat === "collapsed") {
+		if (typeof isCollapsed === 'undefined') { var isCollapsed = false;   }
         if(ImprovedTube.elements.livechat && !isCollapsed){
             ImprovedTube.elements.livechat.button.click();
             isCollapsed = true 
         }
-    }else{
+  }  /* else{
         if(isCollapsed){
             ImprovedTube.elements.livechat.button.click();
             isCollapsed = false
-        }
-    }
+        }  
+    } */
 };
 /*------------------------------------------------------------------------------
   DETAILS
@@ -406,7 +406,11 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.expandDescription = function (el) {
     if (this.storage.description === "expanded" || this.storage.description === "classic_expanded" ) 
-	   if(el){ try{el.click()} catch{  }}  console.log("Second click on description to expand"); setTimeout(function(){try{el.click();}catch{}},4000)
+	{ if(el){ try{el.click()} catch{console.log("First click on description failed");} 
+              console.log("Second click on description to expand"); setTimeout(function(){try{el.click();}catch{}},4000)}  
+		
+			try {ImprovedTube.elements.player.focus()}catch{}
+	}
 }
 /*------------------------------------------------------------------------------
  HIDE DETAIL BUTTON
