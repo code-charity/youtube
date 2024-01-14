@@ -1,6 +1,6 @@
 {
 "hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"removeHomePageShorts":{"message":"حذف کردن شورت‌های صفحه اصلی"},
+"hideHomePageShorts":{"message":"حذف کردن شورت‌های صفحه اصلی"},
 "removeShortsReelSearchResults":{"message":"حذف کردن ریل Shorts از نتایج جستجو"},
 "systemPeferenceDark":{"message":"System peference: dark"},
 "systemPeferenceLight":{"message":"System peference: light"}

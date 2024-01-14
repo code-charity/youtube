@@ -176,7 +176,7 @@
 "red":{"message":"Rød"},
 "redDislikeButton":{"message":"Vis tommel ned i rød farge"},
 "relatedVideos":{"message":"Relaterte videoer"},
-"removeHomePageShorts":{"message":"Fjern Shorts fra hjemmesiden"},
+"hideHomePageShorts":{"message":"Fjern Shorts fra hjemmesiden"},
 "removeRelatedSearchResults":{"message":"Fjern relaterte søkeresultater"},
 "repeat":{"message":"Gjenta"},
 "reset":{"message":"Tilbakestill"},

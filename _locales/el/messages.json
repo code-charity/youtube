@@ -167,7 +167,7 @@
 "red":{"message":"Κόκκινο"},
 "redDislikeButton":{"message":"Δείξτε το πλήκτρο «Δε μου αρέσει» σε κόκκινο"},
 "relatedVideos":{"message":"Σχετικά videos"},
-"removeHomePageShorts":{"message":"Κατάργηση Shorts από την αρχική σελίδα"},
+"hideHomePageShorts":{"message":"Κατάργηση Shorts από την αρχική σελίδα"},
 "removeRelatedSearchResults":{"message":"Αφαίρεσε σχετικά αποτελέσματα αναζήτησης"},
 "removeShortsReelSearchResults":{"message":"Αφαιρέστε τη λίστα Shorts από τα αποτελέσματα αναζήτησης"},
 "repeat":{"message":"Επανάληψη"},

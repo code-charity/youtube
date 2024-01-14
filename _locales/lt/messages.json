@@ -1,6 +1,6 @@
 {
 "hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"removeHomePageShorts":{"message":"Pašalinkite Shorts iš pagrindinio puslapio"},
+"hideHomePageShorts":{"message":"Pašalinkite Shorts iš pagrindinio puslapio"},
 "removeShortsReelSearchResults":{"message":"Pašalinkite Shorts ritinį iš paieškos rezultatų"},
 "systemPeferenceDark":{"message":"System peference: dark"},
 "systemPeferenceLight":{"message":"System peference: light"}

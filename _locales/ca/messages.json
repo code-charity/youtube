@@ -1,5 +1,5 @@
 {"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"removeHomePageShorts":{"message":"Elimina els Shorts de la pàgina d'inici"},
+"hideHomePageShorts":{"message":"Elimina els Shorts de la pàgina d'inici"},
 "removeShortsReelSearchResults":{"message":"Elimineu el carrossel de Shorts dels resultats de cerca"},
 "systemPeferenceDark":{"message":"System peference: dark"},
 "systemPeferenceLight":{"message":"System peference: light"}}

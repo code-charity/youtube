@@ -162,7 +162,7 @@
 "rateUs":{"message":"Rangere oss"},
 "red":{"message":"Rød"},
 "relatedVideos":{"message":"Relaterte videoer"},
-"removeHomePageShorts":{"message":"Fjern Shorts fra hjemmesiden"},
+"hideHomePageShorts":{"message":"Fjern Shorts fra hjemmesiden"},
 "removeRelatedSearchResults":{"message":"Fjern relaterte søkeresultater"},
 "removeShortsReelSearchResults":{"message":"Fjern Shorts-rullen fra søkeresultatene"},
 "repeat":{"message":"Gjenta"},

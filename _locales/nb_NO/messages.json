@@ -805,7 +805,7 @@
     "remote": {
         "message": "Play on TV"
     },
-    "removeHomePageShorts": {
+    "hideHomePageShorts": {
         "message": "Fjern Shorts fra hjemmesiden"
     },
     "removeRelatedSearchResults": {

@@ -1,5 +1,5 @@
 { "hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"removeHomePageShorts":{"message":"Odebrat Shorts z úvodní stránky"},
+"hideHomePageShorts":{"message":"Odebrat Shorts z úvodní stránky"},
 "removeShortsReelSearchResults":{"message":"Odstraňte karuselu Shorts z výsledků vyhledávání"},
 "systemPeferenceDark":{"message":"System peference: dark"},
 "systemPeferenceLight":{"message":"System peference: light"}}

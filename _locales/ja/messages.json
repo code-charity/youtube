@@ -214,7 +214,7 @@
 "red":{"message":"赤"},
 "redDislikeButton":{"message":"低評価ボタンを赤色で表示する"},
 "relatedVideos":{"message":"関連動画"},
-"removeHomePageShorts":{"message":"ホームページのショートを削除"},
+"hideHomePageShorts":{"message":"ホームページのショートを削除"},
 "removeRelatedSearchResults":{"message":"関連動画を検索結果から削除する"},
 "removeShortsReelSearchResults":{"message":"検索結果からショートリールを削除"},
 "repeat":{"message":"リピート"},

@@ -256,7 +256,7 @@
 "redDislikeButton":{"message":"싫어요 버튼 빨간색으로 표시"},
 "relatedVideos":{"message":"관련 영상"},
 "remote":{"message":"TV에서 재생"},
-"removeHomePageShorts":{"message":"홈 페이지의 쇼츠 제거"},
+"hideHomePageShorts":{"message":"홈 페이지의 쇼츠 제거"},
 "removeRelatedSearchResults":{"message":"관련 검색 결과 제거"},
 "removeShortsReelSearchResults":{"message":"검색 결과에서 Shorts 리얼 제거"},
 "repeat":{"message":"반복"},

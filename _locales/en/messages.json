@@ -341,7 +341,7 @@
 "showRemainingDuration":{"message":"Show video remaining duration"},
 "showVersion":{"message":"Show version"},
 "shuffle":{"message":"Shuffle"},
-"player_fit_to_window_button":{"message":"Fit to window"},
+"player_fit_to_win_button":{"message":"Fit to window"},
 "hide_author_avatars":{"message":"Hide author avatars"},
 "player_rotate_button":{"message":"Rotate video"},
 "sidebar":{"message":"Sidebar"},

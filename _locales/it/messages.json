@@ -236,7 +236,7 @@
 "redDislikeButton":{"message":"Mostra pulsante Non mi piace in rosso"},
 "relatedVideos":{"message":"Video correlati"},
 "remote":{"message":"Riproduci su tv"},
-"removeHomePageShorts":{"message":"Rimuovi Shorts dalla pagina iniziale"},
+"hideHomePageShorts":{"message":"Rimuovi Shorts dalla pagina iniziale"},
 "removeRelatedSearchResults":{"message":"Rimuovi risultati di ricerca correlati"},
 "removeShortsReelSearchResults":{"message":"Rimuovi il carosello di Shorts dai risultati di ricerca"},
 "repeat":{"message":"Ripeti"},

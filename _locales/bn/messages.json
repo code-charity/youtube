@@ -208,7 +208,7 @@
 "red":{"message":"লাল"},
 "redDislikeButton":{"message":"অপছন্দ বাটন লাল রঙ দেখান"},
 "relatedVideos":{"message":"সংশ্লিষ্ট ভিডিও"},
-"removeHomePageShorts":{"message":"মুখপৃষ্ঠের শর্ট মুছে দিন"},
+"hideHomePageShorts":{"message":"মুখপৃষ্ঠের শর্ট মুছে দিন"},
 "removeRelatedSearchResults":{"message":"সম্পর্কিত অনুসন্ধান ফলাফল সরান"},
 "removeShortsReelSearchResults":{"message":"অনুসন্ধানের ফলাফল থেকে শর্টস রিল সরান"},
 "repeat":{"message":"পুনরাবৃত্তি"},

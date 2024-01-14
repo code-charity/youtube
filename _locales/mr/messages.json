@@ -1,6 +1,6 @@
 {
 "hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"removeHomePageShorts":{"message":"मुख्य पृष्ठाच्या शॉर्ट्स काढा"},
+"hideHomePageShorts":{"message":"मुख्य पृष्ठाच्या शॉर्ट्स काढा"},
 "removeShortsReelSearchResults":{"message":"शोध निकाला लावा परिणामातील शॉर्ट्स रील"},
 "systemPeferenceDark":{"message":"System peference: dark"},
 "systemPeferenceLight":{"message":"System peference: light"}

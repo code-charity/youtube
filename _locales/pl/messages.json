@@ -240,7 +240,7 @@
 "redDislikeButton":{"message":"Koloruj przycisk 'Nie lubię' na czerwono"},
 "relatedVideos":{"message":"Powiązane filmy"},
 "remote":{"message":"Odtwarzaj na telewizorze"},
-"removeHomePageShorts":{"message":"Usuń Shorts z głównej strony"},
+"hideHomePageShorts":{"message":"Usuń Shorts z głównej strony"},
 "removeRelatedSearchResults":{"message":"Usuń powiązane wyniki wyszukiwania"},
 "removeShortsReelSearchResults":{"message":"Usuń karuzelę Shorts z wyników wyszukiwania"},
 "repeat":{"message":"Powtarzaj"},

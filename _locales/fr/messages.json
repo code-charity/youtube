@@ -172,7 +172,7 @@
 "red":{"message":"Rouge"},
 "redDislikeButton":{"message":"Afficher la couleur rouge du bouton Je n'aime pas"},
 "relatedVideos":{"message":"Vidéos associés"},
-"removeHomePageShorts":{"message":"Supprimer les Shorts de la page d'accueil"},
+"hideHomePageShorts":{"message":"Supprimer les Shorts de la page d'accueil"},
 "removeRelatedSearchResults":{"message":"Supprimer les résultats de recherche associés"},
 "removeShortsReelSearchResults":{"message":"Supprimer la liste de Shorts des résultats de recherche"},
 "repeat":{"message":"Lire en boucle"},

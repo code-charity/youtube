@@ -1,6 +1,6 @@
 {
 "hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"removeHomePageShorts":{"message":"ಮುಖ್ಯ ಪೇಜಿನ ಶಾರ್ಟ್ಸ್ ಅನ್ನು ತೆಗೆದುಹಾಕಿ"},
+"hideHomePageShorts":{"message":"ಮುಖ್ಯ ಪೇಜಿನ ಶಾರ್ಟ್ಸ್ ಅನ್ನು ತೆಗೆದುಹಾಕಿ"},
 "removeShortsReelSearchResults":{"message":"ಹುಡುಕಾಟದ ಫಲಿತಾಂಶಗಳಿಂದ ಷಾರ್ಟ್ಸ್ ರೀಲ್ ಅನ್ನು ತೆಗೆದುಹಾಕಿ"},
 "systemPeferenceDark":{"message":"System peference: dark"},
 "systemPeferenceLight":{"message":"System peference: light"}

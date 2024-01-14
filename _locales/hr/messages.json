@@ -183,7 +183,7 @@
 "red":{"message":"Crvena"},
 "redDislikeButton":{"message":"Prikaži ne sviđa mi se botun u crvenoj boji"},
 "relatedVideos":{"message":"Slični videozapisi"},
-"removeHomePageShorts":{"message":"Uklonite Shorts s početne stranice"},
+"hideHomePageShorts":{"message":"Uklonite Shorts s početne stranice"},
 "removeRelatedSearchResults":{"message":"Uklonite slične rezultate pretraživanja"},
 "removeShortsReelSearchResults":{"message":"Uklonite Shorts kolut iz rezultata pretrage"},
 "repeat":{"message":"Ponovi"},

@@ -226,7 +226,7 @@
 "redDislikeButton":{"message":"Mostrar el botón de dislike de color rojo"},
 "relatedVideos":{"message":"Vídeos relacionados"},
 "remote":{"message":"Reproducir en el televisor"},
-"removeHomePageShorts":{"message":"Eliminar Shorts de la página de inicio"},
+"hideHomePageShorts":{"message":"Eliminar Shorts de la página de inicio"},
 "removeRelatedSearchResults":{"message":"Quitar resultados relacionados"},
 "removeShortsReelSearchResults":{"message":"Eliminar el carrusel de Shorts de los resultados de búsqueda"},
 "repeat":{"message":"Repetir"},

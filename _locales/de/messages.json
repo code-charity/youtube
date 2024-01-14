@@ -194,7 +194,7 @@
 "redDislikeButton":{"message":"Zeige 'Mag ich nicht' Button rot"},
 "relatedVideos":{"message":"Ähnliche Videos"},
 "remote":{"message":"Auf TV abspielen"},
-"removeHomePageShorts":{"message":"Startseite Shorts entfernen"},
+"hideHomePageShorts":{"message":"Startseite Shorts entfernen"},
 "removeRelatedSearchResults":{"message":"Ähnliche Suchergebnisse entfernen"},
 "removeShortsReelSearchResults":{"message":"Shorts-Reel aus den Suchergebnissen entfernen"},
 "repeat":{"message":"Repeat (Wiederholen)"},
