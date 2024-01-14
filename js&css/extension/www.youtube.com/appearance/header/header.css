@@ -84,7 +84,7 @@ html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-f
 
 
 html[it-header-position=static] .ytd-app:not([masthead-hidden_]) #masthead-container {
-	position: relative;
+	position: absolute;
 	z-index: 7000 !important;
 }
 
@@ -107,10 +107,12 @@ html[it-header-position=static] tp-yt-app-drawer #header {
 }
 
 html[it-header-position=hover] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
-html[it-header-position=hidden] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
+html[it-header-position=hidden] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,  
 html[it-header-position=static] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
-	position: inherit;
+	top: 9px !important;
 }
+
+
 /*--------------------------------------------------------------
 # IMPROVE LOGO
 --------------------------------------------------------------*/
