@@ -63,7 +63,7 @@
         "message": "padrão"
     },
     "default_CC": {
-        "message": "padrão"
+        "message": "Padrão"
     },
     "2160p": {
         "message": "2160p - 4K"
@@ -471,7 +471,7 @@
         "message": "Reprodução do vídeo desde o início forçado"
     },
     "forcedPlaybackSpeed": {
-        "message": " Velocidade do reprodução forçado"
+        "message": "Velocidade do reprodução forçado"
     },
     "forcedPlaybackSpeedMusic": {
         "message": "(Forçar velocidade de reprodução mesmo para música?)"
@@ -549,7 +549,7 @@
         "message": "Ocultar data"
     },
     "hideDetailButton": {
-        "message": "Botões (abaixo do player)"
+        "message": "Ocultar botão de detalhs"
     },
     "hideDetails": {
         "message": "Ocultar detalhes"
@@ -816,7 +816,7 @@
         "message": "Permissões"
     },
     "pictureInPicture": {
-        "message": "Picture-in-Picture"
+        "message": "Janela em janela"
     },
     "pink": {
         "message": "Rosa"
@@ -828,7 +828,7 @@
         "message": "Plataforma"
     },
     "playAllButton": {
-        "message": "Botão \"Tocar todos\""
+        "message": "Botão \"Reproduzir Tudo\""
     },
     "playPause": {
         "message": "Reproduzir / Pausar"
@@ -903,7 +903,7 @@
         "message": "Assistir na TV"
     },
     "hideHomePageShorts": {
-        "message": "Ocultar Shorts na página inicial"
+        "message": "Remover Shorts da página inicial"
     },
     "youTubeButtons": {
         "message": "Botões do YouTube"
