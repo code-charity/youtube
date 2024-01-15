@@ -45,34 +45,34 @@
         "message": "Ocultar Ver mais (...) "
     },
     "Youtube_Search": {
-        "message": "Youtube-Search"
+        "message": "Pesquisar no Youtube"
     },
     "atTrending": {
-        "message": "at 'Trending'"
+        "message": "em 'Tendências'"
     },
     "atHistory": {
-        "message": "at 'History'"
+        "message": "em 'Histórico'"
     },
     "atSubscriptions": {
-        "message": "at 'Subscriptions'"
+        "message": "em 'Assinaturas'"
     },
     "player_dont_speed_education": {
-        "message": "Don't speed up the (rare) category: Education"
+        "message": "Não acelere na categoria (Rara): Educação"
     },
     "default_theme": {
         "message": "padrão"
     },
     "default_CC": {
-        "message": "default"
+        "message": "padrão"
     },
     "2160p": {
         "message": "2160p - 4K"
     },
     "block_Codec_Alert_h264": {
-        "message": "You need either H.264 or VP9 enabled for Youtube to play videos."
+        "message": "Você precisa ativar o H.264 ou VP9 para reproduzir vídeos."
     },
     "block_Codec_Alert_VP9": {
-        "message": "You need either VP9 or H.264 enabled for Youtube to play videos."
+        "message": "Você precisa ativar o VP9 ou H.264 para reproduzir vídeos."
     },
     "compact_spacing": {
         "message": "Espaçamento compacto"
@@ -828,7 +828,7 @@
         "message": "Plataforma"
     },
     "playAllButton": {
-        "message": "\"Play all\"button"
+        "message": "Botão \"Tocar todos\""
     },
     "playPause": {
         "message": "Reproduzir / Pausar"
@@ -906,7 +906,7 @@
         "message": "Hide Shorts on the home page"
     },
     "youTubeButtons": {
-        "message": "YouTube buttons"
+        "message": "Botões do YouTube"
     },
     "removeRelatedSearchResults": {
         "message": "Remover os respectivos resultados de pesquisa"
@@ -1227,7 +1227,7 @@
         "message": "O YouTube limita o codec h.264 à resolução de 1080p"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "Abrir em uma nova aba"
     },
     "hideVideoTitleFullScreen": {
         "message": "Ocultar o título do vídeo em tela cheia"
@@ -1239,7 +1239,7 @@
         "message": "Ocultar barra lateral de recomendações "
     },
     "chapters": {
-        "message": "Chapters"
+        "message": "Capítulos"
     },
     "Hide_Shorts_remixing_this_video": {
         "message": "Ocultar Shorts remixando alguns videos"
