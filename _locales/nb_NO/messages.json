@@ -1,4 +1,4 @@
-    "ARROWDOWN": {
+   { "ARROWDOWN": {
         "message": "⇩"
     },
     "ARROWLEFT": {
@@ -1091,5 +1091,5 @@
         "message": "YouTube-språk"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube begrenser videokvaliteten til 1080p for H.264-kodeket"
+        "message": "YouTube begrenser videokvaliteten til 1080p for H.264-kodeket"}
     }

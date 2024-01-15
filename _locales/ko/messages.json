@@ -288,7 +288,7 @@
 "showVersion":{"message":"버전 표시"},
 "shuffle":{"message":"셔플"},
 "sidebar":{"message":"사이드바"},
-"softwareInformation":{"message":"소프트웨어 정보"}												   
+"softwareInformation":{"message":"소프트웨어 정보"},										   
 "spacebar":{"message":"스페이스바"},
 "squaredUserImages":{"message":"정사각형 프로필 사진"},
 "static":{"message":"밑으로 내릴 때 숨기기"},
@@ -349,6 +349,5 @@
 "youtubeHeaderRight":{"message":"유튜브 헤더 (오른쪽)"},
 "youtubeHomePage":{"message":"유튜브 홈페이지"},
 "youtubeLanguage":{"message":"유튜브 언어"},
-"youtubeLimitsVideoQualityTo1080pForH264Codec":{"message":"유튜브는 h.264 코덱에서 비디오 품질을 1080p로 제한합니다."},
-"softwareInformation":{"message":"소프트웨어 정보"}
+"youtubeLimitsVideoQualityTo1080pForH264Codec":{"message":"유튜브는 h.264 코덱에서 비디오 품질을 1080p로 제한합니다."}
 }
