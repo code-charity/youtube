@@ -549,7 +549,7 @@
         "message": "Ocultar data"
     },
     "hideDetailButton": {
-        "message": "Buttons (below the player)"
+        "message": "Botões (abaixo do player)"
     },
     "hideDetails": {
         "message": "Ocultar detalhes"
@@ -903,7 +903,7 @@
         "message": "Assistir na TV"
     },
     "hideHomePageShorts": {
-        "message": "Hide Shorts on the home page"
+        "message": "Ocultar Shorts na página inicial"
     },
     "youTubeButtons": {
         "message": "Botões do YouTube"
