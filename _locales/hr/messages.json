@@ -1,1109 +1,263 @@
 {
-    "ARROWDOWN": {
-        "message": "⇩"
-    },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
-    },
-    "about": {
-        "message": "O"
-    },
-    "accept": {
-        "message": "Prihvati"
-    },
-    "activate": {
-        "message": "Aktiviraj"
-    },
-    "activateCaptions": {
-        "message": "Aktiviraj naslove"
-    },
-    "activateFullscreen": {
-        "message": "Aktiviraj puni zaslon"
-    },
-    "activated": {
-        "message": "Aktivirano"
-    },
-    "activatedFeatures": {
-        "message": "Aktivirane značajke"
-    },
-    "activeFeatures": {
-        "message": "Aktivne značajke"
-    },
-    "addScrollToTop": {
-        "message": "Dodaj «Pomaknite se na vrh»"
-    },
-    "ads": {
-        "message": "Oglasi"
-    },
-    "all": {
-        "message": "Sve"
-    },
-    "allow": {
-        "message": "Dopusti"
-    },
-    "allow60fps": {
-        "message": "Dopusti 60fps"
-    },
-    "always": {
-        "message": "Always"
-    },
-    "alwaysActive": {
-        "message": "Uvijek aktivan"
-    },
-    "alwaysShowProgressBar": {
-        "message": "Uvijek prikaži traku napretka"
-    },
-    "amber": {
-        "message": "Jantar"
-    },
-    "analyzer": {
-        "message": "Analizator"
-    },
-    "animations": {
-        "message": "Animations"
-    },
-    "appearance": {
-        "message": "Izgled"
-    },
-    "areYouSureYouWantToExportTheData": {
-        "message": "Are you sure you want to export the data?"
-    },
-    "areYouSureYouWantToImportTheData": {
-        "message": "Are you sure you want to import the data?"
-    },
-    "audio": {
-        "message": "Audio"
-    },
-    "audioFormats": {
-        "message": "Audio formati"
-    },
-    "auto": {
-        "message": "Auto"
-    },
-    "autoFullscreen": {
-        "message": "Automatski prikaz preko cijelog zaslona"
-    },
-    "autopauseWhenSwitchingTabs": {
-        "message": "Automatska pauza prilikom zamjene kartica"
-    },
-    "autoplay": {
-        "message": "Auto Play"
-    },
-    "avoidAv1": {
-        "message": "Avoid AV1"
-    },
-    "avoidAv1Vp8Vp9": {
-        "message": "Avoid AV1, VP8, VP9"
-    },
-    "avoidAv1Vp9": {
-        "message": "Avoid AV1, VP9"
-    },
-    "avoidCpuRenderingWhenPossible": {
-        "message": "Avoid CPU rendering when possible"
-    },
-    "backgroundColor": {
-        "message": "Background color"
-    },
-    "backgroundOpacity": {
-        "message": "Background opacity"
-    },
-    "backupAndReset": {
-        "message": "Sigurnosna kopija i resetiranje"
-    },
-    "baseOnSystemColorScheme": {
-        "message": "Na temelju shema boja sustava"
-    },
-    "belowPlayer": {
-        "message": "Ispod Playera"
-    },
-    "black": {
-        "message": "Crno"
-    },
-    "blocklist": {
-        "message": "Crna lista"
-    },
-    "blockAll": {
-        "message": "Blokiraj sve"
-    },
-    "blockAv1": {
-        "message": "Block AV1"
-    },
-    "blockH264": {
-        "message": "Block H.264"
-    },
-    "blockMusic": {
-        "message": "Skip ads while I play music"
-    },
-    "blockVp8": {
-        "message": "Block VP8"
-    },
-    "blockVp9": {
-        "message": "Block VP9"
-    },
-    "blue": {
-        "message": "Plava"
-    },
-    "blueGray": {
-        "message": "Plavo siva"
-    },
-    "bluelight": {
-        "message": "Svijetlo plava"
-    },
-    "brown": {
-        "message": "Smeđa"
-    },
-    "browser": {
-        "message": "Preglednik"
-    },
-    "browserVersion": {
-        "message": "Verzija preglednika"
-    },
-    "bubbles": {
-        "message": "Mjehurići"
-    },
-    "bug": {
-        "message": "Greška"
-    },
-    "buttons": {
-        "message": "Gumbi"
-    },
-    "cancel": {
-        "message": "Otkaži"
-    },
-    "categories": {
-        "message": "Kategorije"
-    },
-    "channel": {
-        "message": "Kanal"
-    },
-    "channels": {
-        "message": "Kanali"
-    },
-    "characterEdgeStyle": {
-        "message": "Character edge style"
-    },
-    "clip": {
-        "message": "Clip"
-    },
-    "clipboard": {
-        "message": "Međuspremnik"
-    },
-    "codecH264": {
-        "message": "Kodek h.264"
-    },
-    "codecs": {
-        "message": "Codecs"
-    },
-    "collapseOfSubscriptionSections": {
-        "message": "Skupljanje pretplatničkih odjeljaka"
-    },
-    "collapsed": {
-        "message": "Skupljeno"
-    },
-    "comments": {
-        "message": "Komentari"
-    },
-    "confirmationBeforeClosing": {
-        "message": "Potvrda prije zatvaranja"
-    },
-    "cookies": {
-        "message": "Kolačići"
-    },
-    "cores": {
-        "message": "Jezgre"
-    },
-    "cropChapterTitles": {
-        "message": "Izreži naslove poglavlja"
-    },
-    "custom": {
-        "message": "Custom"
-    },
-    "customCss": {
-        "message": "Prilagođeni CSS"
-    },
-    "customJs": {
-        "message": "Prilagođeni JS"
-    },
-    "customMiniPlayer": {
-        "message": "Prilagođeni Mini-Player"
-    },
-    "cyan": {
-        "message": "Cijan"
-    },
-    "dark": {
-        "message": "Tamno"
-    },
-    "darkTheme": {
-        "message": "Tamna tema"
-    },
-    "dateAndTime": {
-        "message": "Datum & vrijeme"
-    },
-    "dawn": {
-        "message": "Zora"
-    },
-    "decreasePlaybackSpeed": {
-        "message": "Smanji brzinu reprodukcije"
-    },
-    "decreaseVolume": {
-        "message": "Smanji glasnoću"
-    },
-    "deepOrange": {
-        "message": "Duboko narančasta"
-    },
-    "deepPurple": {
-        "message": "Duboko ljubičasta"
-    },
-    "default": {
-        "message": "Default"
-    },
-    "defaultChannelTab": {
-        "message": "Zadana kartica kanala"
-    },
-    "defaultContentCountry": {
-        "message": "Country (virtual travel)"
-    },
-    "deleteWatchedVideos": {
-        "message": "Delete watched videos"
-    },
-    "deleteYoutubeCookies": {
-        "message": "Izbrišite YouTube kolačiće"
-    },
-    "depressed": {
-        "message": "Depressed"
-    },
-    "description": {
-        "message": "Description"
-    },
-    "description_ext": {
-        "message": "YouTube, tidy + smart? Youtube video youtube player size youtube color ad skip speed volume channel skipper tags playlist hide"
-    },
-    "desert": {
-        "message": "Zasluga"
-    },
-    "details": {
-        "message": "Pojedinosti"
-    },
-    "developerOptions": {
-        "message": "Opcije za programere"
-    },
-    "device": {
-        "message": "Uređaj"
-    },
-    "dim": {
-        "message": "Priguši"
-    },
-    "disabled": {
-        "message": "Onemogućeno"
-    },
-    "dislike": {
-        "message": "Ne sviđa mi se"
-    },
-    "displayDayOfTheWeak": {
-        "message": "Display day of the week"
-    },
-    "doNotChange": {
-        "message": "Nemoj mijenjati"
-    },
-    "donate": {
-        "message": "Doniraj"
-    },
-    "download": {
-        "message": "Download"
-    },
-    "draggable": {
-        "message": "Povuci"
-    },
-    "dropShadow": {
-        "message": "Drop shadow"
-    },
-    "durationWithSpeed": {
-        "message": "Show time remaining with reference to playback speed"
-    },
-    "email": {
-        "message": "E-mail"
-    },
-    "empty": {
-        "message": "Prazno"
-    },
-    "enabled": {
-        "message": "Omogućeno"
-    },
-    "enabledForced": {
-        "message": "Omogućeno (prisilno)"
-    },
-    "expanded": {
-        "message": "Prošireno"
-    },
-    "exportSettings": {
-        "message": "Izvoz postavki"
-    },
-    "extension": {
-        "message": "Proširenje"
-    },
-    "file": {
-        "message": "Datoteka"
-    },
-    "filters": {
-        "message": "Filteri"
-    },
-    "fitToWindow": {
-        "message": "Prilagodi prozoru"
-    },
-    "flash": {
-        "message": "Flash"
-    },
-    "font": {
-        "message": "Font"
-    },
-    "fontColor": {
-        "message": "Font color"
-    },
-    "fontFamily": {
-        "message": "Font family"
-    },
-    "fontOpacity": {
-        "message": "Font opacity"
-    },
-    "fontSize": {
-        "message": "Font size"
-    },
-    "footer": {
-        "message": "Podnožje"
-    },
-    "forceSDR": {
-        "message": "Prisilno SDR"
-    },
-    "forcedPlayVideoFromTheBeginning": {
-        "message": "Forced play video from the beginning"
-    },
-    "forcedPlaybackSpeed": {
-        "message": "Prisiljena brzina reprodukcije"
-    },
-    "forcedPlaybackSpeedMusic": {
-        "message": "(Force playback speed even for music?)"
-    },
-    "forcedTheaterMode": {
-        "message": "Prisiljen kazališni način"
-    },
-    "forcedVolume": {
-        "message": "Prisiljena glasnoća"
-    },
-    "foundABug": {
-        "message": "Pronašli ste grešku?"
-    },
-    "fullWindow": {
-        "message": "Puni prozor"
-    },
-    "general": {
-        "message": "Općenito"
-    },
-    "geoPreference": {
-        "message": "Geografske preferencije"
-    },
-    "github": {
-        "message": "GitHub"
-    },
-    "goToSearchBox": {
-        "message": "Idite na okvir za pretraživanje"
-    },
-    "googleApiKey": {
-        "message": "Google API key"
-    },
-    "gpu": {
-        "message": "GPU"
-    },
-    "green": {
-        "message": "Zelena"
-    },
-    "hardwareInformation": {
-        "message": "Hardware information"
-    },
-    "hd": {
-        "message": "HD"
-    },
-    "hdThumbnail": {
-        "message": "HD sličica"
-    },
-    "header": {
-        "message": "Zaglavlje"
-    },
-    "hidden": {
-        "message": "Skriven"
-    },
-    "hiddenOnVideoPage": {
-        "message": "Skriveno na stranici videozapisa"
-    },
-    "hideAnimatedThumbnails": {
-        "message": "Sakrij animirane sličice"
-    },
-    "hideAnnotations": {
-        "message": "Sakrij napomene"
-    },
-    "hideCards": {
-        "message": "Sakrij kartice"
-    },
-    "hideCategories": {
-        "message": "Hide categories"
-    },
-    "hideCommentsCount": {
-        "message": "Hide comments count"
-    },
-    "hideCountryCode": {
-        "message": "Hide country code"
-    },
-    "hideDate": {
-        "message": "Hide date"
-    },
-    "hideDetailButton": {
-        "message": "Buttons"
-    },
-    "hideDetails": {
-        "message": "Sakrij detalje"
-    },
-    "hideEndscreen": {
-        "message": "Sakrij završni zaslon"
-    },
-    "hideFeaturedContent": {
-        "message": "Sakrij istaknuti sadržaj"
-    },
-    "hideFooter": {
-        "message": "Sakrij podnožje"
-    },
-    "hideGradientBottom": {
-        "message": "Sakrij sjenu oko trake playera"
-    },
-    "hidePlayerControlsBar": {
-        "message": "Sakrij kontrole playera"
-    },
-    "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls bar buttons"
-    },
-    "hidePlayerControlsBarOptions": {
-        "message": "Hide player controls options"
-    },
-    "hidePlaylist": {
-        "message": "Sakrij popis za reprodukciju"
-    },
-    "hideRightButtons": {
-        "message": "Sakrij desne gumbe"
-    },
-    "hideScrollForDetails": {
-        "message": "Sakrij «Pomakni za detalje»"
-    },
-    "hideSkipOverlay": {
-        "message": "Hide Skip Overlay"
-    },
-    "hideThumbnailOverlay": {
-        "message": "Sakrij gumbe na sličicama"
-    },
-    "hideThumbnails": {
-        "message": "Hide thumbnails"
-    },
-    "hideViewsCount": {
-        "message": "Sakrij broj pregleda"
-    },
-    "hideVoiceSearchButton": {
-        "message": "Hide voice search button"
-    },
-    "high": {
-        "message": "High"
-    },
-    "history": {
-        "message": "Povijest"
-    },
-    "home": {
-        "message": "Početna"
-    },
-    "hover": {
-        "message": "Pređite mišem preko"
-    },
-    "hoverOnVideoPage": {
-        "message": "Zadržite pokazivač miša na stranici videozapisa"
-    },
-    "howLongAgoTheVideoWasUploaded": {
-        "message": "Prije koliko je vremena video prenesen"
-    },
-    "icons": {
-        "message": "Ikone"
-    },
-    "iconsOnly": {
-        "message": "Samo ikone"
-    },
-    "importSettings": {
-        "message": "Uvezi postavke"
-    },
-    "improveLogo": {
-        "message": "Poboljšajte logotip"
-    },
-    "improvedtubeButtons": {
-        "message": "ImprovedTube buttons"
-    },
-    "improvedtubeIconOnYoutube": {
-        "message": "Ikona ImprovedTube na YouTubeu"
-    },
-    "improvedtubeLanguage": {
-        "message": "ImprovedTube jezik"
-    },
-    "improvedtubeVersion": {
-        "message": "ImprovedTube verzija"
-    },
-    "increasePlaybackSpeed": {
-        "message": "Povećajte brzinu reprodukcije"
-    },
-    "increaseVolume": {
-        "message": "Povećajte glasnoću"
-    },
-    "indigo": {
-        "message": "Indigo"
-    },
-    "items": {
-        "message": "Predmeti"
-    },
-    "language": {
-        "message": "Language"
-    },
-    "languages": {
-        "message": "Jezici"
-    },
-    "layerAnimationScale": {
-        "message": "Layer animation scale"
-    },
-    "layout": {
-        "message": "Layout"
-    },
-    "legacyYoutube": {
-        "message": "Naslijeđeni YouTube"
-    },
-    "library": {
-        "message": "Library"
-    },
-    "light": {
-        "message": "Svjetlo"
-    },
-    "lightBlue": {
-        "message": "Svjetlo plava"
-    },
-    "lightGreen": {
-        "message": "Svjetlo zelena"
-    },
-    "like": {
-        "message": "Sviđa mi se"
-    },
-    "liked": {
-        "message": "Liked"
-    },
-    "likes": {
-        "message": "Likes"
-    },
-    "lime": {
-        "message": "Limeta"
-    },
-    "limitPageWidth": {
-        "message": "Limit page width"
-    },
-    "list": {
-        "message": "Lista"
-    },
-    "liveChat": {
-        "message": "Chat uživo"
-    },
-    "liveChatType": {
-        "message": "Vrsta chata uživo"
-    },
-    "location": {
-        "message": "Location"
-    },
-    "loop": {
-        "message": "Loop"
-    },
-    "loudnessNormalization": {
-        "message": "Normalizacija glasnoće"
-    },
-    "low": {
-        "message": "Low"
-    },
-    "markWatchedVideos": {
-        "message": "Označi pogledane videozapise"
-    },
-    "medium": {
-        "message": "Medium"
-    },
-    "mixer": {
-        "message": "Mikser"
-    },
-    "more": {
-        "message": "More"
-    },
-    "mostViewedChannels": {
-        "message": "Most viewed channels"
-    },
-    "moveSidebarLeft": {
-        "message": "To the left!"
-    },
-    "moveThumbnailsRight": {
-        "message": "Thumbnails to the right!"
-    },
-    "myColors": {
-        "message": "Moje boje"
-    },
-    "name": {
-        "message": "Naziv"
-    },
-    "nativeMiniPlayer": {
-        "message": "Izvorni mini player"
-    },
-    "new": {
-        "message": "Novo"
-    },
-    "nextVideo": {
-        "message": "Sljedeći video"
-    },
-    "night": {
-        "message": "Noć"
-    },
-    "nightMode": {
-        "message": "Night mode"
-    },
-    "noActiveFeatures": {
-        "message": "Nema aktivnih značajki"
-    },
-    "noOpenVideoTabs": {
-        "message": "Nema otvorenih video kartica"
-    },
-    "none": {
-        "message": "Nijedna"
-    },
-    "normal": {
-        "message": "Normalno"
-    },
-    "off": {
-        "message": "Off"
-    },
-    "ok": {
-        "message": "Ok"
-    },
-    "old": {
-        "message": "Staro"
-    },
-    "onAllVideos": {
-        "message": "Na svim video zapisima"
-    },
-    "onSubscribedChannels": {
-        "message": "Na pretplaćenim kanalima"
-    },
-    "onlyActiveOnYoutube": {
-        "message": "Aktivno samo na YouTubeu"
-    },
-    "onlyOnePlayerInstancePlaying": {
-        "message": "Svira samo jedna instanca playera"
-    },
-    "openPopupPlayer": {
-        "message": "Otvorite videozapis / popis za reprodukciju u novom prozoru"
-    },
-    "orange": {
-        "message": "Narančasto"
-    },
-    "os": {
-        "message": "OS"
-    },
-    "other": {
-        "message": "Ostalo"
-    },
-    "outline": {
-        "message": "Outline"
-    },
-    "overlay": {
-        "message": "Overlay"
-    },
-    "permissions": {
-        "message": "Dopuštenja"
-    },
-    "pictureInPicture": {
-        "message": "Slika u slici"
-    },
-    "pink": {
-        "message": "Ružičasto"
-    },
-    "plain": {
-        "message": "Jednostavno"
-    },
-    "platform": {
-        "message": "Platforma"
-    },
-    "playAllButton": {
-        "message": "\"Play all\" button"
-    },
-    "playPause": {
-        "message": "Reprodukcija / pauza"
-    },
-    "playbackSpeed": {
-        "message": "Brzina reprodukcije"
-    },
-    "player": {
-        "message": "Player"
-    },
-    "playerColor": {
-        "message": "Boja playera"
-    },
-    "playerSize": {
-        "message": "Veličina playera"
-    },
-    "playlist": {
-        "message": "Popis za reprodukciju"
-    },
-    "playlists": {
-        "message": "Popisi za reprodukciju"
-    },
-    "popupPlayer": {
-        "message": "Player u skočnom prozoru"
-    },
-    "popupWindowButtons": {
-        "message": "Add a popup-player-button to each thumbnail"
-    },
-    "position": {
-        "message": "Položaj"
-    },
-    "pressAnyKeyOrScroll": {
-        "message": "Pritisnite bilo koju tipku ili upotrijebite kotačić miša."
-    },
-    "pressAnyKeyOrUseMouseWheel": {
-        "message": "Pritisnite bilo koju tipku ili upotrijebite kotačić miša"
-    },
-    "previousVideo": {
-        "message": "Prethodni videozapis"
-    },
-    "primaryColor": {
-        "message": "Primarna boja"
-    },
-    "purple": {
-        "message": "Ljubičasta"
-    },
-    "quality": {
-        "message": "Kvaliteta"
-    },
-    "raised": {
-        "message": "Raised"
-    },
-    "ram": {
-        "message": "Radna memorija"
-    },
-    "rateMe": {
-        "message": "Rate me"
-    },
-    "rateUs": {
-        "message": "Ocijenite nas"
-    },
-    "red": {
-        "message": "Crvena"
-    },
-    "redDislikeButton": {
-        "message": "Prikaži ne sviđa mi se botun u crvenoj boji"
-    },
-    "relatedVideos": {
-        "message": "Slični videozapisi"
-    },
-    "remote": {
-        "message": "Play on TV"
-    },
-    "removeHomePageShorts": {
-        "message": "Uklonite Shorts s početne stranice"
-    },
-    "removeRelatedSearchResults": {
-        "message": "Uklonite slične rezultate pretraživanja"
-    },
-    "removeShortsReelSearchResults": {
-        "message": "Uklonite Shorts kolut iz rezultata pretrage"
-    },
-    "repeat": {
-        "message": "Ponovi"
-    },
-    "report": {
-        "message": "Report"
-    },
-    "reset": {
-        "message": "Resetiraj"
-    },
-    "resetAllSettings": {
-        "message": "Resetirajte sve postavke"
-    },
-    "resetAllShortcuts": {
-        "message": "Resetirajte sve prečace"
-    },
-    "reverse": {
-        "message": "Preokreni"
-    },
-    "rotate": {
-        "message": "Rotiraj"
-    },
-    "save": {
-        "message": "Sačuvaj"
-    },
-    "saveAs": {
-        "message": "Sačuvaj kao"
-    },
-    "schedule": {
-        "message": "Stavi na raspored"
-    },
-    "screen": {
-        "message": "Zaslon"
-    },
-    "screenshot": {
-        "message": "Snimka zaslona"
-    },
-    "scrollBar": {
-        "message": "Scroll Bar"
-    },
-    "sd": {
-        "message": "SD"
-    },
-    "search": {
-        "message": "Pretraži"
-    },
-    "searchBarOnly": {
-        "message": "Samo traka za pretraživanje"
-    },
-    "seekBackward10Seconds": {
-        "message": "Traži unatrag 10 sekundi"
-    },
-    "seekForward10Seconds": {
-        "message": "Traži 10 sekundi prema naprijed"
-    },
-    "seekNextChapter": {
-        "message": "seekNextChapter"
-    },
-    "seekPreviousChapter": {
-        "message": "seekPreviousChapter"
-    },
-    "settings": {
-        "message": "Postavke"
-    },
-    "settingsSuccessfullyImported": {
-        "message": "Postavke su uspješno uvezene"
-    },
-    "share": {
-        "message": "Share"
-    },
-    "shortcuts": {
-        "message": "Prečaci"
-    },
-    "showCardsOnMouseHover": {
-        "message": "Pokaži kartice prilikom prelaska miša"
-    },
-    "showChannelVideosCount": {
-        "message": "Prikaži broj videozapisa na kanalu"
-    },
-    "showLess": {
-        "message": "Show less"
-    },
-    "showMore": {
-        "message": "Show more"
-    },
-    "showRemainingDuration": {
-        "message": "Show video remaining duration"
-    },
-    "showVersion": {
-        "message": "Show version"
-    },
-    "shuffle": {
-        "message": "Nasumično"
-    },
-    "sidebar": {
-        "message": "Bočna traka"
-    },
-    "softwareInformation": {
-        "message": "Software information"
-    },
-    "spacebar": {
-        "message": "Tipka razmaka"
-    },
-    "squaredUserImages": {
-        "message": "Korisničke slike u kvadratu"
-    },
-    "static": {
-        "message": "Statički"
-    },
-    "statsForNerds": {
-        "message": "Prikaži statistiku za štrebere"
-    },
-    "step": {
-        "message": "Korak"
-    },
-    "stop": {
-        "message": "Stani"
-    },
-    "style": {
-        "message": "Stil"
-    },
-    "styles": {
-        "message": "Stilovi"
-    },
-    "subscribe": {
-        "message": "Subscribe"
-    },
-    "subscriptions": {
-        "message": "Pretplate"
-    },
-    "subtitles": {
-        "message": "Titlovi"
-    },
-    "sunset": {
-        "message": "Zalazak sunca"
-    },
-    "sunsetToSunrise": {
-        "message": "Od zalaska do izlaska sunca"
-    },
-    "systemPeferenceDark": {
-        "message": "Postavke sustava: tamno"
-    },
-    "systemPeferenceLight": {
-        "message": "Postavke sustava: svjetlo"
-    },
-    "teal": {
-        "message": "Teal"
-    },
-    "textColor": {
-        "message": "Boja teksta"
-    },
-    "thanks": {
-        "message": "Thanks"
-    },
-    "themes": {
-        "message": "Teme"
-    },
-    "thisWillRemoveAllCookies": {
-        "message": "Ovo će ukloniti sve kolačiće."
-    },
-    "thisWillRemoveAllWatchedVideos": {
-        "message": "This will remove all watched videos."
-    },
-    "thisWillRemoveAllYouTubeCookies": {
-        "message": "Ovo će ukloniti sve YouTube kolačiće"
-    },
-    "thisWillResetAllSettings": {
-        "message": "Ovo će resetirati sve postavke."
-    },
-    "thisWillResetAllShortcuts": {
-        "message": "Ovo će resetirati sve prečace"
-    },
-    "thumbnails": {
-        "message": "Sličice"
-    },
-    "thumbnailsQuality": {
-        "message": "Thumbnails Quality"
-    },
-    "timeFrom": {
-        "message": "Vrijeme od"
-    },
-    "timeTo": {
-        "message": "Vrijeme do"
-    },
-    "todayAt": {
-        "message": "Danas u"
-    },
-    "toggleAutoplay": {
-        "message": "Uključi / isključi automatsku reprodukciju"
-    },
-    "toggleCards": {
-        "message": "Uključi / isključi kartice"
-    },
-    "toggleControls": {
-        "message": "Uključi / isključi kontrole playera"
-    },
-    "topChat": {
-        "message": "Top chat"
-    },
-    "trackWatchedVideos": {
-        "message": "Track watched videos"
-    },
-    "trailerAutoplay": {
-        "message": "Automatska reprodukcija kratkog filma"
-    },
-    "translations": {
-        "message": "Prijevodi"
-    },
-    "transparentBackground": {
-        "message": "Prozirna pozadina"
-    },
-    "trending": {
-        "message": "U trendu"
-    },
-    "tryToReloadThePage": {
-        "message": "Pokušajte ponovo učitati stranicu"
-    },
-    "type": {
-        "message": "Tip"
-    },
-    "upNextAutoplay": {
-        "message": "Sljedeća automatska reprodukcija"
-    },
-    "use24HourFormat": {
-        "message": "Koristite 24-satni format"
-    },
-    "version": {
-        "message": "Verzija"
-    },
-    "video": {
-        "message": "Video"
-    },
-    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "Opis videozapisa biti će proširen kako bi se dobio naziv kategorije"
-    },
-    "videoFormats": {
-        "message": "Video formati"
-    },
-    "videos": {
-        "message": "Videozapisi"
-    },
-    "viewMode": {
-        "message": "View Mode"
-    },
-    "volume": {
-        "message": "Glasnoća"
-    },
-    "watchLater": {
-        "message": "Gledaj kasnije"
-    },
-    "watchTime": {
-        "message": "Vrijeme gledanja"
-    },
-    "whenPaused": {
-        "message": "When paused"
-    },
-    "whenTabIsChanged": {
-        "message": "Kada se kartica promijeni"
-    },
-    "white": {
-        "message": "Bijela"
-    },
-    "windowColor": {
-        "message": "Window color"
-    },
-    "windowOpacity": {
-        "message": "Window opacity"
-    },
-    "yellow": {
-        "message": "Žuta"
-    },
-    "youtubeHeaderLeft": {
-        "message": "YouTube zaglavlje (lijevo)"
-    },
-    "youtubeHeaderRight": {
-        "message": "YouTube zaglavlje (desno)"
-    },
-    "youtubeHomePage": {
-        "message": "YouTube početna stranica"
-    },
-    "youtubeLanguage": {
-        "message": "YouTube jezik"
-    },
-    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube ograničava kvalitetu videozapisa na 1080p za h.264 kodek"
-    }
+"about":{"message":"O"},
+"accept":{"message":"Prihvati"},
+"activate":{"message":"Aktiviraj"},
+"activateCaptions":{"message":"Aktiviraj naslove"},
+"activateFullscreen":{"message":"Aktiviraj puni zaslon"},
+"activated":{"message":"Aktivirano"},
+"activatedFeatures":{"message":"Aktivirane značajke"},
+"activeFeatures":{"message":"Aktivne značajke"},
+"addScrollToTop":{"message":"Dodaj «Pomaknite se na vrh»"},
+"ads":{"message":"Oglasi"},
+"all":{"message":"Sve"},
+"allow":{"message":"Dopusti"},
+"allow60fps":{"message":"Dopusti 60fps"},
+"alwaysActive":{"message":"Uvijek aktivan"},
+"alwaysShowProgressBar":{"message":"Uvijek prikaži traku napretka"},
+"amber":{"message":"Jantar"},
+"analyzer":{"message":"Analizator"},
+"appearance":{"message":"Izgled"},
+"audioFormats":{"message":"Audio formati"},
+"autoFullscreen":{"message":"Automatski prikaz preko cijelog zaslona"},
+"autopauseWhenSwitchingTabs":{"message":"Automatska pauza prilikom zamjene kartica"},
+"autoplay":{"message":"Auto Play"},
+"backupAndReset":{"message":"Sigurnosna kopija i resetiranje"},
+"baseOnSystemColorScheme":{"message":"Na temelju shema boja sustava"},
+"belowPlayer":{"message":"Ispod Playera"},
+"black":{"message":"Crno"},
+"blocklist":{"message":"Crna lista"},
+"blockAll":{"message":"Blokiraj sve"},
+"blue":{"message":"Plava"},
+"blueGray":{"message":"Plavo siva"},
+"bluelight":{"message":"Svijetlo plava"},
+"brown":{"message":"Smeđa"},
+"browser":{"message":"Preglednik"},
+"browserVersion":{"message":"Verzija preglednika"},
+"bubbles":{"message":"Mjehurići"},
+"bug":{"message":"Greška"},
+"buttons":{"message":"Gumbi"},
+"cancel":{"message":"Otkaži"},
+"categories":{"message":"Kategorije"},
+"channel":{"message":"Kanal"},
+"channels":{"message":"Kanali"},
+"clipboard":{"message":"Međuspremnik"},
+"codecH264":{"message":"Kodek h.264"},
+"collapseOfSubscriptionSections":{"message":"Skupljanje pretplatničkih odjeljaka"},
+"collapsed":{"message":"Skupljeno"},
+"comments":{"message":"Komentari"},
+"confirmationBeforeClosing":{"message":"Potvrda prije zatvaranja"},
+"cookies":{"message":"Kolačići"},
+"cores":{"message":"Jezgre"},
+"cropChapterTitles":{"message":"Izreži naslove poglavlja"},
+"customCss":{"message":"Prilagođeni CSS"},
+"customJs":{"message":"Prilagođeni JS"},
+"customMiniPlayer":{"message":"Prilagođeni Mini-Player"},
+"cyan":{"message":"Cijan"},
+"dark":{"message":"Tamno"},
+"darkTheme":{"message":"Tamna tema"},
+"dateAndTime":{"message":"Datum & vrijeme"},
+"dawn":{"message":"Zora"},
+"decreasePlaybackSpeed":{"message":"Smanji brzinu reprodukcije"},
+"decreaseVolume":{"message":"Smanji glasnoću"},
+"deepOrange":{"message":"Duboko narančasta"},
+"deepPurple":{"message":"Duboko ljubičasta"},
+"defaultChannelTab":{"message":"Zadana kartica kanala"},
+"deleteYoutubeCookies":{"message":"Izbrišite YouTube kolačiće"},
+"desert":{"message":"Zasluga"},
+"details":{"message":"Pojedinosti"},
+"developerOptions":{"message":"Opcije za programere"},
+"device":{"message":"Uređaj"},
+"dim":{"message":"Priguši"},
+"disabled":{"message":"Onemogućeno"},
+"dislike":{"message":"Ne sviđa mi se"},
+"doNotChange":{"message":"Nemoj mijenjati"},
+"donate":{"message":"Doniraj"},
+"draggable":{"message":"Povuci"},
+"email":{"message":"E-mail"},
+"empty":{"message":"Prazno"},
+"enabled":{"message":"Omogućeno"},
+"enabledForced":{"message":"Omogućeno (prisilno)"},
+"expanded":{"message":"Prošireno"},
+"exportSettings":{"message":"Izvoz postavki"},
+"extension":{"message":"Proširenje"},
+"file":{"message":"Datoteka"},
+"filters":{"message":"Filteri"},
+"fitToWindow":{"message":"Prilagodi prozoru"},
+"footer":{"message":"Podnožje"},
+"forceSDR":{"message":"Prisilno SDR"},
+"forcedPlaybackSpeed":{"message":"Prisiljena brzina reprodukcije"},
+"forcedTheaterMode":{"message":"Prisiljen kazališni način"},
+"forcedVolume":{"message":"Prisiljena glasnoća"},
+"foundABug":{"message":"Pronašli ste grešku?"},
+"fullWindow":{"message":"Puni prozor"},
+"general":{"message":"Općenito"},
+"geoPreference":{"message":"Geografske preferencije"},
+"goToSearchBox":{"message":"Idite na okvir za pretraživanje"},
+"green":{"message":"Zelena"},
+"hdThumbnail":{"message":"HD sličica"},
+"header":{"message":"Zaglavlje"},
+"hidden":{"message":"Skriven"},
+"hiddenOnVideoPage":{"message":"Skriveno na stranici videozapisa"},
+"hideAnimatedThumbnails":{"message":"Sakrij animirane sličice"},
+"hideAnnotations":{"message":"Sakrij napomene"},
+"hideCards":{"message":"Sakrij kartice"},
+"hideDetails":{"message":"Sakrij detalje"},
+"hideEndscreen":{"message":"Sakrij završni zaslon"},
+"hideFeaturedContent":{"message":"Sakrij istaknuti sadržaj"},
+"hideFooter":{"message":"Sakrij podnožje"},
+"hideGradientBottom":{"message":"Sakrij sjenu oko trake playera"},
+"hidePlayerControlsBar":{"message":"Sakrij kontrole playera"},
+"hidePlaylist":{"message":"Sakrij popis za reprodukciju"},
+"hideRightButtons":{"message":"Sakrij desne gumbe"},
+"hideScrollForDetails":{"message":"Sakrij «Pomakni za detalje»"},
+"hideSkipOverlay":{"message":"Hide Skip Overlay"},
+"hideThumbnailOverlay":{"message":"Sakrij gumbe na sličicama"},
+"hideViewsCount":{"message":"Sakrij broj pregleda"},
+"history":{"message":"Povijest"},
+"home":{"message":"Početna"},
+"hover":{"message":"Pređite mišem preko"},
+"hoverOnVideoPage":{"message":"Zadržite pokazivač miša na stranici videozapisa"},
+"howLongAgoTheVideoWasUploaded":{"message":"Prije koliko je vremena video prenesen"},
+"icons":{"message":"Ikone"},
+"iconsOnly":{"message":"Samo ikone"},
+"importSettings":{"message":"Uvezi postavke"},
+"improveLogo":{"message":"Poboljšajte logotip"},
+"improvedtubeIconOnYoutube":{"message":"Ikona ImprovedTube na YouTubeu"},
+"improvedtubeLanguage":{"message":"ImprovedTube jezik"},
+"improvedtubeVersion":{"message":"ImprovedTube verzija"},
+"increasePlaybackSpeed":{"message":"Povećajte brzinu reprodukcije"},
+"increaseVolume":{"message":"Povećajte glasnoću"},
+"items":{"message":"Predmeti"},
+"languages":{"message":"Jezici"},
+"legacyYoutube":{"message":"Naslijeđeni YouTube"},
+"light":{"message":"Svjetlo"},
+"lightBlue":{"message":"Svjetlo plava"},
+"lightGreen":{"message":"Svjetlo zelena"},
+"like":{"message":"Sviđa mi se"},
+"lime":{"message":"Limeta"},
+"list":{"message":"Lista"},
+"liveChat":{"message":"Chat uživo"},
+"liveChatType":{"message":"Vrsta chata uživo"},
+"loudnessNormalization":{"message":"Normalizacija glasnoće"},
+"markWatchedVideos":{"message":"Označi pogledane videozapise"},
+"mixer":{"message":"Mikser"},
+"myColors":{"message":"Moje boje"},
+"name":{"message":"Naziv"},
+"nativeMiniPlayer":{"message":"Izvorni mini player"},
+"new":{"message":"Novo"},
+"nextVideo":{"message":"Sljedeći video"},
+"night":{"message":"Noć"},
+"noActiveFeatures":{"message":"Nema aktivnih značajki"},
+"noOpenVideoTabs":{"message":"Nema otvorenih video kartica"},
+"none":{"message":"Nijedna"},
+"normal":{"message":"Normalno"},
+"old":{"message":"Staro"},
+"onAllVideos":{"message":"Na svim video zapisima"},
+"onSubscribedChannels":{"message":"Na pretplaćenim kanalima"},
+"onlyActiveOnYoutube":{"message":"Aktivno samo na YouTubeu"},
+"onlyOnePlayerInstancePlaying":{"message":"Svira samo jedna instanca playera"},
+"openPopupPlayer":{"message":"Otvorite videozapis / popis za reprodukciju u novom prozoru"},
+"orange":{"message":"Narančasto"},
+"other":{"message":"Ostalo"},
+"permissions":{"message":"Dopuštenja"},
+"pictureInPicture":{"message":"Slika u slici"},
+"pink":{"message":"Ružičasto"},
+"plain":{"message":"Jednostavno"},
+"platform":{"message":"Platforma"},
+"playPause":{"message":"Reprodukcija / pauza"},
+"playbackSpeed":{"message":"Brzina reprodukcije"},
+"playerColor":{"message":"Boja playera"},
+"playerSize":{"message":"Veličina playera"},
+"playlist":{"message":"Popis za reprodukciju"},
+"playlists":{"message":"Popisi za reprodukciju"},
+"popupPlayer":{"message":"Player u skočnom prozoru"},
+"position":{"message":"Položaj"},
+"pressAnyKeyOrScroll":{"message":"Pritisnite bilo koju tipku ili upotrijebite kotačić miša."},
+"pressAnyKeyOrUseMouseWheel":{"message":"Pritisnite bilo koju tipku ili upotrijebite kotačić miša"},
+"previousVideo":{"message":"Prethodni videozapis"},
+"primaryColor":{"message":"Primarna boja"},
+"purple":{"message":"Ljubičasta"},
+"quality":{"message":"Kvaliteta"},
+"ram":{"message":"Radna memorija"},
+"rateUs":{"message":"Ocijenite nas"},
+"red":{"message":"Crvena"},
+"redDislikeButton":{"message":"Prikaži ne sviđa mi se botun u crvenoj boji"},
+"relatedVideos":{"message":"Slični videozapisi"},
+"hideHomePageShorts":{"message":"Uklonite Shorts s početne stranice"},
+"removeRelatedSearchResults":{"message":"Uklonite slične rezultate pretraživanja"},
+"removeShortsReelSearchResults":{"message":"Uklonite Shorts kolut iz rezultata pretrage"},
+"repeat":{"message":"Ponovi"},
+"reset":{"message":"Resetiraj"},
+"resetAllSettings":{"message":"Resetirajte sve postavke"},
+"resetAllShortcuts":{"message":"Resetirajte sve prečace"},
+"reverse":{"message":"Preokreni"},
+"rotate":{"message":"Rotiraj"},
+"save":{"message":"Sačuvaj"},
+"saveAs":{"message":"Sačuvaj kao"},
+"schedule":{"message":"Stavi na raspored"},
+"screen":{"message":"Zaslon"},
+"screenshot":{"message":"Snimka zaslona"},
+"search":{"message":"Pretraži"},
+"searchBarOnly":{"message":"Samo traka za pretraživanje"},
+"seekBackward10Seconds":{"message":"Traži unatrag 10 sekundi"},
+"seekForward10Seconds":{"message":"Traži 10 sekundi prema naprijed"},
+"seekNextChapter":{"message":"seekNextChapter"},
+"seekPreviousChapter":{"message":"seekPreviousChapter"},
+"settings":{"message":"Postavke"},
+"settingsSuccessfullyImported":{"message":"Postavke su uspješno uvezene"},
+"shortcuts":{"message":"Prečaci"},
+"showCardsOnMouseHover":{"message":"Pokaži kartice prilikom prelaska miša"},
+"showChannelVideosCount":{"message":"Prikaži broj videozapisa na kanalu"},
+"shuffle":{"message":"Nasumično"},
+"sidebar":{"message":"Bočna traka"},
+"spacebar":{"message":"Tipka razmaka"},
+"squaredUserImages":{"message":"Korisničke slike u kvadratu"},
+"static":{"message":"Statički"},
+"statsForNerds":{"message":"Prikaži statistiku za štrebere"},
+"step":{"message":"Korak"},
+"stop":{"message":"Stani"},
+"style":{"message":"Stil"},
+"styles":{"message":"Stilovi"},
+"subscriptions":{"message":"Pretplate"},
+"subtitles":{"message":"Titlovi"},
+"sunset":{"message":"Zalazak sunca"},
+"sunsetToSunrise":{"message":"Od zalaska do izlaska sunca"},
+"systemPeferenceDark":{"message":"Postavke sustava: tamno"},
+"systemPeferenceLight":{"message":"Postavke sustava: svjetlo"},
+"textColor":{"message":"Boja teksta"},
+"themes":{"message":"Teme"},
+"thisWillRemoveAllCookies":{"message":"Ovo će ukloniti sve kolačiće."},
+"thisWillRemoveAllYouTubeCookies":{"message":"Ovo će ukloniti sve YouTube kolačiće"},
+"thisWillResetAllSettings":{"message":"Ovo će resetirati sve postavke."},
+"thisWillResetAllShortcuts":{"message":"Ovo će resetirati sve prečace"},
+"thumbnails":{"message":"Sličice"},
+"timeFrom":{"message":"Vrijeme od"},
+"timeTo":{"message":"Vrijeme do"},
+"todayAt":{"message":"Danas u"},
+"toggleAutoplay":{"message":"Uključi / isključi automatsku reprodukciju"},
+"toggleCards":{"message":"Uključi / isključi kartice"},
+"toggleControls":{"message":"Uključi / isključi kontrole playera"},
+"trailerAutoplay":{"message":"Automatska reprodukcija kratkog filma"},
+"translations":{"message":"Prijevodi"},
+"transparentBackground":{"message":"Prozirna pozadina"},
+"trending":{"message":"U trendu"},
+"tryToReloadThePage":{"message":"Pokušajte ponovo učitati stranicu"},
+"type":{"message":"Tip"},
+"upNextAutoplay":{"message":"Sljedeća automatska reprodukcija"},
+"use24HourFormat":{"message":"Koristite 24-satni format"},
+"version":{"message":"Verzija"},
+"videoDescriptionWillBeExpandedToGetNameOfCategory":{"message":"Opis videozapisa biti će proširen kako bi se dobio naziv kategorije"},
+"videoFormats":{"message":"Video formati"},
+"videos":{"message":"Videozapisi"},
+"volume":{"message":"Glasnoća"},
+"watchLater":{"message":"Gledaj kasnije"},
+"watchTime":{"message":"Vrijeme gledanja"},
+"whenTabIsChanged":{"message":"Kada se kartica promijeni"},
+"white":{"message":"Bijela"},
+"yellow":{"message":"Žuta"},
+"youtubeHeaderLeft":{"message":"YouTube zaglavlje (lijevo)"},
+"youtubeHeaderRight":{"message":"YouTube zaglavlje (desno)"},
+"youtubeHomePage":{"message":"YouTube početna stranica"},
+"youtubeLanguage":{"message":"YouTube jezik"},
+"youtubeLimitsVideoQualityTo1080pForH264Codec":{"message":"YouTube ograničava kvalitetu videozapisa na 1080p za h.264 kodek"}
 }
