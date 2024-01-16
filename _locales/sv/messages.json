@@ -324,5 +324,5 @@
 "youtubeHomePage":{"message":"YouTube hemsida"},
 "youtubeLanguage":{"message":"YouTube språk"},
 "youtubeLimitsVideoQualityTo1080pForH264Codec":{"message":"YouTube begränsar videokvaliteten till 1080p för h.264-codec."},
-"softwareInformation":{"message":"Programvaruinformation"},
+"softwareInformation":{"message":"Programvaruinformation"}
 }

@@ -353,5 +353,5 @@
 "youtubeHomePage":{"message":"Домашняя страница YouTube"},
 "youtubeLanguage":{"message":"Язык YouTube"},
 "youtubeLimitsVideoQualityTo1080pForH264Codec":{"message":"YouTube ограничивает качество видео до 1080p для кодека H.264"},
-"softwareInformation":{"message":"Информация о программном обеспечении"},
+"softwareInformation":{"message":"Информация о программном обеспечении"}
 }

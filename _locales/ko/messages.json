@@ -288,7 +288,7 @@
 "showVersion":{"message":"버전 표시"},
 "shuffle":{"message":"셔플"},
 "sidebar":{"message":"사이드바"},
-"softwareInformation":{"message":"소프트웨어 정보"}												   
+"softwareInformation":{"message":"소프트웨어 정보"},												   
 "spacebar":{"message":"스페이스바"},
 "squaredUserImages":{"message":"정사각형 프로필 사진"},
 "static":{"message":"밑으로 내릴 때 숨기기"},
