@@ -84,6 +84,7 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 <a href="https://github.com/dthiago" title="✨🏆"><code>dthiago</code></a> 
 <a href="https://github.com/Mike-Correa"><code>Mike-Correa</code></a><br>
 <a href="https://github.com/DavidBrazSan"><code>DavidBrazSan</code></a><br>
+<a href="https://github.com/unnamed-orbert"><code>unnamed-orbert :-(</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json" title="Português">PT</a></code> :
 <a href="https://github.com/DrNopt"><code>DrNopt</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json" title="Bahasa Indonesia">ID</a></code> :
