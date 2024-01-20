@@ -249,12 +249,8 @@
   "playlists": { "message": "플레이리스트" },
   "popupPlayer": { "message": "팝업 플레이어" },
   "position": { "message": "위치" },
-  "pressAnyKeyOrScroll": {
-    "message": "사용할 단축키 또는 마우스 휠을 누르세요."
-  },
-  "pressAnyKeyOrUseMouseWheel": {
-    "message": "사용할 단축키 또는 마우스 휠을 누르세요."
-  },
+  "pressAnyKeyOrScroll": {"message": "사용할 단축키 또는 마우스 휠을 누르세요." },
+  "pressAnyKeyOrUseMouseWheel": {"message": "사용할 단축키 또는 마우스 휠을 누르세요." },
   "previousVideo": { "message": "이전 영상" },
   "primaryColor": { "message": "주 색상" },
   "purple": { "message": "보라" },
@@ -268,9 +264,7 @@
   "remote": { "message": "TV에서 재생" },
   "hideHomePageShorts": { "message": "홈 페이지의 쇼츠 제거" },
   "removeRelatedSearchResults": { "message": "관련 검색 결과 제거" },
-  "removeShortsReelSearchResults": {
-    "message": "검색 결과에서 Shorts 리얼 제거"
-  },
+  "removeShortsReelSearchResults": {"message": "검색 결과에서 Shorts 리얼 제거" },
   "repeat": { "message": "반복" },
   "report": { "message": "신고" },
   "reset": { "message": "리셋" },
@@ -300,7 +294,6 @@
   "showVersion": { "message": "버전 표시" },
   "shuffle": { "message": "셔플" },
   "sidebar": { "message": "사이드바" },
-  "softwareInformation": { "message": "소프트웨어 정보" },
   "spacebar": { "message": "스페이스바" },
   "squaredUserImages": { "message": "정사각형 프로필 사진" },
   "static": { "message": "밑으로 내릴 때 숨기기" },
@@ -320,12 +313,8 @@
   "textColor": { "message": "텍스트 색상" },
   "themes": { "message": "테마" },
   "thisWillRemoveAllCookies": { "message": "모든 쿠키를 삭제합니다." },
-  "thisWillRemoveAllWatchedVideos": {
-    "message": "모든 시청한 영상을 삭제합니다."
-  },
-  "thisWillRemoveAllYouTubeCookies": {
-    "message": "모든 유튜브 쿠키를 삭제합니다."
-  },
+  "thisWillRemoveAllWatchedVideos": { "message": "모든 시청한 영상을 삭제합니다." },
+  "thisWillRemoveAllYouTubeCookies": { "message": "모든 유튜브 쿠키를 삭제합니다." },
   "thisWillResetAllSettings": { "message": "모든 설정을 초기화 합니다." },
   "thisWillResetAllShortcuts": { "message": "모든 단축키를 초기화 합니다." },
   "thumbnails": { "message": "섬네일" },
@@ -348,9 +337,7 @@
   "use24HourFormat": { "message": "24시간 형식 사용" },
   "version": { "message": "버전" },
   "video": { "message": "영상" },
-  "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-    "message": "카테고리의 이름을 얻기 위해 동영상 설명이 확장됩니다"
-  },
+  "videoDescriptionWillBeExpandedToGetNameOfCategory": { "message": "카테고리의 이름을 얻기 위해 동영상 설명이 확장됩니다" },
   "videoFormats": { "message": "동영상 형식" },
   "videos": { "message": "동영상" },
   "viewMode": { "message": "영화관 모드 전환" },
@@ -367,8 +354,6 @@
   "youtubeHeaderRight": { "message": "유튜브 헤더 (오른쪽)" },
   "youtubeHomePage": { "message": "유튜브 홈페이지" },
   "youtubeLanguage": { "message": "유튜브 언어" },
-  "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-    "message": "유튜브는 h.264 코덱에서 비디오 품질을 1080p로 제한합니다."
-  },
+  "youtubeLimitsVideoQualityTo1080pForH264Codec": { "message": "유튜브는 h.264 코덱에서 비디오 품질을 1080p로 제한합니다." },
   "softwareInformation": { "message": "소프트웨어 정보" }
 }

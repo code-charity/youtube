@@ -18,24 +18,16 @@
   "amber": { "message": "Bärnsten" },
   "animations": { "message": "Animationer" },
   "appearance": { "message": "Utseende" },
-  "areYouSureYouWantToExportTheData": {
-    "message": "Är du säker på att du vill exportera data?"
-  },
-  "areYouSureYouWantToImportTheData": {
-    "message": "Är du säker på att du vill importera data?"
-  },
+  "areYouSureYouWantToExportTheData": { "message": "Är du säker på att du vill exportera data?" },
+  "areYouSureYouWantToImportTheData": { "message": "Är du säker på att du vill importera data?" },
   "audio": { "message": "Ljud" },
   "audioFormats": { "message": "Ljudformat" },
   "autoFullscreen": { "message": "Automatisk helskärm" },
-  "autopauseWhenSwitchingTabs": {
-    "message": "Pausa automatiskt när jag inte är i fliken"
-  },
+  "autopauseWhenSwitchingTabs": { "message": "Pausa automatiskt när jag inte är i fliken" },
   "avoidAv1": { "message": "Undvik AV1" },
   "avoidAv1Vp8Vp9": { "message": "Undvik AV1, VP8, VP9" },
   "avoidAv1Vp9": { "message": "Undvik AV1, VP9" },
-  "avoidCpuRenderingWhenPossible": {
-    "message": "Undvik CPU-rendering när det är möjligt"
-  },
+  "avoidCpuRenderingWhenPossible": { "message": "Undvik CPU-rendering när det är möjligt" },
   "backgroundColor": { "message": "Bakgrundsfärg" },
   "backgroundOpacity": { "message": "Opacitet för bakgrund" },
   "backupAndReset": { "message": "Backup och återställning" },
@@ -62,9 +54,7 @@
   "channels": { "message": "Kanaler" },
   "characterEdgeStyle": { "message": "Karaktärsgräns" },
   "clipboard": { "message": "Urklipp" },
-  "collapseOfSubscriptionSections": {
-    "message": "Vik prenumerationernas sektioner (hopfällt dragspel)"
-  },
+  "collapseOfSubscriptionSections": { "message": "Vik prenumerationernas sektioner (hopfällt dragspel)" },
   "collapsed": { "message": "Hopvikt" },
   "comments": { "message": "Kommentarer" },
   "confirmationBeforeClosing": { "message": "Bekräftelse vid stängning" },
@@ -98,9 +88,7 @@
   "doNotChange": { "message": "Ändra ej" },
   "donate": { "message": "Donera" },
   "draggable": { "message": "Flyttbar" },
-  "durationWithSpeed": {
-    "message": "Visa återstående tid i förhållande till uppspelningshastigheten"
-  },
+  "durationWithSpeed": { "message": "Visa återstående tid i förhållande till uppspelningshastigheten" },
   "email": { "message": "E-mail" },
   "empty": { "message": "tomt" },
   "enabled": { "message": "Aktiverad" },
@@ -118,13 +106,9 @@
   "fontSize": { "message": "Teckenstorlek" },
   "footer": { "message": "Sidfot" },
   "forceSDR": { "message": "Undvik HDR, använd SDR" },
-  "forcedPlayVideoFromTheBeginning": {
-    "message": "Tvinga video att spela från början"
-  },
+  "forcedPlayVideoFromTheBeginning": { "message": "Tvinga video att spela från början" },
   "forcedPlaybackSpeed": { "message": "Forcerad uppspelningshastighet" },
-  "forcedPlaybackSpeedMusic": {
-    "message": "(Tvinga uppspelningshastighet även för musik?)"
-  },
+  "forcedPlaybackSpeedMusic": { "message": "(Tvinga uppspelningshastighet även för musik?)" },
   "forcedTheaterMode": { "message": "Påtvingad teaterläge" },
   "forcedVolume": { "message": "Påtvingad volym" },
   "foundABug": { "message": "Hittade ett fel?" },
@@ -152,12 +136,8 @@
   "hideFooter": { "message": "Dölj sidfoten" },
   "hideGradientBottom": { "message": "Dölj skuggor runt spelarfältet" },
   "hidePlayerControlsBar": { "message": "Dölj kontrollfältet för spelare" },
-  "hidePlayerControlsBarButtons": {
-    "message": "Dölj knappar i fältet för spelarkontroller"
-  },
-  "hidePlayerControlsBarOptions": {
-    "message": "Dölj alternativ för spelarkontroll"
-  },
+  "hidePlayerControlsBarButtons": { "message": "Dölj knappar i fältet för spelarkontroller" },
+  "hidePlayerControlsBarOptions": { "message": "Dölj alternativ för spelarkontroll" },
   "hidePlaylist": { "message": "Dölj spellista" },
   "hideRightButtons": { "message": "Dölj högerknappar" },
   "hideScrollForDetails": { "message": "Dölj «Bläddra för detaljer»" },
@@ -171,9 +151,7 @@
   "home": { "message": "Hem" },
   "hover": { "message": "Visa vid muspekning" },
   "hoverOnVideoPage": { "message": "Visa vid muspekning på videosidor" },
-  "howLongAgoTheVideoWasUploaded": {
-    "message": "Visa videons ålder (sedan uppladdningsdatum)"
-  },
+  "howLongAgoTheVideoWasUploaded": { "message": "Visa videons ålder (sedan uppladdningsdatum)" },
   "icons": { "message": "Ikoner" },
   "iconsOnly": { "message": "Endast ikoner" },
   "importSettings": { "message": "Importera inställningar" },
@@ -218,13 +196,9 @@
   "off": { "message": "Av" },
   "old": { "message": "Gammal" },
   "onAllVideos": { "message": "På" },
-  "onSubscribedChannels": {
-    "message": "Av, förutom på mina prenumererade kanaler"
-  },
+  "onSubscribedChannels": { "message": "Av, förutom på mina prenumererade kanaler" },
   "onlyActiveOnYoutube": { "message": "Enbart aktivt på YouTube" },
-  "onlyOnePlayerInstancePlaying": {
-    "message": "Pausa medan jag tittar på en andra video"
-  },
+  "onlyOnePlayerInstancePlaying": { "message": "Pausa medan jag tittar på en andra video" },
   "openPopupPlayer": { "message": "Öppna video/spellista i ny flik" },
   "other": { "message": "Annat" },
   "outline": { "message": "Gräns" },
@@ -243,12 +217,8 @@
   "playlist": { "message": "Spellista" },
   "playlists": { "message": "Spellistor" },
   "popupPlayer": { "message": "Spelare i eget fönster" },
-  "pressAnyKeyOrScroll": {
-    "message": "Tryck på valfri knapp eller använd mushjulet."
-  },
-  "pressAnyKeyOrUseMouseWheel": {
-    "message": "Tryck på valfri knapp eller använd mushjulet."
-  },
+  "pressAnyKeyOrScroll": { "message": "Tryck på valfri knapp eller använd mushjulet." },
+  "pressAnyKeyOrUseMouseWheel": { "message": "Tryck på valfri knapp eller använd mushjulet." },
   "previousVideo": { "message": "Föregående video" },
   "primaryColor": { "message": "Primärfärg" },
   "purple": { "message": "Lila" },
@@ -262,9 +232,7 @@
   "remote": { "message": "Spela på TV" },
   "hideHomePageShorts": { "message": "Ta bort Shorts från startsidan" },
   "removeRelatedSearchResults": { "message": "Ta bort relaterade sökresultat" },
-  "removeShortsReelSearchResults": {
-    "message": "Ta bort Shorts-reel från sökresultaten"
-  },
+  "removeShortsReelSearchResults": { "message": "Ta bort Shorts-reel från sökresultaten" },
   "repeat": { "message": "Repetera" },
   "report": { "message": "Rapportera" },
   "reset": { "message": "Återställ" },
@@ -285,14 +253,10 @@
   "seekNextChapter": { "message": "Sök nästa kapitel" },
   "seekPreviousChapter": { "message": "Sök föregående kapitel" },
   "settings": { "message": "Inställningar" },
-  "settingsSuccessfullyImported": {
-    "message": "Inställningarna har importerats"
-  },
+  "settingsSuccessfullyImported": { "message": "Inställningarna har importerats" },
   "share": { "message": "Dela" },
   "shortcuts": { "message": "Snabbkommandon" },
-  "showCardsOnMouseHover": {
-    "message": "Visa informationskort vid muspekaren"
-  },
+  "showCardsOnMouseHover": { "message": "Visa informationskort vid muspekaren" },
   "showChannelVideosCount": { "message": "Visa antal kanalvideor" },
   "showLess": { "message": "Visa färre" },
   "showMore": { "message": "Visa fler" },
@@ -320,18 +284,10 @@
   "thanks": { "message": "Tack" },
   "themes": { "message": "Teman" },
   "thisWillRemoveAllCookies": { "message": "Detta tar bort alla cookies." },
-  "thisWillRemoveAllWatchedVideos": {
-    "message": "Detta tar bort alla tittade videor."
-  },
-  "thisWillRemoveAllYouTubeCookies": {
-    "message": "Detta tar bort alla YouTube-cookies"
-  },
-  "thisWillResetAllSettings": {
-    "message": "Detta återställer alla inställningar."
-  },
-  "thisWillResetAllShortcuts": {
-    "message": "Detta återställer alla snabbkommandon"
-  },
+  "thisWillRemoveAllWatchedVideos": { "message": "Detta tar bort alla tittade videor." },
+  "thisWillRemoveAllYouTubeCookies": { "message": "Detta tar bort alla YouTube-cookies" },
+  "thisWillResetAllSettings": { "message": "Detta återställer alla inställningar." },
+  "thisWillResetAllShortcuts": { "message": "Detta återställer alla snabbkommandon" },
   "thumbnails": { "message": "Miniatyrbilder" },
   "thumbnailsQuality": { "message": "Kvalitet på miniatyrbilder" },
   "timeFrom": { "message": "Tid från" },
@@ -350,9 +306,7 @@
   "type": { "message": "Typ" },
   "upNextAutoplay": { "message": "Spela nästa video automatiskt" },
   "use24HourFormat": { "message": "Använd 24-timmars format" },
-  "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-    "message": "Videobeskrivningen kommer att utökas för att få namnet på kategorin"
-  },
+  "videoDescriptionWillBeExpandedToGetNameOfCategory": { "message": "Videobeskrivningen kommer att utökas för att få namnet på kategorin" },
   "videoFormats": { "message": "Videoformat" },
   "videos": { "message": "Videor" },
   "viewMode": { "message": "Visningsläge" },
@@ -369,8 +323,6 @@
   "youtubeHeaderRight": { "message": "YouTube rubrik (höger)" },
   "youtubeHomePage": { "message": "YouTube hemsida" },
   "youtubeLanguage": { "message": "YouTube språk" },
-  "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-    "message": "YouTube begränsar videokvaliteten till 1080p för h.264-codec."
-  },
+  "youtubeLimitsVideoQualityTo1080pForH264Codec": { "message": "YouTube begränsar videokvaliteten till 1080p för h.264-codec." },
   "softwareInformation": { "message": "Programvaruinformation" }
 }

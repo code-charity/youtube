@@ -28,9 +28,7 @@
   "deleteWatchedVideos": { "message": "刪除已觀看的影片" },
   "depressed": { "message": "內凹" },
   "description": { "message": "描述" },
-  "description_ext": {
-    "message": "讓 YouTube 更整潔、聰明！YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
-  },
+  "description_ext": { "message": "讓 YouTube 更整潔、聰明！YouTube video color ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist" },
   "desert": { "message": "沙漠" },
   "displayDayOfTheWeak": { "message": "顯示星期幾" },
   "download": { "message": "下載" },
