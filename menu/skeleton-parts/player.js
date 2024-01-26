@@ -1012,9 +1012,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 						component: 'switch',
 						text: 'alwaysActive'
 					},
-		player_fit_to_window_button: {
+		player_fit_to_win_button: {
 			component: 'switch',
-			text: 'player_fit_to_window_button'
+			text: 'player_fit_to_win_button'
 		},
 		player_rotate_button: {
 			component: 'switch',
