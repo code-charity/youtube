@@ -89,19 +89,7 @@ extension.skeleton.main.layers.section.general = {
 					storage: 'ads',
 
 					on: {
-						render: function () {
-							var numberOfSubscribersInput = this.querySelector('.count-component');
-							
-							// Set the initial display of the count component based on the selected value
-							const selectedValue = this.querySelector('select').value;
-							if (selectedValue === 'small_creators') {
-								numberOfSubscribersInput.style.display = 'flex';
-							} else {
-								numberOfSubscribersInput.style.display = 'none';
-							}
-						},
 						change: function (event) {
-							var bkg = chrome.extension.getBackgroundPage();
 							const selectedValue = event.target.value;
 				
 							// Perform actions based on the selected value
@@ -123,49 +111,58 @@ extension.skeleton.main.layers.section.general = {
 					},
 					on: {
 						render: function () {
-						var container = document.createElement('div');
-						container.style.display = 'flex';
-						// Label for the input box
-						var countLabelText = document.createElement('span');
-						countLabelText.textContent = this.text;
-						container.appendChild(countLabelText);
-					
-						// Input box for the number
-						var countInput = createInput('Enter a number...', function (event) {
-							// Save the entered number in the 'adsCount' storage
-							satus.storage.set('smallCreatorsCount', event.target.value);
-						});
-						// countInput.classList.add('count-component');
-						// countInput.style.display = 'block'; // Initially show the input
-					
-						// Set the initial value from storage if available
-						var storedValue = satus.storage.get('smallCreatorsCount');
-						if (storedValue !== undefined) {
-							countInput.value = storedValue;
-						}
-					
-						// Apply a custom width to the input box
-						countInput.style.width = '80px'; // Adjust the width as needed
-					
-						container.appendChild(countInput);
-					
-						// Dropdown list for another selection
-						var selectionDropdown = createSelect([
-							{ text: ' ', value: '1' },
-							{ text: 'K', value: '1000' },
-							{ text: 'M', value: '1000000' }
-						], function (event) {
-							// Handle the selection change as needed
-							satus.storage.set('smallCreatorsUnit', event.target.value);
-						});
+							const selectedValue = satus.storage.get('ads')
+				
+							// Perform actions based on the selected value
+							const numberOfSubscribersInput = this.parentNode.querySelector('.count-component');
+							if (selectedValue === 'small_creators') {
+								numberOfSubscribersInput.style.display = 'flex';
+							} else {
+								numberOfSubscribersInput.style.display = 'none';
+							}
+							var container = document.createElement('div');
+							container.style.display = 'flex';
+							// Label for the input box
+							var countLabelText = document.createElement('span');
+							countLabelText.textContent = this.text;
+							container.appendChild(countLabelText);
+						
+							// Input box for the number
+							var countInput = createInput('Enter a number...', function (event) {
+								// Save the entered number in the 'adsCount' storage
+								satus.storage.set('smallCreatorsCount', event.target.value);
+							});
+							// countInput.classList.add('count-component');
+							// countInput.style.display = 'block'; // Initially show the input
+						
+							// Set the initial value from storage if available
+							var storedValue = satus.storage.get('smallCreatorsCount');
+							if (storedValue !== undefined) {
+								countInput.value = storedValue;
+							}
+						
+							// Apply a custom width to the input box
+							countInput.style.width = '80px'; // Adjust the width as needed
+						
+							container.appendChild(countInput);
+						
+							// Dropdown list for another selection
+							var selectionDropdown = createSelect([
+								{ text: ' ', value: '1' },
+								{ text: 'K', value: '1000' },
+								{ text: 'M', value: '1000000' }
+							], function (event) {
+								// Handle the selection change as needed
+								satus.storage.set('smallCreatorsUnit', event.target.value);
+							});
 
-						var storedValue = satus.storage.get('smallCreatorsUnit');
-						if (storedValue !== undefined) {
-							selectionDropdown.value = storedValue;
-						}
-						container.appendChild(selectionDropdown);
-					
-						this.appendChild(container);
+							var storedValue = satus.storage.get('smallCreatorsUnit');
+							if (storedValue !== undefined) {
+								selectionDropdown.value = storedValue;
+							}
+							container.appendChild(selectionDropdown);
+						
+							this.appendChild(container);
 						}
 					}
 				},

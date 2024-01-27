@@ -10,6 +10,7 @@ if (document.body) {
 }
 
 ImprovedTube.observer = new MutationObserver(function (mutationList) {
+	console.log("the doc element changed")
 	for (var i = 0, l = mutationList.length; i < l; i++) {
 		var mutation = mutationList[i];
 
