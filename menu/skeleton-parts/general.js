@@ -1,3 +1,29 @@
+function createInput(placeholder, onChange) {
+	const input = document.createElement('input');
+	input.type = 'number';
+	input.placeholder = placeholder;
+	input.addEventListener('change', onChange);
+	return input;
+  }
+
+function createSelect(options, changeHandler) {
+	var select = document.createElement('select');
+
+	for (var i = 0; i < options.length; i++) {
+	var option = document.createElement('option');
+	option.text = options[i].text;
+	option.value = options[i].value;
+	select.add(option);
+	}
+
+	// Add change event listener if provided
+	if (changeHandler) {
+	select.addEventListener('change', changeHandler);
+	}
+
+	return select;
+}
+
 /*--------------------------------------------------------------
 >>> GENERAL
 --------------------------------------------------------------*/
@@ -61,31 +87,83 @@ extension.skeleton.main.layers.section.general = {
 						value: 'small_creators'
 					}],
 					storage: 'ads',
-					on: {
-						change: function (event) {
-							var bkg = chrome.extension.getBackgroundPage();
-							const selectedValue = event.target.value;
+
+					// on: {
+					// 	render: function () {
+					// 		var numberOfSubscribersInput = this.querySelector('.count-component');
+							
+					// 		// Set the initial display of the count component based on the selected value
+					// 		const selectedValue = this.querySelector('select').value;
+					// 		if (selectedValue === 'small_creators') {
+					// 			numberOfSubscribersInput.style.display = 'block';
+					// 		} else {
+					// 			numberOfSubscribersInput.style.display = 'none';
+					// 		}
+					// 	},
+					// 	change: function (event) {
+					// 		var bkg = chrome.extension.getBackgroundPage();
+					// 		const selectedValue = event.target.value;
 				
-							// Perform actions based on the selected value
-							const numberOfSubscribersInput = this.parentNode.querySelector('.count-component');
-							if (selectedValue === 'small_creators') {
-							    numberOfSubscribersInput.style.display = 'block';
-							} else {
-							    numberOfSubscribersInput.style.display = 'none';
-							}
-						}
-					}
+					// 		// Perform actions based on the selected value
+					// 		const numberOfSubscribersInput = this.parentNode.querySelector('.count-component');
+					// 		if (selectedValue === 'small_creators') {
+					// 		    numberOfSubscribersInput.style.display = 'block';
+					// 		} else {
+					// 		    numberOfSubscribersInput.style.display = 'none';
+					// 		}
+					// 	}
+					// }
 				},
 				count: {
 					text: 'Maximum number of small creators\' subscribers',
-					component: 'input',
-					type: 'number',
-					placeholder: 'Enter a number...',
-					class: 'count-component',
-					storage: 'adsCount',
-					style: {
-						display: 'none' // Initially hide the input
-					},
+					component: 'div',
+					on: {
+					  render: function () {
+						var container = document.createElement('div');
+						container.style.display = 'flex';
+						// Label for the input box
+						var countLabelText = document.createElement('span');
+						countLabelText.textContent = this.text;
+						container.appendChild(countLabelText);
+				  
+						// Input box for the number
+						var countInput = createInput('Enter a number...', function (event) {
+						  // Save the entered number in the 'adsCount' storage
+						  satus.storage.set('smallCreatorsCount', event.target.value);
+						});
+						countInput.classList.add('count-component');
+						countInput.style.display = 'block'; // Initially show the input
+				  
+						// Set the initial value from storage if available
+						var storedValue = satus.storage.get('smallCreatorsCount');
+						if (storedValue !== undefined) {
+						  countInput.value = storedValue;
+						}
+				  
+						// Apply a custom width to the input box
+						countInput.style.width = '80px'; // Adjust the width as needed
+				  
+						container.appendChild(countInput);
+				  
+						// Dropdown list for another selection
+						var selectionDropdown = createSelect([
+						  { text: ' ', value: '1' },
+						  { text: 'K', value: '1000' },
+						  { text: 'M', value: '1000000' }
+						], function (event) {
+						  // Handle the selection change as needed
+						  satus.storage.set('smallCreatorsUnit', event.target.value);
+						});
+
+						var storedValue = satus.storage.get('smallCreatorsUnit');
+						if (storedValue !== undefined) {
+							selectionDropdown.value = storedValue;
+						}
+						container.appendChild(selectionDropdown);
+				  
+						this.appendChild(container);
+					  }
+					}
 				},
 				search: {
 				component: 'section',

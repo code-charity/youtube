@@ -21,6 +21,10 @@ ImprovedTube.observer = new MutationObserver(function (mutationList) {
 				if(node.nodeName === 'BUTTON' && node.id === 'it-popup-playlist-button') ImprovedTube.playlistPopupUpdate();
 			}
 		}
+		if (mutation.target && mutation.target.id === 'owner-sub-count') {
+			// Extract and store the subscriber count
+			ImprovedTube.extractAndStoreSubscribers();
+		}
 	}
 }).observe(document.documentElement, {
 	attributes: false,
@@ -145,22 +149,3 @@ ImprovedTube.extractAndStoreSubscribers = function () {
 	}
 	// console.log("from custom method: ", ImprovedTube.subscriberCount);
 };
-
-// Create a MutationObserver to observe changes in the document
-var observerrr = new MutationObserver(function (mutations) {
-    mutations.forEach(function (mutation) {
-        // Check if the mutation is related to the subscriber count element
-        if (mutation.target && mutation.target.id === 'owner-sub-count') {
-            // Extract and store the subscriber count
-            ImprovedTube.extractAndStoreSubscribers();
-        }
-    });
-});
-
-// Start observing changes in the document
-observerrr.observe(document.documentElement, {
-    childList: true,
-    subtree: true,
-    characterData: true,
-    attributes: true
-});
