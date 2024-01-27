@@ -435,6 +435,8 @@ ImprovedTube.upNextAutoplay = function () {
 ADS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAds = function (parent) {
+	console.log("from palyerAds");
+	console.log(this.storage.ads);
 	let button = parent.querySelector('.ytp-ad-skip-button.ytp-button') || parent;
 	// TODO: Replace this with centralized video element pointer
 	let video = document.querySelector('.video-stream.html5-main-video') || false;
@@ -452,7 +454,17 @@ ImprovedTube.playerAds = function (parent) {
 		if (ImprovedTube.elements.category === 'music') {
 			skipAd();
 		}
+	} else if (this.storage.ads === 'small_creators'){
+		let userDefiniedLimit = this.storage.adsCount;
+		let subscribersNumber = ImprovedTube.subscriberCount;
+		console.log("this is the number of subs in the ad section: ", subscribersNumber);
+		console.log("selected number is ", userDefiniedLimit);
+		if(subscribersNumber > userDefiniedLimit){
+			console.log("here should skip ad");
+			skipAd();
+		}
 	}
+	console.log("end of playerAds");
 };
 /*------------------------------------------------------------------------------
 AUTO FULLSCREEN

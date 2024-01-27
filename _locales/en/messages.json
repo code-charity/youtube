@@ -262,6 +262,7 @@
 "old":{"message":"Old"},
 "onAllVideos":{"message":"On"},
 "onSubscribedChannels":{"message":"Off, except on my subscribed channels"},
+"onSmallCreators":{"message":"Off, except for small creators"},
 "onlyActiveOnYoutube":{"message":"Only active on YouTube"},
 "onlyOnePlayerInstancePlaying":{"message":"Pause while I watch a 2nd video"},
 "openPopupPlayer":{"message":"Open video/playlist in a new window"},

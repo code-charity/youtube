@@ -56,7 +56,36 @@ extension.skeleton.main.layers.section.general = {
 					}, {
 						text: 'onSubscribedChannels',
 						value: 'subscribed_channels'
-					}], storage: 'ads'
+					}, {
+						text: 'onSmallCreators',
+						value: 'small_creators'
+					}],
+					storage: 'ads',
+					on: {
+						change: function (event) {
+							var bkg = chrome.extension.getBackgroundPage();
+							const selectedValue = event.target.value;
+				
+							// Perform actions based on the selected value
+							const numberOfSubscribersInput = this.parentNode.querySelector('.count-component');
+							if (selectedValue === 'small_creators') {
+							    numberOfSubscribersInput.style.display = 'block';
+							} else {
+							    numberOfSubscribersInput.style.display = 'none';
+							}
+						}
+					}
+				},
+				count: {
+					text: 'Maximum number of small creators\' subscribers',
+					component: 'input',
+					type: 'number',
+					placeholder: 'Enter a number...',
+					class: 'count-component',
+					storage: 'adsCount',
+					style: {
+						display: 'none' // Initially hide the input
+					},
 				},
 				search: {
 				component: 'section',
