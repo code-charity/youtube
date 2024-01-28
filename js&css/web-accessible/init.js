@@ -5,12 +5,10 @@ ImprovedTube.messages.create();
 ImprovedTube.messages.listener();
 
 if (document.body) {
-	console.log("start..");
 	ImprovedTube.childHandler(document.body);
 }
 
 ImprovedTube.observer = new MutationObserver(function (mutationList) {
-	console.log("the doc element changed")
 	for (var i = 0, l = mutationList.length; i < l; i++) {
 		var mutation = mutationList[i];
 
@@ -124,8 +122,7 @@ ImprovedTube.extractAndStoreSubscribers = function () {
     var subscriberCountNode = document.getElementById('owner-sub-count');
 
 	if (subscriberCountNode) {
-		console.log("from extracting the sub num");
-	
+
 		// Extract the subscriber count and store it for further use
 		var subscriberCountText = subscriberCountNode.textContent.trim();
 		var subscriberCount = parseFloat(subscriberCountText.replace(/[^0-9.]/g, ''));
@@ -137,7 +134,5 @@ ImprovedTube.extractAndStoreSubscribers = function () {
 		} 
 
 		ImprovedTube.subscriberCount = subscriberCount;
-
-		console.log('Subscriber Count:', subscriberCount);
 	}
 };
