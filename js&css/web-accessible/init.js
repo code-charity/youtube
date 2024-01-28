@@ -128,25 +128,16 @@ ImprovedTube.extractAndStoreSubscribers = function () {
 	
 		// Extract the subscriber count and store it for further use
 		var subscriberCountText = subscriberCountNode.textContent.trim();
-		var subscriberCount;
+		var subscriberCount = parseFloat(subscriberCountText.replace(/[^0-9.]/g, ''));
 	
 		if (subscriberCountText.includes('K')) {
-			// If the count has 'K' (thousands)
-			subscriberCount = parseFloat(subscriberCountText.replace(/[^0-9.]/g, '')) * 1000;
+			subscriberCount *= 1000;
 		} else if (subscriberCountText.includes('M')) {
-			// If the count has 'M' (millions)
-			subscriberCount = parseFloat(subscriberCountText.replace(/[^0-9.]/g, '')) * 1000000;
-		} else {
-			// If the count is a regular number without 'K' or 'M'
-			subscriberCount = parseFloat(subscriberCountText.replace(/[^0-9.]/g, ''));
-		}
-	
-		// Now, you can use 'subscriberCount' for further processing in your code
-		
-		// Example: Store the subscriber count in the ImprovedTube object
+			subscriberCount *= 1000000;
+		} 
+
 		ImprovedTube.subscriberCount = subscriberCount;
 
 		console.log('Subscriber Count:', subscriberCount);
 	}
-	// console.log("from custom method: ", ImprovedTube.subscriberCount);
 };

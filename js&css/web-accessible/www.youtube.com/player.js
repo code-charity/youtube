@@ -455,19 +455,12 @@ ImprovedTube.playerAds = function (parent) {
 			skipAd();
 		}
 	} else if (this.storage.ads === 'small_creators'){
-		let smallCreatorsCount = this.storage.smallCreatorsCount;
-		let smallCreatorsUnit = this.storage.smallCreatorsUnit;
-
-		let userDefiniedLimit = smallCreatorsCount * parseInt(smallCreatorsUnit);
+		let userDefiniedLimit = this.storage.smallCreatorsCount * parseInt(this.storage.smallCreatorsUnit);
 		let subscribersNumber = ImprovedTube.subscriberCount;
-		while(subscribersNumber == undefined){
-			console.log("it is undef");
-			subscribersNumber = ImprovedTube.subscriberCount;
-		}
 		console.log("this is the number of subs in the ad section: ", subscribersNumber);
 		console.log("selected number is ", userDefiniedLimit);
 		if(subscribersNumber > userDefiniedLimit){
-			console.log("here should skip ad");
+			console.log("######## here should skip ad");
 			skipAd();
 		}
 	}
