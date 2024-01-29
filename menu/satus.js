@@ -3215,10 +3215,10 @@ satus.components.countComponent = function (component) {
     component.style.display = satus.storage.get('ads') === 'small_creators' ? 'flex' : 'none';
 
     const countLabelText = document.createElement('span');
-    countLabelText.textContent = 'Maximum number of small creators\' subscribers';
+    countLabelText.textContent = 'Maximum number of subscribers';
     component.appendChild(countLabelText);
 
-    const countInput = createInput('Enter a number...', function (event) {
+    const countInput = createInput('130000', function (event) {
         satus.storage.set('smallCreatorsCount', event.target.value);
     });
 
@@ -3229,6 +3229,8 @@ satus.components.countComponent = function (component) {
     }
 
     countInput.style.width = '80px';
+	countInput.style.height = '22px';
+	countInput.style.fontSize = '12px';
 
     component.appendChild(countInput);
 
