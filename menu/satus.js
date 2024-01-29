@@ -3182,3 +3182,67 @@ satus.search = function(query, object, callback) {
 
 	parse(object);
 };
+/*--------------------------------------------------------------
+# count
+--------------------------------------------------------------*/
+function createInput(placeholder, onChange) {
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.placeholder = placeholder;
+    input.addEventListener('change', onChange);
+    return input;
+}
+
+function createSelect(options, changeHandler) {
+    const select = document.createElement('select');
+
+    for (const optionData of options) {
+        const option = document.createElement('option');
+        option.text = optionData.text;
+        option.value = optionData.value;
+        select.add(option);
+    }
+
+    // Add change event listener if provided
+    if (changeHandler) {
+        select.addEventListener('change', changeHandler);
+    }
+
+    return select;
+}
+
+satus.components.countComponent = function (component) {
+    component.style.display = satus.storage.get('ads') === 'small_creators' ? 'flex' : 'none';
+
+    const countLabelText = document.createElement('span');
+    countLabelText.textContent = 'Maximum number of small creators\' subscribers';
+    component.appendChild(countLabelText);
+
+    const countInput = createInput('Enter a number...', function (event) {
+        satus.storage.set('smallCreatorsCount', event.target.value);
+    });
+
+    // Set the initial value from storage if available
+    const storedValue = satus.storage.get('smallCreatorsCount');
+    if (storedValue !== undefined) {
+        countInput.value = storedValue;
+    }
+
+    countInput.style.width = '80px';
+
+    component.appendChild(countInput);
+
+    const selectionDropdown = createSelect([
+        { text: ' ', value: '1' },
+        { text: 'K', value: '1000' },
+        { text: 'M', value: '1000000' }
+    ], function (event) {
+        satus.storage.set('smallCreatorsUnit', event.target.value);
+    });
+
+    const storedUnitValue = satus.storage.get('smallCreatorsUnit');
+    if (storedUnitValue !== undefined) {
+        selectionDropdown.value = storedUnitValue;
+    }
+    component.appendChild(selectionDropdown);
+};

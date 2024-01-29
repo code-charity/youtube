@@ -20,6 +20,10 @@ ImprovedTube.observer = new MutationObserver(function (mutationList) {
 				if(node.nodeName === 'BUTTON' && node.id === 'it-popup-playlist-button') ImprovedTube.playlistPopupUpdate();
 			}
 		}
+		if (mutation.target && mutation.target.id === 'owner-sub-count') {
+			// Extract and store the subscriber count
+			ImprovedTube.extractAndStoreSubscribers();
+		}
 	}
 }).observe(document.documentElement, {
 	attributes: false,
@@ -110,5 +114,25 @@ window.addEventListener('load', function () {
 	ImprovedTube.improvedtubeYoutubeIcon(); 	
 		if (document.documentElement.dataset.pageType === 'home' &&  ImprovedTube.storage.youtube_home_page === 'search' )
 		{ document.querySelector('body').style.setProperty('visibility', 'visible', 'important');ImprovedTube.shortcutGoToSearchBox(); document.querySelector('#search').click(); }
-		//document.querySelector('#content, #guide[opened]').remove() }  
+		//document.querySelector('#content, #guide[opened]').remove() } 	
 });
+
+// Function to extract and store the number of subscribers
+ImprovedTube.extractAndStoreSubscribers = function () {
+    var subscriberCountNode = document.getElementById('owner-sub-count');
+
+	if (subscriberCountNode) {
+
+		// Extract the subscriber count and store it for further use
+		var subscriberCountText = subscriberCountNode.textContent.trim();
+		var subscriberCount = parseFloat(subscriberCountText.replace(/[^0-9.]/g, ''));
+	
+		if (subscriberCountText.includes('K')) {
+			subscriberCount *= 1000;
+		} else if (subscriberCountText.includes('M')) {
+			subscriberCount *= 1000000;
+		} 
+
+		ImprovedTube.subscriberCount = subscriberCount;
+	}
+};

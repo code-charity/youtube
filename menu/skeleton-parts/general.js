@@ -56,7 +56,29 @@ extension.skeleton.main.layers.section.general = {
 					}, {
 						text: 'onSubscribedChannels',
 						value: 'subscribed_channels'
-					}], storage: 'ads'
+					}, {
+						text: 'onSmallCreators',
+						value: 'small_creators'
+					}],
+					storage: 'ads',
+
+					on: {
+						change: function (event) {
+							const selectedValue = event.target.value;
+				
+							// Perform actions based on the selected value
+							const numberOfSubscribersInput = this.parentNode.querySelector('.count-component');
+							if (selectedValue === 'small_creators') {
+								numberOfSubscribersInput.style.display = 'flex';
+							} else {
+								numberOfSubscribersInput.style.display = 'none';
+							}
+						}
+					}
+				},
+				count: {
+					component: 'countComponent',
+					class: "count-component",
 				},
 				search: {
 				component: 'section',

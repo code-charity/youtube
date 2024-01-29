@@ -452,6 +452,12 @@ ImprovedTube.playerAds = function (parent) {
 		if (ImprovedTube.elements.category === 'music') {
 			skipAd();
 		}
+	} else if (this.storage.ads === 'small_creators'){
+		let userDefiniedLimit = this.storage.smallCreatorsCount * parseInt(this.storage.smallCreatorsUnit);
+		let subscribersNumber = ImprovedTube.subscriberCount;
+		if(subscribersNumber > userDefiniedLimit){
+			skipAd();
+		}
 	}
 };
 /*------------------------------------------------------------------------------
