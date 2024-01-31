@@ -193,8 +193,9 @@ document.addEventListener('it-message-from-extension', function () {
 			};
 			if (camelized_key === 'blocklistActivate') {
 				camelized_key = 'blocklist';
-			} else if (camelized_key === 'playerForcedPlaybackSpeed') {
-				camelized_key = 'playerPlaybackSpeed';
+			} else if (camelized_key === 'playerPlaybackSpeed'  || camelized_key === 'playerForcedPlaybackSpeed') 
+				{ if ( ImprovedTube.storage.player_forced_playback_speed === true ) { ImprovedTube.elements.player.setPlaybackRate(Number(ImprovedTube.storage.player_playback_speed));	ImprovedTube.elements.player.querySelector('video').playbackRate = Number(ImprovedTube.storage.player_playback_speed) }
+				  if ( ImprovedTube.storage.player_forced_playback_speed === false) { ImprovedTube.elements.player.setPlaybackRate(Number(1));	ImprovedTube.elements.player.querySelector('video').playbackRate = Number(1) }
 			} else if (camelized_key === 'theme') {
 				ImprovedTube.myColors();
 				ImprovedTube.setTheme();

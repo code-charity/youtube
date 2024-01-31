@@ -14,11 +14,11 @@ ImprovedTube.autoplay = function () {
             (/* document.documentElement.dataset.pageType === "video" */ location.href.indexOf('/watch?') !== -1 && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) || (ImprovedTube.storage.playlist_autoplay === false && location.href.indexOf('list=') !== -1))) ||
             (/* document.documentElement.dataset.pageType === "channel" */ ImprovedTube.regex.channel.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
         )
-    ) {
-        setTimeout(function () {
-         video.pauseVideo();     //console.log("autoplayyOFFFF");
-        });
-    }
+    )         
+	{if (!ImprovedTube.autoplayDeniedOnce) {  
+	 setTimeout(function () {  video.pauseVideo();  });        
+	 ImprovedTube.autoplayDeniedOnce = true; 
+	} else { console.log("autoplay:off - should we pause here again?"); } }
 };
 /*------------------------------------------------------------------------------
 FORCED PLAY VIDEO FROM THE BEGINNING
@@ -60,7 +60,7 @@ ImprovedTube.playerAutoPip = function () {
 			  }
 		  })();
 		}
-};
+}
 /*------------------------------------------------------------------------------
 FORCED PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
@@ -452,12 +452,6 @@ ImprovedTube.playerAds = function (parent) {
 		if (ImprovedTube.elements.category === 'music') {
 			skipAd();
 		}
-	} else if (this.storage.ads === 'small_creators'){
-		let userDefiniedLimit = this.storage.smallCreatorsCount * parseInt(this.storage.smallCreatorsUnit);
-		let subscribersNumber = ImprovedTube.subscriberCount;
-		if(subscribersNumber > userDefiniedLimit){
-			skipAd();
-		}
 	}
 };
 /*------------------------------------------------------------------------------
@@ -517,17 +511,36 @@ ImprovedTube.playerQuality = function () {
 FORCED VOLUME
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerVolume = function () {
-	if (this.storage.player_forced_volume === true) {
-		var volume = this.storage.player_volume;
+    if (this.storage.player_forced_volume === true) {
+        var volume = this.storage.player_volume;
 
-		if (!this.isset(volume)) {
-			volume = 100;
-		} else {
-			volume = Number(volume);
-		}
+        if (!this.isset(volume)) {
+            volume = 100;
+        } else {
+            volume = Number(volume);
+        }
 
-		this.elements.player.setVolume(volume);
-	}
+        if (!this.audioContextGain && volume <= 100) {
+            if (this.audioContext) {
+                this.audioContext.close();
+            }
+
+            this.elements.player.setVolume(volume);
+        } else {
+            if (!this.audioContext) {
+                this.audioContext = new AudioContext();
+
+                this.audioContextSource = this.audioContext.createMediaElementSource(document.querySelector('video'));
+                this.audioContextGain = this.audioContext.createGain();
+
+                this.audioContextGain.gain.value = 1;
+                this.audioContextSource.connect(this.audioContextGain);
+                this.audioContextGain.connect(this.audioContext.destination)
+            }
+			if (this.elements.player.getVolume() !== 100) { this.elements.player.setVolume(100);}
+            this.audioContextGain.gain.value = volume / 100;
+        }
+    }
 };
 /*------------------------------------------------------------------------------
 LOUDNESS NORMALIZATION

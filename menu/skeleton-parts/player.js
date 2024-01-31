@@ -96,7 +96,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'slider',
 			text: 'volume',
 			step: 1,
-			max: 400,
+			max: 350,
 			value: 100
 		},
 		player_loudness_normalization: {
@@ -123,7 +123,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			textarea: true,
 			value: 1,
 			min: .1,
-			max: 2.8,
+			max: 2.77,
 			step: .05
 		},
 		autoplay: {

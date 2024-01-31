@@ -51,14 +51,14 @@ extension.skeleton.main.layers.section.general = {
 						text: 'blockAll',
 						value: 'block_all'
 					}, {
-						text: 'blockMusic',
-						value: 'block_music'
+						text: 'onSmallCreators',
+						value: 'small_creators'
 					}, {
 						text: 'onSubscribedChannels',
 						value: 'subscribed_channels'
 					}, {
-						text: 'onSmallCreators',
-						value: 'small_creators'
+						text: 'blockMusic',
+						value: 'block_music'
 					}],
 					storage: 'ads',
 
@@ -83,7 +83,7 @@ extension.skeleton.main.layers.section.general = {
 				search: {
 				component: 'section',
 				variant: 'card',
-				text: 'Youtube_Search',
+				title: 'Youtube_Search',
 				remove_related_search_results: {
 					component: 'switch',
 					text: 'removeRelatedSearchResults'

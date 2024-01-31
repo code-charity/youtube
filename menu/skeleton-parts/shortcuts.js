@@ -279,12 +279,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 				shortcut_stats_for_nerds: {
 					component: 'shortcut',
 					text: 'statsForNerds'
-				}
-			},
-			section: {
-				component: 'section',
-				variant: 'card',
-
+				},
 				picture_in_picture: {
 					component: 'shortcut',
 					text: 'pictureInPicture',
@@ -317,7 +312,14 @@ extension.skeleton.main.layers.section.shortcuts = {
 							}
 						}
 					}
-				},
+				}
+			},
+			section: {
+				component: 'section',
+				variant: 'card',
+				title: 'YouTube',
+				
+				
 				shortcut_go_to_search_box: {
 					component: 'shortcut',
 					text: 'goToSearchBox',

@@ -396,7 +396,6 @@ ImprovedTube.shortcutSeekNextChapter = function () {
 /*------------------------------------------------------------------------------
 4.7.12 SEEK PREVIOUS CHAPTER
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutSeekPreviousChapter = function () {
 	if (this.elements.player) {
 		var player = this.elements.player,
@@ -429,7 +428,6 @@ ImprovedTube.shortcutSeekPreviousChapter = function () {
 /*------------------------------------------------------------------------------
 4.7.13 INCREASE VOLUME
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutIncreaseVolume = function () {
 	var player = this.elements.player,
 		value = Number(this.storage.shortcut_volume_step) || 5;
@@ -451,12 +449,9 @@ ImprovedTube.shortcutIncreaseVolume = function () {
 		this.showStatus(player.getVolume());
 	}
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.14 DECREASE VOLUME
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutDecreaseVolume = function () {
 	var player = this.elements.player,
 		value = Number(this.storage.shortcut_volume_step) || 5;
@@ -479,54 +474,62 @@ ImprovedTube.shortcutDecreaseVolume = function () {
 	}
 };
 
-
 /*------------------------------------------------------------------------------
 4.7.15 SCREENSHOT
 ------------------------------------------------------------------------------*/
-
-ImprovedTube.shortcutScreenshot = function () {
-	this.screenshot();
-};
-
+ImprovedTube.shortcutScreenshot = function () {	this.screenshot();};
 
 /*------------------------------------------------------------------------------
 4.7.16 INCREASE PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutIncreasePlaybackSpeed = function () {
-	var video = this.elements.video,
-		value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
-
-	if (video) {
+	value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
+// original:	
+	var video = this.elements.video;
+	if (video) {if ( video.playbackRate){
 				if ( video.playbackRate < 1 && video.playbackRate > 1-ImprovedTube.storage.shortcut_playback_speed_step ) {  
                  video.playbackRate =  1 } // aligning at 1.0 independent of minimum
 		  else { video.playbackRate = Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
 					  }        	        
 		ImprovedTube.showStatus(video.playbackRate);
-	}
-};
-
+	} else {// alternative:
+	var player = this.elements.player;
+		if (player) {
+				if (  player.getPlaybackRate() < 1 &&  player.getPlaybackRate() > 1-ImprovedTube.storage.shortcut_playback_speed_step ) {  
+                  player.setPlaybackRate(1) } // aligning at 1.0 independent of minimum
+		  else { player.setPlaybackRate(Math.max(Number((player.getPlaybackRate() + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1))
+					  }        	        
+		ImprovedTube.showStatus(player.getPlaybackRate());
+}}}};
 /*------------------------------------------------------------------------------
 4.7.17 DECREASE PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
-	var video = this.elements.video,
-		value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
-
+	value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
+// original:
+	var video = this.elements.video;
 	if (video) {
+		if (video.playbackRate){
 			if ( video.playbackRate < 0.1+ImprovedTube.storage.shortcut_playback_speed_step ) {  
 		    video.playbackRate =  video.playbackRate*0.7 } // slow down near minimum
 	  else { video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
 		    }
 		ImprovedTube.showStatus(video.playbackRate);
-	}
-};
+	}		
+	else {
+	// alternative:
+	var player = this.elements.player;
+	if (player) {
+			if ( player.getPlaybackRate() < 0.1+ImprovedTube.storage.shortcut_playback_speed_step ) {  
+		    player.setPlaybackRate(player.getPlaybackRate()*0.7) } // slow down near minimum
+	  else { player.setPlaybackRate(Math.max(Number((player.getPlaybackRate()  - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1))
+		    }
+		ImprovedTube.showStatus(player.getPlaybackRate());
+}}}};
 
 /*------------------------------------------------------------------------------
 4.7.18 RESET PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutResetPlaybackSpeed = function () {
 	var video = this.elements.video;
 
@@ -540,7 +543,6 @@ ImprovedTube.shortcutResetPlaybackSpeed = function () {
 /*------------------------------------------------------------------------------
 4.7.19 GO TO SEARCH BOX
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutGoToSearchBox = function () {
 	var search = document.querySelector('input#search');
 	if (search) {
@@ -551,18 +553,15 @@ ImprovedTube.shortcutGoToSearchBox = function () {
 /*------------------------------------------------------------------------------
 4.7.20 ACTIVATE FULLSCREEN
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutActivateFullscreen = function () {
 	if (this.elements.player) {
 		this.elements.player.toggleFullscreen();
 	}
 };
 
-
 /*------------------------------------------------------------------------------
 4.7.21 ACTIVATE CAPTIONS
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutActivateCaptions = function () {
 	var player = this.elements.player;
 
@@ -572,13 +571,12 @@ ImprovedTube.shortcutActivateCaptions = function () {
 };
 
 /*------Chapters------*/
-
 ImprovedTube.shortcutChapters = function () {	
           try{var height = document.querySelector('*[target-id*=chapters]').clientHeight;}catch{}
           if (height) {try{document.querySelector('*[target-id*=chapters] #visibility-button button').click();   console.log("chapters shortcut close")} catch{}}	
 		  else   { try{document.querySelector('*[target-id*=chapters]').removeAttribute('visibility');   console.log("chapters shortcut open")} catch{} }
 };			
-		
+	
 /*------Transcript------*/
 ImprovedTube.shortcutTranscript = function () {	
           try{var height = document.querySelector('*[target-id*=transcript]').clientHeight;}catch{}
@@ -589,7 +587,6 @@ ImprovedTube.shortcutTranscript = function () {
 /*------------------------------------------------------------------------------
 4.7.22 LIKE
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutLike = function () {
 	var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer button')[0]);
 	if (like) {
@@ -597,11 +594,9 @@ ImprovedTube.shortcutLike = function () {
 	}
 };
 
-
 /*------------------------------------------------------------------------------
 4.7.23 DISLIKE
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutDislike = function () {
 	var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer button')[1]);
 	if (like) {
@@ -610,7 +605,6 @@ ImprovedTube.shortcutDislike = function () {
 };
 
 /*------Report------*/
-
 ImprovedTube.shortcutReport = function () {
 try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); 
     document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
@@ -627,22 +621,18 @@ setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEa
   setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed2");}},1700)}},700)
 }
 
-
 /*------------------------------------------------------------------------------
 4.7.24 SUBSCRIBE
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutSubscribe = function () {
 	if (this.elements.subscribe_button) {
 		this.elements.subscribe_button.click();
 	}
 };
 
-
 /*------------------------------------------------------------------------------
 4.7.25 DARK THEME
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutDarkTheme = function () {
 
 	if (document.documentElement.hasAttribute('dark')) {
