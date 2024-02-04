@@ -132,7 +132,6 @@ extension.importSettings = function () {
 
 								file_reader.onload = function () {
 									var data = JSON.parse(this.result);
-
 									for (var key in data) {
 										satus.storage.set(key, data[key]);
 									}
@@ -159,3 +158,60 @@ extension.importSettings = function () {
 		}, extension.skeleton.rendered);
 	}
 };
+
+
+/*--------------------------------------------------------------
+# sync SETTINGS
+--------------------------------------------------------------*/
+
+extension.pushSettings = function () {
+	satus.render({
+		component: 'modal',
+		variant: 'confirm',
+		content: 'areYouSureYouWantToSyncTheDataToTheCloud',
+		buttons: {
+			cancel: {
+				component: 'button',
+				text: 'cancel',
+				on: {
+					click: function () {
+						this.modalProvider.close();
+					}
+				}
+			},
+			ok: {
+				component: 'button',
+				text: 'ok',
+				on: {
+					click: function () {
+						try {
+							var blob = JSON.stringify(satus.storage.data);
+							chrome.storage.sync.clear();
+							chrome.storage.sync.set({settings: blob});
+						} catch (error) {
+							console.error(error);
+						}
+					}
+				}
+			}
+		}
+	}, extension.skeleton.rendered);
+}
+
+extension.pullSettings = function () {
+	chrome.storage.sync.get('settings', function (r) {
+		var data = JSON.parse(r['settings']);
+		for (var key in data) {
+			satus.storage.set(key, data[key]);
+		}
+		setTimeout(function () {
+			chrome.runtime.sendMessage({
+				action: 'import-settings'
+			});
+
+			setTimeout(function () {
+				close();
+			}, 128);
+		}, 256);
+	});
+}
