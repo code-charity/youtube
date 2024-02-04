@@ -94,15 +94,36 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			value: 'default',
 			checked: true
 		}
-	},
-	dark: {
+	},	
+	black: {
 		component: 'label',
-		variant: 'dark-theme',
-		text: 'dark',
+		variant: 'black-theme',
+		text: 'black',
+
 		radio: {
 			component: 'radio',
 			group: 'theme',
-			value: 'dark'
+			value: 'black'
+		}
+	},
+	desert: {
+		component: 'label',
+		variant: 'desert-theme',
+		text: 'desert',
+		radio: {
+			component: 'radio',
+			group: 'theme',
+			value: 'desert'
+		}
+	},
+	sunset: {
+		component: 'label',
+		variant: 'sunset-theme',
+		text: 'sunset',
+		radio: {
+			component: 'radio',
+			group: 'theme',
+			value: 'sunset'
 		}
 	},
 	night: {
@@ -116,17 +137,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			value: 'night'
 		}
 	},
-	black: {
-		component: 'label',
-		variant: 'black-theme',
-		text: 'black',
-
-		radio: {
-			component: 'radio',
-			group: 'theme',
-			value: 'black'
-		}
-	},
 	dawn: {
 		component: 'label',
 		variant: 'dawn-theme',
@@ -138,26 +148,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			value: 'dawn'
 		}
 	},
-	sunset: {
-		component: 'label',
-		variant: 'sunset-theme',
-		text: 'sunset',
-		radio: {
-			component: 'radio',
-			group: 'theme',
-			value: 'sunset'
-		}
-	},
-	desert: {
-		component: 'label',
-		variant: 'desert-theme',
-		text: 'desert',
-		radio: {
-			component: 'radio',
-			group: 'theme',
-			value: 'desert'
-		}
-	},
 	plain: {
 		component: 'label',
 		variant: 'plain-theme',
@@ -167,6 +157,16 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			component: 'radio',
 			group: 'theme',
 			value: 'plain'
+		}
+	},
+	dark: {
+		component: 'label',
+		variant: 'dark-theme',
+		text: 'youtubesDark',
+		radio: {
+			component: 'radio',
+			group: 'theme',
+			value: 'dark'
 		}
 	},
 };
