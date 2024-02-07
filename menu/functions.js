@@ -168,7 +168,7 @@ extension.pushSettings = function () {
 	satus.render({
 		component: 'modal',
 		variant: 'confirm',
-		content: 'areYouSureYouWantToSyncTheDataToTheCloud',
+		content: 'areYouSureYouWantToSyncTheData',
 		buttons: {
 			cancel: {
 				component: 'button',
@@ -185,12 +185,13 @@ extension.pushSettings = function () {
 				on: {
 					click: function () {
 						try {
-							var blob = JSON.stringify(satus.storage.data);
 							chrome.storage.sync.clear();
+							var blob = JSON.stringify(satus.storage.data);
 							chrome.storage.sync.set({settings: blob});
 						} catch (error) {
 							console.error(error);
 						}
+						this.modalProvider.close();
 					}
 				}
 			}
@@ -199,19 +200,36 @@ extension.pushSettings = function () {
 }
 
 extension.pullSettings = function () {
-	chrome.storage.sync.get('settings', function (r) {
-		var data = JSON.parse(r['settings']);
-		for (var key in data) {
-			satus.storage.set(key, data[key]);
-		}
-		setTimeout(function () {
-			chrome.runtime.sendMessage({
-				action: 'import-settings'
-			});
 
-			setTimeout(function () {
-				close();
-			}, 128);
-		}, 256);
-	});
+	satus.render({
+		component: 'modal',
+		variant: 'confirm',
+		content: 'areYouSureYouWantToImportTheData',
+		buttons: {
+			cancel: {
+				component: 'button',
+				text: 'cancel',
+				on: {
+					click: function () {
+						this.modalProvider.close();
+					}
+				}
+			},
+			ok: {
+				component: 'button',
+				text: 'ok',
+				on: {
+					click: function () {
+						chrome.storage.sync.get('settings', function (r) {
+							var data = JSON.parse(r['settings']);
+							for (var key in data) {
+								satus.storage.set(key, data[key]);
+							}
+						});
+						this.modalProvider.close();
+					}
+				}
+			}
+		}
+	}, extension.skeleton.rendered);
 }
