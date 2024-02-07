@@ -681,10 +681,10 @@ ImprovedTube.playerRepeatButton = function (node) {
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
 		path.setAttributeNS(null, 'd', 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z');
 		svg.appendChild(path);
-		var otherButton = document.querySelector('.improvedtube-player-button');
+		var otherButton = document.querySelector('#it-below-player-loop');
 
 		function matchLoopState(opacity) {
-			var otherButton = document.querySelector('.improvedtube-player-button');
+			var otherButton = document.querySelector('#it-below-player-loop');
 			if (otherButton) {
 				otherButton.children[0].style.opacity = opacity;
 				svg.style.opacity = opacity;

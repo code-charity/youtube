@@ -339,6 +339,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 			button.className = 'improvedtube-player-button';
+            button.id = 'it-below-player-loop';
 			button.dataset.tooltip = 'Loop';
             svg.style.opacity = '.5';
 			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
