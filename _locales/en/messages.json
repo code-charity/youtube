@@ -432,6 +432,7 @@
 "Feature_not_yet_available":{"message":"Feature not yet available"},
 "Grey":{"message":"Grey"},
 "Remove":{"message":"Remove"},
-"Extra_Buttons_below_The_Player":{"message":"Extra buttons below the player"}
+"Extra_Buttons_below_The_Player":{"message":"Extra buttons below the player"},
+"columns": {"message":"Extra sidebar column/s (if your screen window is wide)"}
 }
 
