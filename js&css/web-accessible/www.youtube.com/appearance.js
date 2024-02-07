@@ -347,14 +347,11 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
             var otherButton = document.querySelector('#it-repeat-button');
 
             function matchLoopState(opacity) {
-                var otherButton = document.querySelector('#it-repeat-button');
-                if (otherButton) {
+                if (ImprovedTube.storage.player_repeat_button === true) {
+                    var otherButton = document.querySelector('#it-repeat-button');
                     otherButton.children[0].style.opacity = opacity;
-                    svg.style.opacity = opacity;
                 }
-                else {
-                    svg.style.opacity = opacity;
-                }
+                svg.style.opacity = opacity;
             }
 
 			button.onclick = function () {
@@ -373,11 +370,13 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 			svg.appendChild(path); 	button.appendChild(svg);
 			section.insertAdjacentElement('afterend', button)
 
-            if(otherButton && otherButton.children[0].style.opacity === '1') {
-                var video = ImprovedTube.elements.video;
-                matchLoopState('1');
-                if (!video.hasAttribute('loop')) {
-                    video.setAttribute('loop', '');
+            if(ImprovedTube.storage.player_repeat_button === true) {
+                if (document.querySelector('#it-repeat-button').style.opacity === '1') {
+                    matchLoopState('1');
+                    var video = ImprovedTube.elements.video;
+                    if (!video.hasAttribute('loop')) {
+                        video.setAttribute('loop', '');
+                    }
                 }
             }
 		}
