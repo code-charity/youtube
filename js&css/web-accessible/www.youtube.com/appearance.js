@@ -330,34 +330,30 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 		||  this.storage.description == "classic_expanded" || this.storage.description == "classic_hidden"  )
 	   {var section = document.querySelector('#flex.ytd-video-primary-info-renderer');}
    */
-	if (section && !document.querySelector('.improvedtube-player-button')) {
-
-
+	if (section && !section.querySelector('.improvedtube-player-button')) {
 		if (this.storage.below_player_loop !== false) {
 			var button = document.createElement('button'),
 				svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-
+		                var transparentOrOn = .5; if (this.storage.player_always_repeat === true ) { transparentOrOn = 1; }
 			button.className = 'improvedtube-player-button';
             button.id = 'it-below-player-loop';
 			button.dataset.tooltip = 'Loop';
-            svg.style.opacity = '.5';
+            svg.style.opacity = transparentOrOn;
 			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
 			path.setAttributeNS(null, 'd', 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z');
-            var otherButton = document.querySelector('#it-repeat-button');
-
-            function matchLoopState(opacity) {
-                if (ImprovedTube.storage.player_repeat_button === true) {
-                    var otherButton = document.querySelector('#it-repeat-button');
-                    otherButton.children[0].style.opacity = opacity;
-                }
-                svg.style.opacity = opacity;
-            }
 
 			button.onclick = function () {
 				var video = ImprovedTube.elements.video,
 					svg = this.children[0];
 
+            function matchLoopState(opacity) {
+		    svg.style.opacity = opacity;
+                    if (ImprovedTube.storage.player_repeat_button === true) {
+                   	 var otherButton = document.querySelector('#it-repeat-button');
+                    	 otherButton.children[0].style.opacity = opacity;
+          	        }
+	            }
 				if (video.hasAttribute('loop')) {
 					video.removeAttribute('loop');
                     matchLoopState('.5')
@@ -369,16 +365,6 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
             
 			svg.appendChild(path); 	button.appendChild(svg);
 			section.insertAdjacentElement('afterend', button)
-
-            if(ImprovedTube.storage.player_repeat_button === true) {
-                if (document.querySelector('#it-repeat-button').style.opacity === '1') {
-                    matchLoopState('1');
-                    var video = ImprovedTube.elements.video;
-                    if (!video.hasAttribute('loop')) {
-                        video.setAttribute('loop', '');
-                    }
-                }
-            }
 		}
 			if (this.storage.below_player_pip !== false) {
 			var button = document.createElement('button'),
