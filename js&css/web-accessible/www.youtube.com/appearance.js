@@ -339,10 +339,20 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 			button.className = 'improvedtube-player-button';
+            button.id = 'it-below-player-loop';
 			button.dataset.tooltip = 'Loop';
-			svg.style.opacity = '.5';
+            svg.style.opacity = '.5';
 			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
 			path.setAttributeNS(null, 'd', 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z');
+            var otherButton = document.querySelector('#it-repeat-button');
+
+            function matchLoopState(opacity) {
+                if (ImprovedTube.storage.player_repeat_button === true) {
+                    var otherButton = document.querySelector('#it-repeat-button');
+                    otherButton.children[0].style.opacity = opacity;
+                }
+                svg.style.opacity = opacity;
+            }
 
 			button.onclick = function () {
 				var video = ImprovedTube.elements.video,
@@ -350,17 +360,25 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 
 				if (video.hasAttribute('loop')) {
 					video.removeAttribute('loop');
-
-					svg.style.opacity = '.5';
+                    matchLoopState('.5')
 				} else if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
 					video.setAttribute('loop', '');
-
-					svg.style.opacity = '1';
+                    matchLoopState('1')
 				}
 			};
-
+            
 			svg.appendChild(path); 	button.appendChild(svg);
 			section.insertAdjacentElement('afterend', button)
+
+            if(ImprovedTube.storage.player_repeat_button === true) {
+                if (document.querySelector('#it-repeat-button').style.opacity === '1') {
+                    matchLoopState('1');
+                    var video = ImprovedTube.elements.video;
+                    if (!video.hasAttribute('loop')) {
+                        video.setAttribute('loop', '');
+                    }
+                }
+            }
 		}
 			if (this.storage.below_player_pip !== false) {
 			var button = document.createElement('button'),
