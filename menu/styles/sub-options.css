@@ -12,7 +12,8 @@ NESTED (CONDITIONAL) SWITCHES
  /*-DURATION WITH SPEED-*/
 #show-remaining-duration:not([data-value='true']) + .satus-switch,
  /*-comment sidebar scrollbars-*/
-#comments-sidebar:not([data-value='true']) + .satus-switch,
+/* #comments-sidebar:not([data-value='true']) + .satus-switch */
+#comments-sidebar:not([data-value='true']) + .satus-switch + #comments-sidebar-simple:not([data-value='true']) + .satus-switch, 
 /*--------------------------------------------------------------
 >>> PLAYER
 --------------------------------------------------------------*/
