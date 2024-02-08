@@ -132,7 +132,6 @@ extension.importSettings = function () {
 
 								file_reader.onload = function () {
 									var data = JSON.parse(this.result);
-
 									for (var key in data) {
 										satus.storage.set(key, data[key]);
 									}
@@ -159,3 +158,78 @@ extension.importSettings = function () {
 		}, extension.skeleton.rendered);
 	}
 };
+
+
+/*--------------------------------------------------------------
+# sync SETTINGS
+--------------------------------------------------------------*/
+
+extension.pushSettings = function () {
+	satus.render({
+		component: 'modal',
+		variant: 'confirm',
+		content: 'areYouSureYouWantToSyncTheData',
+		buttons: {
+			cancel: {
+				component: 'button',
+				text: 'cancel',
+				on: {
+					click: function () {
+						this.modalProvider.close();
+					}
+				}
+			},
+			ok: {
+				component: 'button',
+				text: 'ok',
+				on: {
+					click: function () {
+						try {
+							chrome.storage.sync.clear();
+							var blob = JSON.stringify(satus.storage.data);
+							chrome.storage.sync.set({settings: blob});
+						} catch (error) {
+							console.error(error);
+						}
+						this.modalProvider.close();
+					}
+				}
+			}
+		}
+	}, extension.skeleton.rendered);
+}
+
+extension.pullSettings = function () {
+
+	satus.render({
+		component: 'modal',
+		variant: 'confirm',
+		content: 'areYouSureYouWantToImportTheData',
+		buttons: {
+			cancel: {
+				component: 'button',
+				text: 'cancel',
+				on: {
+					click: function () {
+						this.modalProvider.close();
+					}
+				}
+			},
+			ok: {
+				component: 'button',
+				text: 'ok',
+				on: {
+					click: function () {
+						chrome.storage.sync.get('settings', function (r) {
+							var data = JSON.parse(r['settings']);
+							for (var key in data) {
+								satus.storage.set(key, data[key]);
+							}
+						});
+						this.modalProvider.close();
+					}
+				}
+			}
+		}
+	}, extension.skeleton.rendered);
+}
