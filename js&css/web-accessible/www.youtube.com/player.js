@@ -671,18 +671,16 @@ ImprovedTube.playerScreenshotButton = function () {
 	} 
 };
 /*------------------------------------------------------------------------------
-REPEAT ALWAYS
--------------------------------------------------------------------------------*/
-ImprovedTube.playerAlwaysRepeat = function () {	
-      	if (this.storage.player_always_repeat === true) {
-			setTimeout(function () {
-				ImprovedTube.elements.video.setAttribute('loop', '');
-		//old from version 3.x?   //  ImprovedTube.elements.buttons['it-repeat-styles'].style.opacity = '1';
-         			}, 300);
-		}
-}
-/*------------------------------------------------------------------------------
 REPEAT
+-------------------------------------------------------------------------------*/
+ImprovedTube.playerRepeat = function () {	      
+			setTimeout(function () {
+				ImprovedTube.elements.video.setAttribute('loop', ''); 
+	   //ImprovedTube.elements.buttons['it-repeat-styles'].style.opacity = '1';   //old class from version 3.x? that both repeat buttons could have
+         			}, 200);
+} 
+/*------------------------------------------------------------------------------
+REPEAT BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerRepeatButton = function (node) {
 	if (this.storage.player_repeat_button === true) {
