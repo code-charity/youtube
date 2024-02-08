@@ -973,11 +973,27 @@ extension.skeleton.main.layers.section.player.on.click = {
 			storage: 'player_SDR'
 		}
 	},
+	player_always_repeat: {
+						component: 'switch',
+						text: 'alwaysActive'
+					},
 	section_2: {
 		component: 'section',
 		variant: 'card',
 		title: 'buttons',
-
+		player_popup_button: {
+			component: 'switch',
+			text: 'popupPlayer'
+		},
+					player_repeat_button: {
+						component: 'switch',
+						text: 'repeat',
+						id: 'player_repeat_button'
+					},
+					player_always_repeat: {
+						component: 'switch',
+						text: 'alwaysActive'
+					},
 					player_screenshot_button: {
 						component: 'switch',
 						text: 'Screenshot',
@@ -998,19 +1014,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 							text: 'clipboard',
 							value: 'clipboard'
 						}]
-					},
-		player_popup_button: {
-			component: 'switch',
-			text: 'popupPlayer'
-		},
-					player_repeat_button: {
-						component: 'switch',
-						text: 'repeat',
-						id: 'player_repeat_button'
-					},
-					player_always_repeat: {
-						component: 'switch',
-						text: 'alwaysActive'
 					},
 		player_fit_to_win_button: {
 			component: 'switch',
