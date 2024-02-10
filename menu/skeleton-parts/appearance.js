@@ -725,10 +725,6 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 				component: "switch",
 				text: "hideCommentsCount",
 				tags: "hide,remove"
-			},
-			columns: {
-				component: "switch",
-				text: "toggleColumnComments"
 			}
 		}
 	}
