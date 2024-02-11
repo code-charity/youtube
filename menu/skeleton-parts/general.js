@@ -178,7 +178,7 @@ extension.skeleton.main.layers.section.general = {
 				},
                 disable_thumbnail_playback: {
 					component: 'switch',
-					text: 'disableHoverVideo',
+					text: 'disableThumbnailPlayback',
 				},
 				popup_window_buttons: {
 					component: 'switch',
