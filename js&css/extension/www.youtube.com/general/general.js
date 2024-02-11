@@ -512,6 +512,24 @@ extension.features.thumbnailsQuality = function (anything) {
 	}
 };
 
+/*--------------------------------------------------------------
+# DISABLE VIDEO PLAYBACK ON HOVER
+--------------------------------------------------------------*/
+extension.features.disableHoverVideo = function (event) {
+    if (event instanceof Event) {
+        if (extension.storage.get('disable_thumbnail_playback') === true && 
+            event.composedPath().some(elem => (elem.matches != null ? elem.matches("#content ytd-rich-item-renderer") : false)
+        )) {
+            event.stopImmediatePropagation();
+        }
+    } else {
+        if (extension.storage.get('disable_thumbnail_playback') === true) {
+            window.addEventListener('mouseenter', this.disableHoverVideo, true);
+        } else {
+            window.removeEventListener('mouseenter', this.disableHoverVideo, true);
+        }
+    }
+};
 
 /*--------------------------------------------------------------
 # OPEN VIDEOS IN A NEW TAB
