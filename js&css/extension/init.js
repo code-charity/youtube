@@ -39,6 +39,7 @@ extension.events.on('init', function () {
 	extension.features.confirmationBeforeClosing();
 	extension.features.defaultContentCountry();
 	extension.features.popupWindowButtons();
+	extension.features.disableThumbnailPlayback();
 	extension.features.markWatchedVideos();
 	extension.features.relatedVideos();
 	extension.features.comments();

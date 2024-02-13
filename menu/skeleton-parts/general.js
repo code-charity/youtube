@@ -176,6 +176,10 @@ extension.skeleton.main.layers.section.general = {
 					text: 'hideAnimatedThumbnails',
 					tags: 'preview'
 				},
+                disable_thumbnail_playback: {
+					component: 'switch',
+					text: 'disableThumbnailPlayback',
+				},
 				popup_window_buttons: {
 					component: 'switch',
 					text: 'popupWindowButtons',

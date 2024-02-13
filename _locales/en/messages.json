@@ -131,6 +131,7 @@
 "device":{"message":"Device"},
 "dim":{"message":"Dim"},
 "disabled":{"message":"Disabled"},
+"disableThumbnailPlayback":{"message":"Disable video playback on hover"},
 "dislike":{"message":"Dislike"},
 "displayDayOfTheWeak":{"message":"Display day of the week"},
 "doNotChange":{"message":"Don't change"},
