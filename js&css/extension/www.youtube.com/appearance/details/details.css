@@ -1,153 +1,84 @@
 /*--------------------------------------------------------------
->>> DETAILS  
-----------------------------------------------------------------
-/*--------------------------------------------------------------
-# General   /* WHY ?*/
---------------------------------------------------------------*/
-#info #info-text {	max-height: 6rem; display: block; }    
- /*--------------------------------------------------------------
-YouTube's Detail Buttons
---------------------------------------------------------------*/
-html[it-youtubeDetailButtons='hide_labels'] #subscribe-button .cbox,
-html[it-youtubeDetailButtons='hide_labels']  #menu ytd-button-renderer div:nth-child(2) {visibility:hidden}
-html[it-youtubeDetailButtons='half_transparent'] #subscribe-button button,
-html[it-youtubeDetailButtons='half_transparent'] #menu button {opacity:0.5;}
-html[it-youtubeDetailButtons='transparent_background'] #subscribe-button button,
-html[it-youtubeDetailButtons='transparent_background'] #menu button {background-color:rgba(0, 0, 0, 0.2) !important;}  
-html[it-youtubeDetailButtons='transparent_background'] #subscribe-button button {color:#111 !important;}
-	/*------SHOW my DISLIKE in RED------*/  
-	html[it-red-dislike-button='true'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer *[aria-pressed='true'] yt-icon 
-	{color: #f02200 !important;}
-	/*------SUBSCRIBE BUTTON------*/  
-/* DISPLAY: NONE: */
-	html[it-subscribe='grey'] #subscribe-button button { background-color: #DDD !important; color:#111 !important; }
-	html[it-subscribe='transparent'] #subscribe-button button {background-color:rgba(0, 0, 0, 0.4) !important; color:#111 !important; }
-	html[it-subscribe='remove_label'] #subscribe-button button .yt-spec-button-shape-next__button-text-content,
-	html[it-subscribe='hidden'] #subscribe-button,
-html[it-youtubeDetailButtons='remove_labels'] #menu ytd-button-renderer div:nth-child(2), 
-html[it-youtubeDetailButtons='remove_labels'] #menu ytd-button-renderer .cbox, 
-html[it-youtubeDetailButtons='remove_labels'] #subscribe-button .cbox,
-html[it-youtubeDetailButtons='remove'] #menu button,
-html[it-youtubeDetailButtons='remove'] #subscribe-button button,
-html[it-youtubeDetailButtons='remove_icons']  #menu button div:first-child,
-	/*------HIDE LIKE BUTTON------*/
-html[it-likes='hidden']	like-button-view-model,
-html[it-likes='icons_only'] like-button-view-model .yt-spec-button-shape-next__button-text-content,
-	/*------HIDE DISLIKE BUTTON------*/
-html[it-hide-dislike-button='hidden']	dislike-button-view-model,
-html[it-hide-dislike-button='icons_only'] dislike-button-view-model .yt-spec-button-shape-next__button-text-content,
-/*previous:*/
-html[it-likes='hidden'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer,
-html[it-likes='icons_only'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer div.cbox,
-html[it-likes='icons_only'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer yt-animated-rolling-number,
-html[it-likes='icons_only'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer .yt-spec-button-shape-next__button-text-content,
-html[it-hide-dislike-button='hidden'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer,
-html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer div.cbox,
-html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer yt-animated-rolling-number,
-html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer .yt-spec-button-shape-next__button-text-content,
+>>> DETAILS
+----------------------------------------------------------------*/
+/* General */
+#info #info-text {
+    max-height: 6rem;
+    display: block;
+}
 
-	/*------# HIDE SHARE BUTTON------*/
-html[it-hide-share-button='hidden'] #menu button:has(svg path[d^="M15 5.63 20.66"]),
-html[it-hide-share-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M15 5.63 20.66"]),
-html[it-hide-share-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M15 5.63 20.66"]) div:nth-child(2),
-html[it-hide-share-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M15 5.63 20.66"]) .cbox, 
-	/*------# HIDE DOWNLOAD BUTTON------*/
-html[it-hide-download-button='hidden'] #menu button:has(svg path[d^="M17 18v1H6v-1h11"]),
-html[it-hide-download-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M17 18v1H6v-1h11"]),
-html[it-hide-download-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M17 18v1H6v-1h11"]) div:nth-child(2),
-html[it-hide-download-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M17 18v1H6v-1h11"]) .cbox, 
-	/*------# HIDE THANKS BUTTON------*/
-html[it-hide-thanks-button='hidden'] #menu button:has(svg path[d^="M11 17h2v-1h1c.55 0"]),
-html[it-hide-thanks-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M11 17h2v-1h1c.55 0"]),
-html[it-hide-thanks-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M11 17h2v-1h1c.55 0"]) div:nth-child(2),
-html[it-hide-thanks-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M11 17h2v-1h1c.55 0"]) .cbox,
-	/*------# HIDE CLIP BUTTON------*/
-html[it-hide-clip-button='hidden'] #menu button:has(svg path[d^="M8 7c0 .55-.45 1-1"]),
-html[it-hide-clip-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M8 7c0 .55-.45 1-1"]),
-html[it-hide-clip-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M8 7c0 .55-.45 1-1"]) div:nth-child(2),
-html[it-hide-clip-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M8 7c0 .55-.45 1-1"]) .cbox,
-	/*------# HIDE SAVE BUTTON------*/
-html[it-hide-save-button='hidden'] #menu button:has(svg path[d^="M22 13h-4v4h-2v-4h"]),
-html[it-hide-save-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M22 13h-4v4h-2v-4h"]),
-html[it-hide-save-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M22 13h-4v4h-2v-4h"]) div:nth-child(2),
-html[it-hide-save-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M22 13h-4v4h-2v-4h"]) .cbox,
-	/*------HIDE REPORT BUTTON------*/
-html[it-hide-report-button='true'] #top-level-buttons-computed ytd-button-renderer#Report-button,
-html[it-hide-report-button='true'] #menu button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]),
-html[it-hide-report-button='true'] #flexible-item-buttons button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]), 
-	/*------HIDE MORE BUTTON------*/
-html[it-hide-more-button='true'] #menu yt-button-shape#button-shape,
-html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]),
-html[it-hide-more-button='true'] #flexible-item-buttons button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]),
-	/*------# HIDE THANKS BUTTON------*/
-html[it-hide-thanks-button='hidden'] #flexible-item-buttons ytd-button-renderer#Thanks-button,
-html[it-hide-thanks-button='icons_only'] #flexible-item-buttons ytd-button-renderer#Thanks-button div.cbox,
-	/*------# HIDE CLIP BUTTON------*/
-html[it-hide-clip-button='hidden'] #flexible-item-buttons ytd-button-renderer#Clip-button,
-html[it-hide-clip-button='icons_only'] #flexible-item-buttons ytd-button-renderer#Clip-button div.cbox,
-	/*------# HIDE SAVE BUTTON------*/
-html[it-hide-save-button='hidden'] #flexible-item-buttons ytd-button-renderer#Save-button,
-html[it-hide-save-button='icons_only'] #flexible-item-buttons ytd-button-renderer#Save-button div.cbox
- /*=================================*/
-          {display: none;}  
- /*---------------------------------*/
-/*------# HIDE DETAILS-------------*/
+/* YouTube's Detail Buttons */
+:root {
+    --button-opacity: 0.5;
+    --button-bg-color: rgba(0, 0, 0, 0.2);
+    --button-text-color: #111;
+    --dislike-button-color: #f02200;
+    --subscribe-button-bg: #DDD;
+}
+
+/* Transparent Background Buttons */
+html[it-youtubeDetailButtons='transparent_background'] #subscribe-button button,
+html[it-youtubeDetailButtons='transparent_background'] #menu button {
+    background-color: var(--button-bg-color) !important;
+}
+
+html[it-youtubeDetailButtons='transparent_background'] #subscribe-button button {
+    color: var(--button-text-color) !important;
+}
+
+/* Red Dislike Button */
+html[it-red-dislike-button='true'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer *[aria-pressed='true'] yt-icon {
+    color: var(--dislike-button-color) !important;
+}
+
+/* Subscribe Button Styles */
+html[it-subscribe='grey'] #subscribe-button button {
+    background-color: var(--subscribe-button-bg) !important;
+    color: var(--button-text-color) !important;
+}
+
+/* Hide Elements */
+:isolate {
+    display: none !important;
+}
+
+/* Hiding Details */
 html[it-hide-details='true'] ytd-video-primary-info-renderer,
 html[it-hide-details='true'] ytd-video-secondary-info-renderer,
-html[it-hide-details='true'] ytd-watch-metadata,
-	/*------# HIDE VIEWS COUNT-----*/
+html[it-hide-details='true'] ytd-watch-metadata {
+    display: none !important;
+}
+
+/* Hiding Views Count */
 html[it-hide-views-count='true'] #info #count,
 html[it-hide-views-count='true'] #info #count + #info-strings>#dot,
-html[it-hide-views-count='true'] ytd-watch-metadata #info>span:first-child,
-	/*------# HIDE COMMENTS COUNT---*/
-html[it-hide-comments-count='true'] #comments #count,
-	/*------# HIDE DATE-------------*/
+html[it-hide-views-count='true'] ytd-watch-metadata #info>span:first-child {
+    display: none !important;
+}
+
+/* Hiding Comments Count */
+html[it-hide-comments-count='true'] #comments #count {
+    display: none !important;
+}
+
+/* Hiding Date */
 html[it-hide-date='true'] #info span:nth-child(3),
 html[it-hide-date='true'] #info #count + #info-strings>yt-formatted-string,
 html[it-hide-date='true'] #info #count + #info-strings>#dot,
-html[it-hide-date='true'] ytd-watch-metadata #info>span:last-child,
-/*------# DESCRIPTION--------------*/
-html[it-description='hidden'] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
-html[it-description='hidden'] div#action-panel-details,
-html[it-description='hidden'] ytd-expander.ytd-video-secondary-info-renderer,
-html[it-description='hidden'] #description-inline-expander 
- /*=================================*/
-        {display: none !important;}  
- /*---------------------------------*/
-/*  Dated:
-html[it-description='classic'] .ytd-watch-flexy #info-contents, 
-html[it-description='classic'] .ytd-watch-flexy #meta-contents { display: block !important; } 
-html[it-description='classic'] #below.ytd-watch-flexy { top:-20px; }
-html[it-description='classic'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
-html[it-description='classic'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
+html[it-hide-date='true'] ytd-watch-metadata #info>span:last-child {
+    display: none !important;
+}
 
-html[it-description='classic_expanded'] .ytd-watch-flexy #info-contents,
-html[it-description='classic_expanded'] .ytd-watch-flexy #meta-contents { display: block !important; } 
-html[it-description='classic_expanded'] #below.ytd-watch-flexy { top:-20px; }
-html[it-description='classic_expanded'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
-html[it-description='classic_expanded'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
-
-html[it-description='classic_hidden'] .ytd-watch-flexy #info-contents { display: block !important; } 
-html[it-description='classic_hidden'] #below.ytd-watch-flexy { top:-20px; }
-html[it-description='classic_hidden'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
-html[it-description='classic_hidden'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
-
-html[it-description='classic'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata,
-html[it-description='classic_expanded'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata,
-html[it-description='classic_hidden'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata  
-{display: none !important;}
-*/
-/*--------------------------------------------------------------
-# HOW LONG AGO THE VIDEO WAS UPLOADED
---------------------------------------------------------------*/
+/* How Long Ago the Video Was Uploaded */
 .it-how-long-ago-the-video-was-uploaded {
-	float: right !important;
-	margin-left: 4px !important;
-	color: var(--yt-spec-text-secondary) !important;}
-/*--------------------------------------------------------------
-# SHOW CHANNEL VIDEOS COUNT
---------------------------------------------------------------*/
+    float: right !important;
+    margin-left: 4px !important;
+    color: var(--yt-spec-text-secondary) !important;
+}
+
+/* Show Channel Videos Count */
 .it-channel-videos-count {
-	display: inline-block !important;
-	margin-left: 4px !important;
-	color: var(--yt-spec-text-secondary) !important;}
+    display: inline-block !important;
+    margin-left: 4px !important;
+    color: var(--yt-spec-text-secondary) !important;
+}
