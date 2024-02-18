@@ -402,7 +402,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 			sync: {
 				component: 'section',
 				variant: 'card',
-				title: 'sync',
+				title: 'browserAccountSync',
 
 				pushSyncSettings: {
 					component: 'button',

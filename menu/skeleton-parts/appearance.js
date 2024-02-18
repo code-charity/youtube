@@ -696,7 +696,7 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 			comments_sidebar: {
 				component: "switch",
 				text: "sidebar",
-				id: "comments-sidebar"
+				id: 'comments-sidebar'
 			},
 			comments_sidebar_scrollbars: {
 				component: "switch",
@@ -705,13 +705,13 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 			comments_sidebar_simple: {
 				component: "switch",
 				text: 'Sidebar_simple_alternative',
-				id: "comments-sidebar-simple
+				id: 'comments-sidebar-simple'
 			},
 			columns: {
 				component: "switch",
-				text: "toggleColumnComments",
+				text: "columns",
 				value: true				
-			}
+			},
 			squared_user_images: {
 				component: 'switch',
 				text: 'squaredUserImages',

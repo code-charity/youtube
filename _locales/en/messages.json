@@ -1,4 +1,5 @@
 {
+"browserAccountSync": {"message":"Sync (Browser Account)"},
 "ARROWDOWN":{"message":"⇩"},
 "ARROWLEFT":{"message":"⇦"},
 "ARROWRIGHT":{"message":"⇨"},
@@ -212,8 +213,8 @@
 "icons":{"message":"Icons"},
 "iconsOnly":{"message":"Icon only"},
 "importSettings":{"message":"Import settings"},
-"pushSyncSettings":{"message":"push settings to sync"},
-"pullSyncSettings":{"message":"pull synced settings"},
+"pushSyncSettings":{"message":"Push"},
+"pullSyncSettings":{"message":"Pull"},
 "improveLogo":{"message":"Improve logo"},
 "improvedtubeButtons":{"message":"ImprovedTube buttons"},
 "improvedtubeIconOnYoutube":{"message":"ImprovedTube icon on YouTube"},

@@ -973,10 +973,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			storage: 'player_SDR'
 		}
 	},
-	player_always_repeat: {
-						component: 'switch',
-						text: 'alwaysActive'
-					},
 	section_2: {
 		component: 'section',
 		variant: 'card',

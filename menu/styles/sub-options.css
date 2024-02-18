@@ -12,8 +12,8 @@ NESTED (CONDITIONAL) SWITCHES
  /*-DURATION WITH SPEED-*/
 #show-remaining-duration:not([data-value='true']) + .satus-switch,
  /*-comment sidebar scrollbars-*/
-/* #comments-sidebar:not([data-value='true']) + .satus-switch */
 #comments-sidebar:not([data-value='true']) + .satus-switch + #comments-sidebar-simple:not([data-value='true']) + .satus-switch, 
+/* #comments-sidebar:not([data-value='true']) + .satus-switch, */
 /*--------------------------------------------------------------
 >>> PLAYER
 --------------------------------------------------------------*/
@@ -21,7 +21,7 @@ NESTED (CONDITIONAL) SWITCHES
 #forced-playback-speed:not([data-value='true']) + .satus-switch,
 #forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch,
 #forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch + .satus-slider, 
-#player_repeat_button:not([data-value='true']) + .satus-switch,
+/* #player_repeat_button:not([data-value='true']) + .satus-switch, */
 #player_screenshot_button:not([data-value='true'])  + .satus-switch,
 #player_screenshot_button:not([data-value='true'])  + .satus-switch + .satus-select,
  /*--------------------------------------------------------------
@@ -35,8 +35,6 @@ NIGHT MODE
 #activate:not([data-value='sunset_to_sunrise']) + * + .satus-time--to 
 /*====================================*/
 	{display: none !important;}
-	
-
 
 #remove-home-page-shorts[data-value='true'] + .satus-switch,
 #remove-home-page-shorts[data-value='true'] + .satus-switch + .satus-switch,
@@ -57,7 +55,7 @@ NIGHT MODE
 #forced-playback-speed[data-value='true'] + .satus-switch,
 #forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch,
 #forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch + .satus-slider, 
-#player_repeat_button[data-value='true'] + .satus-switch,
+#player_repeat_button + .satus-switch,
 #player_screenshot_button[data-value='true']  + .satus-switch,
 #player_screenshot_button[data-value='true']  + .satus-switch + .satus-select,
  /*--------------------------------------------------------------
