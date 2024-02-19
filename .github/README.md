@@ -173,7 +173,7 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 <code>Amharic</code> <code>Bhojpuri</code> <br>
 <code>Min Nan Chinese</code> (incl. Hokkien),<br> 
 <code>Jin Chinese</code> <code>Yoruba</code>  <code>Hakka Chinese</code><br>
-<code>Burmese</code><br>
+<code>Burmese</code><code>Malayalam</code><br>
 Spoken Arabic: <code>Sudanese</code> <code>Algerian</code> <br> 
 <code>Lingala</code> <code>Malaysian Malay</code>
 
