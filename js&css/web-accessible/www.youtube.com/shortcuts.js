@@ -526,7 +526,6 @@ ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
 		    }
 		ImprovedTube.showStatus(player.getPlaybackRate());
 }}}};
-
 /*------------------------------------------------------------------------------
 4.7.18 RESET PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
@@ -549,7 +548,6 @@ ImprovedTube.shortcutGoToSearchBox = function () {
 		search.focus();
 	}
 };
-
 /*------------------------------------------------------------------------------
 4.7.20 ACTIVATE FULLSCREEN
 ------------------------------------------------------------------------------*/
@@ -558,7 +556,6 @@ ImprovedTube.shortcutActivateFullscreen = function () {
 		this.elements.player.toggleFullscreen();
 	}
 };
-
 /*------------------------------------------------------------------------------
 4.7.21 ACTIVATE CAPTIONS
 ------------------------------------------------------------------------------*/
@@ -569,41 +566,32 @@ ImprovedTube.shortcutActivateCaptions = function () {
 		player.toggleSubtitlesOn();
 	}
 };
-
 /*------Chapters------*/
 ImprovedTube.shortcutChapters = function () {	
           try{var height = document.querySelector('*[target-id*=chapters]').clientHeight;}catch{}
           if (height) {try{document.querySelector('*[target-id*=chapters] #visibility-button button').click();   console.log("chapters shortcut close")} catch{}}	
 		  else   { try{document.querySelector('*[target-id*=chapters]').removeAttribute('visibility');   console.log("chapters shortcut open")} catch{} }
-};			
-	
+};		
 /*------Transcript------*/
 ImprovedTube.shortcutTranscript = function () {	
           try{var height = document.querySelector('*[target-id*=transcript]').clientHeight;}catch{}
           if (height) {try{document.querySelector('*[target-id*=transcript] #visibility-button button').click();  console.log("transcriptshortcut close")} catch{}}	
 		  else   { try{document.querySelector('*[target-id*=transcript]').removeAttribute('visibility');   console.log("transcriptshortcut open")} catch{} }
 };
-
 /*------------------------------------------------------------------------------
 4.7.22 LIKE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutLike = function () {
-	var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer button')[0]);
-	if (like) {
-		like.click();
-	}
+	var like = document.querySelector('like-button-view-model * * *');
+	if (like) {like.click();} 
 };
-
 /*------------------------------------------------------------------------------
 4.7.23 DISLIKE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDislike = function () {
-	var like = (document.querySelectorAll('#menu #top-level-buttons-computed ytd-toggle-button-renderer button')[1]);
-	if (like) {
-		like.click();
-	}
+	var dislike = document.querySelector('dislike-button-view-model * * *');
+	if (dislike) {	dislike.click();}
 };
-
 /*------Report------*/
 ImprovedTube.shortcutReport = function () {
 try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); 
@@ -673,11 +661,33 @@ ImprovedTube.shortcutDarkTheme = function () {
 
 ImprovedTube.shortcutCustomMiniPlayer = function () {
 	this.storage.mini_player = !this.storage.mini_player;
-
+	
 	this.miniPlayer();
 };
-
-
+/*------------------------------------------------------------------------------
+Loop
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutToggleLoop = function (node) {
+		var video = ImprovedTube.elements.video;
+		function matchLoopState(opacity) {
+		    svg.style.opacity = opacity;
+                    if (ImprovedTube.storage.player_repeat_button === true) {
+                   	 var playerButton = document.querySelector('#it-repeat-button');
+                    	 playerButton.children[0].style.opacity = opacity;
+          	        }
+					if (ImprovedTube.storage.below_player_loop !== false) {
+					var buttonBelowPlayer = document.querySelector('#it-below-player-loop');
+					buttonBelowPlaye.children[0].style.opacity = opacity;
+					}
+	            }		
+		if (video.hasAttribute('loop')) {
+					video.removeAttribute('loop');
+					matchLoopState('.5')
+				} else if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
+					video.setAttribute('loop', '');
+					matchLoopState('1')
+				}	
+};
 /*------------------------------------------------------------------------------
 4.7.27 STATS FOR NERDS
 ------------------------------------------------------------------------------*/

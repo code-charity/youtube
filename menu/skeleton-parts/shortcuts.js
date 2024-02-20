@@ -276,6 +276,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 					component: 'shortcut',
 					text: 'popupPlayer'
 				},
+				shortcut_toggle_loop: {
+					component: 'shortcut',
+					text: 'loop'
+				},
 				shortcut_stats_for_nerds: {
 					component: 'shortcut',
 					text: 'statsForNerds'
