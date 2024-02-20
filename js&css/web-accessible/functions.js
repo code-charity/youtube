@@ -299,7 +299,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.channelVideosCount();
 		ImprovedTube.upNextAutoplay();
 		ImprovedTube.playerAutofullscreen();
-		ImprovedTube.playerSize();
+		ImprovedTube.playerSize(); 
 		if( this.storage.player_always_repeat === true) {ImprovedTube.playerRepeat();};
 		ImprovedTube.playerScreenshotButton();
 		ImprovedTube.playerRepeatButton();
@@ -365,14 +365,9 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerFitToWinButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
-
-		setTimeout(function () {
-            ImprovedTube.forcedTheaterMode();
-        }, 150);
-
-		if (location.href.indexOf('/embed/') === -1) {
-			ImprovedTube.miniPlayer();
-		}  
+		ImprovedTube.expandDescription();
+		setTimeout(function () { ImprovedTube.forcedTheaterMode();    }, 150);
+		if (location.href.indexOf('/embed/') === -1) {  ImprovedTube.miniPlayer(); 	}  
 	}
 };
 
@@ -595,3 +590,4 @@ ImprovedTube.showStatus = function (value) {
 
 ImprovedTube.videoId =  function (url = document.URL) { return url.match(ImprovedTube.regex.video_id)[1] ||  url.searchParams.get('v') || movie_player.getVideoData().video_id }
 ImprovedTube.videoTitle =  function () {  return document.title?.replace(/\s*-\s*YouTube$/, '') || movie_player.getVideoData().title || document.querySelector('#title > h1 > *')?.textContent  }
+

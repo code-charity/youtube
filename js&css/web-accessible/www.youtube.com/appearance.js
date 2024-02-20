@@ -408,13 +408,11 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 /*------------------------------------------------------------------------------
  EXPAND DESCRIPTION
 ------------------------------------------------------------------------------*/
-ImprovedTube.expandDescription = function (el) {
-    if (this.storage.description === "expanded" || this.storage.description === "classic_expanded" ) 
-	{ if(el){ try{el.click()} catch{console.log("First click on description failed");} 
-              console.log("Second click on description to expand"); setTimeout(function(){try{el.click();}catch{}},4000)}  
-		
-			try {ImprovedTube.elements.player.focus()}catch{}
-	}
+ImprovedTube.expandDescription = function (el) { 
+    if (this.storage.description === "expanded" || this.storage.description === "classic_expanded") {console.log("EXPAND DESCRIPTION");
+        if (el) {el.click(); setTimeout(function(){try{ImprovedTube.elements.player.focus(); }catch{}}, 1700);    }  } 	
+		else {setTimeout(function(){if (el = document.querySelector('#description-inner')) {el.click();
+				setTimeout(function(){try{ImprovedTube.elements.player.focus(); }catch{}}, 1700);  }}, 5000); }    
 }
 /*------------------------------------------------------------------------------
  HIDE DETAIL BUTTON
