@@ -96,7 +96,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'slider',
 			text: 'volume',
 			step: 1,
-			max: 350,
+			max: 405,
 			value: 100
 		},
 		player_loudness_normalization: {
@@ -122,9 +122,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'playbackSpeed',
 			textarea: true,
 			value: 1,
-			min: .1,
-			max: 2.77,
-			step: .05
+			min: .01,
+			max: 3.17,
+			step: .01
 		},
 		autoplay: {
 			component: 'switch',

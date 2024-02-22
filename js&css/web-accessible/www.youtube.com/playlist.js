@@ -71,7 +71,7 @@ ImprovedTube.playlistReverse = function () {
 
 				ImprovedTube.playlistReversed = !ImprovedTube.playlistReversed;
 
-				update();
+				update(); ImprovedTube.expandDescription();
 
 				return false;
 			}, true);
@@ -89,7 +89,7 @@ ImprovedTube.playlistReverse = function () {
 		}
 
 		if (this.playlistReversed === true) {
-			update();
+			update(); 
 		}
 	}
 };
@@ -109,7 +109,7 @@ ImprovedTube.playlistRepeat = function () {
 	  && button.firstElementChild?.firstElementChild?.attributes[2]?.textContent !== 'Turn off loop' 
 	)  
 	{ button.click(); } 
-		}, 5000);
+		}, 10000);
 	}
 };
 
@@ -127,7 +127,7 @@ ImprovedTube.playlistShuffle = function () {
 	if (button && (option === true && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M18.1')
 	) 	)  
 	{ button.click(); } 
-		}, 5000);
+		}, 10000);
 	}
 };
 

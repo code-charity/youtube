@@ -351,7 +351,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 		    svg.style.opacity = opacity;
                     if (ImprovedTube.storage.player_repeat_button === true) {
                    	 var otherButton = document.querySelector('#it-repeat-button');
-                    	 otherButton.children[0].style.opacity = opacity;
+                    	 otherButton.style.opacity = opacity;
           	        }
 	            }
 				if (video.hasAttribute('loop')) {
@@ -410,9 +410,15 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.expandDescription = function (el) { 
     if (this.storage.description === "expanded" || this.storage.description === "classic_expanded") {
-        if (el) {el.click(); setTimeout(function(){ImprovedTube.elements.player.focus();}, 1700);    }  	
-		else {setTimeout(function(){if (el = document.querySelector('#description-inner')) {el.click();
-				setTimeout(function(){ImprovedTube.elements.player.focus(); }, 1700);  }}, 5000); }    
+        if (el) {el.click(); setTimeout(function(){ImprovedTube.elements.player.focus();}, 1200);    }  	
+		else {		var tries = 0; 	var intervalMs = 210;  	if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}  	
+														// ...except when it is an embedded player?
+					var waitForDescription = setInterval(() => { 	
+					if (++tries >= maxTries) {  
+					el =  document.querySelector('#description-inline-expander')
+					if ( el) { el.click(); 	setTimeout(function(){ImprovedTube.elements.player.focus(); }, 1200);clearInterval(waitForDescription); } 			
+					intervalMs *= 1.11;	}}, intervalMs);   									
+			}
 	} 
 }
 /*------------------------------------------------------------------------------

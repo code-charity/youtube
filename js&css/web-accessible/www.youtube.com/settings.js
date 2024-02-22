@@ -88,8 +88,8 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 					left = document.body.offsetWidth - 308;
 				}
 
-				if (window.innerHeight - top < Math.min(500, window.innerHeight) + 8) {
-					top = window.innerHeight - Math.min(500, window.innerHeight) - 8;
+				if (window.innerHeight - top < Math.min(600, window.innerHeight) + 8) {
+					top = window.innerHeight - Math.min(600, window.innerHeight) - 8;
 				}
 
 				iframe.style.left = left + 'px';

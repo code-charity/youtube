@@ -438,9 +438,9 @@ ytd-guide-section-renderer .it-button::after {
 	z-index: 2147483649;
 	display: block;
 	overflow: hidden;
-	width: 300px;
+	width: 320px;
 	max-width: calc(100vw - 16px);
-	height: 500px;
+	height: 600px;
 	max-height: calc(100vh - 16px);
 	margin: 0;
 	padding: 0;

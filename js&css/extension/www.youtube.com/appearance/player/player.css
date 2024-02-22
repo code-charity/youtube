@@ -297,7 +297,7 @@ html[data-page-type=video][it-header-position=hover_on_video_page] div#page #mov
 
 html[data-page-type=video][it-header-position=hover] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]),
 html[data-page-type=video][it-header-position=hover_on_video_page] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) {
-	margin-top: 14px;
+	margin-top: 0px;
 }
 
  /*--------------------------------------------------------------
