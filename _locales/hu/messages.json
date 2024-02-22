@@ -1,7 +1,8 @@
 {
-"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"Shorts eltávolítása a főoldalról"},
-"removeShortsReelSearchResults":{"message":"Távolítsa el a Shorts karusellt a keresési találatokból"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}
+    "hideHomePageShorts": {
+        "message": "Shorts eltávolítása a főoldalról"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Távolítsa el a Shorts karusellt a keresési találatokból"
+    }
 }

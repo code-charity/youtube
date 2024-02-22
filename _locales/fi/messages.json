@@ -1,7 +1,8 @@
 {
-"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"Poista etusivun Shorts"},
-"removeShortsReelSearchResults":{"message":"Poista Shorts-reel hakutuloksista"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}
+    "hideHomePageShorts": {
+        "message": "Poista etusivun Shorts"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Poista Shorts-reel hakutuloksista"
+    }
 }
