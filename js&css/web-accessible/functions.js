@@ -606,3 +606,4 @@ ImprovedTube.extractSubscriberCount = function (subscriberCountNode) {
 		ImprovedTube.subscriberCount = subscriberCount;
 	}
 };
+
