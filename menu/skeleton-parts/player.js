@@ -1027,7 +1027,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						extraButtons: {
 							component: 'section',
 							variant: 'card',
-							title: 'Extra buttons below the player',
+							title: 'extraButtonsBelowThePlayer',
 
 							below_player_screenshot: {
 								component: 'switch',

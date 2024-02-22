@@ -1,227 +1,671 @@
 {
-"about":{"message":"අපි ගැන"},
-"accept":{"message":"පිළිගන්නවා"},
-"activate":{"message":"Activate කරන්න"},
-"activateCaptions":{"message":"උපසිරැසි Activate කරන්න"},
-"activateFullscreen":{"message":"සම්පූර්ණ තිරය Activate කරන්න"},
-"activated":{"message":"Activate කරනලදී"},
-"activatedFeatures":{"message":"දැනට ඔන් කරන ලද විශේෂාංග"},
-"activeFeatures":{"message":"දැනට ක්‍රියාත්මක තත්වයේ පවතිය විශේෂාංග"},
-"addScrollToTop":{"message":"«Scroll to top» බොත්තම ඇඩ් කරන්න"},
-"ads":{"message":"වෙළද දැන්වීම් (Ads)"},
-"all":{"message":"සියල්ල"},
-"allow":{"message":"අවසර දෙන්න"},
-"allow60fps":{"message":"60fps වීඩීයෝ සදහා අවසර දෙන්න"},
-"alwaysActive":{"message":"සෑම විටම ක්‍රියාත්මක වෙන"},
-"alwaysShowProgressBar":{"message":"වීඩීයෝ progress bar එක සෑම විටම පෙන්වන්න"},
-"amber":{"message":"කහපාටට හුරු"},
-"analyzer":{"message":"විශ්ලේෂක"},
-"appearance":{"message":"පෙනුම"},
-"audio":{"message":"ශබ්ද"},
-"audioFormats":{"message":"ශබ්ද වල ෆෝමැට් එක"},
-"auto":{"message":"ස්වයංක්‍රීය"},
-"autoFullscreen":{"message":"ස්වයංක්‍රීය සම්පූර්ණ තිරය"},
-"autopauseWhenSwitchingTabs":{"message":"ටැබ් අතර මාරුවෙද්දි වීඩීයෝ එක pause වන ලෙස සැකසීම"},
-"avoidAv1":{"message":"AV1 මගහරින්න"},
-"avoidAv1Vp8Vp9":{"message":"AV1, VP8, VP9 මගහරින්න"},
-"avoidAv1Vp9":{"message":"AV1, VP9 මගහරින්න"},
-"avoidCpuRenderingWhenPossible":{"message":"පුලුවන් විට cpu හරහා render වීම නවත්වන්න"},
-"backgroundColor":{"message":"පසුබිමේ පාට"},
-"backgroundOpacity":{"message":"පසුබිමේ opacity එක"},
-"baseOnSystemColorScheme":{"message":"System colors මත පදනම්ව"},
-"belowPlayer":{"message":"player එකට යටින්"},
-"blocklist":{"message":"Blocklist එක"},
-"blockAll":{"message":"සියල්ල Block කරන්න"},
-"blockAv1":{"message":"AV1 බ්ලොක් කරන්න"},
-"blockH264":{"message":"H.264 බ්ලොක් කරන්න"},
-"blockMusic":{"message":"Music එක බ්ලොක් කරන්න"},
-"blockVp8":{"message":"VP8 බ්ලොක් කරන්න"},
-"blockVp9":{"message":"VP9 බ්ලොක් කරන්න"},
-"blue":{"message":"නිල්"},
-"brown":{"message":"දුඹුරු"},
-"browser":{"message":"බ්‍රවුසරය"},
-"browserVersion":{"message":"වෙබ් බ්‍රවුසරයේ වර්ශන් එක"},
-"bubbles":{"message":"බුබුලු"},
-"bug":{"message":"දෝෂය"},
-"buttons":{"message":"බටන්"},
-"categories":{"message":"වර්ග"},
-"channel":{"message":"චැනල් එක"},
-"channels":{"message":"චැනල්"},
-"clipboard":{"message":"Clipboard එක"},
-"collapseOfSubscriptionSections":{"message":"Subscribe කරන කොටස හකුලන්න"},
-"collapsed":{"message":"හකුලන ලදී"},
-"confirmationBeforeClosing":{"message":"වසා දැමීමට පෙර confirm කිරීම"},
-"custom":{"message":"තමන්ට කැමති විදිහට"},
-"decreasePlaybackSpeed":{"message":"playback ස්පීඩ් එක අඩුකරන්න"},
-"decreaseVolume":{"message":"volume එක අඩුකරන්න"},
-"deepOrange":{"message":"තද තැඹිලි පාට"},
-"deepPurple":{"message":"තද දම් පාට"},
-"default":{"message":"සාමාන්‍ය"},
-"defaultChannelTab":{"message":"සාමාන්‍ය චැනල් tab එක"},
-"defaultContentCountry":{"message":"සාමාන්‍ය content country එක"},
-"deleteWatchedVideos":{"message":"බලපු වීඩියෝ delete කරන්න"},
-"deleteYoutubeCookies":{"message":"YouTube cookies delete කරන්න"},
-"depressed":{"message":"මානසික අවපීඩනය"},
-"description":{"message":"Description එක"},
-"desert":{"message":"අතුරුපස"},
-"details":{"message":"විස්තර"},
-"device":{"message":"Device එක"},
-"dim":{"message":"කිසිවක් නැත"},
-"doNotChange":{"message":"වෙනස් කරන්න එපා"},
-"donate":{"message":"Donate කරන්න"},
-"draggable":{"message":"Drag කළ හැකි"},
-"dropShadow":{"message":"හෙවනැල්ල"},
-"email":{"message":"Email එක"},
-"empty":{"message":"හිස්"},
-"enabledForced":{"message":"Enabled (බලහත්කාරයෙන්)"},
-"expanded":{"message":"පුළුල් කර ඇත"},
-"exportSettings":{"message":"Settings Export කරන්න"},
-"font":{"message":"ෆොන්ට් එක"},
-"fontColor":{"message":"ෆොන්ට් එකේ පාට"},
-"fontOpacity":{"message":"Font එකේ opacity (විනිවිද පෙනෙන බව) එක "},
-"fontSize":{"message":"Font එකේ size එක"},
-"footer":{"message":"Footer එක"},
-"forcedPlayVideoFromTheBeginning":{"message":"වීඩියෝව මුල සිට බලහත්කාරයෙන් play කරන්න"},
-"foundABug":{"message":"දෝෂයක් හම්බුනාද ඔයාට?"},
-"general":{"message":"සාමාන්‍ය"},
-"github":{"message":"ගිට්හබ්"},
-"goToSearchBox":{"message":"Search box එකට යන්න"},
-"googleApiKey":{"message":"Google API key එක"},
-"gpu":{"message":"GPU එක"},
-"green":{"message":"කොළ"},
-"header":{"message":"Header එක"},
-"hidden":{"message":"සැඟවුණු"},
-"hideAnimatedThumbnails":{"message":"Animate කරපු thumbnail සඟවන්න"},
-"hideAnnotations":{"message":"Annotations සඟවන්න"},
-"hideCards":{"message":"Cards සඟවන්න"},
-"hideCountryCode":{"message":"Country code එක හංගන්න"},
-"hideDate":{"message":"Date එක හංගන්න"},
-"hideDetails":{"message":"Details හංගන්න"},
-"hideEndscreen":{"message":"Endscreen එක හංගන්න"},
-"hideFeaturedContent":{"message":"Featured content හංගන්න"},
-"hideFooter":{"message":"Footer එක හංගන්න"},
-"hideGradientBottom":{"message":"Player-bar එක වටේ තියෙන shadow එක සගවන්න"},
-"hidePlayerControlsBar":{"message":"Player controls bar එක සඟවන්න"},
-"hidePlayerControlsBarButtons":{"message":"Player controls bar එකේ තියෙන button සඟවන්න"},
-"hidePlayerControlsBarOptions":{"message":"Player controls options සඟවන්න"},
-"hidePlaylist":{"message":"Playlist සඟවන්න"},
-"hideRightButtons":{"message":"දකුණු පැත්තෙ තියෙන button සඟවන්න"},
-"hideScrollForDetails":{"message":"«Scroll for details» සඟවන්න"},
-"hideSkipOverlay":{"message":"5 seconds skip animation එක සඟවන්න"},
-"hideThumbnailOverlay":{"message":"Thumbnail මත තිබෙන button සඟවන්න"},
-"hideThumbnails":{"message":"Thumbnail සඟවන්න"},
-"hideViewsCount":{"message":"Views count එක සඟවන්න"},
-"hideVoiceSearchButton":{"message":"Voice search button එක සඟවන්න"},
-"hover":{"message":"Hover (මවුස් පොයින්ටරය තබාගෙන සිටින විට)"},
-"howLongAgoTheVideoWasUploaded":{"message":"වීඩියෝ එක අප්ලෝඩ් කරල කොච්චර කල් වෙනවද"},
-"iconsOnly":{"message":"Icons පමණයි"},
-"importSettings":{"message":"Backup කරපු settings import කරන්න"},
-"increasePlaybackSpeed":{"message":"Playback speed එක අඩුකරන්න."},
-"increaseVolume":{"message":"සද්දෙ අඩුකරන්න"},
-"indigo":{"message":"ඉන්ඩිගෝ"},
-"language":{"message":"භාෂාව"},
-"languages":{"message":"භාෂාවන්"},
-"limitPageWidth":{"message":"Page එකේ පළල සීමා කරන්න"},
-"list":{"message":"List එක"},
-"liveChat":{"message":"Live chat එක"},
-"liveChatType":{"message":"Live chat type එක තෝරන්න"},
-"location":{"message":"Location එක"},
-"loop":{"message":"Loop (නැවත නැවත play වෙන ලෙස සැකසීම)"},
-"loudnessNormalization":{"message":"Loudness සාමාන්‍යකරණය"},
-"markWatchedVideos":{"message":"කලින් බලපු වීඩියෝ Mark කරන්න"},
-"mixer":{"message":"Mixer එක"},
-"moveSidebarLeft":{"message":"Sidebar එක වම් පැත්තට යවන්න"},
-"moveThumbnailsRight":{"message":"Thumbnail දකුණු පැත්තට කරන්න"},
-"name":{"message":"නම"},
-"nativeMiniPlayer":{"message":"යූටූබ් වලටම ආවේණික mini player එක"},
-"nextVideo":{"message":"මීළඟ video එක"},
-"noActiveFeatures":{"message":"ක්‍රියාකාරීව තිබෙන Features නොමැත"},
-"noOpenVideoTabs":{"message":"Open කරපු වීඩියෝ ටැබ් නැත"},
-"none":{"message":"None (කිසිවක් නැහැ)"},
-"normal":{"message":"සාමාන්‍ය"},
-"old":{"message":"පරණ"},
-"onAllVideos":{"message":"සියලුම වීඩියෝ මත"},
-"onSubscribedChannels":{"message":"Subscribe කරපු චැනල් මත"},
-"openPopupPlayer":{"message":"video හෝ playlist new window එකකින් open කරන්න"},
-"orange":{"message":"තැඹිලි පාට"},
-"os":{"message":"OS එක (මෙහෙයුම් පද්ධතිය)"},
-"other":{"message":"අනෙකුත්"},
-"outline":{"message":"Outline එක"},
-"permissions":{"message":"අවසරයන්"},
-"pink":{"message":"රෝස පාට"},
-"platform":{"message":"Platform එක"},
-"playPause":{"message":"Play කරන්න / Pause කරන්න"},
-"playbackSpeed":{"message":"Playback speed එක"},
-"player":{"message":"Player එක"},
-"playerColor":{"message":"Player එකේ පැහැය"},
-"playerSize":{"message":"Player එකේ ප්‍රමාණය"},
-"playlist":{"message":"Playlist එක"},
-"position":{"message":"Position එක"},
-"pressAnyKeyOrScroll":{"message":"ඕනෑම key එකක් හෝ mouse wheel එක යොදාගන්න."},
-"pressAnyKeyOrUseMouseWheel":{"message":"ඕනෑම key එකක් හෝ mouse wheel එක යොදාගන්න"},
-"previousVideo":{"message":"කලින් video එක"},
-"primaryColor":{"message":"Primary color එක"},
-"purple":{"message":"දම් පාට"},
-"quality":{"message":"Quality එක"},
-"ram":{"message":"RAM එක"},
-"rateMe":{"message":"මාව Rate කරන්න"},
-"rateUs":{"message":"අපිව Rate කරන්න"},
-"redDislikeButton":{"message":"Dislike button එක රතුපාටින් පෙන්වන්න."},
-"hideHomePageShorts":{"message":"මුල් පිටුවේ ෂෝට් ඉවත් කරනවා"},
-"removeRelatedSearchResults":{"message":"Related search results කොටස ඉවත් කරන්න"},
-"removeShortsReelSearchResults":{"message":"සෙවා ප්‍රතිඵල සෙයානක් ඉවත් කරන්න"},
-"repeat":{"message":"Repeat කරන්න"},
-"reset":{"message":"Reset කරන්න"},
-"resetAllSettings":{"message":"සියලුම settings reset කරන්න"},
-"resetAllShortcuts":{"message":"සියලුම shortcuts reset කරන්න"},
-"reverse":{"message":"ආපස්සට ගන්න (Reverse)"},
-"rotate":{"message":"Rotate කරන්න"},
-"save":{"message":"Save කරන්න"},
-"screenshot":{"message":"Screenshot ලබාගැනීම"},
-"scrollBar":{"message":"Scroll Bar එක"},
-"sd":{"message":"SD කොලිටිය (Data අඩුවෙන් වැයවෙන)"},
-"searchBarOnly":{"message":"Search bar එක පමණයි"},
-"settingsSuccessfullyImported":{"message":"සාර්ථකව settings import කරනලදී."},
-"showChannelVideosCount":{"message":"Channel එකේ තියෙන වීඩියෝ ගාන පෙන්නන්න"},
-"shuffle":{"message":"Shuffle කරන්න"},
-"sidebar":{"message":"Sidebar එක"},
-"spacebar":{"message":"Spacebar එක"},
-"static":{"message":"ස්ථාවර"},
-"statsForNerds":{"message":"Show Stats for Nerds (මෝඩ පුද්ගලයන්ගේ තොරතුරු පෙන්වන්න)"},
-"stop":{"message":"නවත්වන්න"},
-"style":{"message":"Style එක"},
-"styles":{"message":"Style වර්ග"},
-"subtitles":{"message":"උපසිරැසි"},
-"sunset":{"message":"Sunset (ඉරබහින වෙලාව)"},
-"sunsetToSunrise":{"message":"Sunset to sunrise (සවස සිට උදෑසන දක්වා)"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"},
-"textColor":{"message":"Text color එක"},
-"thisWillRemoveAllCookies":{"message":"සියලුම cookies ඉවත් කරයි."},
-"thisWillRemoveAllWatchedVideos":{"message":"නරඹන ලද වීඩියෝ ඉවත් කරයි."},
-"thisWillRemoveAllYouTubeCookies":{"message":"සියලුම YouTube හි cookies ඉවත් කරයි"},
-"thisWillResetAllSettings":{"message":"සියලුම settings reset කරයි"},
-"thisWillResetAllShortcuts":{"message":"සියලුම shortcut reset කරයි"},
-"thumbnailsQuality":{"message":"Thumbnail වල කොලිටිය"},
-"topChat":{"message":"Top chat එක"},
-"trackWatchedVideos":{"message":"බලපු වීඩියෝ track කරන්න"},
-"trailerAutoplay":{"message":"Trailer එක autoplay කරන්න"},
-"translations":{"message":"Translations (පරිවර්තන)"},
-"transparentBackground":{"message":"විනිවිද පෙනෙන Background එක"},
-"tryToReloadThePage":{"message":"Page එක reload කරල බලන්න(කීබෝඩ් එකේ F5 ඔබන්න)"},
-"upNextAutoplay":{"message":"ඊලඟ වීඩීයෝ එක Autoplay කරන්න"},
-"use24HourFormat":{"message":"පැය-24 format එක භාවිත කරන්න"},
-"video":{"message":"වීඩීයෝව"},
-"videoDescriptionWillBeExpandedToGetNameOfCategory":{"message":"Category එකේ නම ලබාගැනීමට description එක expand කෙරේ"},
-"videos":{"message":"වීඩීයෝ"},
-"volume":{"message":"Volume එක"},
-"watchTime":{"message":"Watch time එක"},
-"whenTabIsChanged":{"message":"Tab එක වෙනස් කළ විට"},
-"white":{"message":"සුදු පාට"},
-"windowColor":{"message":"Window එකේ වර්ණය"},
-"windowOpacity":{"message":"Window එකේ opacity එක"},
-"yellow":{"message":"කහ පාට"},
-"youtubeHomePage":{"message":"YouTube home page එක"},
-"youtubeLanguage":{"message":"YouTube language එක"},
-"youtubeLimitsVideoQualityTo1080pForH264Codec":{"message":"h.264 codec සඳහා වීඩියෝ කොලිටිය 1080p දක්වා සීමා කරයි"}
+    "about": {
+        "message": "අපි ගැන"
+    },
+    "accept": {
+        "message": "පිළිගන්නවා"
+    },
+    "activate": {
+        "message": "Activate කරන්න"
+    },
+    "activateCaptions": {
+        "message": "උපසිරැසි Activate කරන්න"
+    },
+    "activated": {
+        "message": "Activate කරනලදී"
+    },
+    "activatedFeatures": {
+        "message": "දැනට ඔන් කරන ලද විශේෂාංග"
+    },
+    "activateFullscreen": {
+        "message": "සම්පූර්ණ තිරය Activate කරන්න"
+    },
+    "activeFeatures": {
+        "message": "දැනට ක්‍රියාත්මක තත්වයේ පවතිය විශේෂාංග"
+    },
+    "addScrollToTop": {
+        "message": "«Scroll to top» බොත්තම ඇඩ් කරන්න"
+    },
+    "ads": {
+        "message": "වෙළද දැන්වීම් (Ads)"
+    },
+    "all": {
+        "message": "සියල්ල"
+    },
+    "allow": {
+        "message": "අවසර දෙන්න"
+    },
+    "allow60fps": {
+        "message": "60fps වීඩීයෝ සදහා අවසර දෙන්න"
+    },
+    "alwaysActive": {
+        "message": "සෑම විටම ක්‍රියාත්මක වෙන"
+    },
+    "alwaysShowProgressBar": {
+        "message": "වීඩීයෝ progress bar එක සෑම විටම පෙන්වන්න"
+    },
+    "amber": {
+        "message": "කහපාටට හුරු"
+    },
+    "analyzer": {
+        "message": "විශ්ලේෂක"
+    },
+    "appearance": {
+        "message": "පෙනුම"
+    },
+    "audio": {
+        "message": "ශබ්ද"
+    },
+    "audioFormats": {
+        "message": "ශබ්ද වල ෆෝමැට් එක"
+    },
+    "auto": {
+        "message": "ස්වයංක්‍රීය"
+    },
+    "autoFullscreen": {
+        "message": "ස්වයංක්‍රීය සම්පූර්ණ තිරය"
+    },
+    "autopauseWhenSwitchingTabs": {
+        "message": "ටැබ් අතර මාරුවෙද්දි වීඩීයෝ එක pause වන ලෙස සැකසීම"
+    },
+    "avoidAv1": {
+        "message": "AV1 මගහරින්න"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "AV1, VP8, VP9 මගහරින්න"
+    },
+    "avoidAv1Vp9": {
+        "message": "AV1, VP9 මගහරින්න"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "පුලුවන් විට cpu හරහා render වීම නවත්වන්න"
+    },
+    "backgroundColor": {
+        "message": "පසුබිමේ පාට"
+    },
+    "backgroundOpacity": {
+        "message": "පසුබිමේ opacity එක"
+    },
+    "baseOnSystemColorScheme": {
+        "message": "System colors මත පදනම්ව"
+    },
+    "belowPlayer": {
+        "message": "player එකට යටින්"
+    },
+    "blockAll": {
+        "message": "සියල්ල Block කරන්න"
+    },
+    "blockAv1": {
+        "message": "AV1 බ්ලොක් කරන්න"
+    },
+    "blockH264": {
+        "message": "H.264 බ්ලොක් කරන්න"
+    },
+    "blocklist": {
+        "message": "Blocklist එක"
+    },
+    "blockMusic": {
+        "message": "Music එක බ්ලොක් කරන්න"
+    },
+    "blockVp8": {
+        "message": "VP8 බ්ලොක් කරන්න"
+    },
+    "blockVp9": {
+        "message": "VP9 බ්ලොක් කරන්න"
+    },
+    "blue": {
+        "message": "නිල්"
+    },
+    "brown": {
+        "message": "දුඹුරු"
+    },
+    "browser": {
+        "message": "බ්‍රවුසරය"
+    },
+    "browserVersion": {
+        "message": "වෙබ් බ්‍රවුසරයේ වර්ශන් එක"
+    },
+    "bubbles": {
+        "message": "බුබුලු"
+    },
+    "bug": {
+        "message": "දෝෂය"
+    },
+    "buttons": {
+        "message": "බටන්"
+    },
+    "categories": {
+        "message": "වර්ග"
+    },
+    "channel": {
+        "message": "චැනල් එක"
+    },
+    "channels": {
+        "message": "චැනල්"
+    },
+    "clipboard": {
+        "message": "Clipboard එක"
+    },
+    "collapsed": {
+        "message": "හකුලන ලදී"
+    },
+    "collapseOfSubscriptionSections": {
+        "message": "Subscribe කරන කොටස හකුලන්න"
+    },
+    "confirmationBeforeClosing": {
+        "message": "වසා දැමීමට පෙර confirm කිරීම"
+    },
+    "custom": {
+        "message": "තමන්ට කැමති විදිහට"
+    },
+    "decreasePlaybackSpeed": {
+        "message": "playback ස්පීඩ් එක අඩුකරන්න"
+    },
+    "decreaseVolume": {
+        "message": "volume එක අඩුකරන්න"
+    },
+    "deepOrange": {
+        "message": "තද තැඹිලි පාට"
+    },
+    "deepPurple": {
+        "message": "තද දම් පාට"
+    },
+    "default": {
+        "message": "සාමාන්‍ය"
+    },
+    "defaultChannelTab": {
+        "message": "සාමාන්‍ය චැනල් tab එක"
+    },
+    "defaultContentCountry": {
+        "message": "සාමාන්‍ය content country එක"
+    },
+    "deleteWatchedVideos": {
+        "message": "බලපු වීඩියෝ delete කරන්න"
+    },
+    "deleteYoutubeCookies": {
+        "message": "YouTube cookies delete කරන්න"
+    },
+    "depressed": {
+        "message": "මානසික අවපීඩනය"
+    },
+    "description": {
+        "message": "Description එක"
+    },
+    "desert": {
+        "message": "අතුරුපස"
+    },
+    "details": {
+        "message": "විස්තර"
+    },
+    "device": {
+        "message": "Device එක"
+    },
+    "dim": {
+        "message": "කිසිවක් නැත"
+    },
+    "donate": {
+        "message": "Donate කරන්න"
+    },
+    "doNotChange": {
+        "message": "වෙනස් කරන්න එපා"
+    },
+    "draggable": {
+        "message": "Drag කළ හැකි"
+    },
+    "dropShadow": {
+        "message": "හෙවනැල්ල"
+    },
+    "email": {
+        "message": "Email එක"
+    },
+    "empty": {
+        "message": "හිස්"
+    },
+    "enabledForced": {
+        "message": "Enabled (බලහත්කාරයෙන්)"
+    },
+    "expanded": {
+        "message": "පුළුල් කර ඇත"
+    },
+    "exportSettings": {
+        "message": "Settings Export කරන්න"
+    },
+    "font": {
+        "message": "ෆොන්ට් එක"
+    },
+    "fontColor": {
+        "message": "ෆොන්ට් එකේ පාට"
+    },
+    "fontOpacity": {
+        "message": "Font එකේ opacity (විනිවිද පෙනෙන බව) එක "
+    },
+    "fontSize": {
+        "message": "Font එකේ size එක"
+    },
+    "footer": {
+        "message": "Footer එක"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "වීඩියෝව මුල සිට බලහත්කාරයෙන් play කරන්න"
+    },
+    "foundABug": {
+        "message": "දෝෂයක් හම්බුනාද ඔයාට?"
+    },
+    "general": {
+        "message": "සාමාන්‍ය"
+    },
+    "github": {
+        "message": "ගිට්හබ්"
+    },
+    "googleApiKey": {
+        "message": "Google API key එක"
+    },
+    "goToSearchBox": {
+        "message": "Search box එකට යන්න"
+    },
+    "gpu": {
+        "message": "GPU එක"
+    },
+    "green": {
+        "message": "කොළ"
+    },
+    "header": {
+        "message": "Header එක"
+    },
+    "hidden": {
+        "message": "සැඟවුණු"
+    },
+    "hideAnimatedThumbnails": {
+        "message": "Animate කරපු thumbnail සඟවන්න"
+    },
+    "hideAnnotations": {
+        "message": "Annotations සඟවන්න"
+    },
+    "hideCards": {
+        "message": "Cards සඟවන්න"
+    },
+    "hideCountryCode": {
+        "message": "Country code එක හංගන්න"
+    },
+    "hideDate": {
+        "message": "Date එක හංගන්න"
+    },
+    "hideDetails": {
+        "message": "Details හංගන්න"
+    },
+    "hideEndscreen": {
+        "message": "Endscreen එක හංගන්න"
+    },
+    "hideFeaturedContent": {
+        "message": "Featured content හංගන්න"
+    },
+    "hideFooter": {
+        "message": "Footer එක හංගන්න"
+    },
+    "hideGradientBottom": {
+        "message": "Player-bar එක වටේ තියෙන shadow එක සගවන්න"
+    },
+    "hideHomePageShorts": {
+        "message": "මුල් පිටුවේ ෂෝට් ඉවත් කරනවා"
+    },
+    "hidePlayerControlsBar": {
+        "message": "Player controls bar එක සඟවන්න"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Player controls bar එකේ තියෙන button සඟවන්න"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Player controls options සඟවන්න"
+    },
+    "hidePlaylist": {
+        "message": "Playlist සඟවන්න"
+    },
+    "hideRightButtons": {
+        "message": "දකුණු පැත්තෙ තියෙන button සඟවන්න"
+    },
+    "hideScrollForDetails": {
+        "message": "«Scroll for details» සඟවන්න"
+    },
+    "hideSkipOverlay": {
+        "message": "5 seconds skip animation එක සඟවන්න"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Thumbnail මත තිබෙන button සඟවන්න"
+    },
+    "hideThumbnails": {
+        "message": "Thumbnail සඟවන්න"
+    },
+    "hideViewsCount": {
+        "message": "Views count එක සඟවන්න"
+    },
+    "hideVoiceSearchButton": {
+        "message": "Voice search button එක සඟවන්න"
+    },
+    "hover": {
+        "message": "Hover (මවුස් පොයින්ටරය තබාගෙන සිටින විට)"
+    },
+    "howLongAgoTheVideoWasUploaded": {
+        "message": "වීඩියෝ එක අප්ලෝඩ් කරල කොච්චර කල් වෙනවද"
+    },
+    "iconsOnly": {
+        "message": "Icons පමණයි"
+    },
+    "importSettings": {
+        "message": "Backup කරපු settings import කරන්න"
+    },
+    "increasePlaybackSpeed": {
+        "message": "Playback speed එක අඩුකරන්න."
+    },
+    "increaseVolume": {
+        "message": "සද්දෙ අඩුකරන්න"
+    },
+    "indigo": {
+        "message": "ඉන්ඩිගෝ"
+    },
+    "language": {
+        "message": "භාෂාව"
+    },
+    "languages": {
+        "message": "භාෂාවන්"
+    },
+    "limitPageWidth": {
+        "message": "Page එකේ පළල සීමා කරන්න"
+    },
+    "list": {
+        "message": "List එක"
+    },
+    "liveChat": {
+        "message": "Live chat එක"
+    },
+    "liveChatType": {
+        "message": "Live chat type එක තෝරන්න"
+    },
+    "location": {
+        "message": "Location එක"
+    },
+    "loop": {
+        "message": "Loop (නැවත නැවත play වෙන ලෙස සැකසීම)"
+    },
+    "loudnessNormalization": {
+        "message": "Loudness සාමාන්‍යකරණය"
+    },
+    "markWatchedVideos": {
+        "message": "කලින් බලපු වීඩියෝ Mark කරන්න"
+    },
+    "mixer": {
+        "message": "Mixer එක"
+    },
+    "moveSidebarLeft": {
+        "message": "Sidebar එක වම් පැත්තට යවන්න"
+    },
+    "moveThumbnailsRight": {
+        "message": "Thumbnail දකුණු පැත්තට කරන්න"
+    },
+    "name": {
+        "message": "නම"
+    },
+    "nativeMiniPlayer": {
+        "message": "යූටූබ් වලටම ආවේණික mini player එක"
+    },
+    "nextVideo": {
+        "message": "මීළඟ video එක"
+    },
+    "noActiveFeatures": {
+        "message": "ක්‍රියාකාරීව තිබෙන Features නොමැත"
+    },
+    "none": {
+        "message": "None (කිසිවක් නැහැ)"
+    },
+    "noOpenVideoTabs": {
+        "message": "Open කරපු වීඩියෝ ටැබ් නැත"
+    },
+    "normal": {
+        "message": "සාමාන්‍ය"
+    },
+    "old": {
+        "message": "පරණ"
+    },
+    "onAllVideos": {
+        "message": "සියලුම වීඩියෝ මත"
+    },
+    "onSubscribedChannels": {
+        "message": "Subscribe කරපු චැනල් මත"
+    },
+    "openPopupPlayer": {
+        "message": "video හෝ playlist new window එකකින් open කරන්න"
+    },
+    "orange": {
+        "message": "තැඹිලි පාට"
+    },
+    "os": {
+        "message": "OS එක (මෙහෙයුම් පද්ධතිය)"
+    },
+    "other": {
+        "message": "අනෙකුත්"
+    },
+    "outline": {
+        "message": "Outline එක"
+    },
+    "permissions": {
+        "message": "අවසරයන්"
+    },
+    "pink": {
+        "message": "රෝස පාට"
+    },
+    "platform": {
+        "message": "Platform එක"
+    },
+    "playbackSpeed": {
+        "message": "Playback speed එක"
+    },
+    "player": {
+        "message": "Player එක"
+    },
+    "playerColor": {
+        "message": "Player එකේ පැහැය"
+    },
+    "playerSize": {
+        "message": "Player එකේ ප්‍රමාණය"
+    },
+    "playlist": {
+        "message": "Playlist එක"
+    },
+    "playPause": {
+        "message": "Play කරන්න / Pause කරන්න"
+    },
+    "position": {
+        "message": "Position එක"
+    },
+    "pressAnyKeyOrScroll": {
+        "message": "ඕනෑම key එකක් හෝ mouse wheel එක යොදාගන්න."
+    },
+    "pressAnyKeyOrUseMouseWheel": {
+        "message": "ඕනෑම key එකක් හෝ mouse wheel එක යොදාගන්න"
+    },
+    "previousVideo": {
+        "message": "කලින් video එක"
+    },
+    "primaryColor": {
+        "message": "Primary color එක"
+    },
+    "purple": {
+        "message": "දම් පාට"
+    },
+    "quality": {
+        "message": "Quality එක"
+    },
+    "ram": {
+        "message": "RAM එක"
+    },
+    "rateMe": {
+        "message": "මාව Rate කරන්න"
+    },
+    "rateUs": {
+        "message": "අපිව Rate කරන්න"
+    },
+    "redDislikeButton": {
+        "message": "Dislike button එක රතුපාටින් පෙන්වන්න."
+    },
+    "removeRelatedSearchResults": {
+        "message": "Related search results කොටස ඉවත් කරන්න"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "සෙවා ප්‍රතිඵල සෙයානක් ඉවත් කරන්න"
+    },
+    "repeat": {
+        "message": "Repeat කරන්න"
+    },
+    "reset": {
+        "message": "Reset කරන්න"
+    },
+    "resetAllSettings": {
+        "message": "සියලුම settings reset කරන්න"
+    },
+    "resetAllShortcuts": {
+        "message": "සියලුම shortcuts reset කරන්න"
+    },
+    "reverse": {
+        "message": "ආපස්සට ගන්න (Reverse)"
+    },
+    "rotate": {
+        "message": "Rotate කරන්න"
+    },
+    "save": {
+        "message": "Save කරන්න"
+    },
+    "screenshot": {
+        "message": "Screenshot ලබාගැනීම"
+    },
+    "scrollBar": {
+        "message": "Scroll Bar එක"
+    },
+    "sd": {
+        "message": "SD කොලිටිය (Data අඩුවෙන් වැයවෙන)"
+    },
+    "searchBarOnly": {
+        "message": "Search bar එක පමණයි"
+    },
+    "settingsSuccessfullyImported": {
+        "message": "සාර්ථකව settings import කරනලදී."
+    },
+    "showChannelVideosCount": {
+        "message": "Channel එකේ තියෙන වීඩියෝ ගාන පෙන්නන්න"
+    },
+    "shuffle": {
+        "message": "Shuffle කරන්න"
+    },
+    "sidebar": {
+        "message": "Sidebar එක"
+    },
+    "spacebar": {
+        "message": "Spacebar එක"
+    },
+    "static": {
+        "message": "ස්ථාවර"
+    },
+    "statsForNerds": {
+        "message": "Show Stats for Nerds (මෝඩ පුද්ගලයන්ගේ තොරතුරු පෙන්වන්න)"
+    },
+    "stop": {
+        "message": "නවත්වන්න"
+    },
+    "style": {
+        "message": "Style එක"
+    },
+    "styles": {
+        "message": "Style වර්ග"
+    },
+    "subtitles": {
+        "message": "උපසිරැසි"
+    },
+    "sunset": {
+        "message": "Sunset (ඉරබහින වෙලාව)"
+    },
+    "sunsetToSunrise": {
+        "message": "Sunset to sunrise (සවස සිට උදෑසන දක්වා)"
+    },
+    "textColor": {
+        "message": "Text color එක"
+    },
+    "thisWillRemoveAllCookies": {
+        "message": "සියලුම cookies ඉවත් කරයි."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "නරඹන ලද වීඩියෝ ඉවත් කරයි."
+    },
+    "thisWillRemoveAllYouTubeCookies": {
+        "message": "සියලුම YouTube හි cookies ඉවත් කරයි"
+    },
+    "thisWillResetAllSettings": {
+        "message": "සියලුම settings reset කරයි"
+    },
+    "thisWillResetAllShortcuts": {
+        "message": "සියලුම shortcut reset කරයි"
+    },
+    "thumbnailsQuality": {
+        "message": "Thumbnail වල කොලිටිය"
+    },
+    "topChat": {
+        "message": "Top chat එක"
+    },
+    "trackWatchedVideos": {
+        "message": "බලපු වීඩියෝ track කරන්න"
+    },
+    "trailerAutoplay": {
+        "message": "Trailer එක autoplay කරන්න"
+    },
+    "translations": {
+        "message": "Translations (පරිවර්තන)"
+    },
+    "transparentBackground": {
+        "message": "විනිවිද පෙනෙන Background එක"
+    },
+    "tryToReloadThePage": {
+        "message": "Page එක reload කරල බලන්න(කීබෝඩ් එකේ F5 ඔබන්න)"
+    },
+    "upNextAutoplay": {
+        "message": "ඊලඟ වීඩීයෝ එක Autoplay කරන්න"
+    },
+    "use24HourFormat": {
+        "message": "පැය-24 format එක භාවිත කරන්න"
+    },
+    "video": {
+        "message": "වීඩීයෝව"
+    },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "Category එකේ නම ලබාගැනීමට description එක expand කෙරේ"
+    },
+    "videos": {
+        "message": "වීඩීයෝ"
+    },
+    "volume": {
+        "message": "Volume එක"
+    },
+    "watchTime": {
+        "message": "Watch time එක"
+    },
+    "whenTabIsChanged": {
+        "message": "Tab එක වෙනස් කළ විට"
+    },
+    "white": {
+        "message": "සුදු පාට"
+    },
+    "windowColor": {
+        "message": "Window එකේ වර්ණය"
+    },
+    "windowOpacity": {
+        "message": "Window එකේ opacity එක"
+    },
+    "yellow": {
+        "message": "කහ පාට"
+    },
+    "youtubeHomePage": {
+        "message": "YouTube home page එක"
+    },
+    "youtubeLanguage": {
+        "message": "YouTube language එක"
+    },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "h.264 codec සඳහා වීඩියෝ කොලිටිය 1080p දක්වා සීමා කරයි"
+    }
 }

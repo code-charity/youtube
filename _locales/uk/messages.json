@@ -1,4 +1,8 @@
 {
-"hideHomePageShorts":{"message":"Видалити Shorts з головної сторінки"},
-"removeShortsReelSearchResults":{"message":"Видаліть карусель Shorts з результатів пошуку"}
+    "hideHomePageShorts": {
+        "message": "Видалити Shorts з головної сторінки"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Видаліть карусель Shorts з результатів пошуку"
+    }
 }
