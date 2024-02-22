@@ -435,7 +435,8 @@ ImprovedTube.upNextAutoplay = function () {
 ADS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAds = function (parent) {
-	let button = parent.querySelector('.ytp-ad-skip-button.ytp-button') || parent;
+	
+	let button = parent.querySelector('.ytp-ad-skip-button-modern.ytp-button,[class*="ytp-ad-skip-button"].ytp-button') || parent;
 	// TODO: Replace this with centralized video element pointer
 	let video = document.querySelector('.video-stream.html5-main-video') || false;
 	function skipAd() {
@@ -452,6 +453,12 @@ ImprovedTube.playerAds = function (parent) {
 		if (ImprovedTube.elements.category === 'music') {
 			skipAd();
 		}
+	} else if (this.storage.ads === 'small_creators'){
+		let userDefiniedLimit = this.storage.smallCreatorsCount * parseInt(this.storage.smallCreatorsUnit);
+		let subscribersNumber = ImprovedTube.subscriberCount;
+		if(subscribersNumber > userDefiniedLimit){
+			skipAd();
+		}				
 	}
 };
 /*------------------------------------------------------------------------------
@@ -697,7 +704,8 @@ ImprovedTube.playerRepeatButton = function (node) {
 			onclick: function () {
 				var video = ImprovedTube.elements.video;
 		function matchLoopState(opacity) {
-			svg.style.opacity = opacity;
+			var thisButton = document.querySelector('#it-repeat-button');
+            thisButton.style.opacity = opacity;		
 			if (ImprovedTube.storage.below_player_loop !== false) {
 				var otherButton = document.querySelector('#it-below-player-loop');
 				otherButton.children[0].style.opacity = opacity;
@@ -1253,10 +1261,10 @@ ImprovedTube.miniPlayer = function () {
 			data = {};
 		}
 
-		data.x = data.x || 16;
-		data.y = data.y || 16;
-		data.width = data.width || 200;
-		data.height = data.height || 150;
+		data.x = data.x || 300;
+		data.y = data.y || 35;
+		data.width = data.width || 300;
+		data.height = data.height || 225;
 
 		this.mini_player__x = data.x;
 		this.mini_player__y = data.y;

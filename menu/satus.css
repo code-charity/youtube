@@ -1319,8 +1319,8 @@ As our Syntax markup isnt read for <textarea>, is it?
 .satus-slider__input[type='text'] {
     appearance: none;
     background: transparent;
-    border: 1px solid;
-    border-radius: 4px;
+    border: 1px solid var(--satus-input-text-border);
+    border-radius: 2px;
     color: inherit;
     font: inherit;
     padding: 0;

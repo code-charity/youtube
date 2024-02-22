@@ -1,22 +1,16 @@
 /*--------------------------------------------------------------
 >>> FUNCTIONS
 --------------------------------------------------------------*/
-
-ImprovedTube.childHandler = function (node) {
-	//console.log(node.nodeName);
-	if (node.nodeName === 'SCRIPT' || node.nodeName === 'iron-iconset-svg' || node.nodeName === 'svg' || node.nodeName === 'SPAN' || node.nodeName === '#text' || node.nodeName === '#comment' || node.nodeName === 'yt-icon-shape' || node.nodeName === 'DOM-IF' || node.nodeName === 'DOM-REPEAT') {
-		return
-	}
-	var children = node.children;
-	this.ytElementsHandler(node);
-
-	if (children) {
-		for (var i = 0, l = children.length; i < l; i++) {
-			ImprovedTube.childHandler(children[i]);
-		}
-	}
+const DOM_filter = /^(SCRIPT|DOM-IF|DOM-REPEAT|svg|SPAN||#text|#comment|yt-icon-shape|iron-iconset-svg)$/;  
+ImprovedTube.childHandler = function (node) { //console.log(node.nodeName);
+if (DOM_filter.test(node.nodeName)) {return; } 	
+ImprovedTube.ytElementsHandler(node);
+ 	var children = node.children;
+	if (children) { let i = 0; for (const child of children) {ImprovedTube.childHandler(children[i]);
+//console.log("node.nodeName:CHILD-"+i+":"+children[i].id+",class:"+children[i].className+","+children[i]+"("+children[i].nodeName+")");  			
+	i++;}
+	} 
 };
-
 ImprovedTube.ytElementsHandler = function (node) {
 	var name = node.nodeName,
 		id = node.id;
@@ -32,12 +26,11 @@ ImprovedTube.ytElementsHandler = function (node) {
 				this.blocklist('channel', node);
 			}
 		}
-	}  else if (name === 'META') {
+	}  /* else if (name === 'META') {               //<META> infos are not updated when clicking related videos...
 		 if(node.getAttribute('name')) {
 			//if(node.getAttribute('name') === 'title')			{ImprovedTube.title = node.content;}		//duplicate
 			//if(node.getAttribute('name') === 'description')		{ImprovedTube.description = node.content;}	//duplicate
 			//if node.getAttribute('name') === 'themeColor')			{ImprovedTube.themeColor = node.content;}	//might help our darkmode/themes
-
 //Do we need any of these here before the player starts?
 			//if(node.getAttribute('name') === 'keywords')			{ImprovedTube.keywords = node.content;}
 			} else if (node.getAttribute('itemprop')) {
@@ -57,7 +50,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 					//to use in the "how long ago"-feature, not to fail without API key?  just like the "day-of-week"-feature above	
 			// if(node.getAttribute('itemprop') === 'uploadDate')	{ImprovedTube.uploadDate = node.content;}
 		}
-	} 
+	}  */
 		else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
 		if (
 //can be precise   previously  node.parentComponent  & node.parentComponent.parentComponent
@@ -169,8 +162,8 @@ ImprovedTube.ytElementsHandler = function (node) {
 			ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
 			ImprovedTube.playerSize();
 	   if ( typeof this.storage.ads !== 'undefined' && this.storage.ads !== "all_videos" ) {
-			new MutationObserver(function (mutationList) {
-				for (var i = 0, l = mutationList.length; i < l; i++) {
+			new MutationObserver(function (mutationList) {  
+				for (var i = 0, l = mutationList.length; i < l; i++) { 
 					var mutation = mutationList[i];
 
 					if (mutation.type === 'childList') {
@@ -186,8 +179,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 						{ImprovedTube.playerAds(node);}
 				}	
 			}).observe(node, {
-				attributes: false,
-				//  attributes: true,
+				// attributes: true,
 				childList: true,
 				subtree: true
 			});   
@@ -238,15 +230,15 @@ ImprovedTube.ytElementsHandler = function (node) {
 				}
 
 				return {
-					width: NaN,   
+					width: NaN,     // ?? 
 					height: NaN
 				};
 			};
 
-			node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;
+			node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;     // ?? 
 		}
-	}else if (document.documentElement.dataset.pageType === 'video'){
-		if (id ==='description-inner') {
+	}else if (true){
+		if (id === 'description-inline-expander' || id === 'description-inner') {
 				setTimeout(function () {
 				ImprovedTube.expandDescription(node);
 			}, 300);
@@ -255,8 +247,13 @@ ImprovedTube.ytElementsHandler = function (node) {
 		} else if (id === 'panels'){setTimeout(function () {
 			ImprovedTube.transcript(node);
 			ImprovedTube.chapters(node);}, 200);
-		}
-	}
+		} /* else if (name === 'TP-YT-PAPER-BUTTON') {
+        if ( (id === 'expand-sizer' || id === 'expand') && node.parentNode.id === 'description-inline-expander') {
+            setTimeout(function () {
+                ImprovedTube.expandDescription(node); 					console.log("EXPAND DESCRIPTION, OLD WAY")
+            }, 750);
+        }} */
+    }
 
 };
 
@@ -590,4 +587,23 @@ ImprovedTube.showStatus = function (value) {
 
 ImprovedTube.videoId =  function (url = document.URL) { return url.match(ImprovedTube.regex.video_id)[1] ||  url.searchParams.get('v') || movie_player.getVideoData().video_id }
 ImprovedTube.videoTitle =  function () {  return document.title?.replace(/\s*-\s*YouTube$/, '') || movie_player.getVideoData().title || document.querySelector('#title > h1 > *')?.textContent  }
+
+
+// Function to extract and store the number of subscribers
+ImprovedTube.extractSubscriberCount = function (subscriberCountNode) {
+    if (!subscriberCountNode){var subscriberCountNode = document.getElementById('owner-sub-count');}
+	if (subscriberCountNode){
+		// Extract the subscriber count and store it for further use
+		var subscriberCountText = subscriberCountNode.textContent.trim();
+		var subscriberCount = parseFloat(subscriberCountText.replace(/[^0-9.]/g, ''));
+	
+		if (subscriberCountText.includes('K')) {
+			subscriberCount *= 1000;
+		} else if (subscriberCountText.includes('M')) {
+			subscriberCount *= 1000000;
+		} 
+
+		ImprovedTube.subscriberCount = subscriberCount;
+	}
+};
 
