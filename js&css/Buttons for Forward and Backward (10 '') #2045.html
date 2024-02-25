@@ -1,0 +1,40 @@
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+    }
+
+    #shape {
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 1s ease-in-out;
+    }
+</style>
+
+<div id="shape"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const shape = document.getElementById("shape");
+
+        function moveShape() {
+            const maxX = window.innerWidth - shape.clientWidth;
+            const maxY = window.innerHeight - shape.clientHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            shape.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        // Move the shape initially
+        moveShape();
+
+        // Move the shape every 3 seconds
+        setInterval(moveShape, 3000);
+    });
+</script>
