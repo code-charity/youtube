@@ -237,7 +237,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 			node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;     // ?? 
 		}
-	}else if (true){
+	}else if (document.documentElement.dataset.pageType === 'video'){
 		if (id === 'description-inline-expander' || id === 'description-inner') {
 				setTimeout(function () {
 				ImprovedTube.expandDescription(node);
