@@ -113,7 +113,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 		}
 	} else if (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-video-primary-info-renderer')) {
 		if(document.documentElement.dataset.pageType === 'video'){
-            this.hideDetailButton(node.$['flexible-item-buttons'].children);
+            this.hideDetailButton(node.querySelector('#flexible-item-buttons').children);
         }
 	} else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
 		this.playlistPopupUpdate();
