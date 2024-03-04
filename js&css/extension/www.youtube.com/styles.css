@@ -463,7 +463,7 @@ ytd-guide-section-renderer .it-button::after {
 	height: 28px;
 	cursor: pointer;
 	text-align: center;
-	color: rgb(255, 255, 255);
+	color: white;
 	border-radius: 2px;
 	background: rgba(0, 0, 0, 0.8);
 	border: none;
@@ -476,7 +476,7 @@ ytd-guide-section-renderer .it-button::after {
 	align-items: center;
 	content: 'Blocklist';
 	text-transform: uppercase;
-	color: var(--yt-spec-icon-active-other, #fff);
+	color: white;
 	position: absolute;
 	left: 100%;
 	top: 0;
@@ -501,7 +501,7 @@ ytd-guide-section-renderer .it-button::after {
 	left: 4px;
 	width: 20px;
 	height: 20px;
-	fill: var(--yt-spec-icon-active-other, #fff);
+	fill: white;
 	pointer-events: none;
 }
 
