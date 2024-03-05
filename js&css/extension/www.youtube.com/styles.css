@@ -534,7 +534,6 @@ ytd-guide-section-renderer .it-button::after {
 /* .it-blocklisted-video #metadata-line { display:none !important}  
    .it-blocklisted-video div {display: inline-block !important}  */
  
-html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer 
 /*------------NEW---------------*/
 
 .improvedtube-sidebar-a {
@@ -609,27 +608,27 @@ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer
 3.0 THEMES
 ------------------------------------------------------------------------------*/
 /*update: cinematics */
-[it-theme=black] #cinematics, 
-[it-theme=desert] #cinematics {display:none !important}
-[it-theme=dawn] #cinematics,
-[it-theme=sunset] #cinematics,
-[it-theme=night] #cinematics { mix-blend-mode: lighten !important}
-[it-theme=plain] #cinematics { filter:invert(100%) !important; mix-blend-mode: darken !important}
+html[it-theme=black] #cinematics, 
+html[it-theme=desert] #cinematics {display:none !important}
+html[it-theme=dawn] #cinematics,
+html[it-theme=sunset] #cinematics,
+html[it-theme=night] #cinematics { mix-blend-mode: lighten !important}
+html[it-theme=plain] #cinematics { filter:invert(100%) !important; mix-blend-mode: darken !important}
 
 /*video detail text color. Fix. Themes didnt apply video description text color*/
-[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary)  !important}
-[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string__link--call-to-action-color {color: var(--yt-spec-call-to-action);}
-	/*The next two lines below can be removed if exact theming consistency isn't the goal and we just want to keep it simple.*/
-	[it-theme]:not([it-theme=default]):not([it-theme=dark]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-call-to-action) !important;}
-	/* Actually this above line is wrong. Default behavior is to have #tags near the views and upload date have two different colors depending if the video detail is expanded or not, but I don't know how to replicate that.*/
-	[it-theme]:not([it-theme=default]):not([it-theme=dark]) yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-text-primary) !important;}
-[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--highlight-text-decorator .yt-core-attributed-string__link--display-type {color: var(--yt-spec-text-primary)}
+html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary)  !important}
+html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string__link--call-to-action-color {color: var(--yt-spec-call-to-action);}
+/*The next two lines below can be removed if exact theming consistency isn't the goal and we just want to keep it simple.*/
+html[it-theme]:not([it-theme=default]):not([it-theme=dark]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-call-to-action) !important;}
+/* Actually this above line is wrong. Default behavior is to have #tags near the views and upload date have two different colors depending if the video detail is expanded or not, but I don't know how to replicate that.*/
+html[it-theme]:not([it-theme=default]):not([it-theme=dark]) yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-text-primary) !important;}
+html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--highlight-text-decorator .yt-core-attributed-string__link--display-type {color: var(--yt-spec-text-primary)}
 
 /*BLACK*/
 
-[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark],
-[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] {
+html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
+html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark],
+html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #000 !important;
 	--yt-swatch-primary-darker: #000 !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
@@ -682,15 +681,15 @@ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer
 }
 
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
-[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
-[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo {
+html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
+html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo {
 	-webkit-filter: grayscale(1) brightness(3.5);
 	filter: grayscale(1) brightness(3.5);
 }
 
-[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
-[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark] ytd-masthead,
-[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] ytd-masthead {
+html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
+html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark] ytd-masthead,
+html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] ytd-masthead {
 	background: #000 !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
@@ -702,9 +701,9 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-swatch-icon-color: rgba(136, 136, 136, 1) !important;
 }
 
-[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
+html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
 	--yt-live-chat-action-panel-background-color: #000;
 	--yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
 	--yt-live-chat-primary-text-color: hsl(0, 0%, 100%);
@@ -715,11 +714,11 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-formatted-string-emoji-size: 24px;
 }
 
-[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
+html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
-[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
-[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
+html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
+html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
 	--yt-spec-icon-inactive: #fff;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
 	--ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
@@ -846,9 +845,9 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-blue-suggestive: transparent;
 }
 
-[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
-[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
-[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
+html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
 	--yt-lightsource-section2-color: rgba(18,24,24,1.000) !important;
 	--yt-lightsource-section3-color: rgba(20,30,30,1.000) !important;
 	--yt-lightsource-section4-color: rgba(24,38,38,1.000) !important;
@@ -858,9 +857,9 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 
 /*DAWN*/
   
-[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark],
-[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] {
+html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
+html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark],
+html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #d44d5c !important;
 	--yt-swatch-primary-darker: #d44d5c !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
@@ -912,9 +911,9 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-themed-green: #107516 !important;
 }
 
-[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
-[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark] ytd-masthead,
-[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] ytd-masthead {
+html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
+html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark] ytd-masthead,
+html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] ytd-masthead {
 	background: #835 !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
@@ -929,9 +928,9 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-general-background-c: #d44d5c !important;
 }
 
-[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
+html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
 	--yt-live-chat-action-panel-background-color: #d44d5c;
 	--yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
 	--yt-live-chat-primary-text-color: hsl(0, 0%, 100%);
@@ -942,11 +941,11 @@ html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-formatted-string-emoji-size: 24px;
 }
 
-[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
+html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
-[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
-[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
+html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
+html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
 	--yt-spec-icon-inactive: #fff;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
 	--ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
@@ -1075,15 +1074,15 @@ html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=sy
 }
 
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
-[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
-[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo {
+html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
+html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo {
 	-webkit-filter: grayscale(1) brightness(4);
 	filter: grayscale(1) brightness(4);
 }
 
-[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
-[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
-[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
+html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
 	--yt-lightsource-section2-color: rgba(0, 0, 0, 0.1) !important;
 	--yt-lightsource-section3-color: rgba(0, 0, 0, 0.2) !important;
 	--yt-lightsource-section4-color: rgba(0, 0, 0, 0.3) !important;
@@ -1093,9 +1092,9 @@ html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=sy
 
 /*DESERT*/ 
 
-[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-[data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark],
-[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light] {
+html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
+html[data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark],
+html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #faf9f9 !important;
 	--yt-swatch-primary-darker: #faf9f9 !important;
 	--yt-swatch-text: #555 !important;
@@ -1147,9 +1146,9 @@ html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=sy
 	--yt-spec-themed-green: #107516 !important;
 }
 
-[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
-[data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark] ytd-masthead,
-[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light] ytd-masthead {
+html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
+html[data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark] ytd-masthead,
+html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light] ytd-masthead {
 	background: #ced3cb !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
@@ -1164,9 +1163,9 @@ html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=sy
 	--yt-spec-general-background-c: #faf9f9 !important;
 }
 
-[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
+html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
 	--yt-live-chat-action-panel-background-color: #faf9f9;
 	--yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
 	--yt-live-chat-primary-text-color: #555;
@@ -1177,11 +1176,11 @@ html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=sy
 	--yt-formatted-string-emoji-size: 24px;
 }
 
-[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
+html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
 html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
-[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
-[data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark]:not(.style-scope)[dark],
-[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light]:not(.style-scope)[dark] {
+html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
+html[data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark]:not(.style-scope)[dark],
+html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light]:not(.style-scope)[dark] {
 	--yt-spec-icon-inactive: #555;
 	--yt-spec-text-primary: #555;
 	--ytd-searchbox-border-color: #555;
@@ -1312,9 +1311,9 @@ html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=
 
 /*NIGHT*/
 
-[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark],
-[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] {
+html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
+html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark],
+html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #003459 !important;
 	--yt-swatch-primary-darker: #003459 !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
@@ -1367,15 +1366,15 @@ html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=
 }
 
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
-[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
-[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo {
+html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
+html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo {
 	-webkit-filter: grayscale(1) brightness(3.5);
 	filter: grayscale(1) brightness(3.5);
 }
 
-[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
-[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark] ytd-masthead,
-[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] ytd-masthead {
+html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
+html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark] ytd-masthead,
+html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] ytd-masthead {
 	background: #007ea7 !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
@@ -1390,9 +1389,9 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-general-background-c: #003459 !important;
 }
 
-[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
+html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
 	--yt-live-chat-action-panel-background-color: #003459;
 	--yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
 	--yt-live-chat-primary-text-color: hsl(0, 0%, 100%);
@@ -1403,11 +1402,11 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-formatted-string-emoji-size: 24px;
 }
 
-[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
+html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
-[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
-[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
+html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
+html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
 	--yt-spec-icon-inactive: #fff;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
 	--ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
@@ -1534,9 +1533,9 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-blue-suggestive: transparent;
 }
 
-[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
-[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
-[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
+html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
 	--yt-lightsource-section2-color: rgba(0, 0, 0, 0.1) !important;
 	--yt-lightsource-section3-color: rgba(0, 0, 0, 0.2) !important;
 	--yt-lightsource-section4-color: rgba(0, 0, 0, 0.3) !important;
@@ -1546,9 +1545,9 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 
 /*PLAIN*/
 
-[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark],
-[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light] {
+html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
+html[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark],
+html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #c7efcf !important;
 	--yt-swatch-primary-darker: #c7efcf !important;
 	--yt-swatch-text: #666 !important;
@@ -1600,9 +1599,9 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-themed-green: #107516 !important;
 }
 
-[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
-[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark] ytd-masthead,
-[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light] ytd-masthead {
+html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
+html[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark] ytd-masthead,
+html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light] ytd-masthead {
 	background: #e4ccaa !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
@@ -1617,9 +1616,9 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-general-background-c: #c7efcf !important;
 }
 
-[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
+html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
 	--yt-live-chat-action-panel-background-color: #c7efcf;
 	--yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
 	--yt-live-chat-primary-text-color: hsl(0, 0%, 100%);
@@ -1630,11 +1629,11 @@ html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-formatted-string-emoji-size: 24px;
 }
 
-[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
+html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
 html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
-[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
-[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
+html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
+html[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
 	--yt-spec-icon-inactive: #666;
 	--yt-spec-text-primary: #666;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
@@ -1762,9 +1761,9 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-blue-suggestive: transparent;
 }
 
-[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
-[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
-[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
+html[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
 	--yt-lightsource-section2-color: rgba(0, 0, 0, 0.05) !important;
 	--yt-lightsource-section3-color: rgba(0, 0, 0, 0.1) !important;
 	--yt-lightsource-section4-color: rgba(0, 0, 0, 0.15) !important;
@@ -1775,9 +1774,9 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 
 /*SUNSET*/
   
-[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark],
-[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] {
+html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
+html[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark],
+html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #2f3364 !important;
 	--yt-swatch-primary-darker: #2f3364 !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
@@ -1829,9 +1828,9 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-themed-green: #107516 !important;
 }
 
-[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
-[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark] ytd-masthead,
-[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] ytd-masthead {
+html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
+html[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark] ytd-masthead,
+html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] ytd-masthead {
 	background: #f56258 !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
@@ -1846,9 +1845,9 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-spec-general-background-c: #2f3364 !important;
 }
 
-[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
+html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
 	--yt-live-chat-action-panel-background-color: #2f3364;
 	--yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
 	--yt-live-chat-primary-text-color: hsl(0, 0%, 100%);
@@ -1859,11 +1858,11 @@ html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=s
 	--yt-formatted-string-emoji-size: 24px;
 }
 
-[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
+html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
 html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
-[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
-[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark]:not(.style-scope)[dark],
-[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light]:not(.style-scope)[dark] {
+html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
+html[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark]:not(.style-scope)[dark],
+html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light]:not(.style-scope)[dark] {
 	--yt-spec-icon-inactive: #fff;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
 	--ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
@@ -1990,9 +1989,9 @@ html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=
 	--yt-blue-suggestive: transparent;
 }
 
-[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
-[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
-[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
+html[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
 	--yt-lightsource-section2-color: rgba(0, 0, 0, 0.1) !important;
 	--yt-lightsource-section3-color: rgba(0, 0, 0, 0.2) !important;
 	--yt-lightsource-section4-color: rgba(0, 0, 0, 0.3) !important;
