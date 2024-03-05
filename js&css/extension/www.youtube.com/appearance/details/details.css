@@ -150,4 +150,5 @@ html[it-description='classic_hidden'] div.style-scope.ytd-watch-flexy + ytd-watc
 .it-channel-videos-count {
 	display: inline-block !important;
 	margin-left: 4px !important;
-	color: var(--yt-spec-text-secondary) !important;}
+	color: var(--yt-spec-text-secondary) !important;
+}
