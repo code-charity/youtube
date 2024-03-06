@@ -197,7 +197,6 @@ document.addEventListener('it-message-from-extension', function () {
 				{ if ( ImprovedTube.storage.player_forced_playback_speed === true ) { ImprovedTube.elements.player.setPlaybackRate(Number(ImprovedTube.storage.player_playback_speed));	ImprovedTube.elements.player.querySelector('video').playbackRate = Number(ImprovedTube.storage.player_playback_speed) }
 				  if ( ImprovedTube.storage.player_forced_playback_speed === false) { ImprovedTube.elements.player.setPlaybackRate(Number(1));	ImprovedTube.elements.player.querySelector('video').playbackRate = Number(1) }
 			} else if (camelized_key === 'theme') {
-				ImprovedTube.myColors();
 				ImprovedTube.setTheme();
 			} else if (camelized_key === 'description') {
 				if (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.description === "classic_expanded" )
