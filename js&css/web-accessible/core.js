@@ -249,7 +249,7 @@ document.addEventListener('it-message-from-extension', function () {
 				if (ImprovedTube.storage.below_player_pip === true) { document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove()); ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer(); } 
 			} else if ( camelized_key === 'belowPlayerScreenshot' ){
 				if (ImprovedTube.storage.below_player_screenshot === false) { document.querySelector('.improvedtube-player-button[data-tooltip="Screenshot"]')?.remove();}
-				if (ImprovedTube.storage.below_player_screenshot === true) { document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());; ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer(); } 
+				if (ImprovedTube.storage.below_player_screenshot === true) { document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove()); ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer(); } 
 			} else if ( camelized_key === 'belowPlayerLoop' ){
 				if (ImprovedTube.storage.below_player_loop === false) { document.querySelector('.improvedtube-player-button[data-tooltip="Loop"]')?.remove();}
 				if (ImprovedTube.storage.below_player_loop === true) { document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove()); ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer(); } 
