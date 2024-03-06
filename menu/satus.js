@@ -3142,7 +3142,10 @@ satus.search = function(query, object, callback) {
 			'layersProvider',
 			'parentObject',
 			'parentSkeleton',
-			'namespaceURI'
+			'namespaceURI',
+			'svg',
+			'parentElement',
+			'rendered'
 		];
 
 	query = query.toLowerCase();
@@ -3154,14 +3157,11 @@ satus.search = function(query, object, callback) {
 			if (excluded.indexOf(key) === -1) {
 				var item = items[key];
 
-				if (item.component) {
-					//console.log(key, item.component);
-
-					if (elements.indexOf(item.component) !== -1 && key.indexOf(query) !== -1) {
-						results[key] = Object.assign({}, item);
-					}
+ 				if (item.component && item.text && elements.indexOf(item.component) !== -1
+				&& (satus.locale.data[item.text] ? satus.locale.data[item.text] : item.text).toLowerCase().indexOf(query) !== -1) {
+					results[key] = Object.assign({}, item);
 				}
-
+				
 				if (
 					satus.isObject(item) &&
 					!satus.isArray(item) &&

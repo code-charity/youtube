@@ -556,7 +556,7 @@ html[data-page-type='video'][it-player-size='custom'] ytd-app:not([player-fullsc
 # SKIP OVERLAY
 --------------------------------------------------------------*/
 
-html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui, .ytp-doubletap-ui-legacy
+html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui, html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui-legacy
 {
     visibility: hidden;
 }
