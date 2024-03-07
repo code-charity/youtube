@@ -94,7 +94,7 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			value: 'default',
 			checked: true
 		}
-	},	
+	},
 	black: {
 		component: 'label',
 		variant: 'black-theme',
