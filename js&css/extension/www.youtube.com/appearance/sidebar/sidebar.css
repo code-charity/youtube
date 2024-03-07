@@ -82,31 +82,19 @@ html[data-page-type=video][it-transcript='true'][it-sidebar-left='true']:not([it
 }
 */
 }
-html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer:hover {overflow-x: visible !important;}
-html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer:has(+ ytd-transcript-segment-renderer.active) yt-formatted-string {
-	margin-bottom:-5px !important;
-	margin-top:-5px !important;
-	font-size:1.26em !important;
-} 
-html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer.active yt-formatted-string {
-	margin-bottom:-5px !important;
-	margin-top:-5px !important;
-	font-size:1.35em !important;
-}		
-html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer.active + ytd-transcript-segment-renderer yt-formatted-string {
-	margin-bottom:-5px !important;
-	margin-top:-5px !important;
-	font-size:1.30em !important;
-}
-html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer.active + ytd-transcript-segment-renderer + ytd-transcript-segment-renderer yt-formatted-string {
-	margin-bottom:-5px !important;
-	margin-top:-5px !important;
-	font-size:1.24em !important;
-}
-html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'] ytd-transcript-segment-renderer * {
-	margin-bottom:-4px !important;
-	margin-top:-4px !important;
-}
+
+html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer:hover { overflow-x: visible !important; }
+html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer:has(+ ytd-transcript-segment-renderer.active) yt-formatted-string 
+{margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.26em !important;} 
+html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer.active yt-formatted-string 
+{margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.35em !important;}		
+html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer.active + ytd-transcript-segment-renderer yt-formatted-string 
+{margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.30em !important;}
+html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer.active + ytd-transcript-segment-renderer + ytd-transcript-segment-renderer yt-formatted-string 
+{margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.24em !important;}
+html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'] ytd-transcript-segment-renderer *
+{margin-bottom:-4px !important; margin-top:-4px !important; }
+
 html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'], 
 html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript']  ytd-engagement-panel-section-list-renderer #content {
 	max-height: 69vh !important;
