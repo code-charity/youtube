@@ -1,10 +1,10 @@
 /*--------------------------------------------------------------
 >>> DETAILS  
-----------------------------------------------------------------
-/*--------------------------------------------------------------
-# General   /* WHY ?*/
 --------------------------------------------------------------*/
-#info #info-text {	max-height: 6rem; display: block; }    
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+#info #info-text {max-height: 6rem; display: block;}    
  /*--------------------------------------------------------------
 YouTube's Detail Buttons
 --------------------------------------------------------------*/
@@ -16,14 +16,13 @@ html[it-youtubeDetailButtons='transparent_background'] #subscribe-button button,
 html[it-youtubeDetailButtons='transparent_background'] #menu button {background-color:rgba(0, 0, 0, 0.2) !important;}  
 html[it-youtubeDetailButtons='transparent_background'] #subscribe-button button {color:#111 !important;}
 	/*------SHOW my DISLIKE in RED------*/  
-	html[it-red-dislike-button='true'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer *[aria-pressed='true'] yt-icon 
-	{color: #f02200 !important;}
+html[it-red-dislike-button='true'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer *[aria-pressed='true'] yt-icon {color: #f02200 !important;}
 	/*------SUBSCRIBE BUTTON------*/  
-/* DISPLAY: NONE: */
-	html[it-subscribe='grey'] #subscribe-button button { background-color: #DDD !important; color:#111 !important; }
-	html[it-subscribe='transparent'] #subscribe-button button {background-color:rgba(0, 0, 0, 0.4) !important; color:#111 !important; }
-	html[it-subscribe='remove_label'] #subscribe-button button .yt-spec-button-shape-next__button-text-content,
-	html[it-subscribe='hidden'] #subscribe-button,
+html[it-subscribe='grey'] #subscribe-button button {background-color: #DDD !important; color:#111 !important;}
+html[it-subscribe='transparent'] #subscribe-button button {background-color:rgba(0, 0, 0, 0.4) !important; color:#111 !important;}
+	/* DISPLAY: NONE: */
+html[it-subscribe='remove_label'] #subscribe-button button .yt-spec-button-shape-next__button-text-content,
+html[it-subscribe='hidden'] #subscribe-button,
 html[it-youtubeDetailButtons='remove_labels'] #menu ytd-button-renderer div:nth-child(2), 
 html[it-youtubeDetailButtons='remove_labels'] #menu ytd-button-renderer .cbox, 
 html[it-youtubeDetailButtons='remove_labels'] #subscribe-button .cbox,
@@ -45,7 +44,6 @@ html[it-hide-dislike-button='hidden'] #top-level-buttons-computed #segmented-dis
 html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer div.cbox,
 html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer yt-animated-rolling-number,
 html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer .yt-spec-button-shape-next__button-text-content,
-
 	/*------# HIDE SHARE BUTTON------*/
 html[it-hide-share-button='hidden'] #menu button:has(svg path[d^="M15 5.63 20.66"]),
 html[it-hide-share-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M15 5.63 20.66"]),
@@ -134,8 +132,9 @@ html[it-description='classic_hidden'] ytd-video-primary-info-renderer { padding-
 
 html[it-description='classic'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata,
 html[it-description='classic_expanded'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata,
-html[it-description='classic_hidden'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata  
-{display: none !important;}
+html[it-description='classic_hidden'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata {
+	display: none !important;
+}
 */
 /*--------------------------------------------------------------
 # HOW LONG AGO THE VIDEO WAS UPLOADED
@@ -143,11 +142,13 @@ html[it-description='classic_hidden'] div.style-scope.ytd-watch-flexy + ytd-watc
 .it-how-long-ago-the-video-was-uploaded {
 	float: right !important;
 	margin-left: 4px !important;
-	color: var(--yt-spec-text-secondary) !important;}
+	color: var(--yt-spec-text-secondary) !important;
+}
 /*--------------------------------------------------------------
 # SHOW CHANNEL VIDEOS COUNT
 --------------------------------------------------------------*/
 .it-channel-videos-count {
 	display: inline-block !important;
 	margin-left: 4px !important;
-	color: var(--yt-spec-text-secondary) !important;}
+	color: var(--yt-spec-text-secondary) !important;
+}

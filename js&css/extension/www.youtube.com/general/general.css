@@ -44,16 +44,18 @@ html[it-embeddedHideShare='true'] .ytp-share-button-visible:has(.ytp-share-icon)
 html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]), 
 html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer,
-html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-reel-shelf-renderer
-{display: none !important }
-	@supports not selector(:has(a, b)) {
+html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-reel-shelf-renderer {
+	display: none !important;
+}
+@supports not selector(:has(a, b)) {
 	html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-shelf-renderer[is-shorts],
-	html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] ytd-rich-shelf-renderer[is-shorts],
-	{display: none !important	}
+	html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] ytd-rich-shelf-renderer[is-shorts] {
+		display: none !important;
 	}
+}
 /*
 html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
-html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short])
+html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
 
 html[it-pathnam='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer span#title:contains("Shorts"),
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer path[d^="M17.77,10.32l-1.2-.5L18,9.06a3.74,3.74"],
@@ -62,8 +64,9 @@ html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shel
 
 html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] #contents.ytd-item-section-renderer:has(ytd-reel-shelf-renderer:has(span#title:contains("Shorts"))),
 html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] #contents.ytd-item-section-renderer:has(ytd-reel-shelf-renderer:has(yt-horizontal-list-renderer)),
-html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"]  ytd-reel-shelf-renderer:has(yt-horizontal-list-renderer)
-{display: none !important	}  */
+html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"]  ytd-reel-shelf-renderer:has(yt-horizontal-list-renderer) {
+	display: none !important
+}  */
 /*--------------------------------------------------------------
 # YOUTUBE HOME PAGE
 --------------------------------------------------------------*/
@@ -108,8 +111,10 @@ html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox>form {
 	width: 100% !important;
 	max-width: 768px !important;
 }
-html[it-pathname='/'][it-youtube-home-page='search'] #search 
-   {height: calc(17px + 0.4vh + 0.4vw); font-size: calc(15px + 0.4vh + 0.4vw); }
+html[it-pathname='/'][it-youtube-home-page='search'] #search {
+	height: calc(17px + 0.4vh + 0.4vw);
+	font-size: calc(15px + 0.4vh + 0.4vw);
+}
 
 /*--------------------------------------------------------------
 # COLLAPSE OF SUBSCRIPTION SECTIONS
@@ -199,7 +204,8 @@ html[it-scroll-to-top='true'] #it-scroll-to-top:focus,
 html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 	transition: background 250ms 125ms, transform 250ms, box-shadow 275ms !important;
 	transform: translateY(4px) scale(.975) !important;
-	box-shadow: 0 1px 1px 0 #d60024, 0 1px 2px rgb(82, 0, 14, .32) !important; }
+	box-shadow: 0 1px 1px 0 #d60024, 0 1px 2px rgb(82, 0, 14, .32) !important;
+}
 
 /*--------------------------------------------------------------
 # Popup Window Button
@@ -211,8 +217,8 @@ html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 	z-index: 999 !important;
 	bottom: 36px;
 	left: 4px;
-    opacity: 0;
-    transition: opacity 4s;
+	opacity: 0;
+	transition: opacity 4s;
    
 	width: 28px;
 	height: 28px;

@@ -47,8 +47,6 @@
 				"js&css/extension/functions.js",
 				"js&css/extension/www.youtube.com/night-mode/night-mode.js",
 				"js&css/extension/www.youtube.com/general/general.js",
-				"js&css/extension/www.youtube.com/appearance/player/player.js",
-				"js&css/extension/www.youtube.com/appearance/details/details.js",
 				"js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js",
 				"js&css/extension/www.youtube.com/appearance/comments/comments.js",
 				"js&css/extension/init.js"
