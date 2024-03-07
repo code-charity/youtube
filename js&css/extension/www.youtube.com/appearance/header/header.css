@@ -8,15 +8,15 @@
 # Hide voice search button
 --------------------------------------------------------------*/
 
-html[it-header-transparent=true] ytd-masthead { background-color: rgba(230, 230, 230, 0.1) !important;}
+html[it-header-transparent=true] ytd-masthead {background-color: rgba(230, 230, 230, 0.1) !important;}
 
 /*--------------------------------------------------------------
 # POSITION
 --------------------------------------------------------------*/
 
 html[it-header-position=hidden] #masthead-container:not([it-search-focus=true]),
-html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container:not([it-search-focus=true])
-{transform: translateY(-100%);
+html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container:not([it-search-focus=true]) {
+	transform: translateY(-100%);
 }
 html[it-header-position=hidden] tp-yt-app-drawer#guide #guide-spacer,
 html[it-header-position=hidden] tp-yt-app-drawer:not([opened]) #header ytd-topbar-logo-renderer,
@@ -57,7 +57,6 @@ html[it-header-position=static] ytd-page-manager#page-manager {
 
 html[it-header-position=hover]:not([it-improvedtube-search=true]) #masthead-container,
 html[it-header-position=hover_on_video_page][data-page-type='video']:not([it-improvedtube-search=true]) #masthead-container {
-
 	transition: all 320ms ease-in-out;
 	transform: translateY(-38%);
 	height: 68px;
@@ -118,14 +117,15 @@ html[it-header-position=static] #chips-wrapper.ytd-feed-filter-chip-bar-renderer
 --------------------------------------------------------------*/
 html[it-header-improve-logo='true'] ytd-topbar-logo-renderer path[fill='#FF0000'],
 html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'] {
-	fill: rgb(40, 40, 40) !important;}
+	fill: rgb(40, 40, 40) !important;
+}
 html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'] {
-	fill: rgb(66, 66, 66) !important;}
+	fill: rgb(66, 66, 66) !important;
+}
 /*--------------------------------------------------------------
 # HIDE RIGHT BUTTONS
 --------------------------------------------------------------*/
-html[it-header-hide-right-buttons='true'] #masthead #container #end 
-{visibility: hidden !important; 	pointer-events: none !important;}
+html[it-header-hide-right-buttons='true'] #masthead #container #end {visibility: hidden !important; 	pointer-events: none !important;}
 /*--------------------------------------------------------------
 # HIDE COUNTRY CODE
 --------------------------------------------------------------*/
@@ -133,5 +133,6 @@ html[it-header-hide-country-code='true'] #logo #country-code,
 /*--------------------------------------------------------------
 # HIDE VOICE SEARCH BUTTON
 --------------------------------------------------------------*/
-html[it-hide-voice-search-button='true'] #voice-search-button 
-{display: none !important;}
+html[it-hide-voice-search-button='true'] #voice-search-button  {
+	display: none !important;
+}

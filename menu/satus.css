@@ -1,31 +1,51 @@
 .satus-section--card, .satus-select, .satus-switch, .satus-switch__content {transition: background-color 0.8s ease-out !important;}
 .satus-section--card:hover, .satus-select:hover, .satus-switch:hover,  .satus-switch__content:hover  {transition: background-color 0.08s ease-out !important;}
 
-*[data-value][data-value="false"] { margin-bottom: 0;  margin-top: 0;  transition: margin 0.14s linear !important; }  
-*[data-value][data-value="true"]  {margin-bottom: -4.5px !important;   margin-top: -3.5px; transition: margin 0.2s linear !important; }
+*[data-value][data-value="false"] {margin-bottom: 0; margin-top: 0; transition: margin 0.14s linear !important;}  
+*[data-value][data-value="true"] {margin-bottom: -4.5px !important; margin-top: -3.5px; transition: margin 0.2s linear !important;}
 
-.satus-button--general, .satus-button--appearance, .satus-button--player
- {    margin-left: 9px !important; margin-right: -18px !important; max-width: 272px !important;}
-div:not([home-style="list"]) .satus-button--themes, div:not([home-style="list"]) .satus-button--playlist,div:not([home-style="list"])  .satus-button--channel, div:not([home-style="list"]) .satus-button--shortcuts  
- {  transform: scale(0.91); margin-top: -10px !important;  margin-left: -5px !important; margin-right: -28px !important;  }
-div:not([home-style="list"]) .satus-button--blocklist, div:not([home-style="list"]) .satus-button--analyzer   
- { transform: scale(0.78); margin-top: -22px !important;  margin-left: 110px !important; margin-right: -150px !important; }
+.satus-button--general, .satus-button--appearance, .satus-button--player {
+	margin-left: 9px !important;
+	margin-right: -18px !important;
+	max-width: 272px !important;
+}
+div:not([home-style="list"]) .satus-button--themes, div:not([home-style="list"]) .satus-button--playlist,div:not([home-style="list"])  .satus-button--channel, div:not([home-style="list"]) .satus-button--shortcuts {
+	transform: scale(0.91);
+	margin-top: -10px !important;
+	margin-left: -5px !important;
+	margin-right: -28px !important;
+}
+div:not([home-style="list"]) .satus-button--blocklist, div:not([home-style="list"]) .satus-button--analyzer {
+	transform: scale(0.78);
+	margin-top: -22px !important;
+	margin-left: 110px !important;
+	margin-right: -150px !important;
+}
 
-div[home-style="list"] .satus-button--themes, div[home-style="list"] .satus-button--playlist,div[home-style="list"]  .satus-button--channel, div[home-style="list"] .satus-button--shortcuts  
- {  transform: scale(0.92); margin-bottom: -17px !important; margin-left:3px !important; max-width: 197px !important; margin-top:2px !important;}
-div[home-style="list"] .satus-button--blocklist, div[home-style="list"] .satus-button--analyzer   
- { transform: scale(0.75); margin-left: 165px !important; max-width: 141px !important;  margin-top: -72px !important; }
-div[home-style="list"] .satus-button--analyzer   
-{ margin-top: -16px !important; }
+div[home-style="list"] .satus-button--themes, div[home-style="list"] .satus-button--playlist,div[home-style="list"]  .satus-button--channel, div[home-style="list"] .satus-button--shortcuts {
+	transform: scale(0.92);
+	margin-bottom: -17px !important;
+	margin-left:3px !important;
+	max-width: 197px !important;
+	margin-top:2px !important;
+}
+div[home-style="list"] .satus-button--blocklist, div[home-style="list"] .satus-button--analyzer {
+	transform: scale(0.75);
+	margin-left: 165px !important;
+	max-width: 141px !important;
+	margin-top: -72px !important;
+}
+div[home-style="list"] .satus-button--analyzer {margin-top: -16px !important;}
 
 
 /*--------------------------------------------------------------
 # SCROLLBAR
 --------------------------------------------------------------*/
-:where([class^='satus'])::-webkit-scrollbar { width: 5px; }
-:where([class^='satus']):hover {	scrollbar-width: 9px; }  :where([class^='satus'])::-webkit-scrollbar:hover {	width: 9px; }  
-:where([class^='satus'])::-webkit-scrollbar-thumb { 	background: rgba(var(--satus-light), .2); }
-:where([class^='satus'])::-webkit-scrollbar-thumb:hover { 	background: rgba(var(--satus-light), .4); }
+:where([class^='satus'])::-webkit-scrollbar {width: 5px;}
+:where([class^='satus']):hover {scrollbar-width: 9px;}
+:where([class^='satus'])::-webkit-scrollbar:hover {width: 9px;}  
+:where([class^='satus'])::-webkit-scrollbar-thumb {background: rgba(var(--satus-light), .2);}
+:where([class^='satus'])::-webkit-scrollbar-thumb:hover {background: rgba(var(--satus-light), .4);}
 /*--------------------------------------------------------------
 # ANIMATIONS
 --------------------------------------------------------------*/
@@ -108,9 +128,9 @@ div[home-style="list"] .satus-button--analyzer
 /*--------------------------------------------------------------
 >>> NORMALIZE
 --------------------------------------------------------------*/
-:where([class^='satus']){box-sizing: border-box;}
+:where([class^='satus']) {box-sizing: border-box;}
 :where([class^='satus'])[hidden]:not([hidden='false']) {display: none;}
-:where([class^='satus'])[transparent]{opacity:0;}
+:where([class^='satus'])[transparent] {opacity:0;}
 /*--------------------------------------------------------------
 >>> MODAL
 ----------------------------------------------------------------
@@ -249,7 +269,6 @@ div[home-style="list"] .satus-button--analyzer
 
 .satus-modal--vertical-menu .satus-switch:hover {
 	cursor: pointer;
-
 	background-color: rgba(var(--satus-light), .06);
 }
 
@@ -801,8 +820,7 @@ As our Syntax markup isnt read for <textarea>, is it?
 }
 
 .satus-section--card>.satus-button>svg,
-.satus-section--card>.satus-select>svg
-{
+.satus-section--card>.satus-select>svg {
 	width: 20px;
 	margin: 0 14px 0 0;
 
@@ -908,11 +926,6 @@ As our Syntax markup isnt read for <textarea>, is it?
 
 	color: var(--satus-input-text-foreground, inherit);
 	border: none;
-				  
-					 
-					 
-					
-				  
 	border: 1px solid var(--satus-input-text-border);
 	border-radius: 4px;
 	outline: none;
@@ -1274,9 +1287,9 @@ As our Syntax markup isnt read for <textarea>, is it?
 
 .satus-radio__i {
 	width: 16px;
-    height: 16px;
-    border: 1px solid rgba(var(--satus-light),.64);
-    border-radius: 50%;
+	height: 16px;
+	border: 1px solid rgba(var(--satus-light),.64);
+	border-radius: 50%;
 	transition: 200ms;
 }
 
@@ -1311,23 +1324,23 @@ As our Syntax markup isnt read for <textarea>, is it?
 }
 
 .satus-slider__content {
-	    width: 100%;
-    display: flex;
-    justify-content: space-between;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 }
 
 .satus-slider__input[type='text'] {
-    appearance: none;
-    background: transparent;
-    border: 1px solid var(--satus-input-text-border);
-    border-radius: 2px;
-    color: inherit;
-    font: inherit;
-    padding: 0;
-    margin: 0;
-    outline: none;
-    width: 64px;
-    text-align: right;
+	appearance: none;
+	background: transparent;
+	border: 1px solid var(--satus-input-text-border);
+	border-radius: 2px;
+	color: inherit;
+	font: inherit;
+	padding: 0;
+	margin: 0;
+	outline: none;
+	width: 64px;
+	text-align: right;
 }
 
 .satus-slider__track-container {
@@ -1377,30 +1390,31 @@ As our Syntax markup isnt read for <textarea>, is it?
 }
 
 .satus-slider__track::before {
-    position: absolute;
-    top: 50%;
+	position: absolute;
+	top: 50%;
 	right: 0;
 	transform: translate(50%, -50%);
-    display: block;
-    width: 16px;
-    height: 16px;
-    content: '';
-    transition: width 200ms, height 200ms, opacity 200ms;
-    opacity: 0;
-    border-radius: 50%;
-    background: var(--satus-primary);
+	display: block;
+	width: 16px;
+	height: 16px;
+	content: '';
+	transition: width 200ms, height 200ms, opacity 200ms;
+	opacity: 0;
+	border-radius: 50%;
+	background: var(--satus-primary);
 }
 
+
 .satus-slider__input:focus + .satus-slider__track::before {
-    width: 24px;
-    height: 24px;
-    opacity: .16;
+	width: 24px;
+	height: 24px;
+	opacity: .16;
 }
 
 .satus-slider__input:active + .satus-slider__track::before {
-    width: 26px;
-    height: 26px;
-    opacity: .16;
+	width: 26px;
+	height: 26px;
+	opacity: .16;
 }
 
 .satus-slider__track::after {
@@ -1417,18 +1431,13 @@ As our Syntax markup isnt read for <textarea>, is it?
 	border-radius: 50%;
 	background: var(--satus-primary);
 	pointer-events: none;
-    transition: width 200ms, height 200ms, opacity 200ms;
+	transition: width 200ms, height 200ms, opacity 200ms;
 }
 
-.satus-slider__input:active + .satus-slider__track::after
-{
+.satus-slider__input:active + .satus-slider__track::after {
 	width: 12px;
 	height: 12px;
 }
-
-
-
-
 
 .satus-slider--row {
 	flex-wrap: nowrap;
@@ -1859,9 +1868,9 @@ As our Syntax markup isnt read for <textarea>, is it?
 	opacity: .64;
 }
 
-.satus-switch, .satus-select, .satus-button, .satus-Buttons, .satus-label{ 
+.satus-switch, .satus-select, .satus-button, .satus-Buttons, .satus-label { 
 /*no blinking cursor when focused:*/
-  caret-color: transparent; 
+	caret-color: transparent; 
 }
 
 /*--------------------------------------------------------------
