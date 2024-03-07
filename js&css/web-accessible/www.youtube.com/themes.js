@@ -7,7 +7,7 @@
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.setTheme = function () {
-	//let cookieValue = '';
+	let cookieValue = '';
 		
 	switch(this.storage.theme) {
 		case 'custom':
@@ -78,7 +78,6 @@ ImprovedTube.setTheme = function () {
 				this.elements.my_colors = style;
 				document.documentElement.appendChild(style);
 				document.documentElement.removeAttribute('dark');
-				// what is cinematics??
 				if (document.getElementById("cinematics")) {
 					document.getElementById("cinematics").style.visibility = 'hidden';
 					document.getElementById("cinematics").style.display = 'none !important';
@@ -93,12 +92,11 @@ ImprovedTube.setTheme = function () {
 
 		case 'black':
 		case 'dark':
-			//cookieValue = '400';
+			cookieValue = '400';
 			document.documentElement.setAttribute('dark', '');
 			if (document.querySelector('ytd-masthead')) {
 				document.querySelector('ytd-masthead').style.backgroundColor ='#000';
 			}
-			// what is cinematics??
 			if (document.getElementById("cinematics")) {
 				document.getElementById('cinematics').style.visibility = 'visible';
 				document.getElementById('cinematics').style.display = 'none !important';
@@ -127,8 +125,8 @@ ImprovedTube.setTheme = function () {
 			}
 			break
 	}
-// why are we messing with user cookies? there is no way to undo. I can tell this was broken becuase I have messed PREF coookie already by this code
-/*	if (cookieValue) {
+
+	if (cookieValue) {
 		let pref = '';
 		pref = ImprovedTube.getCookieValueByName('PREF');
 
@@ -138,5 +136,6 @@ ImprovedTube.setTheme = function () {
 			cookieValue = pref + "&f6=" + cookieValue;
 		}
 		ImprovedTube.setCookie('PREF', cookieValue);
-	}*/
-};
+	}
+};			
+

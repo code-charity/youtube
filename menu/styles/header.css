@@ -14,7 +14,9 @@
 	content: attr(data-version);
 
 	opacity: .6;
-}  .satus-base[title-version='false'] .satus-span--title::after { display:none;}
+}
+
+.satus-base[title-version='false'] .satus-span--title::after {display:none;}
 
 .satus-modal--vertical-menu .satus-button svg {
 	stroke: var(--satus-primary);
