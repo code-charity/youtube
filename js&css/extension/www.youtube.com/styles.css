@@ -501,7 +501,7 @@ ytd-guide-section-renderer .it-button::after {
 	left: 4px;
 	width: 20px;
 	height: 20px;
-	fill: white;  /*quick-fix for  var(--yt-spec-icon-active-other, #fff);*/
+	fill: white; /*quick-fix for  var(--yt-spec-icon-active-other, #fff);*/
 	pointer-events: none;
 }
 
