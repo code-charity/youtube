@@ -2,10 +2,6 @@
 4.3.0 THEMES
 ------------------------------------------------------------------------------*/
 
-/*------------------------------------------------------------------------------
-4.3.1 MY COLORS
-------------------------------------------------------------------------------*/
-
 ImprovedTube.setTheme = function () {
 	let cookieValue = '';
 		
@@ -82,9 +78,7 @@ ImprovedTube.setTheme = function () {
 					document.getElementById("cinematics").style.visibility = 'hidden';
 					document.getElementById("cinematics").style.display = 'none !important';
 				}
-				if (document.querySelector('ytd-masthead')) {
-					document.querySelector('ytd-masthead').style.backgroundColor = ''+primary_color+'';
-				}
+				document.querySelector('ytd-masthead')?.style.backgroundColor = ''+primary_color+'';
 			} else if (this.elements.my_colors) {
 				this.elements.my_colors.remove();
 			}
@@ -94,9 +88,8 @@ ImprovedTube.setTheme = function () {
 		case 'dark':
 			cookieValue = '400';
 			document.documentElement.setAttribute('dark', '');
-			if (document.querySelector('ytd-masthead')) {
-				document.querySelector('ytd-masthead').style.backgroundColor ='#000';
-			}
+			document.querySelector('ytd-masthead')?.setAttribute('dark');
+			document.querySelector('ytd-masthead')?.removeAttribute('style');
 			if (document.getElementById("cinematics")) {
 				document.getElementById('cinematics').style.visibility = 'visible';
 				document.getElementById('cinematics').style.display = 'none !important';
@@ -106,36 +99,29 @@ ImprovedTube.setTheme = function () {
 			}
 			break
 
-		case 'default':
 		case 'dawn':
 		case 'sunset':
 		case 'night':
 		case 'plain':
 		case 'desert':
 			document.documentElement.removeAttribute('dark');
-			// what is cinematics??
-			if (document.getElementById("cinematics")) {
-				document.getElementById('cinematics').removeAttribute('style');
-			}
-			if (document.querySelector('ytd-masthead')) {
-				document.querySelector('ytd-masthead').removeAttribute('style');
-			}
-			if (this.elements.my_colors) {
-				this.elements.my_colors.remove();
-			}
+			document.querySelector('ytd-masthead')?.removeAttribute('dark');
+			document.querySelector('ytd-masthead')?.removeAttribute('style');
+			document.getElementById('cinematics')?.removeAttribute('style');
+			this.elements.my_colors?.remove();
 			break
 	}
 
-	if (cookieValue) {
-		let pref = '';
-		pref = ImprovedTube.getCookieValueByName('PREF');
+	let pref = ImprovedTube.getCookieValueByName('PREF');
+	let f6 = ImprovedTube.getParam(pref, 'hl');
 
-		if (pref.match(/(f6=)[^\&]+/)){
-			cookieValue = pref.replace(/(f6=)[^\&]+/, cookieValue);
-		} else {
-			cookieValue = pref + "&f6=" + cookieValue;
+	if (f6) {
+		if (cookieValue) { // replace F6
+			ImprovedTube.setCookie('PREF', pref.replace('hl=' + f6, 'hl=' + value));
+		} else { // delete F6
+			ImprovedTube.setCookie('PREF', pref.replace(/([&]?f6=)[^\&]+/,''));
 		}
-		ImprovedTube.setCookie('PREF', cookieValue);
+	} else if (cookieValue) { // set F6
+		ImprovedTube.setCookie('PREF', pref + pref?'&':'' + 'f6=' + cookieValue);
 	}
-};			
-
+};
