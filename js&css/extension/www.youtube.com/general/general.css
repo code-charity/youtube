@@ -53,6 +53,14 @@ html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-reel-sh
 		display: none !important;
 	}
 }
+
+html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]) {
+	display: none !important;
+}
+html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]) {
+	display: none !important;
+}
+
 /*
 html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
