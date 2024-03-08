@@ -4,26 +4,26 @@
 
 ImprovedTube.setTheme = function () {
 	let cookieValue = '';
-		
+
 	switch(this.storage.theme) {
 		case 'custom':
 			if (Array.isArray(this.storage.theme_primary_color) && Array.isArray(this.storage.theme_text_color)) {
 				var style = this.elements.my_colors || document.createElement('style'),
 					primary_color = this.storage.theme_primary_color,
 					text_color = this.storage.theme_text_color;
-		
+
 				if (primary_color) {
 					primary_color = 'rgb(' + primary_color.join(',') + ')';
 				} else {
 					primary_color = 'rgb(200, 200, 200)';
 				}
-		
+
 				if (text_color) {
 					text_color = 'rgb(' + text_color.join(',') + ')';
 				} else {
 					text_color = 'rgb(25, 25, 25)';
 				}
-		
+
 				style.className = 'it-theme-editor';
 				style.textContent = 'html{' +
 					'--yt-swatch-textbox-bg:rgba(19,19,19,1)!important;' +
@@ -70,7 +70,7 @@ ImprovedTube.setTheme = function () {
 					'ytd-masthead { background-color:' + primary_color + '!important;}' +
 					'--yt-spec-inverted-background: #fff;' +
 					'}';
-		
+
 				this.elements.my_colors = style;
 				document.documentElement.appendChild(style);
 				document.documentElement.removeAttribute('dark');
@@ -78,7 +78,9 @@ ImprovedTube.setTheme = function () {
 					document.getElementById("cinematics").style.visibility = 'hidden';
 					document.getElementById("cinematics").style.display = 'none !important';
 				}
-				document.querySelector('ytd-masthead')?.style.backgroundColor = ''+primary_color+'';
+				if (document.querySelector('ytd-masthead')) {
+					document.querySelector('ytd-masthead').style.backgroundColor = ''+primary_color+'';
+				}
 			} else if (this.elements.my_colors) {
 				this.elements.my_colors.remove();
 			}
@@ -112,16 +114,5 @@ ImprovedTube.setTheme = function () {
 			break
 	}
 
-	let pref = ImprovedTube.getCookieValueByName('PREF');
-	let f6 = ImprovedTube.getParam(pref, 'hl');
-
-	if (f6) {
-		if (cookieValue) { // replace F6
-			ImprovedTube.setCookie('PREF', pref.replace('hl=' + f6, 'hl=' + value));
-		} else { // delete F6
-			ImprovedTube.setCookie('PREF', pref.replace(/([&]?f6=)[^\&]+/,''));
-		}
-	} else if (cookieValue) { // set F6
-		ImprovedTube.setCookie('PREF', pref + pref?'&':'' + 'f6=' + cookieValue);
-	}
+	this.setPrefCookieValueByName('f6', cookieValue);
 };
