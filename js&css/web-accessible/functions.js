@@ -297,9 +297,9 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.upNextAutoplay();
 		ImprovedTube.playerAutofullscreen();
 		ImprovedTube.playerSize(); 
-		ImprovedTube.playerRepeat();
 		ImprovedTube.playerScreenshotButton();
 		ImprovedTube.playerRepeatButton();
+		ImprovedTube.playerAlwaysRepeat();
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
 		ImprovedTube.playerFitToWinButton();
@@ -354,9 +354,9 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.subtitlesBackgroundOpacity();
 		ImprovedTube.playerQuality();
 		ImprovedTube.playerVolume();
-		ImprovedTube.playerRepeat();
 		ImprovedTube.playerScreenshotButton();
 		ImprovedTube.playerRepeatButton();
+		ImprovedTube.playerAlwaysRepeat();
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
 		ImprovedTube.playerFitToWinButton();
