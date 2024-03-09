@@ -1,16 +1,21 @@
 /*--------------------------------------------------------------
 >>> FUNCTIONS
 --------------------------------------------------------------*/
-const DOM_filter = /^(SCRIPT|DOM-IF|DOM-REPEAT|svg|SPAN||#text|#comment|yt-icon-shape|iron-iconset-svg)$/;  
+const DOM_filter = /^(SCRIPT|DOM-IF|DOM-REPEAT|svg|SPAN||#text|#comment|yt-icon-shape|iron-iconset-svg)$/;
 ImprovedTube.childHandler = function (node) { //console.log(node.nodeName);
-if (DOM_filter.test(node.nodeName)) {return; } 	
-ImprovedTube.ytElementsHandler(node);
- 	var children = node.children;
-	if (children) { let i = 0; for (const child of children) {ImprovedTube.childHandler(children[i]);
-//console.log("node.nodeName:CHILD-"+i+":"+children[i].id+",class:"+children[i].className+","+children[i]+"("+children[i].nodeName+")");  			
-	i++;}
-	} 
+	if (DOM_filter.test(node.nodeName)) { return; }
+	ImprovedTube.ytElementsHandler(node);
+	var children = node.children;
+	if (children) {
+		let i = 0;
+		for (const child of children) {
+			ImprovedTube.childHandler(children[i]);
+			//console.log("node.nodeName:CHILD-"+i+":"+children[i].id+",class:"+children[i].className+","+children[i]+"("+children[i].nodeName+")");
+			i++;
+		}
+	}
 };
+
 ImprovedTube.ytElementsHandler = function (node) {
 	var name = node.nodeName,
 		id = node.id;
@@ -26,49 +31,49 @@ ImprovedTube.ytElementsHandler = function (node) {
 				this.blocklist('channel', node);
 			}
 		}
-	}  /* else if (name === 'META') {               //<META> infos are not updated when clicking related videos...
-		 if(node.getAttribute('name')) {
-			//if(node.getAttribute('name') === 'title')			{ImprovedTube.title = node.content;}		//duplicate
-			//if(node.getAttribute('name') === 'description')		{ImprovedTube.description = node.content;}	//duplicate
-			//if node.getAttribute('name') === 'themeColor')			{ImprovedTube.themeColor = node.content;}	//might help our darkmode/themes
+	} /* else if (name === 'META') {               //<META> infos are not updated when clicking related videos...
+         if(node.getAttribute('name')) {
+            //if(node.getAttribute('name') === 'title')         {ImprovedTube.title = node.content;}        //duplicate
+            //if(node.getAttribute('name') === 'description')       {ImprovedTube.description = node.content;}  //duplicate
+            //if node.getAttribute('name') === 'themeColor')            {ImprovedTube.themeColor = node.content;}   //might help our darkmode/themes
 //Do we need any of these here before the player starts?
-			//if(node.getAttribute('name') === 'keywords')			{ImprovedTube.keywords = node.content;}
-			} else if (node.getAttribute('itemprop')) {
-			//if(node.getAttribute('itemprop') === 'name')			{ImprovedTube.title = node.content;}	
-			if(node.getAttribute('itemprop') === 'genre')			{ImprovedTube.category  = node.content;}
-			//if(node.getAttribute('itemprop') === 'channelId')		{ImprovedTube.channelId = node.content;}
-			//if(node.getAttribute('itemprop') === 'videoId')		{ImprovedTube.videoId = node.content;}
+            //if(node.getAttribute('name') === 'keywords')          {ImprovedTube.keywords = node.content;}
+            } else if (node.getAttribute('itemprop')) {
+            //if(node.getAttribute('itemprop') === 'name')          {ImprovedTube.title = node.content;}
+            if(node.getAttribute('itemprop') === 'genre')           {ImprovedTube.category  = node.content;}
+            //if(node.getAttribute('itemprop') === 'channelId')     {ImprovedTube.channelId = node.content;}
+            //if(node.getAttribute('itemprop') === 'videoId')       {ImprovedTube.videoId = node.content;}
 //The following infos will enable awesome, smart features.  Some of which everyone should use.
-			//if(node.getAttribute('itemprop') === 'description')	{ImprovedTube.description = node.content;}
-		    //if(node.getAttribute('itemprop') === 'duration')		{ImprovedTube.duration = node.content;}
-			//if(node.getAttribute('itemprop') === 'interactionCount'){ImprovedTube.views = node.content;}
-			//if(node.getAttribute('itemprop') === 'isFamilyFriendly'){ImprovedTube.isFamilyFriendly = node.content;}		
-			//if(node.getAttribute('itemprop') === 'unlisted')		{ImprovedTube.unlisted = node.content;}
-			//if(node.getAttribute('itemprop') === 'regionsAllowed'){ImprovedTube.regionsAllowed = node.content;}
-			//if(node.getAttribute('itemprop') === 'paid')			{ImprovedTube.paid = node.content;}
-			// if(node.getAttribute('itemprop') === 'datePublished'	){ImprovedTube.datePublished = node.content;}  
-					//to use in the "how long ago"-feature, not to fail without API key?  just like the "day-of-week"-feature above	
-			// if(node.getAttribute('itemprop') === 'uploadDate')	{ImprovedTube.uploadDate = node.content;}
-		}
-	}  */
-		else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
-		if (
-//can be precise   previously  node.parentComponent  & node.parentComponent.parentComponent
-			node.closest("YTD-MENU-RENDERER") &&   
-			node.closest("YTD-PLAYLIST-PANEL-RENDERER")  
-		) { var index = Array.prototype.indexOf.call(node.parentNode.children, node);
+            //if(node.getAttribute('itemprop') === 'description')   {ImprovedTube.description = node.content;}
+            //if(node.getAttribute('itemprop') === 'duration')      {ImprovedTube.duration = node.content;}
+            //if(node.getAttribute('itemprop') === 'interactionCount'){ImprovedTube.views = node.content;}
+            //if(node.getAttribute('itemprop') === 'isFamilyFriendly'){ImprovedTube.isFamilyFriendly = node.content;}
+            //if(node.getAttribute('itemprop') === 'unlisted')      {ImprovedTube.unlisted = node.content;}
+            //if(node.getAttribute('itemprop') === 'regionsAllowed'){ImprovedTube.regionsAllowed = node.content;}
+            //if(node.getAttribute('itemprop') === 'paid')          {ImprovedTube.paid = node.content;}
+            // if(node.getAttribute('itemprop') === 'datePublished' ){ImprovedTube.datePublished = node.content;}
+                    //to use in the "how long ago"-feature, not to fail without API key?  just like the "day-of-week"-feature above
+            // if(node.getAttribute('itemprop') === 'uploadDate')   {ImprovedTube.uploadDate = node.content;}
+        }
+    }  */
+	else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
+		//can be precise   previously  node.parentComponent  & node.parentComponent.parentComponent
+		if (node.closest("YTD-MENU-RENDERER")
+			&& node.closest("YTD-PLAYLIST-PANEL-RENDERER")) {
+
+			var index = Array.prototype.indexOf.call(node.parentNode.children, node);
 			if (index === 0) {
-				if (this.storage.playlist_reverse === true) {   
-//can be precise:
-					try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;} 
+				if (this.storage.playlist_reverse === true) {
+					//can be precise:
+					try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
 					catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
-						catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
-							catch{try{this.elements.playlist.actions = node.parentNode;}
-								catch{try{this.elements.playlist.actions = node;}catch{}}
-								}
-							}	
-						}	
-					}
+						  catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
+								catch{try{this.elements.playlist.actions = node.parentNode;}
+									  catch{try{this.elements.playlist.actions = node;}catch{}}
+									 }
+							   }
+						 }
+				}
 				this.playlistReverse();
 			} else if (index === 1) {
 				this.elements.playlist.shuffle_button = node;
@@ -76,16 +81,16 @@ ImprovedTube.ytElementsHandler = function (node) {
 				this.playlistShuffle();
 
 				if (this.storage.playlist_reverse === true) {
-//can be precise:
+					//can be precise:
 					try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
 					catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
-						catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
-							catch{try{this.elements.playlist.actions = node.parentNode;}
-								catch{try{this.elements.playlist.actions = node;}catch{}}
-								}
-							}	
-						}	
-					}
+						  catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
+								catch{try{this.elements.playlist.actions = node.parentNode;}
+									  catch{try{this.elements.playlist.actions = node;}catch{}}
+									 }
+							   }
+						 }
+				}
 				this.playlistReverse();
 			}
 		}
@@ -112,12 +117,12 @@ ImprovedTube.ytElementsHandler = function (node) {
 			this.channelVideosCount();
 		}
 	} else if (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-video-primary-info-renderer')) {
-		if(document.documentElement.dataset.pageType === 'video'){
-            this.hideDetailButton(node.querySelector('#flexible-item-buttons').children);
-        }
+		if (document.documentElement.dataset.pageType === 'video') {
+			this.hideDetailButton(node.querySelector('#flexible-item-buttons').children);
+		}
 	} else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
 		this.playlistPopupUpdate();
- 	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
+	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
 		if (node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
 			ImprovedTube.blocklist('channel', node);
 		}
@@ -129,21 +134,19 @@ ImprovedTube.ytElementsHandler = function (node) {
 		this.livechat();
 	} else if (name === 'YTD-MASTHEAD') {
 		if (!this.elements.masthead) {
-			this.elements.masthead = {
-				start: node.querySelector('#start'),
-				end: node.querySelector('#end'),
-				logo: node.querySelector('a#logo')
-			};
+			this.elements.masthead = {start: node.querySelector('#start'),
+									  end: node.querySelector('#end'),
+									  logo: node.querySelector('a#logo')
+									 };
 
 			this.improvedtubeYoutubeIcon();
 		}
 	}
 	else if (name === 'TP-YT-APP-DRAWER') {
 		if (!this.elements.app_drawer) {
-			this.elements.app_drawer = {
-				start: node.querySelector('div#header'),
-				logo: node.querySelector('a#logo')
-			};
+			this.elements.app_drawer = {start: node.querySelector('div#header'),
+										logo: node.querySelector('a#logo')
+									   };
 
 			this.improvedtubeYoutubeIcon();
 		}
@@ -161,28 +164,28 @@ ImprovedTube.ytElementsHandler = function (node) {
 			ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
 			ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
 			ImprovedTube.playerSize();
-	   if ( typeof this.storage.ads !== 'undefined' && this.storage.ads !== "all_videos" ) {
-			new MutationObserver(function (mutationList) {  
-				for (var i = 0, l = mutationList.length; i < l; i++) { 
-					var mutation = mutationList[i];
+			if (typeof this.storage.ads !== 'undefined' && this.storage.ads !== "all_videos") {
+				new MutationObserver(function (mutationList) {
+					for (var i = 0, l = mutationList.length; i < l; i++) {
+						var mutation = mutationList[i];
 
-					if (mutation.type === 'childList') {
-						for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
-							var node = mutation.addedNodes[j];
+						if (mutation.type === 'childList') {
+							for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
+								var node = mutation.addedNodes[j];
 
-							if (node instanceof Element
-								&& node.querySelector('ytp-ad-player-overlay, .ytp-ad-text, .ytp-ad-overlay-close-container, ytd-button-renderer#dismiss-button, *[id^="ad-text"], *[id^="skip-button"], .ytp-ad-skip-button.ytp-button, .ytp-ad-skip-button-modern.ytp-button') !== null
-								){ImprovedTube.playerAds(node);}  
+								if (node instanceof Element
+									&& node.querySelector('ytp-ad-player-overlay, .ytp-ad-text, .ytp-ad-overlay-close-container, ytd-button-renderer#dismiss-button, *[id^="ad-text"], *[id^="skip-button"], .ytp-ad-skip-button.ytp-button, .ytp-ad-skip-button-modern.ytp-button') !== null) {
+									ImprovedTube.playerAds(node);
+								}
+							}
+						}
+						if (mutation.type === 'attributes' && mutation.attributeName === 'id' && mutation.target.querySelector('*[id^="ad-text"], *[id^="skip-button"], .ytp-ad-skip-button-modern.ytp-button',)){
+							ImprovedTube.playerAds(node);
 						}
 					}
-					if (mutation.type === 'attributes' && mutation.attributeName === 'id' && mutation.target.querySelector('*[id^="ad-text"], *[id^="skip-button"], .ytp-ad-skip-button-modern.ytp-button',) )
-						{ImprovedTube.playerAds(node);}
-				}	
-			}).observe(node, {
-				// attributes: true,
-				childList: true,
-				subtree: true
-			});   
+				}).observe(node, {childList: true, // attributes: true,
+								  subtree: true
+								 });
 			}
 
 			new MutationObserver(function (mutationList) {
@@ -195,12 +198,11 @@ ImprovedTube.ytElementsHandler = function (node) {
 						}
 					}
 				}
-			}).observe(ImprovedTube.elements.player_thumbnail, {
-				attributes: true,
-				attributeFilter: ['style'],
-				childList: false,
-				subtree: false
-			});
+			}).observe(ImprovedTube.elements.player_thumbnail, {attributes: true,
+																attributeFilter: ['style'],
+																childList: false,
+																subtree: false
+															   });
 		}
 	} else if (name === 'YTD-WATCH-FLEXY') {
 		this.elements.ytd_watch = node;
@@ -212,48 +214,45 @@ ImprovedTube.ytElementsHandler = function (node) {
 			node.calculateCurrentPlayerSize_ = function () {
 				if (!this.theater && ImprovedTube.elements.player) {
 					if (this.updateStyles) {
-						this.updateStyles({
-							'--ytd-watch-flexy-width-ratio': 1,
-							'--ytd-watch-flexy-height-ratio': 0.5625
-						});
+						this.updateStyles({'--ytd-watch-flexy-width-ratio': 1,
+										   '--ytd-watch-flexy-height-ratio': 0.5625
+										  });
 
-						this.updateStyles({
-							'--ytd-watch-width-ratio': 1,
-							'--ytd-watch-height-ratio': 0.5625
-						});
+						this.updateStyles({'--ytd-watch-width-ratio': 1,
+										   '--ytd-watch-height-ratio': 0.5625
+										  });
 					}
 
-					return {
-						width: ImprovedTube.elements.player.offsetWidth,
-						height: Math.round(ImprovedTube.elements.player.offsetWidth / (16 / 9))
-					};
+					return {width: ImprovedTube.elements.player.offsetWidth,
+							height: Math.round(ImprovedTube.elements.player.offsetWidth / (16 / 9))
+						   };
 				}
 
-				return {
-					width: NaN,     // ?? 
-					height: NaN
-				};
+				return {width: NaN, // ??
+						height: NaN
+					   };
 			};
 
-			node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_;     // ?? 
+			node.calculateNormalPlayerSize_ = node.calculateCurrentPlayerSize_; // ??
 		}
-	}else if (document.documentElement.dataset.pageType === 'video'){
+	} else if (document.documentElement.dataset.pageType === 'video') {
 		if (id === 'description-inline-expander' || id === 'description-inner') {
-				setTimeout(function () {
-				ImprovedTube.expandDescription(node);
-			}, 300);
+			setTimeout(function () {ImprovedTube.expandDescription(node);}, 300);
 		} else if (id === 'meta') {setTimeout(function () {ImprovedTube.expandDescription(node.querySelector('#more'));}, 200);
-		} else if (id === 'below' ){setTimeout(function () {  }, 0);
-		} else if (id === 'panels'){setTimeout(function () {
-			ImprovedTube.transcript(node);
-			ImprovedTube.chapters(node);}, 200);
-		} /* else if (name === 'TP-YT-PAPER-BUTTON') {
+								  } else if (id === 'below') {
+									  setTimeout(function () {}, 0);
+								  } else if (id === 'panels') {
+									  setTimeout(function () {
+										  ImprovedTube.transcript(node);
+										  ImprovedTube.chapters(node);
+									  }, 200);
+								  } /* else if (name === 'TP-YT-PAPER-BUTTON') {
         if ( (id === 'expand-sizer' || id === 'expand') && node.parentNode.id === 'description-inline-expander') {
             setTimeout(function () {
-                ImprovedTube.expandDescription(node); 					console.log("EXPAND DESCRIPTION, OLD WAY")
+                ImprovedTube.expandDescription(node);                   console.log("EXPAND DESCRIPTION, OLD WAY")
             }, 750);
         }} */
-    }
+	}
 
 };
 
@@ -281,12 +280,11 @@ ImprovedTube.videoPageUpdate = function () {
 		var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');
 
 		if (this.storage.track_watched_videos === true && video_id) {
-			ImprovedTube.messages.send({
-				action: 'watched',
-				type: 'add',
-				id: video_id,
-				title: document.title
-			});
+			ImprovedTube.messages.send({action: 'watched',
+										type: 'add',
+										id: video_id,
+										title: document.title
+									   });
 		}
 
 		this.initialVideoUpdateDone = true;
@@ -296,8 +294,8 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.channelVideosCount();
 		ImprovedTube.upNextAutoplay();
 		ImprovedTube.playerAutofullscreen();
-		ImprovedTube.playerSize(); 
-		if( this.storage.player_always_repeat === true) {ImprovedTube.playerRepeat();};
+		ImprovedTube.playerSize();
+		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); };
 		ImprovedTube.playerScreenshotButton();
 		ImprovedTube.playerRepeatButton();
 		ImprovedTube.playerRotateButton();
@@ -354,7 +352,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.subtitlesBackgroundOpacity();
 		ImprovedTube.playerQuality();
 		ImprovedTube.playerVolume();
-		if(this.storage.player_always_repeat === true) {ImprovedTube.playerRepeat();};
+		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); }
 		ImprovedTube.playerScreenshotButton();
 		ImprovedTube.playerRepeatButton();
 		ImprovedTube.playerRotateButton();
@@ -363,8 +361,8 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
 		ImprovedTube.expandDescription();
-		setTimeout(function () { ImprovedTube.forcedTheaterMode();    }, 150);
-		if (location.href.indexOf('/embed/') === -1) {  ImprovedTube.miniPlayer(); 	}  
+		setTimeout(function () {ImprovedTube.forcedTheaterMode();}, 150);
+		if (location.href.indexOf('/embed/') === -1) { ImprovedTube.miniPlayer(); }
 	}
 };
 
@@ -388,20 +386,17 @@ ImprovedTube.playerOnTimeUpdate = function () {
 };
 
 ImprovedTube.playerOnLoadedMetadata = function () {
-	setTimeout(function () {
-		ImprovedTube.playerSize();
-	}, 100);
+	setTimeout(function () {ImprovedTube.playerSize();}, 100);
 };
 
 ImprovedTube.playerOnPause = function (event) {
 	ImprovedTube.playlistUpNextAutoplay(event);
 
 	if (ImprovedTube.elements.yt_channel_name) {
-		ImprovedTube.messages.send({
-			action: 'analyzer',
-			name: ImprovedTube.elements.yt_channel_name.__data.tooltipText,
-			time: ImprovedTube.played_time
-		});
+		ImprovedTube.messages.send({action: 'analyzer',
+									name: ImprovedTube.elements.yt_channel_name.__data.tooltipText,
+									time: ImprovedTube.played_time
+								   });
 	}
 	ImprovedTube.played_time = 0;
 	ImprovedTube.playerControls();
@@ -410,22 +405,18 @@ ImprovedTube.playerOnPause = function (event) {
 ImprovedTube.playerOnEnded = function (event) {
 	ImprovedTube.playlistUpNextAutoplay(event);
 
-	ImprovedTube.messages.send({
-		action: 'analyzer',
-		//adding "?" (not a fix)
-		name: ImprovedTube.elements.yt_channel_name?.__data.tooltipText,
-		time: ImprovedTube.played_time
-	});
+	ImprovedTube.messages.send({action: 'analyzer',
+								//adding "?" (not a fix)
+								name: ImprovedTube.elements.yt_channel_name?.__data.tooltipText,
+								time: ImprovedTube.played_time
+							   });
 
 	ImprovedTube.played_time = 0;
 };
 
 ImprovedTube.onkeydown = function () {
 	window.addEventListener('keydown', function () {
-		if (
-			ImprovedTube.elements.player &&
-			ImprovedTube.elements.player.className.indexOf('ad-showing') === -1
-		) {
+		if (ImprovedTube.elements.player && ImprovedTube.elements.player.className.indexOf('ad-showing') === -1) {
 			ImprovedTube.ignore_autoplay_off = true;
 		}
 	}, true);
@@ -437,30 +428,15 @@ ImprovedTube.onmousedown = function (event) {
 			var path = event.composedPath();
 
 			for (var i = 0, l = path.length; i < l; i++) {
-				if (
-					path[i].className &&
-					path[i].className.indexOf &&
-					(
-						path[i].className.indexOf('html5-main-video') !== -1 ||
-						path[i].className.indexOf('ytp-play-button') !== -1
-					)
-				) {
+				if (path[i].className
+					&& path[i].className.indexOf
+					&& (path[i].className.indexOf('html5-main-video') !== -1
+						|| path[i].className.indexOf('ytp-play-button') !== -1)) {
 					ImprovedTube.ignore_autoplay_off = true;
 				}
 			}
 		}
 	}, true);
-};
-
-ImprovedTube.getCookieValueByName = function (name) {
-	var match = document.cookie.match(new RegExp('([; ]' + name + '|^' + name + ')([^\\s;]*)', 'g'));
-
-	if (match) {
-		var cookie = match[0];
-
-		return cookie.replace(name + '=', '').replace(' ', '');
-	} else
-		return '';
 };
 
 ImprovedTube.getParam = function (query, name) {
@@ -493,6 +469,36 @@ ImprovedTube.getParams = function (query) {
 	}
 
 	return result;
+};
+
+ImprovedTube.getCookieValueByName = function (name) {
+	var match = document.cookie.match(new RegExp('([; ]' + name + '|^' + name + ')([^\\s;]*)', 'g'));
+
+	if (match) {
+		var cookie = match[0];
+
+		return cookie.replace(name + '=', '').replace(' ', '');
+	} else return '';
+};
+
+ImprovedTube.setPrefCookieValueByName = function (name, value) {
+	let prefs = this.getParams(this.getCookieValueByName('PREF'));
+	let newprefs = '';
+	let ampersant = '';
+
+	if (value) {
+		prefs[name] = value;
+	}
+
+	for (let pref in prefs) {
+		if (pref) {
+			if (pref!=name || value) {
+				newprefs += ampersant + pref + '=' + prefs[pref];
+				ampersant = '&';
+			}
+		}
+	}
+	this.setCookie('PREF', newprefs);
 };
 
 ImprovedTube.setCookie = function (name, value) {
@@ -558,9 +564,10 @@ ImprovedTube.createPlayerButton = function (options) {
 		controls.insertBefore(button, controls.childNodes[3]);
 	}
 };
-ImprovedTube.empty = function (element) {for (var i = element.childNodes.length - 1; i > -1; i--) { element.childNodes[i].remove();	}};
-ImprovedTube.isset = function (variable) { 	return !(typeof variable === 'undefined' || variable === null || variable === 'null');};
-ImprovedTube.stopPropagation = function (event) { event.stopPropagation(); };
+
+ImprovedTube.empty = function (element) {for (var i = element.childNodes.length - 1; i > -1; i--) { element.childNodes[i].remove(); }};
+ImprovedTube.isset = function (variable) {return !(typeof variable === 'undefined' || variable === null || variable === 'null');};
+ImprovedTube.stopPropagation = function (event) {event.stopPropagation();};
 ImprovedTube.showStatus = function (value) {
 	if (!this.elements.status) {
 		this.elements.status = document.createElement('div');
@@ -578,32 +585,29 @@ ImprovedTube.showStatus = function (value) {
 		clearTimeout(ImprovedTube.status_timer);
 	}
 
-	ImprovedTube.status_timer = setTimeout(function () {
-		ImprovedTube.elements.status.remove();
-	}, 500);
+	ImprovedTube.status_timer = setTimeout(function () {ImprovedTube.elements.status.remove();}, 500);
 
 	this.elements.player.appendChild(this.elements.status);
 };
 
-ImprovedTube.videoId =  function (url = document.URL) { return url.match(ImprovedTube.regex.video_id)[1] ||  url.searchParams.get('v') || movie_player.getVideoData().video_id }
-ImprovedTube.videoTitle =  function () {  return document.title?.replace(/\s*-\s*YouTube$/, '') || movie_player.getVideoData().title || document.querySelector('#title > h1 > *')?.textContent  }
+ImprovedTube.videoId = function (url = document.URL) {return url.match(ImprovedTube.regex.video_id)[1] || url.searchParams.get('v') || movie_player.getVideoData().video_id};
+ImprovedTube.videoTitle = function () {return document.title?.replace(/\s*-\s*YouTube$/, '') || movie_player.getVideoData().title || document.querySelector('#title > h1 > *')?.textContent};
 
 
 // Function to extract and store the number of subscribers
 ImprovedTube.extractSubscriberCount = function (subscriberCountNode) {
-    if (!subscriberCountNode){var subscriberCountNode = document.getElementById('owner-sub-count');}
-	if (subscriberCountNode){
+	if (!subscriberCountNode) {var subscriberCountNode = document.getElementById('owner-sub-count');}
+	if (subscriberCountNode) {
 		// Extract the subscriber count and store it for further use
 		var subscriberCountText = subscriberCountNode.textContent.trim();
 		var subscriberCount = parseFloat(subscriberCountText.replace(/[^0-9.]/g, ''));
-	
+
 		if (subscriberCountText.includes('K')) {
 			subscriberCount *= 1000;
 		} else if (subscriberCountText.includes('M')) {
 			subscriberCount *= 1000000;
-		} 
+		}
 
 		ImprovedTube.subscriberCount = subscriberCount;
 	}
 };
-

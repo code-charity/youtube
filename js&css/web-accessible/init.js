@@ -83,7 +83,7 @@ ImprovedTube.init = function () {
 	
 	if (window.matchMedia) {
 		document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	}  ImprovedTube.myColors();
+	}
 };
 
 document.addEventListener('yt-navigate-finish', function () {

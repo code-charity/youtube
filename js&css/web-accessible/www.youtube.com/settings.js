@@ -45,10 +45,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 				}
 
 				function mouseup() {
-					localStorage.setItem('improvedtube-button-position', JSON.stringify({
-						x,
-						y
-					}));
+					localStorage.setItem('improvedtube-button-position', JSON.stringify({x,y}));
 
 					window.removeEventListener('mousemove', mousemove);
 					window.removeEventListener('mouseup', mouseup);
@@ -98,9 +95,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 				document.body.appendChild(scrim);
 				document.body.appendChild(iframe);
 
-				ImprovedTube.messages.send({
-					requestOptionsUrl: true
-				});
+				ImprovedTube.messages.send({requestOptionsUrl: true});
 			}
 		});
 
@@ -151,7 +146,6 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 };
 
 
-
 /*-----------------------------------------------------------------------------
 4.10.3 DELETE YOUTUBE COOKIES
 -----------------------------------------------------------------------------*/
@@ -167,9 +161,7 @@ ImprovedTube.deleteYoutubeCookies = function () {
 		document.cookie = name + '=; domain=.youtube.com; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
 	}
 
-	setTimeout(function () {
-		location.reload();
-	}, 100);
+	setTimeout(function () {location.reload();}, 100);
 };
 
 
@@ -178,19 +170,13 @@ ImprovedTube.deleteYoutubeCookies = function () {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.youtubeLanguage = function () {
-	var value = this.storage.youtube_language;
+	let value = this.storage.youtube_language;
 
-	if (this.isset(value)) {
-		var pref = this.getCookieValueByName('PREF');
-
+	if (value) {
 		if (value !== 'default') {
-			var hl = this.getParam(pref, 'hl');
-
-			if (hl) {
-				this.setCookie('PREF', pref.replace('hl=' + hl, 'hl=' + value));
-			} else {
-				this.setCookie('PREF', pref + '&hl=' + value);
-			}
+			this.setPrefCookieValueByName('hl', value);
+		} else {
+			this.setPrefCookieValueByName('hl', null);
 		}
 	}
 };
