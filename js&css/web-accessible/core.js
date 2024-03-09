@@ -245,15 +245,24 @@ document.addEventListener('it-message-from-extension', function () {
 				if (rightControls) {  
 				rightControls.style.setProperty('padding-right', ''); // Restoring the original padding:
 				rightControls.style.setProperty('display', 'flex');  } }
-			} else if ( camelized_key === 'belowPlayerPip' ){
-				if (ImprovedTube.storage.below_player_pip === false) { document.querySelector('.improvedtube-player-button[data-tooltip="PiP"]')?.remove();}
-				if (ImprovedTube.storage.below_player_pip === true) { document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove()); ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer(); } 
-			} else if ( camelized_key === 'belowPlayerScreenshot' ){
-				if (ImprovedTube.storage.below_player_screenshot === false) { document.querySelector('.improvedtube-player-button[data-tooltip="Screenshot"]')?.remove();}
-				if (ImprovedTube.storage.below_player_screenshot === true) { document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());; ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer(); } 
-			} else if ( camelized_key === 'belowPlayerLoop' ){
-				if (ImprovedTube.storage.below_player_loop === false) { document.querySelector('.improvedtube-player-button[data-tooltip="Loop"]')?.remove();}
-				if (ImprovedTube.storage.below_player_loop === true) { document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove()); ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer(); } 
+			} else if (camelized_key === 'belowPlayerPip' ) {
+				if (ImprovedTube.storage.below_player_pip) {
+					ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+				} else {
+					document.getElementById('it-below-player-pip')?.remove();
+				}
+			} else if (camelized_key === 'belowPlayerScreenshot' ) {
+				if (ImprovedTube.storage.below_player_screenshot) {
+					ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+				} else {
+					document.getElementById('it-below-player-screenshot')?.remove();
+				}
+			} else if (camelized_key === 'belowPlayerLoop' ) {
+				if (ImprovedTube.storage.below_player_loop) {
+					ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+				} else {
+					document.getElementById('it-below-player-loop')?.remove();
+				}
 			} else if ( camelized_key === 'dayOfWeek') {
                 if (ImprovedTube.storage.day_of_week === false) { document.querySelector(".ytd-day-of-week")?.remove(); }
 			    if (ImprovedTube.storage.day_of_week === true) { ImprovedTube.dayOfWeek(); }			   
