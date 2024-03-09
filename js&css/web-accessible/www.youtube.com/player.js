@@ -687,29 +687,27 @@ ImprovedTube.playerRepeatButton = function (node) {
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
 		path.setAttributeNS(null, 'd', 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z');
 		svg.appendChild(path);
-		this.createPlayerButton({id: 'it-repeat-button',
-								 child: svg,
-								 opacity: this.storage.player_always_repeat === true ? 1 : 0.5,
-								 onclick: function () {
-									 var video = ImprovedTube.elements.video;
-									 function matchLoopState(opacity) {
-										 var thisButton = document.querySelector('#it-repeat-button');
-										 thisButton.style.opacity = opacity;
-										 if (ImprovedTube.storage.below_player_loop !== false) {
-											 var otherButton = document.querySelector('#it-below-player-loop');
-											 otherButton.children[0].style.opacity = opacity;
-										 }
-									 }
-									 if (video.hasAttribute('loop')) {
-										 video.removeAttribute('loop');
-										 matchLoopState('.5');
-									 } else if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
-										 video.setAttribute('loop', '');
-										 matchLoopState('1');
-									 }
-								 },
-								 title: 'Repeat'
-								});
+		this.createPlayerButton({
+			id: 'it-repeat-button',
+			title: 'Repeat',
+			child: svg,
+			opacity: (this.storage.player_always_repeat || ImprovedTube.elements.video.hasAttribute('loop')) ? 1 : 0.5,
+			onclick: function () {
+				var video = ImprovedTube.elements.video,
+					opacity;
+				if (video.hasAttribute('loop')) {
+					video.removeAttribute('loop');
+					opacity = 0.5;
+				} else if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
+					video.setAttribute('loop', '');
+					opacity = 1;
+				}
+				this.style.opacity = opacity;
+				if (document.getElementById('it-below-player-loop')) {
+					document.getElementById('it-below-player-loop').children[0].style.opacity = opacity;
+				}
+			}
+		});
 	}
 };
 /*------------------------------------------------------------------------------
@@ -717,13 +715,17 @@ FORCE REPEAT
 -------------------------------------------------------------------------------*/
 ImprovedTube.playerAlwaysRepeat = function () {
 	if (this.storage.player_repeat_button === true) {
+		opacity;
 		if (this.storage.player_always_repeat === true) {
 			ImprovedTube.elements.video.setAttribute('loop', '');
-			document.getElementById('it-repeat-button').style.opacity = 1;
-
+			opacity = 1;
 		} else {
 			ImprovedTube.elements.video.removeAttribute('loop');
-			document.getElementById('it-repeat-button').style.opacity = 0.5;
+			opacity = 0.5;
+		}
+		document.getElementById('it-repeat-button').style.opacity = opacity;
+		if (document.getElementById('it-below-player-loop')) {
+			document.getElementById('it-below-player-loop').childNodes[0].style.opacity = opacity;
 		}
 	}
 };
