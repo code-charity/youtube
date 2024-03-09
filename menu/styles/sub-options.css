@@ -21,7 +21,7 @@ NESTED (CONDITIONAL) SWITCHES
 #forced-playback-speed:not([data-value='true']) + .satus-switch,
 #forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch,
 #forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch + .satus-slider, 
-/* #player_repeat_button:not([data-value='true']) + .satus-switch, */
+#player_repeat_button:not([data-value='true']) + .satus-switch,
 #player_screenshot_button:not([data-value='true'])  + .satus-switch,
 #player_screenshot_button:not([data-value='true'])  + .satus-switch + .satus-select,
  /*--------------------------------------------------------------
