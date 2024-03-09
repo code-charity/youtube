@@ -322,88 +322,79 @@ ImprovedTube.livechat = function () {
   EXTRA BUTTONS BELOW THE PLAYER
 ------------------------------------------------------------------------------*/
 ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
-	if (window.self !== window.top) {	return false; 	}
+	if (window.self !== window.top) { return false; }
 	if (document.documentElement.dataset.pageType === 'video') {
+		var section = document.querySelector('#subscribe-button');
+		/*	if (this.storage.description == "classic"
+		||	this.storage.description == "classic_expanded" || this.storage.description == "classic_hidden"	)
+		{var section = document.querySelector('#flex.ytd-video-primary-info-renderer');} */
 
-	var section = document.querySelector('#subscribe-button');  
-	 /*  if (this.storage.description == "classic" 
-		||  this.storage.description == "classic_expanded" || this.storage.description == "classic_hidden"  )
-	   {var section = document.querySelector('#flex.ytd-video-primary-info-renderer');}
-   */
-	if (section && !section.querySelector('.improvedtube-player-button')) {
-		if (this.storage.below_player_loop !== false) {
-			var button = document.createElement('button'),
-				svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		                var transparentOrOn = .5; if (this.storage.player_always_repeat === true ) { transparentOrOn = 1; }
-			button.className = 'improvedtube-player-button';
-            button.id = 'it-below-player-loop';
-			button.dataset.tooltip = 'Loop';
-            svg.style.opacity = transparentOrOn;
-			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
-			path.setAttributeNS(null, 'd', 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z');
+		if (section && !section.querySelector('.improvedtube-player-button')) {
+			if (this.storage.below_player_loop !== false) {
+				let button = document.createElement('button'),
+					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+				button.className = 'improvedtube-player-button';
+				button.id = 'it-below-player-loop';
+				button.dataset.tooltip = 'Loop';
+				svg.style.opacity = (this.storage.player_always_repeat || ImprovedTube.elements.video.hasAttribute('loop')) ? 1 : 0.5;
+				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+				path.setAttributeNS(null, 'd', 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z');
 
-			button.onclick = function () {
-				var video = ImprovedTube.elements.video,
-					svg = this.children[0];
+				button.onclick = function () {
+					var video = ImprovedTube.elements.video,
+						opacity;
+					if (video.hasAttribute('loop')) {
+						video.removeAttribute('loop');
+						opacity = 0.5;
+					} else if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
+						video.setAttribute('loop', '');
+						opacity = 1;
+					}
+					this.childNodes[0].style.opacity = opacity;
+					if (document.getElementById('it-repeat-button')) {
+						document.getElementById('it-repeat-button').style.opacity = opacity;
+					}
+				};
 
-            function matchLoopState(opacity) {
-		    svg.style.opacity = opacity;
-                    if (ImprovedTube.storage.player_repeat_button === true) {
-                   	 var otherButton = document.querySelector('#it-repeat-button');
-                    	 otherButton.style.opacity = opacity;
-          	        }
-	            }
-				if (video.hasAttribute('loop')) {
-					video.removeAttribute('loop');
-                    matchLoopState('.5')
-				} else if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
-					video.setAttribute('loop', '');
-                    matchLoopState('1')
-				}
-			};
-            
-			svg.appendChild(path); 	button.appendChild(svg);
-			section.insertAdjacentElement('afterend', button)
-		}
+				svg.appendChild(path);
+				button.appendChild(svg);
+				section.insertAdjacentElement('afterend', button);
+			}
 			if (this.storage.below_player_pip !== false) {
-			var button = document.createElement('button'),
-				svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+				let button = document.createElement('button'),
+					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+				button.className = 'improvedtube-player-button';
+				button.dataset.tooltip = 'PiP';
+				svg.style.opacity = '.64';
+				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+				path.setAttributeNS(null, 'd', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z');
 
-			button.className = 'improvedtube-player-button';
-			button.dataset.tooltip = 'PiP';
-			svg.style.opacity = '.64';
-			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
-			path.setAttributeNS(null, 'd', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z');
+				button.onclick = document.querySelector('#movie_player video')?.requestPictureInPicture();
 
-			button.onclick = function () {
-				var video = document.querySelector('#movie_player video');
-				if (video) {video.requestPictureInPicture();}
-			};
-
-			svg.appendChild(path);	button.appendChild(svg);
-			section.insertAdjacentElement('afterend', button)
-		}
-		
+				svg.appendChild(path);
+				button.appendChild(svg);
+				section.insertAdjacentElement('afterend', button);
+			}
 			if (this.storage.below_player_screenshot !== false) {
-			var button = document.createElement('button'),
-				svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+				let button = document.createElement('button'),
+					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+				button.className = 'improvedtube-player-button';
+				button.dataset.tooltip = 'Screenshot';
+				svg.style.opacity = '.55';
+				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+				path.setAttributeNS(null, 'd', 'M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z');
 
-			button.className = 'improvedtube-player-button';
-			button.dataset.tooltip = 'Screenshot';
-			svg.style.opacity = '.55';
-			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
-			path.setAttributeNS(null, 'd', 'M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z');
-			
-			button.onclick = ImprovedTube.screenshot;
-			
-			svg.appendChild(path);	button.appendChild(svg);
-			section.insertAdjacentElement('afterend', button)
+				button.onclick = ImprovedTube.screenshot;
+
+				svg.appendChild(path);
+				button.appendChild(svg);
+				section.insertAdjacentElement('afterend', button);
+			}
 		}
-	  }
-   }
+	}
 };
 /*------------------------------------------------------------------------------
  EXPAND DESCRIPTION
