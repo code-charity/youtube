@@ -558,6 +558,31 @@ ImprovedTube.createPlayerButton = function (options) {
 		controls.insertBefore(button, controls.childNodes[3]);
 	}
 };
+
+ImprovedTube.createUnderPlayerButton = function (options) {
+	var section = document.getElementById('subscribe-button');
+
+	if (section) {
+		let button = document.createElement('button'),
+			svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+		path.setAttributeNS(null, 'd', options.path);
+		svg.style.opacity = options.opacity;
+		svg.appendChild(path);
+
+		button.appendChild(svg);
+		button.className = 'improvedtube-player-button';
+		button.style = options.style;
+		button.dataset.tooltip = options.tooltip;
+		button.id = options.id;
+		button.onclick = options.onclick;
+
+		section.insertAdjacentElement('afterend', button);
+	}
+};
+
 ImprovedTube.empty = function (element) {for (var i = element.childNodes.length - 1; i > -1; i--) { element.childNodes[i].remove();	}};
 ImprovedTube.isset = function (variable) { 	return !(typeof variable === 'undefined' || variable === null || variable === 'null');};
 ImprovedTube.stopPropagation = function (event) { event.stopPropagation(); };
