@@ -613,10 +613,6 @@ ytd-guide-section-renderer .it-button::after {
 	fill: var(--yt-spec-icon-inactive);
 }
 
-.improvedtube-player-button:last-of-type {
-	margin-right: 24px;
-}
-
 .improvedtube-player-button:hover::after {
 	position: absolute;
 	top: 150%;
