@@ -3,25 +3,25 @@
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.blocklist = function (type, node) {
-
-	if (this.storage.blocklist_activate !== true) {
-		// for (var i = 0, l = this.elements.blocklist_buttons.length; i < l; i++) {
-		//	this.elements.blocklist_buttons[i].remove();		
+	if (!this.storage.blocklist_activate) {
+		for (blocked of document.querySelectorAll('div.it-blocklisted-video')) {
+			blocked.classList.remove('it-blocklisted-video')
+		}
 		return;
 	} else if (!node) {
-		var a = document.querySelectorAll('a.ytd-thumbnail'),
+		let a = document.querySelectorAll('a.ytd-thumbnail'),
 			a2 = document.querySelectorAll('a[href*="/channel/"],a[href*="/user/"],a[href*="/c/"],a[href*="/@"]'),
 			subscribe_buttons = document.querySelectorAll('ytd-subscribe-button-renderer.ytd-c4-tabbed-header-renderer');
 
-		for (var i = 0, l = a.length; i < l; i++) {
+		for (let i = 0, l = a.length; i < l; i++) {
 			this.blocklist('video', a[i]);
 		}
 
-		for (var i = 0, l = subscribe_buttons.length; i < l; i++) {
+		for (let i = 0, l = subscribe_buttons.length; i < l; i++) {
 			this.blocklist('channel', subscribe_buttons[i]);
 		}
 
-		for (var i = 0, l = a2.length; i < l; i++) {
+		for (let i = 0, l = a2.length; i < l; i++) {
 			this.blocklist('channel', a2[i]);
 		}
 	}
@@ -42,28 +42,30 @@ ImprovedTube.blocklist = function (type, node) {
 	}
 
 	if (type === 'video') {
-		var id = node.href.match(ImprovedTube.regex.video_id);
+		let id = node.href.match(ImprovedTube.regex.video_id);
 		// Hide blocklisted videos:
 		if (id && id[1] && ImprovedTube.storage.blocklist.videos[id[1]]) {
 			//node.__dataHost.classList.add('it-blocklisted-video'); // this only affects the thumbnail
 			const dismissibleElement = node.parentNode.__dataHost.$.dismissible;
-			if (dismissibleElement) { dismissibleElement.classList.add('it-blocklisted-video'); } // this affects the title and co. as well
-		//	node.parentNode.parentNode.__dataHost.$.ytd-compact-video-renderer.classList.add('it-blocklisted-video');
+			if (dismissibleElement) {
+				dismissibleElement.classList.add('it-blocklisted-video');
+			} // this affects the title and co. as well
+			//	node.parentNode.parentNode.__dataHost.$.ytd-compact-video-renderer.classList.add('it-blocklisted-video');
 		}
 
 		// skip blocklist button creation, if it exists already:
-		if(node.getElementsByClassName("it-add-to-blocklist").length > 0){
+		if (node.getElementsByClassName("it-add-to-blocklist").length > 0) {
 			return
 		}
-		
-		var button = document.createElement('button'),
+
+		let button = document.createElement('button'),
 			svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 		button.className = 'it-add-to-blocklist';
 		button.addEventListener('click', function (event) {
 			if (this.parentNode.href) {
-				var data = this.parentNode.__dataHost.__data,
+				let data = this.parentNode.__dataHost.__data,
 					id = this.parentNode.href.match(ImprovedTube.regex.video_id),
 					title = '';
 
@@ -112,28 +114,28 @@ ImprovedTube.blocklist = function (type, node) {
 
 		node.appendChild(button);
 
-		if (this.elements && this.elements.blocklist_buttons && Array.isArray(this.elements.blocklist_buttons)){  
-				this.elements.blocklist_buttons.push(button); 
+		if (this.elements && this.elements.blocklist_buttons && Array.isArray(this.elements.blocklist_buttons)) {
+			this.elements.blocklist_buttons.push(button);
 		}
 	} else if (type === 'channel') {
 		if (node.nodeName === 'A') {
 			try {
-				var id = node.href.match(ImprovedTube.regex.channel).groups.name;
+				let id = node.href.match(ImprovedTube.regex.channel).groups.name;
 
 				if (this.storage.blocklist.channels[id]) {
-					var parent = node.parentNode//.__dataHost.__dataHost;
+					let parent = node.parentNode//.__dataHost.__dataHost;
 
-					if ( parent.__dataHost.$.dismissible
+					if (parent.__dataHost.$.dismissible
 						//parent.nodeName === 'YTD-GRID-VIDEO-RENDERER' ||
 						//parent.nodeName === 'YTD-VIDEO-META-BLOCK'
-					) {
+					   ) {
 						parent.__dataHost.$.dismissible.classList.add('it-blocklisted-video'); // this affects the title and co. as well
-					//	parent.__dataHost.$.ytd-compact-video-renderer.classList.add('it-blocklisted-video');
+						//	parent.__dataHost.$.ytd-compact-video-renderer.classList.add('it-blocklisted-video');
 					}
 				}
 			} catch (err) {}
 		} else {
-			var button = this.elements.blocklistChannel || document.createElement('button'),
+			let button = this.elements.blocklistChannel || document.createElement('button'),
 				id = location.href.match(ImprovedTube.regex.channel).groups.name;
 
 			button.className = 'it-add-channel-to-blocklist';
@@ -147,7 +149,7 @@ ImprovedTube.blocklist = function (type, node) {
 			}
 
 			button.addEventListener('click', function (event) {
-				var data = this.parentNode.__dataHost.__data.data,
+				let data = this.parentNode.__dataHost.__data.data,
 					id = location.href.match(ImprovedTube.regex.channel).groups.name;
 
 				this.added = !this.added;
@@ -178,9 +180,7 @@ ImprovedTube.blocklist = function (type, node) {
 			}, true);
 
 			this.elements.blocklist_buttons.push(button);
-
 			node.parentNode.parentNode.appendChild(button);
-
 			this.elements.blocklistChannel = button;
 		}
 	}
