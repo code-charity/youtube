@@ -1,7 +1,8 @@
 {
-"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"Alihkan Shorts dari laman utama"},
-"removeShortsReelSearchResults":{"message":"Alihkan gulungan Shorts dari hasil carian"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}
+    "hideHomePageShorts": {
+        "message": "Alihkan Shorts dari laman utama"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Alihkan gulungan Shorts dari hasil carian"
+    }
 }

@@ -1,6 +1,8 @@
-{"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"Eemalda kodulehe Shortsid"},
-"removeShortsReelSearchResults":{"message":"Eemaldage Shorts-rull otsingutulemustest"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}
+{
+    "hideHomePageShorts": {
+        "message": "Eemalda kodulehe Shortsid"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Eemaldage Shorts-rull otsingutulemustest"
+    }
 }

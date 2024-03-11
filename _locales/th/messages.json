@@ -1,7 +1,8 @@
 {
-"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"ลบ Shorts ออกจากหน้าแรก"},
-"removeShortsReelSearchResults":{"message":"ลบ Shorts reel ออกจากผลการค้นหา"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}
+    "hideHomePageShorts": {
+        "message": "ลบ Shorts ออกจากหน้าแรก"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "ลบ Shorts reel ออกจากผลการค้นหา"
+    }
 }

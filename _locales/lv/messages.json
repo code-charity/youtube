@@ -1,7 +1,8 @@
 {
-"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"Noņem Shorts no sākumlapas"},
-"removeShortsReelSearchResults":{"message":"Noņemiet Shorts rullīti no meklēšanas rezultātiem"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}
+    "hideHomePageShorts": {
+        "message": "Noņem Shorts no sākumlapas"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Noņemiet Shorts rullīti no meklēšanas rezultātiem"
+    }
 }
