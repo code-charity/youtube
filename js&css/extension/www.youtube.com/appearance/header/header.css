@@ -11,7 +11,6 @@
 html[it-header-transparent=true] ytd-masthead#masthead {background: transparent !important;}
 html[it-header-transparent=true] #background.ytd-masthead {background-color: rgba(230, 230, 230, 0.1);}
 
-
 /*--------------------------------------------------------------
 # POSITION
 --------------------------------------------------------------*/
@@ -84,12 +83,8 @@ html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-f
 }
 
 html[it-header-position=static] .ytd-app:not([masthead-hidden_]) #masthead-container {
-	position: absolute;
+	position: static;
 	z-index: 7 !important;
-}
-
-html[it-header-position="static"] ytd-app {
-	padding-top: var(--it-header-size);
 }
 
 html[it-header-position=hover_on_video_page]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,
@@ -110,13 +105,12 @@ html[it-header-position=static] tp-yt-app-drawer #header {
 	display: flex !important;
 }
 
+/*
 html[it-header-position=hover] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
 html[it-header-position=hidden] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
 html[it-header-position=static] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
 	top: 9px !important;
-}
-
-
+}*/
 /*--------------------------------------------------------------
 # IMPROVE LOGO
 --------------------------------------------------------------*/
@@ -124,6 +118,7 @@ html[it-header-improve-logo='true'] ytd-topbar-logo-renderer path[fill='#FF0000'
 html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'] {
 	fill: rgb(40, 40, 40) !important;
 }
+
 html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'] {
 	fill: rgb(66, 66, 66) !important;
 }
