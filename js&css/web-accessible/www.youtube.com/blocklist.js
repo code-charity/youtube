@@ -212,11 +212,6 @@ ImprovedTube.blocklist = function (type, node) {
 	}
 };
 
-//if (document.readyState !== 'complete') {console.log('loooad', this.storage.blocklist_activate);document.addEventListener('DOMContentLoaded', ImprovedTube.blocklist())}
-
-console.log(document.readyState, document.querySelectorAll('a.ytd-thumbnail[href]'));
-
-
 ImprovedTube.blocklistObserver = new MutationObserver(function (mutationList) {
 	for (var mutation of mutationList) {
 		const video = mutation.target.href.match(ImprovedTube.regex.video_id)?.[1],
