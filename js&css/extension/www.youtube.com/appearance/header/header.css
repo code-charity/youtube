@@ -9,7 +9,7 @@
 --------------------------------------------------------------*/
 
 html[it-header-transparent=true] ytd-masthead#masthead {background: transparent !important;}
-html[it-header-transparent=true] #background.ytd-masthead {background-color: rgba(230, 230, 230, 0.1);}
+html[it-header-transparent=true] #background.ytd-masthead {background-color: rgba(230, 230, 230, 0.1) !important;}
 
 /*--------------------------------------------------------------
 # POSITION
