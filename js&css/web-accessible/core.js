@@ -27,7 +27,8 @@ var ImprovedTube = {
 		comments: {},
 		collapse_of_subscription_sections: [],
 		mark_watched_videos: [],
-		blocklist_buttons: []
+		blocklist_buttons: [],
+		observerList: []
 	},
 	regex: {
 		channel: /\/(@|c\/@?|channel\/|user\/)(?<name>[^/]+)/,
@@ -167,9 +168,10 @@ document.addEventListener('it-message-from-extension', function () {
 				localStorage.removeItem('it-player30fps');
 			}
 
-//	  FEEDBACK WHEN THE USER CHANGED A SETTING
 			ImprovedTube.init();
-		} else if (message.action === 'storage-changed') {
+			// need to run blocklist once just after page load to catch initial nodes
+			ImprovedTube.blocklist();
+		} else if (message.action === 'storage-changed') { // FEEDBACK WHEN USER CHANGES A SETTING
 			var camelized_key = message.camelizedKey;
 
 			ImprovedTube.storage[message.key] = message.value;
