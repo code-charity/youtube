@@ -19,11 +19,8 @@ ImprovedTube.ytElementsHandler = function (node) {
 		if (node.href) {
 			this.channelDefaultTab(node);
 
-			if (node.className.indexOf('ytd-thumbnail') !== -1) {
+			if (this.storage.blocklist_activate && node.classList.contains('ytd-thumbnail')) {
 				this.blocklist('video', node);
-			}
-			if (node.href.match(/@|((channel|user|c)\/)([^/]+)/)) {
-				this.blocklist('channel', node);
 			}
 		}
 	}  /* else if (name === 'META') {               //<META> infos are not updated when clicking related videos...
@@ -118,8 +115,8 @@ ImprovedTube.ytElementsHandler = function (node) {
 	} else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
 		this.playlistPopupUpdate();
  	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
-		if (node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
-			ImprovedTube.blocklist('channel', node);
+		if (this.storage.blocklist_activate && node.classList.contains('ytd-c4-tabbed-header-renderer')) {
+				ImprovedTube.blocklist('channel', node);
 		}
 
 		ImprovedTube.elements.subscribe_button = node;
