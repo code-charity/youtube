@@ -11,7 +11,7 @@
 /*--------------------------------------------------------------
 # GLOBAL VARIABLE
 --------------------------------------------------------------*/
-	
+
 var ImprovedTube = {
 	messages: {
 		queue: []
@@ -76,28 +76,28 @@ CODEC || 30FPS
 	file to patch HTMLMediaElement before YT player uses it.
 --------------------------------------------------------------*/
 if (localStorage['it-codec'] || localStorage['it-player30fps']) {
-	function overwrite(self, callback, mime) {
+	function override(self, callback, mime) {
 		if (localStorage['it-codec']) {
-			var re = new RegExp(localStorage['it-codec']);
+			let re = new RegExp(localStorage['it-codec']);
 			// /webm|vp8|vp9|av01/
 			if (re.test(mime)) return '';
 		}
 		if (localStorage['it-player30fps']) {
-			var match = /framerate=(\d+)/.exec(mime);
+			let match = /framerate=(\d+)/.exec(mime);
 			if (match && match[1] > 30) return '';
 		}
 		return callback.call(self, mime);
 	};
 
 	if (window.MediaSource) {
-		var isTypeSupported = window.MediaSource.isTypeSupported;
+		let isTypeSupported = window.MediaSource.isTypeSupported;
 		window.MediaSource.isTypeSupported = function (mime) {
-			return overwrite(this, isTypeSupported, mime);
+			return override(this, isTypeSupported, mime);
 		}
 	}
-	var canPlayType = HTMLMediaElement.prototype.canPlayType;
+	let canPlayType = HTMLMediaElement.prototype.canPlayType;
 	HTMLMediaElement.prototype.canPlayType = function (mime) {
-		return overwrite(this, canPlayType, mime);
+		return override(this, canPlayType, mime);
 	}
 };
 
@@ -154,7 +154,7 @@ document.addEventListener('it-message-from-extension', function () {
 
 		if (message.action === 'storage-loaded') {
 			ImprovedTube.storage = message.storage;
-			
+
 			if (ImprovedTube.storage.block_vp9 || ImprovedTube.storage.block_av1 || ImprovedTube.storage.block_h264) {
 				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'}
 				localStorage['it-codec'] = Object.keys(atlas).reduce(function (all, key) {
@@ -171,11 +171,12 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.init();
 			// need to run blocklist once just after page load to catch initial nodes
 			ImprovedTube.blocklist();
+
 		} else if (message.action === 'storage-changed') { // FEEDBACK WHEN USER CHANGES A SETTING
 			var camelized_key = message.camelizedKey;
 
 			ImprovedTube.storage[message.key] = message.value;
-			if(['block_vp9', 'block_h264', 'block_av1'].includes(message.key)){
+			if (['block_vp9', 'block_h264', 'block_av1'].includes(message.key)) {
 				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'}
 				localStorage['it-codec'] = Object.keys(atlas).reduce(function (all, key) {
 					return ImprovedTube.storage[key] ? ((all?all+'|':'') + atlas[key]) : all}, '');
@@ -183,91 +184,176 @@ document.addEventListener('it-message-from-extension', function () {
 					localStorage.removeItem('it-codec');
 				}
 			}
-			if(message.key==="player_60fps"){
+			if (message.key==="player_60fps") {
 				if (ImprovedTube.storage.player_60fps === false) {
-				localStorage['it-player30fps'] = true;
+					localStorage['it-player30fps'] = true;
 				} else {
 					localStorage.removeItem('it-player30fps');
 				}
 			}
-			if(ImprovedTube.storage[message.key]==="when_paused"){
+			if (ImprovedTube.storage[message.key]==="when_paused") {
 				ImprovedTube.whenPaused();
 			};
-			if (camelized_key === 'blocklistActivate') {
-				camelized_key = 'blocklist';
-			} else if (camelized_key === 'playerPlaybackSpeed'  || camelized_key === 'playerForcedPlaybackSpeed') 
-				{ if ( ImprovedTube.storage.player_forced_playback_speed === true ) { ImprovedTube.elements.player.setPlaybackRate(Number(ImprovedTube.storage.player_playback_speed));	ImprovedTube.elements.player.querySelector('video').playbackRate = Number(ImprovedTube.storage.player_playback_speed) }
-				  if ( ImprovedTube.storage.player_forced_playback_speed === false) { ImprovedTube.elements.player.setPlaybackRate(Number(1));	ImprovedTube.elements.player.querySelector('video').playbackRate = Number(1) }
-			} else if (camelized_key === 'theme') {
-				ImprovedTube.myColors();
-				ImprovedTube.setTheme();
-			} else if (camelized_key === 'description') {
-				if (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.description === "classic_expanded" )
-				{try{document.querySelector("#more").click() || document.querySelector("#expand").click() ;} catch{} }
-				if (ImprovedTube.storage.description === "normal" || ImprovedTube.storage.description === "classic" )
-				{try{document.querySelector("#less").click() || document.querySelector("#collapse").click();} catch{}}
-				ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+
+			switch(camelized_key) {
+				case 'blocklistActivate':
+					camelized_key = 'blocklist';
+					break
+
+				case 'playerPlaybackSpeed':
+				case 'playerForcedPlaybackSpeed':
+					if (ImprovedTube.storage.player_forced_playback_speed === true) {
+						ImprovedTube.elements.player.setPlaybackRate(Number(ImprovedTube.storage.player_playback_speed));
+						ImprovedTube.elements.player.querySelector('video').playbackRate = Number(ImprovedTube.storage.player_playback_speed);
+					} else if (ImprovedTube.storage.player_forced_playback_speed === false) {
+						ImprovedTube.elements.player.setPlaybackRate(1);
+						ImprovedTube.elements.player.querySelector('video').playbackRate = 1;
+					}
+					break
+
+				case 'theme':
+				case 'themePrimaryColor':
+				case 'themeTextColor':
+					ImprovedTube.setTheme();
+					break
+
+				case 'description':
+					if (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.description === "classic_expanded") {
+						try{document.querySelector("#more").click() || document.querySelector("#expand").click();} catch{}
+					} else if (ImprovedTube.storage.description === "normal" || ImprovedTube.storage.description === "classic") {
+						try{document.querySelector("#less").click() || document.querySelector("#collapse").click();} catch{}
+					}
+					ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+					break
+
+				case 'transcript':
+					if (ImprovedTube.storage.transcript === true) {
+						document.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');
+					} else if (ImprovedTube.storage.transcript === false) {
+						document.querySelector('*[target-id*=transcript] #visibility-button button')?.click();
+					}
+					break
+
+				case 'chapters':
+					if (ImprovedTube.storage.chapters === true) {
+						document.querySelector('*[target-id*=chapters]')?.removeAttribute('visibility');
+					} else if (ImprovedTube.storage.chapters === false) {
+						document.querySelector('*[target-id*=chapters] #visibility-button button')?.click();
+					}
+					break
+
+				case 'commentsSidebar':
+					if (ImprovedTube.storage.comments_sidebar === false) {
+						document.querySelector("#below").appendChild(document.querySelector("#comments"));
+						document.querySelector("#secondary").appendChild(document.querySelector("#related"));
+					} else {
+						ImprovedTube.commentsSidebar();
+					}
+					break
+
+				case 'forcedTheaterMode':
+					if (ImprovedTube.storage.forced_theater_mode === false && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player) {
+						var button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
+						if (button && ImprovedTube.elements.ytd_watch.theater === true) {
+							ImprovedTube.elements.ytd_watch.theater = false;
+							setTimeout(function () { button.click();}, 100);
+						}
+					}
+					break
+
+				case 'playerScreenshotButton':
+					if (ImprovedTube.storage.player_screenshot_button === false) {
+						if (ImprovedTube.elements.buttons['it-screenshot-button']) {
+							ImprovedTube.elements.buttons['it-screenshot-button']?.remove();
+							ImprovedTube.elements.buttons['it-screenshot-styles']?.remove();
+						}
+					}
+					break
+
+				case 'playerRepeatButton':
+					if (ImprovedTube.storage.player_repeat_button === false) {
+						if (ImprovedTube.elements.buttons['it-repeat-button']) {
+							ImprovedTube.elements.buttons['it-repeat-button']?.remove();
+							ImprovedTube.elements.buttons['it-repeat-styles']?.remove();
+						}
+					}
+					break
+
+				case 'playerPopupButton':
+					if (ImprovedTube.storage.player_popup_button === false) {
+						ImprovedTube.elements.buttons['it-popup-player-button']?.remove();
+					}
+					break
+
+				case 'playerRotateButton':
+					if (ImprovedTube.storage.player_rotate_button === false) {
+						ImprovedTube.elements.buttons['it-rotate-button']?.remove();
+						ImprovedTube.elements.buttons['it-rotate-styles']?.remove();
+					}
+					break
+
+				case 'playerFitToWinButton':
+					if (ImprovedTube.storage.player_fit_to_win_button === false) {
+						ImprovedTube.elements.buttons['it-fit-to-win-player-button']?.remove();
+						document.querySelector("html")?.setAttribute("it-player-size", ImprovedTube.storage.player_size ?? "do_not_change");
+					}
+					break
+
+				case 'playerHamburgerButton':
+					if (ImprovedTube.storage.player_hamburger_button == false) {
+						document.querySelector('.custom-hamburger-menu')?.remove();
+						let rightControls = document.querySelector('.html5-video-player')?.querySelector('.ytp-right-controls');
+						if (rightControls) {
+							rightControls.style.setProperty('padding-right', ''); // Restoring the original padding:
+							rightControls.style.setProperty('display', 'flex');
+						}
+					}
+					break
+
+				case 'belowPlayerPip':
+					if (ImprovedTube.storage.below_player_pip === false) {
+						document.querySelector('.improvedtube-player-button[data-tooltip="PiP"]')?.remove();
+					} else if (ImprovedTube.storage.below_player_pip === true) {
+						document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());
+						ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+					}
+					break
+
+				case 'belowPlayerScreenshot':
+					if (ImprovedTube.storage.below_player_screenshot === false) {
+						document.querySelector('.improvedtube-player-button[data-tooltip="Screenshot"]')?.remove();
+					} else if (ImprovedTube.storage.below_player_screenshot === true) {
+						document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());
+						ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+					}
+					break
+
+				case 'belowPlayerLoop':
+					if (ImprovedTube.storage.below_player_loop === false) {
+						document.querySelector('.improvedtube-player-button[data-tooltip="Loop"]')?.remove();
+					} else if (ImprovedTube.storage.below_player_loop === true) {
+						document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());
+						ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+					}
+					break
+
+				case 'dayOfWeek':
+					if (ImprovedTube.storage.day_of_week === false) {
+						document.querySelector(".ytd-day-of-week")?.remove();
+					} else if (ImprovedTube.storage.day_of_week === true) {
+						ImprovedTube.dayOfWeek();
+					}
+					break
+
+				case 'playerRemainingDuration':
+					if (ImprovedTube.storage.player_remaining_duration === false) {
+						document.querySelector(".ytp-time-remaining-duration")?.remove();
+					} else if (ImprovedTube.storage.player_remaining_duration === true) {
+						ImprovedTube.playerRemainingDuration();
+					}
+					break
 			}
-			  else if (camelized_key === 'transcript') {
-				  if (ImprovedTube.storage.transcript === true) {document.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');}
-				  if (ImprovedTube.storage.transcript === false){document.querySelector('*[target-id*=transcript] #visibility-button button')?.click();}
-			  }
-			  else if (camelized_key === 'chapters') {
-					 if (ImprovedTube.storage.chapters === true){document.querySelector('*[target-id*=chapters]')?.removeAttribute('visibility');}
-				     if (ImprovedTube.storage.chapters === false){document.querySelector('*[target-id*=chapters] #visibility-button button')?.click();}
-			  }
-				else if (camelized_key === 'commentsSidebar') {
-				 if(ImprovedTube.storage.comments_sidebar === false)
-				 {document.querySelector("#below").appendChild(document.querySelector("#comments"));
-				  document.querySelector("#secondary").appendChild(document.querySelector("#related"));	}
-						else{ImprovedTube.commentsSidebar();}
-			  }
-			 else if (camelized_key === 'forcedTheaterMode') {  if(ImprovedTube.storage.forced_theater_mode === false && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player){
-				var button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
-				if (button && ImprovedTube.elements.ytd_watch.theater === true) {
-				ImprovedTube.elements.ytd_watch.theater = false;
-				setTimeout(function () { button.click();}, 100); }
-				}
-			} else if (camelized_key === 'playerScreenshotButton' && ImprovedTube.storage.player_screenshot_button === false) {
-				if (ImprovedTube.elements.buttons['it-screenshot-button']) {
-				ImprovedTube.elements.buttons['it-screenshot-button']?.remove(); ImprovedTube.elements.buttons['it-screenshot-styles']?.remove();}		 
-		  	} else if (camelized_key === 'playerRepeatButton' && ImprovedTube.storage.player_repeat_button === false) {
-				if (ImprovedTube.elements.buttons['it-repeat-button']) {
-				ImprovedTube.elements.buttons['it-repeat-button']?.remove(); ImprovedTube.elements.buttons['it-repeat-styles']?.remove();}  		 		
-			} else if (camelized_key === 'playerPopupButton' &&   ImprovedTube.storage.player_popup_button === false) {
-				ImprovedTube.elements.buttons['it-popup-player-button']?.remove();
-			} else if (camelized_key === 'playerRotateButton' && ImprovedTube.storage.player_rotate_button === false) {
-				ImprovedTube.elements.buttons['it-rotate-button']?.remove(); ImprovedTube.elements.buttons['it-rotate-styles']?.remove();
-			} else if ( camelized_key === 'playerFitToWinButton' && ImprovedTube.storage.player_fit_to_win_button === false) {
-				ImprovedTube.elements.buttons['it-fit-to-win-player-button']?.remove(); 
-				document.querySelector("html")?.setAttribute("it-player-size", ImprovedTube.storage.player_size ?? "do_not_change");
-			} else if (camelized_key === 'playerHamburgerButton') { if(ImprovedTube.storage.player_hamburger_button == false) {
-				document.querySelector('.custom-hamburger-menu')?.remove(); 
-				let rightControls = document.querySelector('.html5-video-player')?.querySelector('.ytp-right-controls');
-				if (rightControls) {  
-				rightControls.style.setProperty('padding-right', ''); // Restoring the original padding:
-				rightControls.style.setProperty('display', 'flex');  } }
-			} else if ( camelized_key === 'belowPlayerPip' ){
-				if (ImprovedTube.storage.below_player_pip === false) { document.querySelector('.improvedtube-player-button[data-tooltip="PiP"]')?.remove();}
-				if (ImprovedTube.storage.below_player_pip === true) { document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove()); ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer(); } 
-			} else if ( camelized_key === 'belowPlayerScreenshot' ){
-				if (ImprovedTube.storage.below_player_screenshot === false) { document.querySelector('.improvedtube-player-button[data-tooltip="Screenshot"]')?.remove();}
-				if (ImprovedTube.storage.below_player_screenshot === true) { document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());; ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer(); } 
-			} else if ( camelized_key === 'belowPlayerLoop' ){
-				if (ImprovedTube.storage.below_player_loop === false) { document.querySelector('.improvedtube-player-button[data-tooltip="Loop"]')?.remove();}
-				if (ImprovedTube.storage.below_player_loop === true) { document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove()); ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer(); } 
-			} else if ( camelized_key === 'dayOfWeek') {
-                if (ImprovedTube.storage.day_of_week === false) { document.querySelector(".ytd-day-of-week")?.remove(); }
-			    if (ImprovedTube.storage.day_of_week === true) { ImprovedTube.dayOfWeek(); }			   
-			} else if ( camelized_key === 'playerRemainingDuration' ) {
-				if (ImprovedTube.storage.player_remaining_duration === false) {document.querySelector(".ytp-time-remaining-duration")?.remove();}
-				if (ImprovedTube.storage.player_remaining_duration === true) { ImprovedTube.playerRemainingDuration(); }
-			} else if (camelized_key === 'blocklistActivate' ) {
-					if (ImprovedTube.storage.blocklist_activate === true) {document.querySelectorAll('.it-add-to-blocklist').forEach(e => e.remove());}
-			//We do this type automatically:  //} else if ( camelized_key === 'hideVideoTitleFullScreen' ) { 
-				//if (ImprovedTube.storage.hide_video_title_fullScreen === false) {document.querySelector(".ytp-title-text > a")?.style.setProperty('display', 'block');}
-				//if (ImprovedTube.storage.hide_video_title_fullScreen === true) {document.querySelector(".ytp-title-text > a")?.style.setProperty('display', 'none'); }
-			}
+
 			if (ImprovedTube[camelized_key]) {
 				try{ImprovedTube[camelized_key]()}catch{};
 			}
