@@ -101,6 +101,7 @@ ImprovedTube.setTheme = function () {
 			}
 			break
 
+		case 'default':				 
 		case 'dawn':
 		case 'sunset':
 		case 'night':
