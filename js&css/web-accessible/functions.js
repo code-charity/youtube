@@ -1,11 +1,27 @@
 /*--------------------------------------------------------------
 >>> FUNCTIONS
 --------------------------------------------------------------*/
-const DOM_filter = /^(SCRIPT|DOM-IF|DOM-REPEAT|svg|SPAN||#text|#comment|yt-icon-shape|iron-iconset-svg)$/;
+ImprovedTube.childHandler = function (node) {
+	//console.log(node.nodeName);
+	if (node.nodeName === 'SCRIPT' || node.nodeName === 'iron-iconset-svg' || node.nodeName === 'svg' || node.nodeName === 'SPAN' || node.nodeName === '#text' || node.nodeName === '#comment' || node.nodeName === 'yt-icon-shape' || node.nodeName === 'DOM-IF' || node.nodeName === 'DOM-REPEAT') {
+		return
+	}
+	var children = node.children;
+	this.ytElementsHandler(node);
+
+	if (children) {
+		for (var i = 0, l = children.length; i < l; i++) {
+			ImprovedTube.childHandler(children[i]);
+		}
+	}
+}	
+
+/*	
+const DOM_filter = /^(SCRIPT|DOM-IF|DOM-REPEAT|svg|SPAN|#text|#comment|yt-icon-shape|iron-iconset-svg)$/;
 ImprovedTube.childHandler = function (node) { //console.log(node.nodeName);
 	if (DOM_filter.test(node.nodeName)) { return; }
-	ImprovedTube.ytElementsHandler(node);
 	var children = node.children;
+	ImprovedTube.ytElementsHandler(node);	
 	if (children) {
 		let i = 0;
 		for (const child of children) {
@@ -13,8 +29,8 @@ ImprovedTube.childHandler = function (node) { //console.log(node.nodeName);
 			//console.log("node.nodeName:CHILD-"+i+":"+children[i].id+",class:"+children[i].className+","+children[i]+"("+children[i].nodeName+")");
 			i++;
 		}
-	}
-};
+	}    
+};  */
 
 ImprovedTube.ytElementsHandler = function (node) {
 	var name = node.nodeName,

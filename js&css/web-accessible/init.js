@@ -4,9 +4,35 @@
 ImprovedTube.messages.create();
 ImprovedTube.messages.listener();
 if (document.body) { ImprovedTube.childHandler(document.body);}
-//console.log("--- p FOR PARENT, c FOR CHILD, r FOR REMOVED :");
+
 ImprovedTube.observer = new MutationObserver(function (mutationList) {
+	
+	for (var i = 0, l = mutationList.length; i < l; i++) {
+		var mutation = mutationList[i];
+
+		if (mutation.type === 'childList') {
+			for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
+													 
+																																		  
+														
+				ImprovedTube.childHandler(mutation.addedNodes[j]);
+			}
+		 
+			for (const node of mutation.removedNodes){
+				if(node.nodeName === 'BUTTON' && node.id === 'it-popup-playlist-button') ImprovedTube.playlistPopupUpdate();
+			}
+		}
+		if (mutation.target && mutation.target.id === 'owner-sub-count') {
+			// Extract and store the subscriber count
+			ImprovedTube.extractSubscriberCount();
+		}																															   
+																																																																																																																																		
+	}	
+	
+	/*
+	//console.log("--- p FOR PARENT, c FOR CHILD, r FOR REMOVED :");						   
 	let i = 0; for (const mutated of mutationList) {
+  
 		if (mutated.type === 'childList') {  
 			// if (/^(SCRIPT|DOM-IF|DOM-REPEAT|svg|SPAN|yt-icon-shape)$/.test(mutated.target.nodeName)) {i++; continue; }
 			// ImprovedTube.ytElementsHandler(mutated.target);
@@ -22,14 +48,16 @@ ImprovedTube.observer = new MutationObserver(function (mutationList) {
 						if(mutated.target.id === 'owner-sub-count')
 						{if (ImprovedTube.storage.ads === 'small_creators') 
 						{ImprovedTube.extractSubscriberCount(mutated.target);}}
-		}
-	/*  if (mutated.type === 'characterData') { if (/#COMMENT/.test(mutated.target.nodeName)) {i++; continue; }; 	ImprovedTube.ytElementsHandler(mutated.target); 
-console.log("changed characterData:"+mutated.target.nodeValue+"("+mutated.target.id+",class:"+mutated.target.className+","+mutated.target+"("+mutated.target.nodeName+")"); 
-   } if (mutated.type === 'attributes')  {if (/^(caption-window-|ytp-progress-bar$|ytp-[a-z]*-progress$)/.test(mutated.target.nodeName)) return; ImprovedTube.ytElementsHandler(mutated.target);
-console.log("mutated attribute:"+mutated.attributeName+"("+mutated.target.id+",class:"+mutated.target.className+","+mutated.target+"("+mutated.target.nodeName+"))"); 		
-		}   */
-						
-	i++;}
+		} 
+//  if (mutated.type === 'characterData') { if (/#COMMENT/.test(mutated.target.nodeName)) {i++; continue; }; 	ImprovedTube.ytElementsHandler(mutated.target); 
+//console.log("changed characterData:"+mutated.target.nodeValue+"("+mutated.target.id+",class:"+mutated.target.className+","+mutated.target+"("+mutated.target.nodeName+")"); 
+//   } if (mutated.type === 'attributes')  {if (/^(caption-window-|ytp-progress-bar$|ytp-[a-z]*-progress$)/.test(mutated.target.nodeName)) return; ImprovedTube.ytElementsHandler(mutated.target);
+//console.log("mutated attribute:"+mutated.attributeName+"("+mutated.target.id+",class:"+mutated.target.className+","+mutated.target+"("+mutated.target.nodeName+"))"); 		
+		}  						
+	i++;}  
+	*/
+	
+	
 }).observe(document.documentElement, {
 //  attributes: true,
 //	attributeOldValue: true,
