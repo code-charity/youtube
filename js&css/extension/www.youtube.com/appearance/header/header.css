@@ -140,14 +140,14 @@ html[it-header-hide-right-buttons='true'] #masthead #container #end {visibility:
 /* Define initial opacity for the icons */
 html[it-header-transparent=true] ytd-masthead #end {
     opacity: 1;
-    transition: opacity 3s ease;
+    transition: opacity0.25 , 2s;
 }
 
 /* Change opacity when scrolling down */
 html[it-header-transparent=true][data-scroll-direction='down'] ytd-masthead #end {
     opacity: 0;
     pointer-events: none;
-	transition: opacity 3s;
+	transition: opacity0.25 , 2s;
 }
 
 /*--------------------------------------------------------------
@@ -180,21 +180,17 @@ html[it-header-transparent=true][data-scroll-direction='down'] ytd-masthead #voi
 html[it-header-transparent=true] ytd-masthead,
 html[it-header-transparent=true] ytd-masthead #masthead,
 html[it-header-transparent=true] ytd-masthead #background,
-html[it-header-transparent=true] ytd-masthead #search-input.ytd-searchbox-spt {
+html[it-header-transparent=true] ytd-masthead #search-input.ytd-searchbox-spt,
+html[it-header-transparent=true] ytd-masthead #search-input.ytd-searchbox-spt-container,
+html[it-header-transparent=true] ytd-masthead #search-input input {
     opacity: 0.7 !important;
 	background: transparent;
 	box-shadow: none;
 	border: none;
 }
 
-
 html[it-header-transparent=true] ytd-masthead #search-input.ytd-searchbox-spt-container {
     background-color: transparent !important;
-}
-
-html[it-header-transparent=true] ytd-masthead #search-input input {
-    background-color: transparent !important;
-    border: none !important;
 }
 
 /* Make the entire search bar transparent with transparent border */
@@ -219,13 +215,12 @@ html[it-header-transparent=true] ytd-masthead #search-icon-legacy {
 
 /* Make other icons fully opaque */
 html[it-header-transparent=true] ytd-masthead #search-icon-legacy,
-html[it-header-transparent=true] ytd-masthead #end {
+html[it-header-transparent=true] ytd-masthead #end,
+html[it-header-transparent=true][data-scroll-direction='down'] ytd-masthead #logo-icon {
     opacity: 1 !important;
 }
 
-/* Make other icons fully opaque */
-html[it-header-transparent=true] ytd-masthead #search-icon-legacy,
-html[it-header-transparent=true][data-scroll-direction='down'] ytd-masthead #end,
-html[it-header-transparent=true][data-scroll-direction='down'] ytd-masthead #logo-icon {
+/* Make other icons barely visible */
+html[it-header-transparent=true][data-scroll-direction='down'] ytd-masthead #end {
     opacity: 0.7 !important;
 }
