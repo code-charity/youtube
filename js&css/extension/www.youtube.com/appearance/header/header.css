@@ -135,19 +135,20 @@ html[it-header-transparent=true] ytd-masthead #logo-icon {
 /*--------------------------------------------------------------
 # HIDE RIGHT BUTTONS
 --------------------------------------------------------------*/
-html[it-header-hide-right-buttons='true'] #masthead #container #end {visibility: hidden !important; pointer-events: none !important;}
+html[it-header-hide-right-buttons='true'] #masthead #container #end {
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
 
 /* Define initial opacity for the icons */
 html[it-header-transparent=true] ytd-masthead #end {
     opacity: 1;
-    transition: opacity0.25 , 2s;
+    transition: opacity 2s ease;
 }
 
 /* Change opacity when scrolling down */
 html[it-header-transparent=true][data-scroll-direction='down'] ytd-masthead #end {
     opacity: 0;
-    pointer-events: none;
-	transition: opacity0.25 , 2s;
 }
 
 /*--------------------------------------------------------------
@@ -160,16 +161,14 @@ html[it-header-transparent=true] #country-code {
     display: none !important;
 }
 /*--------------------------------------------------------------
-# HIDE VOICE SEARCH BUTTON
+# VOICE SEARCH BUTTON
 --------------------------------------------------------------*/
 
 /* Show the voice search button when scrolled to the top */
-html[it-header-transparent=false] #voice-search-button {
+html[it-header-transparent=true] #voice-search-button {
     display: block !important;
-}
+	background-color: black !important;
 
-html[it-header-transparent=true][data-scroll-direction='down'] ytd-masthead #voice-search-button {
-	display: none;
 }
 
 /*--------------------------------------------------------------

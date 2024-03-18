@@ -564,18 +564,21 @@ ImprovedTube.channelVideosCount = function () {
         xhr.send();
     }
 };
-
 /*------------------------------------------------------------------------------
- TURN TOP BAR TRANSPARENT WHEN SCROLLING
+TURN TOP BAR TRANSPARENT WHEN SCROLLING
 ------------------------------------------------------------------------------*/
-window.addEventListener('scroll', function () {
-    var masthead = document.querySelector('html[it-header-transparent=true] ytd-masthead');
-    var endButtons = masthead.querySelector('#end');
 
-    if (window.scrollY === 0) {
-        endButtons.style.visibility = 'visible';
-    } else {
-        endButtons.style.visibility = 'hidden';
+window.addEventListener('scroll', function () {
+    // Check if header transparency is enabled
+    if (ImprovedTube.storage.header_transparent === true) {
+        var masthead = document.querySelector('html[it-header-transparent=true] ytd-masthead');
+        var endButtons = masthead.querySelector('#end');
+
+        if (window.scrollY === 0) {
+            endButtons.style.visibility = 'visible';
+        } else {
+            endButtons.style.visibility = 'hidden';
+        }
     }
 });
 
@@ -593,7 +596,7 @@ function handleScroll() {
 }
 
 /*------------------------------------------------------------------------------
- CHECK IF USER IS SCROLLING
+CHECK IF USER IS SCROLLING
 ------------------------------------------------------------------------------*/
 window.addEventListener("scroll", handleScroll);
 
@@ -612,7 +615,6 @@ var scrollDirection = getScrollDirection();
 window.addEventListener('scroll', function() {
     var direction = scrollDirection();
     if (direction === 'down') {
-
         document.documentElement.setAttribute('data-scroll-direction', 'down');
     } else {
         document.documentElement.removeAttribute('data-scroll-direction');
@@ -620,14 +622,17 @@ window.addEventListener('scroll', function() {
 });
 
 /*------------------------------------------------------------------------------
- SHOW/HIDE VOICE SEARCH BUTTON
+SHOW/HIDE VOICE SEARCH BUTTON
 ------------------------------------------------------------------------------*/
 window.addEventListener('scroll', function() {
-    var voiceSearchButton = document.getElementById('voice-search-button');
-    if (window.scrollY === 0) {
-        // At the top of the page, show the voice search button
-        voiceSearchButton.style.display = 'block';
-    } else {
-        voiceSearchButton.style.display = 'none';
+    // Check if header transparency is enabled
+    if (ImprovedTube.storage.header_transparent === true) {
+        var voiceSearchButton = document.getElementById('voice-search-button');
+        if (window.scrollY === 0) {
+            // At the top of the page, show the voice search button
+            voiceSearchButton.style.display = 'block';
+        } else {
+            voiceSearchButton.style.display = 'none';
+        }
     }
 });
