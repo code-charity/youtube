@@ -497,24 +497,30 @@ ImprovedTube.getCookieValueByName = function (name) {
 	} else return '';
 };
 
-ImprovedTube.setPrefCookieValueByName = function (name, value) {
+ImprovedTube.getPrefCookieValueByName = function (name) {
 	let prefs = this.getParams(this.getCookieValueByName('PREF'));
-	let newprefs = '';
+	return prefs[name];
+};
+
+// set PREF cookie name=value or delete name if value == null
+ImprovedTube.setPrefCookieValueByName = function (name, value) {
+	let originalPref = this.getCookieValueByName('PREF');
+	let prefs = this.getParams(originalPref);
+	let newPrefs = '';
 	let ampersant = '';
 
-	if (value) {
-		prefs[name] = value;
-	}
+	prefs[name] = value;
 
 	for (let pref in prefs) {
-		if (pref) {
-			if (pref!=name || value) {
-				newprefs += ampersant + pref + '=' + prefs[pref];
-				ampersant = '&';
-			}
+		if (prefs[pref]) {
+			newPrefs += ampersant + pref + '=' + prefs[pref];
+			ampersant = '&';
 		}
 	}
-	this.setCookie('PREF', newprefs);
+	// only write cookie if its different from the old one
+	if (originalPref != newPrefs) {
+		this.setCookie('PREF', newPrefs);
+	}
 };
 
 ImprovedTube.setCookie = function (name, value) {
