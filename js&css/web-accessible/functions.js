@@ -618,7 +618,7 @@ ImprovedTube.videoTitle = function () {return document.title?.replace(/\s*-\s*Yo
 
 // Function to extract and store the number of subscribers
 ImprovedTube.extractSubscriberCount = function (subscriberCountNode) {
-	if (!subscriberCountNode) {var subscriberCountNode = document.getElementById('owner-sub-count');}
+	if (!subscriberCountNode) {subscriberCountNode = document.getElementById('owner-sub-count');}
 	if (subscriberCountNode) {
 		// Extract the subscriber count and store it for further use
 		var subscriberCountText = subscriberCountNode.textContent.trim();
