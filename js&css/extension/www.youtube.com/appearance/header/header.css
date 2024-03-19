@@ -164,11 +164,14 @@ html[it-header-transparent=true] #country-code {
 # VOICE SEARCH BUTTON
 --------------------------------------------------------------*/
 
+html[it-hide-voice-search-button='true'] #voice-search-button  {
+	display: none !important;
+}
+
 /* Show the voice search button when scrolled to the top */
 html[it-header-transparent=true] #voice-search-button {
     display: block !important;
 	background-color: black !important;
-
 }
 
 /*--------------------------------------------------------------
