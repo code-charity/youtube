@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.setTheme = function () {
-	let cookieValue = '';
+	let darkCookie;
 
 	switch(this.storage.theme) {
 		case 'custom':
@@ -88,9 +88,9 @@ ImprovedTube.setTheme = function () {
 
 		case 'black':
 		case 'dark':
-			cookieValue = '400';
+			darkCookie = true;
 			document.documentElement.setAttribute('dark', '');
-			document.querySelector('ytd-masthead')?.setAttribute('dark');
+			document.querySelector('ytd-masthead')?.setAttribute('dark', '');
 			document.querySelector('ytd-masthead')?.removeAttribute('style');
 			if (document.getElementById("cinematics")) {
 				document.getElementById('cinematics').style.visibility = 'visible';
@@ -101,7 +101,7 @@ ImprovedTube.setTheme = function () {
 			}
 			break
 
-		case 'default':				 
+		case 'default':
 		case 'dawn':
 		case 'sunset':
 		case 'night':
@@ -115,5 +115,18 @@ ImprovedTube.setTheme = function () {
 			break
 	}
 
-	this.setPrefCookieValueByName('f6', cookieValue);
+	let cookie = this.getPrefCookieValueByName('f6');
+	// f6 stores more than Theme. Treat it like hex number, we are only allowed to add/remove 0x80000 (light theme) and 0x400 (dark theme).
+	if (cookie && !isNaN(cookie)) {
+		// valid f6
+		let negation = parseInt(cookie, 16) & parseInt(80400, 16);
+		cookie = (parseInt(cookie, 16) - negation); // remove 80000 and 400
+		cookie = cookie ^ (darkCookie ? parseInt(400, 16) : 0); // apply optional darkCookie
+		cookie = cookie.toString(16); // back to hex
+	} else {
+		// missing or corrupted f6, fully overwrite
+		cookie = darkCookie ? 400 : null;
+	}
+
+	this.setPrefCookieValueByName('f6', cookie);
 };
