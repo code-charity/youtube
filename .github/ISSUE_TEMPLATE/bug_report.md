@@ -18,23 +18,21 @@ assignees: ''
 /  ⚬ *Expected /preferred behavior*:
 /  ⚬ *Screenshots*:   <!-- (maybe) -->   
 
-### Step 0. 
-Thanks for coming & caring! Before submitting, please check if the issue has already been reported ever. With  [GitHub's issue search (use this link)]
-(https://github.com/ImprovedTube/ImprovedTube/issues?q=)  _(else removing "is:issue is:open" from the standard search)   <!-- 
+### Step 0 Thanks for coming & caring! Before submitting, please check if the issue has already been reported ever.
+ With [GitHub's issue search (use this link)](https://github.com/ImprovedTube/ImprovedTube/issues?q=)  _(else removing "is:issue is:open" from the standard search)   <!-- 
 ( -  If it was posted before, you can answer/react there to give it your voice and move it up in the lists) 
- ( -  If the status is  "closed" (=fixed) recently, then Web Stores can be updated soon)
-    ( - if  it was closed month or years ago, then it might reappeared & must be fixed again.)   -->
+( -  If the status is  "closed" (=fixed) recently, then Web Stores can be updated soon)
+    ( - if  it was closed month or years ago, then it might reappeared & must be fixed again.) -->
 
-### 2. More (often optionally)  
-<!--  MAYBE fill in more details To further increase our changes to solve the bug-->
- ⚬ Tested alone without other YouTube extensions or in incognito mode?*:  Yes/No 
+### 2. More (often optionally) 
+       <!--  &  MAYBE fill in more details to further increase our changes to solve the bug-->
  ⚬ Browser:        <!--  [e.g.  Chromium 83.0.4103.116  / Firefox / Safari / ...] -->
- ⚬ *DOM*:  <details><summary></summary> (paste here or attach)</details>
-                           HowTo: https://github.com/code-charity/youtube/wiki/Contributing#Test
- ⚬ My Settings:  <details><summary></summary> ________________ </details> 
-<!-- MAYBE attach or or paste
-  Extension -> Settings -> Backup & reset -> Export settings. 
-  Can delete/exclude your video lists, if any)`  -->  
+ ⚬ Tested alone without other YouTube extensions or in incognito mode?  Yes/No 
+ ⚬ DOM:  <details><summary></summary> (paste here or attach)</details>
+                            HowTo: https://github.com/code-charity/youtube/wiki/Contributing#Test
+ ⚬ My Settings:  <details><summary></summary> MAYBE attach or or paste here </details> 
+                             <!-- ImprovedTube-Extension -> Settings -> Backup & reset -> Export settings. 
+                                                                 Can delete/exclude your video lists, if any)`  -->  
 ⚬ OS:          <!--  [e.g. Linux Ubuntu 16 /  Windows 7 / Mac OSX /  iOS ]  -->
 ⚬ Device:    <!--  [if applicable e.g. iPhone6] -->
 
