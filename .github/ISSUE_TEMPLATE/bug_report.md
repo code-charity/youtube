@@ -10,7 +10,7 @@ assignees: ''
 ## 1. Bug Report:
  ⚬ **BUG**:   <!-- (clear/concise description) -->
  ⚬ **HOW**:   <!-- Steps to **reproduce**. (The bug might only happen with your settings or your browser?) -->
-⚬ Does the bug happen when you log out of YouTube? - Then please copy the html source you get with ctrl+U. )  - Same if YouTube changed at all. 
+⚬ Does the bug not happen when you log out of YouTube? - Then please copy the html source you get with ctrl+U. )  - Same if YouTube changed at all?
    ⚬ Or did our last update start the bug? 
        ⚬  ImprovedTube Version: <!--  [ written at the top, in the stores & under our ⋮ icon>settings>version]   -->
  ⚬ *Browser console errors shown? `F12`-key
