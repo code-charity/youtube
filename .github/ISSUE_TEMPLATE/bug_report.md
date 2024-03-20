@@ -32,8 +32,7 @@ Thanks for coming & caring! Please check if the issue has already been reported 
  ⚬ My Settings:  <details><summary>List your settings or export them to paste or attach</summary </details> 
   <!-- ImprovedTube-Extension -> Settings -> Backup & reset -> Export settings. 
                                                                  can delete/exclude YOUR BLOCKLIST if any `  -->  
- ⚬ DOM:  <details><summary>maybe attach or paste collapsed </summary> (here) </details>
-          HowTo:  https://github.com/code-charity/youtube/wiki/Contributing#Test
+ ⚬ DOM:  <details><summary>maybe attach or paste collapsed </summary> (here) </details>   (How-To:  https://github.com/code-charity/youtube/wiki/Contributing#Test )
 ⚬ OS:          <!--  [e.g. Linux Ubuntu 16 /  Windows 7 / Mac OSX /  iOS ]  -->
 ⚬ Device:    <!--  [if applicable e.g. iPhone6] -->
 
