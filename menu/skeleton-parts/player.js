@@ -126,11 +126,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			max: 3.17,
 			step: .01
 		},
-		autoplay: {
+		autoplay_disable: {
 			component: 'switch',
 			text: 'autoplay',
-			value: true,
-			storage: 'player_autoplay'
+			value: false,
+			storage: 'player_autoplay_disable'
 		},
 		up_next_autoplay: {
 			component: 'switch',
