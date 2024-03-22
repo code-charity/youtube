@@ -337,7 +337,7 @@ ImprovedTube.playerOnPlay = function () {
 			this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 			this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
 
-			ImprovedTube.autoplay();
+			ImprovedTube.autoplayDisable();
 			ImprovedTube.playerLoudnessNormalization();
 
 			return original.apply(this, arguments);
