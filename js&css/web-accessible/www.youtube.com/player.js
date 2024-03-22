@@ -1,14 +1,14 @@
 /*------------------------------------------------------------------------------
-AUTOPLAY
+AUTOPLAY DISABLE
 ------------------------------------------------------------------------------*/
 ImprovedTube.autoplay = function () {
     var video = ImprovedTube.elements.player;
     if (ImprovedTube.video_url !== location.href) {
-        ImprovedTube.ignore_autoplay_off = false;
+        this.user_interacted = false;
     }
     // if (allow autoplay is false) and  (no ads playing) and
 	// ( there is a video and ( (it is not in a playlist and  auto play is off ) or ( playlist auto play is off and it is not in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
-    if (ImprovedTube.ignore_autoplay_off === false && video.classList.contains('ad-showing') === false &&
+    if (!this.user_interacted && video.classList.contains('ad-showing') === false &&
         ( 
 // quick fix #1703  thanks to @AirRaid#9957
             (/* document.documentElement.dataset.pageType === "video" */ location.href.indexOf('/watch?') !== -1 && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) || (ImprovedTube.storage.playlist_autoplay === false && location.href.indexOf('list=') !== -1))) ||
