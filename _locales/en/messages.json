@@ -123,7 +123,7 @@
         "message": "Auto Picture-In-Picture"
     },
     "autoplay_disable": {
-        "message": "Autoplay"
+        "message": "Force Autoplay Off"
     },
     "avoidAv1": {
         "message": "Avoid AV1"
