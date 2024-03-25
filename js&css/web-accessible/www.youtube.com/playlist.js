@@ -137,7 +137,7 @@ ImprovedTube.playlistShuffle = function () {
 /**
  * ## Creates a playlist popup button (with ID `it-popup-playlist-button`)
  * - used by/in {@linkcode ImprovedTube.playlistPopupUpdate}
- * - checks {@linkcode ImprovedTube.storage.player_autoplay} if to autoplay the popuped playlist/video
+ * - checks {@linkcode ImprovedTube.storage.player_autoplay_disable} if to autoplay the popuped playlist/video
  * - checks {@linkcode ImprovedTube.elements.player} to get video ID and current time, if available, otherwise starts first video of playlist
  * - popup has video players width/height or window (inner) width/height when video player is not available
  * - the button has the playlist ID as `list` in its dataset and reads from it to open the popup
@@ -170,16 +170,16 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 				ImprovedTube.elements.player.pauseVideo();
 				const listID = this.dataset.list,
 					videoID = videoURL.match(ImprovedTube.regex.video_id)[1],
-					popup = window.open(`${location.protocol}//www.youtube.com/embed/${videoID}?autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}&start=${videoURL.match(ImprovedTube.regex.video_time)?.[1] ?? '0'}&list=${listID}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
+					popup = window.open(`${location.protocol}//www.youtube.com/embed/${videoID}?autoplay=${ImprovedTube.storage.player_autoplay_disable ? '0' : '1'}&start=${videoURL.match(ImprovedTube.regex.video_time)?.[1] ?? '0'}&list=${listID}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
 				//! If the video is not in the playlist or not within the first 200 entries, then it automatically selects the first video in the list.
 				//! But this is okay since this button is mainly for the playlist, not the video (see the video popup button in player.js).
 				popup.addEventListener('load', function () {
 					"use strict";
 					//~ check if the video ID in the link of the video title matches the original video ID in the URL and if not reload as a videoseries/playlist (without the videoID and start-time).
 					const videoLink = this.document.querySelector('div#player div.ytp-title-text>a[href]');
-					if (videoLink && videoLink.href.match(ImprovedTube.regex.video_id)[1] !== videoID) this.location.href = `${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}&list=${listID}`;
+					if (videoLink && videoLink.href.match(ImprovedTube.regex.video_id)[1] !== videoID) this.location.href = `${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${ImprovedTube.storage.player_autoplay_disable ? '0' : '1'}&list=${listID}`;
 				}, {passive: true, once: true});
-			} else window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
+			} else window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${ImprovedTube.storage.player_autoplay_disable ? '0' : '1'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
 			//~ change focused tab to URL-less popup
 			ImprovedTube.messages.send({
 				action: 'fixPopup',
@@ -196,7 +196,7 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 							if ( !vertical &&  shorts ){ width = height * 0.6}
 							if (  vertical && !shorts ){ height = width * 0.6}		}
 			"use strict";
-			window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
+			window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${ImprovedTube.storage.player_autoplay_disable ? '0' : '1'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
 			//~ change focused tab to URL-less popup
 			ImprovedTube.messages.send({
 				action: 'fixPopup',

@@ -32,6 +32,12 @@ chrome.runtime.onInstalled.addListener(function (installed){
     if(installed.reason == 'update'){
 //	    var thisVersion = chrome.runtime.getManifest().version;
 //		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
+		chrome.storage.local.get('player_autoplay', function (result) {
+			if (result.player_autoplay === false) {
+				chrome.storage.local.set({player_autoplay_disable: true});
+				chrome.storage.local.remove(['player_autoplay'], (i) => {});
+			}
+		});
 chrome.storage.local.get('channel_default_tab', function (result) {if (result.channel_default_tab === '/home'){ chrome.storage.local.set({channel_default_tab: '/'}); }});
 chrome.storage.local.get('hideSubscribe', function (result) {if (result.hideSubscribe === true){ chrome.storage.local.set({subscribe: 'hidden'}); }});
 chrome.storage.local.get('limit_page_width', function (result) {

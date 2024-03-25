@@ -263,7 +263,7 @@ target.itPopupWindowButton.addEventListener('click', function (event) {
 			if (  vertical && !shorts ){ height = width * 0.6}
 		}
 		
-			window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay') == false ? '0' : '1'), '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
+			window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay_disable') ? '0' : '1'), '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
 				chrome.runtime.sendMessage({
 				action: 'fixPopup',
 				width: width,
