@@ -172,11 +172,7 @@ ImprovedTube.deleteYoutubeCookies = function () {
 ImprovedTube.youtubeLanguage = function () {
 	let value = this.storage.youtube_language;
 
-	if (value) {
-		if (value !== 'default') {
-			this.setPrefCookieValueByName('hl', value);
-		} else {
-			this.setPrefCookieValueByName('hl', null);
-		}
+	if (value && value !== 'default') {
+		this.setPrefCookieValueByName('hl', value);
 	}
 };
