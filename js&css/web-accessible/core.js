@@ -167,8 +167,8 @@ document.addEventListener('it-message-from-extension', function () {
 				localStorage.removeItem('it-player30fps');
 			}
 
-			//	  FEEDBACK WHEN THE USER CHANGED A SETTING
 			ImprovedTube.init();
+		// REACTION OR VISUAL FEEDBACK WHEN THE USER CHANGES A SETTING (already automated for our CSS features):
 		} else if (message.action === 'storage-changed') {
 			var camelized_key = message.camelizedKey;
 
