@@ -173,10 +173,13 @@ ImprovedTube.youtubeLanguage = function () {
 	let value = this.storage.youtube_language;
 
 	if (value) {
-		if (value !== 'default') {
-			this.setPrefCookieValueByName('hl', value);
-		} else {
+		if (value == 'disabled') {
+			// do nothing
+		} else if (value == 'default') {
+			// Delete 'hl' PREF cookie, let YT pick default Browser language
 			this.setPrefCookieValueByName('hl', null);
+		} else {
+			this.setPrefCookieValueByName('hl', value);
 		}
 	}
 };
