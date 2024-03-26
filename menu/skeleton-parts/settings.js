@@ -231,7 +231,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 				component: 'section',
 				variant: 'card',
 				languages: [
-{value: 'default', 	text: 'default'},
+{value: 'default', text: 'default'},
 {value: "ko", text: "한국어"},
 {value: "en", text: "English"},
 {value: "en-IN", text: "English (India)"},
@@ -334,7 +334,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 					text: 'youtubeLanguage',
 					storage: 'youtube_language',
 					options: function () {
-						return extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.language.on.click.section.languages;
+						return [{value: null, text: "Disabled"}].concat(extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.language.on.click.section.languages);
 					}
 				}
 			}
