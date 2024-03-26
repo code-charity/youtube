@@ -334,7 +334,14 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 					text: 'youtubeLanguage',
 					storage: 'youtube_language',
 					options: function () {
-						return extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.language.on.click.section.languages;
+						return [{value: 'disabled', text: "Disabled"}].concat(extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.language.on.click.section.languages);
+					},
+					on: {
+						change: function (event) {
+							if (event.target.value === 'disabled') {
+								satus.storage.remove('youtube_language');
+							}
+						}
 					}
 				}
 			}
