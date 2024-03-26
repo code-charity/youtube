@@ -98,7 +98,7 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 <a href="https://github.com/utuhiro78" title="✨🏆"><code>utuhiro78</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/tr/messages.json" title="Türkçe">TR</a></code> :
 <a href="https://github.com/onurdumangoz"><code>onurdumangoz</code></a> 
-<a href="https://github.com/daswareinfach"><code>daswareinfach</code></a><br>
+<a href="https://github.com/decimaldreamer"><code>decimaldreamer</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vn/messages.json" title="Vietnamese">VN</a></code> :
 <a href="https://github.com/zeref-dragneel"><code>zeref-dragneel</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json" title="한국어">KO</a></code> :
