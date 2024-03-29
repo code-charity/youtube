@@ -86,6 +86,9 @@
     "autoplay": {
         "message": "Otomatik oynat"
     },
+    "avoidAv1Vp8Vp9": {
+        "message": "AV1, VP8, VP9'u engelle"
+    },
     "avoidCpuRenderingWhenPossible": {
         "message": "Mümkün olduğunda CPU oluşturma işleminden kaçının"
     },
@@ -335,6 +338,12 @@
     "extension": {
         "message": "Uzantı"
     },
+    "ExtraButtons": {
+        "message": "Ekstra düğmeler"
+    },
+    "Feature_not_yet_available": {
+        "message": "Özellik mevcut değil"
+    },
     "file": {
         "message": "Dosya"
     },
@@ -395,14 +404,32 @@
     "geoPreference": {
         "message": "Coğrafi Tercih"
     },
+    "github": {
+        "message": "GitHub"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
+    },
     "goToSearchBox": {
         "message": "Arama kutusuna git"
+    },
+    "gpu": {
+        "message": "GPU"
     },
     "green": {
         "message": "Yeşil"
     },
+    "grey": {
+        "message": "Gri"
+    },
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
     "hardwareInformation": {
         "message": "Donanım Bilgileri"
+    },
+    "hd": {
+        "message": "HD"
     },
     "hdThumbnail": {
         "message": "HD küçük resim"
@@ -415,6 +442,15 @@
     },
     "hiddenOnVideoPage": {
         "message": "Video sayfasında gizli"
+    },
+    "hide_labels": {
+        "message": "İsimleri Gizle"
+    },
+    "Hide_sidebar": {
+        "message": "Kenar çubuğunu gizle "
+    },
+    "Hide_the_tabs_only": {
+        "message": "Yalnızca sekmeleri gizle"
     },
     "hideAnimatedThumbnails": {
         "message": "Hareketli küçük resimleri gizle"
