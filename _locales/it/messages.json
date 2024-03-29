@@ -884,6 +884,9 @@
     "trailerAutoplay": {
         "message": "Avvio automatico trailer"
     },
+    "Transcript": {
+        "message": "Trascrizione"
+    },
     "translations": {
         "message": "Traduzioni"
     },

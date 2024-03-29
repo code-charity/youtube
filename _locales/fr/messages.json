@@ -224,6 +224,9 @@
     "exportSettings": {
         "message": "Exporter les réglages"
     },
+    "ExtraButtons": {
+        "message": "Boutons supplémentaires"
+    },
     "file": {
         "message": "Fichier"
     },

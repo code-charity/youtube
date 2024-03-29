@@ -1,6 +1,12 @@
 {
+    "areYouSureYouWantToImportTheData": {
+        "message": "Are you sure you want to import the data?"
+    },
     "hideHomePageShorts": {
         "message": "Уклоните Shorts са почетне стране"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
     },
     "removeShortsReelSearchResults": {
         "message": "Уклоните каруселу Shorts из резултата претраге"

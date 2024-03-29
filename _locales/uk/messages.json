@@ -1,4 +1,10 @@
 {
+    "analyzer": {
+        "message": "Analyser"
+    },
+    "areYouSureYouWantToImportTheData": {
+        "message": "Ви впевнені, що хочете імпортувати ці дані?"
+    },
     "hideHomePageShorts": {
         "message": "Видалити Shorts з головної сторінки"
     },
