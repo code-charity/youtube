@@ -10,14 +10,13 @@
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/new?assignees=&labels=Feature+request%2C+help+wanted&template=feature-request---suggestion---idea.md&title=">Wish a feature</a> · 
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">Contribute</a> ·
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing#donate">Donate</a> · [Test🧪](https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip "Latest.zip")  </td></tr></table>
-<h3><img src="https://github.com/code-for-charity/ImprovedTube-for-YouTube/blob/a61f214ddfab91f0a29f41beaf6c3c52e738e0d7/assets/icons/32.png" style="vertical-align:middle">
-ImprovedTube</h3><br>
+<img src="https://github.com/code-for-charity/ImprovedTube-for-YouTube/blob/a61f214ddfab91f0a29f41beaf6c3c52e738e0d7/assets/icons/32.png" style="vertical-align:middle">
+<b> <code>/ImprovedTube/</code></b> a powerful but lightweight extension, <br> to enrich your video experience & enable your content selection. 
 <table align="right"><tr><td>Top ~ <a href="https://addons.mozilla.org/en-US/firefox/search/?page=3&type=extension">60</a><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(We started late on Firefox, yet are among their ~100 recommentations)"><img width="140" alt="recommended by firefox" src="https://user-images.githubusercontent.com/9015764/178100681-728b9513-b6f8-4bf7-8949-c3d8449669ec.svg"></a><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(We started late on Firefox, yet are among their ~100 recommentations)"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" height="19px"></a><a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110" title="- Lifehacker.com 2021"><img src="https://lifehacker.com/favicon.ico" height="19px"></a> <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways" title="- gHacks.net">g</a> <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" title="- Chip.de"><img src="https://www.chip.de/favicon.ico" height="15px"></a>
 <i>'Might <br> be the only YouTube Extension you'll ever need' <br> 'enhances YouTube in meaningful ways'  <br> 'Strong Add-on, full control. Yet clear & easy' </i>
 <br> Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">c</a>ontributors, <a href="https://github.com/dodieboy" title="🏅">A</a>lan Tan, <a href="https://github.com/raszpl" title="🏅">R</a>aszpl
 <br><a href="https://github.com/code-for-charity/YouTube-Extension#--translators-">t</a>ranslators (+ wiki-authors? +<a href="https://improvedtube.com/donate">d</a>onators?)<a href="https://improvedtube.com/donate">:bowtie:</a></div></i>
-</td></tr></table>
-<p>Powerful but lightweight extension, <br> to enrich your video experience & enable your content selection. </p>
+</td></tr></table><br>
 
 <div align="center">	 </div> <details><summary>
 Original introduction</summary></summary> <h1>
@@ -28,11 +27,17 @@ Original introduction</summary></summary> <h1>
 (throughout the years we witnessed the birth & fall of other promising & open YouTube Extensions [1](https://github.com/YePpHa/YouTubeCenter "YouTubeCenter"), [2](https://github.com/ParticleCore/Iridium "Iridium"), ... ) 
 Today adding features can be easier & so motivating as there are 500 000 users. [[👪Join us]](https://github.com/code-for-charity/YouTube-Extension/discussions/1006 "github.com/Code-for-Charity"). <br><br> <p align="center"><a href="https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd">
 <img width="144.2" alt="Improve Youtube 2" src="https://user-images.githubusercontent.com/25022245/228036608-f428f6f1-943f-4ed4-b644-45c9bbe76146.png"><img width="143.1" alt="Improve Youtube 3" src="https://user-images.githubusercontent.com/25022245/228036610-9890f27f-c283-40e2-94ab-b9f6203eecff.png"><img width="143" alt="Improve Youtube" src="https://user-images.githubusercontent.com/25022245/228036605-948665f5-290e-47fb-948b-94efcd21305b.png">
-</a></p>  
+</a></p> 
 
 ##### <div align="center">Spread the word [<code><code><code><code>📣</code></code></code></code>](Http://Twitter_Whatsapp_Discord_Youtube_Facebook_eMail_Telegram_Signal)</div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 
-**W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> <br><br>
+**W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> 
+
+<h2>Contributing</h2>
+For more info on how to contribute, <br> please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
+
+
+
 
 <br><table  align="right"><tr><td><h3><a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code></a>Roadmap</h3> <!-- The list below only stays formatted when there is a line break above --> 
 
@@ -186,19 +191,15 @@ Chinese + Hindi + Spanish. <br></i>
 <br> (=here), or on ​<a href="https://crowdin.com/project/1655556">Crowdin</a></div>
 </td></tr></table>  
 
-<h2>Contributing</h2>
-For more info on how to contribute, <br> please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
-<br><br>
-
 ##### 💡 Vision for Open-Source Efficiency: 🌱 [`Auto Contributors`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)
 (Compare: Wikipedia Bots. Would especially help medium-size projects.) <br> 
 (+[community-list of regEx](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
 ##### 💡 Vision for the _(tweaking-/userStyle-/"modding-"_)Community:
-We can optimize things for the world, greatly priotized: [<img src="github.png" height="18px">UUT](https://github.com/code-charity/Universal-UserTweaks) <br>  ("insteada just tweakin@home like Sisyphos")
+We can optimize things for the world, greatly prioritized: [<img src="github.png" height="18px">UUT](https://github.com/code-charity/Universal-UserTweaks) <br>  ( <i> "insteada just tweakin@home like Sisyphos" </i> )
 <br>
 ##### 💡 Got great ideas?   
 	
-You can notify us if you have relavant (volunteer) work! (or ideas@improvedtube.com)
+Please notify us if you have relavant (volunteer) work beyond this project! (or ideas@improvedtube.com)
 + [github/**Wish-Factory**](https://github.com/code-for-charity/wish-factory "💡") 
 
 <h4> <code>🎁</code>Our Extensions:</h4></summary>
