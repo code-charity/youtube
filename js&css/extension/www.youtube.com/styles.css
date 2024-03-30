@@ -2023,3 +2023,36 @@ html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peferen
 	--yt-lightsource-primary-title-color: var(--yt-spec-text-primary) !important;
 	--yt-lightsource-secondary-title-color: var(--yt-spec-text-secondary) !important;
 }
+
+/*Fixing YT hardcoded CSS for DARK/light mode switching*/
+
+html:not([dark]) .yt-spec-icon-badge-shape,
+html:not([dark]) .yt-spec-icon-badge-shape__icon .yt-spec-icon-shape {
+	color: var(--yt-spec-text-primary) !important;
+}
+
+html[dark] .yt-spec-icon-badge-shape--style-overlay .yt-spec-icon-badge-shape__icon,
+html[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text,
+html:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text {
+    color: var(--yt-spec-text-primary);
+}
+html[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+    color: var(--yt-spec-text-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+html:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+    color: var(--yt-spec-text-primary);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/*override bell and thumbs up icons hardcoded colors inside SVG data*/
+/*bell icon*/
+html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"],
+html:not([dark]) .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
+	fill: var(--yt-spec-text-primary);
+}
+/*thumbs up icon*/
+html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"],
+html:not([dark]) .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
+	stroke: var(--yt-spec-text-primary);
+}
