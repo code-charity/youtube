@@ -94,7 +94,9 @@ ImprovedTube.init = function () {
 
 	window.addEventListener('yt-player-updated', yt_player_updated);
 	this.channelCompactTheme();
-	this.setTheme();
+	if (this.storage.theme) {
+		this.setTheme();
+	}
 	this.playerOnPlay();
 	this.playerSDR();
 	this.shortcuts();
@@ -136,7 +138,6 @@ document.addEventListener('yt-page-data-updated', function (event) {
 		ImprovedTube.playlistReverse();
 	}
 	ImprovedTube.playlistPopupUpdate();
-
 });
 
 window.addEventListener('load', function () {
