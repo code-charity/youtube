@@ -67,22 +67,19 @@ ImprovedTube.setTheme = function () {
 					'--yt-spec-base-background:' + primary_color + '!important;' +
 					'--yt-spec-raised-background:' + primary_color + '!important;' +
 					'--yt-spec-menu-background:' + primary_color + '!important;' +
-					'ytd-masthead { background-color:' + primary_color + '!important;}' +
 					'--yt-spec-inverted-background: #fff;' +
 					'}';
 
 				this.elements.my_colors = style;
 				document.documentElement.appendChild(style);
 				document.documentElement.removeAttribute('dark');
+				document.querySelector('ytd-masthead')?.removeAttribute('dark');
 				if (document.getElementById("cinematics")) {
 					document.getElementById("cinematics").style.visibility = 'hidden';
 					document.getElementById("cinematics").style.display = 'none !important';
 				}
-				if (document.querySelector('ytd-masthead')) {
-					document.querySelector('ytd-masthead').style.backgroundColor = ''+primary_color+'';
-				}
-			} else if (this.elements.my_colors) {
-				this.elements.my_colors.remove();
+			} else { //theoretically this will never be called
+				this.elements.my_colors?.remove();
 			}
 			break
 
@@ -91,14 +88,11 @@ ImprovedTube.setTheme = function () {
 			darkCookie = true;
 			document.documentElement.setAttribute('dark', '');
 			document.querySelector('ytd-masthead')?.setAttribute('dark', '');
-			document.querySelector('ytd-masthead')?.removeAttribute('style');
 			if (document.getElementById("cinematics")) {
 				document.getElementById('cinematics').style.visibility = 'visible';
 				document.getElementById('cinematics').style.display = 'none !important';
 			}
-			if (this.elements.my_colors) {
-				this.elements.my_colors.remove();
-			}
+			this.elements.my_colors?.remove();
 			break
 
 		case 'default':
@@ -109,7 +103,6 @@ ImprovedTube.setTheme = function () {
 		case 'desert':
 			document.documentElement.removeAttribute('dark');
 			document.querySelector('ytd-masthead')?.removeAttribute('dark');
-			document.querySelector('ytd-masthead')?.removeAttribute('style');
 			document.getElementById('cinematics')?.removeAttribute('style');
 			this.elements.my_colors?.remove();
 			break
