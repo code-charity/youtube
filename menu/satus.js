@@ -2081,8 +2081,9 @@ satus.components.shortcut = function(component, skeleton) {
 
 	component.className = 'satus-button';
 
-	component.render = function(parent = self.primary) {
+	component.render = function(parent) {
 		var self = this,
+			parent = parent || self.primary,
 			children = parent.children;
 
 		satus.empty(parent);
