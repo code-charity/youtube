@@ -629,7 +629,7 @@ let darkCookie;
 		document.querySelector('ytd-masthead').removeAttribute('dark');
 		document.getElementById("cinematics").style.visibility = 'hidden';
 		document.querySelector('ytd-masthead').style.backgroundColor ='#fff';	
-		ImprovedTube.setTheme();
+		ImprovedTube.myColors(); ImprovedTube.setTheme();
 
 	} else { darkCookie = true;
    	    document.documentElement.setAttribute('dark', '');  	 
