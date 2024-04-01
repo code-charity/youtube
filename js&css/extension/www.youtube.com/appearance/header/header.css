@@ -11,6 +11,12 @@
 html[it-header-transparent=true] ytd-masthead#masthead {background: transparent !important;}
 html[it-header-transparent=true] #background.ytd-masthead {background-color: rgba(230, 230, 230, 0.1) !important;}
 html[it-header-transparent=true] ytd-masthead[frosted-glass] #background.ytd-masthead {backdrop-filter: blur(1px) !important;}
+hmtl[it-header-transparent=true] #search-button {opacity: 1 !important;}
+
+#search-button {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
 
 /*--------------------------------------------------------------
 # POSITION
