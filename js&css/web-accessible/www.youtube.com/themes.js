@@ -72,8 +72,9 @@ ImprovedTube.myColors = function () {
 				if (document.getElementById("cinematics")) {
 					document.getElementById("cinematics").style.visibility = 'hidden';
 					document.getElementById("cinematics").style.display = 'none !important';
-				}
-			} else { //theoretically this will never be called
+				} 
+				document.querySelector('ytd-masthead').style.backgroundColor = ''+primary_color+'';	}
+			} else { //theoretically this will never be called 
 				this.elements.my_colors?.remove();
 			}
 	}
@@ -92,6 +93,7 @@ let darkCookie;
 				document.getElementById('cinematics').style.display = 'none !important';
 			}
 			this.elements.my_colors?.remove();
+			document.querySelector('ytd-masthead').style.backgroundColor ='#000';
 			break
 
 		case 'default':
