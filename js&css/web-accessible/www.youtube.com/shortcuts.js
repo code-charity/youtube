@@ -622,7 +622,7 @@ ImprovedTube.shortcutSubscribe = function () {
 4.7.25 DARK THEME
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDarkTheme = function () {
-
+let darkCookie; 
 	if (document.documentElement.hasAttribute('dark')) {
 		cookieValue = '80000';
 		document.documentElement.removeAttribute('dark');
@@ -631,7 +631,7 @@ ImprovedTube.shortcutDarkTheme = function () {
 		document.querySelector('ytd-masthead').style.backgroundColor ='#fff';	
 		ImprovedTube.setTheme();
 
-	} else {
+	} else { darkCookie = true;
    	    document.documentElement.setAttribute('dark', '');  	 
 		if (this.storage.theme === 'custom' ){ this.elements.my_colors.remove();  }
 		if (this.storage.theme === 'dawn' ){ this.elements.dawn.remove();  }
@@ -642,17 +642,23 @@ ImprovedTube.shortcutDarkTheme = function () {
 		document.querySelector('ytd-masthead').style.cssText = 'background-color: #000;';	
 		document.getElementById("cinematics").style.visibility = 'visible';
 		
-}   pref = ''; 
-	if (document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)) {
-		pref = document.cookie.match(/PREF\=([^\s]*(?=\;)|[^\s]*$)/)[1];}
-	
-	cookieValue = '400';	
-	if (pref.match(/(f6=)[^\&]+/)){
-		cookieValue = pref.replace(/(f6=)[^\&]+/, cookieValue);
+}   
+	let cookie = this.getPrefCookieValueByName('f6');
+	// f6 stores more than Theme. Treat it like hex number, we are only allowed to add/remove 0x80000 (light theme) and 0x400 (dark theme).
+	if (cookie && !isNaN(cookie)) {
+		// valid f6
+		let negation = parseInt(cookie, 16) & parseInt(80400, 16);
+		cookie = (parseInt(cookie, 16) - negation); // remove 80000 and 400
+		cookie = cookie ^ (darkCookie ? parseInt(400, 16) : 0); // apply optional darkCookie
+		cookie = cookie ? cookie.toString(16) : null; // back to hex, 0 means we want null to remove f6 cookie instead
 	} else {
-		cookieValue = pref + "&f6=" + cookieValue;
+		// missing or corrupted f6, fully overwrite
+		cookie = darkCookie ? 400 : null;
 	}
-	ImprovedTube.setCookie('PREF', cookieValue);
+
+	this.setPrefCookieValueByName('f6', cookie);
+
+	
 };
 
 /*------------------------------------------------------------------------------
