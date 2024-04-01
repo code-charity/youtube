@@ -20,7 +20,7 @@ ImprovedTube.myColors = function () {
 				}
 
 				style.className = 'it-theme-editor';
-				style.textContent = 'html{' +
+				style.textContent = 'html, [dark] {' +
 					'--yt-swatch-textbox-bg:rgba(19,19,19,1)!important;' +
 					'--yt-swatch-icon-color:rgba(136,136,136,1)!important;' +
 					'--yt-spec-brand-background-primary:rgba(0,0,0, 0.1) !important;' +
@@ -63,6 +63,8 @@ ImprovedTube.myColors = function () {
 					'--yt-spec-raised-background:' + primary_color + '!important;' +
 					'--yt-spec-menu-background:' + primary_color + '!important;' +
 					'--yt-spec-inverted-background: #fff;' +
+					'--ytd-searchbox-background:' + primary_color + '!important;' +
+					'--ytd-searchbox-legacy-button-color:' + 'var(--yt-spec-brand-background-primary)' + '!important;' +
 					'}';
 
 				this.elements.my_colors = style;
