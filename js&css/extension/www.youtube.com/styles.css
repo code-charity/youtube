@@ -2036,11 +2036,12 @@ html[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text,
 html:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text {
     color: var(--yt-spec-text-primary);
 }
+html[it-theme="black"] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 html[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
 	color: var(--yt-spec-text-primary);
     background-color: rgba(255, 255, 255, 0.1);
 }
-html:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+html:not([dark]):not([it-theme="black"]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
 	color: var(--yt-spec-text-primary);
 	background-color: rgba(0, 0, 0, 0.05);
 }
