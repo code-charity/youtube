@@ -20,7 +20,7 @@ ImprovedTube.myColors = function () {
 				}
 
 				style.className = 'it-theme-editor';
-				style.textContent = 'html{' +
+				style.textContent = 'html, [dark] {' +
 					'--yt-swatch-textbox-bg:rgba(19,19,19,1)!important;' +
 					'--yt-swatch-icon-color:rgba(136,136,136,1)!important;' +
 					'--yt-spec-brand-background-primary:rgba(0,0,0, 0.1) !important;' +
