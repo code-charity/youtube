@@ -127,6 +127,11 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				text: "forcedTheaterMode",
 				tags: "wide",
 			},
+			remove_black_bars: {
+				component: "switch",
+				text: "removeBlackBars",
+				tags: "bars",
+			},
 			player_size: {
 				component: "select",
 				variant: "player-size",
