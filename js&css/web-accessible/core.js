@@ -211,7 +211,9 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'theme':
 				case 'themePrimaryColor':
 				case 'themeTextColor':
-					ImprovedTube.setTheme();
+					if (this.storage.theme) {
+						ImprovedTube.setTheme();
+					}
 					break
 
 				case 'description':
