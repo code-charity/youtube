@@ -1,13 +1,8 @@
 /*------------------------------------------------------------------------------
 4.3.0 THEMES
 ------------------------------------------------------------------------------*/
-
-ImprovedTube.setTheme = function () {
-	let darkCookie;
-
-	switch(this.storage.theme) {
-		case 'custom':
-			if (Array.isArray(this.storage.theme_primary_color) && Array.isArray(this.storage.theme_text_color)) {
+ImprovedTube.myColors = function () {
+	if ( this.storage.theme === 'custom' && Array.isArray(this.storage.theme_primary_color) && Array.isArray(this.storage.theme_text_color)) {
 				var style = this.elements.my_colors || document.createElement('style'),
 					primary_color = this.storage.theme_primary_color,
 					text_color = this.storage.theme_text_color;
@@ -81,8 +76,12 @@ ImprovedTube.setTheme = function () {
 			} else { //theoretically this will never be called
 				this.elements.my_colors?.remove();
 			}
-			break
+	}
 
+
+ImprovedTube.setTheme = function () {
+	switch(this.storage.theme) {
+	let darkCookie;
 		case 'black':
 		case 'dark':
 			darkCookie = true;
