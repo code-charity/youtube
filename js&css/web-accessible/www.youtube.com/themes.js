@@ -6,6 +6,10 @@ ImprovedTube.setTheme = function () {
 	let darkCookie;
 
 	switch(this.storage.theme) {
+		case 'default':
+			return;
+			break
+
 		case 'custom':
 			if (Array.isArray(this.storage.theme_primary_color) && Array.isArray(this.storage.theme_text_color)) {
 				var style = this.elements.my_colors || document.createElement('style'),
@@ -95,7 +99,6 @@ ImprovedTube.setTheme = function () {
 			this.elements.my_colors?.remove();
 			break
 
-		case 'default':
 		case 'dawn':
 		case 'sunset':
 		case 'night':
