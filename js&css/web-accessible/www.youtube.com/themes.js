@@ -80,8 +80,8 @@ ImprovedTube.myColors = function () {
 
 
 ImprovedTube.setTheme = function () {
+let darkCookie;
 	switch(this.storage.theme) {
-	let darkCookie;
 		case 'black':
 		case 'dark':
 			darkCookie = true;
