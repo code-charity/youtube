@@ -73,12 +73,11 @@ ImprovedTube.myColors = function () {
 					document.getElementById("cinematics").style.visibility = 'hidden';
 					document.getElementById("cinematics").style.display = 'none !important';
 				} 
-				document.querySelector('ytd-masthead').style.backgroundColor = ''+primary_color+'';	}
+				document.querySelector('ytd-masthead').style.backgroundColor = ''+primary_color+'';	
 			} else { //theoretically this will never be called 
 				this.elements.my_colors?.remove();
 			}
 	}
-
 
 ImprovedTube.setTheme = function () {
 let darkCookie;
