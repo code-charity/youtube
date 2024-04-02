@@ -2046,6 +2046,12 @@ html:not([dark]):not([it-theme="black"]) .yt-spec-button-shape-next--mono.yt-spe
 	background-color: rgba(0, 0, 0, 0.05);
 }
 
+/*subscribe button when not subscribed*/
+html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
+    color: var(--yt-spec-base-background);
+    background-color: var(--yt-spec-text-primary);
+}
+
 /*override bell and thumbs up icons hardcoded colors inside SVG data*/
 /*bell icon*/
 html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"],
