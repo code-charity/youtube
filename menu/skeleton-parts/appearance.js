@@ -95,7 +95,7 @@ extension.skeleton.main.layers.section.appearance.on.click.header = {
 			},
 			header_transparent: {
 				component: "switch",
-				text: "Transparent"
+				text: "TransparentColor"
 			},
 			header_hide_country_code: {
 				component: "switch",
@@ -383,6 +383,11 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "hideScrollForDetails",
 				tags: "remove,hide"
+			},
+			remove_black_bars: {
+				component: "switch",
+				text: "removeBlackBars",
+				tags: "bars",
 			}
 		}
 	}
@@ -460,7 +465,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 								text: "normal",
 								value: "normal"
 							}, {
-								text: 'Remove_names',
+								text: 'removeNames',
 								value: "remove_labels"
 							}, {
 								text: 'halfTransparent',
@@ -475,7 +480,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 								text: "hide_Labels",
 								value: "hide_labels"
 							}, {
-								text: 'remove_icons',
+								text: 'removeIcons',
 								value: "remove_icons"
 							}],
 							tags: "hide,remove"
@@ -485,18 +490,18 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 							variant: 'card',
 							subscribe: {
 								component: "select",
-								text: "'Subscribe'",
+								text: "subscribe",
 								options: [{
 									text: "normal",
 									value: "normal"
 								}, {
-									text: "remove name",
+									text: "removeName",
 									value: "remove_label"
 								}, {
 									text: "grey",
 									value: "grey"
 								}, {
-									text: "transparent",
+									text: "transparentColor",
 									value: "transparent"
 								}, {
 									text: "hidden",
@@ -506,7 +511,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 							},
 							likes: {
 								component: "select",
-								text: "'like'",
+								text: "like",
 								options: [{
 									text: "normal",
 									value: "normal"
@@ -521,7 +526,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 							},
 							hide_dislike_button: {
 								component: "select",
-								text: 'dislike',
+								text: "dislike",
 								options: [{
 									text: 'normal',
 									value: "normal"
@@ -540,7 +545,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 							},
 							hide_share_button: {
 								component: "select",
-								text: "'share'",
+								text: "share",
 								options: [{
 									text: "normal",
 									value: "normal"

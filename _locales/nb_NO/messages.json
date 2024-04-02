@@ -1,16 +1,4 @@
-{   
-	"ARROWDOWN": {
-        "message": "⇩"
-    },
-    "ARROWLEFT": {
-        "message": "⇦"
-    },
-    "ARROWRIGHT": {
-        "message": "⇨"
-    },
-    "ARROWUP": {
-        "message": "⇧"
-    },
+{
     "about": {
         "message": "Om"
     },
@@ -23,14 +11,14 @@
     "activateCaptions": {
         "message": "Aktiver underteksting"
     },
-    "activateFullscreen": {
-        "message": "Aktiver fullskjerm"
-    },
     "activated": {
         "message": "Aktivert"
     },
     "activatedFeatures": {
         "message": "Aktiverte funksjoner"
+    },
+    "activateFullscreen": {
+        "message": "Aktiver fullskjerm"
     },
     "activeFeatures": {
         "message": "Aktive funksjoner"
@@ -73,6 +61,18 @@
     },
     "areYouSureYouWantToImportTheData": {
         "message": "Are you sure you want to import the data?"
+    },
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
     },
     "audio": {
         "message": "Lyd"
@@ -122,9 +122,6 @@
     "black": {
         "message": "Svart"
     },
-    "blocklist": {
-        "message": "Svartelist"
-    },
     "blockAll": {
         "message": "Blokker alle"
     },
@@ -133,6 +130,9 @@
     },
     "blockH264": {
         "message": "Block H.264"
+    },
+    "blocklist": {
+        "message": "Svartelist"
     },
     "blockMusic": {
         "message": "Skip ads while I play music"
@@ -197,11 +197,11 @@
     "codecs": {
         "message": "Codecs"
     },
-    "collapseOfSubscriptionSections": {
-        "message": "Kollaps av abonnementsdelene"
-    },
     "collapsed": {
         "message": "kollapset"
+    },
+    "collapseOfSubscriptionSections": {
+        "message": "Kollaps av abonnementsdelene"
     },
     "comments": {
         "message": "Kommentarer"
@@ -305,11 +305,11 @@
     "displayDayOfTheWeak": {
         "message": "Display day of the week"
     },
-    "doNotChange": {
-        "message": "Ikke endre"
-    },
     "donate": {
         "message": "Doner"
+    },
+    "doNotChange": {
+        "message": "Ikke endre"
     },
     "download": {
         "message": "Download"
@@ -374,23 +374,23 @@
     "footer": {
         "message": "Bunntekst"
     },
-    "forceSDR": {
-        "message": "Avoid HDR, keep SDR"
-    },
-    "forcedPlayVideoFromTheBeginning": {
-        "message": "Forced play video from the beginning"
-    },
     "forcedPlaybackSpeed": {
         "message": "Tvungen avspillingshastighet"
     },
     "forcedPlaybackSpeedMusic": {
         "message": "(Force playback speed even for music?)"
     },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
+    },
     "forcedTheaterMode": {
         "message": "Tvunget teater-modus"
     },
     "forcedVolume": {
         "message": "Tvunget lydstyrke"
+    },
+    "forceSDR": {
+        "message": "Avoid HDR, keep SDR"
     },
     "foundABug": {
         "message": "Fant du en feil?"
@@ -407,11 +407,11 @@
     "github": {
         "message": "GitHub"
     },
-    "goToSearchBox": {
-        "message": "Gå til søkefeltet"
-    },
     "googleApiKey": {
         "message": "Google API key"
+    },
+    "goToSearchBox": {
+        "message": "Gå til søkefeltet"
     },
     "gpu": {
         "message": "GPU"
@@ -476,6 +476,9 @@
     "hideGradientBottom": {
         "message": "Skjul bunn-fargeovergang"
     },
+    "hideHomePageShorts": {
+        "message": "Fjern Shorts fra hjemmesiden"
+    },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
     },
@@ -536,9 +539,6 @@
     "importSettings": {
         "message": "Importer innstillinger"
     },
-    "improveLogo": {
-        "message": "Forbedre logo"
-    },
     "improvedtubeButtons": {
         "message": "ImprovedTube buttons"
     },
@@ -550,6 +550,9 @@
     },
     "improvedtubeVersion": {
         "message": "ImprovedTube-versjon"
+    },
+    "improveLogo": {
+        "message": "Forbedre logo"
     },
     "increasePlaybackSpeed": {
         "message": "Øk avspillingshastigheten"
@@ -671,11 +674,11 @@
     "noActiveFeatures": {
         "message": "Ingen aktive funksjoner"
     },
-    "noOpenVideoTabs": {
-        "message": "Ingen åpne videofaner"
-    },
     "none": {
         "message": "Ingen"
+    },
+    "noOpenVideoTabs": {
+        "message": "Ingen åpne videofaner"
     },
     "normal": {
         "message": "Normal"
@@ -689,14 +692,14 @@
     "onAllVideos": {
         "message": "På alle videoer"
     },
-    "onSubscribedChannels": {
-        "message": "På abonnementskanaler"
-    },
     "onlyActiveOnYoutube": {
         "message": "Kun aktiv på YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Kun én avspiller viser noe"
+    },
+    "onSubscribedChannels": {
+        "message": "På abonnementskanaler"
     },
     "openPopupPlayer": {
         "message": "Open video/playlist in a new window"
@@ -734,9 +737,6 @@
     "playAllButton": {
         "message": "\"Play all\" button"
     },
-    "playPause": {
-        "message": "Spill / Pause"
-    },
     "playbackSpeed": {
         "message": "Avspillingshastighet"
     },
@@ -754,6 +754,9 @@
     },
     "playlists": {
         "message": "Spillelister"
+    },
+    "playPause": {
+        "message": "Spill / Pause"
     },
     "popupPlayer": {
         "message": "Oppsprettsspiller"
@@ -805,9 +808,6 @@
     },
     "remote": {
         "message": "Play on TV"
-    },
-    "hideHomePageShorts": {
-        "message": "Fjern Shorts fra hjemmesiden"
     },
     "removeRelatedSearchResults": {
         "message": "Fjern relaterte søkeresultater"

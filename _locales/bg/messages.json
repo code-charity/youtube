@@ -1,6 +1,8 @@
-{"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"Премахни Shorts от началната страница"},
-"removeShortsReelSearchResults":{"message":"Премахнете ролката Shorts от резултатите от търсенето"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}
+{
+    "hideHomePageShorts": {
+        "message": "Премахни Shorts от началната страница"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Премахнете ролката Shorts от резултатите от търсенето"
+    }
 }

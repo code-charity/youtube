@@ -1,4 +1,8 @@
 {
-"compact_spacing":{"message":"compact spacing"},
-"player_rotate_button":{"message":"player rotate button"}
+    "compact_spacing": {
+        "message": "compact spacing"
+    },
+    "player_rotate_button": {
+        "message": "player rotate button"
+    }
 }

@@ -1,7 +1,8 @@
 {
-"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"મુખ્ય પેજના શોર્ટ્સ કાઢો"},
-"removeShortsReelSearchResults":{"message":"શોધના પરિણામોમાંથી શોર્ટસ રીલ કાઢી નાખો"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}
+    "hideHomePageShorts": {
+        "message": "મુખ્ય પેજના શોર્ટ્સ કાઢો"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "શોધના પરિણામોમાંથી શોર્ટસ રીલ કાઢી નાખો"
+    }
 }

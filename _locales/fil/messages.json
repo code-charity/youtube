@@ -1,7 +1,8 @@
 {
-"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"Alisin ang Shorts mula sa homepage"},
-"removeShortsReelSearchResults":{"message":"Alisin ang Shorts reel mula sa mga resulta ng paghahanap"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}
+    "hideHomePageShorts": {
+        "message": "Alisin ang Shorts mula sa homepage"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Alisin ang Shorts reel mula sa mga resulta ng paghahanap"
+    }
 }

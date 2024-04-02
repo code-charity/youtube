@@ -1,11 +1,27 @@
 /*--------------------------------------------------------------
 >>> FUNCTIONS
 --------------------------------------------------------------*/
-const DOM_filter = /^(SCRIPT|DOM-IF|DOM-REPEAT|svg|SPAN||#text|#comment|yt-icon-shape|iron-iconset-svg)$/;
+ImprovedTube.childHandler = function (node) {
+	//console.log(node.nodeName);
+	if (node.nodeName === 'SCRIPT' || node.nodeName === 'iron-iconset-svg' || node.nodeName === 'svg' || node.nodeName === 'SPAN' || node.nodeName === '#text' || node.nodeName === '#comment' || node.nodeName === 'yt-icon-shape' || node.nodeName === 'DOM-IF' || node.nodeName === 'DOM-REPEAT') {
+		return
+	}
+	var children = node.children;
+	this.ytElementsHandler(node);
+
+	if (children) {
+		for (var i = 0, l = children.length; i < l; i++) {
+			ImprovedTube.childHandler(children[i]);
+		}
+	}
+}	
+
+/*	
+const DOM_filter = /^(SCRIPT|DOM-IF|DOM-REPEAT|svg|SPAN|#text|#comment|yt-icon-shape|iron-iconset-svg)$/;
 ImprovedTube.childHandler = function (node) { //console.log(node.nodeName);
 	if (DOM_filter.test(node.nodeName)) { return; }
-	ImprovedTube.ytElementsHandler(node);
 	var children = node.children;
+	ImprovedTube.ytElementsHandler(node);	
 	if (children) {
 		let i = 0;
 		for (const child of children) {
@@ -13,8 +29,8 @@ ImprovedTube.childHandler = function (node) { //console.log(node.nodeName);
 			//console.log("node.nodeName:CHILD-"+i+":"+children[i].id+",class:"+children[i].className+","+children[i]+"("+children[i].nodeName+")");
 			i++;
 		}
-	}
-};
+	}    
+};  */
 
 ImprovedTube.ytElementsHandler = function (node) {
 	var name = node.nodeName,
@@ -481,24 +497,30 @@ ImprovedTube.getCookieValueByName = function (name) {
 	} else return '';
 };
 
-ImprovedTube.setPrefCookieValueByName = function (name, value) {
+ImprovedTube.getPrefCookieValueByName = function (name) {
 	let prefs = this.getParams(this.getCookieValueByName('PREF'));
-	let newprefs = '';
+	return prefs[name];
+};
+
+// set PREF cookie name=value or delete name if value == null
+ImprovedTube.setPrefCookieValueByName = function (name, value) {
+	let originalPref = this.getCookieValueByName('PREF');
+	let prefs = this.getParams(originalPref);
+	let newPrefs = '';
 	let ampersant = '';
 
-	if (value) {
-		prefs[name] = value;
-	}
+	prefs[name] = value;
 
 	for (let pref in prefs) {
-		if (pref) {
-			if (pref!=name || value) {
-				newprefs += ampersant + pref + '=' + prefs[pref];
-				ampersant = '&';
-			}
+		if (prefs[pref]) {
+			newPrefs += ampersant + pref + '=' + prefs[pref];
+			ampersant = '&';
 		}
 	}
-	this.setCookie('PREF', newprefs);
+	// only write cookie if its different from the old one
+	if (originalPref != newPrefs) {
+		this.setCookie('PREF', newPrefs);
+	}
 };
 
 ImprovedTube.setCookie = function (name, value) {
@@ -596,7 +618,7 @@ ImprovedTube.videoTitle = function () {return document.title?.replace(/\s*-\s*Yo
 
 // Function to extract and store the number of subscribers
 ImprovedTube.extractSubscriberCount = function (subscriberCountNode) {
-	if (!subscriberCountNode) {var subscriberCountNode = document.getElementById('owner-sub-count');}
+	if (!subscriberCountNode) {subscriberCountNode = document.getElementById('owner-sub-count');}
 	if (subscriberCountNode) {
 		// Extract the subscriber count and store it for further use
 		var subscriberCountText = subscriberCountNode.textContent.trim();
