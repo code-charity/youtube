@@ -106,14 +106,15 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			value: 'black'
 		}
 	},
-	desert: {
+	plain: {
 		component: 'label',
-		variant: 'desert-theme',
-		text: 'desert',
+		variant: 'plain-theme',
+		text: 'plain',
+
 		radio: {
 			component: 'radio',
 			group: 'theme',
-			value: 'desert'
+			value: 'plain'
 		}
 	},
 	sunset: {
@@ -147,16 +148,14 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			group: 'theme',
 			value: 'dawn'
 		}
-	},
-	plain: {
+	},desert: {
 		component: 'label',
-		variant: 'plain-theme',
-		text: 'plain',
-
+		variant: 'desert-theme',
+		text: 'desert',
 		radio: {
 			component: 'radio',
 			group: 'theme',
-			value: 'plain'
+			value: 'desert'
 		}
 	},
 	dark: {
