@@ -1,10 +1,8 @@
 {
-
-
     "hideHomePageShorts": {
         "message": "حذف کردن شورت‌های صفحه اصلی"
     },
-
     "removeShortsReelSearchResults": {
         "message": "حذف کردن ریل Shorts از نتایج جستجو"
-    } }
+    }
+}

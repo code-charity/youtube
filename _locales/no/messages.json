@@ -236,6 +236,9 @@
     "forcedPlaybackSpeed": {
         "message": "Tvungen avspillingshastighet"
     },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
+    },
     "forcedTheaterMode": {
         "message": "Tvunget teater-modus"
     },
@@ -293,6 +296,9 @@
     "hideHomePageShorts": {
         "message": "Fjern Shorts fra hjemmesiden"
     },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
     "hidePlaylist": {
         "message": "Skjul spilleliste"
     },
@@ -334,6 +340,9 @@
     },
     "importSettings": {
         "message": "Importer innstillinger"
+    },
+    "improvedtubeButtons": {
+        "message": "ImprovedTube-knapper"
     },
     "improvedtubeIconOnYoutube": {
         "message": "ImprovedTube-ikonet på YouTube"
@@ -694,6 +703,9 @@
     },
     "yellow": {
         "message": "Gul"
+    },
+    "youTubeButtons": {
+        "message": "YouTube knapper"
     },
     "youtubeHeaderLeft": {
         "message": "YouTube Header (til venstre)"

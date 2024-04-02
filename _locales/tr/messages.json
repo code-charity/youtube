@@ -86,6 +86,9 @@
     "autoplay": {
         "message": "Otomatik oynat"
     },
+    "avoidAv1Vp8Vp9": {
+        "message": "AV1, VP8, VP9'u engelle"
+    },
     "avoidCpuRenderingWhenPossible": {
         "message": "Mümkün olduğunda CPU oluşturma işleminden kaçının"
     },
@@ -335,6 +338,12 @@
     "extension": {
         "message": "Uzantı"
     },
+    "ExtraButtons": {
+        "message": "Ekstra düğmeler"
+    },
+    "Feature_not_yet_available": {
+        "message": "Özellik mevcut değil"
+    },
     "file": {
         "message": "Dosya"
     },
@@ -351,10 +360,10 @@
         "message": "Yazı Tipi"
     },
     "fontColor": {
-        "message": "Yazı rengi"
+        "message": "Yazı Rengi"
     },
     "fontFamily": {
-        "message": "Font ailesi"
+        "message": "Font Ailesi"
     },
     "fontOpacity": {
         "message": "Yazı tipi opaklığı"
@@ -395,14 +404,32 @@
     "geoPreference": {
         "message": "Coğrafi Tercih"
     },
+    "github": {
+        "message": "GitHub"
+    },
+    "googleApiKey": {
+        "message": "Google API key"
+    },
     "goToSearchBox": {
         "message": "Arama kutusuna git"
+    },
+    "gpu": {
+        "message": "GPU"
     },
     "green": {
         "message": "Yeşil"
     },
+    "grey": {
+        "message": "Gri"
+    },
+    "Hamburger_Menu": {
+        "message": "Hamburger Menu"
+    },
     "hardwareInformation": {
         "message": "Donanım Bilgileri"
+    },
+    "hd": {
+        "message": "HD"
     },
     "hdThumbnail": {
         "message": "HD küçük resim"
@@ -416,6 +443,15 @@
     "hiddenOnVideoPage": {
         "message": "Video sayfasında gizli"
     },
+    "hide_labels": {
+        "message": "İsimleri Gizle"
+    },
+    "Hide_sidebar": {
+        "message": "Kenar çubuğunu gizle "
+    },
+    "Hide_the_tabs_only": {
+        "message": "Yalnızca sekmeleri gizle"
+    },
     "hideAnimatedThumbnails": {
         "message": "Hareketli küçük resimleri gizle"
     },
@@ -423,7 +459,7 @@
         "message": "Ek açıklamaları gizle"
     },
     "hideCards": {
-        "message": "Kartları gizle"
+        "message": "Video Kartlarını gizle"
     },
     "hideCategories": {
         "message": "Kategorileri gizle"
@@ -456,7 +492,7 @@
         "message": "Oynatıcı çubuğunun etrafındaki gölgeyi gizle"
     },
     "hideHomePageShorts": {
-        "message": "Ana sayfa Shorts'ları kaldır"
+        "message": "Ana sayfa'dan Shorts'ları kaldır"
     },
     "hidePlayerControlsBar": {
         "message": "Oynatıcı kontrol çubuğunu gizle"
@@ -510,7 +546,7 @@
         "message": "Videonun Üzerinde Hover"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Video ne kadar süre önce yüklendi"
+        "message": "Video n zaman yüklendi?"
     },
     "icons": {
         "message": "Simgeler"
@@ -924,7 +960,7 @@
         "message": "Gün batımından gün doğumuna"
     },
     "systemPeferenceDark": {
-        "message": "Sistem tercihi: koyu"
+        "message": "Sistem tercihi: Koyu"
     },
     "systemPeferenceLight": {
         "message": "Sistem tercihi: açık"
@@ -939,19 +975,19 @@
         "message": "Temalar"
     },
     "thisWillRemoveAllCookies": {
-        "message": "Bu, tüm çerezleri kaldıracaktır."
+        "message": "Bu işlem, tüm çerezleri kaldıracaktır."
     },
     "thisWillRemoveAllWatchedVideos": {
-        "message": "Bu, izlenen tüm videoları kaldıracaktır."
+        "message": "Bu işlem, izlenen tüm videoları kaldıracaktır."
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "Bu, tüm YouTube çerezlerini kaldıracaktır."
+        "message": "Bu işlem, tüm YouTube çerezlerini kaldıracaktır."
     },
     "thisWillResetAllSettings": {
-        "message": "Bu, tüm ayarları sıfırlayacaktır."
+        "message": "Bu işlem, tüm ayarları sıfırlayacaktır."
     },
     "thisWillResetAllShortcuts": {
-        "message": "Bu, tüm kısayolları sıfırlayacaktır."
+        "message": "Bu işlem, tüm kısayolları sıfırlayacaktır."
     },
     "thumbnails": {
         "message": "Küçük resimler"

@@ -986,6 +986,9 @@
     "Remove": {
         "message": "Remove"
     },
+    "removeBlackBars": {
+        "message": "Remove black bars when full screen"
+    },
     "removeIcons": {
         "message": "Remove icons"
     },
