@@ -1148,6 +1148,9 @@
     "subtitles": {
         "message": "Subtitles"
     },
+    "RemoveSubtitlesForLyrics": {
+        "message": "Remove subtitles for lyrics"
+    },
     "sunset": {
         "message": "Sunset"
     },
