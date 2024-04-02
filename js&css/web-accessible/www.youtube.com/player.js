@@ -1,17 +1,17 @@
 /*------------------------------------------------------------------------------
-AUTOPLAY
+AUTOPLAY DISABLE
 ------------------------------------------------------------------------------*/
-ImprovedTube.autoplay = function () {
+ImprovedTube.autoplayDisable = function () {
     var video = ImprovedTube.elements.player;
     if (ImprovedTube.video_url !== location.href) {
-        ImprovedTube.ignore_autoplay_off = false;
+        this.user_interacted = false;
     }
     // if (allow autoplay is false) and  (no ads playing) and
 	// ( there is a video and ( (it is not in a playlist and  auto play is off ) or ( playlist auto play is off and it is not in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
-    if (ImprovedTube.ignore_autoplay_off === false && video.classList.contains('ad-showing') === false &&
+    if (!this.user_interacted && video.classList.contains('ad-showing') === false &&
         ( 
 // quick fix #1703  thanks to @AirRaid#9957
-            (/* document.documentElement.dataset.pageType === "video" */ location.href.indexOf('/watch?') !== -1 && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) || (ImprovedTube.storage.playlist_autoplay === false && location.href.indexOf('list=') !== -1))) ||
+            (/* document.documentElement.dataset.pageType === "video" */ location.href.indexOf('/watch?') !== -1 && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay_disable) || (ImprovedTube.storage.playlist_autoplay === false && location.href.indexOf('list=') !== -1))) ||
             (/* document.documentElement.dataset.pageType === "channel" */ ImprovedTube.regex.channel.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
         )
     )         
@@ -881,7 +881,7 @@ ImprovedTube.playerPopupButton = function () {
 				const videoID = location.search.match(ImprovedTube.regex.video_id)[1],
 					listMatch = location.search.match(ImprovedTube.regex.playlist_id),
 					popup = window.open(
-						`${location.protocol}//www.youtube.com/embed/${videoID}?start=${parseInt(ytPlayer.getCurrentTime())}&autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}${listMatch?`&list=${listMatch[1]}`:''}`,
+						`${location.protocol}//www.youtube.com/embed/${videoID}?start=${parseInt(ytPlayer.getCurrentTime())}&autoplay=${ImprovedTube.storage.player_autoplay_disable ? '0' : '1'}${listMatch?`&list=${listMatch[1]}`:''}`,
 						'_blank',
 						`directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${ytPlayer.offsetWidth / 3},height=${ytPlayer.offsetHeight / 3}`
 					);
