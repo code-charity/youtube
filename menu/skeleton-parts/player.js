@@ -1015,6 +1015,20 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'player_fit_to_win_button'
 		},
+		player_cinema_mode_button: {
+			component: 'switch',
+			text: 'player_cinema_mode_button',
+			id: 'player_cinema_mode_button'
+		},
+		player_auto_cinema_mode: {
+			component: 'switch',
+			text: 'player_auto_cinema_mode',
+			id: 'player_auto_cinema_mode'
+		},
+		player_auto_hide_cinema_mode_when_paused: {
+			component: 'switch',
+			text: 'player_auto_hide_cinema_mode_when_paused'
+		},
 		player_rotate_button: {
 			component: 'switch',
 			text: 'rotate'

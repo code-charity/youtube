@@ -317,6 +317,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
 		ImprovedTube.playerFitToWinButton();
+		ImprovedTube.playerCinemaModeButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
 	}
@@ -339,6 +340,7 @@ ImprovedTube.playerOnPlay = function () {
 
 			ImprovedTube.autoplay();
 			ImprovedTube.playerLoudnessNormalization();
+			ImprovedTube.playerCinemaModeEnable();
 
 			return original.apply(this, arguments);
 		}
@@ -416,6 +418,8 @@ ImprovedTube.playerOnPause = function (event) {
 	}
 	ImprovedTube.played_time = 0;
 	ImprovedTube.playerControls();
+	ImprovedTube.playerCinemaModeDisable();
+	
 };
 
 ImprovedTube.playerOnEnded = function (event) {
@@ -533,7 +537,6 @@ ImprovedTube.setCookie = function (name, value) {
 
 ImprovedTube.createPlayerButton = function (options) {
 	var controls = options.position == "right" ? this.elements.player_right_controls : this.elements.player_left_controls;
-
 	if (controls) {
 		var button = document.createElement('button');
 
@@ -551,7 +554,7 @@ ImprovedTube.createPlayerButton = function (options) {
 			tooltip.style.top = rect.top - 8 + 'px';
 
 			tooltip.textContent = this.dataset.title;
-
+			tooltip.style.zIndex = 10001; // needed for cinema mode
 			function mouseleave() {
 				tooltip.remove();
 
