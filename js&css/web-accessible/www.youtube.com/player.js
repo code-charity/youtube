@@ -681,10 +681,12 @@ ImprovedTube.playerScreenshotButton = function () {
 REPEAT
 -------------------------------------------------------------------------------*/
 ImprovedTube.playerRepeat = function () {	      
-			setTimeout(function () {
-				ImprovedTube.elements.video.setAttribute('loop', ''); 
+			setTimeout(function () { 
+				if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
+					ImprovedTube.elements.video.setAttribute('loop', ''); 
+				}
 	   //ImprovedTube.elements.buttons['it-repeat-styles'].style.opacity = '1';   //old class from version 3.x? that both repeat buttons could have
-         			}, 200);
+         	}, 200);
 } 
 /*------------------------------------------------------------------------------
 REPEAT BUTTON

@@ -432,7 +432,7 @@ ImprovedTube.playerOnEnded = function (event) {
 
 ImprovedTube.onkeydown = function () {
 	window.addEventListener('keydown', function () {
-		if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing')) {
+		if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
 			ImprovedTube.user_interacted = true;
 		}
 	}, true);
@@ -440,7 +440,7 @@ ImprovedTube.onkeydown = function () {
 
 ImprovedTube.onmousedown = function (event) {
 	window.addEventListener('mousedown', function (event) {
-		if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing')) {
+		if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
 			var path = event.composedPath();
 
 			for (var i = 0, l = path.length; i < l; i++) {
