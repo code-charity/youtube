@@ -746,6 +746,7 @@ html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference
 html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
 	--yt-spec-icon-inactive: #fff;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
+	--ytd-searchbox-background: #000;
 	--ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
 	--ytd-searchbox-legacy-border-shadow-color: hsla(0, 0%, 0%, 0);
 	--ytd-searchbox-legacy-button-color: hsla(0, 0%, 100%, .08);
@@ -859,7 +860,6 @@ html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peferenc
 	--yt-main-app-background-tmp: #000;
 	--yt-guide-background: #000;
 	--yt-dialog-background: #000;
-	--yt-searchbox-background: #000 !important;
 	--yt-channel-header-background: #000;
 	--yt-sidebar-background: #000;
 	--yt-transcript-background: #000;
@@ -973,6 +973,7 @@ html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_
 html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
 	--yt-spec-icon-inactive: #fff;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
+	--ytd-searchbox-background: #672c3b;
 	--ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
 	--ytd-searchbox-legacy-border-shadow-color: hsla(0, 0%, 0%, 0);
 	--ytd-searchbox-legacy-button-color: hsla(0, 0%, 100%, .08);
@@ -1086,7 +1087,6 @@ html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference
 	--yt-main-app-background-tmp: #d44d5c;
 	--yt-guide-background: #d44d5c;
 	--yt-dialog-background: #734;
-	--yt-searchbox-background: #672c3b;
 	--yt-channel-header-background: #d44d5c;
 	--yt-sidebar-background: #d44d5c;
 	--yt-transcript-background: #d44d5c;
@@ -1209,6 +1209,7 @@ html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peferen
 	--yt-spec-icon-inactive: #555;
 	--yt-spec-text-primary: #555;
 	--ytd-searchbox-border-color: #555;
+	--ytd-searchbox-background: #faf9f9;
 	--ytd-searchbox-legacy-border-color: #555;
 	--ytd-searchbox-legacy-border-shadow-color: #555;
 	--ytd-searchbox-legacy-button-color: #555;
@@ -1322,7 +1323,6 @@ html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peferen
 	--yt-main-app-background-tmp: #faf9f9;
 	--yt-guide-background: #faf9f9;
 	--yt-dialog-background: #bee3db;
-	--yt-searchbox-background: #faf9f9;
 	--yt-channel-header-background: #faf9f9;
 	--yt-sidebar-background: #faf9f9;
 	--yt-transcript-background: #faf9f9;
@@ -1434,6 +1434,7 @@ html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference
 html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
 	--yt-spec-icon-inactive: #fff;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
+	--ytd-searchbox-background: #003459;
 	--ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
 	--ytd-searchbox-legacy-border-shadow-color: hsla(0, 0%, 0%, 0);
 	--ytd-searchbox-legacy-button-color: hsla(0, 0%, 100%, .08);
@@ -1547,7 +1548,6 @@ html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peferenc
 	--yt-main-app-background-tmp: #003459;
 	--yt-guide-background: #003459;
 	--yt-dialog-background: #007ea7;
-	--yt-searchbox-background: #003459 !important;
 	--yt-channel-header-background: #003459;
 	--yt-sidebar-background: #003459;
 	--yt-transcript-background: #003459;
@@ -1662,6 +1662,7 @@ html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peferenc
 	--yt-spec-icon-inactive: #666;
 	--yt-spec-text-primary: #666;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
+	--ytd-searchbox-background: #c7efcf;
 	--ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
 	--ytd-searchbox-legacy-border-shadow-color: hsla(0, 0%, 0%, 0);
 	--ytd-searchbox-legacy-button-color: hsla(0, 0%, 100%, .08);
@@ -1775,7 +1776,6 @@ html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peferenc
 	--yt-main-app-background-tmp: #c7efcf;
 	--yt-guide-background: #c7efcf;
 	--yt-dialog-background: #d6d1b1;
-	--yt-searchbox-background: #c7efcf;
 	--yt-channel-header-background: #c7efcf;
 	--yt-sidebar-background: #c7efcf;
 	--yt-transcript-background: #c7efcf;
@@ -1890,6 +1890,7 @@ html[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peferenc
 html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light]:not(.style-scope)[dark] {
 	--yt-spec-icon-inactive: #fff;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
+	--ytd-searchbox-background: #fa7965;
 	--ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
 	--ytd-searchbox-legacy-border-shadow-color: hsla(0, 0%, 0%, 0);
 	--ytd-searchbox-legacy-button-color: hsla(0, 0%, 100%, .08);
@@ -2003,7 +2004,6 @@ html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peferen
 	--yt-main-app-background-tmp: #2f3364;
 	--yt-guide-background: #2f3364;
 	--yt-dialog-background: #d62828;
-	--yt-searchbox-background: #fa7965 !important;
 	--yt-channel-header-background: #2f3364;
 	--yt-sidebar-background: #2f3364;
 	--yt-transcript-background: #2f3364;
@@ -2036,13 +2036,14 @@ html[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text,
 html:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text {
     color: var(--yt-spec-text-primary);
 }
+html[it-theme="black"] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 html[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
-    color: var(--yt-spec-text-primary);
+	color: var(--yt-spec-text-primary);
     background-color: rgba(255, 255, 255, 0.1);
 }
-html:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
-    color: var(--yt-spec-text-primary);
-    background-color: rgba(0, 0, 0, 0.05);
+html:not([dark]):not([it-theme="black"]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+	color: var(--yt-spec-text-primary);
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 /*override bell and thumbs up icons hardcoded colors inside SVG data*/

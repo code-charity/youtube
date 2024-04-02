@@ -93,17 +93,15 @@ ImprovedTube.init = function () {
 	};
 
 	window.addEventListener('yt-player-updated', yt_player_updated);
-	this.channelCompactTheme();
-	if (this.storage.theme) {
-		this.setTheme();
-	}
 	this.playerOnPlay();
 	this.playerSDR();
 	this.shortcuts();
 	this.onkeydown();
 	this.onmousedown();
 	this.youtubeLanguage();
-
+	this.myColors();
+	this.channelCompactTheme();
+	
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();
 		ImprovedTube.initPlayer();

@@ -9,14 +9,16 @@ assignees: ''
 
 ## 1. Bug Report:
  ⚬ **BUG**:   <!-- (clear/concise description) -->
- ⚬ **HOW**:   <!-- Steps to **reproduce**. (The bug might only happen with your settings or your browser?) -->
-⚬ Does the bug not happen when you log out of YouTube? - Then please copy the html source you get with ctrl+U. )  - Same if YouTube changed at all?
-   ⚬ Or did our last update start the bug? 
-       ⚬  ImprovedTube Version: <!--  [ written at the top, in the stores & under our ⋮ icon>settings>version]   -->
- ⚬ *Browser console errors shown? `F12`-key
-/  ⚬ *Context*:      <!-- (Additional context maybe)  --> 
-/  ⚬ *Expected /preferred behavior*:
-/  ⚬ *Screenshots*:   <!-- (maybe) -->   
+     ⚬  Browser:   <!-- especially only if not Chrome but Firefox / Safari / ...] -->
+     ⚬ **HOW**:   <!-- Steps to **reproduce**. (The bug might only happen with your settings or your browser?) -->
+  ⚬ Does the bug not happen when you log out of YouTube? - Then please copy the html source you get with ctrl+U. )  - Same if YouTube changed at all? then please paste check your 800+ experiment flags.  - Enter   yt.config_.EXPERIMENT_FLAGS   into the Browser console (F12-Key)
+     ⚬ *Or* did our last update start the bug? 
+        ⚬ Are any *Browser console errors shown? `F12`-key
+        ⚬  ImprovedTube Version: <!--  [ written at the to & in the stores ]   -->
+         
+<!-- (And Maybe:) -->  ⚬ *Screenshots*:     
+                                     ⚬ *Expected /preferred behavior*: 
+                                     ⚬ *Context*:   
 
 ### Step-0 / Before submitting
 Thanks for coming & caring! Please check if the issue has already been reported ever.  ( With [GitHub's issue search (use this link)](https://github.com/ImprovedTube/ImprovedTube/issues?q=)  
@@ -25,9 +27,8 @@ Thanks for coming & caring! Please check if the issue has already been reported 
 ( -  If the status is  "closed" (=fixed) recently, then Web Stores can be updated soon)
     ( - if  it was closed month or years ago, then it might reappeared & must be fixed again.) -->
 
-### 2. More (often optionally) 
-  <!--  &  MAYBE fill in more details to further increase our changes to solve the bug-->
- ⚬ Browser:        <!--  [e.g.  Chromium 83.0.4103.116  / Firefox / Safari / ...] -->
+<!-- STEP2 (often optional)  MAYBE add details, to further increase our changes to solve the bug-->
+### More:
  ⚬ Tested alone without other YouTube extensions or in incognito mode?  Yes/No 
  ⚬ My Settings:  <details><summary>List your settings or export them to paste or attach</summary </details> 
   <!-- ImprovedTube-Extension -> Settings -> Backup & reset -> Export settings. 

@@ -76,7 +76,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_autoPip: {
 			component: 'switch',
-			text: 'Auto_PiP_picture_in_picture',	
+			text: 'Auto_PiP_picture_in_picture',
 			id: 'player_autoPip',
 			on: {
 				click: function () {
@@ -112,7 +112,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_force_speed_on_music: {
 			component: 'switch',
 			text: 'forcedPlaybackSpeedMusic'
-		},	
+		},
 		player_dont_speed_education: {
 			component: 'switch',
 			text: 'player_dont_speed_education',
@@ -888,7 +888,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 				click: function () {
 					let skeleton = this.parentNode.skeleton;
 					// refresh player_codecs/optimize_codec_for_hardware_acceleration elements when we change codecs
-					refresh = function () {
+					let refresh = function () {
 						document.getElementById('player_quality').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
@@ -981,36 +981,36 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'popupPlayer'
 		},
-					player_repeat_button: {
-						component: 'switch',
-						text: 'repeat',
-						id: 'player_repeat_button'
-					},
-					player_always_repeat: {
-						component: 'switch',
-						text: 'alwaysActive'
-					},
-					player_screenshot_button: {
-						component: 'switch',
-						text: 'Screenshot',
-						id: 'player_screenshot_button'
-					},
-					embed_subtitle: {
-						component: 'switch',
-						text: 'Subtitle_Capture_including_the_current_words',
-						value: true
-					},
-					player_screenshot_save_as: {
-						component: 'select',
-						text: 'saveAs',
-						options: [{
-							text: 'file',
-							value: 'file'
-						}, {
-							text: 'clipboard',
-							value: 'clipboard'
-						}]
-					},
+		player_repeat_button: {
+			component: 'switch',
+			text: 'repeat',
+			id: 'player_repeat_button'
+		},
+		player_always_repeat: {
+			component: 'switch',
+			text: 'alwaysActive'
+		},
+		player_screenshot_button: {
+			component: 'switch',
+			text: 'Screenshot',
+			id: 'player_screenshot_button'
+		},
+		embed_subtitle: {
+			component: 'switch',
+			text: 'Subtitle_Capture_including_the_current_words',
+			value: true
+		},
+		player_screenshot_save_as: {
+			component: 'select',
+			text: 'saveAs',
+			options: [{
+				text: 'file',
+				value: 'file'
+			}, {
+				text: 'clipboard',
+				value: 'clipboard'
+			}]
+		},
 		player_fit_to_win_button: {
 			component: 'switch',
 			text: 'player_fit_to_win_button'
@@ -1038,27 +1038,26 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'Hamburger_Menu'
 		},
-						extraButtons: {
-							component: 'section',
-							variant: 'card',
-							title: 'extraButtonsBelowThePlayer',
+		extraButtons: {
+			component: 'section',
+			variant: 'card',
+			title: 'extraButtonsBelowThePlayer',
 
-							below_player_screenshot: {
-								component: 'switch',
-								text: 'screenshot',
-								value: true
-							},
-							below_player_pip: {
-								component: 'switch',
-								text: 'pictureInPicture',
-								value: true
-							},
-							below_player_loop: {
-								component: 'switch',
-								text: 'loop',
-								value: true
-							}
-						},
-	}	
-	
+			below_player_screenshot: {
+				component: 'switch',
+				text: 'screenshot',
+				value: true
+			},
+			below_player_pip: {
+				component: 'switch',
+				text: 'pictureInPicture',
+				value: true
+			},
+			below_player_loop: {
+				component: 'switch',
+				text: 'loop',
+				value: true
+			}
+		},
+	}
 };
