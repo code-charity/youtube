@@ -7,11 +7,10 @@
 # Hide country code
 # Hide voice search button
 --------------------------------------------------------------*/
-
 html[it-header-transparent=true] ytd-masthead#masthead {background: transparent !important;}
 html[it-header-transparent=true] #background.ytd-masthead {background-color: rgba(230, 230, 230, 0.1) !important;}
 html[it-header-transparent=true] ytd-masthead[frosted-glass] #background.ytd-masthead {backdrop-filter: blur(1px) !important;}
-
+html[it-header-transparent=true] {  --ytd-searchbox-background: rgba(var(--ytd-searchbox-background), 0.5) !important;  }
 /*--------------------------------------------------------------
 # POSITION
 --------------------------------------------------------------*/
