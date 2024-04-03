@@ -908,6 +908,15 @@
     "player_fit_to_win_button": {
         "message": "Fit to window"
     },
+    "player_cinema_mode_button": {
+        "message": "Cinema Mode"
+    },
+    "player_auto_hide_cinema_mode_when_paused": {
+        "message": "Auto Hide Cinema Mode on Pause"
+    },
+    "player_auto_cinema_mode": {
+        "message": "Auto Cinema Mode"
+    },
     "player_rotate_button": {
         "message": "Rotate video"
     },
