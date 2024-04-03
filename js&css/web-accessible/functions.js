@@ -366,6 +366,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.subtitlesCharacterEdgeStyle();
 		ImprovedTube.subtitlesFontOpacity();
 		ImprovedTube.subtitlesBackgroundOpacity();
+		ImprovedTube.subtitlesDisableLyrics();
 		ImprovedTube.playerQuality();
 		ImprovedTube.playerVolume();
 		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); }

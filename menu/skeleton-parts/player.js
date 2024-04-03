@@ -680,6 +680,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 						min: 0,
 						max: 100,
 						step: 1
+					},
+					subtitles_disable_lyrics: {
+						component: 'switch',
+						text: 'RemoveSubtitlesForLyrics'
 					}
 				}
 			}

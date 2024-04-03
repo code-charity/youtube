@@ -416,6 +416,24 @@ ImprovedTube.subtitlesFontOpacity = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+SUBTITLES DISABLE SUBTILES FOR LYRICS
+------------------------------------------------------------------------------*/
+ImprovedTube.subtitlesDisableLyrics = function () {
+	if (this.storage.subtitles_disable_lyrics === true) {
+		var player = this.elements.player,
+			button = this.elements.player_subtitles_button;
+
+		if (player && player.toggleSubtitles && button && button.getAttribute('aria-pressed') === 'true') {
+			// Music detection only uses 3 identifiers for Lyrics: lyrics, sing-along, karaoke.
+			// Easier to simply use those here. Can replace with music detection later.
+			const terms = ["sing?along", "karaoke", "lyric"];
+			if (terms.some(term => ImprovedTube.videoTitle().toLowerCase().includes(term))) {			
+				player.toggleSubtitles();
+			}									
+		}
+	}
+};
+/*------------------------------------------------------------------------------
 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
 ImprovedTube.upNextAutoplay = function () {
