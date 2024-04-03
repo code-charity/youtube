@@ -1,0 +1,48 @@
+name: Create Safari build for release
+
+on:
+  # workflow_dispatch:
+  #   inputs:
+  #     version:
+  #       description: "version"
+  #       default: ""
+  #       required: true
+  #       type: string
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v4
+        with:
+          path: main
+
+
+      - name: Build and Convert the Release macOS version
+        run: |
+          xcrun safari-web-extension-converter main --macos-only --no-open --force --swift --no-prompt --project-location /Users/runner/work/release --app-name ImprovedTube --bundle-identifier ImprovedTube
+          cd /Users/runner/work/release/ImprovedTube/
+          sed -i '' -e 's/MARKETING_VERSION \= [^\;]*\;/MARKETING_VERSION = ${{ github.ref_name }};/' ImprovedTube.xcodeproj/project.pbxproj
+          xcrun agvtool new-version ${{ github.ref_name }}
+          xcodebuild -quiet -project /Users/runner/work/release/ImprovedTube/ImprovedTube.xcodeproj -configuration Release
+
+      - name: Zip File
+        run: |
+          cd /Users/runner/work/release/ImprovedTube/build/Release/
+          zip -r ImprovedTube-v${{ github.ref_name }}-Safari.zip ImprovedTube.app
+
+      # - name: Upload Build as Artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: ImprovedTube-${{ github.ref_name }}-Safari
+      #     path: /Users/runner/work/release/ImprovedTube/build/Release/ImprovedTube-${{ github.ref_name }}-Safari.zip
+
+      - name: Upload build to Release
+        uses: softprops/action-gh-release@v2
+        if: ${{startsWith(github.ref, 'refs/tags/') }}
+        with:
+          files: /Users/runner/work/release/ImprovedTube/build/Release/ImprovedTube-${{ github.ref_name }}-Safari.zip
