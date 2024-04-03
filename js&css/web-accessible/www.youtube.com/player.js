@@ -829,6 +829,7 @@ ImprovedTube.playerFitToWinButton = function () {
 /*------------------------------------------------------------------------------
 CINEMA MODE BUTTON
 ------------------------------------------------------------------------------*/
+
 var xpath = function(xpathToExecute){
 	var result = [];
 	var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
@@ -853,7 +854,7 @@ function createOverlay() {
   }
 
 ImprovedTube.playerCinemaModeButton = function () {
-	if (this.storage.player_cinema_mode_button === true && (/watch\?/.test(location.href))) {
+	if (this.storage.player_cinema_mode_button && (/watch\?/.test(location.href))) {
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 		path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -870,7 +871,7 @@ ImprovedTube.playerCinemaModeButton = function () {
 			opacity: 0.64,
 			onclick: function () {
 				var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
-				console.log(player)
+				// console.log(player)
 				if (player.style.zIndex == 10000){
 					player.style.zIndex = 1;
 					svg.parentNode.style.opacity = 0.64;
@@ -888,7 +889,7 @@ ImprovedTube.playerCinemaModeButton = function () {
 				} else {
 					overlay.style.display = overlay.style.display === 'none' || overlay.style.display === '' ? 'block' : 'none';
 				}
-				console.log(overlay)
+				//console.log(overlay)
 			},
 			title: 'Cinema Mode'
 		});
@@ -896,38 +897,41 @@ ImprovedTube.playerCinemaModeButton = function () {
 }
 
 ImprovedTube.playerCinemaModeDisable = function () {
-	var overlay = document.getElementById('overlay_cinema');
-	if (overlay && this.storage.player_auto_hide_cinema_mode_when_paused === true) {
-		overlay.style.display = 'none'
-		var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
-		player.style.zIndex = 1;
-		var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
-		cinemaModeButton.style.opacity = 0.64
-
+	if (this.storage.player_auto_hide_cinema_mode_when_paused) {
+		var overlay = document.getElementById('overlay_cinema');
+		if (overlay) {
+			overlay.style.display = 'none'
+			var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+			player.style.zIndex = 1;
+			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
+			cinemaModeButton.style.opacity = 0.64
+		}
 	}
 }
 
 ImprovedTube.playerCinemaModeEnable = function () {
+	if (this.storage.player_auto_cinema_mode || this.storage.player_auto_hide_cinema_mode_when_paused) {
+		
 	if ((/watch\?/.test(location.href))) {
 		var overlay = document.getElementById('overlay_cinema');
+		
 		if (this.storage.player_auto_cinema_mode === true && !overlay) {
 			createOverlay();
 			overlay = document.getElementById('overlay_cinema');
 		}
 		
-		console.log(overlay && this.storage.player_auto_hide_cinema_mode_when_paused === true || this.storage.player_auto_cinema_mode === true && overlay)
-		if (overlay && this.storage.player_auto_hide_cinema_mode_when_paused === true || this.storage.player_auto_cinema_mode === true && overlay) {
+// console.log(overlay && this.storage.player_auto_hide_cinema_mode_when_paused === true || this.storage.player_auto_cinema_mode === true && overlay)
+		if (overlay) {
 			overlay.style.display = 'block'
 			var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
 			player.style.zIndex = 10000;
-			console.log(player)
+			// console.log(player)
 			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
 			cinemaModeButton.style.opacity = 1
 		}
 	}
-	
+	}
 }
-
 
 /*------------------------------------------------------------------------------
 HAMBURGER MENU
