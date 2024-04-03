@@ -221,7 +221,6 @@ document.addEventListener('it-message-from-extension', function () {
 					} else if (ImprovedTube.storage.description === "normal" || ImprovedTube.storage.description === "classic") {
 						try{document.querySelector("#less").click() || document.querySelector("#collapse").click();} catch{}
 					}
-					ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
 					break
 
 				case 'transcript':
