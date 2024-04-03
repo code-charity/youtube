@@ -291,19 +291,31 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 
 1.) **Download & extract the [[latest🧪version]](https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip) or  [[release]](https://github.com/code-for-charity/YouTube-Extension/releases)**
 - **Safari**: 
-  - 2.) [**#494**](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)
+  - 2.) [**Build yourself**](https://github.com/code4charity/YouTube-Extension/issues/494#issuecomment-675098753)
+	  - OR
+  - 2.) Right-click ImprovedTube.app and select the "Open" option from the drop down menu.
+	  - 3.) Run this extension in your Applications folder
+	  - 4.) Open System Settings, click Privacy & Security, scroll down, and click the Open Anyway button (Allow App Store and identified developers first)
+	  - 5.) Click Quit and Open Safari Settings...
+	  - 6.)Click Advanced in Safari Settings and then turn on Show Develop menu in menu bar
+	  - 7.) Click Develop in Safari menu bar and then turn on Allow Unsigned Extensions
+	  	- If you’re using Safari 17 or later, click the Developer tab in Safari Settings, and select the “Allow unsigned extensions” option
+	  	- The Allow Unsigned Extensions setting resets when a user quits Safari, so you need to set it again the next time you launch Safari.
+	  - 8.) Click Develop in Safari menu bar and then turn on Allow Unsigned Extensions
+	  - 9.) You will see this extension in Extensions of Safari Settings, turn on it
+	  - 10.) Click Always Allow on Every Website
 
 - **Chrome / Chromium / Brave / Edge / Vivaldi**
   - 2.) Go to your Browser's Extensions page (*chrome://extensions/*)
     - 3.) Activate `Developer mode`
-      - 4.) Click the `Load unpacked` button & Select the extracted folder
+    - 4.) Click the `Load unpacked` button & Select the extracted folder
 
 - **Firefox / LibreWolf / Waterfox / IceCat**
    - 2.) Go to `Add-ons` (*about:addons*)
      - 3.) Click on `Extensions` tab
-       - 4.) Click on `Debug Add-ons` (*about:debugging#/runtime/this-firefox*)
-         - 5.) Click on `Load Temporary Add-on…`
-           - 6.) Select the `manifest.json` file from unzipped folder
+     - 4.) Click on `Debug Add-ons` (*about:debugging#/runtime/this-firefox*)
+     - 5.) Click on `Load Temporary Add-on…`
+     - 6.) Select the `manifest.json` file from unzipped folder
  </details>	
 
 
