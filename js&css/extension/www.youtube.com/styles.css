@@ -675,7 +675,7 @@ html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peferenc
 	--yt-spec-general-background-c: #000 !important;
 	--yt-spec-error-background: #1f1f1f !important;
 	--yt-spec-text-primary: #aaa !important;
-	--yt-spec-text-primary-inverse: #003459 !important;
+	--yt-spec-text-primary-inverse: #000 !important;
 	--yt-spec-text-secondary: #aaa !important;
 	--yt-spec-text-disabled: #aaa !important;
 	--yt-spec-call-to-action: #0073e6 !important;
@@ -906,7 +906,7 @@ html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference
 	--yt-spec-general-background-c: #d44d5c !important;
 	--yt-spec-error-background: #1f1f1f !important;
 	--yt-spec-text-primary: rgb(255, 255, 255) !important;
-	--yt-spec-text-primary-inverse: #003459 !important;
+	--yt-spec-text-primary-inverse: #734 !important;
 	--yt-spec-text-secondary: rgb(255, 255, 255) !important;
 	--yt-spec-text-disabled: rgb(255, 255, 255) !important;
 	--yt-spec-call-to-action: #0073e6 !important;
@@ -1141,7 +1141,7 @@ html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peferen
 	--yt-spec-general-background-c: #faf9f9 !important;
 	--yt-spec-error-background: #1f1f1f !important;
 	--yt-spec-text-primary: #555 !important;
-	--yt-spec-text-primary-inverse: #003459 !important;
+	--yt-spec-text-primary-inverse: #faf9f9 !important;
 	--yt-spec-text-secondary: #555 !important;
 	--yt-spec-text-disabled: #555 !important;
 	--yt-spec-call-to-action: #0073e6 !important;
@@ -1594,7 +1594,7 @@ html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peferenc
 	--yt-spec-general-background-c: #c7efcf !important;
 	--yt-spec-error-background: #1f1f1f !important;
 	--yt-spec-text-primary: #666 !important;
-	--yt-spec-text-primary-inverse: #003459 !important;
+	--yt-spec-text-primary-inverse: #d3e1c6 !important;
 	--yt-spec-text-secondary: #666 !important;
 	--yt-spec-text-disabled: #666 !important;
 	--yt-spec-call-to-action: #0073e6 !important;
@@ -1823,7 +1823,7 @@ html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peferen
 	--yt-spec-general-background-c: #2f3364 !important;
 	--yt-spec-error-background: #1f1f1f !important;
 	--yt-spec-text-primary: #fff !important;
-	--yt-spec-text-primary-inverse: #003459 !important;
+	--yt-spec-text-primary-inverse: #283567 !important;
 	--yt-spec-text-secondary: #fff !important;
 	--yt-spec-text-disabled: #fff !important;
 	--yt-spec-call-to-action: #0073e6 !important;
