@@ -10,10 +10,11 @@
 # BASE
 --------------------------------------------------------------*/
 
-extension.skeleton = {
-	component: 'base'
+var extension = {
+	skeleton: {
+		component: 'base'
+	}
 };
-
 
 /*--------------------------------------------------------------
 # HEADER
