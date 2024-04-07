@@ -431,9 +431,6 @@
     "extraButtonsBelowThePlayer": {
         "message": "Botões extras abaixo do player"
     },
-    "extraButtonsBelowThePlayerr": {
-        "message": "Botões extra abaixo do Player"
-    },
     "Feature_not_yet_available": {
         "message": "Recurso não está presente no momento"
     },
@@ -991,6 +988,9 @@
     },
     "removeIcons": {
         "message": "Remover ícones"
+    },
+    "removeName": {
+        "message": "Remover nome"
     },
     "removeNames": {
         "message": "Remover nomes"

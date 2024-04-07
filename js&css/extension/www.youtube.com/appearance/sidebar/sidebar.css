@@ -134,6 +134,7 @@ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-pl
 # LIVECHAT
 --------------------------------------------------------------*/
 html[it-livechat='hidden'] ytd-live-chat-frame#chat,
+html[it-livechat='hidden'] ytd-watch-flexy[fixed-panels] #panels-full-bleed-container,
 /*--------------------------------------------------------------
 # HIDE PLAYLIST
 --------------------------------------------------------------*/

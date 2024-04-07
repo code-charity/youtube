@@ -55,7 +55,9 @@ NIGHT MODE
 #forced-playback-speed[data-value='true'] + .satus-switch,
 #forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch,
 #forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch + .satus-slider, 
-#player_repeat_button + .satus-switch,
+#player_repeat_button + .satus-switch, 
+#player_cinema_mode_button +.satus-switch,
+#player_auto_cinema_mode +.satus-switch,
 #player_screenshot_button[data-value='true']  + .satus-switch,
 #player_screenshot_button[data-value='true']  + .satus-switch + .satus-select,
  /*--------------------------------------------------------------

@@ -501,9 +501,9 @@ satus.events.trigger = function(type, data) {
 # FETCH
 --------------------------------------------------------------*/
 satus.fetch = function(url, success, error, type) {
-    fetch(url)
-        .then(response => response.ok ? response[type || 'json']().then(success) : error())
-        .catch(() => error(success));
+	fetch(url)
+		.then(response => response.ok ? response[type || 'json']().then(success) : error())
+		.catch(() => error(success));
 };
 /*--------------------------------------------------------------
 # GET PROPERTY
@@ -891,24 +891,24 @@ satus.storage.get = function(key, callback) {
 # IMPORT
 --------------------------------------------------------------*/
 satus.storage.import = function(keys, callback) {
-    var self = this;
-    if (typeof keys === 'function') {
-        callback = keys;
-        keys = undefined;
-    }
-    const overlay = document.createElement('div');
-    overlay.style.cssText = 'animation: fadeIn 4s linear; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 3px solid rgba(182, 233, 255, 1); border-radius: 80px; padding: 37px; color: rgba(120, 147, 161, 1);';
-    overlay.textContent = '...asking your browser what settings you made here before...';
-    (document.body || document.documentElement).appendChild(overlay);
-    chrome.storage.local.get(keys || null, function(items) {
-        for (var key in items) {
-            self.data[key] = items[key];
-        } 
-			// satus.log('STORAGE: data was successfully imported');
-        satus.events.trigger('storage-import');
-        if (callback) { callback(items); }
-				overlay.style.display = 'none';
-    });
+	var self = this;
+	if (typeof keys === 'function') {
+		callback = keys;
+		keys = undefined;
+	}
+	const overlay = document.createElement('div');
+	overlay.style.cssText = 'animation: fadeIn 4s linear; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 3px solid rgba(182, 233, 255, 1); border-radius: 80px; padding: 37px; color: rgba(120, 147, 161, 1);';
+	overlay.textContent = '...asking your browser what settings you made here before...';
+	(document.body || document.documentElement).appendChild(overlay);
+	chrome.storage.local.get(keys || null, function(items) {
+		for (var key in items) {
+			self.data[key] = items[key];
+		}
+		// satus.log('STORAGE: data was successfully imported');
+		satus.events.trigger('storage-import');
+		if (callback) { callback(items); }
+		overlay.style.display = 'none';
+	});
 };
 /*--------------------------------------------------------------
 # REMOVE
@@ -981,7 +981,7 @@ satus.storage.set = function(key, value, callback) {
 		}
 	}
 
-	for (var key in this.data) {
+	for (let key in this.data) {
 		if (typeof this.data[key] !== 'function') {
 			items[key] = this.data[key];
 		}
@@ -1034,60 +1034,61 @@ satus.locale.get = function(string) {
 # IMPORT            								// old:  satus.locale.import(url, onload, onsuccess);
 --------------------------------------------------------------*/
 satus.locale.import = function(code, callback, path) {
-// if (!path) {  path = '_locales/';   }
-  function importLocale(locale, successCallback) {
-       var url = chrome.runtime.getURL(path + locale + '/messages.json');
-       fetch(url)
-            .then(response => response.ok ? response.json() : {})
-            .then(data => {
-                for (var key in data) {
-                    if (!satus.locale.data[key]) {
-                        satus.locale.data[key] = data[key].message;
-                    }
-                }
-            })
-            .catch(() => {})
-            .finally(() => successCallback && successCallback());
-    }
-if (code) { var language = code.replace('-', '_');
-    if (language.indexOf('_') !== -1) {
-        importLocale(language, () => importLocale(language.split('_')[0], () => importLocale('en', callback)));
-    } else {
-        importLocale(language, () => importLocale('en', callback));
-}} 
-else {  // try chrome://settings/languages:  
-try{chrome.i18n.getAcceptLanguages(function (languages) {
-    languages = languages.map(language => language.replace('-', '_'));
-	for (let i = languages.length - 1; i >= 0; i--) { 
-    if (languages[i].includes('_')) {
-        let languageWithoutCountryCode = languages[i].substring(0, 2);
-        
-        if (!languages.includes(languageWithoutCountryCode)) {
-            languages.splice(i + 1, 0, languageWithoutCountryCode);
-        }
-    }
+	// if (!path) {  path = '_locales/';   }
+	function importLocale(locale, successCallback) {
+		var url = chrome.runtime.getURL(path + locale + '/messages.json');
+		fetch(url)
+			.then(response => response.ok ? response.json() : {})
+			.then(data => {
+			for (var key in data) {
+				if (!satus.locale.data[key]) {
+					satus.locale.data[key] = data[key].message;
+				}
+			}
+		})
+			.catch(() => {})
+			.finally(() => successCallback && successCallback());
 	}
-	languages.includes("en") || languages.push("en");
-	
-languages.forEach((language, index) => index === languages.length - 1 ? importLocale(language, callback) : importLocale(language, () => {}));
-/* equals:
+	if (code) {
+		let language = code.replace('-', '_');
+		if (language.indexOf('_') !== -1) {
+			importLocale(language, () => importLocale(language.split('_')[0], () => importLocale('en', callback)));
+		} else {
+			importLocale(language, () => importLocale('en', callback));
+		}
+	} else { // try chrome://settings/languages:
+		try{chrome.i18n.getAcceptLanguages(function (languages) {
+			languages = languages.map(language => language.replace('-', '_'));
+			for (let i = languages.length - 1; i >= 0; i--) {
+				if (languages[i].includes('_')) {
+					let languageWithoutCountryCode = languages[i].substring(0, 2);
+
+					if (!languages.includes(languageWithoutCountryCode)) {
+						languages.splice(i + 1, 0, languageWithoutCountryCode);
+					}
+				}
+			}
+			languages.includes("en") || languages.push("en");
+
+			languages.forEach((language, index) => index === languages.length - 1 ? importLocale(language, callback) : importLocale(language, () => {}));
+			/* equals:
    languages.length === 1 && importLocale(languages[0], callback);
    languages.length === 2 && importLocale(languages[0], () => importLocale(languages[1], callback));
    languages.length === 3 && importLocale(languages[0], () => importLocale(languages[1], () => importLocale(languages[2], callback)));
    ...  */
-// console.log(languages);
-});} catch(error) { 
-// Finally, if code nor chrome://settings/languages are available, use window.navigator.language:
- 	
-	var language = window.navigator.language.replace('-', '_');
-    if (language.indexOf('_') !== -1) {
-        importLocale(language, () => importLocale(language.split('_')[0], () => importLocale('en', callback)));
-    } else {
-        importLocale(language, () => importLocale('en', callback));
-    } 
-console.log(error);
-};
-} 
+			// console.log(languages);
+		});} catch(error) {
+			// Finally, if code nor chrome://settings/languages are available, use window.navigator.language:
+
+			let language = window.navigator.language.replace('-', '_');
+			if (language.indexOf('_') !== -1) {
+				importLocale(language, () => importLocale(language.split('_')[0], () => importLocale('en', callback)));
+			} else {
+				importLocale(language, () => importLocale('en', callback));
+			}
+			console.log(error);
+		};
+	}
 };
 /*--------------------------------------------------------------
 # TEXT
@@ -1398,13 +1399,13 @@ satus.components.textField = function(component, skeleton) {
 			component.selection.removeAttribute('disabled');
 
 			component.hiddenValue.textContent = value.substring(0, start);
-							//console.log(value.substring(0, start));
+			//console.log(value.substring(0, start));
 			component.selection.style.left = component.hiddenValue.offsetWidth - input.scrollLeft + 'px';
-							//console.log(component.hiddenValue.offsetWidth); console.log( input.scrollLeft )
+			//console.log(component.hiddenValue.offsetWidth); console.log( input.scrollLeft )
 			component.hiddenValue.textContent = value.substring(start, end);
-//console.log(component.hiddenValue.textContent);
+			//console.log(component.hiddenValue.textContent);
 			component.selection.style.width = component.hiddenValue.offsetWidth + 'px';
-							//console.log(component.hiddenValue.offsetWidth);
+			//console.log(component.hiddenValue.offsetWidth);
 		}
 
 		this.style.animation = '';
@@ -1499,9 +1500,9 @@ satus.components.chart.bar = function(component, skeleton) {
 	}
 
 	if (satus.isArray(labels)) {
-		var container = component.createChildElement('div', 'labels');
+		let container = component.createChildElement('div', 'labels');
 
-		for (var i = 0, l = labels.length; i < l; i++) {
+		for (let i = 0, l = labels.length; i < l; i++) {
 			var label = labels[i],
 				section = container.createChildElement('div', 'section');
 
@@ -1510,12 +1511,12 @@ satus.components.chart.bar = function(component, skeleton) {
 	}
 
 	if (satus.isArray(datasets)) {
-		var container = component.createChildElement('div', 'bars');
+		let container = component.createChildElement('div', 'bars');
 
-		for (var i = 0, l = datasets.length; i < l; i++) {
+		for (let i = 0, l = datasets.length; i < l; i++) {
 			var dataset = datasets[i];
 
-			for (var j = 0, k = dataset.data.length; j < k; j++) {
+			for (let j = 0, k = dataset.data.length; j < k; j++) {
 				if (!satus.isElement(bars[j])) {
 					bars.push(container.createChildElement('div', 'bar'));
 				}
@@ -2080,10 +2081,8 @@ satus.components.shortcut = function(component, skeleton) {
 
 	component.className = 'satus-button';
 
-	component.render = function(parent) {
-		var self = this,
-			parent = parent || self.primary,
-			children = parent.children;
+	component.render = function(parent = this.primary) {
+		let children = parent.children;
 
 		satus.empty(parent);
 
@@ -2153,7 +2152,7 @@ satus.components.shortcut = function(component, skeleton) {
 				createElement('plus');
 			}
 
-			var mouse = createElement('mouse'),
+			let mouse = createElement('mouse'),
 				div = document.createElement('div');
 
 			mouse.appendChild(div);
@@ -2166,7 +2165,7 @@ satus.components.shortcut = function(component, skeleton) {
 				createElement('plus');
 			}
 
-			var mouse = createElement('mouse'),
+			let mouse = createElement('mouse'),
 				div = document.createElement('div');
 
 			mouse.appendChild(div);
@@ -2179,7 +2178,7 @@ satus.components.shortcut = function(component, skeleton) {
 				createElement('plus');
 			}
 
-			var mouse = createElement('mouse'),
+			let mouse = createElement('mouse'),
 				div = document.createElement('div');
 
 			mouse.appendChild(div);
@@ -3157,11 +3156,11 @@ satus.search = function(query, object, callback) {
 			if (excluded.indexOf(key) === -1) {
 				var item = items[key];
 
- 				if (item.component && item.text && elements.indexOf(item.component) !== -1
-				&& (satus.locale.data[item.text] ? satus.locale.data[item.text] : item.text).toLowerCase().indexOf(query) !== -1) {
+				if (item.component && item.text && elements.indexOf(item.component) !== -1
+					&& (satus.locale.data[item.text] ? satus.locale.data[item.text] : item.text).toLowerCase().indexOf(query) !== -1) {
 					results[key] = Object.assign({}, item);
 				}
-				
+
 				if (
 					satus.isObject(item) &&
 					!satus.isArray(item) &&
@@ -3186,65 +3185,65 @@ satus.search = function(query, object, callback) {
 # count
 --------------------------------------------------------------*/
 function createInput(placeholder, onChange) {
-    const input = document.createElement('input');
-    input.type = 'number';
-    input.placeholder = placeholder;
-    input.addEventListener('change', onChange);
-    return input;
+	const input = document.createElement('input');
+	input.type = 'number';
+	input.placeholder = placeholder;
+	input.addEventListener('change', onChange);
+	return input;
 }
 
 function createSelect(options, changeHandler) {
-    const select = document.createElement('select');
+	const select = document.createElement('select');
 
-    for (const optionData of options) {
-        const option = document.createElement('option');
-        option.text = optionData.text;
-        option.value = optionData.value;
-        select.add(option);
-    }
+	for (const optionData of options) {
+		const option = document.createElement('option');
+		option.text = optionData.text;
+		option.value = optionData.value;
+		select.add(option);
+	}
 
-    // Add change event listener if provided
-    if (changeHandler) {
-        select.addEventListener('change', changeHandler);
-    }
+	// Add change event listener if provided
+	if (changeHandler) {
+		select.addEventListener('change', changeHandler);
+	}
 
-    return select;
+	return select;
 }
 
 satus.components.countComponent = function (component) {
-    component.style.display = satus.storage.get('ads') === 'small_creators' ? 'flex' : 'none';
+	component.style.display = satus.storage.get('ads') === 'small_creators' ? 'flex' : 'none';
 
-    const countLabelText = document.createElement('span');
-    countLabelText.textContent = 'Maximum number of subscribers';
-    component.appendChild(countLabelText);
+	const countLabelText = document.createElement('span');
+	countLabelText.textContent = 'Maximum number of subscribers';
+	component.appendChild(countLabelText);
 
-    const countInput = createInput('130000', function (event) {
-        satus.storage.set('smallCreatorsCount', event.target.value);
-    });
+	const countInput = createInput('130000', function (event) {
+		satus.storage.set('smallCreatorsCount', event.target.value);
+	});
 
-    // Set the initial value from storage if available
-    const storedValue = satus.storage.get('smallCreatorsCount');
-    if (storedValue !== undefined) {
-        countInput.value = storedValue;
-    }
+	// Set the initial value from storage if available
+	const storedValue = satus.storage.get('smallCreatorsCount');
+	if (storedValue !== undefined) {
+		countInput.value = storedValue;
+	}
 
-    countInput.style.width = '80px';
+	countInput.style.width = '80px';
 	countInput.style.height = '22px';
 	countInput.style.fontSize = '12px';
 
-    component.appendChild(countInput);
+	component.appendChild(countInput);
 
-    const selectionDropdown = createSelect([
-        { text: ' ', value: '1' },
-        { text: 'K', value: '1000' },
-        { text: 'M', value: '1000000' }
-    ], function (event) {
-        satus.storage.set('smallCreatorsUnit', event.target.value);
-    });
+	const selectionDropdown = createSelect([
+		{ text: ' ', value: '1' },
+		{ text: 'K', value: '1000' },
+		{ text: 'M', value: '1000000' }
+	], function (event) {
+		satus.storage.set('smallCreatorsUnit', event.target.value);
+	});
 
-    const storedUnitValue = satus.storage.get('smallCreatorsUnit');
-    if (storedUnitValue !== undefined) {
-        selectionDropdown.value = storedUnitValue;
-    }
-    component.appendChild(selectionDropdown);
+	const storedUnitValue = satus.storage.get('smallCreatorsUnit');
+	if (storedUnitValue !== undefined) {
+		selectionDropdown.value = storedUnitValue;
+	}
+	component.appendChild(selectionDropdown);
 };

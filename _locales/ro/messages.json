@@ -251,6 +251,9 @@
     "forcedPlaybackSpeed": {
         "message": "Viteză de playback forțată"
     },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
+    },
     "forcedTheaterMode": {
         "message": "Modul teatru forțat"
     },
@@ -733,6 +736,9 @@
     },
     "yellow": {
         "message": "Galben"
+    },
+    "youTubeButtons": {
+        "message": "Butoane YouTube"
     },
     "youtubeHeaderLeft": {
         "message": "Antetul YouTube (stânga)"

@@ -122,8 +122,8 @@
     "autoPictureInPicture": {
         "message": "Auto Picture-In-Picture"
     },
-    "autoplay": {
-        "message": "Autoplay"
+    "autoplayDisable": {
+        "message": "Force Autoplay Off"
     },
     "avoidAv1": {
         "message": "Avoid AV1"
@@ -908,6 +908,15 @@
     "player_fit_to_win_button": {
         "message": "Fit to window"
     },
+    "player_cinema_mode_button": {
+        "message": "Cinema Mode"
+    },
+    "player_auto_hide_cinema_mode_when_paused": {
+        "message": "Auto Hide Cinema Mode on Pause"
+    },
+    "player_auto_cinema_mode": {
+        "message": "Auto Cinema Mode"
+    },
     "player_rotate_button": {
         "message": "Rotate video"
     },
@@ -985,6 +994,9 @@
     },
     "Remove": {
         "message": "Remove"
+    },
+    "removeBlackBars": {
+        "message": "Remove black bars when full screen"
     },
     "removeIcons": {
         "message": "Remove icons"
@@ -1144,6 +1156,9 @@
     },
     "subtitles": {
         "message": "Subtitles"
+    },
+    "RemoveSubtitlesForLyrics": {
+        "message": "Remove subtitles for lyrics"
     },
     "sunset": {
         "message": "Sunset"

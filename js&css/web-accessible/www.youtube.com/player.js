@@ -1,17 +1,17 @@
 /*------------------------------------------------------------------------------
-AUTOPLAY
+AUTOPLAY DISABLE
 ------------------------------------------------------------------------------*/
-ImprovedTube.autoplay = function () {
+ImprovedTube.autoplayDisable = function () {
     var video = ImprovedTube.elements.player;
     if (ImprovedTube.video_url !== location.href) {
-        ImprovedTube.ignore_autoplay_off = false;
+        this.user_interacted = false;
     }
     // if (allow autoplay is false) and  (no ads playing) and
 	// ( there is a video and ( (it is not in a playlist and  auto play is off ) or ( playlist auto play is off and it is not in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
-    if (ImprovedTube.ignore_autoplay_off === false && video.classList.contains('ad-showing') === false &&
+    if (!this.user_interacted && video.classList.contains('ad-showing') === false &&
         ( 
 // quick fix #1703  thanks to @AirRaid#9957
-            (/* document.documentElement.dataset.pageType === "video" */ location.href.indexOf('/watch?') !== -1 && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) || (ImprovedTube.storage.playlist_autoplay === false && location.href.indexOf('list=') !== -1))) ||
+            (/* document.documentElement.dataset.pageType === "video" */ location.href.indexOf('/watch?') !== -1 && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay_disable) || (ImprovedTube.storage.playlist_autoplay === false && location.href.indexOf('list=') !== -1))) ||
             (/* document.documentElement.dataset.pageType === "channel" */ ImprovedTube.regex.channel.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
         )
     )         
@@ -83,7 +83,7 @@ if (this.storage.player_force_speed_on_music === true)
 	 return;}
 if (DATA.keywords && !keywords) { keywords = DATA.keywords.join(', ') || ''; }
 if (keywords === 'video, sharing, camera phone, video phone, free, upload') { keywords = ''; }
-var musicIdentifiers = /(official|music|lyrics)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
+var musicIdentifiers = /(official|music|lyrics?)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
 var musicIdentifiersTitleOnly = /lyrics|theme song|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i;
 var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + '|' + musicIdentifiers.source, "i");		
 var musicRegexMatch = musicIdentifiersTitle.test(DATA.title);
@@ -163,7 +163,7 @@ DATA.videoID = ImprovedTube.videoId() || false;
 						})();
 						}							
   };				
-if (history && history.length === 1 || !history.state.endpoint.watchEndpoint) { ImprovedTube.fetchDOMData();}  
+if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData();}  
 else {   
 //Invidious instances (Nov2023)
 const invidiousInstances = ['iv.datura.network', 'vid.puffyan.us', 'invidious.perennialte.ch', 'iv.melmac.space', 'inv.in.projectsegfau.lt', 'invidious.asir.dev', 'inv.zzls.xyz', 'invidious.io.lol', 'onion.tube', 'yewtu.be', 'invidious.protokolla.fi', 'inv.citw.lgbt', 'anontube.lvkaszus.pl', 'iv.nboeck.de', 'invidious.no-logs.com', 'vid.priv.au', 'yt.cdaut.de', 'invidious.slipfox.xyz', 'yt.artemislena.eu', 'invidious.drgns.space', 'invidious.einfachzocken.eu', 'invidious.projectsegfau.lt', 'invidious.nerdvpn.de', 'invidious.private.coffee', 'invidious.lunar.icu', 'invidious.privacydev.net', 'invidious.fdn.fr', 'yt.oelrichsgarcia.de', 'iv.ggtyler.dev', 'inv.tux.pizza', 'yt.drgnz.club', 'inv.us.projectsegfau.lt'];
@@ -412,6 +412,24 @@ ImprovedTube.subtitlesFontOpacity = function () {
 
 				player.updateSubtitlesUserSettings(settings);
 			}
+		}
+	}
+};
+/*------------------------------------------------------------------------------
+SUBTITLES DISABLE SUBTILES FOR LYRICS
+------------------------------------------------------------------------------*/
+ImprovedTube.subtitlesDisableLyrics = function () {
+	if (this.storage.subtitles_disable_lyrics === true) {
+		var player = this.elements.player,
+			button = this.elements.player_subtitles_button;
+
+		if (player && player.toggleSubtitles && button && button.getAttribute('aria-pressed') === 'true') {
+			// Music detection only uses 3 identifiers for Lyrics: lyrics, sing-along, karaoke.
+			// Easier to simply use those here. Can replace with music detection later.
+			const terms = ["sing along", "sing-along", "karaoke", "lyric", "卡拉OK", "卡拉OK", "الكاريوكي", "караоке", "カラオケ","노래방"];
+			if (terms.some(term => ImprovedTube.videoTitle().toLowerCase().includes(term))) {			
+				player.toggleSubtitles();
+			}									
 		}
 	}
 };
@@ -681,10 +699,12 @@ ImprovedTube.playerScreenshotButton = function () {
 REPEAT
 -------------------------------------------------------------------------------*/
 ImprovedTube.playerRepeat = function () {	      
-			setTimeout(function () {
-				ImprovedTube.elements.video.setAttribute('loop', ''); 
+			setTimeout(function () { 
+				if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
+					ImprovedTube.elements.video.setAttribute('loop', ''); 
+				}
 	   //ImprovedTube.elements.buttons['it-repeat-styles'].style.opacity = '1';   //old class from version 3.x? that both repeat buttons could have
-         			}, 200);
+         	}, 200);
 } 
 /*------------------------------------------------------------------------------
 REPEAT BUTTON
@@ -804,6 +824,115 @@ ImprovedTube.playerFitToWinButton = function () {
 		});
 	} 
 };
+
+
+/*------------------------------------------------------------------------------
+CINEMA MODE BUTTON
+------------------------------------------------------------------------------*/
+
+var xpath = function(xpathToExecute){
+	var result = [];
+	var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
+	for ( var i=0 ; i < nodesSnapshot.snapshotLength; i++ ){
+	  result.push( nodesSnapshot.snapshotItem(i) );
+	}
+	return result;
+  }
+
+function createOverlay() {
+	var overlay = document.createElement('div');
+	overlay.id = 'overlay_cinema';
+	overlay.style.position = 'fixed';
+	overlay.style.top = '0';
+	overlay.style.left = '0';
+	overlay.style.width = '100%';
+	overlay.style.height = '100%';
+	overlay.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+	overlay.style.zIndex = '9999';
+	overlay.style.display = 'block';
+	document.body.appendChild(overlay);
+  }
+
+ImprovedTube.playerCinemaModeButton = function () {
+	if (this.storage.player_cinema_mode_button && (/watch\?/.test(location.href))) {
+		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+		path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+		// TODO: change path such that cinema mode has its own unique icon
+		path.setAttributeNS(null, 'd', 'm 2.1852 2.2 h 3.7188 h 5.2974 h 5.184 h 3.5478 c 0.6012 0 1.1484 0.2737 1.5444 0.7113 c 0.396 0.4396 0.6408 1.047 0.6408 1.7143 v 1.4246 v 11.4386 v 1.4166 c 0 0.6673 -0.2466 1.2747 -0.6408 1.7143 c -0.396 0.4396 -0.9432 0.7113 -1.5444 0.7113 h -3.456 c -0.0288 0.006 -0.0594 0.008 -0.0918 0.008 c -0.0306 0 -0.0612 -0.002 -0.0918 -0.008 h -5.0004 c -0.0288 0.006 -0.0594 0.008 -0.0918 0.008 c -0.0306 0 -0.0612 -0.002 -0.0918 -0.008 h -5.1138 c -0.0288 0.006 -0.0594 0.008 -0.0918 0.008 c -0.0306 0 -0.0612 -0.002 -0.0918 -0.008 h -3.627 c -0.6012 0 -1.1484 -0.2737 -1.5444 -0.7113 s -0.6408 -1.047 -0.6408 -1.7143 v -1.4166 v -11.4386 v -1.4246 c 0 -0.6673 0.2466 -1.2747 0.6408 -1.7143 c 0.396 -0.4376 0.9432 -0.7113 1.5444 -0.7113 l 0 0 z m 7.749 6.2418 l 3.6954 2.8611 c 0.0576 0.04 0.1098 0.0959 0.1512 0.1618 c 0.1656 0.2657 0.1044 0.6274 -0.1332 0.8112 l -3.681 2.8252 c -0.09 0.0819 -0.207 0.1319 -0.333 0.1319 c -0.2916 0 -0.5274 -0.2617 -0.5274 -0.5854 v -5.7283 h 0.0018 c 0 -0.1159 0.0306 -0.2318 0.0936 -0.3337 c 0.1674 -0.2637 0.495 -0.3277 0.7326 -0.1439 l 0 0 z m 6.9768 9.6324 v 2.0879 h 3.0204 c 0.3114 0 0.594 -0.1419 0.7992 -0.3696 c 0.2052 -0.2278 0.333 -0.5415 0.333 -0.8871 v -0.8312 h -4.1526 l 0 0 z m -1.053 2.0879 v -2.0879 h -4.1292 v 2.0879 h 4.1292 l 0 0 z m -5.1822 0 v -2.0879 h -4.2444 v 2.0879 h 4.2444 l 0 0 z m -5.2992 0 v -2.0879 h -4.3236 v 0.8312 c 0 0.3457 0.1278 0.6593 0.333 0.8871 c 0.2052 0.2278 0.4878 0.3696 0.7992 0.3696 h 3.1914 l 0 0 z m -4.3236 -3.2567 h 4.851 h 5.2974 h 5.184 h 4.68 v -10.2697 h -4.68 h -5.184 h -5.2974 h -4.851 v 10.2697 l 0 0 z m 14.805 -11.4386 v -2.0979 h -4.1292 v 2.0959 h 4.1292 l 0 0.002 z m 1.053 -2.0979 v 2.0959 h 4.1526 v -0.8392 c 0 -0.3457 -0.1278 -0.6593 -0.333 -0.8871 c -0.2052 -0.2278 -0.4878 -0.3696 -0.7992 -0.3696 h -3.0204 l 0 0 z m -6.2352 2.0979 v -2.0979 h -4.2444 v 2.0959 h 4.2444 l 0 0.002 z m -5.2992 0 v -2.0979 h -3.1914 c -0.3114 0 -0.594 0.1419 -0.7992 0.3696 c -0.2052 0.2278 -0.333 0.5415 -0.333 0.8871 v 0.8392 h 4.3236 l 0 0.002 z');
+		
+		svg.appendChild(path);
+
+		this.createPlayerButton({
+			id: 'it-cinema-mode-button',
+			child: svg,
+			// position: "right", // using right only works when we also have fit to window button enabled for some reason
+			opacity: 0.64,
+			onclick: function () {
+				var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+				// console.log(player)
+				if (player.style.zIndex == 10000){
+					player.style.zIndex = 1;
+					svg.parentNode.style.opacity = 0.64;
+					svg.parentNode.style.zIndex = 1;
+				}
+				else {
+					player.style.zIndex = 10000;
+					svg.parentNode.style.opacity = 1;
+				}
+				
+				
+				var overlay = document.getElementById('overlay_cinema');
+				if (!overlay) {
+					createOverlay();
+				} else {
+					overlay.style.display = overlay.style.display === 'none' || overlay.style.display === '' ? 'block' : 'none';
+				}
+				//console.log(overlay)
+			},
+			title: 'Cinema Mode'
+		});
+	} 
+}
+
+ImprovedTube.playerCinemaModeDisable = function () {
+	if (this.storage.player_auto_hide_cinema_mode_when_paused) {
+		var overlay = document.getElementById('overlay_cinema');
+		if (overlay) {
+			overlay.style.display = 'none'
+			var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+			player.style.zIndex = 1;
+			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
+			cinemaModeButton.style.opacity = 0.64
+		}
+	}
+}
+
+ImprovedTube.playerCinemaModeEnable = function () {
+	if (this.storage.player_auto_cinema_mode || this.storage.player_auto_hide_cinema_mode_when_paused) {
+		
+	if ((/watch\?/.test(location.href))) {
+		var overlay = document.getElementById('overlay_cinema');
+		
+		if (this.storage.player_auto_cinema_mode === true && !overlay) {
+			createOverlay();
+			overlay = document.getElementById('overlay_cinema');
+		}
+		
+// console.log(overlay && this.storage.player_auto_hide_cinema_mode_when_paused === true || this.storage.player_auto_cinema_mode === true && overlay)
+		if (overlay) {
+			overlay.style.display = 'block'
+			var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+			player.style.zIndex = 10000;
+			// console.log(player)
+			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
+			cinemaModeButton.style.opacity = 1
+		}
+	}
+	}
+}
+
 /*------------------------------------------------------------------------------
 HAMBURGER MENU
 ------------------------------------------------------------------------------*/
@@ -881,7 +1010,7 @@ ImprovedTube.playerPopupButton = function () {
 				const videoID = location.search.match(ImprovedTube.regex.video_id)[1],
 					listMatch = location.search.match(ImprovedTube.regex.playlist_id),
 					popup = window.open(
-						`${location.protocol}//www.youtube.com/embed/${videoID}?start=${parseInt(ytPlayer.getCurrentTime())}&autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}${listMatch?`&list=${listMatch[1]}`:''}`,
+						`${location.protocol}//www.youtube.com/embed/${videoID}?start=${parseInt(ytPlayer.getCurrentTime())}&autoplay=${ImprovedTube.storage.player_autoplay_disable ? '0' : '1'}${listMatch?`&list=${listMatch[1]}`:''}`,
 						'_blank',
 						`directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${ytPlayer.offsetWidth / 3},height=${ytPlayer.offsetHeight / 3}`
 					);

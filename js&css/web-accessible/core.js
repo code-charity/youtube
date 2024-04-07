@@ -46,7 +46,7 @@ var ImprovedTube = {
 	focus: false,
 	played_before_blur: false,
 	played_time: 0,
-	ignore_autoplay_off: false,
+	user_interacted: false,
 	mini_player__mode: false,
 	mini_player__move: false,
 	mini_player__cursor: '',
@@ -167,8 +167,8 @@ document.addEventListener('it-message-from-extension', function () {
 				localStorage.removeItem('it-player30fps');
 			}
 
-			//	  FEEDBACK WHEN THE USER CHANGED A SETTING
 			ImprovedTube.init();
+		// REACTION OR VISUAL FEEDBACK WHEN THE USER CHANGES A SETTING (already automated for our CSS features):
 		} else if (message.action === 'storage-changed') {
 			var camelized_key = message.camelizedKey;
 
@@ -211,6 +211,7 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'theme':
 				case 'themePrimaryColor':
 				case 'themeTextColor':
+					ImprovedTube.myColors();
 					ImprovedTube.setTheme();
 					break
 
@@ -220,7 +221,6 @@ document.addEventListener('it-message-from-extension', function () {
 					} else if (ImprovedTube.storage.description === "normal" || ImprovedTube.storage.description === "classic") {
 						try{document.querySelector("#less").click() || document.querySelector("#collapse").click();} catch{}
 					}
-					ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
 					break
 
 				case 'transcript':

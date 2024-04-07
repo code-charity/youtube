@@ -416,14 +416,14 @@
     "hiddenOnVideoPage": {
         "message": "영상이 있을 때 숨기기"
     },
+    "hide_author_avatars": {
+        "message": "사용자 사진 숨기기"
+    },
     "hideAnimatedThumbnails": {
         "message": "섬네일 재생 끄기"
     },
     "hideAnnotations": {
         "message": "설명 숨기기"
-    },
-    "hideAvatars": {
-        "message": "사용자 사진 숨기기"
     },
     "hideCards": {
         "message": "카드 숨기기"

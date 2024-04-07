@@ -38,6 +38,12 @@
     "allow60fps": {
         "message": "Permitir 60fps"
     },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "Todos tus atajos serán borrados y no podrán ser recuperados"
+    },
+    "always": {
+        "message": "Siempre"
+    },
     "alwaysActive": {
         "message": "Siempre activo"
     },
@@ -59,6 +65,12 @@
     "areYouSureYouWantToImportTheData": {
         "message": "¿Estas seguro que deseas importar la informacion?"
     },
+    "areYouSureYouWantToSyncTheData": {
+        "message": "¿Está seguro que desea sincronizar la configuración actual?"
+    },
+    "audio": {
+        "message": "Sonido"
+    },
     "audioFormats": {
         "message": "Formatos de audio"
     },
@@ -70,6 +82,9 @@
     },
     "autopauseWhenSwitchingTabs": {
         "message": "Pausar al cambiar de pestaña"
+    },
+    "autoPictureInPicture": {
+        "message": "Auto Picture-In-Picture"
     },
     "autoplay": {
         "message": "Reproducción automática"
@@ -92,6 +107,9 @@
     "backgroundOpacity": {
         "message": "Opacidad de fondo"
     },
+    "backupAndReset": {
+        "message": "Copia de seguridad y reinicio"
+    },
     "baseOnSystemColorScheme": {
         "message": "Según tema del sistema"
     },
@@ -100,6 +118,9 @@
     },
     "black": {
         "message": "Negro"
+    },
+    "block_Codec_Alert_VP9": {
+        "message": "Necesita activar VP9 o H.264 para que Youtube reproduzca videos."
     },
     "blockAll": {
         "message": "Bloquear todo"
@@ -131,11 +152,17 @@
     "bluelight": {
         "message": "Luz azul"
     },
+    "brightness": {
+        "message": "Luminosidad"
+    },
     "brown": {
         "message": "Marrón"
     },
     "browser": {
         "message": "Navegador"
+    },
+    "browserAccountSync": {
+        "message": "Sincronizar (Cuenta del Navegador)"
     },
     "browserVersion": {
         "message": "Version del navegador"
@@ -175,6 +202,9 @@
     },
     "collapseOfSubscriptionSections": {
         "message": "Compactar sección de suscripciones"
+    },
+    "columns": {
+        "message": "Columna lateral extra (sin mover los vídeos relacionados, si la ventana es suficientemente ancha)"
     },
     "comments": {
         "message": "Comentarios"
@@ -239,6 +269,9 @@
     "default": {
         "message": "Por defecto"
     },
+    "default_CC": {
+        "message": "predeterminado"
+    },
     "default_theme": {
         "message": "predeterminado"
     },
@@ -260,6 +293,9 @@
     "description": {
         "message": "Descripcion"
     },
+    "description_ext": {
+        "message": "YouTube, marea + inteligente? Video Youtube que el reproductor de youtube tamaño color color youtube saltar la velocidad de reproducción de las etiquetas skipper del canal de volumen ocultar"
+    },
     "desert": {
         "message": "Desierto"
     },
@@ -277,6 +313,9 @@
     },
     "disabled": {
         "message": "Desactivado"
+    },
+    "disableThumbnailPlayback": {
+        "message": "Desactivar la reproducción de vídeo al pasar el cursor"
     },
     "dislike": {
         "message": "No me gusta"
@@ -316,6 +355,12 @@
     },
     "extension": {
         "message": "Extensión"
+    },
+    "ExtraButtons": {
+        "message": "Botones extra"
+    },
+    "extraButtonsBelowThePlayer": {
+        "message": "Botones adicionales bajo el reproductor"
     },
     "file": {
         "message": "Archivo"
@@ -377,11 +422,20 @@
     "geoPreference": {
         "message": "Preferencia de Geo"
     },
+    "github": {
+        "message": "GitHub"
+    },
     "goToSearchBox": {
         "message": "Ir a la barra de búsqueda"
     },
+    "GPUnotindatabase": {
+        "message": "GPU no está en la base de datos"
+    },
     "green": {
         "message": "Verde"
+    },
+    "hardwareInformation": {
+        "message": "Información de hardware"
     },
     "hdThumbnail": {
         "message": "Miniatura HD"
@@ -395,6 +449,9 @@
     "hiddenOnVideoPage": {
         "message": "Oculto en la página de video"
     },
+    "hide_author_avatars": {
+        "message": "Ocultar avatares del autor"
+    },
     "hide_labels": {
         "message": "Ocultar nombres"
     },
@@ -407,11 +464,17 @@
     "hideCards": {
         "message": "Ocultar tarjetas"
     },
+    "hideCommentsCount": {
+        "message": "Ocultar contador de comentarios"
+    },
     "hideCountryCode": {
         "message": "Ocultar código de país"
     },
     "hideDate": {
         "message": "Ocultar fecha"
+    },
+    "hideDetailButton": {
+        "message": "Botones (debajo del reproductor)"
     },
     "hideDetails": {
         "message": "Ocultar detalles"
@@ -457,6 +520,9 @@
     },
     "hideThumbnails": {
         "message": "Ocultar miniaturas"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Ocultar título de vídeo en pantalla completa"
     },
     "hideViewsCount": {
         "message": "Ocultar contador de visitas"
@@ -524,6 +590,9 @@
     "languages": {
         "message": "Idiomas"
     },
+    "layout": {
+        "message": "Estilo"
+    },
     "legacyYoutube": {
         "message": "YouTube antiguo"
     },
@@ -544,6 +613,9 @@
     },
     "liked": {
         "message": "Me gusta"
+    },
+    "likes": {
+        "message": "Gustos"
     },
     "lime": {
         "message": "Lima"
@@ -584,11 +656,17 @@
     "more": {
         "message": "Más"
     },
+    "mostViewedChannels": {
+        "message": "Canales más vistos"
+    },
     "moveSidebarLeft": {
         "message": "Mover barra lateral a la izquierda"
     },
     "moveThumbnailsRight": {
         "message": "Mover miniaturas a la derecha"
+    },
+    "My_specs": {
+        "message": "Mis especificaciones"
     },
     "myColors": {
         "message": "Mis colores"
@@ -608,6 +686,9 @@
     "night": {
         "message": "Noche"
     },
+    "nightMode": {
+        "message": "Modo nocturno"
+    },
     "noActiveFeatures": {
         "message": "Sin características activas"
     },
@@ -623,6 +704,9 @@
     "off": {
         "message": "Desactivado"
     },
+    "ok": {
+        "message": "Aceptar"
+    },
     "old": {
         "message": "Viejo"
     },
@@ -634,6 +718,9 @@
     },
     "onlyOnePlayerInstancePlaying": {
         "message": "Solo una pestaña reproduciendo"
+    },
+    "onSmallCreators": {
+        "message": "Desactivado, excepto para canales pequeños"
     },
     "onSubscribedChannels": {
         "message": "En canales suscritos"
@@ -737,6 +824,9 @@
     "remote": {
         "message": "Reproducir en el televisor"
     },
+    "Remove": {
+        "message": "Eliminar"
+    },
     "removeRelatedSearchResults": {
         "message": "Quitar resultados relacionados"
     },
@@ -830,11 +920,17 @@
     "showRemainingDuration": {
         "message": "Mostrar la duración restante del video"
     },
+    "showVersion": {
+        "message": "Mostrar versión"
+    },
     "shuffle": {
         "message": "Aleatorio"
     },
     "sidebar": {
         "message": "Barra lateral"
+    },
+    "softwareInformation": {
+        "message": "Información del Software"
     },
     "spacebar": {
         "message": "Espacio"
@@ -991,6 +1087,9 @@
     },
     "yellow": {
         "message": "Amarillo"
+    },
+    "youTubeButtons": {
+        "message": "Botones de YouTube"
     },
     "youtubeHeaderLeft": {
         "message": "Encabezado YouTube (izq)"

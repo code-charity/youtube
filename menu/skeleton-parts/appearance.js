@@ -95,7 +95,7 @@ extension.skeleton.main.layers.section.appearance.on.click.header = {
 			},
 			header_transparent: {
 				component: "switch",
-				text: "TransparentColor"
+				text: "transparentBackground"
 			},
 			header_hide_country_code: {
 				component: "switch",
@@ -383,7 +383,12 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "hideScrollForDetails",
 				tags: "remove,hide"
-			}
+			},
+			remove_black_bars: {
+				component: "switch",
+				text: "removeBlackBars",
+				tags: "bars",
+			}			
 		}
 	}
 };
