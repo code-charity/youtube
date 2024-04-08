@@ -674,7 +674,7 @@ html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peferenc
 	--yt-spec-general-background-b: #000 !important;
 	--yt-spec-general-background-c: #000 !important;
 	--yt-spec-error-background: #1f1f1f !important;
-	--yt-spec-text-primary: #aaa !important;
+	--yt-spec-text-primary: #aaa;
 	--yt-spec-text-primary-inverse: #000 !important;
 	--yt-spec-text-secondary: #aaa !important;
 	--yt-spec-text-disabled: #aaa !important;
@@ -882,9 +882,10 @@ html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peferenc
 
 /*DAWN*/
   
+html[it-theme=dawn] [dark],
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark],
-html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] {
+html[it-theme=dawn][data-system-color-scheme=dark][it-schedule=system_peference_dark],
+html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #d44d5c !important;
 	--yt-swatch-primary-darker: #d44d5c !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
@@ -905,7 +906,7 @@ html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference
 	--yt-spec-general-background-b: #d44d5c !important;
 	--yt-spec-general-background-c: #d44d5c !important;
 	--yt-spec-error-background: #1f1f1f !important;
-	--yt-spec-text-primary: rgb(255, 255, 255) !important;
+	--yt-spec-text-primary: rgb(255, 255, 255);
 	--yt-spec-text-primary-inverse: #734 !important;
 	--yt-spec-text-secondary: rgb(255, 255, 255) !important;
 	--yt-spec-text-disabled: rgb(255, 255, 255) !important;
@@ -1140,7 +1141,7 @@ html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peferen
 	--yt-spec-general-background-b: #faf9f9 !important;
 	--yt-spec-general-background-c: #faf9f9 !important;
 	--yt-spec-error-background: #1f1f1f !important;
-	--yt-spec-text-primary: #555 !important;
+	--yt-spec-text-primary: #555;
 	--yt-spec-text-primary-inverse: #faf9f9 !important;
 	--yt-spec-text-secondary: #555 !important;
 	--yt-spec-text-disabled: #555 !important;
@@ -1210,13 +1211,13 @@ html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peferen
 	--yt-spec-text-primary: #555;
 	--ytd-searchbox-border-color: #555;
 	--ytd-searchbox-background: #faf9f9;
-	--ytd-searchbox-legacy-border-color: #555;
-	--ytd-searchbox-legacy-border-shadow-color: #555;
-	--ytd-searchbox-legacy-button-color: #555;
-	--ytd-searchbox-legacy-button-border-color: #555;
-	--ytd-searchbox-legacy-button-focus-color: #555;
-	--ytd-searchbox-legacy-button-hover-color: #555;
-	--ytd-searchbox-legacy-button-hover-border-color: #555;
+	--ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
+	--ytd-searchbox-legacy-border-shadow-color: hsla(0, 0%, 0%, 0);
+	--ytd-searchbox-legacy-button-color: hsla(0, 0%, 100%, .08);
+	--ytd-searchbox-legacy-button-border-color: hsl(0, 0%, 18.82%);
+	--ytd-searchbox-legacy-button-focus-color: hsla(0, 0%, 100%, .08);
+	--ytd-searchbox-legacy-button-hover-color: hsla(0, 0%, 100%, .08);
+	--ytd-searchbox-legacy-button-hover-border-color: hsl(0, 0%, 18.82%);
 	--ytd-searchbox-legacy-button-icon-color: #fff;
 	--ytd-moderation-panel-background: #555;
 	--ytd-moderation-panel-hover: #555;
@@ -1336,9 +1337,10 @@ html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peferen
 
 /*NIGHT*/
 
+html[it-theme=night] [dark],
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark],
-html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] {
+html[it-theme=night][data-system-color-scheme=dark][it-schedule=system_peference_dark],
+html[it-theme=night][data-system-color-scheme=light][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #003459 !important;
 	--yt-swatch-primary-darker: #003459 !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
@@ -1359,7 +1361,7 @@ html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peferenc
 	--yt-spec-general-background-b: #003459 !important;
 	--yt-spec-general-background-c: #003459 !important;
 	--yt-spec-error-background: #1f1f1f !important;
-	--yt-spec-text-primary: #fff !important;
+	--yt-spec-text-primary: #fff;
 	--yt-spec-text-primary-inverse: #003459 !important;
 	--yt-spec-text-secondary: #fff !important;
 	--yt-spec-text-disabled: #fff !important;
@@ -1593,7 +1595,7 @@ html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peferenc
 	--yt-spec-general-background-b: #c7efcf !important;
 	--yt-spec-general-background-c: #c7efcf !important;
 	--yt-spec-error-background: #1f1f1f !important;
-	--yt-spec-text-primary: #666 !important;
+	--yt-spec-text-primary: #666;
 	--yt-spec-text-primary-inverse: #d3e1c6 !important;
 	--yt-spec-text-secondary: #666 !important;
 	--yt-spec-text-disabled: #666 !important;
@@ -1799,9 +1801,10 @@ html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peferenc
 
 /*SUNSET*/
   
+html[it-theme=sunset] [dark],
 html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-html[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark],
-html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] {
+html[it-theme=sunset][data-system-color-scheme=dark][it-schedule=system_peference_dark],
+html[it-theme=sunset][data-system-color-scheme=light][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #2f3364 !important;
 	--yt-swatch-primary-darker: #2f3364 !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
@@ -1822,7 +1825,7 @@ html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peferen
 	--yt-spec-general-background-b: #2f3364 !important;
 	--yt-spec-general-background-c: #2f3364 !important;
 	--yt-spec-error-background: #1f1f1f !important;
-	--yt-spec-text-primary: #fff !important;
+	--yt-spec-text-primary: #fff;
 	--yt-spec-text-primary-inverse: #283567 !important;
 	--yt-spec-text-secondary: #fff !important;
 	--yt-spec-text-disabled: #fff !important;
@@ -2026,9 +2029,8 @@ html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peferen
 
 /*Fixing YT hardcoded CSS for DARK/light mode switching*/
 
-html:not([dark]) .yt-spec-icon-badge-shape,
-html:not([dark]) .yt-spec-icon-badge-shape__icon .yt-spec-icon-shape {
-	color: var(--yt-spec-text-primary) !important;
+.yt-spec-icon-shape {
+	color: var(--yt-spec-text-primary);
 }
 
 html[dark] .yt-spec-icon-badge-shape--style-overlay .yt-spec-icon-badge-shape__icon,
@@ -2036,12 +2038,17 @@ html[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text,
 html:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text {
     color: var(--yt-spec-text-primary);
 }
-html[it-theme="black"] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[it-theme=black] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[it-theme=sunset] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[it-theme=night] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[it-theme=dawn] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
 html[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
 	color: var(--yt-spec-text-primary);
     background-color: rgba(255, 255, 255, 0.1);
 }
-html:not([dark]):not([it-theme="black"]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+html[it-theme=desert] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[it-theme=plain] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html:not([dark]):not([it-theme=black]):not([it-theme=sunset]):not([it-theme=night]):not([it-theme=dawn]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
 	color: var(--yt-spec-text-primary);
 	background-color: rgba(0, 0, 0, 0.05);
 }
