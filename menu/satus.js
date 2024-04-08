@@ -983,13 +983,7 @@ satus.storage.set = function(key, value, callback) {
 		}
 	}
 
-	for (let key in this.data) {
-		if (typeof this.data[key] !== 'function') {
-			items[key] = this.data[key];
-		}
-	}
-
-	chrome.storage.local.set(items, function() {
+	chrome.storage.local.set({[key]: value}, function() {
 		satus.events.trigger('storage-set');
 
 		if (callback) {
