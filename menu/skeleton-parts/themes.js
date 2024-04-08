@@ -49,7 +49,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'custom-theme',
 		text: 'custom',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
@@ -90,7 +89,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'black-theme',
 		text: 'black',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
@@ -101,7 +99,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'plain-theme',
 		text: 'plain',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
@@ -122,7 +119,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'night-theme',
 		text: 'night',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
@@ -133,7 +129,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'dawn-theme',
 		text: 'dawn',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
