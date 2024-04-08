@@ -1937,6 +1937,8 @@ satus.components.colorPicker = function(component, skeleton) {
 --------------------------------------------------------------*/
 
 satus.components.radio = function(component, skeleton) {
+	let value;
+
 	component.nativeControl = component.createChildElement('input', 'input');
 
 	component.createChildElement('i');
@@ -1954,10 +1956,10 @@ satus.components.radio = function(component, skeleton) {
 		component.nativeControl.value = skeleton.value;
 	}
 
-	component.storage.value = satus.storage.get(component.storage.key);
+	value = satus.storage.get(component.storage.key);
 
-	if (satus.isset(component.storage.value)) {
-		component.nativeControl.checked = component.storage.value === skeleton.value;
+	if (satus.isset(value)) {
+		component.nativeControl.checked = value === skeleton.value;
 	} else if (skeleton.checked) {
 		component.nativeControl.checked = true;
 	}
