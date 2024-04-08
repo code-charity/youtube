@@ -777,11 +777,13 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 					set: function(val) {
 						value = val;
 
-						if (skeleton.storage !== false) {
-							satus.storage.set(key, val);
+						if (satus.storage.get(key) != val) {
+							if (skeleton.storage !== false) {
+								satus.storage.set(key, val);
+							}
+	
+							parent.dispatchEvent(new CustomEvent('change'));
 						}
-
-						parent.dispatchEvent(new CustomEvent('change'));
 					}
 				}
 			});
