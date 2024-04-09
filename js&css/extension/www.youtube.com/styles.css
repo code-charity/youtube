@@ -641,7 +641,7 @@ html[it-theme=night] #cinematics {mix-blend-mode: lighten !important}
 html[it-theme=plain] #cinematics {filter:invert(100%) !important; mix-blend-mode: darken !important}
 
 /*video detail text color. Fix. Themes didnt apply video description text color*/
-html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary)  !important}
+html[it-theme] .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary) !important}
 html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string__link--call-to-action-color {color: var(--yt-spec-call-to-action)}
 /*The next two lines below can be removed if exact theming consistency isn't the goal and we just want to keep it simple.*/
 html[it-theme]:not([it-theme=default]):not([it-theme=dark]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-call-to-action) !important}
