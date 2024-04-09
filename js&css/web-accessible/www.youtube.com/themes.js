@@ -50,7 +50,7 @@ ImprovedTube.myColors = function () {
 					'--yt-swatch-input-text: ' + text_color + '!important;' +
 					'--yt-swatch-logo-override: ' + text_color + '!important;' +
 					'--yt-spec-text-primary:' + text_color + ' !important;' +
-					'--yt-spec-text-primary-inverse:' + text_color + ' !important;' +
+					'--yt-spec-text-primary-inverse:' + primary_color + ' !important;' +
 					'--yt-spec-text-secondary:' + text_color + ' !important;' +
 					'--yt-spec-text-disabled:' + text_color + ' !important;' +
 					'--yt-spec-icon-active-other:' + text_color + ' !important;' +
