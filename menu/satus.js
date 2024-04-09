@@ -3133,7 +3133,7 @@ satus.user.device.connection = function() {
 --------------------------------------------------------------*/
 
 satus.search = function(query, object, callback) {
-	var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker'],
+	var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label'],
 		threads = 0,
 		results = {},
 		excluded = [
