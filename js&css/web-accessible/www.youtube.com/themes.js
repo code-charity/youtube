@@ -2,12 +2,7 @@
 4.3.0 THEMES
 ------------------------------------------------------------------------------*/
 ImprovedTube.myColors = function () {
-	// Video description has some hardcoded text color, remove it
-	for (const styled of Array.from(document.querySelectorAll(".yt-core-attributed-string--link-inherit-color[style]"))) {
-		styled.removeAttribute('style');
-	}
-
-	if ( this.storage.theme === 'custom' && Array.isArray(this.storage.theme_primary_color) && Array.isArray(this.storage.theme_text_color)) {
+	if (this.storage.theme === 'custom') {
 				var style = this.elements.my_colors || document.createElement('style'),
 					primary_color = this.storage.theme_primary_color,
 					text_color = this.storage.theme_text_color;
@@ -15,12 +10,14 @@ ImprovedTube.myColors = function () {
 				if (primary_color) {
 					primary_color = 'rgb(' + primary_color.join(',') + ')';
 				} else {
+					// need better central place for storing default custom profile colors
 					primary_color = 'rgb(200, 200, 200)';
 				}
 
 				if (text_color) {
 					text_color = 'rgb(' + text_color.join(',') + ')';
 				} else {
+					// need better central place for storing default custom profile colors
 					text_color = 'rgb(25, 25, 25)';
 				}
 
@@ -84,12 +81,11 @@ ImprovedTube.myColors = function () {
 	}
 
 ImprovedTube.setTheme = function () {
-	// Video description has some hardcoded text color, remove it
-	for (const styled of Array.from(document.querySelectorAll(".yt-core-attributed-string--link-inherit-color[style]"))) {
-		styled.removeAttribute('style');
-	}
-
 	switch(this.storage.theme) {
+		case 'default':
+			this.elements.my_colors?.remove();
+			break
+
 		case 'black':
 		case 'dark':
 			if (document.getElementById("cinematics")) {
@@ -97,10 +93,6 @@ ImprovedTube.setTheme = function () {
 				document.getElementById('cinematics').style.display = 'none !important';
 			}
 			this.elements.my_colors?.remove();
-			break
-
-		case 'default':
-			return;
 			break
 
 		case 'dawn':
