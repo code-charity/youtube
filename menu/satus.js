@@ -1765,8 +1765,6 @@ satus.components.colorPicker = function(component, skeleton) {
 			set: function(value) {
 				array = value;
 
-				this.parentNode.storage.value = array;
-
 				element.style.backgroundColor = 'rgb(' + value.join(',') + ')';
 			}
 		});
@@ -1894,6 +1892,7 @@ satus.components.colorPicker = function(component, skeleton) {
 								component = modal.parentElement;
 
 							component.color.value = component.skeleton.value || [0, 0, 0];
+							satus.storage.remove(component.storage.key);
 
 							modal.rendered.close();
 						}
@@ -1917,6 +1916,7 @@ satus.components.colorPicker = function(component, skeleton) {
 								component = modal.parentElement;
 
 							component.color.value = satus.color.hslToRgb(modal.value);
+							component.storage.value = component.color.value;
 
 							modal.rendered.close();
 						}
