@@ -155,15 +155,20 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.storage = message.storage;
 
 			if (ImprovedTube.storage.block_vp9 || ImprovedTube.storage.block_av1 || ImprovedTube.storage.block_h264) {
-				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'}
-				localStorage['it-codec'] = Object.keys(atlas).reduce(function (all, key) {
+				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'},
+					codec = Object.keys(atlas).reduce(function (all, key) {
 					return ImprovedTube.storage[key] ? ((all?all+'|':'') + atlas[key]) : all}, '');
-			} else {
+				if (localStorage['it-codec'] != codec) {
+					localStorage['it-codec'] = codec;
+				}
+			} else if (localStorage['it-codec']) {
 				localStorage.removeItem('it-codec');
 			}
 			if (ImprovedTube.storage.player_60fps === false) {
-				localStorage['it-player30fps'] = true;
-			} else {
+				if (!localStorage['it-player30fps']) {
+					localStorage['it-player30fps'] = true;
+				}
+			} else if (localStorage['it-player30fps']) {
 				localStorage.removeItem('it-player30fps');
 			}
 
