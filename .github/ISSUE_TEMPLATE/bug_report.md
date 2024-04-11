@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to help us improve
 title: ''
-labels: Bug, Feature request, good first issue, help wanted, up-for-grabs
+labels: Bug, good first issue, help wanted, up-for-grabs
 assignees: ''
 
 ---
