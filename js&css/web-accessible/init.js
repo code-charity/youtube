@@ -101,6 +101,7 @@ ImprovedTube.init = function () {
 	this.youtubeLanguage();
 	this.myColors();
 	this.channelCompactTheme();
+	this.livechat();
 	
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();
