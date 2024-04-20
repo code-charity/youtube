@@ -615,16 +615,4 @@ if (ImprovedTube.storage.header_transparent === true) {
             document.documentElement.removeAttribute('data-scroll-direction');
         }
     });
-
-    /*------------------------------------------------------------------------------
-    SHOW/HIDE VOICE SEARCH BUTTON
-    ------------------------------------------------------------------------------*/
-    window.addEventListener('scroll', function() {
-        var voiceSearchButton = document.getElementById('voice-search-button');
-        if (window.scrollY === 0) {
-            voiceSearchButton.style.display = 'block';
-        } else {
-            voiceSearchButton.style.display = 'none';
-        }
-    });
 }
