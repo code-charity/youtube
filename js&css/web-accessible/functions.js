@@ -132,11 +132,12 @@ ImprovedTube.ytElementsHandler = function (node) {
 			this.howLongAgoTheVideoWasUploaded();
 			this.channelVideosCount();
 		}
-	} else if (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-video-primary-info-renderer')) {
-		if (document.documentElement.dataset.pageType === 'video') {
-			this.hideDetailButton(node.querySelector('#flexible-item-buttons').children);
-		}
-	} else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
+	}
+	 // else if (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-video-primary-info-renderer')) {
+	// 	if (document.documentElement.dataset.pageType === 'video') {
+	// 		this.hideDetailButton(node.querySelector('#flexible-item-buttons').children);
+	// 	}
+	else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
 		this.playlistPopupUpdate();
 	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
 		if (node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
@@ -144,9 +145,9 @@ ImprovedTube.ytElementsHandler = function (node) {
 		}
 
 		ImprovedTube.elements.subscribe_button = node;
-	} else if (id === 'show-hide-button') {
-		this.elements.livechat.button = document.querySelector('[aria-label="Hide chat"]');
-		// console.log(document.querySelector('[aria-label="Hide chat"]'))
+	} else if (id === 'chat-messages') {
+		this.elements.livechat.button = document.querySelector('[aria-label="Close"]');
+		// console.log(document.querySelector('[aria-label="Close"]'))
 		this.livechat();
 	} else if (name === 'YTD-MASTHEAD') {
 		if (!this.elements.masthead) {

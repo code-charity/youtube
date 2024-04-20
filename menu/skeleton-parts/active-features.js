@@ -10,15 +10,17 @@ extension.skeleton.header.sectionEnd.menu.on.click.activeFeatures = {
 			variant: 'card',
 			on: {
 				render: function () {
-					var component = this;
+					let component = this;
 
 					satus.search('', extension.skeleton, function (features) {
-						var skeleton = {};
+						let skeleton = {};
 
-						for (var key in features) {
-							var feature = features[key],
+						for (const key in features) {
+							let feature = features[key],
 								default_value = feature.value,
-								value = satus.storage.get(feature.storage || key),
+								value = feature.storage && satus.storage.get(feature.storage)
+									|| feature.radio && satus.storage.get(feature.radio.group) == feature.radio.value
+									|| satus.storage.get(key),
 								parent_object = feature;
 
 							if (!satus.isset(default_value)) {
@@ -40,7 +42,9 @@ extension.skeleton.header.sectionEnd.menu.on.click.activeFeatures = {
 								}
 
 								if (parent_object.parentObject) {
-									var category = parent_object.parentObject.label.text;
+									let category = parent_object.parentObject.label.text,
+										subcategory,
+										text;
 
 									parent_object = feature;
 
@@ -55,15 +59,15 @@ extension.skeleton.header.sectionEnd.menu.on.click.activeFeatures = {
 
 									if (parent_object) {
 										if (parent_object.label) {
-											var subcategory = parent_object.label.text;
+											subcategory = parent_object.label.text;
 										} else {
-											var subcategory = parent_object.text;
+											subcategory = parent_object.text;
 										}
 
 										if (category === subcategory) {
-											var text = satus.locale.get(category);
+											text = satus.locale.get(category);
 										} else {
-											var text = satus.locale.get(category) + ' > ' + satus.locale.get(subcategory);
+											text = satus.locale.get(category) + ' > ' + satus.locale.get(subcategory);
 										}
 
 										if (!skeleton[category + subcategory]) {

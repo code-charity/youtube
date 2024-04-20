@@ -777,11 +777,13 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 					set: function(val) {
 						value = val;
 
-						if (skeleton.storage !== false) {
-							satus.storage.set(key, val);
+						if (satus.storage.get(key) != val) {
+							if (skeleton.storage !== false) {
+								satus.storage.set(key, val);
+							}
+	
+							parent.dispatchEvent(new CustomEvent('change'));
 						}
-
-						parent.dispatchEvent(new CustomEvent('change'));
 					}
 				}
 			});
@@ -981,13 +983,7 @@ satus.storage.set = function(key, value, callback) {
 		}
 	}
 
-	for (let key in this.data) {
-		if (typeof this.data[key] !== 'function') {
-			items[key] = this.data[key];
-		}
-	}
-
-	chrome.storage.local.set(items, function() {
+	chrome.storage.local.set({[key]: value}, function() {
 		satus.events.trigger('storage-set');
 
 		if (callback) {
@@ -1769,8 +1765,6 @@ satus.components.colorPicker = function(component, skeleton) {
 			set: function(value) {
 				array = value;
 
-				this.parentNode.storage.value = array;
-
 				element.style.backgroundColor = 'rgb(' + value.join(',') + ')';
 			}
 		});
@@ -1898,6 +1892,7 @@ satus.components.colorPicker = function(component, skeleton) {
 								component = modal.parentElement;
 
 							component.color.value = component.skeleton.value || [0, 0, 0];
+							satus.storage.remove(component.storage.key);
 
 							modal.rendered.close();
 						}
@@ -1921,6 +1916,7 @@ satus.components.colorPicker = function(component, skeleton) {
 								component = modal.parentElement;
 
 							component.color.value = satus.color.hslToRgb(modal.value);
+							component.storage.value = component.color.value;
 
 							modal.rendered.close();
 						}
@@ -1935,6 +1931,8 @@ satus.components.colorPicker = function(component, skeleton) {
 --------------------------------------------------------------*/
 
 satus.components.radio = function(component, skeleton) {
+	let value;
+
 	component.nativeControl = component.createChildElement('input', 'input');
 
 	component.createChildElement('i');
@@ -1952,10 +1950,10 @@ satus.components.radio = function(component, skeleton) {
 		component.nativeControl.value = skeleton.value;
 	}
 
-	component.storage.value = satus.storage.get(component.storage.key);
+	value = satus.storage.get(component.storage.key);
 
-	if (satus.isset(component.storage.value)) {
-		component.nativeControl.checked = component.storage.value === skeleton.value;
+	if (satus.isset(value)) {
+		component.nativeControl.checked = value === skeleton.value;
 	} else if (skeleton.checked) {
 		component.nativeControl.checked = true;
 	}
@@ -3133,7 +3131,7 @@ satus.user.device.connection = function() {
 --------------------------------------------------------------*/
 
 satus.search = function(query, object, callback) {
-	var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker'],
+	var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label'],
 		threads = 0,
 		results = {},
 		excluded = [

@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to help us improve
 title: ''
-labels: Bug, Feature request, good first issue, help wanted, up-for-grabs
+labels: Bug, good first issue, help wanted, up-for-grabs
 assignees: ''
 
 ---
@@ -11,7 +11,7 @@ assignees: ''
  ⚬ **BUG**:   <!-- (clear/concise description) -->
      ⚬  Browser:   <!-- especially only if not Chrome but Firefox / Safari / ...] -->
      ⚬ **HOW**:   <!-- Steps to **reproduce**. (The bug might only happen with your settings or your browser?) -->
-  ⚬ Does the bug not happen when you log out of YouTube? - Then please copy the html source you get with ctrl+U. )  - Same if YouTube changed at all? then please paste check your 800+ experiment flags.  - Enter   yt.config_.EXPERIMENT_FLAGS   into the Browser console (F12-Key)
+  ⚬ Does the bug not happen when you log out of YouTube? Or did YouTube change at all?  - Then please check your 800+ experiment flags list with and without the error:  Enter:  yt.config_.EXPERIMENT_FLAGS   into the Browser console on youtube (F12-Key).   (Messy alternative: Copy the html-source you get with ctrl+U.)
      ⚬ *Or* did our last update start the bug? 
         ⚬ Are any *Browser console errors shown? `F12`-key
         ⚬  ImprovedTube Version: <!--  [ written at the to & in the stores ]   -->
