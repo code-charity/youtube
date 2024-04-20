@@ -303,12 +303,12 @@ el.querySelector('*[target-id*=chapters]')?.removeAttribute('visibility');} }
 ------------------------------------------------------------------------------*/
 ImprovedTube.livechat = function () {
     if (this.storage.livechat === "collapsed") {
-		if (typeof isCollapsed === 'undefined') { var isCollapsed = false;   }
+        if (typeof isCollapsed === 'undefined') { var isCollapsed = false;   }
         if(ImprovedTube.elements.livechat && !isCollapsed){
             ImprovedTube.elements.livechat.button.click();
             isCollapsed = true 
         }
-  }  /* else{
+    }  /* else{
         if(isCollapsed){
             ImprovedTube.elements.livechat.button.click();
             isCollapsed = false

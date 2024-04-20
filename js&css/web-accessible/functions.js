@@ -145,9 +145,9 @@ ImprovedTube.ytElementsHandler = function (node) {
 		}
 
 		ImprovedTube.elements.subscribe_button = node;
-	} else if (id === 'show-hide-button') {
-		this.elements.livechat.button = document.querySelector('[aria-label="Hide chat"]');
-		// console.log(document.querySelector('[aria-label="Hide chat"]'))
+	} else if (id === 'chat-messages') {
+		this.elements.livechat.button = document.querySelector('[aria-label="Close"]');
+		// console.log(document.querySelector('[aria-label="Close"]'))
 		this.livechat();
 	} else if (name === 'YTD-MASTHEAD') {
 		if (!this.elements.masthead) {
