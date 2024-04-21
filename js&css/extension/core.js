@@ -37,6 +37,103 @@ var extension = {
 	}
 };
 
+// list of settings we inject into HTML element as attributes, used by CSS.
+let htmlAttributes = [
+	"activated",
+	"ads",
+	"always-show-progress-bar",
+	"bluelight",
+	"channel-compact-theme",
+	"channel-hide-featured-content",
+	"collapse-of-subscription-sections",
+	"columns",
+	"comments",
+	"comments-sidebar",
+	"comments-sidebar-left",
+	"comments-sidebar-simple",
+	"compactSpacing",
+	"description",
+	"embeddedHidePauseOverlay",
+	"embeddedHideShare",
+	"embeddedHideYoutubeLogo",
+	"header-hide-country-code",
+	"header-hide-right-buttons",
+	"header-improve-logo",
+	"header-position",
+	"header-transparent",
+	"hide-animated-thumbnails",
+	"hide-author-avatars",
+	"hide-clip-button",
+	"hide-comments-count",
+	"hide-date",
+	"hide-details",
+	"hide-dislike-button",
+	"hide-download-button",
+	"hide-footer",
+	"hide-gradient-bottom",
+	"hide-more-button",
+	"hide-playlist",
+	"hide-report-button",
+	"hide-save-button",
+	"hide-scroll-for-details",
+	"hide-share-button",
+	"hide-shorts-remixing",
+	"hide-sidebar",
+	"hide-thanks-button",
+	"hide-thumbnail-overlay",
+	"hide-video-title-fullScreen",
+	"hide-views-count",
+	"hide-voice-search-button",
+	"improvedtube-search",
+	"likes",
+	"livechat",
+	"mini-player-cursor",
+	"no-page-margin",
+	"player-autoplay-button",
+	"player-color",
+	"player-crop-chapter-titles",
+	"player-fit-to-win-button",
+	"player-hide-annotations",
+	"player-hide-cards",
+	"player-hide-endscreen",
+	"player-hide-skip-overlay",
+	"player-miniplayer-button",
+	"player-next-button",
+	"player-play-button",
+	"player-previous-button",
+	"player-remote-button",
+	"player-screen-button",
+	"player-settings-button",
+	"player-show-cards-on-mouse-hover",
+	"player-size",
+	"player-size",
+	"player-subtitles-button",
+	"player-transparent-background",
+	"player-view-button",
+	"player-volume-button",
+	"red-dislike-button",
+	"related-videos",
+	"remove-black-bars",
+	"remove-history-shorts",
+	"remove-home-page-shorts",
+	"remove-related-search-results",
+	"remove-shorts-reel-search-results",
+	"remove-subscriptions-shorts",
+	"remove-trending-shorts",
+	"schedule",
+	"scroll-bar",
+	"scroll-to-top",
+	"search-focus",
+	"sidebar-left",
+	"squared-user-images",
+	"subscribe",
+	"theme",
+	"thumbnails-hide",
+	"thumbnails-right",
+	"transcript",
+	"youtube-home-page",
+	"youtubeDetailButtons"
+];
 
 /*--------------------------------------------------------------
 # CAMELIZE
@@ -117,7 +214,7 @@ extension.events.trigger = async function (type, data) {
 /*--------------------------------------------------------------
 # INJECT
 ----------------------------------------------------------------
-	
+
 --------------------------------------------------------------*/
 
 extension.inject = function (paths, callback) {
@@ -270,13 +367,15 @@ extension.storage.get = function (key) {
 
 extension.storage.listener = function () {
 	chrome.storage.onChanged.addListener(function (changes) {
-		for (var key in changes) {
-			var value = changes[key].newValue,
+		for (const key in changes) {
+			let value = changes[key].newValue,
 				camelized_key = extension.camelize(key);
 
 			extension.storage.data[key] = value;
 
-			document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), value);
+			if (htmlAttributes.includes(key)) {
+				document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), value);
+			}
 
 			if (typeof extension.features[camelized_key] === 'function') {
 				extension.features[camelized_key](true);
@@ -303,20 +402,19 @@ extension.storage.listener = function () {
 
 extension.storage.load = function (callback) {
 	chrome.storage.local.get(function (items) {
-		for (var key in items) {
-			var value = items[key];
-
-			extension.storage.data[key] = value;
-
-			document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), value);
-		}
+		extension.storage.data = items;
 
 		extension.events.trigger('storage-loaded');
-
 		extension.messages.send({
 			action: 'storage-loaded',
 			storage: items
 		});
+
+		for (const key in items) {
+			if (htmlAttributes.includes(key)) {
+				document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
+			}
+		}
 
 		if (callback) {
 			callback(extension.storage.data);
