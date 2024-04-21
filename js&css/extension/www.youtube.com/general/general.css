@@ -65,7 +65,7 @@ html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-video-ren
 html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
 
-html[it-pathnam='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer span#title:contains("Shorts"),
+html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer span#title:contains("Shorts"),
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer path[d^="M17.77,10.32l-1.2-.5L18,9.06a3.74,3.74"],
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer span#title:contains('Trending Shorts'),
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer yt-horizontal-list-renderer,
