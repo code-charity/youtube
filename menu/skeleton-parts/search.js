@@ -26,21 +26,6 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 				this.remove();
 			}
 		},
-		keydown: function (event) {
-			var self = this;
-
-			setTimeout(function () {
-				if (self.storage.value.length === 0 && event.key === 'Backspace') {
-					var search_results = document.querySelector('.search-results');
-
-					if (search_results) {
-						search_results.close();
-					}
-
-					self.baseProvider.classList.remove('search-mode');
-				}
-			});
-		},
 		input: function (event) {
 			var self = this,
 				value = this.value.trim();
@@ -205,8 +190,3 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 		}
 	}
 };
-
-
-
-
-
