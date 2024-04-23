@@ -17,7 +17,7 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 		},
 		blur: function () {
 			if (this.value.length === 0) {
-				var search_results = document.querySelector('.search-results');
+				let search_results = document.querySelector('.search-results');
 
 				if (search_results) {
 					search_results.close();
@@ -27,29 +27,28 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 			}
 		},
 		input: function (event) {
-			var self = this,
+			let self = this,
 				value = this.value.trim();
 
 			if (value.length > 0) {
 				satus.search(value, extension.skeleton, function (results) {
-					var search_results = document.querySelector('.search-results'),
+					let search_results = document.querySelector('.search-results'),
 						skeleton = {
 							component: 'modal',
 							class: 'search-results'
 						};
 
-					for (var key in results) {
-						var result = results[key],
-							parent = result;
+					for (let key in results) {
+						let result = results[key],
+							parent = result,
+							category,
+							subcategory,
+							text;
 
-						while (
-							parent.parentObject &&
-							!parent.parentObject.category
-						) {
+						while (parent.parentObject && !parent.parentObject.category) {
+
 							parent = parent.parentObject;
 						}
-
-						var category = '';
 
 						if (parent.parentObject && parent.parentObject.label && parent.parentObject.label.text) {
 							category = parent.parentObject.label.text;
@@ -57,10 +56,7 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 
 						parent = result;
 
-						while (
-							parent.parentObject &&
-							parent.parentObject.component !== 'button'
-						) {
+						while (parent.parentObject && parent.parentObject.component !== 'button') {
 							parent = parent.parentObject;
 						}
 
@@ -68,15 +64,15 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 
 						if (parent) {
 							if (parent.label) {
-								var subcategory = parent.label.text;
+								subcategory = parent.label.text;
 							} else {
-								var subcategory = parent.text;
+								subcategory = parent.text;
 							}
 
 							if (category === subcategory) {
-								var text = satus.locale.get(category);
+								text = satus.locale.get(category);
 							} else {
-								var text = satus.locale.get(category) + ' > ' + satus.locale.get(subcategory);
+								text = satus.locale.get(category) + ' > ' + satus.locale.get(subcategory);
 							}
 
 							skeleton[category + subcategory + '_label'] = {
@@ -119,7 +115,7 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 						}
 					} else {
 						if (search_results) {
-							var surface = document.querySelector('.search-results .satus-modal__surface');
+							let surface = document.querySelector('.search-results .satus-modal__surface');
 
 							satus.empty(surface);
 
@@ -130,7 +126,7 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 							satus.render(skeleton, self.baseProvider);
 
 							document.querySelector('.search-results .satus-modal__scrim').addEventListener('click', function () {
-								var text_field = this.parentElement.baseProvider.skeleton.header.sectionEnd.textField.rendered,
+								let text_field = this.parentElement.baseProvider.skeleton.header.sectionEnd.textField.rendered,
 									search_results = document.querySelector('.search-results');
 
 								if (search_results) {
@@ -146,7 +142,7 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 					}
 				}, true);
 			} else {
-				var search_results = document.querySelector('.search-results');
+				let search_results = document.querySelector('.search-results');
 
 				if (search_results) {
 					search_results.close();
@@ -162,7 +158,7 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 		variant: 'icon',
 		on: {
 			click: function () {
-				var search_results = document.querySelector('.search-results');
+				let search_results = document.querySelector('.search-results');
 
 				if (search_results) {
 					search_results.close();
