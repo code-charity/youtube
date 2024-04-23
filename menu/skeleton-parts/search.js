@@ -126,7 +126,7 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 							satus.render(skeleton, self.baseProvider);
 
 							document.querySelector('.search-results .satus-modal__scrim').addEventListener('click', function () {
-								let text_field = this.parentElement.baseProvider.skeleton.header.sectionEnd.textField.rendered,
+								let text_field = this.parentElement.baseProvider.skeleton.header.sectionEnd.search.on.click.rendered,
 									search_results = document.querySelector('.search-results');
 
 								if (search_results) {
