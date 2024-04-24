@@ -1449,14 +1449,6 @@ satus.components.textField = function(component, skeleton) {
 		component.pre.update();
 		component.cursor.update();
 	});
-
-	if (skeleton.on) {
-		for (var type in skeleton.on) {
-			input.addEventListener(type, function(event) {
-				this.parentNode.parentNode.dispatchEvent(new Event(event.type));
-			});
-		}
-	}
 };
 /*--------------------------------------------------------------
 >>> CHART
