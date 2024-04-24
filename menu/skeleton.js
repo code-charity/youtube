@@ -11,7 +11,9 @@
 --------------------------------------------------------------*/
 
 extension.skeleton = {
-	component: 'base'
+	component: 'base',
+	search: false,
+	searchPosition: 0
 };
 
 
