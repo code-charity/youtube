@@ -1182,9 +1182,10 @@ satus.components.modal.confirm = function(component, skeleton) {
 				},
 				on: {
 					click: function() {
-						// no listeners for this Event currently exist in the codebase
-						this.modalProvider.dispatchEvent(new CustomEvent('cancel'));
-						this.modalProvider.skeleton.cancel();
+						// cancel() is optional in modal.confirm simplified variant
+						if (this.modalProvider.skeleton.cancel && satus.isFunction(this.modalProvider.skeleton.cancel)) {
+							this.modalProvider.skeleton.cancel();
+						}
 						this.modalProvider.close();
 					}
 				}
@@ -1197,9 +1198,10 @@ satus.components.modal.confirm = function(component, skeleton) {
 				},
 				on: {
 					click: function() {
-						// no listeners for this Event currently exist in the codebase
-						this.modalProvider.dispatchEvent(new CustomEvent('confirm'));
-						this.modalProvider.skeleton.ok();
+						// ok() is optional in modal.confirm simplified variant
+						if (this.modalProvider.skeleton.ok && satus.isFunction(this.modalProvider.skeleton.ok)) {
+							this.modalProvider.skeleton.ok();
+						}
 						this.modalProvider.close();
 					}
 				}
