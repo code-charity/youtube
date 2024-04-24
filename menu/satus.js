@@ -562,6 +562,10 @@ satus.toIndex = function(index, child, parent) {
 satus.on = function(element, listeners) {
 	if (listeners) {
 		for (var type in listeners) {
+			if (type == 'parentObject') {
+				continue;
+			}
+
 			var listener = listeners[type];
 
 			if (type === 'selectionchange') {
