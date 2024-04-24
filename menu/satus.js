@@ -1310,6 +1310,10 @@ satus.components.textField = function(component, skeleton) {
 		component.syntax.set(skeleton.syntax);
 	}
 
+	if (component.skeleton.storage) {
+		component.value = component.storage.value;
+	}
+
 	selection.setAttribute('disabled', '');
 
 	line_numbers.update = function() {
@@ -1418,7 +1422,9 @@ satus.components.textField = function(component, skeleton) {
 	input.addEventListener('input', function() {
 		var component = this.parentNode.parentNode;
 
-		component.storage.value = this.value;
+		if (component.skeleton.storage) {
+			component.storage.value = this.value;
+		}
 
 		component.lineNumbers.update();
 		component.pre.update();
@@ -1441,8 +1447,6 @@ satus.components.textField = function(component, skeleton) {
 		this.pre.update();
 		this.cursor.update();
 	});
-
-	component.value = component.storage.value || '';
 
 	component.addEventListener('render', function() {
 		component.lineNumbers.update();
