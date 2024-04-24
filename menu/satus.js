@@ -742,52 +742,53 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 		this.properties(element, skeleton.properties);
 		this.on(element, skeleton.on);
 
-		element.storage = (function() {
-			var parent = element,
-				key = skeleton.storage || property || false,
-				value;
-
-			if (satus.isFunction(key)) {
-				key = key();
-			}
-
-			if (skeleton.storage !== false) {
-				if (key) {
-					value = satus.storage.get(key);
-				}
-
-				if (skeleton.hasOwnProperty('value') && value === undefined) {
-					value = skeleton.value;
-				}
-			}
-
-			return Object.defineProperties({}, {
-				key: {
-					get: function() {
-						return key;
-					},
-					set: function(string) {
-						key = string;
-					}
-				},
-				value: {
-					get: function() {
-						return value;
-					},
-					set: function(val) {
-						value = val;
-
-						if (satus.storage.get(key) != val) {
-							if (skeleton.storage !== false) {
-								satus.storage.set(key, val);
-							}
+		// dont add storage component to storage: false elements
+		if (skeleton.storage != false) {
+			element.storage = (function() {
+				var parent = element,
+					key = skeleton.storage || property || false,
+					value;
 	
-							parent.dispatchEvent(new CustomEvent('change'));
+				if (satus.isFunction(key)) {
+					key = key();
+				}
+	
+				if (skeleton.storage !== false) {
+					if (key) {
+						value = satus.storage.get(key);
+					}
+	
+					if (skeleton.hasOwnProperty('value') && value === undefined) {
+						value = skeleton.value;
+					}
+				}
+	
+				return Object.defineProperties({}, {
+					key: {
+						get: function() {
+							return key;
+						},
+						set: function(string) {
+							key = string;
+						}
+					},
+					value: {
+						get: function() {
+							return value;
+						},
+						set: function(val) {
+							value = val;
+	
+							if (satus.storage.get(key) != val) {
+								satus.storage.set(key, val);
+		
+								parent.dispatchEvent(new CustomEvent('change'));
+							}
 						}
 					}
-				}
-			});
-		}());
+				});
+			}());
+		}
 
 		if (this.components[camelizedTagName]) {
 			this.components[camelizedTagName](element, skeleton);
