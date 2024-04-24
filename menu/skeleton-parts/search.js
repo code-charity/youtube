@@ -134,7 +134,6 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 								}
 
 								text_field.value = '';
-								text_field.style.display = '';
 
 								self.removeAttribute('results');
 							});
