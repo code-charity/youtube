@@ -1119,11 +1119,23 @@ satus.components.modal = function(component, skeleton) {
 	};
 
 	component.scrim.addEventListener('click', function() {
-		// this is someone clicking outside of modal dialog, try cancel() first if default modal.confirm
-		if (skeleton.cancel && satus.isFunction(skeleton.cancel)) {
-			skeleton.cancel();
+		// this is someone clicking outside of modal dialog
+		if (skeleton.variant == 'confirm') {
+			if (skeleton.buttons?.cancel) {
+				// modal.confirm.buttons variant, we click cancel, those have own closing mechanism
+				if (skeleton.buttons.cancel.rendered?.click && satus.isFunction(skeleton.buttons.cancel.rendered.click)) {
+					skeleton.buttons.cancel.rendered.click();
+				}
+			} else {
+				// modal.confirm simplified variant, try optional cancel() then close()
+				if (skeleton.cancel && satus.isFunction(skeleton.cancel)) {
+					skeleton.cancel();
+				}
+				this.parentNode.close();
+			}
+		} else if (skeleton.variant == 'vertical-menu') {
+			this.parentNode.close();
 		}
-		this.parentNode.close();
 	});
 
 	if (satus.isset(skeleton.content)) {
