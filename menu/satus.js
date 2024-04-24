@@ -1303,6 +1303,8 @@ satus.components.textField = function(component, skeleton) {
 		},
 		set: function(value) {
 			this.input.value = value;
+
+			this.dispatchEvent(new CustomEvent('change'));
 		}
 	});
 
