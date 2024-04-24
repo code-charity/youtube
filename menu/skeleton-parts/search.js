@@ -14,6 +14,10 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 	on: {
 		render: function () {
 			this.focus();
+			if (extension.search) {
+				this.value = extension.search;
+				this.dispatchEvent(new CustomEvent('input'));
+			}
 		},
 		blur: function () {
 			if (this.value.length === 0) {
@@ -29,6 +33,8 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 		input: function (event) {
 			let self = this,
 				value = this.value.trim();
+
+			extension.search = value;
 
 			if (value.length > 0) {
 				satus.search(value, extension.skeleton, function (results) {
@@ -123,19 +129,23 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 						} else {
 							self.setAttribute('results', '');
 
-							satus.render(skeleton, self.baseProvider);
+							search_results = satus.render(skeleton, self.baseProvider);
+							
+							if (extension.searchPosition) {
+								search_results.childNodes[1].scrollTop = extension.searchPosition;
+							}
 
 							document.querySelector('.search-results .satus-modal__scrim').addEventListener('click', function () {
+								// this is someone clicking outside of Search results window
 								let text_field = this.parentElement.baseProvider.skeleton.header.sectionEnd.search.on.click.rendered,
 									search_results = document.querySelector('.search-results');
 
 								if (search_results) {
+									extension.searchPosition = search_results.childNodes[1].scrollTop;
 									search_results.close();
 								}
 
-								text_field.value = '';
-
-								self.removeAttribute('results');
+								self.skeleton.close.rendered.click()
 							});
 						}
 					}
@@ -160,6 +170,7 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 				let search_results = document.querySelector('.search-results');
 
 				if (search_results) {
+					extension.searchPosition = search_results.childNodes[1].scrollTop;
 					search_results.close();
 				}
 
