@@ -1430,7 +1430,7 @@ satus.components.textField = function(component, skeleton) {
 		component.hiddenValue.textContent = '';
 	};
 
-	document.addEventListener('selectionchange', function(event) {
+	input.addEventListener('selectionchange', function(event) {
 		component.lineNumbers.update();
 		component.pre.update();
 		component.cursor.update();
