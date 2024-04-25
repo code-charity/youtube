@@ -1434,11 +1434,18 @@ satus.components.textField = function(component, skeleton) {
 		component.hiddenValue.textContent = '';
 	};
 
-	input.addEventListener('selectionchange', function(event) {
+	// global listener, make sure we remove when element no longer exists
+	function selectionchange(event) {
+		if (!document.body.contains(component)) {
+			document.removeEventListener('selectionchange', selectionchange);
+			return;
+		}
 		component.lineNumbers.update();
 		component.pre.update();
 		component.cursor.update();
-	});
+	};
+	
+	document.addEventListener('selectionchange', selectionchange);
 
 	input.addEventListener('input', function() {
 		var component = this.parentNode.parentNode;
