@@ -1895,7 +1895,7 @@ satus.components.colorPicker = function(component, skeleton) {
 							var modal = this.skeleton.parentSkeleton.parentSkeleton,
 								hsl = modal.value;
 
-							hsl[0] = this.storage.value;
+							hsl[0] = this.value;
 
 							this.previousSibling.style.backgroundColor = 'hsl(' + hsl[0] + 'deg,' + hsl[1] + '%, ' + hsl[2] + '%)';
 							this.parentNode.previousSibling.style.backgroundColor = 'hsl(' + hsl[0] + 'deg, 100%, 50%)';
@@ -2010,13 +2010,12 @@ satus.components.slider = function(component, skeleton) {
 	input.min = skeleton.min || 0;
 	input.max = skeleton.max || 1;
 	input.step = skeleton.step || 1;
-	input.value = component.storage.value || skeleton.value || 0;
+	input.value = component.storage?.value || skeleton.value || 0;
 
 	text_input.addEventListener('blur', function() {
 		var component = this.parentNode.parentNode;
 
 		component.input.value = Number(this.value.replace(/[^0-9.]/g, ''));
-		component.storage.value = Number(component.input.value);
 
 		component.update();
 	});
@@ -2026,7 +2025,6 @@ satus.components.slider = function(component, skeleton) {
 			var component = this.parentNode.parentNode;
 
 			component.input.value = Number(this.value.replace(/[^0-9.]/g, ''));
-			component.storage.value = Number(component.input.value);
 
 			component.update();
 		}
@@ -2035,7 +2033,7 @@ satus.components.slider = function(component, skeleton) {
 	input.addEventListener('input', function() {
 		var component = this.parentNode.parentNode;
 
-		component.storage.value = Number(this.value);
+		component.value = Number(this.value);
 
 		component.update();
 	});
