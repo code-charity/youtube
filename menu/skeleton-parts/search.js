@@ -131,14 +131,36 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 
 							search_results = satus.render(skeleton, self.baseProvider);
 							
+							// we need global listener here
+							function hidesearch(event) {
+								// make sure to clean it after closing search results
+								if (!document.body.contains(search_results)) {
+									document.removeEventListener('click', hidesearch);
+								}
+								// hide search results when clicking on result that is a 'button' inside search results
+								if (search_results.contains(event.target) && event.target.className.includes('satus-button')
+									// dont close on modal popups
+									&& !(event.target.skeleton?.on?.click?.component == "modal")
+									// shortcut are also modal popups
+									&& !(event.target.skeleton?.component == "shortcut")) {
+									search_results.close();
+									self.skeleton.close.rendered.click();
+								} else if (event.target.closest('.satus-modal.satus-modal--vertical-menu') && event.target.closest('.satus-button')) {
+									// hide search results when clicking on vertical-menu button
+									search_results.close();
+									self.skeleton.close.rendered.click();
+								}
+							}
+
+							document.addEventListener('click', hidesearch);
+							
 							if (extension.searchPosition) {
 								search_results.childNodes[1].scrollTop = extension.searchPosition;
 							}
 
 							document.querySelector('.search-results .satus-modal__scrim').addEventListener('click', function () {
 								// this is someone clicking outside of Search results window
-								let text_field = this.parentElement.baseProvider.skeleton.header.sectionEnd.search.on.click.rendered,
-									search_results = document.querySelector('.search-results');
+								let search_results = document.querySelector('.search-results');
 
 								if (search_results) {
 									extension.searchPosition = search_results.childNodes[1].scrollTop;
