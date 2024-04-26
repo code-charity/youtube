@@ -3167,7 +3167,7 @@ satus.user.device.connection = function() {
 --------------------------------------------------------------*/
 
 satus.search = function(query, object, callback) {
-	var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label'],
+	var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button'],
 		threads = 0,
 		results = {},
 		excluded = [
@@ -3186,12 +3186,18 @@ satus.search = function(query, object, callback) {
 	function parse(items, parent) {
 		threads++;
 
-		for (var key in items) {
-			if (excluded.indexOf(key) === -1) {
+		for (const key in items) {
+			if (!excluded.includes(key)) {
 				var item = items[key];
 
-				if (item.component && item.text && elements.indexOf(item.component) !== -1
-					&& (satus.locale.data[item.text] ? satus.locale.data[item.text] : item.text).toLowerCase().indexOf(query) !== -1) {
+				if (item.component && item.text
+					// list of elements we allow search on
+					&& elements.includes(item.component)
+					// only pass buttons whose parents are variant: 'card' or special case 'appearance' (this one abuses variant tag for CSS)
+					&& (item.component != 'button' || item.parentObject?.variant == "card" || item.parentObject?.variant == "appearance")
+					// try to match query against localized description, fallback on component name
+					&& (satus.locale.data[item.text] ? satus.locale.data[item.text] : item.text).toLowerCase().includes(query)) {
+					// plop matching results in array - this means we cant have two elements with same name in results
 					results[key] = Object.assign({}, item);
 				}
 
