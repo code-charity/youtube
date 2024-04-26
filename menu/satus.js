@@ -1947,7 +1947,7 @@ satus.components.colorPicker = function(component, skeleton) {
 					}
 				}
 			}
-		}, this.baseProvider.layers[0]);
+		}, this.baseProvider);
 	});
 };
 /*--------------------------------------------------------------
