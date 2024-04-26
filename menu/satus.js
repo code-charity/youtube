@@ -2267,6 +2267,7 @@ satus.components.shortcut = function(component, skeleton) {
 	component.addEventListener('click', function() {
 		satus.render({
 			component: 'modal',
+			variant: 'shortcut',
 			properties: {
 				parent: this
 			},
