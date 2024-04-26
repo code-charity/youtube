@@ -533,6 +533,62 @@ ImprovedTube.playerQuality = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+QUALITY WITHOUT FOCUS
+------------------------------------------------------------------------------*/
+ImprovedTube.playerQualityWithoutFocus = function () {
+	function closest (num, arr) {
+		let curr = arr[0];
+		let diff = Math.abs (num - curr);
+		for (let val = 0; val < arr.length; val++) {
+			let newdiff = Math.abs (num - arr[val]);
+			if (newdiff < diff) {
+				diff = newdiff;
+				curr = arr[val];
+			}
+		}
+		return curr;
+	};
+    var player = this.elements.player,
+    qualityWithoutFocus = this.storage.player_quality_without_focus;
+	quality = this.storage.player_quality;
+	if(qualityWithoutFocus && qualityWithoutFocus != 'disabled' && player){
+		if(this.focus === false) {
+				var available_quality_levels = player.getAvailableQualityLevels();
+					if (available_quality_levels.includes(qualityWithoutFocus) === false) {
+						let label = ['tiny', 'small', 'medium', 'large', 'hd720', 'hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'];
+						let resolution = ['144', '240', '360', '480', '720', '1080', '1440', '2160', '2880', '4320'];
+						let availableresolutions = available_quality_levels.reduce(function (array, elem) {
+							array.push(resolution[label.indexOf(elem)]); return array;
+							}, []);
+		
+						qualityWithoutFocus = closest (resolution[label.indexOf(qualityWithoutFocus)], availableresolutions);
+						qualityWithoutFocus = label[resolution.indexOf(qualityWithoutFocus)];
+					}
+		
+					player.setPlaybackQualityRange(qualityWithoutFocus);
+					player.setPlaybackQuality(qualityWithoutFocus);
+				
+		}
+		if (this.focus === true){
+				var available_quality_levels = player.getAvailableQualityLevels();		
+					if (available_quality_levels.includes(quality) === false) {
+						let label = ['tiny', 'small', 'medium', 'large', 'hd720', 'hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'];
+						let resolution = ['144', '240', '360', '480', '720', '1080', '1440', '2160', '2880', '4320'];
+						let availableresolutions = available_quality_levels.reduce(function (array, elem) {
+							array.push(resolution[label.indexOf(elem)]); return array;
+							}, []);
+		
+						quality = closest (resolution[label.indexOf(quality)], availableresolutions);
+						quality = label[resolution.indexOf(quality)];
+					}
+		
+					player.setPlaybackQualityRange(quality);
+					player.setPlaybackQuality(quality);		
+		}
+	}
+
+};
+/*------------------------------------------------------------------------------
 FORCED VOLUME
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerVolume = function () {

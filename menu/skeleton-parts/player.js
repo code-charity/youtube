@@ -760,6 +760,70 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		player_quality_without_focus: {
+			component: 'select',
+			text: 'qualityWithoutFocus',
+			id: 'player_quality_without_focus',
+			options: [{
+				text: 'disabled',
+				value: 'disabled'
+			}, {
+				text: '144p',
+				value: 'tiny'
+			}, {
+				text: '240p',
+				value: 'small'
+			}, {
+				text: '360p',
+				value: 'medium'
+			}, {
+				text: '480p',
+				value: 'large'
+			}, {
+				text: '720p',
+				value: 'hd720'
+			}, {
+				text: '1080p',
+				value: 'hd1080'
+			}, {
+				text: '1440p',
+				value: 'hd1440'
+			}, {
+				text: '2160p',
+				value: 'hd2160'
+			}, {
+				text: '2880p',
+				value: 'hd2880'
+			}, {
+				text: '4320p',
+				value: 'highres'
+			}],
+			on: {
+				render: function () {
+					if (satus.storage.get('player_h264')) {
+						if (this.childNodes[2].selectedIndex >6) {
+							this.childNodes[1].style = 'color: red!important; font-weight: bold;';
+							this.childNodes[1].textContent = '1080p';
+						} else {
+							this.childNodes[1].style = '';
+							this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
+						}
+						for (let index =7; index <= 10; index++) {
+							this.childNodes[2].childNodes[index].style = 'color: red!important; font-weight: bold;';
+						}
+					} else if (satus.storage.get('block_vp9') && satus.storage.get('block_h264')) {
+						this.childNodes[1].style = 'color: red!important; font-weight: bold;';
+						this.childNodes[1].textContent = 'Video disabled';
+					} else {
+						this.childNodes[1].style = '';
+						this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
+						for (let index =7; index <= 10; index++) {
+							this.childNodes[2].childNodes[index].style = '';
+						}
+					}
+				}
+			}
+		},
 		player_codecs: {
 			component: 'button',
 			text: 'codecs',
@@ -895,6 +959,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						document.getElementById('player_quality').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
+						document.getElementById('player_quality_without_focus').dispatchEvent(new CustomEvent('render'));
 					}
 					if (this.dataset.value === 'false') {
 						let where = this;
