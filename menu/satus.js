@@ -1125,21 +1125,34 @@ satus.components.modal = function(component, skeleton) {
 
 	component.scrim.addEventListener('click', function() {
 		// this is someone clicking outside of modal dialog
-		if (skeleton.variant == 'confirm') {
-			if (skeleton.buttons?.cancel) {
-				// modal.confirm.buttons variant, we click cancel, those have own closing mechanism
-				if (skeleton.buttons.cancel.rendered?.click && satus.isFunction(skeleton.buttons.cancel.rendered.click)) {
-					skeleton.buttons.cancel.rendered.click();
+		switch (skeleton.variant) {
+			case 'confirm':
+				if (skeleton.buttons?.cancel) {
+					// modal.confirm.buttons variant have own closing mechanism, lets try to click cancel button
+					if (skeleton.buttons.cancel1?.rendered?.click && satus.isFunction(skeleton.buttons.cancel.rendered.click)) {
+						skeleton.buttons.cancel.rendered.click();
+					} else {
+						// cant find cancel button, just force close it
+						this.parentNode.close();
+					}
+				} else {
+					// modal.confirm simplified variant, try optional cancel() then close()
+					if (skeleton.cancel && satus.isFunction(skeleton.cancel)) {
+						skeleton.cancel();
+					}
+					this.parentNode.close();
 				}
-			} else {
-				// modal.confirm simplified variant, try optional cancel() then close()
-				if (skeleton.cancel && satus.isFunction(skeleton.cancel)) {
-					skeleton.cancel();
-				}
+				break;
+
+			case 'vertical-menu':
 				this.parentNode.close();
-			}
-		} else if (skeleton.variant == 'vertical-menu') {
-			this.parentNode.close();
+				break;
+				
+			case 'shortcut':
+			case 'color-picker':
+			// click cancel button
+				skeleton.actions.cancel.rendered.click();
+				break;
 		}
 	});
 
