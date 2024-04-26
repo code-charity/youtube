@@ -592,19 +592,27 @@ satus.on = function(element, listeners) {
 				});
 			} else if (satus.isString(listener)) {
 				element.addEventListener(type, function() {
-					var match = this.skeleton.on[event.type].match(/(["'`].+["'`]|[^.()]+)/g),
+					let match = this.skeleton.on[event.type].match(/(["'`].+["'`]|[^.()]+)/g),
 						target = this.baseProvider;
 
-					for (var i = 0, l = match.length; i < l; i++) {
-						var key = match[i];
+					for (let i = 0, l = match.length; i < l; i++) {
+						let key = match[i];
 
-						if (target.skeleton[key]) {
+						if (target.skeleton && target.skeleton[key]) {
 							target = target.skeleton[key];
 						} else {
 							if (typeof target[key] === 'function') {
 								target[key]();
 							} else {
 								target = target[key];
+								// render last element if its not a function, lets us use redirects
+								if (i == match.length-1 && (typeof target != 'function')) {
+									let layers = this.layersProvider;
+									if (!layers && this.baseProvider.layers.length > 0) {
+										layers = this.baseProvider.layers[0];
+									}
+									layers.open(target);
+								}
 							}
 						}
 
