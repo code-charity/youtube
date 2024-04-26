@@ -1129,7 +1129,7 @@ satus.components.modal = function(component, skeleton) {
 			case 'confirm':
 				if (skeleton.buttons?.cancel) {
 					// modal.confirm.buttons variant have own closing mechanism, lets try to click cancel button
-					if (skeleton.buttons.cancel1?.rendered?.click && satus.isFunction(skeleton.buttons.cancel.rendered.click)) {
+					if (skeleton.buttons.cancel?.rendered?.click && satus.isFunction(skeleton.buttons.cancel.rendered.click)) {
 						skeleton.buttons.cancel.rendered.click();
 					} else {
 						// cant find cancel button, just force close it
