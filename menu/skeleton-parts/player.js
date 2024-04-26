@@ -1065,55 +1065,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 							component: "button",
 							text: "hidePlayerControlsBarButtons",
 							on: {
-								click: {
-									component: "section",
-									variant: "card",
-			
-									player_play_button: {
-										component: "switch",
-										text: "playPause"
-									},
-									player_previous_button: {
-										component: "switch",
-										text: "previousVideo"
-									},
-									player_next_button: {
-										component: "switch",
-										text: "nextVideo"
-									},
-									player_volume_button: {
-										component: "switch",
-										text: "volume"
-									},
-									player_autoplay_button: {
-										component: "switch",
-										text: "autoplay"
-									},
-									player_settings_button: {
-										component: "switch",
-										text: "settings"
-									},
-									player_subtitles_button: {
-										component: "switch",
-										text: "subtitles"
-									},
-									player_miniplayer_button: {
-										component: "switch",
-										text: "nativeMiniPlayer"
-									},
-									player_view_button: {
-										component: "switch",
-										text: "viewMode"
-									},
-									player_screen_button: {
-										component: "switch",
-										text: "screen"
-									},
-									player_remote_button: {
-										component: "switch",
-										text: "remote"
-									}
-								}
+								click: 'main.layers.section.appearance.on.click.player.on.click.player_hide_controls_options.on.click'
 							}
 						},
 	}	
