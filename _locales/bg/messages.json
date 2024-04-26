@@ -2,6 +2,9 @@
     "hideHomePageShorts": {
         "message": "Премахни Shorts от началната страница"
     },
+    "qualityWithoutFocus": {
+        "message": "Качество без фокус"
+    },
     "removeShortsReelSearchResults": {
         "message": "Премахнете ролката Shorts от резултатите от търсенето"
     }

@@ -41,6 +41,9 @@
     "primaryColor": {
         "message": "Primary colour"
     },
+    "qualityWithoutFocus": {
+        "message": "Quality without focus"
+    },
     "textColor": {
         "message": "Text colour"
     },

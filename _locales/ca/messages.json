@@ -2,6 +2,9 @@
     "hideHomePageShorts": {
         "message": "Elimina els Shorts de la pàgina d'inici"
     },
+    "qualityWithoutFocus": {
+        "message": "Quality without focus"
+    },
     "removeShortsReelSearchResults": {
         "message": "Elimineu el carrossel de Shorts dels resultats de cerca"
     }
