@@ -562,6 +562,10 @@ satus.toIndex = function(index, child, parent) {
 satus.on = function(element, listeners) {
 	if (listeners) {
 		for (var type in listeners) {
+			if (type == 'parentObject') {
+				continue;
+			}
+
 			var listener = listeners[type];
 
 			if (type === 'selectionchange') {
@@ -750,52 +754,53 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 		this.properties(element, skeleton.properties);
 		this.on(element, skeleton.on);
 
-		element.storage = (function() {
-			var parent = element,
-				key = skeleton.storage || property || false,
-				value;
-
-			if (satus.isFunction(key)) {
-				key = key();
-			}
-
-			if (skeleton.storage !== false) {
-				if (key) {
-					value = satus.storage.get(key);
-				}
-
-				if (skeleton.hasOwnProperty('value') && value === undefined) {
-					value = skeleton.value;
-				}
-			}
-
-			return Object.defineProperties({}, {
-				key: {
-					get: function() {
-						return key;
-					},
-					set: function(string) {
-						key = string;
-					}
-				},
-				value: {
-					get: function() {
-						return value;
-					},
-					set: function(val) {
-						value = val;
-
-						if (satus.storage.get(key) != val) {
-							if (skeleton.storage !== false) {
-								satus.storage.set(key, val);
-							}
+		// dont add storage component to storage: false elements
+		if (skeleton.storage != false) {
+			element.storage = (function() {
+				var parent = element,
+					key = skeleton.storage || property || false,
+					value;
 	
-							parent.dispatchEvent(new CustomEvent('change'));
+				if (satus.isFunction(key)) {
+					key = key();
+				}
+	
+				if (skeleton.storage !== false) {
+					if (key) {
+						value = satus.storage.get(key);
+					}
+	
+					if (skeleton.hasOwnProperty('value') && value === undefined) {
+						value = skeleton.value;
+					}
+				}
+	
+				return Object.defineProperties({}, {
+					key: {
+						get: function() {
+							return key;
+						},
+						set: function(string) {
+							key = string;
+						}
+					},
+					value: {
+						get: function() {
+							return value;
+						},
+						set: function(val) {
+							value = val;
+	
+							if (satus.storage.get(key) != val) {
+								satus.storage.set(key, val);
+		
+								parent.dispatchEvent(new CustomEvent('change'));
+							}
 						}
 					}
-				}
-			});
-		}());
+				});
+			}());
+		}
 
 		if (this.components[camelizedTagName]) {
 			this.components[camelizedTagName](element, skeleton);
@@ -1127,11 +1132,36 @@ satus.components.modal = function(component, skeleton) {
 	};
 
 	component.scrim.addEventListener('click', function() {
-		// this is someone clicking outside of modal dialog, try cancel() first if default modal.confirm
-		if (skeleton.cancel && satus.isFunction(skeleton.cancel)) {
-			skeleton.cancel();
+		// this is someone clicking outside of modal dialog
+		switch (skeleton.variant) {
+			case 'confirm':
+				if (skeleton.buttons?.cancel) {
+					// modal.confirm.buttons variant have own closing mechanism, lets try to click cancel button
+					if (skeleton.buttons.cancel?.rendered?.click && satus.isFunction(skeleton.buttons.cancel.rendered.click)) {
+						skeleton.buttons.cancel.rendered.click();
+					} else {
+						// cant find cancel button, just force close it
+						this.parentNode.close();
+					}
+				} else {
+					// modal.confirm simplified variant, try optional cancel() then close()
+					if (skeleton.cancel && satus.isFunction(skeleton.cancel)) {
+						skeleton.cancel();
+					}
+					this.parentNode.close();
+				}
+				break;
+
+			case 'vertical-menu':
+				this.parentNode.close();
+				break;
+				
+			case 'shortcut':
+			case 'color-picker':
+			// click cancel button
+				skeleton.actions.cancel.rendered.click();
+				break;
 		}
-		this.parentNode.close();
 	});
 
 	if (satus.isset(skeleton.content)) {
@@ -1177,9 +1207,10 @@ satus.components.modal.confirm = function(component, skeleton) {
 				},
 				on: {
 					click: function() {
-						// no listeners for this Event currently exist in the codebase
-						this.modalProvider.dispatchEvent(new CustomEvent('cancel'));
-						this.modalProvider.skeleton.cancel();
+						// cancel() is optional in modal.confirm simplified variant
+						if (this.modalProvider.skeleton.cancel && satus.isFunction(this.modalProvider.skeleton.cancel)) {
+							this.modalProvider.skeleton.cancel();
+						}
 						this.modalProvider.close();
 					}
 				}
@@ -1192,9 +1223,10 @@ satus.components.modal.confirm = function(component, skeleton) {
 				},
 				on: {
 					click: function() {
-						// no listeners for this Event currently exist in the codebase
-						this.modalProvider.dispatchEvent(new CustomEvent('confirm'));
-						this.modalProvider.skeleton.ok();
+						// ok() is optional in modal.confirm simplified variant
+						if (this.modalProvider.skeleton.ok && satus.isFunction(this.modalProvider.skeleton.ok)) {
+							this.modalProvider.skeleton.ok();
+						}
 						this.modalProvider.close();
 					}
 				}
@@ -1311,11 +1343,17 @@ satus.components.textField = function(component, skeleton) {
 		},
 		set: function(value) {
 			this.input.value = value;
+
+			this.dispatchEvent(new CustomEvent('change'));
 		}
 	});
 
 	if (skeleton.syntax) {
 		component.syntax.set(skeleton.syntax);
+	}
+
+	if (component.skeleton.storage) {
+		component.value = component.storage.value;
 	}
 
 	selection.setAttribute('disabled', '');
@@ -1417,16 +1455,25 @@ satus.components.textField = function(component, skeleton) {
 		component.hiddenValue.textContent = '';
 	};
 
-	document.addEventListener('selectionchange', function(event) {
+	// global listener, make sure we remove when element no longer exists
+	function selectionchange(event) {
+		if (!document.body.contains(component)) {
+			document.removeEventListener('selectionchange', selectionchange);
+			return;
+		}
 		component.lineNumbers.update();
 		component.pre.update();
 		component.cursor.update();
-	});
+	};
+	
+	document.addEventListener('selectionchange', selectionchange);
 
 	input.addEventListener('input', function() {
 		var component = this.parentNode.parentNode;
 
-		component.storage.value = this.value;
+		if (component.skeleton.storage) {
+			component.storage.value = this.value;
+		}
 
 		component.lineNumbers.update();
 		component.pre.update();
@@ -1450,21 +1497,11 @@ satus.components.textField = function(component, skeleton) {
 		this.cursor.update();
 	});
 
-	component.value = component.storage.value || '';
-
 	component.addEventListener('render', function() {
 		component.lineNumbers.update();
 		component.pre.update();
 		component.cursor.update();
 	});
-
-	if (skeleton.on) {
-		for (var type in skeleton.on) {
-			input.addEventListener(type, function(event) {
-				this.parentNode.parentNode.dispatchEvent(new Event(event.type));
-			});
-		}
-	}
 };
 /*--------------------------------------------------------------
 >>> CHART
@@ -1879,7 +1916,7 @@ satus.components.colorPicker = function(component, skeleton) {
 							var modal = this.skeleton.parentSkeleton.parentSkeleton,
 								hsl = modal.value;
 
-							hsl[0] = this.storage.value;
+							hsl[0] = this.value;
 
 							this.previousSibling.style.backgroundColor = 'hsl(' + hsl[0] + 'deg,' + hsl[1] + '%, ' + hsl[2] + '%)';
 							this.parentNode.previousSibling.style.backgroundColor = 'hsl(' + hsl[0] + 'deg, 100%, 50%)';
@@ -1931,7 +1968,7 @@ satus.components.colorPicker = function(component, skeleton) {
 					}
 				}
 			}
-		}, this.baseProvider.layers[0]);
+		}, this.baseProvider);
 	});
 };
 /*--------------------------------------------------------------
@@ -1994,13 +2031,12 @@ satus.components.slider = function(component, skeleton) {
 	input.min = skeleton.min || 0;
 	input.max = skeleton.max || 1;
 	input.step = skeleton.step || 1;
-	input.value = component.storage.value || skeleton.value || 0;
+	input.value = component.storage?.value || skeleton.value || 0;
 
 	text_input.addEventListener('blur', function() {
 		var component = this.parentNode.parentNode;
 
 		component.input.value = Number(this.value.replace(/[^0-9.]/g, ''));
-		component.storage.value = Number(component.input.value);
 
 		component.update();
 	});
@@ -2010,7 +2046,6 @@ satus.components.slider = function(component, skeleton) {
 			var component = this.parentNode.parentNode;
 
 			component.input.value = Number(this.value.replace(/[^0-9.]/g, ''));
-			component.storage.value = Number(component.input.value);
 
 			component.update();
 		}
@@ -2019,7 +2054,7 @@ satus.components.slider = function(component, skeleton) {
 	input.addEventListener('input', function() {
 		var component = this.parentNode.parentNode;
 
-		component.storage.value = Number(this.value);
+		component.value = Number(this.value);
 
 		component.update();
 	});
@@ -2253,6 +2288,7 @@ satus.components.shortcut = function(component, skeleton) {
 	component.addEventListener('click', function() {
 		satus.render({
 			component: 'modal',
+			variant: 'shortcut',
 			properties: {
 				parent: this
 			},
@@ -3139,7 +3175,7 @@ satus.user.device.connection = function() {
 --------------------------------------------------------------*/
 
 satus.search = function(query, object, callback) {
-	var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label'],
+	var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button'],
 		threads = 0,
 		results = {},
 		excluded = [
@@ -3158,12 +3194,18 @@ satus.search = function(query, object, callback) {
 	function parse(items, parent) {
 		threads++;
 
-		for (var key in items) {
-			if (excluded.indexOf(key) === -1) {
+		for (const key in items) {
+			if (!excluded.includes(key)) {
 				var item = items[key];
 
-				if (item.component && item.text && elements.indexOf(item.component) !== -1
-					&& (satus.locale.data[item.text] ? satus.locale.data[item.text] : item.text).toLowerCase().indexOf(query) !== -1) {
+				if (item.component && item.text
+					// list of elements we allow search on
+					&& elements.includes(item.component)
+					// only pass buttons whose parents are variant: 'card' or special case 'appearance' (this one abuses variant tag for CSS)
+					&& (item.component != 'button' || item.parentObject?.variant == "card" || item.parentObject?.variant == "appearance")
+					// try to match query against localized description, fallback on component name
+					&& (satus.locale.data[item.text] ? satus.locale.data[item.text] : item.text).toLowerCase().includes(query)) {
+					// plop matching results in array - this means we cant have two elements with same name in results
 					results[key] = Object.assign({}, item);
 				}
 
