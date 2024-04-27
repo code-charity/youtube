@@ -29,7 +29,7 @@ ImprovedTube.childHandler = function (node) { //console.log(node.nodeName);
 			//console.log("node.nodeName:CHILD-"+i+":"+children[i].id+",class:"+children[i].className+","+children[i]+"("+children[i].nodeName+")");
 			i++;
 		}
-	}    
+	}	
 };  */
 
 ImprovedTube.ytElementsHandler = function (node) {
@@ -47,31 +47,31 @@ ImprovedTube.ytElementsHandler = function (node) {
 				this.blocklist('channel', node);
 			}
 		}
-	} /* else if (name === 'META') {               //<META> infos are not updated when clicking related videos...
-         if(node.getAttribute('name')) {
-            //if(node.getAttribute('name') === 'title')         {ImprovedTube.title = node.content;}        //duplicate
-            //if(node.getAttribute('name') === 'description')       {ImprovedTube.description = node.content;}  //duplicate
-            //if node.getAttribute('name') === 'themeColor')            {ImprovedTube.themeColor = node.content;}   //might help our darkmode/themes
+	} /* else if (name === 'META') {			   //<META> infos are not updated when clicking related videos...
+		 if(node.getAttribute('name')) {
+			//if(node.getAttribute('name') === 'title')		 {ImprovedTube.title = node.content;}		//duplicate
+			//if(node.getAttribute('name') === 'description')	   {ImprovedTube.description = node.content;}  //duplicate
+			//if node.getAttribute('name') === 'themeColor')			{ImprovedTube.themeColor = node.content;}   //might help our darkmode/themes
 //Do we need any of these here before the player starts?
-            //if(node.getAttribute('name') === 'keywords')          {ImprovedTube.keywords = node.content;}
-            } else if (node.getAttribute('itemprop')) {
-            //if(node.getAttribute('itemprop') === 'name')          {ImprovedTube.title = node.content;}
-            if(node.getAttribute('itemprop') === 'genre')           {ImprovedTube.category  = node.content;}
-            //if(node.getAttribute('itemprop') === 'channelId')     {ImprovedTube.channelId = node.content;}
-            //if(node.getAttribute('itemprop') === 'videoId')       {ImprovedTube.videoId = node.content;}
+			//if(node.getAttribute('name') === 'keywords')		  {ImprovedTube.keywords = node.content;}
+			} else if (node.getAttribute('itemprop')) {
+			//if(node.getAttribute('itemprop') === 'name')		  {ImprovedTube.title = node.content;}
+			if(node.getAttribute('itemprop') === 'genre')		   {ImprovedTube.category  = node.content;}
+			//if(node.getAttribute('itemprop') === 'channelId')	 {ImprovedTube.channelId = node.content;}
+			//if(node.getAttribute('itemprop') === 'videoId')	   {ImprovedTube.videoId = node.content;}
 //The following infos will enable awesome, smart features.  Some of which everyone should use.
-            //if(node.getAttribute('itemprop') === 'description')   {ImprovedTube.description = node.content;}
-            //if(node.getAttribute('itemprop') === 'duration')      {ImprovedTube.duration = node.content;}
-            //if(node.getAttribute('itemprop') === 'interactionCount'){ImprovedTube.views = node.content;}
-            //if(node.getAttribute('itemprop') === 'isFamilyFriendly'){ImprovedTube.isFamilyFriendly = node.content;}
-            //if(node.getAttribute('itemprop') === 'unlisted')      {ImprovedTube.unlisted = node.content;}
-            //if(node.getAttribute('itemprop') === 'regionsAllowed'){ImprovedTube.regionsAllowed = node.content;}
-            //if(node.getAttribute('itemprop') === 'paid')          {ImprovedTube.paid = node.content;}
-            // if(node.getAttribute('itemprop') === 'datePublished' ){ImprovedTube.datePublished = node.content;}
-                    //to use in the "how long ago"-feature, not to fail without API key?  just like the "day-of-week"-feature above
-            // if(node.getAttribute('itemprop') === 'uploadDate')   {ImprovedTube.uploadDate = node.content;}
-        }
-    }  */
+			//if(node.getAttribute('itemprop') === 'description')   {ImprovedTube.description = node.content;}
+			//if(node.getAttribute('itemprop') === 'duration')	  {ImprovedTube.duration = node.content;}
+			//if(node.getAttribute('itemprop') === 'interactionCount'){ImprovedTube.views = node.content;}
+			//if(node.getAttribute('itemprop') === 'isFamilyFriendly'){ImprovedTube.isFamilyFriendly = node.content;}
+			//if(node.getAttribute('itemprop') === 'unlisted')	  {ImprovedTube.unlisted = node.content;}
+			//if(node.getAttribute('itemprop') === 'regionsAllowed'){ImprovedTube.regionsAllowed = node.content;}
+			//if(node.getAttribute('itemprop') === 'paid')		  {ImprovedTube.paid = node.content;}
+			// if(node.getAttribute('itemprop') === 'datePublished' ){ImprovedTube.datePublished = node.content;}
+					//to use in the "how long ago"-feature, not to fail without API key?  just like the "day-of-week"-feature above
+			// if(node.getAttribute('itemprop') === 'uploadDate')   {ImprovedTube.uploadDate = node.content;}
+		}
+	}  */
 	else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
 		//can be precise   previously  node.parentComponent  & node.parentComponent.parentComponent
 		if (node.closest("YTD-MENU-RENDERER")
@@ -264,11 +264,11 @@ ImprovedTube.ytElementsHandler = function (node) {
 										  ImprovedTube.chapters(node);
 									  }, 200);
 								  } /* else if (name === 'TP-YT-PAPER-BUTTON') {
-        if ( (id === 'expand-sizer' || id === 'expand') && node.parentNode.id === 'description-inline-expander') {
-            setTimeout(function () {
-                ImprovedTube.expandDescription(node);                   console.log("EXPAND DESCRIPTION, OLD WAY")
-            }, 750);
-        }} */
+		if ( (id === 'expand-sizer' || id === 'expand') && node.parentNode.id === 'description-inline-expander') {
+			setTimeout(function () {
+				ImprovedTube.expandDescription(node);				   console.log("EXPAND DESCRIPTION, OLD WAY")
+			}, 750);
+		}} */
 	}
 
 };
@@ -387,23 +387,35 @@ ImprovedTube.initPlayer = function () {
 	}
 };
 
-ImprovedTube.playerOnTimeUpdate = function () {
-	if (ImprovedTube.video_src !== this.src) {
-		ImprovedTube.video_src = this.src;
+var timeUpdateInterval = null;
+var noTimeUpdate = null;
 
-		if (ImprovedTube.initialVideoUpdateDone !== true) {
-			ImprovedTube.playerQuality();
+ImprovedTube.playerOnTimeUpdate = function() {
+	var currentTime = Date.now();
+		if (!timeUpdateInterval) {
+			timeUpdateInterval = setInterval(function() {
+				if (ImprovedTube.video_src !== this.src) {
+					ImprovedTube.video_src = this.src;
+
+					if (ImprovedTube.initialVideoUpdateDone !== true) {
+						ImprovedTube.playerQuality();
+					}
+				} else if (ImprovedTube.latestVideoDuration !== this.duration) {
+					ImprovedTube.latestVideoDuration = this.duration;
+					
+					ImprovedTube.playerQuality();
+				}
+
+				ImprovedTube.alwaysShowProgressBar();
+				ImprovedTube.playerRemainingDuration();
+				ImprovedTube.played_time += .5;
+			}, 500);
 		}
-	} else if (ImprovedTube.latestVideoDuration !== this.duration) {
-		ImprovedTube.latestVideoDuration = this.duration;
-
-		ImprovedTube.playerQuality();
-	}
-
-	ImprovedTube.alwaysShowProgressBar();
-	ImprovedTube.playerRemainingDuration();
-
-	ImprovedTube.played_time += .25;
+		clearInterval(noTimeUpdate);
+		noTimeUpdate = setTimeout(function() {
+			 clearInterval(timeUpdateInterval);
+			timeUpdateInterval = null;
+		}, 987);
 };
 
 ImprovedTube.playerOnLoadedMetadata = function () {

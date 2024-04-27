@@ -495,7 +495,7 @@ ImprovedTube.playerAutofullscreen = function () {
 QUALITY
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerQuality = function (quality) {
-    if (!quality) var quality = this.storage.player_quality;
+    if (!quality) quality = this.storage.player_quality;
     if (quality && quality !== 'auto') {
         var player = this.elements.player;
         if (player && player.getAvailableQualityLevels && !player.dataset.defaultQuality) {
