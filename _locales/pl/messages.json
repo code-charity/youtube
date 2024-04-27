@@ -704,6 +704,9 @@
     "quality": {
         "message": "Jakość"
     },
+    "qualityWithoutFocus": {
+        "message": "Jakość bez ostrości"
+    },
     "raised": {
         "message": "Podniesione"
     },
