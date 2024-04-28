@@ -495,8 +495,7 @@ ImprovedTube.playerAutofullscreen = function () {
 QUALITY
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerQuality = function (quality = this.storage.player_quality) {
-	let player = this.elements.player;
-	if (quality && player && player.getAvailableQualityLevels
+	if (quality && (let player = this.elements.player) && player.getAvailableQualityLevels
 		&& (!player.dataset.defaultQuality || player.dataset.defaultQuality != quality)) {
 		let available_quality_levels = player.getAvailableQualityLevels();
 		function closest(num, arr) {
@@ -527,17 +526,16 @@ ImprovedTube.playerQuality = function (quality = this.storage.player_quality) {
 QUALITY WITHOUT FOCUS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerQualityWithoutFocus = function () {
-	let player = this.elements.player,
 		qualityWithoutFocus = this.storage.player_quality_without_focus;
-	if (qualityWithoutFocus && qualityWithoutFocus !== 'auto' && player && player.getPlaybackQuality) {
+	if (qualityWithoutFocus && qualityWithoutFocus !== 'auto' ) {
 		if (this.focus) {
 			if (ImprovedTube.qualityBeforeBlur) {
 				ImprovedTube.playerQuality(ImprovedTube.qualityBeforeBlur);
-			}
+			} 	
 		} else {
-			if (!ImprovedTube.elements.video.paused) {
-				ImprovedTube.qualityBeforeBlur = player.getPlaybackQuality();
-				ImprovedTube.playerQuality(qualityWithoutFocus);
+			if ((let player = this.elements.player) && player.getPlaybackQuality && !ImprovedTube.elements.video.paused) {
+				ImprovedTube.qualityBeforeBlur = player.getPlaybackQuality();	
+			  	ImprovedTube.playerQuality(qualityWithoutFocus);		
 			}
 		}
 	}
