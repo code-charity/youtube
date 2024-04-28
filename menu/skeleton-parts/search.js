@@ -33,8 +33,8 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 		input: function (event) {
 			let self = this,
 				value = this.value.trim();
-
-			extension.search = value;
+				
+			if (value) extension.search = value;
 
 			if (value.length > 0) {
 				satus.search(value, extension.skeleton, function (results) {
