@@ -764,63 +764,12 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'select',
 			text: 'qualityWithoutFocus',
 			id: 'player_quality_without_focus',
-			options: [{
-				text: 'disabled',
-				value: 'disabled'
-			}, {
-				text: '144p',
-				value: 'tiny'
-			}, {
-				text: '240p',
-				value: 'small'
-			}, {
-				text: '360p',
-				value: 'medium'
-			}, {
-				text: '480p',
-				value: 'large'
-			}, {
-				text: '720p',
-				value: 'hd720'
-			}, {
-				text: '1080p',
-				value: 'hd1080'
-			}, {
-				text: '1440p',
-				value: 'hd1440'
-			}, {
-				text: '2160p',
-				value: 'hd2160'
-			}, {
-				text: '2880p',
-				value: 'hd2880'
-			}, {
-				text: '4320p',
-				value: 'highres'
-			}],
+			options: function () {
+						return extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options;
+			},
 			on: {
 				render: function () {
-					if (satus.storage.get('player_h264')) {
-						if (this.childNodes[2].selectedIndex >6) {
-							this.childNodes[1].style = 'color: red!important; font-weight: bold;';
-							this.childNodes[1].textContent = '1080p';
-						} else {
-							this.childNodes[1].style = '';
-							this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
-						}
-						for (let index =7; index <= 10; index++) {
-							this.childNodes[2].childNodes[index].style = 'color: red!important; font-weight: bold;';
-						}
-					} else if (satus.storage.get('block_vp9') && satus.storage.get('block_h264')) {
-						this.childNodes[1].style = 'color: red!important; font-weight: bold;';
-						this.childNodes[1].textContent = 'Video disabled';
-					} else {
-						this.childNodes[1].style = '';
-						this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
-						for (let index =7; index <= 10; index++) {
-							this.childNodes[2].childNodes[index].style = '';
-						}
-					}
+						extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
 				}
 			}
 		},
