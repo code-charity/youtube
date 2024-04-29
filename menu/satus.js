@@ -791,18 +791,16 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 						set: function(val) {
 							value = val;
 	
-							if (skeleton.storage !== false) {
-								if (val === 'satus_remove') {
-									// 'satus_remove' is a special key signalling default option, remove instead of storing
-									satus.storage.remove(key);
+							if (val === 'satus_remove') {
+								// 'satus_remove' is a special key signalling default option, remove instead of storing
+								satus.storage.remove(key);
 
-									parent.dispatchEvent(new CustomEvent('change'));
-								} else if (satus.storage.get(key) != val) {
-									// only store if actually different value
-									satus.storage.set(key, val);
+								parent.dispatchEvent(new CustomEvent('change'));
+							} else if (satus.storage.get(key) != val) {
+								// only store if actually different value
+								satus.storage.set(key, val);
 
-									parent.dispatchEvent(new CustomEvent('change'));
-								}
+								parent.dispatchEvent(new CustomEvent('change'));
 							}
 						}
 					}
