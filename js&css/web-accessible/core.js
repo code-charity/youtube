@@ -358,6 +358,18 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'blocklistActivate':
 					if (ImprovedTube.storage.blocklist_activate === true) {document.querySelectorAll('.it-add-to-blocklist').forEach(e => e.remove());}
 					break
+
+				case 'subtitlesFontFamily':
+				case 'subtitlesFontColor':
+				case 'subtitlesFontSize':
+				case 'subtitlesBackgroundColor':
+				case 'subtitlesWindowColor':
+				case 'subtitlesWindowOpacity':
+				case 'subtitlesCharacterEdgeStyle':
+				case 'subtitlesFontOpacity':
+				case 'subtitlesBackgroundOpacity':
+					ImprovedTube.subtitlesUserSettings();
+					break
 			}
 
 			if (ImprovedTube[camelized_key]) {
