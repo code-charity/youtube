@@ -509,7 +509,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 							value: 3
 						}, {
 							text: 'Proportional Sans-Serif',
-							value: 4
+							value: 'satus_remove'
 						}, {
 							text: 'Casual',
 							value: 5
