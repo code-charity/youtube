@@ -858,8 +858,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 												ok: function () {
 													where.flip(true);
 													where.parentElement.skeleton.sanitize();
-												},
-												cancel: function () {
 												}
 											}, extension.skeleton.rendered);
 										} else {
@@ -889,8 +887,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 												ok: function () {
 													where.flip(true);
 													where.parentElement.skeleton.sanitize();
-												},
-												cancel: function () {
 												}
 											}, extension.skeleton.rendered);
 										} else {
@@ -905,13 +901,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 							}
 						},
 						sanitize: function () {
-							if (satus.storage.get('player_h264')) {
-								if ((!satus.storage.get('block_vp9') || !satus.storage.get('block_av1') && satus.storage.get('block_h264')) ||
-									(satus.storage.get('block_vp9') && satus.storage.get('block_av1') && satus.storage.get('block_h264'))) {
-									satus.storage.set('player_h264', false);
-								}
-							} else if (satus.storage.get('block_vp9') && satus.storage.get('block_av1') && !satus.storage.get('block_h264')) {
+							if (satus.storage.get('block_vp9') && satus.storage.get('block_av1') && !satus.storage.get('block_h264')) {
 								satus.storage.set('player_h264', true);
+							} else {
+								satus.storage.remove('player_h264');
 							}
 						}
 					}
@@ -925,7 +918,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 				},
 				on: {
 					render: function () {
-						var codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
+						let codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
 
 						if (codecs.includes('h.264') || codecs.includes('vp9')) {
 							this.style = '';
@@ -948,14 +941,14 @@ extension.skeleton.main.layers.section.player.on.click = {
 			custom: true,
 			on: {
 				click: function () {
-					let skeleton = this.parentNode.skeleton;
 					// refresh player_codecs/optimize_codec_for_hardware_acceleration elements when we change codecs
-					let refresh = function () {
+					function refresh() {
 						document.getElementById('player_quality').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_quality_without_focus').dispatchEvent(new CustomEvent('render'));
-					}
+					};
+
 					if (this.dataset.value === 'false') {
 						let where = this;
 						satus.render({
@@ -967,20 +960,18 @@ extension.skeleton.main.layers.section.player.on.click = {
 								where.flip(true);
 								satus.storage.set('block_vp9', true);
 								satus.storage.set('block_av1', true);
-								satus.storage.set('block_h264', false);
+								satus.storage.remove('block_h264');
 								refresh();
-							},
-							cancel: function () {
-								// nothing happens when we cancel
 							}
 						}, extension.skeleton.rendered);
 					} else {
 						// manually turn switch OFF
 						this.flip(false);
 						// reset all codecs to unlocked state
-						satus.storage.set('block_vp9', false);
-						satus.storage.set('block_av1', false);
-						satus.storage.set('block_h264', false);
+						satus.storage.remove('block_vp9');
+						satus.storage.remove('block_av1');
+						satus.storage.remove('block_h264');
+						satus.storage.remove('player_h264');
 						refresh();
 					}
 				}
