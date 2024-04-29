@@ -6,9 +6,7 @@ extension.skeleton.main.layers.section.player = {
 	component: 'button',
 	variant: 'player',
 	category: true,
-	on: {
-		click: {}
-	},
+	on: {},
 
 	icon: {
 		component: 'span',
@@ -702,7 +700,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			id: 'player_quality',
 			options: [{
 				text: 'auto',
-				value: 'auto'
+				value: 'satus_remove'
 			}, {
 				text: '144p',
 				value: 'tiny'
