@@ -1068,7 +1068,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'saveAs',
 			options: [{
 				text: 'file',
-				value: 'file'
+				value: 'satus_remove'
 			}, {
 				text: 'clipboard',
 				value: 'clipboard'
@@ -1105,28 +1105,28 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'section',
 			variant: 'card',
 			title: 'extraButtonsBelowThePlayer',
-							below_player_screenshot: {
-								component: 'switch',
-								text: 'screenshot',
-								value: true
-							},
-							below_player_pip: {
-								component: 'switch',
-								text: 'pictureInPicture',
-								value: true
-							},
-							below_player_loop: {
-								component: 'switch',
-								text: 'loop',
-								value: true
-							}
-						},
-						player_hide_controls_options: {
-							component: "button",
-							text: "hidePlayerControlsBarButtons",
-							on: {
-								click: 'main.layers.section.appearance.on.click.player.on.click.player_hide_controls_options.on.click'
-							}
-						},
-	}	
+			below_player_screenshot: {
+				component: 'switch',
+				text: 'screenshot',
+				value: true
+			},
+			below_player_pip: {
+				component: 'switch',
+				text: 'pictureInPicture',
+				value: true
+			},
+			below_player_loop: {
+				component: 'switch',
+				text: 'loop',
+				value: true
+			}
+		},
+		player_hide_controls_options: {
+			component: "button",
+			text: "hidePlayerControlsBarButtons",
+			on: {
+				click: 'main.layers.section.appearance.on.click.player.on.click.player_hide_controls_options.on.click'
+			}
+		},
+	}
 };
