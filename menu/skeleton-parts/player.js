@@ -845,7 +845,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 						block_vp9: {
 							component: 'switch',
 							text: 'blockVp9',
-							value: false,
 							custom: true,
 							on: {
 								click: function () {
@@ -877,7 +876,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 						block_h264: {
 							component: 'switch',
 							text: 'blockH264',
-							value: false,
 							custom: true,
 							on: {
 								click: function () {
@@ -947,7 +945,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'codecH264',
 			storage: 'player_h264',
-			value: false,
 			custom: true,
 			on: {
 				click: function () {
