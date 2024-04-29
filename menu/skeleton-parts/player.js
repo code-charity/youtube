@@ -526,7 +526,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						text: 'fontColor',
 						options: [{
 							text: 'white',
-							value: '#fff'
+							value: 'satus_remove'
 						}, {
 							text: 'yellow',
 							value: '#ff0'
@@ -561,7 +561,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 							value: -1
 						}, {
 							text: '100%',
-							value: 0
+							value: 'satus_remove'
 						}, {
 							text: '150%',
 							value: 1
@@ -602,7 +602,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 							value: '#f00'
 						}, {
 							text: 'black',
-							value: '#000'
+							value: 'satus_remove'
 						}]
 					},
 					subtitles_background_opacity: {
@@ -639,7 +639,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 							value: '#f00'
 						}, {
 							text: 'black',
-							value: '#000'
+							value: 'satus_remove'
 						}]
 					},
 					subtitles_window_opacity: {
@@ -655,7 +655,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						text: 'characterEdgeStyle',
 						options: [{
 							text: 'none',
-							value: 0
+							value: 'satus_remove'
 						}, {
 							text: 'dropShadow',
 							value: 4
