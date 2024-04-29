@@ -2495,22 +2495,39 @@ satus.components.switch = function(component, skeleton) {
 };
 
 satus.components.switch.flip = function(val) {
+	let where = this;
+
+	function flipTrue() {
+		where.dataset.value = 'true';
+		if (where.skeleton.value == true) {
+			// skeleton.value: true makes this a default true flip switch where the only active state we save is false
+			where.storage.value = 'satus_remove';
+		} else {
+			where.storage.value = true;
+		}
+	};
+	function flipFalse() {
+		where.dataset.value = 'false';
+		if (where.skeleton.value == true) {
+			// skeleton.value: true makes this a default true flip switch where the only active state we save is false
+			where.storage.value = false;
+		} else {
+			where.storage.value = 'satus_remove';
+		}
+	};
+			
 	switch(val) {
 		case true:
-			this.dataset.value = 'true';
-			this.storage.value = true;
+			flipTrue();
 			break;
 		case false:
-			this.dataset.value = 'false';
-			this.storage.value = false;
+			flipFalse();
 			break;
 		case undefined:
-			if (this.dataset.value === 'true') {
-				this.dataset.value = 'false';
-				this.storage.value = false;
+			if (this.dataset.value === 'false') {
+				flipTrue();
 			} else {
-				this.dataset.value = 'true';
-				this.storage.value = true;
+				flipFalse();
 			}
 			break;
 	}
