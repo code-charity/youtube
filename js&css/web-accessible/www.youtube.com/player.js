@@ -203,26 +203,16 @@ ImprovedTube.subtitles = function () {
 SUBTITLES LANGUAGE
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesLanguage = function () {
-	var option = this.storage.subtitles_language;
-	if (this.isset(option) && option !== 'default') {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
+	const option = this.storage.subtitles_language,
+		player = this.elements.player,
+		button = this.elements.player_subtitles_button;
 
-		if (player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
-			var tracklist = this.elements.player.getOption('captions', 'tracklist', {
-				includeAsr: true
-			});
+	if (option && player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
+		const tracklists = player.getOption('captions', 'tracklist', {includeAsr: true}),
+			matchedTrack = tracklists.find(element => element.languageCode.includes(option) && (!element.vss_id.includes("a.") || this.storage.auto_generate));
 
-			var matchTrack = false;
-			for (var i =0, l = tracklist.length; i<l; i++){
-				if (tracklist[i].languageCode.includes(option)) {
-					if( false === tracklist[i].vss_id.includes("a.") || true === this.storage.auto_generate){
-						this.elements.player.setOption('captions', 'track', tracklist[i]);
-						matchTrack = true; break;
-					}
-				}
-			}
-		 //   if (!matchTrack){  player.toggleSubtitles();  }
+		if (matchedTrack) {
+			player.setOption('captions', 'track', matchedTrack);
 		}
 	}
 };
