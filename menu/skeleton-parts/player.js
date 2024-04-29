@@ -160,7 +160,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						text: 'language',
 						id: 'language_closed_caption',
 						options: [{
-							value: 'default',
+							value: 'satus_remove',
 							text: 'default_CC'
 						}, {
 							value: 'af',
