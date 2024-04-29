@@ -218,187 +218,61 @@ ImprovedTube.subtitlesLanguage = function () {
 };
 /*------------------------------------------------------------------------------
 SUBTITLES FONT FAMILY
+SUBTITLES FONT COLOR
+SUBTITLES FONT SIZE
+SUBTITLES BACKGROUND COLOR
+SUBTITLES BACKGROUND OPACITY
+SUBTITLES WINDOW COLOR
+SUBTITLES WINDOW OPACITY
+SUBTITLES CHARACTER EDGE STYLE
+SUBTITLES FONT OPACITY
+default = {
+    "fontFamily": 4,
+    "color": "#fff",
+    "fontSizeIncrement": 0,
+    "background": "#080808",
+    "backgroundOpacity": 0.75,
+    "windowColor": "#080808",
+    "windowOpacity": 0,
+    "charEdgeStyle": 0,
+    "textOpacity": 1,
+},
 ------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesFontFamily = function () {
-	const option = this.storage.subtitles_font_family,
+ImprovedTube.subtitlesUserSettings = function () {
+	const ourSettings = [
+			['fontFamily', 'number', this.storage.subtitles_font_family],
+			['color', 'color', this.storage.subtitles_font_color],
+			['fontSizeIncrement', 'number', this.storage.subtitles_font_size],
+			['background', 'color', this.storage.subtitles_background_color],
+			['backgroundOpacity', 'fraction', this.storage.subtitles_background_opacity],
+			['windowColor', 'color', this.storage.subtitles_window_color],
+			['windowOpacity', 'fraction', this.storage.subtitles_window_opacity],
+			['charEdgeStyle', 'number', this.storage.subtitles_character_edge_style],
+			['textOpacity', 'fraction', this.storage.subtitles_font_opacity]
+		],
+		option = ourSettings.filter(element => element[2]),
 		player = this.elements.player,
 		button = this.elements.player_subtitles_button;
 
-	if (option && player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
+	if (option.length && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
 		let settings = player.getSubtitlesUserSettings();
+		
+		for (const value of option) {
+			switch(value[1]) {
+				case 'number':
+					settings[value[0]] = Number(value[2]);
+					break;
 
-		if (settings) {
-			settings.fontFamily = Number(option);
-			player.updateSubtitlesUserSettings(settings);
-		}
-	}
-};
-/*------------------------------------------------------------------------------
-SUBTITLES FONT COLOR
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesFontColor = function () {
-	var option = this.storage.subtitles_font_color;
+				case 'color':
+					settings[value[0]] = value[2];
+					break;
 
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.color = option;
-
-				player.updateSubtitlesUserSettings(settings);
+				case 'fraction':
+					settings[value[0]] = Number(option) / 100;
+					break;
 			}
 		}
-	}
-};
-/*------------------------------------------------------------------------------
-SUBTITLES FONT SIZE
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesFontSize = function () {
-	var option = this.storage.subtitles_font_size;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.fontSizeIncrement = Number(option);
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
-SUBTITLES BACKGROUND COLOR
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesBackgroundColor = function () {
-	var option = this.storage.subtitles_background_color;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.background = option;
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
-SUBTITLES BACKGROUND OPACITY
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesBackgroundOpacity = function () {
-	var option = this.storage.subtitles_background_opacity;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.backgroundOpacity = option / 100;
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
-SUBTITLES WINDOW COLOR
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesWindowColor = function () {
-	var option = this.storage.subtitles_window_color;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.windowColor = option;
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
-SUBTITLES WINDOW OPACITY
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesWindowOpacity = function () {
-	var option = this.storage.subtitles_window_opacity;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.windowOpacity = Number(option) / 100;
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
-SUBTITLES CHARACTER EDGE STYLE
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesCharacterEdgeStyle = function () {
-	var option = this.storage.subtitles_character_edge_style;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.charEdgeStyle = Number(option);
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
-SUBTITLES FONT OPACITY
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesFontOpacity = function () {
-	var option = this.storage.subtitles_font_opacity;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.textOpacity = option / 100;
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
+		player.updateSubtitlesUserSettings(settings);
 	}
 };
 /*------------------------------------------------------------------------------
