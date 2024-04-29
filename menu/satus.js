@@ -1581,7 +1581,7 @@ satus.components.chart.bar = function(component, skeleton) {
 >>> SELECT
 --------------------------------------------------------------*/
 satus.components.select = function(component, skeleton) {
-	var content = component.createChildElement('div', 'content');
+	let content = component.createChildElement('div', 'content');
 
 	component.childrenContainer = content;
 	component.valueElement = document.createElement('span');
@@ -1596,19 +1596,13 @@ satus.components.select = function(component, skeleton) {
 
 	if (satus.isFunction(component.options)) {
 		component.options = component.options();
-
-		if (!satus.isset(component.options)) {
-			component.options = [];
-		}
 	}
 
-	for (var i = 0, l = component.options.length; i < l; i++) {
+	for (let i = 0, l = component.options.length; i < l; i++) {
 		var option = document.createElement('option');
 
 		option.value = component.options[i].value;
-
 		satus.text(option, component.options[i].text);
-
 		component.selectElement.appendChild(option);
 	}
 
@@ -1632,18 +1626,18 @@ satus.components.select = function(component, skeleton) {
 	};
 
 	component.selectElement.addEventListener('change', function() {
-		var component = this.parentNode;
+		let component = this.parentNode;
 
 		component.storage.value = this.value;
 
 		component.render();
 	});
 
-	component.value = component.storage.value || component.options[0].value;
+	// initial select selectElement value is either stored value, or one with default special 'satus_remove' value, failing that first element is selected
+	component.value = component.storage.value || (component.options.find(element => element.value == 'satus_remove') ? 'satus_remove': false) || component.options[0].value;
 
 	component.render();
 };
-
 /*--------------------------------------------------------------
 >>> DIVIDER
 --------------------------------------------------------------*/
