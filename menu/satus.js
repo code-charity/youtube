@@ -3195,9 +3195,8 @@ satus.user.device.connection = function() {
 /*--------------------------------------------------------------
 # SEARCH
 --------------------------------------------------------------*/
-
 satus.search = function(query, object, callback) {
-	var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button'],
+	let elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button'],
 		threads = 0,
 		results = {},
 		excluded = [
@@ -3216,9 +3215,8 @@ satus.search = function(query, object, callback) {
 	function parse(items, parent) {
 		threads++;
 
-		for (const key in items) {
+		for (const [key, item] of Object.entries(items)) {
 			if (!excluded.includes(key)) {
-				var item = items[key];
 
 				if (item.component && item.text
 					// list of elements we allow search on
@@ -3231,12 +3229,10 @@ satus.search = function(query, object, callback) {
 					results[key] = Object.assign({}, item);
 				}
 
-				if (
-					satus.isObject(item) &&
-					!satus.isArray(item) &&
-					!satus.isElement(item) &&
-					!satus.isFunction(item)
-				) {
+				if (satus.isObject(item)
+					&& !satus.isArray(item)
+					&& !satus.isElement(item)
+					&& !satus.isFunction(item)) {
 					parse(item, items);
 				}
 			}
