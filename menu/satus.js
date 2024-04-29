@@ -2473,7 +2473,7 @@ satus.components.checkbox = function(component, skeleton) {
 --------------------------------------------------------------*/
 
 satus.components.switch = function(component, skeleton) {
-	var value = satus.isset(component.storage.value) ? component.storage.value : skeleton.value;
+	let value = component.storage?.value || skeleton.value || false;
 
 	if (satus.isFunction(value)) {
 		value = value();
