@@ -2012,20 +2012,12 @@ satus.components.radio = function(component, skeleton) {
 /*--------------------------------------------------------------
 >>> SLIDER
 --------------------------------------------------------------*/
-
 satus.components.slider = function(component, skeleton) {
-	var content = component.createChildElement('div', 'content'),
+	const content = component.createChildElement('div', 'content'),
 		children_container = content.createChildElement('div', 'children-container'),
 		text_input = content.createChildElement('input'),
 		track_container = component.createChildElement('div', 'track-container'),
 		input = track_container.createChildElement('input', 'input');
-
-	component.childrenContainer = children_container;
-	component.textInput = text_input;
-	component.input = input;
-	component.track = track_container.createChildElement('div', 'track');
-
-	text_input.type = 'text';
 
 	input.type = 'range';
 	input.min = skeleton.min || 0;
@@ -2033,8 +2025,16 @@ satus.components.slider = function(component, skeleton) {
 	input.step = skeleton.step || 1;
 	input.value = component.storage?.value || skeleton.value || 0;
 
+	component.childrenContainer = children_container;
+	component.input = input;
+	component.track = track_container.createChildElement('div', 'track');
+	component.track.style.width = 100 / (input.max - input.min) * (input.value - input.min) + '%';
+	component.textInput = text_input;
+	component.textInput.type = 'text';
+	component.textInput.value = input.value;
+
 	text_input.addEventListener('blur', function() {
-		var component = this.parentNode.parentNode;
+		const component = this.parentNode.parentNode;
 
 		component.input.value = Number(this.value.replace(/[^0-9.]/g, ''));
 
@@ -2043,7 +2043,7 @@ satus.components.slider = function(component, skeleton) {
 
 	text_input.addEventListener('keydown', function(event) {
 		if (event.key === 'Enter') {
-			var component = this.parentNode.parentNode;
+			const component = this.parentNode.parentNode;
 
 			component.input.value = Number(this.value.replace(/[^0-9.]/g, ''));
 
@@ -2052,7 +2052,7 @@ satus.components.slider = function(component, skeleton) {
 	});
 
 	input.addEventListener('input', function() {
-		var component = this.parentNode.parentNode;
+		const component = this.parentNode.parentNode;
 
 		component.value = Number(this.value);
 
@@ -2060,17 +2060,22 @@ satus.components.slider = function(component, skeleton) {
 	});
 
 	component.update = function() {
-		var input = this.input;
+		const input = this.input;
 
 		this.textInput.value = input.value;
+		if (component.storage) {
+			if (component.skeleton.value == Number(input.value)) {
+				component.storage.value = 'satus_remove';
+			} else {
+				component.storage.value = Number(input.value);
+			}
+		}
 
 		this.track.style.width = 100 / (input.max - input.min) * (input.value - input.min) + '%';
 	};
 
-	component.update();
-
 	if (skeleton.on) {
-		for (var type in skeleton.on) {
+		for (const type in skeleton.on) {
 			input.addEventListener(type, function(event) {
 				this.parentNode.parentNode.dispatchEvent(new Event(event.type));
 			});
