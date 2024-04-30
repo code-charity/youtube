@@ -195,7 +195,7 @@ Chinese + Hindi + Spanish. <br></i>
 (Compare: Wikipedia Bots. Would especially help medium-size projects.) <br> 
 (+[community-list of regEx](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
 ##### 💡 Vision for the _(tweaking-/userStyle-/"modding-"_)Community:
-We can optimize things for the world, greatly prioritized: [<img src="github.png" height="18px">UUT](https://github.com/code-charity/Universal-UserTweaks) <br>  ( <i> "insteada just tweakin@home like Sisyphos" </i> )
+We can optimize things for the world, greatly prioritized: [<img src="github.png" height="18px">Crowd Fixes](https://github.com/code-charity/Universal-UserTweaks) <br>  ( <i> "insteada just tweakin@home like Sisyphos" </i> )
 <br>
 ##### 💡 Got great ideas?   
 	
