@@ -67,6 +67,8 @@ text(element, value)
 
 components.modal(component, skeleton)
 components.modal.confirm
+// modal variant: 'confirm' supports two forms: Full with user providing own skeleton.buttons, and simplified with only function
+// declarations for optional ok() and cancel(). Simplified takes care of closing popup on its own.
 components.grid
 components.textField
 			chart	chart.bar
@@ -81,7 +83,9 @@ components.divider()	base(component)	section
 			shortcut
 			checkbox
 components.switch
-components.switch.flip
+components.switch.flip(state)
+//switch variant: 'manual' disables automatic flipping on click, user provided on.click function should handle this
+//by calling this.flip(true|false) manually.
 ----------------------------------------------------------------
 >>> COLOR:
 String to array
@@ -2485,8 +2489,8 @@ satus.components.switch = function(component, skeleton) {
 	component.dataset.value = value;
 	component.flip = satus.components.switch.flip;
 
-	// 'custom' disables default onclick, user provided function should handle this functionality manually
-	if (!skeleton.custom) {
+	// switch variant: 'manual' disables automatic flipping on click, user provided function should handle switching manually
+	if (skeleton.variant != 'manual') {
 		component.addEventListener('click', function() {
 			this.flip();
 		}, true);
