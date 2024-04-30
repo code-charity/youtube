@@ -844,8 +844,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 						},
 						block_vp9: {
 							component: 'switch',
+							variant: 'manual',
 							text: 'blockVp9',
-							custom: true,
 							on: {
 								click: function () {
 									if (this.dataset.value === 'false') {
@@ -873,8 +873,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 						},
 						block_h264: {
 							component: 'switch',
+							variant: 'manual',
 							text: 'blockH264',
-							custom: true,
 							on: {
 								click: function () {
 									if (this.dataset.value === 'false') {
@@ -936,9 +936,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		h264: {
 			component: 'switch',
+			variant: 'manual',
 			text: 'codecH264',
 			storage: 'player_h264',
-			custom: true,
 			on: {
 				click: function () {
 					// refresh player_codecs/optimize_codec_for_hardware_acceleration elements when we change codecs
@@ -971,7 +971,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 						satus.storage.remove('block_vp9');
 						satus.storage.remove('block_av1');
 						satus.storage.remove('block_h264');
-						satus.storage.remove('player_h264');
 						refresh();
 					}
 				}
