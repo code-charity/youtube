@@ -15,9 +15,13 @@ extension.skeleton.header.sectionEnd.menu.on.click.activeFeatures = {
 					satus.search('', extension.skeleton, function (features) {
 						let skeleton = {};
 
-						for (const key in features) {
-							let feature = features[key],
-								default_value = feature.value,
+						for (const [key, feature] of Object.entries(features)) {
+							// search returns buttons now, skip those
+							if (feature.component === 'button') {
+								continue;
+							}
+
+							let default_value = feature.value,
 								value = feature.storage && satus.storage.get(feature.storage)
 									|| feature.radio && satus.storage.get(feature.radio.group) == feature.radio.value
 									|| satus.storage.get(key),
