@@ -71,14 +71,19 @@ components.modal.confirm
 // declarations for optional ok() and cancel(). Simplified takes care of closing popup on its own.
 components.grid
 components.textField
-			chart	chart.bar
+			chart
+			chart.bar
 			select
 components.divider()	base(component)	section
-			alert	time	sidebar
+			alert
+			time
+			sidebar
 			layers
 			list
 			colorPicker
-			radio	slider
+			radio
+// radio button controls storage.key defined by radio.group: 'key'
+			slider
 			tabs
 			shortcut
 			checkbox
@@ -1585,13 +1590,10 @@ satus.components.chart.bar = function(component, skeleton) {
 >>> SELECT
 --------------------------------------------------------------*/
 satus.components.select = function(component, skeleton) {
-	let content = component.createChildElement('div', 'content');
-
-	component.childrenContainer = content;
+	component.childrenContainer = component.createChildElement('div', 'content');
 	component.valueElement = document.createElement('span');
-	component.selectElement = document.createElement('select');
-
 	component.valueElement.className = 'satus-select__value';
+	component.selectElement = document.createElement('select');
 
 	component.appendChild(component.valueElement);
 	component.appendChild(component.selectElement);
@@ -1602,11 +1604,11 @@ satus.components.select = function(component, skeleton) {
 		component.options = component.options();
 	}
 
-	for (let i = 0, l = component.options.length; i < l; i++) {
-		var option = document.createElement('option');
+	for (const options of component.options) {
+		const option = document.createElement('option');
 
-		option.value = component.options[i].value;
-		satus.text(option, component.options[i].text);
+		option.value = options.value;
+		satus.text(option, options.text);
 		component.selectElement.appendChild(option);
 	}
 
@@ -3209,9 +3211,7 @@ satus.user.device.connection = function() {
 # SEARCH
 --------------------------------------------------------------*/
 satus.search = function(query, object, callback) {
-	let elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button'],
-		threads = 0,
-		results = {},
+	const included = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button'],
 		excluded = [
 			'baseProvider',
 			'layersProvider',
@@ -3222,6 +3222,8 @@ satus.search = function(query, object, callback) {
 			'parentElement',
 			'rendered'
 		];
+	let threads = 0,
+		results = {};
 
 	query = query.toLowerCase();
 
@@ -3233,7 +3235,7 @@ satus.search = function(query, object, callback) {
 
 				if (item.component && item.text
 					// list of elements we allow search on
-					&& elements.includes(item.component)
+					&& included.includes(item.component)
 					// only pass buttons whose parents are variant: 'card' or special case 'appearance' (this one abuses variant tag for CSS)
 					&& (item.component != 'button' || item.parentObject?.variant == "card" || item.parentObject?.variant == "appearance")
 					// try to match query against localized description, fallback on component name
