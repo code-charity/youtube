@@ -244,12 +244,12 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
-				case 'commentsSidebar':
-					if (ImprovedTube.storage.comments_sidebar === false) {
+				case 'commentsSidebarSimple':
+					if (ImprovedTube.storage.comments_sidebar_simple === false) {
 						document.querySelector("#below").appendChild(document.querySelector("#comments"));
 						document.querySelector("#secondary").appendChild(document.querySelector("#related"));
 					} else {
-						ImprovedTube.commentsSidebar();
+						ImprovedTube.commentsSidebarSimple();
 					}
 					break
 
