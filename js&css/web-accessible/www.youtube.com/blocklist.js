@@ -89,7 +89,7 @@ ImprovedTube.blocklist = function (type, node) {
 
 					const video = node.href.match(ImprovedTube.regex.video_id)?.[1],
 						  channel = node.parentNode.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url ? node.parentNode.__dataHost.__data.data.shortBylineText.runs[0].navigationEndpoint.commandMetadata.webCommandMetadata.url.match(ImprovedTube.regex.channel).groups.name : undefined,
-						  data = this.parentNode.__dataHost.__data?.data,
+						  data = this.parentNode.__dataHost.__data?.data?.title,
 						  blockedElement = node.blockedElement;
 					let title,
 						added = false,
@@ -97,12 +97,10 @@ ImprovedTube.blocklist = function (type, node) {
 
 					if (!video || !blockedElement) return; // need both video ID and blockedElement, otherwise bail
 
-					if (data?.title?.runs?.[0]?.text) {
-						title = data.title.runs[0].text;
-					} else if (data?.title?.simpleText) {
-						title = data.title.simpleText;
-					} else if (data?.headline?.simpleText) {
-						title = data.headline.simpleText;
+					if (data?.runs?.[0]?.text) {
+						title = data.runs[0].text;
+					} else if (data?.simpleText) {
+						title = data.simpleText;
 					}
 
 					if (channel && blockedElement.classList.contains('it-blocklisted-channel')) {
@@ -160,7 +158,8 @@ ImprovedTube.blocklist = function (type, node) {
 			}
 
 			button.addEventListener('click', function (event) {
-				let data = this.parentNode.__dataHost.__data.data,
+				const data = ytInitialData.metadata.channelMetadataRenderer,
+				//let data = this.parentNode.__dataHost.__data.data,
 					id = location.href.match(ImprovedTube.regex.channel).groups.name;
 
 				if (this.added) { // adding
@@ -190,8 +189,8 @@ ImprovedTube.blocklist = function (type, node) {
 			for (let thumbnails of document.querySelectorAll('a.ytd-thumbnail[href]')) {
 				this.blocklist('video', thumbnails);
 			}
-			if (document.querySelector('ytd-subscribe-button-renderer.ytd-c4-tabbed-header-renderer')) {
-				this.blocklist('channel', document.querySelector('ytd-subscribe-button-renderer.ytd-c4-tabbed-header-renderer'));
+			if (document.querySelector('YT-SUBSCRIBE-BUTTON-VIEW-MODEL')) {
+				this.blocklist('channel', document.querySelector('YT-SUBSCRIBE-BUTTON-VIEW-MODEL'));
 			}
 		}
 	} else {
