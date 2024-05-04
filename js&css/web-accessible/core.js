@@ -47,7 +47,7 @@ var ImprovedTube = {
 	focus: false,
 	played_before_blur: false,
 	played_time: 0,
-	ignore_autoplay_off: false,
+	user_interacted: false,
 	mini_player__mode: false,
 	mini_player__move: false,
 	mini_player__cursor: '',
@@ -76,28 +76,28 @@ CODEC || 30FPS
 	file to patch HTMLMediaElement before YT player uses it.
 --------------------------------------------------------------*/
 if (localStorage['it-codec'] || localStorage['it-player30fps']) {
-	function override(self, callback, mime) {
+	function overwrite(self, callback, mime) {
 		if (localStorage['it-codec']) {
-			let re = new RegExp(localStorage['it-codec']);
+			var re = new RegExp(localStorage['it-codec']);
 			// /webm|vp8|vp9|av01/
 			if (re.test(mime)) return '';
 		}
 		if (localStorage['it-player30fps']) {
-			let match = /framerate=(\d+)/.exec(mime);
+			var match = /framerate=(\d+)/.exec(mime);
 			if (match && match[1] > 30) return '';
 		}
 		return callback.call(self, mime);
 	};
 
 	if (window.MediaSource) {
-		let isTypeSupported = window.MediaSource.isTypeSupported;
+		var isTypeSupported = window.MediaSource.isTypeSupported;
 		window.MediaSource.isTypeSupported = function (mime) {
-			return override(this, isTypeSupported, mime);
+			return overwrite(this, isTypeSupported, mime);
 		}
 	}
-	let canPlayType = HTMLMediaElement.prototype.canPlayType;
+	var canPlayType = HTMLMediaElement.prototype.canPlayType;
 	HTMLMediaElement.prototype.canPlayType = function (mime) {
-		return override(this, canPlayType, mime);
+		return overwrite(this, canPlayType, mime);
 	}
 };
 
@@ -156,23 +156,28 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.storage = message.storage;
 
 			if (ImprovedTube.storage.block_vp9 || ImprovedTube.storage.block_av1 || ImprovedTube.storage.block_h264) {
-				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'}
-				localStorage['it-codec'] = Object.keys(atlas).reduce(function (all, key) {
+				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'},
+					codec = Object.keys(atlas).reduce(function (all, key) {
 					return ImprovedTube.storage[key] ? ((all?all+'|':'') + atlas[key]) : all}, '');
-			} else {
+				if (localStorage['it-codec'] != codec) {
+					localStorage['it-codec'] = codec;
+				}
+			} else if (localStorage['it-codec']) {
 				localStorage.removeItem('it-codec');
 			}
 			if (ImprovedTube.storage.player_60fps === false) {
-				localStorage['it-player30fps'] = true;
-			} else {
+				if (!localStorage['it-player30fps']) {
+					localStorage['it-player30fps'] = true;
+				}
+			} else if (localStorage['it-player30fps']) {
 				localStorage.removeItem('it-player30fps');
 			}
 
 			ImprovedTube.init();
 			// need to run blocklist once just after page load to catch initial nodes
 			ImprovedTube.blocklist();
-
-		} else if (message.action === 'storage-changed') { // FEEDBACK WHEN USER CHANGES A SETTING
+		// REACTION OR VISUAL FEEDBACK WHEN THE USER CHANGES A SETTING (already automated for our CSS features):
+		} else if (message.action === 'storage-changed') {
 			var camelized_key = message.camelizedKey;
 
 			ImprovedTube.storage[message.key] = message.value;
@@ -214,6 +219,7 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'theme':
 				case 'themePrimaryColor':
 				case 'themeTextColor':
+					ImprovedTube.myColors();
 					ImprovedTube.setTheme();
 					break
 
@@ -223,7 +229,6 @@ document.addEventListener('it-message-from-extension', function () {
 					} else if (ImprovedTube.storage.description === "normal" || ImprovedTube.storage.description === "classic") {
 						try{document.querySelector("#less").click() || document.querySelector("#collapse").click();} catch{}
 					}
-					ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
 					break
 
 				case 'transcript':
@@ -242,12 +247,12 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
-				case 'commentsSidebar':
-					if (ImprovedTube.storage.comments_sidebar === false) {
+				case 'commentsSidebarSimple':
+					if (ImprovedTube.storage.comments_sidebar_simple === false) {
 						document.querySelector("#below").appendChild(document.querySelector("#comments"));
 						document.querySelector("#secondary").appendChild(document.querySelector("#related"));
 					} else {
-						ImprovedTube.commentsSidebar();
+						ImprovedTube.commentsSidebarSimple();
 					}
 					break
 
