@@ -1,22 +1,22 @@
 /*------------------------------------------------------------------------------
-AUTOPLAY
+AUTOPLAY DISABLE
 ------------------------------------------------------------------------------*/
-ImprovedTube.autoplay = function () {
-    var video = ImprovedTube.elements.player;
-    if (ImprovedTube.video_url !== location.href) {
-        ImprovedTube.ignore_autoplay_off = false;
-    }
-    // if (allow autoplay is false) and  (no ads playing) and
+ImprovedTube.autoplayDisable = function (videoElement) {
+	const video = ImprovedTube.elements.player || videoElement.closest('#movie_player');
+	if (ImprovedTube.video_url !== location.href) {
+		this.user_interacted = false;
+	}
+	// if (allow autoplay is false) and  (no ads playing) and
 	// ( there is a video and ( (it is not in a playlist and  auto play is off ) or ( playlist auto play is off and it is not in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
-    if (ImprovedTube.ignore_autoplay_off === false && video.classList.contains('ad-showing') === false &&
-        ( 
+	if (video && !this.user_interacted && video.classList.contains('ad-showing') === false &&
+		( 
 // quick fix #1703  thanks to @AirRaid#9957
-            (/* document.documentElement.dataset.pageType === "video" */ location.href.indexOf('/watch?') !== -1 && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay === false) || (ImprovedTube.storage.playlist_autoplay === false && location.href.indexOf('list=') !== -1))) ||
-            (/* document.documentElement.dataset.pageType === "channel" */ ImprovedTube.regex.channel.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
-        )
-    )         
+			(/* document.documentElement.dataset.pageType === "video" */ location.href.indexOf('/watch?') !== -1 && ((location.href.indexOf('list=') === -1 && ImprovedTube.storage.player_autoplay_disable) || (ImprovedTube.storage.playlist_autoplay === false && location.href.indexOf('list=') !== -1))) ||
+			(/* document.documentElement.dataset.pageType === "channel" */ ImprovedTube.regex.channel.test(location.href) && ImprovedTube.storage.channel_trailer_autoplay === false)
+		)
+	)		 
 	{if (!ImprovedTube.autoplayDeniedOnce) {  
-	 setTimeout(function () {  video.pauseVideo();  });        
+	 setTimeout(function () {  video.pauseVideo();  });		
 	 ImprovedTube.autoplayDeniedOnce = true; 
 	} else { console.log("autoplay:off - should we pause here again?"); } }
 };
@@ -74,7 +74,7 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 		if ( !player.getVideoData().isLive || player.getVideoData().isLive === false)
 { player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);  // #1729 q2	// hi! @raszpl
 	if  ( (this.storage.player_force_speed_on_music !== true  || this.storage.player_dont_speed_education === true) 
-	     	&& option !== 1) {
+		 	&& option !== 1) {
 ImprovedTube.speedException = function () { 
 if (this.storage.player_dont_speed_education === true && DATA.genre === 'Education') 
 	{player.setPlaybackRate(Number(1));	video.playbackRate = Number(1); return;} 
@@ -83,7 +83,7 @@ if (this.storage.player_force_speed_on_music === true)
 	 return;}
 if (DATA.keywords && !keywords) { keywords = DATA.keywords.join(', ') || ''; }
 if (keywords === 'video, sharing, camera phone, video phone, free, upload') { keywords = ''; }
-var musicIdentifiers = /(official|music|lyrics)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
+var musicIdentifiers = /(official|music|lyrics?)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
 var musicIdentifiersTitleOnly = /lyrics|theme song|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i;
 var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + '|' + musicIdentifiers.source, "i");		
 var musicRegexMatch = musicIdentifiersTitle.test(DATA.title);
@@ -93,7 +93,7 @@ var musicRegexMatch = musicIdentifiersTitle.test(DATA.title);
 				  keywordsAmount = 1 + ((keywords || '').match(/,/) || []).length;
 		if ( ((keywords || '').match(musicIdentifiersTags) || []).length / keywordsAmount > 0.08) {
 	musicRegexMatch = true}}			
-notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(DATA.title + " " + keywords);						     
+notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(DATA.title + " " + keywords);							 
 					// (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
  if (DATA.duration) { 
 	function parseDuration(duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0); 
@@ -121,13 +121,13 @@ console.log("genre: " + DATA.genre + "//title: " +  DATA.title + "//keywords: " 
 		 //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
 		)	{ player.setPlaybackRate(1); video.playbackRate = 1; console.log ("...,thus must be music?"); }		 				
 			else { 	// Now this video might rarely be music 
-			    	// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
+					// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
 					var tries = 0; 	var intervalMs = 210;  	if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}  	
 														// ...except when it is an embedded player?
 					var waitForDescription = setInterval(() => { 	
 					if (++tries >= maxTries) {  
 					subtitle = document.querySelector('#title + #subtitle:last-of-type')
-					if ( subtitle && 1 <= Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0])    // indicates buyable/registered music (amount of songs)
+					if ( subtitle && 1 <= Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0])	// indicates buyable/registered music (amount of songs)
 						 && typeof testSongDuration(DATA.lengthSeconds, Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0]) ) !== 'undefined' ) // resonable duration
 							{player.setPlaybackRate(1); video.playbackRate = 1; console.log("...but YouTube shows music below the description!"); clearInterval(waitForDescription); } 			
 					intervalMs *= 1.11;	}}, intervalMs);   							
@@ -143,12 +143,12 @@ DATA.videoID = ImprovedTube.videoId() || false;
 			// if (history.length > 1 &&  history.state.endpoint.watchEndpoint) {
 			try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false;  DATA.title = DATA.name;} 
 			 catch { DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false; 
-				try {                
-                DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
-                DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
-                DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
+				try {				
+				DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
+				DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
+				DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
 			 } catch {}} if ( DATA.title === ImprovedTube.videoTitle() ) 
-                { keywords = document.getElementsByTagName('meta')?.keywords?.content || false; if(!keywords){keyword=''} ImprovedTube.speedException(); }
+				{ keywords = document.getElementsByTagName('meta')?.keywords?.content || false; if(!keywords){keyword=''} ImprovedTube.speedException(); }
 				else { keywords = ''; (async function () {  try {   const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
 						
 						const htmlContent = await response.text();
@@ -163,28 +163,28 @@ DATA.videoID = ImprovedTube.videoId() || false;
 						})();
 						}							
   };				
-if (history && history.length === 1 || !history.state.endpoint.watchEndpoint) { ImprovedTube.fetchDOMData();}  
+if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData();}  
 else {   
 //Invidious instances (Nov2023)
 const invidiousInstances = ['iv.datura.network', 'vid.puffyan.us', 'invidious.perennialte.ch', 'iv.melmac.space', 'inv.in.projectsegfau.lt', 'invidious.asir.dev', 'inv.zzls.xyz', 'invidious.io.lol', 'onion.tube', 'yewtu.be', 'invidious.protokolla.fi', 'inv.citw.lgbt', 'anontube.lvkaszus.pl', 'iv.nboeck.de', 'invidious.no-logs.com', 'vid.priv.au', 'yt.cdaut.de', 'invidious.slipfox.xyz', 'yt.artemislena.eu', 'invidious.drgns.space', 'invidious.einfachzocken.eu', 'invidious.projectsegfau.lt', 'invidious.nerdvpn.de', 'invidious.private.coffee', 'invidious.lunar.icu', 'invidious.privacydev.net', 'invidious.fdn.fr', 'yt.oelrichsgarcia.de', 'iv.ggtyler.dev', 'inv.tux.pizza', 'yt.drgnz.club', 'inv.us.projectsegfau.lt'];
 function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
 
-(async function () {     let retries = 5;    let invidiousFetched = false;
-    async function fetchInvidiousData() { 
-        try {const response = await fetch(`https://${getRandomInvidiousInstance()}/api/v1/videos/${DATA.videoID}?fields=genre,title,lengthSeconds,keywords`);
-             DATA = await response.json(); 
-             if (DATA.genre && DATA.title && DATA.keywords && DATA.lengthSeconds) { if (DATA.keywords.toString() === defaultKeywords ) {DATA.keywords = ''}
-                 ImprovedTube.speedException(); invidiousFetched = true;    }
-        } catch (error) { console.error('Error: Invidious API: ', error);  }
-    }
-    while (retries > 0 && !invidiousFetched) {  await fetchInvidiousData();
-		if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 5 ? 1234 : 432));  retries--; }    }
+(async function () {	 let retries = 5;	let invidiousFetched = false;
+	async function fetchInvidiousData() { 
+		try {const response = await fetch(`https://${getRandomInvidiousInstance()}/api/v1/videos/${DATA.videoID}?fields=genre,title,lengthSeconds,keywords`);
+			 DATA = await response.json(); 
+			 if (DATA.genre && DATA.title && DATA.keywords && DATA.lengthSeconds) { if (DATA.keywords.toString() === defaultKeywords ) {DATA.keywords = ''}
+				 ImprovedTube.speedException(); invidiousFetched = true;	}
+		} catch (error) { console.error('Error: Invidious API: ', error);  }
+	}
+	while (retries > 0 && !invidiousFetched) {  await fetchInvidiousData();
+		if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 5 ? 1234 : 432));  retries--; }	}
 	if(!invidiousFetched){ if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())} 
 							else { ImprovedTube.fetchDOMData();} }  
 })();
 }
-    }    // else { }  
-  }        
+	}	// else { }  
+  }		
  }
 } 
 /*------------------------------------------------------------------------------
@@ -203,28 +203,28 @@ ImprovedTube.subtitles = function () {
 SUBTITLES LANGUAGE
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesLanguage = function () {
-    var option = this.storage.subtitles_language;
-    if (this.isset(option) && option !== 'default') {
-        var player = this.elements.player,
-            button = this.elements.player_subtitles_button;
+	var option = this.storage.subtitles_language;
+	if (this.isset(option) && option !== 'default') {
+		var player = this.elements.player,
+			button = this.elements.player_subtitles_button;
 
-        if (player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
-            var tracklist = this.elements.player.getOption('captions', 'tracklist', {
-                includeAsr: true
-            });
+		if (player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
+			var tracklist = this.elements.player.getOption('captions', 'tracklist', {
+				includeAsr: true
+			});
 
-            var matchTrack = false;
-            for (var i =0, l = tracklist.length; i<l; i++){
-                if (tracklist[i].languageCode.includes(option)) {
-                    if( false === tracklist[i].vss_id.includes("a.") || true === this.storage.auto_generate){
-                        this.elements.player.setOption('captions', 'track', tracklist[i]);
-                        matchTrack = true; break;
-                    }
-                }
-            }
-         //   if (!matchTrack){  player.toggleSubtitles();  }
-        }
-    }
+			var matchTrack = false;
+			for (var i =0, l = tracklist.length; i<l; i++){
+				if (tracklist[i].languageCode.includes(option)) {
+					if( false === tracklist[i].vss_id.includes("a.") || true === this.storage.auto_generate){
+						this.elements.player.setOption('captions', 'track', tracklist[i]);
+						matchTrack = true; break;
+					}
+				}
+			}
+		 //   if (!matchTrack){  player.toggleSubtitles();  }
+		}
+	}
 };
 /*------------------------------------------------------------------------------
 SUBTITLES FONT FAMILY
@@ -416,6 +416,24 @@ ImprovedTube.subtitlesFontOpacity = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+SUBTITLES DISABLE SUBTILES FOR LYRICS
+------------------------------------------------------------------------------*/
+ImprovedTube.subtitlesDisableLyrics = function () {
+	if (this.storage.subtitles_disable_lyrics === true) {
+		var player = this.elements.player,
+			button = this.elements.player_subtitles_button;
+
+		if (player && player.toggleSubtitles && button && button.getAttribute('aria-pressed') === 'true') {
+			// Music detection only uses 3 identifiers for Lyrics: lyrics, sing-along, karaoke.
+			// Easier to simply use those here. Can replace with music detection later.
+			const terms = ["sing along", "sing-along", "karaoke", "lyric", "卡拉OK", "卡拉OK", "الكاريوكي", "караоке", "カラオケ","노래방"];
+			if (terms.some(term => ImprovedTube.videoTitle().toLowerCase().includes(term))) {			
+				player.toggleSubtitles();
+			}									
+		}
+	}
+};
+/*------------------------------------------------------------------------------
 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
 ImprovedTube.upNextAutoplay = function () {
@@ -476,41 +494,51 @@ ImprovedTube.playerAutofullscreen = function () {
 /*------------------------------------------------------------------------------
 QUALITY
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerQuality = function () {
-	function closest (num, arr) {
-                let curr = arr[0];
-                let diff = Math.abs (num - curr);
-                for (let val = 0; val < arr.length; val++) {
-                    let newdiff = Math.abs (num - arr[val]);
-                    if (newdiff < diff) {
-                        diff = newdiff;
-                        curr = arr[val];
-                    }
-                }
-                return curr;
-            };
-
-	var player = this.elements.player,
-		quality = this.storage.player_quality;
-
-	if (player && player.getAvailableQualityLevels && !player.dataset.defaultQuality) {
-		var available_quality_levels = player.getAvailableQualityLevels();
-
-		if (quality && quality !== 'auto') {
-			if (available_quality_levels.includes(quality) === false) {
-				let label = ['tiny', 'small', 'medium', 'large', 'hd720', 'hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'];
-				let resolution = ['144', '240', '360', '480', '720', '1080', '1440', '2160', '2880', '4320'];
-				let availableresolutions = available_quality_levels.reduce(function (array, elem) {
-					array.push(resolution[label.indexOf(elem)]); return array;
-					}, []);
-
-				quality = closest (resolution[label.indexOf(quality)], availableresolutions);
-				quality = label[resolution.indexOf(quality)];
+ImprovedTube.playerQuality = function (quality = this.storage.player_quality) {
+	let player = this.elements.player;
+	if (quality && player && player.getAvailableQualityLevels
+		&& (!player.dataset.defaultQuality || player.dataset.defaultQuality != quality)) {
+		let available_quality_levels = player.getAvailableQualityLevels();
+		function closest(num, arr) {
+			let curr = arr[0];
+			let diff = Math.abs(num - curr);
+			for (let val = 1; val < arr.length; val++) {
+				let newdiff = Math.abs(num - arr[val]);
+				if (newdiff < diff) {
+					diff = newdiff;
+					curr = arr[val];
+				}
 			}
+			return curr;
+		};
 
-			player.setPlaybackQualityRange(quality);
-			player.setPlaybackQuality(quality);
-			player.dataset.defaultQuality = quality;
+		if (!available_quality_levels.includes(quality)) {
+			let label = ['tiny', 'small', 'medium', 'large', 'hd720', 'hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'];
+			let resolution = ['144', '240', '360', '480', '720', '1080', '1440', '2160', '2880', '4320'];
+			let availableresolutions = available_quality_levels.map(q => resolution[label.indexOf(q)]);
+			quality = label[resolution.indexOf(closest(resolution[label.indexOf(quality)], availableresolutions))];
+		}
+		player.setPlaybackQualityRange(quality);
+		player.setPlaybackQuality(quality);
+		player.dataset.defaultQuality = quality;
+	}
+};
+/*------------------------------------------------------------------------------
+QUALITY WITHOUT FOCUS
+------------------------------------------------------------------------------*/
+ImprovedTube.playerQualityWithoutFocus = function () {
+	let player = this.elements.player,
+		qualityWithoutFocus = this.storage.player_quality_without_focus;
+	if (qualityWithoutFocus && qualityWithoutFocus !== 'auto' && player && player.getPlaybackQuality) {
+		if (this.focus) {
+			if (ImprovedTube.qualityBeforeBlur) {
+				ImprovedTube.playerQuality(ImprovedTube.qualityBeforeBlur);
+			}
+		} else {
+			if (!ImprovedTube.elements.video.paused) {
+				ImprovedTube.qualityBeforeBlur = player.getPlaybackQuality();
+				ImprovedTube.playerQuality(qualityWithoutFocus);
+			}
 		}
 	}
 };
@@ -518,36 +546,36 @@ ImprovedTube.playerQuality = function () {
 FORCED VOLUME
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerVolume = function () {
-    if (this.storage.player_forced_volume === true) {
-        var volume = this.storage.player_volume;
+	if (this.storage.player_forced_volume === true) {
+		var volume = this.storage.player_volume;
 
-        if (!this.isset(volume)) {
-            volume = 100;
-        } else {
-            volume = Number(volume);
-        }
+		if (!this.isset(volume)) {
+			volume = 100;
+		} else {
+			volume = Number(volume);
+		}
 
-        if (!this.audioContextGain && volume <= 100) {
-            if (this.audioContext) {
-                this.audioContext.close();
-            }
+		if (!this.audioContextGain && volume <= 100) {
+			if (this.audioContext) {
+				this.audioContext.close();
+			}
 
-            this.elements.player.setVolume(volume);
-        } else {
-            if (!this.audioContext) {
-                this.audioContext = new AudioContext();
+			this.elements.player.setVolume(volume);
+		} else {
+			if (!this.audioContext) {
+				this.audioContext = new AudioContext();
 
-                this.audioContextSource = this.audioContext.createMediaElementSource(document.querySelector('video'));
-                this.audioContextGain = this.audioContext.createGain();
+				this.audioContextSource = this.audioContext.createMediaElementSource(document.querySelector('video'));
+				this.audioContextGain = this.audioContext.createGain();
 
-                this.audioContextGain.gain.value = 1;
-                this.audioContextSource.connect(this.audioContextGain);
-                this.audioContextGain.connect(this.audioContext.destination)
-            }
+				this.audioContextGain.gain.value = 1;
+				this.audioContextSource.connect(this.audioContextGain);
+				this.audioContextGain.connect(this.audioContext.destination)
+			}
 			if (this.elements.player.getVolume() !== 100) { this.elements.player.setVolume(100);}
-            this.audioContextGain.gain.value = volume / 100;
-        }
-    }
+			this.audioContextGain.gain.value = volume / 100;
+		}
+	}
 };
 /*------------------------------------------------------------------------------
 LOUDNESS NORMALIZATION
@@ -616,7 +644,7 @@ ImprovedTube.screenshot = function () {
 				a.href = URL.createObjectURL(blob); console.log("screeeeeeenshot tada!");
 
 
-                a.download = (ImprovedTube.videoId() || location.href.match) + ' ' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + ' ' + ImprovedTube.videoTitle() + (subText ? ' - ' + subText.trim() : '') + '.png';
+				a.download = (ImprovedTube.videoId() || location.href.match) + ' ' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + ' ' + ImprovedTube.videoTitle() + (subText ? ' - ' + subText.trim() : '') + '.png';
 
 				a.click();
 			} else {
@@ -633,28 +661,28 @@ ImprovedTube.screenshot = function () {
 };
 
 ImprovedTube.renderSubtitle = function (ctx,captionElements) {
-    if (ctx && captionElements) {
-    captionElements.forEach(function (captionElement, index) {
-        var captionText = captionElement.textContent.trim();
-        var captionStyles = window.getComputedStyle(captionElement);
+	if (ctx && captionElements) {
+	captionElements.forEach(function (captionElement, index) {
+		var captionText = captionElement.textContent.trim();
+		var captionStyles = window.getComputedStyle(captionElement);
 
-        ctx.fillStyle = captionStyles.color;
-        ctx.font = captionStyles.font;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'bottom';
-        var txtWidth = ctx.measureText(captionText).width;
-        var txtHeight = parseFloat(captionStyles.fontSize);
+		ctx.fillStyle = captionStyles.color;
+		ctx.font = captionStyles.font;
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'bottom';
+		var txtWidth = ctx.measureText(captionText).width;
+		var txtHeight = parseFloat(captionStyles.fontSize);
 
-        var xOfset = (ctx.canvas.width - txtWidth) / 2;
+		var xOfset = (ctx.canvas.width - txtWidth) / 2;
 
-        var padding = 5; // Adjust the padding as needed
-        var yofset = ctx.canvas.height - (captionElements.length - index) * (txtHeight + 2 * padding);
+		var padding = 5; // Adjust the padding as needed
+		var yofset = ctx.canvas.height - (captionElements.length - index) * (txtHeight + 2 * padding);
 
-        ctx.fillStyle = captionStyles.backgroundColor;
-        ctx.fillRect(xOfset - padding, yofset - txtHeight - padding, txtWidth + 2 * padding, txtHeight + 2 * padding);
-        ctx.fillStyle = captionStyles.color;
-        ctx.fillText(captionText, xOfset + txtWidth / 2, yofset);
-    });
+		ctx.fillStyle = captionStyles.backgroundColor;
+		ctx.fillRect(xOfset - padding, yofset - txtHeight - padding, txtWidth + 2 * padding, txtHeight + 2 * padding);
+		ctx.fillStyle = captionStyles.color;
+		ctx.fillText(captionText, xOfset + txtWidth / 2, yofset);
+	});
 	}
 };
 
@@ -680,11 +708,13 @@ ImprovedTube.playerScreenshotButton = function () {
 /*------------------------------------------------------------------------------
 REPEAT
 -------------------------------------------------------------------------------*/
-ImprovedTube.playerRepeat = function () {	      
-			setTimeout(function () {
-				ImprovedTube.elements.video.setAttribute('loop', ''); 
+ImprovedTube.playerRepeat = function () {		  
+			setTimeout(function () { 
+				if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
+					ImprovedTube.elements.video.setAttribute('loop', ''); 
+				}
 	   //ImprovedTube.elements.buttons['it-repeat-styles'].style.opacity = '1';   //old class from version 3.x? that both repeat buttons could have
-         			}, 200);
+		 	}, 200);
 } 
 /*------------------------------------------------------------------------------
 REPEAT BUTTON
@@ -696,7 +726,7 @@ ImprovedTube.playerRepeatButton = function (node) {
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
 		path.setAttributeNS(null, 'd', 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z');
 		svg.appendChild(path);
-                var transparentOrOn = 0.5; if (this.storage.player_always_repeat === true ) { transparentOrOn = 1; }
+				var transparentOrOn = 0.5; if (this.storage.player_always_repeat === true ) { transparentOrOn = 1; }
 		this.createPlayerButton({
 			id: 'it-repeat-button',
 			child: svg,
@@ -705,7 +735,7 @@ ImprovedTube.playerRepeatButton = function (node) {
 				var video = ImprovedTube.elements.video;
 		function matchLoopState(opacity) {
 			var thisButton = document.querySelector('#it-repeat-button');
-            thisButton.style.opacity = opacity;		
+			thisButton.style.opacity = opacity;		
 			if (ImprovedTube.storage.below_player_loop !== false) {
 				var otherButton = document.querySelector('#it-below-player-loop');
 				otherButton.children[0].style.opacity = opacity;
@@ -781,10 +811,10 @@ FIT-TO-WIN BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerFitToWinButton = function () {
 	if (this.storage.player_fit_to_win_button === true && (/watch\?/.test(location.href))) {
-    let tempContainer = document.createElement("div");
-    tempContainer.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon">
+	let tempContainer = document.createElement("div");
+	tempContainer.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon">
 		<path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>`;
-    const svg = tempContainer.firstChild;
+	const svg = tempContainer.firstChild;
 		this.createPlayerButton({
 			id: 'it-fit-to-win-player-button',
 			child: svg,
@@ -804,21 +834,130 @@ ImprovedTube.playerFitToWinButton = function () {
 		});
 	} 
 };
+
+
+/*------------------------------------------------------------------------------
+CINEMA MODE BUTTON
+------------------------------------------------------------------------------*/
+
+var xpath = function(xpathToExecute){
+	var result = [];
+	var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
+	for ( var i=0 ; i < nodesSnapshot.snapshotLength; i++ ){
+	  result.push( nodesSnapshot.snapshotItem(i) );
+	}
+	return result;
+  }
+
+function createOverlay() {
+	var overlay = document.createElement('div');
+	overlay.id = 'overlay_cinema';
+	overlay.style.position = 'fixed';
+	overlay.style.top = '0';
+	overlay.style.left = '0';
+	overlay.style.width = '100%';
+	overlay.style.height = '100%';
+	overlay.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+	overlay.style.zIndex = '9999';
+	overlay.style.display = 'block';
+	document.body.appendChild(overlay);
+  }
+
+ImprovedTube.playerCinemaModeButton = function () {
+	if (this.storage.player_cinema_mode_button && (/watch\?/.test(location.href))) {
+		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+		path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+		// TODO: change path such that cinema mode has its own unique icon
+		path.setAttributeNS(null, 'd', 'm 2.1852 2.2 h 3.7188 h 5.2974 h 5.184 h 3.5478 c 0.6012 0 1.1484 0.2737 1.5444 0.7113 c 0.396 0.4396 0.6408 1.047 0.6408 1.7143 v 1.4246 v 11.4386 v 1.4166 c 0 0.6673 -0.2466 1.2747 -0.6408 1.7143 c -0.396 0.4396 -0.9432 0.7113 -1.5444 0.7113 h -3.456 c -0.0288 0.006 -0.0594 0.008 -0.0918 0.008 c -0.0306 0 -0.0612 -0.002 -0.0918 -0.008 h -5.0004 c -0.0288 0.006 -0.0594 0.008 -0.0918 0.008 c -0.0306 0 -0.0612 -0.002 -0.0918 -0.008 h -5.1138 c -0.0288 0.006 -0.0594 0.008 -0.0918 0.008 c -0.0306 0 -0.0612 -0.002 -0.0918 -0.008 h -3.627 c -0.6012 0 -1.1484 -0.2737 -1.5444 -0.7113 s -0.6408 -1.047 -0.6408 -1.7143 v -1.4166 v -11.4386 v -1.4246 c 0 -0.6673 0.2466 -1.2747 0.6408 -1.7143 c 0.396 -0.4376 0.9432 -0.7113 1.5444 -0.7113 l 0 0 z m 7.749 6.2418 l 3.6954 2.8611 c 0.0576 0.04 0.1098 0.0959 0.1512 0.1618 c 0.1656 0.2657 0.1044 0.6274 -0.1332 0.8112 l -3.681 2.8252 c -0.09 0.0819 -0.207 0.1319 -0.333 0.1319 c -0.2916 0 -0.5274 -0.2617 -0.5274 -0.5854 v -5.7283 h 0.0018 c 0 -0.1159 0.0306 -0.2318 0.0936 -0.3337 c 0.1674 -0.2637 0.495 -0.3277 0.7326 -0.1439 l 0 0 z m 6.9768 9.6324 v 2.0879 h 3.0204 c 0.3114 0 0.594 -0.1419 0.7992 -0.3696 c 0.2052 -0.2278 0.333 -0.5415 0.333 -0.8871 v -0.8312 h -4.1526 l 0 0 z m -1.053 2.0879 v -2.0879 h -4.1292 v 2.0879 h 4.1292 l 0 0 z m -5.1822 0 v -2.0879 h -4.2444 v 2.0879 h 4.2444 l 0 0 z m -5.2992 0 v -2.0879 h -4.3236 v 0.8312 c 0 0.3457 0.1278 0.6593 0.333 0.8871 c 0.2052 0.2278 0.4878 0.3696 0.7992 0.3696 h 3.1914 l 0 0 z m -4.3236 -3.2567 h 4.851 h 5.2974 h 5.184 h 4.68 v -10.2697 h -4.68 h -5.184 h -5.2974 h -4.851 v 10.2697 l 0 0 z m 14.805 -11.4386 v -2.0979 h -4.1292 v 2.0959 h 4.1292 l 0 0.002 z m 1.053 -2.0979 v 2.0959 h 4.1526 v -0.8392 c 0 -0.3457 -0.1278 -0.6593 -0.333 -0.8871 c -0.2052 -0.2278 -0.4878 -0.3696 -0.7992 -0.3696 h -3.0204 l 0 0 z m -6.2352 2.0979 v -2.0979 h -4.2444 v 2.0959 h 4.2444 l 0 0.002 z m -5.2992 0 v -2.0979 h -3.1914 c -0.3114 0 -0.594 0.1419 -0.7992 0.3696 c -0.2052 0.2278 -0.333 0.5415 -0.333 0.8871 v 0.8392 h 4.3236 l 0 0.002 z');
+		
+		svg.appendChild(path);
+
+		this.createPlayerButton({
+			id: 'it-cinema-mode-button',
+			child: svg,
+			// position: "right", // using right only works when we also have fit to window button enabled for some reason
+			opacity: 0.64,
+			onclick: function () {
+				var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+				// console.log(player)
+				if (player.style.zIndex == 10000){
+					player.style.zIndex = 1;
+					svg.parentNode.style.opacity = 0.64;
+					svg.parentNode.style.zIndex = 1;
+				}
+				else {
+					player.style.zIndex = 10000;
+					svg.parentNode.style.opacity = 1;
+				}
+				
+				
+				var overlay = document.getElementById('overlay_cinema');
+				if (!overlay) {
+					createOverlay();
+				} else {
+					overlay.style.display = overlay.style.display === 'none' || overlay.style.display === '' ? 'block' : 'none';
+				}
+				//console.log(overlay)
+			},
+			title: 'Cinema Mode'
+		});
+	} 
+}
+
+ImprovedTube.playerCinemaModeDisable = function () {
+	if (this.storage.player_auto_hide_cinema_mode_when_paused) {
+		var overlay = document.getElementById('overlay_cinema');
+		if (overlay) {
+			overlay.style.display = 'none'
+			var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+			player.style.zIndex = 1;
+			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
+			cinemaModeButton.style.opacity = 0.64
+		}
+	}
+}
+
+ImprovedTube.playerCinemaModeEnable = function () {
+	if (this.storage.player_auto_cinema_mode || this.storage.player_auto_hide_cinema_mode_when_paused) {
+		
+	if ((/watch\?/.test(location.href))) {
+		var overlay = document.getElementById('overlay_cinema');
+		
+		if (this.storage.player_auto_cinema_mode === true && !overlay) {
+			createOverlay();
+			overlay = document.getElementById('overlay_cinema');
+		}
+		
+// console.log(overlay && this.storage.player_auto_hide_cinema_mode_when_paused === true || this.storage.player_auto_cinema_mode === true && overlay)
+		if (overlay) {
+			overlay.style.display = 'block'
+			var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+			player.style.zIndex = 10000;
+			// console.log(player)
+			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
+			cinemaModeButton.style.opacity = 1
+		}
+	}
+	}
+}
+
 /*------------------------------------------------------------------------------
 HAMBURGER MENU
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerHamburgerButton = function () { if(this.storage.player_hamburger_button === true){
-    const videoPlayer = document.querySelector('.html5-video-player');
+	const videoPlayer = document.querySelector('.html5-video-player');
 
-    if (!videoPlayer) {
-        return;
-    }
+	if (!videoPlayer) {
+		return;
+	}
 
-    const controlsContainer = videoPlayer.querySelector('.ytp-right-controls');
+	const controlsContainer = videoPlayer.querySelector('.ytp-right-controls');
 
-    if (!controlsContainer) {
-        return;
-    }
+	if (!controlsContainer) {
+		return;
+	}
 
 	let hamburgerMenu = document.querySelector('.custom-hamburger-menu');
 		if (!hamburgerMenu) {
@@ -881,7 +1020,7 @@ ImprovedTube.playerPopupButton = function () {
 				const videoID = location.search.match(ImprovedTube.regex.video_id)[1],
 					listMatch = location.search.match(ImprovedTube.regex.playlist_id),
 					popup = window.open(
-						`${location.protocol}//www.youtube.com/embed/${videoID}?start=${parseInt(ytPlayer.getCurrentTime())}&autoplay=${(ImprovedTube.storage.player_autoplay ?? true) ? '1' : '0'}${listMatch?`&list=${listMatch[1]}`:''}`,
+						`${location.protocol}//www.youtube.com/embed/${videoID}?start=${parseInt(ytPlayer.getCurrentTime())}&autoplay=${ImprovedTube.storage.player_autoplay_disable ? '0' : '1'}${listMatch?`&list=${listMatch[1]}`:''}`,
 						'_blank',
 						`directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${ytPlayer.offsetWidth / 3},height=${ytPlayer.offsetHeight / 3}`
 					);
@@ -922,20 +1061,20 @@ ImprovedTube.playerSDR = function () {
 Hide controls
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerControls = function (pause=false) {
-    var player = this.elements.player;   if (player) {
+	var player = this.elements.player;   if (player) {
 		let hide = this.storage.player_hide_controls;
-        if (hide === 'always') {
-            player.hideControls();
-        } else if(hide === 'off') {
-            player.showControls();
-        } else if(hide === 'when_paused') {
+		if (hide === 'always') {
+			player.hideControls();
+		} else if(hide === 'off') {
+			player.showControls();
+		} else if(hide === 'when_paused') {
 		   if(this.elements.video.paused){
-	       player.hideControls( );
+		   player.hideControls( );
 
 	  ImprovedTube.elements.player.parentNode.addEventListener('mouseenter', function () {
 	  player.showControls();});
 	  ImprovedTube.elements.player.parentNode.addEventListener('mouseleave', function () {
-      player.hideControls( );});
+	  player.hideControls( );});
 
 
 		ImprovedTube.elements.player.parentNode.onmousemove = (function() {
@@ -952,7 +1091,7 @@ ImprovedTube.playerControls = function (pause=false) {
 	   }} else { player.showControls();  }
 }
 };
-/*#  HIDE VIDEO TITLE IN FULLSCREEN    */              // Easier with CSS only (see player.css)
+/*#  HIDE VIDEO TITLE IN FULLSCREEN	*/			  // Easier with CSS only (see player.css)
 //ImprovedTube.hideVideoTitleFullScreen = function (){ if (ImprovedTube.storage.hide_video_title_fullScreen === true) {
 //document.addEventListener('fullscreenchange', function (){ document.querySelector(".ytp-title-text > a")?.style.setProperty('display', 'none');   }) }};	
 
@@ -960,18 +1099,18 @@ ImprovedTube.playerControls = function (pause=false) {
 CUSTOM MINI-PLAYER
 ------------------------------------------------------------------------------*/
 ImprovedTube.mini_player__setSize = function (width, height, keep_ar, keep_area) {
-    if (keep_ar) {
-        const aspect_ratio = ImprovedTube.elements.video.style.width.replace('px', '') / ImprovedTube.elements.video.style.height.replace('px', '');
-	    if (keep_area) {
-	        height = Math.sqrt((width * height) / aspect_ratio);
-	        width = height * aspect_ratio;
-	    } else {
-	        height = width / aspect_ratio;
-	    }
-    }
+	if (keep_ar) {
+		const aspect_ratio = ImprovedTube.elements.video.style.width.replace('px', '') / ImprovedTube.elements.video.style.height.replace('px', '');
+		if (keep_area) {
+			height = Math.sqrt((width * height) / aspect_ratio);
+			width = height * aspect_ratio;
+		} else {
+			height = width / aspect_ratio;
+		}
+	}
 
-    ImprovedTube.elements.player.style.width = width + 'px';
-    ImprovedTube.elements.player.style.height = height + 'px';
+	ImprovedTube.elements.player.style.width = width + 'px';
+	ImprovedTube.elements.player.style.height = height + 'px';
 };
 
 ImprovedTube.miniPlayer_scroll = function () {

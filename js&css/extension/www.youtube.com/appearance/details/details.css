@@ -8,8 +8,8 @@
  /*--------------------------------------------------------------
 YouTube's Detail Buttons
 --------------------------------------------------------------*/
-html[it-youtubeDetailButtons='hide_labels'] #subscribe-button .cbox,
-html[it-youtubeDetailButtons='hide_labels']  #menu ytd-button-renderer div:nth-child(2) {visibility:hidden}
+html[it-youtubeDetailButtons='hide_labels'] #subscribe-button .yt-spec-button-shape-next__button-text-content,
+html[it-youtubeDetailButtons='hide_labels']  #menu button div:nth-child(2) {visibility:hidden}
 html[it-youtubeDetailButtons='half_transparent'] #subscribe-button button,
 html[it-youtubeDetailButtons='half_transparent'] #menu button {opacity:0.5;}
 html[it-youtubeDetailButtons='transparent_background'] #subscribe-button button,
@@ -23,9 +23,9 @@ html[it-subscribe='transparent'] #subscribe-button button {background-color:rgba
 	/* DISPLAY: NONE: */
 html[it-subscribe='remove_label'] #subscribe-button button .yt-spec-button-shape-next__button-text-content,
 html[it-subscribe='hidden'] #subscribe-button,
-html[it-youtubeDetailButtons='remove_labels'] #menu ytd-button-renderer div:nth-child(2), 
-html[it-youtubeDetailButtons='remove_labels'] #menu ytd-button-renderer .cbox, 
-html[it-youtubeDetailButtons='remove_labels'] #subscribe-button .cbox,
+html[it-youtubeDetailButtons='remove_labels'] #menu button div:nth-child(2), 
+html[it-youtubeDetailButtons='remove_labels'] #menu button .yt-spec-button-shape-next__button-text-content, 
+html[it-youtubeDetailButtons='remove_labels'] #subscribe-button .yt-spec-button-shape-next__button-text-content,
 html[it-youtubeDetailButtons='remove'] #menu button,
 html[it-youtubeDetailButtons='remove'] #subscribe-button button,
 html[it-youtubeDetailButtons='remove_icons']  #menu button div:first-child,
@@ -37,40 +37,40 @@ html[it-hide-dislike-button='hidden']	dislike-button-view-model,
 html[it-hide-dislike-button='icons_only'] dislike-button-view-model .yt-spec-button-shape-next__button-text-content,
 /*previous:*/
 html[it-likes='hidden'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer,
-html[it-likes='icons_only'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer div.cbox,
+html[it-likes='icons_only'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer div.yt-spec-button-shape-next__button-text-content,
 html[it-likes='icons_only'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer yt-animated-rolling-number,
 html[it-likes='icons_only'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer .yt-spec-button-shape-next__button-text-content,
 html[it-hide-dislike-button='hidden'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer,
-html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer div.cbox,
+html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer div.yt-spec-button-shape-next__button-text-content,
 html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer yt-animated-rolling-number,
 html[it-hide-dislike-button='icons_only'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer .yt-spec-button-shape-next__button-text-content,
 	/*------# HIDE SHARE BUTTON------*/
 html[it-hide-share-button='hidden'] #menu button:has(svg path[d^="M15 5.63 20.66"]),
 html[it-hide-share-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M15 5.63 20.66"]),
-html[it-hide-share-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M15 5.63 20.66"]) div:nth-child(2),
-html[it-hide-share-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M15 5.63 20.66"]) .cbox, 
+html[it-hide-share-button='icons_only'] #menu button:has(svg path[d^="M15 5.63 20.66"]) div:nth-child(2),
+html[it-hide-share-button='icons_only'] #menu button:has(svg path[d^="M15 5.63 20.66"]) .yt-spec-button-shape-next__button-text-content, 
 	/*------# HIDE DOWNLOAD BUTTON------*/
 html[it-hide-download-button='hidden'] #menu button:has(svg path[d^="M17 18v1H6v-1h11"]),
 html[it-hide-download-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M17 18v1H6v-1h11"]),
-html[it-hide-download-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M17 18v1H6v-1h11"]) div:nth-child(2),
-html[it-hide-download-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M17 18v1H6v-1h11"]) .cbox, 
+html[it-hide-download-button='icons_only'] #menu button:has(svg path[d^="M17 18v1H6v-1h11"]) div:nth-child(2),
+html[it-hide-download-button='icons_only'] #menu button:has(svg path[d^="M17 18v1H6v-1h11"]) .yt-spec-button-shape-next__button-text-content, 
 	/*------# HIDE THANKS BUTTON------*/
 html[it-hide-thanks-button='hidden'] #menu button:has(svg path[d^="M11 17h2v-1h1c.55 0"]),
 html[it-hide-thanks-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M11 17h2v-1h1c.55 0"]),
-html[it-hide-thanks-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M11 17h2v-1h1c.55 0"]) div:nth-child(2),
-html[it-hide-thanks-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M11 17h2v-1h1c.55 0"]) .cbox,
+html[it-hide-thanks-button='icons_only'] #menu button:has(svg path[d^="M11 17h2v-1h1c.55 0"]) div:nth-child(2),
+html[it-hide-thanks-button='icons_only'] #menu button:has(svg path[d^="M11 17h2v-1h1c.55 0"]) .yt-spec-button-shape-next__button-text-content,
 	/*------# HIDE CLIP BUTTON------*/
 html[it-hide-clip-button='hidden'] #menu button:has(svg path[d^="M8 7c0 .55-.45 1-1"]),
 html[it-hide-clip-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M8 7c0 .55-.45 1-1"]),
-html[it-hide-clip-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M8 7c0 .55-.45 1-1"]) div:nth-child(2),
-html[it-hide-clip-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M8 7c0 .55-.45 1-1"]) .cbox,
+html[it-hide-clip-button='icons_only'] #menu button:has(svg path[d^="M8 7c0 .55-.45 1-1"]) div:nth-child(2),
+html[it-hide-clip-button='icons_only'] #menu button:has(svg path[d^="M8 7c0 .55-.45 1-1"]) .yt-spec-button-shape-next__button-text-content,
 	/*------# HIDE SAVE BUTTON------*/
 html[it-hide-save-button='hidden'] #menu button:has(svg path[d^="M22 13h-4v4h-2v-4h"]),
 html[it-hide-save-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M22 13h-4v4h-2v-4h"]),
-html[it-hide-save-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M22 13h-4v4h-2v-4h"]) div:nth-child(2),
-html[it-hide-save-button='icons_only'] #menu ytd-button-renderer:has(svg path[d^="M22 13h-4v4h-2v-4h"]) .cbox,
+html[it-hide-save-button='icons_only'] #menu button:has(svg path[d^="M22 13h-4v4h-2v-4h"]) div:nth-child(2),
+html[it-hide-save-button='icons_only'] #menu button:has(svg path[d^="M22 13h-4v4h-2v-4h"]) .yt-spec-button-shape-next__button-text-content,
 	/*------HIDE REPORT BUTTON------*/
-html[it-hide-report-button='true'] #top-level-buttons-computed ytd-button-renderer#Report-button,
+html[it-hide-report-button='true'] #top-level-buttons-computed button#Report-button,
 html[it-hide-report-button='true'] #menu button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]),
 html[it-hide-report-button='true'] #flexible-item-buttons button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]), 
 	/*------HIDE MORE BUTTON------*/
@@ -78,14 +78,14 @@ html[it-hide-more-button='true'] #menu yt-button-shape#button-shape,
 html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]),
 html[it-hide-more-button='true'] #flexible-item-buttons button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]),
 	/*------# HIDE THANKS BUTTON------*/
-html[it-hide-thanks-button='hidden'] #flexible-item-buttons ytd-button-renderer#Thanks-button,
-html[it-hide-thanks-button='icons_only'] #flexible-item-buttons ytd-button-renderer#Thanks-button div.cbox,
-	/*------# HIDE CLIP BUTTON------*/
-html[it-hide-clip-button='hidden'] #flexible-item-buttons ytd-button-renderer#Clip-button,
-html[it-hide-clip-button='icons_only'] #flexible-item-buttons ytd-button-renderer#Clip-button div.cbox,
+/*html[it-hide-thanks-button='hidden'] #flexible-item-buttons button#Thanks-button,
+html[it-hide-thanks-button='icons_only'] #flexible-item-buttons button#Thanks-button div.yt-spec-button-shape-next__button-text-content,
+*/	/*------# HIDE CLIP BUTTON------*/
+html[it-hide-clip-button='hidden'] #flexible-item-buttons button#Clip-button,
+html[it-hide-clip-button='icons_only'] #flexible-item-buttons button#Clip-button div.yt-spec-button-shape-next__button-text-content,
 	/*------# HIDE SAVE BUTTON------*/
-html[it-hide-save-button='hidden'] #flexible-item-buttons ytd-button-renderer#Save-button,
-html[it-hide-save-button='icons_only'] #flexible-item-buttons ytd-button-renderer#Save-button div.cbox
+html[it-hide-save-button='hidden'] #flexible-item-buttons button#Save-button,
+html[it-hide-save-button='icons_only'] #flexible-item-buttons button#Save-button div.yt-spec-button-shape-next__button-text-content
  /*=================================*/
           {display: none;}  
  /*---------------------------------*/

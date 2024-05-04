@@ -574,3 +574,20 @@ html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui,
 html[it-player-hide-skip-overlay=true] .ytp-doubletap-ui-legacy {
     visibility: hidden;
 }
+
+/*--------------------------------------------------------------
+# REMOVE BLACK BARS IN FULL SCREEN MODE
+--------------------------------------------------------------*/
+
+html[data-page-type=video][it-remove-black-bars=true] ytd-watch-flexy[fullscreen] .html5-video-container {
+	height: 100%;
+	width: 100%;
+}
+
+html[data-page-type=video][it-remove-black-bars=true] ytd-watch-flexy[fullscreen] .html5-main-video {
+	height: 100%!important;
+	width: 100%!important;
+	top: 0px!important;
+	left: 0px!important;
+	object-fit: cover;
+}

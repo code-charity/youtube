@@ -1,268 +1,836 @@
 {
-"about":{"message":"حول"},
-"accept":{"message":"قبول"},
-"activate":{"message":"تفعيل"},
-"activateCaptions":{"message":"تفعيل الترجمة"},
-"activateFullscreen":{"message":"تفعيل ملء الشاشة"},
-"activated":{"message":"مفعل"},
-"activatedFeatures":{"message":"الميزات المفعلة"},
-"activeFeatures":{"message":"الميزات النشطة"},
-"addScrollToTop":{"message":"آضف الصعود لأعلى"},
-"ads":{"message":"الاعلانات"},
-"all":{"message":"الكل"},
-"allow":{"message":"سماح"},
-"allow60fps":{"message":"السماح لـ60إطار"},
-"alwaysActive":{"message":"دائما نشط"},
-"alwaysShowProgressBar":{"message":"إظهار شريط التقدم دائمًا"},
-"amber":{"message":"العنبر"},
-"analyzer":{"message":"المحلل"},
-"appearance":{"message":"المظهر العام"},
-"audio":{"message":"الصوت"},
-"audioFormats":{"message":"تنسيقات الصوت"},
-"auto":{"message":"تلقائي"},
-"autoFullscreen":{"message":"ملء تلقائي للشاشة"},
-"autopauseWhenSwitchingTabs":{"message":"إيقاف تلقائي عند التبديل بين التبويبات"},
-"autoplay":{"message":"تشغيل تلقائي"},
-"backupAndReset":{"message":"إعادة تعيين والنسخ الاحتياطي"},
-"baseOnSystemColorScheme":{"message":"يناء على ألوان النظام"},
-"belowPlayer":{"message":"اسفل المشغل"},
-"black":{"message":"اسود"},
-"blocklist":{"message":"القائمة السوداء"},
-"blockAll":{"message":"حظر الكل"},
-"blue":{"message":"ازرق"},
-"blueGray":{"message":"ازرق رمادي"},
-"bluelight":{"message":"الضوء الأزرق"},
-"brown":{"message":"بنى"},
-"browser":{"message":"المتصفح"},
-"browserVersion":{"message":"إصدار المتصفح"},
-"bubbles":{"message":"فقاعات"},
-"bug":{"message":"خلل برمجي"},
-"cancel":{"message":"إلغاء"},
-"categories":{"message":"التصنيفات"},
-"channel":{"message":"قناة"},
-"channels":{"message":"القنوات"},
-"clipboard":{"message":"الحافظة"},
-"codecH264":{"message":"h.الترميز 264"},
-"collapseOfSubscriptionSections":{"message":"ضغط قسم الاشتراكات"},
-"collapsed":{"message":"ضغط"},
-"comments":{"message":"التعليقات"},
-"confirmationBeforeClosing":{"message":"التأكيد قبل الإغلاق"},
-"cookies":{"message":"ملفات تعريف الارتباط"},
-"cores":{"message":"النواه"},
-"cropChapterTitles":{"message":"اقتطاع عناوين الفصول"},
-"customCss":{"message":"مخصص CSS"},
-"customJs":{"message":"مخصص JS"},
-"customMiniPlayer":{"message":"المشغل الصغير المخصص"},
-"cyan":{"message":"ازرق سماوي"},
-"dark":{"message":"داكن"},
-"darkTheme":{"message":"مظهر داكن"},
-"dateAndTime":{"message":"التاريخ والوقت"},
-"dawn":{"message":"فجر"},
-"decreasePlaybackSpeed":{"message":"تقليل سرعة التشغيل"},
-"decreaseVolume":{"message":"خفض الصوت"},
-"deepOrange":{"message":"برتقالي داكن"},
-"deepPurple":{"message":"أرجواني داكن"},
-"defaultChannelTab":{"message":"علامة تبويب القناة الافتراضية"},
-"deleteYoutubeCookies":{"message":"حذف ملفات تعريف الارتباط من اليوتيوب"},
-"desert":{"message":"صحراء"},
-"details":{"message":"التفاصيل"},
-"developerOptions":{"message":"خيارات المطور"},
-"device":{"message":"الجهاز"},
-"dim":{"message":"داكن"},
-"disabled":{"message":"معطل"},
-"dislike":{"message":"لم يعجبنى"},
-"doNotChange":{"message":"الإفتراضي"},
-"donate":{"message":"تبرع"},
-"draggable":{"message":"قابل للسحب"},
-"email":{"message":"البريد الإلكتروني"},
-"empty":{"message":"فارغة"},
-"enabled":{"message":"ممكّن"},
-"enabledForced":{"message":"ممكّن (إجباري)"},
-"expanded":{"message":"موسع"},
-"exportSettings":{"message":"تصدير الإعدادات"},
-"extension":{"message":"الإضافة"},
-"file":{"message":"ملف"},
-"filters":{"message":"مرشحات"},
-"fitToWindow":{"message":"مناسب للنافذة"},
-"flash":{"message":"فلاش"},
-"font":{"message":"الخط"},
-"footer":{"message":"الحزء السفلي"},
-"forceSDR":{"message":"SDR فرض"},
-"forcedPlaybackSpeed":{"message":"تثبيت سرعة التشغيل"},
-"forcedTheaterMode":{"message":"فرض وضع المسرح"},
-"forcedVolume":{"message":"تثبيت مستوى الصوت"},
-"foundABug":{"message":"وجدت خطأ؟"},
-"fullWindow":{"message":"نافذة كاملة"},
-"general":{"message":"عام"},
-"github":{"message":"جيتهب"},
-"goToSearchBox":{"message":"انتقل إلى مربع البحث"},
-"gpu":{"message":"كرت الشاشة"},
-"green":{"message":"أخضر"},
-"hdThumbnail":{"message":"صورة مصغرة عالية الدقة"},
-"header":{"message":"الجزء العلوي"},
-"hidden":{"message":"مخفي"},
-"hiddenOnVideoPage":{"message":"مخفي على صفحة الفيديو"},
-"hideAnimatedThumbnails":{"message":"إخفاء الصور المصغرة المتحركة"},
-"hideAnnotations":{"message":"إخفاء التعليقات التوضيحية"},
-"hideCards":{"message":"إخفاء البطاقات"},
-"hideDetails":{"message":"إخفاء التفاصيل"},
-"hideEndscreen":{"message":"إخفاء شاشة النهاية"},
-"hideFeaturedContent":{"message":"إخفاء المحتوى المميز"},
-"hideFooter":{"message":"إخفاء الجزء السفلي"},
-"hideGradientBottom":{"message":"إخفاء التدرج الأسود السفلي"},
-"hidePlaylist":{"message":"إخفاء قائمة التشغيل"},
-"hideRightButtons":{"message":"إخفاء الأزرار اليسرى"},
-"hideScrollForDetails":{"message":"«إخفاء «التمرير للحصول على التفاصيل"},
-"hideViewsCount":{"message":"إخفاء عدد المشاهدات"},
-"history":{"message":"السجلّ"},
-"home":{"message":"الصفحة الرئيسية"},
-"hover":{"message":"تمرير"},
-"hoverOnVideoPage":{"message":"تمرير فوق صفحة الفيديو"},
-"howLongAgoTheVideoWasUploaded":{"message":"منذ متى تم تحميل الفيديو"},
-"icons":{"message":"أيقونات"},
-"iconsOnly":{"message":"أيقونات فقط"},
-"importSettings":{"message":"استيراد الاعدادات"},
-"improveLogo":{"message":"تحسين الشعار"},
-"improvedtubeIconOnYoutube":{"message":"في اليوتيوب ImprovedTube ايقونة"},
-"improvedtubeLanguage":{"message":"ImprovedTube لغة"},
-"improvedtubeVersion":{"message":"ImprovedTube اصدار"},
-"increasePlaybackSpeed":{"message":"زيادة سرعة التشغيل"},
-"increaseVolume":{"message":"زيادة الصوت"},
-"indigo":{"message":"نيلي"},
-"items":{"message":"العناصر"},
-"languages":{"message":"اللغات"},
-"legacyYoutube":{"message":"اليوتيوب القديم"},
-"light":{"message":"ضوء"},
-"lightBlue":{"message":"أزرق فاتح"},
-"lightGreen":{"message":"اخضر فاتح"},
-"like":{"message":"اعحبني"},
-"lime":{"message":"جير"},
-"list":{"message":"قائمة"},
-"liveChat":{"message":"محادثة مباشرة"},
-"liveChatType":{"message":"نوع المحادثة مباشرة"},
-"loudnessNormalization":{"message":"تطبيع الإزعاج"},
-"markWatchedVideos":{"message":"التعليم على الفيديو المشاهد"},
-"mixer":{"message":"مهندس الصوت"},
-"myColors":{"message":"ألواني"},
-"name":{"message":"الاسم"},
-"nativeMiniPlayer":{"message":"المشغل الافتراضي الصغير"},
-"new":{"message":"جديد"},
-"nextVideo":{"message":"الفيديو التالي"},
-"night":{"message":"ليل"},
-"noActiveFeatures":{"message":"لا يوجد ميزات نشطة"},
-"noOpenVideoTabs":{"message":"لا توجد علامات تبويب فيديو مفتوحة"},
-"none":{"message":"لاشيء"},
-"normal":{"message":"عادي"},
-"old":{"message":"قديم"},
-"onAllVideos":{"message":"على جميع مقاطع الفيديو"},
-"onSubscribedChannels":{"message":"على القنوات المشتركة"},
-"onlyActiveOnYoutube":{"message":"نشط فقط على اليوتيوب"},
-"onlyOnePlayerInstancePlaying":{"message":"تشغيل مشغل واحد فقط"},
-"orange":{"message":"برتقالي"},
-"os":{"message":"نظام التشغيل"},
-"other":{"message":"آخر"},
-"permissions":{"message":"الأذونات"},
-"pictureInPicture":{"message":"فيديو عائم"},
-"pink":{"message":"زهري"},
-"plain":{"message":"عادي"},
-"platform":{"message":"المنصة"},
-"playPause":{"message":"تشغيل / ايقاف"},
-"playbackSpeed":{"message":"سرعة التشغيل"},
-"player":{"message":"المشغل"},
-"playerColor":{"message":"لون المشغل"},
-"playerSize":{"message":"حجم المشغل"},
-"playlist":{"message":"قائمة التشغيل"},
-"playlists":{"message":"قوائم التشغيل"},
-"popupPlayer":{"message":"مشفل منبثق"},
-"position":{"message":"التموضع"},
-"pressAnyKeyOrScroll":{"message":".اضغط على أي مفتاح أو استخدم عجلة الماوس"},
-"pressAnyKeyOrUseMouseWheel":{"message":"اضغط على أي مفتاح أو استخدم عجلة الماوس"},
-"previousVideo":{"message":"الفيديو السابق"},
-"primaryColor":{"message":"اللون الأصلي"},
-"purple":{"message":"أرجواني"},
-"quality":{"message":"الجودة"},
-"ram":{"message":"الذاكرة العشوائية"},
-"rateUs":{"message":"قيمنا"},
-"red":{"message":"احمر"},
-"redDislikeButton":{"message":"إظهار زر لم يعجبني باللون الأحمر"},
-"relatedVideos":{"message":"فيديوهات ذات علاقة"},
-"hideHomePageShorts":{"message":"إزالة الشورت من الصفحة الرئيسية"},
-"removeRelatedSearchResults":{"message":"إزالة عمليات بحث مرتبطة بـ"},
-"removeShortsReelSearchResults":{"message":"إزالة لفة Shorts من نتائج البحث"},
-"repeat":{"message":"تكرار"},
-"reset":{"message":"إعادة تعيين"},
-"resetAllSettings":{"message":"إعادة تعيين كافة الإعدادات"},
-"resetAllShortcuts":{"message":"إعادة تعيين جميع الاختصارات"},
-"reverse":{"message":"عكس"},
-"rotate":{"message":"استدارة"},
-"save":{"message":"حفظ"},
-"saveAs":{"message":"حفظ باسم"},
-"schedule":{"message":"جدوله"},
-"screen":{"message":"الشاشة"},
-"screenshot":{"message":"لقطة شاشة"},
-"search":{"message":"بحث"},
-"searchBarOnly":{"message":"شريط البحث فقط"},
-"seekBackward10Seconds":{"message":"إرجاع بمقدار 10 ثوانٍ"},
-"seekForward10Seconds":{"message":"تقديم 10 ثوانٍ إلى الأمام"},
-"seekNextChapter":{"message":"seekNextChapter"},
-"seekPreviousChapter":{"message":"seekPreviousChapter"},
-"settings":{"message":"الإعدادات"},
-"settingsSuccessfullyImported":{"message":"تم استيراد الإعدادات بنجاح"},
-"shortcuts":{"message":"اختصارات"},
-"showCardsOnMouseHover":{"message":"عرض البطاقات عند تمرير الماوس"},
-"showChannelVideosCount":{"message":"إظهار عدد مقاطع الفيديو للقناة"},
-"shuffle":{"message":"عشوائي"},
-"sidebar":{"message":"الشريط الجانبي"},
-"spacebar":{"message":"مفتاح المسافة"},
-"squaredUserImages":{"message":"صور المستخدمين مربعة"},
-"static":{"message":"ثابت"},
-"statsForNerds":{"message":"عرض الإحصاءات المفصلة"},
-"step":{"message":"خطوة"},
-"stop":{"message":"ايقاف"},
-"style":{"message":"نمط"},
-"styles":{"message":"الأنماط"},
-"subscriptions":{"message":"الاشتراكات"},
-"subtitles":{"message":"الترجمات"},
-"sunset":{"message":"غروب الشمس"},
-"sunsetToSunrise":{"message":"من غروب الشمس إلى شروقها"},
-"systemPeferenceDark":{"message":"تفضيل النظام: داكن"},
-"systemPeferenceLight":{"message":"تفضيل النظام: فاتح"},
-"teal":{"message":"أزرق مخضر"},
-"textColor":{"message":"لون النص"},
-"themes":{"message":"المظاهر"},
-"thisWillRemoveAllCookies":{"message":".سيؤدي هذا إلى إزالة كافة ملفات تعريف الارتباط"},
-"thisWillRemoveAllYouTubeCookies":{"message":"سيؤدي هذا إلى إزالة جميع ملفات تعريف ارتباط اليوتيوب"},
-"thisWillResetAllSettings":{"message":".سيؤدي هذا إلى إعادة تعيين جميع الإعدادات"},
-"thisWillResetAllShortcuts":{"message":"سيؤدي هذا إلى إعادة تعيين جميع الاختصارات"},
-"thumbnails":{"message":"الصور المصغرة"},
-"timeFrom":{"message":"الوقت من"},
-"timeTo":{"message":"وقت ل"},
-"todayAt":{"message":"اليوم عند الساعة"},
-"toggleCards":{"message":"تبديل وضع البطاقات"},
-"toggleControls":{"message":"Toggle controls"},
-"topChat":{"message":"رسائل المحادثة الهامّة"},
-"trailerAutoplay":{"message":"التشغيل التلقائي للفيديو الدعائي"},
-"translations":{"message":"الترجمات"},
-"transparentBackground":{"message":"خلفية شفافة"},
-"trending":{"message":"المحتوى الرائج"},
-"tryToReloadThePage":{"message":"حاول إعادة تحميل الصفحة"},
-"type":{"message":"النوع"},
-"upNextAutoplay":{"message":"تشغيل التالي تلقائيا"},
-"use24HourFormat":{"message":"استخدم تنسيق 24 ساعة"},
-"version":{"message":"الإصدار"},
-"video":{"message":"الفيديو"},
-"videoDescriptionWillBeExpandedToGetNameOfCategory":{"message":"سيتم توسيع وصف الفيديو للحصول على اسم الفئة"},
-"videoFormats":{"message":"تنسيقات الفيديو"},
-"videos":{"message":"الفيديوهات"},
-"volume":{"message":"الصوت"},
-"watchLater":{"message":"المشاهدة لاحقا"},
-"watchTime":{"message":"وقت المشاهدة"},
-"whenTabIsChanged":{"message":"عندما يتم تغيير علامة التبويب"},
-"white":{"message":"أبيض"},
-"yellow":{"message":"أصفر"},
-"youtubeHeaderLeft":{"message":"جزء اليوتيوب العلوي  (يسار) "},
-"youtubeHeaderRight":{"message":"جزء اليوتيوب العلوي (يمين)"},
-"youtubeHomePage":{"message":"صفحة اليوتيوب الرئيسية"},
-"youtubeLanguage":{"message":"لغة اليوتيوب"},
-"youtubeLimitsVideoQualityTo1080pForH264Codec":{"message":"h.264 يحد اليوتيوب من جودة الفيديو الى ١٠٨٠ لـ الترميز"}
+    "about": {
+        "message": "حول"
+    },
+    "accept": {
+        "message": "قبول"
+    },
+    "activate": {
+        "message": "تفعيل"
+    },
+    "activateCaptions": {
+        "message": "تفعيل الترجمة"
+    },
+    "activated": {
+        "message": "مفعل"
+    },
+    "activatedFeatures": {
+        "message": "الميزات المفعلة"
+    },
+    "activateFullscreen": {
+        "message": "تفعيل ملء الشاشة"
+    },
+    "activeFeatures": {
+        "message": "الميزات النشطة"
+    },
+    "addScrollToTop": {
+        "message": "آضف الصعود لأعلى"
+    },
+    "ads": {
+        "message": "الاعلانات"
+    },
+    "all": {
+        "message": "الكل"
+    },
+    "allow": {
+        "message": "سماح"
+    },
+    "allow60fps": {
+        "message": "السماح لـ60إطار"
+    },
+    "alwaysActive": {
+        "message": "دائما نشط"
+    },
+    "alwaysShowProgressBar": {
+        "message": "إظهار شريط التقدم دائمًا"
+    },
+    "amber": {
+        "message": "العنبر"
+    },
+    "analyzer": {
+        "message": "المحلل"
+    },
+    "appearance": {
+        "message": "المظهر العام"
+    },
+    "areYouSureYouWantToImportTheData": {
+        "message": "Are you sure you want to import the data?"
+    },
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
+    "audio": {
+        "message": "الصوت"
+    },
+    "audioFormats": {
+        "message": "تنسيقات الصوت"
+    },
+    "auto": {
+        "message": "تلقائي"
+    },
+    "autoFullscreen": {
+        "message": "ملء تلقائي للشاشة"
+    },
+    "autopauseWhenSwitchingTabs": {
+        "message": "إيقاف تلقائي عند التبديل بين التبويبات"
+    },
+    "autoplay": {
+        "message": "تشغيل تلقائي"
+    },
+    "backupAndReset": {
+        "message": "إعادة تعيين والنسخ الاحتياطي"
+    },
+    "baseOnSystemColorScheme": {
+        "message": "يناء على ألوان النظام"
+    },
+    "belowPlayer": {
+        "message": "اسفل المشغل"
+    },
+    "black": {
+        "message": "اسود"
+    },
+    "blockAll": {
+        "message": "حظر الكل"
+    },
+    "blocklist": {
+        "message": "القائمة السوداء"
+    },
+    "blue": {
+        "message": "ازرق"
+    },
+    "blueGray": {
+        "message": "ازرق رمادي"
+    },
+    "bluelight": {
+        "message": "الضوء الأزرق"
+    },
+    "brown": {
+        "message": "بنى"
+    },
+    "browser": {
+        "message": "المتصفح"
+    },
+    "browserAccountSync": {
+        "message": "مزامنة (حساب المتصفح)"
+    },
+    "browserVersion": {
+        "message": "إصدار المتصفح"
+    },
+    "bubbles": {
+        "message": "فقاعات"
+    },
+    "bug": {
+        "message": "خلل برمجي"
+    },
+    "cancel": {
+        "message": "إلغاء"
+    },
+    "categories": {
+        "message": "التصنيفات"
+    },
+    "channel": {
+        "message": "قناة"
+    },
+    "channels": {
+        "message": "القنوات"
+    },
+    "clipboard": {
+        "message": "الحافظة"
+    },
+    "codecH264": {
+        "message": "h.الترميز 264"
+    },
+    "collapsed": {
+        "message": "ضغط"
+    },
+    "collapseOfSubscriptionSections": {
+        "message": "ضغط قسم الاشتراكات"
+    },
+    "comments": {
+        "message": "التعليقات"
+    },
+    "confirmationBeforeClosing": {
+        "message": "التأكيد قبل الإغلاق"
+    },
+    "cookies": {
+        "message": "ملفات تعريف الارتباط"
+    },
+    "cores": {
+        "message": "النواه"
+    },
+    "cropChapterTitles": {
+        "message": "اقتطاع عناوين الفصول"
+    },
+    "customCss": {
+        "message": "مخصص CSS"
+    },
+    "customJs": {
+        "message": "مخصص JS"
+    },
+    "customMiniPlayer": {
+        "message": "المشغل الصغير المخصص"
+    },
+    "cyan": {
+        "message": "ازرق سماوي"
+    },
+    "dark": {
+        "message": "داكن"
+    },
+    "darkTheme": {
+        "message": "مظهر داكن"
+    },
+    "dateAndTime": {
+        "message": "التاريخ والوقت"
+    },
+    "dawn": {
+        "message": "فجر"
+    },
+    "decreasePlaybackSpeed": {
+        "message": "تقليل سرعة التشغيل"
+    },
+    "decreaseVolume": {
+        "message": "خفض الصوت"
+    },
+    "deepOrange": {
+        "message": "برتقالي داكن"
+    },
+    "deepPurple": {
+        "message": "أرجواني داكن"
+    },
+    "defaultChannelTab": {
+        "message": "علامة تبويب القناة الافتراضية"
+    },
+    "deleteYoutubeCookies": {
+        "message": "حذف ملفات تعريف الارتباط من اليوتيوب"
+    },
+    "desert": {
+        "message": "صحراء"
+    },
+    "details": {
+        "message": "التفاصيل"
+    },
+    "developerOptions": {
+        "message": "خيارات المطور"
+    },
+    "device": {
+        "message": "الجهاز"
+    },
+    "dim": {
+        "message": "داكن"
+    },
+    "disabled": {
+        "message": "معطل"
+    },
+    "dislike": {
+        "message": "لم يعجبنى"
+    },
+    "donate": {
+        "message": "تبرع"
+    },
+    "doNotChange": {
+        "message": "الإفتراضي"
+    },
+    "draggable": {
+        "message": "قابل للسحب"
+    },
+    "email": {
+        "message": "البريد الإلكتروني"
+    },
+    "empty": {
+        "message": "فارغة"
+    },
+    "enabled": {
+        "message": "ممكّن"
+    },
+    "enabledForced": {
+        "message": "ممكّن (إجباري)"
+    },
+    "expanded": {
+        "message": "موسع"
+    },
+    "exportSettings": {
+        "message": "تصدير الإعدادات"
+    },
+    "extension": {
+        "message": "الإضافة"
+    },
+    "ExtraButtons": {
+        "message": "أزرار إضافية"
+    },
+    "file": {
+        "message": "ملف"
+    },
+    "filters": {
+        "message": "مرشحات"
+    },
+    "fitToWindow": {
+        "message": "مناسب للنافذة"
+    },
+    "flash": {
+        "message": "فلاش"
+    },
+    "font": {
+        "message": "الخط"
+    },
+    "footer": {
+        "message": "الحزء السفلي"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "تثبيت سرعة التشغيل"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Forced play video from the beginning"
+    },
+    "forcedTheaterMode": {
+        "message": "فرض وضع المسرح"
+    },
+    "forcedVolume": {
+        "message": "تثبيت مستوى الصوت"
+    },
+    "forceSDR": {
+        "message": "SDR فرض"
+    },
+    "foundABug": {
+        "message": "وجدت خطأ؟"
+    },
+    "fullWindow": {
+        "message": "نافذة كاملة"
+    },
+    "general": {
+        "message": "عام"
+    },
+    "github": {
+        "message": "جيتهب"
+    },
+    "goToSearchBox": {
+        "message": "انتقل إلى مربع البحث"
+    },
+    "gpu": {
+        "message": "كرت الشاشة"
+    },
+    "green": {
+        "message": "أخضر"
+    },
+    "hdThumbnail": {
+        "message": "صورة مصغرة عالية الدقة"
+    },
+    "header": {
+        "message": "الجزء العلوي"
+    },
+    "hidden": {
+        "message": "مخفي"
+    },
+    "hiddenOnVideoPage": {
+        "message": "مخفي على صفحة الفيديو"
+    },
+    "hideAnimatedThumbnails": {
+        "message": "إخفاء الصور المصغرة المتحركة"
+    },
+    "hideAnnotations": {
+        "message": "إخفاء التعليقات التوضيحية"
+    },
+    "hideCards": {
+        "message": "إخفاء البطاقات"
+    },
+    "hideDetails": {
+        "message": "إخفاء التفاصيل"
+    },
+    "hideEndscreen": {
+        "message": "إخفاء شاشة النهاية"
+    },
+    "hideFeaturedContent": {
+        "message": "إخفاء المحتوى المميز"
+    },
+    "hideFooter": {
+        "message": "إخفاء الجزء السفلي"
+    },
+    "hideGradientBottom": {
+        "message": "إخفاء التدرج الأسود السفلي"
+    },
+    "hideHomePageShorts": {
+        "message": "إزالة الشورت من الصفحة الرئيسية"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "hidePlaylist": {
+        "message": "إخفاء قائمة التشغيل"
+    },
+    "hideRightButtons": {
+        "message": "إخفاء الأزرار اليسرى"
+    },
+    "hideScrollForDetails": {
+        "message": "«إخفاء «التمرير للحصول على التفاصيل"
+    },
+    "hideViewsCount": {
+        "message": "إخفاء عدد المشاهدات"
+    },
+    "history": {
+        "message": "السجلّ"
+    },
+    "home": {
+        "message": "الصفحة الرئيسية"
+    },
+    "hover": {
+        "message": "تمرير"
+    },
+    "hoverOnVideoPage": {
+        "message": "تمرير فوق صفحة الفيديو"
+    },
+    "howLongAgoTheVideoWasUploaded": {
+        "message": "منذ متى تم تحميل الفيديو"
+    },
+    "icons": {
+        "message": "أيقونات"
+    },
+    "iconsOnly": {
+        "message": "أيقونات فقط"
+    },
+    "importSettings": {
+        "message": "استيراد الاعدادات"
+    },
+    "ImprovedTube": {
+        "message": "ImprovedTube"
+    },
+    "improvedtubeIconOnYoutube": {
+        "message": "في اليوتيوب ImprovedTube ايقونة"
+    },
+    "improvedtubeLanguage": {
+        "message": "ImprovedTube لغة"
+    },
+    "improvedtubeVersion": {
+        "message": "ImprovedTube اصدار"
+    },
+    "improveLogo": {
+        "message": "تحسين الشعار"
+    },
+    "increasePlaybackSpeed": {
+        "message": "زيادة سرعة التشغيل"
+    },
+    "increaseVolume": {
+        "message": "زيادة الصوت"
+    },
+    "indigo": {
+        "message": "نيلي"
+    },
+    "items": {
+        "message": "العناصر"
+    },
+    "languages": {
+        "message": "اللغات"
+    },
+    "legacyYoutube": {
+        "message": "اليوتيوب القديم"
+    },
+    "light": {
+        "message": "ضوء"
+    },
+    "lightBlue": {
+        "message": "أزرق فاتح"
+    },
+    "lightGreen": {
+        "message": "اخضر فاتح"
+    },
+    "like": {
+        "message": "اعحبني"
+    },
+    "lime": {
+        "message": "جير"
+    },
+    "list": {
+        "message": "قائمة"
+    },
+    "liveChat": {
+        "message": "محادثة مباشرة"
+    },
+    "liveChatType": {
+        "message": "نوع المحادثة مباشرة"
+    },
+    "loudnessNormalization": {
+        "message": "تطبيع الإزعاج"
+    },
+    "markWatchedVideos": {
+        "message": "التعليم على الفيديو المشاهد"
+    },
+    "mixer": {
+        "message": "مهندس الصوت"
+    },
+    "myColors": {
+        "message": "ألواني"
+    },
+    "name": {
+        "message": "الاسم"
+    },
+    "nativeMiniPlayer": {
+        "message": "المشغل الافتراضي الصغير"
+    },
+    "new": {
+        "message": "جديد"
+    },
+    "nextVideo": {
+        "message": "الفيديو التالي"
+    },
+    "night": {
+        "message": "ليل"
+    },
+    "noActiveFeatures": {
+        "message": "لا يوجد ميزات نشطة"
+    },
+    "none": {
+        "message": "لاشيء"
+    },
+    "noOpenVideoTabs": {
+        "message": "لا توجد علامات تبويب فيديو مفتوحة"
+    },
+    "normal": {
+        "message": "عادي"
+    },
+    "old": {
+        "message": "قديم"
+    },
+    "onAllVideos": {
+        "message": "على جميع مقاطع الفيديو"
+    },
+    "onlyActiveOnYoutube": {
+        "message": "نشط فقط على اليوتيوب"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "تشغيل مشغل واحد فقط"
+    },
+    "onSubscribedChannels": {
+        "message": "على القنوات المشتركة"
+    },
+    "orange": {
+        "message": "برتقالي"
+    },
+    "os": {
+        "message": "نظام التشغيل"
+    },
+    "other": {
+        "message": "آخر"
+    },
+    "permissions": {
+        "message": "الأذونات"
+    },
+    "pictureInPicture": {
+        "message": "فيديو عائم"
+    },
+    "pink": {
+        "message": "زهري"
+    },
+    "plain": {
+        "message": "عادي"
+    },
+    "platform": {
+        "message": "المنصة"
+    },
+    "playbackSpeed": {
+        "message": "سرعة التشغيل"
+    },
+    "player": {
+        "message": "المشغل"
+    },
+    "playerColor": {
+        "message": "لون المشغل"
+    },
+    "playerSize": {
+        "message": "حجم المشغل"
+    },
+    "playlist": {
+        "message": "قائمة التشغيل"
+    },
+    "playlists": {
+        "message": "قوائم التشغيل"
+    },
+    "playPause": {
+        "message": "تشغيل / ايقاف"
+    },
+    "popupPlayer": {
+        "message": "مشفل منبثق"
+    },
+    "position": {
+        "message": "التموضع"
+    },
+    "pressAnyKeyOrScroll": {
+        "message": ".اضغط على أي مفتاح أو استخدم عجلة الماوس"
+    },
+    "pressAnyKeyOrUseMouseWheel": {
+        "message": "اضغط على أي مفتاح أو استخدم عجلة الماوس"
+    },
+    "previousVideo": {
+        "message": "الفيديو السابق"
+    },
+    "primaryColor": {
+        "message": "اللون الأصلي"
+    },
+    "purple": {
+        "message": "أرجواني"
+    },
+    "quality": {
+        "message": "الجودة"
+    },
+    "qualityWithoutFocus": {
+        "message": "الجودة بدون تركيز"
+    },
+    "ram": {
+        "message": "الذاكرة العشوائية"
+    },
+    "rateUs": {
+        "message": "قيمنا"
+    },
+    "red": {
+        "message": "احمر"
+    },
+    "redDislikeButton": {
+        "message": "إظهار زر لم يعجبني باللون الأحمر"
+    },
+    "relatedVideos": {
+        "message": "فيديوهات ذات علاقة"
+    },
+    "removeRelatedSearchResults": {
+        "message": "إزالة عمليات بحث مرتبطة بـ"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "إزالة لفة Shorts من نتائج البحث"
+    },
+    "repeat": {
+        "message": "تكرار"
+    },
+    "reset": {
+        "message": "إعادة تعيين"
+    },
+    "resetAllSettings": {
+        "message": "إعادة تعيين كافة الإعدادات"
+    },
+    "resetAllShortcuts": {
+        "message": "إعادة تعيين جميع الاختصارات"
+    },
+    "reverse": {
+        "message": "عكس"
+    },
+    "rotate": {
+        "message": "استدارة"
+    },
+    "save": {
+        "message": "حفظ"
+    },
+    "saveAs": {
+        "message": "حفظ باسم"
+    },
+    "schedule": {
+        "message": "جدوله"
+    },
+    "screen": {
+        "message": "الشاشة"
+    },
+    "screenshot": {
+        "message": "لقطة شاشة"
+    },
+    "search": {
+        "message": "بحث"
+    },
+    "searchBarOnly": {
+        "message": "شريط البحث فقط"
+    },
+    "seekBackward10Seconds": {
+        "message": "إرجاع بمقدار 10 ثوانٍ"
+    },
+    "seekForward10Seconds": {
+        "message": "تقديم 10 ثوانٍ إلى الأمام"
+    },
+    "seekNextChapter": {
+        "message": "seekNextChapter"
+    },
+    "seekPreviousChapter": {
+        "message": "seekPreviousChapter"
+    },
+    "settings": {
+        "message": "الإعدادات"
+    },
+    "settingsSuccessfullyImported": {
+        "message": "تم استيراد الإعدادات بنجاح"
+    },
+    "shortcuts": {
+        "message": "اختصارات"
+    },
+    "showCardsOnMouseHover": {
+        "message": "عرض البطاقات عند تمرير الماوس"
+    },
+    "showChannelVideosCount": {
+        "message": "إظهار عدد مقاطع الفيديو للقناة"
+    },
+    "shuffle": {
+        "message": "عشوائي"
+    },
+    "sidebar": {
+        "message": "الشريط الجانبي"
+    },
+    "spacebar": {
+        "message": "مفتاح المسافة"
+    },
+    "squaredUserImages": {
+        "message": "صور المستخدمين مربعة"
+    },
+    "static": {
+        "message": "ثابت"
+    },
+    "statsForNerds": {
+        "message": "عرض الإحصاءات المفصلة"
+    },
+    "step": {
+        "message": "خطوة"
+    },
+    "stop": {
+        "message": "ايقاف"
+    },
+    "style": {
+        "message": "نمط"
+    },
+    "styles": {
+        "message": "الأنماط"
+    },
+    "subscriptions": {
+        "message": "الاشتراكات"
+    },
+    "subtitles": {
+        "message": "الترجمات"
+    },
+    "sunset": {
+        "message": "غروب الشمس"
+    },
+    "sunsetToSunrise": {
+        "message": "من غروب الشمس إلى شروقها"
+    },
+    "systemPeferenceDark": {
+        "message": "تفضيل النظام: داكن"
+    },
+    "systemPeferenceLight": {
+        "message": "تفضيل النظام: فاتح"
+    },
+    "teal": {
+        "message": "أزرق مخضر"
+    },
+    "textColor": {
+        "message": "لون النص"
+    },
+    "themes": {
+        "message": "المظاهر"
+    },
+    "thisWillRemoveAllCookies": {
+        "message": ".سيؤدي هذا إلى إزالة كافة ملفات تعريف الارتباط"
+    },
+    "thisWillRemoveAllYouTubeCookies": {
+        "message": "سيؤدي هذا إلى إزالة جميع ملفات تعريف ارتباط اليوتيوب"
+    },
+    "thisWillResetAllSettings": {
+        "message": ".سيؤدي هذا إلى إعادة تعيين جميع الإعدادات"
+    },
+    "thisWillResetAllShortcuts": {
+        "message": "سيؤدي هذا إلى إعادة تعيين جميع الاختصارات"
+    },
+    "thumbnails": {
+        "message": "الصور المصغرة"
+    },
+    "timeFrom": {
+        "message": "الوقت من"
+    },
+    "timeTo": {
+        "message": "وقت ل"
+    },
+    "todayAt": {
+        "message": "اليوم عند الساعة"
+    },
+    "toggleCards": {
+        "message": "تبديل وضع البطاقات"
+    },
+    "toggleControls": {
+        "message": "Toggle controls"
+    },
+    "topChat": {
+        "message": "رسائل المحادثة الهامّة"
+    },
+    "trailerAutoplay": {
+        "message": "التشغيل التلقائي للفيديو الدعائي"
+    },
+    "translations": {
+        "message": "الترجمات"
+    },
+    "transparentBackground": {
+        "message": "خلفية شفافة"
+    },
+    "transparentColor": {
+        "message": "شفاف"
+    },
+    "trending": {
+        "message": "المحتوى الرائج"
+    },
+    "tryToReloadThePage": {
+        "message": "حاول إعادة تحميل الصفحة"
+    },
+    "type": {
+        "message": "النوع"
+    },
+    "upNextAutoplay": {
+        "message": "تشغيل التالي تلقائيا"
+    },
+    "use24HourFormat": {
+        "message": "استخدم تنسيق 24 ساعة"
+    },
+    "version": {
+        "message": "الإصدار"
+    },
+    "video": {
+        "message": "الفيديو"
+    },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "سيتم توسيع وصف الفيديو للحصول على اسم الفئة"
+    },
+    "videoFormats": {
+        "message": "تنسيقات الفيديو"
+    },
+    "videos": {
+        "message": "الفيديوهات"
+    },
+    "volume": {
+        "message": "الصوت"
+    },
+    "watchLater": {
+        "message": "المشاهدة لاحقا"
+    },
+    "watchTime": {
+        "message": "وقت المشاهدة"
+    },
+    "whenTabIsChanged": {
+        "message": "عندما يتم تغيير علامة التبويب"
+    },
+    "white": {
+        "message": "أبيض"
+    },
+    "yellow": {
+        "message": "أصفر"
+    },
+    "youtubeHeaderLeft": {
+        "message": "جزء اليوتيوب العلوي  (يسار) "
+    },
+    "youtubeHeaderRight": {
+        "message": "جزء اليوتيوب العلوي (يمين)"
+    },
+    "youtubeHomePage": {
+        "message": "صفحة اليوتيوب الرئيسية"
+    },
+    "youtubeLanguage": {
+        "message": "لغة اليوتيوب"
+    },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "h.264 يحد اليوتيوب من جودة الفيديو الى ١٠٨٠ لـ الترميز"
+    }
 }

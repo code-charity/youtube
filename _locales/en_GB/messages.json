@@ -1,18 +1,53 @@
 {
-"analyzer":{"message":"Analyser"},
-"backgroundColor":{"message":"Background colour"},
-"baseOnSystemColorScheme":{"message":"Base on system colour scheme"},
-"blueGray":{"message":"Blue grey"},
-"description_ext":{"message":"Make YouTube tidy+smart! YouTube video colour ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"},
-"fontColor":{"message":"Font colour"},
-"forcedTheaterMode":{"message":"Forced theatre mode"},
-"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"myColors":{"message":"My colours"},
-"playerColor":{"message":"Player colour"},
-"primaryColor":{"message":"Primary colour"},
-"textColor":{"message":"Text colour"},
-"windowColor":{"message":"Window colour"},
-"compact_spacing":{"message":"compact spacing"},
-"bitness":{"message":"bitness"},
-"player_rotate_button":{"message":"player rotate button"}
+    "analyzer": {
+        "message": "Analyser"
+    },
+    "backgroundColor": {
+        "message": "Background colour"
+    },
+    "baseOnSystemColorScheme": {
+        "message": "Base on system colour scheme"
+    },
+    "bitness": {
+        "message": "bitness"
+    },
+    "blueGray": {
+        "message": "Blue grey"
+    },
+    "compact_spacing": {
+        "message": "compact spacing"
+    },
+    "description_ext": {
+        "message": "Make YouTube tidy+smart! YouTube video colour ad skip volume speed channel tool style HD ads adblock adblocker tags keyword playlist"
+    },
+    "fontColor": {
+        "message": "Font colour"
+    },
+    "forcedTheaterMode": {
+        "message": "Forced theatre mode"
+    },
+    "hideSkipOverlay": {
+        "message": "Hide 5 seconds skip animation"
+    },
+    "myColors": {
+        "message": "My colours"
+    },
+    "player_rotate_button": {
+        "message": "player rotate button"
+    },
+    "playerColor": {
+        "message": "Player colour"
+    },
+    "primaryColor": {
+        "message": "Primary colour"
+    },
+    "qualityWithoutFocus": {
+        "message": "Quality without focus"
+    },
+    "textColor": {
+        "message": "Text colour"
+    },
+    "windowColor": {
+        "message": "Window colour"
+    }
 }

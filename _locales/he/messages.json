@@ -1,6 +1,5 @@
 {
-"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"הסר Shorts מהדף הראשי"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}
+    "hideHomePageShorts": {
+        "message": "הסר Shorts מהדף הראשי"
+    }
 }

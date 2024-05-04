@@ -1,4 +1,17 @@
 {
-"hideHomePageShorts":{"message":"Видалити Shorts з головної сторінки"},
-"removeShortsReelSearchResults":{"message":"Видаліть карусель Shorts з результатів пошуку"}
+    "analyzer": {
+        "message": "Analyser"
+    },
+    "areYouSureYouWantToImportTheData": {
+        "message": "Ви впевнені, що хочете імпортувати ці дані?"
+    },
+    "hideHomePageShorts": {
+        "message": "Видалити Shorts з головної сторінки"
+    },
+    "qualityWithoutFocus": {
+        "message": "Якість при неактивному вікні"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Видаліть карусель Shorts з результатів пошуку"
+    }
 }

@@ -176,6 +176,7 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.init();
 			// need to run blocklist once just after page load to catch initial nodes
 			ImprovedTube.blocklist();
+
 		// REACTION OR VISUAL FEEDBACK WHEN THE USER CHANGES A SETTING (already automated for our CSS features):
 		} else if (message.action === 'storage-changed') {
 			var camelized_key = message.camelizedKey;

@@ -1,245 +1,1276 @@
 {
-"about":{"message":"Σχετικά"},
-"accept":{"message":"Αποδοχή"},
-"activate":{"message":"Ενεργοποίηση"},
-"activateCaptions":{"message":"Ενεργοποίηση Υπότιτλων"},
-"activateFullscreen":{"message":"Ενεργοποίηση Πλήρους Οθόνη"},
-"activated":{"message":"Ενεργοποιήθηκε"},
-"activatedFeatures":{"message":"Ενεργοποιημένες Λειτουργίες"},
-"activeFeatures":{"message":"Ενεργές λειτουργίες"},
-"addScrollToTop":{"message":"Πρόσθεσε συντόμευση για την κορυφή της σελίδας"},
-"ads":{"message":"Διαφημίσεις"},
-"all":{"message":"Όλα"},
-"allow":{"message":"Αποδοχή"},
-"allow60fps":{"message":"Επίτρεψε 60fps"},
-"alwaysActive":{"message":"Πάντοτε ενεργό"},
-"alwaysShowProgressBar":{"message":"Πάντα ορατός ο ενδείκτης προόδου"},
-"amber":{"message":"Κεχρί"},
-"analyzer":{"message":"Αναλυτής"},
-"appearance":{"message":"Εμφάνιση"},
-"audio":{"message":"Ήχος"},
-"audioFormats":{"message":"Μορφές ήχου"},
-"auto":{"message":"Αυτόματο"},
-"autoFullscreen":{"message":"Αυτόματη Πλήρης Οθόνη"},
-"autopauseWhenSwitchingTabs":{"message":"Αυτόματη παύση όταν αλλάζετε καρτέλα"},
-"autoplay":{"message":"Αυτόματη αναπαραγωγή"},
-"backupAndReset":{"message":"Αντίγραφα ασφαλείας & reset"},
-"baseOnSystemColorScheme":{"message":"Με βάση τις ρυθμίσεις χρώματος του συστήματος"},
-"belowPlayer":{"message":"Κάτω από το Player"},
-"black":{"message":"Μαύρο"},
-"blocklist":{"message":"Λίστα αποκλεισμού"},
-"blockAll":{"message":"Αποκλείστε όλα"},
-"blue":{"message":"Μπλε"},
-"blueGray":{"message":"Μπλε γκρίζο"},
-"bluelight":{"message":"Μπλε φως"},
-"brown":{"message":"Καφέ"},
-"buttons":{"message":"Κουμπιά"},
-"browserVersion":{"message":"Έκδοση browser"},
-"bubbles":{"message":"Φούσκες"},
-"bug":{"message":"Σφάλμα κώδικα"},
-"cancel":{"message":"Ακύρωση"},
-"categories":{"message":"Κατηγορίες"},
-"channel":{"message":"Κανάλι"},
-"channels":{"message":"Κανάλια"},
-"collapseOfSubscriptionSections":{"message":"Κλείσε το μενού συνδρομών"},
-"collapsed":{"message":"Κλειστό"},
-"comments":{"message":"Σχόλιο"},
-"confirmationBeforeClosing":{"message":"Επιβεβαίωση πρωτού κλείσεις"},
-"cores":{"message":"Πυρήνες"},
-"cropChapterTitles":{"message":"Περίκοψε τους τίτλους των κεφαλαίων"},
-"customCss":{"message":"Εξατομίκευση CSS"},
-"customJs":{"message":"Εξατομίκευση JS"},
-"customMiniPlayer":{"message":"Εξατομικευμένο Mini-Player"},
-"cyan":{"message":"Κυανό"},
-"dark":{"message":"Σκούρο"},
-"darkTheme":{"message":"Σκούρο θέμα"},
-"dateAndTime":{"message":"Ημερομηνία & ώρα"},
-"dawn":{"message":"Αυγή"},
-"decreasePlaybackSpeed":{"message":"Μείωσε ταχύτητα αναπαραγωγής"},
-"decreaseVolume":{"message":"Μειώστε ένταση"},
-"deepOrange":{"message":"Βαθύ πορτοκαλί"},
-"deepPurple":{"message":"Βαθύ μοβ"},
-"defaultChannelTab":{"message":"Προεπιλεγμένη καρτέλα καναλιού"},
-"deleteYoutubeCookies":{"message":"Κατάργησε τα cookies του YouTube"},
-"desert":{"message":"Έρημος"},
-"details":{"message":"Λεπτομέρειες"},
-"developerOptions":{"message":"Επιλογές για προγραμματιστές"},
-"device":{"message":"Συσκευή"},
-"dim":{"message":"Σκοτεινό"},
-"disabled":{"message":"Απενεργοποιημένο"},
-"dislike":{"message":"Δε μου αρέσει"},
-"doNotChange":{"message":"Να μην αλλάξει"},
-"draggable":{"message":"Μετακινήσιμο με σύρση"},
-"empty":{"message":"Κενό"},
-"enabled":{"message":"Ενεργοποιημένο"},
-"enabledForced":{"message":"Ενεργοποιημένο (Υποχρεωτικά)"},
-"expanded":{"message":"Ανοικτό"},
-"exportSettings":{"message":"Εξαγωγή ρυθμίσεων"},
-"extension":{"message":"Επέκταση"},
-"file":{"message":"Αρχείο"},
-"filters":{"message":"Φίλτρα"},
-"fitToWindow":{"message":"Να χωράει στο παράθυρο"},
-"font":{"message":"Γραμματοσειρά"},
-"footer":{"message":"Υποσέλιδο"},
-"forcedPlaybackSpeed":{"message":"Υποχρεωτική ταχύτητα αναπαραγωγής"},
-"forcedTheaterMode":{"message":"Υποχρεωτική λειτουργία κινηματογράφου"},
-"forcedVolume":{"message":"Υποχρεωτική ένταση"},
-"foundABug":{"message":"Εντοπίσατε κάποιο σφάλμα;"},
-"fullWindow":{"message":"Πλήρες παράθυρο"},
-"general":{"message":"Γενικά"},
-"goToSearchBox":{"message":"Πήγαινε στο πεδίο αναζήτησης"},
-"green":{"message":"Πράσινο"},
-"hdThumbnail":{"message":"HD Εικονίδιο βίντεο"},
-"header":{"message":"Κεφαλίδα"},
-"hidden":{"message":"Κρυμμένο"},
-"hiddenOnVideoPage":{"message":"Κρυμμένο στη σελίδα βίντεο"},
-"hideAnimatedThumbnails":{"message":"Απόκρυψε τα κινούμενα εικονίδια βίντεο"},
-"hideAnnotations":{"message":"Απόκρυψε τα annotations"},
-"hideCards":{"message":"Απόκρυψε τις κάρτες"},
-"hideDetails":{"message":"Απόκρυψε τις λεπτομέρειες"},
-"hideEndscreen":{"message":"Απόκρυψε την κάρτα τέλους"},
-"hideFeaturedContent":{"message":"Απόκρυψε το προτεινόμενο περιεχόμενο"},
-"hideFooter":{"message":"Απόκρυψε το υποσέλιδο"},
-"hideGradientBottom":{"message":"Απόκρυψε το κάτω μέρος της χρωματικής διαβάθμισης"},
-"hidePlaylist":{"message":"Απόκρυψε τα playlists"},
-"hideRightButtons":{"message":"Απόκρυψε τα κουμπιά στα δεξιά"},
-"hideScrollForDetails":{"message":"Απόκρυψε το «Scroll for details»"},
-"hideSkipOverlay":{"message":"Hide Skip Overlay"},
-"hideThumbnailOverlay":{"message":"Hide thumbnail overlay"},
-"hideViewsCount":{"message":"Απόκρυψε τον αριθμό προβολών"},
-"history":{"message":"Ιστορικό"},
-"home":{"message":"Αρχική σελίδα"},
-"hover":{"message":"Κέρσορας από πάνω"},
-"hoverOnVideoPage":{"message":"Κέρσορας πάνω στη σελίδα βίντεο"},
-"howLongAgoTheVideoWasUploaded":{"message":"Πριν από πόσο ανέβηκε το βίντεο"},
-"icons":{"message":"Εικονίδια"},
-"iconsOnly":{"message":"Εικονίδια μόνο"},
-"importSettings":{"message":"Εισαγωγή ρυθμίσεων"},
-"improveLogo":{"message":"Λογότυπο Improve"},
-"improvedtubeIconOnYoutube":{"message":"Εικονίδιο ImprovedTube στο YouTube"},
-"improvedtubeLanguage":{"message":"Γλώσσα ImprovedTube"},
-"improvedtubeVersion":{"message":"Έκδοση ImprovedTube"},
-"increasePlaybackSpeed":{"message":"Αύξησε την ταχύτητα αναπαραγωγής"},
-"increaseVolume":{"message":"Αύξησε την ένταση"},
-"items":{"message":"Αντικείμενα"},
-"languages":{"message":"Γλώσσες"},
-"legacyYoutube":{"message":"Παλιά έκδοση YouTube"},
-"light":{"message":"Ανοιχτόχρωμο"},
-"lightBlue":{"message":"Ανοικτό μπλε"},
-"lightGreen":{"message":"Ανοικτό πράσινο"},
-"like":{"message":"Μου αρέσει"},
-"lime":{"message":"Μοσχολέμονο"},
-"list":{"message":"Λίστα"},
-"liveChatType":{"message":"Τύπος live chat"},
-"loudnessNormalization":{"message":"Κανονικοποίηση έντασης"},
-"markWatchedVideos":{"message":"Επισήμανση βίντεο που προβλήθηκαν"},
-"myColors":{"message":"Τα χρώματά μου"},
-"name":{"message":"Όνομα"},
-"nativeMiniPlayer":{"message":"Mini player συστήματος"},
-"new":{"message":"Νέο"},
-"nextVideo":{"message":"Επόμενο βίντεο"},
-"night":{"message":"Νύχτα"},
-"noActiveFeatures":{"message":"Καμία λειτουργία ενεργή"},
-"noOpenVideoTabs":{"message":"Καμία καρτέλα βίντεο ανοικτή"},
-"none":{"message":"Κανένα"},
-"normal":{"message":"Κανονικό"},
-"old":{"message":"Παλιό"},
-"onAllVideos":{"message":"Σε όλα τα βίντεο"},
-"onSubscribedChannels":{"message":"Σε κανάλια που έχει γίνει συνδρομή"},
-"onlyActiveOnYoutube":{"message":"Μόνο ενεργό στο YouTube"},
-"onlyOnePlayerInstancePlaying":{"message":"Μόνο ένα player λειτουργεί"},
-"orange":{"message":"Πορτοκαλί"},
-"other":{"message":"Άλλο"},
-"permissions":{"message":"Άδεια"},
-"pink":{"message":"Ροζ"},
-"plain":{"message":"Σκέτο"},
-"platform":{"message":"Πλατφόρμα"},
-"playbackSpeed":{"message":"Ταχύτητα αναπαραγωγής"},
-"playerColor":{"message":"Χρώμσ player"},
-"playerSize":{"message":"Μέγεθος player"},
-"position":{"message":"Θέση"},
-"pressAnyKeyOrScroll":{"message":"Πίεσε οποιοδήποτε πλήκτρο ή χρησιμοποίησε τη ροδέλα στο ποντίκι."},
-"pressAnyKeyOrUseMouseWheel":{"message":"Πίεσε οποιοδήποτε πλήκτρο ή χρησιμοποίησε τη ροδέλα στο ποντίκι."},
-"previousVideo":{"message":"Προηγούμενο βίντεο"},
-"primaryColor":{"message":"Πρωτεύον χρώμα"},
-"purple":{"message":"Μοβ"},
-"quality":{"message":"Ποιότητα"},
-"rateUs":{"message":"Αξιολόγησέ μας"},
-"red":{"message":"Κόκκινο"},
-"redDislikeButton":{"message":"Δείξτε το πλήκτρο «Δε μου αρέσει» σε κόκκινο"},
-"relatedVideos":{"message":"Σχετικά videos"},
-"hideHomePageShorts":{"message":"Κατάργηση Shorts από την αρχική σελίδα"},
-"removeRelatedSearchResults":{"message":"Αφαίρεσε σχετικά αποτελέσματα αναζήτησης"},
-"removeShortsReelSearchResults":{"message":"Αφαιρέστε τη λίστα Shorts από τα αποτελέσματα αναζήτησης"},
-"repeat":{"message":"Επανάληψη"},
-"reset":{"message":"Επαναφορά"},
-"resetAllSettings":{"message":"Επαναφορά όλων των ρυθμίσεων"},
-"resetAllShortcuts":{"message":"Επαναφορά όλων των συντομεύσεων"},
-"reverse":{"message":"Ανάποδα"},
-"rotate":{"message":"Περιστροφή"},
-"save":{"message":"Αποθήκευση"},
-"saveAs":{"message":"Αποθήκευση ως"},
-"schedule":{"message":"Πρόγραμμα"},
-"screen":{"message":"Οθόνη"},
-"screenshot":{"message":"Στιγμιότυπο"},
-"search":{"message":"Αναζήτηση"},
-"searchBarOnly":{"message":"Πεδίο αναζήτησης μόνο"},
-"seekBackward10Seconds":{"message":"Πίσω 10 δευτερόλεπτα"},
-"seekForward10Seconds":{"message":"Μπροστά 10 δευτερόλεπτα"},
-"seekNextChapter":{"message":"seekNextChapter"},
-"seekPreviousChapter":{"message":"seekPreviousChapter"},
-"settings":{"message":"Ρυθμίσεις"},
-"settingsSuccessfullyImported":{"message":"Επιτυχής εισαγωγή ρυθμίσεων"},
-"shortcuts":{"message":"Συντομεύσεις"},
-"showCardsOnMouseHover":{"message":"Δείξε τις κάρτες όταν ο κέρσορας είναι από πάνω"},
-"showChannelVideosCount":{"message":"Δείξε τις συνολικές προβολές του καναλιού"},
-"shuffle":{"message":"Τυχαία αναπαραγωγή"},
-"squaredUserImages":{"message":"Τετράγωνες εικόνες χρήστη"},
-"static":{"message":"Στατικό"},
-"statsForNerds":{"message":"Δείξε τα Στατιστικά για Σπασίκλες"},
-"step":{"message":"Βήμα"},
-"stop":{"message":"Στοπ"},
-"style":{"message":"Στυλ"},
-"styles":{"message":"Στυλ"},
-"subscriptions":{"message":"Συνδρομές"},
-"subtitles":{"message":"Υπότιτλοι"},
-"sunset":{"message":"Ηλιοβασίλεμα"},
-"sunsetToSunrise":{"message":"Από δύση έως ανατολή"},
-"systemPeferenceDark":{"message":"Προτίμηση συστήματος: Σκούρο"},
-"systemPeferenceLight":{"message":"Προτίμηση συστήματος: Ανοικτόχρωμο"},
-"teal":{"message":"Γαλαζιοπράσινο"},
-"textColor":{"message":"Χρώμα κειμένου"},
-"themes":{"message":"Θέματα"},
-"thisWillRemoveAllCookies":{"message":"Αυτό αφαιρεί όλα τα cookies."},
-"thisWillRemoveAllYouTubeCookies":{"message":"Αυτό αφαιρεί όλα τα cookies του YouTube."},
-"thisWillResetAllSettings":{"message":"Αυτό επαναφέρει όλες τις ρυθμίσεις."},
-"thisWillResetAllShortcuts":{"message":"Αυτό επαναφέρει όλες τις συντομεύσεις."},
-"thumbnails":{"message":"Εικονίδια"},
-"timeFrom":{"message":"Χρόνος από"},
-"timeTo":{"message":"Χρόνος έως"},
-"todayAt":{"message":"Σήμερα στις"},
-"toggleControls":{"message":"Toggle controls"},
-"translations":{"message":"Μεταφράσεις"},
-"transparentBackground":{"message":"Διαφανές υπόβαθρο"},
-"trending":{"message":"Τάσεις"},
-"tryToReloadThePage":{"message":"Προσπάθησε να επαναφορτώσεις τη σελίδα"},
-"type":{"message":"Τύπος"},
-"upNextAutoplay":{"message":"Επόμενο στο autoplay"},
-"use24HourFormat":{"message":"Χρησιμοποίησε 24ωρη μορφή ώρας"},
-"version":{"message":"Έκδοση"},
-"video":{"message":"Βίντεο"},
-"videoDescriptionWillBeExpandedToGetNameOfCategory":{"message":"Η περιγραφή του βίντεο θα επεκταθεί ωστε να συμπεριληφθεί το όνομα της κατηγορίας."},
-"videoFormats":{"message":"Μορφές βίντεο"},
-"videos":{"message":"Βίντεο"},
-"volume":{"message":"Ένταση"},
-"watchLater":{"message":"Δες αργότερα"},
-"watchTime":{"message":"Χρόνος προβολής"},
-"whenTabIsChanged":{"message":"Όταν αλλάζεις καρτέλα"},
-"white":{"message":"Λευκό"},
-"yellow":{"message":"Κίτρινο"},
-"youtubeHeaderLeft":{"message":"Κεφαλίδα YouTube (αριστερά)"},
-"youtubeHeaderRight":{"message":"Κεφαλίδα YouTube (δεξιά)"},
-"youtubeHomePage":{"message":"Αρχική σελίδα YouTube"},
-"youtubeLanguage":{"message":"Γλώσσα YouTube"},
-"youtubeLimitsVideoQualityTo1080pForH264Codec":{"message":"Το YouTube περιορίζει την ποιότητα σε 1080p για το h.264 codec"}
+  "about": {
+    "message": "Σχετικά"
+  },
+  "accept": {
+    "message": "Αποδοχή"
+  },
+  "activate": {
+    "message": "Ενεργοποίηση"
+  },
+  "activateCaptions": {
+    "message": "Ενεργοποίηση Υπότιτλων"
+  },
+  "activated": {
+    "message": "Επιτυχής Ενεργοποιήση"
+  },
+  "activatedFeatures": {
+    "message": "Ενεργοποιημένες Λειτουργίες"
+  },
+  "activateFullscreen": {
+    "message": "Ενεργοποίηση Πλήρους Οθόνη"
+  },
+  "activeFeatures": {
+    "message": "Ενεργές λειτουργίες"
+  },
+  "addScrollToTop": {
+    "message": "Πρόσθεση συντόμευσης για την κορυφή της σελίδας"
+  },
+  "ads": {
+    "message": "Διαφημίσεις"
+  },
+  "all": {
+    "message": "Όλα"
+  },
+  "allow": {
+    "message": "Αποδοχή"
+  },
+  "Allow_auto_generate": {
+    "message": "Ενεργοποίηση αυτόματης δημιουργίας"
+  },
+  "allow60fps": {
+    "message": "Ενεργοποίηση 60fps"
+  },
+  "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+    "message": "Όλες οι ρυθμίσεις σας θα διαγραφούν και δεν μπορούν να ανακτηθούν"
+  },
+  "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+    "message": "Όλες οι συντομεύσεις σας θα διαγραφούν και δεν μπορούν να ανακτηθούν"
+  },
+  "always": {
+    "message": "Πάντα"
+  },
+  "alwaysActive": {
+    "message": "Πάντοτε ενεργό"
+  },
+  "alwaysShowProgressBar": {
+    "message": "Πάντα ορατός ο ενδείκτης προόδου"
+  },
+  "amber": {
+    "message": "Κεχρί"
+  },
+  "analyzer": {
+    "message": "Αναλυτής"
+  },
+  "animations": {
+    "message": "Animations-Κινούμενα σχέδια"
+  },
+  "appearance": {
+    "message": "Εμφάνιση"
+  },
+  "areYouSureYouWantToExportTheData": {
+    "message": "Είστε σίγουρος/η ότι θέλετε να εξάγετε τα δεδομένα;\n"
+  },
+  "areYouSureYouWantToImportTheData": {
+    "message": "Είστε σίγουρος/η ότι θέλετε να εισαγάγετε τα δεδομένα;"
+  },
+  "areYouSureYouWantToSyncTheData": {
+    "message": "Είστε σίγουρος/η ότι θέλετε να συγχρονίσετε τα δεδομένα;"
+  },
+  "ARROWDOWN": {
+    "message": "⇩"
+  },
+  "ARROWLEFT": {
+    "message": "⇦"
+  },
+  "ARROWRIGHT": {
+    "message": "⇨"
+  },
+  "ARROWUP": {
+    "message": "⇧"
+  },
+  "atHistory": {
+    "message": "στο 'Ιστορικό'"
+  },
+  "atSubscriptions": {
+    "message": "στις 'Συνδρομές'"
+  },
+  "atTrending": {
+    "message": "στις 'Τάσεις'"
+  },
+  "audio": {
+    "message": "Ήχος"
+  },
+  "audioFormats": {
+    "message": "Μορφές ήχου"
+  },
+  "auto": {
+    "message": "Αυτόματο"
+  },
+  "autoFullscreen": {
+    "message": "Αυτόματη Πλήρης Οθόνη"
+  },
+  "autopauseWhenSwitchingTabs": {
+    "message": "Αυτόματη παύση όταν αλλάζετε καρτέλα"
+  },
+  "autoPictureInPicture": {
+    "message": "Αυτόματη Picture In Picture (PiP)"
+  },
+  "autoplay": {
+    "message": "Αυτόματη αναπαραγωγή"
+  },
+  "autoplayDisable": {
+    "message": "Απενεργοποίηση αυτόματης αναπαραγωγής"
+  },
+  "avoidAv1": {
+    "message": "Αποφύγετε το AV1"
+  },
+  "avoidAv1Vp8Vp9": {
+    "message": "Αποφύγετε το AV1, VP8, VP9"
+  },
+  "avoidAv1Vp9": {
+    "message": "Αποφύγετε το AV1, VP9"
+  },
+  "avoidCpuRenderingWhenPossible": {
+    "message": "Αποφύγετε τη CPU αποτύπωση όταν είναι δυνατόν"
+    },
+    "backgroundColor": {
+      "message": "Χρώμα φόντου"
+    },
+    "backgroundOpacity": {
+      "message": "Διαφάνεια φόντου"
+    },
+    "backupAndReset": {
+      "message": "Αντίγραφα ασφαλείας & reset"
+    },
+    "baseOnSystemColorScheme": {
+      "message": "Με βάση τις ρυθμίσεις χρώματος του συστήματος"
+    },
+    "belowPlayer": {
+      "message": "Κάτω από το Player"
+    },
+    "black": {
+      "message": "Μαύρο"
+    },
+    "block_Codec_Alert_h264": {
+      "message": "Χρειάζεστε είτε το H.264 είτε το VP9 ενεργοποιημένο για να αναπαραχθούν βίντεο στο Youtube."
+    },
+    "block_Codec_Alert_VP9": {
+      "message": "Χρειάζεστε είτε το VP9 είτε το H.264 ενεργοποιημένο για να αναπαραχθούν βίντεο στο Youtube."
+    },
+    "blockAll": {
+      "message": "Απενεργοποίηση (Αποκλεισμός ή Παράβλεψη)"
+    },
+    "blocklist": {
+      "message": "Λίστα αποκλεισμού"
+    },
+    "blockMusic": {
+      "message": "Παράκαμψη κατά την αναπαραγωγή μουσική"
+    },
+    "blue": {
+      "message": "Μπλε"
+    },
+    "blueGray": {
+      "message": "Μπλε γκρίζο"
+    },
+    "bluelight": {
+      "message": "Μπλε φως"
+    },
+    "brown": {
+      "message": "Καφέ"
+    },
+    "browserAccountSync": {
+      "message": "Συγχρονισμός λογαριασμού με browser"
+    },
+    "browserVersion": {
+      "message": "Έκδοση browser"
+    },
+    "bubbles": {
+      "message": "Φούσκες"
+    },
+    "bug": {
+      "message": "Σφάλμα κώδικα"
+    },
+    "buttons": {
+      "message": "Κουμπιά"
+    },
+    "cancel": {
+      "message": "Ακύρωση"
+    },
+    "categories": {
+      "message": "Κατηγορίες"
+    },
+    "channel": {
+      "message": "Κανάλι"
+    },
+    "channels": {
+      "message": "Κανάλια"
+    },
+    "chapters": {
+      "message": "Κεφάλαια"
+    },
+    "characterEdgeStyle": {
+      "message": "Στυλ άκρων χαρακτήρων"
+    },
+    "clip": {
+      "message": "Κλιπ"
+    },
+    "collapsed": {
+      "message": "Κλειστό"
+    },
+    "collapseOfSubscriptionSections": {
+      "message": "Σύμπτυξη μενού συνδρομών"
+    },
+    "columns": {
+      "message": "Επιπλέον στήλη πλαϊνής μπάρας"
+    },
+    "comment": {
+      "message": "Σχόλιο"
+    },
+    "comments": {
+      "message": "Σχόλια"
+    },
+    "community": {
+      "message": "Κοινότητα"
+    },
+    "compact_spacing": {
+      "message": "Συμπαγής Διάταξη"
+    },
+    "compactTheme": {
+      "message": "Συμπαγές θεματικό"
+    },
+    "confirmationBeforeClosing": {
+      "message": "Επιβεβαίωση πριν την αποχώρηση"
+    },
+    "cores": {
+      "message": "Πυρήνες"
+    },
+    "cropChapterTitles": {
+      "message": "Περίκοπη τίτλων των κεφαλαίων του player"
+    },
+    "Currently_requiring_a_YouTube_API_key": {
+      "message": "Προς το παρόν απαιτείται κλειδί API του YouTube"
+    },
+    "custom": {
+      "message": "Προσαρμοσμένο"
+    },
+    "customCss": {
+      "message": "Εξατομίκευση CSS"
+    },
+    "customJs": {
+      "message": "Εξατομίκευση JS"
+    },
+    "customMiniPlayer": {
+      "message": "Εξατομικευμένο Mini-Player"
+    },
+    "cyan": {
+      "message": "Κυανό"
+    },
+    "dark": {
+      "message": "Σκούρο"
+    },
+    "darkTheme": {
+      "message": "Σκούρο θέμα"
+    },
+    "dateAndTime": {
+      "message": "Ημερομηνία & ώρα"
+    },
+    "dawn": {
+      "message": "Αυγή"
+    },
+    "decreasePlaybackSpeed": {
+      "message": "Μείωση ταχύτητας αναπαραγωγής"
+    },
+    "decreaseVolume": {
+      "message": "Μειώση έντασης"
+    },
+    "deepOrange": {
+      "message": "Βαθύ πορτοκαλί"
+    },
+    "deepPurple": {
+      "message": "Βαθύ μοβ"
+    },
+    "default": {
+      "message": "Προεπιλογή"
+    },
+    "default_CC": {
+      "message": "Προεπιλογή"
+    },
+    "defaultChannelTab": {
+      "message": "Προεπιλεγμένη καρτέλα καναλιού"
+    },
+    "defaultContentCountry": {
+      "message": "Χώρα (ψηφιακή πλοήγηση)"
+    },
+    "defaultPlaybackSpeed": {
+      "message": "Προεπιλεγμένη Ταχύτητα Αναπαραγωγής"
+    },
+    "default_theme": {
+      "message": "Προεπιλογή"
+    },
+    "deleteWatchedVideos": {
+      "message": "Διαγραφή Ιστορικού παρακολούθησης"
+    },
+    "deleteYoutubeCookies": {
+      "message": "Κατάργηση Youtube cookies"
+    },
+    "description": {
+      "message": "Περιγραφή"
+    },
+    "description_ext": {
+      "message": "YouTube, καθαρό + έξυπνο; Μέγεθος βίντεο Youtube player χρώμα Youtube ad παράβλεψης ταχύτητα έντασης ετικέτες παράβλεψης  απόκρυψη λίστας"
+    },
+    "desert": {
+      "message": "Έρημος"
+    },
+    "details": {
+      "message": "Λεπτομέρειες"
+    },
+    "developerOptions": {
+      "message": "Επιλογές για προγραμματιστές"
+    },
+    "device": {
+      "message": "Συσκευή"
+    },
+    "dim": {
+      "message": "Σκοτεινό"
+    },
+    "disabled": {
+      "message": "Απενεργοποιημένο"
+    },
+    "disableThumbnailPlayback": {
+      "message": "Απενεργοποίηση αναπαραγωγής εικονιδίων"
+    },
+    "dislike": {
+      "message": "Δε μου αρέσει"
+    },
+    "displayDayOfTheWeak": {
+      "message": "Εμφάνιση ημέρας της εβδομάδας"
+    },
+    "donate": {
+      "message": "Δωρεά"
+    },
+    "doNotChange": {
+      "message": "Να μην αλλάξει"
+    },
+    "Download": {
+      "message": "Λήψη"
+    },
+    "draggable": {
+      "message": "Μετακινήσιμο με σύρση"
+    },
+    "dropShadow": {
+      "message": "Drop Επισκίαση"
+    },
+    "durationWithSpeed": {
+      "message": "Εμφάνιση υπολειπόμενης διάρκειας με σχέση προς την ταχύτητα αναπαραγωγής"
+    },
+    "Embedded_YouTube": {
+      "message": "Ενσωματωμένο YouTube"
+    },
+    "embedded_Hide_Share": {
+      "message": "Απόκρυψη κοινοποίησης σε ενσωματωμένο βίντεο"
+    },
+    "empty": {
+      "message": "Κενό"
+    },
+    "enabled": {
+      "message": "Ενεργοποιημένο"
+    },
+    "enabledForced": {
+      "message": "Ενεργοποιημένο (Υποχρεωτικά)"
+    },
+    "expanded": {
+      "message": "Ανοικτό"
+    },
+    "exportSettings": {
+      "message": "Εξαγωγή ρυθμίσεων"
+    },
+    "extension": {
+      "message": "Επέκταση"
+    },
+    "ExtraButtons": {
+      "message": "Επιπρόσθετα κουμπιά"
+    },
+    "extraButtonsBelowThePlayer": {
+      "message": "Πρόσθετα κουμπιά κάτω από τον παίκτη"
+    },
+    "Feature_not_yet_available": {
+      "message": "Η λειτουργία δεν είναι διαθέσιμη ακόμα"
+    },
+    "file": {
+      "message": "Αρχείο"
+    },
+    "filters": {
+      "message": "Φίλτρα"
+    },
+    "fitToWindow": {
+      "message": "Προσαρμογή στο παράθυρο"
+    },
+    "Focus": {
+      "message": "Εστίαση"
+    },
+    "flash": {
+      "message": "Flash"
+    },
+    "font": {
+      "message": "Γραμματοσειρά"
+    },
+    "fontColor": {
+      "message": "Χρώμα γραμματοσειράς"
+    },
+    "fontFamily": {
+      "message": "Οικογένεια γραμματοσειράς"
+    },
+    "fontOpacity": {
+      "message": "Διαφάνεια γραμματοσειράς"
+    },
+    "fontSize": {
+      "message": "Μέγεθος γραμματοσειράς"
+    },
+    "footer": {
+      "message": "Υποσέλιδο"
+    },
+    "forcedPlaybackSpeed": {
+      "message": "Υποχρεωτική ταχύτητα αναπαραγωγής"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+      "message": "Επιβολή αναπαραγωγής βίντεο από την αρχή"
+    },
+    "forcedPlaybackSpeedMusic": {
+      "message": "Επιβολή ταχύτητας αναπαραγωγής για μουσική"
+    },
+    "forcedTheaterMode": {
+      "message": "Υποχρεωτική λειτουργία κινηματογράφου"
+    },
+    "forcedVolume": {
+      "message": "Υποχρεωτική ένταση"
+    },
+    "forceSDR": {
+      "message": "Επιβολή SDR"
+    },
+    "foundABug": {
+      "message": "Εντοπίσατε κάποιο σφάλμα;"
+    },
+    "fullWindow": {
+      "message": "Πλήρες παράθυρο"
+    },
+    "general": {
+      "message": "Γενικά"
+    },
+    "geoPreference": {
+      "message": "Προτίμηση Γεωγραφικού Χώρου"
+    },
+    "goToSearchBox": {
+      "message": "Πήγαινε στο πεδίο αναζήτησης"
+    },
+    "GPUnotindatabase": {
+      "message": "GPU εκτός βάσης δεδομένων"
+    },
+    "green": {
+      "message": "Πράσινο"
+    },
+    "grey": {
+      "message": "Γκρι"
+    },
+    "halfTransparent": {
+      "message": "Ημι-αχνό"
+    },
+    "Hamburger_Menu": {
+      "message": "Μενού hamburger"
+    },
+    "hardwareInformation": {
+      "message": "Πληροφορίες hardware"
+    },
+    "hd": {
+      "message": "HD-Υψηλή ευκρίνεια"
+    },
+    "hdThumbnail": {
+      "message": "HD Εικονίδιο βίντεο"
+    },
+    "header": {
+      "message": "Κεφαλίδα"
+    },
+    "hidden": {
+      "message": "Κρυμμένο"
+    },
+    "hiddenOnVideoPage": {
+      "message": "Κρυμμένο στη σελίδα βίντεο"
+    },
+    "hide_author_avatars": {
+      "message": "Απόκρυψη εικονιδίου συγγραφέα"
+    },
+    "hideAnimatedThumbnails": {
+      "message": "Απόκρυψη κινούμενων εικονιδίων"
+    },
+    "hideAnnotations": {
+      "message": "Απόκρυψη των annotations"
+    },
+    "hideCards": {
+      "message": "Απόκρυψη καρτών"
+    },
+    "hideCategories": {
+      "message": "Απόκρυψη κατηγοριών"
+    },
+    "hideCommentsCount": {
+      "message": "Απόκρυψη μετρητή σχολίων"
+    },
+    "hideCountryCode": {
+      "message": "Απόκρυψη κωδικού χώρας"
+    },
+    "hideDate": {
+      "message": "Απόκρυψη ημερομηνίας"
+    },
+    "hideDetailButton": {
+      "message": "Απόκρυψη κουμπιού λεπτομερειών"
+    },
+    "hideDetails": {
+      "message": "Απόκρυψη λεπτομερειών"
+    },
+    "hideEndscreen": {
+      "message": "Απόκρυψη τελικής οθόνης"
+    },
+    "hideFeaturedContent": {
+      "message": "Απόκρυψη προτεινόμενου περιεχομένου"
+    },
+    "hideFooter": {
+      "message": "Απόκρυψη υποσέλιδου"
+    },
+    "hideGradientBottom": {
+      "message": "Απόκρυψη κάτω μέρους της χρωματικής διαβάθμισης"
+    },
+    "hideHomePageShorts": {
+      "message": "Απόκρυψη Shorts από την αρχική σελίδα"
+    },
+    "hide_Labels": {
+      "message": "Απόκρυψη ετικετών"
+    },
+    "hideMore": {
+      "message": "Απόκρυψη περισσότερων"
+    },
+    "Hide_Pause_Overlay": {
+      "message": "Απόκρυψη επικάλυψης παύσης"
+    },
+    "hidePlayerControlsBar": {
+      "message": "Απόκρυψη γραμμής ελέγχου player"
+    },
+    "hidePlayerControlsBarButtons": {
+      "message": "Απόκρυψη κουμπιών γραμμής ελέγχου player"
+    },
+    "hidePlayerControlsBarOptions": {
+      "message": "Απόκρυψη ελέγχου επιλογών player"
+    },
+    "hidePlaylist": {
+      "message": "Απόκρυψη playlist"
+    },
+    "hideReport": {
+      "message": "Απόκρυψη αναφοράς"
+    },
+    "hideRightButtons": {
+      "message": "Απόκρυψη δεξιών κουμπιών"
+    },
+    "hideScrollForDetails": {
+      "message": "Απόκρυψη του «Scroll for details»"
+    },
+    "Hide_Shorts_remixing_this_video": {
+      "message": "Απόκρυψη remixing Shorts του βίντεο"
+    },
+    "Hide_sidebar": {
+      "message": "Απόκρυψη πλαϊνής στήλης"
+    },
+    "hideSkipOverlay": {
+      "message": "Απόκρυψη επικάλυψης παράβλεψης"
+    },
+    "Hide_the_tabs_only": {
+      "message": "Απόκρυψη μόνο των tabs"
+    },
+    "hideThumbnailOverlay": {
+      "message": "Απόκρυψη επικάλυψης εικονιδίων"
+    },
+    "hideThumbnails": {
+      "message": "Απόκρυψη εικονιδίων(Thumbnails)"
+    },
+    "hideViewsCount": {
+      "message": "Απόκρυψη αριθμού προβολών"
+    },
+    "hideVoiceSearchButton": {
+      "message": "Απόκρυψη κουμπιού αναζήτησης φωνής"
+    },
+    "Hide_YouTube_Logo": {
+      "message": "Απόκρυψη λογότυπου του YouTube"
+    },
+    "high": {
+      "message": "Υψηλή"
+    },
+    "history": {
+      "message": "Ιστορικό"
+    },
+    "home": {
+      "message": "Αρχική σελίδα"
+    },
+    "homeScreen": {
+      "message": "Αρχική οθόνη"
+    },
+    "hover": {
+      "message": "Κέρσορας από πάνω"
+    },
+    "hoverOnVideoPage": {
+      "message": "Κέρσορας πάνω στη σελίδα βίντεο"
+    },
+    "howLongAgoTheVideoWasUploaded": {
+      "message": "Διάρκεια ανάρτησης του βιντεο"
+    },
+    "icons": {
+      "message": "Εικονίδια"
+    },
+    "iconsOnly": {
+      "message": "Εικονίδια μόνο"
+    },
+    "importSettings": {
+      "message": "Εισαγωγή ρυθμίσεων"
+    },
+    "improvedtubeButtons": {
+      "message": "ImprovedTube Κουμπιά"
+    },
+    "improvedtubeIconOnYoutube": {
+      "message": "Εικονίδιο ImprovedTube στο YouTube"
+    },
+    "improvedtubeLanguage": {
+      "message": "Γλώσσα ImprovedTube"
+    },
+    "improvedtubeVersion": {
+      "message": "Έκδοση ImprovedTube"
+    },
+    "improveLogo": {
+      "message": "Λογότυπο Improve"
+    },
+    "increasePlaybackSpeed": {
+      "message": "Αύξησε την ταχύτητα αναπαραγωγής"
+    },
+    "increaseVolume": {
+      "message": "Αύξησε την ένταση"
+    },
+    "items": {
+      "message": "Αντικείμενα"
+    },
+    "language": {
+      "message": "Γλώσσα"
+    },
+    "language_closed_caption": {
+      "message": "Προεπιλεγμένη γλώσσα - Κλειστά Captions"
+    },
+    "languages": {
+      "message": "Γλώσσες"
+    },
+    "legacyYoutube": {
+      "message": "Παλιά έκδοση YouTube"
+    },
+    "layerAnimationScale": {
+      "message": "Κλίμακα κινούμενου επιπέδου"
+    },
+    "layout": {
+      "message": "Διάταξη"
+    },
+    "library": {
+      "message": "Βιβλιοθήκη"
+    },
+    "light": {
+      "message": "Ανοιχτόχρωμο"
+    },
+    "lightBlue": {
+      "message": "Ανοικτό μπλε"
+    },
+    "lightGreen": {
+      "message": "Ανοικτό πράσινο"
+    },
+    "like": {
+      "message": "Μου αρέσει"
+    },
+    "liked": {
+      "message": "Βίντεο που μου αρέσουν"
+    },
+    "likes": {
+      "message": "Likes (Μου αρέσει)"
+    },
+    "lime": {
+      "message": "Μοσχολέμονο"
+    },
+    "limitPageWidth": {
+      "message": "Περιορισμός πλάτους σελίδας"
+    },
+    "list": {
+      "message": "Λίστα"
+    },
+    "liveChat": {
+      "message": "Live συνομιλία"
+    },
+    "liveChatType": {
+      "message": "Τύπος Live συνομιλίας"
+    },
+    "location": {
+      "message": "Τοποθεσία"
+    },
+    "loop": {
+      "message": "Επανάληψη"
+    },
+    "loudnessNormalization": {
+      "message": "Κανονικοποίηση έντασης"
+    },
+    "low": {
+      "message": "Χαμηλή"
+    },
+    "markWatchedVideos": {
+      "message": "Επισήμανση βίντεο που προβλήθηκαν"
+    },
+    "maxWidthWithinThePage": {
+      "message": "Μέγ. πλάτος εντός της σελίδας"
+    },
+    "medium": {
+      "message": "Μεσαία"
+    },
+    "more": {
+      "message": "Περισσότερα"
+    },
+    "mostViewedChannels": {
+      "message": "Kανάλια με τις περισσότερες προβολές"
+    },
+    "moveSidebarLeft": {
+      "message": "Μετακίνηση πλαϊνής στήλης προς τα αριστερά"
+    },
+    "moveThumbnailsRight": {
+      "message": "Μετακίνηση εικονιδιών (Thumbnails) προς τα δεξιά"
+    },
+    "myColors": {
+      "message": "Τα χρώματά μου"
+    },
+    "My_specs": {
+      "message": "Προδιαγραφές"
+    },
+    "name": {
+      "message": "Όνομα"
+    },
+    "nativeMiniPlayer": {
+      "message": "Mini player συστήματος"
+    },
+    "new": {
+      "message": "Νέο"
+    },
+    "nextVideo": {
+      "message": "Επόμενο βίντεο"
+    },
+    "night": {
+      "message": "Νύχτα"
+    },
+    "noActiveFeatures": {
+      "message": "Καμία λειτουργία ενεργή"
+    },
+    "none": {
+      "message": "Κανένα"
+    },
+    "noOpenVideoTabs": {
+      "message": "Καμία άλλη καρτέλα βίντεο ανοικτή"
+    },
+    "normal": {
+      "message": "Κανονικό"
+    },
+    "Not_optimal": {
+      "message": "Όχι βέλτιστο"
+    },
+    "off": {
+      "message": "Απενεργοποιημένο"
+    },
+    "old": {
+      "message": "Παλιό"
+    },
+    "onAllVideos": {
+      "message": "Σε όλα τα βίντεο"
+    },
+    "onlyActiveOnYoutube": {
+      "message": "Μόνο ενεργό στο YouTube"
+    },
+    "onlyOnePlayerInstancePlaying": {
+      "message": "Μόνο ένα player λειτουργεί"
+    },
+    "onSmallCreators": {
+      "message": "Μόνο για μικρά κανάλια"
+    },
+    "onSubscribedChannels": {
+      "message": "Σε κανάλια που έχει γίνει συνδρομή"
+    },
+    "openNewTab": {
+      "message": "Άνοιξε σε νέα σελίδα"
+    },
+    "openPopupPlayer": {
+      "message": "Άνοιξε το video/playlist σε νέο παράθυρο"
+    },
+    "optimizeCodecForHardwareAcceleration": {
+      "message": "Βελτιστοποίηση κωδικοποιητή για επιτάχυνση υλικού"
+    },
+    "orange": {
+      "message": "Πορτοκαλί"
+    },
+    "other": {
+      "message": "Άλλο"
+    },
+    "outline": {
+      "message": "Περίγραμμα"
+    },
+    "overlay": {
+      "message": "Επικάλυψη"
+    },
+    "permissions": {
+      "message": "Άδεια"
+    },
+    "pink": {
+      "message": "Ροζ"
+    },
+    "plain": {
+      "message": "Σκέτο"
+    },
+    "platform": {
+      "message": "Πλατφόρμα"
+    },
+    "playAllButton": {
+      "message": "Κουμπί αναπαραγωγής όλων"
+    },
+    "playbackSpeed": {
+      "message": "Ταχύτητα αναπαραγωγής"
+    },
+    "player_auto_cinema_mode": {
+      "message": "Αυτόματη λειτουργία κινηματογράφου"
+    },
+    "player_auto_hide_cinema_mode_when_paused": {
+      "message": "Αυτόματη απόκρυψη λειτουργίας κινηματογράφου κατά την παύση"
+    },
+    "player_autoplay_disable": {
+      "message": "Απενεργοποίηση αυτόματης αναπαραγωγής"
+    },
+    "player_auplayer_SDR": {
+      "message": "Αυτόματη επαναλαμβανόμενη λειτουργία SDR"
+    },
+    "player_cinema_mode_button": {
+      "message": "Κουμπί λειτουργίας κινηματογράφου"
+    },
+    "player_dont_speed_education": {
+      "message": "Μη επιβολή ταχύτητας εκπαίδευσης"
+    },
+    "player_fit_to_win_button": {
+      "message": "Κουμπί προσαρμογής στο παράθυρο"
+    },
+    "player_rotate_button": {
+      "message": "Περιστροφή βίντεο"
+    },
+    "playerSize": {
+      "message": "Μέγεθος player"
+    },
+    "playerColor": {
+      "message": "Χρώμα γραμμής προόδου player"
+    },
+    "playPause": {
+      "message": "Αναπαραγωγή/Παύση"
+    },
+    "popupWindowButtons": {
+      "message": "Κουμπιά pop up παραθύρου"
+    },
+    "position": {
+      "message": "Θέση"
+    },
+    "pressAnyKeyOrScroll": {
+      "message": "Πίεσε οποιοδήποτε πλήκτρο ή χρησιμοποίησε τη ροδέλα στο ποντίκι."
+    },
+    "pressAnyKeyOrUseMouseWheel": {
+      "message": "Πίεσε οποιοδήποτε πλήκτρο ή χρησιμοποίησε τη ροδέλα στο ποντίκι."
+    },
+    "previousVideo": {
+      "message": "Προηγούμενο βίντεο"
+    },
+    "primaryColor": {
+      "message": "Χρώμα γραμμής προόδου"
+    },
+    "pullSyncSettings": {
+      "message": "Επανάκτηση ρυθμίσεων συγχρονισμού-Pull"
+    },
+    "purple": {
+      "message": "Μοβ"
+    },
+    "pushSyncSettings": {
+      "message": "Μεταφορά ρυθμίσεων συγχρονισμού-Push"
+    },
+    "quality": {
+      "message": "Ποιότητα"
+    },
+    "raised": {
+      "message": "Υψωμένος"
+    },
+    "rateMe": {
+    "message": "Αξιολόγησε με"
+    },
+    "rateUs": {
+      "message": "Αξιολόγησέ μας"
+    },
+    "red": {
+      "message": "Κόκκινο"
+    },
+    "redDislikeButton": {
+      "message": "Μετατροπή «Δε μου αρέσει» σε κόκκινο"
+    },
+    "relatedVideos": {
+      "message": "Σχετικά videos"
+    },
+    "remote": {
+      "message": "Παίξε στην TV"
+    },
+    "remove": {
+      "message": "Αφαίρεση"
+    },
+    "removeBlackBars": {
+      "message": "Κατάργηση μαύρων μπαρών"
+    },
+    "removeIcons": {
+      "message": "Αφαίρεση εικονιδίων"
+    },
+    "removeName": {
+      "message": "Αφαίρεση ονόματος"
+    },
+    "removeNames": {
+      "message": "Αφαίρεση ονομάτων"
+    },
+    "removeRelatedSearchResults": {
+      "message": "Αφαίρεση σχετικών αποτελεσμάτων αναζήτησης"
+    },
+    "removeShortsReelSearchResults": {
+      "message": "Αφαίρεση της λίστας Shorts από τα αποτελέσματα αναζήτησης"
+    },
+    "RemoveSubtitlesForLyrics": {
+      "message": "Κατάργηση υποτίτλων για στίχους"
+    },
+    "repeat": {
+      "message": "Επανάληψη"
+    },
+    "report": {
+      "message": "Αναφορά"
+    },
+    "reset": {
+      "message": "Επαναφορά"
+    },
+    "resetAllSettings": {
+      "message": "Επαναφορά όλων των ρυθμίσεων"
+    },
+    "resetAllShortcuts": {
+      "message": "Επαναφορά όλων των συντομεύσεων"
+    },
+    "reverse": {
+      "message": "Ανάποδα"
+    },
+    "rotate": {
+      "message": "Περιστροφή"
+    },
+    "save": {
+      "message": "Αποθήκευση"
+    },
+    "saveAs": {
+      "message": "Αποθήκευση ως"
+    },
+    "schedule": {
+      "message": "Πρόγραμμα",
+      "placeholders": {},
+      "description": ""
+    },
+    "screen": {
+      "message": "Οθόνη"
+    },
+    "Screenshot": {
+      "message": "Στιγμιότυπο οθόνης"
+    },
+    "screenshot": {
+      "message": "Στιγμιότυπο οθόνης"
+    },
+    "sd": {
+      "message": "SD-Κανονική ευκρίνεια"
+    },
+    "search": {
+      "message": "Αναζήτηση"
+    },
+    "searchBarOnly": {
+      "message": "Πεδίο αναζήτησης μόνο"
+    },
+    "seekBackward10Seconds": {
+      "message": "Πίσω 10 δευτερόλεπτα"
+    },
+    "seekForward10Seconds": {
+      "message": "Μπροστά 10 δευτερόλεπτα"
+    },
+    "seekNextChapter": {
+      "message": "Αναζήτηση επόμενου κεφαλαίου στο player"
+    },
+    "seekPreviousChapter": {
+      "message": "Αναζήτηση προηγούμενου κεφαλαίου"
+    },
+    "settings": {
+      "message": "Ρυθμίσεις"
+    },
+    "settingsSuccessfullyImported": {
+      "message": "Επιτυχής εισαγωγή ρυθμίσεων"
+    },
+    "share": {
+      "message": "Κοινοποίηση"
+    },
+    "shortcut_chapters": {
+      "message": "Συντόμευση κεφαλαίων του player"
+    },
+    "shortcuts": {
+      "message": "Συντομεύσεις"
+    },
+    "shortcut_screenshot": {
+      "message": "Στιγμιότυπο οθόνης"
+    },
+    "shorts": {
+      "message": "Shorts"
+    },
+    "showCardsOnMouseHover": {
+      "message": "Εμφάνιση καρτών όταν ο κέρσορας είναι από πάνω"
+    },
+    "showChannelVideosCount": {
+      "message": "Εμφάνιση συνολικών προβολών του καναλιού"
+    },
+    "showLess": {
+      "message": "Δείξε λιγότερα"
+    },
+    "showMore": {
+      "message": "Δείξε περισσότερα"
+    },
+    "showRemainingDuration": {
+      "message": "Εμφάνιση υπολειπόμενης διάρκειας"
+    },
+    "showVersion": {
+      "message": "Εμφάνιση έκδοσης"
+    },
+    "shuffle": {
+      "message": "Τυχαία αναπαραγωγή"
+    },
+    "sidebar": {
+      "message": "Πλαϊνή στήλη"
+    },
+    "Sidebar_simple_alternative": {
+      "message": "Απλή εναλλακτική πλαϊνή στήλη"
+    },
+    "softwareInformation": {
+      "message": "Πληροφορίες λογισμικού"
+    },
+    "squaredUserImages": {
+      "message": "Τετράγωνες εικόνες χρήστη"
+    },
+    "static": {
+      "message": "Στατικό"
+    },
+    "statsForNerds": {
+      "message": "Στατιστικά για Σπασίκλες"
+    },
+    "step": {
+      "message": "Βήμα"
+    },
+    "stop": {
+      "message": "Διακοπή"
+    },
+    "style": {
+      "message": "Στυλ"
+    },
+    "styles": {
+      "message": "Στυλ"
+    },
+    "subscribe": {
+      "message": "Συνδρομή"
+    },
+    "subscriptions": {
+      "message": "Συνδρομές"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+      "message": "Καταγραφή υποτίτλων συμπεριλαμβανομένων των τρεχουσών λέξεων"
+    },
+    "subtitles": {
+      "message": "Υπότιτλοι"
+    },
+    "sunset": {
+      "message": "Ηλιοβασίλεμα"
+    },
+    "sunsetToSunrise": {
+      "message": "Από δύση έως ανατολή"
+    },
+    "systemPeferenceDark": {
+      "message": "Προτίμηση συστήματος: Σκούρο"
+    },
+    "systemPeferenceLight": {
+      "message": "Προτίμηση συστήματος: Ανοιχτόχρωμο"
+    },
+    "teal": {
+      "message": "Γαλαζοπράσινο"
+    },
+    "textColor": {
+      "message": "Χρώμα κειμένου"
+    },
+    "themes": {
+      "message": "Θέματα"
+    },
+    "thisWillRemoveAllCookies": {
+      "message": "Αφαίρεση όλων των cookies."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+      "message": "Διαγραφή ολόκληρου του Ιστορικού παρακολούθησης"
+    },
+    "thisWillRemoveAllYouTubeCookies": {
+      "message": "Aφαίρεση των Youtube cookies."
+    },
+    "thisWillResetAllSettings": {
+      "message": "Επαναφορά Ρυθμίσεων"
+    },
+    "thisWillResetAllShortcuts": {
+      "message": "Eπαναφορά όλων των συντομεύσεων."
+    },
+    "thumbnails": {
+      "message": "Εικονίδια των Βιντεο-Μικρογραφίες"
+    },
+    "thumbnailsQuality": {
+      "message": "Ποιότητα εικονιδίων"
+    },
+    "timeFrom": {
+      "message": "Χρόνος από"
+    },
+    "timeTo": {
+      "message": "Χρόνος έως"
+    },
+    "Titles": {
+      "message": "Τίτλοι"
+    },
+    "todayAt": {
+      "message": "Σήμερα στις"
+    },
+    "toggleAutoplay": {
+      "message": "Εναλλαγή αυτόματης αναπαραγωγής"
+    },
+    "toggleCards": {
+      "message": "Εναλλαγή καρτών"
+    },
+    "toggleControls": {
+      "message": "Eναλλαγή των controls"
+    },
+    "topChat": {
+      "message": "Top chat"
+    },
+    "To_the_side_No_page_margin": {
+      "message": "Προς τα πλάγια χωρίς περιθώρια σελίδας"
+    },
+    "trackWatchedVideos": {
+      "message": "Καταγραφή πληροφοριών Ιστορικού παρακολούθησης"
+    },
+    "trailerAutoplay": {
+      "message": "Αυτόματη αναπαραγωγή τρέιλερ"
+    },
+    "transcript": {
+      "message": "Αποσπάσματα"
+    },
+    "Transcript": {
+      "message": "Αποσπάσματα"
+    },
+    "translations": {
+      "message": "Μεταφράσεις"
+    },
+    "transparentBackground": {
+      "message": "Διαφανές φόντο"
+    },
+    "TransparentBackground": {
+      "message": "Διαφανές φόντο"
+    },
+    "transparentColor": {
+      "message": "Διαφανές χρώμα"
+    },
+    "trending": {
+      "message": "Τάσεις"
+    },
+    "tryToReloadThePage": {
+      "message": "Προσπάθεια επαναφόρτωσης σελίδας"
+    },
+    "type": {
+      "message": "Τύπος"
+    },
+    "upNextAutoplay": {
+      "message": "Επόμενο στο autoplay"
+    },
+    "use24HourFormat": {
+      "message": "Χρήση κανονικής 24ώρης μορφής ώρας"
+    },
+    "version": {
+      "message": "Έκδοση"
+    },
+    "video": {
+      "message": "Βίντεο"
+    },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+      "message": "Η περιγραφή του βίντεο θα επεκταθεί ωστε να συμπεριληφθεί το όνομα της κατηγορίας."
+    },
+    "videoFormats": {
+      "message": "Μορφές βίντεο"
+    },
+    "videos": {
+      "message": "Βίντεο"
+    },
+    "viewMode": {
+      "message": "Λειτουργία προβολής"
+    },
+    "volume": {
+      "message": "Ένταση"
+    },
+    "watchedVideos": {
+      "message": "Ιστορικό παρακολούθησης"
+    },
+    "watchLater": {
+      "message": "Προβολή αργότερα"
+    },
+    "watchTime": {
+      "message": "Χρόνος προβολής"
+    },
+    "whenPaused": {
+      "message": "Κατά την παύση"
+    },
+    "whenTabIsChanged": {
+      "message": "Κατά την αλλαγή καρτέλας"
+    },
+    "white": {
+      "message": "Λευκό"
+    },
+    "windowColor": {
+      "message": "Χρώμα παραθύρου"
+    },
+    "windowOpacity": {
+      "message": "Διαφάνεια παραθύρου"
+    },
+    "with_scrollbars": {
+      "message": "Με scrollbar"
+    },
+    "yellow": {
+      "message": "Κίτρινο"
+    },
+    "youTubeButtons": {
+      "message": "YouTube-Κουμπιά"
+    },
+    "youtubeHeaderLeft": {
+      "message": "Κεφαλίδα YouTube (αριστερά)"
+    },
+    "youtubeHeaderRight": {
+      "message": "Κεφαλίδα YouTube (δεξιά)"
+    },
+    "youtubeHomePage": {
+      "message": "Αρχική σελίδα YouTube"
+    },
+    "youtubeLanguage": {
+      "message": "Γλώσσα YouTube"
+    },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+      "message": "Το YouTube περιορίζει την ποιότητα σε 1080p για το h.264 codec"
+    },
+    "youtubesDark": {
+      "message": "YouTube-σκοτεινό"
+    },
+    "Youtube_Search": {
+      "message": "Youtube-Αναζήτηση"
+    }
 }

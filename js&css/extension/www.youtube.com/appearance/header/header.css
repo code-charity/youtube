@@ -7,9 +7,10 @@
 # Hide country code
 # Hide voice search button
 --------------------------------------------------------------*/
-
-html[it-header-transparent=true] ytd-masthead {background-color: rgba(230, 230, 230, 0.1) !important;}
-
+html[it-header-transparent=true] ytd-masthead#masthead {background: transparent !important;}
+html[it-header-transparent=true] #background.ytd-masthead {background-color: rgba(230, 230, 230, 0.1) !important;}
+html[it-header-transparent=true] ytd-masthead[frosted-glass] #background.ytd-masthead {backdrop-filter: blur(1px) !important;}
+html[it-header-transparent=true] {  --ytd-searchbox-background: rgba(var(--ytd-searchbox-background), 0.5) !important;  }
 /*--------------------------------------------------------------
 # POSITION
 --------------------------------------------------------------*/
@@ -40,7 +41,7 @@ html[it-header-position=hover_on_video_page][data-page-type='video'] tp-yt-app-d
 html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-mini-guide-renderer,
 html[it-header-position=static] tp-yt-app-drawer,
 html[it-header-position=static] ytd-mini-guide-renderer {
-	z-index: 2200 !important;
+	z-index: 7 !important;
 }
 
 html[it-header-position=hidden] ytd-page-manager#page-manager,
@@ -77,14 +78,13 @@ html[it-header-position=hover][it-search-focus=true] #masthead-container #backgr
 html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:hover #background,
 html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:focus-within #background,
 html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container #background {
-	transform: translateY(0%);	
-	opacity: 1 !important;	
+	transform: translateY(0%);
+	opacity: 1 !important;
 }
 
-
 html[it-header-position=static] .ytd-app:not([masthead-hidden_]) #masthead-container {
-	position: absolute;
-	z-index: 7000 !important;
+	position: static;
+	z-index: 7 !important;
 }
 
 html[it-header-position=hover_on_video_page]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,
@@ -105,13 +105,12 @@ html[it-header-position=static] tp-yt-app-drawer #header {
 	display: flex !important;
 }
 
+/*
 html[it-header-position=hover] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
-html[it-header-position=hidden] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,  
+html[it-header-position=hidden] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
 html[it-header-position=static] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
 	top: 9px !important;
-}
-
-
+}*/
 /*--------------------------------------------------------------
 # IMPROVE LOGO
 --------------------------------------------------------------*/
@@ -119,13 +118,14 @@ html[it-header-improve-logo='true'] ytd-topbar-logo-renderer path[fill='#FF0000'
 html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'] {
 	fill: rgb(40, 40, 40) !important;
 }
+
 html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'] {
 	fill: rgb(66, 66, 66) !important;
 }
 /*--------------------------------------------------------------
 # HIDE RIGHT BUTTONS
 --------------------------------------------------------------*/
-html[it-header-hide-right-buttons='true'] #masthead #container #end {visibility: hidden !important; 	pointer-events: none !important;}
+html[it-header-hide-right-buttons='true'] #masthead #container #end {visibility: hidden !important; pointer-events: none !important;}
 /*--------------------------------------------------------------
 # HIDE COUNTRY CODE
 --------------------------------------------------------------*/

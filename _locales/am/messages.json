@@ -1,3 +1,8 @@
-{ "hideHomePageShorts":{"message":"የታጠቡት የመጀመሪያ ጭምርን አርምያ"},
-"removeShortsReelSearchResults":{"message":"የፈረሰኞች ዝግጅት ከስልክ ፍርቂ አውርድ"}
+{
+    "hideHomePageShorts": {
+        "message": "የታጠቡት የመጀመሪያ ጭምርን አርምያ"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "የፈረሰኞች ዝግጅት ከስልክ ፍርቂ አውርድ"
+    }
 }

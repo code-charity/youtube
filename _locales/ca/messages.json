@@ -1,5 +1,11 @@
-{"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"Elimina els Shorts de la pàgina d'inici"},
-"removeShortsReelSearchResults":{"message":"Elimineu el carrossel de Shorts dels resultats de cerca"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}}
+{
+    "hideHomePageShorts": {
+        "message": "Elimina els Shorts de la pàgina d'inici"
+    },
+    "qualityWithoutFocus": {
+        "message": "Quality without focus"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Elimineu el carrossel de Shorts dels resultats de cerca"
+    }
+}

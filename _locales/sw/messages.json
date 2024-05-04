@@ -1,7 +1,8 @@
 {
-"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"Ondoa Shorts kutoka ukurasa wa nyumbani"},
-"removeShortsReelSearchResults":{"message":"Ondoa gurudumu la Shorts kutoka kwenye matokeo ya utafutaji"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}
+    "hideHomePageShorts": {
+        "message": "Ondoa Shorts kutoka ukurasa wa nyumbani"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Ondoa gurudumu la Shorts kutoka kwenye matokeo ya utafutaji"
+    }
 }

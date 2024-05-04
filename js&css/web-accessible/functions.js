@@ -457,7 +457,6 @@ ImprovedTube.onkeydown = function () {
 ImprovedTube.onmousedown = function (event) {
 									  
 	window.addEventListener('mousedown', function (event) {
-														 
 		if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
 			var path = event.composedPath();
 
@@ -472,10 +471,6 @@ ImprovedTube.onmousedown = function (event) {
 															
 		}
 	}, true);
-
-															   
-														
-											 
 };
 
 ImprovedTube.getParam = function (query, name) {

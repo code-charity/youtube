@@ -1,7 +1,14 @@
 {
-"hideSkipOverlay":{"message":"Hide 5 seconds skip animation"},
-"hideHomePageShorts":{"message":"Уклоните Shorts са почетне стране"},
-"removeShortsReelSearchResults":{"message":"Уклоните каруселу Shorts из резултата претраге"},
-"systemPeferenceDark":{"message":"System peference: dark"},
-"systemPeferenceLight":{"message":"System peference: light"}
+    "areYouSureYouWantToImportTheData": {
+        "message": "Are you sure you want to import the data?"
+    },
+    "hideHomePageShorts": {
+        "message": "Уклоните Shorts са почетне стране"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Hide player controls bar buttons"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "Уклоните каруселу Shorts из резултата претраге"
+    }
 }
