@@ -1,8 +1,8 @@
 /*------------------------------------------------------------------------------
 AUTOPLAY DISABLE
 ------------------------------------------------------------------------------*/
-ImprovedTube.autoplayDisable = function () {
-	const video = ImprovedTube.elements.player;
+ImprovedTube.autoplayDisable = function (videoElement) {
+	const video = ImprovedTube.elements.player || videoElement.closest('#movie_player');
 	if (ImprovedTube.video_url !== location.href) {
 		this.user_interacted = false;
 	}
