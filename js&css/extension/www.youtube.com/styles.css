@@ -1,7 +1,7 @@
 /* fix for youtube's player moving in from the right side */
 html {overflow-x: hidden !important}
 /* html {overflow-x: hidden !important}
-/* Fix to tame Youtube's page-load / make it more calm  -  the player wont annoyingly slide in from the right anymore */
+/* Fix to tame Youtube's page-load / make it more calm - the player wont annoyingly slide in from the right anymore */
 									/* previously also: html[it-transcript='true'] {overflow-x: hidden !important}*/
 @-moz-document url-prefix() {overflow-x: visible !important} /* REMOVE ME SOON https://github.com/code-charity/youtube/issues/1649 */
 
@@ -11,7 +11,7 @@ html {overflow-x: hidden !important}
 	html[it-pathname*="/shorts/"] #content.style-scope ytd-engagement-panel-title-header-renderer {
 		max-width: 42vw !important;
 	}
-	/* or maybe something like : html[it-pathname*="/shorts/"]  #header.style-scope ytd-engagement-panel-title-header-renderer  "visibility-button" */
+	/* or maybe something like : html[it-pathname*="/shorts/"] #header.style-scope ytd-engagement-panel-title-header-renderer "visibility-button" */
 }
 
 /*------------------------------------------------------------------------------
@@ -57,27 +57,27 @@ html[it-ads=subscribed_channels] #related #player-ads,
 html[it-ads=subscribed_channels] #masthead-ad,
 html[it-ads=subscribed_channels] *[target-id*='engagement-panel-ads'],
 html[it-ads=subscribed_channels] .ytd-ad-slot-renderer,
-html[it-ads=subscribed_channels] yt-mealbar-promo-renderer, 
-html[it-ads=subscribed_channels] #player .ytp-ad-image-overlay,  
+html[it-ads=subscribed_channels] yt-mealbar-promo-renderer,
+html[it-ads=subscribed_channels] #player .ytp-ad-image-overlay,
 html[it-ads=subscribed_channels] #player .video-ads .ytp-ad-player-overlay-flyout-cta,
 html[it-ads=subscribed_channels] #player .ytp-ad-module .ytp-ad-player-overlay-flyout-cta,
 html[it-ads=block_all] #related #player-ads,
 html[it-ads=block_all] #masthead-ad,
 html[it-ads=block_all] *[target-id*='engagement-panel-ads'],
-html[it-ads=block_all] .ytd-ad-slot-renderer, 
+html[it-ads=block_all] .ytd-ad-slot-renderer,
 html[it-ads=block_all] yt-mealbar-promo-renderer,
 html[it-ads=block_all] #player .ytp-ad-image-overlay,
-html[it-ads=block_all] #player .video-ads .ytp-ad-player-overlay-flyout-cta, 
+html[it-ads=block_all] #player .video-ads .ytp-ad-player-overlay-flyout-cta,
 html[it-ads=block_all] #player .ytp-ad-module .ytp-ad-player-overlay-flyout-cta{
 	display: none !important;
 }
 
 /*
-html[it-ads=subscribed_channels] #player .video-ads, 
-html[it-ads=subscribed_channels] #player .ytp-ad-module, 
-html[it-ads=block_all] #player .video-ads, 
+html[it-ads=subscribed_channels] #player .video-ads,
+html[it-ads=subscribed_channels] #player .ytp-ad-module,
+html[it-ads=block_all] #player .video-ads,
 html[it-ads=block_all] #player .ytp-ad-module {
-	opacity: 0.0001 !important; 
+	opacity: 0.0001 !important;
 }
 
 html[it-ads=subscribed_channels] #player .ytp-ad-preview-image,
@@ -194,20 +194,20 @@ html[it-mini-player-cursor='nw-resize']::after {
 
 
 /*------------------------------------------------------------------------------
-# 
+#
 ------------------------------------------------------------------------------*/
-html[data-page-type='video'][it-player-fit-to-win-button='true'] .ytp-right-controls {
+html[it-player-fit-to-win-button=true][data-page-type=video] .ytp-right-controls {
 	display: flex;
 }
 
-html[data-page-type='video'][it-player-fit-to-win-button='true'] #it-fit-to-win-player-button {
+html[it-player-fit-to-win-button=true][data-page-type=video] #it-fit-to-win-player-button {
 	order: 1;
 }
-html[data-page-type='video'][it-player-fit-to-win-button='true'] .ytp-fullscreen-button {
+html[it-player-fit-to-win-button=true][data-page-type=video] .ytp-fullscreen-button {
 	order: 2;
 }
 
-html[data-page-type='video'][it-player-fit-to-win-button='true'] #ftw-icon path {
+html[it-player-fit-to-win-button=true][data-page-type=video] #ftw-icon path {
 	fill: none;
 }
 .it-player-button {
@@ -454,7 +454,7 @@ ytd-guide-section-renderer .it-button::after {
 
 
 /*------------------------------------------------------------------------------
-9.0 BLACKLIST
+9.0 BLOCKLIST
 ------------------------------------------------------------------------------*/
 .it-add-to-blocklist {
 	position: absolute;
@@ -479,7 +479,7 @@ ytd-guide-section-renderer .it-button::after {
 	align-items: center;
 	content: 'Blocklist';
 	text-transform: uppercase;
-	color: white; /*quick-fix for:  var(--yt-spec-icon-active-other, #fff);*/
+	color: white; /*quick-fix for: var(--yt-spec-icon-active-other, #fff);*/
 	position: absolute;
 	left: 100%;
 	top: 0;
@@ -530,35 +530,61 @@ ytd-guide-section-renderer .it-button::after {
 *:hover>.it-add-to-blocklist {
 	visibility: visible;
 }
-.it-blocklisted-video {
+
+.it-blocklisted-video .it-add-to-blocklist svg,
+.it-blocklisted-channel .it-add-to-blocklist svg {
+	fill: green;
+}
+
+.it-blocklisted-video .it-add-to-blocklist::after,
+.it-blocklisted-channel .it-add-to-blocklist::after {
+	color: green;
+}
+
+.it-blocklisted-video .it-add-to-blocklist::after {
+    content: "Unblock Video";
+}
+
+.it-blocklisted-channel .it-add-to-blocklist::after {
+    content: "Unblock Channel"!important;
+}
+
+.it-blocklisted-video,
+.it-blocklisted-channel {
 	opacity: .15;
-	max-height: 19px;
+	max-height: 4rem;
 	overflow: hidden;
-	margin-top: -5px !important;
 	transition: max-height 0.4s ease 0.1s;
 }
-.it-blocklisted-video ytd-thumbnail {
+
+ytd-grid-video-renderer .it-blocklisted-video,
+ytd-grid-video-renderer .it-blocklisted-channel,
+ytd-rich-grid-media .it-blocklisted-video,
+ytd-rich-grid-media .it-blocklisted-channel {
+	overflow: visible;
+}
+
+.it-blocklisted-video ytd-thumbnail,
+.it-blocklisted-channel ytd-thumbnail {
 	visibility: hidden;
 	max-width: 0;
 	transition: max-width 0.4s ease 0.1s;
 }
-.it-blocklisted-video:hover {
+
+.it-blocklisted-video:hover,
+.it-blocklisted-channel:hover {
 	opacity: 1;
 	overflow: visible;
 	max-height: 120px;
 	transition: max-height 0.4s ease 1.1s;
 }
-.it-blocklisted-video:hover ytd-thumbnail {
+
+.it-blocklisted-video:hover ytd-thumbnail,
+.it-blocklisted-channel:hover ytd-thumbnail {
 	visibility: visible;
 	max-width: 220px;
 	transition: max-width 0.4s ease 1.1s;
-	margin-top: -7px !important;
-	margin-bottom: 4px !important;
-	margin-left: 5px !important;
 }
-/* .it-blocklisted-video #metadata-line {display:none !important}  
-   .it-blocklisted-video div {display: inline-block !important}  */
- 
 /*------------NEW---------------*/
 
 .improvedtube-sidebar-a {
@@ -633,7 +659,7 @@ ytd-guide-section-renderer .it-button::after {
 3.0 THEMES
 ------------------------------------------------------------------------------*/
 /*update: cinematics */
-html[it-theme=black] #cinematics, 
+html[it-theme=black] #cinematics,
 html[it-theme=desert] #cinematics {
 	display:none !important
 }
@@ -889,7 +915,7 @@ html[it-theme=black][data-system-color-scheme=light][it-schedule=system_peferenc
 }
 
 /*DAWN*/
-  
+
 html[it-theme=dawn] [dark],
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
 html[it-theme=dawn][data-system-color-scheme=dark][it-schedule=system_peference_dark],
@@ -1124,7 +1150,7 @@ html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference
 	--yt-lightsource-secondary-title-color: var(--yt-spec-text-secondary) !important;
 }
 
-/*DESERT*/ 
+/*DESERT*/
 
 html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
 html[it-theme=desert][data-system-color-scheme=dark][it-schedule=system_peference_dark],
@@ -1808,7 +1834,7 @@ html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peferenc
 
 
 /*SUNSET*/
-  
+
 html[it-theme=sunset] [dark],
 html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
 html[it-theme=sunset][data-system-color-scheme=dark][it-schedule=system_peference_dark],
