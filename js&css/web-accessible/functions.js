@@ -349,7 +349,8 @@ ImprovedTube.playerOnPlay = function () {
 ImprovedTube.initPlayer = function () {
 	if (ImprovedTube.elements.player && ImprovedTube.video_url !== location.href) {
 
-		ImprovedTube.video_url = location.href;
+		ImprovedTube.video_url = location.href; 
+		ImprovedTube.user_interacted = false;
 		ImprovedTube.played_before_blur = false;
 
 		delete ImprovedTube.elements.player.dataset.defaultQuality;
