@@ -4,5 +4,8 @@
     },
     "player_rotate_button": {
         "message": "player rotate button"
+    },
+    "qualityWithoutFocus": {
+        "message": "Quality without focus"
     }
 }

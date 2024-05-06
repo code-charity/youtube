@@ -1,8 +1,5 @@
 /*--------------------------------------------------------------
 >>> THEMES
-----------------------------------------------------------------
-# Font
-# Themes
 --------------------------------------------------------------*/
 
 extension.skeleton.main.layers.section.themes = {
@@ -10,12 +7,7 @@ extension.skeleton.main.layers.section.themes = {
 	variant: 'themes',
 	category: true,
 	on: {
-		click: {
-			section: {
-				component: 'section',
-				variant: 'card'
-			}
-		}
+		click: {}
 	},
 
 	icon: {
@@ -46,7 +38,7 @@ extension.skeleton.main.layers.section.themes = {
 };
 
 /*--------------------------------------------------------------
-# THEMES
+# SECTION
 --------------------------------------------------------------*/
 
 extension.skeleton.main.layers.section.themes.on.click.section = {
@@ -57,18 +49,15 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'custom-theme',
 		text: 'custom',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
 			value: 'custom',
-			checked: true,
 			on: {
 				click: {
 					section: {
 						component: 'section',
 						variant: 'card',
-						group: 'theme',
 						theme_primary_color: {
 							component: 'color-picker',
 							text: 'primaryColor',
@@ -87,7 +76,7 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 	default: {
 		component: 'label',
 		variant: 'default-theme',
-		text: 'default_theme',
+		text: 'default',
 		radio: {
 			component: 'radio',
 			group: 'theme',
@@ -99,7 +88,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'black-theme',
 		text: 'black',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
@@ -110,7 +98,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'plain-theme',
 		text: 'plain',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
@@ -131,7 +118,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'night-theme',
 		text: 'night',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
@@ -142,7 +128,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 		component: 'label',
 		variant: 'dawn-theme',
 		text: 'dawn',
-
 		radio: {
 			component: 'radio',
 			group: 'theme',
