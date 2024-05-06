@@ -903,6 +903,7 @@ satus.storage.import = function(keys, callback) {
 		// satus.log('STORAGE: data was successfully imported');
 		satus.events.trigger('storage-import');
 		if (callback) { callback(items); }
+		loading.style.display = 'none';
 	});
 };
 /*--------------------------------------------------------------
