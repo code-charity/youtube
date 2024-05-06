@@ -911,10 +911,6 @@ satus.storage.import = function(keys, callback) {
 		callback = keys;
 		keys = undefined;
 	}
-	const overlay = document.createElement('div');
-	overlay.style.cssText = 'animation: fadeIn 4s linear; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 3px solid rgba(182, 233, 255, 1); border-radius: 80px; padding: 37px; color: rgba(120, 147, 161, 1);';
-	overlay.textContent = '...asking your browser what settings you made here before...';
-	(document.body || document.documentElement).appendChild(overlay);
 	chrome.storage.local.get(keys || null, function(items) {
 		for (var key in items) {
 			self.data[key] = items[key];
@@ -922,7 +918,7 @@ satus.storage.import = function(keys, callback) {
 		// satus.log('STORAGE: data was successfully imported');
 		satus.events.trigger('storage-import');
 		if (callback) { callback(items); }
-		overlay.style.display = 'none';
+		loading.style.display = 'none';
 	});
 };
 /*--------------------------------------------------------------
