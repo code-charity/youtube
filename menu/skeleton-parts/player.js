@@ -128,8 +128,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		autoplay_disable: {
 			component: 'switch',
-			text: 'autoplay',
-			value: false,
+			text: 'autoplayDisable',
 			storage: 'player_autoplay_disable'
 		},
 		up_next_autoplay: {
@@ -761,6 +760,19 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		player_quality_without_focus: {
+			component: 'select',
+			text: 'qualityWithoutFocus',
+			id: 'player_quality_without_focus',
+			options: function () {
+				return [{value: 'auto', text: "Disabled"}].concat(extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options.slice(1));
+			},
+			on: {
+				render: function () {
+						extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
+				}
+			}
+		},
 		player_codecs: {
 			component: 'button',
 			text: 'codecs',
@@ -896,6 +908,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						document.getElementById('player_quality').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
+						document.getElementById('player_quality_without_focus').dispatchEvent(new CustomEvent('render'));
 					}
 					if (this.dataset.value === 'false') {
 						let where = this;
@@ -1066,55 +1079,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 							component: "button",
 							text: "hidePlayerControlsBarButtons",
 							on: {
-								click: {
-									component: "section",
-									variant: "card",
-			
-									player_play_button: {
-										component: "switch",
-										text: "playPause"
-									},
-									player_previous_button: {
-										component: "switch",
-										text: "previousVideo"
-									},
-									player_next_button: {
-										component: "switch",
-										text: "nextVideo"
-									},
-									player_volume_button: {
-										component: "switch",
-										text: "volume"
-									},
-									player_autoplay_button: {
-										component: "switch",
-										text: "autoplay"
-									},
-									player_settings_button: {
-										component: "switch",
-										text: "settings"
-									},
-									player_subtitles_button: {
-										component: "switch",
-										text: "subtitles"
-									},
-									player_miniplayer_button: {
-										component: "switch",
-										text: "nativeMiniPlayer"
-									},
-									player_view_button: {
-										component: "switch",
-										text: "viewMode"
-									},
-									player_screen_button: {
-										component: "switch",
-										text: "screen"
-									},
-									player_remote_button: {
-										component: "switch",
-										text: "remote"
-									}
-								}
+								click: 'main.layers.section.appearance.on.click.player.on.click.player_hide_controls_options.on.click'
 							}
 						},
 	}	

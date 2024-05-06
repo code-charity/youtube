@@ -303,12 +303,12 @@ el.querySelector('*[target-id*=chapters]')?.removeAttribute('visibility');} }
 ------------------------------------------------------------------------------*/
 ImprovedTube.livechat = function () {
     if (this.storage.livechat === "collapsed") {
-		if (typeof isCollapsed === 'undefined') { var isCollapsed = false;   }
+        if (typeof isCollapsed === 'undefined') { var isCollapsed = false;   }
         if(ImprovedTube.elements.livechat && !isCollapsed){
             ImprovedTube.elements.livechat.button.click();
             isCollapsed = true 
         }
-  }  /* else{
+    }  /* else{
         if(isCollapsed){
             ImprovedTube.elements.livechat.button.click();
             isCollapsed = false
@@ -424,17 +424,17 @@ ImprovedTube.expandDescription = function (el) {
 /*------------------------------------------------------------------------------
  HIDE DETAIL BUTTON
 ------------------------------------------------------------------------------*/
-ImprovedTube.hideDetailButton = function (el) {
-    if (el.length === 4) {
-        el[3].setAttribute("id", "Save-button");
-        el[2].setAttribute("id", "Clip-button");
-        el[1].setAttribute("id", "Thanks-button");
-    }
-    else if (el.length === 3) {
-        el[2].setAttribute("id", "Save-button");
-        el[1].setAttribute("id", "Clip-button");
-    }
-};
+// ImprovedTube.hideDetailButton = function (el) {
+//     if (el.length === 4) {
+//         el[3].setAttribute("id", "Save-button");
+//         el[2].setAttribute("id", "Clip-button");
+//         el[1].setAttribute("id", "Thanks-button");
+//     }
+//     else if (el.length === 3) {
+//         el[2].setAttribute("id", "Save-button");
+//         el[1].setAttribute("id", "Clip-button");
+//     }
+// };
 /*--------------------------------------------------------------
  DAY OF WEEK
 --------------------------------------------------------------*/

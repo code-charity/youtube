@@ -806,6 +806,9 @@
     "quality": {
         "message": "Calidad"
     },
+    "qualityWithoutFocus": {
+        "message": "Calidad sin enfoque"
+    },
     "rateMe": {
         "message": "Califícame"
     },

@@ -29,7 +29,7 @@ ImprovedTube.childHandler = function (node) { //console.log(node.nodeName);
 			//console.log("node.nodeName:CHILD-"+i+":"+children[i].id+",class:"+children[i].className+","+children[i]+"("+children[i].nodeName+")");
 			i++;
 		}
-	}    
+	}	
 };  */
 
 ImprovedTube.ytElementsHandler = function (node) {
@@ -40,38 +40,35 @@ ImprovedTube.ytElementsHandler = function (node) {
 		if (node.href) {
 			this.channelDefaultTab(node);
 
-			if (node.className.indexOf('ytd-thumbnail') !== -1) {
-				this.blocklist('video', node);
-			}
-			if (node.href.match(/@|((channel|user|c)\/)([^/]+)/)) {
-				this.blocklist('channel', node);
+			if (this.storage.blocklist_activate && node.classList.contains('ytd-thumbnail')) {
+					this.blocklist('video', node);
 			}
 		}
-	} /* else if (name === 'META') {               //<META> infos are not updated when clicking related videos...
-         if(node.getAttribute('name')) {
-            //if(node.getAttribute('name') === 'title')         {ImprovedTube.title = node.content;}        //duplicate
-            //if(node.getAttribute('name') === 'description')       {ImprovedTube.description = node.content;}  //duplicate
-            //if node.getAttribute('name') === 'themeColor')            {ImprovedTube.themeColor = node.content;}   //might help our darkmode/themes
+	} /* else if (name === 'META') {			   //<META> infos are not updated when clicking related videos...
+		 if(node.getAttribute('name')) {
+			//if(node.getAttribute('name') === 'title')		 {ImprovedTube.title = node.content;}		//duplicate
+			//if(node.getAttribute('name') === 'description')	   {ImprovedTube.description = node.content;}  //duplicate
+			//if node.getAttribute('name') === 'themeColor')			{ImprovedTube.themeColor = node.content;}   //might help our darkmode/themes
 //Do we need any of these here before the player starts?
-            //if(node.getAttribute('name') === 'keywords')          {ImprovedTube.keywords = node.content;}
-            } else if (node.getAttribute('itemprop')) {
-            //if(node.getAttribute('itemprop') === 'name')          {ImprovedTube.title = node.content;}
-            if(node.getAttribute('itemprop') === 'genre')           {ImprovedTube.category  = node.content;}
-            //if(node.getAttribute('itemprop') === 'channelId')     {ImprovedTube.channelId = node.content;}
-            //if(node.getAttribute('itemprop') === 'videoId')       {ImprovedTube.videoId = node.content;}
+			//if(node.getAttribute('name') === 'keywords')		  {ImprovedTube.keywords = node.content;}
+			} else if (node.getAttribute('itemprop')) {
+			//if(node.getAttribute('itemprop') === 'name')		  {ImprovedTube.title = node.content;}
+			if(node.getAttribute('itemprop') === 'genre')		   {ImprovedTube.category  = node.content;}
+			//if(node.getAttribute('itemprop') === 'channelId')	 {ImprovedTube.channelId = node.content;}
+			//if(node.getAttribute('itemprop') === 'videoId')	   {ImprovedTube.videoId = node.content;}
 //The following infos will enable awesome, smart features.  Some of which everyone should use.
-            //if(node.getAttribute('itemprop') === 'description')   {ImprovedTube.description = node.content;}
-            //if(node.getAttribute('itemprop') === 'duration')      {ImprovedTube.duration = node.content;}
-            //if(node.getAttribute('itemprop') === 'interactionCount'){ImprovedTube.views = node.content;}
-            //if(node.getAttribute('itemprop') === 'isFamilyFriendly'){ImprovedTube.isFamilyFriendly = node.content;}
-            //if(node.getAttribute('itemprop') === 'unlisted')      {ImprovedTube.unlisted = node.content;}
-            //if(node.getAttribute('itemprop') === 'regionsAllowed'){ImprovedTube.regionsAllowed = node.content;}
-            //if(node.getAttribute('itemprop') === 'paid')          {ImprovedTube.paid = node.content;}
-            // if(node.getAttribute('itemprop') === 'datePublished' ){ImprovedTube.datePublished = node.content;}
-                    //to use in the "how long ago"-feature, not to fail without API key?  just like the "day-of-week"-feature above
-            // if(node.getAttribute('itemprop') === 'uploadDate')   {ImprovedTube.uploadDate = node.content;}
-        }
-    }  */
+			//if(node.getAttribute('itemprop') === 'description')   {ImprovedTube.description = node.content;}
+			//if(node.getAttribute('itemprop') === 'duration')	  {ImprovedTube.duration = node.content;}
+			//if(node.getAttribute('itemprop') === 'interactionCount'){ImprovedTube.views = node.content;}
+			//if(node.getAttribute('itemprop') === 'isFamilyFriendly'){ImprovedTube.isFamilyFriendly = node.content;}
+			//if(node.getAttribute('itemprop') === 'unlisted')	  {ImprovedTube.unlisted = node.content;}
+			//if(node.getAttribute('itemprop') === 'regionsAllowed'){ImprovedTube.regionsAllowed = node.content;}
+			//if(node.getAttribute('itemprop') === 'paid')		  {ImprovedTube.paid = node.content;}
+			// if(node.getAttribute('itemprop') === 'datePublished' ){ImprovedTube.datePublished = node.content;}
+					//to use in the "how long ago"-feature, not to fail without API key?  just like the "day-of-week"-feature above
+			// if(node.getAttribute('itemprop') === 'uploadDate')   {ImprovedTube.uploadDate = node.content;}
+		}
+	}  */
 	else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
 		//can be precise   previously  node.parentComponent  & node.parentComponent.parentComponent
 		if (node.closest("YTD-MENU-RENDERER")
@@ -132,21 +129,22 @@ ImprovedTube.ytElementsHandler = function (node) {
 			this.howLongAgoTheVideoWasUploaded();
 			this.channelVideosCount();
 		}
-	} else if (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-video-primary-info-renderer')) {
-		if (document.documentElement.dataset.pageType === 'video') {
-			this.hideDetailButton(node.querySelector('#flexible-item-buttons').children);
-		}
-	} else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
+	}
+	 // else if (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-video-primary-info-renderer')) {
+	// 	if (document.documentElement.dataset.pageType === 'video') {
+	// 		this.hideDetailButton(node.querySelector('#flexible-item-buttons').children);
+	// 	}
+	else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
 		this.playlistPopupUpdate();
-	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER') {
-		if (node.className.indexOf('ytd-c4-tabbed-header-renderer') !== -1) {
+	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER' || name === 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL') {
+		if (this.storage.blocklist_activate) {
 			ImprovedTube.blocklist('channel', node);
 		}
 
 		ImprovedTube.elements.subscribe_button = node;
-	} else if (id === 'show-hide-button') {
-		this.elements.livechat.button = document.querySelector('[aria-label="Hide chat"]');
-		// console.log(document.querySelector('[aria-label="Hide chat"]'))
+	} else if (id === 'chat-messages') {
+		this.elements.livechat.button = document.querySelector('[aria-label="Close"]');
+		// console.log(document.querySelector('[aria-label="Close"]'))
 		this.livechat();
 	} else if (name === 'YTD-MASTHEAD') {
 		if (!this.elements.masthead) {
@@ -263,11 +261,11 @@ ImprovedTube.ytElementsHandler = function (node) {
 										  ImprovedTube.chapters(node);
 									  }, 200);
 								  } /* else if (name === 'TP-YT-PAPER-BUTTON') {
-        if ( (id === 'expand-sizer' || id === 'expand') && node.parentNode.id === 'description-inline-expander') {
-            setTimeout(function () {
-                ImprovedTube.expandDescription(node);                   console.log("EXPAND DESCRIPTION, OLD WAY")
-            }, 750);
-        }} */
+		if ( (id === 'expand-sizer' || id === 'expand') && node.parentNode.id === 'description-inline-expander') {
+			setTimeout(function () {
+				ImprovedTube.expandDescription(node);				   console.log("EXPAND DESCRIPTION, OLD WAY")
+			}, 750);
+		}} */
 	}
 
 };
@@ -289,6 +287,7 @@ ImprovedTube.pageType = function () {
 ImprovedTube.pageOnFocus = function () {
 	ImprovedTube.playerAutopauseWhenSwitchingTabs();
 	ImprovedTube.playerAutoPip();
+	ImprovedTube.playerQualityWithoutFocus();
 };
 
 ImprovedTube.videoPageUpdate = function () {
@@ -338,7 +337,7 @@ ImprovedTube.playerOnPlay = function () {
 			this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 			this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
 
-			ImprovedTube.autoplayDisable();
+			ImprovedTube.autoplayDisable(this);
 			ImprovedTube.playerLoudnessNormalization();
 			ImprovedTube.playerCinemaModeEnable();
 
@@ -385,23 +384,35 @@ ImprovedTube.initPlayer = function () {
 	}
 };
 
-ImprovedTube.playerOnTimeUpdate = function () {
-	if (ImprovedTube.video_src !== this.src) {
-		ImprovedTube.video_src = this.src;
+var timeUpdateInterval = null;
+var noTimeUpdate = null;
 
-		if (ImprovedTube.initialVideoUpdateDone !== true) {
-			ImprovedTube.playerQuality();
+ImprovedTube.playerOnTimeUpdate = function() {
+	var currentTime = Date.now();
+		if (!timeUpdateInterval) {
+			timeUpdateInterval = setInterval(function() {
+				if (ImprovedTube.video_src !== this.src) {
+					ImprovedTube.video_src = this.src;
+
+					if (ImprovedTube.initialVideoUpdateDone !== true) {
+						ImprovedTube.playerQuality();
+					}
+				} else if (ImprovedTube.latestVideoDuration !== this.duration) {
+					ImprovedTube.latestVideoDuration = this.duration;
+					
+					ImprovedTube.playerQuality();
+				}
+
+				ImprovedTube.alwaysShowProgressBar();
+				ImprovedTube.playerRemainingDuration();
+				ImprovedTube.played_time += .5;
+			}, 500);
 		}
-	} else if (ImprovedTube.latestVideoDuration !== this.duration) {
-		ImprovedTube.latestVideoDuration = this.duration;
-
-		ImprovedTube.playerQuality();
-	}
-
-	ImprovedTube.alwaysShowProgressBar();
-	ImprovedTube.playerRemainingDuration();
-
-	ImprovedTube.played_time += .25;
+		clearInterval(noTimeUpdate);
+		noTimeUpdate = setTimeout(function() {
+			 clearInterval(timeUpdateInterval);
+			timeUpdateInterval = null;
+		}, 987);
 };
 
 ImprovedTube.playerOnLoadedMetadata = function () {
@@ -443,19 +454,19 @@ ImprovedTube.onkeydown = function () {
 	}, true);
 };
 
-ImprovedTube.onmousedown = function (event) {
-	window.addEventListener('mousedown', function (event) {
-		if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
-			var path = event.composedPath();
-
-			for (var i = 0, l = path.length; i < l; i++) {
-				if (path[i].className
-					&& path[i].className.indexOf
-					&& (path[i].className.indexOf('html5-main-video') !== -1
-						|| path[i].className.indexOf('ytp-play-button') !== -1)) {
-					ImprovedTube.user_interacted = true;
+ImprovedTube.onmousedown = function (event) {									  
+	window.addEventListener('mousedown', function (event) {	
+		if (!ImprovedTube.user_interacted) {
+			setTimeout(function(){ImprovedTube.user_interacted = true},800);	
+			if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
+				var path = event.composedPath();
+				for (var i = 0, l = path.length; i < l; i++) {
+					if (path[i].className 
+						// && path[i].className.indexOf
+                                        	&& (/html5-(main-video|video-container)|ytp-play-button/.test(path[i].className))
+						) {ImprovedTube.user_interacted = true;}
 				}
-			}
+			}													
 		}
 	}, true);
 };

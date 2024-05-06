@@ -1,7 +1,7 @@
 /* fix for youtube's player moving in from the right side */
 html {overflow-x: hidden !important}
 /* html {overflow-x: hidden !important}
-/* Fix to tame Youtube's page-load / make it more calm  -  the player wont annoyingly slide in from the right anymore */
+/* Fix to tame Youtube's page-load / make it more calm - the player wont annoyingly slide in from the right anymore */
 									/* previously also: html[it-transcript='true'] {overflow-x: hidden !important}*/
 @-moz-document url-prefix() {overflow-x: visible !important} /* REMOVE ME SOON https://github.com/code-charity/youtube/issues/1649 */
 
@@ -11,7 +11,7 @@ html {overflow-x: hidden !important}
 	html[it-pathname*="/shorts/"] #content.style-scope ytd-engagement-panel-title-header-renderer {
 		max-width: 42vw !important;
 	}
-	/* or maybe something like : html[it-pathname*="/shorts/"]  #header.style-scope ytd-engagement-panel-title-header-renderer  "visibility-button" */
+	/* or maybe something like : html[it-pathname*="/shorts/"] #header.style-scope ytd-engagement-panel-title-header-renderer "visibility-button" */
 }
 
 /*------------------------------------------------------------------------------
@@ -57,27 +57,27 @@ html[it-ads=subscribed_channels] #related #player-ads,
 html[it-ads=subscribed_channels] #masthead-ad,
 html[it-ads=subscribed_channels] *[target-id*='engagement-panel-ads'],
 html[it-ads=subscribed_channels] .ytd-ad-slot-renderer,
-html[it-ads=subscribed_channels] yt-mealbar-promo-renderer, 
-html[it-ads=subscribed_channels] #player .ytp-ad-image-overlay,  
+html[it-ads=subscribed_channels] yt-mealbar-promo-renderer,
+html[it-ads=subscribed_channels] #player .ytp-ad-image-overlay,
 html[it-ads=subscribed_channels] #player .video-ads .ytp-ad-player-overlay-flyout-cta,
 html[it-ads=subscribed_channels] #player .ytp-ad-module .ytp-ad-player-overlay-flyout-cta,
 html[it-ads=block_all] #related #player-ads,
 html[it-ads=block_all] #masthead-ad,
 html[it-ads=block_all] *[target-id*='engagement-panel-ads'],
-html[it-ads=block_all] .ytd-ad-slot-renderer, 
+html[it-ads=block_all] .ytd-ad-slot-renderer,
 html[it-ads=block_all] yt-mealbar-promo-renderer,
 html[it-ads=block_all] #player .ytp-ad-image-overlay,
-html[it-ads=block_all] #player .video-ads .ytp-ad-player-overlay-flyout-cta, 
+html[it-ads=block_all] #player .video-ads .ytp-ad-player-overlay-flyout-cta,
 html[it-ads=block_all] #player .ytp-ad-module .ytp-ad-player-overlay-flyout-cta{
 	display: none !important;
 }
 
 /*
-html[it-ads=subscribed_channels] #player .video-ads, 
-html[it-ads=subscribed_channels] #player .ytp-ad-module, 
-html[it-ads=block_all] #player .video-ads, 
+html[it-ads=subscribed_channels] #player .video-ads,
+html[it-ads=subscribed_channels] #player .ytp-ad-module,
+html[it-ads=block_all] #player .video-ads,
 html[it-ads=block_all] #player .ytp-ad-module {
-	opacity: 0.0001 !important; 
+	opacity: 0.0001 !important;
 }
 
 html[it-ads=subscribed_channels] #player .ytp-ad-preview-image,
@@ -194,20 +194,20 @@ html[it-mini-player-cursor='nw-resize']::after {
 
 
 /*------------------------------------------------------------------------------
-# 
+#
 ------------------------------------------------------------------------------*/
-html[data-page-type='video'][it-player-fit-to-win-button='true'] .ytp-right-controls {
+html[it-player-fit-to-win-button=true][data-page-type=video] .ytp-right-controls {
 	display: flex;
 }
 
-html[data-page-type='video'][it-player-fit-to-win-button='true'] #it-fit-to-win-player-button {
+html[it-player-fit-to-win-button=true][data-page-type=video] #it-fit-to-win-player-button {
 	order: 1;
 }
-html[data-page-type='video'][it-player-fit-to-win-button='true'] .ytp-fullscreen-button {
+html[it-player-fit-to-win-button=true][data-page-type=video] .ytp-fullscreen-button {
 	order: 2;
 }
 
-html[data-page-type='video'][it-player-fit-to-win-button='true'] #ftw-icon path {
+html[it-player-fit-to-win-button=true][data-page-type=video] #ftw-icon path {
 	fill: none;
 }
 .it-player-button {
@@ -454,7 +454,7 @@ ytd-guide-section-renderer .it-button::after {
 
 
 /*------------------------------------------------------------------------------
-9.0 BLACKLIST
+9.0 BLOCKLIST
 ------------------------------------------------------------------------------*/
 .it-add-to-blocklist {
 	position: absolute;
@@ -479,7 +479,7 @@ ytd-guide-section-renderer .it-button::after {
 	align-items: center;
 	content: 'Blocklist';
 	text-transform: uppercase;
-	color: white; /*quick-fix for:  var(--yt-spec-icon-active-other, #fff);*/
+	color: white; /*quick-fix for: var(--yt-spec-icon-active-other, #fff);*/
 	position: absolute;
 	left: 100%;
 	top: 0;
@@ -530,35 +530,61 @@ ytd-guide-section-renderer .it-button::after {
 *:hover>.it-add-to-blocklist {
 	visibility: visible;
 }
-.it-blocklisted-video {
+
+.it-blocklisted-video .it-add-to-blocklist svg,
+.it-blocklisted-channel .it-add-to-blocklist svg {
+	fill: green;
+}
+
+.it-blocklisted-video .it-add-to-blocklist::after,
+.it-blocklisted-channel .it-add-to-blocklist::after {
+	color: green;
+}
+
+.it-blocklisted-video .it-add-to-blocklist::after {
+    content: "Unblock Video";
+}
+
+.it-blocklisted-channel .it-add-to-blocklist::after {
+    content: "Unblock Channel"!important;
+}
+
+.it-blocklisted-video,
+.it-blocklisted-channel {
 	opacity: .15;
-	max-height: 19px;
+	max-height: 4rem;
 	overflow: hidden;
-	margin-top: -5px !important;
 	transition: max-height 0.4s ease 0.1s;
 }
-.it-blocklisted-video ytd-thumbnail {
+
+ytd-grid-video-renderer .it-blocklisted-video,
+ytd-grid-video-renderer .it-blocklisted-channel,
+ytd-rich-grid-media .it-blocklisted-video,
+ytd-rich-grid-media .it-blocklisted-channel {
+	overflow: visible;
+}
+
+.it-blocklisted-video ytd-thumbnail,
+.it-blocklisted-channel ytd-thumbnail {
 	visibility: hidden;
 	max-width: 0;
 	transition: max-width 0.4s ease 0.1s;
 }
-.it-blocklisted-video:hover {
+
+.it-blocklisted-video:hover,
+.it-blocklisted-channel:hover {
 	opacity: 1;
 	overflow: visible;
 	max-height: 120px;
 	transition: max-height 0.4s ease 1.1s;
 }
-.it-blocklisted-video:hover ytd-thumbnail {
+
+.it-blocklisted-video:hover ytd-thumbnail,
+.it-blocklisted-channel:hover ytd-thumbnail {
 	visibility: visible;
 	max-width: 220px;
 	transition: max-width 0.4s ease 1.1s;
-	margin-top: -7px !important;
-	margin-bottom: 4px !important;
-	margin-left: 5px !important;
 }
-/* .it-blocklisted-video #metadata-line {display:none !important}  
-   .it-blocklisted-video div {display: inline-block !important}  */
- 
 /*------------NEW---------------*/
 
 .improvedtube-sidebar-a {
@@ -633,15 +659,22 @@ ytd-guide-section-renderer .it-button::after {
 3.0 THEMES
 ------------------------------------------------------------------------------*/
 /*update: cinematics */
-html[it-theme=black] #cinematics, 
-html[it-theme=desert] #cinematics {display:none !important}
+html[it-theme=black] #cinematics,
+html[it-theme=desert] #cinematics {
+	display:none !important
+}
 html[it-theme=dawn] #cinematics,
 html[it-theme=sunset] #cinematics,
-html[it-theme=night] #cinematics {mix-blend-mode: lighten !important}
-html[it-theme=plain] #cinematics {filter:invert(100%) !important; mix-blend-mode: darken !important}
+html[it-theme=night] #cinematics {
+	mix-blend-mode: lighten !important
+}
+html[it-theme=plain] #cinematics {
+	filter:invert(100%) !important;
+	mix-blend-mode: darken !important
+}
 
 /*video detail text color. Fix. Themes didnt apply video description text color*/
-html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary)  !important}
+html[it-theme] .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary) !important}
 html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string__link--call-to-action-color {color: var(--yt-spec-call-to-action)}
 /*The next two lines below can be removed if exact theming consistency isn't the goal and we just want to keep it simple.*/
 html[it-theme]:not([it-theme=default]):not([it-theme=dark]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-call-to-action) !important}
@@ -651,9 +684,10 @@ html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-
 
 /*BLACK*/
 
+html[it-theme=black] [dark],
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark],
-html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] {
+html[it-theme=black][data-system-color-scheme=dark][it-schedule=system_peference_dark],
+html[it-theme=black][data-system-color-scheme=light][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #000 !important;
 	--yt-swatch-primary-darker: #000 !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
@@ -674,7 +708,7 @@ html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peferenc
 	--yt-spec-general-background-b: #000 !important;
 	--yt-spec-general-background-c: #000 !important;
 	--yt-spec-error-background: #1f1f1f !important;
-	--yt-spec-text-primary: #aaa !important;
+	--yt-spec-text-primary: #aaa;
 	--yt-spec-text-primary-inverse: #000 !important;
 	--yt-spec-text-secondary: #aaa !important;
 	--yt-spec-text-disabled: #aaa !important;
@@ -706,15 +740,15 @@ html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peferenc
 }
 
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
-html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
-html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo {
+html[it-theme=black][data-system-color-scheme=dark][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
+html[it-theme=black][data-system-color-scheme=light][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo {
 	-webkit-filter: grayscale(1) brightness(3.5);
 	filter: grayscale(1) brightness(3.5);
 }
 
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
-html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark] ytd-masthead,
-html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] ytd-masthead {
+html[it-theme=black][data-system-color-scheme=dark][it-schedule=system_peference_dark] ytd-masthead,
+html[it-theme=black][data-system-color-scheme=light][it-schedule=system_peference_light] ytd-masthead {
 	background: #000 !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
@@ -727,8 +761,8 @@ html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peferenc
 }
 
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
+html[it-theme=black][data-system-color-scheme=dark][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[it-theme=black][data-system-color-scheme=light][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
 	--yt-live-chat-action-panel-background-color: #000;
 	--yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
 	--yt-live-chat-primary-text-color: hsl(0, 0%, 100%);
@@ -742,8 +776,8 @@ html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peferenc
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
-html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
+html[it-theme=black][data-system-color-scheme=dark][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
+html[it-theme=black][data-system-color-scheme=light][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
 	--yt-spec-icon-inactive: #fff;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
 	--ytd-searchbox-background: #000;
@@ -871,8 +905,8 @@ html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peferenc
 }
 
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
-html[data-system-color-scheme=dark][it-theme=black][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
-html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+html[it-theme=black][data-system-color-scheme=dark][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+html[it-theme=black][data-system-color-scheme=light][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
 	--yt-lightsource-section2-color: rgba(18,24,24,1.000) !important;
 	--yt-lightsource-section3-color: rgba(20,30,30,1.000) !important;
 	--yt-lightsource-section4-color: rgba(24,38,38,1.000) !important;
@@ -881,10 +915,11 @@ html[data-system-color-scheme=light][it-theme=black][it-schedule=system_peferenc
 }
 
 /*DAWN*/
-  
+
+html[it-theme=dawn] [dark],
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark],
-html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] {
+html[it-theme=dawn][data-system-color-scheme=dark][it-schedule=system_peference_dark],
+html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #d44d5c !important;
 	--yt-swatch-primary-darker: #d44d5c !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
@@ -905,7 +940,7 @@ html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference
 	--yt-spec-general-background-b: #d44d5c !important;
 	--yt-spec-general-background-c: #d44d5c !important;
 	--yt-spec-error-background: #1f1f1f !important;
-	--yt-spec-text-primary: rgb(255, 255, 255) !important;
+	--yt-spec-text-primary: rgb(255, 255, 255);
 	--yt-spec-text-primary-inverse: #734 !important;
 	--yt-spec-text-secondary: rgb(255, 255, 255) !important;
 	--yt-spec-text-disabled: rgb(255, 255, 255) !important;
@@ -937,8 +972,8 @@ html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference
 }
 
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
-html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark] ytd-masthead,
-html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] ytd-masthead {
+html[it-theme=dawn][data-system-color-scheme=dark][it-schedule=system_peference_dark] ytd-masthead,
+html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference_light] ytd-masthead {
 	background: #835 !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
@@ -954,8 +989,8 @@ html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference
 }
 
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
+html[it-theme=dawn][data-system-color-scheme=dark][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
 	--yt-live-chat-action-panel-background-color: #d44d5c;
 	--yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
 	--yt-live-chat-primary-text-color: hsl(0, 0%, 100%);
@@ -969,8 +1004,8 @@ html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
-html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
+html[it-theme=dawn][data-system-color-scheme=dark][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
+html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
 	--yt-spec-icon-inactive: #fff;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
 	--ytd-searchbox-background: #672c3b;
@@ -1099,15 +1134,15 @@ html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference
 }
 
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
-html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
-html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo {
+html[it-theme=dawn][data-system-color-scheme=dark][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
+html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo {
 	-webkit-filter: grayscale(1) brightness(4);
 	filter: grayscale(1) brightness(4);
 }
 
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
-html[data-system-color-scheme=dark][it-theme=dawn][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
-html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+html[it-theme=dawn][data-system-color-scheme=dark][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
 	--yt-lightsource-section2-color: rgba(0, 0, 0, 0.1) !important;
 	--yt-lightsource-section3-color: rgba(0, 0, 0, 0.2) !important;
 	--yt-lightsource-section4-color: rgba(0, 0, 0, 0.3) !important;
@@ -1115,11 +1150,11 @@ html[data-system-color-scheme=light][it-theme=dawn][it-schedule=system_peference
 	--yt-lightsource-secondary-title-color: var(--yt-spec-text-secondary) !important;
 }
 
-/*DESERT*/ 
+/*DESERT*/
 
 html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-html[data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark],
-html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light] {
+html[it-theme=desert][data-system-color-scheme=dark][it-schedule=system_peference_dark],
+html[it-theme=desert][data-system-color-scheme=light][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #faf9f9 !important;
 	--yt-swatch-primary-darker: #faf9f9 !important;
 	--yt-swatch-text: #555 !important;
@@ -1140,7 +1175,7 @@ html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peferen
 	--yt-spec-general-background-b: #faf9f9 !important;
 	--yt-spec-general-background-c: #faf9f9 !important;
 	--yt-spec-error-background: #1f1f1f !important;
-	--yt-spec-text-primary: #555 !important;
+	--yt-spec-text-primary: #555;
 	--yt-spec-text-primary-inverse: #faf9f9 !important;
 	--yt-spec-text-secondary: #555 !important;
 	--yt-spec-text-disabled: #555 !important;
@@ -1172,8 +1207,8 @@ html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peferen
 }
 
 html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
-html[data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark] ytd-masthead,
-html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light] ytd-masthead {
+html[it-theme=desert][data-system-color-scheme=dark][it-schedule=system_peference_dark] ytd-masthead,
+html[it-theme=desert][data-system-color-scheme=light][it-schedule=system_peference_light] ytd-masthead {
 	background: #ced3cb !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
@@ -1189,8 +1224,8 @@ html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peferen
 }
 
 html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
+html[it-theme=desert][data-system-color-scheme=dark][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[it-theme=desert][data-system-color-scheme=light][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
 	--yt-live-chat-action-panel-background-color: #faf9f9;
 	--yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
 	--yt-live-chat-primary-text-color: #555;
@@ -1204,19 +1239,19 @@ html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peferen
 html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
 html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
 html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
-html[data-system-color-scheme=dark][it-theme=desert][it-schedule=system_peference_dark]:not(.style-scope)[dark],
-html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peference_light]:not(.style-scope)[dark] {
+html[it-theme=desert][data-system-color-scheme=dark][it-schedule=system_peference_dark]:not(.style-scope)[dark],
+html[it-theme=desert][data-system-color-scheme=light][it-schedule=system_peference_light]:not(.style-scope)[dark] {
 	--yt-spec-icon-inactive: #555;
 	--yt-spec-text-primary: #555;
 	--ytd-searchbox-border-color: #555;
 	--ytd-searchbox-background: #faf9f9;
-	--ytd-searchbox-legacy-border-color: #555;
-	--ytd-searchbox-legacy-border-shadow-color: #555;
-	--ytd-searchbox-legacy-button-color: #555;
-	--ytd-searchbox-legacy-button-border-color: #555;
-	--ytd-searchbox-legacy-button-focus-color: #555;
-	--ytd-searchbox-legacy-button-hover-color: #555;
-	--ytd-searchbox-legacy-button-hover-border-color: #555;
+	--ytd-searchbox-legacy-border-color: hsl(0, 0%, 18.82%);
+	--ytd-searchbox-legacy-border-shadow-color: hsla(0, 0%, 0%, 0);
+	--ytd-searchbox-legacy-button-color: hsla(0, 0%, 100%, .08);
+	--ytd-searchbox-legacy-button-border-color: hsl(0, 0%, 18.82%);
+	--ytd-searchbox-legacy-button-focus-color: hsla(0, 0%, 100%, .08);
+	--ytd-searchbox-legacy-button-hover-color: hsla(0, 0%, 100%, .08);
+	--ytd-searchbox-legacy-button-hover-border-color: hsl(0, 0%, 18.82%);
 	--ytd-searchbox-legacy-button-icon-color: #fff;
 	--ytd-moderation-panel-background: #555;
 	--ytd-moderation-panel-hover: #555;
@@ -1336,9 +1371,10 @@ html[data-system-color-scheme=light][it-theme=desert][it-schedule=system_peferen
 
 /*NIGHT*/
 
+html[it-theme=night] [dark],
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark],
-html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] {
+html[it-theme=night][data-system-color-scheme=dark][it-schedule=system_peference_dark],
+html[it-theme=night][data-system-color-scheme=light][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #003459 !important;
 	--yt-swatch-primary-darker: #003459 !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
@@ -1359,7 +1395,7 @@ html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peferenc
 	--yt-spec-general-background-b: #003459 !important;
 	--yt-spec-general-background-c: #003459 !important;
 	--yt-spec-error-background: #1f1f1f !important;
-	--yt-spec-text-primary: #fff !important;
+	--yt-spec-text-primary: #fff;
 	--yt-spec-text-primary-inverse: #003459 !important;
 	--yt-spec-text-secondary: #fff !important;
 	--yt-spec-text-disabled: #fff !important;
@@ -1391,15 +1427,15 @@ html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peferenc
 }
 
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
-html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
-html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo {
+html[it-theme=night][data-system-color-scheme=dark][it-schedule=system_peference_dark] #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
+html[it-theme=night][data-system-color-scheme=light][it-schedule=system_peference_light] #yt-masthead-logo-fragment .masthead-logo-renderer-logo {
 	-webkit-filter: grayscale(1) brightness(3.5);
 	filter: grayscale(1) brightness(3.5);
 }
 
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
-html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark] ytd-masthead,
-html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] ytd-masthead {
+html[it-theme=night][data-system-color-scheme=dark][it-schedule=system_peference_dark] ytd-masthead,
+html[it-theme=night][data-system-color-scheme=light][it-schedule=system_peference_light] ytd-masthead {
 	background: #007ea7 !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
@@ -1415,8 +1451,8 @@ html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peferenc
 }
 
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
+html[it-theme=night][data-system-color-scheme=dark][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[it-theme=night][data-system-color-scheme=light][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
 	--yt-live-chat-action-panel-background-color: #003459;
 	--yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
 	--yt-live-chat-primary-text-color: hsl(0, 0%, 100%);
@@ -1430,8 +1466,8 @@ html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peferenc
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
-html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
+html[it-theme=night][data-system-color-scheme=dark][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
+html[it-theme=night][data-system-color-scheme=light][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
 	--yt-spec-icon-inactive: #fff;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
 	--ytd-searchbox-background: #003459;
@@ -1559,8 +1595,8 @@ html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peferenc
 }
 
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
-html[data-system-color-scheme=dark][it-theme=night][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
-html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+html[it-theme=night][data-system-color-scheme=dark][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+html[it-theme=night][data-system-color-scheme=light][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
 	--yt-lightsource-section2-color: rgba(0, 0, 0, 0.1) !important;
 	--yt-lightsource-section3-color: rgba(0, 0, 0, 0.2) !important;
 	--yt-lightsource-section4-color: rgba(0, 0, 0, 0.3) !important;
@@ -1571,8 +1607,8 @@ html[data-system-color-scheme=light][it-theme=night][it-schedule=system_peferenc
 /*PLAIN*/
 
 html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-html[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark],
-html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light] {
+html[it-theme=plain][data-system-color-scheme=dark][it-schedule=system_peference_dark],
+html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #c7efcf !important;
 	--yt-swatch-primary-darker: #c7efcf !important;
 	--yt-swatch-text: #666 !important;
@@ -1593,7 +1629,7 @@ html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peferenc
 	--yt-spec-general-background-b: #c7efcf !important;
 	--yt-spec-general-background-c: #c7efcf !important;
 	--yt-spec-error-background: #1f1f1f !important;
-	--yt-spec-text-primary: #666 !important;
+	--yt-spec-text-primary: #666;
 	--yt-spec-text-primary-inverse: #d3e1c6 !important;
 	--yt-spec-text-secondary: #666 !important;
 	--yt-spec-text-disabled: #666 !important;
@@ -1625,8 +1661,8 @@ html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peferenc
 }
 
 html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
-html[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark] ytd-masthead,
-html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light] ytd-masthead {
+html[it-theme=plain][data-system-color-scheme=dark][it-schedule=system_peference_dark] ytd-masthead,
+html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peference_light] ytd-masthead {
 	background: #e4ccaa !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
@@ -1642,8 +1678,8 @@ html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peferenc
 }
 
 html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
+html[it-theme=plain][data-system-color-scheme=dark][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
 	--yt-live-chat-action-panel-background-color: #c7efcf;
 	--yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
 	--yt-live-chat-primary-text-color: hsl(0, 0%, 100%);
@@ -1657,8 +1693,8 @@ html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peferenc
 html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
 html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
 html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
-html[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
+html[it-theme=plain][data-system-color-scheme=dark][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope),
+html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) {
 	--yt-spec-icon-inactive: #666;
 	--yt-spec-text-primary: #666;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
@@ -1787,8 +1823,8 @@ html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peferenc
 }
 
 html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
-html[data-system-color-scheme=dark][it-theme=plain][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
-html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+html[it-theme=plain][data-system-color-scheme=dark][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
 	--yt-lightsource-section2-color: rgba(0, 0, 0, 0.05) !important;
 	--yt-lightsource-section3-color: rgba(0, 0, 0, 0.1) !important;
 	--yt-lightsource-section4-color: rgba(0, 0, 0, 0.15) !important;
@@ -1798,10 +1834,11 @@ html[data-system-color-scheme=light][it-theme=plain][it-schedule=system_peferenc
 
 
 /*SUNSET*/
-  
+
+html[it-theme=sunset] [dark],
 html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
-html[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark],
-html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] {
+html[it-theme=sunset][data-system-color-scheme=dark][it-schedule=system_peference_dark],
+html[it-theme=sunset][data-system-color-scheme=light][it-schedule=system_peference_light] {
 	--yt-swatch-primary: #2f3364 !important;
 	--yt-swatch-primary-darker: #2f3364 !important;
 	--yt-swatch-text: rgb(255, 255, 255) !important;
@@ -1822,7 +1859,7 @@ html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peferen
 	--yt-spec-general-background-b: #2f3364 !important;
 	--yt-spec-general-background-c: #2f3364 !important;
 	--yt-spec-error-background: #1f1f1f !important;
-	--yt-spec-text-primary: #fff !important;
+	--yt-spec-text-primary: #fff;
 	--yt-spec-text-primary-inverse: #283567 !important;
 	--yt-spec-text-secondary: #fff !important;
 	--yt-spec-text-disabled: #fff !important;
@@ -1854,8 +1891,8 @@ html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peferen
 }
 
 html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
-html[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark] ytd-masthead,
-html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] ytd-masthead {
+html[it-theme=sunset][data-system-color-scheme=dark][it-schedule=system_peference_dark] ytd-masthead,
+html[it-theme=sunset][data-system-color-scheme=light][it-schedule=system_peference_light] ytd-masthead {
 	background: #f56258 !important;
 	--yt-swatch-primary: rgb(35, 35, 35) !important;
 	--yt-swatch-primary-darker: rgb(32, 32, 32) !important;
@@ -1871,8 +1908,8 @@ html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peferen
 }
 
 html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
-html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
+html[it-theme=sunset][data-system-color-scheme=dark][it-schedule=system_peference_dark]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope),
+html[it-theme=sunset][data-system-color-scheme=light][it-schedule=system_peference_light]:not([style-scope]):not(.style-scope) *:not([style-scope]):not(.style-scope) {
 	--yt-live-chat-action-panel-background-color: #2f3364;
 	--yt-live-chat-action-panel-background-color-transparent: rgba(40, 40, 40, .8);
 	--yt-live-chat-primary-text-color: hsl(0, 0%, 100%);
@@ -1886,8 +1923,8 @@ html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peferen
 html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not([style-scope]):not(.style-scope),
 html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]):not(.style-scope)[dark],
 html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) :not(.style-scope)[dark],
-html[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark]:not(.style-scope)[dark],
-html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light]:not(.style-scope)[dark] {
+html[it-theme=sunset][data-system-color-scheme=dark][it-schedule=system_peference_dark]:not(.style-scope)[dark],
+html[it-theme=sunset][data-system-color-scheme=light][it-schedule=system_peference_light]:not(.style-scope)[dark] {
 	--yt-spec-icon-inactive: #fff;
 	--ytd-searchbox-border-color: hsla(0, 0%, 53.3%, .2);
 	--ytd-searchbox-background: #fa7965;
@@ -2015,8 +2052,8 @@ html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peferen
 }
 
 html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-expandable-metadata-renderer,
-html[data-system-color-scheme=dark][it-theme=sunset][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
-html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
+html[it-theme=sunset][data-system-color-scheme=dark][it-schedule=system_peference_dark] ytd-expandable-metadata-renderer,
+html[it-theme=sunset][data-system-color-scheme=light][it-schedule=system_peference_light] ytd-expandable-metadata-renderer {
 	--yt-lightsource-section2-color: rgba(0, 0, 0, 0.1) !important;
 	--yt-lightsource-section3-color: rgba(0, 0, 0, 0.2) !important;
 	--yt-lightsource-section4-color: rgba(0, 0, 0, 0.3) !important;
@@ -2024,26 +2061,28 @@ html[data-system-color-scheme=light][it-theme=sunset][it-schedule=system_peferen
 	--yt-lightsource-secondary-title-color: var(--yt-spec-text-secondary) !important;
 }
 
-/*Fixing YT hardcoded CSS for DARK/light mode switching*/
+/*------------------------------------------------------------------------------
+YT hardcoded CSS for DARK/light mode switching
+Need HTML in front to make CSS rule more specific than one they are overiding
+------------------------------------------------------------------------------*/
 
-html:not([dark]) .yt-spec-icon-badge-shape,
-html:not([dark]) .yt-spec-icon-badge-shape__icon .yt-spec-icon-shape {
-	color: var(--yt-spec-text-primary) !important;
-}
-
-html[dark] .yt-spec-icon-badge-shape--style-overlay .yt-spec-icon-badge-shape__icon,
-html[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text,
-html:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text {
+html .yt-spec-icon-shape,
+html .yt-spec-icon-badge-shape--style-overlay .yt-spec-icon-badge-shape__icon,
+html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text,
+html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html .yt-video-attribute-view-model__title {
     color: var(--yt-spec-text-primary);
 }
-html[it-theme="black"] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-html[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
-	color: var(--yt-spec-text-primary);
+
+/*Dark colors get highlight*/
+html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
     background-color: rgba(255, 255, 255, 0.1);
 }
-html:not([dark]):not([it-theme="black"]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
-	color: var(--yt-spec-text-primary);
-	background-color: rgba(0, 0, 0, 0.05);
+/*Light colors get shadow, overrides above highlight*/
+html[it-theme=desert] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[it-theme=plain] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html:not([dark]):not([it-theme=black]):not([it-theme=sunset]):not([it-theme=night]):not([it-theme=dawn]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+	background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
 /*subscribe button when not subscribed*/
@@ -2054,12 +2093,11 @@ html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
 
 /*override bell and thumbs up icons hardcoded colors inside SVG data*/
 /*bell icon*/
-html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"],
-html:not([dark]) .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
+html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
 	fill: var(--yt-spec-text-primary);
 }
+
 /*thumbs up icon*/
-html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"],
-html:not([dark]) .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
+html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
 	stroke: var(--yt-spec-text-primary);
 }

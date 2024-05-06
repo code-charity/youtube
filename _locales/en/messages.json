@@ -122,7 +122,7 @@
     "autoPictureInPicture": {
         "message": "Auto Picture-In-Picture"
     },
-    "autoplay_disable": {
+    "autoplayDisable": {
         "message": "Force Autoplay Off"
     },
     "avoidAv1": {
@@ -967,6 +967,9 @@
     },
     "quality": {
         "message": "Quality"
+    },
+    "qualityWithoutFocus": {
+        "message": "Quality without focus"
     },
     "raised": {
         "message": "Raised"

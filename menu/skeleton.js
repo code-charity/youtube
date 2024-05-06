@@ -11,7 +11,9 @@
 --------------------------------------------------------------*/
 
 extension.skeleton = {
-	component: 'base'
+	component: 'base',
+	search: false,
+	searchPosition: 0
 };
 
 
@@ -65,11 +67,63 @@ extension.skeleton.header = {
 		component: 'section',
 		variant: 'align-end',
 
+		darkLightSwitch: {
+			component: 'button',
+			variant: 'icon',
+
+			svgSun: {
+				component: "svg",
+				attr: {
+					'viewBox': '0 0 24 24',
+					'stroke': 'currentcolor',
+					'stroke-linecap': 'round',
+					'stroke-linejoin': 'round',
+					'stroke-width': '1.25',
+					'fill': 'none'
+				},
+				id: 'dark-light-switch-icon-sun',
+				
+				circle: {
+					component: 'circle',
+					attr: {
+						'cx': '12',
+						'cy': '12',
+						'r': '5'
+					}
+				},
+				path0: { component: 'path', attr: { d: 'M12.00 17.00 L12.00 21.00' } },
+				path1: { component: 'path', attr: { d: 'M8.46 15.54 L5.64 18.36' } },
+				path2: { component: 'path', attr: { d: 'M7.00 12.00 L3.00 12.00' } },
+				path3: { component: 'path', attr: { d: 'M8.46 8.46 L5.64 5.64' } },
+				path4: { component: 'path', attr: { d: 'M12.00 7.00 L12.00 3.00' } },
+				path5: { component: 'path', attr: { d: 'M15.54 8.46 L18.36 5.64' } },
+				path6: { component: 'path', attr: { d: 'M17.00 12.00 L21.00 12.00' } },
+				path7: { component: 'path', attr: { d: 'M15.54 15.54 L18.36 18.36' } }
+			},
+			svgMoon: {
+				component: "svg",
+				attr: {
+					'viewBox': '0 0 24 24',
+					'stroke': 'currentcolor',
+					'stroke-linecap': 'round',
+					'stroke-linejoin': 'round',
+					'stroke-width': '1.25',
+					'fill': 'none'
+				},
+				id: 'dark-light-switch-icon-moon',
+
+				path0: {component: 'path', attr: {d: 'M23,15 A11,11 0 0,1 9,1'}},
+				path1: {component: 'path', attr: {d: 'M9,1 A11,11 0 1,0 23,15'}}
+
+			}
+		},
 		search: {
 			component: 'button',
 			variant: 'icon',
-			on: {render: function () {
-				 this.click(); }				
+			on: {
+				render: function () {
+					this.click();
+				}
 			},
 
 			svg: {
@@ -190,7 +244,7 @@ extension.skeleton.main = {
 				}
 
 				return 'home';
-			} 
-		}, "frame"  : { component: 'iframe', class: 'frame',   attr: { 'src': 'https://improvedtube.com/wishes', 'style':'border: none;  bottom: 0px; overflow: hidden; width:326px; position:absolute; height:212px; left:-6px !important' } 	}		
+			}
+		}, "frame": { component: 'iframe', class: 'frame', attr: { 'src': 'https://improvedtube.com/wishes', 'style': 'border: none;  bottom: 0px; overflow: hidden; width:326px; position:absolute; height:212px; left:-6px !important' } }
 	}
 };

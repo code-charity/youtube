@@ -512,6 +512,9 @@
     "quality": {
         "message": "Qualité"
     },
+    "qualityWithoutFocus": {
+        "message": "Qualité sans concentration"
+    },
     "rateUs": {
         "message": "Nous évaluer"
     },
