@@ -2,7 +2,7 @@
 4.3.0 THEMES
 ------------------------------------------------------------------------------*/
 ImprovedTube.myColors = function () {
-	if ( this.storage.theme === 'custom' && Array.isArray(this.storage.theme_primary_color) && Array.isArray(this.storage.theme_text_color)) {
+	if (this.storage.theme === 'custom') {
 				var style = this.elements.my_colors || document.createElement('style'),
 					primary_color = this.storage.theme_primary_color,
 					text_color = this.storage.theme_text_color;
@@ -10,12 +10,14 @@ ImprovedTube.myColors = function () {
 				if (primary_color) {
 					primary_color = 'rgb(' + primary_color.join(',') + ')';
 				} else {
+					// need better central place for storing default custom profile colors
 					primary_color = 'rgb(200, 200, 200)';
 				}
 
 				if (text_color) {
 					text_color = 'rgb(' + text_color.join(',') + ')';
 				} else {
+					// need better central place for storing default custom profile colors
 					text_color = 'rgb(25, 25, 25)';
 				}
 
@@ -45,7 +47,7 @@ ImprovedTube.myColors = function () {
 					'--yt-swatch-input-text: ' + text_color + '!important;' +
 					'--yt-swatch-logo-override: ' + text_color + '!important;' +
 					'--yt-spec-text-primary:' + text_color + ' !important;' +
-					'--yt-spec-text-primary-inverse:' + text_color + ' !important;' +
+					'--yt-spec-text-primary-inverse:' + primary_color + ' !important;' +
 					'--yt-spec-text-secondary:' + text_color + ' !important;' +
 					'--yt-spec-text-disabled:' + text_color + ' !important;' +
 					'--yt-spec-icon-active-other:' + text_color + ' !important;' +
@@ -69,8 +71,6 @@ ImprovedTube.myColors = function () {
 
 				this.elements.my_colors = style;
 				document.documentElement.appendChild(style);
-				document.documentElement.removeAttribute('dark');
-				document.querySelector('ytd-masthead')?.removeAttribute('dark');
 				if (document.getElementById("cinematics")) {
 					document.getElementById("cinematics").style.visibility = 'hidden';
 					document.getElementById("cinematics").style.display = 'none !important';
@@ -84,13 +84,13 @@ ImprovedTube.myColors = function () {
 	}
 
 ImprovedTube.setTheme = function () {
-let darkCookie;
 	switch(this.storage.theme) {
+		case 'default':
+			this.elements.my_colors?.remove();
+			break
+
 		case 'black':
 		case 'dark':
-			darkCookie = true;
-			document.documentElement.setAttribute('dark', '');
-			document.querySelector('ytd-masthead')?.setAttribute('dark', '');
 			if (document.getElementById("cinematics")) {
 				document.getElementById('cinematics').style.visibility = 'visible';
 				document.getElementById('cinematics').style.display = 'none !important';
@@ -101,36 +101,13 @@ let darkCookie;
 			}
 			break
 
-		case 'default':
 		case 'dawn':
 		case 'sunset':
 		case 'night':
 		case 'plain':
 		case 'desert':
-			document.documentElement.removeAttribute('dark');
-			document.querySelector('ytd-masthead')?.removeAttribute('dark');
 			document.getElementById('cinematics')?.removeAttribute('style');
 			this.elements.my_colors?.remove();
 			break
 	}
-
-	// Video description has some hardcoded text color, remove it
-	for (const styled of Array.from(document.querySelectorAll(".yt-core-attributed-string--link-inherit-color[style]"))) {
-		styled.removeAttribute('style');
-	}
-
-	let cookie = this.getPrefCookieValueByName('f6');
-	// f6 stores more than Theme. Treat it like hex number, we are only allowed to add/remove 0x80000 (light theme) and 0x400 (dark theme).
-	if (cookie && !isNaN(cookie)) {
-		// valid f6
-		let negation = parseInt(cookie, 16) & parseInt(80400, 16);
-		cookie = (parseInt(cookie, 16) - negation); // remove 80000 and 400
-		cookie = cookie ^ (darkCookie ? parseInt(400, 16) : 0); // apply optional darkCookie
-		cookie = cookie ? cookie.toString(16) : null; // back to hex, 0 means we want null to remove f6 cookie instead
-	} else {
-		// missing or corrupted f6, fully overwrite
-		cookie = darkCookie ? 400 : null;
-	}
-
-	this.setPrefCookieValueByName('f6', cookie);
 };
