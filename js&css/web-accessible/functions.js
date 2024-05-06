@@ -41,7 +41,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 			this.channelDefaultTab(node);
 
 			if (this.storage.blocklist_activate && node.classList.contains('ytd-thumbnail')) {
-					this.blocklist('video', node);
+				this.blocklist('video', node);
 			}
 		}
 	} /* else if (name === 'META') {			   //<META> infos are not updated when clicking related videos...
@@ -137,7 +137,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 	else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
 		this.playlistPopupUpdate();
 	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER' || name === 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL') {
-		if (this.storage.blocklist_activate) {
+		if (this.storage.blocklist_activate && location.href.match(ImprovedTube.regex.channel)) {
 			ImprovedTube.blocklist('channel', node);
 		}
 
