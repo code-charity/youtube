@@ -683,9 +683,10 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 			component: "section",
 			variant: "card",
 
-			comments: {
+			comments_show: {
 				component: "select",
 				text: "comments",
+				storage: 'comments',
 
 				options: [{
 					text: "normal",

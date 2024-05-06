@@ -20,18 +20,21 @@ extension.skeleton.main.layers.section.blocklist = {
 				channels: {
 					component: 'button',
 					text: 'channels',
+					style: {
+						justifyContent: 'space-between'
+					},
 					on: {
 						click: {
 							component: 'section',
 							variant: 'card',
 							on: {
 								render: function () {
-									var skeleton = {},
+									let skeleton = {},
 										blocklist = satus.storage.get('blocklist');
 
 									if (blocklist && blocklist.channels) {
-										for (var key in blocklist.channels) {
-											var channel = blocklist.channels[key];
+										for (let key in blocklist.channels) {
+											let channel = blocklist.channels[key];
 
 											if (channel !== false) {
 												skeleton[key] = {
@@ -49,7 +52,7 @@ extension.skeleton.main.layers.section.blocklist = {
 														component: 'button',
 														on: {
 															click: function () {
-																var blocklist = satus.storage.get('blocklist'),
+																let blocklist = satus.storage.get('blocklist'),
 																	component = this.parentNode;
 
 																if (blocklist && blocklist.channels) {
@@ -93,23 +96,43 @@ extension.skeleton.main.layers.section.blocklist = {
 								}
 							}
 						}
+					},
+					list: {
+						component: 'span',
+						style: {
+							opacity: .64
+						},
+						on: {
+							render: function () {
+								let blocklist = satus.storage.get('blocklist');
+
+								if (blocklist && blocklist.channels && Object.keys(blocklist.channels).length) {
+										this.textContent = '('+Object.keys(blocklist.channels).length+')';
+									} else {
+										this.textContent = '(empty)';
+									}
+							}
+						}
 					}
 				},
 				videos: {
 					component: 'button',
 					text: 'videos',
+					style: {
+						justifyContent: 'space-between'
+					},
 					on: {
 						click: {
 							component: 'section',
 							variant: 'card',
 							on: {
 								render: function () {
-									var skeleton = {},
+									let skeleton = {},
 										blocklist = satus.storage.get('blocklist');
 
 									if (blocklist && blocklist.videos) {
-										for (var key in blocklist.videos) {
-											var video = blocklist.videos[key];
+										for (let key in blocklist.videos) {
+											let video = blocklist.videos[key];
 
 											if (video !== false) {
 												skeleton[key] = {
@@ -127,7 +150,7 @@ extension.skeleton.main.layers.section.blocklist = {
 														component: 'button',
 														on: {
 															click: function () {
-																var blocklist = satus.storage.get('blocklist'),
+																let blocklist = satus.storage.get('blocklist'),
 																	component = this.parentNode;
 
 																if (blocklist && blocklist.videos) {
@@ -169,6 +192,23 @@ extension.skeleton.main.layers.section.blocklist = {
 										satus.render(skeleton, this);
 									}
 								}
+							}
+						}
+					},
+					list: {
+						component: 'span',
+						style: {
+							opacity: .64
+						},
+						on: {
+							render: function () {
+								let blocklist = satus.storage.get('blocklist');
+
+								if (blocklist && blocklist.videos && Object.keys(blocklist.videos).length) {
+										this.textContent = '('+Object.keys(blocklist.videos).length+')';
+									} else {
+										this.textContent = '(empty)';
+									}
 							}
 						}
 					}

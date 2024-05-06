@@ -755,6 +755,9 @@
     "quality": {
         "message": "Качество"
     },
+    "qualityWithoutFocus": {
+        "message": "Качество при неактивном окне"
+    },
     "raised": {
         "message": "Поднятый"
     },

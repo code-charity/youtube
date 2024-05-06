@@ -2,6 +2,9 @@
     "hideHomePageShorts": {
         "message": "Odebrat Shorts z úvodní stránky"
     },
+    "qualityWithoutFocus": {
+        "message": "Quality without focus"
+    },
     "removeShortsReelSearchResults": {
         "message": "Odstraňte karuselu Shorts z výsledků vyhledávání"
     }

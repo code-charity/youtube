@@ -8,6 +8,9 @@
     "hideHomePageShorts": {
         "message": "Видалити Shorts з головної сторінки"
     },
+    "qualityWithoutFocus": {
+        "message": "Якість при неактивному вікні"
+    },
     "removeShortsReelSearchResults": {
         "message": "Видаліть карусель Shorts з результатів пошуку"
     }

@@ -566,6 +566,9 @@
     "quality": {
         "message": "Qualität"
     },
+    "qualityWithoutFocus": {
+        "message": "Qualität ohne Fokus"
+    },
     "raised": {
         "message": "Erhöht"
     },
