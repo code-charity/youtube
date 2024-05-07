@@ -75,10 +75,7 @@ ImprovedTube.myColors = function () {
 					document.getElementById("cinematics").style.visibility = 'hidden';
 					document.getElementById("cinematics").style.display = 'none !important';
 				} 
-				if (document.querySelector('ytd-masthead')) {
-					document.querySelector('ytd-masthead').style.backgroundColor = ''+primary_color+'';
-				}
-			} else { //theoretically this will never be called 
+			} else {
 				this.elements.my_colors?.remove();
 			}
 	}
@@ -96,9 +93,6 @@ ImprovedTube.setTheme = function () {
 				document.getElementById('cinematics').style.display = 'none !important';
 			}
 			this.elements.my_colors?.remove();
-			if (document.querySelector('ytd-masthead')) {
-				document.querySelector('ytd-masthead').style.backgroundColor ='#000';
-			}
 			break
 
 		case 'dawn':
