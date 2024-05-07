@@ -800,6 +800,11 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 					}
 				});
 			}());
+			element.storage.remove = function() {
+				satus.storage.remove(element.storage.key);
+
+				element.dispatchEvent(new CustomEvent('change'));
+			}
 		}
 
 		if (this.components[camelizedTagName]) {
@@ -2056,9 +2061,16 @@ satus.components.slider = function(component, skeleton) {
 	});
 
 	component.update = function() {
-		var input = this.input;
+		const input = this.input;
 
 		this.textInput.value = input.value;
+		if (component.storage) {
+			if (component.skeleton.value == Number(input.value)) {
+				component.storage.remove();
+			} else {
+				component.storage.value = Number(input.value);
+			}
+		}
 
 		this.track.style.width = 100 / (input.max - input.min) * (input.value - input.min) + '%';
 	};
