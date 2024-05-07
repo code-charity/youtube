@@ -45,86 +45,53 @@ html[it-header-position=static] ytd-mini-guide-renderer {
  z-index: 7 !important;
 }
 
-html[it-header-position="hidden"] ytd-page-manager#page-manager,
-html[it-header-position="hidden_on_video_page"][data-page-type="video"]
-  ytd-page-manager#page-manager,
-html[it-header-position="hover"] ytd-page-manager#page-manager,
-html[it-header-position="hover_on_video_page"][data-page-type="video"]
-  ytd-page-manager#page-manager,
-html[it-header-position="hidden"][data-page-type="channel"]
-  tp-yt-app-header#header,
-html[it-header-position="hidden_on_video_page"][data-page-type="channel"]
-  tp-yt-app-header#header,
-html[it-header-position="hover"][data-page-type="channel"]
-  tp-yt-app-header#header,
-html[it-header-position="hover_on_video_page"][data-page-type="channel"]
-  tp-yt-app-header#header,
-html[it-header-position="static"] ytd-page-manager#page-manager {
+html[it-header-position=hidden] ytd-page-manager#page-manager,
+html[it-header-position=hidden_on_video_page][data-page-type='video'] ytd-page-manager#page-manager,
+html[it-header-position=hover] ytd-page-manager#page-manager,
+html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-page-manager#page-manager,
+html[it-header-position=hidden][data-page-type='channel'] tp-yt-app-header#header,
+html[it-header-position=hidden_on_video_page][data-page-type='channel'] tp-yt-app-header#header,
+html[it-header-position=hover][data-page-type='channel'] tp-yt-app-header#header,
+html[it-header-position=hover_on_video_page][data-page-type='channel'] tp-yt-app-header#header,
+html[it-header-position=static] ytd-page-manager#page-manager {
   margin-top: 0;
 }
 
-html[it-header-position="hover"]:not([it-improvedtube-search="true"])
-  #masthead-container,
-html[it-header-position="hover_on_video_page"][data-page-type="video"]:not(
-    [it-improvedtube-search="true"]
-  )
-  #masthead-container {
+html[it-header-position=hover]:not([it-improvedtube-search=true]) #masthead-container,
+html[it-header-position=hover_on_video_page][data-page-type='video']:not([it-improvedtube-search=true]) #masthead-container {
   transition: all 320ms ease-in-out;
   transform: translateY(-38%);
   height: 68px;
   opacity: 0;
 }
 
-html[it-header-position="hidden"]
-  #masthead-container:not([it-search-focus="true"]):focus-within,
-html[it-header-position="hidden_on_video_page"][data-page-type="video"]
-  #masthead-container:not([it-search-focus="true"]):focus-within,
-html[it-header-position="hover"] #masthead-container:hover,
-html[it-header-position="hover"] #masthead-container:focus-within,
-html[it-header-position="hover"][it-search-focus="true"] #masthead-container,
-html[it-header-position="hover_on_video_page"][data-page-type="video"]
-  #masthead-container:hover,
-html[it-header-position="hover_on_video_page"][data-page-type="video"]
-  #masthead-container:focus-within,
-html[it-header-position="hover_on_video_page"][data-page-type="video"][it-search-focus="true"]
-  #masthead-container,
-html[it-header-position="hover"] #masthead-container:hover #background,
-html[it-header-position="hover"] #masthead-container:focus-within #background,
-html[it-header-position="hover"][it-search-focus="true"]
-  #masthead-container
-  #background,
-html[it-header-position="hover_on_video_page"][data-page-type="video"]
-  #masthead-container:hover
-  #background,
-html[it-header-position="hover_on_video_page"][data-page-type="video"]
-  #masthead-container:focus-within
-  #background,
-html[it-header-position="hover_on_video_page"][data-page-type="video"][it-search-focus="true"]
-  #masthead-container
-  #background {
+html[it-header-position=hidden] #masthead-container:not([it-search-focus=true]):focus-within,
+html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container:not([it-search-focus=true]):focus-within,
+html[it-header-position=hover] #masthead-container:hover,
+html[it-header-position=hover] #masthead-container:focus-within,
+html[it-header-position=hover][it-search-focus=true] #masthead-container,
+html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:hover,
+html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:focus-within,
+html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container,
+html[it-header-position=hover] #masthead-container:hover #background,
+html[it-header-position=hover] #masthead-container:focus-within #background,
+html[it-header-position=hover][it-search-focus=true] #masthead-container #background,
+html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:hover #background,
+html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:focus-within #background,
+html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container #background {
   transform: translateY(0%);
   opacity: 1 !important;
 }
 
-html[it-header-position="static"]
-  .ytd-app:not([masthead-hidden_])
-  #masthead-container {
+html[it-header-position=static] .ytd-app:not([masthead-hidden_]) #masthead-container {
   position: static;
   z-index: 7 !important;
 }
 
-html[it-header-position="hover_on_video_page"]:not([data-page-type="video"])
-  tp-yt-app-drawer:not([opened])
-  #header,
-html[it-header-position="hover"]:not([data-page-type="video"])
-  tp-yt-app-drawer:not([opened])
-  #header,
-html[it-header-position="hidden"]:not([data-page-type="video"])
-  tp-yt-app-drawer:not([opened])
-  #header,
-html[it-header-position="static"]:not([data-page-type="video"])
-  tp-yt-app-drawer:not([opened])
-  #header {
+html[it-header-position=hover_on_video_page]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,
+html[it-header-position=hover]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,
+html[it-header-position=hidden]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,
+html[it-header-position=static]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header {
   position: absolute;
   visibility: visible;
   left: 240px;
@@ -133,9 +100,9 @@ html[it-header-position="static"]:not([data-page-type="video"])
   background: var(--yt-spec-brand-background-solid);
 }
 
-html[it-header-position="hover"] tp-yt-app-drawer #header,
-html[it-header-position="hidden"] tp-yt-app-drawer #header,
-html[it-header-position="static"] tp-yt-app-drawer #header {
+html[it-header-position=hover] tp-yt-app-drawer #header,
+html[it-header-position=hidden] tp-yt-app-drawer #header,
+html[it-header-position=static] tp-yt-app-drawer #header {
   display: flex !important;
 }
 
@@ -144,24 +111,16 @@ html[it-header-position=hover] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
 html[it-header-position=hidden] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
 html[it-header-position=static] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
 	top: 9px !important;
-}
-
 }*/
 /*--------------------------------------------------------------
 # IMPROVE LOGO
 --------------------------------------------------------------*/
-html[it-header-improve-logo="true"]
-  ytd-topbar-logo-renderer
-  path[fill="#FF0000"],
-html[it-header-improve-logo="true"]
-  ytd-topbar-logo-renderer
-  polygon[fill="#FFFFFF"] {
+html[it-header-improve-logo='true'] ytd-topbar-logo-renderer path[fill='#FF0000'],
+html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'] {
   fill: rgb(40, 40, 40) !important;
 }
 
-html[it-header-improve-logo="true"][dark]
-  ytd-topbar-logo-renderer
-  path[fill="#FF0000"] {
+html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'] {
   fill: rgb(66, 66, 66) !important;
 }
 
@@ -172,10 +131,7 @@ html[it-header-transparent="true"] ytd-masthead #logo-icon {
 /*--------------------------------------------------------------
 # HIDE RIGHT BUTTONS
 --------------------------------------------------------------*/
-html[it-header-hide-right-buttons="true"] #masthead #container #end {
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
+html[it-header-hide-right-buttons='true'] #masthead #container #end {visibility: hidden !important; pointer-events: none !important;}
 
 /* Define initial opacity for the icons */
 html[it-header-transparent="true"] ytd-masthead #end {
@@ -200,10 +156,10 @@ html[it-header-transparent=true] #country-code {
   display: none !important;
 }
 /*--------------------------------------------------------------
-# VOICE SEARCH BUTTON
+# HIDE VOICE SEARCH BUTTON
 --------------------------------------------------------------*/
 
-html[it-hide-voice-search-button="true"] #voice-search-button {
+html[it-hide-voice-search-button='true'] #voice-search-button  {
   display: none !important;
 }
 
