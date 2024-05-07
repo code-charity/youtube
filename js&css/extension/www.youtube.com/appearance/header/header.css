@@ -8,80 +8,41 @@
 # Hide voice search button
 # Turn top bar icons barely visible
 --------------------------------------------------------------*/
-html[it-header-transparent="true"] ytd-masthead#masthead {
-  background: transparent !important;
-}
-html[it-header-transparent="true"]
-  ytd-masthead[frosted-glass]
-  #background.ytd-masthead {
-  backdrop-filter: blur(1px) !important;
-}
-html[it-header-transparent="true"] {
-  --ytd-searchbox-background: rgba(
-    var(--ytd-searchbox-background),
-    0.5
-  ) !important;
-}
+html[it-header-transparent=true] ytd-masthead#masthead {background: transparent !important;}
+html[it-header-transparent=true] #background.ytd-masthead {background-color: rgba(230, 230, 230, 0.1) !important;}
+html[it-header-transparent=true] ytd-masthead[frosted-glass] #background.ytd-masthead {backdrop-filter: blur(1px) !important;}
+html[it-header-transparent=true] {  --ytd-searchbox-background: rgba(var(--ytd-searchbox-background), 0.5) !important;  }
 /*--------------------------------------------------------------
 # POSITION
 --------------------------------------------------------------*/
-html[it-header-position="hidden"]
-  #masthead-container:not([it-search-focus="true"]),
-html[it-header-position="hidden_on_video_page"][data-page-type="video"]
-  #masthead-container:not([it-search-focus="true"]) {
+html[it-header-position=hidden] #masthead-container:not([it-search-focus=true]),
+html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container:not([it-search-focus=true]) {
   transform: translateY(-100%);
 }
-
-html[it-header-position="hidden"] tp-yt-app-drawer#guide #guide-spacer,
-html[it-header-position="hidden"]
-  tp-yt-app-drawer:not([opened])
-  #header
-  ytd-topbar-logo-renderer,
-html[it-header-position="hidden"]
-  tp-yt-app-drawer:not([opened])
-  #header
-  .it-button,
-html[it-header-position="hover"] tp-yt-app-drawer#guide #guide-spacer,
-html[it-header-position="hover"]
-  tp-yt-app-drawer:not([opened])
-  #header
-  ytd-topbar-logo-renderer,
-html[it-header-position="hover"]
-  tp-yt-app-drawer:not([opened])
-  #header
-  .it-button,
-html[it-header-position="static"] tp-yt-app-drawer#guide #guide-spacer,
-html[it-header-position="static"]
-  tp-yt-app-drawer:not([opened])
-  #header
-  ytd-topbar-logo-renderer,
-html[it-header-position="static"]
-  tp-yt-app-drawer:not([opened])
-  #header
-  .it-button,
-html[it-header-position="hidden_on_video_page"][data-page-type="video"]
-  tp-yt-app-drawer#guide
-  #guide-spacer,
-html[it-header-position="hover_on_video_page"][data-page-type="video"]
-  tp-yt-app-drawer#guide
-  #guide-spacer {
+html[it-header-position=hidden] tp-yt-app-drawer#guide #guide-spacer,
+html[it-header-position=hidden] tp-yt-app-drawer:not([opened]) #header ytd-topbar-logo-renderer,
+html[it-header-position=hidden] tp-yt-app-drawer:not([opened]) #header .it-button,
+html[it-header-position=hover] tp-yt-app-drawer#guide #guide-spacer,
+html[it-header-position=hover] tp-yt-app-drawer:not([opened]) #header ytd-topbar-logo-renderer,
+html[it-header-position=hover] tp-yt-app-drawer:not([opened]) #header .it-button,
+html[it-header-position=static] tp-yt-app-drawer#guide #guide-spacer,
+html[it-header-position=static] tp-yt-app-drawer:not([opened]) #header ytd-topbar-logo-renderer,
+html[it-header-position=static] tp-yt-app-drawer:not([opened]) #header .it-button,
+html[it-header-position=hidden_on_video_page][data-page-type=video] tp-yt-app-drawer#guide #guide-spacer,
+html[it-header-position=hover_on_video_page][data-page-type=video] tp-yt-app-drawer#guide #guide-spacer {
   display: none;
 }
 
-html[it-header-position="hover"] #masthead-container,
-html[it-header-position="hover"] tp-yt-app-drawer,
-html[it-header-position="hover"] ytd-mini-guide-renderer,
-html[it-header-position="hover_on_video_page"][data-page-type="video"]
-  #masthead-container,
-html[it-header-position="hover_on_video_page"][data-page-type="video"]
-  tp-yt-app-drawer,
-html[it-header-position="hover_on_video_page"][data-page-type="video"]
-  ytd-mini-guide-renderer,
-html[it-header-position="static"] tp-yt-app-drawer,
-html[it-header-position="static"] ytd-mini-guide-renderer {
-  z-index: 2200 !important;
-  z-index: 7 !important;
-  z-index: 7 !important;
+html[it-header-position=hover] #masthead-container,
+html[it-header-position=hover] tp-yt-app-drawer,
+html[it-header-position=hover] ytd-mini-guide-renderer,
+html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container,
+html[it-header-position=hover_on_video_page][data-page-type='video'] tp-yt-app-drawer,
+html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-mini-guide-renderer,
+html[it-header-position=static] tp-yt-app-drawer,
+html[it-header-position=static] ytd-mini-guide-renderer {
+ z-index: 2200 !important;
+ z-index: 7 !important;
 }
 
 html[it-header-position="hidden"] ytd-page-manager#page-manager,
