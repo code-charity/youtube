@@ -2011,9 +2011,33 @@ satus.components.radio = function(component, skeleton) {
 	}
 
 	component.nativeControl.addEventListener('change', function() {
-		var component = this.parentNode;
+		const component = this.parentNode,
+			parent = component.parentNode.parentNode.skeleton;
+		let defValue;
 
+		// determine default value for whole radio section
+		for (const key in parent) {
+			let item = parent[key];
+
+			// components can be functions
+			if (satus.isFunction(item)) {
+				item = item();
+			}
+
+			if (!defValue && item?.radio) {
+				// start with first element in case checked: is not defined
+				defValue = item.radio.value;
+			} else if (item?.radio?.checked) {
+				defValue = item.radio.value;
+			}
+		}
+
+		// save first to sent changes up the chain
 		component.storage.value = this.value;
+		if (this.value == defValue) {
+			// remove if default
+			component.storage.remove();
+		}
 	});
 };
 /*--------------------------------------------------------------
