@@ -623,22 +623,16 @@ ImprovedTube.shortcutSubscribe = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDarkTheme = function () {
 	if (document.documentElement.hasAttribute('dark')) {
-		cookieValue = '80000';
 		document.documentElement.removeAttribute('dark');
-		document.querySelector('ytd-masthead').removeAttribute('dark');
+		document.querySelector('ytd-masthead')?.removeAttribute('dark');
 		document.getElementById("cinematics").style.visibility = 'hidden';
-		document.querySelector('ytd-masthead').style.backgroundColor ='#fff';	
-		ImprovedTube.myColors(); ImprovedTube.setTheme();
 	} else { 
-		document.documentElement.setAttribute('dark', '');  	 
-		if (this.storage.theme === 'custom' ){ this.elements.my_colors.remove();  }
-		if (this.storage.theme === 'dawn' ){ this.elements.dawn.remove();  }
-			if (document.documentElement.hasAttribute('it-themes') !== null && document.documentElement.hasAttribute('it-themes') === true){													 
-				document.documentElement.removeAttribute('it-themes');			
-				document.documentElement.setAttribute('it-themes', 'false');			
-				}
-		document.querySelector('ytd-masthead').style.cssText = 'background-color: #000;';	
+		document.documentElement.setAttribute('dark', '');
+		if (document.querySelector('ytd-masthead')) { document.querySelector('ytd-masthead').setAttribute('dark', ''); }
 		document.getElementById("cinematics").style.visibility = 'visible';
+		if (this.storage.theme === 'custom') { this.elements.my_colors.remove(); }
+		document.documentElement.setAttribute('it-theme', 'dark');
+		this.storage.theme = 'dark';
 	}   	
 };
 /*------------------------------------------------------------------------------
