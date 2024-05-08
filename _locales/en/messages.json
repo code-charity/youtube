@@ -1,4 +1,13 @@
 {
+    "ambientLighting": {
+    "message": "Ambient lighting"
+    },
+    "undoTheNewSidebar": {
+        "message": "Undo the new sidebar!"
+    },
+    "hideLogo": {
+        "message": "Logo: Hide"
+    },
     "2160p": {
         "message": "2160p - 4K"
     },
@@ -690,7 +699,7 @@
         "message": "ImprovedTube version"
     },
     "improveLogo": {
-        "message": "Improve logo"
+        "message": "Logo: monochrome"
     },
     "increasePlaybackSpeed": {
         "message": "Increase playback speed"

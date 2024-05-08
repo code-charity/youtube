@@ -1,6 +1,21 @@
 /*------------------------------------------------------------------------------
   APPEARANCE
 ------------------------------------------------------------------------------*/
+ImprovedTube.undoTheNewSidebar  = function () { try {	
+    yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid = false;	
+    yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments = false;				
+    yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments_ep = false;
+    yt.config_.EXPERIMENT_FLAGS.web_watch_rounded_player_large = false;
+    } catch (error) { console.error("can't undo description on the side", error);
+    }
+}
+ImprovedTube.descriptionSidebar  = function () { try {	
+    yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid = true;	
+    yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments = true;				
+    yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments_ep = true;
+    } catch (error) { console.error("tried to move description to the sidebar", error);
+    }
+}
 /*------------------------------------------------------------------------------
   PLAYER
 ------------------------------------------------------------------------------*/
@@ -207,7 +222,7 @@ ImprovedTube.commentsSidebar = function() {	if(ImprovedTube.storage.comments_sid
 			}
 		}, 250);
 	}
-    function initialSetup() {
+    function initialSetup() {
         let secondaryInner = document.getElementById("secondary-inner");
         let primaryInner = document.getElementById("primary-inner");
         let comments = document.querySelector("#comments");

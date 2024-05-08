@@ -74,6 +74,21 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		autoplay_disable: {
+			component: 'switch',
+			text: 'autoplayDisable',
+			storage: 'player_autoplay_disable'
+		},
+		up_next_autoplay: {
+			component: 'switch',
+			text: 'upNextAutoplay',
+			value: true
+		},
+		ambient_lighting: {
+			component: 'switch',
+			text: 'ambientLighting',
+			value: true
+		},
 		player_autoPip: {
 			component: 'switch',
 			text: 'Auto_PiP_picture_in_picture',
@@ -125,20 +140,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			min: .01,
 			max: 3.17,
 			step: .01
-		},
-		autoplay_disable: {
-			component: 'switch',
-			text: 'autoplayDisable',
-			storage: 'player_autoplay_disable'
-		},
-		up_next_autoplay: {
-			component: 'switch',
-			text: 'upNextAutoplay',
-			value: true
-		},
-		forced_play_video_from_the_beginning: {
-			component: 'switch',
-			text: 'forcedPlayVideoFromTheBeginning'
 		},
 		autofullscreen: {
 			component: 'switch',
@@ -687,15 +688,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
-		player_crop_chapter_titles: {
-			component: 'switch',
-			text: 'cropChapterTitles',
-			value: true
-		},
-		mini_player: {
-			component: 'switch',
-			text: 'customMiniPlayer'
-		},
 		player_quality: {
 			component: 'select',
 			text: 'quality',
@@ -772,6 +764,19 @@ extension.skeleton.main.layers.section.player.on.click = {
 						extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
 				}
 			}
+		},
+		mini_player: {
+			component: 'switch',
+			text: 'customMiniPlayer'
+		},
+		forced_play_video_from_the_beginning: {
+			component: 'switch',
+			text: 'forcedPlayVideoFromTheBeginning'
+		},
+		player_crop_chapter_titles: {
+			component: 'switch',
+			text: 'cropChapterTitles',
+			value: true
 		},
 		player_codecs: {
 			component: 'button',
@@ -1050,7 +1055,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'rotate'
 		},
-
 		player_hamburger_button: {
 			component: 'switch',
 			text: 'Hamburger_Menu'

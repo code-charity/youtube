@@ -1,27 +1,27 @@
 /*------------------------------------------------------------------------------
 AUTOPLAY DISABLE
 ------------------------------------------------------------------------------*/
-ImprovedTube.autoplayDisable = function (videoElement) { 
+ImprovedTube.autoplayDisable = function (playerElement) { 
 if (ImprovedTube.storage.player_autoplay_disable 
 	|| ImprovedTube.storage.playlist_autoplay === false 
 	|| ImprovedTube.storage.channel_trailer_autoplay === false){
-	let video; let tries=0;
-		(function waitForVideo(){if(video=ImprovedTube.elements.player||videoElement.closest('#movie_player')){return;}
+	let player; let tries=0;
+		(function waitForPlayer(){if(player=ImprovedTube.elements.player||playerElement.closest('#movie_player')){return;}
 						else if(tries++<4){
 							console.log("autoplayOff is waiting for ImprovedTube.elements.player or #movie_player");
-							setTimeout(waitForVideo,500);
+							setTimeout(waitForPlayer,500);
 						}else if(tries===4){console.error("resigning autoplayOff after 1.5s")}
 		})()
 	if (ImprovedTube.video_url !== location.href) {	this.user_interacted = false; }
 
 	// if (no user clicks) and (no ads playing) and
-	// ( there is a video and ( (it is not in a playlist and auto play is off ) or ( playlist auto play is off and in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
+	// ( there is a player and ( (it is not in a playlist and auto play is off ) or ( playlist auto play is off and in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
 
 			// user didnt click
-	if (video && !this.user_interacted
+	if (player && !this.user_interacted
 			// no ads playing
-		&& !video.classList.contains('ad-showing')
-			// video
+		&& !player.classList.contains('ad-showing')
+			// video page
 		&& ((location.href.includes('/watch?')  // #1703
 				// player_autoplay_disable & not playlist
 			 && (ImprovedTube.storage.player_autoplay_disable && !location.href.includes('list='))
@@ -31,9 +31,9 @@ if (ImprovedTube.storage.player_autoplay_disable
 			|| (ImprovedTube.storage.channel_trailer_autoplay === false && ImprovedTube.regex.channel.test(location.href)))) {
 
 		if (!ImprovedTube.autoplayDeniedOnce) {
-			setTimeout(function () { video.pauseVideo(); });
+			setTimeout(function () { player.pauseVideo(); });
 			ImprovedTube.autoplayDeniedOnce = true; 
-		} else { video.pauseVideo(); 
+		} else { player.pauseVideo(); 
 		console.log("autoplay:off - should we pause here again?");
 		}
 	}

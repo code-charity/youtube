@@ -176,8 +176,12 @@ ImprovedTube.shortcuts = function () {
 		}
 	}
 };
-
-
+/*------------------------------------------------------------------------------
+Ambient lighting
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutToggleAmbientLighting = function () {
+	document.documentElement.toggleAttribute('it-ambient-lighting');
+};
 /*------------------------------------------------------------------------------
 4.7.1 QUALITY
 ------------------------------------------------------------------------------*/
@@ -687,7 +691,6 @@ ImprovedTube.shortcutStatsForNerds = function () {
 		player.showVideoInfo();
 	}
 };
-
 
 /*------------------------------------------------------------------------------
 4.7.28 TOGGLE CARDS

@@ -3,7 +3,7 @@ html {overflow-x: hidden !important}
 /* html {overflow-x: hidden !important}
 /* Fix to tame Youtube's page-load / make it more calm - the player wont annoyingly slide in from the right anymore */
 									/* previously also: html[it-transcript='true'] {overflow-x: hidden !important}*/
-@-moz-document url-prefix() {overflow-x: visible !important} /* REMOVE ME SOON https://github.com/code-charity/youtube/issues/1649 */
+@-moz-document url-prefix() {html {overflow-x: visible !important}} /* REMOVE ME SOON https://github.com/code-charity/youtube/issues/1649 */
 
 @media screen and (max-width: 1023px) {
 	div#primary ytd-live-chat-frame {width: auto !important;}
@@ -683,7 +683,6 @@ html[it-theme]:not([it-theme=default]):not([it-theme=dark]) yt-formatted-string[
 html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--highlight-text-decorator .yt-core-attributed-string__link--display-type {color: var(--yt-spec-text-primary)}
 
 /*BLACK*/
-
 html[it-theme=black] [dark],
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
 html[it-theme=black][data-system-color-scheme=dark][it-schedule=system_peference_dark],
@@ -882,7 +881,7 @@ html[it-theme=black][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-item-section-header-color: hsl(0, 0%, 93.3%);
 	--yt-menu-hover-backgound-color: #000;
 	--yt-menu-focus-background-color: #000;
-	--yt-searchbox-text-color: var(--yt-primary-text-color);
+	--ytd-searchbox-text-color: var(--yt-primary-text-color);
 	--yt-material-searchbox-inactive: hsl(0, 0%, 7%);
 	--yt-material-searchbox-active: hsl(0, 0%, 100%);
 	--yt-material-searchbox-inactive-shadow: hsla(0, 0%, 0%, .04);
@@ -1110,7 +1109,7 @@ html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference
 	--yt-item-section-header-color: hsl(0, 0%, 93.3%);
 	--yt-menu-hover-backgound-color: #d44d5c;
 	--yt-menu-focus-background-color: #d44d5c;
-	--yt-searchbox-text-color: var(--yt-primary-text-color);
+	--ytd-searchbox-text-color: var(--yt-primary-text-color);
 	--yt-material-searchbox-inactive: hsl(0, 0%, 7%);
 	--yt-material-searchbox-active: hsl(0, 0%, 100%);
 	--yt-material-searchbox-inactive-shadow: hsla(0, 0%, 0%, .04);
@@ -1346,7 +1345,7 @@ html[it-theme=desert][data-system-color-scheme=light][it-schedule=system_peferen
 	--yt-item-section-header-color: #555;
 	--yt-menu-hover-backgound-color: #faf9f9;
 	--yt-menu-focus-background-color: #faf9f9;
-	--yt-searchbox-text-color: var(--yt-primary-text-color);
+	--ytd-searchbox-text-color: var(--yt-primary-text-color);
 	--yt-material-searchbox-inactive: #555;
 	--yt-material-searchbox-active: #555;
 	--yt-material-searchbox-inactive-shadow: #555;
@@ -1572,7 +1571,7 @@ html[it-theme=night][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-item-section-header-color: hsl(0, 0%, 93.3%);
 	--yt-menu-hover-backgound-color: #003459;
 	--yt-menu-focus-background-color: #003459;
-	--yt-searchbox-text-color: var(--yt-primary-text-color);
+	--ytd-searchbox-text-color: var(--yt-primary-text-color);
 	--yt-material-searchbox-inactive: hsl(0, 0%, 7%);
 	--yt-material-searchbox-active: hsl(0, 0%, 100%);
 	--yt-material-searchbox-inactive-shadow: hsla(0, 0%, 0%, .04);
@@ -1800,7 +1799,7 @@ html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-item-section-header-color: hsl(0, 0%, 93.3%);
 	--yt-menu-hover-backgound-color: #c7efcf;
 	--yt-menu-focus-background-color: #c7efcf;
-	--yt-searchbox-text-color: var(--yt-primary-text-color);
+	--ytd-searchbox-text-color: var(--yt-primary-text-color);
 	--yt-material-searchbox-inactive: hsl(0, 0%, 7%);
 	--yt-material-searchbox-active: hsl(0, 0%, 100%);
 	--yt-material-searchbox-inactive-shadow: hsla(0, 0%, 0%, .04);
@@ -1967,7 +1966,7 @@ html[it-theme=sunset][data-system-color-scheme=light][it-schedule=system_peferen
 	--ytd-simple-badge-color: hsla(0, 0%, 100%, .6);
 	--ytd-ad-badge-text-color: hsl(0, 0%, 7%);
 	--ytd-shopping-product-info: hsla(0, 100%, 100%, .74);
-	--ytd-toggle-color: hsl(0, 0%, 93.3%);
+	--ytd-toggle-color: hsl(0, 0%, 93.3%); 
 	--ytd-survey-button-color: var(--yt-primary-text-color);
 	--ytd-transcript-cue-hover-background-color: hsla(0, 0%, 53.3%, .4);
 	--ytd-transcript-toolbar-background-color: hsla(0, 0%, 53.3%, .4);
@@ -2029,7 +2028,7 @@ html[it-theme=sunset][data-system-color-scheme=light][it-schedule=system_peferen
 	--yt-item-section-header-color: hsl(0, 0%, 93.3%);
 	--yt-menu-hover-backgound-color: #2f3364;
 	--yt-menu-focus-background-color: #2f3364;
-	--yt-searchbox-text-color: var(--yt-primary-text-color);
+	--ytd-searchbox-text-color: var(--yt-primary-text-color);
 	--yt-material-searchbox-inactive: hsl(0, 0%, 7%);
 	--yt-material-searchbox-active: hsl(0, 0%, 100%);
 	--yt-material-searchbox-inactive-shadow: hsla(0, 0%, 0%, .04);
