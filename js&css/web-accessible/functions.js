@@ -154,7 +154,6 @@ ImprovedTube.ytElementsHandler = function (node) {
 						};
 
 			this.improvedtubeYoutubeIcon();
-			this.setTheme();
 		}
 	}
 	else if (name === 'TP-YT-APP-DRAWER') {
