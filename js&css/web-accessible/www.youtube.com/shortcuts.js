@@ -623,17 +623,11 @@ ImprovedTube.shortcutSubscribe = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDarkTheme = function () {
 	if (document.documentElement.hasAttribute('dark')) {
-		document.documentElement.removeAttribute('dark');
-		document.querySelector('ytd-masthead')?.removeAttribute('dark');
-		document.getElementById("cinematics").style.visibility = 'hidden';
-	} else { 
-		document.documentElement.setAttribute('dark', '');
-		if (document.querySelector('ytd-masthead')) { document.querySelector('ytd-masthead').setAttribute('dark', ''); }
-		document.getElementById("cinematics").style.visibility = 'visible';
-		if (this.storage.theme === 'custom') { this.elements.my_colors.remove(); }
-		document.documentElement.setAttribute('it-theme', 'dark');
-		this.storage.theme = 'dark';
-	}   	
+		// message will propagate all the way to setTheme() so we dont need to do anything more here
+		ImprovedTube.messages.send({action: 'set', key: 'theme', value: 'light'});
+	} else {
+		ImprovedTube.messages.send({action: 'set', key: 'theme', value: 'dark'});
+	}
 };
 /*------------------------------------------------------------------------------
 4.7.26 CUSTOM MINI PLAYER
