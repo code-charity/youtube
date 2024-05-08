@@ -149,11 +149,12 @@ ImprovedTube.ytElementsHandler = function (node) {
 	} else if (name === 'YTD-MASTHEAD') {
 		if (!this.elements.masthead) {
 			this.elements.masthead = {start: node.querySelector('#start'),
-									  end: node.querySelector('#end'),
-									  logo: node.querySelector('a#logo')
-									 };
+						end: node.querySelector('#end'),
+						logo: node.querySelector('a#logo')
+						};
 
 			this.improvedtubeYoutubeIcon();
+			this.setTheme();
 		}
 	}
 	else if (name === 'TP-YT-APP-DRAWER') {
