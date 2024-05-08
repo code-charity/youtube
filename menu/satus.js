@@ -835,6 +835,11 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 		for (var key in skeleton) {
 			var item = skeleton[key];
 
+			// sections can be functions
+			if (satus.isFunction(item)) {
+				item = item();
+			}
+
 			if (key !== 'parentSkeleton' && key !== 'parentElement' && key !== 'parentObject' && key !== 'before') {
 				if (item && item.component) {
 					item.parentSkeleton = skeleton;
