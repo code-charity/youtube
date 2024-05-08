@@ -12,7 +12,7 @@ html[it-header-transparent=true] #background.ytd-masthead {background-color: rgb
 html[it-header-transparent=true] ytd-masthead[frosted-glass] #background.ytd-masthead {backdrop-filter: blur(1px) !important;}
 html[it-header-transparent=true] {  --ytd-searchbox-background: rgba(var(--ytd-searchbox-background), 0.5) !important;}
 
-/* Header-transparent alternative by @JoaloCosta: */
+/* Header-transparent alternative by @joaolscosta */
 /* Change opacity when scrolling down */
 html[it-header-transparent2=true][data-scroll-direction=down] ytd-masthead #end {opacity: 0;}
 html[it-header-transparent2=true] ytd-masthead #logo-icon,
