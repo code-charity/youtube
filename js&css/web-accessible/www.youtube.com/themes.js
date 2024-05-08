@@ -84,6 +84,7 @@ ImprovedTube.setTheme = function () {
 		case 'dark':
 			document.documentElement.setAttribute('dark', '');
 			if (document.querySelector('ytd-masthead')) { document.querySelector('ytd-masthead').setAttribute('dark', ''); }
+			ImprovedTube.setPrefCookieValueByName('f6', 400);
 			// fall through
 		case 'black':
 			if (document.getElementById("cinematics")) {
@@ -92,6 +93,12 @@ ImprovedTube.setTheme = function () {
 			this.elements.my_colors?.remove();
 			break
 
+		case 'light':
+			document.documentElement.removeAttribute('dark');
+			document.querySelector('ytd-masthead')?.removeAttribute('dark');
+			ImprovedTube.messages.send({action: 'set', key: 'theme', value: null});
+			ImprovedTube.setPrefCookieValueByName('f6', null);
+			// fall through
 		case 'dawn':
 		case 'sunset':
 		case 'night':
