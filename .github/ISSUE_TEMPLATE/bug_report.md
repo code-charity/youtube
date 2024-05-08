@@ -34,4 +34,4 @@ Thanks for coming & caring! Sometime 3 words are enough of a bug report. But ple
  - OS:                <!--  [e.g. Linux Ubuntu 16 /  Windows 11 / MacOS 14 Sonoma]  -->
  - Device:    
 
-           <!-- Many thanks & smiles !  -->
+   <!-- Many thanks & smiles !  -->
