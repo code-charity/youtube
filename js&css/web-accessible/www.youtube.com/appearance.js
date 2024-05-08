@@ -564,7 +564,7 @@ ImprovedTube.channelVideosCount = function () {
         xhr.send();
     }
 };
-if (ImprovedTube.storage.header_transparent === true) {
+if (ImprovedTube.storage.header_transparent2 === true) {
     /*------------------------------------------------------------------------------
     TURN TOP BAR TRANSPARENT WHEN SCROLLING
     ------------------------------------------------------------------------------*/
