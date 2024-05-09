@@ -98,7 +98,9 @@ ImprovedTube.setTheme = function () {
 			document.querySelector('ytd-masthead')?.removeAttribute('dark');
 			ImprovedTube.messages.send({action: 'set', key: 'theme', value: null});
 			ImprovedTube.setPrefCookieValueByName('f6', null);
-			// fall through
+			if (document.getElementById("cinematics")) {
+				document.getElementById('cinematics').style.display = 'none !important';
+			}
 		case 'dawn':
 		case 'sunset':
 		case 'night':
