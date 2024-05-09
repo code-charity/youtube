@@ -619,31 +619,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 					subtitles_window_color: {
 						component: 'select',
 						text: 'windowColor',
-						options: [{
-							text: 'white',
-							value: '#fff'
-						}, {
-							text: 'yellow',
-							value: '#ff0'
-						}, {
-							text: 'green',
-							value: '#0f0'
-						}, {
-							text: 'cyan',
-							value: '#0ff'
-						}, {
-							text: 'blue',
-							value: '#00f'
-						}, {
-							text: 'magenta',
-							value: '#f0f'
-						}, {
-							text: 'red',
-							value: '#f00'
-						}, {
-							text: 'black',
-							value: '#000'
-						}]
+						options: function () {
+							return extension.skeleton.main.layers.section.player.on.click.section_1.subtitles.on.click.subtitles_background_color.options;
+						}
 					},
 					subtitles_window_opacity: {
 						component: 'slider',
@@ -1063,28 +1041,28 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'section',
 			variant: 'card',
 			title: 'extraButtonsBelowThePlayer',
-							below_player_screenshot: {
-								component: 'switch',
-								text: 'screenshot',
-								value: true
-							},
-							below_player_pip: {
-								component: 'switch',
-								text: 'pictureInPicture',
-								value: true
-							},
-							below_player_loop: {
-								component: 'switch',
-								text: 'loop',
-								value: true
-							}
-						},
-						player_hide_controls_options: {
-							component: "button",
-							text: "hidePlayerControlsBarButtons",
-							on: {
-								click: 'main.layers.section.appearance.on.click.player.on.click.player_hide_controls_options.on.click'
-							}
-						},
-	}	
+			below_player_screenshot: {
+				component: 'switch',
+				text: 'screenshot',
+				value: true
+			},
+			below_player_pip: {
+				component: 'switch',
+				text: 'pictureInPicture',
+				value: true
+			},
+			below_player_loop: {
+				component: 'switch',
+				text: 'loop',
+				value: true
+			}
+		},
+		player_hide_controls_options: {
+			component: "button",
+			text: "hidePlayerControlsBarButtons",
+			on: {
+				click: 'main.layers.section.appearance.on.click.player.on.click.player_hide_controls_options.on.click'
+			}
+		},
+	}
 };
