@@ -89,7 +89,7 @@ extension.skeleton.main.layers.section.appearance.on.click.header = {
 			},
 			header_improve_logo: {
 				component: "switch",
-				text: "monochrome",
+				text: "improveLogo",
 				tags: "youtube"
 			},
 			header_hide_right_buttons: {
