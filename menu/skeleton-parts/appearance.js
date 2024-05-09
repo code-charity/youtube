@@ -800,8 +800,8 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 					text: "collapsed",
 					value: "collapsed"
 				}, {
-                	text: 'Hide_the_tabs_only',
-		           			value: "hidetabs"
+                			text: 'Hide_the_tabs_only',
+		           		value: "hidetabs"
 				}],
 				tags: "right",
 				on: {
