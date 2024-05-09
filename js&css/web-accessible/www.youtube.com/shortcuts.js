@@ -176,8 +176,12 @@ ImprovedTube.shortcuts = function () {
 		}
 	}
 };
-
-
+/*------------------------------------------------------------------------------
+Ambient lighting
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutToggleAmbientLighting = function () {
+	document.documentElement.toggleAttribute('it-ambient-lighting');
+};
 /*------------------------------------------------------------------------------
 4.7.1 QUALITY
 ------------------------------------------------------------------------------*/
@@ -622,45 +626,13 @@ ImprovedTube.shortcutSubscribe = function () {
 4.7.25 DARK THEME
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDarkTheme = function () {
-let darkCookie; 
 	if (document.documentElement.hasAttribute('dark')) {
-		cookieValue = '80000';
-		document.documentElement.removeAttribute('dark');
-		document.querySelector('ytd-masthead').removeAttribute('dark');
-		document.getElementById("cinematics").style.visibility = 'hidden';
-		document.querySelector('ytd-masthead').style.backgroundColor ='#fff';	
-		ImprovedTube.myColors(); ImprovedTube.setTheme();
-
-	} else { darkCookie = true;
-   	    document.documentElement.setAttribute('dark', '');  	 
-		if (this.storage.theme === 'custom' ){ this.elements.my_colors.remove();  }
-		if (this.storage.theme === 'dawn' ){ this.elements.dawn.remove();  }
-			if (document.documentElement.hasAttribute('it-themes') !== null && document.documentElement.hasAttribute('it-themes') === true){													 
-				document.documentElement.removeAttribute('it-themes');			
-				document.documentElement.setAttribute('it-themes', 'false');			
-				}
-		document.querySelector('ytd-masthead').style.cssText = 'background-color: #000;';	
-		document.getElementById("cinematics").style.visibility = 'visible';
-		
-}   
-	let cookie = this.getPrefCookieValueByName('f6');
-	// f6 stores more than Theme. Treat it like hex number, we are only allowed to add/remove 0x80000 (light theme) and 0x400 (dark theme).
-	if (cookie && !isNaN(cookie)) {
-		// valid f6
-		let negation = parseInt(cookie, 16) & parseInt(80400, 16);
-		cookie = (parseInt(cookie, 16) - negation); // remove 80000 and 400
-		cookie = cookie ^ (darkCookie ? parseInt(400, 16) : 0); // apply optional darkCookie
-		cookie = cookie ? cookie.toString(16) : null; // back to hex, 0 means we want null to remove f6 cookie instead
+		// message will propagate all the way to setTheme() so we dont need to do anything more here
+		ImprovedTube.messages.send({action: 'set', key: 'theme', value: 'light'});
 	} else {
-		// missing or corrupted f6, fully overwrite
-		cookie = darkCookie ? 400 : null;
+		ImprovedTube.messages.send({action: 'set', key: 'theme', value: 'dark'});
 	}
-
-	this.setPrefCookieValueByName('f6', cookie);
-
-	
 };
-
 /*------------------------------------------------------------------------------
 4.7.26 CUSTOM MINI PLAYER
 ------------------------------------------------------------------------------*/
@@ -707,7 +679,6 @@ ImprovedTube.shortcutStatsForNerds = function () {
 		player.showVideoInfo();
 	}
 };
-
 
 /*------------------------------------------------------------------------------
 4.7.28 TOGGLE CARDS

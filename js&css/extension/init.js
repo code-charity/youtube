@@ -183,33 +183,37 @@ document.addEventListener('it-message-from-youtube', function () {
 				});
 			}
 		} else if (message.action === 'blocklist') {
-			var type = message.type,
-				id = message.id,
-				title = message.title;
-
 			if (!extension.storage.data.blocklist || typeof extension.storage.data.blocklist !== 'object') {
 				extension.storage.data.blocklist = {};
 			}
 
-			if (type === 'channel') {
-				if (!extension.storage.data.blocklist.channels) {
-					extension.storage.data.blocklist.channels = {};
-				}
+			switch(message.type) {
+				case 'channel':
+					if (!extension.storage.data.blocklist.channels) {
+						extension.storage.data.blocklist.channels = {};
+					}
+					if (message.added) {
+						extension.storage.data.blocklist.channels[message.id] = {
+							title: message.title,
+							preview: message.preview
+						}
+					} else {
+						delete extension.storage.data.blocklist.channels[message.id];
+					}
+					break
 
-				extension.storage.data.blocklist.channels[id] = {
-					title: title,
-					preview: message.preview
-				};
-			}
-
-			if (type === 'video') {
-				if (!extension.storage.data.blocklist.videos) {
-					extension.storage.data.blocklist.videos = {};
-				}
-
-				extension.storage.data.blocklist.videos[id] = {
-					title: title
-				};
+				case 'video':
+					if (!extension.storage.data.blocklist.videos) {
+						extension.storage.data.blocklist.videos = {};
+					}
+					if (message.added) {
+						extension.storage.data.blocklist.videos[message.id] = {
+							title: message.title
+						}
+					} else {
+						delete extension.storage.data.blocklist.videos[message.id];
+					}
+					break
 			}
 
 			chrome.storage.local.set({
@@ -233,6 +237,12 @@ document.addEventListener('it-message-from-youtube', function () {
 			chrome.storage.local.set({
 				watched: extension.storage.data.watched
 			});
+		} else if (message.action === 'set') {
+			if (message.value) {
+				chrome.storage.local.set({[message.key]: message.value});
+			} else {
+				chrome.storage.local.remove([message.key]);
+			}
 		}
 	}
 });

@@ -316,6 +316,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 							}
 						}
 					}
+				},
+				shortcut_toggle_ambient_lighting: {
+					component: 'shortcut',
+					text: 'ambientLighting'
 				}
 			},
 			section: {

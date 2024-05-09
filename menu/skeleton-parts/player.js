@@ -74,6 +74,21 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		autoplay_disable: {
+			component: 'switch',
+			text: 'autoplayDisable',
+			storage: 'player_autoplay_disable'
+		},
+		up_next_autoplay: {
+			component: 'switch',
+			text: 'upNextAutoplay',
+			value: true
+		},
+		ambient_lighting: {
+			component: 'switch',
+			text: 'ambientLighting',
+			value: true
+		},
 		player_autoPip: {
 			component: 'switch',
 			text: 'Auto_PiP_picture_in_picture',
@@ -125,20 +140,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			min: .01,
 			max: 3.17,
 			step: .01
-		},
-		autoplay_disable: {
-			component: 'switch',
-			text: 'autoplayDisable',
-			storage: 'player_autoplay_disable'
-		},
-		up_next_autoplay: {
-			component: 'switch',
-			text: 'upNextAutoplay',
-			value: true
-		},
-		forced_play_video_from_the_beginning: {
-			component: 'switch',
-			text: 'forcedPlayVideoFromTheBeginning'
 		},
 		autofullscreen: {
 			component: 'switch',
@@ -687,15 +688,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
-		player_crop_chapter_titles: {
-			component: 'switch',
-			text: 'cropChapterTitles',
-			value: true
-		},
-		mini_player: {
-			component: 'switch',
-			text: 'customMiniPlayer'
-		},
 		player_quality: {
 			component: 'select',
 			text: 'quality',
@@ -759,6 +751,32 @@ extension.skeleton.main.layers.section.player.on.click = {
 					}
 				}
 			}
+		},
+		player_quality_without_focus: {
+			component: 'select',
+			text: 'qualityWithoutFocus',
+			id: 'player_quality_without_focus',
+			options: function () {
+				return [{value: 'auto', text: "Disabled"}].concat(extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options.slice(1));
+			},
+			on: {
+				render: function () {
+						extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
+				}
+			}
+		},
+		mini_player: {
+			component: 'switch',
+			text: 'customMiniPlayer'
+		},
+		forced_play_video_from_the_beginning: {
+			component: 'switch',
+			text: 'forcedPlayVideoFromTheBeginning'
+		},
+		player_crop_chapter_titles: {
+			component: 'switch',
+			text: 'cropChapterTitles',
+			value: true
 		},
 		player_codecs: {
 			component: 'button',
@@ -895,6 +913,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						document.getElementById('player_quality').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
+						document.getElementById('player_quality_without_focus').dispatchEvent(new CustomEvent('render'));
 					}
 					if (this.dataset.value === 'false') {
 						let where = this;
@@ -1036,7 +1055,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'rotate'
 		},
-
 		player_hamburger_button: {
 			component: 'switch',
 			text: 'Hamburger_Menu'
@@ -1065,55 +1083,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 							component: "button",
 							text: "hidePlayerControlsBarButtons",
 							on: {
-								click: {
-									component: "section",
-									variant: "card",
-			
-									player_play_button: {
-										component: "switch",
-										text: "playPause"
-									},
-									player_previous_button: {
-										component: "switch",
-										text: "previousVideo"
-									},
-									player_next_button: {
-										component: "switch",
-										text: "nextVideo"
-									},
-									player_volume_button: {
-										component: "switch",
-										text: "volume"
-									},
-									player_autoplay_button: {
-										component: "switch",
-										text: "autoplay"
-									},
-									player_settings_button: {
-										component: "switch",
-										text: "settings"
-									},
-									player_subtitles_button: {
-										component: "switch",
-										text: "subtitles"
-									},
-									player_miniplayer_button: {
-										component: "switch",
-										text: "nativeMiniPlayer"
-									},
-									player_view_button: {
-										component: "switch",
-										text: "viewMode"
-									},
-									player_screen_button: {
-										component: "switch",
-										text: "screen"
-									},
-									player_remote_button: {
-										component: "switch",
-										text: "remote"
-									}
-								}
+								click: 'main.layers.section.appearance.on.click.player.on.click.player_hide_controls_options.on.click'
 							}
 						},
 	}	

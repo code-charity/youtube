@@ -83,9 +83,13 @@ extension.skeleton.main.layers.section.appearance.on.click.header = {
 				}],
 				tags: "hide,hover,static,top"
 			},
+			header_hide_logo: {
+				component: "switch",
+				text: "hideLogo"
+			},
 			header_improve_logo: {
 				component: "switch",
-				text: "improveLogo",
+				text: "monochrome",
 				tags: "youtube"
 			},
 			header_hide_right_buttons: {
@@ -193,6 +197,30 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					lineNumbers: false
 				}
 			},
+			player_hide_annotations: {
+				component: "switch",
+				text: "hideAnnotations",
+				tags: "hide,remove,elements"
+			},
+			player_hide_cards: {
+				component: "switch",
+				text: "hideCards",
+				tags: "hide,remove,elements"
+			},
+			player_show_cards_on_mouse_hover: {
+				component: "switch",
+				text: "showCardsOnMouseHover",
+				tags: "hide,remove,elements"
+			},
+			player_hide_endscreen: {
+				component: "switch",
+				text: "hideEndscreen"
+			},
+			remove_black_bars: {
+				component: "switch",
+				text: "removeBlackBars",
+				tags: "bars",
+			},
 			player_hide_controls: {
 				component: "select",
 				text: "hidePlayerControlsBar",
@@ -267,23 +295,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "hideGradientBottom"
 			},
-			player_hide_skip_overlay: {
-				component: "switch",
-				text: "hideSkipOverlay",
-				value: false,
-				tags: "remove,hide"
-			},
-			player_remaining_duration: {
-				component: "switch",
-				text: "showRemainingDuration",
-				id: "show-remaining-duration",
-				value: false
-			},
-			duration_with_speed: {
-				component: "switch",
-				text: "durationWithSpeed",
-				value: false
-			},
 			always_show_progress_bar: {
 				component: "switch",
 				text: "alwaysShowProgressBar"
@@ -355,24 +366,22 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "transparentBackground"
 			},
-			player_hide_annotations: {
+			player_hide_skip_overlay: {
 				component: "switch",
-				text: "hideAnnotations",
-				tags: "hide,remove,elements"
+				text: "hideSkipOverlay",
+				value: false,
+				tags: "remove,hide"
 			},
-			player_hide_cards: {
+			player_remaining_duration: {
 				component: "switch",
-				text: "hideCards",
-				tags: "hide,remove,elements"
+				text: "showRemainingDuration",
+				id: "show-remaining-duration",
+				value: false
 			},
-			player_show_cards_on_mouse_hover: {
+			duration_with_speed: {
 				component: "switch",
-				text: "showCardsOnMouseHover",
-				tags: "hide,remove,elements"
-			},
-			player_hide_endscreen: {
-				component: "switch",
-				text: "hideEndscreen"
+				text: "durationWithSpeed",
+				value: false
 			},
 			player_hd_thumbnail: {
 				component: "switch",
@@ -383,11 +392,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "hideScrollForDetails",
 				tags: "remove,hide"
-			},
-			remove_black_bars: {
-				component: "switch",
-				text: "removeBlackBars",
-				tags: "bars",
 			}			
 		}
 	}
@@ -415,6 +419,9 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 				}, {
 					text: "expanded",
 					value: "expanded"
+				}, {
+					text: "sidebar",
+					value: "sidebar"
 				}, {
 					text: "hidden",
 					value: "hidden"
@@ -683,9 +690,10 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 			component: "section",
 			variant: "card",
 
-			comments: {
+			comments_show: {
 				component: "select",
 				text: "comments",
+				storage: 'comments',
 
 				options: [{
 					text: "normal",
@@ -769,6 +777,10 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 		click: {
 			component: "section",
 			variant: "card",
+			undo_the_new_sidebar: {
+				component: "switch",
+				text: "undoTheNewSidebar"
+			},
 			related_videos: {
 				component: "select",
 				text: "relatedVideos",
@@ -831,7 +843,7 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			},
 			compact_spacing: {
 				component: "switch",
-				text: 'compact_Spacing',
+				text: 'compact_spacing',
 				storage: 'compactSpacing'
 			},
 			no_page_margin: {

@@ -27,7 +27,8 @@ var ImprovedTube = {
 		comments: {},
 		collapse_of_subscription_sections: [],
 		mark_watched_videos: [],
-		blocklist_buttons: []
+		blocklist_buttons: [],
+		observerList: []
 	},
 	regex: {
 		channel: /\/(@|c\/@?|channel\/|user\/)(?<name>[^/]+)/,
@@ -155,19 +156,27 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.storage = message.storage;
 
 			if (ImprovedTube.storage.block_vp9 || ImprovedTube.storage.block_av1 || ImprovedTube.storage.block_h264) {
-				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'}
-				localStorage['it-codec'] = Object.keys(atlas).reduce(function (all, key) {
+				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'},
+					codec = Object.keys(atlas).reduce(function (all, key) {
 					return ImprovedTube.storage[key] ? ((all?all+'|':'') + atlas[key]) : all}, '');
-			} else {
+				if (localStorage['it-codec'] != codec) {
+					localStorage['it-codec'] = codec;
+				}
+			} else if (localStorage['it-codec']) {
 				localStorage.removeItem('it-codec');
 			}
 			if (ImprovedTube.storage.player_60fps === false) {
-				localStorage['it-player30fps'] = true;
-			} else {
+				if (!localStorage['it-player30fps']) {
+					localStorage['it-player30fps'] = true;
+				}
+			} else if (localStorage['it-player30fps']) {
 				localStorage.removeItem('it-player30fps');
 			}
 
 			ImprovedTube.init();
+			// need to run blocklist once just after page load to catch initial nodes
+			ImprovedTube.blocklist();
+
 		// REACTION OR VISUAL FEEDBACK WHEN THE USER CHANGES A SETTING (already automated for our CSS features):
 		} else if (message.action === 'storage-changed') {
 			var camelized_key = message.camelizedKey;
@@ -239,12 +248,12 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
-				case 'commentsSidebar':
-					if (ImprovedTube.storage.comments_sidebar === false) {
+				case 'commentsSidebarSimple':
+					if (ImprovedTube.storage.comments_sidebar_simple === false) {
 						document.querySelector("#below").appendChild(document.querySelector("#comments"));
 						document.querySelector("#secondary").appendChild(document.querySelector("#related"));
 					} else {
-						ImprovedTube.commentsSidebar();
+						ImprovedTube.commentsSidebarSimple();
 					}
 					break
 
@@ -348,10 +357,6 @@ document.addEventListener('it-message-from-extension', function () {
 					} else if (ImprovedTube.storage.player_remaining_duration === true) {
 						ImprovedTube.playerRemainingDuration();
 					}
-					break
-
-				case 'blocklistActivate':
-					if (ImprovedTube.storage.blocklist_activate === true) {document.querySelectorAll('.it-add-to-blocklist').forEach(e => e.remove());}
 					break
 			}
 

@@ -11,8 +11,7 @@
 # Hide "Scroll for details"
 # Player Size
 --------------------------------------------------------------*/
-
-
+html[it-ambient-lighting='true'] #cinematics {display: none !important;}
 /*--------------------------------------------------------------
 # ALWAYS SHOW PROGRESS BAR
 --------------------------------------------------------------*/
