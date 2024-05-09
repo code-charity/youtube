@@ -1388,9 +1388,7 @@ satus.components.textField = function(component, skeleton) {
 			handler = component.syntax.handlers[component.syntax.current],
 			value = component.value || '';
 
-		for (var i = this.childNodes.length - 1; i > -1; i--) {
-			this.childNodes[i].remove();
-		}
+		satus.empty(this);
 
 		if (handler) {
 			handler(value, this);
@@ -1399,10 +1397,10 @@ satus.components.textField = function(component, skeleton) {
 		}
 
 		if (value.length === 0) {
-			var placeholder = component.placeholder;
+			let placeholder = component.placeholder;
 
 			if (typeof placeholder === 'function') {
-				placeholder = component.placeholder();
+				placeholder = placeholder();
 			} else {
 				placeholder = satus.locale.get(placeholder);
 			}
@@ -1504,9 +1502,9 @@ satus.components.textField = function(component, skeleton) {
 	});
 
 	component.addEventListener('render', function() {
-		component.lineNumbers.update();
-		component.pre.update();
-		component.cursor.update();
+		this.lineNumbers.update();
+		this.pre.update();
+		this.cursor.update();
 	});
 
 	if (skeleton.on?.blur) {
@@ -1788,17 +1786,14 @@ satus.components.layers = function(component, skeleton) {
 --------------------------------------------------------------*/
 
 satus.components.list = function(component, skeleton) {
-	for (var i = 0, l = skeleton.items.length; i < l; i++) {
-		var li = component.createChildElement('div', 'item'),
-			item = skeleton.items[i];
+	for (const item of skeleton.items) {
+		const li = component.createChildElement('div', 'item');
 
-		for (var j = 0, k = item.length; j < k; j++) {
-			var child = item[j];
-
+		for (const child of item) {
 			if (satus.isObject(child)) {
 				satus.render(child, li);
 			} else {
-				var span = li.createChildElement('span');
+				const span = li.createChildElement('span');
 
 				span.textContent = satus.locale.get(child);
 			}
@@ -2125,7 +2120,7 @@ satus.components.slider = function(component, skeleton) {
 --------------------------------------------------------------*/
 
 satus.components.tabs = function(component, skeleton) {
-	var tabs = skeleton.items,
+	let tabs = skeleton.items,
 		value = skeleton.value;
 
 	if (satus.isFunction(tabs)) {
@@ -2136,12 +2131,11 @@ satus.components.tabs = function(component, skeleton) {
 		value = value();
 	}
 
-	for (var i = 0, l = tabs.length; i < l; i++) {
-		var tab = tabs[i],
-			button = component.createChildElement('button');
+	for (const tab of tabs) {
+		const button = component.createChildElement('button');
 
 		button.addEventListener('click', function() {
-			var component = this.parentNode,
+			const component = this.parentNode,
 				index = satus.elementIndex(this);
 
 			component.value = index;
@@ -2420,7 +2414,7 @@ satus.components.shortcut = function(component, skeleton) {
 
 							component.render(component.valueElement);
 
-							satus.storage.remove(component.storage.key);
+							satus.storage.remove();
 
 							this.parentNode.parentNode.parentNode.close();
 
@@ -3218,9 +3212,7 @@ satus.user.device.connection = function() {
 --------------------------------------------------------------*/
 
 satus.search = function(query, object, callback) {
-	var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button'],
-		threads = 0,
-		results = {},
+	const included = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button'],
 		excluded = [
 			'baseProvider',
 			'layersProvider',
@@ -3231,19 +3223,19 @@ satus.search = function(query, object, callback) {
 			'parentElement',
 			'rendered'
 		];
+	let threads = 0,
+		results = {};
 
 	query = query.toLowerCase();
 
 	function parse(items, parent) {
 		threads++;
 
-		for (const key in items) {
+		for (const [key, item] of Object.entries(items)) {
 			if (!excluded.includes(key)) {
-				var item = items[key];
-
 				if (item.component && item.text
 					// list of elements we allow search on
-					&& elements.includes(item.component)
+					&& included.includes(item.component)
 					// only pass buttons whose parents are variant: 'card' or special case 'appearance' (this one abuses variant tag for CSS)
 					&& (item.component != 'button' || item.parentObject?.variant == "card" || item.parentObject?.variant == "appearance")
 					// try to match query against localized description, fallback on component name
@@ -3252,12 +3244,10 @@ satus.search = function(query, object, callback) {
 					results[key] = Object.assign({}, item);
 				}
 
-				if (
-					satus.isObject(item) &&
-					!satus.isArray(item) &&
-					!satus.isElement(item) &&
-					!satus.isFunction(item)
-				) {
+				if (satus.isObject(item)
+					&& !satus.isArray(item)
+					&& !satus.isElement(item)
+					&& !satus.isFunction(item)) {
 					parse(item, items);
 				}
 			}
