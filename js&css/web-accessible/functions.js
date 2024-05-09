@@ -600,7 +600,7 @@ tooltip.style.zIndex = 10001;} // needed for cinema mode
 			button.appendChild(options.child);
 		}
 
-		button.style.opacity = options.opacity || '.5';
+		button.style.opacity = options.opacity || .5;
 
 		if (options.onclick) {
 			button.onclick = options.onclick;
