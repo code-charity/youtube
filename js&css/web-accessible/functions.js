@@ -458,7 +458,7 @@ ImprovedTube.onkeydown = function () {
 ImprovedTube.onmousedown = function (event) {									  
 	window.addEventListener('mousedown', function (event) {	
 		if (!ImprovedTube.user_interacted) {
-			setTimeout(function(){ImprovedTube.user_interacted = true},800);	
+			setTimeout(function(){ImprovedTube.user_interacted = true},3000);	
 			if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
 				var path = event.composedPath();
 				for (var i = 0, l = path.length; i < l; i++) {

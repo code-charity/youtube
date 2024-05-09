@@ -1,4 +1,7 @@
-{
+{   
+    "youtubesLight": {
+    "message": "YouTube's Light"
+    },
     "ambientLighting": {
     "message": "Ambient lighting"
     },
@@ -1347,6 +1350,6 @@
         "message": "YouTube limits video quality to 1080p for h.264 codec"
     },
     "youtubesDark": {
-        "message": "YouTube's dark"
+        "message": "YouTube's Dark"
     }
 }
