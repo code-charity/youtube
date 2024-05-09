@@ -67,8 +67,8 @@ ImprovedTube.playerHdThumbnail = function () {
 /*------------------------------------------------------------------------------
  ALWAYS SHOW PROGRESS BAR
 ------------------------------------------------------------------------------*/
-ImprovedTube.alwaysShowProgressBar = function () {
-    if (this.storage.always_show_progress_bar === true) {
+ImprovedTube.showProgressBar = function () {
+    
         var player = ImprovedTube.elements.player;
 
         if (player && player.className.indexOf("ytp-autohide") !== -1) {
@@ -110,8 +110,7 @@ ImprovedTube.alwaysShowProgressBar = function () {
                 progress_play += a;
                 progress_load += a;
             }
-        }
-    }
+        }   
 };
 /*------------------------------------------------------------------------------
  VIDEO REMAINING DURATION
@@ -133,7 +132,6 @@ ImprovedTube.formatSecond = function (rTime) {
 };
 
 ImprovedTube.playerRemainingDuration = function () {
-    if (this.storage.player_remaining_duration === true) {
         var player = ImprovedTube.elements.player;
         var rTime = ImprovedTube.formatSecond((player.getDuration() - player.getCurrentTime()).toFixed(0));
 		var element = document.querySelector(".ytp-time-remaining-duration");
@@ -145,7 +143,6 @@ ImprovedTube.playerRemainingDuration = function () {
         } else {
             element.textContent = " (-" + rTime + ")";
         }
-    } 
 };
 /*------------------------------------------------------------------------------
  Comments Sidebar Simple

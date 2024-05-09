@@ -404,8 +404,8 @@ ImprovedTube.playerOnTimeUpdate = function() {
 					ImprovedTube.playerQuality();
 				}
 
-				ImprovedTube.alwaysShowProgressBar();
-				ImprovedTube.playerRemainingDuration();
+				if (this.storage.always_show_progress_bar === true) {ImprovedTube.showProgressBar();}
+				if (this.storage.player_remaining_duration === true){ImprovedTube.playerRemainingDuration();}
 				ImprovedTube.played_time += .5;
 			}, 500);
 		}
