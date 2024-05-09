@@ -244,13 +244,13 @@ satus.isset = function(target, is_object) {
 --------------------------------------------------------------*/
 satus.isFunction =function(target){return typeof target ==='function';};
 
-satus.isArray	 =function(t){if(Array.isArray(t))			 				{return true;}else{return false;}};
-satus.isString	 =function(t){if(typeof t ==='string')						{return true;}else{return false;}};
-satus.isNumber	 =function(t){if(typeof t ==='number'&&isNaN(t)===false){return true;}else{return false;}};
-satus.isObject	 =function(t){return t instanceof Object && t !==null;};
-satus.isElement	 =function(t){return t instanceof Element || t instanceof HTMLDocument;};
-satus.isNodeList =function(t){return t instanceof NodeList;};
-satus.isBoolean  =function(t){return t ===false || t ===true;};
+satus.isArray	 = Array.isArray;
+satus.isString	 = function(t) { return typeof t ==='string'; };
+satus.isNumber	 = function(t) { return (typeof t ==='number' && !isNaN(t)); };
+satus.isObject	 = function(t) { return (t instanceof Object && t !== null); };
+satus.isElement	 = function(t) { return (t instanceof Element || t instanceof HTMLDocument); };
+satus.isNodeList = function(t) { return t instanceof NodeList; };
+satus.isBoolean  = function(t) { return (t === false || t === true); };
 /*---LOG------------------------------------------------------*/
 satus.log =function(){console.log.apply(null, arguments);};
 
