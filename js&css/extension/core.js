@@ -411,7 +411,9 @@ extension.storage.load = function (callback) {
 		}
 
 		for (const key in items) {
-			document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
+			if (htmlAttributes.includes(key)) {
+				document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
+			}
 		}
 
 		extension.events.trigger('storage-loaded');
@@ -419,12 +421,6 @@ extension.storage.load = function (callback) {
 			action: 'storage-loaded',
 			storage: items
 		});
-
-		for (const key in items) {
-			if (htmlAttributes.includes(key)) {
-				document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
-			}
-		}
 
 		if (callback) {
 			callback(extension.storage.data);
