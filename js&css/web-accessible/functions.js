@@ -149,9 +149,9 @@ ImprovedTube.ytElementsHandler = function (node) {
 	} else if (name === 'YTD-MASTHEAD') {
 		if (!this.elements.masthead) {
 			this.elements.masthead = {start: node.querySelector('#start'),
-									  end: node.querySelector('#end'),
-									  logo: node.querySelector('a#logo')
-									 };
+						end: node.querySelector('#end'),
+						logo: node.querySelector('a#logo')
+						};
 
 			this.improvedtubeYoutubeIcon();
 		}
@@ -526,7 +526,13 @@ ImprovedTube.setPrefCookieValueByName = function (name, value) {
 	let newPrefs = '';
 	let ampersant = '';
 
-	prefs[name] = value;
+	if (name == 'f6' && prefs[name] & 1) {
+		// f6 holds other settings, possible values 80000 80001 400 401 1 none
+		// make sure we remember 1 bit
+		prefs[name] = value | 1;
+	} else {
+		prefs[name] = value;
+	}
 
 	for (let pref in prefs) {
 		if (prefs[pref]) {
