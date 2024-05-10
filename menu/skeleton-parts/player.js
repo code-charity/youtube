@@ -557,21 +557,21 @@ extension.skeleton.main.layers.section.player.on.click = {
 						component: 'select',
 						text: 'fontSize',
 						options: [{
-							text: '50%',
-							value: -2
-						}, {
+						text: '100%',
+							value: 0
+						}, {								
 							text: '75%',
 							value: -1
 						}, {
-							text: '100%',
-							value: 0
+							text: '50%',
+							value: -2
 						}, {
 							text: '150%',
 							value: 1
 						}, {
 							text: '200%',
 							value: 2
-						}, {
+						}, {	
 							text: '300%',
 							value: 3
 						}, {
