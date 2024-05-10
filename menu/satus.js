@@ -757,24 +757,27 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 		// dont add storage component to storage: false elements
 		if (skeleton.storage != false) {
 			element.storage = (function() {
-				var parent = element,
+				let parent = element,
 					key = skeleton.storage || property || false,
 					value;
 	
 				if (satus.isFunction(key)) {
 					key = key();
 				}
-	
-				if (skeleton.storage !== false) {
-					if (key) {
-						value = satus.storage.get(key);
-					}
-	
-					if (skeleton.hasOwnProperty('value') && value === undefined) {
-						value = skeleton.value;
+
+				if (key) {
+					value = satus.storage.get(key);
+				}
+
+				if (value === undefined && skeleton.hasOwnProperty('value')) {
+					value = skeleton.value;
+
+					// default value can also be function()
+					if (satus.isFunction(value)) {
+						value = value();
 					}
 				}
-	
+
 				return Object.defineProperties({}, {
 					key: {
 						get: function() {
@@ -792,8 +795,9 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 							value = val;
 	
 							if (satus.storage.get(key) != val) {
+								// only store if actually different value
 								satus.storage.set(key, val);
-		
+
 								parent.dispatchEvent(new CustomEvent('change'));
 							}
 						}
@@ -2504,21 +2508,14 @@ satus.components.checkbox = function(component, skeleton) {
 --------------------------------------------------------------*/
 
 satus.components.switch = function(component, skeleton) {
-	var value = satus.isset(component.storage.value) ? component.storage.value : skeleton.value;
-
-	if (satus.isFunction(value)) {
-		value = value();
-	}
-
+	component.dataset.value = component.storage?.value || false;
+	component.flip = satus.components.switch.flip;
 	component.childrenContainer = component.createChildElement('div', 'content');
 
 	component.createChildElement('i');
 
-	component.dataset.value = value;
-	component.flip = satus.components.switch.flip;
-
-	// 'custom' disables default onclick, user provided function should handle this functionality manually
-	if (!skeleton.custom) {
+	// switch variant: 'manual' disables automatic flipping on click, user provided function should handle switching manually
+	if (skeleton.variant != 'manual') {
 		component.addEventListener('click', function() {
 			this.flip();
 		}, true);
@@ -2526,22 +2523,39 @@ satus.components.switch = function(component, skeleton) {
 };
 
 satus.components.switch.flip = function(val) {
+	const component = this;
+
+	function flipTrue() {
+		component.dataset.value = true;
+		if (component.skeleton.value) {
+			// skeleton.value: true makes this a default true flip switch where the only active state we save is false
+			component.storage.remove();
+		} else {
+			component.storage.value = true;
+		}
+	};
+	function flipFalse() {
+		component.dataset.value = false;
+		if (component.skeleton.value) {
+			// skeleton.value: true makes this a default true flip switch where the only active state we save is false
+			component.storage.value = false;
+		} else {
+			component.storage.remove();
+		}
+	};
+			
 	switch(val) {
 		case true:
-			this.dataset.value = 'true';
-			this.storage.value = true;
+			flipTrue();
 			break;
 		case false:
-			this.dataset.value = 'false';
-			this.storage.value = false;
+			flipFalse();
 			break;
 		case undefined:
-			if (this.dataset.value === 'true') {
-				this.dataset.value = 'false';
-				this.storage.value = false;
+			if (this.dataset.value === 'false') {
+				flipTrue();
 			} else {
-				this.dataset.value = 'true';
-				this.storage.value = true;
+				flipFalse();
 			}
 			break;
 	}
