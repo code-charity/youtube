@@ -484,7 +484,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 								text: 'TransparentBackground',
 								value: "transparent_background"
 							}, {
-								text: "hide_Labels",
+								text: "hide_labels",
 								value: "hide_labels"
 							}, {
 								text: 'removeIcons',
@@ -495,6 +495,36 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 						detailButtons: {
 							component: 'section',
 							variant: 'card',
+							purchase: {
+								component: "select",
+								text: "purchase",
+								options: [{
+									text: "normal",
+									value: "normal"
+								}, {
+									text: "removeName",
+									value: "remove_label"
+								}, {
+									text: "hidden",
+									value: "hidden"
+								}],
+								tags: "hide,remove,purchase-button"
+							},
+							join: {
+								component: "select",
+								text: "join",
+								options: [{
+									text: "normal",
+									value: "normal"
+								}, {
+									text: "removeName",
+									value: "remove_label"
+								}, {
+									text: "hidden",
+									value: "hidden"
+								}],
+								tags: "hide,remove,join-button"
+							},
 							subscribe: {
 								component: "select",
 								text: "subscribe",

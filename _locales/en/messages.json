@@ -1,9 +1,18 @@
-{   
+{
+    "analytics": {
+        "message": "Analytics"
+    }, 
+    "purchase": {
+        "message": "Purchase"
+    },    
+    "join": {
+        "message": "Join"
+    },
     "youtubesLight": {
-    "message": "YouTube's Light"
+        "message": "YouTube's Light"
     },
     "ambientLighting": {
-    "message": "Ambient lighting"
+        "message": "Ambient lighting"
     },
     "undoTheNewSidebar": {
         "message": "Undo the new sidebar!"
@@ -615,7 +624,7 @@
         "message": "Hide Shorts on the home page"
     },
     "hideMore": {
-        "message": "hide 'more"
+        "message": "Hide '...'"
     },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
@@ -630,7 +639,7 @@
         "message": "Hide playlist"
     },
     "hideReport": {
-        "message": "Hide report"
+        "message": "Hide 'Report'"
     },
     "hideRightButtons": {
         "message": "Hide right buttons"
@@ -747,7 +756,7 @@
         "message": "Light green"
     },
     "like": {
-        "message": "'Like'"
+        "message": "Like"
     },
     "liked": {
         "message": "Liked"
@@ -1095,7 +1104,7 @@
         "message": "Settings successfully imported"
     },
     "share": {
-        "message": "'Share'"
+        "message": "Share"
     },
     "shortcut_chapters": {
         "message": "Show chapters Sidebar"

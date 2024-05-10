@@ -23,6 +23,10 @@ html[it-subscribe='transparent'] #subscribe-button button {background-color:rgba
 	/* DISPLAY: NONE: */
 html[it-subscribe='remove_label'] #subscribe-button button .yt-spec-button-shape-next__button-text-content,
 html[it-subscribe='hidden'] #subscribe-button,
+html[it-join='remove_label'] #sponsor-button button .yt-spec-button-shape-next__button-text-content,
+html[it-join='hidden'] #sponsor-button,
+html[it-purchase='remove_label'] #purchase-button button .yt-spec-button-shape-next__button-text-content,
+html[it-purchase='hidden'] #purchase-button,
 html[it-youtubeDetailButtons='remove_labels'] #menu button div:nth-child(2), 
 html[it-youtubeDetailButtons='remove_labels'] #menu button .yt-spec-button-shape-next__button-text-content, 
 html[it-youtubeDetailButtons='remove_labels'] #subscribe-button .yt-spec-button-shape-next__button-text-content,
