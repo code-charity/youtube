@@ -502,6 +502,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 						component: 'select',
 						text: 'fontFamily',
 						options: [{
+							text: 'Proportional Sans-Serif',
+							value: 4
+						}, {
 							text: 'Monospaced Serif',
 							value: 1
 						}, {
@@ -510,9 +513,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 						}, {
 							text: 'Monospaced Sans-Serif',
 							value: 3
-						}, {
-							text: 'Proportional Sans-Serif',
-							value: 4
 						}, {
 							text: 'Casual',
 							value: 5
