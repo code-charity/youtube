@@ -810,21 +810,22 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 						},
 						set: function(val) {
 							value = val;
-	
-							if (satus.storage.get(key) != val) {
+
+							if (val === satus.storage.get(key)) return;
+							if (val === undefined) {
+									satus.storage.remove(key);
+							} else {
 								// only store if actually different value
 								satus.storage.set(key, val);
-
-								parent.dispatchEvent(new CustomEvent('change'));
 							}
+
+							parent.dispatchEvent(new CustomEvent('change'));
 						}
 					}
 				});
 			}());
 			element.storage.remove = function() {
-				satus.storage.remove(element.storage.key);
-
-				element.dispatchEvent(new CustomEvent('change'));
+				element.storage.value = undefined;
 			}
 		}
 
