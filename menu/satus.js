@@ -1952,7 +1952,7 @@ satus.components.colorPicker = function(component, skeleton) {
 								component = modal.parentElement;
 
 							component.color.value = component.skeleton.value || [0, 0, 0];
-							component.storage.remove();
+							component.storage?.remove();
 
 							modal.rendered.close();
 						}
@@ -1976,7 +1976,9 @@ satus.components.colorPicker = function(component, skeleton) {
 								component = modal.parentElement;
 
 							component.color.value = satus.color.hslToRgb(modal.value);
-							component.storage.value = component.color.value;
+							if (component.storage) {
+								component.storage.value = component.color.value;
+							}
 
 							modal.rendered.close();
 						}
