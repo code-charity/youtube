@@ -66,22 +66,39 @@ text(element, value)
 >>> 2. COMPONENTS
 
 components.modal(component, skeleton)
-components.modal.confirm
-components.grid
-components.textField
-			chart	chart.bar
+			modal.confirm
+// modal variant: 'confirm' supports two forms: Full with user providing own skeleton.buttons
+// and simplified with only function declarations for optional ok() and cancel().
+// Simplified takes care of closing popup on its own.
+			grid
+			textField
+			chart
+			chart.bar
 			select
-components.divider()	base(component)	section
-			alert	time	sidebar
+// optional index: defines default select option by index (zero-indexed)
+// optional value: defines default select option by value. Takes precedence over index:
+			divider
+// not implemented
+			base(component)
+			section
+			alert
+// not implemented
+			time
+			sidebar
+// not implemented
 			layers
 			list
 			colorPicker
-			radio	slider
+			radio
+// radio.group: 'key' defines storage.key being switched
+			slider
 			tabs
 			shortcut
 			checkbox
-components.switch
-components.switch.flip
+			switch
+			switch.flip(state)
+// switch variant: 'manual' disables automatic flipping on click, user provided on.click
+// function should handle this by calling this.flip(true|false) manually.
 ----------------------------------------------------------------
 >>> COLOR:
 String to array
