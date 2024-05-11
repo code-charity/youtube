@@ -1818,34 +1818,29 @@ satus.components.list = function(component, skeleton) {
 
 satus.components.colorPicker = function(component, skeleton) {
 	component.childrenContainer = component.createChildElement('div', 'content');
+	component.color = component.createChildElement('span', 'value');
 
-	component.color = (function(element) {
-		var array;
+	Object.defineProperty(component.color, 'value', {
+		get: function() {
+			return component.value;
+		},
+		set: function(value) {
+			component.value = value;
 
-		Object.defineProperty(element, 'value', {
-			get: function() {
-				return array;
-			},
-			set: function(value) {
-				array = value;
+			component.color.style.backgroundColor = 'rgb(' + value.join(',') + ')';
+		}
+	});
 
-				element.style.backgroundColor = 'rgb(' + value.join(',') + ')';
-			}
-		});
-
-		element.value = component.storage.value || component.skeleton.value || [0, 0, 0];
-
-		return element;
-	})(component.createChildElement('span', 'value'));
+	component.color.value = component.storage?.value || [0, 0, 0];
 
 	component.addEventListener('click', function() {
-		var hsl = satus.color.rgbToHsl(this.color.value),
+		let hsl = satus.color.rgbToHsl(this.color.value),
 			s = hsl[1] / 100,
 			l = hsl[2] / 100;
 
 		s *= l < .5 ? l : 1 - l;
 
-		var v = l + s;
+		let v = l + s;
 
 		s = 2 * s / (l + s);
 
@@ -1867,12 +1862,12 @@ satus.components.colorPicker = function(component, skeleton) {
 							return false;
 						}
 
-						var palette = this,
+						const palette = this,
 							rect = this.getBoundingClientRect(),
 							cursor = this.children[0];
 
 						function mousemove(event) {
-							var hsl = palette.skeleton.parentSkeleton.value,
+							let hsl = palette.skeleton.parentSkeleton.value,
 								x = event.clientX - rect.left,
 								y = event.clientY - rect.top,
 								s;
@@ -1880,7 +1875,7 @@ satus.components.colorPicker = function(component, skeleton) {
 							x = Math.min(Math.max(x, 0), rect.width) / (rect.width / 100);
 							y = Math.min(Math.max(y, 0), rect.height) / (rect.height / 100);
 
-							var v = 100 - y,
+							let v = 100 - y,
 								l = (2 - x / 100) * v / 2;
 
 							hsl[1] = x * v / (l < 50 ? l * 2 : 200 - l * 2);
@@ -1901,6 +1896,7 @@ satus.components.colorPicker = function(component, skeleton) {
 
 						window.addEventListener('mousemove', mousemove);
 						window.addEventListener('mouseup', mouseup);
+						mousemove(event);
 					}
 				},
 
@@ -1932,7 +1928,7 @@ satus.components.colorPicker = function(component, skeleton) {
 					max: 360,
 					on: {
 						input: function() {
-							var modal = this.skeleton.parentSkeleton.parentSkeleton,
+							const modal = this.skeleton.parentSkeleton.parentSkeleton,
 								hsl = modal.value;
 
 							hsl[0] = this.value;
@@ -1952,11 +1948,11 @@ satus.components.colorPicker = function(component, skeleton) {
 					text: 'reset',
 					on: {
 						click: function() {
-							var modal = this.skeleton.parentSkeleton.parentSkeleton,
+							const modal = this.skeleton.parentSkeleton.parentSkeleton,
 								component = modal.parentElement;
 
 							component.color.value = component.skeleton.value || [0, 0, 0];
-							satus.storage.remove(component.storage.key);
+							component.storage.remove();
 
 							modal.rendered.close();
 						}
@@ -1976,7 +1972,7 @@ satus.components.colorPicker = function(component, skeleton) {
 					text: 'OK',
 					on: {
 						click: function() {
-							var modal = this.skeleton.parentSkeleton.parentSkeleton,
+							const modal = this.skeleton.parentSkeleton.parentSkeleton,
 								component = modal.parentElement;
 
 							component.color.value = satus.color.hslToRgb(modal.value);
