@@ -71,13 +71,15 @@ ImprovedTube.myColors = function () {
 
 				this.elements.my_colors = style;
 				document.documentElement.appendChild(style);
+				document.documentElement.removeAttribute('dark');
+				document.querySelector('ytd-masthead')?.removeAttribute('dark');
 				if (document.getElementById("cinematics")) {
-					document.getElementById("cinematics").style.visibility = 'hidden';
-				} 
+				document.getElementById('cinematics').style.display = 'none !important';
+				}		
 			} else {
 				this.elements.my_colors?.remove();
 			}
-	}
+}
 
 ImprovedTube.setTheme = function () {
 	switch(this.storage.theme) {
@@ -92,7 +94,6 @@ ImprovedTube.setTheme = function () {
 			}
 			this.elements.my_colors?.remove();
 			break
-
 		case 'light':
 			document.documentElement.removeAttribute('dark');
 			document.querySelector('ytd-masthead')?.removeAttribute('dark');
@@ -111,7 +112,9 @@ ImprovedTube.setTheme = function () {
 			break
 
 		case 'default':
-		default:
+		   	if (document.getElementById("cinematics")) {
+				document.getElementById('cinematics').style.visibility = 'visible';
+			}
 			this.elements.my_colors?.remove();
 			break
 	}
