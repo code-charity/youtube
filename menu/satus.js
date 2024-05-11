@@ -2488,18 +2488,28 @@ satus.components.checkbox = function(component, skeleton) {
 
 	component.childrenContainer = component.createChildElement('div', 'content');
 
-	component.dataset.value = component.storage.value || skeleton.value;
-	component.input.checked = component.storage.value || skeleton.value;
+	component.dataset.value = component.storage?.value || false;
+	component.input.checked = component.storage?.value || false;
 
 	component.input.addEventListener('change', function() {
-		var component = this.parentNode;
+		const component = this.parentNode;
 
 		if (this.checked === true) {
-			component.storage.value = true;
-			component.dataset.value = 'true';
+			component.dataset.value = true;
+			if (component.skeleton.value) {
+				// skeleton.value: true makes this a default true checkbox where the only active state we save is false
+				component.storage.remove();
+			} else {
+				component.storage.value = true;
+			}
 		} else {
-			component.storage.value = false;
-			component.dataset.value = 'false';
+			component.dataset.value = false;
+			if (component.skeleton.value) {
+				// skeleton.value: true makes this a default true checkbox where the only active state we save is false
+				component.storage.value = false;
+			} else {
+				component.storage.remove();
+			}
 		}
 	});
 };
