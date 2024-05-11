@@ -146,16 +146,14 @@ html[it-header-position=static] #chips-wrapper.ytd-feed-filter-chip-bar-renderer
 	top: 9px !important;
 }*/
 /*--------------------------------------------------------------
-# IMPROVE LOGO
+# WEBSITE LOGO
 --------------------------------------------------------------*/
+html[it-header-hide-logo='true'] #logo-icon yt-icon-shape {visibility:hidden}
 html[it-header-improve-logo='true'] ytd-topbar-logo-renderer path[fill='#FF0000'],
-html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'] {
-	fill: rgb(40, 40, 40) !important;
-}
-
-html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'] {
-	fill: rgb(66, 66, 66) !important;
-}
+html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'] 
+{fill: rgb(44, 44, 44) !important;}
+html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'] 
+{fill: rgb(70, 70, 70) !important;}
 /*--------------------------------------------------------------
 # HIDE RIGHT BUTTONS
 --------------------------------------------------------------*/

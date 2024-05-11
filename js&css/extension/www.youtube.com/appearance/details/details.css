@@ -20,9 +20,13 @@ html[it-red-dislike-button='true'] #top-level-buttons-computed #segmented-dislik
 	/*------SUBSCRIBE BUTTON------*/  
 html[it-subscribe='grey'] #subscribe-button button {background-color: #DDD !important; color:#111 !important;}
 html[it-subscribe='transparent'] #subscribe-button button {background-color:rgba(0, 0, 0, 0.4) !important; color:#111 !important;}
-	/* DISPLAY: NONE: */
+	/*  DISPLAY: NONE;*/
 html[it-subscribe='remove_label'] #subscribe-button button .yt-spec-button-shape-next__button-text-content,
 html[it-subscribe='hidden'] #subscribe-button,
+html[it-join='remove_label'] #sponsor-button button .yt-spec-button-shape-next__button-text-content,
+html[it-join='hidden'] #sponsor-button,
+html[it-purchase='remove_label'] #purchase-button button .yt-spec-button-shape-next__button-text-content,
+html[it-purchase='hidden'] #purchase-button,
 html[it-youtubeDetailButtons='remove_labels'] #menu button div:nth-child(2), 
 html[it-youtubeDetailButtons='remove_labels'] #menu button .yt-spec-button-shape-next__button-text-content, 
 html[it-youtubeDetailButtons='remove_labels'] #subscribe-button .yt-spec-button-shape-next__button-text-content,
@@ -85,11 +89,8 @@ html[it-hide-clip-button='hidden'] #flexible-item-buttons button#Clip-button,
 html[it-hide-clip-button='icons_only'] #flexible-item-buttons button#Clip-button div.yt-spec-button-shape-next__button-text-content,
 	/*------# HIDE SAVE BUTTON------*/
 html[it-hide-save-button='hidden'] #flexible-item-buttons button#Save-button,
-html[it-hide-save-button='icons_only'] #flexible-item-buttons button#Save-button div.yt-spec-button-shape-next__button-text-content
- /*=================================*/
-          {display: none;}  
- /*---------------------------------*/
-/*------# HIDE DETAILS-------------*/
+html[it-hide-save-button='icons_only'] #flexible-item-buttons button#Save-button div.yt-spec-button-shape-next__button-text-content,
+	/*------# HIDE DETAILS-------------*/
 html[it-hide-details='true'] ytd-video-primary-info-renderer,
 html[it-hide-details='true'] ytd-video-secondary-info-renderer,
 html[it-hide-details='true'] ytd-watch-metadata,

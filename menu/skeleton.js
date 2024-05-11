@@ -5,20 +5,17 @@
 # Header
 # Main
 --------------------------------------------------------------*/
-
 /*--------------------------------------------------------------
 # BASE
 --------------------------------------------------------------*/
-
-extension.skeleton = {
-	component: 'base'
+let extension = {
+	skeleton: {
+		component: 'base'
+	}
 };
-
-
 /*--------------------------------------------------------------
 # HEADER
 --------------------------------------------------------------*/
-
 extension.skeleton.header = {
 	component: 'header',
 
@@ -199,11 +196,9 @@ extension.skeleton.header = {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # MAIN
 --------------------------------------------------------------*/
-
 extension.skeleton.main = {
 	component: 'main',
 
@@ -243,6 +238,14 @@ extension.skeleton.main = {
 
 				return 'home';
 			}
-		}, "frame": { component: 'iframe', class: 'frame', attr: { 'src': 'https://improvedtube.com/wishes', 'style': 'border: none;  bottom: 0px; overflow: hidden; width:326px; position:absolute; height:212px; left:-6px !important' } }
+		},
+		frame: {
+			component: 'iframe',
+			class: 'frame',
+			attr: {
+				'src': 'https://improvedtube.com/wishes',
+				'style': 'border: none; bottom: 0px; overflow: hidden; width:326px; position: absolute; height:212px; left:-6px !important'
+			}
+		}
 	}
 };

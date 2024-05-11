@@ -303,16 +303,19 @@ extension.storage.listener = function () {
 
 extension.storage.load = function (callback) {
 	chrome.storage.local.get(function (items) {
-		for (var key in items) {
-			var value = items[key];
+		extension.storage.data = items;
 
-			extension.storage.data[key] = value;
+		// initialize theme in case YT is in Dark cookie mode
+		if (!extension.storage.data['theme'] && document.documentElement.hasAttribute('dark')) {
+			extension.storage.data['theme'] = 'dark';
+			chrome.storage.local.set({theme: 'dark'});
+		}
 
-			document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), value);
+		for (const key in items) {
+			document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
 		}
 
 		extension.events.trigger('storage-loaded');
-
 		extension.messages.send({
 			action: 'storage-loaded',
 			storage: items

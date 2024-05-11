@@ -225,11 +225,12 @@
 
 .satus-label--default-theme {
 	background: #f0f0f0;
+	height: 48px !important;
 }
 
 .satus-label--dark-theme {
 	position: relative;
-
+    height: 48px !important; margin-top: -5px !important;
 	overflow: hidden;
 
 	background: linear-gradient(#0d1216, #353d46) !important;
@@ -451,6 +452,7 @@
 
 .satus-label--black-theme {
 	background: #000 !important;
+	height: 72px !important;
 }
 
 .satus-radio__content {

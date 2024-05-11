@@ -12,6 +12,7 @@
 <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing#donate">Donate</a> · [Test🧪](https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip "Latest.zip")  </td></tr></table>
 <img src="https://github.com/code-for-charity/ImprovedTube-for-YouTube/blob/a61f214ddfab91f0a29f41beaf6c3c52e738e0d7/assets/icons/32.png" style="vertical-align:middle">
 <b> <code>/ImprovedTube/</code></b> a powerful but lightweight extension, <br> to enrich your video experience & enable your content selection. 
+<br>
 <table align="right"><tr><td>Top ~ <a href="https://addons.mozilla.org/en-US/firefox/search/?page=3&type=extension">60</a><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(We started late on Firefox, yet are among their ~100 recommentations)"><img width="140" alt="recommended by firefox" src="https://user-images.githubusercontent.com/9015764/178100681-728b9513-b6f8-4bf7-8949-c3d8449669ec.svg"></a><a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/" title="(We started late on Firefox, yet are among their ~100 recommentations)"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" height="19px"></a><a href="https://lifehacker.com/this-might-be-the-only-youtube-browser-extension-youll-1846575110" title="- Lifehacker.com 2021"><img src="https://lifehacker.com/favicon.ico" height="19px"></a> <a href="https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways" title="- gHacks.net">g</a> <a href="https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html" title="- Chip.de"><img src="https://www.chip.de/favicon.ico" height="15px"></a>
 <i>'Might <br> be the only YouTube Extension you'll ever need' <br> 'enhances YouTube in meaningful ways'  <br> 'Strong Add-on, full control. Yet clear & easy' </i>
 <br> Thanks ♡ to our <a href="https://github.com/ImprovedTube/ImprovedTube/graphs/contributors">c</a>ontributors, <a href="https://github.com/dodieboy" title="🏅">A</a>lan Tan, <a href="https://github.com/raszpl" title="🏅">R</a>aszpl
@@ -34,12 +35,11 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 **W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> 
 
 <h2>Contributing</h2>
-For more info on how to contribute, <br> please see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
+For more info on how to contribute, see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
+<br><br> Please join us! And let's re-define "<a href="https://en.wikipedia.org/wiki/Browser_extension">extensions</a>"!
+<i>Why are they often unfunded & neglected?</i>
 
-
-
-
-<br><table  align="right"><tr><td><h3><a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code></a>Roadmap</h3> <!-- The list below only stays formatted when there is a line break above --> 
+<table  align="right"><tr><td><h3><a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code></a>Roadmap</h3> <!-- The list below only stays formatted when there is a line break above --> 
 
  - [ ] _Find developers, patreons_ 
  - - [ ] _All [bugs](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+), many [wishes](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)_
@@ -195,7 +195,7 @@ Chinese + Hindi + Spanish. <br></i>
 (Compare: Wikipedia Bots. Would especially help medium-size projects.) <br> 
 (+[community-list of regEx](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
 ##### 💡 Vision for the _(tweaking-/userStyle-/"modding-"_)Community:
-We can optimize things for the world, greatly prioritized: [<img src="github.png" height="18px">UUT](https://github.com/code-charity/Universal-UserTweaks) <br>  ( <i> "insteada just tweakin@home like Sisyphos" </i> )
+We can optimize things for the world, greatly prioritized: [<img src="github.png" height="18px">Crowd Fixes](https://github.com/code-charity/Universal-UserTweaks) <br>  ( <i> "insteada just tweakin@home like Sisyphos" </i> )
 <br>
 ##### 💡 Got great ideas?   
 	
@@ -214,9 +214,9 @@ Please notify us if you have relavant (volunteer) work beyond this project! (or 
 <img width="313" alt="web store" src="https://user-images.githubusercontent.com/25022245/114263921-59069c80-99e8-11eb-9338-9a6e9f88c61e.png"> 
 <img width="400" alt="web store analytics" src="https://user-images.githubusercontent.com/25022245/114263939-69b71280-99e8-11eb-9bf7-358cecdbdbfd.png">
 <div align="center"><br><img align="center" width="400" alt="youtube recommmendation" src="https://user-images.githubusercontent.com/25022245/147240872-96be5476-722d-472f-a192-4bb47efb5f86.png"> <br> <br> <b>D</b>o you need to run a popular extension, site, app or repo?<br> We'd love to help meaningful projects@improvedtube.com 	
-	</div></details><br>
-
-<code>🏝<code>⛵</code>🏕</code> **To-Do / Maintenance:** <details><summary> <h3> <a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code> Labels</a>  </h3>(sorted/Filtered = Dynamic To-Do lists)</summary>
+	</div></details>
+<details><summary>
+<code>🏝<code>⛵</code>🏕</code> To-Do / Maintenance: <br> <h3> <a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code> Labels</a>  </h3>(sorted/Filtered = Dynamic To-Do lists)</summary>
 
 
 **0.** <code>[ ]</code>  [<code>**Bugs🐞**</code>](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+ "we aim to offer some bug-bounties. Please ask")  (<i>we try to offer some bug bounty. [Please ask](mailto:bugs@improvedtube.com?subject=TODO_BOUNTY_LINK  "especially if you are at a cheap/poor place ❤️") </i>.)  	
@@ -228,11 +228,24 @@ Please notify us if you have relavant (volunteer) work beyond this project! (or 
  
 <br>**0.1. <code>[ ]</code><i>** Tidy: <b> [<code>(Rest/Unsorted 'issues')</code>](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan%20ready+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3A"Niche%2Frare+usecase%3F%2Ffun%3F"++-label%3Aunclear "Our github issues, which are not yet labled yet to appear in one of the ToDo-categories above")  </i></b>
 > Further reading: [***"Contributing without programming"***](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)  & [*"Our CSS, JavaScript, json"*](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code>(<code> ***outdated**)* (*Newcomers are [we](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)lcome tho! We review all edits & love to collaborate*</code>)</code> 
- </details> <br> <details><summary>
-<code>📟</code> "ImprovedTube Ticker 2022" /Pinned Issues</summary>
-	 
-###### ❔[**<code><code><code>ImprovedTube controls</code></code></code>** in, under or around the video player or cursor](https://github.com/code4charity/YouTube-Extension/issues/1445).  <br> ❔[**<code><code>Meaningful/Most similar extensions</code></code>**? Social-Fixer, Youtube Enhancer, Simplify, ...](https://github.com/code4charity/YouTube-Extension/issues/1016).<br> 📟 We are focused on <code>updates, bugs & UX</code> but please keep up your wishes for Features!<code><code><code>♡</code></code></code><br> 📟 Enjoy **our projects: global** [**<code><code><code>Dark Mode</code></code></code>**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making, ...<br> 📟 **<code>2021</code>:** Firefox, Edge, Opera, Whale added (please try&rate) </details>
+ </details> <br> 
+<details><summary align="left"><code><b>Features</b> 🧰⋮⚙️🎛️☕🎧🎞️🎬🔊📈🎨⏯️</code></summary>
+<hr><h3> https://www.youtube.com/watch?v=SLfff7Kw_Xc  </h2>
 <hr>
+https://github.com/code-charity/youtube/wiki/Manual  
+<hr>
+                         
+ - Fit Video to window, default resolution or pop-up player
+ - Hiding distractions
+ - Youtube Themes, Colors & night schedule
+ - Video Repeat-, screenshot-, rotate-buttons
+ - Customizable hotkeys / shortcuts
+<div align=center><a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">[List of Features]</a></div>  
+ </details> 
+<details><summary>
+<code>📟</code> "ImprovedTube Ticker 2022" /Pinned Issues</summary>
+
+###### ❔[**<code><code><code>ImprovedTube controls</code></code></code>** in, under or around the video player or cursor](https://github.com/code4charity/YouTube-Extension/issues/1445).  <br> ❔[**<code><code>Meaningful/Most similar extensions</code></code>**? Social-Fixer, Youtube Enhancer, Simplify, ...](https://github.com/code4charity/YouTube-Extension/issues/1016).<br> 📟 We are focused on <code>updates, bugs & UX</code> but please keep up your wishes for Features!<code><code><code>♡</code></code></code><br> 📟 Enjoy **our projects: global** [**<code><code><code>Dark Mode</code></code></code>**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl), to tweak CSS everywhere + Theme engine in the making, ...<br> 📟 **<code>2021</code>:** Firefox, Edge, Opera, Whale added (please try&rate) </details>
 
 <details><summary><code>📜</code>Historic Introduction</summary> 
 
@@ -277,17 +290,10 @@ _[Full list](https://github.com/ImprovedTube/YouTube/wiki/Features)_
 |[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="28px" />](https://brave.com)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="28px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://www.microsoft.com/edge)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](https://addons.opera.com/en/extensions/details/install-chrome-extensions/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://www.apple.com/safari/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ | 
-</details><details><summary align="left">
-<code>🧰⋮⚙️🎛️☕🎧🎞️🎬🔊📈🎨⏯️...</code>List of Features</summary>
-                                    
- - Fit Video to window, default resolution or pop-up player
- - Hiding distractions
- - Youtube Themes, Colors & night schedule
- - Video Repeat-, screenshot-, rotate-buttons
- - Customizable hotkeys / shortcuts
-<div align=center><a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">[Full List of Features]</a></div>
- </details> <details><summary>
-<code>🔧</code> Installing from source</summary>
+</details>
+
+<details><summary>
+<code>🔧</code> Installing from source </summary>
 
 1.) **Download & extract the [[latest🧪version]](https://github.com/code4charity/YouTube-Extension/archive/refs/heads/master.zip) or  [[release]](https://github.com/code-for-charity/YouTube-Extension/releases)**
 - **Safari**: 

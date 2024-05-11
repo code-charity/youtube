@@ -1,4 +1,25 @@
 {
+    "analytics": {
+        "message": "Analytics"
+    }, 
+    "purchase": {
+        "message": "Purchase"
+    },    
+    "join": {
+        "message": "Join"
+    },
+    "youtubesLight": {
+        "message": "YouTube's Light"
+    },
+    "ambientLighting": {
+        "message": "Ambient lighting"
+    },
+    "undoTheNewSidebar": {
+        "message": "Undo the new sidebar!"
+    },
+    "hideLogo": {
+        "message": "Logo: Hide!"
+    },
     "2160p": {
         "message": "2160p - 4K"
     },
@@ -603,7 +624,7 @@
         "message": "Hide Shorts on the home page"
     },
     "hideMore": {
-        "message": "hide 'more"
+        "message": "Hide '...'"
     },
     "hidePlayerControlsBar": {
         "message": "Hide player controls bar"
@@ -618,7 +639,7 @@
         "message": "Hide playlist"
     },
     "hideReport": {
-        "message": "Hide report"
+        "message": "Hide 'Report'"
     },
     "hideRightButtons": {
         "message": "Hide right buttons"
@@ -690,7 +711,7 @@
         "message": "ImprovedTube version"
     },
     "improveLogo": {
-        "message": "Improve logo"
+        "message": "Logo: Monochrome!"
     },
     "increasePlaybackSpeed": {
         "message": "Increase playback speed"
@@ -735,7 +756,7 @@
         "message": "Light green"
     },
     "like": {
-        "message": "'Like'"
+        "message": "Like"
     },
     "liked": {
         "message": "Liked"
@@ -968,6 +989,9 @@
     "quality": {
         "message": "Quality"
     },
+    "qualityWithoutFocus": {
+        "message": "Quality without focus"
+    },
     "raised": {
         "message": "Raised"
     },
@@ -1080,7 +1104,7 @@
         "message": "Settings successfully imported"
     },
     "share": {
-        "message": "'Share'"
+        "message": "Share"
     },
     "shortcut_chapters": {
         "message": "Show chapters Sidebar"
@@ -1335,6 +1359,6 @@
         "message": "YouTube limits video quality to 1080p for h.264 codec"
     },
     "youtubesDark": {
-        "message": "YouTube's dark"
+        "message": "YouTube's Dark"
     }
 }

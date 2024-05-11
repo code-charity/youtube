@@ -3,7 +3,7 @@
 --------------------------------------------------------------*/
 
 .satus-header>.satus-section--align-start {
-	max-width: calc(100% - 96px);
+	max-width: calc(100% - 136px);
 }
 
 .satus-base .satus-span--title::after {
