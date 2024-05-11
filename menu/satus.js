@@ -1347,6 +1347,11 @@ satus.components.textField = function(component, skeleton) {
 			pre.update();
 		}
 	};
+
+	if (skeleton.syntax) {
+		component.syntax.set(skeleton.syntax);
+	}
+
 	component.focus = function() {
 		this.autofocus = true;
 		this.input.focus();
@@ -1372,13 +1377,7 @@ satus.components.textField = function(component, skeleton) {
 		}
 	});
 
-	if (skeleton.syntax) {
-		component.syntax.set(skeleton.syntax);
-	}
-
-	if (component.skeleton.storage) {
-		component.value = component.storage.value;
-	}
+	component.value = component.storage?.value || '';
 
 	selection.setAttribute('disabled', '');
 
