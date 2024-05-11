@@ -97,6 +97,10 @@ extension.skeleton.main.layers.section.appearance.on.click.header = {
 				component: "switch",
 				text: "transparentBackground"
 			},
+			header_transparent_alternative: {
+				component: "switch",
+				text: "Transparent background alternative"
+			},
 			header_hide_country_code: {
 				component: "switch",
 				text: "hideCountryCode",
