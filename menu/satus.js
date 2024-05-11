@@ -11,18 +11,18 @@
 						Element NodeList Number String
 			log()
 # DOM: append(child, parent)
-		setAttributes(element, attributes)					=attr()
+		setAttributes(element, attributes) =attr()
 		createElement(tagName, componentName, namespaceURI)
 		empty(element, exclude = [])
 		elementIndex(element)
 
 # CSS: css(element, property)
-		addClass(element, className)							 =class()
+		addClass(element, className) =class()
 		satus.style(element, object)
 		getAnimationDuration(element)
 
 # CRYPTION (async): decrypt(text, password)
-					 encrypt(text, password)
+		encrypt(text, password)
 
 Events.on(type, handler)
 Events.trigger(type, data)
@@ -54,7 +54,7 @@ last(variable)
 # LOCALIZATION
 locale.get(string)
 locale.import = function(code, callback, path)
-	//satus.locale.import(url, onload, onsuccess);
+//satus.locale.import(url, onload, onsuccess);
 
 text(element, value)
 
@@ -2055,36 +2055,39 @@ satus.components.radio = function(component, skeleton) {
 --------------------------------------------------------------*/
 
 satus.components.slider = function(component, skeleton) {
-	var content = component.createChildElement('div', 'content'),
-		children_container = content.createChildElement('div', 'children-container'),
-		text_input = content.createChildElement('input'),
+	const content = component.createChildElement('div', 'content'),
+		childrenContainer = content.createChildElement('div', 'children-container'),
+		textInput = content.createChildElement('input'),
 		track_container = component.createChildElement('div', 'track-container'),
 		input = track_container.createChildElement('input', 'input');
 
-	component.childrenContainer = children_container;
-	component.textInput = text_input;
+	component.childrenContainer = childrenContainer;
 	component.input = input;
+	component.textInput = textInput;
 	component.track = track_container.createChildElement('div', 'track');
-
-	text_input.type = 'text';
 
 	input.type = 'range';
 	input.min = skeleton.min || 0;
 	input.max = skeleton.max || 1;
 	input.step = skeleton.step || 1;
-	input.value = component.storage?.value || skeleton.value || 0;
+	input.value = component.storage?.value || 0;
 
-	text_input.addEventListener('blur', function() {
-		var component = this.parentNode.parentNode;
+	textInput.type = 'text';
+	textInput.value = input.value;
+
+	component.track.style.width = 100 / (input.max - input.min) * (input.value - input.min) + '%';
+
+	textInput.addEventListener('blur', function() {
+		const component = this.parentNode.parentNode;
 
 		component.input.value = Number(this.value.replace(/[^0-9.]/g, ''));
 
 		component.update();
 	});
 
-	text_input.addEventListener('keydown', function(event) {
+	textInput.addEventListener('keydown', function(event) {
 		if (event.key === 'Enter') {
-			var component = this.parentNode.parentNode;
+			const component = this.parentNode.parentNode;
 
 			component.input.value = Number(this.value.replace(/[^0-9.]/g, ''));
 
@@ -2093,7 +2096,7 @@ satus.components.slider = function(component, skeleton) {
 	});
 
 	input.addEventListener('input', function() {
-		var component = this.parentNode.parentNode;
+		const component = this.parentNode.parentNode;
 
 		component.value = Number(this.value);
 
@@ -2104,6 +2107,7 @@ satus.components.slider = function(component, skeleton) {
 		const input = this.input;
 
 		this.textInput.value = input.value;
+
 		if (component.storage) {
 			if (component.skeleton.value == Number(input.value)) {
 				component.storage.remove();
@@ -2115,10 +2119,8 @@ satus.components.slider = function(component, skeleton) {
 		this.track.style.width = 100 / (input.max - input.min) * (input.value - input.min) + '%';
 	};
 
-	component.update();
-
 	if (skeleton.on) {
-		for (var type in skeleton.on) {
+		for (const type in skeleton.on) {
 			input.addEventListener(type, function(event) {
 				this.parentNode.parentNode.dispatchEvent(new Event(event.type));
 			});
