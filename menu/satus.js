@@ -1599,34 +1599,21 @@ satus.components.chart.bar = function(component, skeleton) {
 >>> SELECT
 --------------------------------------------------------------*/
 satus.components.select = function(component, skeleton) {
-	var content = component.createChildElement('div', 'content');
-
-	component.childrenContainer = content;
+	component.childrenContainer = component.createChildElement('div', 'content');
 	component.valueElement = document.createElement('span');
-	component.selectElement = document.createElement('select');
-
 	component.valueElement.className = 'satus-select__value';
+	component.selectElement = document.createElement('select');
 
 	component.appendChild(component.valueElement);
 	component.appendChild(component.selectElement);
 
-	component.options = skeleton.options || [];
+	component.options = satus.isFunction(skeleton.options) ? skeleton.options() : skeleton.options || [];
+	
+	for (const options of component.options) {
+		const option = document.createElement('option');
 
-	if (satus.isFunction(component.options)) {
-		component.options = component.options();
-
-		if (!satus.isset(component.options)) {
-			component.options = [];
-		}
-	}
-
-	for (var i = 0, l = component.options.length; i < l; i++) {
-		var option = document.createElement('option');
-
-		option.value = component.options[i].value;
-
-		satus.text(option, component.options[i].text);
-
+		option.value = options.value;
+		satus.text(option, options.text);
 		component.selectElement.appendChild(option);
 	}
 
@@ -1640,28 +1627,39 @@ satus.components.select = function(component, skeleton) {
 	});
 
 	component.render = function() {
+		const component = this.selectElement;
+		
 		satus.empty(this.valueElement);
 
-		if (this.selectElement.options[this.selectElement.selectedIndex]) {
-			satus.text(this.valueElement, this.selectElement.options[this.selectElement.selectedIndex].text);
+		if (component.options[component.selectedIndex]) {
+			satus.text(this.valueElement, component.options[component.selectedIndex].text);
 		}
 
-		this.dataset.value = this.value;
+		this.dataset.value = component.value;
 	};
 
-	component.selectElement.addEventListener('change', function() {
-		var component = this.parentNode;
+	// default is either in order: .value | .index | first options element
+	const defValue = [component.skeleton.value, component.options[skeleton.index]?.value, component.options[0]?.value].find(value => satus.isset(value));
 
-		component.storage.value = this.value;
+	component.selectElement.addEventListener('change', function() {
+		const component = this.parentNode;
+
+		// compare selection against default
+		if (this.value == defValue) {
+			// we dont store defaults
+			component.storage.remove();
+		} else {
+			component.storage.value = this.value;
+		}
 
 		component.render();
 	});
 
-	component.value = component.storage.value || component.options[0].value;
+	// try in order: storage (this includes fallback to .value), .index, first options element
+	component.value = [component.storage?.value, component.options[skeleton.index]?.value, component.options[0]?.value].find(value => satus.isset(value));
 
 	component.render();
 };
-
 /*--------------------------------------------------------------
 >>> DIVIDER
 --------------------------------------------------------------*/
