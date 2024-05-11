@@ -1272,14 +1272,14 @@ satus.components.grid = function(component, skeleton) {
 >>> TEXT FIELD
 --------------------------------------------------------------*/
 satus.components.textField = function(component, skeleton) {
-	var container = component.createChildElement('div', 'container'),
+	const container = component.createChildElement('div', 'container'),
 		input = container.createChildElement(skeleton.rows === 1 ? 'input' : 'textarea'),
 		display = container.createChildElement('div', 'display'),
-		line_numbers = display.createChildElement('div', 'line-numbers'),
+		hiddenValue = container.createChildElement('pre', 'hidden-value'),
+		lineNumbers = display.createChildElement('div', 'line-numbers'),
 		pre = display.createChildElement('pre'),
 		selection = display.createChildElement('div', 'selection'),
-		cursor = display.createChildElement('div', 'cursor'),
-		hiddenValue = container.createChildElement('pre', 'hidden-value');
+		cursor = display.createChildElement('div', 'cursor');
 
 	if (skeleton.rows === 1) {
 		component.setAttribute('multiline', 'false');
@@ -1289,23 +1289,23 @@ satus.components.textField = function(component, skeleton) {
 	component.placeholder = skeleton.placeholder;
 	component.input = input;
 	component.display = display;
-	component.lineNumbers = line_numbers;
-	component.pre = pre;
 	component.hiddenValue = hiddenValue;
+	component.lineNumbers = lineNumbers;
+	component.pre = pre;
 	component.selection = selection;
 	component.cursor = cursor;
 	component.syntax = {
 		current: 'text',
 		handlers: {
 			regex: function(value, target) {
-				var regex_token = /\[\^?]?(?:[^\\\]]+|\\[\S\s]?)*]?|\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9][0-9]*|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)|\((?:\?[:=!]?)?|(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??|[^.?*+^${[()|\\]+|./g,
+				const regex_token = /\[\^?]?(?:[^\\\]]+|\\[\S\s]?)*]?|\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9][0-9]*|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)|\((?:\?[:=!]?)?|(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??|[^.?*+^${[()|\\]+|./g,
 					char_class_token = /[^\\-]+|-|\\(?:[0-3][0-7]{0,2}|[4-7][0-7]?|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)/g,
 					char_class_parts = /^(\[\^?)(]?(?:[^\\\]]+|\\[\S\s]?)*)(]?)$/,
 					quantifier = /^(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??$/,
 					matches = value.match(regex_token);
 
 				function create(type, string) {
-					var span = document.createElement('span');
+					const span = document.createElement('span');
 
 					span.className = type;
 					span.textContent = string;
@@ -1314,8 +1314,8 @@ satus.components.textField = function(component, skeleton) {
 				}
 
 				if (matches) {
-					for (var i = 0, l = matches.length; i < l; i++) {
-						var match = matches[i];
+					for (let i = 0, l = matches.length; i < l; i++) {
+						const match = matches[i];
 
 						if (match[0] === '[') {
 							create('character-class', match);
@@ -1347,22 +1347,18 @@ satus.components.textField = function(component, skeleton) {
 		}
 	};
 	component.focus = function() {
-		this.autofocus = true;	this.input.focus();
+		this.autofocus = true;
+		this.input.focus();
 	};
 
 	if (skeleton.lineNumbers === false) {
 		component.setAttribute('line-numbers', 'false');
 
-		component.lineNumbers.setAttribute('hidden', '');
+		lineNumbers.setAttribute('hidden', '');
 	}
 
-	if (satus.isset(skeleton.cols)) {
-		input.cols = skeleton.cols;
-	}
-
-	if (satus.isset(skeleton.rows)) {
-		input.rows = skeleton.rows;
-	}
+	input.cols = skeleton.cols;
+	input.rows = skeleton.rows;
 
 	Object.defineProperty(component, 'value', {
 		get: function() {
@@ -1385,15 +1381,15 @@ satus.components.textField = function(component, skeleton) {
 
 	selection.setAttribute('disabled', '');
 
-	line_numbers.update = function() {
-		var component = this.parentNode.parentNode.parentNode,
+	lineNumbers.update = function() {
+		const component = this.parentNode.parentNode.parentNode,
 			count = component.input.value.split('\n').length;
 
 		if (count !== this.children.length) {
 			satus.empty(this);
 
-			for (var i = 1; i <= count; i++) {
-				var span = document.createElement('span');
+			for (let i = 1; i <= count; i++) {
+				const span = document.createElement('span');
 
 				span.textContent = i;
 
@@ -1405,7 +1401,7 @@ satus.components.textField = function(component, skeleton) {
 	};
 
 	pre.update = function() {
-		var component = this.parentNode.parentNode.parentNode,
+		const component = this.parentNode.parentNode.parentNode,
 			handler = component.syntax.handlers[component.syntax.current],
 			value = component.value || '';
 
@@ -1431,53 +1427,50 @@ satus.components.textField = function(component, skeleton) {
 	};
 
 	cursor.update = function() {
-		var component = this.parentNode.parentNode.parentNode,
+		const component = this.parentNode.parentNode.parentNode,
+			hiddenValue = component.hiddenValue,
+			selection = component.selection,
 			input = component.input,
 			value = input.value,
-			rows_count = value.split('\n').length,
 			start = input.selectionStart,
 			end = input.selectionEnd,
-			rows = value.slice(0, start).split('\n'),
-			top = 0;
+			rows = value.slice(0, start).split('\n');
+		let	top;
 
 		this.style.animation = 'none';
 
 		if (input.selectionDirection === 'forward') {
-			component.hiddenValue.textContent = value.substring(0, end);
+			hiddenValue.textContent = value.substring(0, end);
 		} else {
-			component.hiddenValue.textContent = value.substring(0, start);
+			hiddenValue.textContent = value.substring(0, start);
 		}
 
-		top = component.hiddenValue.offsetHeight;
+		top = hiddenValue.offsetHeight;
 
-		component.hiddenValue.textContent = satus.last(rows);
+		hiddenValue.textContent = satus.last(rows);
 
-		top -= component.hiddenValue.offsetHeight;
+		top -= hiddenValue.offsetHeight;
 
 		if (component.multiline !== false) {
 			this.style.top = top + 'px';
 		}
 
-		this.style.left = component.hiddenValue.offsetWidth + component.lineNumbers.offsetWidth + 'px';
+		this.style.left = hiddenValue.offsetWidth + component.lineNumbers.offsetWidth + 'px';
 
 		if (start === end) {
-			component.selection.setAttribute('disabled', '');
+			selection.setAttribute('disabled', '');
 		} else {
-			component.selection.removeAttribute('disabled');
+			selection.removeAttribute('disabled');
 
-			component.hiddenValue.textContent = value.substring(0, start);
-			//console.log(value.substring(0, start));
-			component.selection.style.left = component.hiddenValue.offsetWidth - input.scrollLeft + 'px';
-			//console.log(component.hiddenValue.offsetWidth); console.log( input.scrollLeft )
-			component.hiddenValue.textContent = value.substring(start, end);
-			//console.log(component.hiddenValue.textContent);
-			component.selection.style.width = component.hiddenValue.offsetWidth + 'px';
-			//console.log(component.hiddenValue.offsetWidth);
+			hiddenValue.textContent = value.substring(0, start);
+			selection.style.left = hiddenValue.offsetWidth - input.scrollLeft + 'px';
+			hiddenValue.textContent = value.substring(start, end);
+			selection.style.width = hiddenValue.offsetWidth + 'px';
 		}
 
 		this.style.animation = '';
 
-		component.hiddenValue.textContent = '';
+		hiddenValue.textContent = '';
 	};
 
 	// global listener, make sure we remove when element no longer exists
@@ -1494,7 +1487,7 @@ satus.components.textField = function(component, skeleton) {
 	document.addEventListener('selectionchange', selectionchange);
 
 	input.addEventListener('input', function() {
-		var component = this.parentNode.parentNode;
+		const component = this.parentNode.parentNode;
 
 		if (component.skeleton.storage) {
 			component.storage.value = this.value;
@@ -1506,7 +1499,7 @@ satus.components.textField = function(component, skeleton) {
 	});
 
 	input.addEventListener('scroll', function(event) {
-		var component = this.parentNode.parentNode;
+		const component = this.parentNode.parentNode;
 
 		component.display.style.top = -this.scrollTop + 'px';
 		component.display.style.left = -this.scrollLeft + 'px';
