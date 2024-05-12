@@ -576,3 +576,55 @@ ImprovedTube.channelVideosCount = function () {
         xhr.send();
     }
 };
+if (ImprovedTube.storage.header_transparent2 === true) {
+    /*------------------------------------------------------------------------------
+    TURN TOP BAR TRANSPARENT WHEN SCROLLING
+    ------------------------------------------------------------------------------*/
+    window.addEventListener('scroll', function () {
+        var masthead = document.querySelector('html[it-header-transparent=true] ytd-masthead');
+        var endButtons = masthead.querySelector('#end');
+
+        if (window.scrollY === 0) {
+            endButtons.style.visibility = 'visible';
+        } else {
+            endButtons.style.visibility = 'hidden';
+        }
+    });
+
+    function handleScroll() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var buttonsContainer = document.getElementById('buttons');
+
+        if (scrollTop > 100) {
+            buttonsContainer.classList.add('hidden');
+        } else {
+            buttonsContainer.classList.remove('hidden');
+        }
+    }
+
+    /*------------------------------------------------------------------------------
+    CHECK IF USER IS SCROLLING
+    ------------------------------------------------------------------------------*/
+    window.addEventListener("scroll", handleScroll);
+
+    function getScrollDirection() {
+        var lastScrollTop = 0;
+        return function() {
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+            var scrollDirection = st > lastScrollTop ? 'down' : 'up';
+            lastScrollTop = st <= 0 ? 0 : st;
+            return scrollDirection;
+        };
+    }
+
+    var scrollDirection = getScrollDirection();
+
+    window.addEventListener('scroll', function() {
+        var direction = scrollDirection();
+        if (direction === 'down') {
+            document.documentElement.setAttribute('data-scroll-direction', 'down');
+        } else {
+            document.documentElement.removeAttribute('data-scroll-direction');
+        }
+    });
+}
