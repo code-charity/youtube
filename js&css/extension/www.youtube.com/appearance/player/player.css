@@ -28,6 +28,9 @@ html[it-always-show-progress-bar='true'] .html5-video-player:not(.it-mini-player
 	bottom: 0 !important;
 }
 
+html[it-always-show-progress-bar='true'] .DesktopShortsPlayerControlsHostHideProgressBar {
+    visibility: visible;
+}
 
 /*--------------------------------------------------------------
 # COLOR
