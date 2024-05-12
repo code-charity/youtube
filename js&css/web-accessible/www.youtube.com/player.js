@@ -637,7 +637,7 @@ ImprovedTube.playerLoudnessNormalization = function () {
 SCREENSHOT
 ------------------------------------------------------------------------------*/
 ImprovedTube.screenshot = function () {
-	var video = ImprovedTube.elements.video,
+	const video = ImprovedTube.elements.video,
 		style = document.createElement('style'),
 		cvs = document.createElement('canvas'),
 		ctx = cvs.getContext('2d');
@@ -651,27 +651,28 @@ ImprovedTube.screenshot = function () {
 
 	setTimeout(function () {
 		ctx.drawImage(video, 0, 0, cvs.width, cvs.height);
-		var subText = '';
-		var captionElements = document.querySelectorAll('.captions-text .ytp-caption-segment');
-			captionElements.forEach(function (caption) {subText += caption.textContent.trim() + ' ';});	
-			
-		if(ImprovedTube.storage.embed_subtitle === true){ImprovedTube.renderSubtitle(ctx,captionElements);}
+		let subText = '',
+			captionElements = document.querySelectorAll('.captions-text .ytp-caption-segment');
+
+		captionElements.forEach(function (caption) {subText += caption.textContent.trim() + ' ';});
+
+		if (ImprovedTube.storage.embed_subtitle != false) {
+			ImprovedTube.renderSubtitle(ctx,captionElements);
+		}
 
 		cvs.toBlob(function (blob) {
-			if (ImprovedTube.storage.player_screenshot_save_as !== 'clipboard') {
-				var a = document.createElement('a');
-				a.href = URL.createObjectURL(blob); console.log("screeeeeeenshot tada!");
-
-
-				a.download = (ImprovedTube.videoId() || location.href.match) + ' ' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + ' ' + ImprovedTube.videoTitle() + (subText ? ' - ' + subText.trim() : '') + '.png';
-
-				a.click();
-			} else {
+			if (ImprovedTube.storage.player_screenshot_save_as == 'clipboard') {
 				navigator.clipboard.write([
 					new ClipboardItem({
 						'image/png': blob
 					})
 				]);
+			} else {
+				let a = document.createElement('a');
+				a.href = URL.createObjectURL(blob);
+				console.log("screeeeeeenshot tada!");
+				a.download = (ImprovedTube.videoId() || location.href.match) + ' ' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + ' ' + ImprovedTube.videoTitle() + (subText ? ' - ' + subText.trim() : '') + '.png';
+				a.click();
 			}
 		});
 
