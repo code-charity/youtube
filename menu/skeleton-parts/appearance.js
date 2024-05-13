@@ -8,6 +8,12 @@
 # Footer
 # Sidebar
 --------------------------------------------------------------*/
+satus.storage.onchanged((key, value) => { 
+    if (key === "related_videos" && value === "Titles") {
+        satus.storage.set('relatedVideosPrev', "Titles"); 
+        console.log(satus.storage.get("relatedVideosPrev"));
+    }
+});
 extension.skeleton.main.layers.section.appearance = {
 	component: "button",
 	variant: "appearance",
@@ -839,13 +845,17 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 				}],
 				tags: "right",
 				on: {
-					click: function () {  setTimeout(() => {
-						if (satus.storage.get('related_videos')==="Titles") {
-							if (!satus.storage.get('thumbnails_right')) {
+					click: function () {
+						setTimeout(() => {							
+						if (satus.storage.get('related_videos')==="Titles" 
+							&& satus.storage.get("relatedVideosPrev") ==="Titles") {if (!satus.storage.get('thumbnails_right')) {
 								this.nextSibling.nextSibling.click();
-							}
-						}
-					}, 250); }
+								satus.storage.set('relatedVideosPrev', "notTitles")
+								} 
+						} 			
+						}, 650) 
+																			
+					}
 				}
 			},
 			sidebar_left: {
