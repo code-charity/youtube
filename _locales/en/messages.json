@@ -8,6 +8,9 @@
     "join": {
         "message": "Join"
     },
+    "dim": {
+        "message": "Dim! - Cursor: light (combines with black-theme & OLED)"
+    },
     "youtubesLight": {
         "message": "YouTube's Light"
     },

@@ -12,6 +12,30 @@
 # Hide aniamted thubmnails
 # Hide buttons on thumbnails
 --------------------------------------------------------------*/
+html[it-dimm=true] #below			{opacity:.4; transition:3s;}
+html[it-dimm=true] #below:hover	{opacity:1; transition:.5s;}
+html[it-dimm=true] #secondary		{opacity:.4; transition:3s;}
+html[it-dimm=true] #secondary:hover{opacity:1; transition:0.6s}
+html[it-dimm=true] #masthead		{opacity:.3; transition:3s;}
+html[it-dimm=true] #masthead:focus-within  {opacity:0.8;}
+html[it-dimm=true] #masthead:focus-within  #logo-id {opacity:0.3; filter:grayscale(90%)}
+html[it-dimm=true] #masthead:hover	{opacity:1; transition:.2s}
+
+html[it-dimm=true] ytd-two-column-browse-results-renderer,
+html[it-dimm=true] ytd-search			{opacity:.7; transition:5s;}
+html[it-dimm=true] ytd-two-column-browse-results-renderer:hover,
+html[it-dimm=true] ytd-search:hover		{opacity:1; transition:3s}
+html[it-dimm=true] ytd-mini-guide-renderer,
+html[it-dimm=true] ytd-mini-guide-renderer:hover,
+html[it-dimm=true] #dismissible			{opacity:.7; transition:3s;}
+html[it-dimm=true] #dismissible:hover		{opacity:1; transition:.2s}
+html[it-dimm=true][data-page-type=home] #dismissible:hover,
+html[it-dimm=true][it-pathname^='/feed'] #dismissible:hover
+							{transition-delay:.19s !important;}
+html[it-dimm=true]:not([data-page-type=video]) #guide-content	 
+							{opacity:.4; transition:2s}
+html[it-dimm=true]:not([data-page-type=video]) #guide-content:hover
+							{opacity:1; transition:.3s}
 /*--------------------------------------------------------------
 # REMOVE RELATED SEARCH RESULTS
 --------------------------------------------------------------*/
