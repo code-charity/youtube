@@ -2939,7 +2939,9 @@ satus.user.browser.name = function() {
 		return 'Edge';
 	} else if (user_agent.indexOf('Chrome') !== -1) {
 		return 'Chrome';
-	} else if (user_agent.indexOf('Safari') !== -1) {
+	} else if (user_agent.indexOf('Safari') !== -1 
+				&& (!/Windows|Chrom/.test(user_agent) 
+				|| /Macintosh|iPhone/.test(user_agent))) {
 		return 'Safari';
 	} else if (user_agent.indexOf('Firefox') !== -1) {
 		return 'Firefox';
