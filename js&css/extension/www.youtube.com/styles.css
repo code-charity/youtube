@@ -2065,38 +2065,43 @@ YT hardcoded CSS for DARK/light mode switching
 Need HTML in front to make CSS rule more specific than one they are overiding
 ------------------------------------------------------------------------------*/
 
-html[data-page-type=video] .yt-spec-icon-shape,
-html[data-page-type=video] .yt-spec-icon-badge-shape--style-overlay .yt-spec-icon-badge-shape__icon,
-html[data-page-type=video] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text,
-html[data-page-type=video] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-html[data-page-type=video] .yt-video-attribute-view-model__title {
+/*possible fix:
+#hover-overlays .yt-spec-icon-shape,
+ytd-thumbnail-overlay-toggle-button-renderer .yt-spec-icon-shape  {color:white;}  
+*/
+
+/* html .yt-spec-icon-shape, */
+html .yt-spec-icon-badge-shape--style-overlay .yt-spec-icon-badge-shape__icon,
+html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text,
+html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html .yt-video-attribute-view-model__title {
     color: var(--yt-spec-text-primary);
 }
 
 /*Dark colors get highlight*/
-html[data-page-type=video] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
     background-color: rgba(255, 255, 255, 0.1);
 }
 /*Light colors get shadow, overrides above highlight*/
-html[data-page-type=video][it-theme=desert] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-html[data-page-type=video][it-theme=plain] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-html[data-page-type=video]:not([dark]):not([it-theme=black]):not([it-theme=sunset]):not([it-theme=night]):not([it-theme=dawn]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+html[it-theme=desert] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html[it-theme=plain] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+html:not([dark]):not([it-theme=black]):not([it-theme=sunset]):not([it-theme=night]):not([it-theme=dawn]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
 	background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
 /*subscribe button when not subscribed*/
-html[data-page-type=video] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
+html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
     color: var(--yt-spec-base-background);
     background-color: var(--yt-spec-text-primary);
 }
 
 /*override bell and thumbs up icons hardcoded colors inside SVG data*/
 /*bell icon*/
-html[data-page-type=video] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
+html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
 	fill: var(--yt-spec-text-primary);
 }
 
 /*thumbs up icon*/
-html[data-page-type=video] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
+html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
 	stroke: var(--yt-spec-text-primary);
 }
