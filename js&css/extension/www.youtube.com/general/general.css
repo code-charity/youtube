@@ -12,29 +12,29 @@
 # Hide aniamted thubmnails
 # Hide buttons on thumbnails
 --------------------------------------------------------------*/
-html[it-dim=true] #below			{opacity:.4; transition:3s;}
-html[it-dim=true] #below:hover	{opacity:1; transition:.5s;}
-html[it-dim=true] #secondary		{opacity:.4; transition:3s;}
-html[it-dim=true] #secondary:hover{opacity:1; transition:0.6s}
-html[it-dim=true] #masthead		{opacity:.3; transition:3s;}
-html[it-dim=true] #masthead:focus-within  {opacity:0.8;}
-html[it-dim=true] #masthead:focus-within  #logo-id {opacity:0.3; filter:grayscale(90%)}
-html[it-dim=true] #masthead:hover	{opacity:1; transition:.2s}
+html[it-cursorLighting=true] #below			{opacity:.4; transition:3s;}
+html[it-cursorLighting=true] #below:hover	{opacity:1; transition:.5s;}
+html[it-cursorLighting=true] #secondary		{opacity:.4; transition:3s;}
+html[it-cursorLighting=true] #secondary:hover{opacity:1; transition:0.6s}
+html[it-cursorLighting=true] #masthead		{opacity:.3; transition:3s;}
+html[it-cursorLighting=true] #masthead:focus-within  {opacity:0.8;}
+html[it-cursorLighting=true] #masthead:focus-within  #logo-id {opacity:0.3; filter:grayscale(90%)}
+html[it-cursorLighting=true] #masthead:hover	{opacity:1; transition:.2s}
 
-html[it-dim=true] ytd-two-column-browse-results-renderer,
-html[it-dim=true] ytd-search			{opacity:.7; transition:5s;}
-html[it-dim=true] ytd-two-column-browse-results-renderer:hover,
-html[it-dim=true] ytd-search:hover		{opacity:1; transition:3s}
-html[it-dim=true] ytd-mini-guide-renderer,
-html[it-dim=true] ytd-mini-guide-renderer:hover,
-html[it-dim=true] #dismissible			{opacity:.7; transition:3s;}
-html[it-dim=true] #dismissible:hover		{opacity:1; transition:.2s}
-html[it-dim=true][data-page-type=home] #dismissible:hover,
-html[it-dim=true][it-pathname^='/feed'] #dismissible:hover
+html[it-cursorLighting=true] ytd-two-column-browse-results-renderer,
+html[it-cursorLighting=true] ytd-search			{opacity:.7; transition:5s;}
+html[it-cursorLighting=true] ytd-two-column-browse-results-renderer:hover,
+html[it-cursorLighting=true] ytd-search:hover		{opacity:1; transition:3s}
+html[it-cursorLighting=true] ytd-mini-guide-renderer,
+html[it-cursorLighting=true] ytd-mini-guide-renderer:hover,
+html[it-cursorLighting=true] #dismissible			{opacity:.7; transition:3s;}
+html[it-cursorLighting=true] #dismissible:hover		{opacity:1; transition:.2s}
+html[it-cursorLighting=true][data-page-type=home] #dismissible:hover,
+html[it-cursorLighting=true][it-pathname^='/feed'] #dismissible:hover
 							{transition-delay:.19s !important;}
-html[it-dimm=true]:not([data-page-type=video]) #guide-content	 
+html[it-cursorLighting=true]:not([data-page-type=video]) #guide-content	 
 							{opacity:.4; transition:2s}
-html[it-dimm=true]:not([data-page-type=video]) #guide-content:hover
+html[it-cursorLighting=true]:not([data-page-type=video]) #guide-content:hover
 							{opacity:1; transition:.3s}
 /*--------------------------------------------------------------
 # REMOVE RELATED SEARCH RESULTS

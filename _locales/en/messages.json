@@ -11,7 +11,7 @@
     "improvedTubeSidePanel": {
         "message": "ImprovedTube: Browser Sidepanel"
     },
-    "dim": {
+    "cursorLighting": {
         "message": "Dim! - Cursor: light (combines with black-theme & OLED)"
     },
     "youtubesLight": {
