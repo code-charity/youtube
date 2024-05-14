@@ -19,7 +19,7 @@
 		"default_area": "navbar"
 	},
 	"side_panel": {
-		"default_path": "menu/index.html"
+		"default_path": "menu/sidepanel.html"
     },
 	"options_page": "menu/index.html",
 	"options_ui": {
@@ -82,7 +82,8 @@
 				"js&css/web-accessible/www.youtube.com/blocklist.js",
 				"js&css/web-accessible/www.youtube.com/settings.js",
 				"js&css/web-accessible/init.js",
-				"js&css/web-accessible/mutations.js"
+				"js&css/web-accessible/mutations.js",
+				"stuff/icons/48.png"
 			],
 			"matches": [
 				"https://www.youtube.com/*"

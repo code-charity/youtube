@@ -365,6 +365,9 @@ html[it-channel-hide-featured-content=true] #secondary ytd-browse-secondary-cont
 	content: '';
 	border-radius: 50%;
 	background: #f00;
+	/*  background-image: url('/stuff/icons/48.png'); 
+    background-size: cover;
+    background-position: center; */
 }
 
 .it-button::after {
