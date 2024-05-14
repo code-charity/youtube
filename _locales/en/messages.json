@@ -7,6 +7,9 @@
     },    
     "join": {
         "message": "Join"
+    },  
+    "improvedTubeSidePanel": {
+        "message": "ImprovedTube: Browser Sidepanel"
     },
     "dim": {
         "message": "Dim! - Cursor: light (combines with black-theme & OLED)"

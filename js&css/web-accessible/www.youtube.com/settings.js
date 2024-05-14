@@ -81,12 +81,12 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 
 				iframe.className = 'it-button__iframe';
 
-				if (document.body.offsetWidth - left < 308) {
-					left = document.body.offsetWidth - 308;
+				if (document.body.offsetWidth - left < 320) {
+					left = document.body.offsetWidth - 320;
 				}
 
-				if (window.innerHeight - top < Math.min(600, window.innerHeight) + 8) {
-					top = window.innerHeight - Math.min(600, window.innerHeight) - 8;
+				if (window.innerHeight - top < Math.min(586, window.innerHeight) + 8) {
+					top = window.innerHeight - Math.min(586, window.innerHeight) - 8;
 				}
 
 				iframe.style.left = left + 'px';

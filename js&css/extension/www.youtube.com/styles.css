@@ -443,7 +443,7 @@ ytd-guide-section-renderer .it-button::after {
 	overflow: hidden;
 	width: 320px;
 	max-width: calc(100vw - 16px);
-	height: 600px;
+	height: 586px;
 	max-height: calc(100vh - 16px);
 	margin: 0;
 	padding: 0;

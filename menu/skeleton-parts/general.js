@@ -34,6 +34,10 @@ extension.skeleton.main.layers.section.general = {
 						value: 'below_player'
 					}]
 				},
+				improvedTubeSidePanel: {
+					component: 'switch',
+					text: 'improvedTubeSidePanel'
+					},
 				default_content_country: {
 					component: 'select',
 					text: 'defaultContentCountry',
@@ -42,7 +46,7 @@ extension.skeleton.main.layers.section.general = {
 				dim: {
 					component: "switch",
 					text: "dim",
-					},	
+					},		
 				ads: {
 					text: 'ads',
 					component: 'select',

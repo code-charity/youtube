@@ -17,14 +17,12 @@
 // const keepAliveInterval = setInterval(() => chrome.runtime.sendMessage({ status: 'keep-alive' }), 29.5 * 1000);
 
 /* Sidepanel Option */
-/*
-  chrome.storage.local.get('improvedTubeSidebar', function (result) {
-    if ( result.improvedTubeSidebar) { if ( result.ImprovedTubeSidebar === true) {
+  chrome.storage.local.get('improvedTubeSidePanel', function (result) {
+    if ( result.improvedTubeSidePanel && result.improvedTubeSidePanel === true) {
       chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true })
-    } } else {chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: false }) }
+    }  else {chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: false }) }
   });
 
-*/
 /*---------------------------
 # IMPORTING OLD SETTINGS
 -----------------------------*/
