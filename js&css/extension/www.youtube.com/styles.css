@@ -1756,8 +1756,8 @@ html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-std-surface-200: hsl(0, 0%, 11%);
 	--yt-std-surface-300: hsl(0, 0%, 14%);
 	--yt-std-surface-400: hsl(0, 0%, 16%);
-	--yt-primary-color: hsla(0, 100%, 100%, .88);
-	--yt-primary-text-color: hsla(0, 100%, 100%, .88);
+	--yt-primary-color: #666;
+	--yt-primary-text-color: #666;
 	--yt-hovered-text-color: hsla(0, 100%, 100%, .74);
 	--yt-secondary-text-color: hsla(0, 100%, 100%, .5);
 	--yt-tertiary-text-color: hsla(0, 100%, 100%, .5);
