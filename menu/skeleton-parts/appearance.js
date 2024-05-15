@@ -448,7 +448,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 				tags: "hide,remove"
 			},
 			hide_detail_button: {
-				component: "Buttons",
+				component: "button",
 				text: "hideDetailButton",
 				on: {
 					click: {
