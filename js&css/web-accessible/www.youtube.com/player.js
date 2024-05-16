@@ -6,7 +6,7 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 		|| this.storage.playlist_autoplay === false
 		|| this.storage.channel_trailer_autoplay === false) {
 		let player; let tries=0;
-		(function waitForPlayer(){if(player=ImprovedTube.elements.player||playerElement.closest('#movie_player')){return;}
+		(function waitForPlayer(){if(player=this.elements.player||videoElement.closest('#movie_player')){return;}
 						else if(tries++<4){
 							console.log("autoplayOff is waiting for ImprovedTube.elements.player or #movie_player");
 							setTimeout(waitForPlayer,500);
