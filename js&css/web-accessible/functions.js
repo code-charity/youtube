@@ -337,11 +337,14 @@ ImprovedTube.playerOnPlay = function () {
 			this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 			this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
 
-			ImprovedTube.autoplayDisable(this);
 			ImprovedTube.playerLoudnessNormalization();
 			ImprovedTube.playerCinemaModeEnable();
 
-			return original.apply(this, arguments);
+			const returnValue = original.apply(this, arguments);
+
+			ImprovedTube.autoplayDisable(this);
+
+			return returnValue;
 		}
 	})(HTMLMediaElement.prototype.play);
 };

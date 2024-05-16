@@ -1,43 +1,41 @@
 /*------------------------------------------------------------------------------
 AUTOPLAY DISABLE
 ------------------------------------------------------------------------------*/
-ImprovedTube.autoplayDisable = function (playerElement) { 
-if (ImprovedTube.storage.player_autoplay_disable 
-	|| ImprovedTube.storage.playlist_autoplay === false 
-	|| ImprovedTube.storage.channel_trailer_autoplay === false){
-	let player; let tries=0;
-		(function waitForPlayer(){if(player=ImprovedTube.elements.player||playerElement.closest('#movie_player')){return;}
+ImprovedTube.autoplayDisable = function (videoElement) {
+	if (this.storage.player_autoplay_disable
+		|| this.storage.playlist_autoplay === false
+		|| this.storage.channel_trailer_autoplay === false) {
+		let player; let tries=0;
+		(function waitForPlayer(){if(player=this.elements.player||videoElement.closest('#movie_player')){return;}
 						else if(tries++<4){
 							console.log("autoplayOff is waiting for ImprovedTube.elements.player or #movie_player");
 							setTimeout(waitForPlayer,500);
 						}else if(tries===4){console.error("resigning autoplayOff after 1.5s")}
 		})()
-	if (ImprovedTube.video_url !== location.href) {	this.user_interacted = false; }
 
-	// if (no user clicks) and (no ads playing) and
-	// ( there is a player and ( (it is not in a playlist and auto play is off ) or ( playlist auto play is off and in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
+		if (this.video_url !== location.href) {	this.user_interacted = false; }
 
-			// user didnt click
-	if (player && !this.user_interacted
-			// no ads playing
-		&& !player.classList.contains('ad-showing')
-			// video page
-		&& ((location.href.includes('/watch?')  // #1703
-				// player_autoplay_disable & not playlist
-			 && (ImprovedTube.storage.player_autoplay_disable && !location.href.includes('list='))
-				// !playlist_autoplay & playlist
-			 || (ImprovedTube.storage.playlist_autoplay === false && location.href.includes('list=')))
-				// channel homepage & !channel_trailer_autoplay
-			|| (ImprovedTube.storage.channel_trailer_autoplay === false && ImprovedTube.regex.channel.test(location.href)))) {
+		// if (no user clicks) and (no ads playing) and
+		// ( there is a player and ( (it is not in a playlist and auto play is off ) or ( playlist auto play is off and in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
 
-		if (!ImprovedTube.autoplayDeniedOnce) {
-			setTimeout(function () { player.pauseVideo(); });
-			ImprovedTube.autoplayDeniedOnce = true; 
-		} else { player.pauseVideo(); 
-		console.log("autoplay:off - should we pause here again?");
+				// user didnt click
+		if (player && !this.user_interacted
+				// no ads playing
+			&& !player.classList.contains('ad-showing')
+				// video page
+			&& ((location.href.includes('/watch?')  // #1703
+					// player_autoplay_disable & not playlist
+				&& (this.storage.player_autoplay_disable && !location.href.includes('list='))
+					// !playlist_autoplay & playlist
+				|| (this.storage.playlist_autoplay === false && location.href.includes('list=')))
+					// channel homepage & !channel_trailer_autoplay
+				|| (this.storage.channel_trailer_autoplay === false && this.regex.channel.test(location.href)))) {
+
+			videoElement.pause();
+			player.pauseVideo();
+			console.log("autoplayDisable: Pausing");
 		}
 	}
-}
 };
 /*------------------------------------------------------------------------------
 FORCED PLAY VIDEO FROM THE BEGINNING
