@@ -362,15 +362,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerPlaybackSpeed();
 		ImprovedTube.subtitles();
 		ImprovedTube.subtitlesLanguage();
-		ImprovedTube.subtitlesFontFamily();
-		ImprovedTube.subtitlesFontColor();
-		ImprovedTube.subtitlesFontSize();
-		ImprovedTube.subtitlesBackgroundColor();
-		ImprovedTube.subtitlesWindowColor();
-		ImprovedTube.subtitlesWindowOpacity();
-		ImprovedTube.subtitlesCharacterEdgeStyle();
-		ImprovedTube.subtitlesFontOpacity();
-		ImprovedTube.subtitlesBackgroundOpacity();
+		ImprovedTube.subtitlesUserSettings();
 		ImprovedTube.subtitlesDisableLyrics();
 		ImprovedTube.playerQuality();
 		ImprovedTube.playerVolume();

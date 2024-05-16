@@ -220,216 +220,76 @@ ImprovedTube.subtitles = function () {
 SUBTITLES LANGUAGE
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesLanguage = function () {
-	var option = this.storage.subtitles_language;
-	if (this.isset(option) && option !== 'default') {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
+	const option = this.storage.subtitles_language,
+		player = this.elements.player,
+		button = this.elements.player_subtitles_button;
 
-		if (player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
-			var tracklist = this.elements.player.getOption('captions', 'tracklist', {
-				includeAsr: true
-			});
+	if (option && player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
+		const tracklists = player.getOption('captions', 'tracklist', {includeAsr: true}),
+			matchedTrack = tracklists.find(element => element.languageCode.includes(option) && (!element.vss_id.includes("a.") || this.storage.auto_generate));
 
-			var matchTrack = false;
-			for (var i =0, l = tracklist.length; i<l; i++){
-				if (tracklist[i].languageCode.includes(option)) {
-					if( false === tracklist[i].vss_id.includes("a.") || true === this.storage.auto_generate){
-						this.elements.player.setOption('captions', 'track', tracklist[i]);
-						matchTrack = true; break;
-					}
-				}
-			}
-		 //   if (!matchTrack){  player.toggleSubtitles();  }
+		if (matchedTrack) {
+			player.setOption('captions', 'track', matchedTrack);
 		}
 	}
 };
 /*------------------------------------------------------------------------------
 SUBTITLES FONT FAMILY
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesFontFamily = function () {
-	var option = this.storage.subtitles_font_family;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.fontFamily = Number(option);
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
 SUBTITLES FONT COLOR
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesFontColor = function () {
-	var option = this.storage.subtitles_font_color;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.color = option;
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
 SUBTITLES FONT SIZE
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesFontSize = function () {
-	var option = this.storage.subtitles_font_size;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.fontSizeIncrement = Number(option);
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
 SUBTITLES BACKGROUND COLOR
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesBackgroundColor = function () {
-	var option = this.storage.subtitles_background_color;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.background = option;
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
 SUBTITLES BACKGROUND OPACITY
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesBackgroundOpacity = function () {
-	var option = this.storage.subtitles_background_opacity;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.backgroundOpacity = option / 100;
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
 SUBTITLES WINDOW COLOR
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesWindowColor = function () {
-	var option = this.storage.subtitles_window_color;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.windowColor = option;
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
 SUBTITLES WINDOW OPACITY
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesWindowOpacity = function () {
-	var option = this.storage.subtitles_window_opacity;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.windowOpacity = Number(option) / 100;
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
 SUBTITLES CHARACTER EDGE STYLE
-------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesCharacterEdgeStyle = function () {
-	var option = this.storage.subtitles_character_edge_style;
-
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
-
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
-
-			if (settings) {
-				settings.charEdgeStyle = Number(option);
-
-				player.updateSubtitlesUserSettings(settings);
-			}
-		}
-	}
-};
-/*------------------------------------------------------------------------------
 SUBTITLES FONT OPACITY
+default = {
+    "fontFamily": 4,
+    "color": "#fff",
+    "fontSizeIncrement": 0,
+    "background": "#080808",
+    "backgroundOpacity": 0.75,
+    "windowColor": "#080808",
+    "windowOpacity": 0,
+    "charEdgeStyle": 0,
+    "textOpacity": 1,
+},
 ------------------------------------------------------------------------------*/
-ImprovedTube.subtitlesFontOpacity = function () {
-	var option = this.storage.subtitles_font_opacity;
+ImprovedTube.subtitlesUserSettings = function () {
+	const ourSettings = [
+			['fontFamily', 'number', this.storage.subtitles_font_family],
+			['color', 'color', this.storage.subtitles_font_color],
+			['fontSizeIncrement', 'number', this.storage.subtitles_font_size],
+			['background', 'color', this.storage.subtitles_background_color],
+			['backgroundOpacity', 'fraction', this.storage.subtitles_background_opacity],
+			['windowColor', 'color', this.storage.subtitles_window_color],
+			['windowOpacity', 'fraction', this.storage.subtitles_window_opacity],
+			['charEdgeStyle', 'number', this.storage.subtitles_character_edge_style],
+			['textOpacity', 'fraction', this.storage.subtitles_font_opacity]
+		],
+		option = ourSettings.filter(element => element[2]),
+		player = this.elements.player,
+		button = this.elements.player_subtitles_button;
 
-	if (this.isset(option)) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
+	if (option.length && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
+		let settings = player.getSubtitlesUserSettings();
+		
+		for (const value of option) {
+			switch(value[1]) {
+				case 'number':
+					settings[value[0]] = Number(value[2]);
+					break;
 
-		if (player && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
-			var settings = player.getSubtitlesUserSettings();
+				case 'color':
+					settings[value[0]] = value[2];
+					break;
 
-			if (settings) {
-				settings.textOpacity = option / 100;
-
-				player.updateSubtitlesUserSettings(settings);
+				case 'fraction':
+					settings[value[0]] = Number(option) / 100;
+					break;
 			}
 		}
+		player.updateSubtitlesUserSettings(settings);
 	}
 };
 /*------------------------------------------------------------------------------
