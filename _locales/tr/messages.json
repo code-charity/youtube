@@ -54,7 +54,7 @@
         "message": "İlerleme çubuğunu sürekli göster"
     },
     "analyzer": {
-        "message": "Analizör"
+        "message": "Analiz Edici"
     },
     "animations": {
         "message": "Animasyonlar"
@@ -540,13 +540,13 @@
         "message": "Ana Sayfa Ekranı"
     },
     "hover": {
-        "message": "Gölge"
+        "message": "Üzerine Gelmek"
     },
     "hoverOnVideoPage": {
-        "message": "Videonun Üzerinde Hover"
+        "message": "Videonun Üzerine gelmek"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Video n zaman yüklendi?"
+        "message": "Video ne zaman yüklendi?"
     },
     "icons": {
         "message": "Simgeler"
@@ -711,7 +711,7 @@
         "message": "Yalnızca YouTube'da etkin"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Sadece bir oynatıcı örneği"
+        "message": "İkinci video açıldığında duraklat"
     },
     "onSubscribedChannels": {
         "message": "Kapalı, abone olduğum kanallar hariç"
