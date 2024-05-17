@@ -373,7 +373,8 @@ QUALITY
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerQuality = function (quality = this.storage.player_quality) {
 	let player = this.elements.player;
-	if (quality && player && player.getAvailableQualityLevels
+	if (quality && quality !== 'disabled'
+		&& player && player.getAvailableQualityLevels
 		&& (!player.dataset.defaultQuality || player.dataset.defaultQuality != quality)) {
 		let available_quality_levels = player.getAvailableQualityLevels();
 		function closest(num, arr) {
