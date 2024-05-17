@@ -5,6 +5,9 @@
 # General
 --------------------------------------------------------------*/
 #info #info-text {max-height: 6rem; display: block;}    
+html[it-below-player-screenshot='true'] #above-the-fold  #channel-name,
+html[it-below-player-pip='true'] #above-the-fold  #channel-name,
+html[it-below-player-loop='true'] #above-the-fold  #channel-name { max-height: max(26px, 2vw) }
  /*--------------------------------------------------------------
 YouTube's Detail Buttons
 --------------------------------------------------------------*/
