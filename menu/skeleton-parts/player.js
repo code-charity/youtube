@@ -671,6 +671,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'quality',
 			id: 'player_quality',
 			options: [{
+				text: 'disabled',
+				value: 'disabled'
+			}, {
 				text: 'auto',
 				value: 'auto'
 			}, {
@@ -735,7 +738,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'qualityWithoutFocus',
 			id: 'player_quality_without_focus',
 			options: function () {
-				return [{value: 'auto', text: "Disabled"}].concat(extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options.slice(1));
+				return extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options;
 			},
 			on: {
 				render: function () {
