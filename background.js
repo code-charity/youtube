@@ -41,6 +41,16 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 				chrome.storage.local.set({channel_default_tab: '/'});
 			}
 		});
+		chrome.storage.local.get('player_quality', function (result) {
+			if (result.player_quality === 'auto') {
+				chrome.storage.local.get('player_quality_auto', function (result) {
+					if (result.player_quality_auto !== 'migrated') {
+					chrome.storage.local.set({player_quality: 'disabled'});
+					chrome.storage.local.set({player_quality_auto: 'migrated'});
+					}
+				});				
+			}
+		});
 		chrome.storage.local.get('hideSubscribe', function (result) {
 			if (result.hideSubscribe === true) {
 				chrome.storage.local.set({subscribe: 'hidden'});
