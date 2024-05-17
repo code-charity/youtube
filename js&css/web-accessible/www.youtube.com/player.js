@@ -5,13 +5,7 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 	if (this.storage.player_autoplay_disable
 		|| this.storage.playlist_autoplay === false
 		|| this.storage.channel_trailer_autoplay === false) {
-		let player; let tries=0;
-		(function waitForPlayer(){if(player=this.elements.player||videoElement.closest('#movie_player')){return;}
-						else if(tries++<4){
-							console.log("autoplayOff is waiting for ImprovedTube.elements.player or #movie_player");
-							setTimeout(waitForPlayer,500);
-						}else if(tries===4){console.error("resigning autoplayOff after 1.5s")}
-		})()
+		const player = this.elements.player || videoElement.closest('#movie_player');
 
 		if (this.video_url !== location.href) {	this.user_interacted = false; }
 
