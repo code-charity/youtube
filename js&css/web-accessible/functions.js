@@ -325,8 +325,13 @@ ImprovedTube.videoPageUpdate = function () {
 ImprovedTube.playerOnPlay = function () {
 	HTMLMediaElement.prototype.play = (function (original) {
 		return function () {
-			const returnValue = original.apply(this, arguments);
-			try { ImprovedTube.autoplayDisable(this); } catch(error){ console.log(error); };
+			const returnValue = original.apply(this, arguments);	
+			try { ImprovedTube.autoplayDisable(this)} 
+			catch (error){console.error("Couldn't disable autoplay immediately:", error);
+			       const self=this; setTimeout(function() {
+				       try { ImprovedTube.autoplayDisable(self); } 
+				       catch (error) { console.error('failed to disable autoplay:', error);
+		        } }, 0);   }
 			
 			this.removeEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
 			this.addEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
