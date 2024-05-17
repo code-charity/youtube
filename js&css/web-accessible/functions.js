@@ -325,6 +325,9 @@ ImprovedTube.videoPageUpdate = function () {
 ImprovedTube.playerOnPlay = function () {
 	HTMLMediaElement.prototype.play = (function (original) {
 		return function () {
+			const returnValue = original.apply(this, arguments);
+			try { ImprovedTube.autoplayDisable(this); } catch(error){ console.log(error); };
+			
 			this.removeEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
 			this.addEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
 
@@ -339,10 +342,6 @@ ImprovedTube.playerOnPlay = function () {
 
 			ImprovedTube.playerLoudnessNormalization();
 			ImprovedTube.playerCinemaModeEnable();
-
-			const returnValue = original.apply(this, arguments);
-
-			ImprovedTube.autoplayDisable(this);
 
 			return returnValue;
 		}
