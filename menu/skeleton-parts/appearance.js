@@ -408,8 +408,9 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 };
 
 /*--------------------------------------------------------------
-# DETAIL
+# DETAILS
 --------------------------------------------------------------*/
+
 
 extension.skeleton.main.layers.section.appearance.on.click.details = {
 	component: "button",
@@ -419,10 +420,46 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 		click: {
 			component: "section",
 			variant: "card",
-			description: {
-				component: "select",
-				text: "description",
-
+			hide_views_count: {
+				component: "switch",
+				text: "hideViewsCount",
+				tags: "hide,remove"
+			},
+			hide_details: {
+				component: "switch",
+				text: "hideDetails",
+				tags: "hide,remove"
+			},
+			day_of_week: {
+				component: "switch",
+				text: "displayDayOfTheWeak"
+			},
+			hide_date: {
+				component: "switch",
+				text: "hideDate",
+				tags: "hide,remove"
+			},
+			api: {
+				component: 'section',
+				variant: 'card',
+				title: 'Currently_requiring_a_YouTube_API_key',
+    
+				how_long_ago_the_video_was_uploaded: {
+					component: "switch",
+					text: "howLongAgoTheVideoWasUploaded"
+				},
+				channel_videos_count: {
+					component: "switch",
+					text: "showChannelVideosCount"
+				}
+			}
+		}
+	}
+};
+extension.skeleton.main.layers.section.appearance.on.click.description = {
+	component: "select",
+	variant: "description",
+	text: "description",
 				options: [{
 					text: "normal",
 					value: "normal"
@@ -445,12 +482,14 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 					text: "Classic hidden",
 					value: "classic_hidden"
 				}*/],
-				tags: "hide,remove"
-			},
-			hide_detail_button: {
-				component: "button",
-				text: "hideDetailButton",
-				on: {
+	tags: "hide,remove"
+};			
+
+extension.skeleton.main.layers.section.appearance.on.click.hideDetailButton = {
+	component: "button",
+	text: "Buttons",
+	variant: "detailButton",
+	on: {
 					click: {
 						component: 'section',
 						variant: 'card',
@@ -677,45 +716,9 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 							}
 						}
 					}
-				}
-			},
-
-			hide_views_count: {
-				component: "switch",
-				text: "hideViewsCount",
-				tags: "hide,remove"
-			},
-			hide_details: {
-				component: "switch",
-				text: "hideDetails",
-				tags: "hide,remove"
-			},
-			day_of_week: {
-				component: "switch",
-				text: "displayDayOfTheWeak"
-			},
-			hide_date: {
-				component: "switch",
-				text: "hideDate",
-				tags: "hide,remove"
-			},
-			api: {
-				component: 'section',
-				variant: 'card',
-				title: 'Currently_requiring_a_YouTube_API_key',
-    
-				how_long_ago_the_video_was_uploaded: {
-					component: "switch",
-					text: "howLongAgoTheVideoWasUploaded"
-				},
-				channel_videos_count: {
-					component: "switch",
-					text: "showChannelVideosCount"
-				}
-			}
 		}
-	}
-};
+}
+
 
 /*--------------------------------------------------------------
 # COMMENTS
@@ -784,26 +787,16 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 };
 
 /*--------------------------------------------------------------
-# FOOTER
+# POPUP AD 
 --------------------------------------------------------------*/
 
-extension.skeleton.main.layers.section.appearance.on.click.footer = {
-	component: "button",
-	variant: "footer",
-	text: "footer",
-	on: {
-		click: {
-			component: "section",
-			variant: "card",
-
-			hide_footer: {
-				component: "switch",
-				text: "hideFooter",
-				tags: "bottom"
-			}
-		}
-	}
+extension.skeleton.main.layers.section.appearance.on.click.popupAd = {
+	component: "switch",
+	variant: "popupAd",
+	text: "popupAd",
+	tags: "bottom"
 };
+
 
 /*--------------------------------------------------------------
 # SIDEBAR

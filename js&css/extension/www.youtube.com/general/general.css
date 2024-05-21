@@ -14,28 +14,39 @@
 --------------------------------------------------------------*/
 html[it-cursorLighting=true] #below			{opacity:.4; transition:3s;}
 html[it-cursorLighting=true] #below:hover	{opacity:1; transition:.5s;}
-html[it-cursorLighting=true] #secondary		{opacity:.4; transition:3s;}
-html[it-cursorLighting=true] #secondary:hover{opacity:1; transition:0.6s}
 html[it-cursorLighting=true] #masthead		{opacity:.3; transition:3s;}
 html[it-cursorLighting=true] #masthead:focus-within  {opacity:0.8;}
-html[it-cursorLighting=true] #masthead:focus-within  #logo-id {opacity:0.3; filter:grayscale(90%)}
-html[it-cursorLighting=true] #masthead:hover	{opacity:1; transition:.2s}
-
+html[it-cursorLighting=true] #masthead:focus-within  #logo-id {opacity:.3; filter:grayscale(90%)}
+html[it-cursorLighting=true] #masthead:hover{opacity:1; transition:.2s}
+html[it-cursorLighting=true] #dismissible		{opacity:.4; transition:3s;}
+html[it-cursorLighting=true] #dismissible:hover {opacity:1; transition:.2s}
+html[it-cursorLighting=true][data-page-type=home]	#dismissible:hover,
+html[it-cursorLighting=true][it-pathname^='/feed']	#dismissible:hover 	{transition-delay:.19s !important;}	
+							/* Btw #related doesn't notice hover: #related, #secondary-inner > *:not(#panels):not(#chat-container) */
+html[it-cursorLighting=true] #secondary:has(:not(ytd-engagement-panel-section-list-renderer[visibility="ENGAGEMENT_PANEL_VISIBILITY_EXPANDED"][target-id="engagement-panel-clip-create"]))
+		{opacity:.8; transition:3s;}		/* opacity could be less if we also exclude panels (transcript, chapters, ...*/
+html[it-cursorLighting=true] #secondary:hover{opacity:1; transition:0.6s} 
+html[it-cursorLighting=true] #panels img,	/* again, opacity can be less if we incldue the clip creation panel: <ytd-engagement-panel-section-list-renderer class="style-scope ytd-watch-flexy" modern-panels="" visibility="ENGAGEMENT_PANEL_VISIBILITY_EXPANDED" target-id="engagement-panel-clip-create" scrimmed="" style="order: 0;"> */
+											/* or that it prevents our :hover rules */   
+html[it-cursorLighting=true] #chat-container img		{opacity:.7; transition:3s;} 
+html[it-cursorLighting=true] #panels:hover img,
+html[it-cursorLighting=true] #chat-container:hover img	{opacity:1; transition:0.4s;}
+html[it-cursorLighting=true] ytd-guide-entry-renderer, 
+html[it-cursorLighting=true] #donation-shelf,  
+html[it-cursorLighting=true] ytd-ad-slot-renderer,
+html[it-cursorLighting=true] #player-ads				{opacity:0.4; transition:3s}
+html[it-cursorLighting=true] ytd-guide-entry-renderer:hover,   /*ytd-watch-next-secondary-results-renderer  ytd-reel-shelf-renderer */
+html[it-cursorLighting=true] #donation-shelf:hover,
+html[it-cursorLighting=true] ytd-ad-slot-renderer:hover,
+html[it-cursorLighting=true] #player-ads:hover			{opacity:1; transition:.3s}
 html[it-cursorLighting=true] ytd-two-column-browse-results-renderer,
 html[it-cursorLighting=true] ytd-search			{opacity:.7; transition:5s;}
 html[it-cursorLighting=true] ytd-two-column-browse-results-renderer:hover,
-html[it-cursorLighting=true] ytd-search:hover		{opacity:1; transition:3s}
-html[it-cursorLighting=true] ytd-mini-guide-renderer,
-html[it-cursorLighting=true] ytd-mini-guide-renderer:hover,
-html[it-cursorLighting=true] #dismissible			{opacity:.7; transition:3s;}
-html[it-cursorLighting=true] #dismissible:hover		{opacity:1; transition:.2s}
-html[it-cursorLighting=true][data-page-type=home] #dismissible:hover,
-html[it-cursorLighting=true][it-pathname^='/feed'] #dismissible:hover
-							{transition-delay:.19s !important;}
-html[it-cursorLighting=true]:not([data-page-type=video]) #guide-content	 
-							{opacity:.4; transition:2s}
-html[it-cursorLighting=true]:not([data-page-type=video]) #guide-content:hover
-							{opacity:1; transition:.3s}
+html[it-cursorLighting=true] ytd-search:hover	{opacity:1; transition:3s}
+html[it-cursorLighting=true]:not([data-page-type=video]) #guide-content,
+html[it-cursorLighting=true] ytd-mini-guide-renderer 		{opacity:.4; transition:2s}					
+html[it-cursorLighting=true]:not([data-page-type=video]) #guide-content:hover,
+html[it-cursorLighting=true] ytd-mini-guide-renderer:hover	{opacity:1; transition:.3s}
 /*--------------------------------------------------------------
 # REMOVE RELATED SEARCH RESULTS
 --------------------------------------------------------------*/
@@ -193,7 +204,7 @@ html[it-scroll-bar=hidden] ::-webkit-scrollbar {display: none;}
 html[it-scroll-bar=hidden],
 html[it-scroll-bar=hidden][dark],
 html[it-scroll-bar=hidden] ytd-app {
-	scrollbar-color: unset;
+    scrollbar-color: unset;
 }
 /*--------------------------------------------------------------
 # ADD "SCROLL TO TOP"

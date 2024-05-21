@@ -17,6 +17,9 @@
     "youtubesLight": {
         "message": "YouTube's Light"
     },
+	"popupAd": {
+        "message": "Pop-up ad: Hide"
+    },
     "ambientLighting": {
         "message": "Ambient lighting"
     },
