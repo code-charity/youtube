@@ -288,6 +288,7 @@ ImprovedTube.pageOnFocus = function () {
 	ImprovedTube.playerAutopauseWhenSwitchingTabs();
 	ImprovedTube.playerAutoPip();
 	ImprovedTube.playerQualityWithoutFocus();
+	ImprovedTube.qualityWhenLowBattery();
 };
 
 ImprovedTube.videoPageUpdate = function () {
@@ -370,6 +371,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.subtitlesBackgroundOpacity();
 		ImprovedTube.subtitlesDisableLyrics();
 		ImprovedTube.playerQuality();
+		ImprovedTube.qualityWhenLowBattery();
 		ImprovedTube.playerVolume();
 		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); }
 		ImprovedTube.playerScreenshotButton();

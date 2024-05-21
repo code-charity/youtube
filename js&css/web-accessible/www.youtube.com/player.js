@@ -513,35 +513,67 @@ ImprovedTube.playerAutofullscreen = function () {
 /*------------------------------------------------------------------------------
 QUALITY
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerQuality = function (quality = this.storage.player_quality) {
-	let player = this.elements.player;
-	if (quality && player && player.getAvailableQualityLevels
-		&& (!player.dataset.defaultQuality || player.dataset.defaultQuality != quality)) {
-		let available_quality_levels = player.getAvailableQualityLevels();
-		function closest(num, arr) {
-			let curr = arr[0];
-			let diff = Math.abs(num - curr);
-			for (let val = 1; val < arr.length; val++) {
-				let newdiff = Math.abs(num - arr[val]);
-				if (newdiff < diff) {
-					diff = newdiff;
-					curr = arr[val];
-				}
-			}
-			return curr;
-		};
+ImprovedTube.playerQuality = async function (quality = this.storage.player_quality) {
+	let currentQuality = quality;
+	const updateQuality = async (battery) => {
+    	if (this.storage.player_quality_when_low_battery) {
+            let batteryIsCharging = battery.charging;
 
-		if (!available_quality_levels.includes(quality)) {
-			let label = ['tiny', 'small', 'medium', 'large', 'hd720', 'hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'];
-			let resolution = ['144', '240', '360', '480', '720', '1080', '1440', '2160', '2880', '4320'];
-			let availableresolutions = available_quality_levels.map(q => resolution[label.indexOf(q)]);
-			quality = label[resolution.indexOf(closest(resolution[label.indexOf(quality)], availableresolutions))];
+            if (batteryIsCharging || battery.level > 0.25) {
+                currentQuality = this.storage.player_quality;
+            } else {
+                let batteryLevel = battery.level;
+                if (batteryLevel <= 0.25 && batteryLevel > 0.2) {
+                    currentQuality = 'large';
+                } else if (batteryLevel <= 0.2 && batteryLevel > 0.15) {
+                    currentQuality = 'medium';
+                } else if (batteryLevel <= 0.15 && batteryLevel > 0.1) {
+                    currentQuality = 'small';
+                } else {
+                    currentQuality = 'tiny';
+                }
+            }
 		}
-		player.setPlaybackQualityRange(quality);
-		player.setPlaybackQuality(quality);
-		player.dataset.defaultQuality = quality;
+		quality = currentQuality;
+		let player = this.elements.player;
+		if (quality && player && player.getAvailableQualityLevels
+			&& (!player.dataset.defaultQuality || player.dataset.defaultQuality != quality)) {
+			let available_quality_levels = player.getAvailableQualityLevels();
+			function closest(num, arr) {
+				let curr = arr[0];
+				let diff = Math.abs(num - curr);
+				for (let val = 1; val < arr.length; val++) {
+					let newdiff = Math.abs(num - arr[val]);
+					if (newdiff < diff) {
+						diff = newdiff;
+						curr = arr[val];
+					}
+				}
+				return curr;
+			};
+
+			if (!available_quality_levels.includes(quality)) {
+				let label = ['tiny', 'small', 'medium', 'large', 'hd720', 'hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'];
+				let resolution = ['144', '240', '360', '480', '720', '1080', '1440', '2160', '2880', '4320'];
+				let availableresolutions = available_quality_levels.map(q => resolution[label.indexOf(q)]);
+				quality = label[resolution.indexOf(closest(resolution[label.indexOf(quality)], availableresolutions))];
+			}
+			player.setPlaybackQualityRange(quality);
+			player.setPlaybackQuality(quality);
+			player.dataset.defaultQuality = quality;
+		}
 	}
+	// adding event listeners on battery level change and charging state
+	const battery = await navigator.getBattery();
+    battery.addEventListener("levelchange", () => {
+        updateQuality(battery);
+    });
+	battery.addEventListener("chargingchange", () => {
+		updateQuality(battery);
+	});
+    await updateQuality(battery); // Initial update
 };
+
 /*------------------------------------------------------------------------------
 QUALITY WITHOUT FOCUS
 ------------------------------------------------------------------------------*/
@@ -560,6 +592,13 @@ ImprovedTube.playerQualityWithoutFocus = function () {
 			}
 		}
 	}
+};
+
+/*------------------------------------------------------------------------------
+PLAYER QUALITY BASED ON POWER STATUS
+------------------------------------------------------------------------------*/
+ImprovedTube.qualityWhenLowBattery = function () {
+	ImprovedTube.playerQuality();
 };
 /*------------------------------------------------------------------------------
 FORCED VOLUME

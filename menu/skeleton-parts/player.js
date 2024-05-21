@@ -62,6 +62,19 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		quality_when_low_battery: {
+			component: 'switch',
+			text: 'qualityWhenLowBattery',
+			storage: 'player_quality_when_low_battery',
+			id: 'quality_when_low_battery',
+			on: {
+				click: function () {
+					if (satus.storage.get('player_quality_when_low_battery') != "") {
+						document.getElementById('quality_when_low_battery').flip(true);
+					}
+				}
+			}
+		},
 		only_one_player_instance_playing: {
 			component: 'switch',
 			text: 'onlyOnePlayerInstancePlaying',
@@ -909,6 +922,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_quality_without_focus').dispatchEvent(new CustomEvent('render'));
+						document.getElementById('quality_when_low_battery').dispatchEvent(new CustomEvent('render'));
 					}
 					if (this.dataset.value === 'false') {
 						let where = this;

@@ -971,6 +971,9 @@
     "qualityWithoutFocus": {
         "message": "Quality without focus"
     },
+    "qualityWhenLowBattery":{
+        "message": "Decrease quality when low battery"
+    },
     "raised": {
         "message": "Raised"
     },
