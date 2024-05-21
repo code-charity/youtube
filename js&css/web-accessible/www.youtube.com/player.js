@@ -25,9 +25,9 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 					// channel homepage & !channel_trailer_autoplay
 				|| (this.storage.channel_trailer_autoplay === false && this.regex.channel.test(location.href)))) {
 
-			videoElement.pause();
-			player.pauseVideo();
-			console.log("autoplayDisable: Pausing");
+			setTimeout(function() { try { player.pauseVideo(); } 
+									catch (error) { console.log("autoplayDisable: Pausing"); videoElement.pause();  }
+									});
 		}
 	}
 };
