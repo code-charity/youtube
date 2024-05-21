@@ -62,19 +62,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
-		quality_when_low_battery: {
-			component: 'switch',
-			text: 'qualityWhenLowBattery',
-			storage: 'player_quality_when_low_battery',
-			id: 'quality_when_low_battery',
-			on: {
-				click: function () {
-					if (satus.storage.get('player_quality_when_low_battery') != "") {
-						document.getElementById('quality_when_low_battery').flip(true);
-					}
-				}
-			}
-		},
 		only_one_player_instance_playing: {
 			component: 'switch',
 			text: 'onlyOnePlayerInstancePlaying',
@@ -758,6 +745,23 @@ extension.skeleton.main.layers.section.player.on.click = {
 						extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
 				}
 			}
+		},
+		qualityWhenRunningOnBattery: {
+			component: 'switch',
+			text: 'qualityWhenRunningOnBattery',
+			on: {
+				render: function () {
+						extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
+				}
+			}
+		},
+		whenBatteryIslowDecreaseQuality: {
+			component: 'switch',
+			text: 'whenBatteryIslowDecreaseQuality'
+		},
+		pauseWhileIUnplugTheCharger: {
+			component: 'switch',
+			text: 'pauseWhileIUnplugTheCharger'
 		},
 		mini_player: {
 			component: 'switch',
