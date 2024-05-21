@@ -10,7 +10,41 @@
 html[it-header-transparent=true] ytd-masthead#masthead {background: transparent !important;}
 html[it-header-transparent=true] #background.ytd-masthead {background-color: rgba(230, 230, 230, 0.1) !important;}
 html[it-header-transparent=true] ytd-masthead[frosted-glass] #background.ytd-masthead {backdrop-filter: blur(1px) !important;}
-html[it-header-transparent=true] {  --ytd-searchbox-background: rgba(var(--ytd-searchbox-background), 0.5) !important;  }
+html[it-header-transparent=true] {  --ytd-searchbox-background: rgba(var(--ytd-searchbox-background), 0.5) !important;}
+
+/* Header-transparent alternative by @joaolscosta */
+/* Change opacity when scrolling down */
+html[it-header-transparent-alternative=true][data-scroll-direction=down] ytd-masthead #end {opacity: 0;}
+html[it-header-transparent-alternative=true] ytd-masthead #logo-icon,
+/* Hide country code when scrolling down */
+html[it-header-transparent-alternative=true][data-scroll-direction=down] #country-code,
+/* Hide the filter chips*/
+html[it-header-transparent-alternative=true][data-scroll-direction=down] ytd-feed-filter-chip-bar-renderer {display: none !important;}
+/* Define opacity for the icons */
+html[it-header-transparent-alternative=true] ytd-masthead #end {opacity: 1 !important; transition: opacity 2s ease;}	
+/* Show the voice search button when scrolled to the top */
+html[it-header-transparent-alternative=true] #voice-search-button {display: block !important; background-color: black !important;}
+/* TURN TOP BAR SEARCH BUTTONS BARELY VISIBLE */
+/* Make top header bar transparent */
+html[it-header-transparent-alternative=true] ytd-masthead,
+html[it-header-transparent-alternative=true] ytd-masthead #masthead,
+html[it-header-transparent-alternative=true] ytd-masthead #background,
+html[it-header-transparent-alternative=true] ytd-masthead #search-input.ytd-searchbox-spt,
+html[it-header-transparent-alternative=true] ytd-masthead #search-input.ytd-searchbox-spt-container,
+html[it-header-transparent-alternative=true] ytd-masthead #search-input input {opacity: 0.7 !important; background: transparent; box-shadow: none; border: none;}
+html[it-header-transparent-alternative=true] ytd-masthead #search-input.ytd-searchbox-spt-container {background-color: transparent !important;}
+html[it-header-transparent-alternative=true][data-scroll-direction=down] ytd-masthead #search-input input,
+/* Make other icons barely visible */
+html[it-header-transparent-alternative=true][data-scroll-direction=down] ytd-masthead #end {opacity: 0.7 !important;}
+/* Make the entire search bar transparent with transparent border */
+html[it-header-transparent-alternative=true][data-scroll-direction=down] ytd-masthead #search-input.ytd-searchbox-spt-container {background-color: rgba(255, 255, 255, 0.5) !important; opacity: 0.7 !important;}
+/* Fill search button with black */
+html[it-header-transparent-alternative=true] ytd-masthead #search-icon-legacy {background-color: black !important; opacity: 1 !important;}
+/* Make chips filter bar barely visible */
+html[it-header-transparent-alternative=true] #chips-wrapper {opacity: 0.7 !important;}
+
+
+
 /*--------------------------------------------------------------
 # POSITION
 --------------------------------------------------------------*/
@@ -112,16 +146,14 @@ html[it-header-position=static] #chips-wrapper.ytd-feed-filter-chip-bar-renderer
 	top: 9px !important;
 }*/
 /*--------------------------------------------------------------
-# IMPROVE LOGO
+# WEBSITE LOGO
 --------------------------------------------------------------*/
+html[it-header-hide-logo='true'] #logo-icon yt-icon-shape {visibility:hidden}
 html[it-header-improve-logo='true'] ytd-topbar-logo-renderer path[fill='#FF0000'],
-html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'] {
-	fill: rgb(40, 40, 40) !important;
-}
-
-html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'] {
-	fill: rgb(66, 66, 66) !important;
-}
+html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'] 
+{fill: rgb(44, 44, 44) !important;}
+html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'] 
+{fill: rgb(70, 70, 70) !important;}
 /*--------------------------------------------------------------
 # HIDE RIGHT BUTTONS
 --------------------------------------------------------------*/

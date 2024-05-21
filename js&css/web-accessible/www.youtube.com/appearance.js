@@ -1,6 +1,21 @@
 /*------------------------------------------------------------------------------
   APPEARANCE
 ------------------------------------------------------------------------------*/
+ImprovedTube.undoTheNewSidebar  = function () { try {	
+    yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid = false;	
+    yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments = false;				
+    yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments_ep = false;
+    yt.config_.EXPERIMENT_FLAGS.web_watch_rounded_player_large = false;
+    } catch (error) { console.error("can't undo description on the side", error);
+    }
+}
+ImprovedTube.descriptionSidebar  = function () { try {	
+    yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid = true;	
+    yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments = true;				
+    yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments_ep = true;
+    } catch (error) { console.error("tried to move description to the sidebar", error);
+    }
+}
 /*------------------------------------------------------------------------------
   PLAYER
 ------------------------------------------------------------------------------*/
@@ -52,8 +67,8 @@ ImprovedTube.playerHdThumbnail = function () {
 /*------------------------------------------------------------------------------
  ALWAYS SHOW PROGRESS BAR
 ------------------------------------------------------------------------------*/
-ImprovedTube.alwaysShowProgressBar = function () {
-    if (this.storage.always_show_progress_bar === true) {
+ImprovedTube.showProgressBar = function () {
+    
         var player = ImprovedTube.elements.player;
 
         if (player && player.className.indexOf("ytp-autohide") !== -1) {
@@ -95,8 +110,7 @@ ImprovedTube.alwaysShowProgressBar = function () {
                 progress_play += a;
                 progress_load += a;
             }
-        }
-    }
+        }   
 };
 /*------------------------------------------------------------------------------
  VIDEO REMAINING DURATION
@@ -118,7 +132,6 @@ ImprovedTube.formatSecond = function (rTime) {
 };
 
 ImprovedTube.playerRemainingDuration = function () {
-    if (this.storage.player_remaining_duration === true) {
         var player = ImprovedTube.elements.player;
         var rTime = ImprovedTube.formatSecond((player.getDuration() - player.getCurrentTime()).toFixed(0));
 		var element = document.querySelector(".ytp-time-remaining-duration");
@@ -130,7 +143,6 @@ ImprovedTube.playerRemainingDuration = function () {
         } else {
             element.textContent = " (-" + rTime + ")";
         }
-    } 
 };
 /*------------------------------------------------------------------------------
  Comments Sidebar Simple
@@ -207,7 +219,7 @@ ImprovedTube.commentsSidebar = function() {	if(ImprovedTube.storage.comments_sid
 			}
 		}, 250);
 	}
-    function initialSetup() {
+    function initialSetup() {
         let secondaryInner = document.getElementById("secondary-inner");
         let primaryInner = document.getElementById("primary-inner");
         let comments = document.querySelector("#comments");
@@ -564,3 +576,55 @@ ImprovedTube.channelVideosCount = function () {
         xhr.send();
     }
 };
+if (ImprovedTube.storage.header_transparent2 === true) {
+    /*------------------------------------------------------------------------------
+    TURN TOP BAR TRANSPARENT WHEN SCROLLING
+    ------------------------------------------------------------------------------*/
+    window.addEventListener('scroll', function () {
+        var masthead = document.querySelector('html[it-header-transparent=true] ytd-masthead');
+        var endButtons = masthead.querySelector('#end');
+
+        if (window.scrollY === 0) {
+            endButtons.style.visibility = 'visible';
+        } else {
+            endButtons.style.visibility = 'hidden';
+        }
+    });
+
+    function handleScroll() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var buttonsContainer = document.getElementById('buttons');
+
+        if (scrollTop > 100) {
+            buttonsContainer.classList.add('hidden');
+        } else {
+            buttonsContainer.classList.remove('hidden');
+        }
+    }
+
+    /*------------------------------------------------------------------------------
+    CHECK IF USER IS SCROLLING
+    ------------------------------------------------------------------------------*/
+    window.addEventListener("scroll", handleScroll);
+
+    function getScrollDirection() {
+        var lastScrollTop = 0;
+        return function() {
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+            var scrollDirection = st > lastScrollTop ? 'down' : 'up';
+            lastScrollTop = st <= 0 ? 0 : st;
+            return scrollDirection;
+        };
+    }
+
+    var scrollDirection = getScrollDirection();
+
+    window.addEventListener('scroll', function() {
+        var direction = scrollDirection();
+        if (direction === 'down') {
+            document.documentElement.setAttribute('data-scroll-direction', 'down');
+        } else {
+            document.documentElement.removeAttribute('data-scroll-direction');
+        }
+    });
+}

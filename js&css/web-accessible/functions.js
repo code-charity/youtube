@@ -149,9 +149,9 @@ ImprovedTube.ytElementsHandler = function (node) {
 	} else if (name === 'YTD-MASTHEAD') {
 		if (!this.elements.masthead) {
 			this.elements.masthead = {start: node.querySelector('#start'),
-									  end: node.querySelector('#end'),
-									  logo: node.querySelector('a#logo')
-									 };
+						end: node.querySelector('#end'),
+						logo: node.querySelector('a#logo')
+						};
 
 			this.improvedtubeYoutubeIcon();
 		}
@@ -326,6 +326,14 @@ ImprovedTube.videoPageUpdate = function () {
 ImprovedTube.playerOnPlay = function () {
 	HTMLMediaElement.prototype.play = (function (original) {
 		return function () {
+			const returnValue = original.apply(this, arguments);	
+			try { ImprovedTube.autoplayDisable(this)} 
+			catch (error){console.error("Couldn't disable autoplay immediately:", error);
+			       const self=this; setTimeout(function() {
+				       try { ImprovedTube.autoplayDisable(self); } 
+				       catch (error) { console.error('failed to disable autoplay:', error);
+		        } }, 0);   }
+			
 			this.removeEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
 			this.addEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
 
@@ -338,11 +346,10 @@ ImprovedTube.playerOnPlay = function () {
 			this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 			this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
 
-			ImprovedTube.autoplayDisable(this);
 			ImprovedTube.playerLoudnessNormalization();
 			ImprovedTube.playerCinemaModeEnable();
 
-			return original.apply(this, arguments);
+			return returnValue;
 		}
 	})(HTMLMediaElement.prototype.play);
 };
@@ -360,15 +367,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerPlaybackSpeed();
 		ImprovedTube.subtitles();
 		ImprovedTube.subtitlesLanguage();
-		ImprovedTube.subtitlesFontFamily();
-		ImprovedTube.subtitlesFontColor();
-		ImprovedTube.subtitlesFontSize();
-		ImprovedTube.subtitlesBackgroundColor();
-		ImprovedTube.subtitlesWindowColor();
-		ImprovedTube.subtitlesWindowOpacity();
-		ImprovedTube.subtitlesCharacterEdgeStyle();
-		ImprovedTube.subtitlesFontOpacity();
-		ImprovedTube.subtitlesBackgroundOpacity();
+		ImprovedTube.subtitlesUserSettings();
 		ImprovedTube.subtitlesDisableLyrics();
 		ImprovedTube.playerQuality();
 		ImprovedTube.qualityWhenLowBattery();
@@ -406,8 +405,8 @@ ImprovedTube.playerOnTimeUpdate = function() {
 					ImprovedTube.playerQuality();
 				}
 
-				ImprovedTube.alwaysShowProgressBar();
-				ImprovedTube.playerRemainingDuration();
+				if (ImprovedTube.storage.always_show_progress_bar === true) {ImprovedTube.showProgressBar();}
+				if (ImprovedTube.storage.player_remaining_duration === true){ImprovedTube.playerRemainingDuration();}
 				ImprovedTube.played_time += .5;
 			}, 500);
 		}
@@ -460,7 +459,7 @@ ImprovedTube.onkeydown = function () {
 ImprovedTube.onmousedown = function (event) {									  
 	window.addEventListener('mousedown', function (event) {	
 		if (!ImprovedTube.user_interacted) {
-			setTimeout(function(){ImprovedTube.user_interacted = true},800);	
+			setTimeout(function(){ImprovedTube.user_interacted = true},3000);	
 			if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
 				var path = event.composedPath();
 				for (var i = 0, l = path.length; i < l; i++) {
@@ -528,7 +527,13 @@ ImprovedTube.setPrefCookieValueByName = function (name, value) {
 	let newPrefs = '';
 	let ampersant = '';
 
-	prefs[name] = value;
+	if (name == 'f6' && prefs[name] & 1) {
+		// f6 holds other settings, possible values 80000 80001 400 401 1 none
+		// make sure we remember 1 bit
+		prefs[name] = value | 1;
+	} else {
+		prefs[name] = value;
+	}
 
 	for (let pref in prefs) {
 		if (prefs[pref]) {
@@ -596,7 +601,7 @@ tooltip.style.zIndex = 10001;} // needed for cinema mode
 			button.appendChild(options.child);
 		}
 
-		button.style.opacity = options.opacity || '.5';
+		button.style.opacity = options.opacity || .5;
 
 		if (options.onclick) {
 			button.onclick = options.onclick;

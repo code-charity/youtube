@@ -979,9 +979,6 @@
     "screen": {
       "message": "Οθόνη"
     },
-    "Screenshot": {
-      "message": "Στιγμιότυπο οθόνης"
-    },
     "screenshot": {
       "message": "Στιγμιότυπο οθόνης"
     },
@@ -1165,9 +1162,6 @@
     "trailerAutoplay": {
       "message": "Αυτόματη αναπαραγωγή τρέιλερ"
     },
-    "transcript": {
-      "message": "Αποσπάσματα"
-    },
     "Transcript": {
       "message": "Αποσπάσματα"
     },
@@ -1175,9 +1169,6 @@
       "message": "Μεταφράσεις"
     },
     "transparentBackground": {
-      "message": "Διαφανές φόντο"
-    },
-    "TransparentBackground": {
       "message": "Διαφανές φόντο"
     },
     "transparentColor": {

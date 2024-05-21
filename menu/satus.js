@@ -244,13 +244,13 @@ satus.isset = function(target, is_object) {
 --------------------------------------------------------------*/
 satus.isFunction =function(target){return typeof target ==='function';};
 
-satus.isArray	 =function(t){if(Array.isArray(t))			 				{return true;}else{return false;}};
-satus.isString	 =function(t){if(typeof t ==='string')						{return true;}else{return false;}};
-satus.isNumber	 =function(t){if(typeof t ==='number'&&isNaN(t)===false){return true;}else{return false;}};
-satus.isObject	 =function(t){return t instanceof Object && t !==null;};
-satus.isElement	 =function(t){return t instanceof Element || t instanceof HTMLDocument;};
-satus.isNodeList =function(t){return t instanceof NodeList;};
-satus.isBoolean  =function(t){return t ===false || t ===true;};
+satus.isArray	 = Array.isArray;
+satus.isString	 = function(t) { return typeof t ==='string'; };
+satus.isNumber	 = function(t) { return (typeof t ==='number' && !isNaN(t)); };
+satus.isObject	 = function(t) { return (t instanceof Object && t !== null); };
+satus.isElement	 = function(t) { return (t instanceof Element || t instanceof HTMLDocument); };
+satus.isNodeList = function(t) { return t instanceof NodeList; };
+satus.isBoolean  = function(t) { return (t === false || t === true); };
 /*---LOG------------------------------------------------------*/
 satus.log =function(){console.log.apply(null, arguments);};
 
@@ -835,6 +835,11 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 		for (var key in skeleton) {
 			var item = skeleton[key];
 
+			// sections can be functions
+			if (satus.isFunction(item)) {
+				item = item();
+			}
+
 			if (key !== 'parentSkeleton' && key !== 'parentElement' && key !== 'parentObject' && key !== 'before') {
 				if (item && item.component) {
 					item.parentSkeleton = skeleton;
@@ -1383,9 +1388,7 @@ satus.components.textField = function(component, skeleton) {
 			handler = component.syntax.handlers[component.syntax.current],
 			value = component.value || '';
 
-		for (var i = this.childNodes.length - 1; i > -1; i--) {
-			this.childNodes[i].remove();
-		}
+		satus.empty(this);
 
 		if (handler) {
 			handler(value, this);
@@ -1394,10 +1397,10 @@ satus.components.textField = function(component, skeleton) {
 		}
 
 		if (value.length === 0) {
-			var placeholder = component.placeholder;
+			let placeholder = component.placeholder;
 
 			if (typeof placeholder === 'function') {
-				placeholder = component.placeholder();
+				placeholder = placeholder();
 			} else {
 				placeholder = satus.locale.get(placeholder);
 			}
@@ -1499,9 +1502,9 @@ satus.components.textField = function(component, skeleton) {
 	});
 
 	component.addEventListener('render', function() {
-		component.lineNumbers.update();
-		component.pre.update();
-		component.cursor.update();
+		this.lineNumbers.update();
+		this.pre.update();
+		this.cursor.update();
 	});
 
 	if (skeleton.on?.blur) {
@@ -1783,17 +1786,14 @@ satus.components.layers = function(component, skeleton) {
 --------------------------------------------------------------*/
 
 satus.components.list = function(component, skeleton) {
-	for (var i = 0, l = skeleton.items.length; i < l; i++) {
-		var li = component.createChildElement('div', 'item'),
-			item = skeleton.items[i];
+	for (const item of skeleton.items) {
+		const li = component.createChildElement('div', 'item');
 
-		for (var j = 0, k = item.length; j < k; j++) {
-			var child = item[j];
-
+		for (const child of item) {
 			if (satus.isObject(child)) {
 				satus.render(child, li);
 			} else {
-				var span = li.createChildElement('span');
+				const span = li.createChildElement('span');
 
 				span.textContent = satus.locale.get(child);
 			}
@@ -2011,9 +2011,33 @@ satus.components.radio = function(component, skeleton) {
 	}
 
 	component.nativeControl.addEventListener('change', function() {
-		var component = this.parentNode;
+		const component = this.parentNode,
+			parent = component.parentNode.parentNode.skeleton;
+		let defValue;
 
+		// determine default value for whole radio section
+		for (const key in parent) {
+			let item = parent[key];
+
+			// components can be functions
+			if (satus.isFunction(item)) {
+				item = item();
+			}
+
+			if (!defValue && item?.radio) {
+				// start with first element in case checked: is not defined
+				defValue = item.radio.value;
+			} else if (item?.radio?.checked) {
+				defValue = item.radio.value;
+			}
+		}
+
+		// save first to sent changes up the chain
 		component.storage.value = this.value;
+		if (this.value == defValue) {
+			// remove if default
+			component.storage.remove();
+		}
 	});
 };
 /*--------------------------------------------------------------
@@ -2096,7 +2120,7 @@ satus.components.slider = function(component, skeleton) {
 --------------------------------------------------------------*/
 
 satus.components.tabs = function(component, skeleton) {
-	var tabs = skeleton.items,
+	let tabs = skeleton.items,
 		value = skeleton.value;
 
 	if (satus.isFunction(tabs)) {
@@ -2107,12 +2131,11 @@ satus.components.tabs = function(component, skeleton) {
 		value = value();
 	}
 
-	for (var i = 0, l = tabs.length; i < l; i++) {
-		var tab = tabs[i],
-			button = component.createChildElement('button');
+	for (const tab of tabs) {
+		const button = component.createChildElement('button');
 
 		button.addEventListener('click', function() {
-			var component = this.parentNode,
+			const component = this.parentNode,
 				index = satus.elementIndex(this);
 
 			component.value = index;
@@ -2391,7 +2414,7 @@ satus.components.shortcut = function(component, skeleton) {
 
 							component.render(component.valueElement);
 
-							satus.storage.remove(component.storage.key);
+							satus.storage.remove();
 
 							this.parentNode.parentNode.parentNode.close();
 
@@ -2916,7 +2939,9 @@ satus.user.browser.name = function() {
 		return 'Edge';
 	} else if (user_agent.indexOf('Chrome') !== -1) {
 		return 'Chrome';
-	} else if (user_agent.indexOf('Safari') !== -1) {
+	} else if (user_agent.indexOf('Safari') !== -1 
+				&& (!/Windows|Chrom/.test(user_agent) 
+				|| /Macintosh|iPhone/.test(user_agent))) {
 		return 'Safari';
 	} else if (user_agent.indexOf('Firefox') !== -1) {
 		return 'Firefox';
@@ -3189,9 +3214,7 @@ satus.user.device.connection = function() {
 --------------------------------------------------------------*/
 
 satus.search = function(query, object, callback) {
-	var elements = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button'],
-		threads = 0,
-		results = {},
+	const included = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button'],
 		excluded = [
 			'baseProvider',
 			'layersProvider',
@@ -3202,19 +3225,19 @@ satus.search = function(query, object, callback) {
 			'parentElement',
 			'rendered'
 		];
+	let threads = 0,
+		results = {};
 
 	query = query.toLowerCase();
 
 	function parse(items, parent) {
 		threads++;
 
-		for (const key in items) {
+		for (const [key, item] of Object.entries(items)) {
 			if (!excluded.includes(key)) {
-				var item = items[key];
-
 				if (item.component && item.text
 					// list of elements we allow search on
-					&& elements.includes(item.component)
+					&& included.includes(item.component)
 					// only pass buttons whose parents are variant: 'card' or special case 'appearance' (this one abuses variant tag for CSS)
 					&& (item.component != 'button' || item.parentObject?.variant == "card" || item.parentObject?.variant == "appearance")
 					// try to match query against localized description, fallback on component name
@@ -3223,12 +3246,10 @@ satus.search = function(query, object, callback) {
 					results[key] = Object.assign({}, item);
 				}
 
-				if (
-					satus.isObject(item) &&
-					!satus.isArray(item) &&
-					!satus.isElement(item) &&
-					!satus.isFunction(item)
-				) {
+				if (satus.isObject(item)
+					&& !satus.isArray(item)
+					&& !satus.isElement(item)
+					&& !satus.isFunction(item)) {
 					parse(item, items);
 				}
 			}

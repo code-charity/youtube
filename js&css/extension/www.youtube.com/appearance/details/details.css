@@ -5,6 +5,9 @@
 # General
 --------------------------------------------------------------*/
 #info #info-text {max-height: 6rem; display: block;}    
+html:not([it-below-player-screenshot='false']) #above-the-fold  #channel-name,
+html:not([it-below-player-pip='false']) #above-the-fold  #channel-name,
+html[it-below-player-loop='true'] #above-the-fold  #channel-name { max-height: max(25px, 1.5vw) }
  /*--------------------------------------------------------------
 YouTube's Detail Buttons
 --------------------------------------------------------------*/
@@ -20,9 +23,13 @@ html[it-red-dislike-button='true'] #top-level-buttons-computed #segmented-dislik
 	/*------SUBSCRIBE BUTTON------*/  
 html[it-subscribe='grey'] #subscribe-button button {background-color: #DDD !important; color:#111 !important;}
 html[it-subscribe='transparent'] #subscribe-button button {background-color:rgba(0, 0, 0, 0.4) !important; color:#111 !important;}
-	/* DISPLAY: NONE: */
+	/*  DISPLAY: NONE;*/
 html[it-subscribe='remove_label'] #subscribe-button button .yt-spec-button-shape-next__button-text-content,
 html[it-subscribe='hidden'] #subscribe-button,
+html[it-join='remove_label'] #sponsor-button button .yt-spec-button-shape-next__button-text-content,
+html[it-join='hidden'] #sponsor-button,
+html[it-purchase='remove_label'] #purchase-button button .yt-spec-button-shape-next__button-text-content,
+html[it-purchase='hidden'] #purchase-button,
 html[it-youtubeDetailButtons='remove_labels'] #menu button div:nth-child(2), 
 html[it-youtubeDetailButtons='remove_labels'] #menu button .yt-spec-button-shape-next__button-text-content, 
 html[it-youtubeDetailButtons='remove_labels'] #subscribe-button .yt-spec-button-shape-next__button-text-content,
@@ -50,6 +57,8 @@ html[it-hide-share-button='hidden'] #flexible-item-buttons button:has(svg path[d
 html[it-hide-share-button='icons_only'] #menu button:has(svg path[d^="M15 5.63 20.66"]) div:nth-child(2),
 html[it-hide-share-button='icons_only'] #menu button:has(svg path[d^="M15 5.63 20.66"]) .yt-spec-button-shape-next__button-text-content, 
 	/*------# HIDE DOWNLOAD BUTTON------*/
+html[it-hide-download-button='hidden']	ytd-download-button-renderer,
+html[it-hide-download-button='icons_only'] ytd-download-button-renderer #text,
 html[it-hide-download-button='hidden'] #menu button:has(svg path[d^="M17 18v1H6v-1h11"]),
 html[it-hide-download-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M17 18v1H6v-1h11"]),
 html[it-hide-download-button='icons_only'] #menu button:has(svg path[d^="M17 18v1H6v-1h11"]) div:nth-child(2),
@@ -74,22 +83,13 @@ html[it-hide-report-button='true'] #top-level-buttons-computed button#Report-but
 html[it-hide-report-button='true'] #menu button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]),
 html[it-hide-report-button='true'] #flexible-item-buttons button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]), 
 	/*------HIDE MORE BUTTON------*/
+html[it-hide-more-button='true'] #menu #button [class*="dropdown"],
+html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5 12c0 .83-.67 1.5-1. 1."]), 
+   /* previous "more"-svg and dom: */
 html[it-hide-more-button='true'] #menu yt-button-shape#button-shape,
-html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]),
+html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]), 
 html[it-hide-more-button='true'] #flexible-item-buttons button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]),
-	/*------# HIDE THANKS BUTTON------*/
-/*html[it-hide-thanks-button='hidden'] #flexible-item-buttons button#Thanks-button,
-html[it-hide-thanks-button='icons_only'] #flexible-item-buttons button#Thanks-button div.yt-spec-button-shape-next__button-text-content,
-*/	/*------# HIDE CLIP BUTTON------*/
-html[it-hide-clip-button='hidden'] #flexible-item-buttons button#Clip-button,
-html[it-hide-clip-button='icons_only'] #flexible-item-buttons button#Clip-button div.yt-spec-button-shape-next__button-text-content,
-	/*------# HIDE SAVE BUTTON------*/
-html[it-hide-save-button='hidden'] #flexible-item-buttons button#Save-button,
-html[it-hide-save-button='icons_only'] #flexible-item-buttons button#Save-button div.yt-spec-button-shape-next__button-text-content
- /*=================================*/
-          {display: none;}  
- /*---------------------------------*/
-/*------# HIDE DETAILS-------------*/
+	/*------# HIDE DETAILS-------------*/
 html[it-hide-details='true'] ytd-video-primary-info-renderer,
 html[it-hide-details='true'] ytd-video-secondary-info-renderer,
 html[it-hide-details='true'] ytd-watch-metadata,

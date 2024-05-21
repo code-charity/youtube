@@ -358,6 +358,18 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.playerRemainingDuration();
 					}
 					break
+
+				case 'subtitlesFontFamily':
+				case 'subtitlesFontColor':
+				case 'subtitlesFontSize':
+				case 'subtitlesBackgroundColor':
+				case 'subtitlesWindowColor':
+				case 'subtitlesWindowOpacity':
+				case 'subtitlesCharacterEdgeStyle':
+				case 'subtitlesFontOpacity':
+				case 'subtitlesBackgroundOpacity':
+					ImprovedTube.subtitlesUserSettings();
+					break
 			}
 
 			if (ImprovedTube[camelized_key]) {

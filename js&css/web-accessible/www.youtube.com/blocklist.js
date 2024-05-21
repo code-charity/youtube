@@ -57,7 +57,8 @@ ImprovedTube.blocklist = function (type, node) {
 			if (!blockedElement) return; // couldnt find valid enveloping element, bail
 
 			node.blockedElement = blockedElement;
-
+	if (this.storage.blocklist) {	
+		if (this.storage.blocklist.videos) {
 			if (this.storage.blocklist.videos[video] && !blockedElement.classList.contains('it-blocklisted-video')) {
 				// blocklisted video
 				blockedElement.classList.add('it-blocklisted-video');
@@ -65,8 +66,8 @@ ImprovedTube.blocklist = function (type, node) {
 				// video not blocklisted, show it
 				blockedElement.classList.remove('it-blocklisted-video');
 			}
-
-			if (channel) {
+		} 	
+			if (channel && this.storage.blocklist.channels ) {
 				// this thumbnail has channel information, can try channel blocklist
 				if (this.storage.blocklist.channels[channel] && !blockedElement.classList.contains('it-blocklisted-channel')) {
 					// blocked channel? = block all videos from that channel
@@ -76,7 +77,7 @@ ImprovedTube.blocklist = function (type, node) {
 					blockedElement.classList.remove('it-blocklisted-channel');
 				}
 			}
-
+	}
 			if (node.querySelector("button.it-add-to-blocklist")) return; // skip blocklist button creation if one already exists
 
 			let button = document.createElement('button'),

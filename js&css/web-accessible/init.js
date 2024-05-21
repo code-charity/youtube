@@ -100,6 +100,8 @@ ImprovedTube.init = function () {
 	this.onmousedown();
 	this.youtubeLanguage();
 	this.myColors();
+	if(this.storage.undo_the_new_sidebar === true){this.undoTheNewSidebar();}
+	if(this.storage.description === "sidebar"){this.descriptionSidebar();}
 	this.channelCompactTheme();
 	this.livechat();
 	

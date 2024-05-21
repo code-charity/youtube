@@ -1,25 +1,26 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"short_name" : "ImprovedTube",
 	"name": "'Improve YouTube!' 🎧 (for YouTube & Videos)",
 	"description": "__MSG_description_ext__",
-	"version": "4.823",
+	"version": "4.930",
 	"default_locale": "en",
-	"icons": {							
+	"icons": {
+		"128": "stuff/icons/128.png",
 		"16": "stuff/icons/16.png",
 		"32": "stuff/icons/32.png",
-		"48": "stuff/icons/48.png",
-		"128": "stuff/icons/128.png"
+		"48": "stuff/icons/48.png"
 	},
 	"background": {
-		"scripts": [
-			"background.js"
-		]
+		"service_worker": "background.js"
 	},
-	"browser_action": {
+	"action": {
 		"default_popup": "menu/index.html",
 		"default_area": "navbar"
 	},
+	"side_panel": {
+		"default_path": "menu/sidepanel.html"
+    },
 	"options_page": "menu/index.html",
 	"options_ui": {
         "page": "menu/index.html"
@@ -27,7 +28,7 @@
 	"content_scripts": [
 		{
 			"all_frames": true,
-			"css": [ 
+			"css": [
 				"js&css/extension/www.youtube.com/styles.css",
 				"js&css/extension/www.youtube.com/night-mode/night-mode.css",
 				"js&css/extension/www.youtube.com/general/general.css",
@@ -42,7 +43,7 @@
 				"https://www.youtube.com/audiolibrary/*",
 				"https://www.youtube.com/tv*"
 			],
-			"js": [		
+			"js": [					  
 				"js&css/extension/core.js",
 				"js&css/extension/functions.js",
 				"js&css/extension/www.youtube.com/night-mode/night-mode.js",
@@ -63,22 +64,31 @@
 	],
 	"permissions": [
 		"contextMenus",
-		"storage"
+		"storage",
+		"sidePanel"
 	],
 	"web_accessible_resources": [
-			"menu/index.html",
-			"js&css/web-accessible/core.js",
-			"js&css/web-accessible/functions.js",
-			"js&css/web-accessible/www.youtube.com/appearance.js",
-			"js&css/web-accessible/www.youtube.com/player.js",
-			"js&css/web-accessible/www.youtube.com/themes.js",
-			"js&css/web-accessible/www.youtube.com/playlist.js",
-			"js&css/web-accessible/www.youtube.com/channel.js",
-			"js&css/web-accessible/www.youtube.com/shortcuts.js",
-			"js&css/web-accessible/www.youtube.com/blocklist.js",
-			"js&css/web-accessible/www.youtube.com/settings.js",
-			"js&css/web-accessible/init.js",
-			"js&css/web-accessible/mutations.js"
+		{
+			"resources": [
+				"menu/index.html",
+				"js&css/web-accessible/core.js",
+				"js&css/web-accessible/functions.js",
+				"js&css/web-accessible/www.youtube.com/appearance.js",														  
+				"js&css/web-accessible/www.youtube.com/player.js",
+				"js&css/web-accessible/www.youtube.com/themes.js",		
+				"js&css/web-accessible/www.youtube.com/playlist.js",
+				"js&css/web-accessible/www.youtube.com/channel.js",
+				"js&css/web-accessible/www.youtube.com/shortcuts.js",
+				"js&css/web-accessible/www.youtube.com/blocklist.js",
+				"js&css/web-accessible/www.youtube.com/settings.js",
+				"js&css/web-accessible/init.js",
+				"js&css/web-accessible/mutations.js",
+				"stuff/icons/48.png"
+			],
+			"matches": [
+				"https://www.youtube.com/*"
 			]
+		}
+	]
 }
-
+  

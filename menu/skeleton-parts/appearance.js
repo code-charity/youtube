@@ -8,6 +8,12 @@
 # Footer
 # Sidebar
 --------------------------------------------------------------*/
+satus.storage.onchanged((key, value) => { 
+    if (key === "related_videos" && value === "Titles") {
+        satus.storage.set('relatedVideosPrev', "Titles"); 
+        console.log(satus.storage.get("relatedVideosPrev"));
+    }
+});
 extension.skeleton.main.layers.section.appearance = {
 	component: "button",
 	variant: "appearance",
@@ -83,6 +89,10 @@ extension.skeleton.main.layers.section.appearance.on.click.header = {
 				}],
 				tags: "hide,hover,static,top"
 			},
+			header_hide_logo: {
+				component: "switch",
+				text: "hideLogo"
+			},
 			header_improve_logo: {
 				component: "switch",
 				text: "improveLogo",
@@ -96,6 +106,10 @@ extension.skeleton.main.layers.section.appearance.on.click.header = {
 			header_transparent: {
 				component: "switch",
 				text: "transparentBackground"
+			},
+			header_transparent_alternative: {
+				component: "switch",
+				text: "Transparent background alternative"
 			},
 			header_hide_country_code: {
 				component: "switch",
@@ -193,6 +207,30 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					lineNumbers: false
 				}
 			},
+			player_hide_annotations: {
+				component: "switch",
+				text: "hideAnnotations",
+				tags: "hide,remove,elements"
+			},
+			player_hide_cards: {
+				component: "switch",
+				text: "hideCards",
+				tags: "hide,remove,elements"
+			},
+			player_show_cards_on_mouse_hover: {
+				component: "switch",
+				text: "showCardsOnMouseHover",
+				tags: "hide,remove,elements"
+			},
+			player_hide_endscreen: {
+				component: "switch",
+				text: "hideEndscreen"
+			},
+			remove_black_bars: {
+				component: "switch",
+				text: "removeBlackBars",
+				tags: "bars",
+			},
 			player_hide_controls: {
 				component: "select",
 				text: "hidePlayerControlsBar",
@@ -267,23 +305,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "hideGradientBottom"
 			},
-			player_hide_skip_overlay: {
-				component: "switch",
-				text: "hideSkipOverlay",
-				value: false,
-				tags: "remove,hide"
-			},
-			player_remaining_duration: {
-				component: "switch",
-				text: "showRemainingDuration",
-				id: "show-remaining-duration",
-				value: false
-			},
-			duration_with_speed: {
-				component: "switch",
-				text: "durationWithSpeed",
-				value: false
-			},
 			always_show_progress_bar: {
 				component: "switch",
 				text: "alwaysShowProgressBar"
@@ -355,24 +376,22 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "transparentBackground"
 			},
-			player_hide_annotations: {
+			player_hide_skip_overlay: {
 				component: "switch",
-				text: "hideAnnotations",
-				tags: "hide,remove,elements"
+				text: "hideSkipOverlay",
+				value: false,
+				tags: "remove,hide"
 			},
-			player_hide_cards: {
+			player_remaining_duration: {
 				component: "switch",
-				text: "hideCards",
-				tags: "hide,remove,elements"
+				text: "showRemainingDuration",
+				id: "show-remaining-duration",
+				value: false
 			},
-			player_show_cards_on_mouse_hover: {
+			duration_with_speed: {
 				component: "switch",
-				text: "showCardsOnMouseHover",
-				tags: "hide,remove,elements"
-			},
-			player_hide_endscreen: {
-				component: "switch",
-				text: "hideEndscreen"
+				text: "durationWithSpeed",
+				value: false
 			},
 			player_hd_thumbnail: {
 				component: "switch",
@@ -383,11 +402,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "hideScrollForDetails",
 				tags: "remove,hide"
-			},
-			remove_black_bars: {
-				component: "switch",
-				text: "removeBlackBars",
-				tags: "bars",
 			}			
 		}
 	}
@@ -416,6 +430,9 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 					text: "expanded",
 					value: "expanded"
 				}, {
+					text: "sidebar",
+					value: "sidebar"
+				}, {
 					text: "hidden",
 					value: "hidden"
 				}/*, {
@@ -431,7 +448,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 				tags: "hide,remove"
 			},
 			hide_detail_button: {
-				component: "Buttons",
+				component: "button",
 				text: "hideDetailButton",
 				on: {
 					click: {
@@ -477,7 +494,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 								text: 'TransparentBackground',
 								value: "transparent_background"
 							}, {
-								text: "hide_Labels",
+								text: "hide_labels",
 								value: "hide_labels"
 							}, {
 								text: 'removeIcons',
@@ -488,6 +505,36 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 						detailButtons: {
 							component: 'section',
 							variant: 'card',
+							purchase: {
+								component: "select",
+								text: "purchase",
+								options: [{
+									text: "normal",
+									value: "normal"
+								}, {
+									text: "removeName",
+									value: "remove_label"
+								}, {
+									text: "hidden",
+									value: "hidden"
+								}],
+								tags: "hide,remove,purchase-button"
+							},
+							join: {
+								component: "select",
+								text: "join",
+								options: [{
+									text: "normal",
+									value: "normal"
+								}, {
+									text: "removeName",
+									value: "remove_label"
+								}, {
+									text: "hidden",
+									value: "hidden"
+								}],
+								tags: "hide,remove,join-button"
+							},
 							subscribe: {
 								component: "select",
 								text: "subscribe",
@@ -770,6 +817,10 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 		click: {
 			component: "section",
 			variant: "card",
+			undo_the_new_sidebar: {
+				component: "switch",
+				text: "undoTheNewSidebar"
+			},
 			related_videos: {
 				component: "select",
 				text: "relatedVideos",
@@ -789,18 +840,22 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 					text: "collapsed",
 					value: "collapsed"
 				}, {
-                	text: 'Hide_the_tabs_only',
-		           			value: "hidetabs"
+                			text: 'Hide_the_tabs_only',
+		           		value: "hidetabs"
 				}],
 				tags: "right",
 				on: {
-					click: function () {  setTimeout(() => {
-						if (satus.storage.get('related_videos')==="Titles") {
-							if (!satus.storage.get('thumbnails_right')) {
+					click: function () {
+						setTimeout(() => {							
+						if (satus.storage.get('related_videos')==="Titles" 
+							&& satus.storage.get("relatedVideosPrev") ==="Titles") {if (!satus.storage.get('thumbnails_right')) {
 								this.nextSibling.nextSibling.click();
-							}
-						}
-					}, 250); }
+								satus.storage.set('relatedVideosPrev', "notTitles")
+								} 
+						} 			
+						}, 650) 
+																			
+					}
 				}
 			},
 			sidebar_left: {
@@ -832,7 +887,7 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			},
 			compact_spacing: {
 				component: "switch",
-				text: 'compact_Spacing',
+				text: 'compact_spacing',
 				storage: 'compactSpacing'
 			},
 			no_page_margin: {

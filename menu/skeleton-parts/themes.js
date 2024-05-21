@@ -45,6 +45,32 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 	component: 'section',
 	variant: 'transparent-card',
 
+	default: function () {
+		return {
+			component: 'label',
+			variant: satus.storage.get('theme') == 'dark' ? 'dark-theme' : 'default-theme',
+			text: satus.storage.get('theme') == 'dark' ? 'youtubesDark' : 'youtubesLight',
+			radio: {
+					component: 'radio',
+					group: 'theme',
+					value: satus.storage.get('theme') == 'dark' ? 'dark' : 'light',
+					...(!satus.storage.get('theme') && { checked: true })
+			}
+		}
+	},
+	opposite: function () {
+		return {
+			component: 'label',
+			variant: satus.storage.get('theme') == 'dark' ? 'default-theme' : 'dark-theme',
+			text: satus.storage.get('theme') == 'dark' ? 'youtubesLight' : 'youtubesDark',
+			radio: {
+					component: 'radio',
+					group: 'theme',
+					value: satus.storage.get('theme') == 'dark' ? 'light' : 'dark',
+					...(satus.storage.get('theme') == 'dark' && { checked: true })
+			}
+		}
+	},
 	custom: {
 		component: 'label',
 		variant: 'custom-theme',
@@ -71,17 +97,6 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 					}
 				}
 			}
-		}
-	},
-	default: {
-		component: 'label',
-		variant: 'default-theme',
-		text: 'default',
-		radio: {
-			component: 'radio',
-			group: 'theme',
-			value: 'default',
-			checked: true
 		}
 	},
 	black: {
@@ -133,7 +148,8 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			group: 'theme',
 			value: 'dawn'
 		}
-	},desert: {
+	},
+	desert: {
 		component: 'label',
 		variant: 'desert-theme',
 		text: 'desert',
@@ -142,15 +158,5 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			group: 'theme',
 			value: 'desert'
 		}
-	},
-	dark: {
-		component: 'label',
-		variant: 'dark-theme',
-		text: 'youtubesDark',
-		radio: {
-			component: 'radio',
-			group: 'theme',
-			value: 'dark'
-		}
-	},
+	}
 };
