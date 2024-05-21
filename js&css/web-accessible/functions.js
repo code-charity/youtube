@@ -369,6 +369,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.subtitlesUserSettings();
 		ImprovedTube.subtitlesDisableLyrics();
 		ImprovedTube.playerQuality();
+		ImprovedTube.batteryFeatures();
 		ImprovedTube.playerVolume();
 		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); }
 		ImprovedTube.playerScreenshotButton();

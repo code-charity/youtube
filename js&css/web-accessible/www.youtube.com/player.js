@@ -415,6 +415,60 @@ ImprovedTube.playerQualityWithoutFocus = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+BATTERY FEATURES;   PLAYER QUALITY BASED ON POWER STATUS
+------------------------------------------------------------------------------*/
+ImprovedTube.batteryFeatures = function () {
+    if (ImprovedTube.storage.qualityWhenRunningOnBattery 
+		|| ImprovedTube.storage.pauseWhileIUnplugTheCharger 
+		|| ImprovedTube.storage.whenBatteryIslowDecreaseQuality) {
+        async function battery() {
+            try {
+                const battery = await navigator.getBattery();
+                if (battery) {
+                    const updateQuality = () => {
+                        if (!battery.charging) {
+                            if (ImprovedTube.storage.qualityWhenRunningOnBattery) {
+                                ImprovedTube.playerQuality(ImprovedTube.storage.qualityWhenRunningOnBattery);
+                            }
+                            if (ImprovedTube.storage.whenBatteryIslowDecreaseQuality) {
+                                let quality;
+                                if (battery.level > 0.11 || battery.dischargingTime > 900) {
+                                    quality = "large";
+                                } else if (battery.level > 0.08 || battery.dischargingTime > 600) {
+                                    quality = "medium";
+                                } else if (battery.level > 0.04 || battery.dischargingTime > 360) {
+                                    quality = "small";
+                                } else {
+                                    quality = "tiny";
+                                }
+                                ImprovedTube.playerQuality(quality);
+                            }
+                        }
+                    };
+                    battery.addEventListener("levelchange", updateQuality);
+                    if (ImprovedTube.storage.pauseWhileIUnplugTheCharger) {
+                        battery.addEventListener("chargingchange", () => {
+                            if (!battery.charging) {
+                                ImprovedTube.elements.player.pauseVideo();
+                                ImprovedTube.paused = true;
+                            } else if (ImprovedTube.paused) {
+                                ImprovedTube.elements.player.playVideo();
+                                delete ImprovedTube.paused;
+                            }
+                        });
+                    }
+                    updateQuality(); 
+                } else {
+                    console.log("No battery info - Desktop?");
+                }
+            } catch (error) {
+                console.error("Error accessing battery information:", error.message);
+            }
+        }
+        battery();
+    }
+};
+/*------------------------------------------------------------------------------
 FORCED VOLUME
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerVolume = function () {

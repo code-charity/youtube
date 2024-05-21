@@ -746,6 +746,23 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		qualityWhenRunningOnBattery: {
+			component: 'switch',
+			text: 'qualityWhenRunningOnBattery',
+			on: {
+				render: function () {
+						extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
+				}
+			}
+		},
+		whenBatteryIslowDecreaseQuality: {
+			component: 'switch',
+			text: 'whenBatteryIslowDecreaseQuality'
+		},
+		pauseWhileIUnplugTheCharger: {
+			component: 'switch',
+			text: 'pauseWhileIUnplugTheCharger'
+		},
 		mini_player: {
 			component: 'switch',
 			text: 'customMiniPlayer'
@@ -895,6 +912,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_quality_without_focus').dispatchEvent(new CustomEvent('render'));
+						document.getElementById('quality_when_low_battery').dispatchEvent(new CustomEvent('render'));
 					}
 					if (this.dataset.value === 'false') {
 						let where = this;
