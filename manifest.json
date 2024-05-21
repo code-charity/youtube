@@ -3,7 +3,7 @@
 	"short_name" : "ImprovedTube",
 	"name": "'Improve YouTube!' 🎧 (for YouTube & Videos)",
 	"description": "__MSG_description_ext__",
-	"version": "4.930",
+	"version": "4.937",
 	"default_locale": "en",
 	"icons": {
 		"128": "stuff/icons/128.png",
@@ -65,7 +65,8 @@
 	"permissions": [
 		"contextMenus",
 		"storage",
-		"sidePanel"
+		"sidePanel",
+		"battery"
 	],
 	"web_accessible_resources": [
 		{
