@@ -376,24 +376,24 @@ html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 	width: 96px !important;
 }
  	
-html[it-hide-watched-videos='true']#dismissible:has(.it-mark-watched-videos[watched]) {
+html[it-hide-watched-videos='true'] #dismissible:has(.it-mark-watched-videos[watched]) {
 	opacity: .45;
 	max-height: 4rem;
 	overflow: hidden;
 	transition: max-height 0.4s ease 0.1s;
 	}
-html[it-hide-watched-videos='true']#dismissible:has(.it-mark-watched-videos[watched]) ytd-thumbnail {
+html[it-hide-watched-videos='true'] #dismissible:has(.it-mark-watched-videos[watched]) ytd-thumbnail {
 	visibility: hidden;
 	max-width: 0;
 	transition: max-width 0.4s ease 0.1s;
 	}
-html[it-hide-watched-videos='true']#dismissible:has(.it-mark-watched-videos[watched]):hover {
+html[it-hide-watched-videos='true'] #dismissible:has(.it-mark-watched-videos[watched]):hover {
 	opacity: 1;
 	overflow: visible;
 	max-height: 120px;
 	transition: max-height 0.4s ease 1.1s;
 	}
-html[it-hide-watched-videos='true']#dismissible:has(.it-mark-watched-videos[watched]):hover ytd-thumbnail {
+html[it-hide-watched-videos='true'] #dismissible:has(.it-mark-watched-videos[watched]):hover ytd-thumbnail {
 	visibility: visible;
 	max-width: 220px;
 	transition: max-width 0.4s ease 1.1s;

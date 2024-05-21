@@ -417,56 +417,44 @@ ImprovedTube.playerQualityWithoutFocus = function () {
 /*------------------------------------------------------------------------------
 BATTERY FEATURES;   PLAYER QUALITY BASED ON POWER STATUS
 ------------------------------------------------------------------------------*/
-ImprovedTube.batteryFeatures = function () {
+ImprovedTube.batteryFeatures = async function () {
     if (ImprovedTube.storage.qualityWhenRunningOnBattery 
-		|| ImprovedTube.storage.pauseWhileIUnplugTheCharger 
-		|| ImprovedTube.storage.whenBatteryIslowDecreaseQuality) {
-        async function battery() {
-            try {
-                const battery = await navigator.getBattery();
-                if (battery) {
-                    const updateQuality = () => {
-                        if (!battery.charging) {
-                            if (ImprovedTube.storage.qualityWhenRunningOnBattery) {
-                                ImprovedTube.playerQuality(ImprovedTube.storage.qualityWhenRunningOnBattery);
-                            }
-                            if (ImprovedTube.storage.whenBatteryIslowDecreaseQuality) {
-                                let quality;
-                                if (battery.level > 0.11 || battery.dischargingTime > 900) {
-                                    quality = "large";
-                                } else if (battery.level > 0.08 || battery.dischargingTime > 600) {
-                                    quality = "medium";
-                                } else if (battery.level > 0.04 || battery.dischargingTime > 360) {
-                                    quality = "small";
-                                } else {
-                                    quality = "tiny";
-                                }
-                                ImprovedTube.playerQuality(quality);
-                            }
-                        }
-                    };
-                    battery.addEventListener("levelchange", updateQuality);
-                    if (ImprovedTube.storage.pauseWhileIUnplugTheCharger) {
-                        battery.addEventListener("chargingchange", () => {
-                            if (!battery.charging) {
-                                ImprovedTube.elements.player.pauseVideo();
-                                ImprovedTube.paused = true;
-                            } else if (ImprovedTube.paused) {
-                                ImprovedTube.elements.player.playVideo();
-                                delete ImprovedTube.paused;
-                            }
-                        });
-                    }
-                    updateQuality(); 
-                } else {
-                    console.log("No battery info - Desktop?");
-                }
-            } catch (error) {
-                console.error("Error accessing battery information:", error.message);
-            }
-        }
-        battery();
-    }
+		  || ImprovedTube.storage.pauseWhileIUnplugTheCharger 
+		  || ImprovedTube.storage.whenBatteryIslowDecreaseQuality) {  
+		  const updateQuality = async (battery, charging) => {
+			  if (battery) { 
+				if (!battery.charging) {							 
+					if (ImprovedTube.storage.pauseWhileIUnplugTheCharger && charging) {
+						ImprovedTube.elements.player.pauseVideo();
+						ImprovedTube.paused = true;
+					}								  
+					if (ImprovedTube.storage.qualityWhenRunningOnBattery) {
+						ImprovedTube.playerQuality(ImprovedTube.storage.qualityWhenRunningOnBattery);
+					}
+					if (ImprovedTube.storage.whenBatteryIslowDecreaseQuality) {
+						let quality;
+						if (battery.level > 0.11 || battery.dischargingTime > 900) {
+							quality = "large";
+						} else if (battery.level > 0.08 || battery.dischargingTime > 600) {
+							quality = "medium";
+						} else if (battery.level > 0.04 || battery.dischargingTime > 360) {
+							quality = "small";
+						} else {
+							quality = "tiny";
+						}
+						ImprovedTube.playerQuality(quality);
+					}
+				} else if (charging && ImprovedTube.paused && ImprovedTube.storage.pauseWhileIUnplugTheCharger) {
+					ImprovedTube.elements.player.playVideo();
+					delete ImprovedTube.paused;
+				}
+			}
+		};
+		const battery = await navigator.getBattery();						
+		battery.addEventListener("levelchange", () => updateQuality(battery));
+		battery.addEventListener("chargingchange", () => updateQuality(battery, true));
+		await updateQuality(battery);
+	}
 };
 /*------------------------------------------------------------------------------
 FORCED VOLUME

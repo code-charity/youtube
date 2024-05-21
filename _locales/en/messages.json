@@ -2,11 +2,11 @@
     "qualityWhenRunningOnBattery":{
         "message": "Quality, when running on battery"
     },
-    "whenBatteryIslowDecreaseQuality":{
-        "message": "Low battery: Gradually decrease the quality!"
-    },
     "pauseWhileIUnplugTheCharger":{
-        "message": "Pause when I unplug the charger!" 
+        "message": "Pause when I unplug the charger" 
+    },
+    "whenBatteryIslowDecreaseQuality":{
+        "message": "Low battery: Decrease the quality"
     },
     "analytics": {
         "message": "Analytics"

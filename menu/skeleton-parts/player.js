@@ -746,9 +746,13 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
-		qualityWhenRunningOnBattery: {
-			component: 'switch',
+/*
+	qualityWhenRunningOnBattery: {
+			component: 'select',
 			text: 'qualityWhenRunningOnBattery',
+			options: function () {
+				return extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options;
+			},
 			on: {
 				render: function () {
 						extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
@@ -763,6 +767,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'pauseWhileIUnplugTheCharger'
 		},
+*/		
 		mini_player: {
 			component: 'switch',
 			text: 'customMiniPlayer'
