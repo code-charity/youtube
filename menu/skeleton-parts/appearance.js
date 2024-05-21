@@ -485,7 +485,7 @@ extension.skeleton.main.layers.section.appearance.on.click.description = {
 	tags: "hide,remove"
 };			
 
-extension.skeleton.main.layers.section.appearance.on.click.hideDetailButton = {
+extension.skeleton.main.layers.section.appearance.on.click.hide_detail_button = {
 	component: "button",
 	text: "Buttons",
 	variant: "detailButton",
@@ -790,7 +790,7 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 # POPUP AD 
 --------------------------------------------------------------*/
 
-extension.skeleton.main.layers.section.appearance.on.click.popupAd = {
+extension.skeleton.main.layers.section.appearance.on.click.popup_ad = {
 	component: "switch",
 	variant: "popupAd",
 	text: "popupAd",

@@ -19,6 +19,9 @@
     },
 	"popupAd": {
         "message": "Pop-up ad: Hide"
+    },	
+	"hideWatchedVideos": {
+        "message": "Hide watched videos"
     },
     "ambientLighting": {
         "message": "Ambient lighting"

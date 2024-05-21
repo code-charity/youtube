@@ -242,6 +242,10 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'trackWatchedVideos'
 				},
+				hide_watched_videos: {
+					component: 'switch',
+					text: 'hideWatchedVideos'
+				},
 				delete_watched_videos: {
 					component: 'button',
 					text: 'deleteWatchedVideos',

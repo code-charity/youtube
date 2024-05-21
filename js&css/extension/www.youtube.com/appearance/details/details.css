@@ -4,7 +4,7 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-#info #info-text {max-height: 6rem; display: block;}    
+#info #info-text {max-height: 6rem; display: block;}
 html:not([it-below-player-screenshot='false']) #above-the-fold  #channel-name,
 html:not([it-below-player-pip='false']) #above-the-fold  #channel-name,
 html[it-below-player-loop='true'] #above-the-fold  #channel-name { max-height: max(25px, 1.5vw) }
@@ -108,7 +108,10 @@ html[it-hide-date='true'] ytd-watch-metadata #info>span:last-child,
 html[it-description='hidden'] ytd-video-secondary-info-renderer ytd-expander.ytd-video-secondary-info-renderer,
 html[it-description='hidden'] div#action-panel-details,
 html[it-description='hidden'] ytd-expander.ytd-video-secondary-info-renderer,
-html[it-description='hidden'] #description-inline-expander 
+html[it-description='hidden'] #description-inline-expander,
+/*----->>> FOOTER: # Hide --------*/
+html[it-popup-ad='true'] ytd-guide-renderer #footer,
+html[it-popup-ad='true'] yt-mealbar-promo-renderer  
  /*=================================*/
         {display: none !important;}  
  /*---------------------------------*/
