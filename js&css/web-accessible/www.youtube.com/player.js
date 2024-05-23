@@ -405,10 +405,13 @@ ImprovedTube.playerQualityWithoutFocus = function () {
 		if (this.focus) {
 			if (ImprovedTube.qualityBeforeBlur) {
 				ImprovedTube.playerQuality(ImprovedTube.qualityBeforeBlur);
+				ImprovedTube.qualityBeforeBlur = undefined;
 			}
 		} else {
 			if (!ImprovedTube.elements.video.paused) {
-				ImprovedTube.qualityBeforeBlur = player.getPlaybackQuality();
+				if (!ImprovedTube.qualityBeforeBlur) {
+					ImprovedTube.qualityBeforeBlur = player.getPlaybackQuality();
+				}
 				ImprovedTube.playerQuality(qualityWithoutFocus);
 			}
 		}
