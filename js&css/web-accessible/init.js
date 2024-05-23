@@ -103,7 +103,6 @@ ImprovedTube.init = function () {
 	if(this.storage.undo_the_new_sidebar === true){this.undoTheNewSidebar();}
 	if(this.storage.description === "sidebar"){this.descriptionSidebar();}
 	this.channelCompactTheme();
-	this.livechat();
 	
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();
