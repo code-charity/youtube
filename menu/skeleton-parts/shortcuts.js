@@ -246,6 +246,18 @@ extension.skeleton.main.layers.section.shortcuts = {
 						}
 					}
 				},
+				shortcut_rotate_video: {
+					component: 'shortcut',
+					text: 'rotate',
+					value: {
+						shift: true,
+						keys: {
+							82: {
+								key: 'r'
+							}
+						}
+					}
+				},
 				shortcut_activate_fullscreen: {
 					component: 'shortcut',
 					text: 'activateFullscreen',
