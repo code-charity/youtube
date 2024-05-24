@@ -323,7 +323,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 				},
 				shortcut_rotate_video: {
 					component: 'shortcut',
-					text: 'rotate',
+					text: 'rotate'
 				}
 			},
 			section: {
