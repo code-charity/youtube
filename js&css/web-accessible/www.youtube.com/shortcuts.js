@@ -731,14 +731,4 @@ ImprovedTube.shortcutRotateVideo= function (){
 
 		transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth) + ')';
 	}
-
-	if (!this.elements.buttons['it-rotate-styles']) {
-		var style = document.createElement('style');
-
-		this.elements.buttons['it-rotate-styles'] = style;
-
-		document.body.appendChild(style);
-	}
-
-	this.elements.buttons['it-rotate-styles'].textContent = 'video{transform:' + transform + '}';
 };
