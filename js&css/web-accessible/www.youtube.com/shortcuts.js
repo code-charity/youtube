@@ -707,3 +707,28 @@ ImprovedTube.shortcutPopupPlayer = function () {
 	}
 };
 
+/*------------------------------------------------------------------------------
+4.7.30 ROTATE
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutRotateVideo= function (){
+	var player = this.elements.player,
+		video = this.elements.video,
+		rotate = Number(document.body.dataset.itRotate) || 0,
+		transform = '';
+
+	rotate += 90;
+
+	if (rotate === 360) {
+		rotate = 0;
+	}
+
+	document.body.dataset.itRotate = rotate;
+
+	transform += 'rotate(' + rotate + 'deg)';
+
+	if (rotate == 90 || rotate == 270) {
+		var is_vertical_video = video.videoHeight > video.videoWidth;
+
+		transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth) + ')';
+	}
+};
