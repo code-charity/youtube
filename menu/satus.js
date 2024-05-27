@@ -2153,7 +2153,228 @@ satus.components.tabs = function(component, skeleton) {
 >>> SHORTCUT
 --------------------------------------------------------------*/
 
+function getAssignedShortcuts() {
+    return JSON.parse(localStorage.getItem('assignedShortcuts')) || {};
+}
+
+function setAssignedShortcuts(shortcuts) {
+    localStorage.setItem('assignedShortcuts', JSON.stringify(shortcuts));
+}
+
+function getDefaultShortcuts() {
+    return {
+        'ArrowUp': {
+			alt: false,
+			ctrl: false,
+			shift: false,
+            keys: { 
+				38: 
+				{ 
+					key: 'ArrowUp' 
+				} 
+			}
+        },
+        'ArrowDown': {
+			alt: false,
+			ctrl: false,
+			shift: false,
+            keys: { 
+				40: 
+				{ 
+					key: 'ArrowDown' 
+				} 
+			}
+        },
+        '<': {
+			alt: false,
+			ctrl: false,
+			shift: false,
+            keys: { 
+				188:
+				 {
+					 key: '<' 
+					} 
+				}
+        },
+        '>': {
+			alt: false,
+			ctrl: false,
+			shift: false,
+            keys: { 
+				190:
+				 {
+					 key: '>' 
+					} 
+				}
+        },
+        'space': {
+			alt: false,
+			ctrl: false,
+			shift: false,
+            keys: { 
+				32: 
+				{ 
+					key: 'space' 
+				} 
+			}
+        },
+        'j': {
+			alt: false,
+			ctrl: false,
+			shift: false,
+            keys: { 
+				74: 
+				{ 
+					key: 'j' 
+				} 
+			}
+        },
+        'l': {
+			alt: false,
+			ctrl: false,
+			shift: false,
+            keys: { 
+				76: 
+				{ 
+					key: 'l' 
+				} 
+			}
+        },
+        'N': {
+			alt: false,
+			ctrl: false,
+            shift: true,
+            keys: { 
+				78: 
+				{ 
+					key: 'n' 
+				} 
+			}
+        },
+        'P': {
+			alt: false,
+			ctrl: false,
+            shift: true,
+            keys: { 
+				80: 
+				{ 
+					key: 'p' 
+				} 
+			}
+        },
+        'f': {
+			alt: false,
+			ctrl: false,
+			shift: false,
+            keys: { 
+				70: 
+				{ 
+					key: 'f' 
+				} 
+			}
+        },
+        'c': {
+			alt: false,
+			ctrl: false,
+			shift: false,
+            keys: { 
+				67: 
+				{ 
+					key: 'c' 
+				} 
+			}
+        },
+        'i': {
+			alt: false,
+			ctrl: false,
+			shift: false,
+            keys: { 
+				73: 
+				{ 
+					key: 'i' 
+				} 
+			}
+        },
+        '/': {
+			alt: false,
+			ctrl: false,
+			shift: false,
+            keys: { 
+				191: 
+				{ 
+					key: '/' 
+				} 
+			}
+        }
+    };
+}
+
+let assignedShortcuts = getAssignedShortcuts();
+let defaultShortcuts = getDefaultShortcuts();
+
 satus.components.shortcut = function(component, skeleton) {
+
+	// Dialog to show a confirmation message when a keybind is already assigned to another shortcut
+	function showDialog(context) {
+        satus.render({
+            component: 'modal',
+            text: 'This keybind is already assigned to another shortcut. Do you want to replace it?',
+            style: {
+                width: '300px',
+                fontSize: '15px',
+                paddingBottom: '20px',
+                textAlign: 'center'
+            },
+            no: {
+                component: 'button',
+                text: 'No',
+                style: {
+                    paddingTop: '10px',
+                },
+                on: {
+                    click: function () {
+                        this.closest('.satus-modal').close();
+                        return false;
+                    }
+                }
+            },
+            yes: {
+                component: 'button',
+                text: 'Yes',
+                on: {
+                    click: function () {
+
+                        // Get the inserted key
+                        let dataKey;
+                        for (key in component.data.keys) {
+                            if (key) {
+                                dataKey = key;
+                            }
+                        }
+
+                        // Find that key in other shortcuts and remove it
+                        for (shortcut in satus.storage.data) {
+                            for (key in satus.storage.data[shortcut].keys) {
+                                if (key == dataKey) {
+                                    satus.storage.remove(shortcut);
+                                }
+                            }
+                        }
+
+                        // Set the new shortcut
+                        component.storage.value = component.data;
+                        component.render(component.valueElement);
+
+                        this.closest('.satus-modal').close();
+
+                        window.removeEventListener('keydown', component.keydown);
+                        window.removeEventListener('wheel', component.mousewheel);
+                    }
+                }
+            }
+        }, context.baseProvider);
+    }
+
 	component.childrenContainer = component.createChildElement('div', 'content');
 	component.valueElement = component.createChildElement('div', 'value');
 
@@ -2404,59 +2625,116 @@ satus.components.shortcut = function(component, skeleton) {
 				variant: 'actions',
 
 				reset: {
-					component: 'button',
-					text: 'reset',
-					on: {
-						click: function() {
-							var component = this.parentNode.parentNode.parentNode.parent;
+                    component: 'button',
+                    text: 'reset',
+                    on: {
+                        click: function() {
 
-							component.data = component.skeleton.value || {};
+                            // Remove keybind from assigned shorcuts list
+                            for (let key in component.data.keys) {
+                                delete assignedShortcuts[component.data.keys[key].key];
+                            }
 
-							component.render(component.valueElement);
+                            setAssignedShortcuts(assignedShortcuts);
 
-							satus.storage.remove();
+                            // Redefine the pressed keybind
+                            component.data = {
+                                alt: false,
+                                ctrl: false,
+                                shift: false,
+                                keys: {}
+                            };
+                            component.render(component.valueElement);
 
-							this.parentNode.parentNode.parentNode.close();
+                            this.parentNode.parentNode.parentNode.close();
+                            satus.storage.remove(component.storage.key);
 
-							window.removeEventListener('keydown', component.keydown);
-							window.removeEventListener('wheel', component.mousewheel);
-						}
-					}
-				},
-				cancel: {
-					component: 'button',
-					text: 'cancel',
-					on: {
-						click: function() {
-							component.data = satus.storage.get(component.storage.key) || component.skeleton.value || {};
+                            window.removeEventListener('keydown', component.keydown);
+                            window.removeEventListener('wheel', component.mousewheel);
+                        }
+                    }
+                },
+                cancel: {
+                    component: 'button',
+                    text: 'cancel',
+                    on: {
+                        click: function() {
+                            component.data = satus.storage.get(component.storage.key) || component.skeleton.value || {};
 
-							component.render(component.valueElement);
+                            component.render(component.valueElement);
 
-							this.parentNode.parentNode.parentNode.close();
+                            this.parentNode.parentNode.parentNode.close();
 
-							window.removeEventListener('keydown', component.keydown);
-							window.removeEventListener('wheel', component.mousewheel);
-						}
-					}
-				},
-				save: {
-					component: 'button',
-					text: 'save',
-					on: {
-						click: function() {
-							component.storage.value = component.data;
+                            window.removeEventListener('keydown', component.keydown);
+                            window.removeEventListener('wheel', component.mousewheel);
+                        }
+                    }
+                },
+                save: {
+                    component: 'button',
+                    text: 'save',
+                    on: {
+                        click: function () {
 
-							component.render(component.valueElement);
+                            // Function to compare shortcuts
+                            function isShortcutEqual(a, b) {
+								if (a.alt !== b.alt || a.ctrl !== b.ctrl || a.shift !== b.shift) return false;
+                                let aKeys = Object.keys(a.keys);
+                                let bKeys = Object.keys(b.keys);
+                                if (aKeys.length !== bKeys.length) return false;
+                                for (let key of aKeys) {
+                                    if (!b.keys[key] || a.keys[key].key.toLowerCase() !== b.keys[key].key.toLowerCase()) {
+                                        return false;
+                                    }
+                                }
+                                return true;
+                            }
+							
+							// Verify if the new keybind is in already assigned list
+                            for (let keyCode in component.data.keys) {
+								let key = component.data.keys[keyCode].key;
+								if (key in assignedShortcuts) {
+									if (isShortcutEqual(assignedShortcuts[key], component.data)) {
+										this.parentNode.parentNode.parentNode.close();
+										showDialog(this);
+										return;
+									}
+								}
+							}
+							
+							// Verify if the new keybind is in default keybinds list
+							for (let keyCode in component.data.keys) {
+								let key = component.data.keys[keyCode].key;
+								if (key in defaultShortcuts) {
+									if (isShortcutEqual(defaultShortcuts[key], component.data)) {
+										this.parentNode.parentNode.parentNode.close();
+										alert('This keybind is already assigned to default shortcut');
+										return;
+									}	
+								}
+							}
+							
 
-							this.parentNode.parentNode.parentNode.close();
+                            // Add keybind to shorcuts list
+                            for (let key in component.data.keys) {
+								assignedShortcuts[component.data.keys[key].key] = component.data;
+                            }
+							
+                            setAssignedShortcuts(assignedShortcuts);
 
-							window.removeEventListener('keydown', component.keydown);
-							window.removeEventListener('wheel', component.mousewheel);
-						}
-					}
-				}
-			}
-		}, this.baseProvider);
+                            component.storage.value = component.data;
+
+                            component.render(component.valueElement);
+
+                            this.parentNode.parentNode.parentNode.close();
+
+                            window.removeEventListener('keydown', component.keydown);
+                            window.removeEventListener('wheel', component.mousewheel);
+                        }
+                    }
+                }
+            }
+        }, this.baseProvider);
 
 		window.addEventListener('keydown', this.keydown);
 		window.addEventListener('wheel', this.mousewheel);
