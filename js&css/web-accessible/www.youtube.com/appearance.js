@@ -1,7 +1,9 @@
 /*------------------------------------------------------------------------------
   APPEARANCE
 ------------------------------------------------------------------------------*/
-ImprovedTube.undoTheNewSidebar  = function () { try {	
+ImprovedTube.undoTheNewSidebar  = function () { 
+if (document.documentElement.dataset.pageType === 'video' && yt) {
+try {	
     yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid = false;	
     yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments = false;				
     yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments_ep = false;
@@ -15,6 +17,7 @@ ImprovedTube.descriptionSidebar  = function () { try {
     yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments_ep = true;
     } catch (error) { console.error("tried to move description to the sidebar", error);
     }
+}
 }
 /*------------------------------------------------------------------------------
   PLAYER
@@ -34,7 +37,7 @@ ImprovedTube.playerSize = function () {
         style.textContent += "}";
 
         document.body.appendChild(style);
-        window.dispatchEvent(new Event('resize'));
+        if (document.documentElement.dataset.pageType === 'video') { window.dispatchEvent(new Event('resize')); }
 	}
 };
 /*------------------------------------------------------------------------------
