@@ -130,8 +130,8 @@ function updateContextMenu(language) {
 			chrome.contextMenus.create({
 				id: String(i),
 				title: text,
-				//  contexts: ['action']  //manifest3
-				contexts: ['browser_action'] //manifest2
+				contexts: ['action']  //manifest3
+				// contexts: ['browser_action'] //manifest2
 			});
 		}
 		chrome.contextMenus.onClicked.addListener(function (info) {
@@ -140,8 +140,8 @@ function updateContextMenu(language) {
 				'https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd',
 				'https://github.com/code4charity/YouTube-Extension'
 			];
-
-			window.open(links[info.menuItemId]);
+			chrome.tabs.create({ url: links[info.menuItemId] }); //manifest3
+			// window.open(links[info.menuItemId]); //manifest2
 		});
 	});
 }
@@ -294,7 +294,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 				chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {
 					if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")) {
 						chrome.tabs.onUpdated.removeListener(listener);
-						chrome.tabs.executeScript(tID, {code: `document.title = "${message.title} - ImprovedTube";`});
+						chrome.scripting.executeScript({ target: { tabId: tID }, func: () => { document.title = `${message.title} - ImprovedTube`; } })			//manifest3
+						// chrome.tabs.executeScript(tID, {code: `document.title = "${message.title} - ImprovedTube";`});  //manifest2
 					}
 				});
 			});
@@ -315,3 +316,5 @@ chrome.runtime.onMessage.addListener(function (request) {
 
 /*-----# UNINSTALL URL-----------------------------------*/
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
+
+
