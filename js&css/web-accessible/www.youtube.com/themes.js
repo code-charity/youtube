@@ -67,6 +67,7 @@ ImprovedTube.myColors = function () {
 					'--yt-spec-inverted-background: #fff;' +
 					'--ytd-searchbox-background:' + primary_color + '!important;' +
 					'--ytd-searchbox-legacy-button-color:' + 'var(--yt-spec-brand-background-primary)' + '!important;' +
+					'background-color: var(--yt-spec-base-background)!important;' +
 					'}';
 
 				this.elements.my_colors = style;
@@ -94,19 +95,21 @@ ImprovedTube.setTheme = function () {
 			}
 			this.elements.my_colors?.remove();
 			break
+
 		case 'light':
-			document.documentElement.removeAttribute('dark');
-			document.querySelector('ytd-masthead')?.removeAttribute('dark');
 			ImprovedTube.messages.send({action: 'set', key: 'theme', value: null});
 			ImprovedTube.setPrefCookieValueByName('f6', null);
 			if (document.getElementById("cinematics")) {
 				document.getElementById('cinematics').style.display = 'none !important';
 			}
+			// fall through
 		case 'dawn':
 		case 'sunset':
 		case 'night':
 		case 'plain':
 		case 'desert':
+			document.documentElement.removeAttribute('dark');
+			document.querySelector('ytd-masthead')?.removeAttribute('dark');
 			document.getElementById('cinematics')?.removeAttribute('style');
 			this.elements.my_colors?.remove();
 			break
