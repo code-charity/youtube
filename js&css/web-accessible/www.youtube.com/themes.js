@@ -74,36 +74,38 @@ ImprovedTube.myColors = function () {
 				document.documentElement.appendChild(style);
 				document.documentElement.removeAttribute('dark');
 				document.querySelector('ytd-masthead')?.removeAttribute('dark');
-				if (document.getElementById("cinematics")) {
-				document.getElementById('cinematics').style.display = 'none !important';
-				}		
+				if(document.getElementById("cinematics") !== null) 
+				{document.getElementById("cinematics").style.visibility = 'hidden';
+				document.getElementById("cinematics").style.display = 'none !important';}	
 			} else {
 				this.elements.my_colors?.remove();
 			}
 }
 
 ImprovedTube.setTheme = function () {
+
+function showCinematics() { if(document.getElementById("cinematics") !== null) 
+			{document.getElementById("cinematics").style.visibility = '';
+			document.getElementById("cinematics").style.display = '';}}
+
 	switch(this.storage.theme) {
 		case 'dark':
 			document.documentElement.setAttribute('dark', '');
 			if (document.querySelector('ytd-masthead')) { document.querySelector('ytd-masthead').setAttribute('dark', ''); }
 			ImprovedTube.setPrefCookieValueByName('f6', 400);
+			showCinematics();
 			// fall through
 		case 'black':
-			if (document.getElementById("cinematics")) {
-				document.getElementById('cinematics').style.visibility = 'visible';
-			}
 			this.elements.my_colors?.remove();
 			break
-
 		case 'light':
 			ImprovedTube.messages.send({action: 'set', key: 'theme', value: null});
 			ImprovedTube.setPrefCookieValueByName('f6', null);
-			if (document.getElementById("cinematics")) {
-				document.getElementById('cinematics').style.display = 'none !important';
-			}
+			if(document.getElementById("cinematics") !== null) 
+			{document.getElementById("cinematics").style.visibility = 'hidden';
+			document.getElementById("cinematics").style.display = 'none !important';}
 			// fall through
-		case 'dawn':
+		case 'dawn': 			
 		case 'sunset':
 		case 'night':
 		case 'plain':
@@ -113,11 +115,8 @@ ImprovedTube.setTheme = function () {
 			document.getElementById('cinematics')?.removeAttribute('style');
 			this.elements.my_colors?.remove();
 			break
-
 		case 'default':
-		   	if (document.getElementById("cinematics")) {
-				document.getElementById('cinematics').style.visibility = 'visible';
-			}
+			showCinematics();
 			this.elements.my_colors?.remove();
 			break
 	}
