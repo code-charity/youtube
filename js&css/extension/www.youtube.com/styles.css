@@ -739,6 +739,7 @@ html[it-theme=black][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-spec-selected-nav-text: #aaa !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	background-color: var(--yt-spec-base-background)!important;
 }
 
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
@@ -971,6 +972,7 @@ html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference
 	--yt-spec-selected-nav-text: rgb(255, 255, 255) !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	background-color: var(--yt-spec-base-background)!important;
 }
 
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
@@ -1206,6 +1208,7 @@ html[it-theme=desert][data-system-color-scheme=light][it-schedule=system_peferen
 	--yt-spec-selected-nav-text: #555 !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	background-color: var(--yt-spec-base-background)!important;
 }
 
 html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
@@ -1426,6 +1429,7 @@ html[it-theme=night][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-spec-selected-nav-text: #fff !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	background-color: var(--yt-spec-base-background)!important;
 }
 
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
@@ -1660,6 +1664,7 @@ html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-spec-selected-nav-text: #666 !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	background-color: var(--yt-spec-base-background)!important;
 }
 
 html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
@@ -1890,6 +1895,7 @@ html[it-theme=sunset][data-system-color-scheme=light][it-schedule=system_peferen
 	--yt-spec-selected-nav-text: #fff !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	background-color: var(--yt-spec-base-background)!important;
 }
 
 html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
