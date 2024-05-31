@@ -8,12 +8,12 @@ assignees: ''
 ---
 
 ## Bug Report:
- - Description:              _(Clear/concise. Screenshot/Video welcome)_
- - Steps to reproduce this:  _(Might only happen with a certain feature of our's enabled?)_
- - Since when?: When YouTube changed something? Through our update?
- - Browser:  
- - Are any errors shown in the Browser-Console?   _(`F12`-key, then `console`-tab)_
- - Does the bug not happen when you log out of YouTube? Then please copy your experiment flags list twice (with & without the error to compare). Enter: `yt.config_.EXPERIMENT_FLAGS` into the Browser console on youtube _(F12-Key - or find it in the html source(ctrl+U)_
+ - **Description:**              _(Clear/concise. Screenshot/Video welcome)_
+ - **Steps to reproduce this:**  _(Might only happen with a certain feature of our's enabled?)_
+ - **Since when?:** When YouTube changed something? Through our update?
+ - **Browser:**  
+ - **Are any errors shown in the Browser-Console?:**   _(`F12`-key, then `console`-tab)_
+ - **Does the bug not happen when you log out of YouTube? Then please copy your experiment flags list twice** _(with & without the error to compare). Enter: `yt.config_.EXPERIMENT_FLAGS` into the Browser console on youtube (F12-Key - Or find it in the html source(ctrl+U)_
 
 <!-- 
 ### Before submitting:
