@@ -7,31 +7,30 @@ assignees: ''
 
 ---
 
-## 1. Bug Report:
- - **BUG**:                   <!--(clear/concise description or Screenshot or Video) -->
-   -  Browser:                <!-- especially if not Chrome but Firefox / Safari / ...] -->
-   -  **HOW**:               <!-- Steps to **reproduce**. (Might only happen with your settings?) -->
- - Did YouTube change?
-   - *Or* did our last update start the bug?  Then Are any Browser errors shown? `F12`-key : `console`)   
- - Does the bug not happen when you log out of YouTube?  Then please copy your experiment flags list with & without the error, so we can compare: Enter:  ´yt.config_.EXPERIMENT_FLAGS´ into the Browser console on youtube (F12-Key). (can also copy them from the html source(ctrl+U))
-  
-### STEP-0:  (before submitting)  
-Thanks for coming & caring! Sometime 3 words are enough of a bug report. But please check if the issue has already been reported ever.  That might inspire you to post different words there.  
-(With [GitHub's issue search (use this link)](https://github.com/ImprovedTube/ImprovedTube/issues?q=) (else removing "is:issue is:open" from the standard search)  
-<!-- ( If it was posted before, you can answer/react there to give it your voice and move it up in the lists) 
-         If the status is  "closed" (=fixed) recently, then Web Stores can be updated soon)
-         If  it was closed month or years ago, then it might reappeared & must be fixed again.) --> 
+## Bug Report:
+ - **Description:**              _(Clear/concise. Screenshot/Video welcome)_
+ - **Steps to reproduce this:**  _(Might only happen with a certain feature of our's enabled?)_
+ - **Since when?:** When YouTube changed something? Through our update?
+ - **Browser:**  
+ - **Are any errors shown in the Browser-Console?:**   _(`F12`-key, then `console`-tab)_
+ - **Does the bug not happen when you log out of YouTube? Then please copy your experiment flags list twice** _(with & without the error to compare). Enter: `yt.config_.EXPERIMENT_FLAGS` into the Browser console on youtube (F12-Key - Or find it in the html source(ctrl+U)_
 
-### More:  <!-- *Maybe* add extra details, to increase our chances to solve the bug or if is a riddle -->
- - *Expected /preferred behavior:                 <!-- unless obvious -->  
- - ImprovedTube Version:                              <!-- [ written at the top & in the stores ]  -->
- - Tested alone without other YouTube extensions or in incognito mode?      <!-- Yes/No -->
-  - My Settings:               <!-- List your settings or export them to paste or attach
-                                          ImprovedTube-Extension -> `⋮` -> Backup & reset -> Export settings
-                                         You can delete/exclude YOUR BLOCKLIST if any -->  
- - DOM:             <!-- maybe attach -->  <details><summary> or paste collapsed: </summary> 
-  here (How-To:  https://github.com/code-charity/youtube/wiki/Contributing#Test ) </details>
- - OS:                <!--  [e.g. Linux Ubuntu 16 /  Windows 11 / MacOS 14 Sonoma]  -->
- - Device:    
+<!-- 
+### Before submitting:
+Thanks for coming & caring! 
+Sometime even 3 words are enough of a bug report. 
+Just --> please check, if the issue has already been reported ever. (If so, that might inspires you to add different/better words to that report.)
+  [GitHub's issue search](https://github.com/ImprovedTube/ImprovedTube/issues?q=) _(use the link or remove "is:issue is:open" from the search)_ 
+  <!--   (If it was posted before, you can answer/react there to give it your voice and this also move it up in our lists) 
+          If the status is  "closed" (=fixed) recently, then the Browser's stores can be updated soon, 
+             yet if it was already closed month or years ago, then it might appeared again & must be fixed again.) 
+                                                                                        
+### OPTIONAL (usually):                                                                   -->
+ - Expected preferred behavior: 
+ - ImprovedTube Version (Written in the Extension header & your Browser's store)
+ - Tested as only active extension or in incognito mode?:
+ - Your Settings (From the Extension's `⋮`-Hamburger menu > Settings > Backup & reset > Export settings (You can remove any Blocklist, History Analyzer data - or paste the following in the Browser-Console and hit enter: `(function({analyzer, blocklist, ...a}){return JSON.stringify(a)})(ImprovedTube.storage)` )
+ - YouTube-Document: (`F12` copy the whole root element: \<html> (alternative: CTRL+U) (https://github.com/code-charity/youtube/wiki/Contributing#Test ) 
+ - OS / Device:  
 
-   <!-- Many thanks & smiles !  -->
+ <!-- Many thanks & smiles !  -->
