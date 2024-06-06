@@ -122,7 +122,7 @@ ImprovedTube.init = function () {
 
 document.addEventListener('yt-navigate-finish', function () {
 	ImprovedTube.pageType();
-	if(this.storage.undo_the_new_sidebar === true){this.undoTheNewSidebar();}
+	if(ImprovedTube.storage.undo_the_new_sidebar === true){ImprovedTube.undoTheNewSidebar();}
 	ImprovedTube.commentsSidebar();
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
