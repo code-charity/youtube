@@ -45,7 +45,17 @@ extension.skeleton.main.layers.section.player.on.click = {
 	section_1: {
 		component: 'section',
 		variant: 'card',
-
+		pause_while_typing_on_youtube: {
+			component: 'switch',
+			text: 'pauseWhileIAmTypingOnYouTube',
+			storage: 'pause_while_typing_on_youtube',
+			id: 'pause_while_typing_on_youtube',
+			on: {
+				click: function () {
+					alert('pause_while_typing_on_youtube' + satus.storage.get('pause_while_typing_on_youtube'));
+				}
+			}
+		},
 		autopause_when_switching_tabs: {
 			component: 'switch',
 			text: 'autopauseWhenSwitchingTabs',

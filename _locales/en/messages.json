@@ -1381,5 +1381,8 @@
     },
     "youtubesDark": {
         "message": "YouTube's Dark"
+    },
+    "pauseWhileIAmTypingOnYouTube": {
+        "message": "Pause when I'm typing on YouTube"
     }
 }

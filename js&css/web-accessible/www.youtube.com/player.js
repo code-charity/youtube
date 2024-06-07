@@ -1354,3 +1354,29 @@ ImprovedTube.miniPlayer = function () {
 		window.removeEventListener('mousemove', this.miniPlayer_cursorUpdate);
 	}
 };
+
+/*------------------------------------------------------------------------------
+CUSTOM PAUSE FUNCTIONS
+------------------------------------------------------------------------------*/
+ImprovedTube.pauseWhileTypingOnYoutube = function () {
+	console.log('pauseWhileTypingOnYoutube')
+	// Add event listener to the whole document
+	document.addEventListener('keydown', function (e) {
+		// Check on the storage for pause_while_typing_on_youtube_storage is false
+		if (ImprovedTube.storage.pause_while_typing_on_youtube === false) {
+			return;
+		}
+
+		var player = ImprovedTube.elements.player;
+		if (player) {
+			// Check if the key pressed is a letter or a number
+			if (e.key.length === 1) {
+				// Pause the video
+				// Check if player is paused
+				if (!player.paused) {
+					player.pauseVideo();
+				}
+			}
+		}
+	});
+};
