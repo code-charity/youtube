@@ -1368,6 +1368,11 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 			return;
 		}
 
+		// If player is NOT in the viewport, return
+		if (!isPlayerInViewport()) {
+			return;
+		}
+
 		var player = ImprovedTube.elements.player;
 		if (player) {
 			// Check if the key pressed is a letter or a number
@@ -1390,4 +1395,24 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 			}
 		}
 	});
+
+	function isPlayerInViewport() {
+		var player = ImprovedTube.elements.player;
+		if (player) {
+			var rect = player.getBoundingClientRect();
+			console.log(rect);
+			var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+			var windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+
+			// Check if the player is in the viewport
+			return (
+				rect.top > 0 &&
+				rect.left > 0 &&
+				rect.bottom <= windowHeight &&
+				rect.right <= windowWidth
+			);
+		}
+		return false;
+	}
+
 };
