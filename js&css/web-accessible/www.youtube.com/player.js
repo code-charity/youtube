@@ -1391,7 +1391,7 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 				// Set a new timeout to play the video after 1 second
 				timeoutId = setTimeout(function () {
 					player.playVideo();
-				}, 1000); // 1000 milliseconds = 1 second
+				}, 2000); // 1000 milliseconds = 1 second
 			}
 		}
 	});
@@ -1406,8 +1406,8 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 
 			// Check if the player is in the viewport
 			return (
-				rect.top > 0 &&
-				rect.left > 0 &&
+				rect.top != 0 &&
+				rect.left != 0 &&
 				rect.bottom <= windowHeight &&
 				rect.right <= windowWidth
 			);
