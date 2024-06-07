@@ -1376,7 +1376,7 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 		var player = ImprovedTube.elements.player;
 		if (player) {
 			// Check if the key pressed is a letter or a number
-			if (e.key.length === 1) {
+			if (/^[a-z0-9]$/i.test(e.key) || e.key === " "|| e.key === "Backspace") {
 				// Pause the video
 				// Check if player is paused
 				if (!player.paused) {
@@ -1391,7 +1391,7 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 				// Set a new timeout to play the video after 1 second
 				timeoutId = setTimeout(function () {
 					player.playVideo();
-				}, 2000); // 1000 milliseconds = 1 second
+				}, 2000); // 2000 milliseconds = 2 seconds
 			}
 		}
 	});
