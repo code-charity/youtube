@@ -1359,7 +1359,8 @@ ImprovedTube.miniPlayer = function () {
 CUSTOM PAUSE FUNCTIONS
 ------------------------------------------------------------------------------*/
 ImprovedTube.pauseWhileTypingOnYoutube = function () {
-	console.log('pauseWhileTypingOnYoutube')
+	var timeoutId; // Declare a variable to hold the timeout ID
+
 	// Add event listener to the whole document
 	document.addEventListener('keydown', function (e) {
 		// Check on the storage for pause_while_typing_on_youtube_storage is false
@@ -1376,6 +1377,16 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 				if (!player.paused) {
 					player.pauseVideo();
 				}
+
+				// Clear any existing timeout
+				if (timeoutId) {
+					clearTimeout(timeoutId);
+				}
+
+				// Set a new timeout to play the video after 1 second
+				timeoutId = setTimeout(function () {
+					player.playVideo();
+				}, 1000); // 1000 milliseconds = 1 second
 			}
 		}
 	});

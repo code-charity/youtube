@@ -50,11 +50,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'pauseWhileIAmTypingOnYouTube',
 			storage: 'pause_while_typing_on_youtube',
 			id: 'pause_while_typing_on_youtube',
-			on: {
-				click: function () {
-					alert('pause_while_typing_on_youtube' + satus.storage.get('pause_while_typing_on_youtube'));
-				}
-			}
 		},
 		autopause_when_switching_tabs: {
 			component: 'switch',
