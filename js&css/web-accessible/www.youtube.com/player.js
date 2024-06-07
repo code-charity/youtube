@@ -1358,16 +1358,13 @@ ImprovedTube.miniPlayer = function () {
 /*------------------------------------------------------------------------------
 CUSTOM PAUSE FUNCTIONS
 ------------------------------------------------------------------------------*/
-ImprovedTube.pauseWhileTypingOnYoutube = function () {
+ImprovedTube.pauseWhileTypingOnYoutube = function () { if (ImprovedTube.storage.pause_while_typing_on_youtube === true) {
 	var timeoutId; // Declare a variable to hold the timeout ID
 
 	// Add event listener to the whole document
 	document.addEventListener('keydown', function (e) {
 		// Check on the storage for pause_while_typing_on_youtube_storage is false
-		if (ImprovedTube.storage.pause_while_typing_on_youtube === false) {
-			return;
-		}
-
+		
 		// If player is NOT in the viewport, return
 		if (!isPlayerInViewport()) {
 			return;
@@ -1418,4 +1415,4 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 		return false;
 	}
 
-};
+}};
