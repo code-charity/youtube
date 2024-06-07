@@ -1374,9 +1374,13 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 		}
 
 		var player = ImprovedTube.elements.player;
+
 		if (player) {
-			// Check if the key pressed is a letter or a number
-			if ((/^[a-z0-9]$/i.test(e.key) || e.key === "Backspace") && !(e.ctrlKey && (e.key === "c" || e.key === "x" || e.key === "a"))) {
+			if (
+				(/^[a-z0-9]$/i.test(e.key) || e.key === "Backspace") &&
+				!(e.ctrlKey && (e.key === "c" || e.key === "x" || e.key === "a")) &&
+				( document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA" || document.activeElement.tagName === "DIV" ))
+			{
 				// Pause the video
 				// Check if player is paused
 				if (!player.paused) {
@@ -1400,7 +1404,6 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 		var player = ImprovedTube.elements.player;
 		if (player) {
 			var rect = player.getBoundingClientRect();
-			console.log(rect);
 			var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
 			var windowWidth = (window.innerWidth || document.documentElement.clientWidth);
 
