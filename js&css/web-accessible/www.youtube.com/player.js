@@ -1354,3 +1354,65 @@ ImprovedTube.miniPlayer = function () {
 		window.removeEventListener('mousemove', this.miniPlayer_cursorUpdate);
 	}
 };
+
+/*------------------------------------------------------------------------------
+CUSTOM PAUSE FUNCTIONS
+------------------------------------------------------------------------------*/
+ImprovedTube.pauseWhileTypingOnYoutube = function () { if (ImprovedTube.storage.pause_while_typing_on_youtube === true) {
+	var timeoutId; // Declare a variable to hold the timeout ID
+
+	// Add event listener to the whole document
+	document.addEventListener('keydown', function (e) {
+		// Check on the storage for pause_while_typing_on_youtube_storage is false
+		
+		// If player is NOT in the viewport, return
+		if (!isPlayerInViewport()) {
+			return;
+		}
+
+		var player = ImprovedTube.elements.player;
+
+		if (player) {
+			if (
+				(/^[a-z0-9]$/i.test(e.key) || e.key === "Backspace") &&
+				!(e.ctrlKey && (e.key === "c" || e.key === "x" || e.key === "a")) &&
+				( document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA" || document.activeElement.tagName === "DIV" ))
+			{
+				// Pause the video
+				// Check if player is paused
+				if (!player.paused) {
+					player.pauseVideo();
+				}
+
+				// Clear any existing timeout
+				if (timeoutId) {
+					clearTimeout(timeoutId);
+				}
+
+				// Set a new timeout to play the video after 1 second
+				timeoutId = setTimeout(function () {
+					player.playVideo();
+				}, 2000); // 2000 milliseconds = 2 seconds
+			}
+		}
+	});
+
+	function isPlayerInViewport() {
+		var player = ImprovedTube.elements.player;
+		if (player) {
+			var rect = player.getBoundingClientRect();
+			var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+			var windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+
+			// Check if the player is in the viewport
+			return (
+				rect.top != 0 &&
+				rect.left != 0 &&
+				rect.bottom <= windowHeight &&
+				rect.right <= windowWidth
+			);
+		}
+		return false;
+	}
+
+}};

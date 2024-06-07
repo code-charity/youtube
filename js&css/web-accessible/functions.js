@@ -441,6 +441,7 @@ ImprovedTube.playerOnEnded = function (event) {
 };
 
 ImprovedTube.onkeydown = function () {
+	ImprovedTube.pauseWhileTypingOnYoutube()
 	window.addEventListener('keydown', function () {
 		if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
 			ImprovedTube.user_interacted = true;
