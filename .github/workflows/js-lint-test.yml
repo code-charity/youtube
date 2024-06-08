@@ -1,0 +1,36 @@
+name: JS Lint and Test
+
+on:
+  push:
+    branches:
+      - master
+      - 'feature/*'
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run JSLint
+        run: npx jslint "**/*.js"
+        continue-on-error: true
+
+      - name: Run Jest
+        run: npx jest
+
+      - name: Run npm test
+        run: npm test
