@@ -23,7 +23,6 @@ jest.mock('../../js&css/extension/core', () => ({
     },
     camelize: jest.fn((string) => {
         // Mock implementation of the camelize function
-        // Simulate the behavior of the original camelize function
         var result = '';
         for (var i = 0, l = string.length; i < l; i++) {
             var character = string[i];
@@ -36,8 +35,9 @@ jest.mock('../../js&css/extension/core', () => ({
         }
         return result;
     }),
-    // Other mocked properties...
+
     events: {
+        // Mock implementation of the events function
         listeners: {},
         trigger: async function (type, data) {
             const listeners = this.listeners[type];
@@ -60,7 +60,7 @@ jest.mock('../../js&css/extension/core', () => ({
 
 }));
 
-// Mock extension object directly within the jest.mock call
+// Mock extension object
 const extensionMock = require('../../js&css/extension/core');
 
 // Unit tests for the camelize function
@@ -86,9 +86,7 @@ test('Convert kebab-case to camelCase', () => {
     expect(mockInput).toBe(expectedOutput);
 });
 
-// Unit test for the trigger method
-
-// Unit tests for the trigger method
+// Unit test for the events method
 test('Trigger method should correctly retrieve and invoke listeners', () => {
     // Mock event listeners
     const listener1 = jest.fn();
