@@ -677,7 +677,7 @@ html[it-theme=plain] #cinematics {
 }
 
 /*video detail text color. Fix. Themes didnt apply video description text color*/
-html[it-theme] .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary) !important}
+html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary) !important}
 html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string__link--call-to-action-color {color: var(--yt-spec-call-to-action)}
 /*The next two lines below can be removed if exact theming consistency isn't the goal and we just want to keep it simple.*/
 html[it-theme]:not([it-theme=default]):not([it-theme=dark]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-call-to-action) !important}
