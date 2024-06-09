@@ -5,7 +5,7 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 	if (this.storage.player_autoplay_disable
 		|| this.storage.playlist_autoplay === false
 		|| this.storage.channel_trailer_autoplay === false) {
-		const player = this.elements.player || videoElement.closest('.html5-video-player');
+		const player = this.elements.player || videoElement.closest('.html5-video-player') || videoElement.closest('#movie_player'); // #movie_player: outdated since 2024?
 
 		if (this.video_url !== location.href) {	this.user_interacted = false; }
 
