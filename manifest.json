@@ -54,6 +54,7 @@
 			"run_at": "document_start"
 		}
 	],
+	"host_permissions": [ "https://www.youtube.com/*" ],
 	"offline_enabled": true,
 	"optional_permissions": [
 		"downloads"
