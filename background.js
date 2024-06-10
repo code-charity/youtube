@@ -210,110 +210,75 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
 /*--------------------------------------------------------------
 # MESSAGE LISTENER
 --------------------------------------------------------------*/
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-	var name = request.name;
+let tabConnected = {};
 
-	if (name === 'download') {
-		chrome.permissions.request({
-			permissions: ['downloads'],
-			origins: ['https://www.youtube.com/*']
-		}, function (granted) {
-			if (granted) {
-				try {
-					var blob = new Blob([JSON.stringify(request.value)], {
-						type: 'application/json;charset=utf-8'
-					});
-
-					chrome.downloads.download({
-						url: URL.createObjectURL(blob),
-						filename: request.filename,
-						saveAs: true
-					});
-				} catch (error) {
-					console.error(error);
-				}
-			} else {
-				console.error('Permission is not granted.');
-			}
-		});
-	}
-});
-
-let prevTabsLength = 0;
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-	var action = message.action || message;
+	console.log(message);
+	console.log(sender);
 
-	if (action === "play") {
-		chrome.tabs.query({}, function (tabs) {
-			if (tabs.length > prevTabsLength) {
-				prevTabsLength = tabs.length;
-				for (let i = 0, l = tabs.length; i < l; i++) {
-					let tab = tabs[i];
-					chrome.tabs.sendMessage(tab.id, {action: "new-tab-opened"});
-				}
-			} else {
-				prevTabsLength = tabs.length;
-			}
-			for (let i = 0, l = tabs.length; i < l; i++) {
-				let tab = tabs[i];
-
-				if (sender.tab.id !== tab.id) {
-					chrome.tabs.sendMessage(tab.id, {action: "another-video-started-playing"});
-				}
-			}
-		});
-	} else if (action === 'options-page-connected') {
-		sendResponse({
-			isTab: sender.hasOwnProperty('tab')
-		});
-	} else if (action === 'tab-connected') {
-		try{ sendResponse({
-			hostname: new URL(sender.url).hostname,
-			tabId: sender.tab.id
-		}); } catch (error) { console.error("invalid url?", error); }
-	} else if (action === 'fixPopup') {
-		//~ get the current focused tab and convert it to a URL-less popup (with same state and size)
-		chrome.windows.getLastFocused(w => {
-			chrome.tabs.query({
-				windowId: w.id,
-				active: true
-			}, ts => {
-				const tID = ts[0]?.id,
-					  data = { type: 'popup',
-							  state: w.state,
-							  width: parseInt(message.width, 10),
-							  height: parseInt(message.height, 10),
-							  left: 0,
-							  top: 20
-							 }
-
-				if (tID) {data.tabId = tID;}
-				chrome.windows.create(data, pw => {});
-
-				//append to title?
-				chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {
-					if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")) {
-						chrome.tabs.onUpdated.removeListener(listener);
-						chrome.scripting.executeScript({ target: { tabId: tID }, func: () => { document.title = `${message.title} - ImprovedTube`; } })			//manifest3
-						// chrome.tabs.executeScript(tID, {code: `document.title = "${message.title} - ImprovedTube";`});  //manifest2
+	switch(message.action || message) {
+		case 'play':
+			chrome.tabs.query({ url: 'https://www.youtube.com/*' }).then(function (tabs) {
+				let tabIds = [];
+				for (let tab of tabs) {
+					tabIds.push(tab.id);
+					if (!tab.discarded && tab.id !== sender.tab.id && tabConnected[tab.id]) {
+						chrome.tabs.sendMessage(tab.id, {action: "another-video-started-playing"});
 					}
+				}
+				// prune stale tab-connected data
+				for (let id in tabConnected) {
+					if (!tabIds.includes(Number(id))) {
+						delete tabConnected[id];
+					}
+				}
+			}, function () {console.log("Error querying Tabs")});
+			break
+
+		case 'options-page-connected':
+			sendResponse({
+				isTab: sender.hasOwnProperty('tab')
+			});
+			break
+
+		case 'tab-connected':
+			tabConnected[sender.tab.id] = true;
+			sendResponse({
+				tabId: sender.tab.id
+			});
+			break
+
+		case 'fixPopup':
+		//~ get the current focused tab and convert it to a URL-less popup (with same state and size)
+			chrome.windows.getLastFocused(w => {
+				chrome.tabs.query({
+					windowId: w.id,
+					active: true
+				}, ts => {
+					const tID = ts[0]?.id,
+						data = { type: 'popup',
+								state: w.state,
+								width: parseInt(message.width, 10),
+								height: parseInt(message.height, 10),
+								left: 0,
+								top: 20
+								}
+
+					if (tID) {data.tabId = tID;}
+					chrome.windows.create(data, pw => {});
+
+					//append to title?
+					chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {
+						if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")) {
+							chrome.tabs.onUpdated.removeListener(listener);
+							chrome.tabs.executeScript(tID, {code: `document.title = "${message.title} - ImprovedTube";`});
+						}
+					});
 				});
 			});
-		});
+			break
 	}
 });
-/*------ search results in new tab ---------
-chrome.storage.local.get('open_new_tab', function (result)
-{if (result.open_new_tab === true){
-
-chrome.runtime.onMessage.addListener(function (request) {
-  if (request.action === "createNewTab") {
-    chrome.tabs.create({ url: request.url });
-  }
-});
-
-}});  */
-
 /*-----# UNINSTALL URL-----------------------------------*/
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
 
