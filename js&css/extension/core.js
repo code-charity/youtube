@@ -187,53 +187,12 @@ extension.inject = function (paths, callback) {
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# CREATE ELEMENT
---------------------------------------------------------------*/
-
-extension.messages.create = function () {
-	this.element = document.createElement('div');
-
-	this.element.id = 'it-messages-from-extension';
-
-	this.element.style.display = 'none';
-
-	document.documentElement.appendChild(this.element);
-};
-
-/*--------------------------------------------------------------
-# LISTENER
---------------------------------------------------------------*/
-
-extension.messages.listener = function () {
-	document.addEventListener('it-message-from-extension--readed', function () {
-		extension.messages.queue.pop();
-
-		if (extension.messages.queue.length > 0) {
-			extension.messages.element.textContent = message;
-
-			document.dispatchEvent(new CustomEvent('it-message-from-extension'));
-		}
-	});
-};
-
-/*--------------------------------------------------------------
 # SEND
 --------------------------------------------------------------*/
 
 extension.messages.send = function (message) {
-	if (typeof message === 'object') {
-		message = JSON.stringify(message);
-	}
-
-	this.queue.push(message);
-
-	if (this.queue.length === 1) {
-		this.element.textContent = message;
-
-		document.dispatchEvent(new CustomEvent('it-message-from-extension'));
-	}
+	document.dispatchEvent(new CustomEvent('it-message-from-extension', {'detail': message}));
 };
-
 
 /*--------------------------------------------------------------
 # STORAGE
