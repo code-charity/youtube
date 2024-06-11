@@ -271,11 +271,34 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 					chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {
 						if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")) {
 							chrome.tabs.onUpdated.removeListener(listener);
-							chrome.tabs.executeScript(tID, {code: `document.title = "${message.title} - ImprovedTube";`});
+							chrome.scripting.executeScript({ target: { tabId: tID }, func: () => { document.title = `${message.title} - ImprovedTube`; } });			//manifest3
+							// chrome.tabs.executeScript(tID, {code: `document.title = "${message.title} - ImprovedTube";`});  //manifest2
 						}
 					});
 				});
 			});
+			break
+		case 'download':
+			chrome.permissions.request({
+			permissions: ['downloads'],
+			origins: ['https://www.youtube.com/*']
+			}, function (granted) {
+				if (granted) {
+					try {
+						var blob = new Blob([JSON.stringify(request.value)], {
+							type: 'application/json;charset=utf-8'
+						});
+					chrome.downloads.download({
+						url: URL.createObjectURL(blob),
+						filename: request.filename,
+						saveAs: true
+					});
+				} catch (error) {
+					console.error(error);	
+				} else {
+				console.error('Permission is not granted.');
+				}
+			})
 			break
 	}
 });
