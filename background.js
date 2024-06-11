@@ -216,7 +216,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	console.log(message);
 	console.log(sender);
 
-	switch(message.action || message) {
+	switch(message.action || message.name || message) {
 		case 'play':
 			chrome.tabs.query({ url: 'https://www.youtube.com/*' }).then(function (tabs) {
 				let tabIds = [];
