@@ -12,15 +12,15 @@
 /*
 // For Manifest3:
 /*-----# Persistent Serviceworker:
-        "Manifest2 Background.js"-----*/
+		"Manifest2 Background.js"-----*/
 // Periodic "keep-alive" message every 29.5 seconds
 // const keepAliveInterval = setInterval(() => chrome.runtime.sendMessage({ status: 'keep-alive' }), 29.5 * 1000);
 
-/* Sidepanel Option  
+/* Sidepanel Option
   chrome.storage.local.get('improvedTubeSidePanel', function (result) {
-    if ( result.improvedTubeSidePanel && result.improvedTubeSidePanel === true) {
-      chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true })
-    }  else {chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: false }) }
+	if ( result.improvedTubeSidePanel && result.improvedTubeSidePanel === true) {
+		chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true })
+	} else {chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: false }) }
   });
 */
 /*---------------------------
@@ -28,14 +28,14 @@
 -----------------------------*/
 chrome.runtime.onInstalled.addListener(function (installed) {
 	if(installed.reason == 'update') {
-		//      var thisVersion = chrome.runtime.getManifest().version;
-		//      console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
+		//		var thisVersion = chrome.runtime.getManifest().version;
+		//		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
 		chrome.storage.local.get('player_autoplay', function (result) {
 			if (result.player_autoplay === false) {
 				chrome.storage.local.set({player_autoplay_disable: true});
 				chrome.storage.local.remove(['player_autoplay'], (i) => {});
 			}
-		});    
+		});
 		chrome.storage.local.get('channel_default_tab', function (result) {
 			if (result.channel_default_tab === '/home') {
 				chrome.storage.local.set({channel_default_tab: '/'});
@@ -45,12 +45,12 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 			if (result.player_quality === 'auto') {
 				chrome.storage.local.get('player_quality_auto', function (result) {
 					if (result.player_quality_auto !== 'migrated') {
-					chrome.storage.local.set({player_quality: 'disabled'});
-					chrome.storage.local.set({player_quality_auto: 'migrated'});
+						chrome.storage.local.set({player_quality: 'disabled'});
+						chrome.storage.local.set({player_quality_auto: 'migrated'});
 					}
-				});				
+				});
 			}
-		});		
+		});
 		chrome.storage.local.get('hideSubscribe', function (result) {
 			if (result.hideSubscribe === true) {
 				chrome.storage.local.set({subscribe: 'hidden'});
@@ -70,14 +70,14 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 		});
 	} else if(installed.reason == 'install') {
 		if(navigator.userAgent.indexOf("Firefox") != -1){
-				chrome.storage.local.set({below_player_pip: false})}
-		if(navigator.userAgent.indexOf('Safari') !== -1 
-			&& (!/Windows|Chrom/.test(navigator.userAgent) 
-			|| /Macintosh|iPhone/.test(navigator.userAgent))) {
-				chrome.storage.local.set({below_player_pip: false})
-				// still needed? (are screenshots broken in Safari?):
-				chrome.storage.local.set({below_player_screenshot: false})}
-	// console.log('Thanks for installing!');
+			chrome.storage.local.set({below_player_pip: false})}
+		if(navigator.userAgent.indexOf('Safari') !== -1
+		   && (!/Windows|Chrom/.test(navigator.userAgent)
+			   || /Macintosh|iPhone/.test(navigator.userAgent))) {
+			chrome.storage.local.set({below_player_pip: false})
+			// still needed? (are screenshots broken in Safari?):
+			chrome.storage.local.set({below_player_screenshot: false})}
+		// console.log('Thanks for installing!');
 	}
 });
 /*--------------------------------------------------------------
@@ -130,7 +130,7 @@ function updateContextMenu(language) {
 			chrome.contextMenus.create({
 				id: String(i),
 				title: text,
-				contexts: ['action']  //manifest3
+				contexts: ['action'] //manifest3
 				// contexts: ['browser_action'] //manifest2
 			});
 		}
@@ -249,20 +249,20 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 			break
 
 		case 'fixPopup':
-		//~ get the current focused tab and convert it to a URL-less popup (with same state and size)
+			//~ get the current focused tab and convert it to a URL-less popup (with same state and size)
 			chrome.windows.getLastFocused(w => {
 				chrome.tabs.query({
 					windowId: w.id,
 					active: true
 				}, ts => {
 					const tID = ts[0]?.id,
-						data = { type: 'popup',
-								state: w.state,
-								width: parseInt(message.width, 10),
-								height: parseInt(message.height, 10),
-								left: 0,
-								top: 20
-								}
+						  data = { type: 'popup',
+								  state: w.state,
+								  width: parseInt(message.width, 10),
+								  height: parseInt(message.height, 10),
+								  left: 0,
+								  top: 20
+								 }
 
 					if (tID) {data.tabId = tID;}
 					chrome.windows.create(data, pw => {});
@@ -280,29 +280,27 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 			break
 		case 'download':
 			chrome.permissions.request({
-			permissions: ['downloads'],
-			origins: ['https://www.youtube.com/*']
+				permissions: ['downloads'],
+				origins: ['https://www.youtube.com/*']
 			}, function (granted) {
 				if (granted) {
 					try {
-						var blob = new Blob([JSON.stringify(request.value)], {
+						var blob = new Blob([JSON.stringify(message.value)], {
 							type: 'application/json;charset=utf-8'
 						});
-					chrome.downloads.download({
-						url: URL.createObjectURL(blob),
-						filename: request.filename,
-						saveAs: true
-					});
-				} catch (error) {
-					console.error(error);	
+						chrome.downloads.download({
+							url: URL.createObjectURL(blob),
+							filename: message.filename,
+							saveAs: true
+						});
+					} catch (error) {
+						console.error(error);
+					}
 				} else {
-				console.error('Permission is not granted.');
-				}
-			})
+					console.error('Permission is not granted.');
+				}})
 			break
 	}
 });
 /*-----# UNINSTALL URL-----------------------------------*/
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
-
-
