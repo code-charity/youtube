@@ -12,9 +12,6 @@ window.addEventListener('yt-navigate-finish', function () {
 	extension.features.thumbnailsQuality();
 });
 
-extension.messages.create();
-extension.messages.listener();
-
 extension.events.on('init', function (resolve) {
 	extension.storage.listener();
 	extension.storage.load(function () {
@@ -115,132 +112,114 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	}
 });
 
-document.addEventListener('it-message-from-youtube', function () {
-	var provider = document.querySelector('#it-messages-from-youtube');
+document.addEventListener('it-message-from-youtube', function (message) {
+	message = message.detail;
 
-	if (provider) {
-		var message = provider.textContent;
+	if (message.requestOptionsUrl === true) {
+		extension.messages.send({
+			responseOptionsUrl: chrome.runtime.getURL('menu/index.html')
+		});
+	} else if (message.onlyOnePlayer === true) {
+		chrome.runtime.sendMessage({
+			name: 'only-one-player'
+		});
+	} else if (message.action === 'fixPopup') {
+		chrome.runtime.sendMessage({
+			action: 'fixPopup',
+			width: message.width,
+			height: message.height,
+			title: message.title,
+		});
+	} else if (message.action === 'analyzer') {
+		if (extension.storage.data.analyzer_activation === true) {
+			var data = message.name,
+				date = new Date().toDateString(),
+				hours = new Date().getHours() + ':00';
 
-		document.dispatchEvent(new CustomEvent('it-message-from-youtube--readed'));
-
-		try {
-			message = JSON.parse(message);
-		} catch (error) {
-			console.log(error);
-		}
-
-		//console.log(message);
-
-		if (message.requestOptionsUrl === true) {
-			extension.messages.send({
-				responseOptionsUrl: chrome.runtime.getURL('menu/index.html')
-			});
-		} else if (message.onlyOnePlayer === true) {
-			chrome.runtime.sendMessage({
-				name: 'only-one-player'
-			});
-		} else if (message.action === 'fixPopup') {
-			chrome.runtime.sendMessage({
-				action: 'fixPopup',
-				width: message.width,
-		        height: message.height,
-				title: message.title,
-			});
-		} else if (message.action === 'analyzer') {
-			if (extension.storage.data.analyzer_activation === true) {
-				var data = message.name,
-					date = new Date().toDateString(),
-					hours = new Date().getHours() + ':00';
-
-				if (!extension.storage.data.analyzer) {
-					extension.storage.data.analyzer = {};
-				}
-
-				if (!extension.storage.data.analyzer[date]) {
-					extension.storage.data.analyzer[date] = {};
-				}
-
-				if (!extension.storage.data.analyzer[date][hours]) {
-					extension.storage.data.analyzer[date][hours] = {};
-				}
-
-				if (!extension.storage.data.analyzer[date][hours][data]) {
-					extension.storage.data.analyzer[date][hours][data] = 0;
-				}
-
-				extension.storage.data.analyzer[date][hours][data]++;
-
-				chrome.storage.local.set({
-					analyzer: extension.storage.data.analyzer
-				});
-			}
-		} else if (message.action === 'blocklist') {
-			if (!extension.storage.data.blocklist || typeof extension.storage.data.blocklist !== 'object') {
-				extension.storage.data.blocklist = {};
+			if (!extension.storage.data.analyzer) {
+				extension.storage.data.analyzer = {};
 			}
 
-			switch(message.type) {
-				case 'channel':
-					if (!extension.storage.data.blocklist.channels) {
-						extension.storage.data.blocklist.channels = {};
-					}
-					if (message.added) {
-						extension.storage.data.blocklist.channels[message.id] = {
-							title: message.title,
-							preview: message.preview
-						}
-					} else {
-						delete extension.storage.data.blocklist.channels[message.id];
-					}
-					break
-
-				case 'video':
-					if (!extension.storage.data.blocklist.videos) {
-						extension.storage.data.blocklist.videos = {};
-					}
-					if (message.added) {
-						extension.storage.data.blocklist.videos[message.id] = {
-							title: message.title
-						}
-					} else {
-						delete extension.storage.data.blocklist.videos[message.id];
-					}
-					break
+			if (!extension.storage.data.analyzer[date]) {
+				extension.storage.data.analyzer[date] = {};
 			}
+
+			if (!extension.storage.data.analyzer[date][hours]) {
+				extension.storage.data.analyzer[date][hours] = {};
+			}
+
+			if (!extension.storage.data.analyzer[date][hours][data]) {
+				extension.storage.data.analyzer[date][hours][data] = 0;
+			}
+
+			extension.storage.data.analyzer[date][hours][data]++;
 
 			chrome.storage.local.set({
-				blocklist: extension.storage.data.blocklist
+				analyzer: extension.storage.data.analyzer
 			});
-		} else if (message.action === 'watched') {
-			if (!extension.storage.data.watched || typeof extension.storage.data.watched !== 'object') {
-				extension.storage.data.watched = {};
-			}
-
-			if (message.type === 'add') {
-				extension.storage.data.watched[message.id] = {
-					title: message.title
-				};
-			}
-
-			if (message.type === 'remove') {
-				delete extension.storage.data.watched[message.id];
-			}
-
-			chrome.storage.local.set({
-				watched: extension.storage.data.watched
-			});
-		} else if (message.action === 'set') {
-			if (message.value) {
-				chrome.storage.local.set({[message.key]: message.value});
-			} else {
-				chrome.storage.local.remove([message.key]);
-			}
 		}
+	} else if (message.action === 'blocklist') {
+		if (!extension.storage.data.blocklist || typeof extension.storage.data.blocklist !== 'object') {
+			extension.storage.data.blocklist = {};
+		}
+
+		switch(message.type) {
+			case 'channel':
+				if (!extension.storage.data.blocklist.channels) {
+					extension.storage.data.blocklist.channels = {};
+				}
+				if (message.added) {
+					extension.storage.data.blocklist.channels[message.id] = {
+						title: message.title,
+						preview: message.preview
+					}
+				} else {
+					delete extension.storage.data.blocklist.channels[message.id];
+				}
+				break
+
+			case 'video':
+				if (!extension.storage.data.blocklist.videos) {
+					extension.storage.data.blocklist.videos = {};
+				}
+				if (message.added) {
+					extension.storage.data.blocklist.videos[message.id] = {
+						title: message.title
+					}
+				} else {
+					delete extension.storage.data.blocklist.videos[message.id];
+				}
+				break
+		}
+
+		chrome.storage.local.set({
+			blocklist: extension.storage.data.blocklist
+		});
+	} else if (message.action === 'watched') {
+		if (!extension.storage.data.watched || typeof extension.storage.data.watched !== 'object') {
+			extension.storage.data.watched = {};
+		}
+
+		if (message.type === 'add') {
+			extension.storage.data.watched[message.id] = {
+				title: message.title
+			};
+		}
+
+		if (message.type === 'remove') {
+			delete extension.storage.data.watched[message.id];
+		}
+
+		chrome.storage.local.set({
+			watched: extension.storage.data.watched
+		});
+	} else if (message.action === 'set') {
+		if (message.value) {
+			chrome.storage.local.set({[message.key]: message.value});
+		} else {
+			chrome.storage.local.remove([message.key]);
+		}
+	} else if (message.action === 'play') {
+		chrome.runtime.sendMessage({action: 'play'});
 	}
 });
-
-document.addEventListener('it-play', function (event) {
-	var videos = document.querySelectorAll('video');
-	 try {chrome.runtime.sendMessage({action: 'play'})} 
-       catch(error){console.log(error); setTimeout(function () { try { chrome.runtime.sendMessage({action: 'play'}, function (response) { console.log(response) } );  } catch { } }, 321) }
-	   });
