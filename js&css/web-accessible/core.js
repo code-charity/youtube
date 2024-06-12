@@ -108,36 +108,6 @@ if (localStorage['it-codec'] || localStorage['it-player30fps']) {
 	website.
 --------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-# CREATE ELEMENT
---------------------------------------------------------------*/
-
-ImprovedTube.messages.create = function () {
-	this.element = document.createElement('div');
-
-	this.element.id = 'it-messages-from-youtube';
-
-	this.element.style.display = 'none';
-
-	document.documentElement.appendChild(this.element);
-};
-
-/*--------------------------------------------------------------
-# LISTENER
---------------------------------------------------------------*/
-
-ImprovedTube.messages.listener = function () {
-	document.addEventListener('it-message-from-youtube--readed', function () {
-		ImprovedTube.messages.queue.pop();
-
-		if (ImprovedTube.messages.queue.length > 0) {
-			ImprovedTube.messages.element.textContent = message;
-
-			document.dispatchEvent(new CustomEvent('it-message-from-youtube'));
-		}
-	});
-};
-
 document.addEventListener('it-message-from-extension', function (message) {
 	message = message.detail;
 
@@ -413,15 +383,5 @@ document.addEventListener('it-message-from-extension', function (message) {
 --------------------------------------------------------------*/
 
 ImprovedTube.messages.send = function (message) {
-	if (typeof message === 'object') {
-		message = JSON.stringify(message);
-	}
-
-	this.queue.push(message);
-
-	if (this.queue.length === 1) {
-		this.element.textContent = message;
-
-		document.dispatchEvent(new CustomEvent('it-message-from-youtube'));
-	}
+	document.dispatchEvent(new CustomEvent('it-message-from-youtube', {'detail': message}));
 };
