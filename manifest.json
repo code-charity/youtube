@@ -12,7 +12,9 @@
 		"48": "stuff/icons/48.png"
 	},
 	"background": {
-		"service_worker": "background.js"
+		"scripts": [
+			"background.js"
+		]
 	},
 	"action": {
 		"default_popup": "menu/index.html",
