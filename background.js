@@ -159,55 +159,6 @@ chrome.storage.onChanged.addListener(function (changes) {
 	}
 });
 /*--------------------------------------------------------------
-# TAB FOCUS/BLUR
---------------------------------------------------------------*/
-chrome.tabs.onActivated.addListener(function (activeInfo) {
-	chrome.tabs.sendMessage(activeInfo.tabId, {action: 'focus'});
-
-	chrome.tabs.query({
-		windowId: activeInfo.windowId
-	}, function (tabs) {
-		if (tabs) {
-			for (var i = 0, l = tabs.length; i < l; i++) {
-				if (tabs[i].id !== activeInfo.tabId) {
-					chrome.tabs.sendMessage(tabs[i].id, {action: 'blur'});
-				}
-			}
-		}
-	});
-});
-chrome.windows.onFocusChanged.addListener(function (windowId) {
-	chrome.windows.getAll(function (windows) {
-		for (var i = 0, l = windows.length; i < l; i++) {
-			if (windows[i].focused === true) {
-				chrome.tabs.query({
-					windowId: windows[i].id
-				}, function (tabs) {
-					if (tabs) {
-						for (var j = 0, k = tabs.length; j < k; j++) {
-							var tab = tabs[j];
-
-							if (tab.active) {
-								chrome.tabs.sendMessage(tab.id, {action: 'focus'});
-							}
-						}
-					}
-				});
-			} else {
-				chrome.tabs.query({windowId: windows[i].id}, function (tabs) {
-					if (tabs) {
-						for (var j = 0, k = tabs.length; j < k; j++) {
-							var tab = tabs[j];
-
-							chrome.tabs.sendMessage(tab.id, {action: 'blur'});
-						}
-					}
-				});
-			}
-		}
-	});
-});
-/*--------------------------------------------------------------
 # MESSAGE LISTENER
 --------------------------------------------------------------*/
 let tabConnected = {};
