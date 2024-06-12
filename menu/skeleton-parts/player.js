@@ -922,7 +922,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_quality_without_focus').dispatchEvent(new CustomEvent('render'));
-						document.getElementById('quality_when_low_battery').dispatchEvent(new CustomEvent('render'));
+						//document.getElementById('quality_when_low_battery').dispatchEvent(new CustomEvent('render'));
 					}
 					if (this.dataset.value === 'false') {
 						let where = this;
