@@ -191,6 +191,9 @@ extension.inject = function (paths, callback) {
 --------------------------------------------------------------*/
 
 extension.messages.send = function (message) {
+	if (typeof cloneInto == 'function') {
+		message = cloneInto(message, window);
+	}
 	document.dispatchEvent(new CustomEvent('it-message-from-extension', {'detail': message}));
 };
 
