@@ -159,51 +159,62 @@ chrome.storage.onChanged.addListener(function (changes) {
 	}
 });
 /*--------------------------------------------------------------
-# TAB FOCUS/BLUR
+# TAB Helper, prune stale connected tabs
 --------------------------------------------------------------*/
-chrome.tabs.onActivated.addListener(function (activeInfo) {
-	chrome.tabs.sendMessage(activeInfo.tabId, {action: 'focus'});
+let tabConnected = {};
 
-	chrome.tabs.query({
-		windowId: activeInfo.windowId
-	}, function (tabs) {
-		if (tabs) {
-			for (var i = 0, l = tabs.length; i < l; i++) {
-				if (tabs[i].id !== activeInfo.tabId) {
-					chrome.tabs.sendMessage(tabs[i].id, {action: 'blur'});
-				}
+function tabPrune(callback) {
+	chrome.tabs.query({ url: 'https://www.youtube.com/*' }).then(function (tabs) {
+		let tabIds = [];
+		for (let tab of tabs) {
+			if (!tab.discarded && tabConnected[tab.id]) {
+				tabIds.push(tab.id);
+			}
+		}
+		for (let id in tabConnected) {
+			if (!tabIds.includes(Number(id))) {
+				delete tabConnected[id];
+			}
+		}
+		callback();
+	}, function () { console.log("Error querying Tabs") });
+};
+/*--------------------------------------------------------------
+# TAB FOCUS/BLUR
+ commented out console.log left intentionally, to help understand 
+ https://issues.chromium.org/issues/41116352
+--------------------------------------------------------------*/
+let tab = {},
+	tabPrev = {},
+	windowId;
+ 
+chrome.tabs.onActivated.addListener(function (activeInfo) {
+	tabPrev = tab;
+	tab = activeInfo;
+	//console.log('activeInfo', windowId, tabPrev, tab);
+	tabPrune(function () {
+		if (windowId == tabPrev.windowId) {
+			if (tabConnected[tabPrev.tabId]) {
+				chrome.tabs.sendMessage(tabPrev.tabId, {action: 'blur'});
+				//console.log('tabIdPrev', tabPrev.tabId);
+			}
+			if (tabConnected[tab.tabId]) {
+				chrome.tabs.sendMessage(tab.tabId, {action: 'focus'});
+				//console.log('tabId', tab.tabId);
 			}
 		}
 	});
 });
-chrome.windows.onFocusChanged.addListener(function (windowId) {
-	chrome.windows.getAll(function (windows) {
-		for (var i = 0, l = windows.length; i < l; i++) {
-			if (windows[i].focused === true) {
-				chrome.tabs.query({
-					windowId: windows[i].id
-				}, function (tabs) {
-					if (tabs) {
-						for (var j = 0, k = tabs.length; j < k; j++) {
-							var tab = tabs[j];
-
-							if (tab.active) {
-								chrome.tabs.sendMessage(tab.id, {action: 'focus'});
-							}
-						}
-					}
-				});
-			} else {
-				chrome.tabs.query({windowId: windows[i].id}, function (tabs) {
-					if (tabs) {
-						for (var j = 0, k = tabs.length; j < k; j++) {
-							var tab = tabs[j];
-
-							chrome.tabs.sendMessage(tab.id, {action: 'blur'});
-						}
-					}
-				});
-			}
+chrome.windows.onFocusChanged.addListener(function (wId) {
+	windowId = wId;
+	//console.log('onFocusChanged', windowId, tabPrev, tab);
+	tabPrune(function () {
+		if (windowId != tab.windowId && tab.tabId && tabConnected[tab.tabId]) {
+			chrome.tabs.sendMessage(tab.tabId, {action: 'blur'});
+			//console.log('blur', tab.tabId, windowId);
+		} else if (windowId && tab.tabId && tabConnected[tab.tabId]) {
+			chrome.tabs.sendMessage(tab.tabId, {action: 'focus'});
+			//console.log('focus', tab.tabId, windowId);
 		}
 	});
 });
@@ -213,26 +224,19 @@ chrome.windows.onFocusChanged.addListener(function (windowId) {
 let tabConnected = {};
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-	console.log(message);
-	console.log(sender);
+	//console.log(message);
+	//console.log(sender);
 
 	switch(message.action || message.name || message) {
 		case 'play':
-			chrome.tabs.query({ url: 'https://www.youtube.com/*' }).then(function (tabs) {
-				let tabIds = [];
-				for (let tab of tabs) {
-					tabIds.push(tab.id);
-					if (!tab.discarded && tab.id !== sender.tab.id && tabConnected[tab.id]) {
-						chrome.tabs.sendMessage(tab.id, {action: "another-video-started-playing"});
-					}
-				}
-				// prune stale tab-connected data
+			tabPrune(function () {
 				for (let id in tabConnected) {
-					if (!tabIds.includes(Number(id))) {
-						delete tabConnected[id];
+					id = Number(id);
+					if (id != sender.tab.id) {
+						chrome.tabs.sendMessage(id, {action: "another-video-started-playing"});
 					}
 				}
-			}, function () {console.log("Error querying Tabs")});
+			});
 			break
 
 		case 'options-page-connected':
