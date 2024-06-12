@@ -55,7 +55,6 @@
 		}
 	],
 	"host_permissions": [ "https://www.youtube.com/*" ],
-	"offline_enabled": true,
 	"optional_permissions": [
 		"downloads"
 	],
@@ -77,7 +76,7 @@
 				"js&css/web-accessible/www.youtube.com/shortcuts.js",
 				"js&css/web-accessible/www.youtube.com/blocklist.js",
 				"js&css/web-accessible/www.youtube.com/settings.js",
-				"js&css/web-accessible/init.js"
+				"js&css/web-accessible/init.js",
 				"stuff/icons/48.png"
 			],
 			"matches": [
