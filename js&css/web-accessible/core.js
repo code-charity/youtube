@@ -197,9 +197,6 @@ document.addEventListener('it-message-from-extension', function () {
 					localStorage.removeItem('it-player30fps');
 				}
 			}
-			if (ImprovedTube.storage[message.key]==="when_paused") {
-				ImprovedTube.whenPaused();
-			};
 
 			switch(camelized_key) {
 				case 'blocklistActivate':
@@ -369,6 +366,10 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'subtitlesFontOpacity':
 				case 'subtitlesBackgroundOpacity':
 					ImprovedTube.subtitlesUserSettings();
+					break
+				
+				case 'playerHideControls':
+					ImprovedTube.playerControls();
 					break
 			}
 
