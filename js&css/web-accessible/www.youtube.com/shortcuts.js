@@ -481,7 +481,7 @@ ImprovedTube.shortcutDecreaseVolume = function () {
 /*------------------------------------------------------------------------------
 4.7.15 SCREENSHOT
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcutScreenshot = function () {	this.screenshot();};
+ImprovedTube.shortcutScreenshot = ImprovedTube.screenshot;
 
 /*------------------------------------------------------------------------------
 4.7.16 INCREASE PLAYBACK SPEED
