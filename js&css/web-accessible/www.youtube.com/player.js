@@ -988,9 +988,7 @@ ImprovedTube.playerControls = function () {
 
 	if (player && player.hideControls && player.showControls) {
 
-		if (hide === 'always') {
-			player.hideControls();
-		} else if (hide === 'when_paused' && this.elements.video.paused) {
+		if (hide === 'when_paused' && this.elements.video.paused) {
 			player.hideControls();
 
 			player.onmouseenter = player.showControls;
@@ -1004,9 +1002,15 @@ ImprovedTube.playerControls = function () {
 					thread = setTimeout(player.hideControls, 1000);
 				};
 			})();
+			return;
+		} else if (hide === 'always') {
+			player.hideControls();
 		} else {
 			player.showControls();
 		}
+		player.onmouseenter = null;
+		player.onmouseleave = null;
+		player.onmousemove = null;
 	}
 };
 /*#  HIDE VIDEO TITLE IN FULLSCREEN	*/			  // Easier with CSS only (see player.css)
