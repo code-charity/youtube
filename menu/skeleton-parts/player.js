@@ -1039,7 +1039,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 					text: 'file',
 					value: 'file'
 				}];
-				if (satus.user.browser.name() == 'Chrome') {
+				if (typeof ClipboardItem == 'function') {
 					options.push({
 						text: 'clipboard',
 						value: 'clipboard'
