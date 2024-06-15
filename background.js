@@ -221,8 +221,6 @@ chrome.windows.onFocusChanged.addListener(function (wId) {
 /*--------------------------------------------------------------
 # MESSAGE LISTENER
 --------------------------------------------------------------*/
-let tabConnected = {};
-
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	//console.log(message);
 	//console.log(sender);
