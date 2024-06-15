@@ -994,12 +994,19 @@ ImprovedTube.playerControls = function () {
 			player.onmouseenter = player.showControls;
 			player.onmouseleave = player.hideControls;
 			player.onmousemove =  (function() {
-				let thread;
+				let thread,
+					onmousestop = function() {
+					if (document.querySelector(".ytp-progress-bar:hover")) {
+						thread = setTimeout(onmousestop, 1000);
+					} else {
+						player.hideControls();
+					}
+				};
 
 				return function() {
 					player.showControls();
 					clearTimeout(thread);
-					thread = setTimeout(player.hideControls, 1000);
+					thread = setTimeout(onmousestop, 1000);
 				};
 			})();
 			return;
