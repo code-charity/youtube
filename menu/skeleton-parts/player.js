@@ -1034,13 +1034,19 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_screenshot_save_as: {
 			component: 'select',
 			text: 'saveAs',
-			options: [{
-				text: 'file',
-				value: 'file'
-			}, {
-				text: 'clipboard',
-				value: 'clipboard'
-			}]
+			options: function () {
+				let options = [{
+					text: 'file',
+					value: 'file'
+				}];
+				if (typeof ClipboardItem == 'function') {
+					options.push({
+						text: 'clipboard',
+						value: 'clipboard'
+					});
+				}
+				return options;
+			}
 		},
 		player_fit_to_win_button: {
 			component: 'switch',

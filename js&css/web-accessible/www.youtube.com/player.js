@@ -540,45 +540,42 @@ SCREENSHOT
 ------------------------------------------------------------------------------*/
 ImprovedTube.screenshot = function () {
 	const video = ImprovedTube.elements.video,
-		style = document.createElement('style'),
 		cvs = document.createElement('canvas'),
 		ctx = cvs.getContext('2d');
-
-	style.textContent = 'video{width:' + video.videoWidth + 'px !important;height:' + video.videoHeight + 'px !important}';
+	let subText = '';
 
 	cvs.width = video.videoWidth;
 	cvs.height = video.videoHeight;
 
-	document.body.appendChild(style);
+	ctx.drawImage(video, 0, 0, cvs.width, cvs.height);
 
-	setTimeout(function () {
-		ctx.drawImage(video, 0, 0, cvs.width, cvs.height);
-		let subText = '',
-			captionElements = document.querySelectorAll('.captions-text .ytp-caption-segment');
-
+	if (ImprovedTube.storage.embed_subtitle != false) {
+		let captionElements = document.querySelectorAll('.captions-text .ytp-caption-segment');
 		captionElements.forEach(function (caption) {subText += caption.textContent.trim() + ' ';});
 
-		if (ImprovedTube.storage.embed_subtitle != false) {
-			ImprovedTube.renderSubtitle(ctx,captionElements);
+		ImprovedTube.renderSubtitle(ctx,captionElements);
+	}
+
+	cvs.toBlob(function (blob) {
+		if (ImprovedTube.storage.player_screenshot_save_as == 'clipboard') {
+			window.focus(); 
+			navigator.clipboard.write([
+				new ClipboardItem({
+					'image/png': blob
+				})
+			])
+			.then(function () { console.log("ImprovedTube: Screeeeeeenshot tada!"); })
+			.catch(function (error) {
+				console.log('ImprovedTube screenshot: ', error);
+				alert('ImprovedTube Screenshot to Clipboard error. Details in Debug Console.');
+			});
+		} else {
+			let a = document.createElement('a');
+			a.href = URL.createObjectURL(blob);
+			a.download = (ImprovedTube.videoId() || location.href.match) + ' ' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + ' ' + ImprovedTube.videoTitle() + (subText ? ' - ' + subText.trim() : '') + '.png';
+			a.click();
+			console.log("ImprovedTube: Screeeeeeenshot tada!");
 		}
-
-		cvs.toBlob(function (blob) {
-			if (ImprovedTube.storage.player_screenshot_save_as == 'clipboard') {
-				navigator.clipboard.write([
-					new ClipboardItem({
-						'image/png': blob
-					})
-				]);
-			} else {
-				let a = document.createElement('a');
-				a.href = URL.createObjectURL(blob);
-				console.log("screeeeeeenshot tada!");
-				a.download = (ImprovedTube.videoId() || location.href.match) + ' ' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + ' ' + ImprovedTube.videoTitle() + (subText ? ' - ' + subText.trim() : '') + '.png';
-				a.click();
-			}
-		});
-
-		style.remove();
 	});
 };
 
