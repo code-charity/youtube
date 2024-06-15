@@ -982,36 +982,32 @@ ImprovedTube.playerSDR = function () {
 /*------------------------------------------------------------------------------
 Hide controls
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerControls = function (pause=false) {
-	var player = this.elements.player;   if (player) {
-		let hide = this.storage.player_hide_controls;
+ImprovedTube.playerControls = function () {
+	const player = this.elements.player,
+		hide = this.storage.player_hide_controls;
+
+	if (player && player.hideControls && player.showControls) {
+
 		if (hide === 'always') {
 			player.hideControls();
-		} else if(hide === 'off') {
+		} else if (hide === 'when_paused' && this.elements.video.paused) {
+			player.hideControls();
+
+			player.onmouseenter = player.showControls;
+			player.onmouseleave = player.hideControls;
+			player.onmousemove =  (function() {
+				let thread;
+
+				return function() {
+					player.showControls();
+					clearTimeout(thread);
+					thread = setTimeout(player.hideControls, 1000);
+				};
+			})();
+		} else {
 			player.showControls();
-		} else if(hide === 'when_paused') {
-		   if(this.elements.video.paused){
-		   player.hideControls( );
-
-	  ImprovedTube.elements.player.parentNode.addEventListener('mouseenter', function () {
-	  player.showControls();});
-	  ImprovedTube.elements.player.parentNode.addEventListener('mouseleave', function () {
-	  player.hideControls( );});
-
-
-		ImprovedTube.elements.player.parentNode.onmousemove = (function() {
-			let onmousestop = function() {
-				player.hideControls( );
-			}, thread;
-
-			return function() {
-			  player.showControls();
-			  clearTimeout(thread);
-			  thread = setTimeout(onmousestop, 1000);
-			};
-		  })();
-	   }} else { player.showControls();  }
-}
+		}
+	}
 };
 /*#  HIDE VIDEO TITLE IN FULLSCREEN	*/			  // Easier with CSS only (see player.css)
 //ImprovedTube.hideVideoTitleFullScreen = function (){ if (ImprovedTube.storage.hide_video_title_fullScreen === true) {
