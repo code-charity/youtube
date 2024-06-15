@@ -558,19 +558,24 @@ ImprovedTube.screenshot = function () {
 
 	cvs.toBlob(function (blob) {
 		if (ImprovedTube.storage.player_screenshot_save_as == 'clipboard') {
-			console.log(blob);
+			window.focus(); 
 			navigator.clipboard.write([
 				new ClipboardItem({
 					'image/png': blob
 				})
-			]);
+			])
+			.then(function () { console.log("ImprovedTube: Screeeeeeenshot tada!"); })
+			.catch(function (error) {
+				console.log('ImprovedTube screenshot: ', error);
+				alert('ImprovedTube Screenshot to Clipboard error. Details in Debug Console.');
+			});
 		} else {
 			let a = document.createElement('a');
 			a.href = URL.createObjectURL(blob);
 			a.download = (ImprovedTube.videoId() || location.href.match) + ' ' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + ' ' + ImprovedTube.videoTitle() + (subText ? ' - ' + subText.trim() : '') + '.png';
 			a.click();
+			console.log("ImprovedTube: Screeeeeeenshot tada!");
 		}
-		console.log("ImprovedTube: Screeeeeeenshot tada!");
 	});
 };
 
