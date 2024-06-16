@@ -216,7 +216,7 @@ ImprovedTube.playerSubtitles = function () {
 				break
 
 			case 'disabled':
-				if (player.isSubtitlesOn) { player.toggleSubtitles(); }
+				if (player.isSubtitlesOn()) { player.toggleSubtitles(); }
 				break
 		}
 	}
@@ -253,15 +253,15 @@ SUBTITLES WINDOW OPACITY
 SUBTITLES CHARACTER EDGE STYLE
 SUBTITLES FONT OPACITY
 default = {
-    "fontFamily": 4,
-    "color": "#fff",
-    "fontSizeIncrement": 0,
-    "background": "#080808",
-    "backgroundOpacity": 0.75,
-    "windowColor": "#080808",
-    "windowOpacity": 0,
-    "charEdgeStyle": 0,
-    "textOpacity": 1,
+	"fontFamily": 4,
+	"color": "#fff",
+	"fontSizeIncrement": 0,
+	"background": "#080808",
+	"backgroundOpacity": 0.75,
+	"windowColor": "#080808",
+	"windowOpacity": 0,
+	"charEdgeStyle": 0,
+	"textOpacity": 1,
 },
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesUserSettings = function () {
@@ -569,7 +569,7 @@ ImprovedTube.screenshot = function () {
 
 	cvs.toBlob(function (blob) {
 		if (ImprovedTube.storage.player_screenshot_save_as == 'clipboard') {
-			window.focus(); 
+			window.focus();
 			navigator.clipboard.write([
 				new ClipboardItem({
 					'image/png': blob
