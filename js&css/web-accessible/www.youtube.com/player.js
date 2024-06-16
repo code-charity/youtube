@@ -309,7 +309,7 @@ ImprovedTube.subtitlesDisableLyrics = function () {
 		var player = this.elements.player,
 			button = this.elements.player_subtitles_button;
 
-		if (player && player.toggleSubtitles && button  && !button.title.includes('unavailable')) {
+		if (player && player.toggleSubtitles && button && !button.title.includes('unavailable')) {
 			// Music detection only uses 3 identifiers for Lyrics: lyrics, sing-along, karaoke.
 			// Easier to simply use those here. Can replace with music detection later.
 			const terms = ["sing along", "sing-along", "karaoke", "lyric", "卡拉OK", "卡拉OK", "الكاريوكي", "караоке", "カラオケ","노래방"];
