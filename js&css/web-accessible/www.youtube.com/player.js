@@ -228,13 +228,17 @@ ImprovedTube.subtitlesLanguage = function () {
 	const option = this.storage.subtitles_language,
 		player = this.elements.player,
 		button = this.elements.player_subtitles_button;
+	let subtitlesState;
 
-	if (option && player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
+	if (option && player && player.getOption && player.isSubtitlesOn && player.toggleSubtitles && button) {
 		const tracklists = player.getOption('captions', 'tracklist', {includeAsr: true}),
 			matchedTrack = tracklists.find(element => element.languageCode.includes(option) && (!element.vss_id.includes("a.") || this.storage.auto_generate));
 
 		if (matchedTrack) {
+			subtitlesState = player.isSubtitlesOn();
 			player.setOption('captions', 'track', matchedTrack);
+			// setOption forces Subtitles ON, restore state from before calling it.
+			if (!subtitlesState) { player.toggleSubtitles(); }
 		}
 	}
 };
