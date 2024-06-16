@@ -280,7 +280,7 @@ ImprovedTube.subtitlesUserSettings = function () {
 		player = this.elements.player,
 		button = this.elements.player_subtitles_button;
 
-	if (option.length && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
+	if (option.length && player.getSubtitlesUserSettings && button) {
 		let settings = player.getSubtitlesUserSettings();
 		
 		for (const value of option) {
