@@ -48,15 +48,16 @@ ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
 AUTOPAUSE WHEN SWITCHING TABS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
-	var player = ImprovedTube.elements.player;
+	const player = this.elements.player;
 
-	if (this.storage.player_autopause_when_switching_tabs === true && player) {
-		if (this.focus === false) {
-			this.played_before_blur = player.getPlayerState() === 1;
-
-			player.pauseVideo();
-		} else if (this.focus === true && this.played_before_blur === true) {
+	if (this.storage.player_autopause_when_switching_tabs && player) {
+		if (this.focus && this.played_before_blur && this.elements.video.paused) {
 			player.playVideo();
+		} else {
+			this.played_before_blur = !this.elements.video.paused;
+			if (!this.elements.video.paused) {
+				player.pauseVideo();
+			}
 		}
 	}
 };
