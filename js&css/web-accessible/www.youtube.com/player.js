@@ -205,12 +205,19 @@ function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Mat
 /*------------------------------------------------------------------------------
 SUBTITLES
 ------------------------------------------------------------------------------*/
-ImprovedTube.subtitles = function () {
-	if (this.storage.player_subtitles === true) {
-		var player = this.elements.player;
+ImprovedTube.playerSubtitles = function () {
+	const player = this.elements.player;
+	
+	if (player && player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
+		switch(this.storage.player_subtitles) {
+			case true:
+			case 'enabled':
+				player.toggleSubtitlesOn();
+				break
 
-		if (player && player.toggleSubtitlesOn) {
-			player.toggleSubtitlesOn();
+			case 'disabled':
+				if (player.isSubtitlesOn) { player.toggleSubtitles(); }
+				break
 		}
 	}
 };
