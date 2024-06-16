@@ -325,22 +325,26 @@ ImprovedTube.videoPageUpdate = function () {
 ImprovedTube.playerOnPlay = function () {
 	HTMLMediaElement.prototype.play = (function (original) {
 		return function () {
-			this.removeEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
-			this.addEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
+			if (!this.closest('#inline-preview-player')) {
+				this.removeEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
+				this.addEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
 
-			this.removeEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
-			this.addEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
+				this.removeEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
+				this.addEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
 
-			this.removeEventListener('pause', ImprovedTube.playerOnPause, true);
-			this.addEventListener('pause', ImprovedTube.playerOnPause, true);
+				this.removeEventListener('pause', ImprovedTube.playerOnPause, true);
+				this.addEventListener('pause', ImprovedTube.playerOnPause, true);
+				this.onpause = (event) => {
+					console.log('this.onpause');
+				};
 
-			this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
-			this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
+				this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
+				this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
 
-			ImprovedTube.autoplayDisable(this);
-			ImprovedTube.playerLoudnessNormalization();
-			ImprovedTube.playerCinemaModeEnable();
-
+				ImprovedTube.autoplayDisable(this);
+				ImprovedTube.playerLoudnessNormalization();
+				ImprovedTube.playerCinemaModeEnable();
+			}
 			return original.apply(this, arguments);
 		}
 	})(HTMLMediaElement.prototype.play);
