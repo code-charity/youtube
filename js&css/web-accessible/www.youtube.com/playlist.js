@@ -6,7 +6,11 @@
 ------------------------------------------------------------------------------*/
 ImprovedTube.playlistUpNextAutoplay = function (event) {
 	const playlistData = this.elements.ytd_watch?.playlistData;
-	if (this.getParam(location.href, 'list') && playlistData) {
+
+	if (this.getParam(location.href, 'list') && playlistData
+		&& playlistData.currentIndex
+		&& playlistData.totalVideos
+		&& playlistData.localCurrentIndex) {) {
 		if (this.storage.playlist_up_next_autoplay === false) {
 			playlistData.currentIndex = playlistData.totalVideos;
 		} else {
@@ -16,7 +20,7 @@ ImprovedTube.playlistUpNextAutoplay = function (event) {
 			}
 		}
 	}
-};		
+};	
 /*------------------------------------------------------------------------------
 4.5.2 REVERSE
 ------------------------------------------------------------------------------*/
