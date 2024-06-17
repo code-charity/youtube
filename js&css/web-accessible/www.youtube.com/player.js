@@ -39,11 +39,11 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 FORCED PLAY VIDEO FROM THE BEGINNING
 ------------------------------------------------------------------------------*/
 ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
-	if (this.storage.forced_play_video_from_the_beginning === true && document.documentElement.dataset.pageType === 'video' && !this.video_url.match(this.regex.video_time)?.[1]) {
-		this.elements.player.seekTo(0);
+	const video = this.elements.video;
+	if (video && this.storage.forced_play_video_from_the_beginning && location.pathname == '/watch') {
+		video.currentTime = 0;
 	}
 };
-
 /*------------------------------------------------------------------------------
 AUTOPAUSE WHEN SWITCHING TABS
 ------------------------------------------------------------------------------*/
