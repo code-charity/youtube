@@ -39,9 +39,14 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 FORCED PLAY VIDEO FROM THE BEGINNING
 ------------------------------------------------------------------------------*/
 ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
-	const video = this.elements.video;
-	if (video && this.storage.forced_play_video_from_the_beginning && location.pathname == '/watch') {
-		video.currentTime = 0;
+	const player = this.elements.player,
+		video = this.elements.video,
+		paused = video?.paused;
+	
+	if (player && video && this.storage.forced_play_video_from_the_beginning && location.pathname == '/watch') {
+		player.seekTo(0);
+		// restore previous paused state
+		if (paused) { player.pauseVideo(); }
 	}
 };
 /*------------------------------------------------------------------------------
