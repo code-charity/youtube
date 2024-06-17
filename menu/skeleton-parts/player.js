@@ -160,8 +160,18 @@ extension.skeleton.main.layers.section.player.on.click = {
 					variant: 'card',
 
 					player_subtitles: {
-						component: 'switch',
-						text: 'subtitles'
+						component: 'select',
+						text: 'subtitles',
+						options: [{
+							value: 'auto',
+							text: 'auto'
+						}, {
+							value: 'enabled',
+							text: 'enabled'
+						}, {
+							value: 'disabled',
+							text: 'disabled'
+						}]
 					},
 					subtitles_language: {
 						component: 'select',

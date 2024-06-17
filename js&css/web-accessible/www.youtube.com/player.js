@@ -210,12 +210,19 @@ function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Mat
 /*------------------------------------------------------------------------------
 SUBTITLES
 ------------------------------------------------------------------------------*/
-ImprovedTube.subtitles = function () {
-	if (this.storage.player_subtitles === true) {
-		var player = this.elements.player;
+ImprovedTube.playerSubtitles = function () {
+	const player = this.elements.player;
+	
+	if (player && player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
+		switch(this.storage.player_subtitles) {
+			case true:
+			case 'enabled':
+				player.toggleSubtitlesOn();
+				break
 
-		if (player && player.toggleSubtitlesOn) {
-			player.toggleSubtitlesOn();
+			case 'disabled':
+				if (player.isSubtitlesOn()) { player.toggleSubtitles(); }
+				break
 		}
 	}
 };
@@ -226,13 +233,17 @@ ImprovedTube.subtitlesLanguage = function () {
 	const option = this.storage.subtitles_language,
 		player = this.elements.player,
 		button = this.elements.player_subtitles_button;
+	let subtitlesState;
 
-	if (option && player && player.getOption && button && button.getAttribute('aria-pressed') === 'true') {
+	if (option && player && player.getOption && player.isSubtitlesOn && player.toggleSubtitles && button && !button.title.includes('unavailable')) {
 		const tracklists = player.getOption('captions', 'tracklist', {includeAsr: true}),
 			matchedTrack = tracklists.find(element => element.languageCode.includes(option) && (!element.vss_id.includes("a.") || this.storage.auto_generate));
 
 		if (matchedTrack) {
+			subtitlesState = player.isSubtitlesOn();
 			player.setOption('captions', 'track', matchedTrack);
+			// setOption forces Subtitles ON, restore state from before calling it.
+			if (!subtitlesState) { player.toggleSubtitles(); }
 		}
 	}
 };
@@ -247,15 +258,15 @@ SUBTITLES WINDOW OPACITY
 SUBTITLES CHARACTER EDGE STYLE
 SUBTITLES FONT OPACITY
 default = {
-    "fontFamily": 4,
-    "color": "#fff",
-    "fontSizeIncrement": 0,
-    "background": "#080808",
-    "backgroundOpacity": 0.75,
-    "windowColor": "#080808",
-    "windowOpacity": 0,
-    "charEdgeStyle": 0,
-    "textOpacity": 1,
+	"fontFamily": 4,
+	"color": "#fff",
+	"fontSizeIncrement": 0,
+	"background": "#080808",
+	"backgroundOpacity": 0.75,
+	"windowColor": "#080808",
+	"windowOpacity": 0,
+	"charEdgeStyle": 0,
+	"textOpacity": 1,
 },
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesUserSettings = function () {
@@ -274,7 +285,7 @@ ImprovedTube.subtitlesUserSettings = function () {
 		player = this.elements.player,
 		button = this.elements.player_subtitles_button;
 
-	if (option.length && player.getSubtitlesUserSettings && button && button.getAttribute('aria-pressed') === 'true') {
+	if (option.length && player.getSubtitlesUserSettings && button && !button.title.includes('unavailable')) {
 		let settings = player.getSubtitlesUserSettings();
 		
 		for (const value of option) {
@@ -299,11 +310,11 @@ ImprovedTube.subtitlesUserSettings = function () {
 SUBTITLES DISABLE SUBTILES FOR LYRICS
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesDisableLyrics = function () {
-	if (this.storage.subtitles_disable_lyrics === true) {
+	if (this.storage.subtitles_disable_lyrics) {
 		var player = this.elements.player,
 			button = this.elements.player_subtitles_button;
 
-		if (player && player.toggleSubtitles && button && button.getAttribute('aria-pressed') === 'true') {
+		if (player && player.toggleSubtitles && button && !button.title.includes('unavailable')) {
 			// Music detection only uses 3 identifiers for Lyrics: lyrics, sing-along, karaoke.
 			// Easier to simply use those here. Can replace with music detection later.
 			const terms = ["sing along", "sing-along", "karaoke", "lyric", "卡拉OK", "卡拉OK", "الكاريوكي", "караоке", "カラオケ","노래방"];
@@ -563,7 +574,7 @@ ImprovedTube.screenshot = function () {
 
 	cvs.toBlob(function (blob) {
 		if (ImprovedTube.storage.player_screenshot_save_as == 'clipboard') {
-			window.focus(); 
+			window.focus();
 			navigator.clipboard.write([
 				new ClipboardItem({
 					'image/png': blob
