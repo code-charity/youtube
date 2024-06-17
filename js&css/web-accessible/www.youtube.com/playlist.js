@@ -4,21 +4,18 @@
 /*------------------------------------------------------------------------------
 4.5.1 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
-ImprovedTube.playlistUpNextAutoplay = function (event) {
-	const playlistData = this.elements.ytd_watch?.playlistData;
-
+ImprovedTube.playlistUpNextAutoplay = function (event) { if (this.storage.playlist_up_next_autoplay === false) {
+	try{const playlistData = this.elements.ytd_watch?.playlistData;
 	if (this.getParam(location.href, 'list') && playlistData
 		&& playlistData.currentIndex
 		&& playlistData.totalVideos
-		&& playlistData.localCurrentIndex) {) {
-		if (this.storage.playlist_up_next_autoplay === false) {
+		&& playlistData.localCurrentIndex) {	
 			playlistData.currentIndex = playlistData.totalVideos;
-		} else {
-			if (playlistData.currentIndex != playlistData.localCurrentIndex) {
-				// this only happens when user switched playlist_up_next_autoplay from OFF to ON while on playlist page, restoring
-				playlistData.currentIndex = playlistData.localCurrentIndex;
-			}
-		}
+		} 
+	else {	var tries = 0; var intervalMs = 300;  var maxTries = 6;
+	      	var waitForPlaylist = setInterval(() => { if (this.elements.ytd_watch.playlistData || (++tries >= maxTries) ) {
+		this.elements.ytd_watch.playlistData.currentIndex = this.elements.ytd_watch.playlistData.totalVideos; clearInterval(waitForPlaylist );}			
+		intervalMs *= 1.4;}, intervalMs); }} catch (error) { console.error("Waiting for playlist", error);}
 	}
 };	
 /*------------------------------------------------------------------------------
