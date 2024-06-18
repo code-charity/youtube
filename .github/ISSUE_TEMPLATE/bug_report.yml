@@ -67,12 +67,19 @@ body:
     validations:
       required: true
 
-  - type: textarea
-    attributes:
-      label: "**Does the bug not happen when you log out of YouTube? Then please copy your experiment flags list twice**"
-      description: _(with & without the error to compare). Enter: `yt.config_.EXPERIMENT_FLAGS` into the Browser console on YouTube (F12-Key - Or find it in the HTML source(ctrl+U))_
-    validations:
-      required: true
+- type: conditional
+  conditions:
+    - attribute: "**Does the bug still happen when you log out of YouTube?**"
+      value: No
+  body:
+    - type: textarea
+      attributes:
+        label: "**Then please copy your experiment flags list twice:**"
+        description: >-
+          _(with & without the error to compare) Enter `yt.config_.EXPERIMENT_FLAGS`
+          into the Browser console on YouTube (F12-Key - Or find it in the HTML source(ctrl+U))_
+      validations:
+        required: true
 
   - type: markdown
     attributes:
