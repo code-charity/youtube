@@ -13,31 +13,28 @@ body:
       value: |
         ## Bug Report:
 
-  - type: textarea
+  - type: input
     attributes:
-      label: "**Description:**"
-      description: _(Clear/concise. Screenshot/Video welcome)_
-    validations:
-      required: true
-
-  - type: textarea
-    attributes:
-      label: "**Steps to reproduce this:**"
-      description: _(Might only happen with a certain feature of ours enabled?)_
+      label: "Description: (Clear/concise. Screenshot/Video welcome to upload below)"
     validations:
       required: true
 
   - type: input
     attributes:
-      label: "**Since when?:**"
-      description: Or when YouTube changed something? Or through our update?
+      label: "Steps to reproduce: (Might only happen with a certain feature of ours enabled?)"
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: "Since when? Or when YouTube changed something? Or through our update?"
       placeholder: (Date / Reason / Version)
     validations:
       required: true
 
   - type: dropdown
     attributes:
-      label: "**Browser:**"
+      label: "Browser:"
       options:
         - label: "Chrome"
           value: "Chrome"
@@ -60,16 +57,20 @@ body:
 
   - type: input
     attributes:
-      label: "**Other Browser/s:**"
+      label: "Other Browser/s:"
     validations:
       required: false
 
-  - type: textarea
+  - type: input
     attributes:
-      label: "**Are any errors shown in the Browser-Console?:**"
-      description: _(`F12`-key, then `console`-tab. Try without other extensions)_
+      label: "Are any errors shown in the Browser-Console? "
     validations:
       required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        (`F12`-key, then `console`-tab. Try without other extensions)
 
   - type: markdown
     attributes:
@@ -84,42 +85,47 @@ body:
 
   - type: checkboxes
     attributes:
-      label: "**Tested as only active extension (incognito mode or another browser users):**"
+      label: "Tested as only active extension (incognito mode or another browser users):"
       options:
         - label: "Yes"
         - label: "No"
 
-  - type: textarea
+  - type: input
     attributes:
-      label: "**Expected preferred behavior:**"
+      label: "Expected preferred behavior:"
     validations:
       required: false
 
   - type: input
     attributes:
-      label: "**ImprovedTube Version (Written in the Extension header & your Browser's store)**"
+      label: "ImprovedTube Version"
+      description: "(Written in the Extension header & your Browser's store)"
     validations:
       required: false
-
-  - type: textarea
-    attributes:
-      label: "**Your Settings (From the Extension's `⋮`-Hamburger menu > Settings > Backup & reset > Export settings**"
-      description: |-
-        You can remove any Blocklist, History Analyzer data - or paste the following in the Browser-Console and hit enter: 
-        `(function({analyzer, blocklist, ...a}){return JSON.stringify(a)})(ImprovedTube.storage)`
-    validations:
-      required: false
-
-  - type: markdown
-    attributes:
-      value: |
-        ### YouTube-Document:
-        (`F12` copy the whole root element: \<html> (alternative: CTRL+U) [Test](https://github.com/code-charity/youtube/wiki/Contributing#Test)
 
   - type: input
     attributes:
-      label: "**OS / Device:**"
-      description: (Enter your operating system and device details)
+      label: "Your Settings (From the Extension's `⋮`-Hamburger menu > Settings > Backup & reset > Export settings)"
+    validations:
+      required: false      
+     - type: markdown
+       attributes:
+       value: |
+          You can remove Blocklist, History Analyzer data - or paste the following in the Browser-Console and hit enter: 
+          `(function({analyzer, blocklist, ...a}){return JSON.stringify(a)})(ImprovedTube.storage)`
+          
+  - type: input
+    attributes:
+      label: "your YouTube Document"
+    validations:
+    - type: markdown
+      attributes:
+        value: |
+          (`F12` copy the whole root element: \<html> (alternative: CTRL+U) [Test](https://github.com/code-charity/youtube/wiki/Contributing#Test)
+
+  - type: input
+    attributes:
+      label: "OS / Device:
     validations:
       required: false
 
