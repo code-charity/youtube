@@ -50,8 +50,9 @@ body:
     attributes:
       label: "No? Then please copy your experiment flags list twice:"
       placeholder: |
-        _(with & without the error to compare) Enter `yt.config_.EXPERIMENT_FLAGS`
-        into the Browser console on YouTube (F12-Key - Or find it in the HTML source(ctrl+U))_
+        (with & without the error to compare) 
+        Enter `yt.config_.EXPERIMENT_FLAGS` into the Browser console on YouTube 
+        (= F12-Key) (ctrl+U is more clunky) 
 
   - type: input
     attributes:
