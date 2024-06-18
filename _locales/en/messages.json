@@ -1,4 +1,13 @@
-{
+{   
+    "qualityWhenRunningOnBattery":{
+        "message": "Quality, when running on battery"
+    },
+    "pauseWhileIUnplugTheCharger":{
+        "message": "Pause when I unplug the charger" 
+    },
+    "whenBatteryIslowDecreaseQuality":{
+        "message": "Low battery: Decrease the quality"
+    },
     "analytics": {
         "message": "Analytics"
     }, 
@@ -7,9 +16,21 @@
     },    
     "join": {
         "message": "Join"
+    },  
+    "improvedTubeSidePanel": {
+        "message": "ImprovedTube: Browser Sidepanel"
+    },
+    "cursorLighting": {
+        "message": "Dim Youtube's Pages, except what I mouse-over!"
     },
     "youtubesLight": {
         "message": "YouTube's Light"
+    },
+	"popupAd": {
+        "message": "Pop-up ad: Hide"
+    },	
+	"hideWatchedVideos": {
+        "message": "Hide watched videos"
     },
     "ambientLighting": {
         "message": "Ambient lighting"
@@ -1360,5 +1381,8 @@
     },
     "youtubesDark": {
         "message": "YouTube's Dark"
+    },
+    "pauseWhileIAmTypingOnYouTube": {
+        "message": "Pause when I'm typing on YouTube"
     }
 }

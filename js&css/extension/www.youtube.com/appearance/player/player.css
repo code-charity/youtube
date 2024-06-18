@@ -28,6 +28,9 @@ html[it-always-show-progress-bar='true'] .html5-video-player:not(.it-mini-player
 	bottom: 0 !important;
 }
 
+html[it-always-show-progress-bar='true'] .DesktopShortsPlayerControlsHostHideProgressBar {
+    visibility: visible;
+}
 
 /*--------------------------------------------------------------
 # COLOR
@@ -349,7 +352,7 @@ html[data-page-type=video][it-player-size='2160p'] {
 /*--------------------------------------------------------------
 # MAX WIDTH ON PAGE
 --------------------------------------------------------------*/
-html[data-page-type=video][it-player-size='max_width'] ytd-browse > ytd-two-column-browse-results-renderer {
+html[data-page-type=video][it-player-size='max_width'] ytd-browse > ytd-two-column-browse-results-renderer:not([page-subtype='subscriptions']) {
 	width: auto !important;
 	max-width: auto !important;
 }

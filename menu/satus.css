@@ -609,7 +609,7 @@ As our Syntax markup isnt read for <textarea>, is it?
 .satus-select__content {
 	display: flex;
 
-	flex: 2;
+	flex: 1;
 	overflow: hidden;
 
 	align-items: center;

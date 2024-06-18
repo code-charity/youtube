@@ -2423,10 +2423,9 @@ satus.components.shortcut = function(component, skeleton) {
 							var component = this.parentNode.parentNode.parentNode.parent;
 
 							component.data = component.skeleton.value || {};
+							satus.storage.remove(component.storage.key);
 
 							component.render(component.valueElement);
-
-							satus.storage.remove();
 
 							this.parentNode.parentNode.parentNode.close();
 
@@ -2971,7 +2970,9 @@ satus.user.browser.name = function() {
 		return 'Edge';
 	} else if (user_agent.indexOf('Chrome') !== -1) {
 		return 'Chrome';
-	} else if (user_agent.indexOf('Safari') !== -1) {
+	} else if (user_agent.indexOf('Safari') !== -1 
+				&& (!/Windows|Chrom/.test(user_agent) 
+				|| /Macintosh|iPhone/.test(user_agent))) {
 		return 'Safari';
 	} else if (user_agent.indexOf('Firefox') !== -1) {
 		return 'Firefox';

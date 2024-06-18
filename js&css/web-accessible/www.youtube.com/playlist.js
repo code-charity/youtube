@@ -4,21 +4,16 @@
 /*------------------------------------------------------------------------------
 4.5.1 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
-ImprovedTube.playlistUpNextAutoplay = function (event) {
-	if (
-		ImprovedTube.getParam(location.href, 'list') &&
-		ImprovedTube.storage.playlist_up_next_autoplay === false
-	) {
-	try {	if (this.elements.ytd_watch.playlistData)
-		{this.elements.ytd_watch.playlistData.currentIndex = this.elements.ytd_watch.playlistData.totalVideos}
-			else {var tries = 0; 	var intervalMs = 300;  var maxTries = 6; 		
-					var waitForPlaylist = setInterval(() => { 	
-					if (this.elements.ytd_watch.playlistData || (++tries >= maxTries) ) {
-					this.elements.ytd_watch.playlistData.currentIndex = this.elements.ytd_watch.playlistData.totalVideos; clearInterval(waitForPlaylist );}			
-					intervalMs *= 1.4;}, intervalMs);
-	} } catch (error) {    console.error("Waiting for playlist", error);}
+ImprovedTube.playlistUpNextAutoplay = function (event) { if (this.storage.playlist_up_next_autoplay === false) {
+	const playlistData = this.elements.ytd_watch?.playlistData;
+	if (this.getParam(location.href, 'list') && playlistData
+		&& playlistData.currentIndex
+		&& playlistData.totalVideos
+		&& playlistData.localCurrentIndex) {
+			playlistData.currentIndex = playlistData.totalVideos;
+		} 
 	}
-};    		
+};
 /*------------------------------------------------------------------------------
 4.5.2 REVERSE
 ------------------------------------------------------------------------------*/

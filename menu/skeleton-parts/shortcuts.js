@@ -320,6 +320,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 				shortcut_toggle_ambient_lighting: {
 					component: 'shortcut',
 					text: 'ambientLighting'
+				},
+				shortcut_rotate_video: {
+					component: 'shortcut',
+					text: 'rotate'
 				}
 			},
 			section: {

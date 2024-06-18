@@ -365,6 +365,9 @@ html[it-channel-hide-featured-content=true] #secondary ytd-browse-secondary-cont
 	content: '';
 	border-radius: 50%;
 	background: #f00;
+	/*  background-image: url('/stuff/icons/48.png'); 
+    background-size: cover;
+    background-position: center; */
 }
 
 .it-button::after {
@@ -443,7 +446,7 @@ ytd-guide-section-renderer .it-button::after {
 	overflow: hidden;
 	width: 320px;
 	max-width: calc(100vw - 16px);
-	height: 600px;
+	height: 586px;
 	max-height: calc(100vh - 16px);
 	margin: 0;
 	padding: 0;
@@ -674,7 +677,7 @@ html[it-theme=plain] #cinematics {
 }
 
 /*video detail text color. Fix. Themes didnt apply video description text color*/
-html[it-theme] .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary) !important}
+html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary) !important}
 html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string__link--call-to-action-color {color: var(--yt-spec-call-to-action)}
 /*The next two lines below can be removed if exact theming consistency isn't the goal and we just want to keep it simple.*/
 html[it-theme]:not([it-theme=default]):not([it-theme=dark]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-call-to-action) !important}
@@ -736,6 +739,7 @@ html[it-theme=black][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-spec-selected-nav-text: #aaa !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	background-color: var(--yt-spec-base-background)!important;
 }
 
 html[it-theme=black]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
@@ -968,6 +972,7 @@ html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference
 	--yt-spec-selected-nav-text: rgb(255, 255, 255) !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	background-color: var(--yt-spec-base-background)!important;
 }
 
 html[it-theme=dawn]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
@@ -1203,6 +1208,7 @@ html[it-theme=desert][data-system-color-scheme=light][it-schedule=system_peferen
 	--yt-spec-selected-nav-text: #555 !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	background-color: var(--yt-spec-base-background)!important;
 }
 
 html[it-theme=desert]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
@@ -1423,6 +1429,7 @@ html[it-theme=night][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-spec-selected-nav-text: #fff !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	background-color: var(--yt-spec-base-background)!important;
 }
 
 html[it-theme=night]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) #yt-masthead-logo-fragment .masthead-logo-renderer-logo,
@@ -1657,6 +1664,7 @@ html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-spec-selected-nav-text: #666 !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	background-color: var(--yt-spec-base-background)!important;
 }
 
 html[it-theme=plain]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
@@ -1753,8 +1761,8 @@ html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-std-surface-200: hsl(0, 0%, 11%);
 	--yt-std-surface-300: hsl(0, 0%, 14%);
 	--yt-std-surface-400: hsl(0, 0%, 16%);
-	--yt-primary-color: hsla(0, 100%, 100%, .88);
-	--yt-primary-text-color: hsla(0, 100%, 100%, .88);
+	--yt-primary-color: #666;
+	--yt-primary-text-color: #666;
 	--yt-hovered-text-color: hsla(0, 100%, 100%, .74);
 	--yt-secondary-text-color: hsla(0, 100%, 100%, .5);
 	--yt-tertiary-text-color: hsla(0, 100%, 100%, .5);
@@ -1887,6 +1895,7 @@ html[it-theme=sunset][data-system-color-scheme=light][it-schedule=system_peferen
 	--yt-spec-selected-nav-text: #fff !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	background-color: var(--yt-spec-base-background)!important;
 }
 
 html[it-theme=sunset]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]) ytd-masthead,
@@ -2065,7 +2074,12 @@ YT hardcoded CSS for DARK/light mode switching
 Need HTML in front to make CSS rule more specific than one they are overiding
 ------------------------------------------------------------------------------*/
 
-html .yt-spec-icon-shape,
+/*possible fix:
+#hover-overlays .yt-spec-icon-shape,
+ytd-thumbnail-overlay-toggle-button-renderer .yt-spec-icon-shape  {color:white;}  
+*/
+
+/* html .yt-spec-icon-shape, */
 html .yt-spec-icon-badge-shape--style-overlay .yt-spec-icon-badge-shape__icon,
 html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text,
 html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,

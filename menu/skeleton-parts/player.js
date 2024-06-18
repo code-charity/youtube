@@ -41,7 +41,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 	section_1: {
 		component: 'section',
 		variant: 'card',
-
 		autopause_when_switching_tabs: {
 			component: 'switch',
 			text: 'autopauseWhenSwitchingTabs',
@@ -69,6 +68,12 @@ extension.skeleton.main.layers.section.player.on.click = {
 					}
 				}
 			}
+		},
+		pause_while_typing_on_youtube: {
+			component: 'switch',
+			text: 'pauseWhileIAmTypingOnYouTube',
+			storage: 'pause_while_typing_on_youtube',
+			id: 'pause_while_typing_on_youtube',
 		},
 		autoplay_disable: {
 			component: 'switch',
@@ -151,8 +156,18 @@ extension.skeleton.main.layers.section.player.on.click = {
 					variant: 'card',
 
 					player_subtitles: {
-						component: 'switch',
-						text: 'subtitles'
+						component: 'select',
+						text: 'subtitles',
+						options: [{
+							value: 'auto',
+							text: 'auto'
+						}, {
+							value: 'enabled',
+							text: 'enabled'
+						}, {
+							value: 'disabled',
+							text: 'disabled'
+						}]
 					},
 					subtitles_language: {
 						component: 'select',
@@ -499,6 +514,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 						text: 'fontFamily',
 						index: 3,
 						options: [{
+							text: 'Proportional Sans-Serif',
+							value: 4
+						}, {
 							text: 'Monospaced Serif',
 							value: 1
 						}, {
@@ -507,9 +525,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 						}, {
 							text: 'Monospaced Sans-Serif',
 							value: 3
-						}, {
-							text: 'Proportional Sans-Serif',
-							value: 4
 						}, {
 							text: 'Casual',
 							value: 5
@@ -670,6 +685,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'quality',
 			id: 'player_quality',
 			options: [{
+				text: 'disabled',
+				value: 'disabled'
+			}, {
 				text: 'auto',
 				value: 'auto'
 			}, {
@@ -734,7 +752,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'qualityWithoutFocus',
 			id: 'player_quality_without_focus',
 			options: function () {
-				return [{value: 'auto', text: "Disabled"}].concat(extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options.slice(1));
+				return extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options;
 			},
 			on: {
 				render: function () {
@@ -742,6 +760,28 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+/*
+	qualityWhenRunningOnBattery: {
+			component: 'select',
+			text: 'qualityWhenRunningOnBattery',
+			options: function () {
+				return extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options;
+			},
+			on: {
+				render: function () {
+						extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
+				}
+			}
+		},
+		whenBatteryIslowDecreaseQuality: {
+			component: 'switch',
+			text: 'whenBatteryIslowDecreaseQuality'
+		},
+		pauseWhileIUnplugTheCharger: {
+			component: 'switch',
+			text: 'pauseWhileIUnplugTheCharger'
+		},
+*/		
 		mini_player: {
 			component: 'switch',
 			text: 'customMiniPlayer'
@@ -880,8 +920,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_quality_without_focus').dispatchEvent(new CustomEvent('render'));
-					};
-
+						//document.getElementById('quality_when_low_battery').dispatchEvent(new CustomEvent('render'));
+					}
 					if (this.dataset.value === 'false') {
 						let where = this;
 						satus.render({
@@ -989,13 +1029,19 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_screenshot_save_as: {
 			component: 'select',
 			text: 'saveAs',
-			options: [{
-				text: 'file',
-				value: 'file'
-			}, {
-				text: 'clipboard',
-				value: 'clipboard'
-			}]
+			options: function () {
+				let options = [{
+					text: 'file',
+					value: 'file'
+				}];
+				if (typeof ClipboardItem == 'function') {
+					options.push({
+						text: 'clipboard',
+						value: 'clipboard'
+					});
+				}
+				return options;
+			}
 		},
 		player_fit_to_win_button: {
 			component: 'switch',

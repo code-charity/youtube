@@ -325,22 +325,27 @@ ImprovedTube.videoPageUpdate = function () {
 ImprovedTube.playerOnPlay = function () {
 	HTMLMediaElement.prototype.play = (function (original) {
 		return function () {
-			this.removeEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
-			this.addEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
+			if (!this.closest('#inline-preview-player')) {
+				this.removeEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
+				this.addEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
 
-			this.removeEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
-			this.addEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
+				this.removeEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
+				this.addEventListener('timeupdate', ImprovedTube.playerOnTimeUpdate);
 
-			this.removeEventListener('pause', ImprovedTube.playerOnPause, true);
-			this.addEventListener('pause', ImprovedTube.playerOnPause, true);
+				this.removeEventListener('pause', ImprovedTube.playerOnPause, true);
+				this.addEventListener('pause', ImprovedTube.playerOnPause, true);
+				this.onpause = (event) => {
+					console.log('this.onpause');
+				};
 
-			this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
-			this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
-
-			ImprovedTube.autoplayDisable(this);
-			ImprovedTube.playerLoudnessNormalization();
-			ImprovedTube.playerCinemaModeEnable();
-
+				this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
+				this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
+				if (this.user_interacted || !(this.storage.player_autoplay_disable == true || this.storage.playlist_autoplay === false || this.storage.channel_trailer_autoplay === false)) 
+				{ document.dispatchEvent(new CustomEvent('it-play')); }  else {ImprovedTube.autoplayDisable(this); } 
+				ImprovedTube.autoplayDisable(this);
+				ImprovedTube.playerLoudnessNormalization();
+				ImprovedTube.playerCinemaModeEnable();
+			}
 			return original.apply(this, arguments);
 		}
 	})(HTMLMediaElement.prototype.play);
@@ -359,17 +364,10 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerPlaybackSpeed();
 		ImprovedTube.subtitles();
 		ImprovedTube.subtitlesLanguage();
-		ImprovedTube.subtitlesFontFamily();
-		ImprovedTube.subtitlesFontColor();
-		ImprovedTube.subtitlesFontSize();
-		ImprovedTube.subtitlesBackgroundColor();
-		ImprovedTube.subtitlesWindowColor();
-		ImprovedTube.subtitlesWindowOpacity();
-		ImprovedTube.subtitlesCharacterEdgeStyle();
-		ImprovedTube.subtitlesFontOpacity();
-		ImprovedTube.subtitlesBackgroundOpacity();
+		ImprovedTube.subtitlesUserSettings();
 		ImprovedTube.subtitlesDisableLyrics();
 		ImprovedTube.playerQuality();
+		ImprovedTube.batteryFeatures();
 		ImprovedTube.playerVolume();
 		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); }
 		ImprovedTube.playerScreenshotButton();
@@ -448,6 +446,7 @@ ImprovedTube.playerOnEnded = function (event) {
 };
 
 ImprovedTube.onkeydown = function () {
+	ImprovedTube.pauseWhileTypingOnYoutube()
 	window.addEventListener('keydown', function () {
 		if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
 			ImprovedTube.user_interacted = true;

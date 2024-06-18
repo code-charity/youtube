@@ -68,35 +68,77 @@
 .satus-section--appearance .satus-button--details {
 	top: 157px;
 	left: 16px;
-	font-size: 16.5px;
-	width: calc(70% - 32px);
-	height: 56px;
+	font-size: 14px;
+	width: calc(39.5% - 32px);
+	height: 40px;
 	min-height: auto;
+}
+
+.satus-section--appearance .satus-button--detailButton {
+	top: 157px;
+	left: 112px;
+	font-size: 14px;
+	width: calc(40% - 32px);
+	height: 40px;
+	min-height: auto;
+}
+
+.satus-section--appearance .satus-select--description {
+	top: 199px;
+	left: 16px;
+	font-size: 14px;
+	width: calc(70% - 32px);
+	height: 42px;
+	min-height: auto;
+	
+	display: justify;
+	padding: 19px;
+	position: absolute;
+	transition: transform .5s, box-shadow .5s;
+	transform: scale(1);
+	text-align: center;
+
+	border: 1px solid var(--it-appearance-shadow-color);
+	border-radius: 3px; 
+	background: var(--satus-section-background);
+	box-shadow: 0 0 2px 0 rgb(0 0 0 / 0%);
+
 }
 
 .satus-section--appearance .satus-button--comments {
-	top: 222px;
+	top: 243px;
 	left: 16px;
-
 	width: calc(70% - 32px);
-	height: 57px;
+	height: 50px;
 	min-height: auto;
 }
 
-.satus-section--appearance .satus-button--footer {
-	top: 286px;
+.satus-section--appearance .satus-switch--popupAd {
+	top: 297px;
 	left: 16px;
-	font-size: 11px;
-	width: calc(37% - 32px);
+	font-size: 9px;
+	width: calc(44% - 32px);
 	min-height: auto;
-	height: 38px;  
+	height: 23px;  
+		
+	padding:5px;
+	position: absolute;
+	transition: transform .5s, box-shadow .5s;
+	transform: scale(1);
+	text-align: center;
+
+	border: 1px solid var(--it-appearance-shadow-color);
+	border-radius: 3px; 
+	background: var(--satus-section-background);
+	box-shadow: 0 0 2px 0 rgb(0 0 0 / 0%);
+	i {opacity:0.7; filter:grayscale(0.9)}
 } 
 
 .satus-section--appearance .satus-button--sidebar {
 	top: 53px;
 	left: calc(70% - 8px);
 	width: calc(30% - 8px);
-	height: 180px;
+	height: 220px;
 }
 /*--------------------------------------------------------------
 # CUSTOM PLAYER SIZE

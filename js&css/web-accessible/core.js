@@ -36,7 +36,7 @@ var ImprovedTube = {
 		channel_home_page_postfix: /\/(featured)?\/?$/,
 		thumbnail_quality: /(default\.jpg|mqdefault\.jpg|hqdefault\.jpg|hq720\.jpg|sddefault\.jpg|maxresdefault\.jpg)+/,
 		video_id: /(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/,
-		video_time: /[?&](?:t|start)=([^&]+)/,
+		video_time: /[?&](?:t|start)=([^&]+)|#t=(\w+)/,
 		playlist_id: /[?&]list=([^&]+)/,
 		channel_link: /https:\/\/www.youtube.com\/@|((channel|user|c)\/)/
 	},
@@ -197,9 +197,6 @@ document.addEventListener('it-message-from-extension', function () {
 					localStorage.removeItem('it-player30fps');
 				}
 			}
-			if (ImprovedTube.storage[message.key]==="when_paused") {
-				ImprovedTube.whenPaused();
-			};
 
 			switch(camelized_key) {
 				case 'blocklistActivate':
@@ -350,6 +347,26 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.playerRemainingDuration();
 					} else { document.querySelector(".ytp-time-remaining-duration")?.remove();
 					}
+					break
+
+				case 'subtitlesFontFamily':
+				case 'subtitlesFontColor':
+				case 'subtitlesFontSize':
+				case 'subtitlesBackgroundColor':
+				case 'subtitlesWindowColor':
+				case 'subtitlesWindowOpacity':
+				case 'subtitlesCharacterEdgeStyle':
+				case 'subtitlesFontOpacity':
+				case 'subtitlesBackgroundOpacity':
+					ImprovedTube.subtitlesUserSettings();
+					break
+				
+				case 'playerHideControls':
+					ImprovedTube.playerControls();
+					break
+				case 'playerlistUpNextAutoplay':
+					if (this.storage.playlist_up_next_autoplay !== false) { 
+						if (playlistData.currentIndex != playlistData.localCurrentIndex) { playlistData.currentIndex = playlistData.localCurrentIndex;} }
 					break
 			}
 

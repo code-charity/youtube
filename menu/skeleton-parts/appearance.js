@@ -8,6 +8,12 @@
 # Footer
 # Sidebar
 --------------------------------------------------------------*/
+satus.storage.onchanged((key, value) => { 
+    if (key === "related_videos" && value === "Titles") {
+        satus.storage.set('relatedVideosPrev', "Titles"); 
+        console.log(satus.storage.get("relatedVideosPrev"));
+    }
+});
 extension.skeleton.main.layers.section.appearance = {
 	component: "button",
 	variant: "appearance",
@@ -100,6 +106,10 @@ extension.skeleton.main.layers.section.appearance.on.click.header = {
 			header_transparent: {
 				component: "switch",
 				text: "transparentBackground"
+			},
+			header_transparent_alternative: {
+				component: "switch",
+				text: "Transparent background alternative"
 			},
 			header_hide_country_code: {
 				component: "switch",
@@ -398,8 +408,9 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 };
 
 /*--------------------------------------------------------------
-# DETAIL
+# DETAILS
 --------------------------------------------------------------*/
+
 
 extension.skeleton.main.layers.section.appearance.on.click.details = {
 	component: "button",
@@ -409,10 +420,46 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 		click: {
 			component: "section",
 			variant: "card",
-			description: {
-				component: "select",
-				text: "description",
-
+			hide_views_count: {
+				component: "switch",
+				text: "hideViewsCount",
+				tags: "hide,remove"
+			},
+			hide_details: {
+				component: "switch",
+				text: "hideDetails",
+				tags: "hide,remove"
+			},
+			day_of_week: {
+				component: "switch",
+				text: "displayDayOfTheWeak"
+			},
+			hide_date: {
+				component: "switch",
+				text: "hideDate",
+				tags: "hide,remove"
+			},
+			api: {
+				component: 'section',
+				variant: 'card',
+				title: 'Currently_requiring_a_YouTube_API_key',
+    
+				how_long_ago_the_video_was_uploaded: {
+					component: "switch",
+					text: "howLongAgoTheVideoWasUploaded"
+				},
+				channel_videos_count: {
+					component: "switch",
+					text: "showChannelVideosCount"
+				}
+			}
+		}
+	}
+};
+extension.skeleton.main.layers.section.appearance.on.click.description = {
+	component: "select",
+	variant: "description",
+	text: "description",
 				options: [{
 					text: "normal",
 					value: "normal"
@@ -435,12 +482,14 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 					text: "Classic hidden",
 					value: "classic_hidden"
 				}*/],
-				tags: "hide,remove"
-			},
-			hide_detail_button: {
-				component: "Buttons",
-				text: "hideDetailButton",
-				on: {
+	tags: "hide,remove"
+};			
+
+extension.skeleton.main.layers.section.appearance.on.click.hide_detail_button = {
+	component: "button",
+	text: "Buttons",
+	variant: "detailButton",
+	on: {
 					click: {
 						component: 'section',
 						variant: 'card',
@@ -667,45 +716,9 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 							}
 						}
 					}
-				}
-			},
-
-			hide_views_count: {
-				component: "switch",
-				text: "hideViewsCount",
-				tags: "hide,remove"
-			},
-			hide_details: {
-				component: "switch",
-				text: "hideDetails",
-				tags: "hide,remove"
-			},
-			day_of_week: {
-				component: "switch",
-				text: "displayDayOfTheWeak"
-			},
-			hide_date: {
-				component: "switch",
-				text: "hideDate",
-				tags: "hide,remove"
-			},
-			api: {
-				component: 'section',
-				variant: 'card',
-				title: 'Currently_requiring_a_YouTube_API_key',
-    
-				how_long_ago_the_video_was_uploaded: {
-					component: "switch",
-					text: "howLongAgoTheVideoWasUploaded"
-				},
-				channel_videos_count: {
-					component: "switch",
-					text: "showChannelVideosCount"
-				}
-			}
 		}
-	}
-};
+}
+
 
 /*--------------------------------------------------------------
 # COMMENTS
@@ -774,26 +787,16 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 };
 
 /*--------------------------------------------------------------
-# FOOTER
+# POPUP AD 
 --------------------------------------------------------------*/
 
-extension.skeleton.main.layers.section.appearance.on.click.footer = {
-	component: "button",
-	variant: "footer",
-	text: "footer",
-	on: {
-		click: {
-			component: "section",
-			variant: "card",
-
-			hide_footer: {
-				component: "switch",
-				text: "hideFooter",
-				tags: "bottom"
-			}
-		}
-	}
+extension.skeleton.main.layers.section.appearance.on.click.popup_ad = {
+	component: "switch",
+	variant: "popupAd",
+	text: "popupAd",
+	tags: "bottom"
 };
+
 
 /*--------------------------------------------------------------
 # SIDEBAR
@@ -835,13 +838,17 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 				}],
 				tags: "right",
 				on: {
-					click: function () {  setTimeout(() => {
-						if (satus.storage.get('related_videos')==="Titles") {
-							if (!satus.storage.get('thumbnails_right')) {
+					click: function () {
+						setTimeout(() => {							
+						if (satus.storage.get('related_videos')==="Titles" 
+							&& satus.storage.get("relatedVideosPrev") ==="Titles") {if (!satus.storage.get('thumbnails_right')) {
 								this.nextSibling.nextSibling.click();
-							}
-						}
-					}, 250); }
+								satus.storage.set('relatedVideosPrev', "notTitles")
+								} 
+						} 			
+						}, 650) 
+																			
+					}
 				}
 			},
 			sidebar_left: {
