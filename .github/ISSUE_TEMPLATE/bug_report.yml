@@ -1,5 +1,5 @@
-name: "🐞 Bug"
-description: "🐞 Bug"
+name: "🐞Bug Form"
+description: "convenient?"
 title: "<title>"
 labels:
   - "Bug"
@@ -15,51 +15,40 @@ body:
 
   - type: input
     attributes:
-      label: "Description: (Clear/concise. Screenshot/Video welcome to upload below)"
+      label: "Description:
+      placeholder: "(Clear/concise). Screenshot/Video welcome! (Upload below)"
     validations:
       required: true
 
   - type: input
     attributes:
-      label: "Steps to reproduce: (Might only happen with a certain feature of ours enabled?)"
+      label: "Steps to reproduce:"
+      placeholder: "(Might only happen with a certain feature of our's enabled?)"
     validations:
       required: true
 
   - type: input
     attributes:
-      label: "Since when? Or when YouTube changed something? Or through our update?"
-      placeholder: (Date / Reason / Version)
+      label: "Since when?"
+      placeholder: "Since YouTube changed something? Or since we did?"
     validations:
       required: true
 
-  - type: dropdown
+  - type: conditional
+    conditions:
+      - attribute: "**Does the bug still happen when you log out of YouTube?**"
+        value: No
+    body:
+      - type: textarea
+        attributes:
+          label: "**Then please copy your experiment flags list twice:**"   
+        validations:
+          required: true
+  - type: markdown
     attributes:
-      label: "Browser:"
-      options:
-        - label: "Chrome"
-          value: "Chrome"
-        - label: "Firefox"
-          value: "Firefox"
-        - label: "Safari"
-          value: "Safari"
-        - label: "Edge"
-          value: "Edge"
-        - label: "Brave"
-          value: "Brave"
-        - label: "Vivaldi"
-          value: "Vivaldi"
-        - label: "Opera"
-          value: "Opera"
-        - label: "Opera GX"
-          value: "Opera GX"
-    validations:
-      required: false
-
-  - type: input
-    attributes:
-      label: "Other Browser/s:"
-    validations:
-      required: false
+    value: |
+        _(with & without the error to compare) Enter `yt.config_.EXPERIMENT_FLAGS`
+        into the Browser console on YouTube (F12-Key - Or find it in the HTML source(ctrl+U))_
 
   - type: input
     attributes:
@@ -71,17 +60,41 @@ body:
     attributes:
       value: |
         (`F12`-key, then `console`-tab. Try without other extensions)
+      
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: "Browser/s:"
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Brave
+        - Vivaldi
+        - Whale
+        - Edge
+        - Opera
+        - OperaGX
+    validations:
+      required: false
+
+  - type: input
+    attributes:
+      label: "Other Browser:"
+    validations:
+      required: false
 
   - type: markdown
     attributes:
       value: |
-        ### Before submitting:
-        Thanks for coming & caring! 
+        ## Before submitting:  Thanks for coming & caring! 
         Sometimes even 3 words are enough for a bug report. 
-        Just please check if the issue has already been reported. If so, you can add different/better words to that report.
+        Just please check if the issue has already been reported. 
+        If so, you can add different/better words to that report.
         [GitHub's issue search](https://github.com/ImprovedTube/ImprovedTube/issues?q=) _(use the link or remove "is:issue is:open" from the search)_
-        (If it was posted before, you can answer/react there to give it your voice and this also move it up in our lists) 
-        If the status is "closed" (=fixed) recently, then the Browser's stores can be updated soon. If it was already closed months or years ago, then it might have appeared again and must be fixed again.)
+         - _(If this was posted before, you can answer/react there to give it your voice and this also move it up in our lists)_ 
+           - _If the status is "closed" (=fixed) recently, then the Browser's stores can be updated soon. If it was already closed months or years ago, then it might have appeared again and must be fixed again.)_
 
   - type: checkboxes
     attributes:
