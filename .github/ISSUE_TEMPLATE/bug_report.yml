@@ -101,8 +101,9 @@ body:
         Just please check if the issue has already been reported. 
         If so, you can add different/better words to that report.
         [GitHub's issue search](https://github.com/ImprovedTube/ImprovedTube/issues?q=) _(use the link or remove "is:issue is:open" from the search)_
-          - _(If this was posted before, you can answer/react there to give it your voice and this also move it up in our lists)_ 
-            - _If the status is "closed" (=fixed) recently, then the Browser's stores can be updated soon. If it was already closed months or years ago, then it might have appeared again and must be fixed again.)_
+           _(If this was posted before, you can answer/react there to give it your voice and this also move it up in our lists)_ 
+           _If the status is "closed" (=fixed) recently, then the Browser's stores can be updated soon._  
+           _If it was already closed months or years ago, then it might have appeared again and must be fixed again.)_
 
   - type: checkboxes
     attributes:
