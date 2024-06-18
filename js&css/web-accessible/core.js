@@ -36,7 +36,7 @@ var ImprovedTube = {
 		channel_home_page_postfix: /\/(featured)?\/?$/,
 		thumbnail_quality: /(default\.jpg|mqdefault\.jpg|hqdefault\.jpg|hq720\.jpg|sddefault\.jpg|maxresdefault\.jpg)+/,
 		video_id: /(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/,
-		video_time: /[?&](?:t|start)=([^&]+)/,
+		video_time: /[?&](?:t|start)=([^&]+)|#t=(\w+)/,
 		playlist_id: /[?&]list=([^&]+)/,
 		channel_link: /https:\/\/www.youtube.com\/@|((channel|user|c)\/)/
 	},
