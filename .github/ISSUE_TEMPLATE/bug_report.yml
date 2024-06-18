@@ -31,32 +31,32 @@ body:
     attributes:
       label: "**Since when?:**"
       description: Or when YouTube changed something? Through our update?
-      placeholder: ""
+      placeholder: Enter date or version
     validations:
       required: true
 
-  - type: select
+  - type: dropdown  # Corrected from 'select' to 'dropdown'
     attributes:
       label: "**Browser:**"
       options:
-        - label: Chrome
+        - label: "Chrome"
           value: Chrome
-        - label: Firefox
+        - label: "Firefox"
           value: Firefox
-        - label: Safari
+        - label: "Safari"
           value: Safari
-        - label: Edge
+        - label: "Edge"
           value: Edge
-        - label: Brave
+        - label: "Brave"
           value: Brave
-        - label: Vivaldi
+        - label: "Vivaldi"
           value: Vivaldi
-        - label: Opera
+        - label: "Opera"
           value: Opera
-        - label: Opera GX
+        - label: "Opera GX"
           value: Opera GX
-      validations:
-        required: false
+    validations:
+      required: false
 
   - type: input
     attributes:
@@ -71,30 +71,16 @@ body:
     validations:
       required: true
 
-  - type: conditional
-    conditions:
-      - attribute: "**Does the bug still happen when you log out of YouTube?**"
-        value: No
-    body:
-      - type: textarea
-        attributes:
-          label: "**Then please copy your experiment flags list twice:**"
-          description: >-
-            _(with & without the error to compare) Enter `yt.config_.EXPERIMENT_FLAGS`
-            into the Browser console on YouTube (F12-Key - Or find it in the HTML source(ctrl+U))_
-        validations:
-          required: true
-
-      - type: markdown
-        attributes:
-          value: |
-            ### Before submitting:
-            Thanks for coming & caring! 
-            Sometimes even 3 words are enough for a bug report. 
-            Just please check if the issue has already been reported. If so, you can add different/better words to that report.
-            [GitHub's issue search](https://github.com/ImprovedTube/ImprovedTube/issues?q=) _(use the link or remove "is:issue is:open" from the search)_
-            (If it was posted before, you can answer/react there to give it your voice and this also move it up in our lists) 
-            If the status is "closed" (=fixed) recently, then the Browser's stores can be updated soon. If it was already closed months or years ago, then it might have appeared again and must be fixed again.)
+  - type: markdown  # Removed 'conditional' as it's not a valid input type
+    attributes:
+      value: |
+        ### Before submitting:
+        Thanks for coming & caring! 
+        Sometimes even 3 words are enough for a bug report. 
+        Just please check if the issue has already been reported. If so, you can add different/better words to that report.
+        [GitHub's issue search](https://github.com/ImprovedTube/ImprovedTube/issues?q=) _(use the link or remove "is:issue is:open" from the search)_
+        (If it was posted before, you can answer/react there to give it your voice and this also move it up in our lists) 
+        If the status is "closed" (=fixed) recently, then the Browser's stores can be updated soon. If it was already closed months or years ago, then it might have appeared again and must be fixed again.)
 
   - type: checkboxes
     attributes:
