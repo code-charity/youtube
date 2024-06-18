@@ -14,20 +14,20 @@ body:
         ## Bug Report:
 
   - type: textarea
-  id: repro
-  attributes:
-    label: "Description:"
-    description: "How do you trigger this bug? Please walk us through it step by step."
-    placeholder: |
-      "(Clear/concise)."
-      "Screenshot/Video welcome! (Upload by drag & drop)"
-  validations:
-     required: true
+    id: repro
+    attributes:
+      label: "Description:"
+      description: "How do you trigger this bug? Please walk us through it step by step."
+      placeholder: |
+        (Clear/concise).
+        Screenshot/Video welcome! (Upload by drag & drop)
+    validations:
+      required: true
 
   - type: input
     attributes:
       label: "Steps to reproduce:"
-      placeholder: "(Might only happen with a certain feature of our's enabled?)"
+      placeholder: "(Might only happen with a certain feature of ours enabled?)"
     validations:
       required: true
 
@@ -44,16 +44,13 @@ body:
       options:
         - label: "Yes"
         - label: "No"
-      validations:
+    validations:
       required: true
 
-   - type: textarea
-     attributes:
-     label: "**No? Then please copy your experiment flags list twice:"   
- 
-  - type: markdown
+  - type: textarea
     attributes:
-    value: |
+      label: "No? Then please copy your experiment flags list twice:"
+      description: |
         _(with & without the error to compare) Enter `yt.config_.EXPERIMENT_FLAGS`
         into the Browser console on YouTube (F12-Key - Or find it in the HTML source(ctrl+U))_
 
@@ -63,26 +60,30 @@ body:
     validations:
       required: no
 
-  - type: markdown
-    attributes:
-      value: |
-        (`F12`-key, then `console`-tab. Try without other extensions)
-      
   - type: dropdown
     id: browsers
     attributes:
       label: "Browser/s:"
       multiple: true
       options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Brave
-        - Vivaldi
-        - Whale
-        - Edge
-        - Opera
-        - OperaGX
+        - label: "Firefox"
+          value: "Firefox"
+        - label: "Chrome"
+          value: "Chrome"
+        - label: "Safari"
+          value: "Safari"
+        - label: "Brave"
+          value: "Brave"
+        - label: "Vivaldi"
+          value: "Vivaldi"
+        - label: "Whale"
+          value: "Whale"
+        - label: "Edge"
+          value: "Edge"
+        - label: "Opera"
+          value: "Opera"
+        - label: "OperaGX"
+          value: "OperaGX"
     validations:
       required: false
 
@@ -131,8 +132,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        (You can remove Blocklist, History Analyzer data - or paste the following in the Browser-Console and hit enter: `(function({analyzer, blocklist, ...a}){return JSON.stringify(a)})(ImprovedTube.storage)`)"
-  
+        (You can remove Blocklist, History Analyzer data - or paste the following in the Browser-Console and hit enter: `(function({analyzer, blocklist, ...a}){return JSON.stringify(a)})(ImprovedTube.storage)`)
+
   - type: input
     attributes:
       label: "Your YouTube-Document"
