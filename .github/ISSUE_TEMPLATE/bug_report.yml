@@ -98,8 +98,8 @@ body:
 
   - type: input
     attributes:
-      label: "ImprovedTube Version"
-      description: "(Written in the Extension header & your Browser's store)"
+      label: "ImprovedTube Version (Written in the Extension header & your Browser's store)"
+      description: "(You can remove Blocklist, History Analyzer data - or paste the following in the Browser-Console and hit enter: `(function({analyzer, blocklist, ...a}){return JSON.stringify(a)})(ImprovedTube.storage)`)"
     validations:
       required: false
 
@@ -107,25 +107,18 @@ body:
     attributes:
       label: "Your Settings (From the Extension's `⋮`-Hamburger menu > Settings > Backup & reset > Export settings)"
     validations:
-      required: false      
-     - type: markdown
-       attributes:
-       value: |
-          You can remove Blocklist, History Analyzer data - or paste the following in the Browser-Console and hit enter: 
-          `(function({analyzer, blocklist, ...a}){return JSON.stringify(a)})(ImprovedTube.storage)`
-          
-  - type: input
+      required: false
+
+  - type: markdown
     attributes:
-      label: "your YouTube Document"
-    validations:
-    - type: markdown
-      attributes:
-        value: |
-          (`F12` copy the whole root element: \<html> (alternative: CTRL+U) [Test](https://github.com/code-charity/youtube/wiki/Contributing#Test)
+      value: |
+        ### YouTube-Document:
+        (`F12` copy the whole root element: \<html> (alternative: CTRL+U) [Test](https://github.com/code-charity/youtube/wiki/Contributing#Test)
 
   - type: input
     attributes:
-      label: "OS / Device:
+      label: "OS / Device:"
+      description: "(Enter your operating system and device details)"
     validations:
       required: false
 
