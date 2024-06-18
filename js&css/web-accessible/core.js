@@ -371,6 +371,10 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'playerHideControls':
 					ImprovedTube.playerControls();
 					break
+				case 'playerlistUpNextAutoplay':
+					if (this.storage.playlist_up_next_autoplay !== false) { 
+						if (playlistData.currentIndex != playlistData.localCurrentIndex) { playlistData.currentIndex = playlistData.localCurrentIndex;} }
+					break
 			}
 
 			if (ImprovedTube[camelized_key]) {
