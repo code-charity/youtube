@@ -2,24 +2,16 @@
 AUTOPLAY DISABLE
 ------------------------------------------------------------------------------*/
 ImprovedTube.autoplayDisable = function (videoElement) {
-	if (this.storage.player_autoplay_disable
-		|| this.storage.playlist_autoplay === false
-		|| this.storage.channel_trailer_autoplay === false) {
 		const player = this.elements.player || videoElement.closest('.html5-video-player') || videoElement.closest('#movie_player'); // #movie_player: outdated since 2024?
-
 		if (this.video_url !== location.href) {	this.user_interacted = false; }
 
-		// if (no user clicks) and (no ads playing) and
-		// ( there is a player and ( (it is not in a playlist and auto play is off ) or ( playlist auto play is off and in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
-
-				// user didnt click
-		if (player && !this.user_interacted
-				// no ads playing
-			&& !player.classList.contains('ad-showing')
-				// video page
-			&& ((location.href.includes('/watch?')  // #1703
+		// if there is a player && no ads playing && ((it is not in a playlist and auto play is off) OR (playlist auto play is off and in a playlist))
+							//OR (if we are in a channel and the channel trailer autoplay is off)
+		if (player 				
+			&& !player.classList.contains('ad-showing')	// no ads playing
+			&& ((location.href.includes('/watch?')		// video page  // #1703
 					// player_autoplay_disable & not playlist
-				&& (this.storage.player_autoplay_disable && !location.href.includes('list='))
+				&& ((this.storage.player_autoplay_disable && !location.href.includes('list='))
 					// !playlist_autoplay & playlist
 				|| (this.storage.playlist_autoplay === false && location.href.includes('list=')))
 					// channel homepage & !channel_trailer_autoplay
@@ -31,9 +23,6 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 		} else {
 			document.dispatchEvent(new CustomEvent('it-play'));
 		}
-	} else {
-		document.dispatchEvent(new CustomEvent('it-play'));
-	}
 };
 /*------------------------------------------------------------------------------
 FORCED PLAY VIDEO FROM THE BEGINNING
