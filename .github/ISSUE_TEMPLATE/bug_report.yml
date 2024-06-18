@@ -30,8 +30,8 @@ body:
   - type: input
     attributes:
       label: "**Since when?:**"
-      description: Or when YouTube changed something? Through our update?
-      placeholder: Enter date or version
+      description: Or when YouTube changed something? Or through our update?
+      placeholder: (Date / Reason / Version)
     validations:
       required: true
 
