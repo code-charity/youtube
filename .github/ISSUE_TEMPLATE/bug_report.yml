@@ -35,18 +35,18 @@ body:
     validations:
       required: true
 
-  - type: dropdown  # Corrected from 'select' to 'dropdown'
+  - type: dropdown
     attributes:
       label: "**Browser:**"
       options:
-        - "Chrome"
-        - "Firefox"
-        - "Safari"
-        - "Edge"
-        - "Brave"
-        - "Vivaldi"
-        - "Opera"
-        - "Opera GX"
+        Chrome: Chrome
+        Firefox: Firefox
+        Safari: Safari
+        Edge: Edge
+        Brave: Brave
+        Vivaldi: Vivaldi
+        Opera: Opera
+        "Opera GX": Opera GX
     validations:
       required: false
 
@@ -63,7 +63,7 @@ body:
     validations:
       required: true
 
-  - type: markdown  # Removed 'conditional' as it's not a valid input type
+  - type: markdown
     attributes:
       value: |
         ### Before submitting:
