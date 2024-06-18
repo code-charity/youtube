@@ -119,7 +119,7 @@ body:
   - type: input
     attributes:
       label: "ImprovedTube Version"
-      placeholde: "(Written in the Extension header & your Browser's store)"
+      placeholder: "(Written in the Extension header & your Browser's store)"
     validations:
       required: false
 
