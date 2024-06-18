@@ -1,7 +1,11 @@
-name: 🐞 Bug
-description: 🐞 Bug
+name: "🐞 Bug"
+description: "🐞 Bug"
 title: "<title>"
-labels: ["Bug", "good first issue", "help wanted", "up-for-grabs"]
+labels:
+  - "Bug"
+  - "good first issue"
+  - "help wanted"
+  - "up-for-grabs"
 
 body:
   - type: markdown
@@ -27,7 +31,7 @@ body:
     attributes:
       label: "**Since when?:**"
       description: Or when YouTube changed something? Through our update?
-      placeholder: 
+      placeholder: ""
     validations:
       required: true
 
@@ -41,6 +45,8 @@ body:
           value: Firefox
         - label: Safari
           value: Safari
+        - label: Naver Whale
+          value: Naver Whale
         - label: Edge
           value: Edge
         - label: Brave
@@ -67,30 +73,30 @@ body:
     validations:
       required: true
 
-- type: conditional
-  conditions:
-    - attribute: "**Does the bug still happen when you log out of YouTube?**"
-      value: No
-  body:
-    - type: textarea
-      attributes:
-        label: "**Then please copy your experiment flags list twice:**"
-        description: >-
-          _(with & without the error to compare) Enter `yt.config_.EXPERIMENT_FLAGS`
-          into the Browser console on YouTube (F12-Key - Or find it in the HTML source(ctrl+U))_
-      validations:
-        required: true
+  - type: conditional
+    conditions:
+      - attribute: "**Does the bug still happen when you log out of YouTube?**"
+        value: No
+    body:
+      - type: textarea
+        attributes:
+          label: "**Then please copy your experiment flags list twice:**"
+          description: >-
+            _(with & without the error to compare) Enter `yt.config_.EXPERIMENT_FLAGS`
+            into the Browser console on YouTube (F12-Key - Or find it in the HTML source(ctrl+U))_
+        validations:
+          required: true
 
-  - type: markdown
-    attributes:
-      value: |
-        ### Before submitting:
-        Thanks for coming & caring! 
-        Sometimes even 3 words are enough for a bug report. 
-        Just please check if the issue has already been reported. If so, you can add different/better words to that report.
-        [GitHub's issue search](https://github.com/ImprovedTube/ImprovedTube/issues?q=) _(use the link or remove "is:issue is:open" from the search)_
-        (If it was posted before, you can answer/react there to give it your voice and this also move it up in our lists) 
-        If the status is "closed" (=fixed) recently, then the Browser's stores can be updated soon. If it was already closed months or years ago, then it might have appeared again and must be fixed again.) 
+    - type: markdown
+      attributes:
+        value: |
+          ### Before submitting:
+          Thanks for coming & caring! 
+          Sometimes even 3 words are enough for a bug report. 
+          Just please check if the issue has already been reported. If so, you can add different/better words to that report.
+          [GitHub's issue search](https://github.com/ImprovedTube/ImprovedTube/issues?q=) _(use the link or remove "is:issue is:open" from the search)_
+          (If it was posted before, you can answer/react there to give it your voice and this also move it up in our lists) 
+          If the status is "closed" (=fixed) recently, then the Browser's stores can be updated soon. If it was already closed months or years ago, then it might have appeared again and must be fixed again.)
 
   - type: checkboxes
     attributes:
