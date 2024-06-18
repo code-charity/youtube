@@ -209,10 +209,12 @@ chrome.windows.onFocusChanged.addListener(function (wId) {
 	windowId = wId;
 	//console.log('onFocusChanged', windowId, tabPrev, tab);
 	tabPrune(function () {
-		if (windowId != tab.windowId && tab.tabId && tabConnected[tab.tabId]) {
+		if (windowId != tab.windowId && tab.tabId && !tab.blur && tabConnected[tab.tabId]) {
+			tab.blur = true;
 			chrome.tabs.sendMessage(tab.tabId, {action: 'blur'});
 			//console.log('blur', tab.tabId, windowId);
-		} else if (windowId && tab.tabId && tabConnected[tab.tabId]) {
+		} else if (windowId == tab.windowId && tab.tabId && tab.blur && tabConnected[tab.tabId]) {
+			tab.blur = false;
 			chrome.tabs.sendMessage(tab.tabId, {action: 'focus'});
 			//console.log('focus', tab.tabId, windowId);
 		}
