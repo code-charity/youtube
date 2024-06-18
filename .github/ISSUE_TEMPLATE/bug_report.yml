@@ -39,22 +39,14 @@ body:
     attributes:
       label: "**Browser:**"
       options:
-        - label: "Chrome"
-          value: Chrome
-        - label: "Firefox"
-          value: Firefox
-        - label: "Safari"
-          value: Safari
-        - label: "Edge"
-          value: Edge
-        - label: "Brave"
-          value: Brave
-        - label: "Vivaldi"
-          value: Vivaldi
-        - label: "Opera"
-          value: Opera
-        - label: "Opera GX"
-          value: Opera GX
+        - "Chrome"
+        - "Firefox"
+        - "Safari"
+        - "Edge"
+        - "Brave"
+        - "Vivaldi"
+        - "Opera"
+        - "Opera GX"
     validations:
       required: false
 
@@ -86,8 +78,8 @@ body:
     attributes:
       label: "**Tested as only active extension (incognito mode or another browser users):**"
       options:
-        - label: Yes
-        - label: No
+        - "Yes"
+        - "No"
 
   - type: textarea
     attributes:
