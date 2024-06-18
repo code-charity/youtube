@@ -19,7 +19,7 @@ body:
   - type: textarea
     attributes:
       label: "**Steps to reproduce this:**"
-      description: _(Might only happen with a certain feature of our's enabled?)_
+      description: _(Might only happen with a certain feature of ours enabled?)_
     validations:
       required: true
 
@@ -70,7 +70,7 @@ body:
   - type: textarea
     attributes:
       label: "**Does the bug not happen when you log out of YouTube? Then please copy your experiment flags list twice**"
-      description: _(with & without the error to compare). Enter: `yt.config_.EXPERIMENT_FLAGS` into the Browser console on youtube (F12-Key - Or find it in the html source(ctrl+U)_
+      description: _(with & without the error to compare). Enter: `yt.config_.EXPERIMENT_FLAGS` into the Browser console on YouTube (F12-Key - Or find it in the HTML source(ctrl+U))_
     validations:
       required: true
 
@@ -79,12 +79,11 @@ body:
       value: |
         ### Before submitting:
         Thanks for coming & caring! 
-        Sometime even 3 words are enough of a bug report. 
-        Just please check, if the issue has already been reported ever. (If so, that might inspires you to add different/better words to that report.)
-        [GitHub's issue search](https://github.com/ImprovedTube/ImprovedTube/issues?q=) _(use the link or remove "is:issue is:open" from the search)_ 
+        Sometimes even 3 words are enough for a bug report. 
+        Just please check if the issue has already been reported. If so, you can add different/better words to that report.
+        [GitHub's issue search](https://github.com/ImprovedTube/ImprovedTube/issues?q=) _(use the link or remove "is:issue is:open" from the search)_
         (If it was posted before, you can answer/react there to give it your voice and this also move it up in our lists) 
-        If the status is  "closed" (=fixed) recently, then the Browser's stores can be updated soon, 
-        yet if it was already closed month or years ago, then it might appeared again & must be fixed again.) 
+        If the status is "closed" (=fixed) recently, then the Browser's stores can be updated soon. If it was already closed months or years ago, then it might have appeared again and must be fixed again.) 
 
   - type: checkboxes
     attributes:
@@ -93,7 +92,7 @@ body:
         - label: Yes
         - label: No
 
-  - type: input
+  - type: textarea
     attributes:
       label: "**Expected preferred behavior:**"
     validations:
