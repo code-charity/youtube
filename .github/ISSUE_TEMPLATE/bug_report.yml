@@ -118,7 +118,9 @@ body:
   - type: textarea
     attributes:
       label: "**Your Settings (From the Extension's `⋮`-Hamburger menu > Settings > Backup & reset > Export settings**"
-      description: (You can remove any Blocklist, History Analyzer data - or paste the following in the Browser-Console and hit enter: `(function({analyzer, blocklist, ...a}){return JSON.stringify(a)})(ImprovedTube.storage)`)
+      description: |-
+        You can remove any Blocklist, History Analyzer data - or paste the following in the Browser-Console and hit enter: 
+        `(function({analyzer, blocklist, ...a}){return JSON.stringify(a)})(ImprovedTube.storage)`
     validations:
       required: false
 
@@ -126,4 +128,16 @@ body:
     attributes:
       value: |
         ### YouTube-Document:
-        (`F12` copy the whole root element: \<html> (alternative: CTRL+U) [Test](https:/
+        (`F12` copy the whole root element: \<html> (alternative: CTRL+U) [Test](https://github.com/code-charity/youtube/wiki/Contributing#Test)
+
+  - type: input
+    attributes:
+      label: "**OS / Device:**"
+      description: (Enter your operating system and device details)
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        <!-- Many thanks & smiles! -->
