@@ -66,24 +66,15 @@ body:
       label: "Browser/s:"
       multiple: true
       options:
-        - label: "Firefox"
-          value: "Firefox"
-        - label: "Chrome"
-          value: "Chrome"
-        - label: "Safari"
-          value: "Safari"
-        - label: "Brave"
-          value: "Brave"
-        - label: "Vivaldi"
-          value: "Vivaldi"
-        - label: "Whale"
-          value: "Whale"
-        - label: "Edge"
-          value: "Edge"
-        - label: "Opera"
-          value: "Opera"
-        - label: "OperaGX"
-          value: "OperaGX"
+        - "Firefox"
+        - "Chrome"
+        - "Safari"
+        - "Brave"
+        - "Vivaldi"
+        - "Whale"
+        - "Edge"
+        - "Opera"
+        - "Opera GX"
     validations:
       required: false
 
