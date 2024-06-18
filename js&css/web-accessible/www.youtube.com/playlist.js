@@ -4,21 +4,14 @@
 /*------------------------------------------------------------------------------
 4.5.1 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
-ImprovedTube.playlistUpNextAutoplay = function (event) {
+ImprovedTube.playlistUpNextAutoplay = function (event) { if (this.storage.playlist_up_next_autoplay === false) {
 	const playlistData = this.elements.ytd_watch?.playlistData;
-
 	if (this.getParam(location.href, 'list') && playlistData
 		&& playlistData.currentIndex
 		&& playlistData.totalVideos
 		&& playlistData.localCurrentIndex) {
-		if (this.storage.playlist_up_next_autoplay === false) {
 			playlistData.currentIndex = playlistData.totalVideos;
-		} else {
-			if (playlistData.currentIndex != playlistData.localCurrentIndex) {
-				// this only happens when user switched playlist_up_next_autoplay from OFF to ON while on playlist page, restoring
-				playlistData.currentIndex = playlistData.localCurrentIndex;
-			}
-		}
+		} 
 	}
 };
 /*------------------------------------------------------------------------------
