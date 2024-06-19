@@ -121,6 +121,30 @@ ImprovedTube.init = function () {
 };
 
 document.addEventListener('yt-navigate-finish', function () {
+/* 			if (name === 'META') {			   //<META> infos are not updated when clicking related videos...
+			if(node.getAttribute('name')) {
+			//if(node.getAttribute('name') === 'title')		 {ImprovedTube.title = node.content;}		//duplicate
+			//if(node.getAttribute('name') === 'description')	   {ImprovedTube.description = node.content;}  //duplicate
+			//if node.getAttribute('name') === 'themeColor')			{ImprovedTube.themeColor = node.content;}   //might help our darkmode/themes
+//Do we need any of these here before the player starts?
+			//if(node.getAttribute('name') === 'keywords')		  {ImprovedTube.keywords = node.content;}
+			} else if (node.getAttribute('itemprop')) {
+			//if(node.getAttribute('itemprop') === 'name')		  {ImprovedTube.title = node.content;}
+			if(node.getAttribute('itemprop') === 'genre')		   {ImprovedTube.category  = node.content;}
+			//if(node.getAttribute('itemprop') === 'channelId')	 {ImprovedTube.channelId = node.content;}
+			//if(node.getAttribute('itemprop') === 'videoId')	   {ImprovedTube.videoId = node.content;}
+//The following infos will enable awesome, smart features.  Some of which everyone should use.
+			//if(node.getAttribute('itemprop') === 'description')   {ImprovedTube.description = node.content;}
+			//if(node.getAttribute('itemprop') === 'duration')	  {ImprovedTube.duration = node.content;}
+			//if(node.getAttribute('itemprop') === 'interactionCount'){ImprovedTube.views = node.content;}
+			//if(node.getAttribute('itemprop') === 'isFamilyFriendly'){ImprovedTube.isFamilyFriendly = node.content;}
+			//if(node.getAttribute('itemprop') === 'unlisted')	  {ImprovedTube.unlisted = node.content;}
+			//if(node.getAttribute('itemprop') === 'regionsAllowed'){ImprovedTube.regionsAllowed = node.content;}
+			//if(node.getAttribute('itemprop') === 'paid')		  {ImprovedTube.paid = node.content;}
+			// if(node.getAttribute('itemprop') === 'datePublished' ){ImprovedTube.datePublished = node.content;}
+					//to use in the "how long ago"-feature, not to fail without API key?  just like the "day-of-week"-feature above
+			// if(node.getAttribute('itemprop') === 'uploadDate')   {ImprovedTube.uploadDate = node.content;}
+*/
 	ImprovedTube.pageType();
 	if(ImprovedTube.storage.undo_the_new_sidebar === true){ImprovedTube.undoTheNewSidebar();}
 	ImprovedTube.commentsSidebar();
