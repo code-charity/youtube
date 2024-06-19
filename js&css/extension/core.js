@@ -305,6 +305,16 @@ extension.storage.load = function (callback) {
 	chrome.storage.local.get(function (items) {
 		extension.storage.data = items;
 
+		if (!extension.storage.data.blocklist) {
+			extension.storage.data.blocklist = {};
+		}
+		if (!extension.storage.data.blocklist.channels) {
+			extension.storage.data.blocklist.channels = {};
+		}
+		if (!extension.storage.data.blocklist.videos) {
+			extension.storage.data.blocklist.videos = {};
+		}
+
 		// initialize theme in case YT is in Dark cookie mode
 		if (!extension.storage.data['theme'] && document.documentElement.hasAttribute('dark')) {
 			extension.storage.data['theme'] = 'dark';
