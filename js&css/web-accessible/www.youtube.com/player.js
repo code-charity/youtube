@@ -9,13 +9,13 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 							//OR (if we are in a channel and the channel trailer autoplay is off)
 		if (player 				
 			&& !player.classList.contains('ad-showing')	// no ads playing
-			&& ((location.href.includes('/watch?')		// video page  // #1703
+			&& ( location.href.includes('/watch?')		// video page  // #1703
 					// player_autoplay_disable & not playlist
 				&& ((this.storage.player_autoplay_disable && !location.href.includes('list='))
 					// !playlist_autoplay & playlist
-				|| (this.storage.playlist_autoplay === false && location.href.includes('list=')))
+				 || (this.storage.playlist_autoplay === false && location.href.includes('list='))))	
 					// channel homepage & !channel_trailer_autoplay
-				|| (this.storage.channel_trailer_autoplay === false && this.regex.channel.test(location.href)))) {
+				|| (this.storage.channel_trailer_autoplay === false && this.regex.channel.test(location.href))){ 
 
 			setTimeout(function() { try { player.pauseVideo(); } 
 									catch (error) { console.log("autoplayDisable: Pausing"); videoElement.pause();  }

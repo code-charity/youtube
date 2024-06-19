@@ -362,7 +362,7 @@ ImprovedTube.initPlayer = function () {
 
 		ImprovedTube.forcedPlayVideoFromTheBeginning();
 		ImprovedTube.playerPlaybackSpeed();
-		ImprovedTube.subtitles();
+		ImprovedTube.playerSubtitles();
 		ImprovedTube.subtitlesLanguage();
 		ImprovedTube.subtitlesUserSettings();
 		ImprovedTube.subtitlesDisableLyrics();
