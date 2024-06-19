@@ -303,16 +303,6 @@ extension.storage.listener = function () {
 
 extension.storage.load = function (callback) {
 	chrome.storage.local.get(function (items) {
-		// initialize Blocklist
-		if (!items.blocklist) {
-			items.blocklist = {};
-		}
-		if (!items.blocklist.channels) {
-			items.blocklist.channels = {};
-		}
-		if (!items.blocklist.videos) {
-			items.blocklist.videos = {};
-		}
 		extension.storage.data = items;
 
 		// initialize theme in case YT is in Dark cookie mode
