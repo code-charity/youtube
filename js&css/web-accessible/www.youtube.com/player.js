@@ -201,9 +201,10 @@ function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Mat
 SUBTITLES
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerSubtitles = function () {
-	const player = this.elements.player;
+	const player = this.elements.player,
+		button = !button?.getAttribute('aria-label')?.includes('unavailable');
 	
-	if (player && player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
+	if (player?.isSubtitlesOn && player?.toggleSubtitles && player?.toggleSubtitlesOn && button) {
 		switch(this.storage.player_subtitles) {
 			case true:
 			case 'enabled':
@@ -222,12 +223,11 @@ SUBTITLES LANGUAGE
 ImprovedTube.subtitlesLanguage = function () {
 	const option = this.storage.subtitles_language,
 		player = this.elements.player,
-		button = this.elements.player_subtitles_button;
+		button = !button?.getAttribute('aria-label')?.includes('unavailable');
 	let subtitlesState;
 
-	if (option && player && player.getOption && player.isSubtitlesOn && player.toggleSubtitles && button && !button.title.includes('unavailable')) {
-		const tracklists = player.getOption('captions', 'tracklist', {includeAsr: true}),
-			matchedTrack = tracklists.find(element => element.languageCode.includes(option) && (!element.vss_id.includes("a.") || this.storage.auto_generate));
+	if (option && player?.getOption && player?.setOption && player?.isSubtitlesOn && player?.toggleSubtitles && button) {
+		const matchedTrack = player.getOption('captions', 'tracklist', {includeAsr: true})?.find(track => track.languageCode.includes(option) && (!track.vss_id.includes("a.") || this.storage.auto_generate));
 
 		if (matchedTrack) {
 			subtitlesState = player.isSubtitlesOn();
@@ -273,24 +273,30 @@ ImprovedTube.subtitlesUserSettings = function () {
 		],
 		option = ourSettings.filter(element => element[2]),
 		player = this.elements.player,
-		button = this.elements.player_subtitles_button;
+		button = !button?.getAttribute('aria-label')?.includes('unavailable');
 
-	if (option.length && player.getSubtitlesUserSettings && button && !button.title.includes('unavailable')) {
+	if (option.length && player?.getSubtitlesUserSettings && player?.updateSubtitlesUserSettings && button) {
 		let settings = player.getSubtitlesUserSettings();
-		
-		for (const value of option) {
+
+		for (let value of option) {
 			switch(value[1]) {
 				case 'number':
-					settings[value[0]] = Number(value[2]);
+					value[2] = Number(value[2]);
 					break;
 
 				case 'color':
-					settings[value[0]] = value[2];
+					value[2] = value[2];
 					break;
 
 				case 'fraction':
-					settings[value[0]] = Number(option) / 100;
+					value[2] = Number(option) / 100;
 					break;
+			}
+			
+			if (settings?.hasOwnProperty(value[0])) {
+				settings[value[0]] = value[2];
+			} else {
+				console.error('subtitlesUserSettings failed at: ',value[0]);
 			}
 		}
 		player.updateSubtitlesUserSettings(settings);
@@ -301,10 +307,10 @@ SUBTITLES DISABLE SUBTILES FOR LYRICS
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesDisableLyrics = function () {
 	if (this.storage.subtitles_disable_lyrics) {
-		var player = this.elements.player,
-			button = this.elements.player_subtitles_button;
+		const player = this.elements.player,
+		button = !button?.getAttribute('aria-label')?.includes('unavailable');
 
-		if (player && player.toggleSubtitles && button && !button.title.includes('unavailable')) {
+		if (player?.toggleSubtitles && button) {
 			// Music detection only uses 3 identifiers for Lyrics: lyrics, sing-along, karaoke.
 			// Easier to simply use those here. Can replace with music detection later.
 			const terms = ["sing along", "sing-along", "karaoke", "lyric", "卡拉OK", "卡拉OK", "الكاريوكي", "караоке", "カラオケ","노래방"];
