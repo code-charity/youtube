@@ -654,9 +654,3 @@ ImprovedTube.extractSubscriberCount = function (subscriberCountNode) {
 		ImprovedTube.subscriberCount = subscriberCount;
 	}
 };
-
-// true if any subtitles are available at this moment
-// YT doesnt have a function returning status of captions currently loaded, checking button color is the only way I could find :(
-ImprovedTube.subtitlesEnabled = function () {
-	return this.elements.player_subtitles_button?.childNodes?.[0]?.getAttribute('fill-opacity') == 1;
-};
