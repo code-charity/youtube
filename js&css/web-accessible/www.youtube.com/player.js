@@ -201,10 +201,9 @@ function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Mat
 SUBTITLES
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerSubtitles = function () {
-	const player = this.elements.player,
-		button = this.elements.player_subtitles_button?.childNodes?.[0]?.getAttribute('fill-opacity') ==1;
-	
-	if (player?.isSubtitlesOn && player?.toggleSubtitles && player?.toggleSubtitlesOn && button) {
+	const player = this.elements.player;
+
+	if (player && this.subtitlesEnabled() && player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
 		switch(this.storage.player_subtitles) {
 			case true:
 			case 'enabled':
@@ -222,11 +221,10 @@ SUBTITLES LANGUAGE
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesLanguage = function () {
 	const option = this.storage.subtitles_language,
-		player = this.elements.player,
-		button = this.elements.player_subtitles_button?.childNodes?.[0]?.getAttribute('fill-opacity') ==1;
+		player = this.elements.player;
 	let subtitlesState;
 
-	if (option && player?.getOption && player?.setOption && player?.isSubtitlesOn && player?.toggleSubtitles && button) {
+	if (option && player && this.subtitlesEnabled() && player.getOption && player.setOption && player.isSubtitlesOn && player.toggleSubtitles) {
 		const matchedTrack = player.getOption('captions', 'tracklist', {includeAsr: true})?.find(track => track.languageCode.includes(option) && (!track.vss_id.includes("a.") || this.storage.auto_generate));
 
 		if (matchedTrack) {
@@ -260,46 +258,53 @@ default = {
 },
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesUserSettings = function () {
-	const ourSettings = [
-			['fontFamily', 'number', this.storage.subtitles_font_family],
-			['color', 'color', this.storage.subtitles_font_color],
-			['fontSizeIncrement', 'number', this.storage.subtitles_font_size],
-			['background', 'color', this.storage.subtitles_background_color],
-			['backgroundOpacity', 'fraction', this.storage.subtitles_background_opacity],
-			['windowColor', 'color', this.storage.subtitles_window_color],
-			['windowOpacity', 'fraction', this.storage.subtitles_window_opacity],
-			['charEdgeStyle', 'number', this.storage.subtitles_character_edge_style],
-			['textOpacity', 'fraction', this.storage.subtitles_font_opacity]
-		],
-		option = ourSettings.filter(element => element[2]),
-		player = this.elements.player,
-		button = this.elements.player_subtitles_button?.childNodes?.[0]?.getAttribute('fill-opacity') ==1;
+	const ourSettings = {
+			fontFamily: this.storage.subtitles_font_family,
+			color: this.storage.subtitles_font_color,
+			fontSizeIncrement: this.storage.subtitles_font_size,
+			background: this.storage.subtitles_background_color,
+			backgroundOpacity: this.storage.subtitles_background_opacity,
+			windowColor: this.storage.subtitles_window_color,
+			windowOpacity: this.storage.subtitles_window_opacity,
+			charEdgeStyle: this.storage.subtitles_character_edge_style,
+			textOpacity: this.storage.subtitles_font_opacity
+		},
+		userSettings = Object.keys(ourSettings).filter(e => ourSettings[e]),
+		player = this.elements.player;
 
-	if (option.length && player?.getSubtitlesUserSettings && player?.updateSubtitlesUserSettings && button) {
-		let settings = player.getSubtitlesUserSettings();
+	if (userSettings.length && player && this.subtitlesEnabled() && player.getSubtitlesUserSettings && player.updateSubtitlesUserSettings) {
+		let ytSettings = player.getSubtitlesUserSettings(),
+			setting;
 
-		for (let value of option) {
-			switch(value[1]) {
-				case 'number':
-					value[2] = Number(value[2]);
+		for (const value of userSettings) {
+			setting = null;
+			switch(value) {
+				case 'fontFamily':
+				case 'fontSizeIncrement':
+				case 'charEdgeStyle':
+					setting = Number(ourSettings[value]);
 					break;
 
 				case 'color':
-					value[2] = value[2];
+				case 'background':
+				case 'windowColor':
+					setting = ourSettings[value];
 					break;
 
-				case 'fraction':
-					value[2] = Number(option) / 100;
+				case 'backgroundOpacity':
+				case 'windowOpacity':
+				case 'textOpacity':
+					setting = Number(ourSettings[value]) / 100;
 					break;
 			}
 			
-			if (settings?.hasOwnProperty(value[0])) {
-				settings[value[0]] = value[2];
+			if (ytSettings?.hasOwnProperty(value) && setting) {
+				ytSettings[value] = setting;
 			} else {
-				console.error('subtitlesUserSettings failed at: ',value[0]);
+				console.error('subtitlesUserSettings failed at: ',value, setting);
 			}
 		}
-		player.updateSubtitlesUserSettings(settings);
+		player.updateSubtitlesUserSettings(ytSettings);
 	}
 };
 /*------------------------------------------------------------------------------
@@ -307,14 +312,13 @@ SUBTITLES DISABLE SUBTILES FOR LYRICS
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesDisableLyrics = function () {
 	if (this.storage.subtitles_disable_lyrics) {
-		const player = this.elements.player,
-		button = this.elements.player_subtitles_button?.childNodes?.[0]?.getAttribute('fill-opacity') ==1;
+		const player = this.elements.player;
 
-		if (player?.toggleSubtitles && button) {
+		if (player && this.subtitlesEnabled() && player.isSubtitlesOn && player.isSubtitlesOn() && player.toggleSubtitles) {
 			// Music detection only uses 3 identifiers for Lyrics: lyrics, sing-along, karaoke.
 			// Easier to simply use those here. Can replace with music detection later.
 			const terms = ["sing along", "sing-along", "karaoke", "lyric", "卡拉OK", "卡拉OK", "الكاريوكي", "караоке", "カラオケ","노래방"];
-			if (terms.some(term => ImprovedTube.videoTitle().toLowerCase().includes(term))) {			
+			if (terms.some(term => this.videoTitle().toLowerCase().includes(term))) {			
 				player.toggleSubtitles();
 			}									
 		}
