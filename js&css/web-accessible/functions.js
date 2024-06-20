@@ -611,7 +611,6 @@ tooltip.style.zIndex = 10001;} // needed for cinema mode
 
 ImprovedTube.empty = function (element) {for (var i = element.childNodes.length - 1; i > -1; i--) { element.childNodes[i].remove(); }};
 ImprovedTube.isset = function (variable) {return !(typeof variable === 'undefined' || variable === null || variable === 'null');};
-ImprovedTube.stopPropagation = function (event) {event.stopPropagation();};
 ImprovedTube.showStatus = function (value) {
 	if (!this.elements.status) {
 		this.elements.status = document.createElement('div');
@@ -654,4 +653,10 @@ ImprovedTube.extractSubscriberCount = function (subscriberCountNode) {
 
 		ImprovedTube.subscriberCount = subscriberCount;
 	}
+};
+
+// true if any subtitles are available at this moment
+// YT doesnt have a function returning status of captions currently loaded, checking button color is the only way I could find :(
+ImprovedTube.subtitlesEnabled = function () {
+	return this.elements.player_subtitles_button?.childNodes?.[0]?.getAttribute('fill-opacity') == 1;
 };
