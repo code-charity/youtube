@@ -202,7 +202,7 @@ SUBTITLES
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerSubtitles = function () {
 	const player = this.elements.player,
-		button = !button?.getAttribute('aria-label')?.includes('unavailable');
+		button = this.elements.player_subtitles_button?.childNodes?.[0]?.getAttribute('fill-opacity') ==1;
 	
 	if (player?.isSubtitlesOn && player?.toggleSubtitles && player?.toggleSubtitlesOn && button) {
 		switch(this.storage.player_subtitles) {
@@ -223,7 +223,7 @@ SUBTITLES LANGUAGE
 ImprovedTube.subtitlesLanguage = function () {
 	const option = this.storage.subtitles_language,
 		player = this.elements.player,
-		button = !button?.getAttribute('aria-label')?.includes('unavailable');
+		button = this.elements.player_subtitles_button?.childNodes?.[0]?.getAttribute('fill-opacity') ==1;
 	let subtitlesState;
 
 	if (option && player?.getOption && player?.setOption && player?.isSubtitlesOn && player?.toggleSubtitles && button) {
@@ -273,7 +273,7 @@ ImprovedTube.subtitlesUserSettings = function () {
 		],
 		option = ourSettings.filter(element => element[2]),
 		player = this.elements.player,
-		button = !button?.getAttribute('aria-label')?.includes('unavailable');
+		button = this.elements.player_subtitles_button?.childNodes?.[0]?.getAttribute('fill-opacity') ==1;
 
 	if (option.length && player?.getSubtitlesUserSettings && player?.updateSubtitlesUserSettings && button) {
 		let settings = player.getSubtitlesUserSettings();
@@ -308,7 +308,7 @@ SUBTITLES DISABLE SUBTILES FOR LYRICS
 ImprovedTube.subtitlesDisableLyrics = function () {
 	if (this.storage.subtitles_disable_lyrics) {
 		const player = this.elements.player,
-		button = !button?.getAttribute('aria-label')?.includes('unavailable');
+		button = this.elements.player_subtitles_button?.childNodes?.[0]?.getAttribute('fill-opacity') ==1;
 
 		if (player?.toggleSubtitles && button) {
 			// Music detection only uses 3 identifiers for Lyrics: lyrics, sing-along, karaoke.
