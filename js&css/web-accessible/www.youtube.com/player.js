@@ -123,10 +123,10 @@ console.log("genre: " + DATA.genre + "//title: " +  DATA.title + "//keywords: " 
 	if  ( 		( DATA.genre === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))  
 			||  ( musicRegexMatch && !notMusicRegexMatch && (typeof songDurationType !== 'undefined' 
 						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(DATA.title + " " + keywords) 
-							&& 1150 <= DATA.lengthSeconds && DATA.lengthSeconds <= 5000)) )
+							&& 1000 <= DATA.lengthSeconds )) ) // && 1150 <= DATA.lengthSeconds <= 5000
 			||	( DATA.genre === 'Music' && musicRegexMatch && (typeof songDurationType !== 'undefined'  
 						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(DATA.title + " " + keywords) 
-							&& 1150 <= DATA.lengthSeconds && DATA.lengthSeconds <= 5000)) )
+							&& 1000 <= DATA.lengthSeconds )) ) // && DATA.lengthSeconds <= 5000
 			||  (amountOfSongs && testSongDuration(DATA.lengthSeconds, amountOfSongs ) !== 'undefined') 				
 		 //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
 		)	{ player.setPlaybackRate(1); video.playbackRate = 1; console.log ("...,thus must be music?"); }		 				
