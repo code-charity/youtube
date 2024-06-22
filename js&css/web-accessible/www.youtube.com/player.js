@@ -203,7 +203,7 @@ SUBTITLES
 ImprovedTube.playerSubtitles = function () {
 	const player = this.elements.player;
 
-	if (player && this.subtitlesEnabled() && player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
+	if (player && player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
 		switch(this.storage.player_subtitles) {
 			case true:
 			case 'enabled':
@@ -224,7 +224,7 @@ ImprovedTube.subtitlesLanguage = function () {
 		player = this.elements.player;
 	let subtitlesState;
 
-	if (option && player && this.subtitlesEnabled() && player.getOption && player.setOption && player.isSubtitlesOn && player.toggleSubtitles) {
+	if (option && player && player.getOption && player.setOption && player.isSubtitlesOn && player.toggleSubtitles) {
 		const matchedTrack = player.getOption('captions', 'tracklist', {includeAsr: true})?.find(track => track.languageCode.includes(option) && (!track.vss_id.includes("a.") || this.storage.auto_generate));
 
 		if (matchedTrack) {
@@ -272,9 +272,11 @@ ImprovedTube.subtitlesUserSettings = function () {
 		userSettings = Object.keys(ourSettings).filter(e => ourSettings[e]),
 		player = this.elements.player;
 
-	if (userSettings.length && player && this.subtitlesEnabled() && player.getSubtitlesUserSettings && player.updateSubtitlesUserSettings) {
+	if (userSettings.length && player && player.getSubtitlesUserSettings && player.updateSubtitlesUserSettings) {
 		let ytSettings = player.getSubtitlesUserSettings(),
 			setting;
+	
+	if (!ytSettings) return; //null SubtitlesUserSettings seem to mean subtitles not available
 
 		for (const value of userSettings) {
 			setting = null;
@@ -298,10 +300,10 @@ ImprovedTube.subtitlesUserSettings = function () {
 					break;
 			}
 			
-			if (ytSettings?.hasOwnProperty(value) && setting) {
+			if (ytSettings?.hasOwnProperty(value)) {
 				ytSettings[value] = setting;
 			} else {
-				console.error('subtitlesUserSettings failed at: ',value, setting);
+				console.error('subtitlesUserSettings failed at: ', value, setting);
 			}
 		}
 		player.updateSubtitlesUserSettings(ytSettings);
@@ -314,7 +316,7 @@ ImprovedTube.subtitlesDisableLyrics = function () {
 	if (this.storage.subtitles_disable_lyrics) {
 		const player = this.elements.player;
 
-		if (player && this.subtitlesEnabled() && player.isSubtitlesOn && player.isSubtitlesOn() && player.toggleSubtitles) {
+		if (player && player.isSubtitlesOn && player.isSubtitlesOn() && player.toggleSubtitles) {
 			// Music detection only uses 3 identifiers for Lyrics: lyrics, sing-along, karaoke.
 			// Easier to simply use those here. Can replace with music detection later.
 			const terms = ["sing along", "sing-along", "karaoke", "lyric", "卡拉OK", "卡拉OK", "الكاريوكي", "караоке", "カラオケ","노래방"];
