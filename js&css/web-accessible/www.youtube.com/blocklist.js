@@ -48,7 +48,9 @@ ImprovedTube.blocklistNode = function (node) {
 		onclick: function (event) {
 			if (!this.parentNode.href) return; // no href no action
 			const video = this.parentNode.href?.match(ImprovedTube.regex.video_id)?.[1],
-				channel = this.parentNode.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name,
+				channel = this.parentNode.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name
+				// video-preview doesnt have Channel info, extract from source thumbnail
+				|| ((video && this.parentNode?.classList.contains('ytd-video-preview')) ? ImprovedTube.elements.observerList.find(a => a.id == 'thumbnail' && a.href?.match(ImprovedTube.regex.video_id)?.[1] === video).parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name : null),
 				blockedElement = node.blockedElement,
 
 				// Yes, this is horrible. Cant find better way of extracting title :(
