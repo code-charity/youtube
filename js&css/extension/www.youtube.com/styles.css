@@ -555,7 +555,7 @@ ytd-video-preview.it-blocklisted-channel:hover .it-add-to-blocklist,
 }
 
 .it-blocklisted-video,
-.it-blocklisted-channel {
+html:not([data-page-type=channel]) .it-blocklisted-channel {
 	opacity: .15;
 	max-height: 4rem;
 	overflow: hidden;
@@ -564,49 +564,49 @@ ytd-video-preview.it-blocklisted-channel:hover .it-add-to-blocklist,
 
 .it-blocklisted-video.ytd-vertical-list-renderer,
 .it-blocklisted-video.ytd-item-section-renderer,
-.it-blocklisted-channel.ytd-vertical-list-renderer,
-.it-blocklisted-channel.ytd-item-section-renderer {
+html:not([data-page-type=channel]) .it-blocklisted-channel.ytd-vertical-list-renderer,
+html:not([data-page-type=channel]) .it-blocklisted-channel.ytd-item-section-renderer {
 	max-height: 120px;
 }
 
 ytd-grid-video-renderer .it-blocklisted-video,
-ytd-grid-video-renderer .it-blocklisted-channel,
+html:not([data-page-type=channel]) ytd-grid-video-renderer .it-blocklisted-channel,
 ytd-rich-grid-media .it-blocklisted-video,
-ytd-rich-grid-media .it-blocklisted-channel {
+html:not([data-page-type=channel]) ytd-rich-grid-media .it-blocklisted-channel {
 	overflow: visible;
 	max-height: 120px;
 }
 
 ytd-video-preview.it-blocklisted-video:hover .it-add-to-blocklist,
-ytd-video-preview.it-blocklisted-channel:hover .it-add-to-blocklist,
+html:not([data-page-type=channel]) ytd-video-preview.it-blocklisted-channel:hover .it-add-to-blocklist,
 body:has(.it-blocklisted-video:hover) ytd-video-preview.it-blocklisted-video,
-body:has(.it-blocklisted-channel:hover) ytd-video-preview.it-blocklisted-channel {
+html:not([data-page-type=channel]) body:has(.it-blocklisted-channel:hover) ytd-video-preview.it-blocklisted-channel {
 	max-height: var(--ytd-video-preview-height);
 	opacity: 1;
 }
 
 .it-blocklisted-video ytd-thumbnail,
-.it-blocklisted-channel ytd-thumbnail {
+html:not([data-page-type=channel]) .it-blocklisted-channel ytd-thumbnail {
 	visibility: hidden;
 	max-width: 0;
 	transition: max-width 0.4s ease 0.1s;
 }
 
 .it-blocklisted-video:hover,
-.it-blocklisted-channel:hover {
+html:not([data-page-type=channel]) .it-blocklisted-channel:hover {
 	opacity: 1;
 	overflow: visible;
-	height: fit-content;
+	height: auto;
 	max-height: fit-content;
 	transition: max-height 0.4s ease 1.1s;
 }
 
 .it-blocklisted-video:hover ytd-thumbnail,
-.it-blocklisted-channel:hover ytd-thumbnail {
+html:not([data-page-type=channel]) .it-blocklisted-channel:hover ytd-thumbnail {
 	visibility: visible;
 	max-width: 220px;
 	transition: max-width 0.4s ease 1.1s;
-	height: fit-content;
+	height: auto;
 }
 /*------------NEW---------------*/
 
