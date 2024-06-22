@@ -528,6 +528,35 @@ ImprovedTube.setCookie = function (name, value) {
 	document.cookie = name + '=' + value + '; path=/; domain=.youtube.com; expires=' + date.toGMTString();
 };
 
+ImprovedTube.createIconButton = function (options) {
+	const button = document.createElement('button'),
+		svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+		path = document.createElementNS('http://www.w3.org/2000/svg', 'path'),
+		type = this.button_icons[options.type];
+
+    for(const attr of type.svg) svg.setAttribute(attr[0], attr[1]);
+	for(const attr of type.path) path.setAttribute(attr[0], attr[1]);
+
+	svg.appendChild(path);
+	button.appendChild(svg);
+
+	if (options.className) button.className = options.className;
+	if (options.id) button.id = options.id;
+	if (options.onclick) {
+		if (!options.propagate) {
+			//we fully own all click events landing on this button
+			button.onclick = function (event) {
+				event.preventDefault();
+				event.stopPropagation();
+				options.onclick.apply(this, arguments);
+				}
+		} else {
+			button.onclick = options.onclick;
+		}
+	}
+	return button;
+};
+
 ImprovedTube.createPlayerButton = function (options) {
 	var controls = options.position == "right" ? this.elements.player_right_controls : this.elements.player_left_controls;
 	if (controls) {
