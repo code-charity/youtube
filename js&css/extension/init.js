@@ -176,18 +176,19 @@ document.addEventListener('it-message-from-youtube', function () {
 			}
 		} else if (message.action === 'blocklist') {
 			if (!extension.storage.data.blocklist || typeof extension.storage.data.blocklist !== 'object') {
-				extension.storage.data.blocklist = {};
+				extension.storage.data.blocklist = {videos: {}, channels: {}};
 			}
 
 			switch(message.type) {
 				case 'channel':
-					if (!extension.storage.data.blocklist.channels) {
+					if (!extension.storage.data.blocklist.channels || typeof extension.storage.data.blocklist.channels !== 'object') {
 						extension.storage.data.blocklist.channels = {};
 					}
 					if (message.added) {
 						extension.storage.data.blocklist.channels[message.id] = {
 							title: message.title,
-							preview: message.preview
+							preview: message.preview,
+							when: message.when
 						}
 					} else {
 						delete extension.storage.data.blocklist.channels[message.id];
@@ -195,12 +196,13 @@ document.addEventListener('it-message-from-youtube', function () {
 					break
 
 				case 'video':
-					if (!extension.storage.data.blocklist.videos) {
+					if (!extension.storage.data.blocklist.videos || typeof extension.storage.data.blocklist.videos !== 'object') {
 						extension.storage.data.blocklist.videos = {};
 					}
 					if (message.added) {
 						extension.storage.data.blocklist.videos[message.id] = {
-							title: message.title
+							title: message.title,
+							when: message.when
 						}
 					} else {
 						delete extension.storage.data.blocklist.videos[message.id];
