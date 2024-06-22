@@ -112,16 +112,13 @@ ImprovedTube.blocklistChannel = function (node) {
 		event.preventDefault();
 		event.stopPropagation();
 
-		const data = ytInitialData?.metadata?.channelMetadataRenderer,
-		// alternatives are:
-		//this.parentNode.__dataHost.__data.data,
-		// or directly scraping title and avatar from:
-		//title = yt-dynamic-text-view-model.yt-core-attributed-string .innerText
-		//avatar = <link itemprop="thumbnailUrl"<link itemprop="thumbnailUrl"
-		//avatar = yt-decorated-avatar-view-model img.src
-			id = location.pathname.match(ImprovedTube.regex.channel)?.groups?.name,
-			title = data?.title,
-			preview = data?.avatar?.thumbnails[0]?.url;
+		// no longer working:
+		//data = ytInitialData?.metadata?.channelMetadataRenderer,
+		//data = this.parentNode.__dataHost.__data.data,
+		//avatar= data?.avatar?.thumbnails[0]?.url
+		const id = location.pathname.match(ImprovedTube.regex.channel)?.groups?.name,
+			title = document.querySelector('yt-dynamic-text-view-model .yt-core-attributed-string')?.innerText,
+			preview = document.querySelector('yt-decorated-avatar-view-model img')?.src;
 		let added = false;
 
 		if (!id || !title) {
