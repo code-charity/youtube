@@ -41,8 +41,10 @@ ImprovedTube.ytElementsHandler = function (node) {
 			this.channelDefaultTab(node);
 		}
 		if (this.storage.blocklist_activate) {
-			if (node.classList.contains('ytd-video-preview') || (node.href && (node.classList.contains('ytd-thumbnail')))) {
-				this.blocklist('video', node);
+			// we are interested in thumbnails and video-previews, skip ones with 'button.it-add-to-blocklist' already
+			if (((node.href && node.classList.contains('ytd-thumbnail')) || node.classList.contains('ytd-video-preview')) 
+				&& !node.querySelector("button.it-add-to-blocklist")) {
+				this.blocklistNode(node);
 			}
 		}
 	} else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
