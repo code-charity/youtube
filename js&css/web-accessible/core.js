@@ -174,8 +174,7 @@ document.addEventListener('it-message-from-extension', function () {
 			}
 
 			ImprovedTube.init();
-			// need to run blocklist once just after page load to catch initial nodes
-			ImprovedTube.blocklist();
+			ImprovedTube.blocklistInit();
 
 		// REACTION OR VISUAL FEEDBACK WHEN THE USER CHANGES A SETTING (already automated for our CSS features):
 		} else if (message.action === 'storage-changed') {
@@ -199,8 +198,9 @@ document.addEventListener('it-message-from-extension', function () {
 			}
 
 			switch(camelized_key) {
+				case 'blocklist':
 				case 'blocklistActivate':
-					camelized_key = 'blocklist';
+					ImprovedTube.blocklistInit();
 					break
 
 				case 'playerPlaybackSpeed':
