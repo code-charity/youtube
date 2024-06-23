@@ -250,20 +250,27 @@ ImprovedTube.shortcutPictureInPicture = function () {
 /*------------------------------------------------------------------------------
 4.7.3 TOGGLE CONTROLS
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutToggleControls = function () {
-	if (this.elements.player) {
-		this.storage.player_hide_controls = !this.storage.player_hide_controls;
+	const player = this.elements.player;
+	let option = this.storage.player_hide_controls;
 
-		if (this.storage.player_hide_controls) {
-			this.elements.player.hideControls();
+	if (player && player.hideControls && player.showControls) {
+		if (option === 'when_paused') {
+			if (this.elements.video.paused) {
+				option = 'off';
+			} else {
+				option = 'always';
+			}
+		} else if (option === 'always') {
+			option = 'off';
 		} else {
-			this.elements.player.showControls();
+			option = 'always';
 		}
+
+		this.storage.player_hide_controls = option;
+		ImprovedTube.playerControls()
 	}
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.4 PLAY / PAUSE
 ------------------------------------------------------------------------------*/
