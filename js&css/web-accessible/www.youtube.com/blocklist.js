@@ -49,8 +49,8 @@ ImprovedTube.blocklistNode = function (node) {
 			if (!this.parentNode.href) return; // no href no action
 			const video = this.parentNode.href?.match(ImprovedTube.regex.video_id)?.[1],
 				channel = this.parentNode.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name
-				// video-preview doesnt have Channel info, extract from source thumbnail
-				|| ((video && this.parentNode?.classList.contains('ytd-video-preview')) ? ImprovedTube.elements.observerList.find(a => a.id == 'thumbnail' && a.href?.match(ImprovedTube.regex.video_id)?.[1] === video).parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name : null),
+					// video-preview doesnt have Channel info, extract from source thumbnail
+					|| ((video && this.parentNode?.classList.contains('ytd-video-preview')) ? ImprovedTube.elements.observerList.find(a => a.id == 'thumbnail' && a.href?.match(ImprovedTube.regex.video_id)?.[1] === video).parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name : null),
 				blockedElement = node.blockedElement,
 
 				// Yes, this is horrible. Cant find better way of extracting title :(
@@ -141,6 +141,15 @@ ImprovedTube.blocklistChannel = function (node) {
 
 	node.parentNode.parentNode.appendChild(button);
 	this.elements.blocklist_buttons.push(button);
+	// YT tries to remove all forein nodes from node.parentNode.parentNode some time after 'yt-navigate-finish'
+	// Need to monitor for it and re-appendChild our button, otherwise if  gets deleted when switching to
+	// channel subpages /playlists /featured /videos etc.
+	this.blocklistChannelObserver = new MutationObserver(function(mutationList) {
+		if (!button.isConnected) {
+			node.parentNode.parentNode.appendChild(button);
+		}
+	});
+	this.blocklistChannelObserver.observe(node.parentNode.parentNode, {childList: true, subtree: true});
 };
 
 ImprovedTube.blocklistInit = function () {
@@ -175,6 +184,10 @@ ImprovedTube.blocklistInit = function () {
 			// release observer
 			ImprovedTube.blocklistObserver.disconnect();
 		}
+		// clear optional Channel button Observer
+		if (typeof ImprovedTube.blocklistChannelObserver === 'object') {
+			ImprovedTube.blocklistChannelObserver.disconnect();
+		}
 		// remove all video/channel blocks from thumbnails on current page
 		for (let blocked of document.querySelectorAll('.it-blocklisted-video')) {
 			blocked.classList.remove('it-blocklisted-video');
@@ -188,10 +201,10 @@ ImprovedTube.blocklistInit = function () {
 ImprovedTube.blocklistObserver = new MutationObserver(function (mutationList) {
 	for (const mutation of mutationList) {
 		const video = mutation.target.href?.match(ImprovedTube.regex.video_id)?.[1],
-			  channel = mutation.target.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name
-			  // video-preview doesnt have Channel info, extract from source thumbnail
-			  || ((video && mutation.target?.classList.contains('ytd-video-preview')) ? ImprovedTube.elements.observerList.find(a => a.id == 'thumbnail' && a.href?.match(ImprovedTube.regex.video_id)?.[1] === video).parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name : null),
-			  blockedElement = ImprovedTube.blockedElementTypeHelper(mutation.target);
+			channel = mutation.target.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name
+				// video-preview doesnt have Channel info, extract from source thumbnail
+				|| ((video && mutation.target?.classList.contains('ytd-video-preview')) ? ImprovedTube.elements.observerList.find(a => a.id == 'thumbnail' && a.href?.match(ImprovedTube.regex.video_id)?.[1] === video).parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name : null),
+			blockedElement = ImprovedTube.blockedElementTypeHelper(mutation.target);
 
 		if (!blockedElement) return; // unknown thumbnail cell type, bail out
 		mutation.target.blockedElement = blockedElement;
