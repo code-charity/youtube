@@ -23,56 +23,30 @@ ImprovedTube.channelDefaultTab = function (a) {
 /*------------------------------------------------------------------------------
 4.6.2 PLAY ALL BUTTON
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.channelPlayAllButton = function () {
-	if (this.storage.channel_play_all_button === true) {
-		if (/\/@|((channel|user|c)\/)[^/]+\/videos/.test(location.href)) {
-			var container = document.querySelector('ytd-channel-sub-menu-renderer #primary-items');
+	if (ImprovedTube.regex.channel.test(location.pathname)) {
+		if (this.storage.channel_play_all_button) {
+			const container = document.querySelector('ytd-channel-sub-menu-renderer #primary-items') 
+					|| document.querySelector('ytd-two-column-browse-results-renderer #chips-content'),
+				playlistUrl = document.querySelector('ytd-app')?.__data?.data?.response?.metadata?.channelMetadataRenderer?.externalId?.substring(2);
 
-			if (!this.elements.playAllButton) {
-				var button = document.createElement('a'),
-					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-
-				button.className = 'it-play-all-button';
-
-				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
-				path.setAttributeNS(null, 'd', 'M6,4l12,8L6,20V4z');
-
-				svg.appendChild(path);
-				button.appendChild(svg);
-				button.appendChild(document.createTextNode('Play all'));
-
-				this.elements.playAllButton = button;
-
-				if (container) {
-					container.appendChild(button);
-				}
-			} else if (container) {
-				container.appendChild(this.elements.playAllButton);
+			if (!container) return; // we only add button on /videos page
+			if (!playlistUrl) {
+				console.error('channelPlayAllButton: Cant fint Channel playlist');
+				return;
 			}
-		} else if (this.elements.playAllButton) {
-			this.elements.playAllButton.remove();
-		}
-
-		if (this.elements.playAllButton) {
-			var app = document.querySelector('ytd-app');
-
-			if (
-				app &&
-				app.__data &&
-				app.__data.data &&
-				app.__data.data.response &&
-				app.__data.data.response.metadata &&
-				app.__data.data.response.metadata.channelMetadataRenderer &&
-				app.__data.data.response.metadata.channelMetadataRenderer.externalId
-			) {
-				this.elements.playAllButton.href = '/playlist?list=UU' + app.__data.data.response.metadata.channelMetadataRenderer.externalId.substring(2);
-			}
+			const button = this.createIconButton({
+					type: 'playAll',
+					className: 'it-play-all-button',
+					text: 'Play all',
+					href: '/playlist?list=UU' + playlistUrl
+					});
+			container.appendChild(button);
+		} else {
+			document.querySelector('.it-play-all-button')?.remove();
 		}
 	}
 };
-
 /*------------------------------------------------------------------------------
 4.6.3 COMPACT THEME
 ------------------------------------------------------------------------------*/
