@@ -529,7 +529,7 @@ ImprovedTube.setCookie = function (name, value) {
 };
 
 ImprovedTube.createIconButton = function (options) {
-	const button = document.createElement('button'),
+	const button = options.href ? document.createElement('a') : document.createElement('button'),
 		svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 		path = document.createElementNS('http://www.w3.org/2000/svg', 'path'),
 		type = this.button_icons[options.type];
@@ -542,6 +542,8 @@ ImprovedTube.createIconButton = function (options) {
 
 	if (options.className) button.className = options.className;
 	if (options.id) button.id = options.id;
+	if (options.text) button.appendChild(document.createTextNode(options.text));
+	if (options.href) button.href = options.href;
 	if (options.onclick) {
 		if (!options.propagate) {
 			//we fully own all click events landing on this button

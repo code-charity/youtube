@@ -44,6 +44,10 @@ var ImprovedTube = {
 		blocklist:{
 			svg: [['viewBox', '0 0 24 24']],
 			path: [['d', 'M12 2a10 10 0 100 20 10 10 0 000-20zm0 18A8 8 0 015.69 7.1L16.9 18.31A7.9 7.9 0 0112 20zm6.31-3.1L7.1 5.69A8 8 0 0118.31 16.9z']]
+		},
+		playAll: {
+			svg: [['viewBox', '0 0 24 24']],
+			path: [['d', 'M6,4l12,8L6,20V4z']]
 		}
 	},
 	video_src: false,
