@@ -182,14 +182,14 @@ DATA.videoID = ImprovedTube.videoId() || false;
 						} catch (error) { console.error('Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}', error);   keywords = '';  }
 						})();
 						}							
-  };				
+	};
 if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData();}  
 else {   
 //Invidious instances. Should be updated automatically!... 
-const invidiousInstances = ['iv.datura.network', 'vid.puffyan.us', 'iv.melmac.space', 'inv.in.projectsegfau.lt', 'invidious.asir.dev', 'inv.zzls.xyz', 'invidious.io.lol', 'onion.tube', 'yewtu.be', 'invidious.protokolla.fi', 'inv.citw.lgbt', 'anontube.lvkaszus.pl', 'iv.nboeck.de', 'invidious.no-logs.com', 'vid.priv.au', 'yt.cdaut.de', 'invidious.slipfox.xyz', 'yt.artemislena.eu', 'invidious.drgns.space', 'invidious.einfachzocken.eu', 'invidious.projectsegfau.lt', 'invidious.nerdvpn.de', 'invidious.private.coffee', 'invidious.lunar.icu', 'invidious.privacydev.net', 'invidious.fdn.fr', 'yt.oelrichsgarcia.de', 'iv.ggtyler.dev', 'inv.tux.pizza', 'yt.drgnz.club', 'inv.us.projectsegfau.lt'];
+const invidiousInstances = ['invidious.fdn.fr','inv.tux.pizza','invidious.flokinet.to','invidious.protokolla.fi','invidious.private.coffee','yt.artemislena.eu','invidious.perennialte.ch','invidious.materialio.us','iv.datura.network'];
 function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
 
-(async function () {	 let retries = 5;	let invidiousFetched = false;
+(async function () {	 let retries = 4;	let invidiousFetched = false;
 	async function fetchInvidiousData() { 
 		try {const response = await fetch(`https://${getRandomInvidiousInstance()}/api/v1/videos/${DATA.videoID}?fields=genre,title,lengthSeconds,keywords`);
 			 DATA = await response.json(); 
@@ -198,7 +198,7 @@ function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Mat
 		} catch (error) { console.error('Error: Invidious API: ', error);  }
 	}
 	while (retries > 0 && !invidiousFetched) {  await fetchInvidiousData();
-		if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 5 ? 1234 : 432));  retries--; }	}
+		if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 4 ? 1500 : 876));  retries--; }	}
 	if(!invidiousFetched){ if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())} 
 							else { ImprovedTube.fetchDOMData();} }  
 })();
