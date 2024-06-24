@@ -315,8 +315,6 @@ ImprovedTube.playerOnPlay = function () {
 
 				this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 				this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
-				if (this.user_interacted || !(this.storage.player_autoplay_disable == true || this.storage.playlist_autoplay === false || this.storage.channel_trailer_autoplay === false)) 
-				{ document.dispatchEvent(new CustomEvent('it-play')); }  else {ImprovedTube.autoplayDisable(this); } 
 				ImprovedTube.autoplayDisable(this);
 				ImprovedTube.playerLoudnessNormalization();
 				ImprovedTube.playerCinemaModeEnable();
