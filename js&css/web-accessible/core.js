@@ -58,6 +58,18 @@ var ImprovedTube = {
 	played_before_blur: false,
 	played_time: 0,
 	user_interacted: false,
+	input: {
+		listening: {},
+		listeners: {},
+		pressed: {
+			keys: [],
+			alt: false,
+			ctrl: false,
+			shift: false,
+			player: false,
+			wheel: 0
+		}
+	},
 	mini_player__mode: false,
 	mini_player__move: false,
 	mini_player__cursor: '',
@@ -386,6 +398,9 @@ document.addEventListener('it-message-from-extension', function () {
 						if (playlistData.currentIndex != playlistData.localCurrentIndex) { playlistData.currentIndex = playlistData.localCurrentIndex;} }
 					break
 			}
+
+			// dont trigger shortcuts on config change, reinitialize handler instead
+			if (message.key.startsWith('shortcut_')) camelized_key = 'shortcuts';
 
 			if (ImprovedTube[camelized_key]) {
 				try{ImprovedTube[camelized_key]()}catch{};
