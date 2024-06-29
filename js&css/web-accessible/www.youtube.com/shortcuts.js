@@ -553,25 +553,21 @@ ImprovedTube.shortcutCustomMiniPlayer = function () {
 Loop
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutToggleLoop = function (node) {
-		var video = ImprovedTube.elements.video;
-		function matchLoopState(opacity) {
-		    svg.style.opacity = opacity;
-                    if (ImprovedTube.storage.player_repeat_button === true) {
-                   	 var playerButton = document.querySelector('#it-repeat-button');
-                    	 playerButton.children[0].style.opacity = opacity;
-          	        }
-					if (ImprovedTube.storage.below_player_loop !== false) {
-					var buttonBelowPlayer = document.querySelector('#it-below-player-loop');
-					buttonBelowPlaye.children[0].style.opacity = opacity;
-					}
-	            }		
-		if (video.hasAttribute('loop')) {
-					video.removeAttribute('loop');
-					matchLoopState('.5')
-				} else if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
-					video.setAttribute('loop', '');
-					matchLoopState('1')
-				}	
+	const video = this.elements.video,
+		player = this.elements.player;
+	function matchLoopState(opacity) {
+		document.querySelector('#it-repeat-button')?.children[0]?.style.setProperty("opacity", opacity);
+		document.querySelector('#it-below-player-loop')?.children[0]?.style.setProperty("opacity", opacity);
+	};
+
+	if (!(video && player)) return;
+	if (video.hasAttribute('loop')) {
+		video.removeAttribute('loop');
+		matchLoopState('.5');
+	} else if (!/ad-showing/.test(player.className)) {
+		video.setAttribute('loop', '');
+		matchLoopState('1');
+	}
 };
 /*------------------------------------------------------------------------------
 4.7.27 STATS FOR NERDS
