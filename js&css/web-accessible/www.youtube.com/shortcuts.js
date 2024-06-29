@@ -98,29 +98,29 @@ ImprovedTube.shortcuts = function () {
 	// reset 'listening'
 	this.input.listening = {};
 	// extract shortcuts from User Settings and initialize 'listening'
-	for (const [name, keys] of Object.entries(this.storage).filter(v => v[0].startsWith('shortcut_') && v[1]?.keys && Object.keys(v[1].keys).length)) {
+	for (const [name, keys] of Object.entries(this.storage).filter(v => v[0].startsWith('shortcut_'))) {
 		// camelCase(name)
 		const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
-		this.input.listening[camelName] = {};
+		let potentialShortcut = {};
 		for (const button of ['alt','ctrl','shift','wheel','keys']) {
 			switch(button) {
 				case 'alt':
 				case 'ctrl':
 				case 'shift':
-					this.input.listening[camelName][button] = keys[button] || false;
+					potentialShortcut[button] = keys[button] || false;
 				break
 
 				case 'wheel':
-					this.input.listening[camelName][button] = keys[button] || 0;
+					potentialShortcut[button] = keys[button] || 0;
 				break
 
 				case 'keys':
 					// array of sorted scancodes
-					this.input.listening[camelName][button] = Object.keys(keys[button]).map(s=>Number(s)).sort();
+					potentialShortcut[button] = keys[button] ? Object.keys(keys[button]).map(s=>Number(s)).sort() : [];
 				break
 			}
 		}
-
+		if (potentialShortcut['keys'] || potentialShortcut['wheel']) this.input.listening[camelName] = potentialShortcut;
 	}
 	// initialize Listeners, but only once!
 	for (const [name, handler] of Object.entries(handlers)) {
