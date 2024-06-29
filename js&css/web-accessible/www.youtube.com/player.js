@@ -12,21 +12,22 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 		// if (no user clicks) and (no ads playing) and
 		// ( there is a player and ( (it is not in a playlist and auto play is off ) or ( playlist auto play is off and in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
 
-				// user didnt click
+		// user didnt click
 		if (player && !this.user_interacted
-				// no ads playing
+			// no ads playing
 			&& !player.classList.contains('ad-showing')
-				// video page
+			// video page
 			&& ((location.href.includes('/watch?')  // #1703
-					// player_autoplay_disable & not playlist
+				// player_autoplay_disable & not playlist
 				&& (this.storage.player_autoplay_disable && !location.href.includes('list='))
-					// !playlist_autoplay & playlist
+				// !playlist_autoplay & playlist
 				|| (this.storage.playlist_autoplay === false && location.href.includes('list=')))
-					// channel homepage & !channel_trailer_autoplay
+				// channel homepage & !channel_trailer_autoplay
 				|| (this.storage.channel_trailer_autoplay === false && this.regex.channel.test(location.href)))) {
-			setTimeout(function() { try { player.pauseVideo(); } 
-									catch (error) { console.log("autoplayDisable: Pausing"); videoElement.pause();  }
-									});
+
+			setTimeout(function() {
+				try { player.pauseVideo(); } catch (error) { console.log("autoplayDisable: Pausing"); videoElement.pause(); }
+			});
 		} else {
 			document.dispatchEvent(new CustomEvent('it-play'));
 		}
@@ -80,7 +81,33 @@ ImprovedTube.playerAutoPip = function () {
 			  }
 		  })();
 		}
-}
+};
+/*------------------------------------------------------------------------------
+PLAYBACK SPEED
+------------------------------------------------------------------------------*/
+ImprovedTube.playbackSpeed = function (newSpeed) {
+	const video = this.elements.video,
+		player = this.elements.player,
+		speed = video?.playbackRate ? Number(video.playbackRate.toFixed(2)) : (player?.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : null);
+
+	if (!speed) {
+		console.error('PlaybackSpeed: Cant establish playbackRate/getPlaybackRate');
+		return false;
+	}
+
+	// called with no option or demanded speed already set, only provide readback
+	if (!newSpeed || speed == newSpeed) return speed;
+	
+	if (video?.playbackRate) {
+		video.playbackRate = newSpeed;
+		newSpeed = video.playbackRate;
+	} else if (player?.setPlaybackRate && player.getPlaybackRate) {
+		player.setPlaybackRate(newSpeed);
+		newSpeed = player.getPlaybackRate();
+	} else newSpeed = false;
+
+	return newSpeed;
+};
 /*------------------------------------------------------------------------------
 FORCED PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
