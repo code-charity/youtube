@@ -524,11 +524,8 @@ setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEa
 4.7.24 SUBSCRIBE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutSubscribe = function () {
-	if (this.elements.subscribe_button) {
-		this.elements.subscribe_button.click();
-	}
+	this.elements.subscribe_button?.click();
 };
-
 /*------------------------------------------------------------------------------
 4.7.25 DARK THEME
 ------------------------------------------------------------------------------*/
