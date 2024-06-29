@@ -334,50 +334,42 @@ ImprovedTube.shortcutSeekPreviousChapter = function () {
 /*------------------------------------------------------------------------------
 4.7.13 INCREASE VOLUME
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcutIncreaseVolume = function () {
-	var player = this.elements.player,
-		value = Number(this.storage.shortcuts_volume_step) || 5;
+ImprovedTube.shortcutIncreaseVolume = function (decrese) {
+	const player = this.elements.player,
+		value = Number(this.storage.shortcuts_volume_step) || 5,
+		direction = decrese ? 'Decrease' : 'Increase';
 
-	if (player) {
+	if (!player || !player.setVolume || !player.getVolume) {
+		console.error('shortcut' + direction + 'Volume: No valid Player element');
+		return;
+	}
+
+	// universal, goes both ways if you know what I mean
+	if (decrese) {
+		player.setVolume(player.getVolume() - value);
+	} else {
 		player.setVolume(player.getVolume() + value);
+	}
 
-		localStorage['yt-player-volume'] = JSON.stringify({
-			data: JSON.stringify({
-				volume: player.getVolume(),
-				muted: player.isMuted(),
-				expiration: Date.now(),
-				creation: Date.now()
-			})
-		});
+	localStorage['yt-player-volume'] = JSON.stringify({
+		data: JSON.stringify({
+			volume: player.getVolume(),
+			muted: player.isMuted(),
+			expiration: Date.now(),
+			creation: Date.now()
+		})
+	});
 
-		sessionStorage['yt-player-volume'] = localStorage['yt-player-volume'];
+	sessionStorage['yt-player-volume'] = localStorage['yt-player-volume'];
 
-		this.showStatus(player.getVolume());
+	this.showStatus(player.getVolume());
 	}
 };
 /*------------------------------------------------------------------------------
 4.7.14 DECREASE VOLUME
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDecreaseVolume = function () {
-	var player = this.elements.player,
-		value = Number(this.storage.shortcuts_volume_step) || 5;
-
-	if (player) {
-		player.setVolume(player.getVolume() - value);
-
-		localStorage['yt-player-volume'] = JSON.stringify({
-			data: JSON.stringify({
-				volume: player.getVolume(),
-				muted: player.isMuted(),
-				expiration: Date.now(),
-				creation: Date.now()
-			})
-		});
-
-		sessionStorage['yt-player-volume'] = localStorage['yt-player-volume'];
-
-		this.showStatus(player.getVolume());
-	}
+	ImprovedTube.shortcutIncreaseVolume(true);
 };
 /*------------------------------------------------------------------------------
 4.7.15 SCREENSHOT
