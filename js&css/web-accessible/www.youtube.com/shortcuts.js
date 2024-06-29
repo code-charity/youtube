@@ -110,6 +110,7 @@ ImprovedTube.shortcuts = function () {
 				case 'alt':
 				case 'ctrl':
 				case 'shift':
+				case 'toggle':
 					potentialShortcut[button] = keys[button] || false;
 				break
 
