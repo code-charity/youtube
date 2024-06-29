@@ -422,24 +422,19 @@ ImprovedTube.shortcutResetPlaybackSpeed = function () {
 4.7.19 GO TO SEARCH BOX
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutGoToSearchBox = function () {
-	var search = document.querySelector('input#search');
-	if (search) {
-		search.focus();
-	}
+	document.querySelector('input#search')?.focus();
 };
 /*------------------------------------------------------------------------------
 4.7.20 ACTIVATE FULLSCREEN
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutActivateFullscreen = function () {
-	if (this.elements.player) {
-		this.elements.player.toggleFullscreen();
-	}
+	this.elements.player?.toggleFullscreen();
 };
 /*------------------------------------------------------------------------------
 4.7.21 ACTIVATE CAPTIONS
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutActivateCaptions = function () {
-	var player = this.elements.player;
+	const player = this.elements.player;
 
 	if (player && player.toggleSubtitlesOn) {
 		player.toggleSubtitlesOn();
