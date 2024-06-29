@@ -83,7 +83,6 @@ extension.skeleton.main.layers.section.shortcuts = {
 									max: 10,
 									step: 1,
 									value: 5
-
 								}
 							},
 
@@ -93,8 +92,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 
 								shortcut_increase_volume: {
 									component: 'shortcut',
-									text: 'increaseVolume'
-
+									text: 'increaseVolume',
 									value: {
 										keys: {
 											38: {
@@ -105,8 +103,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 								},
 								shortcut_decrease_volume: {
 									component: 'shortcut',
-									text: 'decreaseVolume
-
+									text: 'decreaseVolume',
 									value: {
 										keys: {
 											40: {
@@ -135,7 +132,6 @@ extension.skeleton.main.layers.section.shortcuts = {
 									max: .5,
 									step: .05,
 									value: .05
-
 								}
 							},
 
@@ -145,8 +141,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 
 								shortcut_increase_playback_speed: {
 									component: 'shortcut',
-									text: 'increasePlaybackSpeed'
-
+									text: 'increasePlaybackSpeed',
 									value: {
 										keys: {
 											188: {
@@ -157,8 +152,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 								},
 								shortcut_decrease_playback_speed: {
 									component: 'shortcut',
-									text: 'decreasePlaybackSpeed'
-
+									text: 'decreasePlaybackSpeed',
 									value: {
 										keys: {
 											190: {
@@ -170,7 +164,6 @@ extension.skeleton.main.layers.section.shortcuts = {
 								shortcut_reset_playback_speed: {
 									component: 'shortcut',
 									text: 'reset'
-
 								}
 							}
 						}
@@ -286,12 +279,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 				shortcut_picture_in_picture: {
 					component: 'shortcut',
 					text: 'pictureInPicture'
-
 				},
 				shortcut_auto_picture_in_picture: {
 					component: 'shortcut',
 					text: 'autoPictureInPicture'
-
 				},
 				shortcut_screenshot: {
 					component: 'shortcut',
@@ -329,7 +320,6 @@ extension.skeleton.main.layers.section.shortcuts = {
 				component: 'section',
 				variant: 'card',
 				title: 'YouTube',
-
 
 				shortcut_go_to_search_box: {
 					component: 'shortcut',
