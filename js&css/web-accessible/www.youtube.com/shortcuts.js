@@ -203,17 +203,9 @@ ImprovedTube.shortcutStop = function () {
 /*------------------------------------------------------------------------------
 4.7.6 TOGGLE AUTOPLAY
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutToggleAutoplay = function () {
-    var toggle = document.querySelector('#ytd-player .ytp-autonav-toggle-button'),
-        attribute = toggle.getAttribute('aria-checked') === 'true';
-
-    if (toggle) {
-        toggle.click();
-    }
+	this.storage.player_autoplay_disable = !this.storage.player_autoplay_disable;
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.7 NEXT VIDEO
 ------------------------------------------------------------------------------*/
@@ -601,16 +593,24 @@ ImprovedTube.shortcutPopupPlayer = function () {
 /*------------------------------------------------------------------------------
 4.7.30 ROTATE
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcutRotateVideo= function (){
-	var player = this.elements.player,
-		video = this.elements.video,
-		rotate = Number(document.body.dataset.itRotate) || 0,
+ImprovedTube.shortcutRotateVideo = function () {
+	const player = this.elements.player,
+		video = this.elements.video;
+	let rotate = Number(document.body.dataset.itRotate) || 0,
 		transform = '';
+
+	if (!player || !video) {
+		console.error('shortcutRotateVideo: need player and video elements');
+		return;
+	}
 
 	rotate += 90;
 
 	if (rotate === 360) {
 		rotate = 0;
+		video.style.removeProperty("transform");
+		delete document.body.dataset.itRotate;
+		return;
 	}
 
 	document.body.dataset.itRotate = rotate;
@@ -622,4 +622,5 @@ ImprovedTube.shortcutRotateVideo= function (){
 
 		transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth) + ')';
 	}
+	video.style.setProperty("transform", transform);
 };
