@@ -68,7 +68,8 @@ var ImprovedTube = {
 			shift: false,
 			player: false,
 			wheel: 0
-		}
+		},
+		cancelled: []
 	},
 	mini_player__mode: false,
 	mini_player__move: false,
