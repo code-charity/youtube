@@ -1,5 +1,10 @@
 /*------------------------------------------------------------------------------
 4.7.0 SHORTCUTS
+
+WARNING: Browser Debugger Breakpoint downstream from keydown() event will eat corresponding keyup()
+ thus breaking our tracking of ImprovedTube.input.pressed.keys (stuck key) until said Breakpoint
+ is disabled and key pressed again OR switching tabs/windows to trigger 'improvedtube-blur'.
+ Make sure to have that in mind when debugging.
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcuts = function () {
 	const ignoreElements = ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'],
