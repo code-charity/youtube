@@ -30,6 +30,17 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 	if(installed.reason == 'update') {
 		//		var thisVersion = chrome.runtime.getManifest().version;
 		//		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
+		chrome.storage.local.get(['shortcut_auto', 'shortcut_144p', 'shortcut_240p', 'shortcut_360p', 'shortcut_480p', 'shortcut_720p', 'shortcut_1080p', 'shortcut_1440p', 'shortcut_2160p', 'shortcut_2880p', 'shortcut_4320p'], function (result) {
+			for (let [name, keys] of Object.entries(result).filter(v => v[1]?.keys && Object.keys(v[1].keys)?.length)) {
+				let newKeys = {},
+					newName = name.replace('shortcut_', 'shortcut_quality_');
+				for (const button of ['alt','ctrl','shift','wheel','keys']) {
+					if (keys[button]) newKeys[button] = keys[button];
+				}
+				chrome.storage.local.set({[newName]: newKeys});
+			}
+			chrome.storage.local.remove(Object.keys(result));
+		});
 		chrome.storage.local.get('player_autoplay', function (result) {
 			if (result.player_autoplay === false) {
 				chrome.storage.local.set({player_autoplay_disable: true});
