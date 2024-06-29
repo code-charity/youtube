@@ -26,14 +26,12 @@ ImprovedTube.shortcuts = function () {
 				if (ImprovedTube.input.pressed.keys.includes(event.keyCode)) {
 					ImprovedTube.input.pressed.keys.splice(ImprovedTube.input.pressed.keys.indexOf(event.keyCode), 1);
 				}
-
 				// cancel keyup events corresponding to keys that triggered one of our shortcuts
 				if (ImprovedTube.input.cancelled.includes(event.keyCode)) {
 					event.preventDefault();
 					event.stopPropagation();
 					ImprovedTube.input.cancelled.splice(ImprovedTube.input.cancelled.indexOf(event.keyCode), 1);
 				}
-
 			},
 			wheel: function (event) {
 				if (document.activeElement && ignoreElements.includes(document.activeElement.tagName) || event.target.isContentEditable) return;
@@ -78,7 +76,7 @@ ImprovedTube.shortcuts = function () {
 				&& ImprovedTube.input.pressed.ctrl === shortcut.ctrl
 				&& ImprovedTube.input.pressed.shift === shortcut.shift
 				&& (ImprovedTube.input.pressed.wheel === shortcut.wheel
-					// shortcuts with wheel only active inside player
+					// shortcuts with wheel allowed ONLY inside player
 					&& (!ImprovedTube.input.pressed.wheel || ImprovedTube.input.pressed.player))) {
 
 				if (key.startsWith('shortcutQuality')) {
@@ -86,7 +84,7 @@ ImprovedTube.shortcuts = function () {
 				} else if (typeof ImprovedTube[key] === 'function') {
 					ImprovedTube[key]();
 				}
-				// cancel keydown event
+				// cancel keydown/wheel event
 				event.preventDefault();
 				event.stopPropagation();
 				// build 'cancelled' list so we also cancel keyup events
