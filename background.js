@@ -34,6 +34,7 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 		chrome.storage.local.get(['shortcut_auto', 'shortcut_144p', 'shortcut_240p', 'shortcut_360p', 'shortcut_480p', 'shortcut_720p', 'shortcut_1080p', 'shortcut_1440p', 'shortcut_2160p', 'shortcut_2880p', 'shortcut_4320p'], function (result) {
 			// validate and move to new name
 			for (let [name, keys] of Object.entries(result)) {
+				if (!keys) continue;
 				let newKeys = {},
 					newName = name.replace('shortcut_', 'shortcut_quality_');
 				for (const button of ['alt','ctrl','shift','wheel','toggle']) {
