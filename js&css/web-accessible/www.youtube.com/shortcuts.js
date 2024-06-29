@@ -482,7 +482,6 @@ setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEa
 setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed");
   setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed2");}},1700)}},700)
 }
-
 /*------------------------------------------------------------------------------
 4.7.24 SUBSCRIBE
 ------------------------------------------------------------------------------*/
@@ -503,10 +502,9 @@ ImprovedTube.shortcutDarkTheme = function () {
 /*------------------------------------------------------------------------------
 4.7.26 CUSTOM MINI PLAYER
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutCustomMiniPlayer = function () {
 	this.storage.mini_player = !this.storage.mini_player;
-	
+
 	this.miniPlayer();
 };
 /*------------------------------------------------------------------------------
@@ -532,44 +530,46 @@ ImprovedTube.shortcutToggleLoop = function (node) {
 /*------------------------------------------------------------------------------
 4.7.27 STATS FOR NERDS
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutStatsForNerds = function () {
-	var player = this.elements.player;
+	const player = this.elements.player;
 
+	if (!player || !player.isVideoInfoVisible || !player.hideVideoInfo || !player.showVideoInfo) {
+		console.error('shortcutStatsForNerds: Need valid Player element');
+		return;
+	}
+	
 	if (player.isVideoInfoVisible()) {
 		player.hideVideoInfo();
 	} else {
 		player.showVideoInfo();
 	}
 };
-
 /*------------------------------------------------------------------------------
 4.7.28 TOGGLE CARDS
 ------------------------------------------------------------------------------*/
+ImprovedTube.shortcutToggleCards = function () {
+	function toggleVideoOverlays() {
+		document.documentElement.toggleAttribute('it-player-hide-cards');
+		document.documentElement.toggleAttribute('it-player-hide-endcards');
+		document.documentElement.toggleAttribute('it-hide-video-title-fullScreen');
+	}
 
-ImprovedTube.shortcutToggleCards = function () {  function toggleVideoOverlays() {
-	document.documentElement.toggleAttribute('it-player-hide-cards');
-	
-	document.documentElement.toggleAttribute('it-player-hide-endcards');
-	document.documentElement.toggleAttribute('it-hide-video-title-fullScreen');} 	
-	
-	toggleVideoOverlays(); window.removeEventListener('hashchange', toggleVideoOverlays);  window.addEventListener('hashchange', toggleVideoOverlays);
+	toggleVideoOverlays();
+	window.removeEventListener('hashchange', toggleVideoOverlays);
+	window.addEventListener('hashchange', toggleVideoOverlays);
 };
-
 /*------------------------------------------------------------------------------
 4.7.29 POPUP PLAYER
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutPopupPlayer = function () {
-	var player = this.elements.player;
+	const player = this.elements.player;
 
-	if (document.documentElement.dataset.pageType === 'video' && player) {
+	if (player && document.documentElement.dataset.pageType === 'video') {
 		player.pauseVideo();
 
 		window.open('//www.youtube.com/embed/' + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8) + '?start=' + parseInt(player.getCurrentTime()) + '&autoplay=' + (ImprovedTube.storage.player_autoplay_disable ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=' + player.offsetWidth + ',height=' + player.offsetHeight);
 	}
 };
-
 /*------------------------------------------------------------------------------
 4.7.30 ROTATE
 ------------------------------------------------------------------------------*/
