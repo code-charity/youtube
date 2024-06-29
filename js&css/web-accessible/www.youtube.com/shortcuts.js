@@ -391,7 +391,7 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function (decrese) {
 	const value = Number(this.storage.shortcuts_playback_speed_step) || .05,
 		speed = this.playbackSpeed(),
 		direction = decrese ? 'Decrease' : 'Increase';
-	let newSpeed
+	let newSpeed;
 
 	if (!speed) {
 		console.error('shortcut' + direction + 'PlaybackSpeed: Cant establish playbackRate/getPlaybackRate');
@@ -424,15 +424,8 @@ ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
 4.7.18 RESET PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutResetPlaybackSpeed = function () {
-	var video = this.elements.video;
-
-	if (video) {
-		video.playbackRate = 1;
-
-		ImprovedTube.showStatus(video.playbackRate);
-	}
+	ImprovedTube.showStatus(this.playbackSpeed(1));
 };
-
 /*------------------------------------------------------------------------------
 4.7.19 GO TO SEARCH BOX
 ------------------------------------------------------------------------------*/
