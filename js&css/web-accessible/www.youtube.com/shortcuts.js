@@ -102,6 +102,7 @@ ImprovedTube.shortcuts = function () {
 	this.input.listening = {};
 	// extract shortcuts from User Settings and initialize 'listening'
 	for (const [name, keys] of Object.entries(this.storage).filter(v => v[0].startsWith('shortcut_'))) {
+		if (!keys) continue;
 		// camelCase(name)
 		const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
 		let potentialShortcut = {};
