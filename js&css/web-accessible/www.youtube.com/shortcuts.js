@@ -210,7 +210,6 @@ ImprovedTube.shortcutToggleAutoplay = function () {
 /*------------------------------------------------------------------------------
 4.7.7 NEXT VIDEO
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutNextVideo = function () {
 	if (this.elements.player) {
 		var playlist_loop_button = document.querySelector('[aria-label="Loop playlist"]');
@@ -226,12 +225,9 @@ ImprovedTube.shortcutNextVideo = function () {
 		this.elements.player.nextVideo();
 	}
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.8 PREVIOUS VIDEO
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutPrevVideo = function () {
 	if (this.elements.player) {
 		var playlist_loop_button = document.querySelector('[aria-label="Loop playlist"]');
@@ -439,7 +435,7 @@ ImprovedTube.shortcutTranscript = function () {
 4.7.22 LIKE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutLike = function () {
-	document.querySelector('like-button-view-model * * *')?.click(); 
+	document.querySelector('like-button-view-model * * *')?.click();
 };
 /*------------------------------------------------------------------------------
 4.7.23 DISLIKE
