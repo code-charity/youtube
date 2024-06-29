@@ -339,7 +339,7 @@ ImprovedTube.shortcutSeekPreviousChapter = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutIncreaseVolume = function () {
 	var player = this.elements.player,
-		value = Number(this.storage.shortcut_volume_step) || 5;
+		value = Number(this.storage.shortcuts_volume_step) || 5;
 
 	if (player) {
 		player.setVolume(player.getVolume() + value);
@@ -363,7 +363,7 @@ ImprovedTube.shortcutIncreaseVolume = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDecreaseVolume = function () {
 	var player = this.elements.player,
-		value = Number(this.storage.shortcut_volume_step) || 5;
+		value = Number(this.storage.shortcuts_volume_step) || 5;
 
 	if (player) {
 		player.setVolume(player.getVolume() - value);
@@ -382,7 +382,6 @@ ImprovedTube.shortcutDecreaseVolume = function () {
 		this.showStatus(player.getVolume());
 	}
 };
-
 /*------------------------------------------------------------------------------
 4.7.15 SCREENSHOT
 ------------------------------------------------------------------------------*/
@@ -391,50 +390,39 @@ ImprovedTube.shortcutScreenshot = ImprovedTube.screenshot;
 /*------------------------------------------------------------------------------
 4.7.16 INCREASE PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcutIncreasePlaybackSpeed = function () {
-	value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
-// original:	
-	var video = this.elements.video;
-	if (video) {if ( video.playbackRate){
-				if ( video.playbackRate < 1 && video.playbackRate > 1-ImprovedTube.storage.shortcut_playback_speed_step ) {  
-                 video.playbackRate =  1 } // aligning at 1.0 independent of minimum
-		  else { video.playbackRate = Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
-					  }        	        
-		ImprovedTube.showStatus(video.playbackRate);
-	} else {// alternative:
-	var player = this.elements.player;
-		if (player) {
-				if (  player.getPlaybackRate() < 1 &&  player.getPlaybackRate() > 1-ImprovedTube.storage.shortcut_playback_speed_step ) {  
-                  player.setPlaybackRate(1) } // aligning at 1.0 independent of minimum
-		  else { player.setPlaybackRate(Math.max(Number((player.getPlaybackRate() + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1))
-					  }        	        
-		ImprovedTube.showStatus(player.getPlaybackRate());
-}}}};
+ImprovedTube.shortcutIncreasePlaybackSpeed = function (decrese) {
+	const value = Number(this.storage.shortcuts_playback_speed_step) || .05,
+		speed = this.playbackSpeed(),
+		direction = decrese ? 'Decrease' : 'Increase';
+	let newSpeed
+
+	if (!speed) {
+		console.error('shortcut' + direction + 'PlaybackSpeed: Cant establish playbackRate/getPlaybackRate');
+		return;
+	}
+
+	// universal, goes both ways if you know what I mean
+	if (decrese) {
+		// 0.1x speed is the minimum
+		newSpeed = (speed - value < 0.1) ? 0.1 : (speed - value);
+	} else {
+		// 10x speed is the limit
+		newSpeed = (speed + value > 10) ? 10 : (speed + value);
+	}
+
+	newSpeed = this.playbackSpeed(newSpeed);
+	if (!newSpeed) {
+		console.error('shortcut' + direction + 'PlaybackSpeed: Cant read back playbackRate/getPlaybackRate');
+		return;
+	}
+	ImprovedTube.showStatus(newSpeed);
+};
 /*------------------------------------------------------------------------------
 4.7.17 DECREASE PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
-	value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
-// original:
-	var video = this.elements.video;
-	if (video) {
-		if (video.playbackRate){
-			if ( video.playbackRate < 0.1+ImprovedTube.storage.shortcut_playback_speed_step ) {  
-		    video.playbackRate =  video.playbackRate*0.7 } // slow down near minimum
-	  else { video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
-		    }
-		ImprovedTube.showStatus(video.playbackRate);
-	}		
-	else {
-	// alternative:
-	var player = this.elements.player;
-	if (player) {
-			if ( player.getPlaybackRate() < 0.1+ImprovedTube.storage.shortcut_playback_speed_step ) {  
-		    player.setPlaybackRate(player.getPlaybackRate()*0.7) } // slow down near minimum
-	  else { player.setPlaybackRate(Math.max(Number((player.getPlaybackRate()  - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1))
-		    }
-		ImprovedTube.showStatus(player.getPlaybackRate());
-}}}};
+	ImprovedTube.shortcutIncreasePlaybackSpeed(true);
+};
 /*------------------------------------------------------------------------------
 4.7.18 RESET PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
