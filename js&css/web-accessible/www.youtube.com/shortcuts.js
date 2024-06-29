@@ -456,15 +456,13 @@ ImprovedTube.shortcutTranscript = function () {
 4.7.22 LIKE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutLike = function () {
-	var like = document.querySelector('like-button-view-model * * *');
-	if (like) {like.click();} 
+	document.querySelector('like-button-view-model * * *')?.click(); 
 };
 /*------------------------------------------------------------------------------
 4.7.23 DISLIKE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDislike = function () {
-	var dislike = document.querySelector('dislike-button-view-model * * *');
-	if (dislike) {	dislike.click();}
+	document.querySelector('dislike-button-view-model * * *')?.click();
 };
 /*------Report------*/
 ImprovedTube.shortcutReport = function () {
