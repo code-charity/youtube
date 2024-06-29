@@ -4,15 +4,12 @@
 
 extension.skeleton.main.layers.section.player = {
 	component: 'button',
-	variant: 'player',
+	class: 'satus-button--player',
 	category: true,
-	on: {
-		click: {}
-	},
+	on: {},
 
 	icon: {
 		component: 'span',
-
 		svg: {
 			component: 'svg',
 			attr: {
@@ -22,7 +19,6 @@ extension.skeleton.main.layers.section.player = {
 				'stroke-linecap': 'round',
 				'stroke-width': '1.75'
 			},
-
 			path: {
 				component: 'path',
 				attr: {
@@ -516,6 +512,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 					subtitles_font_family: {
 						component: 'select',
 						text: 'fontFamily',
+						index: 3,
 						options: [{
 							text: 'Proportional Sans-Serif',
 							value: 4
@@ -571,22 +568,23 @@ extension.skeleton.main.layers.section.player.on.click = {
 					subtitles_font_size: {
 						component: 'select',
 						text: 'fontSize',
+						index: 2,
 						options: [{
-						text: '100%',
-							value: 0
-						}, {								
+							text: '50%',
+							value: -2
+						}, {
 							text: '75%',
 							value: -1
 						}, {
-							text: '50%',
-							value: -2
+							text: '100%',
+							value: 0
 						}, {
 							text: '150%',
 							value: 1
 						}, {
 							text: '200%',
 							value: 2
-						}, {	
+						}, {
 							text: '300%',
 							value: 3
 						}, {
@@ -597,6 +595,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 					subtitles_background_color: {
 						component: 'select',
 						text: 'backgroundColor',
+						index: 7,
 						options: [{
 							text: 'white',
 							value: '#fff'
@@ -818,9 +817,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 						},
 						block_vp9: {
 							component: 'switch',
+							variant: 'manual',
 							text: 'blockVp9',
-							value: false,
-							custom: true,
 							on: {
 								click: function () {
 									if (this.dataset.value === 'false') {
@@ -833,8 +831,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 												ok: function () {
 													where.flip(true);
 													where.parentElement.skeleton.sanitize();
-												},
-												cancel: function () {
 												}
 											}, extension.skeleton.rendered);
 										} else {
@@ -850,9 +846,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 						},
 						block_h264: {
 							component: 'switch',
+							variant: 'manual',
 							text: 'blockH264',
-							value: false,
-							custom: true,
 							on: {
 								click: function () {
 									if (this.dataset.value === 'false') {
@@ -865,8 +860,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 												ok: function () {
 													where.flip(true);
 													where.parentElement.skeleton.sanitize();
-												},
-												cancel: function () {
 												}
 											}, extension.skeleton.rendered);
 										} else {
@@ -881,13 +874,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 							}
 						},
 						sanitize: function () {
-							if (satus.storage.get('player_h264')) {
-								if ((!satus.storage.get('block_vp9') || !satus.storage.get('block_av1') && satus.storage.get('block_h264')) ||
-									(satus.storage.get('block_vp9') && satus.storage.get('block_av1') && satus.storage.get('block_h264'))) {
-									satus.storage.set('player_h264', false);
-								}
-							} else if (satus.storage.get('block_vp9') && satus.storage.get('block_av1') && !satus.storage.get('block_h264')) {
+							if (satus.storage.get('block_vp9') && satus.storage.get('block_av1') && !satus.storage.get('block_h264')) {
 								satus.storage.set('player_h264', true);
+							} else {
+								satus.storage.remove('player_h264');
 							}
 						}
 					}
@@ -901,7 +891,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 				},
 				on: {
 					render: function () {
-						var codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
+						const codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ') + (satus.storage.get('block_vp9') ? '' : 'vp9 ') + (satus.storage.get('block_av1') ? '' : 'av1');
 
 						if (codecs.includes('h.264') || codecs.includes('vp9')) {
 							this.style = '';
@@ -919,15 +909,13 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		h264: {
 			component: 'switch',
+			variant: 'manual',
 			text: 'codecH264',
 			storage: 'player_h264',
-			value: false,
-			custom: true,
 			on: {
 				click: function () {
-					let skeleton = this.parentNode.skeleton;
 					// refresh player_codecs/optimize_codec_for_hardware_acceleration elements when we change codecs
-					let refresh = function () {
+					function refresh() {
 						document.getElementById('player_quality').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
@@ -941,24 +929,21 @@ extension.skeleton.main.layers.section.player.on.click = {
 							variant: 'confirm',
 							content: 'youtubeLimitsVideoQualityTo1080pForH264Codec',
 							ok: function () {
-								// manually turn switch ON
+								// manually flip the switch ON
 								where.flip(true);
 								satus.storage.set('block_vp9', true);
 								satus.storage.set('block_av1', true);
-								satus.storage.set('block_h264', false);
+								satus.storage.remove('block_h264');
 								refresh();
-							},
-							cancel: function () {
-								// nothing happens when we cancel
 							}
 						}, extension.skeleton.rendered);
 					} else {
-						// manually turn switch OFF
+						// manually flip the switch OFF
 						this.flip(false);
 						// reset all codecs to unlocked state
-						satus.storage.set('block_vp9', false);
-						satus.storage.set('block_av1', false);
-						satus.storage.set('block_h264', false);
+						satus.storage.remove('block_vp9');
+						satus.storage.remove('block_av1');
+						satus.storage.remove('block_h264');
 						refresh();
 					}
 				}
