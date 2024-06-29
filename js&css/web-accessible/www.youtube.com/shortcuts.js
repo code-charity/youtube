@@ -137,14 +137,12 @@ ImprovedTube.shortcutQuality = function (key) {
 /*------------------------------------------------------------------------------
 4.7.2 PICTURE IN PICTURE
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutPictureInPicture = function () {
-	if (this.elements.video) {
-		this.elements.video.requestPictureInPicture();
+	const video = ImprovedTube.elements.video;
+	if (video && document.pictureInPictureEnabled && typeof video.requestPictureInPicture == 'function') {
+		video.requestPictureInPicture().then().catch((err) => console.error(err));
 	}
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.3 TOGGLE CONTROLS
 ------------------------------------------------------------------------------*/
