@@ -26,6 +26,14 @@ ImprovedTube.shortcuts = function () {
 				if (ImprovedTube.input.pressed.keys.includes(event.keyCode)) {
 					ImprovedTube.input.pressed.keys.splice(ImprovedTube.input.pressed.keys.indexOf(event.keyCode), 1);
 				}
+
+				// cancel keyup events corresponding to keys that triggered one of our shortcuts
+				if (ImprovedTube.input.cancelled.includes(event.keyCode)) {
+					event.preventDefault();
+					event.stopPropagation();
+					ImprovedTube.input.cancelled.splice(ImprovedTube.input.cancelled.indexOf(event.keyCode), 1);
+				}
+
 			},
 			wheel: function (event) {
 				if (document.activeElement && ignoreElements.includes(document.activeElement.tagName) || event.target.isContentEditable) return;
@@ -78,8 +86,11 @@ ImprovedTube.shortcuts = function () {
 				} else if (typeof ImprovedTube[key] === 'function') {
 					ImprovedTube[key]();
 				}
+				// cancel keydown event
 				event.preventDefault();
 				event.stopPropagation();
+				// build 'cancelled' list so we also cancel keyup events
+				ImprovedTube.input.pressed.keys.every((k, i) => ImprovedTube.input.cancelled.push(k));
 			}
 		}
 	};
@@ -96,7 +107,7 @@ ImprovedTube.shortcuts = function () {
 				case 'alt':
 				case 'ctrl':
 				case 'shift':
-					this.input.listening[camelName][button] = keys[button];
+					this.input.listening[camelName][button] = keys[button] || false;
 				break
 
 				case 'wheel':
@@ -170,29 +181,22 @@ ImprovedTube.shortcutToggleControls = function () {
 /*------------------------------------------------------------------------------
 4.7.4 PLAY / PAUSE
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutPlayPause = function () {
-	if (this.elements.player) {
-		if (this.elements.video.paused) {
-			this.elements.player.playVideo();
+	const video = this.elements.video;
+	if (video) {
+		if (video.paused) {
+			video.play();
 		} else {
-			this.elements.player.pauseVideo();
+			video.pause();
 		}
 	}
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.5 STOP
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutStop = function () {
-	if (this.elements.player) {
-		this.elements.player.stopVideo();
-	}
+	this.elements.player?.stopVideo();
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.6 TOGGLE AUTOPLAY
 ------------------------------------------------------------------------------*/
