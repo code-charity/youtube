@@ -30,21 +30,34 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 	if(installed.reason == 'update') {
 		//		var thisVersion = chrome.runtime.getManifest().version;
 		//		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
+		// Shortcut renames:
 		chrome.storage.local.get(['shortcut_auto', 'shortcut_144p', 'shortcut_240p', 'shortcut_360p', 'shortcut_480p', 'shortcut_720p', 'shortcut_1080p', 'shortcut_1440p', 'shortcut_2160p', 'shortcut_2880p', 'shortcut_4320p'], function (result) {
-			for (let [name, keys] of Object.entries(result).filter(v => v[1]?.keys && Object.keys(v[1].keys)?.length)) {
+			// validate and move to new name
+			for (let [name, keys] of Object.entries(result)) {
 				let newKeys = {},
 					newName = name.replace('shortcut_', 'shortcut_quality_');
-				for (const button of ['alt','ctrl','shift','wheel','keys']) {
+				for (const button of ['alt','ctrl','shift','wheel','toggle']) {
 					if (keys[button]) newKeys[button] = keys[button];
 				}
-				chrome.storage.local.set({[newName]: newKeys});
+				if (keys['keys'] && Object.keys(keys['keys'])?.length) {
+					newKeys['keys'] = keys['keys'];
+				}
+				// only shortcuts with Key of Wheel are valid and saved
+				if (newKeys['keys'] || newKeys['wheel']) chrome.storage.local.set({[newName]: newKeys});
+			}
+			chrome.storage.local.remove(Object.keys(result));
+		});
+		chrome.storage.local.get(['shortcut_volume_step', 'shortcut_playback_speed_step'], function (result) {
+			for (let [name, value] of Object.entries(result)) {
+				let newName = name.replace('shortcut_', 'shortcuts_');
+				chrome.storage.local.set({[newName]: value});
 			}
 			chrome.storage.local.remove(Object.keys(result));
 		});
 		chrome.storage.local.get('player_autoplay', function (result) {
 			if (result.player_autoplay === false) {
 				chrome.storage.local.set({player_autoplay_disable: true});
-				chrome.storage.local.remove(['player_autoplay'], (i) => {});
+				chrome.storage.local.remove(['player_autoplay']);
 			}
 		});
 		chrome.storage.local.get('channel_default_tab', function (result) {
@@ -65,7 +78,7 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 		chrome.storage.local.get('hideSubscribe', function (result) {
 			if (result.hideSubscribe === true) {
 				chrome.storage.local.set({subscribe: 'hidden'});
-				chrome.storage.local.remove(['hideSubscribe'], (i) => {});
+				chrome.storage.local.remove(['hideSubscribe']);
 			}
 		});
 		chrome.storage.local.get('limit_page_width', function (result) {
