@@ -1,178 +1,121 @@
 /*------------------------------------------------------------------------------
 4.7.0 SHORTCUTS
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcuts = function () {
-	var keyboard = {
-			alt: false,
-			ctrl: false,
-			shift: false,
-			keys: {}
-		},
-		mouse = {
-			player: false,
-			wheel: 0
-		},
-		storage = {};
+	const ignoreElements = ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'],
+		modifierKeys = ['AltLeft','AltRight','ControlLeft','ControlRight','ShiftLeft','ShiftRight'],
+		handlers = {
+			keydown: function (event) {
+				if (document.activeElement && ignoreElements.includes(document.activeElement.tagName) || event.target.isContentEditable) return;
+
+				ImprovedTube.input.pressed.wheel = 0;
+				ImprovedTube.input.pressed.alt = event.altKey;
+				ImprovedTube.input.pressed.ctrl = event.ctrlKey;
+				ImprovedTube.input.pressed.shift = event.shiftKey;
+				if (!modifierKeys.includes(event.code) && !ImprovedTube.input.pressed.keys.includes(event.keyCode)) {
+					ImprovedTube.input.pressed.keys.push(event.keyCode);
+				}
+
+				handler();
+			},
+			keyup: function (event) {
+				ImprovedTube.input.pressed.wheel = 0;
+				ImprovedTube.input.pressed.alt = event.altKey;
+				ImprovedTube.input.pressed.ctrl = event.ctrlKey;
+				ImprovedTube.input.pressed.shift = event.shiftKey;
+				if (ImprovedTube.input.pressed.keys.includes(event.keyCode)) {
+					ImprovedTube.input.pressed.keys.splice(ImprovedTube.input.pressed.keys.indexOf(event.keyCode), 1);
+				}
+			},
+			wheel: function (event) {
+				if (document.activeElement && ignoreElements.includes(document.activeElement.tagName) || event.target.isContentEditable) return;
+
+				ImprovedTube.input.pressed.wheel = event.deltaY > 0 ? 1 : -1;
+				ImprovedTube.input.pressed.alt = event.altKey;
+				ImprovedTube.input.pressed.ctrl = event.ctrlKey;
+				ImprovedTube.input.pressed.shift = event.shiftKey;
+
+				handler();
+			},
+			'improvedtube-player-loaded': function () {
+				//Please Fix: November2023: this parentNode doesnt exist on youtube.com/shorts
+				if (ImprovedTube.elements.player && ImprovedTube.elements.player.parentNode) {
+					ImprovedTube.elements.player?.parentNode?.addEventListener('mouseover', function () {
+						ImprovedTube.input.pressed.player = true;
+						ImprovedTube.input.pressed.wheel = 0;
+					}, true);
+
+					ImprovedTube.elements.player?.parentNode?.addEventListener('mouseout', function () {
+						ImprovedTube.input.pressed.player = false;
+						ImprovedTube.input.pressed.wheel = 0;
+					}, true);
+				}
+			},
+			'improvedtube-blur': function () {
+				ImprovedTube.input.pressed.keys = [];
+				ImprovedTube.input.pressed.alt = false;
+				ImprovedTube.input.pressed.ctrl = false;
+				ImprovedTube.input.pressed.shift = false;
+				ImprovedTube.input.pressed.player = false;
+				ImprovedTube.input.pressed.wheel = 0;
+			}
+		};
 
 	function handler() {
-		var prevent = false;
+		for (const [key, shortcut] of Object.entries(ImprovedTube.input.listening)) {
+			if ((ImprovedTube.input.pressed.keys
+					&& ImprovedTube.input.pressed.keys.length === shortcut.keys.length
+					&& ImprovedTube.input.pressed.keys.every((k, i) => k === shortcut.keys[i]))
+				&& ImprovedTube.input.pressed.alt === shortcut.alt
+				&& ImprovedTube.input.pressed.ctrl === shortcut.ctrl
+				&& ImprovedTube.input.pressed.shift === shortcut.shift
+				&& (ImprovedTube.input.pressed.wheel === shortcut.wheel
+					// shortcuts with wheel only active inside player
+					&& (!ImprovedTube.input.pressed.wheel || ImprovedTube.input.pressed.player))) {
 
-		for (var key in storage) {
-			var shortcut = storage[key],
-				same_keys = true;
-
-			if (
-				typeof shortcut === 'object' &&
-				(keyboard.alt === shortcut.alt || !ImprovedTube.isset(shortcut.alt)) &&
-				(keyboard.ctrl === shortcut.ctrl || !ImprovedTube.isset(shortcut.ctrl)) &&
-				(keyboard.shift === shortcut.shift || !ImprovedTube.isset(shortcut.shift)) &&
-				(mouse.wheel === shortcut.wheel || !ImprovedTube.isset(shortcut.wheel))
-			) {
-				if (keyboard.keys && shortcut.keys) {
-					for (var code in keyboard.keys) {
-						if (!shortcut.keys[code]) {
-							same_keys = false;
-						}
-					}
-					for (var code in shortcut.keys) {
-						if (!keyboard.keys[code]) {
-							same_keys = false;
-						}
-					}
+				if (key.startsWith('shortcutQuality')) {
+					ImprovedTube['shortcutQuality'](key);
+				} else if (typeof ImprovedTube[key] === 'function') {
+					ImprovedTube[key]();
 				}
+				event.preventDefault();
+				event.stopPropagation();
+			}
+		}
+	};
 
-				if (!ImprovedTube.isset(mouse.wheel) || mouse.wheel === 0 || mouse.player === true) {
-					if (same_keys === true) {
-						if ([
-								'shortcutAuto',
-								'shortcut144p',
-								'shortcut240p',
-								'shortcut360p',
-								'shortcut480p',
-								'shortcut720p',
-								'shortcut1080p',
-								'shortcut1440p',
-								'shortcut2160p',
-								'shortcut2880p',
-								'shortcut4320p'
-							].includes(key) === true) {
-							ImprovedTube['shortcutQuality'](key);
-						} else if (typeof ImprovedTube[key] === 'function') {
-							ImprovedTube[key]();
-						}
+	// reset 'listening'
+	this.input.listening = {};
+	// extract shortcuts from User Settings and initialize 'listening'
+	for (const [name, keys] of Object.entries(this.storage).filter(v => v[0].startsWith('shortcut_') && v[1]?.keys && Object.keys(v[1].keys).length)) {
+		// camelCase(name)
+		const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
+		this.input.listening[camelName] = {};
+		for (const button of ['alt','ctrl','shift','wheel','keys']) {
+			switch(button) {
+				case 'alt':
+				case 'ctrl':
+				case 'shift':
+					this.input.listening[camelName][button] = keys[button];
+				break
 
-						prevent = true;
-					}
-				}
+				case 'wheel':
+					this.input.listening[camelName][button] = keys[button] || 0;
+				break
+
+				case 'keys':
+					// array of sorted scancodes
+					this.input.listening[camelName][button] = Object.keys(keys[button]).map(s=>Number(s)).sort();
+				break
 			}
 		}
 
-		return prevent;
 	}
-
-	window.addEventListener('keydown', function (event) {
-		if (document.activeElement && ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'].includes(document.activeElement.tagName) === true || event.target.isContentEditable) {
-			return false;
-		}
-
-		if (event.code === 'AltLeft' || event.code === 'AltRight') {
-			keyboard.alt = true;
-		} else if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
-			keyboard.ctrl = true;
-		} else if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
-			keyboard.shift = true;
-		} else {
-			keyboard.keys[event.keyCode] = true;
-		}
-
-		mouse.wheel = 0;
-
-		if (handler() === true) {
-			event.preventDefault();
-			event.stopPropagation();
-
-			return false;
-		}
-	}, true);
-
-	window.addEventListener('keyup', function (event) {
-		if (document.activeElement && ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'].includes(document.activeElement.tagName) === true || event.target.isContentEditable) {
-			return false;
-		}
-
-		if (event.code === 'AltLeft' || event.code === 'AltRight') {
-			keyboard.alt = false;
-		} else if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
-			keyboard.ctrl = false;
-		} else if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
-			keyboard.shift = false;
-		} else {
-			delete keyboard.keys[event.keyCode];
-		}
-
-		mouse.wheel = 0;
-	}, true);
-
-	window.addEventListener('wheel', function (event) {
-		if (event.deltaY > 0) {
-			mouse.wheel = 1;
-		} else {
-			mouse.wheel = -1;
-		}
-
-		if (handler() === true) {
-			event.preventDefault();
-			event.stopPropagation();
-
-			return false;
-		}
-	}, {
-		passive: false,
-		capture: true
-	});
-
-	document.addEventListener('improvedtube-player-loaded', function () {
-	//Please Fix: November2023: this parentNode doesnt exist on youtube.com/shorts
-	if (ImprovedTube.elements.player && ImprovedTube.elements.player.parentNode) {
-		ImprovedTube.elements.player?.parentNode?.addEventListener('mouseover', function () {
-			mouse.player = true;
-			mouse.wheel = 0;
-		}, true);
-
-		ImprovedTube.elements.player?.parentNode?.addEventListener('mouseout', function () {
-			mouse.player = false;
-			mouse.wheel = 0;
-		}, true);
-	}
-	});
-
-	document.addEventListener('improvedtube-blur', function () {
-		keyboard.alt = false;
-		keyboard.ctrl = false;
-		keyboard.shift = false;
-
-		for (var key in keyboard.keys) {
-			delete keyboard.keys[key];
-		}
-
-		mouse.player = false;
-		mouse.wheel = 0;
-	});
-
-	for (var name in this.storage) {
-		if (name.indexOf('shortcut_') === 0) {
-			if (this.isset(this.storage[name]) && this.storage[name] !== false) {
-				try {
-					var key = 'shortcut' + (name.replace(/_?shortcut_?/g, '').replace(/\_/g, '-')).split('-').map(function (element, index) {
-						return element[0].toUpperCase() + element.slice(1);
-					}).join('');
-
-					storage[key] = this.storage[name];
-				} catch (error) {
-					console.error(error);
-				}
-			}
+	// initialize Listeners, but only once!
+	for (const [name, handler] of Object.entries(handlers)) {
+		if (!this.input.listeners[name]) {
+			this.input.listeners[name] = true;
+			window.addEventListener(name, handler, {passive: false, capture: true});
 		}
 	}
 };
