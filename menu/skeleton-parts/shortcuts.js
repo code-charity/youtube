@@ -76,14 +76,14 @@ extension.skeleton.main.layers.section.shortcuts = {
 								component: 'section',
 								variant: 'card',
 
-								volume_step: {
+								shortcuts_volume_step: {
 									component: 'slider',
 									text: 'step',
 									min: 1,
 									max: 10,
 									step: 1,
-									value: 5,
-									storage: 'shortcut_volume_step'
+									value: 5
+
 								}
 							},
 
@@ -91,10 +91,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 								component: 'section',
 								variant: 'card',
 
-								increase_volume: {
+								shortcut_increase_volume: {
 									component: 'shortcut',
-									text: 'increaseVolume',
-									storage: 'shortcut_increase_volume',
+									text: 'increaseVolume'
+
 									value: {
 										keys: {
 											38: {
@@ -103,10 +103,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 										}
 									}
 								},
-								decrease_volume: {
+								shortcut_decrease_volume: {
 									component: 'shortcut',
-									text: 'decreaseVolume',
-									storage: 'shortcut_decrease_volume',
+									text: 'decreaseVolume
+
 									value: {
 										keys: {
 											40: {
@@ -128,14 +128,14 @@ extension.skeleton.main.layers.section.shortcuts = {
 								component: 'section',
 								variant: 'card',
 
-								playback_speed_step: {
+								shortcuts_playback_speed_step: {
 									component: 'slider',
 									text: 'step',
 									min: .05,
 									max: .5,
 									step: .05,
-									value: .05,
-									storage: 'shortcut_playback_speed_step'
+									value: .05
+
 								}
 							},
 
@@ -143,10 +143,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 								component: 'section',
 								variant: 'card',
 
-								increase_playback_speed: {
+								shortcut_increase_playback_speed: {
 									component: 'shortcut',
-									text: 'increasePlaybackSpeed',
-									storage: 'shortcut_increase_playback_speed',
+									text: 'increasePlaybackSpeed'
+
 									value: {
 										keys: {
 											188: {
@@ -155,10 +155,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 										}
 									}
 								},
-								decrease_playback_speed: {
+								shortcut_decrease_playback_speed: {
 									component: 'shortcut',
-									text: 'decreasePlaybackSpeed',
-									storage: 'shortcut_decrease_playback_speed',
+									text: 'decreasePlaybackSpeed'
+
 									value: {
 										keys: {
 											190: {
@@ -167,10 +167,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 										}
 									}
 								},
-								reset_playback_speed: {
+								shortcut_reset_playback_speed: {
 									component: 'shortcut',
-									text: 'reset',
-									storage: 'shortcut_reset_playback_speed'
+									text: 'reset'
+
 								}
 							}
 						}
@@ -283,15 +283,15 @@ extension.skeleton.main.layers.section.shortcuts = {
 					component: 'shortcut',
 					text: 'statsForNerds'
 				},
-				picture_in_picture: {
+				shortcut_picture_in_picture: {
 					component: 'shortcut',
-					text: 'pictureInPicture',
-					storage: 'shortcut_picture_in_picture'
+					text: 'pictureInPicture'
+
 				},
-				auto_picture_in_picture: {
+				shortcut_auto_picture_in_picture: {
 					component: 'shortcut',
-					text: 'autoPictureInPicture',
-					storage: 'shortcut_auto_picture_in_picture'
+					text: 'autoPictureInPicture'
+
 				},
 				shortcut_screenshot: {
 					component: 'shortcut',
@@ -329,8 +329,8 @@ extension.skeleton.main.layers.section.shortcuts = {
 				component: 'section',
 				variant: 'card',
 				title: 'YouTube',
-				
-				
+
+
 				shortcut_go_to_search_box: {
 					component: 'shortcut',
 					text: 'goToSearchBox',
