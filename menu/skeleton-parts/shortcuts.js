@@ -1,7 +1,6 @@
 /*--------------------------------------------------------------
 >>> SHURTCUTS
 --------------------------------------------------------------*/
-
 extension.skeleton.main.layers.section.shortcuts = {
 	component: 'button',
 	variant: 'shortcuts',
@@ -21,47 +20,47 @@ extension.skeleton.main.layers.section.shortcuts = {
 							component: 'section',
 							variant: 'card',
 
-							shortcut_auto: {
+							shortcut_quality_auto: {
 								component: 'shortcut',
 								text: 'auto'
 							},
-							shortcut_144p: {
+							shortcut_quality_144p: {
 								component: 'shortcut',
 								text: '144p'
 							},
-							shortcut_240p: {
+							shortcut_quality_240p: {
 								component: 'shortcut',
 								text: '240p'
 							},
-							shortcut_360p: {
+							shortcut_quality_360p: {
 								component: 'shortcut',
 								text: '360p'
 							},
-							shortcut_480p: {
+							shortcut_quality_480p: {
 								component: 'shortcut',
 								text: '480p'
 							},
-							shortcut_720p: {
+							shortcut_quality_720p: {
 								component: 'shortcut',
 								text: '720p'
 							},
-							shortcut_1080p: {
+							shortcut_quality_1080p: {
 								component: 'shortcut',
 								text: '1080p'
 							},
-							shortcut_1440p: {
+							shortcut_quality_1440p: {
 								component: 'shortcut',
 								text: '1440p'
 							},
-							shortcut_2160p: {
+							shortcut_quality_2160p: {
 								component: 'shortcut',
 								text: '2160p'
 							},
-							shortcut_2880p: {
+							shortcut_quality_2880p: {
 								component: 'shortcut',
 								text: '2880p'
 							},
-							shortcut_4320p: {
+							shortcut_quality_4320p: {
 								component: 'shortcut',
 								text: '4320p'
 							}
