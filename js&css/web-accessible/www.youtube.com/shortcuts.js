@@ -128,57 +128,12 @@ ImprovedTube.shortcutToggleAmbientLighting = function () {
 /*------------------------------------------------------------------------------
 4.7.1 QUALITY
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutQuality = function (key) {
-	if (this.elements.player) {
-		var value = key.replace('shortcut', '').toLowerCase();
+	const label = ['auto', 'tiny', 'small', 'medium', 'large', 'hd720', 'hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'],
+		resolution = ['auto', '144p', '240p', '360p', '480p', '720p', '1080p', '1440p', '2160p', '2880p', '4320p'];
 
-		if (value === '144p') {
-			value = 'tiny';
-		}
-
-		if (value === '240p') {
-			value = 'small';
-		}
-
-		if (value === '360p') {
-			value = 'medium';
-		}
-
-		if (value === '480p') {
-			value = 'large';
-		}
-
-		if (value === '720p') {
-			value = 'hd720';
-		}
-
-		if (value === '1080p') {
-			value = 'hd1080';
-		}
-
-		if (value === '1440p') {
-			value = 'hd1440';
-		}
-
-		if (value === '2160p') {
-			value = 'hd2160';
-		}
-
-		if (value === '2880p') {
-			value = 'hd2880';
-		}
-
-		if (value === '4320p') {
-			value = 'highres';
-		}
-
-		this.elements.player.setPlaybackQualityRange(value);
-		this.elements.player.setPlaybackQuality(value);
-	}
+	ImprovedTube.playerQuality(label[resolution.indexOf(key.replace('shortcutQuality', ''))]);
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.2 PICTURE IN PICTURE
 ------------------------------------------------------------------------------*/
