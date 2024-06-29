@@ -246,34 +246,21 @@ ImprovedTube.shortcutPrevVideo = function () {
 		this.elements.player.previousVideo();
 	}
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.9 SEEK BACKWARD
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutSeekBackward = function () {
-	if (this.elements.player) {
-		this.elements.player.seekBy(-10);
-	}
+	this.elements.player?.seekBy(-10);
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.10 SEEK FORWARD
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutSeekForward = function () {
-	if (this.elements.player) {
-		this.elements.player.seekBy(10);
-	}
+	this.elements.player?.seekBy(10);
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.11 SEEK NEXT CHAPTER
 ------------------------------------------------------------------------------*/
-
 ImprovedTube.shortcutSeekNextChapter = function () {
 	if (this.elements.player) {
 		var player = this.elements.player,
@@ -297,8 +284,6 @@ ImprovedTube.shortcutSeekNextChapter = function () {
 		}
 	}
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.12 SEEK PREVIOUS CHAPTER
 ------------------------------------------------------------------------------*/
@@ -329,8 +314,6 @@ ImprovedTube.shortcutSeekPreviousChapter = function () {
 		}
 	}
 };
-
-
 /*------------------------------------------------------------------------------
 4.7.13 INCREASE VOLUME
 ------------------------------------------------------------------------------*/
@@ -375,7 +358,6 @@ ImprovedTube.shortcutDecreaseVolume = function () {
 4.7.15 SCREENSHOT
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutScreenshot = ImprovedTube.screenshot;
-
 /*------------------------------------------------------------------------------
 4.7.16 INCREASE PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
