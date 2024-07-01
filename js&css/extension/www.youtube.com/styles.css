@@ -530,6 +530,11 @@ ytd-guide-section-renderer .it-button::after {
 	cursor: pointer;
 }
 
+html[it-blocklist-activate=true] ytd-video-preview .YtInlinePlayerControlsTopLeftControls {
+	left: 100%;
+	pointer-events: none;	
+}
+
 ytd-video-preview.it-blocklisted-video:hover .it-add-to-blocklist,
 ytd-video-preview.it-blocklisted-channel:hover .it-add-to-blocklist,
 *:hover>.it-add-to-blocklist {
@@ -562,19 +567,22 @@ html:not([data-page-type=channel]) .it-blocklisted-channel {
 	transition: max-height 0.4s ease 0.1s;
 }
 
-.it-blocklisted-video.ytd-vertical-list-renderer,
-.it-blocklisted-video.ytd-item-section-renderer,
-html:not([data-page-type=channel]) .it-blocklisted-channel.ytd-vertical-list-renderer,
-html:not([data-page-type=channel]) .it-blocklisted-channel.ytd-item-section-renderer {
+.ytd-vertical-list-renderer.it-blocklisted-video,
+.ytd-item-section-renderer.it-blocklisted-video,
+.ytd-grid-video-renderer.it-blocklisted-video,
+.ytd-rich-grid-media.it-blocklisted-video,
+html:not([data-page-type=channel]) .ytd-vertical-list-renderer.it-blocklisted-channel,
+html:not([data-page-type=channel]) .ytd-item-section-renderer.it-blocklisted-channel,
+html:not([data-page-type=channel]) .ytd-grid-video-renderer.it-blocklisted-channel,
+html:not([data-page-type=channel]) .ytd-rich-grid-media.it-blocklisted-channel {
 	max-height: 120px;
 }
 
-ytd-grid-video-renderer .it-blocklisted-video,
-html:not([data-page-type=channel]) ytd-grid-video-renderer .it-blocklisted-channel,
-ytd-rich-grid-media .it-blocklisted-video,
-html:not([data-page-type=channel]) ytd-rich-grid-media .it-blocklisted-channel {
+.ytd-grid-video-renderer.it-blocklisted-video,
+.ytd-rich-grid-media.it-blocklisted-video,
+html:not([data-page-type=channel]) .ytd-grid-video-renderer.it-blocklisted-channel,
+html:not([data-page-type=channel]) .ytd-rich-grid-media.it-blocklisted-channel {
 	overflow: visible;
-	max-height: 120px;
 }
 
 ytd-video-preview.it-blocklisted-video:hover .it-add-to-blocklist,
