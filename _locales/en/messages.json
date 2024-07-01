@@ -1128,7 +1128,7 @@
         "message": "Share"
     },
     "shortcut_chapters": {
-        "message": "Show chapters Sidebar"
+        "message": "Toggle sidebar Chapters"
     },
     "shortcut_screenshot": {
         "message": "Screenshot"
@@ -1281,7 +1281,7 @@
         "message": "Trailer autoplay"
     },
     "Transcript": {
-        "message": "Transcript"
+        "message": "Toggle sidebar Transcript"
     },
     "translations": {
         "message": "Translations"
