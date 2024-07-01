@@ -168,8 +168,8 @@ ImprovedTube.blocklistInit = function () {
 		for (const thumbnail of document.querySelectorAll('a.ytd-thumbnail[href], a.ytd-video-preview')) {
 			this.blocklistNode(thumbnail);
 		}
-		if (document.querySelector('YTD-SUBSCRIBE-BUTTON-RENDERER', 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL', 'ytd-button-renderer.ytd-c4-tabbed-header-renderer')) {
-			this.blocklistChannel(document.querySelector('YTD-SUBSCRIBE-BUTTON-RENDERER', 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL', 'ytd-button-renderer.ytd-c4-tabbed-header-renderer'));
+		if (document.querySelector('YTD-SUBSCRIBE-BUTTON-RENDERER, YT-SUBSCRIBE-BUTTON-VIEW-MODEL, ytd-button-renderer.ytd-c4-tabbed-header-renderer')) {
+			this.blocklistChannel(document.querySelector('YTD-SUBSCRIBE-BUTTON-RENDERER, YT-SUBSCRIBE-BUTTON-VIEW-MODEL, ytd-button-renderer.ytd-c4-tabbed-header-renderer'));
 		}
 	} else {
 		// Disable and unload Blocklist
