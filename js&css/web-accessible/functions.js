@@ -116,7 +116,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 		this.playlistPopupUpdate();
 	} else if ((name === 'YTD-SUBSCRIBE-BUTTON-RENDERER'
 		   	|| name === 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL'
-		   	|| name === 'ytd-button-renderer')
+		   	|| name === 'YTD-BUTTON-RENDERER')
 		   && node.classList.contains('ytd-c4-tabbed-header-renderer')) {
 		ImprovedTube.blocklistChannel(node);
 		ImprovedTube.elements.subscribe_button = node;
