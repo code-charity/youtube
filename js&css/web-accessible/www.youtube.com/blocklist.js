@@ -114,13 +114,13 @@ ImprovedTube.blocklistChannel = function (node) {
 		event.preventDefault();
 		event.stopPropagation();
 
-		// no longer working:
-		//data = ytInitialData?.metadata?.channelMetadataRenderer,
-		//data = this.parentNode.__dataHost.__data.data,
-		//avatar= data?.avatar?.thumbnails[0]?.url
 		const id = location.pathname.match(ImprovedTube.regex.channel)?.groups?.name,
-			title = document.querySelector('yt-dynamic-text-view-model .yt-core-attributed-string')?.innerText,
-			preview = document.querySelector('yt-decorated-avatar-view-model img')?.src;
+			title = this.parentNode.__dataHost?.__data?.data?.title
+				|| ytInitialData?.metadata?.channelMetadataRenderer?.title
+				|| document.querySelector('yt-dynamic-text-view-model .yt-core-attributed-string')?.innerText,
+			preview = document.querySelector('yt-decorated-avatar-view-model img')?.src
+				|| document.querySelector('#channel-header-container #avatar img#img')?.src
+				|| this.parentNode.__dataHost?.__data?.data?.avatar?.thumbnails?.[0]?.url;
 		let added = false;
 
 		if (!id || !title) {
@@ -168,13 +168,13 @@ ImprovedTube.blocklistInit = function () {
 		for (const thumbnail of document.querySelectorAll('a.ytd-thumbnail[href], a.ytd-video-preview')) {
 			this.blocklistNode(thumbnail);
 		}
-		if (document.querySelector('YT-SUBSCRIBE-BUTTON-VIEW-MODEL')) {
-			this.blocklistChannel(document.querySelector('YT-SUBSCRIBE-BUTTON-VIEW-MODEL'));
+		if (document.querySelector('YTD-SUBSCRIBE-BUTTON-RENDERER', 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL', 'ytd-button-renderer.ytd-c4-tabbed-header-renderer')) {
+			this.blocklistChannel(document.querySelector('YTD-SUBSCRIBE-BUTTON-RENDERER', 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL', 'ytd-button-renderer.ytd-c4-tabbed-header-renderer'));
 		}
 	} else {
 		// Disable and unload Blocklist
 		// remove all 'it-add-to-blocklist' buttons
-		for (let blocked of this.elements.blocklist_buttons) {
+		for (const blocked of this.elements.blocklist_buttons) {
 			blocked.remove();
 		}
 		this.elements.blocklist_buttons = [];
@@ -189,10 +189,10 @@ ImprovedTube.blocklistInit = function () {
 			ImprovedTube.blocklistChannelObserver.disconnect();
 		}
 		// remove all video/channel blocks from thumbnails on current page
-		for (let blocked of document.querySelectorAll('.it-blocklisted-video')) {
+		for (const blocked of document.querySelectorAll('.it-blocklisted-video')) {
 			blocked.classList.remove('it-blocklisted-video');
 		}
-		for (let blocked of document.querySelectorAll('.it-blocklisted-channel')) {
+		for (const blocked of document.querySelectorAll('.it-blocklisted-channel')) {
 			blocked.classList.remove('it-blocklisted-channel');
 		}
 	}
