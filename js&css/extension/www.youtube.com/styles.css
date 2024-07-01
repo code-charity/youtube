@@ -532,7 +532,6 @@ ytd-guide-section-renderer .it-button::after {
 
 html[it-blocklist-activate=true] ytd-video-preview .YtInlinePlayerControlsTopLeftControls {
 	left: 100%;
-	pointer-events: none;	
 }
 
 ytd-video-preview.it-blocklisted-video:hover .it-add-to-blocklist,
