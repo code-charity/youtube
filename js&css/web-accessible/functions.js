@@ -114,7 +114,10 @@ ImprovedTube.ytElementsHandler = function (node) {
 	// 	}
 	else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
 		this.playlistPopupUpdate();
-	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER' || name === 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL') {
+	} else if ((name === 'YTD-SUBSCRIBE-BUTTON-RENDERER'
+		   	|| name === 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL'
+		   	|| name === 'ytd-button-renderer')
+		   && node.classList.contains('ytd-c4-tabbed-header-renderer')) {
 		ImprovedTube.blocklistChannel(node);
 		ImprovedTube.elements.subscribe_button = node;
 	} else if (id === 'chat-messages') {
