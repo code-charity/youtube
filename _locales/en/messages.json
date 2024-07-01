@@ -1133,6 +1133,9 @@
     "shortcut_screenshot": {
         "message": "Screenshot"
     },
+    "shortcut_transcript": {
+        "message": "Toggle sidebar Transcript"
+    },
     "shortcuts": {
         "message": "Shortcuts"
     },
@@ -1281,7 +1284,7 @@
         "message": "Trailer autoplay"
     },
     "Transcript": {
-        "message": "Toggle sidebar Transcript"
+        "message": "Transcript"
     },
     "translations": {
         "message": "Translations"
