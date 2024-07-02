@@ -421,26 +421,13 @@ ImprovedTube.playerOnEnded = function (event) {
 ImprovedTube.onkeydown = function () {
 	ImprovedTube.pauseWhileTypingOnYoutube()
 	window.addEventListener('keydown', function () {
-		if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
-			ImprovedTube.user_interacted = true;
-		}
+		ImprovedTube.user_interacted = true;
 	}, true);
 };
 
-ImprovedTube.onmousedown = function (event) {									  
-	window.addEventListener('mousedown', function (event) {	
-		if (!ImprovedTube.user_interacted) {
-			setTimeout(function(){ImprovedTube.user_interacted = true},3000);	
-			if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
-				var path = event.composedPath();
-				for (var i = 0, l = path.length; i < l; i++) {
-					if (path[i].className 
-						// && path[i].className.indexOf
-                                        	&& (/html5-(main-video|video-container)|ytp-play-button/.test(path[i].className))
-						) {ImprovedTube.user_interacted = true;}
-				}
-			}													
-		}
+ImprovedTube.onmousedown = function (event) {
+	window.addEventListener('mousedown', function (event) {
+		ImprovedTube.user_interacted = true;
 	}, true);
 };
 
