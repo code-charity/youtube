@@ -67,6 +67,7 @@ html[it-hide-animated-thumbnails='true'] #preview>ytd-video-preview,
 # HIDE BUTTONS ON THUMBNAILS
 --------------------------------------------------------------*/
 html[it-hide-thumbnail-overlay='true'] #hover-overlays,
+html[it-hide-thumbnail-overlay='true'] #player-controls.ytd-video-preview,
 /*--------------------------------------------------------------
 # EMBEDDED VIDEOS
  --------------------------------------------------------------*/
