@@ -422,11 +422,11 @@ ImprovedTube.shortcutActivateCaptions = function () {
 };
 /*------Chapters------*/
 ImprovedTube.shortcutChapters = function () {
-	document.querySelector('[target-id*=chapters][visibility*=HIDDEN]') ? document.querySelector('[modern-chapters] button[aria-label="View all"]')?.click() : document.querySelector('[target-id*=chapters][visibility*=EXPANDED] button[aria-label="Close"]')?.click();
+	document.querySelector('[target-id*=chapters][visibility*=HIDDEN]') ? document.querySelector('[modern-chapters] #navigation-button button[aria-label]').click() : document.querySelector('[target-id*=chapters][visibility*=EXPANDED] #visibility-button button[aria-label]')?.click()
 };
 /*------Transcript------*/
 ImprovedTube.shortcutTranscript = function () {
-	document.querySelector('[target-id*=transcript][visibility*=HIDDEN]') ? document.querySelector('button[aria-label="Show transcript"]')?.click() : document.querySelector('button[aria-label="Close transcript"]')?.click();
+	document.querySelector('[target-id*=transcript][visibility*=HIDDEN]') ? document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]')?.click() : document.querySelector('[target-id*=transcript][visibility*=EXPANDED] #visibility-button button[aria-label]').click();
 };
 /*------------------------------------------------------------------------------
 4.7.22 LIKE
