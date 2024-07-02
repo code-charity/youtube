@@ -213,37 +213,13 @@ ImprovedTube.shortcutToggleAutoplay = function () {
 4.7.7 NEXT VIDEO
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutNextVideo = function () {
-	if (this.elements.player) {
-		var playlist_loop_button = document.querySelector('[aria-label="Loop playlist"]');
-
-		if (playlist_loop_button) {
-			if (playlist_loop_button.ariaPressed === 'true') {
-				this.elements.player.setLoop(true);
-			} else {
-				this.elements.player.setLoop(false)
-			}
-		}
-
-		this.elements.player.nextVideo();
-	}
+	this.elements.player?.nextVideo();
 };
 /*------------------------------------------------------------------------------
 4.7.8 PREVIOUS VIDEO
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutPrevVideo = function () {
-	if (this.elements.player) {
-		var playlist_loop_button = document.querySelector('[aria-label="Loop playlist"]');
-
-		if (playlist_loop_button) {
-			if (playlist_loop_button.ariaPressed === 'true') {
-				this.elements.player.setLoop(true);
-			} else {
-				this.elements.player.setLoop(false)
-			}
-		}
-
-		this.elements.player.previousVideo();
-	}
+	this.elements.player?.previousVideo();
 };
 /*------------------------------------------------------------------------------
 4.7.9 SEEK BACKWARD
