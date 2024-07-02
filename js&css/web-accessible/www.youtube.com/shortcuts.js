@@ -6,107 +6,22 @@ WARNING: Browser Debugger Breakpoint downstream from keydown() event will eat co
  is disabled and key pressed again OR switching tabs/windows to trigger 'improvedtube-blur'.
  Make sure to have that in mind when debugging.
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcuts = function () {
-	const ignoreElements = ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'],
-		modifierKeys = ['AltLeft','AltRight','ControlLeft','ControlRight','ShiftLeft','ShiftRight'],
-		handlers = {
-			keydown: function (event) {
-				if (document.activeElement && ignoreElements.includes(document.activeElement.tagName) || event.target.isContentEditable) return;
+ImprovedTube.shortcutsInit = function () {
+	// those four are _references_ to source Objects, not copies
+	const listening = ImprovedTube.input.listening,
+		listeners = ImprovedTube.input.listeners,
+		pressed = ImprovedTube.input.pressed,
+		cancelled = ImprovedTube.input.cancelled;
 
-				ImprovedTube.input.pressed.wheel = 0;
-				ImprovedTube.input.pressed.alt = event.altKey;
-				ImprovedTube.input.pressed.ctrl = event.ctrlKey;
-				ImprovedTube.input.pressed.shift = event.shiftKey;
-				if (!modifierKeys.includes(event.code) && !ImprovedTube.input.pressed.keys.includes(event.keyCode)) {
-					ImprovedTube.input.pressed.keys.push(event.keyCode);
-				}
-
-				handler();
-			},
-			keyup: function (event) {
-				ImprovedTube.input.pressed.wheel = 0;
-				ImprovedTube.input.pressed.alt = event.altKey;
-				ImprovedTube.input.pressed.ctrl = event.ctrlKey;
-				ImprovedTube.input.pressed.shift = event.shiftKey;
-				if (ImprovedTube.input.pressed.keys.includes(event.keyCode)) {
-					ImprovedTube.input.pressed.keys.splice(ImprovedTube.input.pressed.keys.indexOf(event.keyCode), 1);
-				}
-				// cancel keyup events corresponding to keys that triggered one of our shortcuts
-				if (ImprovedTube.input.cancelled.includes(event.keyCode)) {
-					event.preventDefault();
-					event.stopPropagation();
-					ImprovedTube.input.cancelled.splice(ImprovedTube.input.cancelled.indexOf(event.keyCode), 1);
-				}
-			},
-			wheel: function (event) {
-				if (document.activeElement && ignoreElements.includes(document.activeElement.tagName) || event.target.isContentEditable) return;
-
-				ImprovedTube.input.pressed.wheel = event.deltaY > 0 ? 1 : -1;
-				ImprovedTube.input.pressed.alt = event.altKey;
-				ImprovedTube.input.pressed.ctrl = event.ctrlKey;
-				ImprovedTube.input.pressed.shift = event.shiftKey;
-
-				handler();
-			},
-			'improvedtube-player-loaded': function () {
-				//Please Fix: November2023: this parentNode doesnt exist on youtube.com/shorts
-				if (ImprovedTube.elements.player && ImprovedTube.elements.player.parentNode) {
-					ImprovedTube.elements.player?.parentNode?.addEventListener('mouseover', function () {
-						ImprovedTube.input.pressed.player = true;
-						ImprovedTube.input.pressed.wheel = 0;
-					}, true);
-
-					ImprovedTube.elements.player?.parentNode?.addEventListener('mouseout', function () {
-						ImprovedTube.input.pressed.player = false;
-						ImprovedTube.input.pressed.wheel = 0;
-					}, true);
-				}
-			},
-			'improvedtube-blur': function () {
-				ImprovedTube.input.pressed.keys = [];
-				ImprovedTube.input.pressed.alt = false;
-				ImprovedTube.input.pressed.ctrl = false;
-				ImprovedTube.input.pressed.shift = false;
-				ImprovedTube.input.pressed.player = false;
-				ImprovedTube.input.pressed.wheel = 0;
-			}
-		};
-
-	function handler() {
-		for (const [key, shortcut] of Object.entries(ImprovedTube.input.listening)) {
-			if ((ImprovedTube.input.pressed.keys
-					&& ImprovedTube.input.pressed.keys.length === shortcut.keys.length
-					&& ImprovedTube.input.pressed.keys.every((k, i) => k === shortcut.keys[i]))
-				&& ImprovedTube.input.pressed.alt === shortcut.alt
-				&& ImprovedTube.input.pressed.ctrl === shortcut.ctrl
-				&& ImprovedTube.input.pressed.shift === shortcut.shift
-				&& (ImprovedTube.input.pressed.wheel === shortcut.wheel
-					// shortcuts with wheel allowed ONLY inside player
-					&& (!ImprovedTube.input.pressed.wheel || ImprovedTube.input.pressed.player))) {
-
-				if (key.startsWith('shortcutQuality')) {
-					ImprovedTube['shortcutQuality'](key);
-				} else if (typeof ImprovedTube[key] === 'function') {
-					ImprovedTube[key]();
-				}
-				// cancel keydown/wheel event
-				event.preventDefault();
-				event.stopPropagation();
-				// build 'cancelled' list so we also cancel keyup events
-				ImprovedTube.input.pressed.keys.every((k, i) => ImprovedTube.input.cancelled.push(k));
-			}
-		}
-	};
-
-	// reset 'listening'
-	this.input.listening = {};
+	// reset 'listening' shortcuts
+	for (var key in listening) delete listening[key];
 	// extract shortcuts from User Settings and initialize 'listening'
 	for (const [name, keys] of Object.entries(this.storage).filter(v => v[0].startsWith('shortcut_'))) {
 		if (!keys) continue;
 		// camelCase(name)
 		const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
 		let potentialShortcut = {};
-		for (const button of ['alt','ctrl','shift','wheel','keys']) {
+		for (const button of ['alt','ctrl','shift','wheel','keys','toggle']) {
 			switch(button) {
 				case 'alt':
 				case 'ctrl':
@@ -125,14 +40,100 @@ ImprovedTube.shortcuts = function () {
 				break
 			}
 		}
-		if (potentialShortcut['keys'] || potentialShortcut['wheel']) this.input.listening[camelName] = potentialShortcut;
+		if (potentialShortcut['keys'] || potentialShortcut['wheel']) listening[camelName] = potentialShortcut;
 	}
-	// initialize Listeners, but only once!
-	for (const [name, handler] of Object.entries(handlers)) {
-		if (!this.input.listeners[name]) {
-			this.input.listeners[name] = true;
-			window.addEventListener(name, handler, {passive: false, capture: true});
+	// initialize 'listeners' only if there are actual shortcuts active
+	if (Object.keys(listening).length) {
+		for (const [name, handler] of Object.entries(this.shortcutsListeners)) {
+			// only one listener per handle
+			if (!listeners[name]) {
+				listeners[name] = true;
+				window.addEventListener(name, handler, {passive: false, capture: true});
+			}
 		}
+	} else {
+		// no shortcuts means we dont need 'listeners', uninstall all
+		for (const [name, handler] of Object.entries(this.shortcutsListeners)) {
+			if (listeners[name]) {
+				delete listeners[name];
+				window.removeEventListener(name, handler, {passive: false, capture: true});
+			}
+		}
+	}
+};
+
+ImprovedTube.shortcutsHandler = function () {
+	for (const [key, shortcut] of Object.entries(ImprovedTube.input.listening)) {
+		if ((ImprovedTube.input.pressed.keys.length === shortcut.keys.length
+				&& ImprovedTube.input.pressed.keys.sort().every((k, i) => k === shortcut.keys[i]))
+			&& ImprovedTube.input.pressed.wheel === shortcut.wheel
+			&& ImprovedTube.input.pressed.alt === shortcut.alt
+			&& ImprovedTube.input.pressed.ctrl === shortcut.ctrl
+			&& ImprovedTube.input.pressed.shift === shortcut.shift) {
+
+			if (key.startsWith('shortcutQuality')) {
+				ImprovedTube['shortcutQuality'](key);
+			} else if (typeof ImprovedTube[key] === 'function') {
+				ImprovedTube[key]();
+			}
+			// cancel keydown/wheel event
+			event.preventDefault();
+			event.stopPropagation();
+			// build 'cancelled' list so we also cancel keyup events
+			ImprovedTube.input.pressed.keys.every(key => ImprovedTube.input.cancelled.push(key));
+		}
+	}
+};
+
+ImprovedTube.shortcutsListeners = {
+	keydown: function (event) {
+		ImprovedTube.user_interacted = true;
+		// no shortcuts over 'ignoreElements'
+		if ((document.activeElement && ImprovedTube.input.ignoreElements.includes(document.activeElement.tagName)) || event.target.isContentEditable) return;
+
+		if (!ImprovedTube.input.modifierKeys.includes(event.code) && !ImprovedTube.input.pressed.keys.includes(event.keyCode)) {
+			ImprovedTube.input.pressed.keys.push(event.keyCode);
+		}
+		ImprovedTube.input.pressed.wheel = 0;
+		ImprovedTube.input.pressed.alt = event.altKey;
+		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
+		ImprovedTube.input.pressed.shift = event.shiftKey;
+
+		ImprovedTube.shortcutsHandler();
+	},
+	keyup: function (event) {
+		if (ImprovedTube.input.pressed.keys.includes(event.keyCode)) {
+			ImprovedTube.input.pressed.keys.splice(ImprovedTube.input.pressed.keys.indexOf(event.keyCode), 1);
+		}
+		ImprovedTube.input.pressed.wheel = 0;
+		ImprovedTube.input.pressed.alt = event.altKey;
+		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
+		ImprovedTube.input.pressed.shift = event.shiftKey;
+
+		// cancel keyup events corresponding to keys that triggered one of our shortcuts
+		if (ImprovedTube.input.cancelled.includes(event.keyCode)) {
+			event.preventDefault();
+			event.stopPropagation();
+			ImprovedTube.input.cancelled.splice(ImprovedTube.input.cancelled.indexOf(event.keyCode), 1);
+		}
+	},
+	wheel: function (event) {
+		// shortcuts with wheel allowed ONLY inside player
+		if (!ImprovedTube.elements.player.contains(event.target)) return;
+
+		ImprovedTube.input.pressed.wheel = event.deltaY > 0 ? 1 : -1;
+		ImprovedTube.input.pressed.alt = event.altKey;
+		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
+		ImprovedTube.input.pressed.shift = event.shiftKey;
+
+		ImprovedTube.shortcutsHandler();
+	},
+	'improvedtube-blur': function () {
+		ImprovedTube.input.pressed.keys = [];
+		ImprovedTube.input.pressed.wheel = 0
+		ImprovedTube.input.pressed.alt = false;
+		ImprovedTube.input.pressed.ctrl = false;
+		ImprovedTube.input.pressed.shift = false;
 	}
 };
 /*------------------------------------------------------------------------------
@@ -420,16 +421,12 @@ ImprovedTube.shortcutActivateCaptions = function () {
 	}
 };
 /*------Chapters------*/
-ImprovedTube.shortcutChapters = function () {	
-          try{var height = document.querySelector('*[target-id*=chapters]').clientHeight;}catch{}
-          if (height) {try{document.querySelector('*[target-id*=chapters] #visibility-button button').click();   console.log("chapters shortcut close")} catch{}}	
-		  else   { try{document.querySelector('*[target-id*=chapters]').removeAttribute('visibility');   console.log("chapters shortcut open")} catch{} }
-};		
+ImprovedTube.shortcutChapters = function () {
+	document.querySelector('[target-id*=chapters][visibility*=HIDDEN]') ? document.querySelector('[modern-chapters] button[aria-label="View all"]')?.click() : document.querySelector('[target-id*=chapters][visibility*=EXPANDED] button[aria-label="Close"]')?.click();
+};
 /*------Transcript------*/
-ImprovedTube.shortcutTranscript = function () {	
-          try{var height = document.querySelector('*[target-id*=transcript]').clientHeight;}catch{}
-          if (height) {try{document.querySelector('*[target-id*=transcript] #visibility-button button').click();  console.log("transcriptshortcut close")} catch{}}	
-		  else   { try{document.querySelector('*[target-id*=transcript]').removeAttribute('visibility');   console.log("transcriptshortcut open")} catch{} }
+ImprovedTube.shortcutTranscript = function () {
+	document.querySelector('[target-id*=transcript][visibility*=HIDDEN]') ? document.querySelector('button[aria-label="Show transcript"]')?.click() : document.querySelector('button[aria-label="Close transcript"]')?.click();
 };
 /*------------------------------------------------------------------------------
 4.7.22 LIKE
@@ -445,16 +442,16 @@ ImprovedTube.shortcutDislike = function () {
 };
 /*------Report------*/
 ImprovedTube.shortcutReport = function () {
-try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); 
-    document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
+try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0);
+	document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
 	catch{console.log("'...' failed"); setTimeout(function(){try{document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
 catch{console.log("'...' failed2")}},100) }
-	
+
 setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
 	catch{console.log("report failed");setTimeout(function()	{try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
 		catch{console.log("report failed2");document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}},800);
 		}
-},200); 
+},200);
 
 setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed");
   setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed2");}},1700)}},700)
@@ -514,7 +511,7 @@ ImprovedTube.shortcutStatsForNerds = function () {
 		console.error('shortcutStatsForNerds: Need valid Player element');
 		return;
 	}
-	
+
 	if (player.isVideoInfoVisible()) {
 		player.hideVideoInfo();
 	} else {
