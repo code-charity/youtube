@@ -15,13 +15,13 @@ const compat = new FlatCompat({
 export default [...compat.extends("eslint:recommended"), {
 	languageOptions: {
 		globals: {
-		  ...globals.browser,
-		  ...globals.node,
-		  ...globals.webextensions,
-		  ...globals.jest,
-		  ...globals.worker,
-		  ...globals.wsh
-		},
+			...globals.browser,
+			...globals.node,
+			...globals.webextensions,
+			...globals.jest,
+			...globals.worker,
+			...globals.wsh
+		}
 	},
 	rules: {
 		indent: ["error", "tab"],
@@ -33,7 +33,7 @@ export default [...compat.extends("eslint:recommended"), {
 			ignoreUrls: true,
 			ignoreStrings: true,
 			ignoreComments: true,
-			ignoreRegExpLiterals: true,
+			ignoreRegExpLiterals: true
 		}]
-	},
+	}
 }];
