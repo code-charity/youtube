@@ -5,7 +5,7 @@
   "main": "background.js",
   "scripts": {
     "test": "jest tests",
-    "lint": "eslint --ignore-path .gitignore"
+    "lint": "eslint --ignore-path tests/.gitignore"
   },
   "keywords": [],
   "author": "",

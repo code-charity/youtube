@@ -6,10 +6,10 @@
 	"version": "4.940",
 	"default_locale": "en",
 	"icons": {
-		"128": "stuff/icons/128.png",
-		"16": "stuff/icons/16.png",
-		"32": "stuff/icons/32.png",
-		"48": "stuff/icons/48.png"
+		"128": "menu/icons/128.png",
+		"16": "menu/icons/16.png",
+		"32": "menu/icons/32.png",
+		"48": "menu/icons/48.png"
 	},
 	"background": {
 		"service_worker": "background.js"
@@ -77,7 +77,7 @@
 				"js&css/web-accessible/www.youtube.com/blocklist.js",
 				"js&css/web-accessible/www.youtube.com/settings.js",
 				"js&css/web-accessible/init.js",
-				"stuff/icons/48.png"
+				"menu/icons/48.png"
 			],
 			"matches": [
 				"https://www.youtube.com/*"

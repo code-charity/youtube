@@ -6,10 +6,10 @@
 	"version": "4.937",
 	"default_locale": "en",
 	"icons": {							
-		"16": "stuff/icons/16.png",
-		"32": "stuff/icons/32.png",
-		"48": "stuff/icons/48.png",
-		"128": "stuff/icons/128.png"
+		"16": "menu/icons/16.png",
+		"32": "menu/icons/32.png",
+		"48": "menu/icons/48.png",
+		"128": "menu/icons/128.png"
 	},
 	"background": {
 		"scripts": [
