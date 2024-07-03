@@ -1,0 +1,18 @@
+{
+  "extends": ["eslint:recommended"],
+ "rules": {
+    "indent": [
+      "tab"
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 150,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreComments": true,
+        "ignoreRegExpLiterals": true
+      }
+    ]
+  }
+}
