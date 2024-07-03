@@ -487,7 +487,7 @@ ImprovedTube.shortcutCustomMiniPlayer = function () {
 /*------------------------------------------------------------------------------
 Loop
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcutToggleLoop = function (node) {
+ImprovedTube.shortcutToggleLoop = function () {
 	const video = this.elements.video,
 		player = this.elements.player;
 	function matchLoopState(opacity) {

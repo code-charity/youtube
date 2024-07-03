@@ -4,7 +4,7 @@
 /*------------------------------------------------------------------------------
 4.5.1 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
-ImprovedTube.playlistUpNextAutoplay = function (event) { if (this.storage.playlist_up_next_autoplay === false) {
+ImprovedTube.playlistUpNextAutoplay = function () { if (this.storage.playlist_up_next_autoplay === false) {
 	const playlistData = this.elements.ytd_watch?.playlistData;
 	if (this.getParam(location.href, 'list') && playlistData
 		&& playlistData.currentIndex
@@ -155,7 +155,7 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 	button.style.opacity = '0.8';
 	button.addEventListener(
 		'click', 
-		(checkVideo ?? false) ? function (event) {
+		(checkVideo ?? false) ? function () {
 			const videoURL = ImprovedTube.elements.player?.getVideoUrl();
 			let width = ImprovedTube.elements.player.offsetWidth * 0.7 ?? innerWidth * 0.4;
 			let height = ImprovedTube.elements.player.offsetHeight * 0.7 ?? innerHeight * 0.4;
@@ -182,7 +182,7 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 				height: height,
 				title: document.title
 			});
-		} : function (event) {
+		} : function () {
 			let width = ImprovedTube.elements.player.offsetWidth * 0.7 ?? innerWidth * 0.45;
 			let height = ImprovedTube.elements.player.offsetHeight * 0.7 ?? innerHeight * 0.45;
 					 if (!ImprovedTube.elements.player) { 		

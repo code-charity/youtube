@@ -26,14 +26,15 @@ export default [...compat.extends("eslint:recommended"), {
 	},
 	rules: {
 		indent: ["error", "tab"],
-
+		"no-empty": ["error", { "allowEmptyCatch": true }],
+		"no-unused-vars": ["error", { "caughtErrors": "none" }],
+		"no-undef": ["off"],
 		"max-len": ["error", {
 			code: 255,
 			ignoreUrls: true,
 			ignoreStrings: true,
 			ignoreComments: true,
 			ignoreRegExpLiterals: true,
-		}],
-		"no-undef": "off"
+		}]
 	},
 }];

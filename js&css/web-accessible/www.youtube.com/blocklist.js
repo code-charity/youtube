@@ -252,14 +252,12 @@ ImprovedTube.blocklistElementTypeHelper = function (node) {
 	case 'ytd-video-preview':
 		// subscriptions/search thumbnail video-preview
 		return node.parentNode.parentNode.parentNode;
-		break;
 
 	case 'ytd-grid-video-renderer':
 		// channel home screen grid
 	case 'ytd-reel-item-renderer':
 		// reel
 		return node.parentNode.parentNode;
-		break;
 
 	default:
 		// unknown ones land here

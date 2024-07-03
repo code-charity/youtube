@@ -312,7 +312,7 @@ ImprovedTube.playerOnPlay = function () {
 
 				this.removeEventListener('pause', ImprovedTube.playerOnPause, true);
 				this.addEventListener('pause', ImprovedTube.playerOnPause, true);
-				this.onpause = (event) => {
+				this.onpause = () => {
 					console.log('this.onpause');
 				};
 
@@ -363,7 +363,6 @@ var timeUpdateInterval = null;
 var noTimeUpdate = null;
 
 ImprovedTube.playerOnTimeUpdate = function() {
-	var currentTime = Date.now();
 	if (!timeUpdateInterval) {
 		timeUpdateInterval = setInterval(function() {
 			if (ImprovedTube.video_src !== this.src) {
@@ -430,7 +429,7 @@ ImprovedTube.onkeydown = function () {
 	}, true);
 };
 
-ImprovedTube.onmousedown = function (event) {									  
+ImprovedTube.onmousedown = function () {									  
 	window.addEventListener('mousedown', function (event) {	
 		if (!ImprovedTube.user_interacted) {
 			setTimeout(function(){ImprovedTube.user_interacted = true},3000);	

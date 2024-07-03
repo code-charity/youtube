@@ -885,7 +885,7 @@ satus.storage.clear = function(callback) {
 # GET
 --------------------------------------------------------------*/
 
-satus.storage.get = function(key, callback) {
+satus.storage.get = function(key) {
 	var target = this.data;
 
 	if (typeof key !== 'string') {

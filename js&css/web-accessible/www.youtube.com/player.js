@@ -169,7 +169,7 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 				)	{ player.setPlaybackRate(1); video.playbackRate = 1; console.log ("...,thus must be music?"); }		 				
 				else { 	// Now this video might rarely be music 
 					// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
-					var tries = 0; 	var intervalMs = 210;  	if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}  	
+					var tries = 0; 	var intervalMs = 210; var maxTries; 	if (location.href.indexOf('/watch?') !== -1) {maxTries = 10;} else {maxTries = 0;}  	
 					// ...except when it is an embedded player?
 					var waitForDescription = setInterval(() => { 	
 						if (++tries >= maxTries) {  
@@ -556,7 +556,7 @@ ImprovedTube.playerVolume = function () {
 /*------------------------------------------------------------------------------
 LOUDNESS NORMALIZATION
 ------------------------------------------------------------------------------*/
-ImprovedTube.onvolumechange = function (event) {
+ImprovedTube.onvolumechange = function () {
 	if (document.querySelector('.ytp-volume-panel') && ImprovedTube.storage.player_loudness_normalization === false) {
 		var volume = Number(document.querySelector('.ytp-volume-panel').getAttribute('aria-valuenow'));
 
@@ -577,7 +577,7 @@ ImprovedTube.playerLoudnessNormalization = function () {
 			var local_storage = localStorage['yt-player-volume'];
 
 			if (this.isset(Number(this.storage.player_volume)) && this.storage.player_forced_volume === true) {
-
+				return;
 			} else if (local_storage) {
 				local_storage = JSON.parse(JSON.parse(local_storage).data);
 
@@ -693,7 +693,7 @@ ImprovedTube.playerRepeat = function () {
 /*------------------------------------------------------------------------------
 REPEAT BUTTON
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerRepeatButton = function (node) {
+ImprovedTube.playerRepeatButton = function () {
 	if (this.storage.player_repeat_button === true) {
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -1310,7 +1310,7 @@ ImprovedTube.miniPlayer_cursorUpdate = function (event) {
 	}
 };
 
-ImprovedTube.miniPlayer_resize = function (event) {
+ImprovedTube.miniPlayer_resize = function () {
 	if (ImprovedTube.mini_player__cursor !== '') {
 		window.removeEventListener('mousemove', ImprovedTube.miniPlayer_cursorUpdate);
 		window.addEventListener('mouseup', ImprovedTube.miniPlayer_resizeMouseUp);
@@ -1345,7 +1345,7 @@ ImprovedTube.miniPlayer_resizeMouseMove = function (event) {
 	}
 };
 
-ImprovedTube.miniPlayer_resizeMouseUp = function (event) {
+ImprovedTube.miniPlayer_resizeMouseUp = function () {
 	var bcr = ImprovedTube.elements.player.getBoundingClientRect();
 
 	ImprovedTube.mini_player__x = bcr.left;
