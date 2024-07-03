@@ -885,7 +885,7 @@ satus.storage.clear = function(callback) {
 # GET
 --------------------------------------------------------------*/
 
-satus.storage.get = function(key, callback) {
+satus.storage.get = function(key) {
 	var target = this.data;
 
 	if (typeof key !== 'string') {
@@ -1055,12 +1055,12 @@ satus.locale.import = function(code, callback, path) {
 		fetch(url)
 			.then(response => response.ok ? response.json() : {})
 			.then(data => {
-			for (var key in data) {
-				if (!satus.locale.data[key]) {
-					satus.locale.data[key] = data[key].message;
+				for (var key in data) {
+					if (!satus.locale.data[key]) {
+						satus.locale.data[key] = data[key].message;
+					}
 				}
-			}
-		})
+			})
 			.catch(() => {})
 			.finally(() => successCallback && successCallback());
 	}
@@ -1140,33 +1140,33 @@ satus.components.modal = function(component, skeleton) {
 	component.scrim.addEventListener('click', function() {
 		// this is someone clicking outside of modal dialog
 		switch (skeleton.variant) {
-			case 'confirm':
-				if (skeleton.buttons?.cancel) {
-					// modal.confirm.buttons variant have own closing mechanism, lets try to click cancel button
-					if (skeleton.buttons.cancel?.rendered?.click && satus.isFunction(skeleton.buttons.cancel.rendered.click)) {
-						skeleton.buttons.cancel.rendered.click();
-					} else {
-						// cant find cancel button, just force close it
-						this.parentNode.close();
-					}
+		case 'confirm':
+			if (skeleton.buttons?.cancel) {
+				// modal.confirm.buttons variant have own closing mechanism, lets try to click cancel button
+				if (skeleton.buttons.cancel?.rendered?.click && satus.isFunction(skeleton.buttons.cancel.rendered.click)) {
+					skeleton.buttons.cancel.rendered.click();
 				} else {
-					// modal.confirm simplified variant, try optional cancel() then close()
-					if (skeleton.cancel && satus.isFunction(skeleton.cancel)) {
-						skeleton.cancel();
-					}
+					// cant find cancel button, just force close it
 					this.parentNode.close();
 				}
-				break;
-
-			case 'vertical-menu':
+			} else {
+				// modal.confirm simplified variant, try optional cancel() then close()
+				if (skeleton.cancel && satus.isFunction(skeleton.cancel)) {
+					skeleton.cancel();
+				}
 				this.parentNode.close();
-				break;
+			}
+			break;
+
+		case 'vertical-menu':
+			this.parentNode.close();
+			break;
 				
-			case 'shortcut':
-			case 'color-picker':
+		case 'shortcut':
+		case 'color-picker':
 			// click cancel button
-				skeleton.actions.cancel.rendered.click();
-				break;
+			skeleton.actions.cancel.rendered.click();
+			break;
 		}
 	});
 
@@ -2526,23 +2526,23 @@ satus.components.switch = function(component, skeleton) {
 
 satus.components.switch.flip = function(val) {
 	switch(val) {
-		case true:
-			this.dataset.value = 'true';
-			this.storage.value = true;
-			break;
-		case false:
+	case true:
+		this.dataset.value = 'true';
+		this.storage.value = true;
+		break;
+	case false:
+		this.dataset.value = 'false';
+		this.storage.value = false;
+		break;
+	case undefined:
+		if (this.dataset.value === 'true') {
 			this.dataset.value = 'false';
 			this.storage.value = false;
-			break;
-		case undefined:
-			if (this.dataset.value === 'true') {
-				this.dataset.value = 'false';
-				this.storage.value = false;
-			} else {
-				this.dataset.value = 'true';
-				this.storage.value = true;
-			}
-			break;
+		} else {
+			this.dataset.value = 'true';
+			this.storage.value = true;
+		}
+		break;
 	}
 };
 /*--------------------------------------------------------------

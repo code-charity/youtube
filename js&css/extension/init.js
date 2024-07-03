@@ -180,34 +180,34 @@ document.addEventListener('it-message-from-youtube', function () {
 			}
 
 			switch(message.type) {
-				case 'channel':
-					if (!extension.storage.data.blocklist.channels || typeof extension.storage.data.blocklist.channels !== 'object') {
-						extension.storage.data.blocklist.channels = {};
+			case 'channel':
+				if (!extension.storage.data.blocklist.channels || typeof extension.storage.data.blocklist.channels !== 'object') {
+					extension.storage.data.blocklist.channels = {};
+				}
+				if (message.added) {
+					extension.storage.data.blocklist.channels[message.id] = {
+						title: message.title,
+						preview: message.preview,
+						when: message.when
 					}
-					if (message.added) {
-						extension.storage.data.blocklist.channels[message.id] = {
-							title: message.title,
-							preview: message.preview,
-							when: message.when
-						}
-					} else {
-						delete extension.storage.data.blocklist.channels[message.id];
-					}
-					break
+				} else {
+					delete extension.storage.data.blocklist.channels[message.id];
+				}
+				break
 
-				case 'video':
-					if (!extension.storage.data.blocklist.videos || typeof extension.storage.data.blocklist.videos !== 'object') {
-						extension.storage.data.blocklist.videos = {};
+			case 'video':
+				if (!extension.storage.data.blocklist.videos || typeof extension.storage.data.blocklist.videos !== 'object') {
+					extension.storage.data.blocklist.videos = {};
+				}
+				if (message.added) {
+					extension.storage.data.blocklist.videos[message.id] = {
+						title: message.title,
+						when: message.when
 					}
-					if (message.added) {
-						extension.storage.data.blocklist.videos[message.id] = {
-							title: message.title,
-							when: message.when
-						}
-					} else {
-						delete extension.storage.data.blocklist.videos[message.id];
-					}
-					break
+				} else {
+					delete extension.storage.data.blocklist.videos[message.id];
+				}
+				break
 			}
 
 			chrome.storage.local.set({
@@ -244,5 +244,5 @@ document.addEventListener('it-message-from-youtube', function () {
 document.addEventListener('it-play', function (event) {
 	var videos = document.querySelectorAll('video');
 	 try {chrome.runtime.sendMessage({action: 'play'})} 
-       catch(error){console.log(error); setTimeout(function () { try { chrome.runtime.sendMessage({action: 'play'}, function (response) { console.log(response) } );  } catch { } }, 321) }
+	catch(error){console.log(error); setTimeout(function () { try { chrome.runtime.sendMessage({action: 'play'}, function (response) { console.log(response) } );  } catch { } }, 321) }
 	   });

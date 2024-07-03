@@ -13,7 +13,7 @@ ImprovedTube.blocklistNode = function (node) {
 	// YT reuses Thumbnail cells dynamically, need to monitor all created Thumbnail links and dynamically apply/remove 'it-blocklisted-*' classes
 	if (!this.elements.observerList.includes(node)) {
 		this.blocklistObserver.observe(node, {attributes: true,
-											attributeFilter: ['href']});
+			attributeFilter: ['href']});
 		// keeping a list to attach only one observer per tracked element
 		this.elements.observerList.push(node);
 	}
@@ -77,12 +77,12 @@ ImprovedTube.blocklistNode = function (node) {
 
 			// this message will trigger 'storage-changed' event and eventually blocklistInit() full rescan
 			ImprovedTube.messages.send({action: 'blocklist',
-										added: added,
-										type: type,
-										id: type == 'channel' ? channel : video,
-										title: title,
-										when: Date.parse(new Date().toDateString()) / 100000
-										});
+				added: added,
+				type: type,
+				id: type == 'channel' ? channel : video,
+				title: title,
+				when: Date.parse(new Date().toDateString()) / 100000
+			});
 		}
 	});
 
@@ -128,13 +128,13 @@ ImprovedTube.blocklistChannel = function (node) {
 
 		// this message will trigger 'storage-changed' event and eventually blocklistInit() full rescan
 		ImprovedTube.messages.send({action: 'blocklist',
-									added: !ImprovedTube.storage.blocklist.channels[id],
-									type: 'channel',
-									id: id,
-									title: title,
-									preview: preview,
-									when: Date.parse(new Date().toDateString()) / 100000
-									});
+			added: !ImprovedTube.storage.blocklist.channels[id],
+			type: 'channel',
+			id: id,
+			title: title,
+			preview: preview,
+			when: Date.parse(new Date().toDateString()) / 100000
+		});
 	};
 
 	node.parentNode.parentNode.appendChild(button);
@@ -229,40 +229,38 @@ ImprovedTube.blocklistObserver = new MutationObserver(function (mutationList) {
 
 ImprovedTube.blocklistElementTypeHelper = function (node) {
 	switch(node.parentNode.className.replace('style-scope ','')) {
-		case 'ytd-compact-video-renderer':
-			// list next to player
-			// node.parentNode.__dataHost.$.dismissible;
-		case 'ytd-rich-item-renderer':
-			// short reel
-		case 'ytd-rich-grid-media':
-			// grid reel
-		case 'ytd-rich-grid-slim-media':
-			// short grid reel
-		case 'ytd-playlist-video-renderer':
-			// playlist page
-		case 'ytd-playlist-panel-video-renderer':
-			// playlist next to player
-			// node.parentNode.closest('ytd-playlist-panel-video-renderer')
-		case 'ytd-structured-description-video-lockup-renderer':
-			// list under the player
-			// node.parentNode.closest('ytd-structured-description-video-lockup-renderer')
-			// or even node.parentNode.closest('ytd-compact-infocard-renderer') === node.parentNode.parentNode.parentNode.parentNode
-		case 'ytd-video-renderer':
-			// search results
-		case 'ytd-video-preview':
-			// subscriptions/search thumbnail video-preview
-			return node.parentNode.parentNode.parentNode;
-			break;
+	case 'ytd-compact-video-renderer':
+		// list next to player
+		// node.parentNode.__dataHost.$.dismissible;
+	case 'ytd-rich-item-renderer':
+		// short reel
+	case 'ytd-rich-grid-media':
+		// grid reel
+	case 'ytd-rich-grid-slim-media':
+		// short grid reel
+	case 'ytd-playlist-video-renderer':
+		// playlist page
+	case 'ytd-playlist-panel-video-renderer':
+		// playlist next to player
+		// node.parentNode.closest('ytd-playlist-panel-video-renderer')
+	case 'ytd-structured-description-video-lockup-renderer':
+		// list under the player
+		// node.parentNode.closest('ytd-structured-description-video-lockup-renderer')
+		// or even node.parentNode.closest('ytd-compact-infocard-renderer') === node.parentNode.parentNode.parentNode.parentNode
+	case 'ytd-video-renderer':
+		// search results
+	case 'ytd-video-preview':
+		// subscriptions/search thumbnail video-preview
+		return node.parentNode.parentNode.parentNode;
 
-		case 'ytd-grid-video-renderer':
-			// channel home screen grid
-		case 'ytd-reel-item-renderer':
-			// reel
-			return node.parentNode.parentNode;
-			break;
+	case 'ytd-grid-video-renderer':
+		// channel home screen grid
+	case 'ytd-reel-item-renderer':
+		// reel
+		return node.parentNode.parentNode;
 
-		default:
-			// unknown ones land here
-			break;
+	default:
+		// unknown ones land here
+		break;
 	}
 };
