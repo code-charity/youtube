@@ -10,9 +10,9 @@ ImprovedTube.playlistUpNextAutoplay = function (event) { if (this.storage.playli
 		&& playlistData.currentIndex
 		&& playlistData.totalVideos
 		&& playlistData.localCurrentIndex) {
-			playlistData.currentIndex = playlistData.totalVideos;
-		} 
-	}
+		playlistData.currentIndex = playlistData.totalVideos;
+	} 
+}
 };
 /*------------------------------------------------------------------------------
 4.5.2 REVERSE
@@ -95,15 +95,15 @@ ImprovedTube.playlistReverse = function () {
 ImprovedTube.playlistRepeat = function () {
 	if ( ImprovedTube.storage.playlist_repeat === true ) { 
 	    setTimeout(function (){
-		var option = ImprovedTube.storage.playlist_repeat,
-		button = document.querySelector("#button.ytd-playlist-loop-button-renderer") || document.querySelector("ytd-playlist-loop-button-renderer button") || document.querySelector("ytd-playlist-loop-button-renderer");
-	if (button && (option === true && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M21')
-	) && button.querySelector("#tooltip")?.textContent !== 'Loop video' 
+			var option = ImprovedTube.storage.playlist_repeat,
+				button = document.querySelector("#button.ytd-playlist-loop-button-renderer") || document.querySelector("ytd-playlist-loop-button-renderer button") || document.querySelector("ytd-playlist-loop-button-renderer");
+			if (button && (option === true && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M21')
+			) && button.querySelector("#tooltip")?.textContent !== 'Loop video' 
 	  && button.firstElementChild?.firstElementChild?.attributes[2]?.textContent !== 'Loop video'  
 	  && button.querySelector("#tooltip")?.textContent !== 'Turn off loop' 
 	  && button.firstElementChild?.firstElementChild?.attributes[2]?.textContent !== 'Turn off loop' 
-	)  
-	{ button.click(); } 
+			)  
+			{ button.click(); } 
 		}, 10000);
 	}
 };
@@ -116,12 +116,12 @@ ImprovedTube.playlistRepeat = function () {
 ImprovedTube.playlistShuffle = function () {
 	if ( ImprovedTube.storage.playlist_shuffle === true ) { 
 		setTimeout(function (){
-		var button = ImprovedTube.elements.playlist.shuffle_button,
-		option = ImprovedTube.storage.playlist_shuffle;
-		button = document.querySelector('#playlist-actions #playlist-action-menu ytd-toggle-button-renderer');
-	if (button && (option === true && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M18.1')
-	) 	)  
-	{ button.click(); } 
+			var button = ImprovedTube.elements.playlist.shuffle_button,
+				option = ImprovedTube.storage.playlist_shuffle;
+			button = document.querySelector('#playlist-actions #playlist-action-menu ytd-toggle-button-renderer');
+			if (button && (option === true && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M18.1')
+			) 	)  
+			{ button.click(); } 
 		}, 10000);
 	}
 };
@@ -186,10 +186,10 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 			let width = ImprovedTube.elements.player.offsetWidth * 0.7 ?? innerWidth * 0.45;
 			let height = ImprovedTube.elements.player.offsetHeight * 0.7 ?? innerHeight * 0.45;
 					 if (!ImprovedTube.elements.player) { 		
-							shorts = /short/.test(this.parentElement.href); 
-							if (  width / height  < 1 ) { vertical = true }  else { vertical = false }
-							if ( !vertical &&  shorts ){ width = height * 0.6}
-							if (  vertical && !shorts ){ height = width * 0.6}		}
+				shorts = /short/.test(this.parentElement.href); 
+				if (  width / height  < 1 ) { vertical = true }  else { vertical = false }
+				if ( !vertical &&  shorts ){ width = height * 0.6}
+				if (  vertical && !shorts ){ height = width * 0.6}		}
 			"use strict";
 			window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${ImprovedTube.storage.player_autoplay_disable ? '0' : '1'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
 			//~ change focused tab to URL-less popup
@@ -226,25 +226,25 @@ ImprovedTube.playlistPopupUpdate = function () {
 	"use strict";
 	if (this.storage.playlist_popup === true){
 
-	const playlistID = location.search.match(this.regex.playlist_id)?.[1],
-		playlistIDMini = this.elements.player?.getPlaylistId?.();
+		const playlistID = location.search.match(this.regex.playlist_id)?.[1],
+			playlistIDMini = this.elements.player?.getPlaylistId?.();
 
-	if (!document.contains(this.elements.buttons['it-popup-playlist-button-playlist'])) {
-		const playlistShareButton = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-browse>ytd-playlist-header-renderer ytd-button-renderer.ytd-playlist-header-renderer:has(button[title])');
-		if (playlistShareButton == null) this.elements.buttons['it-popup-playlist-button-playlist'] = null;
-		else playlistShareButton.insertAdjacentElement('afterend', this.elements.buttons['it-popup-playlist-button-playlist'] = this.playlistPopupCreateButton(playlistID));
-	} else if (playlistID != null && this.elements.buttons['it-popup-playlist-button-playlist'].dataset.list !== playlistID) this.elements.buttons['it-popup-playlist-button-playlist'].dataset.list = playlistID;
+		if (!document.contains(this.elements.buttons['it-popup-playlist-button-playlist'])) {
+			const playlistShareButton = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-browse>ytd-playlist-header-renderer ytd-button-renderer.ytd-playlist-header-renderer:has(button[title])');
+			if (playlistShareButton == null) this.elements.buttons['it-popup-playlist-button-playlist'] = null;
+			else playlistShareButton.insertAdjacentElement('afterend', this.elements.buttons['it-popup-playlist-button-playlist'] = this.playlistPopupCreateButton(playlistID));
+		} else if (playlistID != null && this.elements.buttons['it-popup-playlist-button-playlist'].dataset.list !== playlistID) this.elements.buttons['it-popup-playlist-button-playlist'].dataset.list = playlistID;
 
-	if (!document.contains(this.elements.buttons['it-popup-playlist-button-mini'])) {
-		const miniItemButtons = document.body.querySelector('ytd-app>ytd-miniplayer ytd-playlist-panel-renderer div#top-level-buttons-computed');
-		if (miniItemButtons == null) this.elements.buttons['it-popup-playlist-button-mini'] = null;
-		else miniItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-mini'] = this.playlistPopupCreateButton(playlistIDMini, true, true));
-	} else if (playlistIDMini != null && this.elements.buttons['it-popup-playlist-button-mini'].dataset.list !== playlistIDMini) this.elements.buttons['it-popup-playlist-button-mini'].dataset.list = playlistIDMini;
-try {
-	if (!document.contains(this.elements.buttons['it-popup-playlist-button-panel'])) {
-		const panelItemButtons = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-watch-flexy ytd-playlist-panel-renderer div#top-level-buttons-computed');
-		if (panelItemButtons == null) this.elements.buttons['it-popup-playlist-button-panel'] = null;
-		else panelItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-panel'] = this.playlistPopupCreateButton(playlistID, true, true));
-	} else if (playlistID != null && this.elements.buttons['it-popup-playlist-button-panel'].dataset.list !== playlistID) this.elements.buttons['it-popup-playlist-button-panel'].dataset.list = playlistID;
-} catch (error) {    console.error("Error appending playlist button panel:", error);}
-}};
+		if (!document.contains(this.elements.buttons['it-popup-playlist-button-mini'])) {
+			const miniItemButtons = document.body.querySelector('ytd-app>ytd-miniplayer ytd-playlist-panel-renderer div#top-level-buttons-computed');
+			if (miniItemButtons == null) this.elements.buttons['it-popup-playlist-button-mini'] = null;
+			else miniItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-mini'] = this.playlistPopupCreateButton(playlistIDMini, true, true));
+		} else if (playlistIDMini != null && this.elements.buttons['it-popup-playlist-button-mini'].dataset.list !== playlistIDMini) this.elements.buttons['it-popup-playlist-button-mini'].dataset.list = playlistIDMini;
+		try {
+			if (!document.contains(this.elements.buttons['it-popup-playlist-button-panel'])) {
+				const panelItemButtons = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-watch-flexy ytd-playlist-panel-renderer div#top-level-buttons-computed');
+				if (panelItemButtons == null) this.elements.buttons['it-popup-playlist-button-panel'] = null;
+				else panelItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-panel'] = this.playlistPopupCreateButton(playlistID, true, true));
+			} else if (playlistID != null && this.elements.buttons['it-popup-playlist-button-panel'].dataset.list !== playlistID) this.elements.buttons['it-popup-playlist-button-panel'].dataset.list = playlistID;
+		} catch (error) {    console.error("Error appending playlist button panel:", error);}
+	}};

@@ -21,15 +21,7 @@ export default [...compat.extends("eslint:recommended"), {
 		  ...globals.webextensions,
 		  ...globals.jest,
 		  ...globals.worker,
-		  ...globals.wsh,
-		  "ImprovedTube" : false,
-		  "satus": false,
-		  "extension": false,
-		  "loading": false,
-		  "vertical": false,
-		  "shorts": false,
-		  "DATA": false,
-		  "keywords": false
+		  ...globals.wsh
 		},
 	},
 	rules: {
