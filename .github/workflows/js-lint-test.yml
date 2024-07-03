@@ -5,7 +5,7 @@ on:
     branches:
       - master
       - 'feature/*'
-      - eslint
+      - ESlint
   pull_request:
     branches:
       - master
