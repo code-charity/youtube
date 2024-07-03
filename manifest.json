@@ -3,7 +3,7 @@
 	"short_name": "ImprovedTube",
 	"name": "'Improve YouTube!' 🎧 (for YouTube & Videos)",
 	"description": "__MSG_description_ext__",
-	"version": "4.940",
+	"version": "4.1070",
 	"default_locale": "en",
 	"icons": {
 		"128": "menu/icons/128.png",
@@ -11,9 +11,10 @@
 		"32": "menu/icons/32.png",
 		"48": "menu/icons/48.png"
 	},
-	"background": {
-		"service_worker": "background.js"
-	},
+  	"background": {
+    		"background.scripts": "background.js",
+    		"scripts": [ "background.js" ]
+  	},
 	"action": {
 		"default_popup": "menu/index.html",
 		"default_area": "navbar"
