@@ -4,13 +4,21 @@
   "description": "",
   "main": "background.js",
   "scripts": {
-    "test": "jest tests"
+    "test": "jest tests",
+    "lint": "eslint --ignore-path .gitignore"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/eslintrc": "latest",
+    "@eslint/js": "latest",
+    "eslint": "^9.6.0",
+    "globals": "latest",
     "jest": "^29.7.0",
     "jslint": "^0.12.1"
+  },
+  "dependencies": {
+    "@eslint/migrate-config": "^1.1.1"
   }
 }
