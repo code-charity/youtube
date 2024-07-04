@@ -572,7 +572,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						component: 'select',
 						text: 'fontSize',
 						options: [{
-							text: '100%',
+						text: '100%',
 							value: 0
 						}, {								
 							text: '75%',
@@ -757,11 +757,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			},
 			on: {
 				render: function () {
-					extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
+						extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
 				}
 			}
 		},
-		/*
+/*
 	qualityWhenRunningOnBattery: {
 			component: 'select',
 			text: 'qualityWhenRunningOnBattery',

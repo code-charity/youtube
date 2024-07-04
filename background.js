@@ -253,38 +253,38 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	//console.log(sender);
 
 	switch(message.action || message.name || message) {
-	case 'play':
-		tabPrune(function () {
-			for (let id in tabConnected) {
-				id = Number(id);
-				if (id != sender.tab.id) {
-					chrome.tabs.sendMessage(id, {action: "another-video-started-playing"});
+		case 'play':
+			tabPrune(function () {
+				for (let id in tabConnected) {
+					id = Number(id);
+					if (id != sender.tab.id) {
+						chrome.tabs.sendMessage(id, {action: "another-video-started-playing"});
+					}
 				}
-			}
-		});
-		break
+			});
+			break
 
-	case 'options-page-connected':
-		sendResponse({
-			isTab: sender.hasOwnProperty('tab')
-		});
-		break
+		case 'options-page-connected':
+			sendResponse({
+				isTab: sender.hasOwnProperty('tab')
+			});
+			break
 
-	case 'tab-connected':
-		tabConnected[sender.tab.id] = true;
-		sendResponse({
-			tabId: sender.tab.id
-		});
-		break
+		case 'tab-connected':
+			tabConnected[sender.tab.id] = true;
+			sendResponse({
+				tabId: sender.tab.id
+			});
+			break
 
-	case 'fixPopup':
-		//~ get the current focused tab and convert it to a URL-less popup (with same state and size)
-		chrome.windows.getLastFocused(w => {
-			chrome.tabs.query({
-				windowId: w.id,
-				active: true
-			}, ts => {
-				const tID = ts[0]?.id,
+		case 'fixPopup':
+			//~ get the current focused tab and convert it to a URL-less popup (with same state and size)
+			chrome.windows.getLastFocused(w => {
+				chrome.tabs.query({
+					windowId: w.id,
+					active: true
+				}, ts => {
+					const tID = ts[0]?.id,
 						  data = { type: 'popup',
 								  state: w.state,
 								  width: parseInt(message.width, 10),
@@ -293,42 +293,42 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 								  top: 20
 								 }
 
-				if (tID) {data.tabId = tID;}
-				chrome.windows.create(data, pw => {});
+					if (tID) {data.tabId = tID;}
+					chrome.windows.create(data, pw => {});
 
-				//append to title?
-				chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {
-					if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")) {
-						chrome.tabs.onUpdated.removeListener(listener);
-						chrome.scripting.executeScript({ target: { tabId: tID }, func: () => { document.title = `${message.title} - ImprovedTube`; } });			//manifest3
-						// chrome.tabs.executeScript(tID, {code: `document.title = "${message.title} - ImprovedTube";`});  //manifest2
-					}
+					//append to title?
+					chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {
+						if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")) {
+							chrome.tabs.onUpdated.removeListener(listener);
+							chrome.scripting.executeScript({ target: { tabId: tID }, func: () => { document.title = `${message.title} - ImprovedTube`; } });			//manifest3
+							// chrome.tabs.executeScript(tID, {code: `document.title = "${message.title} - ImprovedTube";`});  //manifest2
+						}
+					});
 				});
 			});
-		});
-		break
-	case 'download':
-		chrome.permissions.request({
-			permissions: ['downloads'],
-			origins: ['https://www.youtube.com/*']
-		}, function (granted) {
-			if (granted) {
-				try {
-					var blob = new Blob([JSON.stringify(message.value)], {
-						type: 'application/json;charset=utf-8'
-					});
-					chrome.downloads.download({
-						url: URL.createObjectURL(blob),
-						filename: message.filename,
-						saveAs: true
-					});
-				} catch (error) {
-					console.error(error);
-				}
-			} else {
-				console.error('Permission is not granted.');
-			}})
-		break
+			break
+		case 'download':
+			chrome.permissions.request({
+				permissions: ['downloads'],
+				origins: ['https://www.youtube.com/*']
+			}, function (granted) {
+				if (granted) {
+					try {
+						var blob = new Blob([JSON.stringify(message.value)], {
+							type: 'application/json;charset=utf-8'
+						});
+						chrome.downloads.download({
+							url: URL.createObjectURL(blob),
+							filename: message.filename,
+							saveAs: true
+						});
+					} catch (error) {
+						console.error(error);
+					}
+				} else {
+					console.error('Permission is not granted.');
+				}})
+			break
 	}
 });
 /*-----# UNINSTALL URL-----------------------------------*/

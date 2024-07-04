@@ -80,7 +80,7 @@ ImprovedTube.playerAutoPip = function () {
 				console.error('Failed to enter Picture-in-Picture mode', error);
 			  }
 		  })();
-	}
+		}
 };
 /*------------------------------------------------------------------------------
 PLAYBACK SPEED
@@ -112,52 +112,52 @@ ImprovedTube.playbackSpeed = function (newSpeed) {
 FORCED PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed === true) {
-	var player = this.elements.player,
+		var player = this.elements.player,
 		video = player.querySelector('video'),
 		option = this.storage.player_playback_speed;
-	if (this.isset(option) === false) { option = 1; }
-	else if ( option !== 1 && video.playbackRate !== option && (video.playbackRate > 1  ||  video.playbackRate < 1) ) 
+		if (this.isset(option) === false) { option = 1; }
+		else if ( option !== 1 && video.playbackRate !== option && (video.playbackRate > 1  ||  video.playbackRate < 1) ) 
 		   { console.log("skipping permanent speed, since speed was manually set differently for this video to:" + video.playbackRate); return; }
-	if ( !player.getVideoData().isLive || player.getVideoData().isLive === false)
-	{ player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);  // #1729 q2	// hi! @raszpl
-		if  ( (this.storage.player_force_speed_on_music !== true  || this.storage.player_dont_speed_education === true) 
+		if ( !player.getVideoData().isLive || player.getVideoData().isLive === false)
+{ player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);  // #1729 q2	// hi! @raszpl
+	if  ( (this.storage.player_force_speed_on_music !== true  || this.storage.player_dont_speed_education === true) 
 		 	&& option !== 1) {
-			ImprovedTube.speedException = function () { 
-				if (this.storage.player_dont_speed_education === true && DATA.genre === 'Education') 
-				{player.setPlaybackRate(Number(1));	video.playbackRate = Number(1); return;} 
-				if (this.storage.player_force_speed_on_music === true) 
-				{ //player.setPlaybackRate(Number(option));	video.playbackRate = Number(option); 
+ImprovedTube.speedException = function () { 
+if (this.storage.player_dont_speed_education === true && DATA.genre === 'Education') 
+	{player.setPlaybackRate(Number(1));	video.playbackRate = Number(1); return;} 
+if (this.storage.player_force_speed_on_music === true) 
+	{ //player.setPlaybackRate(Number(option));	video.playbackRate = Number(option); 
 	 return;}
-				if (DATA.keywords && !keywords) { keywords = DATA.keywords.join(', ') || ''; }
-				if (keywords === 'video, sharing, camera phone, video phone, free, upload') { keywords = ''; }
-				var musicIdentifiers = /(official|music|lyrics?)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
-				var musicIdentifiersTitleOnly = /lyrics|theme song|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i;
-				var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + '|' + musicIdentifiers.source, "i");		
-				var musicRegexMatch = musicIdentifiersTitle.test(DATA.title);
-				if (!musicRegexMatch) { 
-					var musicIdentifiersTagsOnly = /, (lyrics|remix|song|music|AMV|theme song|full song),|\(Musical Genre\)|, jazz|, reggae/i; 	
-					var musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + '|' + musicIdentifiers.source, "i");	
+if (DATA.keywords && !keywords) { keywords = DATA.keywords.join(', ') || ''; }
+if (keywords === 'video, sharing, camera phone, video phone, free, upload') { keywords = ''; }
+var musicIdentifiers = /(official|music|lyrics?)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
+var musicIdentifiersTitleOnly = /lyrics|theme song|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i;
+var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + '|' + musicIdentifiers.source, "i");		
+var musicRegexMatch = musicIdentifiersTitle.test(DATA.title);
+	if (!musicRegexMatch) { 
+		var musicIdentifiersTagsOnly = /, (lyrics|remix|song|music|AMV|theme song|full song),|\(Musical Genre\)|, jazz|, reggae/i; 	
+		var musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + '|' + musicIdentifiers.source, "i");	
 				  keywordsAmount = 1 + ((keywords || '').match(/,/) || []).length;
-					if ( ((keywords || '').match(musicIdentifiersTags) || []).length / keywordsAmount > 0.08) {
-						musicRegexMatch = true}}			
-				notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(DATA.title + " " + keywords);							 
-				// (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
-				if (DATA.duration) { 
-					function parseDuration(duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0); 
-						return h * 3600 + m * 60 + s; } 			
-					DATA.lengthSeconds = parseDuration(DATA.duration); 	}
-				function testSongDuration(s, ytMusic) { 
-					if (135 <= s && s <= 260) {return 'veryCommon';}
-					if (105 <= s && s <= 420) {return 'common';}
-					if (420 <= s && s <= 720) {return 'long';}	
-					if  (45 <= s && s <= 105) {return 'short';}	  
-					if (ytMusic && ytMusic > 1 && (85 <= s / ytMusic && (s / ytMusic <= 375 || ytMusic == 10))) {return 'multiple';}
+		if ( ((keywords || '').match(musicIdentifiersTags) || []).length / keywordsAmount > 0.08) {
+	musicRegexMatch = true}}			
+notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(DATA.title + " " + keywords);							 
+					// (Tags/keywords shouldnt lie & very few songs titles might have these words)  	
+ if (DATA.duration) { 
+	function parseDuration(duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0); 
+			return h * 3600 + m * 60 + s; } 			
+	DATA.lengthSeconds = parseDuration(DATA.duration); 	}
+	function testSongDuration(s, ytMusic) { 
+				if (135 <= s && s <= 260) {return 'veryCommon';}
+				if (105 <= s && s <= 420) {return 'common';}
+				if (420 <= s && s <= 720) {return 'long';}	
+				if  (45 <= s && s <= 105) {return 'short';}	  
+				if (ytMusic && ytMusic > 1 && (85 <= s / ytMusic && (s / ytMusic <= 375 || ytMusic == 10))) {return 'multiple';}
 				//does Youtube ever show more than 10 songs below the description?
 				}				
-				var songDurationType = testSongDuration(DATA.lengthSeconds); 
-				console.log("genre: " + DATA.genre + "//title: " +  DATA.title + "//keywords: " + keywords + "//music word match: " +  musicRegexMatch + "// not music word match:" + notMusicRegexMatch + "//duration: " + DATA.lengthSeconds + "//song duration type: " +  songDurationType);			
-				// check if the video is PROBABLY MUSIC:
-				if  ( 		( DATA.genre === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))  
+var songDurationType = testSongDuration(DATA.lengthSeconds); 
+console.log("genre: " + DATA.genre + "//title: " +  DATA.title + "//keywords: " + keywords + "//music word match: " +  musicRegexMatch + "// not music word match:" + notMusicRegexMatch + "//duration: " + DATA.lengthSeconds + "//song duration type: " +  songDurationType);			
+ // check if the video is PROBABLY MUSIC:
+	if  ( 		( DATA.genre === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))  
 			||  ( musicRegexMatch && !notMusicRegexMatch && (typeof songDurationType !== 'undefined' 
 						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(DATA.title + " " + keywords) 
 							&& 1000 <= DATA.lengthSeconds )) ) // && 1150 <= DATA.lengthSeconds <= 5000
@@ -166,73 +166,73 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 							&& 1000 <= DATA.lengthSeconds )) ) // && DATA.lengthSeconds <= 5000
 			||  (amountOfSongs && testSongDuration(DATA.lengthSeconds, amountOfSongs ) !== 'undefined') 				
 		 //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
-				)	{ player.setPlaybackRate(1); video.playbackRate = 1; console.log ("...,thus must be music?"); }		 				
-				else { 	// Now this video might rarely be music 
+		)	{ player.setPlaybackRate(1); video.playbackRate = 1; console.log ("...,thus must be music?"); }		 				
+			else { 	// Now this video might rarely be music 
 					// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
-					var tries = 0; 	var intervalMs = 210; var maxTries; 	if (location.href.indexOf('/watch?') !== -1) {maxTries = 10;} else {maxTries = 0;}  	
-					// ...except when it is an embedded player?
+					var tries = 0; 	var intervalMs = 210;  	if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}  	
+														// ...except when it is an embedded player?
 					var waitForDescription = setInterval(() => { 	
-						if (++tries >= maxTries) {  
-							subtitle = document.querySelector('#title + #subtitle:last-of-type')
-							if ( subtitle && 1 <= Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0])	// indicates buyable/registered music (amount of songs)
+					if (++tries >= maxTries) {  
+					subtitle = document.querySelector('#title + #subtitle:last-of-type')
+					if ( subtitle && 1 <= Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0])	// indicates buyable/registered music (amount of songs)
 						 && typeof testSongDuration(DATA.lengthSeconds, Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0]) ) !== 'undefined' ) // resonable duration
 							{player.setPlaybackRate(1); video.playbackRate = 1; console.log("...but YouTube shows music below the description!"); clearInterval(waitForDescription); } 			
-							intervalMs *= 1.11;	}}, intervalMs);   							
+					intervalMs *= 1.11;	}}, intervalMs);   							
 					window.addEventListener('load', () => { setTimeout(() => { clearInterval(waitForDescription);  }, 1234); });						
 				}	
-			}				
-			//DATA  (TO-DO: make the Data available to more/all features? #1452  #1763  (Then can replace ImprovedTube.elements.category === 'music', VideoID is also used elsewhere)
-			DATA = {};
-			defaultKeywords = "video,sharing,camera,phone,video phone,free,upload";
-			DATA.keywords = false; keywords = false;  amountOfSongs = false;
-			DATA.videoID = ImprovedTube.videoId() || false;
-			ImprovedTube.fetchDOMData = function () {  
+		}				
+//DATA  (TO-DO: make the Data available to more/all features? #1452  #1763  (Then can replace ImprovedTube.elements.category === 'music', VideoID is also used elsewhere)
+DATA = {};
+defaultKeywords = "video,sharing,camera,phone,video phone,free,upload";
+DATA.keywords = false; keywords = false;  amountOfSongs = false;
+DATA.videoID = ImprovedTube.videoId() || false;
+	ImprovedTube.fetchDOMData = function () {  
 			// if (history.length > 1 &&  history.state.endpoint.watchEndpoint) {
-				try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false;  DATA.title = DATA.name;} 
+			try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false;  DATA.title = DATA.name;} 
 			 catch { DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false; 
-					try {				
-						DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
-						DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
-						DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
+				try {				
+				DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
+				DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
+				DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
 			 } catch {}} if ( DATA.title === ImprovedTube.videoTitle() ) 
 				{ keywords = document.getElementsByTagName('meta')?.keywords?.content || false; if(!keywords){keyword=''} ImprovedTube.speedException(); }
 				else { keywords = ''; (async function () {  try {   const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
 						
-					const htmlContent = await response.text();
-					const metaRegex = /<meta[^>]+name=["'](keywords|genre|duration)["'][^>]+content=["']([^"']+)["'][^>]*>/gi;
-					let match; while ((match = metaRegex.exec(htmlContent)) !== null) {
-						const [, property, value] = match;
-						if (property === 'keywords') {  keywords = value;} else {DATA[property] = value;}
-					}   
-					amountOfSongs = (htmlContent.slice(-80000).match(/},"subtitle":{"simpleText":"(\d*)\s/) || [])[1] || false;  				
-					if (keywords) {  ImprovedTube.speedException(); }
-				} catch (error) { console.error('Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}', error);   keywords = '';  }
-				})();
-				}							
-			};
-			if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData();}  
-			else {   
-				//Invidious instances. Should be updated automatically!... 
-				const invidiousInstances = ['invidious.fdn.fr','inv.tux.pizza','invidious.flokinet.to','invidious.protokolla.fi','invidious.private.coffee','yt.artemislena.eu','invidious.perennialte.ch','invidious.materialio.us','iv.datura.network'];
-				function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
+						const htmlContent = await response.text();
+						const metaRegex = /<meta[^>]+name=["'](keywords|genre|duration)["'][^>]+content=["']([^"']+)["'][^>]*>/gi;
+						let match; while ((match = metaRegex.exec(htmlContent)) !== null) {
+							const [, property, value] = match;
+							if (property === 'keywords') {  keywords = value;} else {DATA[property] = value;}
+							}   
+							amountOfSongs = (htmlContent.slice(-80000).match(/},"subtitle":{"simpleText":"(\d*)\s/) || [])[1] || false;  				
+						if (keywords) {  ImprovedTube.speedException(); }
+						} catch (error) { console.error('Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}', error);   keywords = '';  }
+						})();
+						}							
+	};
+if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData();}  
+else {   
+//Invidious instances. Should be updated automatically!... 
+const invidiousInstances = ['invidious.fdn.fr','inv.tux.pizza','invidious.flokinet.to','invidious.protokolla.fi','invidious.private.coffee','yt.artemislena.eu','invidious.perennialte.ch','invidious.materialio.us','iv.datura.network'];
+function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
 
-				(async function () {	 let retries = 4;	let invidiousFetched = false;
-					async function fetchInvidiousData() { 
-						try {const response = await fetch(`https://${getRandomInvidiousInstance()}/api/v1/videos/${DATA.videoID}?fields=genre,title,lengthSeconds,keywords`);
+(async function () {	 let retries = 4;	let invidiousFetched = false;
+	async function fetchInvidiousData() { 
+		try {const response = await fetch(`https://${getRandomInvidiousInstance()}/api/v1/videos/${DATA.videoID}?fields=genre,title,lengthSeconds,keywords`);
 			 DATA = await response.json(); 
 			 if (DATA.genre && DATA.title && DATA.keywords && DATA.lengthSeconds) { if (DATA.keywords.toString() === defaultKeywords ) {DATA.keywords = ''}
 				 ImprovedTube.speedException(); invidiousFetched = true;	}
-						} catch (error) { console.error('Error: Invidious API: ', error);  }
-					}
-					while (retries > 0 && !invidiousFetched) {  await fetchInvidiousData();
-						if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 4 ? 1500 : 876));  retries--; }	}
-					if(!invidiousFetched){ if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())} 
-					else { ImprovedTube.fetchDOMData();} }  
-				})();
-			}
-		}	// else { }  
-	}		
+		} catch (error) { console.error('Error: Invidious API: ', error);  }
+	}
+	while (retries > 0 && !invidiousFetched) {  await fetchInvidiousData();
+		if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 4 ? 1500 : 876));  retries--; }	}
+	if(!invidiousFetched){ if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())} 
+							else { ImprovedTube.fetchDOMData();} }  
+})();
 }
+	}	// else { }  
+  }		
+ }
 } 
 /*------------------------------------------------------------------------------
 SUBTITLES
@@ -242,14 +242,14 @@ ImprovedTube.playerSubtitles = function () {
 
 	if (player && player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
 		switch(this.storage.player_subtitles) {
-		case true:
-		case 'enabled':
-			player.toggleSubtitlesOn();
-			break
+			case true:
+			case 'enabled':
+				player.toggleSubtitlesOn();
+				break
 
-		case 'disabled':
-			if (player.isSubtitlesOn()) { player.toggleSubtitles(); }
-			break
+			case 'disabled':
+				if (player.isSubtitlesOn()) { player.toggleSubtitles(); }
+				break
 		}
 	}
 };
@@ -313,28 +313,28 @@ ImprovedTube.subtitlesUserSettings = function () {
 		let ytSettings = player.getSubtitlesUserSettings(),
 			setting;
 	
-		if (!ytSettings) return; //null SubtitlesUserSettings seem to mean subtitles not available
+	if (!ytSettings) return; //null SubtitlesUserSettings seem to mean subtitles not available
 
 		for (const value of userSettings) {
 			setting = null;
 			switch(value) {
-			case 'fontFamily':
-			case 'fontSizeIncrement':
-			case 'charEdgeStyle':
-				setting = Number(ourSettings[value]);
-				break;
+				case 'fontFamily':
+				case 'fontSizeIncrement':
+				case 'charEdgeStyle':
+					setting = Number(ourSettings[value]);
+					break;
 
-			case 'color':
-			case 'background':
-			case 'windowColor':
-				setting = ourSettings[value];
-				break;
+				case 'color':
+				case 'background':
+				case 'windowColor':
+					setting = ourSettings[value];
+					break;
 
-			case 'backgroundOpacity':
-			case 'windowOpacity':
-			case 'textOpacity':
-				setting = Number(ourSettings[value]) / 100;
-				break;
+				case 'backgroundOpacity':
+				case 'windowOpacity':
+				case 'textOpacity':
+					setting = Number(ourSettings[value]) / 100;
+					break;
 			}
 			
 			if (ytSettings?.hasOwnProperty(value)) {
@@ -480,7 +480,7 @@ ImprovedTube.playerQualityWithoutFocus = function () {
 BATTERY FEATURES;   PLAYER QUALITY BASED ON POWER STATUS
 ------------------------------------------------------------------------------*/
 ImprovedTube.batteryFeatures = async function () {
-	if (ImprovedTube.storage.qualityWhenRunningOnBattery 
+    if (ImprovedTube.storage.qualityWhenRunningOnBattery 
 		  || ImprovedTube.storage.pauseWhileIUnplugTheCharger 
 		  || ImprovedTube.storage.whenBatteryIslowDecreaseQuality) {  
 		  const updateQuality = async (battery, charging) => {
@@ -619,11 +619,11 @@ ImprovedTube.screenshot = function () {
 					'image/png': blob
 				})
 			])
-				.then(function () { console.log("ImprovedTube: Screeeeeeenshot tada!"); })
-				.catch(function (error) {
-					console.log('ImprovedTube screenshot: ', error);
-					alert('ImprovedTube Screenshot to Clipboard error. Details in Debug Console.');
-				});
+			.then(function () { console.log("ImprovedTube: Screeeeeeenshot tada!"); })
+			.catch(function (error) {
+				console.log('ImprovedTube screenshot: ', error);
+				alert('ImprovedTube Screenshot to Clipboard error. Details in Debug Console.');
+			});
 		} else {
 			let a = document.createElement('a');
 			a.href = URL.createObjectURL(blob);
@@ -636,27 +636,27 @@ ImprovedTube.screenshot = function () {
 
 ImprovedTube.renderSubtitle = function (ctx,captionElements) {
 	if (ctx && captionElements) {
-		captionElements.forEach(function (captionElement, index) {
-			var captionText = captionElement.textContent.trim();
-			var captionStyles = window.getComputedStyle(captionElement);
+	captionElements.forEach(function (captionElement, index) {
+		var captionText = captionElement.textContent.trim();
+		var captionStyles = window.getComputedStyle(captionElement);
 
-			ctx.fillStyle = captionStyles.color;
-			ctx.font = captionStyles.font;
-			ctx.textAlign = 'center';
-			ctx.textBaseline = 'bottom';
-			var txtWidth = ctx.measureText(captionText).width;
-			var txtHeight = parseFloat(captionStyles.fontSize);
+		ctx.fillStyle = captionStyles.color;
+		ctx.font = captionStyles.font;
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'bottom';
+		var txtWidth = ctx.measureText(captionText).width;
+		var txtHeight = parseFloat(captionStyles.fontSize);
 
-			var xOfset = (ctx.canvas.width - txtWidth) / 2;
+		var xOfset = (ctx.canvas.width - txtWidth) / 2;
 
-			var padding = 5; // Adjust the padding as needed
-			var yofset = ctx.canvas.height - (captionElements.length - index) * (txtHeight + 2 * padding);
+		var padding = 5; // Adjust the padding as needed
+		var yofset = ctx.canvas.height - (captionElements.length - index) * (txtHeight + 2 * padding);
 
-			ctx.fillStyle = captionStyles.backgroundColor;
-			ctx.fillRect(xOfset - padding, yofset - txtHeight - padding, txtWidth + 2 * padding, txtHeight + 2 * padding);
-			ctx.fillStyle = captionStyles.color;
-			ctx.fillText(captionText, xOfset + txtWidth / 2, yofset);
-		});
+		ctx.fillStyle = captionStyles.backgroundColor;
+		ctx.fillRect(xOfset - padding, yofset - txtHeight - padding, txtWidth + 2 * padding, txtHeight + 2 * padding);
+		ctx.fillStyle = captionStyles.color;
+		ctx.fillText(captionText, xOfset + txtWidth / 2, yofset);
+	});
 	}
 };
 
@@ -683,10 +683,10 @@ ImprovedTube.playerScreenshotButton = function () {
 REPEAT
 -------------------------------------------------------------------------------*/
 ImprovedTube.playerRepeat = function () {		  
-	setTimeout(function () { 
-		if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
-			ImprovedTube.elements.video.setAttribute('loop', ''); 
-		}
+			setTimeout(function () { 
+				if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
+					ImprovedTube.elements.video.setAttribute('loop', ''); 
+				}
 	   //ImprovedTube.elements.buttons['it-repeat-styles'].style.opacity = '1';   //old class from version 3.x? that both repeat buttons could have
 		 	}, 200);
 } 
@@ -700,21 +700,21 @@ ImprovedTube.playerRepeatButton = function () {
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
 		path.setAttributeNS(null, 'd', 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z');
 		svg.appendChild(path);
-		var transparentOrOn = 0.5; if (this.storage.player_always_repeat === true ) { transparentOrOn = 1; }
+				var transparentOrOn = 0.5; if (this.storage.player_always_repeat === true ) { transparentOrOn = 1; }
 		this.createPlayerButton({
 			id: 'it-repeat-button',
 			child: svg,
 			opacity: transparentOrOn,
 			onclick: function () {
 				var video = ImprovedTube.elements.video;
-				function matchLoopState(opacity) {
-					var thisButton = document.querySelector('#it-repeat-button');
-					thisButton.style.opacity = opacity;		
-					if (ImprovedTube.storage.below_player_loop !== false) {
-						var otherButton = document.querySelector('#it-below-player-loop');
-						otherButton.children[0].style.opacity = opacity;
-					}
-				}		if (video.hasAttribute('loop')) {
+		function matchLoopState(opacity) {
+			var thisButton = document.querySelector('#it-repeat-button');
+			thisButton.style.opacity = opacity;		
+			if (ImprovedTube.storage.below_player_loop !== false) {
+				var otherButton = document.querySelector('#it-below-player-loop');
+				otherButton.children[0].style.opacity = opacity;
+			}
+		}		if (video.hasAttribute('loop')) {
 					video.removeAttribute('loop');
 					matchLoopState('.5')
 				} else if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
@@ -785,10 +785,10 @@ FIT-TO-WIN BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerFitToWinButton = function () {
 	if (this.storage.player_fit_to_win_button === true && (/watch\?/.test(location.href))) {
-		let tempContainer = document.createElement("div");
-		tempContainer.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon">
+	let tempContainer = document.createElement("div");
+	tempContainer.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon">
 		<path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>`;
-		const svg = tempContainer.firstChild;
+	const svg = tempContainer.firstChild;
 		this.createPlayerButton({
 			id: 'it-fit-to-win-player-button',
 			child: svg,
@@ -821,7 +821,7 @@ var xpath = function(xpathToExecute){
 	  result.push( nodesSnapshot.snapshotItem(i) );
 	}
 	return result;
-}
+  }
 
 function createOverlay() {
 	var overlay = document.createElement('div');
@@ -835,12 +835,12 @@ function createOverlay() {
 	overlay.style.zIndex = '9999';
 	overlay.style.display = 'block';
 	document.body.appendChild(overlay);
-}
+  }
 
 ImprovedTube.playerCinemaModeButton = function () {
 	if (this.storage.player_cinema_mode_button && (/watch\?/.test(location.href))) {
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
 		// TODO: change path such that cinema mode has its own unique icon
@@ -896,24 +896,24 @@ ImprovedTube.playerCinemaModeDisable = function () {
 ImprovedTube.playerCinemaModeEnable = function () {
 	if (this.storage.player_auto_cinema_mode || this.storage.player_auto_hide_cinema_mode_when_paused) {
 		
-		if ((/watch\?/.test(location.href))) {
-			var overlay = document.getElementById('overlay_cinema');
+	if ((/watch\?/.test(location.href))) {
+		var overlay = document.getElementById('overlay_cinema');
 		
-			if (this.storage.player_auto_cinema_mode === true && !overlay) {
-				createOverlay();
-				overlay = document.getElementById('overlay_cinema');
-			}
-		
-			// console.log(overlay && this.storage.player_auto_hide_cinema_mode_when_paused === true || this.storage.player_auto_cinema_mode === true && overlay)
-			if (overlay) {
-				overlay.style.display = 'block'
-				var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
-				player.style.zIndex = 10000;
-				// console.log(player)
-				var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
-				cinemaModeButton.style.opacity = 1
-			}
+		if (this.storage.player_auto_cinema_mode === true && !overlay) {
+			createOverlay();
+			overlay = document.getElementById('overlay_cinema');
 		}
+		
+// console.log(overlay && this.storage.player_auto_hide_cinema_mode_when_paused === true || this.storage.player_auto_cinema_mode === true && overlay)
+		if (overlay) {
+			overlay.style.display = 'block'
+			var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+			player.style.zIndex = 10000;
+			// console.log(player)
+			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
+			cinemaModeButton.style.opacity = 1
+		}
+	}
 	}
 }
 
@@ -934,41 +934,41 @@ ImprovedTube.playerHamburgerButton = function () { if(this.storage.player_hambur
 	}
 
 	let hamburgerMenu = document.querySelector('.custom-hamburger-menu');
-	if (!hamburgerMenu) {
-		hamburgerMenu = document.createElement('div');
-		hamburgerMenu.className = 'custom-hamburger-menu';
-		hamburgerMenu.style.position = 'absolute';
-		hamburgerMenu.style.right = '0';
-		hamburgerMenu.style.marginTop = '8px';
-		hamburgerMenu.style.cursor = 'pointer';
+		if (!hamburgerMenu) {
+			hamburgerMenu = document.createElement('div');
+			hamburgerMenu.className = 'custom-hamburger-menu';
+			hamburgerMenu.style.position = 'absolute';
+			hamburgerMenu.style.right = '0';
+			hamburgerMenu.style.marginTop = '8px';
+			hamburgerMenu.style.cursor = 'pointer';
 
-		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
-		svg.setAttribute('style', 'width: 32px; height: 32px;');
+			const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+			svg.setAttribute('style', 'width: 32px; height: 32px;');
 
-		const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		path.setAttributeNS(null, 'd', 'M3 18h18v-2H3v2zM3 13h18v-2H3v2zM3 6v2h18V6H3z');
-		path.setAttributeNS(null, 'fill', 'white');
+			const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+			path.setAttributeNS(null, 'd', 'M3 18h18v-2H3v2zM3 13h18v-2H3v2zM3 6v2h18V6H3z');
+			path.setAttributeNS(null, 'fill', 'white');
 
-		svg.appendChild(path);
-		hamburgerMenu.appendChild(svg);
+			svg.appendChild(path);
+			hamburgerMenu.appendChild(svg);
 
-		controlsContainer.style.paddingRight = '40px';
-		controlsContainer.parentNode.appendChild(hamburgerMenu);
+			controlsContainer.style.paddingRight = '40px';
+			controlsContainer.parentNode.appendChild(hamburgerMenu);
 
-		let controlsVisible = true;
-		controlsContainer.style.display = controlsVisible ? 'none' : 'flex';
-		controlsVisible = false;
-			
-		hamburgerMenu.addEventListener('click', function () {
+			let controlsVisible = true;
 			controlsContainer.style.display = controlsVisible ? 'none' : 'flex';
-			controlsVisible = !controlsVisible;
+			controlsVisible = false;
+			
+			hamburgerMenu.addEventListener('click', function () {
+				controlsContainer.style.display = controlsVisible ? 'none' : 'flex';
+				controlsVisible = !controlsVisible;
 
-			// Change the opacity of hamburgerMenu based on controls visibility
-			hamburgerMenu.style.opacity = controlsVisible ? '0.85' : '0.65';
-		});
+				// Change the opacity of hamburgerMenu based on controls visibility
+				hamburgerMenu.style.opacity = controlsVisible ? '0.85' : '0.65';
+			});
+		} 
 	} 
-} 
 };
 /*------------------------------------------------------------------------------
 POPUP PLAYER
@@ -1048,12 +1048,12 @@ ImprovedTube.playerControls = function () {
 			player.onmousemove =  (function() {
 				let thread,
 					onmousestop = function() {
-						if (document.querySelector(".ytp-progress-bar:hover")) {
-							thread = setTimeout(onmousestop, 1000);
-						} else {
-							player.hideControls();
-						}
-					};
+					if (document.querySelector(".ytp-progress-bar:hover")) {
+						thread = setTimeout(onmousestop, 1000);
+					} else {
+						player.hideControls();
+					}
+				};
 
 				return function() {
 					player.showControls();
