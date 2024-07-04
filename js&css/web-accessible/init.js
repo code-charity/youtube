@@ -80,7 +80,7 @@ if (ImprovedTube.storage.channel_default_tab && ImprovedTube.storage.channel_def
 
 ImprovedTube.init = function () {
 	window.addEventListener('yt-page-data-updated', function () {
-		ImprovedTube.pageType(); 
+		ImprovedTube.pageType();
 		if (location.search.match(ImprovedTube.regex.playlist_id)) {
 			ImprovedTube.playlistRepeat();
 			ImprovedTube.playlistShuffle();
