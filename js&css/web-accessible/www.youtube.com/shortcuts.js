@@ -23,25 +23,24 @@ ImprovedTube.shortcutsInit = function () {
 		let potentialShortcut = {};
 		for (const button of ['alt','ctrl','shift','wheel','keys','toggle']) {
 			switch(button) {
-			case 'alt':
-			case 'ctrl':
-			case 'shift':
-			case 'toggle':
-				potentialShortcut[button] = keys[button] || false;
+				case 'alt':
+				case 'ctrl':
+				case 'shift':
+				case 'toggle':
+					potentialShortcut[button] = keys[button] || false;
 				break
 
-			case 'wheel':
-				potentialShortcut[button] = keys[button] || 0;
+				case 'wheel':
+					potentialShortcut[button] = keys[button] || 0;
 				break
 
 				case 'keys':
-					// array of sorted scancodes
-					potentialShortcut[button] = keys[button] ? new Set(Object.keys(keys[button]).map(s=>Number(s)).sort()) : new Set();
-
+					// set of unique scancodes
+					potentialShortcut[button] = keys[button] ? new Set(Object.keys(keys[button]).map(s=>Number(s))) : new Set();
 				break
 			}
 		}
-		if (potentialShortcut['keys'] || potentialShortcut['wheel']) listening[camelName] = potentialShortcut;
+		if (potentialShortcut['keys'].size || potentialShortcut['wheel']) listening[camelName] = potentialShortcut;
 	}
 	// initialize 'listeners' only if there are actual shortcuts active
 	if (Object.keys(listening).length) {
