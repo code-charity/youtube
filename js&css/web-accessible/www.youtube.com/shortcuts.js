@@ -71,16 +71,18 @@ ImprovedTube.shortcutsHandler = function () {
 			&& ImprovedTube.input.pressed.ctrl === shortcut.ctrl
 			&& ImprovedTube.input.pressed.shift === shortcut.shift) {
 
+			// cancel keydown/wheel event before we call target handler
+			// this way crashing handler wont keep 'cancelled' keys stuck
+			event.preventDefault();
+			event.stopPropagation();
+			// build 'cancelled' list so we also cancel keyup events
+			ImprovedTube.input.pressed.keys.every(key => ImprovedTube.input.cancelled.add(key));
+
 			if (key.startsWith('shortcutQuality')) {
 				ImprovedTube['shortcutQuality'](key);
 			} else if (typeof ImprovedTube[key] === 'function') {
 				ImprovedTube[key]();
 			}
-			// cancel keydown/wheel event
-			event.preventDefault();
-			event.stopPropagation();
-			// build 'cancelled' list so we also cancel keyup events
-			ImprovedTube.input.pressed.keys.every(key => ImprovedTube.input.cancelled.push(key));
 		}
 	}
 };
@@ -111,10 +113,10 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.shift = event.shiftKey;
 
 		// cancel keyup events corresponding to keys that triggered one of our shortcuts
-		if (ImprovedTube.input.cancelled.includes(event.keyCode)) {
+		if (ImprovedTube.input.cancelled.has(event.keyCode)) {
 			event.preventDefault();
 			event.stopPropagation();
-			ImprovedTube.input.cancelled.splice(ImprovedTube.input.cancelled.indexOf(event.keyCode), 1);
+			ImprovedTube.input.cancelled.delete(event.keyCode);
 		}
 	},
 	wheel: function (event) {
