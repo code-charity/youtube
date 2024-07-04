@@ -398,7 +398,7 @@ ImprovedTube.shortcutActivateCaptions = function () {
 };
 /*------Chapters------*/
 ImprovedTube.shortcutChapters = function () {
-	document.querySelector('[target-id*=chapters][visibility*=HIDDEN]') ? document.querySelector('[modern-chapters] #navigation-button button[aria-label]').click() : document.querySelector('[target-id*=chapters][visibility*=EXPANDED] #visibility-button button[aria-label]')?.click()
+	document.querySelector('[target-id*=chapters][visibility*=HIDDEN]') ? document.querySelector('[modern-chapters] #navigation-button button[aria-label]').click() : document.querySelector('[target-id*=chapters][visibility*=EXPANDED] #visibility-button button[aria-label]')?.click();
 };
 /*------Transcript------*/
 ImprovedTube.shortcutTranscript = function () {
