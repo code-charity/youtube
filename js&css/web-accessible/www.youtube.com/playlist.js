@@ -58,8 +58,6 @@ ImprovedTube.playlistReverse = function () {
 			button.id = 'it-reverse-playlist';
 			button.className = 'style-scope yt-icon-button';
 			button.addEventListener('click', function (event) {
-				var playlist_manager = document.querySelector('yt-playlist-manager');
-
 				event.preventDefault();
 				event.stopPropagation();
 
