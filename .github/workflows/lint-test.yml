@@ -26,13 +26,13 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: Install dependencies
+      - name: Run eslint
         run: npx eslint
         continue-on-error: true
 
-      - name: Run JSLint
-        run: npx jslint "**/*.js"
-        continue-on-error: true
+      # - name: Run JSLint
+      #   run: npx jslint "**/*.js"
+      #   continue-on-error: true
 
       - name: Run Jest
         run: npx jest
