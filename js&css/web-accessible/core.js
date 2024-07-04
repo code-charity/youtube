@@ -181,7 +181,8 @@ document.addEventListener('it-message-from-extension', function () {
 			if (ImprovedTube.storage.block_vp9 || ImprovedTube.storage.block_av1 || ImprovedTube.storage.block_h264) {
 				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'},
 					codec = Object.keys(atlas).reduce(function (all, key) {
-						return ImprovedTube.storage[key] ? ((all?all+'|':'') + atlas[key]) : all}, '');
+						return ImprovedTube.storage[key] ? ((all?all+'|':'') + atlas[key]) : all
+					}, '');
 				if (localStorage['it-codec'] != codec) {
 					localStorage['it-codec'] = codec;
 				}
@@ -207,7 +208,8 @@ document.addEventListener('it-message-from-extension', function () {
 			if (['block_vp9', 'block_h264', 'block_av1'].includes(message.key)) {
 				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'}
 				localStorage['it-codec'] = Object.keys(atlas).reduce(function (all, key) {
-					return ImprovedTube.storage[key] ? ((all?all+'|':'') + atlas[key]) : all}, '');
+					return ImprovedTube.storage[key] ? ((all?all+'|':'') + atlas[key]) : all
+				}, '');
 				if (!localStorage['it-codec']) {
 					localStorage.removeItem('it-codec');
 				}
@@ -246,9 +248,13 @@ document.addEventListener('it-message-from-extension', function () {
 
 				case 'description':
 					if (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.description === "classic_expanded") {
-						try {document.querySelector("#more").click() || document.querySelector("#expand").click();} catch {}
+						try {
+							document.querySelector("#more").click() || document.querySelector("#expand").click();
+						} catch {}
 					} else if (ImprovedTube.storage.description === "normal" || ImprovedTube.storage.description === "classic") {
-						try {document.querySelector("#less").click() || document.querySelector("#collapse").click();} catch {}
+						try {
+							document.querySelector("#less").click() || document.querySelector("#collapse").click();
+						} catch {}
 					}
 					break
 
@@ -282,7 +288,9 @@ document.addEventListener('it-message-from-extension', function () {
 						var button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
 						if (button && ImprovedTube.elements.ytd_watch.theater === true) {
 							ImprovedTube.elements.ytd_watch.theater = false;
-							setTimeout(function () { button.click();}, 100);
+							setTimeout(function () {
+								button.click();
+							}, 100);
 						}
 					}
 					break
@@ -396,7 +404,10 @@ document.addEventListener('it-message-from-extension', function () {
 					break
 				case 'playerlistUpNextAutoplay':
 					if (this.storage.playlist_up_next_autoplay !== false) {
-						if (playlistData.currentIndex != playlistData.localCurrentIndex) { playlistData.currentIndex = playlistData.localCurrentIndex;} }
+						if (playlistData.currentIndex != playlistData.localCurrentIndex) {
+							playlistData.currentIndex = playlistData.localCurrentIndex;
+						}
+					}
 					break
 			}
 
@@ -404,7 +415,9 @@ document.addEventListener('it-message-from-extension', function () {
 			if (message.key.startsWith('shortcut_')) camelized_key = 'shortcuts';
 
 			if (ImprovedTube[camelized_key]) {
-				try {ImprovedTube[camelized_key]()} catch {};
+				try {
+					ImprovedTube[camelized_key]()
+				} catch {};
 			}
 		} else if (message.focus === true && ImprovedTube.elements.player) {
 			ImprovedTube.focus = true;

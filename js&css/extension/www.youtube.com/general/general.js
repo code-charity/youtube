@@ -170,7 +170,9 @@ extension.features.addScrollToTop = function (event) {
 			path.setAttribute('d', 'M13 19V7.8l4.9 5c.4.3 1 .3 1.4 0 .4-.5.4-1.1 0-1.5l-6.6-6.6a1 1 0 0 0-1.4 0l-6.6 6.6a1 1 0 1 0 1.4 1.4L11 7.8V19c0 .6.5 1 1 1s1-.5 1-1z');
 			svg.appendChild(path);
 			this.addScrollToTop.button.appendChild(svg);
-			window.addEventListener('scroll', function () { document.body.appendChild(extension.features.addScrollToTop.button); });
+			window.addEventListener('scroll', function () {
+				document.body.appendChild(extension.features.addScrollToTop.button);
+			});
 			this.addScrollToTop.button.addEventListener('click', function () {
 				window.scrollTo(0, 0);
 				document.getElementById('it-scroll-to-top')?.remove();
@@ -249,15 +251,30 @@ extension.features.popupWindowButtons = function (event) {
 							target.itPopupWindowButton.addEventListener('click', function (event) {
 								event.preventDefault();
 								event.stopPropagation();
-								try { this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error)};
+								try {
+									this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1]
+								} catch (error) {
+									console.log(error)
+								};
 								ytPlayer = document.querySelector("#movie_player");
-								if (ytPlayer) {width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65}
-								else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
+								if (ytPlayer) {
+									width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65
+								} else {
+									width = innerWidth * 0.4; height = innerHeight * 0.4;
+								}
 		 if (!ytPlayer) {
 									let shorts = /short/.test(this.parentElement.href);
-									if ( width / height < 1 ) { let vertical = true } else { let vertical = false }
-									if ( !vertical && shorts ) { width = height * 0.6}
-									if ( vertical && !shorts ) { height = width * 0.6}
+									if ( width / height < 1 ) {
+										let vertical = true
+									} else {
+										let vertical = false
+									}
+									if ( !vertical && shorts ) {
+										width = height * 0.6
+									}
+									if ( vertical && !shorts ) {
+										height = width * 0.6
+									}
 								}
 
 								window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay_disable') ? '0' : '1'), '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
@@ -356,7 +373,8 @@ extension.features.markWatchedVideos = function (anything) {
 							target.itMarkWatchedVideosButton.appendChild(svg);
 							target.itMarkWatchedVideosButton.appendChild(svg2);
 							if (extension.storage.get('watched') && extension.storage.get('watched')[id]) {
-								target.itMarkWatchedVideosButton.setAttribute('watched', '')};
+								target.itMarkWatchedVideosButton.setAttribute('watched', '')
+							};
 							target.appendChild(target.itMarkWatchedVideosButton);
 							target.itMarkWatchedVideosButton.addEventListener('click', function (event) {
 								var id = this.dataset.id,
@@ -379,7 +397,8 @@ extension.features.markWatchedVideos = function (anything) {
 
 								chrome.storage.local.set({
 									watched: extension.storage.get('watched')
-								});});
+								});
+							});
 
 						} else {
 							var button = target.itMarkWatchedVideosButton;

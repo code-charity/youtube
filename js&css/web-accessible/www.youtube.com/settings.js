@@ -113,8 +113,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 	if (option === 'header_left') {
 		if (this.storage.header_position === 'normal' && this.elements.masthead.start) {
 			this.elements.masthead.start.appendChild(button);
-		}
-		else if (this.elements.app_drawer.start) {
+		} else if (this.elements.app_drawer.start) {
 			this.elements.app_drawer.start.appendChild(button);
 		}
 	} else if (option === 'header_right') {
@@ -160,7 +159,9 @@ ImprovedTube.deleteYoutubeCookies = function () {
 		document.cookie = name + '=; domain=.youtube.com; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
 	}
 
-	setTimeout(function () {location.reload();}, 100);
+	setTimeout(function () {
+		location.reload();
+	}, 100);
 };
 
 /*-----------------------------------------------------------------------------

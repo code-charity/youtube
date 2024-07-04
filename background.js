@@ -95,13 +95,15 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 		});
 	} else if (installed.reason == 'install') {
 		if (navigator.userAgent.indexOf("Firefox") != -1) {
-			chrome.storage.local.set({below_player_pip: false})}
+			chrome.storage.local.set({below_player_pip: false})
+		}
 		if (navigator.userAgent.indexOf('Safari') !== -1
 		   && (!/Windows|Chrom/.test(navigator.userAgent)
 			   || /Macintosh|iPhone/.test(navigator.userAgent))) {
 			chrome.storage.local.set({below_player_pip: false})
 			// still needed? (are screenshots broken in Safari?):
-			chrome.storage.local.set({below_player_screenshot: false})}
+			chrome.storage.local.set({below_player_screenshot: false})
+		}
 		// console.log('Thanks for installing!');
 	}
 });
@@ -120,7 +122,9 @@ function getLocale (language, callback) {
 				} else {
 					getLocale('en', callback);
 				}
-			}).catch(function () { getLocale('en', callback); });
+			}).catch(function () {
+				getLocale('en', callback);
+			});
 			getLocale('en', callback);
 		}
 	}).catch(function () {
@@ -179,8 +183,12 @@ chrome.runtime.onInstalled.addListener(function (details) {
 
 chrome.storage.onChanged.addListener(function (changes) {
 	for (var key in changes) {
-		if (key === 'language') { updateContextMenu(changes[key].newValue); }
-		if (key === 'improvedTubeSidebar') { chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: changes[key].newValue}); }
+		if (key === 'language') {
+			updateContextMenu(changes[key].newValue);
+		}
+		if (key === 'improvedTubeSidebar') {
+			chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: changes[key].newValue});
+		}
 	}
 });
 /*--------------------------------------------------------------
@@ -202,7 +210,9 @@ function tabPrune (callback) {
 			}
 		}
 		callback();
-	}, function () { console.log("Error querying Tabs") });
+	}, function () {
+		console.log("Error querying Tabs")
+	});
 };
 /*--------------------------------------------------------------
 # TAB FOCUS/BLUR
@@ -293,14 +303,18 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 								  top: 20
 								 }
 
-					if (tID) {data.tabId = tID;}
+					if (tID) {
+						data.tabId = tID;
+					}
 					chrome.windows.create(data, pw => {});
 
 					//append to title?
 					chrome.tabs.onUpdated.addListener(function listener (tabId, changeInfo) {
 						if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")) {
 							chrome.tabs.onUpdated.removeListener(listener);
-							chrome.scripting.executeScript({ target: { tabId: tID }, func: () => { document.title = `${message.title} - ImprovedTube`; } });			//manifest3
+							chrome.scripting.executeScript({ target: { tabId: tID }, func: () => {
+								document.title = `${message.title} - ImprovedTube`;
+							} });			//manifest3
 							// chrome.tabs.executeScript(tID, {code: `document.title = "${message.title} - ImprovedTube";`});  //manifest2
 						}
 					});
@@ -327,7 +341,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 					}
 				} else {
 					console.error('Permission is not granted.');
-				}})
+				}
+			})
 			break
 	}
 });

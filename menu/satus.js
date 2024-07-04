@@ -239,17 +239,33 @@ satus.isset = function (target, is_object) {
 /*-------------------------------------------------------------
 	# is___(target)
 --------------------------------------------------------------*/
-satus.isFunction =function (target) {return typeof target ==='function';};
+satus.isFunction =function (target) {
+	return typeof target ==='function';
+};
 
 satus.isArray	 = Array.isArray;
-satus.isString	 = function (t) { return typeof t ==='string'; };
-satus.isNumber	 = function (t) { return (typeof t ==='number' && !isNaN(t)); };
-satus.isObject	 = function (t) { return (t instanceof Object && t !== null); };
-satus.isElement	 = function (t) { return (t instanceof Element || t instanceof HTMLDocument); };
-satus.isNodeList = function (t) { return t instanceof NodeList; };
-satus.isBoolean = function (t) { return (t === false || t === true); };
+satus.isString	 = function (t) {
+	return typeof t ==='string';
+};
+satus.isNumber	 = function (t) {
+	return (typeof t ==='number' && !isNaN(t));
+};
+satus.isObject	 = function (t) {
+	return (t instanceof Object && t !== null);
+};
+satus.isElement	 = function (t) {
+	return (t instanceof Element || t instanceof HTMLDocument);
+};
+satus.isNodeList = function (t) {
+	return t instanceof NodeList;
+};
+satus.isBoolean = function (t) {
+	return (t === false || t === true);
+};
 /*---LOG------------------------------------------------------*/
-satus.log =function () {console.log.apply(null, arguments);};
+satus.log =function () {
+	console.log.apply(null, arguments);
+};
 
 /*--------------------------------------------------------------
 
@@ -911,7 +927,9 @@ satus.storage.import = function (keys, callback) {
 		}
 		// satus.log('STORAGE: data was successfully imported');
 		satus.events.trigger('storage-import');
-		if (callback) { callback(items); }
+		if (callback) {
+			callback(items);
+		}
 		loading.style.display = 'none';
 	});
 };
@@ -1054,27 +1072,29 @@ satus.locale.import = function (code, callback, path) {
 			importLocale(language, () => importLocale('en', callback));
 		}
 	} else { // try chrome://settings/languages:
-		try {chrome.i18n.getAcceptLanguages(function (languages) {
-			languages = languages.map(language => language.replace('-', '_'));
-			for (let i = languages.length - 1; i >= 0; i--) {
-				if (languages[i].includes('_')) {
-					let languageWithoutCountryCode = languages[i].substring(0, 2);
+		try {
+			chrome.i18n.getAcceptLanguages(function (languages) {
+				languages = languages.map(language => language.replace('-', '_'));
+				for (let i = languages.length - 1; i >= 0; i--) {
+					if (languages[i].includes('_')) {
+						let languageWithoutCountryCode = languages[i].substring(0, 2);
 
-					if (!languages.includes(languageWithoutCountryCode)) {
-						languages.splice(i + 1, 0, languageWithoutCountryCode);
+						if (!languages.includes(languageWithoutCountryCode)) {
+							languages.splice(i + 1, 0, languageWithoutCountryCode);
+						}
 					}
 				}
-			}
-			languages.includes("en") || languages.push("en");
+				languages.includes("en") || languages.push("en");
 
-			languages.forEach((language, index) => index === languages.length - 1 ? importLocale(language, callback) : importLocale(language, () => {}));
+				languages.forEach((language, index) => index === languages.length - 1 ? importLocale(language, callback) : importLocale(language, () => {}));
 			/* equals:
    languages.length === 1 && importLocale(languages[0], callback);
    languages.length === 2 && importLocale(languages[0], () => importLocale(languages[1], callback));
    languages.length === 3 && importLocale(languages[0], () => importLocale(languages[1], () => importLocale(languages[2], callback)));
    ...  */
 			// console.log(languages);
-		});} catch (error) {
+			});
+		} catch (error) {
 			// Finally, if code nor chrome://settings/languages are available, use window.navigator.language:
 
 			let language = window.navigator.language.replace('-', '_');
