@@ -70,7 +70,7 @@ var ImprovedTube = {
 		},
 		cancelled: new Set(),
 		ignoreElements: ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'],
-		modifierKeys: ['AltLeft','AltRight','ControlLeft','ControlRight','ShiftLeft','ShiftRight'],
+		modifierKeys: ['AltLeft', 'AltRight', 'ControlLeft', 'ControlRight', 'ShiftLeft', 'ShiftRight'],
 	},
 	mini_player__mode: false,
 	mini_player__move: false,
@@ -435,18 +435,14 @@ document.addEventListener('it-message-from-extension', function () {
 				ImprovedTube.played_before_blur = ImprovedTube.elements.player.getPlayerState() === 1;
 				ImprovedTube.elements.player.pauseVideo();
 			}
-		} else if (message.hasOwnProperty('setVolume')) {
-			if (ImprovedTube.elements.player) {
-				ImprovedTube.elements.player.setVolume(message.setVolume);
-			}
-		} else if (message.hasOwnProperty('setPlaybackSpeed')) {
-			if (ImprovedTube.elements.player) {
-				ImprovedTube.elements.player.setPlaybackRate(message.setPlaybackSpeed);
-			}
+		} else if (message.setVolume) {
+			ImprovedTube.elements.player?.setVolume(message.setVolume);
+		} else if (message.setPlaybackSpeed) {
+			ImprovedTube.playbackSpeed(message.setPlaybackSpeed);
 		} else if (message.deleteCookies === true) {
 			ImprovedTube.deleteYoutubeCookies();
-		} else if (message.hasOwnProperty('responseOptionsUrl')) {
-			var iframe = document.querySelector('.it-button__iframe');
+		} else if (message.responseOptionsUrl) {
+			const iframe = document.querySelector('.it-button__iframe');
 
 			if (iframe) {
 				iframe.src = message.responseOptionsUrl;
