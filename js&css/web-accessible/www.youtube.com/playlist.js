@@ -94,7 +94,7 @@ ImprovedTube.playlistReverse = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.playlistRepeat = function () {
 	if ( ImprovedTube.storage.playlist_repeat === true ) {
-	    setTimeout(function (){
+	    setTimeout(function () {
 			var option = ImprovedTube.storage.playlist_repeat,
 				button = document.querySelector("#button.ytd-playlist-loop-button-renderer") || document.querySelector("ytd-playlist-loop-button-renderer button") || document.querySelector("ytd-playlist-loop-button-renderer");
 			if (button && (option === true && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M21')
@@ -115,7 +115,7 @@ ImprovedTube.playlistRepeat = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.playlistShuffle = function () {
 	if ( ImprovedTube.storage.playlist_shuffle === true ) {
-		setTimeout(function (){
+		setTimeout(function () {
 			var button = ImprovedTube.elements.playlist.shuffle_button,
 				option = ImprovedTube.storage.playlist_shuffle;
 			button = document.querySelector('#playlist-actions #playlist-action-menu ytd-toggle-button-renderer');
@@ -188,8 +188,8 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 					 if (!ImprovedTube.elements.player) {
 				shorts = /short/.test(this.parentElement.href);
 				if ( width / height < 1 ) { vertical = true } else { vertical = false }
-				if ( !vertical && shorts ){ width = height * 0.6}
-				if ( vertical && !shorts ){ height = width * 0.6}		}
+				if ( !vertical && shorts ) { width = height * 0.6}
+				if ( vertical && !shorts ) { height = width * 0.6}		}
 			"use strict";
 			window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${ImprovedTube.storage.player_autoplay_disable ? '0' : '1'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
 			//~ change focused tab to URL-less popup
@@ -224,7 +224,7 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
  */
 ImprovedTube.playlistPopupUpdate = function () {
 	"use strict";
-	if (this.storage.playlist_popup === true){
+	if (this.storage.playlist_popup === true) {
 
 		const playlistID = location.search.match(this.regex.playlist_id)?.[1],
 			playlistIDMini = this.elements.player?.getPlaylistId?.();

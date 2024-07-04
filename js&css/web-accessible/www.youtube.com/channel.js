@@ -106,7 +106,7 @@ ImprovedTube.channelCompactTheme = function () {
 		removeStyles();
 	}
 
-	function removeListeners (){ // EventListeners
+	function removeListeners () { // EventListeners
 		for (let i = 0; i <= 2; i++) {
 			const parent = compact.parents[i]
 			const sub = compact.subs[i]
@@ -134,8 +134,8 @@ ImprovedTube.channelCompactTheme = function () {
 		document.head.appendChild(compact.styles[index]);
 	}
 
-	function removeStyles (){ // styles tags
-		for (let i = 0; i <= compact.styles.length; i++){
+	function removeStyles () { // styles tags
+		for (let i = 0; i <= compact.styles.length; i++) {
 			if (compact.styles[i] && compact.styles[i].parentNode) {
 				document.head.removeChild(compact.styles[i]);
 			}

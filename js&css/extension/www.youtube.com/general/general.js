@@ -251,13 +251,13 @@ extension.features.popupWindowButtons = function (event) {
 								event.stopPropagation();
 								try { this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error)};
 								ytPlayer = document.querySelector("#movie_player");
-								if (ytPlayer){width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65}
+								if (ytPlayer) {width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65}
 								else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
 		 if (!ytPlayer) {
 									let shorts = /short/.test(this.parentElement.href);
 									if ( width / height < 1 ) { let vertical = true } else { let vertical = false }
-									if ( !vertical && shorts ){ width = height * 0.6}
-									if ( vertical && !shorts ){ height = width * 0.6}
+									if ( !vertical && shorts ) { width = height * 0.6}
+									if ( vertical && !shorts ) { height = width * 0.6}
 								}
 
 								window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay_disable') ? '0' : '1'), '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
@@ -528,7 +528,7 @@ extension.features.disableThumbnailPlayback = function (event) {
 # OPEN VIDEOS IN A NEW TAB
 --------------------------------------------------------------*/
 
-extension.features.openNewTab = function (){
+extension.features.openNewTab = function () {
 	if (extension.storage.get("open_new_tab") === true) {
 		window.onload = function () {
 			const searchButton = document.querySelector("button#search-icon-legacy");

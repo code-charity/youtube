@@ -195,7 +195,7 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 						DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
 						DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
 			 } catch {}} if ( DATA.title === ImprovedTube.videoTitle() )
-				{ keywords = document.getElementsByTagName('meta')?.keywords?.content || false; if (!keywords){keyword=''} ImprovedTube.speedException(); }
+				{ keywords = document.getElementsByTagName('meta')?.keywords?.content || false; if (!keywords) {keyword=''} ImprovedTube.speedException(); }
 				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
 
 					const htmlContent = await response.text();
@@ -226,7 +226,7 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 					}
 					while (retries > 0 && !invidiousFetched) { await fetchInvidiousData();
 						if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 4 ? 1500 : 876)); retries--; }	}
-					if (!invidiousFetched){ if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())}
+					if (!invidiousFetched) { if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())}
 					else { ImprovedTube.fetchDOMData();} }
 				})();
 			}
@@ -401,10 +401,10 @@ ImprovedTube.playerAds = function (parent) {
 		if (ImprovedTube.elements.category === 'music') {
 			skipAd();
 		}
-	} else if (this.storage.ads === 'small_creators'){
+	} else if (this.storage.ads === 'small_creators') {
 		let userDefiniedLimit = this.storage.smallCreatorsCount * parseInt(this.storage.smallCreatorsUnit);
 		let subscribersNumber = ImprovedTube.subscriberCount;
-		if (subscribersNumber > userDefiniedLimit){
+		if (subscribersNumber > userDefiniedLimit) {
 			skipAd();
 		}
 	}
@@ -813,10 +813,10 @@ ImprovedTube.playerFitToWinButton = function () {
 CINEMA MODE BUTTON
 ------------------------------------------------------------------------------*/
 
-var xpath = function (xpathToExecute){
+var xpath = function (xpathToExecute) {
 	var result = [];
 	var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
-	for ( var i=0; i < nodesSnapshot.snapshotLength; i++ ){
+	for ( var i=0; i < nodesSnapshot.snapshotLength; i++ ) {
 	  result.push( nodesSnapshot.snapshotItem(i) );
 	}
 	return result;
@@ -855,7 +855,7 @@ ImprovedTube.playerCinemaModeButton = function () {
 			onclick: function () {
 				var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
 				// console.log(player)
-				if (player.style.zIndex == 10000){
+				if (player.style.zIndex == 10000) {
 					player.style.zIndex = 1;
 					svg.parentNode.style.opacity = 0.64;
 					svg.parentNode.style.zIndex = 1;
@@ -918,7 +918,7 @@ ImprovedTube.playerCinemaModeEnable = function () {
 /*------------------------------------------------------------------------------
 HAMBURGER MENU
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerHamburgerButton = function () { if (this.storage.player_hamburger_button === true){
+ImprovedTube.playerHamburgerButton = function () { if (this.storage.player_hamburger_button === true) {
 	const videoPlayer = document.querySelector('.html5-video-player');
 
 	if (!videoPlayer) {
@@ -972,7 +972,7 @@ ImprovedTube.playerHamburgerButton = function () { if (this.storage.player_hambu
 POPUP PLAYER
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPopupButton = function () {
-	if (this.storage.player_popup_button === true && location.href.indexOf('youtube.com/embed') === -1 ){
+	if (this.storage.player_popup_button === true && location.href.indexOf('youtube.com/embed') === -1 ) {
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -996,7 +996,7 @@ ImprovedTube.playerPopupButton = function () {
 						'_blank',
 						`directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${ytPlayer.offsetWidth / 3},height=${ytPlayer.offsetHeight / 3}`
 					);
-				if (popup && listMatch){
+				if (popup && listMatch) {
 					//! If the video is not in the playlist or not within the first 200 entries, then it automatically selects the first video in the list.
 					popup.addEventListener('load', function () {
 						"use strict";

@@ -239,7 +239,7 @@ satus.isset = function (target, is_object) {
 /*-------------------------------------------------------------
 	# is___(target)
 --------------------------------------------------------------*/
-satus.isFunction =function (target){return typeof target ==='function';};
+satus.isFunction =function (target) {return typeof target ==='function';};
 
 satus.isArray	 = Array.isArray;
 satus.isString	 = function (t) { return typeof t ==='string'; };
@@ -249,7 +249,7 @@ satus.isElement	 = function (t) { return (t instanceof Element || t instanceof H
 satus.isNodeList = function (t) { return t instanceof NodeList; };
 satus.isBoolean = function (t) { return (t === false || t === true); };
 /*---LOG------------------------------------------------------*/
-satus.log =function (){console.log.apply(null, arguments);};
+satus.log =function () {console.log.apply(null, arguments);};
 
 /*--------------------------------------------------------------
 

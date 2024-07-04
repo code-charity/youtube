@@ -150,7 +150,7 @@ ImprovedTube.playerRemainingDuration = function () {
 /*------------------------------------------------------------------------------
  Comments Sidebar Simple
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebarSimple = function () { if (ImprovedTube.storage.comments_sidebar_simple === true){
+ImprovedTube.commentsSidebarSimple = function () { if (ImprovedTube.storage.comments_sidebar_simple === true) {
 	if (window.matchMedia("(min-width: 1599px)").matches) {
 		document.querySelector("#primary").insertAdjacentElement('afterend', document.querySelector("#comments"));}
 	if (window.matchMedia("(max-width: 1598px)").matches) {
@@ -163,7 +163,7 @@ ImprovedTube.commentsSidebarSimple = function () { if (ImprovedTube.storage.comm
 /*------------------------------------------------------------------------------
  Comments Sidebar
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_sidebar === true){
+ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_sidebar === true) {
 	const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
 	let hasApplied = 0;
 	if (/watch\?/.test(location.href)) {
@@ -174,7 +174,7 @@ ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_s
 		window.addEventListener("resize", sidebar)
 	}
 
-	function sidebar (){
+	function sidebar () {
 		resizePlayer();
 		if (window.matchMedia("(min-width: 1952px)").matches) {
 
@@ -182,7 +182,7 @@ ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_s
 				initialSetup()
 				setTimeout(() => {document.getElementById("columns").appendChild(document.getElementById("related"))})
 			}
-			else if (hasApplied == 2){ //from medium to big size
+			else if (hasApplied == 2) { //from medium to big size
 				setTimeout(() => {document.getElementById("columns").appendChild(document.getElementById("related"))})
 			}
 			hasApplied = 1
@@ -191,19 +191,19 @@ ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_s
 			if (!hasApplied) {
 				initialSetup();
 			}
-			else if (hasApplied == 1){ //from big to medium
+			else if (hasApplied == 1) { //from big to medium
 				document.getElementById("primary-inner").appendChild(document.getElementById("related"));
 			}
 			hasApplied = 2
 		}
 		else { /// <1000
-			if (hasApplied == 1){
+			if (hasApplied == 1) {
 				document.getElementById("primary-inner").appendChild(document.getElementById("related"));
 				let comments = document.querySelector("#comments");
 				let below = document.getElementById("below");
 				below.appendChild(comments);
 			}
-			else if (hasApplied == 2){
+			else if (hasApplied == 2) {
 				let comments = document.querySelector("#comments");
 				let below = document.getElementById("below");
 				below.appendChild(comments);
@@ -211,7 +211,7 @@ ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_s
 			hasApplied = 0;
 		}
 	}
-	function setGrid (){
+	function setGrid () {
 		let checkParentInterval = setInterval(() => {
 			container = document.querySelector("#related ytd-compact-video-renderer.style-scope")?.parentElement;
 			if (container) {
@@ -239,14 +239,14 @@ ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_s
 		document.getElementById("primary").style.width = `${width}px`;
 		player.style.width = `${width}px`;
 	}
-	function styleScrollbars (){
-		if (!navigator.userAgent.toLowerCase().includes("mac")){
+	function styleScrollbars () {
+		if (!navigator.userAgent.toLowerCase().includes("mac")) {
 			let color, colorHover
 			const isDarkMode = getComputedStyle(document.querySelector('ytd-app')).getPropertyValue('--yt-spec-base-background') == "#0f0f0f";
 			if (isDarkMode) [color, colorHover] = ["#616161", "#909090"];
 			else [color, colorHover] = ["#aaaaaa", "#717171"];
 			const style = document.createElement("style");
-			if (ImprovedTube.storage.comments_sidebar_scrollbars === true){
+			if (ImprovedTube.storage.comments_sidebar_scrollbars === true) {
 				const cssRule = `
             #primary, #secondary {
                 overflow: overlay !important;
@@ -284,7 +284,7 @@ ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_s
 			document.head.appendChild(style);
 		}
 	}
-	function applyObserver (){
+	function applyObserver () {
 		const debouncedResizePlayer = debounce(resizePlayer, 200);
 		const resizeObserver = new ResizeObserver(debouncedResizePlayer);
 		resizeObserver.observe(video);
@@ -306,12 +306,12 @@ ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_s
 /*----------------------------------------------------------------
  TRANSCRIPT
 --------------------------------------------------------------*/
-ImprovedTube.transcript = function (el){ if (ImprovedTube.storage.transcript === true){
+ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript === true) {
 	el.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');} }
 /*----------------------------------------------------------------
  CHAPTERS
 --------------------------------------------------------------*/
-ImprovedTube.chapters = function (el){ if (ImprovedTube.storage.chapters === true){
+ImprovedTube.chapters = function (el) { if (ImprovedTube.storage.chapters === true) {
 	el.querySelector('*[target-id*=chapters]')?.removeAttribute('visibility');} }
 /*------------------------------------------------------------------------------
  LIVECHAT
@@ -319,7 +319,7 @@ ImprovedTube.chapters = function (el){ if (ImprovedTube.storage.chapters === tru
 ImprovedTube.livechat = function () {
 	if (this.storage.livechat === "collapsed") {
 		if (typeof isCollapsed === 'undefined') { var isCollapsed = false; }
-		if (ImprovedTube.elements.livechat && !isCollapsed){
+		if (ImprovedTube.elements.livechat && !isCollapsed) {
 			ImprovedTube.elements.livechat.button.click();
 			isCollapsed = true
 		}
@@ -425,13 +425,13 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.expandDescription = function (el) {
 	if (this.storage.description === "expanded" || this.storage.description === "classic_expanded") {
-		if (el) {el.click(); setTimeout(function (){ImprovedTube.elements.player.focus();}, 1200); }
+		if (el) {el.click(); setTimeout(function () {ImprovedTube.elements.player.focus();}, 1200); }
 		else {		var tries = 0; 	var intervalMs = 210; if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}
 			// ...except when it is an embedded player?
 			var waitForDescription = setInterval(() => {
 				if (++tries >= maxTries) {
 					el = document.querySelector('#description-inline-expander')
-					if ( el) { el.click(); 	setTimeout(function (){ImprovedTube.elements.player.focus(); }, 1200); clearInterval(waitForDescription); }
+					if ( el) { el.click(); 	setTimeout(function () {ImprovedTube.elements.player.focus(); }, 1200); clearInterval(waitForDescription); }
 					intervalMs *= 1.11;	}}, intervalMs);
 		}
 	}

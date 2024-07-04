@@ -169,7 +169,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 								}
 							}
 						}
-						if (mutation.type === 'attributes' && mutation.attributeName === 'id' && mutation.target.querySelector('*[id^="ad-text"], *[id^="skip-button"], .ytp-ad-skip-button-modern.ytp-button',)){
+						if (mutation.type === 'attributes' && mutation.attributeName === 'id' && mutation.target.querySelector('*[id^="ad-text"], *[id^="skip-button"], .ytp-ad-skip-button-modern.ytp-button',)) {
 							ImprovedTube.playerAds(node);
 						}
 					}
@@ -377,7 +377,7 @@ ImprovedTube.playerOnTimeUpdate = function () {
 			}
 
 			if (ImprovedTube.storage.always_show_progress_bar === true) {ImprovedTube.showProgressBar();}
-			if (ImprovedTube.storage.player_remaining_duration === true){ImprovedTube.playerRemainingDuration();}
+			if (ImprovedTube.storage.player_remaining_duration === true) {ImprovedTube.playerRemainingDuration();}
 			ImprovedTube.played_time += .5;
 		}, 500);
 	}
@@ -431,7 +431,7 @@ ImprovedTube.onkeydown = function () {
 ImprovedTube.onmousedown = function () {
 	window.addEventListener('mousedown', function (event) {
 		if (!ImprovedTube.user_interacted) {
-			setTimeout(function (){ImprovedTube.user_interacted = true}, 3000);
+			setTimeout(function () {ImprovedTube.user_interacted = true}, 3000);
 			if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
 				var path = event.composedPath();
 				for (var i = 0, l = path.length; i < l; i++) {
@@ -577,7 +577,7 @@ ImprovedTube.createPlayerButton = function (options) {
 			tooltip.style.top = rect.top - 8 + 'px';
 
 			tooltip.textContent = this.dataset.title;
-			if (this.storage && (this.storage.player_cinema_mode_button || this.storage.player_auto_hide_cinema_mode_when_paused || this.storage.player_auto_cinema_mode)){
+			if (this.storage && (this.storage.player_cinema_mode_button || this.storage.player_auto_hide_cinema_mode_when_paused || this.storage.player_auto_cinema_mode)) {
 				tooltip.style.zIndex = 10001;} // needed for cinema mode
 			function mouseleave () {
 				tooltip.remove();

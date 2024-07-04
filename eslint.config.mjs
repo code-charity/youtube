@@ -3,8 +3,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
-import { fixupConfigRules } from '@eslint/compat'
-import eslintPluginCompat from 'eslint-plugin-compat'
+import { fixupConfigRules } from '@eslint/compat';
+import eslintPluginCompat from 'eslint-plugin-compat';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -49,6 +49,7 @@ export default [...compat.extends("eslint:recommended"), ...compatConfiguration,
         "no-multiple-empty-lines": ["error", {"max": 1, "maxBOF": 0, "maxEOF": 0}],
 		"keyword-spacing": ["warn", { "before": true, "after": true }],
 		"space-before-function-paren": "warn",
+        "space-before-blocks": "warn",
 		"max-len": ["error", {
 			code: 255,
 			ignoreUrls: true,
