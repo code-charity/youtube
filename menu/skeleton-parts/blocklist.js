@@ -107,10 +107,10 @@ extension.skeleton.main.layers.section.blocklist = {
 								let blocklist = satus.storage.get('blocklist');
 
 								if (blocklist && blocklist.channels && Object.keys(blocklist.channels).length) {
-										this.textContent = '('+Object.keys(blocklist.channels).length+')';
-									} else {
-										this.textContent = '(empty)';
-									}
+									this.textContent = '('+Object.keys(blocklist.channels).length+')';
+								} else {
+									this.textContent = '(empty)';
+								}
 							}
 						}
 					}
@@ -205,10 +205,10 @@ extension.skeleton.main.layers.section.blocklist = {
 								let blocklist = satus.storage.get('blocklist');
 
 								if (blocklist && blocklist.videos && Object.keys(blocklist.videos).length) {
-										this.textContent = '('+Object.keys(blocklist.videos).length+')';
-									} else {
-										this.textContent = '(empty)';
-									}
+									this.textContent = '('+Object.keys(blocklist.videos).length+')';
+								} else {
+									this.textContent = '(empty)';
+								}
 							}
 						}
 					}

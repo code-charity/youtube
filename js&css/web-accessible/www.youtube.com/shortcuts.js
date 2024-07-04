@@ -23,20 +23,21 @@ ImprovedTube.shortcutsInit = function () {
 		let potentialShortcut = {};
 		for (const button of ['alt','ctrl','shift','wheel','keys','toggle']) {
 			switch(button) {
-				case 'alt':
-				case 'ctrl':
-				case 'shift':
-				case 'toggle':
-					potentialShortcut[button] = keys[button] || false;
+			case 'alt':
+			case 'ctrl':
+			case 'shift':
+			case 'toggle':
+				potentialShortcut[button] = keys[button] || false;
 				break
 
-				case 'wheel':
-					potentialShortcut[button] = keys[button] || 0;
+			case 'wheel':
+				potentialShortcut[button] = keys[button] || 0;
 				break
 
 				case 'keys':
 					// array of sorted scancodes
 					potentialShortcut[button] = keys[button] ? new Set(Object.keys(keys[button]).map(s=>Number(s)).sort()) : new Set();
+
 				break
 			}
 		}
@@ -422,19 +423,19 @@ ImprovedTube.shortcutDislike = function () {
 };
 /*------Report------*/
 ImprovedTube.shortcutReport = function () {
-try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0);
-	document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
+	try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); 
+		document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
 	catch{console.log("'...' failed"); setTimeout(function(){try{document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
-catch{console.log("'...' failed2")}},100) }
-
-setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
+	catch{console.log("'...' failed2")}},100) }
+	
+	setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
 	catch{console.log("report failed");setTimeout(function()	{try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
-		catch{console.log("report failed2");document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}},800);
-		}
-},200);
+	catch{console.log("report failed2");document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}},800);
+	}
+	},200); 
 
-setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed");
-  setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed2");}},1700)}},700)
+	setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed");
+		setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed2");}},1700)}},700)
 }
 /*------------------------------------------------------------------------------
 4.7.24 SUBSCRIBE
@@ -464,7 +465,7 @@ ImprovedTube.shortcutCustomMiniPlayer = function () {
 /*------------------------------------------------------------------------------
 Loop
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcutToggleLoop = function (node) {
+ImprovedTube.shortcutToggleLoop = function () {
 	const video = this.elements.video,
 		player = this.elements.player;
 	function matchLoopState(opacity) {
