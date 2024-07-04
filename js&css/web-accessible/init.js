@@ -54,7 +54,6 @@ ImprovedTube.observer = new MutationObserver(function (mutationList) {
 	i++;}
 	*/
 
-
 }).observe(document.documentElement, {
 	//	attributes: true,
 	//	attributeOldValue: true,

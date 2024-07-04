@@ -136,7 +136,6 @@ extension.features.collapseOfSubscriptionSections = function (event) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # ONLY ONE PLAYER INSTANCE PLAYING
 --------------------------------------------------------------*/
@@ -197,7 +196,6 @@ extension.features.confirmationBeforeClosing = function () {
 	};
 };
 
-
 /*--------------------------------------------------------------
 # DEFAULT CONTENT COUNTRY
 --------------------------------------------------------------*/
@@ -221,7 +219,6 @@ extension.features.defaultContentCountry = function (changed) {
 		location.reload();
 	}
 };
-
 
 /*--------------------------------------------------------------
 # ADD "POPUP WINDOW" BUTTONS
@@ -321,7 +318,6 @@ extension.features.font = function (changed) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # MARK WATCHED VIDEOS
 --------------------------------------------------------------*/
@@ -419,7 +415,6 @@ extension.features.markWatchedVideos = function (anything) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # TRACK WATCHED VIDEOS
 --------------------------------------------------------------*/
@@ -441,7 +436,6 @@ extension.features.trackWatchedVideos = function () {
 		});
 	}
 };
-
 
 /*--------------------------------------------------------------
 # THUMBNAILS QUALITY
@@ -548,7 +542,6 @@ extension.features.openNewTab = function (){
 					performSearchNewTab(inputField.value);
 				}
 			});
-
 
 			let searchedAlready = false;
 			inputField.addEventListener("focus", function () {

@@ -32,7 +32,6 @@ fetch(url, success, error, type)
 indexOf(child, parent)
  toIndex(index, child, parent)
 
-
 # ON: on(element, listeners)
 
 parentify(parentObject, exclude)
@@ -102,8 +101,6 @@ RGB2HSL	HUE2RGB	 HSL2RGB
 >>> SEARCH
 // TO-DO or integrate with JS search libs
 --------------------------------------------------------------*/
-
-
 
 /*--------------------------------------------------------------
 # GLOBAL VARIABLE
@@ -256,9 +253,7 @@ satus.log =function(){console.log.apply(null, arguments);};
 
 /*--------------------------------------------------------------
 
-
 # DOM
-
 
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -391,9 +386,7 @@ satus.elementIndex = function(element) {
 
 /*--------------------------------------------------------------
 
-
 # CSS
-
 
 --------------------------------------------------------------*/
 satus.css = function(element, property) {
@@ -423,7 +416,6 @@ satus.style = function(element, object) {
 satus.getAnimationDuration = function(element) {
 	return Number(window.getComputedStyle(element).getPropertyValue('animation-duration').replace(/[^0-9.]/g, '')) * 1000;
 };
-
 
 /*--------------------------------------------------------------
 
@@ -476,7 +468,6 @@ satus.encrypt = async function(text, password) {
 /*--------------------------------------------------------------
 # EVENTS
 
-
 --------------------------------------------------------------*/
 /*-- ON ------------------------------------------------------*/
 satus.events.on = function(type, handler) {
@@ -526,7 +517,6 @@ satus.getProperty = function(object, string) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # INDEX OF
 --------------------------------------------------------------*/
@@ -544,7 +534,6 @@ satus.indexOf = function(child, parent) {
 
 	return index;
 };
-
 
 /*--------------------------------------------------------------
 # TO INDEX
@@ -629,7 +618,6 @@ satus.on = function(element, listeners) {
 		}
 	}
 };
-
 
 /*--------------------------------------------------------------
 # PARENTIFY
@@ -859,9 +847,7 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 
 /*--------------------------------------------------------------
 
-
 # STORAGE
-
 
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -879,7 +865,6 @@ satus.storage.clear = function(callback) {
 		}
 	});
 };
-
 
 /*--------------------------------------------------------------
 # GET
@@ -910,7 +895,6 @@ satus.storage.get = function(key) {
 		return target;
 	}
 };
-
 
 /*--------------------------------------------------------------
 # IMPORT
@@ -1022,7 +1006,6 @@ satus.storage.onchanged = function(callback) {
 	});
 };
 
-
 /*--------------------------------------------------------------
 # LAST
 --------------------------------------------------------------*/
@@ -1032,7 +1015,6 @@ satus.last = function(variable) {
 		return variable[variable.length - 1];
 	}
 };
-
 
 /*--------------------------------------------------------------
 
@@ -1532,7 +1514,6 @@ satus.components.chart = function(component, skeleton) {
 		this.chart[type](component, skeleton);
 	}
 };
-
 
 /*--------------------------------------------------------------
 # BAR
@@ -2704,7 +2685,6 @@ satus.manifest = function() {
 
 satus.color = {};
 
-
 /*--------------------------------------------------------------
 # STRING TO ARRAY
 --------------------------------------------------------------*/
@@ -2720,7 +2700,6 @@ satus.color.stringToArray = function(string) {
 
 	return match;
 };
-
 
 /*--------------------------------------------------------------
 # RGB TO HSL
@@ -2766,7 +2745,6 @@ satus.color.rgbToHsl = function(array) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # HUE TO RGB
 --------------------------------------------------------------*/
@@ -2794,7 +2772,6 @@ satus.color.hueToRgb = function(array) {
 		return t1;
 	}
 };
-
 
 /*--------------------------------------------------------------
 # HSL TO RGB
@@ -2904,7 +2881,6 @@ satus.user.os.name = function() {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # BITNESS
 --------------------------------------------------------------*/
@@ -2916,7 +2892,6 @@ satus.user.os.bitness = function() {
 		return '32-bit';
 	}
 };
-
 
 /*--------------------------------------------------------------
 # BROWSER
@@ -2949,7 +2924,6 @@ satus.user.browser.name = function() {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # VERSION
 --------------------------------------------------------------*/
@@ -2961,7 +2935,6 @@ satus.user.browser.version = function() {
 	return browser_version[1];
 };
 
-
 /*--------------------------------------------------------------
 # PLATFORM
 --------------------------------------------------------------*/
@@ -2969,7 +2942,6 @@ satus.user.browser.version = function() {
 satus.user.browser.platform = function() {
 	return navigator.platform;
 };
-
 
 /*--------------------------------------------------------------
 # MANIFEST
@@ -2979,7 +2951,6 @@ satus.user.browser.manifest = function() {
 	return chrome.runtime.getManifest() || {};
 };
 
-
 /*--------------------------------------------------------------
 # LANGUAGES
 --------------------------------------------------------------*/
@@ -2987,7 +2958,6 @@ satus.user.browser.manifest = function() {
 satus.user.browser.languages = function() {
 	return navigator.languages;
 };
-
 
 /*--------------------------------------------------------------
 # COOKIES
@@ -3007,7 +2977,6 @@ satus.user.browser.cookies = function() {
 	return false;
 };
 
-
 /*--------------------------------------------------------------
 # FLASH
 --------------------------------------------------------------*/
@@ -3026,7 +2995,6 @@ satus.user.browser.flash = function() {
 	return false;
 };
 
-
 /*--------------------------------------------------------------
 # JAVA
 --------------------------------------------------------------*/
@@ -3038,7 +3006,6 @@ satus.user.browser.java = function() {
 		return false;
 	}
 };
-
 
 /*--------------------------------------------------------------
 # AUDIO
@@ -3067,7 +3034,6 @@ satus.user.browser.audio = function() {
 
 	return result;
 };
-
 
 /*--------------------------------------------------------------
 # VIDEO
@@ -3099,7 +3065,6 @@ satus.user.browser.video = function() {
 	return result;
 };
 
-
 /*--------------------------------------------------------------
 # WEBGL
 --------------------------------------------------------------*/
@@ -3110,7 +3075,6 @@ satus.user.browser.webgl = function() {
 
 	return ctx && ctx instanceof WebGLRenderingContext;
 };
-
 
 /*--------------------------------------------------------------
 # HARDWARE
@@ -3126,7 +3090,6 @@ satus.user.device.screen = function() {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # RAM
 --------------------------------------------------------------*/
@@ -3136,7 +3099,6 @@ satus.user.device.ram = function() {
 		return navigator.deviceMemory + ' GB';
 	}
 };
-
 
 /*--------------------------------------------------------------
 # GPU
@@ -3160,7 +3122,6 @@ satus.user.device.gpu = function() {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # CORES
 --------------------------------------------------------------*/
@@ -3168,7 +3129,6 @@ satus.user.device.gpu = function() {
 satus.user.device.cores = function() {
 	return navigator.deviceConcurrency || navigator.hardwareConcurrency;
 };
-
 
 /*--------------------------------------------------------------
 # TOUCH
@@ -3189,7 +3149,6 @@ satus.user.device.touch = function() {
 
 	return result;
 };
-
 
 /*--------------------------------------------------------------
 # CONNECTION

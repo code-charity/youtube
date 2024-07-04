@@ -98,7 +98,6 @@ ImprovedTube.ytElementsHandler = function (node) {
 		this.improvedtubeYoutubeIcon();
 		this.improvedtubeYoutubeButtonsUnderPlayer();
 
-
 	} else if (name === 'YTD-VIDEO-SECONDARY-INFO-RENDERER') {
 		this.elements.yt_channel_name = node.querySelector('ytd-channel-name');
 		this.elements.yt_channel_link = node.querySelector('ytd-channel-name a');
@@ -641,7 +640,6 @@ ImprovedTube.showStatus = function (value) {
 
 ImprovedTube.videoId = function (url = document.URL) {return url.match(ImprovedTube.regex.video_id)[1] || url.searchParams.get('v') || movie_player.getVideoData().video_id};
 ImprovedTube.videoTitle = function () {return document.title?.replace(/\s*-\s*YouTube$/, '') || movie_player.getVideoData().title || document.querySelector('#title > h1 > *')?.textContent};
-
 
 // Function to extract and store the number of subscribers
 ImprovedTube.extractSubscriberCount = function (subscriberCountNode) {

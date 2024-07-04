@@ -809,7 +809,6 @@ ImprovedTube.playerFitToWinButton = function () {
 	}
 };
 
-
 /*------------------------------------------------------------------------------
 CINEMA MODE BUTTON
 ------------------------------------------------------------------------------*/
@@ -865,7 +864,6 @@ ImprovedTube.playerCinemaModeButton = function () {
 					player.style.zIndex = 10000;
 					svg.parentNode.style.opacity = 1;
 				}
-
 
 				var overlay = document.getElementById('overlay_cinema');
 				if (!overlay) {

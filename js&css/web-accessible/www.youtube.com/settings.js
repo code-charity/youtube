@@ -145,7 +145,6 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 	}
 };
 
-
 /*-----------------------------------------------------------------------------
 4.10.3 DELETE YOUTUBE COOKIES
 -----------------------------------------------------------------------------*/
@@ -163,7 +162,6 @@ ImprovedTube.deleteYoutubeCookies = function () {
 
 	setTimeout(function () {location.reload();}, 100);
 };
-
 
 /*-----------------------------------------------------------------------------
 4.10.4 YOUTUBE LANGUAGE

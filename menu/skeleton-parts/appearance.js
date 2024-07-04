@@ -411,7 +411,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 # DETAILS
 --------------------------------------------------------------*/
 
-
 extension.skeleton.main.layers.section.appearance.on.click.details = {
 	component: "button",
 	variant: "details",
@@ -719,7 +718,6 @@ extension.skeleton.main.layers.section.appearance.on.click.hide_detail_button = 
 	}
 }
 
-
 /*--------------------------------------------------------------
 # COMMENTS
 --------------------------------------------------------------*/
@@ -796,7 +794,6 @@ extension.skeleton.main.layers.section.appearance.on.click.popup_ad = {
 	text: "popupAd",
 	tags: "bottom"
 };
-
 
 /*--------------------------------------------------------------
 # SIDEBAR
