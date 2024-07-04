@@ -62,13 +62,13 @@ var ImprovedTube = {
 		listening: {},
 		listeners: {},
 		pressed: {
-			keys: [],
+			keys: new Set(),
 			wheel: 0,
 			alt: false,
 			ctrl: false,
 			shift: false
 		},
-		cancelled: [],
+		cancelled: new Set(),
 		ignoreElements: ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'],
 		modifierKeys: ['AltLeft','AltRight','ControlLeft','ControlRight','ShiftLeft','ShiftRight'],
 	},
