@@ -27,7 +27,7 @@
 # IMPORTING OLD SETTINGS
 -----------------------------*/
 chrome.runtime.onInstalled.addListener(function (installed) {
-	if(installed.reason == 'update') {
+	if (installed.reason == 'update') {
 		//		var thisVersion = chrome.runtime.getManifest().version;
 		//		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
 		// Shortcut renames:
@@ -37,7 +37,7 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 				if (!keys) continue;
 				let newKeys = {},
 					newName = name.replace('shortcut_', 'shortcut_quality_');
-				for (const button of ['alt','ctrl','shift','wheel','toggle']) {
+				for (const button of ['alt', 'ctrl', 'shift', 'wheel', 'toggle']) {
 					if (keys[button]) newKeys[button] = keys[button];
 				}
 				if (keys['keys'] && Object.keys(keys['keys'])?.length) {
@@ -93,34 +93,38 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 				});
 			}
 		});
-	} else if(installed.reason == 'install') {
-		if(navigator.userAgent.indexOf("Firefox") != -1){
-			chrome.storage.local.set({below_player_pip: false})}
-		if(navigator.userAgent.indexOf('Safari') !== -1
+	} else if (installed.reason == 'install') {
+		if (navigator.userAgent.indexOf("Firefox") != -1) {
+			chrome.storage.local.set({below_player_pip: false})
+		}
+		if (navigator.userAgent.indexOf('Safari') !== -1
 		   && (!/Windows|Chrom/.test(navigator.userAgent)
 			   || /Macintosh|iPhone/.test(navigator.userAgent))) {
 			chrome.storage.local.set({below_player_pip: false})
 			// still needed? (are screenshots broken in Safari?):
-			chrome.storage.local.set({below_player_screenshot: false})}
+			chrome.storage.local.set({below_player_screenshot: false})
+		}
 		// console.log('Thanks for installing!');
 	}
 });
 /*--------------------------------------------------------------
 # LOCALE
 --------------------------------------------------------------*/
-function getLocale(language, callback) {
+function getLocale (language, callback) {
 	language = language.replace('-', '_');
-	fetch('_locales/' + language.substring(0,2) + '/messages.json').then(function (response) {
+	fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
 		if (response.ok) {
 			response.json().then(callback);
 		} else {
-			fetch('_locales/' + language.substring(0,2) + '/messages.json').then(function (response) {
+			fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
 				if (response.ok) {
 					response.json().then(callback);
 				} else {
 					getLocale('en', callback);
 				}
-			}).catch(function () { getLocale('en', callback); });
+			}).catch(function () {
+				getLocale('en', callback);
+			});
 			getLocale('en', callback);
 		}
 	}).catch(function () {
@@ -130,7 +134,7 @@ function getLocale(language, callback) {
 /*--------------------------------------------------------------
 # CONTEXT MENU
 --------------------------------------------------------------*/
-function updateContextMenu(language) {
+function updateContextMenu (language) {
 	if (!language) {
 		language = chrome.i18n.getUILanguage();
 	}
@@ -179,8 +183,12 @@ chrome.runtime.onInstalled.addListener(function (details) {
 
 chrome.storage.onChanged.addListener(function (changes) {
 	for (var key in changes) {
-		if (key === 'language') { updateContextMenu(changes[key].newValue); }
-		if (key === 'improvedTubeSidebar') { chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: changes[key].newValue}); }
+		if (key === 'language') {
+			updateContextMenu(changes[key].newValue);
+		}
+		if (key === 'improvedTubeSidebar') {
+			chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: changes[key].newValue});
+		}
 	}
 });
 /*--------------------------------------------------------------
@@ -188,7 +196,7 @@ chrome.storage.onChanged.addListener(function (changes) {
 --------------------------------------------------------------*/
 let tabConnected = {};
 
-function tabPrune(callback) {
+function tabPrune (callback) {
 	chrome.tabs.query({ url: 'https://www.youtube.com/*' }).then(function (tabs) {
 		let tabIds = [];
 		for (let tab of tabs) {
@@ -202,17 +210,19 @@ function tabPrune(callback) {
 			}
 		}
 		callback();
-	}, function () { console.log("Error querying Tabs") });
+	}, function () {
+		console.log("Error querying Tabs")
+	});
 };
 /*--------------------------------------------------------------
 # TAB FOCUS/BLUR
- commented out console.log left intentionally, to help understand 
+ commented out console.log left intentionally, to help understand
  https://issues.chromium.org/issues/41116352
 --------------------------------------------------------------*/
 let tab = {},
 	tabPrev = {},
 	windowId;
- 
+
 chrome.tabs.onActivated.addListener(function (activeInfo) {
 	tabPrev = tab;
 	tab = activeInfo;
@@ -252,39 +262,39 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	//console.log(message);
 	//console.log(sender);
 
-	switch(message.action || message.name || message) {
-	case 'play':
-		tabPrune(function () {
-			for (let id in tabConnected) {
-				id = Number(id);
-				if (id != sender.tab.id) {
-					chrome.tabs.sendMessage(id, {action: "another-video-started-playing"});
+	switch (message.action || message.name || message) {
+		case 'play':
+			tabPrune(function () {
+				for (let id in tabConnected) {
+					id = Number(id);
+					if (id != sender.tab.id) {
+						chrome.tabs.sendMessage(id, {action: "another-video-started-playing"});
+					}
 				}
-			}
-		});
-		break
+			});
+			break
 
-	case 'options-page-connected':
-		sendResponse({
-			isTab: sender.hasOwnProperty('tab')
-		});
-		break
+		case 'options-page-connected':
+			sendResponse({
+				isTab: sender.hasOwnProperty('tab')
+			});
+			break
 
-	case 'tab-connected':
-		tabConnected[sender.tab.id] = true;
-		sendResponse({
-			tabId: sender.tab.id
-		});
-		break
+		case 'tab-connected':
+			tabConnected[sender.tab.id] = true;
+			sendResponse({
+				tabId: sender.tab.id
+			});
+			break
 
-	case 'fixPopup':
-		//~ get the current focused tab and convert it to a URL-less popup (with same state and size)
-		chrome.windows.getLastFocused(w => {
-			chrome.tabs.query({
-				windowId: w.id,
-				active: true
-			}, ts => {
-				const tID = ts[0]?.id,
+		case 'fixPopup':
+			//~ get the current focused tab and convert it to a URL-less popup (with same state and size)
+			chrome.windows.getLastFocused(w => {
+				chrome.tabs.query({
+					windowId: w.id,
+					active: true
+				}, ts => {
+					const tID = ts[0]?.id,
 						  data = { type: 'popup',
 								  state: w.state,
 								  width: parseInt(message.width, 10),
@@ -293,42 +303,47 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 								  top: 20
 								 }
 
-				if (tID) {data.tabId = tID;}
-				chrome.windows.create(data, pw => {});
-
-				//append to title?
-				chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {
-					if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")) {
-						chrome.tabs.onUpdated.removeListener(listener);
-						chrome.scripting.executeScript({ target: { tabId: tID }, func: () => { document.title = `${message.title} - ImprovedTube`; } });			//manifest3
-						// chrome.tabs.executeScript(tID, {code: `document.title = "${message.title} - ImprovedTube";`});  //manifest2
+					if (tID) {
+						data.tabId = tID;
 					}
+					chrome.windows.create(data, pw => {});
+
+					//append to title?
+					chrome.tabs.onUpdated.addListener(function listener (tabId, changeInfo) {
+						if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")) {
+							chrome.tabs.onUpdated.removeListener(listener);
+							chrome.scripting.executeScript({ target: { tabId: tID }, func: () => {
+								document.title = `${message.title} - ImprovedTube`;
+							} });			//manifest3
+							// chrome.tabs.executeScript(tID, {code: `document.title = "${message.title} - ImprovedTube";`});  //manifest2
+						}
+					});
 				});
 			});
-		});
-		break
-	case 'download':
-		chrome.permissions.request({
-			permissions: ['downloads'],
-			origins: ['https://www.youtube.com/*']
-		}, function (granted) {
-			if (granted) {
-				try {
-					var blob = new Blob([JSON.stringify(message.value)], {
-						type: 'application/json;charset=utf-8'
-					});
-					chrome.downloads.download({
-						url: URL.createObjectURL(blob),
-						filename: message.filename,
-						saveAs: true
-					});
-				} catch (error) {
-					console.error(error);
+			break
+		case 'download':
+			chrome.permissions.request({
+				permissions: ['downloads'],
+				origins: ['https://www.youtube.com/*']
+			}, function (granted) {
+				if (granted) {
+					try {
+						var blob = new Blob([JSON.stringify(message.value)], {
+							type: 'application/json;charset=utf-8'
+						});
+						chrome.downloads.download({
+							url: URL.createObjectURL(blob),
+							filename: message.filename,
+							saveAs: true
+						});
+					} catch (error) {
+						console.error(error);
+					}
+				} else {
+					console.error('Permission is not granted.');
 				}
-			} else {
-				console.error('Permission is not granted.');
-			}})
-		break
+			})
+			break
 	}
 });
 /*-----# UNINSTALL URL-----------------------------------*/

@@ -19,6 +19,12 @@
     "jslint": "^0.12.1"
   },
   "dependencies": {
-    "@eslint/migrate-config": "^1.1.1"
-  }
+    "@eslint/compat": "^1.1.0",
+    "@eslint/migrate-config": "^1.1.1",
+    "eslint-plugin-compat": "^5.0.0"
+  },
+  "browserslist": [
+    "last 10 versions, not dead, > 1%",
+    "not op_mini all"
+  ]
 }

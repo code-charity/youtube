@@ -76,17 +76,22 @@ extension.features.bluelight = function () {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # DIM
 --------------------------------------------------------------*/
 
 extension.features.dim = function () {
 	var value = extension.storage.get('dim');
-	if (extension.features.schedule() === false) { return false;}
+	if (extension.features.schedule() === false) {
+		return false;
+	}
 
-	if (!value) { value = 0;}
-	if (typeof value !== 'number') {value = Number(value);}
+	if (!value) {
+		value = 0;
+	}
+	if (typeof value !== 'number') {
+		value = Number(value);
+	}
 	if (value !== 0) {
 		if (!this.dim.element) {
 			var element = document.createElement('div');
@@ -106,7 +111,6 @@ extension.features.dim = function () {
 		delete this.dim.element;
 	}
 };
-
 
 /*--------------------------------------------------------------
 # SCHEDULE

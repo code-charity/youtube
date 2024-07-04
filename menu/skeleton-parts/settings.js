@@ -59,7 +59,6 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings = {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # APPEARANCE
 --------------------------------------------------------------*/
@@ -187,7 +186,6 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.firstSectio
 		}
 	}
 };
-
 
 /*--------------------------------------------------------------
 # LANGUAGE
@@ -347,7 +345,6 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 		}
 	}
 };
-
 
 /*--------------------------------------------------------------
 # BACKUP & RESET
@@ -555,7 +552,6 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 	}
 };
 
-
 /*--------------------------------------------------------------
 # DEVELOPER OPTIONS
 --------------------------------------------------------------*/
@@ -630,7 +626,6 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 		}
 	}
 };
-
 
 /*--------------------------------------------------------------
 # ABOUT

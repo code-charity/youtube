@@ -2,12 +2,14 @@
 >>> INDEX:
 /*--------------------------------------------------------------
 ----------------------------------------------------------------
-# Global variable  //moved to skeleton.js: (var extension = {skeleton:{} };  
+# Global variable  //moved to skeleton.js: (var extension = {skeleton:{} };
 # INITIALIZATION
 --------------------------------------------------------------*/
 satus.storage.import(function (items) {
 	var language = items.language;
-	if (!language || language === 'default') {	language = false;}
+	if (!language || language === 'default') {
+		language = false;
+	}
 	satus.locale.import(language, function () {
 		satus.render(extension.skeleton);
 

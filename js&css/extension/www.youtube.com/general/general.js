@@ -136,7 +136,6 @@ extension.features.collapseOfSubscriptionSections = function (event) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # ONLY ONE PLAYER INSTANCE PLAYING
 --------------------------------------------------------------*/
@@ -171,7 +170,9 @@ extension.features.addScrollToTop = function (event) {
 			path.setAttribute('d', 'M13 19V7.8l4.9 5c.4.3 1 .3 1.4 0 .4-.5.4-1.1 0-1.5l-6.6-6.6a1 1 0 0 0-1.4 0l-6.6 6.6a1 1 0 1 0 1.4 1.4L11 7.8V19c0 .6.5 1 1 1s1-.5 1-1z');
 			svg.appendChild(path);
 			this.addScrollToTop.button.appendChild(svg);
-			window.addEventListener('scroll', function () { document.body.appendChild(extension.features.addScrollToTop.button); });
+			window.addEventListener('scroll', function () {
+				document.body.appendChild(extension.features.addScrollToTop.button);
+			});
 			this.addScrollToTop.button.addEventListener('click', function () {
 				window.scrollTo(0, 0);
 				document.getElementById('it-scroll-to-top')?.remove();
@@ -197,7 +198,6 @@ extension.features.confirmationBeforeClosing = function () {
 	};
 };
 
-
 /*--------------------------------------------------------------
 # DEFAULT CONTENT COUNTRY
 --------------------------------------------------------------*/
@@ -222,7 +222,6 @@ extension.features.defaultContentCountry = function (changed) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # ADD "POPUP WINDOW" BUTTONS
 --------------------------------------------------------------*/
@@ -235,7 +234,7 @@ extension.features.popupWindowButtons = function (event) {
 				while (detected === false && target.parentNode) {
 					if ( target.className && typeof target.className === 'string' && ((
 						target.id === 'thumbnail' && target.className.indexOf('ytd-thumbnail') !== -1 || target.className.indexOf('thumb-link') !== -1 )
-						|| (target.className.indexOf('video-preview') !== -1 || target.className.indexOf('ytp-inline-preview-scrim') !== -1  || target.className.indexOf('ytp-inline-preview-ui') !== -1)
+						|| (target.className.indexOf('video-preview') !== -1 || target.className.indexOf('ytp-inline-preview-scrim') !== -1 || target.className.indexOf('ytp-inline-preview-ui') !== -1)
 					)) {
 						if (!target.itPopupWindowButton) {
 							target.itPopupWindowButton = document.createElement('button');
@@ -251,27 +250,42 @@ extension.features.popupWindowButtons = function (event) {
 
 							target.itPopupWindowButton.addEventListener('click', function (event) {
 								event.preventDefault();
-								event.stopPropagation();	
-								try { this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1]  } catch(error) { console.log(error)};  
+								event.stopPropagation();
+								try {
+									this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1]
+								} catch (error) {
+									console.log(error)
+								};
 								ytPlayer = document.querySelector("#movie_player");
-								if (ytPlayer){width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65}
-								else { width = innerWidth * 0.4;  height = innerHeight * 0.4; }
-		 if (!ytPlayer) { 		
-									let shorts = /short/.test(this.parentElement.href); 
-									if (  width / height  < 1 ) { let vertical = true }  else { let vertical = false }
-									if ( !vertical &&  shorts ){ width = height * 0.6}
-									if (  vertical && !shorts ){ height = width * 0.6}
+								if (ytPlayer) {
+									width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65
+								} else {
+									width = innerWidth * 0.4; height = innerHeight * 0.4;
 								}
-		
+		 if (!ytPlayer) {
+									let shorts = /short/.test(this.parentElement.href);
+									if ( width / height < 1 ) {
+										let vertical = true
+									} else {
+										let vertical = false
+									}
+									if ( !vertical && shorts ) {
+										width = height * 0.6
+									}
+									if ( vertical && !shorts ) {
+										height = width * 0.6
+									}
+								}
+
 								window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay_disable') ? '0' : '1'), '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
 								chrome.runtime.sendMessage({
 									action: 'fixPopup',
 									width: width,
 									height: height,
-									title: this.parentElement.closest('*[id="video-title"]')?.textContent + " - Youtube" 
-								})  
+									title: this.parentElement.closest('*[id="video-title"]')?.textContent + " - Youtube"
+								})
 							});
-						}						
+						}
 						detected = true;
 					}
 					target = target.parentNode;
@@ -321,7 +335,6 @@ extension.features.font = function (changed) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # MARK WATCHED VIDEOS
 --------------------------------------------------------------*/
@@ -348,20 +361,21 @@ extension.features.markWatchedVideos = function (anything) {
 							target.itMarkWatchedVideosButton.className = 'it-mark-watched-videos';
 							target.itMarkWatchedVideosButton.dataset.id = extension.functions.getUrlParameter(target.href, 'v');
 							var id = target.itMarkWatchedVideosButton.dataset.id;
-							var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');    svg.setAttribute('viewBox', '0 0 24 24');
+							var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('viewBox', '0 0 24 24');
 							var pathData = 'M12 15.15q1.525 0 2.588-1.063 1.062-1.062 1.062-2.587 0-1.525-1.062-2.588Q13.525 7.85 12 7.85q-1.525 0-2.587 1.062Q8.35 9.975 8.35 11.5q0 1.525 1.063 2.587Q10.475 15.15 12 15.15Zm0-.95q-1.125 0-1.912-.788Q9.3 12.625 9.3 11.5t.788-1.913Q10.875 8.8 12 8.8t1.913.787q.787.788.787 1.913t-.787 1.912q-.788.788-1.913.788Zm0 3.8q-3.1 0-5.688-1.613Q3.725 14.775 2.325 12q-.05-.1-.075-.225-.025-.125-.025-.275 0-.15.025-.275.025-.125.075-.225 1.4-2.775 3.987-4.388Q8.9 5 12 5q3.1 0 5.688 1.612Q20.275 8.225 21.675 11q.05.1.075.225.025.125.025.275 0 .15-.025.275-.025.125-.075.225-1.4 2.775-3.987 4.387Q15.1 18 12 18Z';
 							var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-							path.setAttribute('d', pathData + 'm0-6.5Zm0 5.5q2.825 0 5.188-1.488Q19.55 14.025 20.8 11.5q-1.25-2.525-3.612-4.013Q14.825 6 12 6 9.175 6 6.812 7.487 4.45 8.975 3.2 11.5q1.25 2.525 3.612 4.012Q9.175 17 12 17Z');  
+							path.setAttribute('d', pathData + 'm0-6.5Zm0 5.5q2.825 0 5.188-1.488Q19.55 14.025 20.8 11.5q-1.25-2.525-3.612-4.013Q14.825 6 12 6 9.175 6 6.812 7.487 4.45 8.975 3.2 11.5q1.25 2.525 3.612 4.012Q9.175 17 12 17Z');
 							svg.appendChild(path);
-							var svg2 = document.createElementNS('http://www.w3.org/2000/svg', 'svg');    svg2.setAttribute('viewBox', '0 0 24 24');
+							var svg2 = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg2.setAttribute('viewBox', '0 0 24 24');
 							var extraPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 							extraPath.setAttribute('d', pathData);
 							svg2.appendChild(extraPath);
 							target.itMarkWatchedVideosButton.appendChild(svg);
 							target.itMarkWatchedVideosButton.appendChild(svg2);
 							if (extension.storage.get('watched') && extension.storage.get('watched')[id]) {
-								target.itMarkWatchedVideosButton.setAttribute('watched', '')};
-							target.appendChild(target.itMarkWatchedVideosButton); 
+								target.itMarkWatchedVideosButton.setAttribute('watched', '')
+							};
+							target.appendChild(target.itMarkWatchedVideosButton);
 							target.itMarkWatchedVideosButton.addEventListener('click', function (event) {
 								var id = this.dataset.id,
 									value = this.toggleAttribute('watched');
@@ -383,7 +397,8 @@ extension.features.markWatchedVideos = function (anything) {
 
 								chrome.storage.local.set({
 									watched: extension.storage.get('watched')
-								});});
+								});
+							});
 
 						} else {
 							var button = target.itMarkWatchedVideosButton;
@@ -419,7 +434,6 @@ extension.features.markWatchedVideos = function (anything) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # TRACK WATCHED VIDEOS
 --------------------------------------------------------------*/
@@ -442,7 +456,6 @@ extension.features.trackWatchedVideos = function () {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # THUMBNAILS QUALITY
 --------------------------------------------------------------*/
@@ -450,7 +463,7 @@ extension.features.trackWatchedVideos = function () {
 extension.features.thumbnailsQuality = function (anything) {
 	var option = extension.storage.get('thumbnails_quality');
 
-	function handler(thumbnail) {
+	function handler (thumbnail) {
 		if (!thumbnail.dataset.defaultSrc && extension.features.thumbnailsQuality.regex.test(thumbnail.src)) {
 			thumbnail.dataset.defaultSrc = thumbnail.src;
 
@@ -534,7 +547,7 @@ extension.features.disableThumbnailPlayback = function (event) {
 # OPEN VIDEOS IN A NEW TAB
 --------------------------------------------------------------*/
 
-extension.features.openNewTab = function (){
+extension.features.openNewTab = function () {
 	if (extension.storage.get("open_new_tab") === true) {
 		window.onload = function () {
 			const searchButton = document.querySelector("button#search-icon-legacy");
@@ -549,7 +562,6 @@ extension.features.openNewTab = function (){
 				}
 			});
 
-
 			let searchedAlready = false;
 			inputField.addEventListener("focus", function () {
 				searchedAlready = false;
@@ -560,7 +572,7 @@ extension.features.openNewTab = function (){
 
 			inputField.addEventListener("input", () => searchedAlready = false);
 
-			function applySuggestionListeners() {
+			function applySuggestionListeners () {
 				const suggestionContainers = document.querySelectorAll("div[class^='sbqs'], div[class^='sbpqs']");
 				suggestionContainers.forEach((suggestionsContainer) => {
 					suggestionsContainer.addEventListener("mousedown", (event) => {
@@ -568,15 +580,15 @@ extension.features.openNewTab = function (){
 						if (suggestionListItem && !searchedAlready) {
 							const query = suggestionListItem.querySelector("b").textContent
 							performSearchNewTab(inputField.value + query);
-							searchedAlready = true; 
+							searchedAlready = true;
 						}
 					});
 				});
 			}
 
-			function performSearchNewTab(query) {
+			function performSearchNewTab (query) {
 				inputField.value = "";
-				inputField.focus();		   
+				inputField.focus();
 				const newTabURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
 				window.open(newTabURL, '_blank');
 			}

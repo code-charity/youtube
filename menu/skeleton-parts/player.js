@@ -574,7 +574,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						options: [{
 							text: '100%',
 							value: 0
-						}, {								
+						}, {
 							text: '75%',
 							value: -1
 						}, {
@@ -586,7 +586,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						}, {
 							text: '200%',
 							value: 2
-						}, {	
+						}, {
 							text: '300%',
 							value: 3
 						}, {
@@ -782,7 +782,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'pauseWhileIUnplugTheCharger'
 		},
-*/		
+*/
 		mini_player: {
 			component: 'switch',
 			text: 'customMiniPlayer'
