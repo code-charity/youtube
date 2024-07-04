@@ -32,7 +32,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 				var x2 = event.layerX,
 					y2 = event.layerY;
 
-				function mousemove(event) {
+				function mousemove (event) {
 					if (button.className.indexOf('dragging') === -1) {
 						button.classList.add('it-button--dragging');
 					}
@@ -44,14 +44,14 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 					button.style.top = y + 'px';
 				}
 
-				function mouseup() {
-					localStorage.setItem('improvedtube-button-position', JSON.stringify({x,y}));
+				function mouseup () {
+					localStorage.setItem('improvedtube-button-position', JSON.stringify({x, y}));
 
 					window.removeEventListener('mousemove', mousemove);
 					window.removeEventListener('mouseup', mouseup);
 				}
 
-				function click() {
+				function click () {
 					button.classList.remove('it-button--dragging');
 
 					window.removeEventListener('click', click);
@@ -113,8 +113,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 	if (option === 'header_left') {
 		if (this.storage.header_position === 'normal' && this.elements.masthead.start) {
 			this.elements.masthead.start.appendChild(button);
-		}
-		else if (this.elements.app_drawer.start) {
+		} else if (this.elements.app_drawer.start) {
 			this.elements.app_drawer.start.appendChild(button);
 		}
 	} else if (option === 'header_right') {
@@ -145,7 +144,6 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 	}
 };
 
-
 /*-----------------------------------------------------------------------------
 4.10.3 DELETE YOUTUBE COOKIES
 -----------------------------------------------------------------------------*/
@@ -161,9 +159,10 @@ ImprovedTube.deleteYoutubeCookies = function () {
 		document.cookie = name + '=; domain=.youtube.com; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
 	}
 
-	setTimeout(function () {location.reload();}, 100);
+	setTimeout(function () {
+		location.reload();
+	}, 100);
 };
-
 
 /*-----------------------------------------------------------------------------
 4.10.4 YOUTUBE LANGUAGE

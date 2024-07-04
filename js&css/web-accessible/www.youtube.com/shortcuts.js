@@ -21,23 +21,23 @@ ImprovedTube.shortcutsInit = function () {
 		// camelCase(name)
 		const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
 		let potentialShortcut = {};
-		for (const button of ['alt','ctrl','shift','wheel','keys','toggle']) {
+		for (const button of ['alt', 'ctrl', 'shift', 'wheel', 'keys', 'toggle']) {
 			switch(button) {
 				case 'alt':
 				case 'ctrl':
 				case 'shift':
 				case 'toggle':
 					potentialShortcut[button] = keys[button] || false;
-				break
+					break
 
 				case 'wheel':
 					potentialShortcut[button] = keys[button] || 0;
-				break
+					break
 
 				case 'keys':
 					// set of unique scancodes
 					potentialShortcut[button] = keys[button] ? new Set(Object.keys(keys[button]).map(s=>Number(s))) : new Set();
-				break
+					break
 			}
 		}
 		if (potentialShortcut['keys'].size || potentialShortcut['wheel']) listening[camelName] = potentialShortcut;
@@ -422,19 +422,47 @@ ImprovedTube.shortcutDislike = function () {
 };
 /*------Report------*/
 ImprovedTube.shortcutReport = function () {
-	try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); 
-		document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
-	catch{console.log("'...' failed"); setTimeout(function(){try{document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
-	catch{console.log("'...' failed2")}},100) }
-	
-	setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
-	catch{console.log("report failed");setTimeout(function()	{try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
-	catch{console.log("report failed2");document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}},800);
+	try {
+		document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0);
+		document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click(); document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)
+	} catch {
+		console.log("'...' failed"); setTimeout(function () {
+			try {
+				document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click(); document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)
+			} catch {
+				console.log("'...' failed2")
+			}
+		}, 100)
 	}
-	},200); 
 
-	setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed");
-		setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed2");}},1700)}},700)
+	setTimeout(function () {
+		try {
+			document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();
+		} catch {
+			console.log("report failed"); setTimeout(function ()	{
+				try {
+					document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();
+				} catch {
+					console.log("report failed2"); document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();
+				}
+			}, 800);
+		}
+	}, 200);
+
+	setTimeout(function () {
+		try {
+			document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)
+		} catch {
+			console.log("dropdown visible failed");
+			setTimeout(function () {
+				try {
+					document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)
+				} catch {
+					console.log("dropdown visible failed2");
+				}
+			}, 1700)
+		}
+	}, 700)
 }
 /*------------------------------------------------------------------------------
 4.7.24 SUBSCRIBE
@@ -467,7 +495,7 @@ Loop
 ImprovedTube.shortcutToggleLoop = function () {
 	const video = this.elements.video,
 		player = this.elements.player;
-	function matchLoopState(opacity) {
+	function matchLoopState (opacity) {
 		document.querySelector('#it-repeat-button')?.children[0]?.style.setProperty("opacity", opacity);
 		document.querySelector('#it-below-player-loop')?.children[0]?.style.setProperty("opacity", opacity);
 	};
@@ -502,7 +530,7 @@ ImprovedTube.shortcutStatsForNerds = function () {
 4.7.28 TOGGLE CARDS
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutToggleCards = function () {
-	function toggleVideoOverlays() {
+	function toggleVideoOverlays () {
 		document.documentElement.toggleAttribute('it-player-hide-cards');
 		document.documentElement.toggleAttribute('it-player-hide-endcards');
 		document.documentElement.toggleAttribute('it-hide-video-title-fullScreen');

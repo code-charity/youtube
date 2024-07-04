@@ -81,35 +81,35 @@ ImprovedTube.myColors = function () {
 }
 
 ImprovedTube.setTheme = function () {
-	switch(this.storage.theme) {
-	case 'dark':
-		document.documentElement.setAttribute('dark', '');
-		document.querySelector('ytd-masthead')?.setAttribute('dark', '');
-		ImprovedTube.setPrefCookieValueByName('f6', 400);
-		// fall through
-	case 'black':
-		document.getElementById('cinematics')?.removeAttribute('style');
-		this.elements.my_colors?.remove();
-		break
+	switch (this.storage.theme) {
+		case 'dark':
+			document.documentElement.setAttribute('dark', '');
+			document.querySelector('ytd-masthead')?.setAttribute('dark', '');
+			ImprovedTube.setPrefCookieValueByName('f6', 400);
+			// fall through
+		case 'black':
+			document.getElementById('cinematics')?.removeAttribute('style');
+			this.elements.my_colors?.remove();
+			break
 
-	case 'light':
-		ImprovedTube.messages.send({action: 'set', key: 'theme', value: null});
-		ImprovedTube.setPrefCookieValueByName('f6', null);
-		// fall through
-	case 'dawn':
-	case 'sunset':
-	case 'night':
-	case 'plain':
-	case 'desert':
-		document.documentElement.removeAttribute('dark');
-		document.querySelector('ytd-masthead')?.removeAttribute('dark');
-		document.getElementById('cinematics')?.style.setProperty('display', 'none');
-		this.elements.my_colors?.remove();
-		break
+		case 'light':
+			ImprovedTube.messages.send({action: 'set', key: 'theme', value: null});
+			ImprovedTube.setPrefCookieValueByName('f6', null);
+			// fall through
+		case 'dawn':
+		case 'sunset':
+		case 'night':
+		case 'plain':
+		case 'desert':
+			document.documentElement.removeAttribute('dark');
+			document.querySelector('ytd-masthead')?.removeAttribute('dark');
+			document.getElementById('cinematics')?.style.setProperty('display', 'none');
+			this.elements.my_colors?.remove();
+			break
 
-	case 'default':
-		document.getElementById('cinematics')?.removeAttribute('style');
-		this.elements.my_colors?.remove();
-		break
+		case 'default':
+			document.getElementById('cinematics')?.removeAttribute('style');
+			this.elements.my_colors?.remove();
+			break
 	}
 };

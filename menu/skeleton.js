@@ -77,7 +77,7 @@ extension.skeleton.header = {
 					'fill': 'none'
 				},
 				id: 'dark-light-switch-icon-sun',
-				
+
 				circle: {
 					component: 'circle',
 					attr: {

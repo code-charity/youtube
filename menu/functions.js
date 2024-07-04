@@ -44,7 +44,6 @@ extension.attributes = function () {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # EXPORT SETTINGS
 --------------------------------------------------------------*/
@@ -100,7 +99,6 @@ extension.exportSettings = function () {
 		}, extension.skeleton.rendered);
 	}
 };
-
 
 /*--------------------------------------------------------------
 # IMPORT SETTINGS
@@ -162,7 +160,6 @@ extension.importSettings = function () {
 		}, extension.skeleton.rendered);
 	}
 };
-
 
 /*--------------------------------------------------------------
 # sync SETTINGS

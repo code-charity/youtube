@@ -32,7 +32,6 @@ fetch(url, success, error, type)
 indexOf(child, parent)
  toIndex(index, child, parent)
 
-
 # ON: on(element, listeners)
 
 parentify(parentObject, exclude)
@@ -103,8 +102,6 @@ RGB2HSL	HUE2RGB	 HSL2RGB
 // TO-DO or integrate with JS search libs
 --------------------------------------------------------------*/
 
-
-
 /*--------------------------------------------------------------
 # GLOBAL VARIABLE
 --------------------------------------------------------------*/
@@ -125,7 +122,7 @@ var satus = {
 # BASICS
 --------------------------------------------------------------*/
 /*--CAMELIZE--------------------------------------------------*/
-satus.camelize = function(string) {
+satus.camelize = function (string) {
 	var result = '';
 	for (var i = 0, l = string.length; i < l; i++) {
 		var character = string[i];
@@ -141,11 +138,11 @@ satus.camelize = function(string) {
 	return result;
 };
 /*---SNAKELIZE-------------------------------------------------*/
-satus.snakelize = function(string) {
+satus.snakelize = function (string) {
 	return string.replace(/([A-Z])/g, '-$1').toLowerCase();
 };
 /*---SORT------------------------------------------------------*/
-satus.sort = function(array, order, property) {
+satus.sort = function (array, order, property) {
 	var type;
 
 	if (property) {
@@ -157,21 +154,21 @@ satus.sort = function(array, order, property) {
 	if (order !== 'desc') {
 		if (type === 'number') {
 			if (property) {
-				return array.sort(function(a, b) {
+				return array.sort(function (a, b) {
 					return a[property] - b[property];
 				});
 			} else {
-				return array.sort(function(a, b) {
+				return array.sort(function (a, b) {
 					return a - b;
 				});
 			}
 		} else if (type === 'string') {
 			if (property) {
-				return array.sort(function(a, b) {
+				return array.sort(function (a, b) {
 					return a[property].localeCompare(b[property]);
 				});
 			} else {
-				return array.sort(function(a, b) {
+				return array.sort(function (a, b) {
 					return a.localeCompare(b);
 				});
 			}
@@ -179,21 +176,21 @@ satus.sort = function(array, order, property) {
 	} else {
 		if (type === 'number') {
 			if (property) {
-				return array.sort(function(a, b) {
+				return array.sort(function (a, b) {
 					return b[property] - a[property];
 				});
 			} else {
-				return array.sort(function(a, b) {
+				return array.sort(function (a, b) {
 					return b - a;
 				});
 			}
 		} else if (type === 'string') {
 			if (property) {
-				return array.sort(function(a, b) {
+				return array.sort(function (a, b) {
 					return b[property].localeCompare(a[property]);
 				});
 			} else {
-				return array.sort(function(a, b) {
+				return array.sort(function (a, b) {
 					return b.localeCompare(a);
 				});
 			}
@@ -201,7 +198,7 @@ satus.sort = function(array, order, property) {
 	}
 };
 /*---data------------------------------------------------------*/
-satus.data = function(element, data) {
+satus.data = function (element, data) {
 	if (data) {
 		for (var key in data) {
 			var value = data[key];
@@ -215,9 +212,9 @@ satus.data = function(element, data) {
 	}
 };
 /*---# ISSET-----------------------------------------------------*/
-satus.isset = function(target, is_object) {
+satus.isset = function (target, is_object) {
 	if (is_object === true) {
-		var keys = target.split('.').filter(function(value) {
+		var keys = target.split('.').filter(function (value) {
 			return value != '';
 		});
 
@@ -242,35 +239,49 @@ satus.isset = function(target, is_object) {
 /*-------------------------------------------------------------
 	# is___(target)
 --------------------------------------------------------------*/
-satus.isFunction =function(target){return typeof target ==='function';};
+satus.isFunction =function (target) {
+	return typeof target ==='function';
+};
 
 satus.isArray	 = Array.isArray;
-satus.isString	 = function(t) { return typeof t ==='string'; };
-satus.isNumber	 = function(t) { return (typeof t ==='number' && !isNaN(t)); };
-satus.isObject	 = function(t) { return (t instanceof Object && t !== null); };
-satus.isElement	 = function(t) { return (t instanceof Element || t instanceof HTMLDocument); };
-satus.isNodeList = function(t) { return t instanceof NodeList; };
-satus.isBoolean  = function(t) { return (t === false || t === true); };
+satus.isString	 = function (t) {
+	return typeof t ==='string';
+};
+satus.isNumber	 = function (t) {
+	return (typeof t ==='number' && !isNaN(t));
+};
+satus.isObject	 = function (t) {
+	return (t instanceof Object && t !== null);
+};
+satus.isElement	 = function (t) {
+	return (t instanceof Element || t instanceof HTMLDocument);
+};
+satus.isNodeList = function (t) {
+	return t instanceof NodeList;
+};
+satus.isBoolean = function (t) {
+	return (t === false || t === true);
+};
 /*---LOG------------------------------------------------------*/
-satus.log =function(){console.log.apply(null, arguments);};
+satus.log =function () {
+	console.log.apply(null, arguments);
+};
 
 /*--------------------------------------------------------------
 
-
 # DOM
-
 
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # APPEND
 --------------------------------------------------------------*/
-satus.append = function(child, parent) {
+satus.append = function (child, parent) {
 	(parent || document.body).appendChild(child);
 };
 /*--------------------------------------------------------------
 # ATTR	 setAttributes
 --------------------------------------------------------------*/
-satus.setAttributes = satus.attr = function(element, attributes) {
+satus.setAttributes = satus.attr = function (element, attributes) {
 	if (attributes) {
 		for (var name in attributes) {
 			var value = attributes[name];
@@ -298,7 +309,7 @@ satus.setAttributes = satus.attr = function(element, attributes) {
 /*--------------------------------------------------------------
 # CLONE
 --------------------------------------------------------------*/
-satus.clone = function(item) {
+satus.clone = function (item) {
 	var clone = item.cloneNode(true),
 		parent_css = window.getComputedStyle(item.parentNode),
 		css = window.getComputedStyle(item),
@@ -324,7 +335,7 @@ satus.clone = function(item) {
 /*--------------------------------------------------------------
 # CREATE ELEMENT
 --------------------------------------------------------------*/
-satus.createElement = function(tagName, componentName, namespaceURI) {
+satus.createElement = function (tagName, componentName, namespaceURI) {
 	var camelizedTagName = this.camelize(tagName),
 		className = 'satus-' + (componentName || tagName),
 		element,
@@ -351,7 +362,7 @@ satus.createElement = function(tagName, componentName, namespaceURI) {
 	element.componentName = componentName;
 	element.className = className;
 
-	element.createChildElement = function(tagName, componentName, namespaceURI) {
+	element.createChildElement = function (tagName, componentName, namespaceURI) {
 		var element = satus.createElement(tagName, this.componentName + '__' + (componentName || tagName), namespaceURI);
 
 		if (this.baseProvider) {
@@ -372,7 +383,7 @@ satus.createElement = function(tagName, componentName, namespaceURI) {
 /*--------------------------------------------------------------
 # EMPTY
 --------------------------------------------------------------*/
-satus.empty = function(element, exclude = []) {
+satus.empty = function (element, exclude = []) {
 	for (var i = element.childNodes.length - 1; i > -1; i--) {
 		var child = element.childNodes[i];
 
@@ -385,24 +396,22 @@ satus.empty = function(element, exclude = []) {
 /*--------------------------------------------------------------
 # ELEMENT INDEX
 --------------------------------------------------------------*/
-satus.elementIndex = function(element) {
+satus.elementIndex = function (element) {
 	return Array.prototype.slice.call(element.parentNode.children).indexOf(element);
 };
 
 /*--------------------------------------------------------------
 
-
 # CSS
 
-
 --------------------------------------------------------------*/
-satus.css = function(element, property) {
+satus.css = function (element, property) {
 	return window.getComputedStyle(element).getPropertyValue(property);
 };
 /*--------------------------------------------------------------
 # CLASS
 --------------------------------------------------------------*/
-satus.addClass = satus.class = function(element, className) {
+satus.addClass = satus.class = function (element, className) {
 	if (className) {
 		element.classList.add(className);
 	}
@@ -410,7 +419,7 @@ satus.addClass = satus.class = function(element, className) {
 /*--------------------------------------------------------------
 # STYLE
 --------------------------------------------------------------*/
-satus.style = function(element, object) {
+satus.style = function (element, object) {
 	if (object) {
 		for (var key in object) {
 			element.style[key] = object[key];
@@ -420,10 +429,9 @@ satus.style = function(element, object) {
 /*--------------------------------------------------------------
 # ANIMATION DURATION
 --------------------------------------------------------------*/
-satus.getAnimationDuration = function(element) {
+satus.getAnimationDuration = function (element) {
 	return Number(window.getComputedStyle(element).getPropertyValue('animation-duration').replace(/[^0-9.]/g, '')) * 1000;
 };
-
 
 /*--------------------------------------------------------------
 
@@ -433,7 +441,7 @@ satus.getAnimationDuration = function(element) {
 /*--------------------------------------------------------------
 # DECRYPTION
 --------------------------------------------------------------*/
-satus.decrypt = async function(text, password) {
+satus.decrypt = async function (text, password) {
 	var iv = text.slice(0, 24).match(/.{2}/g).map(byte => parseInt(byte, 16)),
 		algorithm = {
 			name: 'AES-GCM',
@@ -460,7 +468,7 @@ satus.decrypt = async function(text, password) {
 /*--------------------------------------------------------------
 # ENCRYPTION
 --------------------------------------------------------------*/
-satus.encrypt = async function(text, password) {
+satus.encrypt = async function (text, password) {
 	var iv = crypto.getRandomValues(new Uint8Array(12)),
 		algorithm = {
 			name: 'AES-GCM',
@@ -476,10 +484,9 @@ satus.encrypt = async function(text, password) {
 /*--------------------------------------------------------------
 # EVENTS
 
-
 --------------------------------------------------------------*/
 /*-- ON ------------------------------------------------------*/
-satus.events.on = function(type, handler) {
+satus.events.on = function (type, handler) {
 	if (!this.data[type]) {
 		this.data[type] = [];
 	}
@@ -487,7 +494,7 @@ satus.events.on = function(type, handler) {
 	this.data[type].push(handler);
 };
 /*-- TRIGGER ------------------------------------------------*/
-satus.events.trigger = function(type, data) {
+satus.events.trigger = function (type, data) {
 	var handlers = this.data[type];
 
 	if (handlers) {
@@ -500,7 +507,7 @@ satus.events.trigger = function(type, data) {
 /*--------------------------------------------------------------
 # FETCH
 --------------------------------------------------------------*/
-satus.fetch = function(url, success, error, type) {
+satus.fetch = function (url, success, error, type) {
 	fetch(url)
 		.then(response => response.ok ? response[type || 'json']().then(success) : error())
 		.catch(() => error(success));
@@ -508,7 +515,7 @@ satus.fetch = function(url, success, error, type) {
 /*--------------------------------------------------------------
 # GET PROPERTY
 --------------------------------------------------------------*/
-satus.getProperty = function(object, string) {
+satus.getProperty = function (object, string) {
 	var properties = string.split('.');
 
 	for (var i = 0, l = properties.length; i < l; i++) {
@@ -526,12 +533,11 @@ satus.getProperty = function(object, string) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # INDEX OF
 --------------------------------------------------------------*/
 
-satus.indexOf = function(child, parent) {
+satus.indexOf = function (child, parent) {
 	var index = 0;
 
 	if (satus.isArray(parent)) {
@@ -545,12 +551,11 @@ satus.indexOf = function(child, parent) {
 	return index;
 };
 
-
 /*--------------------------------------------------------------
 # TO INDEX
 --------------------------------------------------------------*/
 
-satus.toIndex = function(index, child, parent) {
+satus.toIndex = function (index, child, parent) {
 	if (satus.isArray(parent)) {
 		parent.splice(index, 0, parent.splice(satus.indexOf(child, parent), 1)[0])
 	}
@@ -559,7 +564,7 @@ satus.toIndex = function(index, child, parent) {
 # ON
 --------------------------------------------------------------*/
 
-satus.on = function(element, listeners) {
+satus.on = function (element, listeners) {
 	if (listeners) {
 		for (var type in listeners) {
 			if (type == 'parentObject') {
@@ -575,7 +580,7 @@ satus.on = function(element, listeners) {
 			if (satus.isFunction(listener)) {
 				element.addEventListener(type, listener);
 			} else if (satus.isArray(listener) || satus.isObject(listener)) {
-				element.addEventListener(type, function(event) {
+				element.addEventListener(type, function (event) {
 					var target = this.skeleton.on[event.type],
 						layers = this.layersProvider;
 
@@ -595,7 +600,7 @@ satus.on = function(element, listeners) {
 					}
 				});
 			} else if (satus.isString(listener)) {
-				element.addEventListener(type, function() {
+				element.addEventListener(type, function () {
 					let match = this.skeleton.on[event.type].match(/(["'`].+["'`]|[^.()]+)/g),
 						target = this.baseProvider;
 
@@ -630,12 +635,11 @@ satus.on = function(element, listeners) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # PARENTIFY
 --------------------------------------------------------------*/
 
-satus.parentify = function(parentObject, exclude) {
+satus.parentify = function (parentObject, exclude) {
 	for (var key in parentObject) {
 		if (exclude.indexOf(key) === -1) {
 			var child = parentObject[key];
@@ -658,7 +662,7 @@ satus.parentify = function(parentObject, exclude) {
 /*--------------------------------------------------------------
 # PREPEND
 --------------------------------------------------------------*/
-satus.prepend = function(child, parent) {
+satus.prepend = function (child, parent) {
 	if (this.isElement(child)) {
 		parent.prepend(child);
 	} else if (this.isObject(child)) {
@@ -668,7 +672,7 @@ satus.prepend = function(child, parent) {
 /*--------------------------------------------------------------
 # PROPERTIES
 --------------------------------------------------------------*/
-satus.properties = function(element, properties) {
+satus.properties = function (element, properties) {
 	if (properties) {
 		for (var key in properties) {
 			var property = properties[key];
@@ -684,7 +688,7 @@ satus.properties = function(element, properties) {
 /*--------------------------------------------------------------
 # REMOVE
 --------------------------------------------------------------*/
-satus.remove = function(child, parent) {
+satus.remove = function (child, parent) {
 	if (satus.isArray(parent)) {
 		parent.splice(satus.indexOf(child, parent), 1);
 	}
@@ -692,7 +696,7 @@ satus.remove = function(child, parent) {
 /*--------------------------------------------------------------
 # RENDER
 --------------------------------------------------------------*/
-satus.render = function(skeleton, container, property, childrenOnly, prepend, skip_children) {
+satus.render = function (skeleton, container, property, childrenOnly, prepend, skip_children) {
 	var element;
 
 	if (skeleton.component && childrenOnly !== true) {
@@ -756,51 +760,51 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 
 		// dont add storage component to storage: false elements
 		if (skeleton.storage != false) {
-			element.storage = (function() {
+			element.storage = (function () {
 				var parent = element,
 					key = skeleton.storage || property || false,
 					value;
-	
+
 				if (satus.isFunction(key)) {
 					key = key();
 				}
-	
+
 				if (skeleton.storage !== false) {
 					if (key) {
 						value = satus.storage.get(key);
 					}
-	
+
 					if (skeleton.hasOwnProperty('value') && value === undefined) {
 						value = skeleton.value;
 					}
 				}
-	
+
 				return Object.defineProperties({}, {
 					key: {
-						get: function() {
+						get: function () {
 							return key;
 						},
-						set: function(string) {
+						set: function (string) {
 							key = string;
 						}
 					},
 					value: {
-						get: function() {
+						get: function () {
 							return value;
 						},
-						set: function(val) {
+						set: function (val) {
 							value = val;
-	
+
 							if (satus.storage.get(key) != val) {
 								satus.storage.set(key, val);
-		
+
 								parent.dispatchEvent(new CustomEvent('change'));
 							}
 						}
 					}
 				});
 			}());
-			element.storage.remove = function() {
+			element.storage.remove = function () {
 				satus.storage.remove(element.storage.key);
 
 				element.dispatchEvent(new CustomEvent('change'));
@@ -859,19 +863,17 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 
 /*--------------------------------------------------------------
 
-
 # STORAGE
-
 
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # CLEAR
 --------------------------------------------------------------*/
 
-satus.storage.clear = function(callback) {
+satus.storage.clear = function (callback) {
 	this.data = {};
 
-	chrome.storage.local.clear(function() {
+	chrome.storage.local.clear(function () {
 		satus.events.trigger('storage-clear');
 
 		if (callback) {
@@ -880,19 +882,18 @@ satus.storage.clear = function(callback) {
 	});
 };
 
-
 /*--------------------------------------------------------------
 # GET
 --------------------------------------------------------------*/
 
-satus.storage.get = function(key) {
+satus.storage.get = function (key) {
 	var target = this.data;
 
 	if (typeof key !== 'string') {
 		return;
 	}
 
-	key = key.split('/').filter(function(value) {
+	key = key.split('/').filter(function (value) {
 		return value != '';
 	});
 
@@ -911,37 +912,38 @@ satus.storage.get = function(key) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # IMPORT
 --------------------------------------------------------------*/
-satus.storage.import = function(keys, callback) {
+satus.storage.import = function (keys, callback) {
 	var self = this;
 	if (typeof keys === 'function') {
 		callback = keys;
 		keys = undefined;
 	}
-	chrome.storage.local.get(keys || null, function(items) {
+	chrome.storage.local.get(keys || null, function (items) {
 		for (var key in items) {
 			self.data[key] = items[key];
 		}
 		// satus.log('STORAGE: data was successfully imported');
 		satus.events.trigger('storage-import');
-		if (callback) { callback(items); }
+		if (callback) {
+			callback(items);
+		}
 		loading.style.display = 'none';
 	});
 };
 /*--------------------------------------------------------------
 # REMOVE
 --------------------------------------------------------------*/
-satus.storage.remove = function(key, callback) {
+satus.storage.remove = function (key, callback) {
 	var target = this.data;
 
 	if (typeof key !== 'string') {
 		return;
 	}
 
-	key = key.split('/').filter(function(value) {
+	key = key.split('/').filter(function (value) {
 		return value != '';
 	});
 
@@ -960,7 +962,7 @@ satus.storage.remove = function(key, callback) {
 	if (key.length === 1) {
 		chrome.storage.local.remove(key[0]);
 	} else {
-		chrome.storage.local.set(this.data, function() {
+		chrome.storage.local.set(this.data, function () {
 			satus.events.trigger('storage-remove');
 
 			if (callback) {
@@ -973,7 +975,7 @@ satus.storage.remove = function(key, callback) {
 /*--------------------------------------------------------------
 # SET
 --------------------------------------------------------------*/
-satus.storage.set = function(key, value, callback) {
+satus.storage.set = function (key, value, callback) {
 	var items = {},
 		target = this.data;
 
@@ -981,7 +983,7 @@ satus.storage.set = function(key, value, callback) {
 		return;
 	}
 
-	key = key.split('/').filter(function(value) {
+	key = key.split('/').filter(function (value) {
 		return value != '';
 	});
 
@@ -1002,7 +1004,7 @@ satus.storage.set = function(key, value, callback) {
 		}
 	}
 
-	chrome.storage.local.set({[key]: value}, function() {
+	chrome.storage.local.set({[key]: value}, function () {
 		satus.events.trigger('storage-set');
 
 		if (callback) {
@@ -1014,25 +1016,23 @@ satus.storage.set = function(key, value, callback) {
 /*--------------------------------------------------------------
 # ON CHANGED
 --------------------------------------------------------------*/
-satus.storage.onchanged = function(callback) {
-	chrome.storage.onChanged.addListener(function(changes) {
+satus.storage.onchanged = function (callback) {
+	chrome.storage.onChanged.addListener(function (changes) {
 		for (var key in changes) {
 			callback(key, changes[key].newValue);
 		}
 	});
 };
 
-
 /*--------------------------------------------------------------
 # LAST
 --------------------------------------------------------------*/
 
-satus.last = function(variable) {
+satus.last = function (variable) {
 	if (this.isArray(variable) || this.isNodeList(variable) || variable instanceof HTMLCollection) {
 		return variable[variable.length - 1];
 	}
 };
-
 
 /*--------------------------------------------------------------
 
@@ -1042,15 +1042,15 @@ satus.last = function(variable) {
 /*--------------------------------------------------------------
 # GET
 --------------------------------------------------------------*/
-satus.locale.get = function(string) {
+satus.locale.get = function (string) {
 	return this.data[string] || string;
 };
 /*--------------------------------------------------------------
 # IMPORT            								// old:  satus.locale.import(url, onload, onsuccess);
 --------------------------------------------------------------*/
-satus.locale.import = function(code, callback, path) {
+satus.locale.import = function (code, callback, path) {
 	// if (!path) {  path = '_locales/';   }
-	function importLocale(locale, successCallback) {
+	function importLocale (locale, successCallback) {
 		var url = chrome.runtime.getURL(path + locale + '/messages.json');
 		fetch(url)
 			.then(response => response.ok ? response.json() : {})
@@ -1072,27 +1072,29 @@ satus.locale.import = function(code, callback, path) {
 			importLocale(language, () => importLocale('en', callback));
 		}
 	} else { // try chrome://settings/languages:
-		try{chrome.i18n.getAcceptLanguages(function (languages) {
-			languages = languages.map(language => language.replace('-', '_'));
-			for (let i = languages.length - 1; i >= 0; i--) {
-				if (languages[i].includes('_')) {
-					let languageWithoutCountryCode = languages[i].substring(0, 2);
+		try {
+			chrome.i18n.getAcceptLanguages(function (languages) {
+				languages = languages.map(language => language.replace('-', '_'));
+				for (let i = languages.length - 1; i >= 0; i--) {
+					if (languages[i].includes('_')) {
+						let languageWithoutCountryCode = languages[i].substring(0, 2);
 
-					if (!languages.includes(languageWithoutCountryCode)) {
-						languages.splice(i + 1, 0, languageWithoutCountryCode);
+						if (!languages.includes(languageWithoutCountryCode)) {
+							languages.splice(i + 1, 0, languageWithoutCountryCode);
+						}
 					}
 				}
-			}
-			languages.includes("en") || languages.push("en");
+				languages.includes("en") || languages.push("en");
 
-			languages.forEach((language, index) => index === languages.length - 1 ? importLocale(language, callback) : importLocale(language, () => {}));
+				languages.forEach((language, index) => index === languages.length - 1 ? importLocale(language, callback) : importLocale(language, () => {}));
 			/* equals:
    languages.length === 1 && importLocale(languages[0], callback);
    languages.length === 2 && importLocale(languages[0], () => importLocale(languages[1], callback));
    languages.length === 3 && importLocale(languages[0], () => importLocale(languages[1], () => importLocale(languages[2], callback)));
    ...  */
 			// console.log(languages);
-		});} catch(error) {
+			});
+		} catch (error) {
 			// Finally, if code nor chrome://settings/languages are available, use window.navigator.language:
 
 			let language = window.navigator.language.replace('-', '_');
@@ -1109,7 +1111,7 @@ satus.locale.import = function(code, callback, path) {
 # TEXT
 --------------------------------------------------------------*/
 
-satus.text = function(element, value) {
+satus.text = function (element, value) {
 	if (value) {
 		if (satus.isFunction(value)) {
 			value = value();
@@ -1121,52 +1123,52 @@ satus.text = function(element, value) {
 /*--------------------------------------------------------------
 >>> MODAL
 --------------------------------------------------------------*/
-satus.components.modal = function(component, skeleton) {
+satus.components.modal = function (component, skeleton) {
 	component.scrim = component.createChildElement('div', 'scrim');
 	component.surface = component.createChildElement('div', 'surface');
 
-	component.close = function() {
+	component.close = function () {
 		var component = this;
 
 		this.classList.add('satus-modal--closing');
 
-		setTimeout(function() {
+		setTimeout(function () {
 			component.remove();
 
 			component.dispatchEvent(new CustomEvent('close'));
 		}, Number(satus.css(this.surface, 'animation-duration').replace(/[^0-9.]/g, '')) * 1000);
 	};
 
-	component.scrim.addEventListener('click', function() {
+	component.scrim.addEventListener('click', function () {
 		// this is someone clicking outside of modal dialog
 		switch (skeleton.variant) {
-		case 'confirm':
-			if (skeleton.buttons?.cancel) {
-				// modal.confirm.buttons variant have own closing mechanism, lets try to click cancel button
-				if (skeleton.buttons.cancel?.rendered?.click && satus.isFunction(skeleton.buttons.cancel.rendered.click)) {
-					skeleton.buttons.cancel.rendered.click();
+			case 'confirm':
+				if (skeleton.buttons?.cancel) {
+					// modal.confirm.buttons variant have own closing mechanism, lets try to click cancel button
+					if (skeleton.buttons.cancel?.rendered?.click && satus.isFunction(skeleton.buttons.cancel.rendered.click)) {
+						skeleton.buttons.cancel.rendered.click();
+					} else {
+						// cant find cancel button, just force close it
+						this.parentNode.close();
+					}
 				} else {
-					// cant find cancel button, just force close it
+					// modal.confirm simplified variant, try optional cancel() then close()
+					if (skeleton.cancel && satus.isFunction(skeleton.cancel)) {
+						skeleton.cancel();
+					}
 					this.parentNode.close();
 				}
-			} else {
-				// modal.confirm simplified variant, try optional cancel() then close()
-				if (skeleton.cancel && satus.isFunction(skeleton.cancel)) {
-					skeleton.cancel();
-				}
-				this.parentNode.close();
-			}
-			break;
+				break;
 
-		case 'vertical-menu':
-			this.parentNode.close();
-			break;
-				
-		case 'shortcut':
-		case 'color-picker':
+			case 'vertical-menu':
+				this.parentNode.close();
+				break;
+
+			case 'shortcut':
+			case 'color-picker':
 			// click cancel button
-			skeleton.actions.cancel.rendered.click();
-			break;
+				skeleton.actions.cancel.rendered.click();
+				break;
 		}
 	});
 
@@ -1189,7 +1191,7 @@ satus.components.modal = function(component, skeleton) {
 /*--------------------------------------------------------------
 # CONFIRM
 --------------------------------------------------------------*/
-satus.components.modal.confirm = function(component, skeleton) {
+satus.components.modal.confirm = function (component, skeleton) {
 	component.surface.actions = satus.render({
 		component: 'section',
 		variant: 'align-end'
@@ -1212,7 +1214,7 @@ satus.components.modal.confirm = function(component, skeleton) {
 					modalProvider: component,
 				},
 				on: {
-					click: function() {
+					click: function () {
 						// cancel() is optional in modal.confirm simplified variant
 						if (this.modalProvider.skeleton.cancel && satus.isFunction(this.modalProvider.skeleton.cancel)) {
 							this.modalProvider.skeleton.cancel();
@@ -1228,7 +1230,7 @@ satus.components.modal.confirm = function(component, skeleton) {
 					modalProvider: component,
 				},
 				on: {
-					click: function() {
+					click: function () {
 						// ok() is optional in modal.confirm simplified variant
 						if (this.modalProvider.skeleton.ok && satus.isFunction(this.modalProvider.skeleton.ok)) {
 							this.modalProvider.skeleton.ok();
@@ -1243,14 +1245,14 @@ satus.components.modal.confirm = function(component, skeleton) {
 /*--------------------------------------------------------------
 >>> GRID
 --------------------------------------------------------------*/
-satus.components.grid = function(component, skeleton) {
+satus.components.grid = function (component, skeleton) {
 	console.log(component, skeleton);
 };
 
 /*--------------------------------------------------------------
 >>> TEXT FIELD
 --------------------------------------------------------------*/
-satus.components.textField = function(component, skeleton) {
+satus.components.textField = function (component, skeleton) {
 	var container = component.createChildElement('div', 'container'),
 		input = container.createChildElement(skeleton.rows === 1 ? 'input' : 'textarea'),
 		display = container.createChildElement('div', 'display'),
@@ -1276,14 +1278,14 @@ satus.components.textField = function(component, skeleton) {
 	component.syntax = {
 		current: 'text',
 		handlers: {
-			regex: function(value, target) {
+			regex: function (value, target) {
 				var regex_token = /\[\^?]?(?:[^\\\]]+|\\[\S\s]?)*]?|\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9][0-9]*|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)|\((?:\?[:=!]?)?|(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??|[^.?*+^${[()|\\]+|./g,
 					char_class_token = /[^\\-]+|-|\\(?:[0-3][0-7]{0,2}|[4-7][0-7]?|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|c[A-Za-z]|[\S\s]?)/g,
 					char_class_parts = /^(\[\^?)(]?(?:[^\\\]]+|\\[\S\s]?)*)(]?)$/,
 					quantifier = /^(?:[?*+]|\{[0-9]+(?:,[0-9]*)?\})\??$/,
 					matches = value.match(regex_token);
 
-				function create(type, string) {
+				function create (type, string) {
 					var span = document.createElement('span');
 
 					span.className = type;
@@ -1315,7 +1317,7 @@ satus.components.textField = function(component, skeleton) {
 				}
 			}
 		},
-		set: function(syntax) {
+		set: function (syntax) {
 			if (this.handlers[syntax]) {
 				this.current = syntax;
 			} else {
@@ -1325,7 +1327,7 @@ satus.components.textField = function(component, skeleton) {
 			pre.update();
 		}
 	};
-	component.focus = function() {
+	component.focus = function () {
 		this.autofocus = true;	this.input.focus();
 	};
 
@@ -1344,10 +1346,10 @@ satus.components.textField = function(component, skeleton) {
 	}
 
 	Object.defineProperty(component, 'value', {
-		get: function() {
+		get: function () {
 			return this.input.value;
 		},
-		set: function(value) {
+		set: function (value) {
 			this.input.value = value;
 
 			this.dispatchEvent(new CustomEvent('change'));
@@ -1364,7 +1366,7 @@ satus.components.textField = function(component, skeleton) {
 
 	selection.setAttribute('disabled', '');
 
-	line_numbers.update = function() {
+	line_numbers.update = function () {
 		var component = this.parentNode.parentNode.parentNode,
 			count = component.input.value.split('\n').length;
 
@@ -1383,7 +1385,7 @@ satus.components.textField = function(component, skeleton) {
 		component.input.style.paddingLeft = this.offsetWidth + 'px';
 	};
 
-	pre.update = function() {
+	pre.update = function () {
 		var component = this.parentNode.parentNode.parentNode,
 			handler = component.syntax.handlers[component.syntax.current],
 			value = component.value || '';
@@ -1409,7 +1411,7 @@ satus.components.textField = function(component, skeleton) {
 		}
 	};
 
-	cursor.update = function() {
+	cursor.update = function () {
 		var component = this.parentNode.parentNode.parentNode,
 			input = component.input,
 			value = input.value,
@@ -1460,7 +1462,7 @@ satus.components.textField = function(component, skeleton) {
 	};
 
 	// global listener, make sure we remove when element no longer exists
-	function selectionchange(event) {
+	function selectionchange (event) {
 		if (!document.body.contains(component)) {
 			document.removeEventListener('selectionchange', selectionchange);
 			return;
@@ -1469,10 +1471,10 @@ satus.components.textField = function(component, skeleton) {
 		component.pre.update();
 		component.cursor.update();
 	};
-	
+
 	document.addEventListener('selectionchange', selectionchange);
 
-	input.addEventListener('input', function() {
+	input.addEventListener('input', function () {
 		var component = this.parentNode.parentNode;
 
 		if (component.skeleton.storage) {
@@ -1484,7 +1486,7 @@ satus.components.textField = function(component, skeleton) {
 		component.cursor.update();
 	});
 
-	input.addEventListener('scroll', function(event) {
+	input.addEventListener('scroll', function (event) {
 		var component = this.parentNode.parentNode;
 
 		component.display.style.top = -this.scrollTop + 'px';
@@ -1495,20 +1497,20 @@ satus.components.textField = function(component, skeleton) {
 		component.cursor.update();
 	});
 
-	component.addEventListener('change', function() {
+	component.addEventListener('change', function () {
 		this.lineNumbers.update();
 		this.pre.update();
 		this.cursor.update();
 	});
 
-	component.addEventListener('render', function() {
+	component.addEventListener('render', function () {
 		this.lineNumbers.update();
 		this.pre.update();
 		this.cursor.update();
 	});
 
 	if (skeleton.on?.blur) {
-		input.addEventListener('blur', function(event) {
+		input.addEventListener('blur', function (event) {
 			this.parentNode.parentNode.dispatchEvent(new Event(event.type));
 		});
 	}
@@ -1523,7 +1525,7 @@ satus.components.textField = function(component, skeleton) {
 /*--------------------------------------------------------------
 # CORE
 --------------------------------------------------------------*/
-satus.components.chart = function(component, skeleton) {
+satus.components.chart = function (component, skeleton) {
 	var type = skeleton.type;
 
 	if (this.chart[type]) {
@@ -1533,11 +1535,10 @@ satus.components.chart = function(component, skeleton) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # BAR
 --------------------------------------------------------------*/
-satus.components.chart.bar = function(component, skeleton) {
+satus.components.chart.bar = function (component, skeleton) {
 	var labels = skeleton.labels,
 		datasets = skeleton.datasets,
 		bars = [];
@@ -1584,7 +1585,7 @@ satus.components.chart.bar = function(component, skeleton) {
 /*--------------------------------------------------------------
 >>> SELECT
 --------------------------------------------------------------*/
-satus.components.select = function(component, skeleton) {
+satus.components.select = function (component, skeleton) {
 	var content = component.createChildElement('div', 'content');
 
 	component.childrenContainer = content;
@@ -1617,15 +1618,15 @@ satus.components.select = function(component, skeleton) {
 	}
 
 	Object.defineProperty(component, 'value', {
-		get() {
+		get () {
 			return this.selectElement.value;
 		},
-		set(value) {
+		set (value) {
 			this.selectElement.value = value;
 		}
 	});
 
-	component.render = function() {
+	component.render = function () {
 		satus.empty(this.valueElement);
 
 		if (this.selectElement.options[this.selectElement.selectedIndex]) {
@@ -1635,7 +1636,7 @@ satus.components.select = function(component, skeleton) {
 		this.dataset.value = this.value;
 	};
 
-	component.selectElement.addEventListener('change', function() {
+	component.selectElement.addEventListener('change', function () {
 		var component = this.parentNode;
 
 		component.storage.value = this.value;
@@ -1651,12 +1652,12 @@ satus.components.select = function(component, skeleton) {
 /*--------------------------------------------------------------
 >>> DIVIDER
 --------------------------------------------------------------*/
-satus.components.divider = function() {};
+satus.components.divider = function () {};
 
 /*--------------------------------------------------------------
 >>> SECTION
 --------------------------------------------------------------*/
-satus.components.section = function(component, skeleton) {
+satus.components.section = function (component, skeleton) {
 	if (satus.isString(skeleton.title)) {
 		component.dataset.title = satus.locale.get(skeleton.title);
 	}
@@ -1665,7 +1666,7 @@ satus.components.section = function(component, skeleton) {
 >>> BASE
 --------------------------------------------------------------*/
 
-satus.components.base = function(component) {
+satus.components.base = function (component) {
 	component.baseProvider = component;
 	component.layers = [];
 };
@@ -1673,11 +1674,11 @@ satus.components.base = function(component) {
 >>> ALERT
 --------------------------------------------------------------*/
 
-satus.components.alert = function(component, skeleton) {};
+satus.components.alert = function (component, skeleton) {};
 /*--------------------------------------------------------------
 >>> TIME
 --------------------------------------------------------------*/
-satus.components.time = function(component, skeleton) {
+satus.components.time = function (component, skeleton) {
 	var select_skeleton = Object.assign({}, skeleton);
 
 	select_skeleton.component = 'select';
@@ -1724,17 +1725,17 @@ satus.components.time = function(component, skeleton) {
 /*--------------------------------------------------------------
 >>> SIDEBAR
 --------------------------------------------------------------*/
-satus.components.sidebar = function(component, skeleton) {};
+satus.components.sidebar = function (component, skeleton) {};
 /*--------------------------------------------------------------
 >>> LAYERS
 --------------------------------------------------------------*/
-satus.components.layers = function(component, skeleton) {
+satus.components.layers = function (component, skeleton) {
 	component.path = [];
 	component.renderChildren = false;
 	component.baseProvider.layers.push(component);
 	component.layersProvider = component;
 
-	component.back = function() {
+	component.back = function () {
 		if (this.path.length > 1) {
 			this.path.pop();
 
@@ -1742,7 +1743,7 @@ satus.components.layers = function(component, skeleton) {
 		}
 	};
 
-	component.open = function(skeleton, history) {
+	component.open = function (skeleton, history) {
 		var previous_layer = satus.last(this.querySelectorAll('.satus-layers__layer')),
 			layer = this.createChildElement('div', 'layer');
 
@@ -1759,7 +1760,7 @@ satus.components.layers = function(component, skeleton) {
 		}
 
 		if (previous_layer) {
-			setTimeout(function() {
+			setTimeout(function () {
 				previous_layer.remove();
 			}, satus.getAnimationDuration(previous_layer));
 		}
@@ -1772,7 +1773,7 @@ satus.components.layers = function(component, skeleton) {
 		this.dispatchEvent(new Event('open'));
 	};
 
-	component.update = function() {
+	component.update = function () {
 		var layer = this.querySelector('.satus-layers__layer');
 
 		satus.empty(layer);
@@ -1785,7 +1786,7 @@ satus.components.layers = function(component, skeleton) {
 >>> LIST
 --------------------------------------------------------------*/
 
-satus.components.list = function(component, skeleton) {
+satus.components.list = function (component, skeleton) {
 	for (const item of skeleton.items) {
 		const li = component.createChildElement('div', 'item');
 
@@ -1804,17 +1805,17 @@ satus.components.list = function(component, skeleton) {
 >>> COLOR PICKER
 --------------------------------------------------------------*/
 
-satus.components.colorPicker = function(component, skeleton) {
+satus.components.colorPicker = function (component, skeleton) {
 	component.childrenContainer = component.createChildElement('div', 'content');
 
-	component.color = (function(element) {
+	component.color = (function (element) {
 		var array;
 
 		Object.defineProperty(element, 'value', {
-			get: function() {
+			get: function () {
 				return array;
 			},
-			set: function(value) {
+			set: function (value) {
 				array = value;
 
 				element.style.backgroundColor = 'rgb(' + value.join(',') + ')';
@@ -1826,7 +1827,7 @@ satus.components.colorPicker = function(component, skeleton) {
 		return element;
 	})(component.createChildElement('span', 'value'));
 
-	component.addEventListener('click', function() {
+	component.addEventListener('click', function () {
 		var hsl = satus.color.rgbToHsl(this.color.value),
 			s = hsl[1] / 100,
 			l = hsl[2] / 100;
@@ -1850,7 +1851,7 @@ satus.components.colorPicker = function(component, skeleton) {
 					'backgroundColor': 'hsl(' + hsl[0] + 'deg, 100%, 50%)'
 				},
 				on: {
-					mousedown: function(event) {
+					mousedown: function (event) {
 						if (event.button !== 0) {
 							return false;
 						}
@@ -1859,7 +1860,7 @@ satus.components.colorPicker = function(component, skeleton) {
 							rect = this.getBoundingClientRect(),
 							cursor = this.children[0];
 
-						function mousemove(event) {
+						function mousemove (event) {
 							var hsl = palette.skeleton.parentSkeleton.value,
 								x = event.clientX - rect.left,
 								y = event.clientY - rect.top,
@@ -1882,7 +1883,7 @@ satus.components.colorPicker = function(component, skeleton) {
 							event.preventDefault();
 						}
 
-						function mouseup() {
+						function mouseup () {
 							window.removeEventListener('mousemove', mousemove);
 							window.removeEventListener('mouseup', mouseup);
 						}
@@ -1919,7 +1920,7 @@ satus.components.colorPicker = function(component, skeleton) {
 					value: hsl[0],
 					max: 360,
 					on: {
-						input: function() {
+						input: function () {
 							var modal = this.skeleton.parentSkeleton.parentSkeleton,
 								hsl = modal.value;
 
@@ -1939,7 +1940,7 @@ satus.components.colorPicker = function(component, skeleton) {
 					component: 'button',
 					text: 'reset',
 					on: {
-						click: function() {
+						click: function () {
 							var modal = this.skeleton.parentSkeleton.parentSkeleton,
 								component = modal.parentElement;
 
@@ -1954,7 +1955,7 @@ satus.components.colorPicker = function(component, skeleton) {
 					component: 'button',
 					text: 'cancel',
 					on: {
-						click: function() {
+						click: function () {
 							this.skeleton.parentSkeleton.parentSkeleton.rendered.close();
 						}
 					}
@@ -1963,7 +1964,7 @@ satus.components.colorPicker = function(component, skeleton) {
 					component: 'button',
 					text: 'OK',
 					on: {
-						click: function() {
+						click: function () {
 							var modal = this.skeleton.parentSkeleton.parentSkeleton,
 								component = modal.parentElement;
 
@@ -1982,7 +1983,7 @@ satus.components.colorPicker = function(component, skeleton) {
 >>> RADIO
 --------------------------------------------------------------*/
 
-satus.components.radio = function(component, skeleton) {
+satus.components.radio = function (component, skeleton) {
 	let value;
 
 	component.nativeControl = component.createChildElement('input', 'input');
@@ -2010,7 +2011,7 @@ satus.components.radio = function(component, skeleton) {
 		component.nativeControl.checked = true;
 	}
 
-	component.nativeControl.addEventListener('change', function() {
+	component.nativeControl.addEventListener('change', function () {
 		const component = this.parentNode,
 			parent = component.parentNode.parentNode.skeleton;
 		let defValue;
@@ -2044,7 +2045,7 @@ satus.components.radio = function(component, skeleton) {
 >>> SLIDER
 --------------------------------------------------------------*/
 
-satus.components.slider = function(component, skeleton) {
+satus.components.slider = function (component, skeleton) {
 	var content = component.createChildElement('div', 'content'),
 		children_container = content.createChildElement('div', 'children-container'),
 		text_input = content.createChildElement('input'),
@@ -2064,7 +2065,7 @@ satus.components.slider = function(component, skeleton) {
 	input.step = skeleton.step || 1;
 	input.value = component.storage?.value || skeleton.value || 0;
 
-	text_input.addEventListener('blur', function() {
+	text_input.addEventListener('blur', function () {
 		var component = this.parentNode.parentNode;
 
 		component.input.value = Number(this.value.replace(/[^0-9.]/g, ''));
@@ -2072,7 +2073,7 @@ satus.components.slider = function(component, skeleton) {
 		component.update();
 	});
 
-	text_input.addEventListener('keydown', function(event) {
+	text_input.addEventListener('keydown', function (event) {
 		if (event.key === 'Enter') {
 			var component = this.parentNode.parentNode;
 
@@ -2082,7 +2083,7 @@ satus.components.slider = function(component, skeleton) {
 		}
 	});
 
-	input.addEventListener('input', function() {
+	input.addEventListener('input', function () {
 		var component = this.parentNode.parentNode;
 
 		component.value = Number(this.value);
@@ -2090,7 +2091,7 @@ satus.components.slider = function(component, skeleton) {
 		component.update();
 	});
 
-	component.update = function() {
+	component.update = function () {
 		const input = this.input;
 
 		this.textInput.value = input.value;
@@ -2109,7 +2110,7 @@ satus.components.slider = function(component, skeleton) {
 
 	if (skeleton.on) {
 		for (var type in skeleton.on) {
-			input.addEventListener(type, function(event) {
+			input.addEventListener(type, function (event) {
 				this.parentNode.parentNode.dispatchEvent(new Event(event.type));
 			});
 		}
@@ -2119,7 +2120,7 @@ satus.components.slider = function(component, skeleton) {
 >>> TABS
 --------------------------------------------------------------*/
 
-satus.components.tabs = function(component, skeleton) {
+satus.components.tabs = function (component, skeleton) {
 	let tabs = skeleton.items,
 		value = skeleton.value;
 
@@ -2134,7 +2135,7 @@ satus.components.tabs = function(component, skeleton) {
 	for (const tab of tabs) {
 		const button = component.createChildElement('button');
 
-		button.addEventListener('click', function() {
+		button.addEventListener('click', function () {
 			const component = this.parentNode,
 				index = satus.elementIndex(this);
 
@@ -2153,18 +2154,18 @@ satus.components.tabs = function(component, skeleton) {
 >>> SHORTCUT
 --------------------------------------------------------------*/
 
-satus.components.shortcut = function(component, skeleton) {
+satus.components.shortcut = function (component, skeleton) {
 	component.childrenContainer = component.createChildElement('div', 'content');
 	component.valueElement = component.createChildElement('div', 'value');
 
 	component.className = 'satus-button';
 
-	component.render = function(parent = this.primary) {
+	component.render = function (parent = this.primary) {
 		let children = parent.children;
 
 		satus.empty(parent);
 
-		function createElement(name) {
+		function createElement (name) {
 			var element = document.createElement('div');
 
 			element.className = 'satus-shortcut__' + name;
@@ -2265,7 +2266,7 @@ satus.components.shortcut = function(component, skeleton) {
 		}
 	};
 
-	component.keydown = function(event) {
+	component.keydown = function (event) {
 		event.preventDefault();
 		event.stopPropagation();
 
@@ -2291,7 +2292,7 @@ satus.components.shortcut = function(component, skeleton) {
 	};
 
 	if (skeleton.wheel !== false) {
-		component.mousewheel = function(event) {
+		component.mousewheel = function (event) {
 			event.stopPropagation();
 
 			if (
@@ -2322,7 +2323,7 @@ satus.components.shortcut = function(component, skeleton) {
 		};
 	}
 
-	component.addEventListener('click', function() {
+	component.addEventListener('click', function () {
 		satus.render({
 			component: 'modal',
 			variant: 'shortcut',
@@ -2330,7 +2331,7 @@ satus.components.shortcut = function(component, skeleton) {
 				parent: this
 			},
 			on: {
-				close: function() {
+				close: function () {
 					window.removeEventListener('keydown', component.keydown);
 					window.removeEventListener('wheel', component.mousewheel);
 				}
@@ -2340,11 +2341,11 @@ satus.components.shortcut = function(component, skeleton) {
 				component: 'div',
 				class: 'satus-shortcut__primary',
 				on: {
-					render: function() {
+					render: function () {
 						component.primary = this;
 
 						if (component.skeleton.mouseButtons === true) {
-							this.addEventListener('mousedown', function(event) {
+							this.addEventListener('mousedown', function (event) {
 								if (
 									component.data.click && event.button === 0 ||
 									component.data.middle && event.button === 1
@@ -2372,7 +2373,7 @@ satus.components.shortcut = function(component, skeleton) {
 								}
 							});
 
-							this.addEventListener('contextmenu', function(event) {
+							this.addEventListener('contextmenu', function (event) {
 								event.preventDefault();
 								event.stopPropagation();
 
@@ -2407,7 +2408,7 @@ satus.components.shortcut = function(component, skeleton) {
 					component: 'button',
 					text: 'reset',
 					on: {
-						click: function() {
+						click: function () {
 							var component = this.parentNode.parentNode.parentNode.parent;
 
 							component.data = component.skeleton.value || {};
@@ -2426,7 +2427,7 @@ satus.components.shortcut = function(component, skeleton) {
 					component: 'button',
 					text: 'cancel',
 					on: {
-						click: function() {
+						click: function () {
 							component.data = satus.storage.get(component.storage.key) || component.skeleton.value || {};
 
 							component.render(component.valueElement);
@@ -2442,7 +2443,7 @@ satus.components.shortcut = function(component, skeleton) {
 					component: 'button',
 					text: 'save',
 					on: {
-						click: function() {
+						click: function () {
 							component.storage.value = component.data;
 
 							component.render(component.valueElement);
@@ -2475,7 +2476,7 @@ satus.components.shortcut = function(component, skeleton) {
 >>> CHECKBOX
 --------------------------------------------------------------*/
 
-satus.components.checkbox = function(component, skeleton) {
+satus.components.checkbox = function (component, skeleton) {
 	component.input = component.createChildElement('input');
 	component.input.type = 'checkbox';
 
@@ -2486,7 +2487,7 @@ satus.components.checkbox = function(component, skeleton) {
 	component.dataset.value = component.storage.value || skeleton.value;
 	component.input.checked = component.storage.value || skeleton.value;
 
-	component.input.addEventListener('change', function() {
+	component.input.addEventListener('change', function () {
 		var component = this.parentNode;
 
 		if (this.checked === true) {
@@ -2502,7 +2503,7 @@ satus.components.checkbox = function(component, skeleton) {
 >>> SWITCH
 --------------------------------------------------------------*/
 
-satus.components.switch = function(component, skeleton) {
+satus.components.switch = function (component, skeleton) {
 	var value = satus.isset(component.storage.value) ? component.storage.value : skeleton.value;
 
 	if (satus.isFunction(value)) {
@@ -2518,39 +2519,39 @@ satus.components.switch = function(component, skeleton) {
 
 	// 'custom' disables default onclick, user provided function should handle this functionality manually
 	if (!skeleton.custom) {
-		component.addEventListener('click', function() {
+		component.addEventListener('click', function () {
 			this.flip();
 		}, true);
 	}
 };
 
-satus.components.switch.flip = function(val) {
-	switch(val) {
-	case true:
-		this.dataset.value = 'true';
-		this.storage.value = true;
-		break;
-	case false:
-		this.dataset.value = 'false';
-		this.storage.value = false;
-		break;
-	case undefined:
-		if (this.dataset.value === 'true') {
-			this.dataset.value = 'false';
-			this.storage.value = false;
-		} else {
+satus.components.switch.flip = function (val) {
+	switch (val) {
+		case true:
 			this.dataset.value = 'true';
 			this.storage.value = true;
-		}
-		break;
+			break;
+		case false:
+			this.dataset.value = 'false';
+			this.storage.value = false;
+			break;
+		case undefined:
+			if (this.dataset.value === 'true') {
+				this.dataset.value = 'false';
+				this.storage.value = false;
+			} else {
+				this.dataset.value = 'true';
+				this.storage.value = true;
+			}
+			break;
 	}
 };
 /*--------------------------------------------------------------
 >>> CONTEXT MENU
 --------------------------------------------------------------*/
-satus.events.on('render', function(component) {
+satus.events.on('render', function (component) {
 	if (component.skeleton.contextMenu) {
-		component.addEventListener('contextmenu', function(event) {
+		component.addEventListener('contextmenu', function (event) {
 			var base = this.baseProvider,
 				base_rect = base.getBoundingClientRect(),
 				x = event.clientX - base_rect.left,
@@ -2591,9 +2592,9 @@ satus.events.on('render', function(component) {
 >>> SORTABLE
 --------------------------------------------------------------*/
 
-satus.events.on('render', function(component) {
+satus.events.on('render', function (component) {
 	if (component.skeleton.sortable === true) {
-		component.addEventListener('mousedown', function(event) {
+		component.addEventListener('mousedown', function (event) {
 			if (event.button !== 0) {
 				return false;
 			}
@@ -2610,7 +2611,7 @@ satus.events.on('render', function(component) {
 
 			ghost.classList.add('satus-sortable__ghost');
 
-			function mousemove(event) {
+			function mousemove (event) {
 				if (appended === false && (Math.abs(event.clientX - x) > 4 || Math.abs(event.clientY - y) > 4)) {
 					appended = true;
 
@@ -2622,7 +2623,7 @@ satus.events.on('render', function(component) {
 				ghost.style.transform = 'translate(' + (event.clientX - offset_x) + 'px, ' + (event.clientY - offset_y) + 'px)';
 			}
 
-			function mouseup(event) {
+			function mouseup (event) {
 				component.classList.remove('satus-sortable__chosen');
 				ghost.remove();
 
@@ -2654,7 +2655,7 @@ satus.events.on('render', function(component) {
 				capture: true
 			});
 
-			function siblingMouseOver(event) {
+			function siblingMouseOver (event) {
 				var parent = this.parentNode,
 					y = event.layerY / (this.offsetHeight / 100);
 
@@ -2684,7 +2685,7 @@ satus.events.on('render', function(component) {
 >>> MANIFEST
 --------------------------------------------------------------*/
 
-satus.manifest = function() {
+satus.manifest = function () {
 	var object = {};
 
 	if (this.isset('chrome.runtime.getManifest')) {
@@ -2704,12 +2705,11 @@ satus.manifest = function() {
 
 satus.color = {};
 
-
 /*--------------------------------------------------------------
 # STRING TO ARRAY
 --------------------------------------------------------------*/
 
-satus.color.stringToArray = function(string) {
+satus.color.stringToArray = function (string) {
 	var match = string.match(/[0-9.]+/g);
 
 	if (match) {
@@ -2721,12 +2721,11 @@ satus.color.stringToArray = function(string) {
 	return match;
 };
 
-
 /*--------------------------------------------------------------
 # RGB TO HSL
 --------------------------------------------------------------*/
 
-satus.color.rgbToHsl = function(array) {
+satus.color.rgbToHsl = function (array) {
 	var r = array[0] / 255,
 		g = array[1] / 255,
 		b = array[2] / 255,
@@ -2766,12 +2765,11 @@ satus.color.rgbToHsl = function(array) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # HUE TO RGB
 --------------------------------------------------------------*/
 
-satus.color.hueToRgb = function(array) {
+satus.color.hueToRgb = function (array) {
 	var t1 = array[0],
 		t2 = array[1],
 		hue = array[2];
@@ -2795,12 +2793,11 @@ satus.color.hueToRgb = function(array) {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # HSL TO RGB
 --------------------------------------------------------------*/
 
-satus.color.hslToRgb = function(array) {
+satus.color.hslToRgb = function (array) {
 	var h = array[0] / 360,
 		s = array[1] / 100,
 		l = array[2] / 100,
@@ -2809,7 +2806,7 @@ satus.color.hslToRgb = function(array) {
 	if (s == 0) {
 		r = g = b = l;
 	} else {
-		var hue2rgb = function(p, q, t) {
+		var hue2rgb = function (p, q, t) {
 			if (t < 0) t += 1;
 			if (t > 1) t -= 1;
 			if (t < 1 / 6) return p + (q - p) * 6 * t;
@@ -2868,7 +2865,7 @@ satus.user = {
 # NAME
 --------------------------------------------------------------*/
 
-satus.user.os.name = function() {
+satus.user.os.name = function () {
 	var app_version = navigator.appVersion;
 
 	if (app_version.indexOf('Win') !== -1) {
@@ -2904,19 +2901,17 @@ satus.user.os.name = function() {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # BITNESS
 --------------------------------------------------------------*/
 
-satus.user.os.bitness = function() {
+satus.user.os.bitness = function () {
 	if (navigator.appVersion.match(/(Win64|x64|x86_64|WOW64)/)) {
 		return '64-bit';
 	} else {
 		return '32-bit';
 	}
 };
-
 
 /*--------------------------------------------------------------
 # BROWSER
@@ -2926,9 +2921,9 @@ satus.user.os.bitness = function() {
 # NAME
 --------------------------------------------------------------*/
 
-satus.user.browser.name = function() {
+satus.user.browser.name = function () {
 	var user_agent = navigator.userAgent;
-	if (!!navigator.brave) {
+	if (navigator.brave) {
 		return 'Brave';
 	}	else if (user_agent.indexOf("Opera") != -1 || user_agent.indexOf('OPR') != -1) {
 		return 'Opera';
@@ -2938,8 +2933,8 @@ satus.user.browser.name = function() {
 		return 'Edge';
 	} else if (user_agent.indexOf('Chrome') !== -1) {
 		return 'Chrome';
-	} else if (user_agent.indexOf('Safari') !== -1 
-				&& (!/Windows|Chrom/.test(user_agent) 
+	} else if (user_agent.indexOf('Safari') !== -1
+				&& (!/Windows|Chrom/.test(user_agent)
 				|| /Macintosh|iPhone/.test(user_agent))) {
 		return 'Safari';
 	} else if (user_agent.indexOf('Firefox') !== -1) {
@@ -2949,51 +2944,46 @@ satus.user.browser.name = function() {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # VERSION
 --------------------------------------------------------------*/
 
-satus.user.browser.version = function() {
+satus.user.browser.version = function () {
 	var browser_name = satus.user.browser.name(),
 		browser_version = navigator.userAgent.match(new RegExp(browser_name + '/([0-9.]+)'));
 
 	return browser_version[1];
 };
 
-
 /*--------------------------------------------------------------
 # PLATFORM
 --------------------------------------------------------------*/
 
-satus.user.browser.platform = function() {
+satus.user.browser.platform = function () {
 	return navigator.platform;
 };
-
 
 /*--------------------------------------------------------------
 # MANIFEST
 --------------------------------------------------------------*/
 
-satus.user.browser.manifest = function() {
+satus.user.browser.manifest = function () {
 	return chrome.runtime.getManifest() || {};
 };
-
 
 /*--------------------------------------------------------------
 # LANGUAGES
 --------------------------------------------------------------*/
 
-satus.user.browser.languages = function() {
+satus.user.browser.languages = function () {
 	return navigator.languages;
 };
-
 
 /*--------------------------------------------------------------
 # COOKIES
 --------------------------------------------------------------*/
 
-satus.user.browser.cookies = function() {
+satus.user.browser.cookies = function () {
 	if (document.cookie) {
 		var random_cookie = 'nX6cMXKWsc';
 
@@ -3007,12 +2997,11 @@ satus.user.browser.cookies = function() {
 	return false;
 };
 
-
 /*--------------------------------------------------------------
 # FLASH
 --------------------------------------------------------------*/
 
-satus.user.browser.flash = function() {
+satus.user.browser.flash = function () {
 	try {
 		if (new ActiveXObject('ShockwaveFlash.ShockwaveFlash')) {
 			return true;
@@ -3026,12 +3015,11 @@ satus.user.browser.flash = function() {
 	return false;
 };
 
-
 /*--------------------------------------------------------------
 # JAVA
 --------------------------------------------------------------*/
 
-satus.user.browser.java = function() {
+satus.user.browser.java = function () {
 	if (satus.isFunction(navigator.javaEnabled) && navigator.javaEnabled()) {
 		return true;
 	} else {
@@ -3039,12 +3027,11 @@ satus.user.browser.java = function() {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # AUDIO
 --------------------------------------------------------------*/
 
-satus.user.browser.audio = function() {
+satus.user.browser.audio = function () {
 	var audio = document.createElement('audio'),
 		types = {
 			mp3: 'audio/mpeg',
@@ -3068,12 +3055,11 @@ satus.user.browser.audio = function() {
 	return result;
 };
 
-
 /*--------------------------------------------------------------
 # VIDEO
 --------------------------------------------------------------*/
 
-satus.user.browser.video = function() {
+satus.user.browser.video = function () {
 	var video = document.createElement('video'),
 		types = {
 			//ogg: 'video/ogg; codecs="theora"',
@@ -3099,18 +3085,16 @@ satus.user.browser.video = function() {
 	return result;
 };
 
-
 /*--------------------------------------------------------------
 # WEBGL
 --------------------------------------------------------------*/
 
-satus.user.browser.webgl = function() {
+satus.user.browser.webgl = function () {
 	var cvs = document.createElement('canvas'),
 		ctx = cvs.getContext('webgl');
 
 	return ctx && ctx instanceof WebGLRenderingContext;
 };
-
 
 /*--------------------------------------------------------------
 # HARDWARE
@@ -3120,29 +3104,27 @@ satus.user.browser.webgl = function() {
 # SCREEN
 --------------------------------------------------------------*/
 
-satus.user.device.screen = function() {
+satus.user.device.screen = function () {
 	if (screen) {
 		return screen.width + 'x' + screen.height;
 	}
 };
 
-
 /*--------------------------------------------------------------
 # RAM
 --------------------------------------------------------------*/
 
-satus.user.device.ram = function() {
+satus.user.device.ram = function () {
 	if ('deviceMemory' in navigator) {
 		return navigator.deviceMemory + ' GB';
 	}
 };
 
-
 /*--------------------------------------------------------------
 # GPU
 --------------------------------------------------------------*/
 
-satus.user.device.gpu = function() {
+satus.user.device.gpu = function () {
 	var cvs = document.createElement('canvas'),
 		ctx = cvs.getContext('webgl');
 
@@ -3160,21 +3142,19 @@ satus.user.device.gpu = function() {
 	}
 };
 
-
 /*--------------------------------------------------------------
 # CORES
 --------------------------------------------------------------*/
 
-satus.user.device.cores = function() {
+satus.user.device.cores = function () {
 	return navigator.deviceConcurrency || navigator.hardwareConcurrency;
 };
-
 
 /*--------------------------------------------------------------
 # TOUCH
 --------------------------------------------------------------*/
 
-satus.user.device.touch = function() {
+satus.user.device.touch = function () {
 	var result = {};
 
 	if (
@@ -3190,12 +3170,11 @@ satus.user.device.touch = function() {
 	return result;
 };
 
-
 /*--------------------------------------------------------------
 # CONNECTION
 --------------------------------------------------------------*/
 
-satus.user.device.connection = function() {
+satus.user.device.connection = function () {
 	var result = {};
 
 	if (typeof navigator.connection === 'object') {
@@ -3212,7 +3191,7 @@ satus.user.device.connection = function() {
 # SEARCH
 --------------------------------------------------------------*/
 
-satus.search = function(query, object, callback) {
+satus.search = function (query, object, callback) {
 	const included = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button'],
 		excluded = [
 			'baseProvider',
@@ -3229,7 +3208,7 @@ satus.search = function(query, object, callback) {
 
 	query = query.toLowerCase();
 
-	function parse(items, parent) {
+	function parse (items, parent) {
 		threads++;
 
 		for (const [key, item] of Object.entries(items)) {
@@ -3266,7 +3245,7 @@ satus.search = function(query, object, callback) {
 /*--------------------------------------------------------------
 # count
 --------------------------------------------------------------*/
-function createInput(placeholder, onChange) {
+function createInput (placeholder, onChange) {
 	const input = document.createElement('input');
 	input.type = 'number';
 	input.placeholder = placeholder;
@@ -3274,7 +3253,7 @@ function createInput(placeholder, onChange) {
 	return input;
 }
 
-function createSelect(options, changeHandler) {
+function createSelect (options, changeHandler) {
 	const select = document.createElement('select');
 
 	for (const optionData of options) {
