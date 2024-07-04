@@ -9,9 +9,7 @@ WARNING: Browser Debugger Breakpoint downstream from keydown() event will eat co
 ImprovedTube.shortcutsInit = function () {
 	// those four are _references_ to source Objects, not copies
 	const listening = ImprovedTube.input.listening,
-		listeners = ImprovedTube.input.listeners,
-		pressed = ImprovedTube.input.pressed,
-		cancelled = ImprovedTube.input.cancelled;
+		listeners = ImprovedTube.input.listeners;
 
 	// reset 'listening' shortcuts
 	for (var key in listening) delete listening[key];
@@ -22,7 +20,7 @@ ImprovedTube.shortcutsInit = function () {
 		const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
 		let potentialShortcut = {};
 		for (const button of ['alt', 'ctrl', 'shift', 'wheel', 'keys', 'toggle']) {
-			switch(button) {
+			switch (button) {
 				case 'alt':
 				case 'ctrl':
 				case 'shift':
@@ -549,7 +547,7 @@ ImprovedTube.shortcutPopupPlayer = function () {
 	if (player && document.documentElement.dataset.pageType === 'video') {
 		player.pauseVideo();
 
-		window.open('//www.youtube.com/embed/' + location.href.match(/watch\?v=([A-Za-z0-9\-\_]+)/g)[0].slice(8) + '?start=' + parseInt(player.getCurrentTime()) + '&autoplay=' + (ImprovedTube.storage.player_autoplay_disable ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=' + player.offsetWidth + ',height=' + player.offsetHeight);
+		window.open('//www.youtube.com/embed/' + location.href.match(ImprovedTube.regex.video_id)?.[1] + '?start=' + parseInt(player.getCurrentTime()) + '&autoplay=' + (ImprovedTube.storage.player_autoplay_disable ? '0' : '1'), '_blank', 'directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=' + player.offsetWidth + ',height=' + player.offsetHeight);
 	}
 };
 /*------------------------------------------------------------------------------
