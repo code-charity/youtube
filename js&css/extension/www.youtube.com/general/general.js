@@ -249,7 +249,7 @@ extension.features.popupWindowButtons = function (event) {
 							target.itPopupWindowButton.addEventListener('click', function (event) {
 								event.preventDefault();
 								event.stopPropagation();
-								try { this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch(error) { console.log(error)};
+								try { this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error)};
 								ytPlayer = document.querySelector("#movie_player");
 								if (ytPlayer){width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65}
 								else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
@@ -444,7 +444,7 @@ extension.features.trackWatchedVideos = function () {
 extension.features.thumbnailsQuality = function (anything) {
 	var option = extension.storage.get('thumbnails_quality');
 
-	function handler(thumbnail) {
+	function handler (thumbnail) {
 		if (!thumbnail.dataset.defaultSrc && extension.features.thumbnailsQuality.regex.test(thumbnail.src)) {
 			thumbnail.dataset.defaultSrc = thumbnail.src;
 
@@ -553,7 +553,7 @@ extension.features.openNewTab = function (){
 
 			inputField.addEventListener("input", () => searchedAlready = false);
 
-			function applySuggestionListeners() {
+			function applySuggestionListeners () {
 				const suggestionContainers = document.querySelectorAll("div[class^='sbqs'], div[class^='sbpqs']");
 				suggestionContainers.forEach((suggestionsContainer) => {
 					suggestionsContainer.addEventListener("mousedown", (event) => {
@@ -567,7 +567,7 @@ extension.features.openNewTab = function (){
 				});
 			}
 
-			function performSearchNewTab(query) {
+			function performSearchNewTab (query) {
 				inputField.value = "";
 				inputField.focus();
 				const newTabURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;

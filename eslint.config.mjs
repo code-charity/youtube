@@ -47,6 +47,8 @@ export default [...compat.extends("eslint:recommended"), ...compatConfiguration,
 		"no-fallthrough": ["error", { "allowEmptyCase": true }],
 		"no-implicit-globals": "error",
         "no-multiple-empty-lines": ["error", {"max": 1, "maxBOF": 0, "maxEOF": 0}],
+		"keyword-spacing": ["warn", { "before": true, "after": true }],
+		"space-before-function-paren": "warn",
 		"max-len": ["error", {
 			code: 255,
 			ignoreUrls: true,

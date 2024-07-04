@@ -16,7 +16,7 @@ ImprovedTube.observer = new MutationObserver(function (mutationList) {
 			}
 
 			for (const node of mutation.removedNodes){
-				if(node.nodeName === 'BUTTON' && node.id === 'it-popup-playlist-button') ImprovedTube.playlistPopupUpdate();
+				if (node.nodeName === 'BUTTON' && node.id === 'it-popup-playlist-button') ImprovedTube.playlistPopupUpdate();
 			}
 		}
 		if (mutation.target && mutation.target.id === 'owner-sub-count') {
@@ -105,8 +105,8 @@ ImprovedTube.init = function () {
 	this.onmousedown();
 	this.youtubeLanguage();
 	this.myColors();
-	if(this.storage.undo_the_new_sidebar === true){this.undoTheNewSidebar();}
-	if(this.storage.description === "sidebar"){this.descriptionSidebar();}
+	if (this.storage.undo_the_new_sidebar === true){this.undoTheNewSidebar();}
+	if (this.storage.description === "sidebar"){this.descriptionSidebar();}
 	this.channelCompactTheme();
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {

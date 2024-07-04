@@ -27,7 +27,7 @@
 # IMPORTING OLD SETTINGS
 -----------------------------*/
 chrome.runtime.onInstalled.addListener(function (installed) {
-	if(installed.reason == 'update') {
+	if (installed.reason == 'update') {
 		//		var thisVersion = chrome.runtime.getManifest().version;
 		//		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
 		// Shortcut renames:
@@ -93,10 +93,10 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 				});
 			}
 		});
-	} else if(installed.reason == 'install') {
-		if(navigator.userAgent.indexOf("Firefox") != -1){
+	} else if (installed.reason == 'install') {
+		if (navigator.userAgent.indexOf("Firefox") != -1){
 			chrome.storage.local.set({below_player_pip: false})}
-		if(navigator.userAgent.indexOf('Safari') !== -1
+		if (navigator.userAgent.indexOf('Safari') !== -1
 		   && (!/Windows|Chrom/.test(navigator.userAgent)
 			   || /Macintosh|iPhone/.test(navigator.userAgent))) {
 			chrome.storage.local.set({below_player_pip: false})
@@ -108,7 +108,7 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 /*--------------------------------------------------------------
 # LOCALE
 --------------------------------------------------------------*/
-function getLocale(language, callback) {
+function getLocale (language, callback) {
 	language = language.replace('-', '_');
 	fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
 		if (response.ok) {
@@ -130,7 +130,7 @@ function getLocale(language, callback) {
 /*--------------------------------------------------------------
 # CONTEXT MENU
 --------------------------------------------------------------*/
-function updateContextMenu(language) {
+function updateContextMenu (language) {
 	if (!language) {
 		language = chrome.i18n.getUILanguage();
 	}
@@ -188,7 +188,7 @@ chrome.storage.onChanged.addListener(function (changes) {
 --------------------------------------------------------------*/
 let tabConnected = {};
 
-function tabPrune(callback) {
+function tabPrune (callback) {
 	chrome.tabs.query({ url: 'https://www.youtube.com/*' }).then(function (tabs) {
 		let tabIds = [];
 		for (let tab of tabs) {
@@ -252,7 +252,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	//console.log(message);
 	//console.log(sender);
 
-	switch(message.action || message.name || message) {
+	switch (message.action || message.name || message) {
 		case 'play':
 			tabPrune(function () {
 				for (let id in tabConnected) {
@@ -297,7 +297,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 					chrome.windows.create(data, pw => {});
 
 					//append to title?
-					chrome.tabs.onUpdated.addListener(function listener(tabId, changeInfo) {
+					chrome.tabs.onUpdated.addListener(function listener (tabId, changeInfo) {
 						if (tabId === tID && changeInfo.status === 'complete' && !message.title.startsWith("undefined")) {
 							chrome.tabs.onUpdated.removeListener(listener);
 							chrome.scripting.executeScript({ target: { tabId: tID }, func: () => { document.title = `${message.title} - ImprovedTube`; } });			//manifest3

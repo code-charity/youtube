@@ -8,7 +8,7 @@ const isDark = () => {
 extension.skeleton.header.sectionEnd.darkLightSwitch.svgSun.on = {
 	render: function () {
 		console.log(satus.storage.get('lastLightTheme') + " " + satus.storage.get('lastDarkTheme'))
-		if(isDark()) {
+		if (isDark()) {
 			this.style.display = 'none'
 		}
 	}
@@ -16,7 +16,7 @@ extension.skeleton.header.sectionEnd.darkLightSwitch.svgSun.on = {
 
 extension.skeleton.header.sectionEnd.darkLightSwitch.svgMoon.on = {
 	render: function () {
-		if(!isDark()) {
+		if (!isDark()) {
 			this.style.display = 'none'
 		}
 	}
@@ -24,7 +24,7 @@ extension.skeleton.header.sectionEnd.darkLightSwitch.svgMoon.on = {
 
 extension.skeleton.header.sectionEnd.darkLightSwitch.on = {
 	click: function () {
-		if(isDark()) {
+		if (isDark()) {
 			if (satus.storage.get('lastLightTheme')) {
 				satus.storage.set('theme', satus.storage.get("lastLightTheme"))
 			} else {
@@ -45,7 +45,7 @@ extension.skeleton.header.sectionEnd.darkLightSwitch.on = {
 }
 
 satus.storage.onchanged(() => {
-	if(isDark()) {
+	if (isDark()) {
 		document.getElementById('dark-light-switch-icon-sun').style.display = 'none'
 		document.getElementById('dark-light-switch-icon-moon').style.display = ''
 		satus.storage.set('lastDarkTheme', satus.storage.get('theme'))

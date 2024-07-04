@@ -81,7 +81,7 @@ ImprovedTube.myColors = function () {
 }
 
 ImprovedTube.setTheme = function () {
-	switch(this.storage.theme) {
+	switch (this.storage.theme) {
 		case 'dark':
 			document.documentElement.setAttribute('dark', '');
 			document.querySelector('ytd-masthead')?.setAttribute('dark', '');

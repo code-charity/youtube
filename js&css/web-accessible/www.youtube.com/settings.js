@@ -32,7 +32,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 				var x2 = event.layerX,
 					y2 = event.layerY;
 
-				function mousemove(event) {
+				function mousemove (event) {
 					if (button.className.indexOf('dragging') === -1) {
 						button.classList.add('it-button--dragging');
 					}
@@ -44,14 +44,14 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 					button.style.top = y + 'px';
 				}
 
-				function mouseup() {
+				function mouseup () {
 					localStorage.setItem('improvedtube-button-position', JSON.stringify({x, y}));
 
 					window.removeEventListener('mousemove', mousemove);
 					window.removeEventListener('mouseup', mouseup);
 				}
 
-				function click() {
+				function click () {
 					button.classList.remove('it-button--dragging');
 
 					window.removeEventListener('click', click);

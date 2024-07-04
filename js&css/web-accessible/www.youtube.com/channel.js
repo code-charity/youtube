@@ -67,7 +67,7 @@ ImprovedTube.channelCompactTheme = function () {
 		if (compact.styles.length) removeStyles()
 		compact = {}
 	}
-	function styleWithInterval() {
+	function styleWithInterval () {
 		compact.listener = setInterval(() => {
 			let item = document.querySelector(`#sections ytd-guide-section-renderer:nth-child(4) #items`)
 			if (item) {
@@ -77,7 +77,7 @@ ImprovedTube.channelCompactTheme = function () {
 		}, 250)
 	}
 
-	function styleWithListeners() {
+	function styleWithListeners () {
 		compact.parents = []
 		compact.subs = []
 		for (let i = 0; i <= 2; i++) {
@@ -106,7 +106,7 @@ ImprovedTube.channelCompactTheme = function () {
 		removeStyles();
 	}
 
-	function removeListeners(){ // EventListeners
+	function removeListeners (){ // EventListeners
 		for (let i = 0; i <= 2; i++) {
 			const parent = compact.parents[i]
 			const sub = compact.subs[i]
@@ -116,14 +116,14 @@ ImprovedTube.channelCompactTheme = function () {
 		compact.eventHandlerFns = []
 	}
 
-	function initialLoad() {
+	function initialLoad () {
 		for (let i = 0; i <= 2; i++) {
 			let isCompact = localStorage.getItem(`ImprovedTube-compact-${i + 2}`) === "true"
 			isCompact ? appendStyle(i) : (compact.styles[i] = null);
 		}
 	}
 
-	function appendStyle(index) { // adds style tag
+	function appendStyle (index) { // adds style tag
 		const cssRules = `
 			#sections > ytd-guide-section-renderer:nth-child(${index + 2}) > #items{
 				display:none;
@@ -134,7 +134,7 @@ ImprovedTube.channelCompactTheme = function () {
 		document.head.appendChild(compact.styles[index]);
 	}
 
-	function removeStyles(){ // styles tags
+	function removeStyles (){ // styles tags
 		for (let i = 0; i <= compact.styles.length; i++){
 			if (compact.styles[i] && compact.styles[i].parentNode) {
 				document.head.removeChild(compact.styles[i]);

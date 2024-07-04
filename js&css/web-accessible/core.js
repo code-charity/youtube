@@ -99,7 +99,7 @@ CODEC || 30FPS
 	file to patch HTMLMediaElement before YT player uses it.
 --------------------------------------------------------------*/
 if (localStorage['it-codec'] || localStorage['it-player30fps']) {
-	function overwrite(self, callback, mime) {
+	function overwrite (self, callback, mime) {
 		if (localStorage['it-codec']) {
 			var re = new RegExp(localStorage['it-codec']);
 			// /webm|vp8|vp9|av01/
@@ -220,7 +220,7 @@ document.addEventListener('it-message-from-extension', function () {
 				}
 			}
 
-			switch(camelized_key) {
+			switch (camelized_key) {
 				case 'blocklist':
 				case 'blocklistActivate':
 					ImprovedTube.blocklistInit();
@@ -246,9 +246,9 @@ document.addEventListener('it-message-from-extension', function () {
 
 				case 'description':
 					if (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.description === "classic_expanded") {
-						try{document.querySelector("#more").click() || document.querySelector("#expand").click();} catch{}
+						try {document.querySelector("#more").click() || document.querySelector("#expand").click();} catch {}
 					} else if (ImprovedTube.storage.description === "normal" || ImprovedTube.storage.description === "classic") {
-						try{document.querySelector("#less").click() || document.querySelector("#collapse").click();} catch{}
+						try {document.querySelector("#less").click() || document.querySelector("#collapse").click();} catch {}
 					}
 					break
 
@@ -404,7 +404,7 @@ document.addEventListener('it-message-from-extension', function () {
 			if (message.key.startsWith('shortcut_')) camelized_key = 'shortcuts';
 
 			if (ImprovedTube[camelized_key]) {
-				try{ImprovedTube[camelized_key]()}catch{};
+				try {ImprovedTube[camelized_key]()} catch {};
 			}
 		} else if (message.focus === true && ImprovedTube.elements.player) {
 			ImprovedTube.focus = true;

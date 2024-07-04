@@ -150,10 +150,10 @@ ImprovedTube.playerRemainingDuration = function () {
 /*------------------------------------------------------------------------------
  Comments Sidebar Simple
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebarSimple = function() { if(ImprovedTube.storage.comments_sidebar_simple === true){
-	if(window.matchMedia("(min-width: 1599px)").matches) {
+ImprovedTube.commentsSidebarSimple = function () { if (ImprovedTube.storage.comments_sidebar_simple === true){
+	if (window.matchMedia("(min-width: 1599px)").matches) {
 		document.querySelector("#primary").insertAdjacentElement('afterend', document.querySelector("#comments"));}
-	if(window.matchMedia("(max-width: 1598px)").matches) {
+	if (window.matchMedia("(max-width: 1598px)").matches) {
 		document.querySelector("#related").insertAdjacentElement('beforebegin', document.querySelector("#comments"));
 		setTimeout(function () {
 			document.querySelector("#primary-inner").appendChild(document.querySelector("#related"));}
@@ -163,10 +163,10 @@ ImprovedTube.commentsSidebarSimple = function() { if(ImprovedTube.storage.commen
 /*------------------------------------------------------------------------------
  Comments Sidebar
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebar = function() {	if(ImprovedTube.storage.comments_sidebar === true){
+ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_sidebar === true){
 	const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
 	let hasApplied = 0;
-	if(/watch\?/.test(location.href)) {
+	if (/watch\?/.test(location.href)) {
 		sidebar();
 		styleScrollbars();
 		setGrid();
@@ -174,9 +174,9 @@ ImprovedTube.commentsSidebar = function() {	if(ImprovedTube.storage.comments_sid
 		window.addEventListener("resize", sidebar)
 	}
 
-	function sidebar(){
+	function sidebar (){
 		resizePlayer();
-		if(window.matchMedia("(min-width: 1952px)").matches) {
+		if (window.matchMedia("(min-width: 1952px)").matches) {
 
 			if (!hasApplied) {
 				initialSetup()
@@ -187,7 +187,7 @@ ImprovedTube.commentsSidebar = function() {	if(ImprovedTube.storage.comments_sid
 			}
 			hasApplied = 1
 		}
-		else if(window.matchMedia("(min-width: 1000px)").matches) {
+		else if (window.matchMedia("(min-width: 1000px)").matches) {
 			if (!hasApplied) {
 				initialSetup();
 			}
@@ -197,7 +197,7 @@ ImprovedTube.commentsSidebar = function() {	if(ImprovedTube.storage.comments_sid
 			hasApplied = 2
 		}
 		else { /// <1000
-			if(hasApplied == 1){
+			if (hasApplied == 1){
 				document.getElementById("primary-inner").appendChild(document.getElementById("related"));
 				let comments = document.querySelector("#comments");
 				let below = document.getElementById("below");
@@ -211,7 +211,7 @@ ImprovedTube.commentsSidebar = function() {	if(ImprovedTube.storage.comments_sid
 			hasApplied = 0;
 		}
 	}
-	function setGrid(){
+	function setGrid (){
 		let checkParentInterval = setInterval(() => {
 			container = document.querySelector("#related ytd-compact-video-renderer.style-scope")?.parentElement;
 			if (container) {
@@ -222,7 +222,7 @@ ImprovedTube.commentsSidebar = function() {	if(ImprovedTube.storage.comments_sid
 			}
 		}, 250);
 	}
-	function initialSetup() {
+	function initialSetup () {
 		let secondaryInner = document.getElementById("secondary-inner");
 		let primaryInner = document.getElementById("primary-inner");
 		let comments = document.querySelector("#comments");
@@ -233,20 +233,20 @@ ImprovedTube.commentsSidebar = function() {	if(ImprovedTube.storage.comments_sid
 			secondaryInner.appendChild(comments);
 		})
 	}
-	function resizePlayer() {
+	function resizePlayer () {
 		const width = video.offsetWidth + 24;
 		const player = document.querySelector("#player.style-scope.ytd-watch-flexy");
 		document.getElementById("primary").style.width = `${width}px`;
 		player.style.width = `${width}px`;
 	}
-	function styleScrollbars(){
+	function styleScrollbars (){
 		if (!navigator.userAgent.toLowerCase().includes("mac")){
 			let color, colorHover
 			const isDarkMode = getComputedStyle(document.querySelector('ytd-app')).getPropertyValue('--yt-spec-base-background') == "#0f0f0f";
-			if(isDarkMode) [color, colorHover] = ["#616161", "#909090"];
+			if (isDarkMode) [color, colorHover] = ["#616161", "#909090"];
 			else [color, colorHover] = ["#aaaaaa", "#717171"];
 			const style = document.createElement("style");
-			if(ImprovedTube.storage.comments_sidebar_scrollbars === true){
+			if (ImprovedTube.storage.comments_sidebar_scrollbars === true){
 				const cssRule = `
             #primary, #secondary {
                 overflow: overlay !important;
@@ -284,12 +284,12 @@ ImprovedTube.commentsSidebar = function() {	if(ImprovedTube.storage.comments_sid
 			document.head.appendChild(style);
 		}
 	}
-	function applyObserver(){
+	function applyObserver (){
 		const debouncedResizePlayer = debounce(resizePlayer, 200);
 		const resizeObserver = new ResizeObserver(debouncedResizePlayer);
 		resizeObserver.observe(video);
 	}
-	function debounce(callback, delay) {
+	function debounce (callback, delay) {
 		let timerId;
 		return function (...args) {
 			clearTimeout(timerId);
@@ -319,7 +319,7 @@ ImprovedTube.chapters = function (el){ if (ImprovedTube.storage.chapters === tru
 ImprovedTube.livechat = function () {
 	if (this.storage.livechat === "collapsed") {
 		if (typeof isCollapsed === 'undefined') { var isCollapsed = false; }
-		if(ImprovedTube.elements.livechat && !isCollapsed){
+		if (ImprovedTube.elements.livechat && !isCollapsed){
 			ImprovedTube.elements.livechat.button.click();
 			isCollapsed = true
 		}
@@ -362,7 +362,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 					var video = ImprovedTube.elements.video,
 						svg = this.children[0];
 
-					function matchLoopState(opacity) {
+					function matchLoopState (opacity) {
 		    svg.style.opacity = opacity;
 						if (ImprovedTube.storage.player_repeat_button === true) {
                    	 var otherButton = document.querySelector('#it-repeat-button');
@@ -425,13 +425,13 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.expandDescription = function (el) {
 	if (this.storage.description === "expanded" || this.storage.description === "classic_expanded") {
-		if (el) {el.click(); setTimeout(function(){ImprovedTube.elements.player.focus();}, 1200); }
+		if (el) {el.click(); setTimeout(function (){ImprovedTube.elements.player.focus();}, 1200); }
 		else {		var tries = 0; 	var intervalMs = 210; if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}
 			// ...except when it is an embedded player?
 			var waitForDescription = setInterval(() => {
 				if (++tries >= maxTries) {
 					el = document.querySelector('#description-inline-expander')
-					if ( el) { el.click(); 	setTimeout(function(){ImprovedTube.elements.player.focus(); }, 1200); clearInterval(waitForDescription); }
+					if ( el) { el.click(); 	setTimeout(function (){ImprovedTube.elements.player.focus(); }, 1200); clearInterval(waitForDescription); }
 					intervalMs *= 1.11;	}}, intervalMs);
 		}
 	}
@@ -465,7 +465,7 @@ ImprovedTube.dayOfWeek = function () { if (this.storage.day_of_week === true) {
 			label.textContent = days[tempDate.getDay() + 1] + '  ';
 			label.className = "ytd-day-of-week";
 			//update please:
-			try {document.querySelector("#info span:nth-child(2)")?.append(label);} catch { try {document.querySelector("#info #info-strings yt-formatted-string")?.append(label);}catch {}}
+			try {document.querySelector("#info span:nth-child(2)")?.append(label);} catch { try {document.querySelector("#info #info-strings yt-formatted-string")?.append(label);} catch {}}
 		} // else { element.textContent = days[tempDate.getDay() + 1] + ", "; }
 	}, 4321);
 }
@@ -479,7 +479,7 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
 			key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey,
 			id = this.getParam(location.href.slice(location.href.indexOf("?") + 1), "v");
 
-		function timeSince(date) {
+		function timeSince (date) {
 			var seconds = Math.floor((new Date() - new Date(date)) / 1000),
 				interval = Math.floor(seconds / 31536000);
 
@@ -594,7 +594,7 @@ if (ImprovedTube.storage.header_transparent2 === true) {
 		}
 	});
 
-	function handleScroll() {
+	function handleScroll () {
 		var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 		var buttonsContainer = document.getElementById('buttons');
 
@@ -610,9 +610,9 @@ if (ImprovedTube.storage.header_transparent2 === true) {
     ------------------------------------------------------------------------------*/
 	window.addEventListener("scroll", handleScroll);
 
-	function getScrollDirection() {
+	function getScrollDirection () {
 		var lastScrollTop = 0;
-		return function() {
+		return function () {
 			var st = window.pageYOffset || document.documentElement.scrollTop;
 			var scrollDirection = st > lastScrollTop ? 'down' : 'up';
 			lastScrollTop = st <= 0 ? 0 : st;
@@ -622,7 +622,7 @@ if (ImprovedTube.storage.header_transparent2 === true) {
 
 	var scrollDirection = getScrollDirection();
 
-	window.addEventListener('scroll', function() {
+	window.addEventListener('scroll', function () {
 		var direction = scrollDirection();
 		if (direction === 'down') {
 			document.documentElement.setAttribute('data-scroll-direction', 'down');

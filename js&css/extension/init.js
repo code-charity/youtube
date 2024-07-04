@@ -24,7 +24,7 @@ extension.events.on('init', function (resolve) {
 	async: true
 });
 
-function bodyReady() {
+function bodyReady () {
 	if (extension.ready && extension.domReady) {
 		extension.features.addScrollToTop();
 		extension.features.font();
@@ -179,7 +179,7 @@ document.addEventListener('it-message-from-youtube', function () {
 				extension.storage.data.blocklist = {videos: {}, channels: {}};
 			}
 
-			switch(message.type) {
+			switch (message.type) {
 				case 'channel':
 					if (!extension.storage.data.blocklist.channels || typeof extension.storage.data.blocklist.channels !== 'object') {
 						extension.storage.data.blocklist.channels = {};
@@ -244,5 +244,5 @@ document.addEventListener('it-message-from-youtube', function () {
 document.addEventListener('it-play', function (event) {
 	var videos = document.querySelectorAll('video');
 	 try {chrome.runtime.sendMessage({action: 'play'})}
-	catch(error){console.log(error); setTimeout(function () { try { chrome.runtime.sendMessage({action: 'play'}, function (response) { console.log(response) } ); } catch { } }, 321) }
+	catch (error){console.log(error); setTimeout(function () { try { chrome.runtime.sendMessage({action: 'play'}, function (response) { console.log(response) } ); } catch { } }, 321) }
 	   });

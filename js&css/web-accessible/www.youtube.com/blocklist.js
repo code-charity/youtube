@@ -142,7 +142,7 @@ ImprovedTube.blocklistChannel = function (node) {
 	// YT tries to remove all forein nodes from node.parentNode.parentNode some time after 'yt-navigate-finish'
 	// Need to monitor for it and re-appendChild our button, otherwise if  gets deleted when switching to
 	// channel subpages /playlists /featured /videos etc.
-	this.blocklistChannelObserver = new MutationObserver(function(mutationList) {
+	this.blocklistChannelObserver = new MutationObserver(function (mutationList) {
 		if (!button.isConnected) {
 			node.parentNode.parentNode.appendChild(button);
 		}
@@ -228,7 +228,7 @@ ImprovedTube.blocklistObserver = new MutationObserver(function (mutationList) {
 });
 
 ImprovedTube.blocklistElementTypeHelper = function (node) {
-	switch(node.parentNode.className.replace('style-scope ', '')) {
+	switch (node.parentNode.className.replace('style-scope ', '')) {
 		case 'ytd-compact-video-renderer':
 			// list next to player
 			// node.parentNode.__dataHost.$.dismissible;

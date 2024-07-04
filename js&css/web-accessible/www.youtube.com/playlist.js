@@ -19,7 +19,7 @@ ImprovedTube.playlistUpNextAutoplay = function () { if (this.storage.playlist_up
 ------------------------------------------------------------------------------*/
 ImprovedTube.playlistReverse = function () {
 	if (this.storage.playlist_reverse === true) {
-		function update() {
+		function update () {
 			var results = ImprovedTube.elements.ytd_watch.data.contents.twoColumnWatchNextResults,
 				playlist = results.playlist.playlist,
 				autoplay = results.autoplay.autoplay;

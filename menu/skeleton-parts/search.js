@@ -134,7 +134,7 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 							search_results = satus.render(skeleton, self.baseProvider);
 
 							// we need global listener here
-							function hidesearch(event) {
+							function hidesearch (event) {
 								// make sure to clean it after closing search results
 								if (!document.body.contains(search_results)) {
 									document.removeEventListener('click', hidesearch);

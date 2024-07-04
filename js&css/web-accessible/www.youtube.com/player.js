@@ -25,7 +25,7 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 				// channel homepage & !channel_trailer_autoplay
 				|| (this.storage.channel_trailer_autoplay === false && this.regex.channel.test(location.href)))) {
 
-			setTimeout(function() {
+			setTimeout(function () {
 				try { player.pauseVideo(); } catch (error) { console.log("autoplayDisable: Pausing"); videoElement.pause(); }
 			});
 		} else {
@@ -143,10 +143,10 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 				notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(DATA.title + " " + keywords);
 				// (Tags/keywords shouldnt lie & very few songs titles might have these words)
 				if (DATA.duration) {
-					function parseDuration(duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0);
+					function parseDuration (duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0);
 						return h * 3600 + m * 60 + s; }
 					DATA.lengthSeconds = parseDuration(DATA.duration); 	}
-				function testSongDuration(s, ytMusic) {
+				function testSongDuration (s, ytMusic) {
 					if (135 <= s && s <= 260) {return 'veryCommon';}
 					if (105 <= s && s <= 420) {return 'common';}
 					if (420 <= s && s <= 720) {return 'long';}
@@ -195,7 +195,7 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 						DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
 						DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
 			 } catch {}} if ( DATA.title === ImprovedTube.videoTitle() )
-				{ keywords = document.getElementsByTagName('meta')?.keywords?.content || false; if(!keywords){keyword=''} ImprovedTube.speedException(); }
+				{ keywords = document.getElementsByTagName('meta')?.keywords?.content || false; if (!keywords){keyword=''} ImprovedTube.speedException(); }
 				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
 
 					const htmlContent = await response.text();
@@ -214,10 +214,10 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 			else {
 				//Invidious instances. Should be updated automatically!...
 				const invidiousInstances = ['invidious.fdn.fr', 'inv.tux.pizza', 'invidious.flokinet.to', 'invidious.protokolla.fi', 'invidious.private.coffee', 'yt.artemislena.eu', 'invidious.perennialte.ch', 'invidious.materialio.us', 'iv.datura.network'];
-				function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
+				function getRandomInvidiousInstance () { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
 
 				(async function () {	 let retries = 4;	let invidiousFetched = false;
-					async function fetchInvidiousData() {
+					async function fetchInvidiousData () {
 						try {const response = await fetch(`https://${getRandomInvidiousInstance()}/api/v1/videos/${DATA.videoID}?fields=genre,title,lengthSeconds,keywords`);
 			 DATA = await response.json();
 			 if (DATA.genre && DATA.title && DATA.keywords && DATA.lengthSeconds) { if (DATA.keywords.toString() === defaultKeywords ) {DATA.keywords = ''}
@@ -226,7 +226,7 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 					}
 					while (retries > 0 && !invidiousFetched) { await fetchInvidiousData();
 						if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 4 ? 1500 : 876)); retries--; }	}
-					if(!invidiousFetched){ if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())}
+					if (!invidiousFetched){ if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())}
 					else { ImprovedTube.fetchDOMData();} }
 				})();
 			}
@@ -241,7 +241,7 @@ ImprovedTube.playerSubtitles = function () {
 	const player = this.elements.player;
 
 	if (player && player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
-		switch(this.storage.player_subtitles) {
+		switch (this.storage.player_subtitles) {
 			case true:
 			case 'enabled':
 				player.toggleSubtitlesOn();
@@ -317,7 +317,7 @@ ImprovedTube.subtitlesUserSettings = function () {
 
 		for (const value of userSettings) {
 			setting = null;
-			switch(value) {
+			switch (value) {
 				case 'fontFamily':
 				case 'fontSizeIncrement':
 				case 'charEdgeStyle':
@@ -387,7 +387,7 @@ ImprovedTube.playerAds = function (parent) {
 	let button = parent.querySelector('.ytp-ad-skip-button-modern.ytp-button,[class*="ytp-ad-skip-button"].ytp-button') || parent;
 	// TODO: Replace this with centralized video element pointer
 	let video = document.querySelector('.video-stream.html5-main-video') || false;
-	function skipAd() {
+	function skipAd () {
 		if (video) video.currentTime = video.duration;
 		if (button) button.click();
 	}
@@ -404,7 +404,7 @@ ImprovedTube.playerAds = function (parent) {
 	} else if (this.storage.ads === 'small_creators'){
 		let userDefiniedLimit = this.storage.smallCreatorsCount * parseInt(this.storage.smallCreatorsUnit);
 		let subscribersNumber = ImprovedTube.subscriberCount;
-		if(subscribersNumber > userDefiniedLimit){
+		if (subscribersNumber > userDefiniedLimit){
 			skipAd();
 		}
 	}
@@ -430,7 +430,7 @@ ImprovedTube.playerQuality = function (quality = this.storage.player_quality) {
 		&& player && player.getAvailableQualityLevels
 		&& (!player.dataset.defaultQuality || player.dataset.defaultQuality != quality)) {
 		let available_quality_levels = player.getAvailableQualityLevels();
-		function closest(num, arr) {
+		function closest (num, arr) {
 			let curr = arr[0];
 			let diff = Math.abs(num - curr);
 			for (let val = 1; val < arr.length; val++) {
@@ -707,7 +707,7 @@ ImprovedTube.playerRepeatButton = function () {
 			opacity: transparentOrOn,
 			onclick: function () {
 				var video = ImprovedTube.elements.video;
-				function matchLoopState(opacity) {
+				function matchLoopState (opacity) {
 					var thisButton = document.querySelector('#it-repeat-button');
 					thisButton.style.opacity = opacity;
 					if (ImprovedTube.storage.below_player_loop !== false) {
@@ -813,7 +813,7 @@ ImprovedTube.playerFitToWinButton = function () {
 CINEMA MODE BUTTON
 ------------------------------------------------------------------------------*/
 
-var xpath = function(xpathToExecute){
+var xpath = function (xpathToExecute){
 	var result = [];
 	var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
 	for ( var i=0; i < nodesSnapshot.snapshotLength; i++ ){
@@ -822,7 +822,7 @@ var xpath = function(xpathToExecute){
 	return result;
 }
 
-function createOverlay() {
+function createOverlay () {
 	var overlay = document.createElement('div');
 	overlay.id = 'overlay_cinema';
 	overlay.style.position = 'fixed';
@@ -918,7 +918,7 @@ ImprovedTube.playerCinemaModeEnable = function () {
 /*------------------------------------------------------------------------------
 HAMBURGER MENU
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerHamburgerButton = function () { if(this.storage.player_hamburger_button === true){
+ImprovedTube.playerHamburgerButton = function () { if (this.storage.player_hamburger_button === true){
 	const videoPlayer = document.querySelector('.html5-video-player');
 
 	if (!videoPlayer) {
@@ -996,7 +996,7 @@ ImprovedTube.playerPopupButton = function () {
 						'_blank',
 						`directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${ytPlayer.offsetWidth / 3},height=${ytPlayer.offsetHeight / 3}`
 					);
-				if(popup && listMatch){
+				if (popup && listMatch){
 					//! If the video is not in the playlist or not within the first 200 entries, then it automatically selects the first video in the list.
 					popup.addEventListener('load', function () {
 						"use strict";
@@ -1043,9 +1043,9 @@ ImprovedTube.playerControls = function () {
 
 			player.onmouseenter = player.showControls;
 			player.onmouseleave = player.hideControls;
-			player.onmousemove = (function() {
+			player.onmousemove = (function () {
 				let thread,
-					onmousestop = function() {
+					onmousestop = function () {
 						if (document.querySelector(".ytp-progress-bar:hover")) {
 							thread = setTimeout(onmousestop, 1000);
 						} else {
@@ -1053,7 +1053,7 @@ ImprovedTube.playerControls = function () {
 						}
 					};
 
-				return function() {
+				return function () {
 					player.showControls();
 					clearTimeout(thread);
 					thread = setTimeout(onmousestop, 1000);
@@ -1458,7 +1458,7 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () { if (ImprovedTube.storage.
 		}
 	});
 
-	function isPlayerInViewport() {
+	function isPlayerInViewport () {
 		var player = ImprovedTube.elements.player;
 		if (player) {
 			var rect = player.getBoundingClientRect();

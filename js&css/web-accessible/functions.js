@@ -56,11 +56,11 @@ ImprovedTube.ytElementsHandler = function (node) {
 			if (index === 0) {
 				if (this.storage.playlist_reverse === true) {
 					//can be precise:
-					try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
-					catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
-						  catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
-					catch{try{this.elements.playlist.actions = node.parentNode;}
-									  catch{try{this.elements.playlist.actions = node;}catch{}}
+					try {this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
+					catch {try {this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
+						  catch {try {this.elements.playlist.actions = node.parentNode.parentNode;}
+					catch {try {this.elements.playlist.actions = node.parentNode;}
+									  catch {try {this.elements.playlist.actions = node;} catch {}}
 									 }
 							   }
 						 }
@@ -73,11 +73,11 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 				if (this.storage.playlist_reverse === true) {
 					//can be precise:
-					try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
-					catch{try{this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
-						  catch{try{this.elements.playlist.actions = node.parentNode.parentNode;}
-					catch{try{this.elements.playlist.actions = node.parentNode;}
-									  catch{try{this.elements.playlist.actions = node;}catch{}}
+					try {this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
+					catch {try {this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
+						  catch {try {this.elements.playlist.actions = node.parentNode.parentNode;}
+					catch {try {this.elements.playlist.actions = node.parentNode;}
+									  catch {try {this.elements.playlist.actions = node;} catch {}}
 									 }
 							   }
 						 }
@@ -360,10 +360,10 @@ ImprovedTube.initPlayer = function () {
 var timeUpdateInterval = null;
 var noTimeUpdate = null;
 
-ImprovedTube.playerOnTimeUpdate = function() {
+ImprovedTube.playerOnTimeUpdate = function () {
 	var currentTime = Date.now();
 	if (!timeUpdateInterval) {
-		timeUpdateInterval = setInterval(function() {
+		timeUpdateInterval = setInterval(function () {
 			if (ImprovedTube.video_src !== this.src) {
 				ImprovedTube.video_src = this.src;
 
@@ -382,7 +382,7 @@ ImprovedTube.playerOnTimeUpdate = function() {
 		}, 500);
 	}
 	clearInterval(noTimeUpdate);
-	noTimeUpdate = setTimeout(function() {
+	noTimeUpdate = setTimeout(function () {
 			 clearInterval(timeUpdateInterval);
 		timeUpdateInterval = null;
 	}, 987);
@@ -431,7 +431,7 @@ ImprovedTube.onkeydown = function () {
 ImprovedTube.onmousedown = function () {
 	window.addEventListener('mousedown', function (event) {
 		if (!ImprovedTube.user_interacted) {
-			setTimeout(function(){ImprovedTube.user_interacted = true}, 3000);
+			setTimeout(function (){ImprovedTube.user_interacted = true}, 3000);
 			if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
 				var path = event.composedPath();
 				for (var i = 0, l = path.length; i < l; i++) {
@@ -533,8 +533,8 @@ ImprovedTube.createIconButton = function (options) {
 		path = document.createElementNS('http://www.w3.org/2000/svg', 'path'),
 		type = this.button_icons[options.type];
 
-	for(const attr of type.svg) svg.setAttribute(attr[0], attr[1]);
-	for(const attr of type.path) path.setAttribute(attr[0], attr[1]);
+	for (const attr of type.svg) svg.setAttribute(attr[0], attr[1]);
+	for (const attr of type.path) path.setAttribute(attr[0], attr[1]);
 
 	svg.appendChild(path);
 	button.appendChild(svg);
@@ -579,7 +579,7 @@ ImprovedTube.createPlayerButton = function (options) {
 			tooltip.textContent = this.dataset.title;
 			if (this.storage && (this.storage.player_cinema_mode_button || this.storage.player_auto_hide_cinema_mode_when_paused || this.storage.player_auto_cinema_mode)){
 				tooltip.style.zIndex = 10001;} // needed for cinema mode
-			function mouseleave() {
+			function mouseleave () {
 				tooltip.remove();
 
 				this.removeEventListener('mouseleave', mouseleave);
