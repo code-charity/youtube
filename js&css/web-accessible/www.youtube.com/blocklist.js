@@ -13,7 +13,7 @@ ImprovedTube.blocklistNode = function (node) {
 	// YT reuses Thumbnail cells dynamically, need to monitor all created Thumbnail links and dynamically apply/remove 'it-blocklisted-*' classes
 	if (!this.elements.observerList.includes(node)) {
 		this.blocklistObserver.observe(node, {attributes: true,
-											attributeFilter: ['href']});
+			attributeFilter: ['href']});
 		// keeping a list to attach only one observer per tracked element
 		this.elements.observerList.push(node);
 	}
@@ -77,12 +77,12 @@ ImprovedTube.blocklistNode = function (node) {
 
 			// this message will trigger 'storage-changed' event and eventually blocklistInit() full rescan
 			ImprovedTube.messages.send({action: 'blocklist',
-										added: added,
-										type: type,
-										id: type == 'channel' ? channel : video,
-										title: title,
-										when: Date.parse(new Date().toDateString()) / 100000
-										});
+				added: added,
+				type: type,
+				id: type == 'channel' ? channel : video,
+				title: title,
+				when: Date.parse(new Date().toDateString()) / 100000
+			});
 		}
 	});
 
@@ -128,13 +128,13 @@ ImprovedTube.blocklistChannel = function (node) {
 
 		// this message will trigger 'storage-changed' event and eventually blocklistInit() full rescan
 		ImprovedTube.messages.send({action: 'blocklist',
-									added: !ImprovedTube.storage.blocklist.channels[id],
-									type: 'channel',
-									id: id,
-									title: title,
-									preview: preview,
-									when: Date.parse(new Date().toDateString()) / 100000
-									});
+			added: !ImprovedTube.storage.blocklist.channels[id],
+			type: 'channel',
+			id: id,
+			title: title,
+			preview: preview,
+			when: Date.parse(new Date().toDateString()) / 100000
+		});
 	};
 
 	node.parentNode.parentNode.appendChild(button);

@@ -181,7 +181,7 @@ document.addEventListener('it-message-from-extension', function () {
 			if (ImprovedTube.storage.block_vp9 || ImprovedTube.storage.block_av1 || ImprovedTube.storage.block_h264) {
 				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'},
 					codec = Object.keys(atlas).reduce(function (all, key) {
-					return ImprovedTube.storage[key] ? ((all?all+'|':'') + atlas[key]) : all}, '');
+						return ImprovedTube.storage[key] ? ((all?all+'|':'') + atlas[key]) : all}, '');
 				if (localStorage['it-codec'] != codec) {
 					localStorage['it-codec'] = codec;
 				}
@@ -390,12 +390,12 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'subtitlesBackgroundOpacity':
 					ImprovedTube.subtitlesUserSettings();
 					break
-				
+
 				case 'playerHideControls':
 					ImprovedTube.playerControls();
 					break
 				case 'playerlistUpNextAutoplay':
-					if (this.storage.playlist_up_next_autoplay !== false) { 
+					if (this.storage.playlist_up_next_autoplay !== false) {
 						if (playlistData.currentIndex != playlistData.localCurrentIndex) { playlistData.currentIndex = playlistData.localCurrentIndex;} }
 					break
 			}

@@ -51,10 +51,10 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			variant: satus.storage.get('theme') == 'dark' ? 'dark-theme' : 'default-theme',
 			text: satus.storage.get('theme') == 'dark' ? 'youtubesDark' : 'youtubesLight',
 			radio: {
-					component: 'radio',
-					group: 'theme',
-					value: satus.storage.get('theme') == 'dark' ? 'dark' : 'light',
-					...(!satus.storage.get('theme') && { checked: true })
+				component: 'radio',
+				group: 'theme',
+				value: satus.storage.get('theme') == 'dark' ? 'dark' : 'light',
+				...(!satus.storage.get('theme') && { checked: true })
 			}
 		}
 	},
@@ -64,10 +64,10 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			variant: satus.storage.get('theme') == 'dark' ? 'default-theme' : 'dark-theme',
 			text: satus.storage.get('theme') == 'dark' ? 'youtubesLight' : 'youtubesDark',
 			radio: {
-					component: 'radio',
-					group: 'theme',
-					value: satus.storage.get('theme') == 'dark' ? 'light' : 'dark',
-					...(satus.storage.get('theme') == 'dark' && { checked: true })
+				component: 'radio',
+				group: 'theme',
+				value: satus.storage.get('theme') == 'dark' ? 'light' : 'dark',
+				...(satus.storage.get('theme') == 'dark' && { checked: true })
 			}
 		}
 	},

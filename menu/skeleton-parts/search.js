@@ -132,7 +132,7 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 							self.setAttribute('results', '');
 
 							search_results = satus.render(skeleton, self.baseProvider);
-							
+
 							// we need global listener here
 							function hidesearch(event) {
 								// make sure to clean it after closing search results
@@ -155,7 +155,7 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 							}
 
 							document.addEventListener('click', hidesearch);
-							
+
 							if (self.skeleton.searchPosition) {
 								search_results.childNodes[1].scrollTop = self.skeleton.searchPosition;
 							}

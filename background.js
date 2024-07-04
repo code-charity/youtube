@@ -206,13 +206,13 @@ function tabPrune(callback) {
 };
 /*--------------------------------------------------------------
 # TAB FOCUS/BLUR
- commented out console.log left intentionally, to help understand 
+ commented out console.log left intentionally, to help understand
  https://issues.chromium.org/issues/41116352
 --------------------------------------------------------------*/
 let tab = {},
 	tabPrev = {},
 	windowId;
- 
+
 chrome.tabs.onActivated.addListener(function (activeInfo) {
 	tabPrev = tab;
 	tab = activeInfo;

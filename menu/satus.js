@@ -250,7 +250,7 @@ satus.isNumber	 = function(t) { return (typeof t ==='number' && !isNaN(t)); };
 satus.isObject	 = function(t) { return (t instanceof Object && t !== null); };
 satus.isElement	 = function(t) { return (t instanceof Element || t instanceof HTMLDocument); };
 satus.isNodeList = function(t) { return t instanceof NodeList; };
-satus.isBoolean  = function(t) { return (t === false || t === true); };
+satus.isBoolean = function(t) { return (t === false || t === true); };
 /*---LOG------------------------------------------------------*/
 satus.log =function(){console.log.apply(null, arguments);};
 
@@ -760,21 +760,21 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 				var parent = element,
 					key = skeleton.storage || property || false,
 					value;
-	
+
 				if (satus.isFunction(key)) {
 					key = key();
 				}
-	
+
 				if (skeleton.storage !== false) {
 					if (key) {
 						value = satus.storage.get(key);
 					}
-	
+
 					if (skeleton.hasOwnProperty('value') && value === undefined) {
 						value = skeleton.value;
 					}
 				}
-	
+
 				return Object.defineProperties({}, {
 					key: {
 						get: function() {
@@ -790,10 +790,10 @@ satus.render = function(skeleton, container, property, childrenOnly, prepend, sk
 						},
 						set: function(val) {
 							value = val;
-	
+
 							if (satus.storage.get(key) != val) {
 								satus.storage.set(key, val);
-		
+
 								parent.dispatchEvent(new CustomEvent('change'));
 							}
 						}
@@ -1055,12 +1055,12 @@ satus.locale.import = function(code, callback, path) {
 		fetch(url)
 			.then(response => response.ok ? response.json() : {})
 			.then(data => {
-			for (var key in data) {
-				if (!satus.locale.data[key]) {
-					satus.locale.data[key] = data[key].message;
+				for (var key in data) {
+					if (!satus.locale.data[key]) {
+						satus.locale.data[key] = data[key].message;
+					}
 				}
-			}
-		})
+			})
 			.catch(() => {})
 			.finally(() => successCallback && successCallback());
 	}
@@ -1161,7 +1161,7 @@ satus.components.modal = function(component, skeleton) {
 			case 'vertical-menu':
 				this.parentNode.close();
 				break;
-				
+
 			case 'shortcut':
 			case 'color-picker':
 			// click cancel button
@@ -1469,7 +1469,7 @@ satus.components.textField = function(component, skeleton) {
 		component.pre.update();
 		component.cursor.update();
 	};
-	
+
 	document.addEventListener('selectionchange', selectionchange);
 
 	input.addEventListener('input', function() {
@@ -2928,7 +2928,7 @@ satus.user.os.bitness = function() {
 
 satus.user.browser.name = function() {
 	var user_agent = navigator.userAgent;
-	if (!!navigator.brave) {
+	if (navigator.brave) {
 		return 'Brave';
 	}	else if (user_agent.indexOf("Opera") != -1 || user_agent.indexOf('OPR') != -1) {
 		return 'Opera';
@@ -2938,8 +2938,8 @@ satus.user.browser.name = function() {
 		return 'Edge';
 	} else if (user_agent.indexOf('Chrome') !== -1) {
 		return 'Chrome';
-	} else if (user_agent.indexOf('Safari') !== -1 
-				&& (!/Windows|Chrom/.test(user_agent) 
+	} else if (user_agent.indexOf('Safari') !== -1
+				&& (!/Windows|Chrom/.test(user_agent)
 				|| /Macintosh|iPhone/.test(user_agent))) {
 		return 'Safari';
 	} else if (user_agent.indexOf('Firefox') !== -1) {

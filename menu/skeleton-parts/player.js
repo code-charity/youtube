@@ -572,9 +572,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 						component: 'select',
 						text: 'fontSize',
 						options: [{
-						text: '100%',
+							text: '100%',
 							value: 0
-						}, {								
+						}, {
 							text: '75%',
 							value: -1
 						}, {
@@ -586,7 +586,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						}, {
 							text: '200%',
 							value: 2
-						}, {	
+						}, {
 							text: '300%',
 							value: 3
 						}, {
@@ -757,11 +757,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			},
 			on: {
 				render: function () {
-						extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
+					extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
 				}
 			}
 		},
-/*
+		/*
 	qualityWhenRunningOnBattery: {
 			component: 'select',
 			text: 'qualityWhenRunningOnBattery',
@@ -782,7 +782,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'pauseWhileIUnplugTheCharger'
 		},
-*/		
+*/
 		mini_player: {
 			component: 'switch',
 			text: 'customMiniPlayer'

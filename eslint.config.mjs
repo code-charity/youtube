@@ -30,10 +30,14 @@ export default [...compat.extends("eslint:recommended"), {
 		}
 	},
 	rules: {
-		indent: ["error", "tab"],
+		indent: ["error", "tab", {"SwitchCase": 1}],
 		"no-empty": ["error", { "allowEmptyCatch": true }],
 		"no-unused-vars": ["error", { "caughtErrors": "none" }],
 		"no-undef": ["off"],
+		"no-trailing-spaces": "warn",
+		"no-multi-spaces": "warn",
+		"no-fallthrough": ["error", { "allowEmptyCase": true }],
+		"no-implicit-globals": "error",
 		"max-len": ["error", {
 			code: 255,
 			ignoreUrls: true,
