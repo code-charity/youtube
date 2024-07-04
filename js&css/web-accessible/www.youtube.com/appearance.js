@@ -243,8 +243,8 @@ ImprovedTube.commentsSidebar = function() {	if(ImprovedTube.storage.comments_sid
 		if (!navigator.userAgent.toLowerCase().includes("mac")){
 			let color, colorHover
 			const isDarkMode = getComputedStyle(document.querySelector('ytd-app')).getPropertyValue('--yt-spec-base-background') == "#0f0f0f";
-			if(isDarkMode) [color,colorHover] = ["#616161", "#909090"];
-			else [color,colorHover] = ["#aaaaaa", "#717171"];
+			if(isDarkMode) [color, colorHover] = ["#616161", "#909090"];
+			else [color, colorHover] = ["#aaaaaa", "#717171"];
 			const style = document.createElement("style");
 			if(ImprovedTube.storage.comments_sidebar_scrollbars === true){
 				const cssRule = `
@@ -431,7 +431,7 @@ ImprovedTube.expandDescription = function (el) {
 			var waitForDescription = setInterval(() => {
 				if (++tries >= maxTries) {
 					el = document.querySelector('#description-inline-expander')
-					if ( el) { el.click(); 	setTimeout(function(){ImprovedTube.elements.player.focus(); }, 1200);clearInterval(waitForDescription); }
+					if ( el) { el.click(); 	setTimeout(function(){ImprovedTube.elements.player.focus(); }, 1200); clearInterval(waitForDescription); }
 					intervalMs *= 1.11;	}}, intervalMs);
 		}
 	}

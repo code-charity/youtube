@@ -36,6 +36,8 @@ export default [...compat.extends("eslint:recommended"), {
 		"no-undef": ["off"],
 		"no-trailing-spaces": "warn",
 		"no-multi-spaces": "warn",
+        "semi-spacing": "error",
+        "comma-spacing": "error",
 		"no-fallthrough": ["error", { "allowEmptyCase": true }],
 		"no-implicit-globals": "error",
         "no-multiple-empty-lines": ["error", {"max": 1, "maxBOF": 0, "maxEOF": 0}],

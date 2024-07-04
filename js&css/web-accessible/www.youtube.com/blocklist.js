@@ -228,7 +228,7 @@ ImprovedTube.blocklistObserver = new MutationObserver(function (mutationList) {
 });
 
 ImprovedTube.blocklistElementTypeHelper = function (node) {
-	switch(node.parentNode.className.replace('style-scope ','')) {
+	switch(node.parentNode.className.replace('style-scope ', '')) {
 		case 'ytd-compact-video-renderer':
 			// list next to player
 			// node.parentNode.__dataHost.$.dismissible;

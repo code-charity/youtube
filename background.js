@@ -37,7 +37,7 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 				if (!keys) continue;
 				let newKeys = {},
 					newName = name.replace('shortcut_', 'shortcut_quality_');
-				for (const button of ['alt','ctrl','shift','wheel','toggle']) {
+				for (const button of ['alt', 'ctrl', 'shift', 'wheel', 'toggle']) {
 					if (keys[button]) newKeys[button] = keys[button];
 				}
 				if (keys['keys'] && Object.keys(keys['keys'])?.length) {
@@ -110,11 +110,11 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 --------------------------------------------------------------*/
 function getLocale(language, callback) {
 	language = language.replace('-', '_');
-	fetch('_locales/' + language.substring(0,2) + '/messages.json').then(function (response) {
+	fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
 		if (response.ok) {
 			response.json().then(callback);
 		} else {
-			fetch('_locales/' + language.substring(0,2) + '/messages.json').then(function (response) {
+			fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
 				if (response.ok) {
 					response.json().then(callback);
 				} else {

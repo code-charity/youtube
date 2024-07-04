@@ -8,7 +8,7 @@ WARNING: Browser Debugger Breakpoint downstream from keydown() event will eat co
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcuts = function () {
 	const ignoreElements = ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'],
-		modifierKeys = ['AltLeft','AltRight','ControlLeft','ControlRight','ShiftLeft','ShiftRight'],
+		modifierKeys = ['AltLeft', 'AltRight', 'ControlLeft', 'ControlRight', 'ShiftLeft', 'ShiftRight'],
 		handlers = {
 			keydown: function (event) {
 				if (document.activeElement && ignoreElements.includes(document.activeElement.tagName) || event.target.isContentEditable) return;
@@ -106,7 +106,7 @@ ImprovedTube.shortcuts = function () {
 		// camelCase(name)
 		const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
 		let potentialShortcut = {};
-		for (const button of ['alt','ctrl','shift','wheel','keys']) {
+		for (const button of ['alt', 'ctrl', 'shift', 'wheel', 'keys']) {
 			switch(button) {
 				case 'alt':
 				case 'ctrl':
@@ -446,18 +446,18 @@ ImprovedTube.shortcutDislike = function () {
 /*------Report------*/
 ImprovedTube.shortcutReport = function () {
 	try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0);
-		document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
-	catch{console.log("'...' failed"); setTimeout(function(){try{document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
-	catch{console.log("'...' failed2")}},100) }
+		document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click(); document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
+	catch{console.log("'...' failed"); setTimeout(function(){try{document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click(); document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
+	catch{console.log("'...' failed2")}}, 100) }
 
 	setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
-	catch{console.log("report failed");setTimeout(function()	{try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
-	catch{console.log("report failed2");document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}},800);
+	catch{console.log("report failed"); setTimeout(function()	{try{document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
+	catch{console.log("report failed2"); document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}}, 800);
 	}
-	},200);
+	}, 200);
 
 	setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed");
-		setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed2");}},1700)}},700)
+		setTimeout(function(){try{document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)}catch{console.log("dropdown visible failed2");}}, 1700)}}, 700)
 }
 /*------------------------------------------------------------------------------
 4.7.24 SUBSCRIBE

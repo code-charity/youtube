@@ -213,7 +213,7 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 			if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData();}
 			else {
 				//Invidious instances. Should be updated automatically!...
-				const invidiousInstances = ['invidious.fdn.fr','inv.tux.pizza','invidious.flokinet.to','invidious.protokolla.fi','invidious.private.coffee','yt.artemislena.eu','invidious.perennialte.ch','invidious.materialio.us','iv.datura.network'];
+				const invidiousInstances = ['invidious.fdn.fr', 'inv.tux.pizza', 'invidious.flokinet.to', 'invidious.protokolla.fi', 'invidious.private.coffee', 'yt.artemislena.eu', 'invidious.perennialte.ch', 'invidious.materialio.us', 'iv.datura.network'];
 				function getRandomInvidiousInstance() { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
 
 				(async function () {	 let retries = 4;	let invidiousFetched = false;
@@ -356,7 +356,7 @@ ImprovedTube.subtitlesDisableLyrics = function () {
 		if (player && player.isSubtitlesOn && player.isSubtitlesOn() && player.toggleSubtitles) {
 			// Music detection only uses 3 identifiers for Lyrics: lyrics, sing-along, karaoke.
 			// Easier to simply use those here. Can replace with music detection later.
-			const terms = ["sing along", "sing-along", "karaoke", "lyric", "卡拉OK", "卡拉OK", "الكاريوكي", "караоке", "カラオケ","노래방"];
+			const terms = ["sing along", "sing-along", "karaoke", "lyric", "卡拉OK", "卡拉OK", "الكاريوكي", "караоке", "カラオケ", "노래방"];
 			if (terms.some(term => this.videoTitle().toLowerCase().includes(term))) {
 				player.toggleSubtitles();
 			}
@@ -608,7 +608,7 @@ ImprovedTube.screenshot = function () {
 		let captionElements = document.querySelectorAll('.captions-text .ytp-caption-segment');
 		captionElements.forEach(function (caption) {subText += caption.textContent.trim() + ' ';});
 
-		ImprovedTube.renderSubtitle(ctx,captionElements);
+		ImprovedTube.renderSubtitle(ctx, captionElements);
 	}
 
 	cvs.toBlob(function (blob) {
@@ -634,7 +634,7 @@ ImprovedTube.screenshot = function () {
 	});
 };
 
-ImprovedTube.renderSubtitle = function (ctx,captionElements) {
+ImprovedTube.renderSubtitle = function (ctx, captionElements) {
 	if (ctx && captionElements) {
 		captionElements.forEach(function (captionElement, index) {
 			var captionText = captionElement.textContent.trim();
@@ -816,7 +816,7 @@ CINEMA MODE BUTTON
 var xpath = function(xpathToExecute){
 	var result = [];
 	var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
-	for ( var i=0 ; i < nodesSnapshot.snapshotLength; i++ ){
+	for ( var i=0; i < nodesSnapshot.snapshotLength; i++ ){
 	  result.push( nodesSnapshot.snapshotItem(i) );
 	}
 	return result;

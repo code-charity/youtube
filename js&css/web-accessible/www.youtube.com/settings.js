@@ -45,7 +45,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 				}
 
 				function mouseup() {
-					localStorage.setItem('improvedtube-button-position', JSON.stringify({x,y}));
+					localStorage.setItem('improvedtube-button-position', JSON.stringify({x, y}));
 
 					window.removeEventListener('mousemove', mousemove);
 					window.removeEventListener('mouseup', mouseup);
