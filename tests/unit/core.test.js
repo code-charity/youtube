@@ -57,7 +57,7 @@ jest.mock('../../js&css/extension/core', () => ({
 }));
 
 // Mock extension object
-const extensionMock = require('../js&css/extension/core');
+const extensionMock = require('./js&css/extension/core');
 
 // Unit tests for the camelize function
 test('Convert snake_case to camelCase', () => {
