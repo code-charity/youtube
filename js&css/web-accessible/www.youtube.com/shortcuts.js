@@ -36,7 +36,7 @@ ImprovedTube.shortcutsInit = function () {
 
 				case 'keys':
 					// array of sorted scancodes
-					potentialShortcut[button] = keys[button] ? Object.keys(keys[button]).map(s=>Number(s)).sort() : [];
+					potentialShortcut[button] = keys[button] ? new Set(Object.keys(keys[button]).map(s=>Number(s)).sort()) : new Set();
 				break
 			}
 		}
@@ -63,26 +63,30 @@ ImprovedTube.shortcutsInit = function () {
 };
 
 ImprovedTube.shortcutsHandler = function () {
-	for (const [key, shortcut] of Object.entries(ImprovedTube.input.listening)) {
-		if ((ImprovedTube.input.pressed.keys.length === shortcut.keys.length
-				&& ImprovedTube.input.pressed.keys.sort().every((k, i) => k === shortcut.keys[i]))
-			&& ImprovedTube.input.pressed.wheel === shortcut.wheel
-			&& ImprovedTube.input.pressed.alt === shortcut.alt
-			&& ImprovedTube.input.pressed.ctrl === shortcut.ctrl
-			&& ImprovedTube.input.pressed.shift === shortcut.shift) {
+	check: for (const [key, shortcut] of Object.entries(ImprovedTube.input.listening)) {
+		if (ImprovedTube.input.pressed.keys.size != shortcut.keys.size
+			|| ImprovedTube.input.pressed.wheel != shortcut.wheel
+			|| ImprovedTube.input.pressed.alt != shortcut.alt
+			|| ImprovedTube.input.pressed.ctrl != shortcut.ctrl
+			|| ImprovedTube.input.pressed.shift != shortcut.shift) continue;
 
-			// cancel keydown/wheel event before we call target handler
-			// this way crashing handler wont keep 'cancelled' keys stuck
-			event.preventDefault();
-			event.stopPropagation();
-			// build 'cancelled' list so we also cancel keyup events
-			ImprovedTube.input.pressed.keys.every(key => ImprovedTube.input.cancelled.add(key));
+		for (const pressedKey of ImprovedTube.input.pressed.keys.values()) {
+			if (!shortcut.keys.has(pressedKey)) continue check;
+		}
 
-			if (key.startsWith('shortcutQuality')) {
-				ImprovedTube['shortcutQuality'](key);
-			} else if (typeof ImprovedTube[key] === 'function') {
-				ImprovedTube[key]();
-			}
+		// cancel keydown/wheel event before we call target handler
+		// this way crashing handler wont keep 'cancelled' keys stuck
+		event.preventDefault();
+		event.stopPropagation();
+		// build 'cancelled' list so we also cancel keyup events
+		for (const pressedKey of ImprovedTube.input.pressed.keys.values()) {
+			ImprovedTube.input.cancelled.add(pressedKey);
+		}
+
+		if (key.startsWith('shortcutQuality')) {
+			ImprovedTube['shortcutQuality'](key);
+		} else if (typeof ImprovedTube[key] === 'function') {
+			ImprovedTube[key]();
 		}
 	}
 };
@@ -93,8 +97,8 @@ ImprovedTube.shortcutsListeners = {
 		// no shortcuts over 'ignoreElements'
 		if ((document.activeElement && ImprovedTube.input.ignoreElements.includes(document.activeElement.tagName)) || event.target.isContentEditable) return;
 
-		if (!ImprovedTube.input.modifierKeys.includes(event.code) && !ImprovedTube.input.pressed.keys.includes(event.keyCode)) {
-			ImprovedTube.input.pressed.keys.push(event.keyCode);
+		if (!ImprovedTube.input.modifierKeys.includes(event.code)) {
+			ImprovedTube.input.pressed.keys.add(event.keyCode);
 		}
 		ImprovedTube.input.pressed.wheel = 0;
 		ImprovedTube.input.pressed.alt = event.altKey;
@@ -104,9 +108,7 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.shortcutsHandler();
 	},
 	keyup: function (event) {
-		if (ImprovedTube.input.pressed.keys.includes(event.keyCode)) {
-			ImprovedTube.input.pressed.keys.splice(ImprovedTube.input.pressed.keys.indexOf(event.keyCode), 1);
-		}
+		ImprovedTube.input.pressed.keys.delete(event.keyCode);
 		ImprovedTube.input.pressed.wheel = 0;
 		ImprovedTube.input.pressed.alt = event.altKey;
 		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
@@ -131,7 +133,7 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.shortcutsHandler();
 	},
 	'improvedtube-blur': function () {
-		ImprovedTube.input.pressed.keys = [];
+		ImprovedTube.input.pressed.keys.clear();
 		ImprovedTube.input.pressed.wheel = 0
 		ImprovedTube.input.pressed.alt = false;
 		ImprovedTube.input.pressed.ctrl = false;
