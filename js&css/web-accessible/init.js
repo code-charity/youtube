@@ -14,10 +14,6 @@ ImprovedTube.observer = new MutationObserver(function (mutationList) {
 			for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
 				ImprovedTube.childHandler(mutation.addedNodes[j]);
 			}
-
-			for (const node of mutation.removedNodes){
-				if(node.nodeName === 'BUTTON' && node.id === 'it-popup-playlist-button') ImprovedTube.playlistPopupUpdate();
-			}
 		}
 		if (mutation.target && mutation.target.id === 'owner-sub-count') {
 			// Extract and store the subscriber count
@@ -39,7 +35,7 @@ ImprovedTube.observer = new MutationObserver(function (mutationList) {
 //console.log("p"+i+"c"+j+":"+node.id+",class:"+node.className+","+node+"("+node.nodeName+")");
 				j++;}
 				let r = 0; for (const node of mutated.removedNodes){ //might fix our other playlist buttons equally?
-				if(node.nodeName === 'BUTTON' && node.id === 'it-popup-playlist-button') ImprovedTube.playlistPopupUpdate();
+				if(node.nodeName === 'BUTTON' && node.id === 'it-popup-playlist-button') ImprovedTube.playlistPopup();
 //console.log("p"+i+"removed"+r+":"+node.id+",class:"+node.className+","+node+"("+node.nodeName+")"+"(from:"+mutated.target.id+",class:"+mutated.target.className+","+mutated.target+"("+mutated.target.nodeName+")");
 				r++;}
 						if(mutated.target.id === 'owner-sub-count')
