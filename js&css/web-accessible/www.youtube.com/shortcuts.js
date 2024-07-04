@@ -408,13 +408,13 @@ ImprovedTube.shortcutTranscript = function () {
 4.7.22 LIKE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutLike = function () {
-	document.querySelector('like-button-view-model * * *')?.click();
+	document.querySelector('like-button-view-model button')?.click();
 };
 /*------------------------------------------------------------------------------
 4.7.23 DISLIKE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDislike = function () {
-	document.querySelector('dislike-button-view-model * * *')?.click();
+	document.querySelector('dislike-button-view-model button')?.click();
 };
 /*------Report------*/
 ImprovedTube.shortcutReport = function () {
