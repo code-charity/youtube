@@ -13,6 +13,7 @@ const compat = new FlatCompat({
 });
 
 export default [...compat.extends("eslint:recommended"), {
+	ignores: ["*.mjs"],
 	languageOptions: {
 		globals: {
 			...globals.browser,
@@ -20,22 +21,19 @@ export default [...compat.extends("eslint:recommended"), {
 			...globals.webextensions,
 			...globals.jest,
 			...globals.worker,
-			...globals.wsh,
-			"ImprovedTube" : false,
-			"satus": false,
-			"extension": false,
-			"loading": false,
-			"vertical": false,
-			"shorts": false,
-			"DATA": false,
-			"keywords": false
+			...globals.wsh
+		},
+		parserOptions: {
+			ecmaFeatures: {
+				globalReturn : true
+			}
 		}
 	},
 	rules: {
 		indent: ["error", "tab"],
 		"no-empty": ["error", { "allowEmptyCatch": true }],
 		"no-unused-vars": ["error", { "caughtErrors": "none" }],
-		//"no-undef": ["off"],
+		"no-undef": ["off"],
 		"max-len": ["error", {
 			code: 255,
 			ignoreUrls: true,
