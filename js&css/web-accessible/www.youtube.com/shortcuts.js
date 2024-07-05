@@ -420,7 +420,7 @@ ImprovedTube.shortcutTranscript = function () {
 		descriptionTranscript ? descriptionTranscript.click() : document.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
 	} else {
 		const transcriptButton = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
-		visibilityButton ? visibilityButton.click() : document.querySelector('[target-id*=transcript] #visibility-button button')?.click();
+		transcriptButton ? transcriptButton.click() : document.querySelector('[target-id*=transcript] #visibility-button button')?.click();
 	}
 	if (!descriptionTranscript && transcriptButton) {
 		console.error('shortcutTranscript: Cant fint proper Enble button, falling back to unreliable bruteforce method');
