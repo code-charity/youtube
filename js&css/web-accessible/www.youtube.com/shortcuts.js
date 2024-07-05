@@ -408,6 +408,9 @@ ImprovedTube.shortcutChapters = function () {
 		const visibilityButton = document.querySelector('[target-id*=chapters][visibility*=EXPANDED] #visibility-button button[aria-label]');
 		visibilityButton ? visibilityButton.click() || document.querySelector('*[target-id*=chapters] #visibility-button button')?.click();
 	}
+	if (!modernChapters && visibilityButton) {
+		console.error('shortcutChapters: Cant fint proper Enble button, falling back to unreliable bruteforce method');
+	}
 };
 /*------Transcript------*/
 ImprovedTube.shortcutTranscript = function () {
@@ -418,6 +421,9 @@ ImprovedTube.shortcutTranscript = function () {
 	} else {
 		const transcriptButton = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
 		visibilityButton ? visibilityButton.click() || document.querySelector('[target-id*=transcript] #visibility-button button')?.click();
+	}
+	if (!descriptionTranscript && transcriptButton) {
+		console.error('shortcutTranscript: Cant fint proper Enble button, falling back to unreliable bruteforce method');
 	}
 };
 /*------------------------------------------------------------------------------
