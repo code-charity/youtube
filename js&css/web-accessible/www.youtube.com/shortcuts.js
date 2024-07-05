@@ -403,10 +403,10 @@ ImprovedTube.shortcutChapters = function () {
 	const available = document.querySelector('[target-id*=chapters][visibility*=HIDDEN]') || document.querySelector('[target-id*=chapters]').clientHeight;
 	if (available) {
 		const modernChapters = document.querySelector('[modern-chapters] #navigation-button button[aria-label]');
-		modernChapters ? modernChapters.click() || document.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
+		modernChapters ? modernChapters.click() : document.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
 	} else {
 		const visibilityButton = document.querySelector('[target-id*=chapters][visibility*=EXPANDED] #visibility-button button[aria-label]');
-		visibilityButton ? visibilityButton.click() || document.querySelector('*[target-id*=chapters] #visibility-button button')?.click();
+		visibilityButton ? visibilityButton.click() : document.querySelector('*[target-id*=chapters] #visibility-button button')?.click();
 	}
 	if (!modernChapters && visibilityButton) {
 		console.error('shortcutChapters: Cant fint proper Enble button, falling back to unreliable bruteforce method');
@@ -417,10 +417,10 @@ ImprovedTube.shortcutTranscript = function () {
 	const available = document.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || document.querySelector('[target-id*=transcript]').clientHeight;
 	if (available) {
 		const descriptionTranscript = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
-		descriptionTranscript ? descriptionTranscript.click() || document.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
+		descriptionTranscript ? descriptionTranscript.click() : document.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
 	} else {
 		const transcriptButton = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
-		visibilityButton ? visibilityButton.click() || document.querySelector('[target-id*=transcript] #visibility-button button')?.click();
+		visibilityButton ? visibilityButton.click() : document.querySelector('[target-id*=transcript] #visibility-button button')?.click();
 	}
 	if (!descriptionTranscript && transcriptButton) {
 		console.error('shortcutTranscript: Cant fint proper Enble button, falling back to unreliable bruteforce method');
