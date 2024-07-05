@@ -400,11 +400,25 @@ ImprovedTube.shortcutActivateCaptions = function () {
 };
 /*------Chapters------*/
 ImprovedTube.shortcutChapters = function () {
-	document.querySelector('[target-id*=chapters][visibility*=HIDDEN]') ? document.querySelector('[modern-chapters] #navigation-button button[aria-label]').click() : document.querySelector('[target-id*=chapters][visibility*=EXPANDED] #visibility-button button[aria-label]')?.click();
+	const available = document.querySelector('[target-id*=chapters][visibility*=HIDDEN]') || document.querySelector('[target-id*=chapters]').clientHeight;
+	if (available) {
+		const modernChapters = document.querySelector('[modern-chapters] #navigation-button button[aria-label]');
+		modernChapters ? modernChapters.click() || document.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
+	} else {
+		const visibilityButton = document.querySelector('[target-id*=chapters][visibility*=EXPANDED] #visibility-button button[aria-label]');
+		visibilityButton ? visibilityButton.click() || document.querySelector('*[target-id*=chapters] #visibility-button button')?.click();
+	}
 };
 /*------Transcript------*/
 ImprovedTube.shortcutTranscript = function () {
-	document.querySelector('[target-id*=transcript][visibility*=HIDDEN]') ? document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]')?.click() : document.querySelector('[target-id*=transcript][visibility*=EXPANDED] #visibility-button button[aria-label]').click();
+	const available = document.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || document.querySelector('[target-id*=transcript]').clientHeight;
+	if (available) {
+		const descriptionTranscript = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
+		descriptionTranscript ? descriptionTranscript.click() || document.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
+	} else {
+		const transcriptButton = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
+		visibilityButton ? visibilityButton.click() || document.querySelector('[target-id*=transcript] #visibility-button button')?.click();
+	}
 };
 /*------------------------------------------------------------------------------
 4.7.22 LIKE
