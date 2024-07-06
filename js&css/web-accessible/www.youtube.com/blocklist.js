@@ -12,8 +12,10 @@ ImprovedTube.blocklistNode = function (node) {
 
 	// YT reuses Thumbnail cells dynamically, need to monitor all created Thumbnail links and dynamically apply/remove 'it-blocklisted-*' classes
 	if (!this.elements.observerList.includes(node)) {
-		this.blocklistObserver.observe(node, {attributes: true,
-			attributeFilter: ['href']});
+		this.blocklistObserver.observe(node, {
+			attributes: true,
+			attributeFilter: ['href']
+		});
 		// keeping a list to attach only one observer per tracked element
 		this.elements.observerList.push(node);
 	}
@@ -43,7 +45,7 @@ ImprovedTube.blocklistNode = function (node) {
 	const button = this.createIconButton({
 		type: 'blocklist',
 		className: 'it-add-to-blocklist',
-		onclick: function (event) {
+		onclick: function () {
 			if (!this.parentNode.href) return; // no href no action
 			const video = this.parentNode.href?.match(ImprovedTube.regex.video_id)?.[1],
 				channel = this.parentNode.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name
@@ -76,7 +78,8 @@ ImprovedTube.blocklistNode = function (node) {
 			}
 
 			// this message will trigger 'storage-changed' event and eventually blocklistInit() full rescan
-			ImprovedTube.messages.send({action: 'blocklist',
+			ImprovedTube.messages.send({
+				action: 'blocklist',
 				added: added,
 				type: type,
 				id: type == 'channel' ? channel : video,
@@ -119,7 +122,6 @@ ImprovedTube.blocklistChannel = function (node) {
 			preview = document.querySelector('yt-decorated-avatar-view-model img')?.src
 				|| document.querySelector('#channel-header-container #avatar img#img')?.src
 				|| this.parentNode.__dataHost?.__data?.data?.avatar?.thumbnails?.[0]?.url;
-		let added = false;
 
 		if (!id || !title) {
 			console.error('blocklist click: no channel ID or metadata');
@@ -127,7 +129,8 @@ ImprovedTube.blocklistChannel = function (node) {
 		}
 
 		// this message will trigger 'storage-changed' event and eventually blocklistInit() full rescan
-		ImprovedTube.messages.send({action: 'blocklist',
+		ImprovedTube.messages.send({
+			action: 'blocklist',
 			added: !ImprovedTube.storage.blocklist.channels[id],
 			type: 'channel',
 			id: id,
@@ -142,7 +145,7 @@ ImprovedTube.blocklistChannel = function (node) {
 	// YT tries to remove all forein nodes from node.parentNode.parentNode some time after 'yt-navigate-finish'
 	// Need to monitor for it and re-appendChild our button, otherwise if  gets deleted when switching to
 	// channel subpages /playlists /featured /videos etc.
-	this.blocklistChannelObserver = new MutationObserver(function (mutationList) {
+	this.blocklistChannelObserver = new MutationObserver(function () {
 		if (!button.isConnected) {
 			node.parentNode.parentNode.appendChild(button);
 		}
@@ -252,14 +255,12 @@ ImprovedTube.blocklistElementTypeHelper = function (node) {
 		case 'ytd-video-preview':
 			// subscriptions/search thumbnail video-preview
 			return node.parentNode.parentNode.parentNode;
-			break;
 
 		case 'ytd-grid-video-renderer':
 			// channel home screen grid
 		case 'ytd-reel-item-renderer':
 			// reel
 			return node.parentNode.parentNode;
-			break;
 
 		default:
 			// unknown ones land here
