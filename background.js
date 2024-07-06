@@ -85,9 +85,9 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 		chrome.storage.local.get('limit_page_width', function (result) {
 			if (result.limit_page_width === false) {
 				chrome.storage.local.set({no_page_margin: true});
-				chrome.storage.local.remove(['limit_page_width'], (i) => {});
+				chrome.storage.local.remove(['limit_page_width']);
 				chrome.storage.local.get('player_size', function (r) {
-					if (r.player_size == 'full_window' || 'fit_to_window') {
+					if (r.player_size == 'full_window' || r.player_size == 'fit_to_window') {
 						chrome.storage.local.set({player_size: 'max_width'});
 					}
 				});
@@ -122,9 +122,7 @@ function getLocale (language, callback) {
 				} else {
 					getLocale('en', callback);
 				}
-			}).catch(function () {
-				getLocale('en', callback);
-			});
+			}).catch(function () { getLocale('en', callback); });
 			getLocale('en', callback);
 		}
 	}).catch(function () {
@@ -135,36 +133,27 @@ function getLocale (language, callback) {
 # CONTEXT MENU
 --------------------------------------------------------------*/
 function updateContextMenu (language) {
-	if (!language) {
-		language = chrome.i18n.getUILanguage();
-	}
+	if (!language || language === 'default') language = chrome.i18n.getUILanguage();
 	getLocale(language, function (response) {
-		var items = [
+		const items = [
 			'donate',
 			'rateMe',
 			'GitHub'
 		];
 		chrome.contextMenus.removeAll();
 
-		for (var i = 0; i < 3; i++) {
-			var item = items[i],
-				text = response[item];
-
-			if (text) {
-				text = text.message;
-			} else {
-				text = item;
-			}
+		for (const [index, item] of items.entries()) {
+			const text = response?.[item]?.message || item;
 
 			chrome.contextMenus.create({
-				id: String(i),
+				id: String(index),
 				title: text,
 				contexts: ['action'] //manifest3
 				// contexts: ['browser_action'] //manifest2
 			});
 		}
 		chrome.contextMenus.onClicked.addListener(function (info) {
-			var links = [
+			const links = [
 				'https://www.improvedtube.com/donate',
 				'https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd',
 				'https://github.com/code4charity/YouTube-Extension'
@@ -174,27 +163,23 @@ function updateContextMenu (language) {
 		});
 	});
 }
-chrome.runtime.onInstalled.addListener(function (details) {
+chrome.runtime.onInstalled.addListener(function () {
 	chrome.storage.local.get(function (items) {
-		var language = items.language;
-		updateContextMenu(language);
+		updateContextMenu(items.language);
 	});
 });
 
 chrome.storage.onChanged.addListener(function (changes) {
-	for (var key in changes) {
-		if (key === 'language') {
-			updateContextMenu(changes[key].newValue);
-		}
-		if (key === 'improvedTubeSidebar') {
-			chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: changes[key].newValue});
-		}
-	}
+	if (changes?.language) updateContextMenu(changes.language.newValue);
+	if (changes?.improvedTubeSidebar) chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: changes.language.newValue});
 });
 /*--------------------------------------------------------------
 # TAB Helper, prune stale connected tabs
 --------------------------------------------------------------*/
-let tabConnected = {};
+let tabConnected = {},
+	tab = {},
+	tabPrev = {},
+	windowId;
 
 function tabPrune (callback) {
 	chrome.tabs.query({ url: 'https://www.youtube.com/*' }).then(function (tabs) {
@@ -210,19 +195,13 @@ function tabPrune (callback) {
 			}
 		}
 		callback();
-	}, function () {
-		console.log("Error querying Tabs")
-	});
+	}, function () { console.log("Error querying Tabs") });
 };
 /*--------------------------------------------------------------
 # TAB FOCUS/BLUR
  commented out console.log left intentionally, to help understand
  https://issues.chromium.org/issues/41116352
 --------------------------------------------------------------*/
-let tab = {},
-	tabPrev = {},
-	windowId;
-
 chrome.tabs.onActivated.addListener(function (activeInfo) {
 	tabPrev = tab;
 	tab = activeInfo;
@@ -276,7 +255,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
 		case 'options-page-connected':
 			sendResponse({
-				isTab: sender.hasOwnProperty('tab')
+				isTab: !!sender.tab
 			});
 			break
 
@@ -306,7 +285,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 					if (tID) {
 						data.tabId = tID;
 					}
-					chrome.windows.create(data, pw => {});
+					chrome.windows.create(data);
 
 					//append to title?
 					chrome.tabs.onUpdated.addListener(function listener (tabId, changeInfo) {
@@ -328,7 +307,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 			}, function (granted) {
 				if (granted) {
 					try {
-						var blob = new Blob([JSON.stringify(message.value)], {
+						const blob = new Blob([JSON.stringify(message.value)], {
 							type: 'application/json;charset=utf-8'
 						});
 						chrome.downloads.download({
