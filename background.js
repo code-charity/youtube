@@ -285,7 +285,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 					if (tID) {
 						data.tabId = tID;
 					}
-					chrome.windows.create(data, pw => {});
+					chrome.windows.create(data);
 
 					//append to title?
 					chrome.tabs.onUpdated.addListener(function listener (tabId, changeInfo) {
