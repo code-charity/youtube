@@ -158,6 +158,9 @@
     "playerAutoPipOutside": {
         "message": "Auto-PiP only outside source Tab"
     },
+    "PipRequiresUserInteraction": {
+        "message": "PiP requires recent User interaction with source page. This is Chrome Picture-in-Picture API limitations and we cant do anything to bypass it. Works best with Autoplay disabled and manual Play control or deliberately clicking somewhere on the page before switching Tabs."
+    },
     "autoFullscreen": {
         "message": "Auto-fullscreen"
     },
