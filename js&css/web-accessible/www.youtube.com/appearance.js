@@ -77,26 +77,25 @@ ImprovedTube.playerHdThumbnail = function () {
  ALWAYS SHOW PROGRESS BAR
 ------------------------------------------------------------------------------*/
 ImprovedTube.showProgressBar = function () {
-
-	var player = ImprovedTube.elements.player;
+	const player = ImprovedTube.elements.player;
 
 	if (player && player.className.indexOf("ytp-autohide") !== -1) {
-		var played = (player.getCurrentTime() * 100) / player.getDuration(),
+		const played = (player.getCurrentTime() * 100) / player.getDuration(),
 			loaded = player.getVideoBytesLoaded() * 100,
 			play_bars = player.querySelectorAll(".ytp-play-progress"),
-			load_bars = player.querySelectorAll(".ytp-load-progress"),
-			width = 0,
+			load_bars = player.querySelectorAll(".ytp-load-progress");
+		let width = 0,
 			progress_play = 0,
 			progress_load = 0;
 
-		for (var i = 0, l = play_bars.length; i < l; i++) {
+		for (let i = 0, l = play_bars.length; i < l; i++) {
 			width += play_bars[i].offsetWidth;
 		}
 
-		var width_percent = width / 100;
+		const width_percent = width / 100;
 
-		for (var i = 0, l = play_bars.length; i < l; i++) {
-			var a = play_bars[i].offsetWidth / width_percent,
+		for (let i = 0, l = play_bars.length; i < l; i++) {
+			let a = play_bars[i].offsetWidth / width_percent,
 				b = 0,
 				c = 0;
 
@@ -415,10 +414,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				path.setAttributeNS(null, 'd', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z');
 
 				button.onclick = function () {
-					var video = document.querySelector('#movie_player video');
-					if (video) {
-						video.requestPictureInPicture();
-					}
+					ImprovedTube.enterPip();
 				};
 
 				svg.appendChild(path);	button.appendChild(svg);
@@ -496,10 +492,11 @@ ImprovedTube.dayOfWeek = function () {
 	if (this.storage.day_of_week === true) {
 		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 		setTimeout(function () {
-			var videoDate; try {
+			var videoDate;
+			try {
 				videoDate = JSON.parse(document.querySelector('#microformat script')?.textContent)?.uploadDate
-			} //YouTube related video or internal link?
-			catch {
+			} catch {
+				//YouTube related video or internal link?
 				try {
 					videoDate = document.querySelector("[itemprop=datePublished]").content;
 				} catch { }

@@ -151,14 +151,9 @@ ImprovedTube.shortcutQuality = function (key) {
 	ImprovedTube.playerQuality(label[resolution.indexOf(key.replace('shortcutQuality', ''))]);
 };
 /*------------------------------------------------------------------------------
-4.7.2 PICTURE IN PICTURE
+4.7.2 PICTURE IN PICTURE (PIP)
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcutPictureInPicture = function () {
-	const video = ImprovedTube.elements.video;
-	if (video && document.pictureInPictureEnabled && typeof video.requestPictureInPicture == 'function') {
-		video.requestPictureInPicture().then().catch((err) => console.error(err));
-	}
-};
+ImprovedTube.shortcutPictureInPicture = this.enterPip;
 /*------------------------------------------------------------------------------
 4.7.3 TOGGLE CONTROLS
 ------------------------------------------------------------------------------*/
