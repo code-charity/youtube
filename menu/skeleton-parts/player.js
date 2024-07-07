@@ -101,6 +101,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			custom: true,
 			on: {
 				click: function () {
+					if (!document.pictureInPictureEnabled) return;
 					if (this.dataset.value === 'false') {
 						let where = this;
 						satus.render({
@@ -129,7 +130,16 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_autoPip_outside: {
 			component: 'switch',
 			text: 'playerAutoPipOutside',
-			value: true
+			id: 'player_autoPip_outside',
+			value: true,
+			on: {
+				render: function () {
+					if (!document.pictureInPictureEnabled) {
+						document.getElementById('player_autoPip').remove();
+						document.getElementById('player_autoPip_outside').remove();
+					}
+				}
+			}
 		},
 		player_forced_volume: {
 			component: 'switch',
