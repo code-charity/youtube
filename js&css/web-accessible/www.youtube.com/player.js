@@ -55,7 +55,7 @@ ImprovedTube.enterPip = function (disable) {
 		video.requestPictureInPicture().then(() => {
 			if (video.paused) {
 				// manually send Play message to "Auto-pause while I'm not in the tab", paused PiP wont do it automatically.
-				document.dispatchEvent(new CustomEvent('it-message-from-youtube', {'detail': {action: 'play'}}));
+				document.dispatchEvent(new CustomEvent('it-play'));
 			}
 			return true;
 		}).catch((err) => console.error('playerAutoPip: Failed to enter Picture-in-Picture mode', err));
