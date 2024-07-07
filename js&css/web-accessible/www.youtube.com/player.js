@@ -440,7 +440,7 @@ ImprovedTube.subtitlesUserSettings = function () {
 					break;
 			}
 
-			if (ytSettings?.hasOwnProperty(value)) {
+			if (Object.keys(ytSettings).includes(value)) {
 				ytSettings[value] = setting;
 			} else {
 				console.error('subtitlesUserSettings failed at: ', value, setting);
