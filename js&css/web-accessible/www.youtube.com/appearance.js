@@ -8,9 +8,7 @@ ImprovedTube.undoTheNewSidebar = function () {
 			yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments = false;
 			yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments_ep = false;
 			yt.config_.EXPERIMENT_FLAGS.web_watch_rounded_player_large = false;
-		} catch (error) {
-			console.error("can't undo description on the side", error);
-		}
+		} catch (error) { console.error("can't undo description on the side", error); }
 	}
 };
 
@@ -19,9 +17,7 @@ ImprovedTube.descriptionSidebar = function () {
 		yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid = true;
 		yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments = true;
 		yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments_ep = true;
-	} catch (error) {
-		console.error("tried to move description to the sidebar", error);
-	}
+	} catch (error) { console.error("tried to move description to the sidebar", error); }
 };
 /*------------------------------------------------------------------------------
   PLAYER
@@ -41,9 +37,7 @@ ImprovedTube.playerSize = function () {
 		style.textContent += "}";
 
 		document.body.appendChild(style);
-		if (document.documentElement.dataset.pageType === 'video') {
-			window.dispatchEvent(new Event('resize'));
-		}
+		if (document.documentElement.dataset.pageType === 'video') { window.dispatchEvent(new Event('resize')); }
 	}
 };
 /*------------------------------------------------------------------------------
@@ -155,108 +149,104 @@ ImprovedTube.playerRemainingDuration = function () {
 /*------------------------------------------------------------------------------
  Comments Sidebar Simple
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebarSimple = function () {
-	if (ImprovedTube.storage.comments_sidebar_simple === true) {
-		if (window.matchMedia("(min-width: 1599px)").matches) {
-			document.querySelector("#primary").insertAdjacentElement('afterend', document.querySelector("#comments"));
-		}
-		if (window.matchMedia("(max-width: 1598px)").matches) {
-			document.querySelector("#related").insertAdjacentElement('beforebegin', document.querySelector("#comments"));
-			setTimeout(function () {
-				document.querySelector("#primary-inner").appendChild(document.querySelector("#related"));
-			}
-			);
-		}
-	}
+ImprovedTube.commentsSidebarSimple = function () { if (ImprovedTube.storage.comments_sidebar_simple === true) {
+	if (window.matchMedia("(min-width: 1599px)").matches) {
+		document.querySelector("#primary").insertAdjacentElement('afterend', document.querySelector("#comments"));}
+	if (window.matchMedia("(max-width: 1598px)").matches) {
+		document.querySelector("#related").insertAdjacentElement('beforebegin', document.querySelector("#comments"));
+		setTimeout(function () {
+			document.querySelector("#primary-inner").appendChild(document.querySelector("#related"));}
+		);}
+}
 }
 /*------------------------------------------------------------------------------
  Comments Sidebar
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebar = function () {
-	if (ImprovedTube.storage.comments_sidebar === true) {
-		const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
-		let hasApplied = 0;
-		if (/watch\?/.test(location.href)) {
-			sidebar();
-			styleScrollbars();
-			setGrid();
-			applyObserver();
-			window.addEventListener("resize", sidebar)
-		}
+ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_sidebar === true) {
+	const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
+	let hasApplied = 0;
+	if (/watch\?/.test(location.href)) {
+		sidebar();
+		styleScrollbars();
+		setGrid();
+		applyObserver();
+		window.addEventListener("resize", sidebar)
+	}
 
-		function sidebar () {
-			resizePlayer();
-			if (window.matchMedia("(min-width: 1952px)").matches) {
+	function sidebar () {
+		resizePlayer();
+		if (window.matchMedia("(min-width: 1952px)").matches) {
 
-				if (!hasApplied) {
-					initialSetup()
-					setTimeout(() => {
-						document.getElementById("columns").appendChild(document.getElementById("related"))
-					})
-				} else if (hasApplied == 2) { //from medium to big size
-					setTimeout(() => {
-						document.getElementById("columns").appendChild(document.getElementById("related"))
-					})
-				}
-				hasApplied = 1
-			} else if (window.matchMedia("(min-width: 1000px)").matches) {
-				if (!hasApplied) {
-					initialSetup();
-				} else if (hasApplied == 1) { //from big to medium
-					document.getElementById("primary-inner").appendChild(document.getElementById("related"));
-				}
-				hasApplied = 2
-			} else { /// <1000
-				if (hasApplied == 1) {
-					document.getElementById("primary-inner").appendChild(document.getElementById("related"));
-					let comments = document.querySelector("#comments");
-					let below = document.getElementById("below");
-					below.appendChild(comments);
-				} else if (hasApplied == 2) {
-					let comments = document.querySelector("#comments");
-					let below = document.getElementById("below");
-					below.appendChild(comments);
-				}
-				hasApplied = 0;
+			if (!hasApplied) {
+				initialSetup()
+				setTimeout(() => {document.getElementById("columns").appendChild(document.getElementById("related"))})
 			}
+			else if (hasApplied == 2) { //from medium to big size
+				setTimeout(() => {document.getElementById("columns").appendChild(document.getElementById("related"))})
+			}
+			hasApplied = 1
 		}
-		function setGrid () {
-			let checkParentInterval = setInterval(() => {
-				container = document.querySelector("#related ytd-compact-video-renderer.style-scope")?.parentElement;
-				if (container) {
-					clearInterval(checkParentInterval);
-					container.style.display = "flex";
-					container.style.flexWrap = "wrap";
-					container.style.flexDirection = "row";
-				}
-			}, 250);
+		else if (window.matchMedia("(min-width: 1000px)").matches) {
+			if (!hasApplied) {
+				initialSetup();
+			}
+			else if (hasApplied == 1) { //from big to medium
+				document.getElementById("primary-inner").appendChild(document.getElementById("related"));
+			}
+			hasApplied = 2
 		}
-		function initialSetup () {
-			let secondaryInner = document.getElementById("secondary-inner");
-			let primaryInner = document.getElementById("primary-inner");
-			let comments = document.querySelector("#comments");
-			setTimeout(() => {
-				primaryInner.appendChild(document.getElementById("panels"));
-				primaryInner.appendChild(document.getElementById("related"))
-				secondaryInner.appendChild(document.getElementById("chat-template"));
-				secondaryInner.appendChild(comments);
-			})
+		else { /// <1000
+			if (hasApplied == 1) {
+				document.getElementById("primary-inner").appendChild(document.getElementById("related"));
+				let comments = document.querySelector("#comments");
+				let below = document.getElementById("below");
+				below.appendChild(comments);
+			}
+			else if (hasApplied == 2) {
+				let comments = document.querySelector("#comments");
+				let below = document.getElementById("below");
+				below.appendChild(comments);
+			}
+			hasApplied = 0;
 		}
-		function resizePlayer () {
-			const width = video.offsetWidth + 24;
-			const player = document.querySelector("#player.style-scope.ytd-watch-flexy");
-			document.getElementById("primary").style.width = `${width}px`;
-			player.style.width = `${width}px`;
-		}
-		function styleScrollbars () {
-			if (!navigator.userAgent.toLowerCase().includes("mac")) {
-				let color, colorHover
-				const isDarkMode = getComputedStyle(document.querySelector('ytd-app')).getPropertyValue('--yt-spec-base-background') == "#0f0f0f";
-				if (isDarkMode) [color, colorHover] = ["#616161", "#909090"];
-				else [color, colorHover] = ["#aaaaaa", "#717171"];
-				const style = document.createElement("style");
-				if (ImprovedTube.storage.comments_sidebar_scrollbars === true) {
-					const cssRule = `
+	}
+	function setGrid () {
+		let checkParentInterval = setInterval(() => {
+			container = document.querySelector("#related ytd-compact-video-renderer.style-scope")?.parentElement;
+			if (container) {
+				clearInterval(checkParentInterval);
+				container.style.display = "flex";
+				container.style.flexWrap = "wrap";
+				container.style.flexDirection = "row";
+			}
+		}, 250);
+	}
+	function initialSetup () {
+		let secondaryInner = document.getElementById("secondary-inner");
+		let primaryInner = document.getElementById("primary-inner");
+		let comments = document.querySelector("#comments");
+		setTimeout(() => {
+			primaryInner.appendChild(document.getElementById("panels"));
+			primaryInner.appendChild(document.getElementById("related"))
+			secondaryInner.appendChild(document.getElementById("chat-template"));
+			secondaryInner.appendChild(comments);
+		})
+	}
+	function resizePlayer () {
+		const width = video.offsetWidth + 24;
+		const player = document.querySelector("#player.style-scope.ytd-watch-flexy");
+		document.getElementById("primary").style.width = `${width}px`;
+		player.style.width = `${width}px`;
+	}
+	function styleScrollbars () {
+		if (!navigator.userAgent.toLowerCase().includes("mac")) {
+			let color, colorHover
+			const isDarkMode = getComputedStyle(document.querySelector('ytd-app')).getPropertyValue('--yt-spec-base-background') == "#0f0f0f";
+			if (isDarkMode) [color, colorHover] = ["#616161", "#909090"];
+			else [color, colorHover] = ["#aaaaaa", "#717171"];
+			const style = document.createElement("style");
+			if (ImprovedTube.storage.comments_sidebar_scrollbars === true) {
+				const cssRule = `
             #primary, #secondary {
                 overflow: overlay !important;
             }
@@ -277,9 +267,9 @@ ImprovedTube.commentsSidebar = function () {
             ::-webkit-scrollbar-thumb:hover{
                 background-color: ${colorHover};
             }`;
-					style.appendChild(document.createTextNode(cssRule));
-				} else {
-					const cssRule = `
+				style.appendChild(document.createTextNode(cssRule));
+			}
+			else {	const cssRule = `
             #primary, #secondary {
                 overflow: overlay !important;
             }            
@@ -288,26 +278,26 @@ ImprovedTube.commentsSidebar = function () {
                 width: 0px;
                 height: 0px;
             }`;
-					style.appendChild(document.createTextNode(cssRule));
-				}
-				document.head.appendChild(style);
+			style.appendChild(document.createTextNode(cssRule));
 			}
-		}
-		function applyObserver () {
-			const debouncedResizePlayer = debounce(resizePlayer, 200);
-			const resizeObserver = new ResizeObserver(debouncedResizePlayer);
-			resizeObserver.observe(video);
-		}
-		function debounce (callback, delay) {
-			let timerId;
-			return function (...args) {
-				clearTimeout(timerId);
-				timerId = setTimeout(() => {
-					callback.apply(this, args);
-				}, delay);
-			};
+			document.head.appendChild(style);
 		}
 	}
+	function applyObserver () {
+		const debouncedResizePlayer = debounce(resizePlayer, 200);
+		const resizeObserver = new ResizeObserver(debouncedResizePlayer);
+		resizeObserver.observe(video);
+	}
+	function debounce (callback, delay) {
+		let timerId;
+		return function (...args) {
+			clearTimeout(timerId);
+			timerId = setTimeout(() => {
+				callback.apply(this, args);
+			}, delay);
+		};
+	}
+}
 }
 /*------------------------------------------------------------------------------
  SIDEBAR
@@ -315,27 +305,19 @@ ImprovedTube.commentsSidebar = function () {
 /*----------------------------------------------------------------
  TRANSCRIPT
 --------------------------------------------------------------*/
-ImprovedTube.transcript = function (el) {
-	if (ImprovedTube.storage.transcript === true) {
-		el.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');
-	}
-}
+ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript === true) {
+	el.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');} }
 /*----------------------------------------------------------------
  CHAPTERS
 --------------------------------------------------------------*/
-ImprovedTube.chapters = function (el) {
-	if (ImprovedTube.storage.chapters === true) {
-		el.querySelector('*[target-id*=chapters]')?.removeAttribute('visibility');
-	}
-}
+ImprovedTube.chapters = function (el) { if (ImprovedTube.storage.chapters === true) {
+	el.querySelector('*[target-id*=chapters]')?.removeAttribute('visibility');} }
 /*------------------------------------------------------------------------------
  LIVECHAT
 ------------------------------------------------------------------------------*/
 ImprovedTube.livechat = function () {
 	if (this.storage.livechat === "collapsed") {
-		if (typeof isCollapsed === 'undefined') {
-			var isCollapsed = false;
-		}
+		if (typeof isCollapsed === 'undefined') { var isCollapsed = false; }
 		if (ImprovedTube.elements.livechat && !isCollapsed) {
 			ImprovedTube.elements.livechat.button.click();
 			isCollapsed = true
@@ -354,9 +336,7 @@ ImprovedTube.livechat = function () {
   EXTRA BUTTONS BELOW THE PLAYER
 ------------------------------------------------------------------------------*/
 ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
-	if (window.self !== window.top) {
-		return false;
-	}
+	if (window.self !== window.top) {	return false; 	}
 	if (document.documentElement.dataset.pageType === 'video') {
 
 		var section = document.querySelector('#subscribe-button');
@@ -369,9 +349,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				var button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		                var transparentOrOn = .5; if (this.storage.player_always_repeat === true ) {
-					transparentOrOn = 1;
-				}
+		                var transparentOrOn = .5; if (this.storage.player_always_repeat === true ) { transparentOrOn = 1; }
 				button.className = 'improvedtube-player-button';
 				button.id = 'it-below-player-loop';
 				button.dataset.tooltip = 'Loop';
@@ -445,29 +423,14 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.expandDescription = function (el) {
 	if (this.storage.description === "expanded" || this.storage.description === "classic_expanded") {
-		if (el) {
-			el.click(); setTimeout(function () {
-				ImprovedTube.elements.player.focus();
-			}, 1200);
-		} else {
-			var tries = 0; 	var intervalMs = 210;
-			if (location.href.indexOf('/watch?') !== -1) {
-				var maxTries = 10;
-			} else {
-				var maxTries = 0;
-			}
+		if (el) {el.click(); setTimeout(function () {ImprovedTube.elements.player.focus();}, 1200); }
+		else {		var tries = 0; 	var intervalMs = 210; if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}
 			// ...except when it is an embedded player?
 			var waitForDescription = setInterval(() => {
 				if (++tries >= maxTries) {
 					el = document.querySelector('#description-inline-expander')
-					if ( el) {
-						el.click(); 	setTimeout(function () {
-							ImprovedTube.elements.player.focus();
-						}, 1200); clearInterval(waitForDescription);
-					}
-					intervalMs *= 1.11;
-				}
-			}, intervalMs);
+					if ( el) { el.click(); 	setTimeout(function () {ImprovedTube.elements.player.focus(); }, 1200); clearInterval(waitForDescription); }
+					intervalMs *= 1.11;	}}, intervalMs);
 		}
 	}
 }
@@ -491,16 +454,10 @@ ImprovedTube.expandDescription = function (el) {
 ImprovedTube.dayOfWeek = function () {
 	if (this.storage.day_of_week === true) {
 		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-		setTimeout(function () {
-			var videoDate;
-			try {
-				videoDate = JSON.parse(document.querySelector('#microformat script')?.textContent)?.uploadDate
-			} catch {
-				//YouTube related video or internal link?
-				try {
-					videoDate = document.querySelector("[itemprop=datePublished]").content;
-				} catch { }
-			} //..no? must be new session?
+		setTimeout(function () { //YouTube related video or internal link?:
+			var videoDate; try { videoDate = JSON.parse(document.querySelector('#microformat script')?.textContent)?.uploadDate
+				 } catch { try { videoDate = document.querySelector("[itemprop=datePublished]").content; } catch { } }
+								//..no? must be new session?
 			var tempDate = new Date(videoDate);
 			var element = document.querySelector(".ytd-day-of-week");
 			if (!element) {
@@ -508,11 +465,8 @@ ImprovedTube.dayOfWeek = function () {
 				label.textContent = days[tempDate.getDay() + 1] + '  ';
 				label.className = "ytd-day-of-week";
 				//update please:
-				try {
-					document.querySelector("#info span:nth-child(2)")?.append(label);
-				} catch {
-					try {
-						document.querySelector("#info #info-strings yt-formatted-string")?.append(label);
+				try { document.querySelector("#info span:nth-child(2)")?.append(label);	} 
+					catch {	try {document.querySelector("#info #info-strings yt-formatted-string")?.append(label);
 					} catch {}
 				}
 			} // else { element.textContent = days[tempDate.getDay() + 1] + ", "; }

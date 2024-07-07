@@ -416,33 +416,15 @@ ImprovedTube.shortcutActivateCaptions = function () {
 };
 /*------Chapters------*/
 ImprovedTube.shortcutChapters = function () {
-	try {
-		var height = document.querySelector('*[target-id*=chapters]').clientHeight;
-	} catch {}
-	if (height) {
-		try {
-			document.querySelector('*[target-id*=chapters] #visibility-button button').click(); console.log("chapters shortcut close")
-		} catch {}
-	} else {
-		try {
-			document.querySelector('*[target-id*=chapters]').removeAttribute('visibility'); console.log("chapters shortcut open")
-		} catch {}
-	}
+	try {var height = document.querySelector('*[target-id*=chapters]').clientHeight;} catch {}
+	if (height) {try {document.querySelector('*[target-id*=chapters] #visibility-button button').click(); console.log("chapters shortcut close")} catch {}}
+		  else { try {document.querySelector('*[target-id*=chapters]').removeAttribute('visibility'); console.log("chapters shortcut open")} catch {} }
 };
 /*------Transcript------*/
 ImprovedTube.shortcutTranscript = function () {
-	try {
-		var height = document.querySelector('*[target-id*=transcript]').clientHeight;
-	} catch {}
-	if (height) {
-		try {
-			document.querySelector('*[target-id*=transcript] #visibility-button button').click(); console.log("transcriptshortcut close")
-		} catch {}
-	} else {
-		try {
-			document.querySelector('*[target-id*=transcript]').removeAttribute('visibility'); console.log("transcriptshortcut open")
-		} catch {}
-	}
+	try {var height = document.querySelector('*[target-id*=transcript]').clientHeight;} catch {}
+	if (height) {try {document.querySelector('*[target-id*=transcript] #visibility-button button').click(); console.log("transcriptshortcut close")} catch {}}
+		  else { try {document.querySelector('*[target-id*=transcript]').removeAttribute('visibility'); console.log("transcriptshortcut open")} catch {} }
 };
 /*------------------------------------------------------------------------------
 4.7.22 LIKE
@@ -458,47 +440,19 @@ ImprovedTube.shortcutDislike = function () {
 };
 /*------Report------*/
 ImprovedTube.shortcutReport = function () {
-	try {
-		document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0);
-		document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click(); document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)
-	} catch {
-		console.log("'...' failed"); setTimeout(function () {
-			try {
-				document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click(); document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)
-			} catch {
-				console.log("'...' failed2")
-			}
-		}, 100)
-	}
+	try {document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0);
+		document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click(); document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
+	catch {console.log("'...' failed"); setTimeout(function () {try {document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click(); document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0)}
+	catch {console.log("'...' failed2")}}, 100) }
 
-	setTimeout(function () {
-		try {
-			document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();
-		} catch {
-			console.log("report failed"); setTimeout(function ()	{
-				try {
-					document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();
-				} catch {
-					console.log("report failed2"); document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();
-				}
-			}, 800);
-		}
+	setTimeout(function () {try {document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 0); document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
+	catch {console.log("report failed"); setTimeout(function ()	{try {document.querySelector('tp-yt-iron-dropdown svg path[d^="M13.18,4l0.24,1.2L13.58,6h0.82H19v7h-5.18l-0"]').closest("tp-yt-paper-item").click();}
+	catch {console.log("report failed2"); document.querySelector('svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]').closest("button").click();}}, 800);
+	}
 	}, 200);
 
-	setTimeout(function () {
-		try {
-			document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)
-		} catch {
-			console.log("dropdown visible failed");
-			setTimeout(function () {
-				try {
-					document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)
-				} catch {
-					console.log("dropdown visible failed2");
-				}
-			}, 1700)
-		}
-	}, 700)
+	setTimeout(function () {try {document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)} catch {console.log("dropdown visible failed");
+		setTimeout(function () {try {document.querySelectorAll("tp-yt-iron-dropdown").forEach(el => el.style.opacity = 1)} catch {console.log("dropdown visible failed2");}}, 1700)}}, 700)
 }
 /*------------------------------------------------------------------------------
 4.7.24 SUBSCRIBE

@@ -3,9 +3,7 @@
 --------------------------------------------------------------*/
 ImprovedTube.messages.create();
 ImprovedTube.messages.listener();
-if (document.body) {
-	ImprovedTube.childHandler(document.body);
-}
+if (document.body) { ImprovedTube.childHandler(document.body); }
 
 ImprovedTube.observer = new MutationObserver(function (mutationList) {
 
@@ -107,12 +105,8 @@ ImprovedTube.init = function () {
 	this.onmousedown();
 	this.youtubeLanguage();
 	this.myColors();
-	if (this.storage.undo_the_new_sidebar === true) {
-		this.undoTheNewSidebar();
-	}
-	if (this.storage.description === "sidebar") {
-		this.descriptionSidebar();
-	}
+	if (this.storage.undo_the_new_sidebar === true) {this.undoTheNewSidebar();}
+	if (this.storage.description === "sidebar") {this.descriptionSidebar();}
 	this.channelCompactTheme();
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
@@ -151,9 +145,7 @@ document.addEventListener('yt-navigate-finish', function () {
 			// if(node.getAttribute('itemprop') === 'uploadDate')   {ImprovedTube.uploadDate = node.content;}
 */
 	ImprovedTube.pageType();
-	if (ImprovedTube.storage.undo_the_new_sidebar) {
-		ImprovedTube.undoTheNewSidebar();
-	}
+	if (ImprovedTube.storage.undo_the_new_sidebar) { ImprovedTube.undoTheNewSidebar(); }
 	ImprovedTube.commentsSidebar();
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
@@ -182,9 +174,7 @@ window.addEventListener('load', function () {
 		logo: document.querySelector('tp-yt-app-drawer a#logo')
 	}
 	ImprovedTube.improvedtubeYoutubeIcon();
-	if (document.documentElement.dataset.pageType === 'video') {
-		ImprovedTube.expandDescription();
-	}
+	if (document.documentElement.dataset.pageType === 'video') { ImprovedTube.expandDescription(); }
 	if (document.documentElement.dataset.pageType === 'home' && ImprovedTube.storage.youtube_home_page === 'search' ) {
 		document.querySelector('body').style.setProperty('visibility', 'visible', 'important');
 		ImprovedTube.shortcutGoToSearchBox();

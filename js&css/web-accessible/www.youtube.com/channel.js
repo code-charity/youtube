@@ -59,12 +59,10 @@ ImprovedTube.channelCompactTheme = function () {
 		compact.hasApplied = true
 		initialLoad();
 		document.querySelector("#sections #items") ? styleWithListeners() : styleWithInterval();
-	} else if (compact.hasApplied) { //cleanup
-		try {
-			clearInterval(compact.listener)
-		} catch (err) {
-			console.log("ERR: We couldn't clear listener. Reload page")
-		}
+	}
+	else if (compact.hasApplied) { //cleanup
+		try {clearInterval(compact.listener)}
+		catch (err) {console.log("ERR: We couldn't clear listener. Reload page")}
 		if (compact.eventHandlerFns.length) removeListeners();
 		if (compact.styles.length) removeStyles()
 		compact = {}
@@ -94,7 +92,8 @@ ImprovedTube.channelCompactTheme = function () {
 				if (!isCompact) {
 					sub.style.display = "none"
 					isCompact = true
-				} else {
+				}
+				else {
 					sub.style.display = ""
 					isCompact = false
 				}
