@@ -98,14 +98,38 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'Auto_PiP_picture_in_picture',
 			id: 'player_autoPip',
+			custom: true,
 			on: {
 				click: function () {
-					if (this.dataset.value === 'true' && satus.storage.get('player_autopause_when_switching_tabs')) {
-						document.getElementById('only_one_player_instance_playing').flip(true);
-						document.getElementById('autopause_when_switching_tabs').flip(false);
+					if (this.dataset.value === 'false') {
+						let where = this;
+						satus.render({
+							component: 'modal',
+							variant: 'confirm',
+							content: 'PipRequiresUserInteraction',
+							ok: function () {
+								// manually turn switch ON
+								where.flip(true);
+								if (satus.storage.get('player_autopause_when_switching_tabs')) {
+									document.getElementById('only_one_player_instance_playing').flip(true);
+									document.getElementById('autopause_when_switching_tabs').flip(false);
+								}
+							},
+							cancel: function () {
+								// nothing happens when we cancel
+							}
+						}, extension.skeleton.rendered);
+					} else {
+						// manually turn switch OFF
+						this.flip(false);
 					}
 				}
 			}
+		},
+		player_autoPip_outside: {
+			component: 'switch',
+			text: 'playerAutoPipOutside',
+			value: true
 		},
 		player_forced_volume: {
 			component: 'switch',
