@@ -121,7 +121,7 @@ ImprovedTube.shortcutsListeners = {
 	},
 	wheel: function (event) {
 		// shortcuts with wheel allowed ONLY inside player
-		if (!ImprovedTube.elements.player.contains(event.target)) return;
+		if (!ImprovedTube.elements.player?.contains(event.target)) return;
 
 		ImprovedTube.input.pressed.wheel = event.deltaY > 0 ? 1 : -1;
 		ImprovedTube.input.pressed.alt = event.altKey;
