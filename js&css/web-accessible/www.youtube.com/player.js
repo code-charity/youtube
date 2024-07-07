@@ -7,12 +7,12 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 		|| this.storage.channel_trailer_autoplay === false) {
 		const player = this.elements.player || videoElement.closest('.html5-video-player') || videoElement.closest('#movie_player'); // #movie_player: outdated since 2024?
 
-		if (this.video_url !== location.href) {
-			this.user_interacted = false;
-		}
+		if (this.video_url !== location.href) this.user_interacted = false;
 
-		// if (no user clicks) and (no ads playing) and
-		// ( there is a player and ( (it is not in a playlist and auto play is off ) or ( playlist auto play is off and in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
+		// if (there is a player) and (no user clicks) and (no ads playing)
+		// and ( ( it is not in a playlist and auto play is off )
+		//    or ( playlist auto play is off and in a playlist )
+		//    or ( we are in a channel and the channel trailer autoplay is off ) )
 
 		// user didnt click
 		if (player && !this.user_interacted
