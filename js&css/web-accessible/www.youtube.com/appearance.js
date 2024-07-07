@@ -415,10 +415,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				path.setAttributeNS(null, 'd', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z');
 
 				button.onclick = function () {
-					var video = document.querySelector('#movie_player video');
-					if (video) {
-						video.requestPictureInPicture();
-					}
+					ImprovedTube.enterPip();
 				};
 
 				svg.appendChild(path);	button.appendChild(svg);
