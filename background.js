@@ -48,9 +48,9 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 			}
 			chrome.storage.local.remove(Object.keys(result));
 		});
-		chrome.storage.local.get(['shortcut_volume_step', 'shortcut_playback_speed_step'], function (result) {
+		chrome.storage.local.get(['volume_step', 'playback_speed_step'], function (result) {
 			for (let [name, value] of Object.entries(result)) {
-				let newName = name.replace('shortcut_', 'shortcuts_');
+				let newName = 'shortcuts_' + name;
 				chrome.storage.local.set({[newName]: value});
 			}
 			chrome.storage.local.remove(Object.keys(result));
