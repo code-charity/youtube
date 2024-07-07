@@ -42,19 +42,38 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 	}
 };
 /*------------------------------------------------------------------------------
-FORCED PLAY VIDEO FROM THE BEGINNING
+PICTURE IN PICTURE (PIP)
 ------------------------------------------------------------------------------*/
-ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
-	const player = this.elements.player,
-		video = this.elements.video,
-		paused = video?.paused;
+ImprovedTube.enterPip = function (disable) {
+	const video = this.elements.video;
 
-	if (player && video && this.storage.forced_play_video_from_the_beginning && location.pathname == '/watch') {
-		player.seekTo(0);
-		// restore previous paused state
-		if (paused) {
-			player.pauseVideo();
-		}
+	if (!disable
+		&& video
+		&& document.pictureInPictureEnabled
+		&& typeof video.requestPictureInPicture == 'function') {
+
+		video.requestPictureInPicture().then(() => {
+			if (video.paused) {
+				// manually send Play message to "Auto-pause while I'm not in the tab", paused PiP wont do it automatically.
+				document.dispatchEvent(new CustomEvent('it-message-from-youtube', {'detail': {action: 'play'}}));
+			}
+			return true;
+		}).catch((err) => console.error('playerAutoPip: Failed to enter Picture-in-Picture mode', err));
+	} else if (document.pictureInPictureElement && typeof document.exitPictureInPicture == 'function') {
+		document.exitPictureInPicture();
+		return false;
+	}
+};
+/*------------------------------------------------------------------------------
+AUTO PIP WHEN SWITCHING TABS
+------------------------------------------------------------------------------*/
+ImprovedTube.playerAutoPip = function () {
+	const video = this.elements.video;
+
+	if (this.storage.player_autoPip && this.storage.player_autoPip_outside && this.focus) {
+		this.enterPip(true);
+	} else if (this.storage.player_autoPip && !this.focus && !video?.paused) {
+		this.enterPip();
 	}
 };
 /*------------------------------------------------------------------------------
