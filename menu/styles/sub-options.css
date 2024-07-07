@@ -17,6 +17,7 @@ NESTED (CONDITIONAL) SWITCHES
 /*--------------------------------------------------------------
 >>> PLAYER
 --------------------------------------------------------------*/
+#player_autoPip:not([data-value=true]) + .satus-switch,
 #forced-volume:not([data-value='true']) + .satus-slider,
 #forced-playback-speed:not([data-value='true']) + .satus-switch,
 #forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch,
@@ -51,6 +52,7 @@ NIGHT MODE
 /*--------------------------------------------------------------
 >>> PLAYER
 --------------------------------------------------------------*/
+#player_autoPip[data-value=true] + .satus-switch,
 #forced-volume[data-value='true'] + .satus-slider, 
 #forced-playback-speed[data-value='true'] + .satus-switch,
 #forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch,
