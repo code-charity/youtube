@@ -773,8 +773,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 				render: function () {
 					// (parseInt) relies on options.text following 'auto' always starting with a number to work
 					const options = this.childNodes[2].options,
-							index = this.childNodes[2].selectedIndex,
-							cutoff = 1080;
+						index = this.childNodes[2].selectedIndex,
+						cutoff = 1080;
 					if (satus.storage.get('player_h264')) {
 						if (parseInt(options[index].text) > cutoff) {
 							this.childNodes[1].style = 'color: red!important; font-weight: bold;';
@@ -912,7 +912,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						} else {
 							satus.storage.remove('player_h264');
 						}
-						
+
 						const codecs = (satus.storage.get('block_h264') ? '' : 'h.264 ')
 							+ (satus.storage.get('block_vp9') ? '' : 'vp9 ')
 							+ (satus.storage.get('block_av1') ? '' : 'av1');
@@ -940,12 +940,12 @@ extension.skeleton.main.layers.section.player.on.click = {
 			custom: true,
 			on: {
 				click: function () {
-					let skeleton = this.parentNode.skeleton,
-						refresh = function () {
-							// send signal for #player_codecs to refresh, will in turn redraw #player_quality/#player_quality_without_focus
-							//  when we change player_h264 directly
-							document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
-					}
+					let refresh = function () {
+						// send signal for #player_codecs to refresh, will in turn redraw #player_quality/#player_quality_without_focus
+						//  when we change player_h264 directly
+						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
+					};
+
 					if (this.dataset.value === 'false') {
 						let where = this;
 						satus.render({
@@ -976,7 +976,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
-/*		optimize_codec_for_hardware_acceleration: {
+		/*optimize_codec_for_hardware_acceleration: {
 			component: 'button',
 			text: 'Optimize Codec for hardware acceleration',
 			style: {
