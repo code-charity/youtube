@@ -7,12 +7,12 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 		|| this.storage.channel_trailer_autoplay === false) {
 		const player = this.elements.player || videoElement.closest('.html5-video-player') || videoElement.closest('#movie_player'); // #movie_player: outdated since 2024?
 
-		if (this.video_url !== location.href) {
-			this.user_interacted = false;
-		}
+		if (this.video_url !== location.href) this.user_interacted = false;
 
-		// if (no user clicks) and (no ads playing) and
-		// ( there is a player and ( (it is not in a playlist and auto play is off ) or ( playlist auto play is off and in a playlist ) ) ) or (if we are in a channel and the channel trailer autoplay is off)  )
+		// if (there is a player) and (no user clicks) and (no ads playing)
+		// and ( ( it is not in a playlist and auto play is off )
+		//    or ( playlist auto play is off and in a playlist )
+		//    or ( we are in a channel and the channel trailer autoplay is off ) )
 
 		// user didnt click
 		if (player && !this.user_interacted
@@ -75,19 +75,38 @@ ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+PICTURE IN PICTURE (PIP)
+------------------------------------------------------------------------------*/
+ImprovedTube.enterPip = function (disable) {
+	const video = this.elements.video;
+
+	if (!disable
+		&& video
+		&& document.pictureInPictureEnabled
+		&& typeof video.requestPictureInPicture == 'function') {
+
+		video.requestPictureInPicture().then(() => {
+			if (video.paused) {
+				// manually send Play message to "Auto-pause while I'm not in the tab", paused PiP wont do it automatically.
+				document.dispatchEvent(new CustomEvent('it-play'));
+			}
+			return true;
+		}).catch((err) => console.error('playerAutoPip: Failed to enter Picture-in-Picture mode', err));
+	} else if (document.pictureInPictureElement && typeof document.exitPictureInPicture == 'function') {
+		document.exitPictureInPicture();
+		return false;
+	}
+};
+/*------------------------------------------------------------------------------
 AUTO PIP WHEN SWITCHING TABS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAutoPip = function () {
-	const video = ImprovedTube.elements.video;
+	const video = this.elements.video;
 
-	if (this.storage.player_autoPip === true && video) {
-		(async () => {
-			try {
-				await video.requestPictureInPicture();
-			  } catch (error) {
-				console.error('Failed to enter Picture-in-Picture mode', error);
-			  }
-		  })();
+	if (this.storage.player_autoPip && this.storage.player_autoPip_outside && this.focus) {
+		this.enterPip(true);
+	} else if (this.storage.player_autoPip && !this.focus && !video?.paused) {
+		this.enterPip();
 	}
 };
 /*------------------------------------------------------------------------------
