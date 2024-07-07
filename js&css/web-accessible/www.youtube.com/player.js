@@ -78,16 +78,14 @@ ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
 AUTO PIP WHEN SWITCHING TABS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAutoPip = function () {
-	const video = ImprovedTube.elements.video;
+	const video = this.elements.video;
 
-	if (this.storage.player_autoPip === true && video) {
-		(async () => {
-			try {
-				await video.requestPictureInPicture();
-			  } catch (error) {
-				console.error('Failed to enter Picture-in-Picture mode', error);
-			  }
-		  })();
+	if (this.focus && this.storage.player_autoPip_outside && document.pictureInPictureElement && typeof document.exitPictureInPicture == 'function') {
+		document.exitPictureInPicture();
+	} else if (!this.focus && !video.paused && this.storage.player_autoPip && video) {
+		if (video && document.pictureInPictureEnabled && typeof video.requestPictureInPicture == 'function') {
+			video.requestPictureInPicture().then().catch((err) => console.error('Failed to enter Picture-in-Picture mode', err));
+		}
 	}
 };
 /*------------------------------------------------------------------------------
