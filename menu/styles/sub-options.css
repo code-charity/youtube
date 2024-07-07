@@ -1,34 +1,34 @@
 /*-----------------
 NESTED (CONDITIONAL) SWITCHES
 -----------------*/
-#remove-home-page-shorts:not([data-value='true']) + .satus-switch,
-#remove-home-page-shorts:not([data-value='true']) + .satus-switch + .satus-switch,
-#remove-home-page-shorts:not([data-value='true']) + .satus-switch + .satus-switch + .satus-switch,
+#remove-home-page-shorts:not([data-value=true]) + .satus-switch,
+#remove-home-page-shorts:not([data-value=true]) + .satus-switch + .satus-switch,
+#remove-home-page-shorts:not([data-value=true]) + .satus-switch + .satus-switch + .satus-switch,
 /*-----------------
 >>> Appearance
 -----------------*/
 /*-transcript compact spacing-*/
-#transcript:not([data-value='true']) + .satus-switch,
+#transcript:not([data-value=true]) + .satus-switch,
  /*-DURATION WITH SPEED-*/
-#show-remaining-duration:not([data-value='true']) + .satus-switch,
+#show-remaining-duration:not([data-value=true]) + .satus-switch,
  /*-comment sidebar scrollbars-*/
-#comments-sidebar:not([data-value='true']) + .satus-switch + #comments-sidebar-simple:not([data-value='true']) + .satus-switch, 
-/* #comments-sidebar:not([data-value='true']) + .satus-switch, */
+#comments-sidebar:not([data-value=true]) + .satus-switch + #comments-sidebar-simple:not([data-value=true]) + .satus-switch, 
+/* #comments-sidebar:not([data-value=true]) + .satus-switch, */
 /*--------------------------------------------------------------
 >>> PLAYER
 --------------------------------------------------------------*/
 #player_autoPip:not([data-value=true]) + .satus-switch,
-#forced-volume:not([data-value='true']) + .satus-slider,
-#forced-playback-speed:not([data-value='true']) + .satus-switch,
-#forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch,
-#forced-playback-speed:not([data-value='true']) + .satus-switch + .satus-switch + .satus-slider, 
-/* #player_repeat_button:not([data-value='true']) + .satus-switch, */
-#player_screenshot_button:not([data-value='true'])  + .satus-switch,
-#player_screenshot_button:not([data-value='true'])  + .satus-switch + .satus-select,
+#forced-volume:not([data-value=true]) + .satus-slider,
+#forced-playback-speed:not([data-value=true]) + .satus-switch,
+#forced-playback-speed:not([data-value=true]) + .satus-switch + .satus-switch,
+#forced-playback-speed:not([data-value=true]) + .satus-switch + .satus-switch + .satus-slider, 
+/* #player_repeat_button:not([data-value=true]) + .satus-switch, */
+#player_screenshot_button:not([data-value=true]) + .satus-switch,
+#player_screenshot_button:not([data-value=true]) + .satus-switch + .satus-select,
  /*--------------------------------------------------------------
 	SUBTITLES
 --------------------------------------------------------------*/
-#subtitles-language[data-value='default'] + .satus-switch,
+#subtitles-language[data-value=default] + .satus-switch,
 /*--------------------------------------------------------------
 NIGHT MODE
 --------------------------------------------------------------*/
@@ -37,74 +37,72 @@ NIGHT MODE
 /*====================================*/
 	{display: none !important;}
 
-#remove-home-page-shorts[data-value='true'] + .satus-switch,
-#remove-home-page-shorts[data-value='true'] + .satus-switch + .satus-switch,
-#remove-home-page-shorts[data-value='true'] + .satus-switch + .satus-switch + .satus-switch,
+#remove-home-page-shorts[data-value=true] + .satus-switch,
+#remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch,
+#remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch + .satus-switch,
 /*-----------------
 >>> Appearance
 -----------------*/
 /*-transcript compact spacing-*/
-#transcript[data-value='true'] + .satus-switch,
+#transcript[data-value=true] + .satus-switch,
  /*-DURATION WITH SPEED-*/
-#show-remaining-duration[data-value='true'] + .satus-switch,
+#show-remaining-duration[data-value=true] + .satus-switch,
  /*-comment sidebar scrollbars-*/
-#comments-sidebar[data-value='true'] + .satus-switch,
+#comments-sidebar[data-value=true] + .satus-switch,
 /*--------------------------------------------------------------
 >>> PLAYER
 --------------------------------------------------------------*/
 #player_autoPip[data-value=true] + .satus-switch,
-#forced-volume[data-value='true'] + .satus-slider, 
-#forced-playback-speed[data-value='true'] + .satus-switch,
-#forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch,
-#forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch + .satus-slider, 
+#forced-volume[data-value=true] + .satus-slider, 
+#forced-playback-speed[data-value=true] + .satus-switch,
+#forced-playback-speed[data-value=true] + .satus-switch + .satus-switch,
+#forced-playback-speed[data-value=true] + .satus-switch + .satus-switch + .satus-slider, 
 #player_repeat_button + .satus-switch, 
 #player_cinema_mode_button +.satus-switch,
 #player_auto_cinema_mode +.satus-switch,
-#player_screenshot_button[data-value='true']  + .satus-switch,
-#player_screenshot_button[data-value='true']  + .satus-switch + .satus-select,
+#player_screenshot_button[data-value=true] + .satus-switch,
+#player_screenshot_button[data-value=true] + .satus-switch + .satus-select,
  /*--------------------------------------------------------------
 	SUBTITLES
 --------------------------------------------------------------*/
-#subtitles-language:not([data-value='default']) + .satus-switch,
+#subtitles-language:not([data-value=default]) + .satus-switch,
 /*--------------------------------------------------------------
 NIGHT MODE
 --------------------------------------------------------------*/
 #activate[data-value='sunset_to_sunrise'] + .satus-time--from,
 #activate[data-value='sunset_to_sunrise'] + * + .satus-time--to 
 /*====================================*/
-	{margin-left:20px; margin-top:-4px; margin-bottom:2px; max-width: calc( 100% - 22px ) !important;   border-radius: 2px;  border-left: 1px inset;  }
+	{margin-left:20px; margin-top:-4px; margin-bottom:2px; max-width: calc( 100% - 22px ) !important; border-radius: 2px; border-left: 1px inset;}
 
-#remove-home-page-shorts[data-value='true'] + .satus-switch:not(:hover),
-#remove-home-page-shorts[data-value='true'] + .satus-switch + .satus-switch:not(:hover),
-#remove-home-page-shorts[data-value='true'] + .satus-switch + .satus-switch + .satus-switch:not(:hover),
+#remove-home-page-shorts[data-value=true] + .satus-switch:not(:hover),
+#remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch:not(:hover),
+#remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch + .satus-switch:not(:hover),
 /*-----------------
 >>> Appearance
 -----------------*/
 /*-transcript compact spacing-*/
-#transcript[data-value='true'] + .satus-switch:not(:hover),
+#transcript[data-value=true] + .satus-switch:not(:hover),
  /*-DURATION WITH SPEED-*/
-#show-remaining-duration[data-value='true'] + .satus-switch:not(:hover),
+#show-remaining-duration[data-value=true] + .satus-switch:not(:hover),
  /*-comment sidebar scrollbars-*/
-#comments-sidebar[data-value='true'] + .satus-switch:not(:hover),
+#comments-sidebar[data-value=true] + .satus-switch:not(:hover),
 /*--------------------------------------------------------------
 >>> PLAYER
 --------------------------------------------------------------*/
-#forced-volume[data-value='true'] + .satus-slider:not(:hover), 
-#forced-playback-speed[data-value='true'] + .satus-switch:not(:hover),
-#forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch:not(:hover),
-#forced-playback-speed[data-value='true'] + .satus-switch + .satus-switch + .satus-slider:not(:hover), 
-#player_screenshot_button[data-value='true']  + .satus-switch:not(:hover),
-#player_screenshot_button[data-value='true']  + .satus-switch + .satus-select:not(:hover),
+#forced-volume[data-value=true] + .satus-slider:not(:hover), 
+#forced-playback-speed[data-value=true] + .satus-switch:not(:hover),
+#forced-playback-speed[data-value=true] + .satus-switch + .satus-switch:not(:hover),
+#forced-playback-speed[data-value=true] + .satus-switch + .satus-switch + .satus-slider:not(:hover), 
+#player_screenshot_button[data-value=true] + .satus-switch:not(:hover),
+#player_screenshot_button[data-value=true] + .satus-switch + .satus-select:not(:hover),
  /*--------------------------------------------------------------
 	SUBTITLES
 --------------------------------------------------------------*/
-#subtitles-language:not([data-value='default']) + .satus-switch:not(:hover),
+#subtitles-language:not([data-value=default]) + .satus-switch:not(:hover),
 /*--------------------------------------------------------------
 NIGHT MODE
 --------------------------------------------------------------*/
 #activate[data-value='sunset_to_sunrise'] + .satus-time--from:not(:hover),
 #activate[data-value='sunset_to_sunrise'] + * + .satus-time--to:not(:hover) 
 /*====================================*/
- { background-color:rgb(69,180,210,0.09); }
- 
- 
+	{background-color:rgb(69,180,210,0.09);}
