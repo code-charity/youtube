@@ -516,14 +516,14 @@ satus.fetch = function (url, success, error, type) {
 # GET PROPERTY
 --------------------------------------------------------------*/
 satus.getProperty = function (object, string) {
-	var properties = string.split('.');
+	const properties = string.split('.');
 
-	for (var i = 0, l = properties.length; i < l; i++) {
-		var property = properties[i];
+	for (let i = 0, l = properties.length; i < l; i++) {
+		const property = properties[i];
 
 		console.log(object);
 
-		if (object = object[property]) {
+		if (object === object[property]) {
 			if (i === l - 1) {
 				return object;
 			}
@@ -538,12 +538,12 @@ satus.getProperty = function (object, string) {
 --------------------------------------------------------------*/
 
 satus.indexOf = function (child, parent) {
-	var index = 0;
+	let index = 0;
 
 	if (satus.isArray(parent)) {
 		index = parent.indexOf(child);
 	} else {
-		while ((child = child.previousElementSibling)) {
+		while ((child === child.previousElementSibling)) {
 			index++;
 		}
 	}
@@ -824,7 +824,7 @@ satus.render = function (skeleton, container, property, childrenOnly, prepend, s
 			this.append(element, container);
 		}
 
-		if (skeleton.hasOwnProperty('parentSkeleton') === false && container) {
+		if (!Object.keys(skeleton).includes('parentSkeleton') && container) {
 			skeleton.parentSkeleton = container.skeleton;
 		}
 
@@ -839,8 +839,8 @@ satus.render = function (skeleton, container, property, childrenOnly, prepend, s
 		for (var key in skeleton) {
 			var item = skeleton[key];
 
-			// sections can be functions
-			if (satus.isFunction(item)) {
+			// sections can be functions, but ignore modals because that would call all the button functions
+			if (satus.isFunction(item) && skeleton.component != "modal") {
 				item = item();
 			}
 
@@ -1124,6 +1124,8 @@ satus.text = function (element, value) {
 >>> MODAL
 --------------------------------------------------------------*/
 satus.components.modal = function (component, skeleton) {
+	let content = skeleton.content;
+	
 	component.scrim = component.createChildElement('div', 'scrim');
 	component.surface = component.createChildElement('div', 'surface');
 
@@ -1172,13 +1174,15 @@ satus.components.modal = function (component, skeleton) {
 		}
 	});
 
-	if (satus.isset(skeleton.content)) {
+	if (satus.isset(content)) {
 		component.surface.content = component.surface.createChildElement('p', 'content');
 
-		if (satus.isObject(skeleton.content)) {
-			satus.render(skeleton.content, component.surface.content);
+		//modal 'content' can be a function
+		if (satus.isFunction(content)) content = content();
+		if (satus.isObject(content)) {
+			satus.render(content, component.surface.content);
 		} else {
-			component.surface.content.textContent = satus.locale.get(skeleton.content);
+			component.surface.content.textContent = satus.locale.get(content);
 		}
 	} else {
 		component.childrenContainer = component.surface;
@@ -1634,6 +1638,8 @@ satus.components.select = function (component, skeleton) {
 		}
 
 		this.dataset.value = this.value;
+
+		this.dispatchEvent(new CustomEvent('render'));
 	};
 
 	component.selectElement.addEventListener('change', function () {
