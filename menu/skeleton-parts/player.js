@@ -747,7 +747,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 				text: '1440p',
 				value: 'hd1440'
 			}, {
-				text: '2160p',
+				text: '2160p (4K UHD)',
 				value: 'hd2160'
 			}, {
 				text: '2880p',
@@ -758,25 +758,31 @@ extension.skeleton.main.layers.section.player.on.click = {
 			}],
 			on: {
 				render: function () {
+					// relies on options.text above auto always starting with a number for parseInt to work
+					const options = this.childNodes[2].options,
+							index = this.childNodes[2].selectedIndex;
+							cutoff = 1080;
 					if (satus.storage.get('player_h264')) {
-						if (this.childNodes[2].selectedIndex >6) {
+						if (parseInt(options[index].text) > cutoff) {
 							this.childNodes[1].style = 'color: red!important; font-weight: bold;';
 							this.childNodes[1].textContent = '1080p';
 						} else {
-							this.childNodes[1].style = '';
-							this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
+							this.childNodes[1].removeAttribute('style');
+							this.childNodes[1].textContent = options[index].text;
 						}
-						for (let index =7; index <= 10; index++) {
-							this.childNodes[2].childNodes[index].style = 'color: red!important; font-weight: bold;';
+						for (const [i, node] of Array.from(options).entries()) {
+							if (parseInt(node.text) > cutoff) {
+								this.childNodes[2].childNodes[i].style = 'color: red!important; font-weight: bold;';
+							}
 						}
 					} else if (satus.storage.get('block_vp9') && satus.storage.get('block_h264')) {
 						this.childNodes[1].style = 'color: red!important; font-weight: bold;';
 						this.childNodes[1].textContent = 'Video disabled';
 					} else {
-						this.childNodes[1].style = '';
-						this.childNodes[1].textContent = this.childNodes[2].options[this.childNodes[2].selectedIndex].text;
-						for (let index =7; index <= 10; index++) {
-							this.childNodes[2].childNodes[index].style = '';
+						this.childNodes[1].removeAttribute('style');
+						this.childNodes[1].textContent = options[index].text;
+						for (const node of options) {
+							node.removeAttribute('style');
 						}
 					}
 				}
