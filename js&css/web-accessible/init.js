@@ -16,10 +16,6 @@ ImprovedTube.observer = new MutationObserver(function (mutationList) {
 			for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
 				ImprovedTube.childHandler(mutation.addedNodes[j]);
 			}
-
-			for (const node of mutation.removedNodes) {
-				if (node.nodeName === 'BUTTON' && node.id === 'it-popup-playlist-button') ImprovedTube.playlistPopupUpdate();
-			}
 		}
 		if (mutation.target && mutation.target.id === 'owner-sub-count') {
 			// Extract and store the subscriber count
@@ -41,7 +37,7 @@ ImprovedTube.observer = new MutationObserver(function (mutationList) {
 //console.log("p"+i+"c"+j+":"+node.id+",class:"+node.className+","+node+"("+node.nodeName+")");
 				j++;}
 				let r = 0; for (const node of mutated.removedNodes){ //might fix our other playlist buttons equally?
-				if(node.nodeName === 'BUTTON' && node.id === 'it-popup-playlist-button') ImprovedTube.playlistPopupUpdate();
+				if(node.nodeName === 'BUTTON' && node.id === 'it-popup-playlist-button') ImprovedTube.playlistPopup();
 //console.log("p"+i+"removed"+r+":"+node.id+",class:"+node.className+","+node+"("+node.nodeName+")"+"(from:"+mutated.target.id+",class:"+mutated.target.className+","+mutated.target+"("+mutated.target.nodeName+")");
 				r++;}
 						if(mutated.target.id === 'owner-sub-count')
@@ -85,34 +81,23 @@ if (ImprovedTube.storage.channel_default_tab && ImprovedTube.storage.channel_def
 ImprovedTube.init = function () {
 	window.addEventListener('yt-page-data-updated', function () {
 		ImprovedTube.pageType();
-		if (document.documentElement.dataset.pageType === 'video' && /[?&]list=([^&]+).*$/.test(location.href)) {
+		if (location.search.match(ImprovedTube.regex.playlist_id)) {
 			ImprovedTube.playlistRepeat();
 			ImprovedTube.playlistShuffle();
 			ImprovedTube.playlistReverse();
+			ImprovedTube.playlistPopup();
 		}
-		ImprovedTube.playlistPopupUpdate();
 	});
-	ImprovedTube.pageType();
-	var yt_player_updated = function () {
-		document.dispatchEvent(new CustomEvent('improvedtube-player-loaded'));
-
-		window.removeEventListener('yt-player-updated', yt_player_updated);
-	};
-
-	window.addEventListener('yt-player-updated', yt_player_updated);
+	this.pageType();
 	this.playerOnPlay();
 	this.playerSDR();
-	this.shortcuts();
+	this.shortcutsInit();
 	this.onkeydown();
 	this.onmousedown();
 	this.youtubeLanguage();
 	this.myColors();
-	if (this.storage.undo_the_new_sidebar === true) {
-		this.undoTheNewSidebar();
-	}
-	if (this.storage.description === "sidebar") {
-		this.descriptionSidebar();
-	}
+	if (this.storage.undo_the_new_sidebar) this.undoTheNewSidebar();
+	if (this.storage.description === "sidebar") this.descriptionSidebar();
 	this.channelCompactTheme();
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {

@@ -1128,10 +1128,13 @@
         "message": "Share"
     },
     "shortcut_chapters": {
-        "message": "Show chapters Sidebar"
+        "message": "Chapter (Sidebar) On/Off"
     },
     "shortcut_screenshot": {
         "message": "Screenshot"
+    },
+    "shortcut_transcript": {
+        "message": "Transcript (Sidebar) On/Off"
     },
     "shortcuts": {
         "message": "Shortcuts"
