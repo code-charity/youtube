@@ -5,4 +5,5 @@
 --------------------------------------------------------------*/
 extension.functions.getUrlParameter = function (url, parameter) {
 	var match = url.match(new RegExp('(\\?|\\&)' + parameter + '=[^&]+'));
-	if (match) {return match[0].substr(3);}};
+	if (match) {return match[0].substr(3);}
+};

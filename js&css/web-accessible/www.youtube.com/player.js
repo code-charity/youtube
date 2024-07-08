@@ -9,14 +9,14 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 
 		if (this.video_url !== location.href) {	this.user_interacted = false; }
 
-		// if (there is a player) and (no user clicks) and (no ads playing) 
+		//if (there is a player) and (no user clicks) and (no ads playing) 
 		// and( ((auto play is off and it is not in a playlist)
 		//   	 or (playlist auto play is off and in a playlist))
 		//   	 or (we are in a channel and the channel trailer autoplay is off)  )
 
-		if (player && !this.user_interacted  // (=user didnt click or type)
-			& !player.classList.contains('ad-showing') // (=no ads playing, needs an update?)
-			&& ((location.href.includes('/watch?') // #1703  // (=video page)
+		if (player && !this.user_interacted // (=user didnt click or type)
+			&& !player.classList.contains('ad-showing') // (=no ads playing, needs an update?)
+			&& ((location.href.includes('/watch?') // #1703 // (=video page)
 				// player_autoplay_disable & not playlist
 				&& (this.storage.player_autoplay_disable && !location.href.includes('list='))
 				// !playlist_autoplay & playlist
@@ -877,8 +877,7 @@ ImprovedTube.playerCinemaModeButton = function () {
 					player.style.zIndex = 1;
 					svg.parentNode.style.opacity = 0.64;
 					svg.parentNode.style.zIndex = 1;
-				}
-				else {
+				} else {
 					player.style.zIndex = 10000;
 					svg.parentNode.style.opacity = 1;
 				}
@@ -936,55 +935,56 @@ ImprovedTube.playerCinemaModeEnable = function () {
 /*------------------------------------------------------------------------------
 HAMBURGER MENU
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerHamburgerButton = function () { if (this.storage.player_hamburger_button === true) {
-	const videoPlayer = document.querySelector('.html5-video-player');
+ImprovedTube.playerHamburgerButton = function () {
+	if (this.storage.player_hamburger_button === true) {
+		const videoPlayer = document.querySelector('.html5-video-player');
 
-	if (!videoPlayer) {
-		return;
-	}
+		if (!videoPlayer) {
+			return;
+		}
 
-	const controlsContainer = videoPlayer.querySelector('.ytp-right-controls');
+		const controlsContainer = videoPlayer.querySelector('.ytp-right-controls');
 
-	if (!controlsContainer) {
-		return;
-	}
+		if (!controlsContainer) {
+			return;
+		}
 
-	let hamburgerMenu = document.querySelector('.custom-hamburger-menu');
-	if (!hamburgerMenu) {
-		hamburgerMenu = document.createElement('div');
-		hamburgerMenu.className = 'custom-hamburger-menu';
-		hamburgerMenu.style.position = 'absolute';
-		hamburgerMenu.style.right = '0';
-		hamburgerMenu.style.marginTop = '8px';
-		hamburgerMenu.style.cursor = 'pointer';
+		let hamburgerMenu = document.querySelector('.custom-hamburger-menu');
+		if (!hamburgerMenu) {
+			hamburgerMenu = document.createElement('div');
+			hamburgerMenu.className = 'custom-hamburger-menu';
+			hamburgerMenu.style.position = 'absolute';
+			hamburgerMenu.style.right = '0';
+			hamburgerMenu.style.marginTop = '8px';
+			hamburgerMenu.style.cursor = 'pointer';
 
-		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
-		svg.setAttribute('style', 'width: 32px; height: 32px;');
+			const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+			svg.setAttribute('style', 'width: 32px; height: 32px;');
 
-		const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		path.setAttributeNS(null, 'd', 'M3 18h18v-2H3v2zM3 13h18v-2H3v2zM3 6v2h18V6H3z');
-		path.setAttributeNS(null, 'fill', 'white');
+			const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+			path.setAttributeNS(null, 'd', 'M3 18h18v-2H3v2zM3 13h18v-2H3v2zM3 6v2h18V6H3z');
+			path.setAttributeNS(null, 'fill', 'white');
 
-		svg.appendChild(path);
-		hamburgerMenu.appendChild(svg);
+			svg.appendChild(path);
+			hamburgerMenu.appendChild(svg);
 
-		controlsContainer.style.paddingRight = '40px';
-		controlsContainer.parentNode.appendChild(hamburgerMenu);
+			controlsContainer.style.paddingRight = '40px';
+			controlsContainer.parentNode.appendChild(hamburgerMenu);
 
-		let controlsVisible = true;
-		controlsContainer.style.display = controlsVisible ? 'none' : 'flex';
-		controlsVisible = false;
-
-		hamburgerMenu.addEventListener('click', function () {
+			let controlsVisible = true;
 			controlsContainer.style.display = controlsVisible ? 'none' : 'flex';
-			controlsVisible = !controlsVisible;
+			controlsVisible = false;
 
-			// Change the opacity of hamburgerMenu based on controls visibility
-			hamburgerMenu.style.opacity = controlsVisible ? '0.85' : '0.65';
-		});
+			hamburgerMenu.addEventListener('click', function () {
+				controlsContainer.style.display = controlsVisible ? 'none' : 'flex';
+				controlsVisible = !controlsVisible;
+
+				// Change the opacity of hamburgerMenu based on controls visibility
+				hamburgerMenu.style.opacity = controlsVisible ? '0.85' : '0.65';
+			});
+		}
 	}
-}
 };
 /*------------------------------------------------------------------------------
 POPUP PLAYER
@@ -1437,61 +1437,62 @@ ImprovedTube.miniPlayer = function () {
 /*------------------------------------------------------------------------------
 CUSTOM PAUSE FUNCTIONS
 ------------------------------------------------------------------------------*/
-ImprovedTube.pauseWhileTypingOnYoutube = function () { if (ImprovedTube.storage.pause_while_typing_on_youtube === true) {
-	var timeoutId; // Declare a variable to hold the timeout ID
+ImprovedTube.pauseWhileTypingOnYoutube = function () {
+	if (ImprovedTube.storage.pause_while_typing_on_youtube === true) {
+		var timeoutId; // Declare a variable to hold the timeout ID
 
-	// Add event listener to the whole document
-	document.addEventListener('keydown', function (e) {
+		// Add event listener to the whole document
+		document.addEventListener('keydown', function (e) {
 		// Check on the storage for pause_while_typing_on_youtube_storage is false
 
-		// If player is NOT in the viewport, return
-		if (!isPlayerInViewport()) {
-			return;
-		}
+			// If player is NOT in the viewport, return
+			if (!isPlayerInViewport()) {
+				return;
+			}
 
-		var player = ImprovedTube.elements.player;
+			var player = ImprovedTube.elements.player;
 
-		if (player) {
-			if (
-				(/^[a-z0-9]$/i.test(e.key) || e.key === "Backspace") &&
+			if (player) {
+				if (
+					(/^[a-z0-9]$/i.test(e.key) || e.key === "Backspace") &&
 				!(e.ctrlKey && (e.key === "c" || e.key === "x" || e.key === "a")) &&
-				( document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA" || document.activeElement.tagName === "DIV" ))
-			{
+				( document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA" || document.activeElement.tagName === "DIV" )) {
 				// Pause the video
 				// Check if player is paused
-				if (!player.paused) {
-					player.pauseVideo();
-				}
+					if (!player.paused) {
+						player.pauseVideo();
+					}
 
-				// Clear any existing timeout
-				if (timeoutId) {
-					clearTimeout(timeoutId);
-				}
+					// Clear any existing timeout
+					if (timeoutId) {
+						clearTimeout(timeoutId);
+					}
 
-				// Set a new timeout to play the video after 1 second
-				timeoutId = setTimeout(function () {
-					player.playVideo();
-				}, 2000); // 2000 milliseconds = 2 seconds
+					// Set a new timeout to play the video after 1 second
+					timeoutId = setTimeout(function () {
+						player.playVideo();
+					}, 2000); // 2000 milliseconds = 2 seconds
+				}
 			}
-		}
-	});
+		});
 
-	function isPlayerInViewport () {
-		var player = ImprovedTube.elements.player;
-		if (player) {
-			var rect = player.getBoundingClientRect();
-			var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-			var windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+		function isPlayerInViewport () {
+			var player = ImprovedTube.elements.player;
+			if (player) {
+				var rect = player.getBoundingClientRect();
+				var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+				var windowWidth = (window.innerWidth || document.documentElement.clientWidth);
 
-			// Check if the player is in the viewport
-			return (
-				rect.top != 0 &&
+				// Check if the player is in the viewport
+				return (
+					rect.top != 0 &&
 				rect.left != 0 &&
 				rect.bottom <= windowHeight &&
 				rect.right <= windowWidth
-			);
+				);
+			}
+			return false;
 		}
-		return false;
-	}
 
-}};
+	}
+};

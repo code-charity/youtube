@@ -332,36 +332,36 @@ ImprovedTube.shortcutScreenshot = ImprovedTube.screenshot;
 /*------------------------------------------------------------------------------
 4.7.16 INCREASE PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcutIncreasePlaybackSpeed = function () { const value = Number(this.storage.shortcuts_playback_speed_step) || .05,
+ImprovedTube.shortcutIncreasePlaybackSpeed = function () { value = Number(this.storage.shortcuts_playback_speed_step) || .05;
 // original:	
 	const video = this.elements.video;
 	if (video) {if ( video.playbackRate){
-				if ( video.playbackRate < 1 && video.playbackRate > 1-ImprovedTube.storage.shortcut_playback_speed_step ) {  
+				if ( video.playbackRate < 1 && video.playbackRate > 1-ImprovedTube.storage.shortcuts_playback_speed_step ) {  
                  video.playbackRate =  1 } // aligning at 1.0 instead of passing by 1.0
-		  else { video.playbackRate = Math.min(Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1),16);
+		  else { video.playbackRate = Math.min(Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcuts_playback_speed_step || .05)).toFixed(2)), .1),16);
 					  }    					// Firefox doesnt limit speed to 16x. We can allow more in Firefox if people ask  
 		ImprovedTube.showStatus(video.playbackRate);
 	} else {		
 	// alternative:
 	const player = this.elements.player;
 		if (player) {
-				if (  player.getPlaybackRate() < 1 &&  player.getPlaybackRate() > 1-ImprovedTube.storage.shortcut_playback_speed_step ) {  
+				if (  player.getPlaybackRate() < 1 &&  player.getPlaybackRate() > 1-ImprovedTube.storage.shortcuts_playback_speed_step ) {  
                   player.setPlaybackRate(1) } // aligning at 1.0 instead of passing by 1.0
-		  else { player.setPlaybackRate(Math.min(Math.max(Number((player.getPlaybackRate() + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1),16))
+		  else { player.setPlaybackRate(Math.min(Math.max(Number((player.getPlaybackRate() + Number(ImprovedTube.storage.shortcuts_playback_speed_step || .05)).toFixed(2)), .1),16))
 					  }        	        
 		ImprovedTube.showStatus(player.getPlaybackRate());
 }}}};
 /*------------------------------------------------------------------------------
 4.7.17 DECREASE PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcutDecreasePlaybackSpeed = function () { const value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
+ImprovedTube.shortcutDecreasePlaybackSpeed = function () { value = Number(ImprovedTube.storage.shortcuts_playback_speed_step) || .05;
 // original:
 	const video = this.elements.video;
 	if (video) {
 		if (video.playbackRate){
-			if ( video.playbackRate < 0.1+ImprovedTube.storage.shortcut_playback_speed_step ) {  
+			if ( video.playbackRate < 0.1+ImprovedTube.storage.shortcuts_playback_speed_step ) {  
 		    video.playbackRate =  video.playbackRate*0.7 } // slow down near minimum
-	  else { video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1);
+	  else { video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcuts_playback_speed_step || .05)).toFixed(2)), .1);
 		    }
 		ImprovedTube.showStatus(video.playbackRate);
 	}		
@@ -369,9 +369,9 @@ ImprovedTube.shortcutDecreasePlaybackSpeed = function () { const value = Number(
 	// alternative:
 	const player = this.elements.player;
 	if (player) {
-			if ( player.getPlaybackRate() < 0.1+ImprovedTube.storage.shortcut_playback_speed_step ) {  
+			if ( player.getPlaybackRate() < 0.1+ImprovedTube.storage.shortcuts_playback_speed_step ) {  
 		    player.setPlaybackRate(player.getPlaybackRate()*0.7) } // slow down near minimum
-	  else { player.setPlaybackRate(Math.max(Number((player.getPlaybackRate()  - Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1))
+	  else { player.setPlaybackRate(Math.max(Number((player.getPlaybackRate()  - Number(ImprovedTube.storage.shortcuts_playback_speed_step || .05)).toFixed(2)), .1))
 		    }
 		ImprovedTube.showStatus(player.getPlaybackRate());
 }}}};

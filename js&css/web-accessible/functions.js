@@ -129,8 +129,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 			this.improvedtubeYoutubeIcon();
 		}
-	}
-	else if (name === 'TP-YT-APP-DRAWER') {
+	} else if (name === 'TP-YT-APP-DRAWER') {
 		if (!this.elements.app_drawer) {
 			this.elements.app_drawer = {start: node.querySelector('div#header'),
 				logo: node.querySelector('a#logo')
@@ -416,9 +415,27 @@ ImprovedTube.playerOnEnded = function (event) {
 	ImprovedTube.played_time = 0;
 };
 
+// https://github.com/code-charity/youtube/pull/2431
 ImprovedTube.onkeydown = function () {
 	ImprovedTube.pauseWhileTypingOnYoutube()
 	window.addEventListener('keydown', function () {
+		ImprovedTube.user_interacted = true;
+	}, true);
+};
+
+ImprovedTube.onmousedown = function (event) {
+	window.addEventListener('mousedown', function (event) {
+		ImprovedTube.user_interacted = true;
+	}, true);
+};
+
+/*
+ImprovedTube.onkeydown = function () {
+	ImprovedTube.pauseWhileTypingOnYoutube()
+	window.addEventListener('keydown', function () {
+		if (!ImprovedTube.user_interacted) {
+			setTimeout(function () {ImprovedTube.user_interacted = true}, 2500);
+		}
 		if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
 			ImprovedTube.user_interacted = true;
 		}
@@ -428,7 +445,7 @@ ImprovedTube.onkeydown = function () {
 ImprovedTube.onmousedown = function () {
 	window.addEventListener('mousedown', function (event) {
 		if (!ImprovedTube.user_interacted) {
-			setTimeout(function () {ImprovedTube.user_interacted = true}, 3000);
+			setTimeout(function () {ImprovedTube.user_interacted = true}, 2500);
 			if (ImprovedTube.elements.player && ImprovedTube.elements.player.classList.contains('ad-showing') === false) {
 				var path = event.composedPath();
 				for (var i = 0, l = path.length; i < l; i++) {
@@ -441,6 +458,7 @@ ImprovedTube.onmousedown = function () {
 		}
 	}, true);
 };
+*/
 
 ImprovedTube.getParam = function (query, name) {
 	var params = query.split('&'),

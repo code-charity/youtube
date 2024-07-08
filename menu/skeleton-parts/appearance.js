@@ -838,10 +838,11 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 					click: function () {
 						setTimeout(() => {
 							if (satus.storage.get('related_videos')==="Titles"
-							&& satus.storage.get("relatedVideosPrev") ==="Titles") {if (!satus.storage.get('thumbnails_right')) {
-								this.nextSibling.nextSibling.click();
-								satus.storage.set('relatedVideosPrev', "notTitles")
-							}
+							&& satus.storage.get("relatedVideosPrev") ==="Titles") {
+								if (!satus.storage.get('thumbnails_right')) {
+									this.nextSibling.nextSibling.click();
+									satus.storage.set('relatedVideosPrev', "notTitles")
+								}
 							}
 						}, 650)
 
@@ -866,13 +867,15 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 				value: false,
 				id: 'transcript',
 				on: {
-					click: function () { setTimeout(() => {
-						if (satus.storage.get('transcript')) {
-							if (satus.storage.get('no_page_margin')) {
-								this.nextSibling.nextSibling.click();
+					click: function () {
+						setTimeout(() => {
+							if (satus.storage.get('transcript')) {
+								if (satus.storage.get('no_page_margin')) {
+									this.nextSibling.nextSibling.click();
+								}
 							}
-						}
-					}, 250); }
+						}, 250);
+					}
 				}
 			},
 			compact_spacing: {
@@ -886,13 +889,15 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 
 				value: false,
 				on: {
-					click: function () { setTimeout(() => {
-						if (satus.storage.get('no_page_margin')) {
-							if (satus.storage.get('transcript')) {
-								this.previousSibling.previousSibling.click();
+					click: function () {
+						setTimeout(() => {
+							if (satus.storage.get('no_page_margin')) {
+								if (satus.storage.get('transcript')) {
+									this.previousSibling.previousSibling.click();
+								}
 							}
-						}
-					}, 250); }
+						}, 250);
+					}
 				}
 			},
 			chapters: {

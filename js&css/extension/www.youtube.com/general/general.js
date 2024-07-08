@@ -356,7 +356,8 @@ extension.features.markWatchedVideos = function (anything) {
 							target.itMarkWatchedVideosButton.appendChild(svg);
 							target.itMarkWatchedVideosButton.appendChild(svg2);
 							if (extension.storage.get('watched') && extension.storage.get('watched')[id]) {
-								target.itMarkWatchedVideosButton.setAttribute('watched', '')};
+								target.itMarkWatchedVideosButton.setAttribute('watched', '')
+							};
 							target.appendChild(target.itMarkWatchedVideosButton);
 							target.itMarkWatchedVideosButton.addEventListener('click', function (event) {
 								var id = this.dataset.id,
@@ -379,7 +380,8 @@ extension.features.markWatchedVideos = function (anything) {
 
 								chrome.storage.local.set({
 									watched: extension.storage.get('watched')
-								});});
+								});
+							});
 
 						} else {
 							var button = target.itMarkWatchedVideosButton;
