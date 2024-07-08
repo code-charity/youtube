@@ -332,49 +332,38 @@ ImprovedTube.shortcutScreenshot = ImprovedTube.screenshot;
 /*------------------------------------------------------------------------------
 4.7.16 INCREASE PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcutIncreasePlaybackSpeed = function () { value = Number(this.storage.shortcuts_playback_speed_step) || .05;
-// original:	
-	const video = this.elements.video;
-	if (video) {if ( video.playbackRate){
-				if ( video.playbackRate < 1 && video.playbackRate > 1-ImprovedTube.storage.shortcuts_playback_speed_step ) {  
-                 video.playbackRate =  1 } // aligning at 1.0 instead of passing by 1.0
-		  else { video.playbackRate = Math.min(Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcuts_playback_speed_step || .05)).toFixed(2)), .1),16);
-					  }    					// Firefox doesnt limit speed to 16x. We can allow more in Firefox if people ask  
-		ImprovedTube.showStatus(video.playbackRate);
-	} else {		
-	// alternative:
-	const player = this.elements.player;
-		if (player) {
-				if (  player.getPlaybackRate() < 1 &&  player.getPlaybackRate() > 1-ImprovedTube.storage.shortcuts_playback_speed_step ) {  
-                  player.setPlaybackRate(1) } // aligning at 1.0 instead of passing by 1.0
-		  else { player.setPlaybackRate(Math.min(Math.max(Number((player.getPlaybackRate() + Number(ImprovedTube.storage.shortcuts_playback_speed_step || .05)).toFixed(2)), .1),16))
-					  }        	        
-		ImprovedTube.showStatus(player.getPlaybackRate());
-}}}};
+ImprovedTube.shortcutIncreasePlaybackSpeed = function (decrease) {
+	const value = Number(this.storage.shortcuts_playback_speed_step) || .05,
+		speed = this.playbackSpeed(),
+		direction = decrease ? 'Decrease' : 'Increase';
+	let newSpeed;
+
+	if (!speed) {
+		console.error('shortcut' + direction + 'PlaybackSpeed: Cant establish playbackRate/getPlaybackRate');
+		return;
+	}
+	if (decrease) {
+		// Slow down near 0   // Chrome's minimum is 0.0625. Otherwise this could seamlessly turn into single frame steps.
+		newSpeed = (speed - value < 0.1) ? math.max(Number(speed*0.7).toFixed(2),0.625) : (speed - value);  
+	} else {
+		// Aligning at 1.0 instead of passing by 1:		
+		if (speed < 1 && speed > 1-ImprovedTube.storage.shortcuts_playback_speed_step ) {newSpeed = 1;  
+		// Firefox doesnt limit speed to 16x, we can allow more in Firefox.
+		} else { newSpeed = (speed + value > 16) ? 16 : (speed + value); } 
+	}
+	newSpeed = this.playbackSpeed(newSpeed);
+	if (!newSpeed) {
+		console.error('shortcut' + direction + 'PlaybackSpeed: Cant read back playbackRate/getPlaybackRate');
+		return;
+	}
+	ImprovedTube.showStatus(newSpeed);
+};
 /*------------------------------------------------------------------------------
 4.7.17 DECREASE PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcutDecreasePlaybackSpeed = function () { value = Number(ImprovedTube.storage.shortcuts_playback_speed_step) || .05;
-// original:
-	const video = this.elements.video;
-	if (video) {
-		if (video.playbackRate){
-			if ( video.playbackRate < 0.1+ImprovedTube.storage.shortcuts_playback_speed_step ) {  
-		    video.playbackRate =  video.playbackRate*0.7 } // slow down near minimum
-	  else { video.playbackRate = Math.max(Number((video.playbackRate - Number(ImprovedTube.storage.shortcuts_playback_speed_step || .05)).toFixed(2)), .1);
-		    }
-		ImprovedTube.showStatus(video.playbackRate);
-	}		
-	else {
-	// alternative:
-	const player = this.elements.player;
-	if (player) {
-			if ( player.getPlaybackRate() < 0.1+ImprovedTube.storage.shortcuts_playback_speed_step ) {  
-		    player.setPlaybackRate(player.getPlaybackRate()*0.7) } // slow down near minimum
-	  else { player.setPlaybackRate(Math.max(Number((player.getPlaybackRate()  - Number(ImprovedTube.storage.shortcuts_playback_speed_step || .05)).toFixed(2)), .1))
-		    }
-		ImprovedTube.showStatus(player.getPlaybackRate());
-}}}};
+ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
+	ImprovedTube.shortcutIncreasePlaybackSpeed(true);
+}; 
 /*------------------------------------------------------------------------------
 4.7.18 RESET PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
