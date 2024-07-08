@@ -57,8 +57,6 @@ ImprovedTube.playlistReverse = function () {
 			button.id = 'it-reverse-playlist';
 			button.className = 'style-scope yt-icon-button';
 			button.addEventListener('click', function (event) {
-				var playlist_manager = document.querySelector('yt-playlist-manager');
-
 				event.preventDefault();
 				event.stopPropagation();
 
@@ -131,7 +129,7 @@ ImprovedTube.playlistShuffle = function () {
 ------------------------------------------------------------------------------*/
 /**
  * ## Creates a playlist popup button (with ID `it-popup-playlist-button`)
- * - used by/in {@linkcode ImprovedTube.playlistPopupUpdate}
+ * - used by/in {@linkcode ImprovedTube.playlistPopup}
  * - checks {@linkcode ImprovedTube.storage.player_autoplay_disable} if to autoplay the popuped playlist/video
  * - checks {@linkcode ImprovedTube.elements.player} to get video ID and current time, if available, otherwise starts first video of playlist
  * - popup has video players width/height or window (inner) width/height when video player is not available
@@ -222,7 +220,7 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
  * - saves each button in {@linkcode ImprovedTube.elements.buttons} as `it-popup-playlist-button-playlist`, `it-popup-playlist-button-mini`, and `it-popup-playlist-button-panel`
  * - called from {@linkcode ImprovedTube.ytElementsHandler} and {@linkcode ImprovedTube.hrefObserver} when DOM changes (somewhat related to playlist renderers)
  */
-ImprovedTube.playlistPopupUpdate = function () {
+ImprovedTube.playlistPopup = function () {
 	"use strict";
 	if (this.storage.playlist_popup === true) {
 
