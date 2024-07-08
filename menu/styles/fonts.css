@@ -12,21 +12,21 @@
 @font-face {
 	font-family: 'Roboto';
 
-	src: url(../../stuff/fonts/Roboto-Regular.ttf);
+	src: url(../fonts/Roboto-Regular.ttf);
 }
 
 @font-face {
 	font-family: 'Roboto';
 	font-weight: 300;
 
-	src: url(../../stuff/fonts/Roboto-Light.ttf);
+	src: url(../fonts/Roboto-Light.ttf);
 }
 
 @font-face {
 	font-family: 'Roboto';
 	font-weight: 500;
 
-	src: url(../../stuff/fonts/Roboto-Medium.ttf);
+	src: url(../fonts/Roboto-Medium.ttf);
 }
 
 
