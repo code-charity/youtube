@@ -700,7 +700,6 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 										['platform', satus.user.browser.platform()],
 										['audioFormats', satus.user.browser.audio().join(', ')],
 										['videoFormats', satus.user.browser.video().join(', ')],
-										['Flash', satus.user.browser.flash()],
 										['Java', satus.user.browser.java()],
 										['Cookies', satus.user.browser.cookies()]
 									]
