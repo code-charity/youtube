@@ -95,13 +95,15 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 		});
 	} else if (installed.reason == 'install') {
 		if (navigator.userAgent.indexOf("Firefox") != -1) {
-			chrome.storage.local.set({below_player_pip: false})}
+			chrome.storage.local.set({below_player_pip: false})
+			}
 		if (navigator.userAgent.indexOf('Safari') !== -1
 		   && (!/Windows|Chrom/.test(navigator.userAgent)
 			   || /Macintosh|iPhone/.test(navigator.userAgent))) {
 			chrome.storage.local.set({below_player_pip: false})
 			// still needed? (are screenshots broken in Safari?):
-			chrome.storage.local.set({below_player_screenshot: false})}
+			chrome.storage.local.set({below_player_screenshot: false})
+			}
 		// console.log('Thanks for installing!');
 	}
 });
@@ -312,9 +314,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 					} catch (error) {
 						console.error(error);
 					}
-				} else {
-					console.error('Permission is not granted.');
-				}})
+				} else { console.error('Permission is not granted.'); }
+				})
 			break
 	}
 });

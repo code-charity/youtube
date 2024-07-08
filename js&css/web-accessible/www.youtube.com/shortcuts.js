@@ -355,20 +355,20 @@ ImprovedTube.shortcutScreenshot = ImprovedTube.screenshot;
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutIncreasePlaybackSpeed = function () { const value = Number(this.storage.shortcuts_playback_speed_step) || .05,
 // original:	
-	var video = this.elements.video;
+	const video = this.elements.video;
 	if (video) {if ( video.playbackRate){
 				if ( video.playbackRate < 1 && video.playbackRate > 1-ImprovedTube.storage.shortcut_playback_speed_step ) {  
                  video.playbackRate =  1 } // aligning at 1.0 instead of passing by 1.0
-		  else { video.playbackRate = Math.min(Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1),24);
-					  }        	        
+		  else { video.playbackRate = Math.min(Math.max(Number((video.playbackRate + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1),16);
+					  }    					// Firefox doesnt limit speed to 16x. We can allow more in Firefox if people ask  
 		ImprovedTube.showStatus(video.playbackRate);
 	} else {		
 	// alternative:
-	var player = this.elements.player;
+	const player = this.elements.player;
 		if (player) {
 				if (  player.getPlaybackRate() < 1 &&  player.getPlaybackRate() > 1-ImprovedTube.storage.shortcut_playback_speed_step ) {  
                   player.setPlaybackRate(1) } // aligning at 1.0 instead of passing by 1.0
-		  else { player.setPlaybackRate(Math.min(Math.max(Number((player.getPlaybackRate() + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1),24))
+		  else { player.setPlaybackRate(Math.min(Math.max(Number((player.getPlaybackRate() + Number(ImprovedTube.storage.shortcut_playback_speed_step || .05)).toFixed(2)), .1),16))
 					  }        	        
 		ImprovedTube.showStatus(player.getPlaybackRate());
 }}}};
@@ -377,7 +377,7 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function () { const value = Number(
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDecreasePlaybackSpeed = function () { const value = Number(ImprovedTube.storage.shortcut_playback_speed_step) || .05;
 // original:
-	var video = this.elements.video;
+	const video = this.elements.video;
 	if (video) {
 		if (video.playbackRate){
 			if ( video.playbackRate < 0.1+ImprovedTube.storage.shortcut_playback_speed_step ) {  
@@ -388,7 +388,7 @@ ImprovedTube.shortcutDecreasePlaybackSpeed = function () { const value = Number(
 	}		
 	else {
 	// alternative:
-	var player = this.elements.player;
+	const player = this.elements.player;
 	if (player) {
 			if ( player.getPlaybackRate() < 0.1+ImprovedTube.storage.shortcut_playback_speed_step ) {  
 		    player.setPlaybackRate(player.getPlaybackRate()*0.7) } // slow down near minimum
