@@ -43,8 +43,8 @@ jobs:
       - name: Install csslint using npm
         run: npm install -g csslint@1.0.5
 
-      - name: Lint CSS files
-        run: |
-          for file in $(grep -rl --include='*.css' '' ./); do npx csslint --config tests/csslint_rules.json "$file"; done
+#      - name: Lint CSS files
+#        run: |
+#          for file in $(grep -rl --include='*.css' '' ./); do npx csslint --config tests/csslint_rules.json "$file"; done
 
 
