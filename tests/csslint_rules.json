@@ -1,5 +1,31 @@
-{"rules": 
-  {"known-properties":true, 
+{
+    "rules": {
+      "adjoining-classes": "warn",
+      "box-model": "warn",
+      "box-sizing": "warn",
+      "compatible-vendor-prefixes": "warn",
+      "display-property-grouping": "warn",
+      "duplicate-background-images": "warn",
+      "floats": "warn",
+      "font-faces": "warn",
+      "font-sizes": "warn",
+      "gradients": "warn",
+      "ids": "warn",
+      "import": "warn",
+      "important": "warn",
+      "known-properties": "enforce",
+      "outline-none": "warn",
+      "overqualified-elements": "warn",
+      "qualified-headings": "warn",
+      "regex-selectors": "warn",
+      "shorthand": "warn",
+      "text-indent": "warn",
+      "underscore-property-hack": "warn",
+      "unique-headings": "warn",
+      "universal-selector": "warn",
+      "unqualified-attributes": "warn",
+      "vendor-prefix": "warn",
+      "zero-units": "warn"
+    }
   }
-}
   
