@@ -32,7 +32,7 @@ jobs:
 
       - name: Run CSSLint
         run: |
-          find css -type f -name '*.css' -exec npx csslint --config tests/csslint_rules.json {} +
+          find . -type f -name '*.css' -exec npx csslint --config tests/csslint_rules.json {} +
   
       # - name: Run JSLint
       #   run: npx jslint "**/*.js"
