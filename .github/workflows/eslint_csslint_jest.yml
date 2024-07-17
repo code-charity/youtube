@@ -58,8 +58,7 @@ jobs:
 
       - name: Lint CSS files
         run: |
-          for file in $(find . -type f -name '*.css'); do npx csslint --config tests/csslint_rules.json "${file#./}"; done
-
+          find . -type f -name '*.css' -exec sh -c 'for file do npx csslint --config tests/csslint_rules.json "$file"; done' sh {} +
 
 
 
