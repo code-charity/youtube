@@ -162,7 +162,7 @@ ImprovedTube.commentsSidebarSimple = function () { if (ImprovedTube.storage.comm
 /*------------------------------------------------------------------------------
  Comments Sidebar
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_sidebar === true) {
+ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_sidebar === true) {
 	const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
 	let hasApplied = 0;
 	if (/watch\?/.test(location.href)) {
@@ -232,11 +232,11 @@ ImprovedTube.commentsSidebar = function () {	if (ImprovedTube.storage.comments_s
 			secondaryInner.appendChild(comments);
 		})
 	}
-	function resizePlayer () {
-		const width = video.offsetWidth + 24;
+	function resizePlayer () { const width = video.offsetWidth + 24; if (width != 24) {
 		const player = document.querySelector("#player.style-scope.ytd-watch-flexy");
 		document.getElementById("primary").style.width = `${width}px`;
 		player.style.width = `${width}px`;
+		}
 	}
 	function styleScrollbars () {
 		if (!navigator.userAgent.toLowerCase().includes("mac")) {

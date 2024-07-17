@@ -419,13 +419,13 @@ ImprovedTube.playerOnEnded = function (event) {
 ImprovedTube.onkeydown = function () {
 	ImprovedTube.pauseWhileTypingOnYoutube()
 	window.addEventListener('keydown', function () {
-		ImprovedTube.user_interacted = true;
+		ImprovedTube.user_interacted = true; // = event.key 
 	}, true);
 };
 
 ImprovedTube.onmousedown = function (event) {
 	window.addEventListener('mousedown', function (event) {
-		ImprovedTube.user_interacted = true;
+		ImprovedTube.user_interacted = true;  // = mousedown
 	}, true);
 };
 
