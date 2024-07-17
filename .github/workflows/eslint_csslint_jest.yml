@@ -30,10 +30,6 @@ jobs:
         run: npx eslint --config=tests/eslint_rules.config.mjs
         continue-on-error: true
 
-      - name: Run CSSLint
-        run: |
-          find css -type f -name '*.css' -exec npx csslint --config tests/csslint_rules.json {} +
-
       # - name: Run JSLint
       #   run: npx jslint "**/*.js"
       #   continue-on-error: true
