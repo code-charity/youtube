@@ -48,7 +48,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js (version 14)
+      - name: Set up Node.js (version 4)
         uses: actions/setup-node@v4
         with:
           node-version: '4'
@@ -58,7 +58,8 @@ jobs:
 
       - name: Lint CSS files
         run: |
-          find js\&css -type f -name '*.css' -exec sh -c 'for file do npx csslint --config tests/csslint_rules.json "$file"; done' sh {} +
+          find js\&css -type f -name '*.css' -exec sh -c 'for file; do npx csslint --config tests/csslint_rules.json "$file"; done' _ {} +
+
 
 
 
