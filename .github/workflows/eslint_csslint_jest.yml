@@ -40,26 +40,9 @@ jobs:
       - name: Run npm test
         run: npm test
 
-  csslint:
-    runs-on: ubuntu-latest
-    needs: lint-and-test 
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js (version 4)
-        uses: actions/setup-node@v4
-        with:
-          node-version: '4'
-
       - name: Install csslint using npm
         run: npm install -g csslint@1.0.5
 
       - name: Lint CSS files
         run: |
-          find js\&css -type f -name '*.css' -exec sh -c 'for file; do npx csslint --config tests/csslint_rules.json "$file"; done' _ {} +
-
-
-
-
+          shopt -s globstar; for file in **/*.css; do [ -f "$file" ] && csslint --config tests/csslint_rules.json "$file"; done
