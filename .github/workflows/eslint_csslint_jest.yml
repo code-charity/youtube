@@ -45,5 +45,6 @@ jobs:
 
       - name: Lint CSS files
         run: |
-          for file in $(grep -r -l --include='*.css' '' ./); do npx csslint --config tests/csslint_rules.json "$file"; done
+          for file in $(grep -rl --include='*.css' '' ./); do npx csslint --config tests/csslint_rules.json "$file"; done
+
 
