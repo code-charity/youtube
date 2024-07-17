@@ -35,7 +35,7 @@ jobs:
       #   continue-on-error: true
 
       - name: Run Jest
-        run: npx jest --config=tests/jest.config.js
+        run: npx jest  # --config=tests/jest.config.js
 
       - name: Run npm test
         run: npm test

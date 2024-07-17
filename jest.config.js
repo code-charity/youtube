@@ -1,8 +1,8 @@
 module.exports = {
 	testPathIgnorePatterns: [
-		"../node_modules/"
+		"/node_modules/"
 	],
 	testMatch: [
-		"../**/tests/**/*.js"
+		"**/tests/**/*.js"
 	]
 };
