@@ -45,4 +45,5 @@ jobs:
 
       - name: Lint CSS files
         run: |
-          shopt -s globstar; for file in **/*.css; do [ -f "$file" ] && csslint --config tests/csslint_rules.json "$file"; done
+          for file in $(grep -r -l --include='*.css' '' ./); do npx csslint --config tests/csslint_rules.json "$file"; done
+
