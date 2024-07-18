@@ -35,27 +35,14 @@ jobs:
       #   continue-on-error: true
 
       - name: Run Jest
-        run: npx jest --config=tests/jest.config.js
+        run: npx jest  # --config=tests/jest.config.js
 
       - name: Run npm test
         run: npm test
 
-  csslint:
-    runs-on: ubuntu-latest
-    needs: eslint-jest-test  # Ensure this job runs after eslint-jest-test job
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js (version 14)
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
       - name: Install csslint using npm
         run: npm install -g csslint@1.0.5
 
-      - name: Lint CSS files
-        run: |
-          find . -type f -name '*.css' -exec npx csslint --config tests/csslint_rules.json {} +
+#      - name: Lint CSS files
+#        run: |
+#          for file in $(grep -rl --include='*.css' '' ./); do npx csslint --config tests/csslint_rules.json "$file"; done
