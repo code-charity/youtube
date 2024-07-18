@@ -32,35 +32,35 @@
 		{
 			"all_frames": true,
 			"css": [
-				"js&css/extension/www.youtube.com/styles.css",
-				"js&css/extension/www.youtube.com/night-mode/night-mode.css",
-				"js&css/extension/www.youtube.com/general/general.css",
-				"js&css/extension/www.youtube.com/appearance/header/header.css",
-				"js&css/extension/www.youtube.com/appearance/player/player.css",
-				"js&css/extension/www.youtube.com/appearance/details/details.css",
-				"js&css/extension/www.youtube.com/appearance/sidebar/sidebar.css",
-				"js&css/extension/www.youtube.com/appearance/comments/comments.css"
+				"extension/yt.be/styles.css",
+				"extension/yt.be/night-mode/night-mode.css",
+				"extension/yt.be/general/general.css",
+				"extension/yt.be/appearance/header/header.css",
+				"extension/yt.be/appearance/player/player.css",
+				"extension/yt.be/appearance/details/details.css",
+				"extension/yt.be/appearance/sidebar/sidebar.css",
+				"extension/yt.be/appearance/comments/comments.css"
 			],
 			"exclude_matches": [
-				"https://www.youtube.com/audiolibrary/*",
-				"https://www.youtube.com/tv*"
+				"https://yt.be/audiolibrary/*",
+				"https://yt.be/tv*"
 			],
 			"js": [
-				"js&css/extension/core.js",
-				"js&css/extension/functions.js",
-				"js&css/extension/www.youtube.com/night-mode/night-mode.js",
-				"js&css/extension/www.youtube.com/general/general.js",
-				"js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js",
-				"js&css/extension/www.youtube.com/appearance/comments/comments.js",
-				"js&css/extension/init.js"
+				"extension/core.js",
+				"extension/functions.js",
+				"extension/yt.be/night-mode/night-mode.js",
+				"extension/yt.be/general/general.js",
+				"extension/yt.be/appearance/sidebar/sidebar.js",
+				"extension/yt.be/appearance/comments/comments.js",
+				"extension/init.js"
 			],
 			"matches": [
-				"https://www.youtube.com/*"
+				"https://yt.be/*"
 			],
 			"run_at": "document_start"
 		}
 	],
-	"host_permissions": [ "https://www.youtube.com/*" ],
+	"host_permissions": [ "https://yt.be/*" ],
 	"optional_permissions": [
 		"downloads"
 	],
@@ -72,17 +72,17 @@
 		{
 			"resources": [
 				"menu/index.html",
-				"js&css/web-accessible/core.js",
-				"js&css/web-accessible/functions.js",
-				"js&css/web-accessible/www.youtube.com/appearance.js",
-				"js&css/web-accessible/www.youtube.com/player.js",
-				"js&css/web-accessible/www.youtube.com/themes.js",
-				"js&css/web-accessible/www.youtube.com/playlist.js",
-				"js&css/web-accessible/www.youtube.com/channel.js",
-				"js&css/web-accessible/www.youtube.com/shortcuts.js",
-				"js&css/web-accessible/www.youtube.com/blocklist.js",
-				"js&css/web-accessible/www.youtube.com/settings.js",
-				"js&css/web-accessible/init.js",
+				"web-accessible/core.js",
+				"web-accessible/functions.js",
+				"web-accessible/yt.be/appearance.js",
+				"web-accessible/yt.be/player.js",
+				"web-accessible/yt.be/themes.js",
+				"web-accessible/yt.be/playlist.js",
+				"web-accessible/yt.be/channel.js",
+				"web-accessible/yt.be/shortcuts.js",
+				"web-accessible/yt.be/blocklist.js",
+				"web-accessible/yt.be/settings.js",
+				"web-accessible/init.js",
 				"menu/icons/48.png"
 			],
 			"matches": [
