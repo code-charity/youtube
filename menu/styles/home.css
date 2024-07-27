@@ -47,8 +47,9 @@
 }
 
 .satus-section--home .satus-button:hover> :nth-child(1) {
-	transition: background 250ms 125ms, transform 250ms, box-shadow 275ms;
+	transition: background 250ms 125ms, transform 250ms, box-shadow 275ms, color 400ms;
 	transform: translateY(4px) scale(.975);
+	color: rgba(255, 255, 255, 1);
 
 	box-shadow: var(--satus-bubble-shadow-unelevated);
 }

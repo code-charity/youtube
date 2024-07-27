@@ -5,16 +5,12 @@
 # DEFAULT
 --------------------------------------------------------------*/
 .satus-base {
-	--satus-bubble-foreground: rgba(255, 255, 255, .90);
-	/* --satus-bubble-background: linear-gradient(135deg, #c05030, #FF4A4F  );
-	--satus-bubble-shadow-raised: 0 2px 1px 2px #EED, 0 7px 7px 1px rgb(61, 152, 200, .4);
-	--satus-bubble-shadow-unelevated: 0px 0px 2px 3px #FFB, 0 0px 3px 4px rgb(61, 152, 200, .4); 
-	--satus-bubble-background: linear-gradient(135deg, #ff4766, #f50029);	*/
+	--satus-bubble-foreground: rgba(255, 255, 255, .8);
 	--satus-bubble-background: linear-gradient(135deg, #ff5075, #C02020);
-	--satus-bubble-shadow-raised: 0 2px 1px 1px #EDC, 0 4px 4px 1px rgb(30, 50, 110, .37);
-	--satus-bubble-shadow-unelevated: 0 0px 2px 2px #FFD, 0 1px 3px 3px rgb(30, 50, 110, .37);
+	--satus-bubble-shadow-raised: 0 2px 2px 1px #D97, 0 4px 4px rgb(140, 120, 80, .37);
+	--satus-bubble-shadow-unelevated: 0 1px 2px 1px #FC3, 0 1px 3px 3px rgb(140, 120, 80, .37);
 	--it-appearance-shadow-color: #dfdfdf;
-}
+}	
 
 .satus-base[theme='dark'] {
 	--satus-light: 255, 255, 255;
