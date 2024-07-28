@@ -1069,7 +1069,14 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_always_repeat: {
 			component: 'switch',
-			text: 'alwaysActive'
+			text: 'alwaysActive',
+			on: {
+				click: function () {
+					if (this.dataset.value === 'true') {
+						document.getElementById('player_repeat_button').flip(true);
+					}
+				}
+			}
 		},
 		player_screenshot_button: {
 			component: 'switch',
@@ -1110,11 +1117,25 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_auto_cinema_mode: {
 			component: 'switch',
 			text: 'player_auto_cinema_mode',
-			id: 'player_auto_cinema_mode'
+			id: 'player_auto_cinema_mode',
+			on: {
+				click: function () {
+					if (this.dataset.value === 'true') {
+						document.getElementById('player_cinema_mode_button').flip(true);
+					}
+				}
+			}
 		},
 		player_auto_hide_cinema_mode_when_paused: {
 			component: 'switch',
-			text: 'player_auto_hide_cinema_mode_when_paused'
+			text: 'player_auto_hide_cinema_mode_when_paused',
+			on: {
+				click: function () {
+					if (this.dataset.value === 'true') {
+						document.getElementById('player_cinema_mode_button').flip(true);
+					}
+				}
+			}
 		},
 		player_rotate_button: {
 			component: 'switch',
