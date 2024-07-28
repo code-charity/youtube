@@ -246,9 +246,9 @@ document.addEventListener('it-message-from-extension', function () {
 					break
 
 				case 'description':
-					if (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.description === "classic_expanded") {
+					if (ImprovedTube.storage.description === "expanded") {
 						try {document.querySelector("#more").click() || document.querySelector("#expand").click();} catch {}
-					} else if (ImprovedTube.storage.description === "normal" || ImprovedTube.storage.description === "classic") {
+					} else if (ImprovedTube.storage.description === "normal") {
 						try {document.querySelector("#less").click() || document.querySelector("#collapse").click();} catch {}
 					}
 					break

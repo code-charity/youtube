@@ -226,21 +226,15 @@ ImprovedTube.ytElementsHandler = function (node) {
 		if (id === 'description-inline-expander' || id === 'description-inner') {
 			setTimeout(function () {ImprovedTube.expandDescription(node);}, 300);
 		} else if (id === 'meta') {setTimeout(function () {ImprovedTube.expandDescription(node.querySelector('#more'));}, 200);
-								  } else if (id === 'below') {
-									  setTimeout(function () {}, 0);
-								  } else if (id === 'panels') {
-									  setTimeout(function () {
-										  ImprovedTube.transcript(node);
-										  ImprovedTube.chapters(node);
-									  }, 200);
-								  } /* else if (name === 'TP-YT-PAPER-BUTTON') {
+		// } else if (id === 'below') { setTimeout(function () {}, 0);
+		} else if (id === 'panels') { setTimeout(function () { ImprovedTube.transcript(node); ImprovedTube.chapters(node);}, 200);
+		} /* else if (name === 'TP-YT-PAPER-BUTTON') {
 		if ( (id === 'expand-sizer' || id === 'expand') && node.parentNode.id === 'description-inline-expander') {
 			setTimeout(function () {
-				ImprovedTube.expandDescription(node);				   console.log("EXPAND DESCRIPTION, OLD WAY")
+				ImprovedTube.expandDescription(node); console.log("EXPAND DESCRIPTION, OLD WAY")
 			}, 750);
 		}} */
 	}
-
 };
 
 ImprovedTube.pageType = function () {

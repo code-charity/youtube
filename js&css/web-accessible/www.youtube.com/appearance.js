@@ -427,10 +427,10 @@ ImprovedTube.expandDescription = function (el) {
 		const originalFocus = HTMLElement.prototype.focus; // Backing up default method  - other methods: Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy
 		// Override YouTube's scroll method:
 		HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling, when expanding the video description for you"); }
-		setTimeout(() => { HTMLElement.prototype.focus = originalFocus;}, ms); 	// Restoring JS's "focus()" 
+		setTimeout(function() { HTMLElement.prototype.focus = originalFocus; }, ms); 	// Restoring JS's "focus()" 
 	}
 		if (el) { 
-			try { ImprovedTube.forbidFocus(2000); } catch { setTimeout(function () {ImprovedTube.elements.player.focus();}, 1200); } 
+			ImprovedTube.forbidFocus(1200); // setTimeout(function () {ImprovedTube.elements.player.focus();}, 1200);  
 			el.click();
 		}
 		else { // this rest will be unnecessary with proper timing:
@@ -438,12 +438,13 @@ ImprovedTube.expandDescription = function (el) {
 			var waitForDescription = setInterval(() => {
 				if (++tries >= maxTries) {
 					if (el) {
-						try { ImprovedTube.forbidFocus(2000); } catch { setTimeout(function () {ImprovedTube.elements.player.focus();}, 1000); } 
+						ImprovedTube.forbidFocus(1200);  // setTimeout(function () {ImprovedTube.elements.player.focus();}, 1000); 
 						el.click(); 
+						clearInterval(waitForDescription);
 					}
 					el = document.querySelector('#description-inline-expander')
 					intervalMs *= 1.11;	}}, intervalMs);
-		}
+		}  
 	}
 }
 /*------------------------------------------------------------------------------
