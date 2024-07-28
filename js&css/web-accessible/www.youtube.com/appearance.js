@@ -306,24 +306,24 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
  TRANSCRIPT
 --------------------------------------------------------------*/
 ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript === true) {
-	const available = el.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || el.querySelector('[target-id*=transcript]').clientHeight;
+	const available = el.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || el.querySelector('[target-id*=transcript]')?.clientHeight;
 	if (available) {
 		const descriptionTranscript = el.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
 		descriptionTranscript ? descriptionTranscript.click() : el.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
-		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { el.querySelector('[target-id*=transcript]').setAttribute('z-index', '98765') }
+		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { available.setAttribute('z-index', '98765') }
 	}  
-};
+}};
 /*----------------------------------------------------------------
  CHAPTERS
 --------------------------------------------------------------*/
 ImprovedTube.chapters = function (el) { if (ImprovedTube.storage.chapters === true) {
-	const available = el.querySelector('[target-id*=chapters][visibility*=HIDDEN]') || el.querySelector('[target-id*=chapters]').clientHeight;
+	const available = el.querySelector('[target-id*=chapters][visibility*=HIDDEN]') || el.querySelector('[target-id*=chapters]')?.clientHeight;
 	if (available) {
 		const modernChapters = el.querySelector('[modern-chapters] #navigation-button button[aria-label]');
 		modernChapters ? modernChapters.click() : el.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
-		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { el.querySelector('[target-id*=chapters]').setAttribute('z-index', '98765') }
+		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { available.setAttribute('z-index', '98765') }
 	}  
-};		
+}};	
 /*------------------------------------------------------------------------------
  LIVECHAT
 ------------------------------------------------------------------------------*/
