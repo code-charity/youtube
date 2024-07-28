@@ -403,7 +403,7 @@ ImprovedTube.shortcutChapters = function () {
 		visibilityButton ? visibilityButton.click() : document.querySelector('*[target-id*=chapters] #visibility-button button')?.click();
 	}
 	if (!modernChapters && visibilityButton) {
-		console.error('shortcutChapters: Cant fint proper Enble button, falling back to unreliable bruteforce method');
+		console.error('shortcutChapters: Cant fint proper Enable button, falling back to unreliable bruteforce method');
 	}
 };
 /*------Transcript------*/

@@ -306,12 +306,22 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
  TRANSCRIPT
 --------------------------------------------------------------*/
 ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript === true) {
-	el.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');} }
+	const available = el.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || el.querySelector('[target-id*=transcript]').clientHeight;
+	if (available) {
+		const descriptionTranscript = el.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
+		descriptionTranscript ? descriptionTranscript.click() : el.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
+	}
+};
 /*----------------------------------------------------------------
  CHAPTERS
 --------------------------------------------------------------*/
 ImprovedTube.chapters = function (el) { if (ImprovedTube.storage.chapters === true) {
-	el.querySelector('*[target-id*=chapters]')?.removeAttribute('visibility');} }
+	const available = el.querySelector('[target-id*=chapters][visibility*=HIDDEN]') || el.querySelector('[target-id*=chapters]').clientHeight;
+	if (available) {
+		const modernChapters = el.querySelector('[modern-chapters] #navigation-button button[aria-label]');
+		modernChapters ? modernChapters.click() : el.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
+	} 
+};		
 /*------------------------------------------------------------------------------
  LIVECHAT
 ------------------------------------------------------------------------------*/
