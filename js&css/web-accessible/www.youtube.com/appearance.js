@@ -422,14 +422,26 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
  EXPAND DESCRIPTION
 ------------------------------------------------------------------------------*/
 ImprovedTube.expandDescription = function (el) {
-	if (this.storage.description === "expanded" || this.storage.description === "classic_expanded") {
-		if (el) {el.click(); setTimeout(function () {ImprovedTube.elements.player.focus();}, 1200); }
-		else {		var tries = 0; 	var intervalMs = 210; if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}
-			// ...except when it is an embedded player?
+	if (this.storage.description === "expanded") {
+	ImprovedTube.forbidFocus =  function (ms) {
+		const originalFocus = HTMLElement.prototype.focus; // Backing up default method  - other methods: Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy
+		// Override YouTube's scroll method:
+		HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling, when expanding the video description for you"); }
+		setTimeout(() => { HTMLElement.prototype.focus = originalFocus;}, ms); 	// Restoring JS's "focus()" 
+	}
+		if (el) { 
+			try { ImprovedTube.forbidFocus(2000); } catch { setTimeout(function () {ImprovedTube.elements.player.focus();}, 1200); } 
+			el.click();
+		}
+		else { // this rest will be unnecessary with proper timing:
+			var tries = 0; 	var intervalMs = 210; if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;} // ...except when it is an embedded player?
 			var waitForDescription = setInterval(() => {
 				if (++tries >= maxTries) {
+					if (el) {
+						try { ImprovedTube.forbidFocus(2000); } catch { setTimeout(function () {ImprovedTube.elements.player.focus();}, 1000); } 
+						el.click(); 
+					}
 					el = document.querySelector('#description-inline-expander')
-					if ( el) { el.click(); 	setTimeout(function () {ImprovedTube.elements.player.focus(); }, 1200); clearInterval(waitForDescription); }
 					intervalMs *= 1.11;	}}, intervalMs);
 		}
 	}

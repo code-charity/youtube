@@ -24,12 +24,17 @@
   });
 */
 /*---------------------------
-# IMPORTING OLD SETTINGS
+# IMPORTING OLD (renamed) SETTINGS   (Each one is mostly needed once, but fine to stay unlimited. Legacy.)
 -----------------------------*/
 chrome.runtime.onInstalled.addListener(function (installed) {
 	if (installed.reason == 'update') {
 		//		var thisVersion = chrome.runtime.getManifest().version;
 		//		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
+		chrome.storage.local.get('description', function (result) {
+			if (result.description === 'classic_expanded') {
+				chrome.storage.local.set({description: 'expanded'});
+			}
+		});		
 		// Shortcut renames:
 		chrome.storage.local.get(['shortcut_auto', 'shortcut_144p', 'shortcut_240p', 'shortcut_360p', 'shortcut_480p', 'shortcut_720p', 'shortcut_1080p', 'shortcut_1440p', 'shortcut_2160p', 'shortcut_2880p', 'shortcut_4320p'], function (result) {
 			// validate and move to new name
