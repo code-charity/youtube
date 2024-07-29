@@ -86,13 +86,10 @@ body:
     attributes:
       value: |
         ## Before submitting:  Thanks for coming & caring! 
-        Sometimes even 3 words are enough for a bug report. 
-        Just please check if the issue has already been reported. 
-        If so, you can add details to that report ♡ 
-        [GitHub's issue search](https://github.com/ImprovedTube/ImprovedTube/issues?q=) (use the link or remove "is:issue is:open" from the search)
-          - _(If this was posted before, you can answer/react there to give it your voice and this also move it up in our lists)_ 
-          - _If the status is "closed" (=fixed) recently, then the Browser's stores can be updated soon._  
-          - _If it was already closed months or years ago, then it might have appeared again and must be fixed again.)_
+        Sometimes even 3 words are enough for a bug report. - Just please check if the issue has already been reported: [Search in all issues](https://github.com/ImprovedTube/ImprovedTube/issues?q=). 
+          - If this was posted before, you can answer/react there to add details and give it your voice (this also moves it up in our lists) 
+          - If the status is "closed" (=[fixed](https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip)) very recently, then your Browser's store might update you soon /after [testing](https://github.com/code-charity/youtube/wiki/Contributing#test).   
+            - Or if it was already closed months or years ago, then it might have appeared again and must be fixed again.
         ## (The following _can_ be optional if you filled the above:) 
 
   - type: checkboxes
