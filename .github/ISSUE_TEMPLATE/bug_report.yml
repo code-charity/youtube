@@ -13,7 +13,7 @@ body:
       value: |
         ## Bug Report:
 
-  - type: textarea
+  - type: input
     attributes:
       label: "Description:"
       placeholder: |
@@ -57,7 +57,6 @@ body:
   - type: input
     attributes:
       label: "'Steps to reproduce' - Which of our feature is required for the bug to happen?"
-      description: 
       placeholder: "(=How do you trigger this bug? Please walk us through)"
     validations:
       required: true
@@ -117,7 +116,7 @@ body:
     validations:
       required: false
 
-  - type: input
+  - type: textarea
     attributes:
       label: "Your Settings (From the Extension's `⋮`-Hamburger menu > Settings > Backup & reset > Export settings)"
     validations:
@@ -128,7 +127,7 @@ body:
       value: |
         (You can remove Blocklist, History Analyzer data - or paste the following in the Browser-Console and hit enter: `(function({analyzer, blocklist, ...a}){return JSON.stringify(a)})(ImprovedTube.storage)`)
 
-  - type: input
+  - type: textarea
     attributes:
       label: "Your YouTube-Document"
     validations:
