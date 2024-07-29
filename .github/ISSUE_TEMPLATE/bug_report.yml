@@ -56,9 +56,9 @@ body:
 
   - type: input
     attributes:
-      label: "Steps to reproduce:"
-      description: "Might only happen with a certain feature of ours enabled?"
-      placeholder: "How do you trigger this bug? Please walk us through."
+      label: "'Steps to reproduce' - Which of our feature is required for the bug to happen?"
+      description: 
+      placeholder: "(=How do you trigger this bug? Please walk us through)"
     validations:
       required: true
 
@@ -87,7 +87,7 @@ body:
 
   - type: input
     attributes:
-      label: "Are any errors shown in the Browser-Console?"
+      label: "Are any errors or related messages shown in the Browser-Console? (F12)"
     validations:
       required: no
 
@@ -137,7 +137,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        `F12` & copy the whole root element: \<html> in the top [(how?)](https://github.com/code-charity/youtube/wiki/Contributing#Test) (alternative: CTRL+U)  
+        `F12` & copy the whole root element: \<html> in the top [(how?)](https://github.com/code-charity/youtube/wiki/Contributing#Test) and or HTML-source (CTRL+U)  
 
   - type: input
     attributes:
