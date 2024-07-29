@@ -48,10 +48,10 @@ body:
 
   - type: textarea
     attributes:
-      label: "No? Then please copy your `yt.config_.EXPERIMENT_FLAGS`-list (twice 1. with the error & 2. without)"
+      label: "No? Then please paste your yt.config_.EXPERIMENT_FLAGS (twice: 1. with the error & 2. without)"
       placeholder: |
         Enter "yt.config_.EXPERIMENT_FLAGS" into the Browser console on YouTube  
-        (to go there press F12 & clickt the console-tab) (alternatively copy ctrl+U. less tidy) 
+        (to go there press F12 & click the console-tab) (alternatively ctrl+U, less tidy) 
 
   - type: input
     attributes:
