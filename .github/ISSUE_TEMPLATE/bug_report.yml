@@ -16,17 +16,16 @@ body:
   - type: textarea
     attributes:
       label: "Description:"
-      description: "How do you trigger this bug? Please walk us through it step by step."
       placeholder: |
-        (Clear/concise).
-        Screenshot/Video welcome! (Upload by drag & drop)
+        (Clear/concise). Screenshot/Video welcome! (Upload by drag & drop)
     validations:
       required: true
 
   - type: input
     attributes:
       label: "Steps to reproduce:"
-      placeholder: "(Might only happen with a certain feature of ours enabled?)"
+      description: "Might only happen with a certain feature of ours enabled?"
+      placeholder: "How do you trigger this bug? Please walk us through."
     validations:
       required: true
 
@@ -48,7 +47,7 @@ body:
 
   - type: textarea
     attributes:
-      label: "No? Then please paste your yt.config_.EXPERIMENT_FLAGS (twice: 1. with the error & 2. without)"
+      label: "..No? Then please paste your yt.config_.EXPERIMENT_FLAGS (twice: 1. with the error & 2. without)"
       placeholder: |
         Enter "yt.config_.EXPERIMENT_FLAGS" into the Browser console on YouTube  
         (to go there press F12 & click the console-tab) (alternatively ctrl+U, less tidy) 
@@ -89,11 +88,12 @@ body:
         ## Before submitting:  Thanks for coming & caring! 
         Sometimes even 3 words are enough for a bug report. 
         Just please check if the issue has already been reported. 
-        If so, you can add different/better words to that report.
+        If so, you can add details to that report ♡ 
         [GitHub's issue search](https://github.com/ImprovedTube/ImprovedTube/issues?q=) _(use the link or remove "is:issue is:open" from the search)_
            _(If this was posted before, you can answer/react there to give it your voice and this also move it up in our lists)_ 
            _If the status is "closed" (=fixed) recently, then the Browser's stores can be updated soon._  
            _If it was already closed months or years ago, then it might have appeared again and must be fixed again.)_
+        ## (The following _can_ be optional if you filled the above:) 
 
   - type: checkboxes
     attributes:
