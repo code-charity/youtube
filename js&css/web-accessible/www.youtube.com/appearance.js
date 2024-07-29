@@ -1,24 +1,45 @@
 /*------------------------------------------------------------------------------
   APPEARANCE
 ------------------------------------------------------------------------------*/
-ImprovedTube.undoTheNewSidebar = function () {
-	if (document.documentElement.dataset.pageType === 'video' && yt) {
-		try {
-			yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid = false;
-			yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments = false;
-			yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments_ep = false;
-			yt.config_.EXPERIMENT_FLAGS.web_watch_rounded_player_large = false;
-		} catch (error) { console.error("can't undo description on the side", error); }
-	}
-};
+ImprovedTube.YouTubeExperiments = function { if (document.documentElement.dataset.pageType === 'video' && window.yt?.config_?.EXPERIMENT_FLAGS) {
+	ImprovedTube.overrideFlags = function (flags, value) {
+	yt.config_.EXPERIMENT_FLAGS = new Proxy(yt.config_.EXPERIMENT_FLAGS, {
+            get: (t, p) => flags.includes(prop) ? value : t[p], // target & prop
+            set: () => true
+        });
+	};		
+	if (this.storage.undo_the_new_sidebar) {
+		ImprovedTube.overrideFlags(
+			['kevlar_watch_grid', 'small_avatars_for_comments', 'small_avatars_for_comments_ep', 'web_watch_rounded_player_large'],
+			false
+		);
+	};
+	if (this.storage.description === "sidebar") {
+		ImprovedTube.overrideFlags(
+			['kevlar_watch_grid', 'small_avatars_for_comments', 'small_avatars_for_comments_ep'],
+			true
+		);
+	};
+}}
+/*	if (document.documentElement.dataset.pageType === 'video' && window.yt?.config_?.EXPERIMENT_FLAGS) {
+		['kevlar_watch_grid', 'small_avatars_for_comments', 'small_avatars_for_comments_ep', 'web_watch_rounded_player_large'].forEach(flag => {
+			Object.defineProperty(yt.config_.EXPERIMENT_FLAGS, flag, { get: () => false });
+        });
+    } 
+*/
+/*try {
+		yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid = false;
+		yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments = false;
+		yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments_ep = false;
+		yt.config_.EXPERIMENT_FLAGS.web_watch_rounded_player_large = false;
+	} catch (error) { console.error("can't undo description on the side", error); }
 
-ImprovedTube.descriptionSidebar = function () {
 	try {
 		yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid = true;
 		yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments = true;
 		yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments_ep = true;
-	} catch (error) { console.error("tried to move description to the sidebar", error); }
-};
+	} catch (error) { console.error("tried to move description to the sidebar", error); }   
+*/
 /*------------------------------------------------------------------------------
   PLAYER
 ------------------------------------------------------------------------------*/

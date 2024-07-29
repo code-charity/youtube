@@ -94,8 +94,7 @@ ImprovedTube.init = function () {
 	this.onmousedown();
 	this.youtubeLanguage();
 	this.myColors();
-	if (this.storage.undo_the_new_sidebar) this.undoTheNewSidebar();
-	if (this.storage.description === "sidebar") this.descriptionSidebar();
+	if (this.storage.undo_the_new_sidebar || this.storage.description === "sidebar") this.YouTubeExperiments();
 	this.channelCompactTheme();
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
