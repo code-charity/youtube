@@ -48,12 +48,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## Thanks for coming & caring! Sometimes even 3 words are enough. - Just please check if the issue has already been reported: [Search in all issues](https://github.com/ImprovedTube/ImprovedTube/issues?q=). 
+        ----
+        ### Thanks for coming & caring! Sometimes even 3 words are enough. - Just please check if the issue has already been reported: [Search in all issues](https://github.com/ImprovedTube/ImprovedTube/issues?q=). 
           - If this was posted before, you can write there to add details efficiently conveniently & give it your voice (this also moves it up in our lists) 
           - If the status is "closed" (=[fixed](https://github.com/code-for-charity/ImprovedTube-for-YouTube/archive/refs/heads/master.zip)) very recently, then your Browser's store might update you soon /after [testing](https://github.com/code-charity/youtube/wiki/Contributing#test).   
             - Or if it was already closed months or years ago, then it might have appeared again and must be fixed again. 
               - You can also tag who fixed it last time @___. 
-
+        ----
   - type: input
     attributes:
       label: "'Steps to reproduce' - Which of our feature is required for the bug to happen?"
@@ -94,7 +95,7 @@ body:
     attributes:
       value: |
         ----
-        ## (The following might be optional depending the bug & what you filled above, yet worth reading) 
+        ### (The following might be optional depending the bug & what you filled above, yet worth reading) 
 
   - type: checkboxes
     attributes:
