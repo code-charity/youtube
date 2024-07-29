@@ -15,17 +15,16 @@ body:
 
   - type: textarea
     attributes:
-      label: "Conscise Description"
+      label: "Concise Description"
       placeholder: |
-        For screenshot or video, 
-        click in this textarea (drag & drop or "📎")
+        To add screenshot or video click here. (Then drag & drop or "📎")
     validations:
       required: true
 
   - type: dropdown
     id: browsers
     attributes:
-      label: "Browser/s:"
+      label: "Browser/s"
       multiple: true
       options:
         - "Firefox"
