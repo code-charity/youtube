@@ -456,10 +456,11 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.expandDescription = function (el) {
 	if (this.storage.description === "expanded") {
-	ImprovedTube.forbidFocus =  function (ms) {
+	ImprovedTube.forbidFocus =  function (ms) { 
 		const originalFocus = HTMLElement.prototype.focus; // Backing up default method  - other methods: Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy
 		// Override YouTube's scroll method:
 		HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling, when expanding the video description for you"); }
+		if(document.hidden) ms = 3*ms;
 		setTimeout(function() { HTMLElement.prototype.focus = originalFocus; }, ms); 	// Restoring JS's "focus()" 
 	}
 		if (el) { 
