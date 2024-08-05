@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------------------
   APPEARANCE
 ------------------------------------------------------------------------------*/
-ImprovedTube.YouTubeExperiments = function { if (document.documentElement.dataset.pageType === 'video' && window.yt?.config_?.EXPERIMENT_FLAGS) {
+ImprovedTube.YouTubeExperiments = function () { if (document.documentElement.dataset.pageType === 'video' && window.yt?.config_?.EXPERIMENT_FLAGS) {
 	ImprovedTube.overrideFlags = function (flags, value) {
 	yt.config_.EXPERIMENT_FLAGS = new Proxy(yt.config_.EXPERIMENT_FLAGS, {
             get: (t, p) => flags.includes(prop) ? value : t[p], // target & prop
