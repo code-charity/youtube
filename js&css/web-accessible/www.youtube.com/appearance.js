@@ -2,32 +2,30 @@
   APPEARANCE
 ------------------------------------------------------------------------------*/
 ImprovedTube.YouTubeExperiments = function () {
-    if ((this.storage.undo_the_new_sidebar === "true" || this.storage.description === "sidebar") 
-	&& document.documentElement.dataset.pageType === 'video') {
-		if (window.yt?.config_?.EXPERIMENT_FLAGS) { 
-        const newSidebarFlags = [
-            'kevlar_watch_grid',
-            'small_avatars_for_comments',
-            'small_avatars_for_comments_ep',
-            'web_watch_rounded_player_large'
-        ];
-
-        if (this.storage.undo_the_new_sidebar === "true") { 
-			if (window.yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid !== false) {
-            try {
-                newSidebarFlags.forEach(F => {
-                    Object.defineProperty(window.yt.config_.EXPERIMENT_FLAGS, F, { get: () => false });
-                });
-            } catch (error) { console.error("can't undo description on the side", error); }
-			}
-		} else if (this.storage.description === "sidebar" && window.yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid !== true) {
-            try {
-                newSidebarFlags.forEach(F => {
-                    Object.defineProperty(window.yt.config_.EXPERIMENT_FLAGS, F, { get: () => true });
-                });
-            } catch (error) { console.error("tried to move description to the sidebar", error); }
-        }
-    } else { console.log ("yt.config_.EXPERIMENT_FLAGS is not yet defined") } 
+	if ((this.storage.undo_the_new_sidebar === "true" || this.storage.description === "sidebar") 
+		&& document.documentElement.dataset.pageType === 'video') {
+	if (window.yt?.config_?.EXPERIMENT_FLAGS) { 
+		const newSidebarFlags = [
+			'kevlar_watch_grid',
+			'small_avatars_for_comments',
+			'small_avatars_for_comments_ep',
+			'web_watch_rounded_player_large'
+		];
+	        if (this.storage.undo_the_new_sidebar === "true") { 
+		if (window.yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid !== false) {
+			try {
+                	newSidebarFlags.forEach(F => {
+                  	  Object.defineProperty(window.yt.config_.EXPERIMENT_FLAGS, F, { get: () => false });
+			});
+			} catch (error) { console.error("can't undo description on the side", error); }
+		}} else if (this.storage.description === "sidebar" && window.yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid !== true) {
+			try {
+                	newSidebarFlags.forEach(F => {
+                   	Object.defineProperty(window.yt.config_.EXPERIMENT_FLAGS, F, { get: () => true });
+			});
+			} catch (error) { console.error("tried to move description to the sidebar", error); }
+		}
+	} else { console.log ("yt.config_.EXPERIMENT_FLAGS is not yet defined") } 
 	}
 }
 /*try {
