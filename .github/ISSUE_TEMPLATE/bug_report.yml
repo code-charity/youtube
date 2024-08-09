@@ -72,10 +72,10 @@ body:
     attributes:
       label: "Does the bug still happen when you log out of YouTube?"
       options:
-        - label: "Yes"
-        - label: "No"
+        - "Yes"
+        - "No"
     validations:
-      required: true
+      required: no
 
   - type: textarea
     attributes:
@@ -100,8 +100,8 @@ body:
     attributes:
       label: "Tested as the only active extension? (incognito mode or another browser users):"
       options:
-        - label: "Yes"
-        - label: "No"
+        - "Yes"
+        - "No"
 
   - type: input
     attributes:
