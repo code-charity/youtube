@@ -2,7 +2,8 @@
   APPEARANCE
 ------------------------------------------------------------------------------*/
 ImprovedTube.YouTubeExperiments = function () {
-	if (document.documentElement.dataset.pageType === 'video' && window.yt?.config_?.EXPERIMENT_FLAGS) {
+	if ((this.storage.undo_the_new_sidebar === "true" || this.storage.description === "sidebar")
+	    && document.documentElement.dataset.pageType === 'video' && window.yt?.config_?.EXPERIMENT_FLAGS) {
 		ImprovedTube.overrideFlag = function (F, V) {  
 			// Flag, Value, Handler, Target, Property
 			const H = {  
