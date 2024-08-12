@@ -41,7 +41,7 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 
 <table  align="right"><tr><td><h3><a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code></a>Roadmap</h3> <!-- The list below only stays formatted when there is a line break above --> 
 
- - [ ] _Find developers, patreons_ 
+ - [ ] _Find [developers](https://github.com/code-charity/youtube/discussions/1881), patreons_ 
  - - [ ] _All [bugs](https://github.com/code4charity/YouTube-Extension/issues?q=label%3Abug+sort%3Acomments-desc+is%3Aopen+-label%3A_+), many [wishes](https://github.com/code4charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+sort%3Acomments-desc+is%3Aopen+-label%3A_++-label%3A%22not+Goo.+Chrome%22+)_
  - [ ] _Documentation, tooltips_
  - - [ ] _Tags for our search (multilanguage)_  </i>
