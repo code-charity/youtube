@@ -1,4 +1,7 @@
-{   
+{ 
+    "hideHomePageShorts": {
+        "message": "הסר Shorts מהדף הראשי"
+    },
     "qualityWhenRunningOnBattery":{
         "message": "איכות, כאשר פועל על סוללה"
     },
