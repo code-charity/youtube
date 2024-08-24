@@ -1,5 +1,29 @@
-{
+{ 
     "hideHomePageShorts": {
         "message": "הסר Shorts מהדף הראשי"
+    },
+    "qualityWhenRunningOnBattery":{
+        "message": "איכות, כאשר פועל על סוללה"
+    },
+    "pauseWhileIUnplugTheCharger":{
+        "message": "השהה כאשר אני מנתק את המטען" 
+    },
+    "whenBatteryIslowDecreaseQuality":{
+        "message": "סוללה חלשה: הורד את האיכות"
+    },
+    "analytics": {
+        "message": "אנליטיקה"
+    }, 
+    "purchase": {
+        "message": "קנה"
+    },    
+    "join": {
+        "message": "הצטרף"
+    },  
+    "improvedTubeSidePanel": {
+        "message": "ImprovedTube: לוח צד של הדפדפן"
+    },
+    "cursorLighting": {
+        "message": "עמעם את דפי היוטיוב חוץ ממה שאני עובר מעליו עם העכבר!"
     }
 }
