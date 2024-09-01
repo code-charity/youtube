@@ -27,14 +27,16 @@ ImprovedTube.channelPlayAllButton = function () {
 	if (ImprovedTube.regex.channel.test(location.pathname)) {
 		if (this.storage.channel_play_all_button) {
 			const container = document.querySelector('ytd-channel-sub-menu-renderer #primary-items')
-					|| document.querySelector('ytd-two-column-browse-results-renderer #chips-content'),
-				playlistUrl = document.querySelector('ytd-app')?.__data?.data?.response?.metadata?.channelMetadataRenderer?.externalId?.substring(2);
+				|| document.querySelector('ytd-two-column-browse-results-renderer #chips-content');
+			const playlistUrl = document.querySelector('ytd-app')?.__data?.data?.response?.metadata?.channelMetadataRenderer?.externalId?.substring(2);
+			const existingPlayAllButton = document.querySelector('.it-play-all-button')
 
 			if (!container) return; // we only add button on /videos page
 			if (!playlistUrl) {
 				console.error('channelPlayAllButton: Cant fint Channel playlist');
 				return;
 			}
+			if (existingPlayAllButton) return // prevent add duplicate button
 			const button = this.createIconButton({
 				type: 'playAll',
 				className: 'it-play-all-button',
