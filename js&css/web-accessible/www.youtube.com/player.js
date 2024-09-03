@@ -804,6 +804,7 @@ FIT-TO-WIN BUTTON
 ImprovedTube.playerFitToWinButton = function () {
 	if (this.storage.player_fit_to_win_button === true && (/watch\?/.test(location.href))) {
 	let tempContainer = document.createElement("div");
+	let svg;
 	if (typeof trustedTypes !== 'undefined' && typeof trustedTypes.createPolicy === 'function') {
 		// Create a Trusted Type policy
 		const policy = trustedTypes.createPolicy('default', {
@@ -816,10 +817,10 @@ ImprovedTube.playerFitToWinButton = function () {
 		<path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>`);
 
 		// Ensure the SVG element is correctly parsed
-        // const svg = tempContainer.querySelector('svg');
+        	svg = tempContainer.querySelector('svg');
 	} else {tempContainer.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon">
- 		<path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>`;}
-		const svg = tempContainer.firstChild;
+ 		<path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>`;
+		svg = tempContainer.firstChild;}
 		this.createPlayerButton({
 			id: 'it-fit-to-win-player-button',
 			child: svg,
