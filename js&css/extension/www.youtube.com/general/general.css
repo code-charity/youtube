@@ -77,8 +77,8 @@ html[it-embeddedHideShare='true'] .ytp-share-button-visible:has(.ytp-share-icon)
 /*--------------------------------------------------------------
 # REMOVE HOMEPAGE SHORTS
 --------------------------------------------------------------*/
-html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]), 
-html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
+html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]), 
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer,
 html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-reel-shelf-renderer {
 	display: none !important;
