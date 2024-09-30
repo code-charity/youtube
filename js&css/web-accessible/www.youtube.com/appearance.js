@@ -465,15 +465,15 @@ ImprovedTube.expandDescription = function (el) {
 		setTimeout(function() { HTMLElement.prototype.focus = originalFocus; }, ms); 	// Restoring JS's "focus()" 
 	}
 		if (el) { 
-			ImprovedTube.forbidFocus(1200); // setTimeout(function () {ImprovedTube.elements.player.focus();}, 1200);  
+			ImprovedTube.forbidFocus(2500); // setTimeout(function () {ImprovedTube.elements.player.focus();}, 2500);  
 			el.click();
 		}
-		else { // this rest will be unnecessary with proper timing:
+		else { // (this rest is unnecessary with proper timing)
 			var tries = 0; 	var intervalMs = 210; if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;} // ...except when it is an embedded player?
 			var waitForDescription = setInterval(() => {
 				if (++tries >= maxTries) {
 					if (el) {
-						ImprovedTube.forbidFocus(1200);  // setTimeout(function () {ImprovedTube.elements.player.focus();}, 1000); 
+						ImprovedTube.forbidFocus(4000);  // setTimeout(function () {ImprovedTube.elements.player.focus();}, 1000); 
 						el.click(); 
 						clearInterval(waitForDescription);
 					}
