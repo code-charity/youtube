@@ -50,7 +50,7 @@ html[it-header-transparent-alternative=true] #chips-wrapper {opacity: 0.7 !impor
 --------------------------------------------------------------*/
 
 html[it-header-position=hidden] #masthead-container:not([it-search-focus=true]),
-html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container:not([it-search-focus=true]) {
+html[data-page-type=video][it-header-position=hidden_on_video_page] #masthead-container:not([it-search-focus=true]) {
 	transform: translateY(-100%);
 }
 html[it-header-position=hidden] tp-yt-app-drawer#guide #guide-spacer,
@@ -62,36 +62,36 @@ html[it-header-position=hover] tp-yt-app-drawer:not([opened]) #header .it-button
 html[it-header-position=static] tp-yt-app-drawer#guide #guide-spacer,
 html[it-header-position=static] tp-yt-app-drawer:not([opened]) #header ytd-topbar-logo-renderer,
 html[it-header-position=static] tp-yt-app-drawer:not([opened]) #header .it-button,
-html[it-header-position=hidden_on_video_page][data-page-type=video] tp-yt-app-drawer#guide #guide-spacer,
-html[it-header-position=hover_on_video_page][data-page-type=video] tp-yt-app-drawer#guide #guide-spacer {
+html[data-page-type=video][it-header-position=hidden_on_video_page] tp-yt-app-drawer#guide #guide-spacer,
+html[data-page-type=video][it-header-position=hover_on_video_page] tp-yt-app-drawer#guide #guide-spacer {
 	display:none;
 }
 
 html[it-header-position=hover] #masthead-container,
 html[it-header-position=hover] tp-yt-app-drawer,
 html[it-header-position=hover] ytd-mini-guide-renderer,
-html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container,
-html[it-header-position=hover_on_video_page][data-page-type='video'] tp-yt-app-drawer,
-html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-mini-guide-renderer,
+html[data-page-type='video'][it-header-position=hover_on_video_page] #masthead-container,
+html[data-page-type='video'][it-header-position=hover_on_video_page] tp-yt-app-drawer,
+html[data-page-type='video'][it-header-position=hover_on_video_page] ytd-mini-guide-renderer,
 html[it-header-position=static] tp-yt-app-drawer,
 html[it-header-position=static] ytd-mini-guide-renderer {
 	z-index: 7 !important;
 }
 
 html[it-header-position=hidden] ytd-page-manager#page-manager,
-html[it-header-position=hidden_on_video_page][data-page-type='video'] ytd-page-manager#page-manager,
+html[data-page-type='video'][it-header-position=hidden_on_video_page] ytd-page-manager#page-manager,
 html[it-header-position=hover] ytd-page-manager#page-manager,
-html[it-header-position=hover_on_video_page][data-page-type='video'] ytd-page-manager#page-manager,
+html[data-page-type='video'][it-header-position=hover_on_video_page] ytd-page-manager#page-manager,
 html[it-header-position=hidden][data-page-type='channel'] tp-yt-app-header#header,
-html[it-header-position=hidden_on_video_page][data-page-type='channel'] tp-yt-app-header#header,
+html[data-page-type='channel'][it-header-position=hidden_on_video_page] tp-yt-app-header#header,
 html[it-header-position=hover][data-page-type='channel'] tp-yt-app-header#header,
-html[it-header-position=hover_on_video_page][data-page-type='channel'] tp-yt-app-header#header,
+html[data-page-type='channel'][it-header-position=hover_on_video_page] tp-yt-app-header#header,
 html[it-header-position=static] ytd-page-manager#page-manager {
 	margin-top: 0;
 }
 
 html[it-header-position=hover]:not([it-improvedtube-search=true]) #masthead-container,
-html[it-header-position=hover_on_video_page][data-page-type='video']:not([it-improvedtube-search=true]) #masthead-container {
+html[data-page-type='video'][it-header-position=hover_on_video_page]:not([it-improvedtube-search=true]) #masthead-container {
 	transition: all 320ms ease-in-out;
 	transform: translateY(-38%);
 	height: 68px;
@@ -99,19 +99,19 @@ html[it-header-position=hover_on_video_page][data-page-type='video']:not([it-imp
 }
 
 html[it-header-position=hidden] #masthead-container:not([it-search-focus=true]):focus-within,
-html[it-header-position=hidden_on_video_page][data-page-type=video] #masthead-container:not([it-search-focus=true]):focus-within,
+html[data-page-type=video][it-header-position=hidden_on_video_page] #masthead-container:not([it-search-focus=true]):focus-within,
 html[it-header-position=hover] #masthead-container:hover,
 html[it-header-position=hover] #masthead-container:focus-within,
 html[it-header-position=hover][it-search-focus=true] #masthead-container,
-html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:hover,
-html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:focus-within,
-html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container,
+html[data-page-type='video'][it-header-position=hover_on_video_page] #masthead-container:hover,
+html[data-page-type='video'][it-header-position=hover_on_video_page] #masthead-container:focus-within,
+html[data-page-type='video'][it-header-position=hover_on_video_page][it-search-focus=true] #masthead-container,
 html[it-header-position=hover] #masthead-container:hover #background,
 html[it-header-position=hover] #masthead-container:focus-within #background,
 html[it-header-position=hover][it-search-focus=true] #masthead-container #background,
-html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:hover #background,
-html[it-header-position=hover_on_video_page][data-page-type='video'] #masthead-container:focus-within #background,
-html[it-header-position=hover_on_video_page][data-page-type='video'][it-search-focus=true] #masthead-container #background {
+html[data-page-type='video'][it-header-position=hover_on_video_page] #masthead-container:hover #background,
+html[data-page-type='video'][it-header-position=hover_on_video_page] #masthead-container:focus-within #background,
+html[data-page-type='video'][it-header-position=hover_on_video_page][it-search-focus=true] #masthead-container #background {
 	transform: translateY(0%);
 	opacity: 1 !important;
 }
