@@ -240,7 +240,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 };
 
 ImprovedTube.pageType = function () {
-	if (/\/watch\?/.test(location.href)) {
+	if (/\/watch\?|\/live\//.test(location.href)) {
 		document.documentElement.dataset.pageType = 'video';
 	} else if (location.pathname === '/') {
 		document.documentElement.dataset.pageType = 'home';
