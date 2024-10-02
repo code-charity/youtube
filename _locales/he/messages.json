@@ -1,7 +1,4 @@
-{ 
-    "hideHomePageShorts": {
-        "message": "הסר Shorts מהדף הראשי"
-    },
+{   
     "qualityWhenRunningOnBattery":{
         "message": "איכות, כאשר פועל על סוללה"
     },
@@ -25,5 +22,1374 @@
     },
     "cursorLighting": {
         "message": "עמעם את דפי היוטיוב חוץ ממה שאני עובר מעליו עם העכבר!"
+    },
+    "youtubesLight": {
+        "message": "האור של יוטיוב"
+    },
+    "popupAd": {
+        "message": "פרסומת קופצת: הסתר"
+    },
+    "hideWatchedVideos": {
+        "message": "הסתר סרטונים שנצפו"
+    },
+    "ambientLighting": {
+        "message": "תאורה סביבתית"
+    },
+    "undoTheNewSidebar": {
+        "message": "בטל את שורת הצד החדשה!"
+    },
+    "hideLogo": {
+        "message": "לוגו: הסתר!"
+    },
+    "about": {
+        "message": "על"
+    },
+    "accept": {
+        "message": "קבל"
+    },
+    "activate": {
+        "message": "הפעל"
+    },
+    "activateCaptions": {
+        "message": "הפעל כתוביות"
+    },
+    "activated": {
+        "message": "הופעל"
+    },
+    "activatedFeatures": {
+        "message": "תכונות שהופעלו"
+    },
+    "activateFullscreen": {
+        "message": "הפעל מסך מלא"
+    },
+    "activeFeatures": {
+        "message": "התכונות הפעילות שלי"
+    },
+    "addScrollToTop": {
+        "message": "הוסף «גלול למעלה»"
+    },
+    "ads": {
+        "message": "פרסומות"
+    },
+    "all": {
+        "message": "כל"
+    },
+    "allow": {
+        "message": "אפשר"
+    },
+    "Allow_auto_generate": {
+        "message": "אפשר יצירה אוטומטית"
+    },
+    "allow60fps": {
+        "message": "אפשר 60 פריימים לשנייה"
+    },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "כל ההגדרות שלך יימחקו ולא ניתן יהיה לשחזרן"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "כל הקיצורים שלך יימחקו ולא ניתן יהיה לשחזרם"
+    },
+    "always": {
+        "message": "תמיד"
+    },
+    "alwaysActive": {
+        "message": "תמיד פעיל"
+    },
+    "alwaysShowProgressBar": {
+        "message": "תמיד הצג את פס ההתקדמות"
+    },
+    "amber": {
+        "message": "חום"
+    },
+    "analyzer": {
+        "message": "אנליזר"
+    },
+    "animations": {
+        "message": "אנימציות"
+    },
+    "appearance": {
+        "message": "מראה"
+    },
+    "areYouSureYouWantToExportTheData": {
+        "message": "האם אתה בטוח שברצונך לייצא את הנתונים?"
+    },
+    "areYouSureYouWantToImportTheData": {
+        "message": "האם אתה בטוח שברצונך לייבא את הנתונים הללו?"
+    },
+    "areYouSureYouWantToSyncTheData": {
+        "message": "האם אתה בטוח שברצונך לסנכרן את ההגדרות הנוכחיות?"
+    },
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
+    "atHistory": {
+        "message": "ב'היסטוריה'"
+    },
+    "atSubscriptions": {
+        "message": "ב'מנויים'"
+    },
+    "atTrending": {
+        "message": "ב'נחשב פופולרי'"
+    },
+    "audio": {
+        "message": "אודיו"
+    },
+    "audioFormats": {
+        "message": "פורמטי אודיו"
+    },
+    "auto": {
+        "message": "אוטומטי"
+    },
+
+    "Auto_PiP_picture_in_picture": {
+        "message": "תמונה בתמונה אוֹטוֹמָטִי"
+    },
+    "playerAutoPipOutside": {
+        "message": "תמונה בתמונה אוֹטוֹמָטִי only outside source Tab"
+    },
+    "PipRequiresUserInteraction": {
+        "message": "תמונה בתמונה דורשת אינטראקציה של משתמש עם עמוד המקור. אלה מגבלות ממשק תכנות היישומים של Chrome ואנחנו לא יכולים לעשות שום דבר כדי לעקוף את זה. עובד הכי טוב עם הפסקת אוטופלי ועם שליטה ידנית על ההפעלה או לחיצה מכוונת במקום כלשהו בעמוד לפני המעבר בין הכרטיסיות."
+    },
+    "autoFullscreen": {
+        "message": "מסך מלא אוטומטי"
+    },
+    "autopauseWhenSwitchingTabs": {
+        "message": "הפסקה אוטומטית כאשר אני לא בכרטיסייה"
+    },
+    "autoPictureInPicture": {
+        "message": "תמונה בתמונה אוטומטית"
+    },
+    "autoplayDisable": {
+        "message": "כפה על השבתת אוטופלי"
+    },
+    "avoidAv1": {
+        "message": "הימנע מ-AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "הימנע מ-AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "הימנע מ-AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "הימנע מהנפשה על ידי המעבד כאשר אפשרי"
+    },
+    "backgroundColor": {
+        "message": "צבע רקע"
+    },
+    "backgroundOpacity": {
+        "message": "שקיפות רקע"
+    },
+    "backupAndReset": {
+        "message": "גיבוי ואיפוס"
+    },
+    "baseOnSystemColorScheme": {
+        "message": "בסיס על סקימת צבעים של המערכת"
+    },
+    "belowPlayer": {
+        "message": "מתחת לנגן"
+    },
+    "bitness": {
+        "message": "ביט"
+    },
+    "black": {
+        "message": "שחור"
+    },
+    "block_Codec_Alert_h264": {
+        "message": "אתה צריך להפעיל את H.264 או VP9 כדי ש-Youtube ינגן סרטונים."
+    },
+    "block_Codec_Alert_VP9": {
+        "message": "אתה צריך להפעיל את VP9 או H.264 כדי ש-Youtube ינגן סרטונים."
+    },
+    "blockAll": {
+        "message": "כבה (חסום או דלג)"
+    },
+    "blockAv1": {
+        "message": "חסום AV1"
+    },
+    "blockH264": {
+        "message": "חסום H.264"
+    },
+    "blocklist": {
+        "message": "רשימת חסימה"
+    },
+    "blockMusic": {
+        "message": "דלג על פרסומות בזמן שאני מנגן מוסיקה"
+    },
+    "blockVp8": {
+        "message": "חסום VP8"
+    },
+    "blockVp9": {
+        "message": "חסום VP9"
+    },
+    "blue": {
+        "message": "כחול"
+    },
+    "blueGray": {
+        "message": "כחול אפור"
+    },
+    "bluelight": {
+        "message": "אור כחול"
+    },
+    "brightness": {
+        "message": "בהירות"
+    },
+    "brown": {
+        "message": "חום"
+    },
+    "browser": {
+        "message": "דפדפן"
+    },
+    "browserAccountSync": {
+        "message": "סינכרון (חשבון דפדפן)"
+    },
+    "browserVersion": {
+        "message": "גרסת דפדפן"
+    },
+    "bubbles": {
+        "message": "בועות"
+    },
+    "bug": {
+        "message": "באג"
+    },
+    "buttons": {
+        "message": "כפתורים"
+    },
+    "cancel": {
+        "message": "בטל"
+    },
+    "categories": {
+        "message": "קטגוריות"
+    },
+    "channel": {
+        "message": "ערוץ"
+    },
+    "channels": {
+        "message": "ערוצים"
+    },
+    "chapters": {
+        "message": "פרקים"
+    },
+    "characterEdgeStyle": {
+        "message": "סגנון קצה דמויות"
+    },
+    "clip": {
+        "message": "קליפ"
+    },
+    "clipboard": {
+        "message": "לוח מגזין"
+    },
+    "codecH264": {
+        "message": "קודק H.264"
+    },
+    "codecs": {
+        "message": "קודקים"
+    },
+    "collapsed": {
+        "message": "התמוטט"
+    },
+    "collapseOfSubscriptionSections": {
+        "message": "קפל את חלקי המנויים (אקורדיון קורס)"
+    },
+    "columns": {
+        "message": "עמודת צד נוספת (בלי להזיז את הסרטונים הקשורים, אם החלון רחב מספיק)"
+    },
+    "comments": {
+        "message": "תגובות"
+    },
+    "compact_spacing": {
+        "message": "מרווח קומפקטי"
+    },
+    "compactTheme": {
+        "message": "נושא קומפקטי"
+    },
+    "confirmationBeforeClosing": {
+        "message": "אישור לפני סגירה"
+    },
+    "cookies": {
+        "message": "עוגיות"
+    },
+    "cores": {
+        "message": "ליבות"
+    },
+    "cropChapterTitles": {
+        "message": "גזירת כותרות פרקים"
+    },
+    "Currently_requiring_a_YouTube_API_key": {
+        "message": "(נדרש מפתח API של YouTube: )"
+    },
+    "custom": {
+        "message": "מותאם אישית"
+    },
+    "customCss": {
+        "message": "CSS מותאם אישית"
+    },
+    "customJs": {
+        "message": "JS מותאם אישית"
+    },
+    "customMiniPlayer": {
+        "message": "מיני נגן מותאם אישית"
+    },
+    "cyan": {
+        "message": "טורקיז"
+    },
+    "dark": {
+        "message": "חשוך"
+    },
+    "darkTheme": {
+        "message": "נושא כהה"
+    },
+    "dateAndTime": {
+        "message": "תאריך ושעה"
+    },
+    "dawn": {
+        "message": "שחר"
+    },
+    "decreasePlaybackSpeed": {
+        "message": "הפחתת מהירות הפעלה"
+    },
+    "decreaseVolume": {
+        "message": "הפחתת עוצמת הקול"
+    },
+    "deepOrange": {
+        "message": "כתום כהה"
+    },
+    "deepPurple": {
+        "message": "סגול כהה"
+    },
+    "default": {
+        "message": "ברירת מחדל"
+    },
+    "default_CC": {
+        "message": "ברירת מחדל"
+    },
+    "default_theme": {
+        "message": "ברירת מחדל"
+    },
+    "defaultChannelTab": {
+        "message": "כרטיסיית ערוץ ברירת מחדל"
+    },
+    "defaultContentCountry": {
+        "message": "מדינה (נסיעה וירטואלית)"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "מהירות הפעלה ברירת מחדל"
+    },
+    "deleteWatchedVideos": {
+        "message": "מחק סרטונים שנצפו"
+    },
+    "deleteYoutubeCookies": {
+        "message": "מחק עוגיות YouTube"
+    },
+    "depressed": {
+        "message": "מדוכא"
+    },
+    "description": {
+        "message": "תיאור"
+    },
+    "description_ext": {
+        "message": "YouTube, מסודר וחכם? חזק את YouTube! הענק לו תכונות חזקות, סנן רק את הסרטונים שאתה רוצה ומדויק כמו שאתה אוהב"
+    },
+    "desert": {
+        "message": "מדבר"
+    },
+    "details": {
+        "message": "פרטים"
+    },
+    "developerOptions": {
+        "message": "אפשרויות מפתחים"
+    },
+    "device": {
+        "message": "מכשיר"
+    },
+    "dim": {
+        "message": "ממושך"
+    },
+    "disabled": {
+        "message": "מושבת"
+    },
+    "disableThumbnailPlayback": {
+        "message": "השבתת הפעלת סרטונים על ריחוף"
+    },
+    "dislike": {
+        "message": "לא אוהב"
+    },
+    "displayDayOfTheWeak": {
+        "message": "הצג את יום השבוע"
+    },
+    "donate": {
+        "message": "תרום"
+    },
+    "doNotChange": {
+        "message": "אל תשנה"
+    },
+    "download": {
+        "message": "הורדה"
+    },
+    "draggable": {
+        "message": "ניתן לגרירה"
+    },
+    "dropShadow": {
+        "message": "צל נופל"
+    },
+    "durationWithSpeed": {
+        "message": "הצג זמן שנותר בהתייחס למהירות ההפעלה"
+    },
+    "email": {
+        "message": "דוא\"ל"
+    },
+    "embedded_Hide_Share": {
+        "message": "הסתר שיתוף משובץ"
+    },
+    "Embedded_YouTube": {
+        "message": "YouTube משובץ"
+    },
+    "empty": {
+        "message": "ריק"
+    },
+    "enabled": {
+        "message": "פעיל"
+    },
+    "enabledForced": {
+        "message": "פעיל (מכוח)"
+    },
+    "expanded": {
+        "message": "מורחב"
+    },
+    "exportSettings": {
+        "message": "ייצוא הגדרות"
+    },
+    "extension": {
+        "message": "הרחבה"
+    },
+    "ExtraButtons": {
+        "message": "כפתורים נוספים"
+    },
+    "extraButtonsBelowThePlayer": {
+        "message": "כפתורים נוספים מתחת לנגן"
+    },
+    "Feature_not_yet_available": {
+        "message": "תכונה עדיין לא זמינה"
+    },
+    "file": {
+        "message": "קובץ"
+    },
+    "filters": {
+        "message": "מסננים"
+    },
+    "fitToWindow": {
+        "message": "חלופה ישנה ('התאם לחלון')"
+    },
+    "flash": {
+        "message": "פלאש"
+    },
+    "font": {
+        "message": "גופן"
+    },
+    "fontColor": {
+        "message": "צבע גופן"
+    },
+    "fontFamily": {
+        "message": "משפחת גופנים"
+    },
+    "fontOpacity": {
+        "message": "שקיפות גופן"
+    },
+    "fontSize": {
+        "message": "גודל גופן"
+    },
+    "footer": {
+        "message": "כותרת תחתונה"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "מהירות צפייה: מהירות קבועה"
+    },
+   "forcedPlaybackSpeedMusic": {
+    "message": "(כפה מהירות הפעלה גם למוזיקה?)"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "כפה על הסרטון להתחיל מההתחלה"
+    },
+    "forcedTheaterMode": {
+        "message": "מצב תיאטרון כפוי"
+    },
+    "forcedVolume": {
+        "message": "עוצמת קול כפויה"
+    },
+    "forceSDR": {
+        "message": "הימנע מ-HDR, שמור על SDR"
+    },
+    "foundABug": {
+        "message": "מצא בעיה?"
+    },
+    "fullWindow": {
+        "message": "גובה מלא"
+    },
+    "general": {
+        "message": "כללי"
+    },
+    "geoPreference": {
+        "message": "העדפה גיאוגרפית"
+    },
+    "github": {
+        "message": "GitHub"
+    },
+    "googleApiKey": {
+        "message": "מפתח API של Google"
+    },
+    "goToSearchBox": {
+        "message": "עבור לתיבת החיפוש"
+    },
+    "gpu": {
+        "message": "GPU"
+    },
+    "GPUnotindatabase": {
+        "message": "GPU לא נמצא במסד הנתונים"
+    },
+    "green": {
+        "message": "ירוק"
+    },
+    "grey": {
+        "message": "אפור"
+    },
+    "halfTransparent": {
+        "message": "שקוף חלקית"
+    },
+    "Hamburger_Menu": {
+        "message": "תפריט המבורגר"
+    },
+    "hardwareInformation": {
+        "message": "מידע על חומרה"
+    },
+    "hd": {
+        "message": "HD"
+    },
+    "hdThumbnail": {
+        "message": "תמונה ממוזערת HD"
+    },
+    "header": {
+        "message": "כותרת עליונה"
+    },
+    "hidden": {
+        "message": "מוסתר"
+    },
+    "hiddenOnVideoPage": {
+        "message": "מוסתר בדף הסרטון"
+    },
+    "hide_author_avatars": {
+        "message": "הסתר סמלי מחברים"
+    },
+    "hide_labels": {
+        "message": "הסתר שמות"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "הסתר כיסוי השהייה"
+    },
+    "Hide_Shorts_remixing_this_video": {
+        "message": "הסתר קטעים קצרים שעושים רמיקס לסרטון הזה"
+    },
+    "Hide_sidebar": {
+        "message": "הסתר סרגל צד"
+    },
+    "Hide_the_tabs_only": {
+        "message": "הסתר רק את הכרטיסיות"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "הסתר את הלוגו של YouTube"
+    },
+    "hideAnimatedThumbnails": {
+        "message": "הסתר תמונות ממוזערות אנימטיביות"
+    },
+    "hideAnnotations": {
+        "message": "הסתר הערות"
+    },
+    "hideCards": {
+        "message": "הסתר כרטיסים"
+    },
+    "hideCategories": {
+        "message": "הסתר קטגוריות"
+    },
+    "hideCommentsCount": {
+        "message": "הסתר מספר תגובות"
+    },
+    "hideCountryCode": {
+        "message": "הסתר קוד מדינה"
+    },
+    "hideDate": {
+        "message": "הסתר תאריך"
+    },
+    "hideDetailButton": {
+        "message": "כפתורים (מתחת לנגן)"
+    },
+    "hideDetails": {
+        "message": "הסתר פרטים"
+    },
+    "hideEndscreen": {
+        "message": "הסתר מסך סיום"
+    },
+    "hideFeaturedContent": {
+        "message": "הסתר תוכן מוצג"
+    },
+    "hideFooter": {
+        "message": "הסתר כותרת תחתונה"
+    },
+    "hideGradientBottom": {
+        "message": "הסתר צל מסביב לסרגל הנגן"
+    },
+    "hideHomePageShorts": {
+        "message": "הסר Shorts מהדף הראשי"
+    },
+    "hideMore": {
+        "message": "הסתר '...' "
+    },
+    "hidePlayerControlsBar": {
+        "message": "הסתר את סרגל בקרות הנגן"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "הסתר את כפתורי בקרות הנגן"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "הסתר את אפשרויות בקרות הנגן"
+    },
+    "hidePlaylist": {
+        "message": "הסתר רשימת השמעה"
+    },
+    "hideReport": {
+        "message": "הסתר 'דווח'"
+    },
+    "hideRightButtons": {
+        "message": "הסתר כפתורים ימניים"
+    },
+    "hideScrollForDetails": {
+        "message": "הסתר «גלול לפרטים»"
+    },
+    "hideSkipOverlay": {
+        "message": "הסתר אנימציית דילוג של 5 שניות"
+    },
+    "hideThumbnailOverlay": {
+        "message": "הסתר כפתורים על התמונות הממוזערות"
+    },
+    "hideThumbnails": {
+        "message": "הסתר תמונות ממוזערות"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "הסתר כותרת סרטון במצב מסך מלא"
+    },
+    "hideViewsCount": {
+        "message": "הסתר מספר צפיות"
+    },
+    "hideVoiceSearchButton": {
+        "message": "הסתר כפתור חיפוש קולי"
+    },
+    "high": {
+        "message": "גבוה"
+    },
+    "history": {
+        "message": "היסטוריה"
+    },
+    "home": {
+        "message": "בית"
+    },
+    "homeScreen": {
+        "message": "מסך הבית"
+    },
+    "hover": {
+        "message": "מרחף"
+    },
+    "hoverOnVideoPage": {
+        "message": "מרחף בדף הסרטון"
+    },
+    "howLongAgoTheVideoWasUploaded": {
+        "message": "הצג את גיל הסרטון (כמה זמן עבר מאז שהועלה)"
+    },
+    "icons": {
+        "message": "אייקונים"
+    },
+    "iconsOnly": {
+        "message": "אייקון בלבד"
+    },
+    "importSettings": {
+        "message": "ייבוא הגדרות"
+    },
+    "ImprovedTube": {
+        "message": "ImprovedTube"
+    },
+    "improvedtubeButtons": {
+        "message": "כפתורי ImprovedTube"
+    },
+    "improvedtubeIconOnYoutube": {
+        "message": "אייקון ImprovedTube על YouTube"
+    },
+    "improvedtubeLanguage": {
+        "message": "שפה של ImprovedTube"
+    },
+    "improvedtubeVersion": {
+        "message": "גרסת ImprovedTube"
+    },
+    "improveLogo": {
+        "message": "לוגו: מונוכרום!"
+    },
+    "increasePlaybackSpeed": {
+        "message": "הגדל מהירות הפעלה"
+    },
+    "increaseVolume": {
+        "message": "הגדל עוצמת הקול"
+    },
+    "indigo": {
+        "message": "אינדיגו"
+    },
+    "items": {
+        "message": "פריטים"
+    },
+    "language": {
+        "message": "שפה"
+    },
+    "language_closed_caption": {
+        "message": "שפה ברירת מחדל - כתוביות סמויות"
+    },
+    "languages": {
+        "message": "שפות"
+    },
+    "layerAnimationScale": {
+        "message": "קנה מידה של אנימציית שכבה"
+    },
+    "layout": {
+        "message": "פריסה"
+    },
+    "legacyYoutube": {
+        "message": "YouTube ישן"
+    },
+    "library": {
+        "message": "ספרייה"
+    },
+    "light": {
+        "message": "קל"
+    },
+    "lightBlue": {
+        "message": "כחול בהיר"
+    },
+    "lightGreen": {
+        "message": "ירוק בהיר"
+    },
+    "like": {
+        "message": "אהבתי"
+    },
+    "liked": {
+        "message": "אהבתי"
+    },
+    "likes": {
+        "message": "לייקים"
+    },
+    "lime": {
+        "message": "ליים"
+    },
+    "limitPageWidth": {
+        "message": "הגבל את רוחב הדף"
+    },
+    "list": {
+        "message": "רשימה"
+    },
+    "liveChat": {
+        "message": "צ'אט חי"
+    },
+    "liveChatType": {
+        "message": "סוג צ'אט חי"
+    },
+    "location": {
+        "message": "מיקום"
+    },
+    "loop": {
+        "message": "לולאה"
+    },
+    "loudnessNormalization": {
+        "message": "נורמליזציה של עוצמת קול"
+    },
+    "low": {
+        "message": "נמוך"
+    },
+    "markWatchedVideos": {
+        "message": "סמן סרטונים שנצפו"
+    },
+    "medium": {
+        "message": "בינוני"
+    },
+    "mixer": {
+        "message": "מיקסר"
+    },
+    "more": {
+        "message": "עוד"
+    },
+    "mostViewedChannels": {
+        "message": "ערוצים הנצפים ביותר"
+    },
+    "moveSidebarLeft": {
+        "message": "שמאל!"
+    },
+    "moveThumbnailsRight": {
+        "message": "תמונות ממוזערות ימינה!"
+    },
+    "My_specs": {
+    "message": "המאפיינים שלי"
+    },
+    "myColors": {
+        "message": "הצבעים שלי"
+    },
+    "name": {
+        "message": "שם"
+    },
+    "nativeMiniPlayer": {
+        "message": "נגן מיני מקורי"
+    },
+    "new": {
+        "message": "חדש"
+    },
+    "nextVideo": {
+        "message": "וידאו הבא"
+    },
+    "night": {
+        "message": "לילה"
+    },
+    "nightMode": {
+        "message": "מצב לילה"
+    },
+    "noActiveFeatures": {
+        "message": "אין תכונות פעילות"
+    },
+    "none": {
+        "message": "שום דבר"
+    },
+    "noOpenVideoTabs": {
+        "message": "אין טאבים פתוחים של וידאו"
+    },
+    "normal": {
+        "message": "נורמלי"
+    },
+    "Not_optimal": {
+        "message": "לא אופטימלי"
+    },
+    "off": {
+        "message": "כבוי"
+    },
+    "ok": {
+        "message": "אוקי"
+    },
+    "old": {
+        "message": "ישן"
+    },
+    "onAllVideos": {
+        "message": "דולק"
+    },
+    "onlyActiveOnYoutube": {
+        "message": "פעיל רק ביוטיוב"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "מניח הפסקה בזמן שאני צופה בווידאו שני"
+    },
+    "onSmallCreators": {
+        "message": "כבוי, למעט ערוצים קטנים"
+    },
+    "onSubscribedChannels": {
+        "message": "כבוי, למעט הערוצים שאני מנוי אליהם"
+    },
+    "openNewTab": {
+        "message": "פתח בטאב חדש"
+    },
+    "openPopupPlayer": {
+        "message": "פתח וידאו/רשימת השמעה בחלון חדש"
+    },
+    "optimizeCodecForHardwareAcceleration": {
+        "message": "אופטימיזציה של קודק להאצה חומרתית"
+    },
+    "orange": {
+        "message": "כתום"
+    },
+    "os": {
+        "message": "מערכת הפעלה"
+    },
+    "other": {
+        "message": "אחר"
+    },
+    "outline": {
+        "message": "קו מתאר"
+    },
+    "overlay": {
+        "message": "שכבת על"
+    },
+    "permissions": {
+        "message": "הרשאות"
+    },
+    "pictureInPicture": {
+        "message": "תמונה בתמונה"
+    },
+    "pink": {
+        "message": "ורוד"
+    },
+    "plain": {
+        "message": "פשוט"
+    },
+    "platform": {
+        "message": "פלטפורמה"
+    },
+    "playAllButton": {
+        "message": "\"נגן הכל\" כפתור"
+    },
+    "playbackSpeed": {
+        "message": "מהירות השמעה"
+    },
+    "player": {
+        "message": "נגן"
+    },
+    "player_dont_speed_education": {
+        "message": "אל תזרז את הקטגוריה (הנדירה): חינוך"
+    },
+    "player_fit_to_win_button": {
+        "message": "התאמה לחלון"
+    },
+    "player_cinema_mode_button": {
+        "message": "מצב קולנוע"
+    },
+    "player_auto_hide_cinema_mode_when_paused": {
+        "message": "הסתרת מצב קולנוע אוטומטית בהפסקה"
+    },
+    "player_auto_cinema_mode": {
+        "message": "מצב קולנוע אוטומטי"
+    },
+    "player_rotate_button": {
+        "message": "סובב וידאו"
+    },
+    "playerColor": {
+        "message": "צבע פס ההתקדמות"
+    },
+    "playerSize": {
+        "message": "גודל הנגן"
+    },
+    "playlist": {
+        "message": "רשימת השמעה"
+    },
+    "playlists": {
+        "message": "רשימות השמעה"
+    },
+    "playPause": {
+        "message": "נגן / הפסק"
+    },
+    "popupPlayer": {
+        "message": "נגן פופ-אפ"
+    },
+    "popupWindowButtons": {
+        "message": "הוסף כפתור נגן פופ-אפ לכל תמונת ממוזערת"
+    },
+    "position": {
+        "message": "מיקום"
+    },
+    "pressAnyKeyOrScroll": {
+        "message": "לחץ על כל מקש או השתמש בגלגל העכבר."
+    },
+    "pressAnyKeyOrUseMouseWheel": {
+        "message": "לחץ על כל מקש או השתמש בגלגל העכבר"
+    },
+    "previousVideo": {
+        "message": "וידאו קודם"
+    },
+    "primaryColor": {
+        "message": "צבע ראשי"
+    },
+    "pullSyncSettings": {
+        "message": "משוך"
+    },
+    "purple": {
+        "message": "סגול"
+    },
+    "pushSyncSettings": {
+        "message": "דחוף"
+    },
+    "quality": {
+        "message": "איכות"
+    },
+    "qualityWithoutFocus": {
+        "message": "איכות ללא מיקוד"
+    },
+    "raised": {
+        "message": "מוגבה"
+    },
+    "ram": {
+        "message": "RAM"
+    },
+    "rateMe": {
+        "message": "דרגו אותי"
+    },
+    "rateUs": {
+        "message": "דרגו אותנו"
+    },
+    "red": {
+        "message": "אדום"
+    },
+    "redDislikeButton": {
+        "message": "אדום כאשר לא אהוב"
+    },
+    "relatedVideos": {
+        "message": "וידאוים קשורים"
+    },
+    "remote": {
+        "message": "נגן בטלוויזיה"
+    },
+    "Remove": {
+        "message": "הסר"
+    },
+    "removeBlackBars": {
+        "message": "הסר פסים שחורים כאשר במסך מלא"
+    },
+    "removeIcons": {
+        "message": "הסר אייקונים"
+    },
+    "removeName": {
+        "message": "הסר שם"
+    },
+    "removeNames": {
+        "message": "הסר שמות"
+    },
+    "removeRelatedSearchResults": {
+        "message": "הסר תוצאות חיפוש קשורות"
+    },
+    "removeShortsReelSearchResults": {
+        "message": "הסר את סרטוני ה-Shorts מתוצאות החיפוש"
+    },
+    "repeat": {
+        "message": "חזור"
+    },
+    "report": {
+        "message": "דווח"
+    },
+    "reset": {
+        "message": "אפס"
+    },
+    "resetAllSettings": {
+        "message": "אפס את כל ההגדרות"
+    },
+    "resetAllShortcuts": {
+        "message": "אפס את כל קיצורי הדרך"
+    },
+    "reverse": {
+        "message": "הפוך"
+    },
+    "rotate": {
+        "message": "סובב"
+    },
+    "save": {
+        "message": "שמור"
+    },
+    "saveAs": {
+        "message": "שמור בשם"
+    },
+    "schedule": {
+        "message": "לז"
+    },
+    "screen": {
+        "message": "מסך"
+    },
+    "screenshot": {
+        "message": "צילום מסך"
+    },
+    "scrollBar": {
+        "message": "סרגל גלילה"
+    },
+    "sd": {
+        "message": "SD"
+    },
+    "search": {
+        "message": "חפש"
+    },
+    "searchBarOnly": {
+        "message": "רק סרגל חיפוש"
+    },
+    "seekBackward10Seconds": {
+        "message": "חזור 10 שניות"
+    },
+    "seekForward10Seconds": {
+        "message": "קדימה 10 שניות"
+    },
+    "seekNextChapter": {
+        "message": "חפש את הפרק הבא"
+    },
+    "seekPreviousChapter": {
+        "message": "חפש את הפרק הקודם"
+    },
+    "settings": {
+        "message": "הגדרות"
+    },
+    "settingsSuccessfullyImported": {
+        "message": "ההגדרות יובאו בהצלחה"
+    },
+    "share": {
+        "message": "שתף"
+    },
+    "shortcut_chapters": {
+        "message": "פרקים (סרגל צד) דלוק/כבוי"
+    },
+    "shortcut_screenshot": {
+        "message": "צילום מסך"
+    },
+    "shortcut_transcript": {
+        "message": "טקסט (סרגל צד) דלוק/כבוי"
+    },
+    "shortcuts": {
+        "message": "קיצורי דרך"
+    },
+    "showCardsOnMouseHover": {
+        "message": "הצג כרטיסים בהצגת עכבר"
+    },
+    "showChannelVideosCount": {
+        "message": "הצג מספר סרטוני הערוץ"
+    },
+    "showLess": {
+        "message": "הצג פחות"
+    },
+    "showMore": {
+        "message": "הצג יותר"
+    },
+    "showRemainingDuration": {
+        "message": "הצג את הזמן שנותר לסרטון"
+    },
+    "showVersion": {
+        "message": "הצג גרסה"
+    },
+    "shuffle": {
+        "message": "שיהוק"
+    },
+    "sidebar": {
+        "message": "סרגל צד"
+    },
+    "Sidebar_simple_alternative": {
+        "message": "סרגל צד (חלופה פשוטה)"
+    },
+    "softwareInformation": {
+        "message": "מידע על תוכנה"
+    },
+    "spacebar": {
+        "message": "מקש רווח"
+    },
+    "squaredUserImages": {
+        "message": "תמונות משתמש מרובעות"
+    },
+    "static": {
+        "message": "סטטי"
+    },
+    "statsForNerds": {
+        "message": "הצג נתונים למבינים"
+    },
+    "step": {
+        "message": "שלב"
+    },
+    "stop": {
+        "message": "עצור"
+    },
+    "style": {
+        "message": "סגנון"
+    },
+    "styles": {
+        "message": "סגנונות"
+    },
+    "subscribe": {
+        "message": "הירשם"
+    },
+    "subscriptions": {
+        "message": "מנויים"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "כתוביות (לכידת כולל המילים הנוכחיות)"
+    },
+    "subtitles": {
+        "message": "כתוביות"
+    },
+    "RemoveSubtitlesForLyrics": {
+        "message": "הסר כתוביות עבור מילות השיר"
+    },
+    "sunset": {
+        "message": "שקיעה"
+    },
+    "sunsetToSunrise": {
+        "message": "שקיעה עד עלות השחר"
+    },
+    "systemPeferenceDark": {
+        "message": "העדפת מערכת: כהה"
+    },
+    "systemPeferenceLight": {
+        "message": "העדפת מערכת: בהיר"
+    },
+    "teal": {
+        "message": "טורקיז"
+    },
+    "textColor": {
+        "message": "צבע טקסט"
+    },
+    "thanks": {
+        "message": "תודה"
+    },
+    "themes": {
+        "message": "נושאים"
+    },
+    "thisWillRemoveAllCookies": {
+        "message": "זה יסיר את כל העוגיות."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "זה יסיר את כל הסרטונים שנצפו."
+    },
+    "thisWillRemoveAllYouTubeCookies": {
+        "message": "זה יסיר את כל העוגיות של יוטיוב"
+    },
+    "thisWillResetAllSettings": {
+        "message": "זה יאפס את כל ההגדרות."
+    },
+    "thisWillResetAllShortcuts": {
+        "message": "זה יאפס את כל קיצורי הדרך"
+    },
+    "thumbnails": {
+        "message": "תמונות ממוזערות"
+    },
+    "thumbnailsQuality": {
+        "message": "איכות התמונות הממוזערות"
+    },
+    "timeFrom": {
+        "message": "זמן מ"
+    },
+    "timeTo": {
+        "message": "זמן עד"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "לצד! (ללא שוליים)"
+    },
+    "todayAt": {
+        "message": "היום ב"
+    },
+    "toggleAutoplay": {
+        "message": "החלף הפעלת אוטומטית"
+    },
+    "toggleCards": {
+        "message": "החלף כרטיסים"
+    },
+    "toggleControls": {
+        "message": "החלף החבאת שלטי נגן"
+    },
+    "topChat": {
+        "message": "שיחה עליונה"
+    },
+    "trackWatchedVideos": {
+        "message": "עקוב אחרי סרטונים שנצפו"
+    },
+    "trailerAutoplay": {
+        "message": "הפעלת אוטומטית של הטריילר"
+    },
+    "Transcript": {
+        "message": "תמלול"
+    },
+    "translations": {
+        "message": "תרגומים"
+    },
+    "transparentBackground": {
+        "message": "רקע שקוף"
+    },
+    "transparentColor": {
+        "message": "שקוף"
+    },
+    "trending": {
+        "message": "טרנדי"
+    },
+    "tryToReloadThePage": {
+        "message": "נסה לטעון מחדש את הדף"
+    },
+    "type": {
+        "message": "סוג"
+    },
+    "upNextAutoplay": {
+        "message": "הפעלת אוטומטית של הבא בתור"
+    },
+    "use24HourFormat": {
+        "message": "שימוש בפורמט של 24 שעות"
+    },
+    "version": {
+        "message": "גרסה"
+    },
+    "video": {
+        "message": "וידאו"
+    },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "תיאור הוידאו יורחב כדי לקבל את שם הקטגוריה"
+    },
+    "videoFormats": {
+        "message": "פורמטי וידאו"
+    },
+    "videos": {
+        "message": "וידאוים"
+    },
+    "viewMode": {
+        "message": "מצב צפייה"
+    },
+    "volume": {
+        "message": "עוצמת קול"
+    },
+    "watchedVideos": {
+        "message": "וידאוים שנצפו"
+    },
+    "watchLater": {
+        "message": "צפה מאוחר יותר"
+    },
+    "watchTime": {
+        "message": "זמן צפייה"
+    },
+    "whenPaused": {
+        "message": "כאשר הוידאו מושהה"
+    },
+    "whenTabIsChanged": {
+        "message": "כאשר הטאב משתנה"
+    },
+    "white": {
+        "message": "לבן"
+    },
+    "windowColor": {
+        "message": "צבע חלון"
+    },
+    "windowOpacity": {
+        "message": "שקיפות חלון"
+    },
+    "with_scrollbars": {
+        "message": "עם סרגלי גלילה?"
+    },
+    "yellow": {
+        "message": "צהוב"
+    },
+    "Youtube_Search": {
+        "message": "חיפוש יוטיוב"
+    },
+    "youTubeButtons": {
+        "message": "כפתורי יוטיוב"
+    },
+    "youtubeHeaderLeft": {
+        "message": "כותרת יוטיוב (שמאל)"
+    },
+    "youtubeHeaderRight": {
+        "message": "כותרת יוטיוב (ימין)"
+    },
+    "youtubeHomePage": {
+        "message": "דף הבית של יוטיוב"
+    },
+    "youtubeLanguage": {
+        "message": "שפת יוטיוב"
+    },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "יוטיוב מגביל את איכות הוידאו ל-1080p עבור קודק h.264"
+    },
+    "youtubesDark": {
+        "message": "יוטיוב כהה"
+    },
+    "pauseWhileIAmTypingOnYouTube": {
+        "message": "הפסק כאשר אני מקליד ביוטיוב"
     }
 }
