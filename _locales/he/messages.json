@@ -18,7 +18,7 @@
         "message": "הצטרף"
     },  
     "improvedTubeSidePanel": {
-        "message": "משופרטווב: לוח צד של הדפדפן"
+        "message": "ImprovedTube: לוח צד של הדפדפן"
     },
     "cursorLighting": {
         "message": "עמעם את דפי היוטיוב חוץ ממה שאני עובר מעליו עם העכבר!"
@@ -646,7 +646,7 @@
         "message": "הסתר צל מסביב לסרגל הנגן"
     },
     "hideHomePageShorts": {
-        "message": "הסר מכנסיים קצרים מהדף הראשי"
+        "message": "הסר Shorts מהדף הראשי"
     },
     "hideMore": {
         "message": "הסתר '...' "
