@@ -361,11 +361,15 @@ ImprovedTube.playerOnTimeUpdate = function () {
 
 				if (ImprovedTube.initialVideoUpdateDone !== true) {
 					ImprovedTube.playerQuality();
+					ImprovedTube.playerVolume();
+					ImprovedTube.playerPlaybackSpeed();
 				}
 			} else if (ImprovedTube.latestVideoDuration !== this.duration) {
 				ImprovedTube.latestVideoDuration = this.duration;
 
 				ImprovedTube.playerQuality();
+				ImprovedTube.playerVolume();
+				ImprovedTube.playerPlaybackSpeed();
 			}
 
 			if (ImprovedTube.storage.always_show_progress_bar === true) {ImprovedTube.showProgressBar();}
