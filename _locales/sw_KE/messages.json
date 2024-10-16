@@ -1,7 +1,4 @@
 {
-    "2160p": {
-        "message": "2160p - 4K"
-    },
     "about": {
         "message": "Kuhusu/"
     },
@@ -157,9 +154,6 @@
     },
     "block_Codec_Alert_h264": {
         "message": "Unahitaji H.264 au VP9 kuwezeshwa kwa YouTube ili kucheza video."
-    },
-    "block_Codec_Alert_VP9": {
-        "message": "Unahitaji VP9 au H.264 kuwezeshwa kwa YouTube ili kucheza video."
     },
     "blockAll": {
         "message": "Imezimwa (zuia au ruka)"
