@@ -313,6 +313,9 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "select",
 				text: "playerColor",
 				options: [{
+					text: "default",
+					value: "default"
+				}, {
 					text: "red",
 					value: "red"
 				}, {
