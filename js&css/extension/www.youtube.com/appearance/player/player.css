@@ -36,6 +36,10 @@ html[it-always-show-progress-bar='true'] .DesktopShortsPlayerControlsHostHidePro
 # COLOR
 --------------------------------------------------------------*/
 
+html[it-player-color='red'] {
+	--it-player-color: #f03;
+}
+
 html[it-player-color='pink'] {
 	--it-player-color: #e91e63;
 }
@@ -108,14 +112,14 @@ html[it-player-color='white'] {
 	--it-player-color: #fff;
 }
 
-html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-play-progress,
-html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-scrubber-button,
-html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-menuitem[aria-checked='true'] .ytp-menuitem-toggle-checkbox,
-html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-settings-button.ytp-hd-quality-badge:after {
-	background-color: var(--it-player-color) !important;
+html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .ytp-play-progress,
+html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .ytp-scrubber-button,
+html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .ytp-menuitem[aria-checked='true'] .ytp-menuitem-toggle-checkbox,
+html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .ytp-settings-button.ytp-hd-quality-badge:after {
+	background: var(--it-player-color) !important;
 }
 
-html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) .ytp-swatch-color {
+html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .ytp-swatch-color {
 	color: var(--it-player-color) !important;
 }
 
