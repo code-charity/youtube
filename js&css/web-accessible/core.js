@@ -236,7 +236,7 @@ document.addEventListener('it-message-from-extension', function () {
 					if (ImprovedTube.storage.player_forced_playback_speed === true && isFinite(Number(ImprovedTube.storage.player_playback_speed))) {
 						ImprovedTube.playbackSpeed (Number(ImprovedTube.storage.player_playback_speed)); //new
 						ImprovedTube.elements.player.setPlaybackRate(Number(ImprovedTube.storage.player_playback_speed));
-						ImprovedTube.elements.player.querySelector('video').playbackRate = Number(ImprovedTube.storage.player_playback_speed);
+						// ImprovedTube.elements.player.querySelector('video').playbackRate = Number(ImprovedTube.storage.player_playback_speed.toFixed(2));
 					} else if (ImprovedTube.storage.player_forced_playback_speed === false) {
 						ImprovedTube.elements.player.setPlaybackRate(1);
 						ImprovedTube.elements.player.querySelector('video').playbackRate = 1;
