@@ -344,7 +344,7 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function (decrease) {
 	}
 	if (decrease) {
 		// Slow down near 0   // Chrome's minimum is 0.0625. Otherwise this could seamlessly turn into single frame steps.
-		newSpeed = (speed - value < 0.1) ? math.max(Number(speed*0.7).toFixed(2),0.625) : (speed - value);  
+		newSpeed = (speed - value < 0.1) ? Math.max(Number(speed*0.7).toFixed(2),0.0625) : (speed - value);  
 	} else {
 		// Aligning at 1.0 instead of passing by 1:		
 		if (speed < 1 && speed > 1-ImprovedTube.storage.shortcuts_playback_speed_step ) {newSpeed = 1;  
