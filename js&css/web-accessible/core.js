@@ -146,6 +146,8 @@ ImprovedTube.messages.create = function () {
 	document.documentElement.appendChild(this.element);
 };
 
+ImprovedTube.messages.create();
+
 /*--------------------------------------------------------------
 # LISTENER
 --------------------------------------------------------------*/
@@ -161,6 +163,8 @@ ImprovedTube.messages.listener = function () {
 		}
 	});
 };
+
+ImprovedTube.messages.listener();
 
 document.addEventListener('it-message-from-extension', function () {
 	var provider = document.querySelector('#it-messages-from-extension');
