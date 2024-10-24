@@ -311,14 +311,14 @@ html[data-page-type=video][it-header-position=hover_on_video_page] ytd-app:not([
 # FIXED PLAYER SIZE
 --------------------------------------------------------------*/
 
-html[data-page-type=video][it-player-size='240p'] *,
-html[data-page-type=video][it-player-size='360p'] *,
-html[data-page-type=video][it-player-size='480p'] *,
-html[data-page-type=video][it-player-size='576p'] *,
-html[data-page-type=video][it-player-size='720p'] *,
-html[data-page-type=video][it-player-size='1080p'] *,
-html[data-page-type=video][it-player-size='1440p'] *,
-html[data-page-type=video][it-player-size='2160p'] * {
+html[data-page-type=video][it-player-size='240p'],
+html[data-page-type=video][it-player-size='360p'],
+html[data-page-type=video][it-player-size='480p'],
+html[data-page-type=video][it-player-size='576p'],
+html[data-page-type=video][it-player-size='720p'],
+html[data-page-type=video][it-player-size='1080p'],
+html[data-page-type=video][it-player-size='1440p'],
+html[data-page-type=video][it-player-size='2160p'] {
 	--it-header-size: 0px !important;
 }
 
@@ -412,26 +412,22 @@ html[data-page-type=video][it-player-size='max_width'] .ytp-fit-cover-video .htm
 # FULL HEIGHT  "Full window"
 --------------------------------------------------------------*/
 
+html[data-page-type=video][it-player-size='full_window'] {
+	--it-player-size: 100vh;
+}
+
 /*outdated line?*/ html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy[theater]:not([fullscreen]) #player-wide-container, 
 html[data-page-type=video][it-player-size='fit_to_window'] ytd-watch-flexy[full-bleed-player]:not([fullscreen]) #full-bleed-container.ytd-watch-flexy,
 html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy[full-bleed-player]:not([fullscreen]) #full-bleed-container.ytd-watch-flexy {
-	height: calc(var(--it-player-size) - var(--it-header-size)) !important;
-	max-height: var(--it-player-size) !important;
-}
-
-html[data-page-type=video][it-player-size='full_window'] {
-	--it-player-size: 100vh;
+	height: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;
+	max-height: var(--it-player-size, 100vh) !important;
 }
 
 html[data-page-type=video][it-player-size='full_window'] .ytp-fit-cover-video .html5-main-video {
 	object-fit: contain !important;
 }
 
-/*outdated line?*/ html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy[theater]:not([fullscreen]) #player-wide-container, 
-html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy[full-bleed-player]:not([fullscreen]) #full-bleed-container.ytd-watch-flexy {
-	height: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;
-	max-height: var(--it-player-size, 100vh) !important;
-}
+html[data-page-type="video"][it-player-size="full_window"] ytd-watch-flexy[default-layout]:not([no-top-margin]):not([reduced-top-margin]) #primary {padding-top:0}
 
 /*--------------------------------------------------------------
 #  "FIT TO WINDOW"  (needs update)
