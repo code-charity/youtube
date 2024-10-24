@@ -234,7 +234,7 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 			if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData();}
 			else {
 				//Invidious instances. Should be updated automatically!...
-				const invidiousInstances = ['invidious.fdn.fr', 'inv.tux.pizza', 'invidious.flokinet.to', 'invidious.protokolla.fi', 'invidious.private.coffee', 'yt.artemislena.eu', 'invidious.perennialte.ch', 'invidious.materialio.us', 'iv.datura.network'];
+				const invidiousInstances = ['invidious.fdn.fr', 'inv.tux.pizza', 'invidious.flokinet.to', 'invidious.protokolla.fi', 'invidious.private.coffee', 'yt.artemislena.eu', 'invidious.materialio.us', 'iv.datura.network'];
 				function getRandomInvidiousInstance () { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
 
 				(async function () {	 let retries = 4;	let invidiousFetched = false;
