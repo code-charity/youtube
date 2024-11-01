@@ -130,14 +130,13 @@ html[it-player-color]:not([it-player-color='default']):not([it-player-color='nor
 
 /* change all the linear gradient elements in new youtube */
 
-html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .ytp-cairo-refresh-signature-moments .ytp-play-progress,
-html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer,
+html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .ytp-play-progress,
 html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .YtThumbnailOverlayProgressBarHostWatchedProgressBarSegmentModern,
 html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .YtChapteredProgressBarChapteredPlayerBarChapterRefresh,
 html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .YtChapteredProgressBarChapteredPlayerBarFillRefresh,
 html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .YtProgressBarLineProgressBarPlayedRefresh,
-html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) yt-page-navigation-progress[enable-refresh-signature-moments-web] #progress.yt-page-navigation-progress,
-html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) ytd-progress-bar-line[enable-refresh-signature-moments-web] .progress-bar-played.ytd-progress-bar-line
+html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .yt-page-navigation-progress,
+html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .ytd-progress-bar-line
 {
 	background: var(--it-player-color) !important;
 }
