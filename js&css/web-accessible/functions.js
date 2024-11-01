@@ -404,6 +404,18 @@ ImprovedTube.playerOnPause = function (event) {
 
 };
 
+if (document.documentElement.dataset.pageType === 'video'
+	 && (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.transcript === true || ImprovedTube.storage.chapters === true )) { 
+	ImprovedTube.forbidFocus =  function (ms) { 
+		const originalFocus = HTMLElement.prototype.focus; // Backing up default method  - other methods: Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy
+		// Override YouTube's scroll method:
+		HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling, when expanding the video description for you"); }
+		if(document.hidden) ms = 3*ms;
+		setTimeout(function() { HTMLElement.prototype.focus = originalFocus; }, ms); 	// Restoring JS's "focus()" 
+	}
+}
+
+
 ImprovedTube.playerOnEnded = function (event) {
 	ImprovedTube.playlistUpNextAutoplay(event);
 

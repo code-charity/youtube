@@ -330,13 +330,6 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript === true) {
 	const available = el.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || el.querySelector('[target-id*=transcript]')?.clientHeight;
 	if (available) {
-		ImprovedTube.forbidFocus =  function (ms) {   // already used in expandDescription()
-		const originalFocus = HTMLElement.prototype.focus; // Backing up default method  - other methods: Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy
-		// Override YouTube's scroll method:
-		HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling, when expanding the video description for you"); }
-		if(document.hidden) ms = 3*ms;
-		setTimeout(function() { HTMLElement.prototype.focus = originalFocus; }, ms); 	// Restoring JS's "focus()" 
-		} 
 		ImprovedTube.forbidFocus(2100);
 		const descriptionTranscript = el.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
 		descriptionTranscript ? descriptionTranscript.click() : el.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
@@ -349,13 +342,6 @@ ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript ==
 ImprovedTube.chapters = function (el) { if (ImprovedTube.storage.chapters === true) {
 	const available = el.querySelector('[target-id*=chapters][visibility*=HIDDEN]') || el.querySelector('[target-id*=chapters]')?.clientHeight;
 	if (available) {
-		ImprovedTube.forbidFocus =  function (ms) {   // already used in expandDescription()
-		const originalFocus = HTMLElement.prototype.focus; // Backing up default method  - other methods: Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy
-		// Override YouTube's scroll method:
-		HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling, when expanding the video description for you"); }
-		if(document.hidden) ms = 3*ms;
-		setTimeout(function() { HTMLElement.prototype.focus = originalFocus; }, ms); 	// Restoring JS's "focus()" 
-		} 
 		ImprovedTube.forbidFocus(2100);
 		const modernChapters = el.querySelector('[modern-chapters] #navigation-button button[aria-label]');
 		modernChapters ? modernChapters.click() : el.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
@@ -473,13 +459,6 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.expandDescription = function (el) {
 	if (this.storage.description === "expanded") {
-	ImprovedTube.forbidFocus =  function (ms) { 
-		const originalFocus = HTMLElement.prototype.focus; // Backing up default method  - other methods: Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy
-		// Override YouTube's scroll method:
-		HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling, when expanding the video description for you"); }
-		if(document.hidden) ms = 3*ms;
-		setTimeout(function() { HTMLElement.prototype.focus = originalFocus; }, ms); 	// Restoring JS's "focus()" 
-	}
 		if (el) { 
 			ImprovedTube.forbidFocus(2100); // setTimeout(function () {ImprovedTube.elements.player.focus();}, 2500);  
 			el.click();
