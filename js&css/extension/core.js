@@ -238,9 +238,9 @@ extension.storage.get = function (key) {
 		return this.data[key];
 	} else {
 		var target = this.data;
-			/*path = key.split('/').filter(function (value) {
-				return value != '';
-			});*/
+		/*path = key.split('/').filter(function (value) {
+			return value != '';
+		});*/
 
 		for (var i = 0, l = key.length; i < l; i++) {
 			var part = key[i];

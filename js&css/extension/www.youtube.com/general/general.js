@@ -255,7 +255,8 @@ extension.features.popupWindowButtons = function (event) {
 								else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
 								if (!ytPlayer) {
 									let shorts = /short/.test(this.parentElement.href);
-									if ( width / height < 1 ) { let vertical = true } else { let vertical = false }
+									let vertical = false;
+									if ( width / height < 1 ) { vertical = true }
 									if ( !vertical && shorts ) { width = height * 0.6}
 									if ( vertical && !shorts ) { height = width * 0.6}
 								}
@@ -289,10 +290,12 @@ extension.features.popupWindowButtons = function (event) {
 
 extension.features.font = function (changed) {
 	var option = extension.storage.get('font');
+	var link = this.font.link,
+		style = this.font.style;
 
 	if (option && option !== 'Default') {
-		var link = this.font.link || document.createElement('link'),
-			style = this.font.style || document.createElement('style');
+		link = link || document.createElement('link'),
+		style = style || document.createElement('style');
 
 		link.rel = 'stylesheet';
 		link.href = '//fonts.googleapis.com/css2?family=' + option;
@@ -305,13 +308,9 @@ extension.features.font = function (changed) {
 		this.font.link = link;
 		this.font.style = style;
 	} else if (changed) {
-		var link = this.font.link,
-			style = this.font.style;
-
 		if (link) {
 			link.remove();
 		}
-
 		if (style) {
 			style.remove();
 		}

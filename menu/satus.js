@@ -1027,7 +1027,7 @@ satus.locale.get = function (string) {
 # IMPORT            								// old:  satus.locale.import(url, onload, onsuccess);
 --------------------------------------------------------------*/
 satus.locale.import = function (code, callback, path) {
-	// if (!path) {  path = '_locales/';   }
+	// if (!path) { path = '_locales/';   }
 	function importLocale (locale, successCallback) {
 		var url = chrome.runtime.getURL(path + locale + '/messages.json');
 		fetch(url)

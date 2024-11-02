@@ -144,7 +144,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 	} else if (id === 'movie_player') {
 		if (!this.elements.player) {
 			ImprovedTube.elements.player = node;
-			// if (this.storage.player_autoplay === false)  {   ImprovedTube.elements.player.stopVideo();  }
+			// if (this.storage.player_autoplay === false)  {  ImprovedTube.elements.player.stopVideo();  }
 			ImprovedTube.elements.video = node.querySelector('video');
 			ImprovedTube.elements.player_left_controls = node.querySelector('.ytp-left-controls');
 			ImprovedTube.elements.player_right_controls = node.querySelector('.ytp-right-controls');
@@ -234,7 +234,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 				ImprovedTube.expandDescription(node); console.log("EXPAND DESCRIPTION, OLD WAY")
 			}, 750);
 		}} */
-	} else if (id === 'panels') {  
+	} else if (id === 'panels') { 
 		ImprovedTube.elements.panels = node;
 	}
 };
@@ -405,8 +405,8 @@ ImprovedTube.playerOnPause = function (event) {
 };
 
 if (document.documentElement.dataset.pageType === 'video'
-	 && (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.transcript || ImprovedTube.storage.chapters  )) { 
-	ImprovedTube.forbidFocus =  function (ms) { 
+	&& (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.transcript || ImprovedTube.storage.chapters )) { 
+	ImprovedTube.forbidFocus = function (ms) { 
 		const originalFocus = HTMLElement.prototype.focus; // Backing up default method  - other methods: Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy
 		// Override YouTube's scroll method:
 		HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling, when expanding the video description for you"); }
